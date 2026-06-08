@@ -1,0 +1,68 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import Verdict from "~/components/Verdict.astro";
+import { shortDate } from "~/lib/dateline";
+
+export const prerender = true;
+
+const all = await getCollection("posts", (p) => !p.data.draft);
+const sorted = all.sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+
+const [lede, ...rest] = sorted;
+---
+<BaseLayout title="Clad — Fact-Checked Headlines">
+  {lede && (
+    <article class="front">
+      <section class="lede">
+        <div class="lede__kicker">
+          <Verdict verdict={lede.data.verdict} />
+          {lede.data.kicker && (
+            <span class="small-caps" style="margin-left:.75rem">{lede.data.kicker}</span>
+          )}
+        </div>
+        <h2 class="lede__headline">
+          <a href={`/posts/${lede.id}`} style="text-decoration:none;color:inherit">
+            {lede.data.headline}
+          </a>
+        </h2>
+        <p class="dateline">{shortDate(lede.data.publishedAt)} · {lede.data.section}</p>
+        <p class="lede__summary">{lede.data.summary}</p>
+      </section>
+      <aside class="column">
+        {rest.slice(0, 6).map((p) => (
+          <article class="card">
+            <Verdict verdict={p.data.verdict} />
+            <h3 class="card__headline">
+              <a href={`/posts/${p.id}`}>{p.data.headline}</a>
+            </h3>
+            <p class="dateline">{shortDate(p.data.publishedAt)} · {p.data.section}</p>
+            <p class="card__summary">{p.data.summary}</p>
+          </article>
+        ))}
+      </aside>
+    </article>
+  )}
+
+  {rest.length > 6 && (
+    <>
+      <div class="dingbat">❦</div>
+      <section class="front">
+        <div class="column" style="grid-column:1/-1">
+          {rest.slice(6).map((p) => (
+            <article class="card">
+              <Verdict verdict={p.data.verdict} />
+              <h3 class="card__headline">
+                <a href={`/posts/${p.id}`}>{p.data.headline}</a>
+              </h3>
+              <p class="dateline">{shortDate(p.data.publishedAt)} · {p.data.section}</p>
+              <p class="card__summary">{p.data.summary}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
+  )}
+</BaseLayout>

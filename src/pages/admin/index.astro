@@ -1,0 +1,205 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+
+export const prerender = false;
+---
+<BaseLayout title="Clad — Editorial Desk">
+  <section class="admin">
+    <h2 class="admin__title">Editorial Desk</h2>
+    <p class="dateline">
+      Paste a headline. Grok finds sources. You edit. Hit publish — the post is
+      committed to the repo and Cloudflare redeploys.
+    </p>
+
+    <form id="check-form">
+      <div class="field">
+        <label for="headline">Headline</label>
+        <input id="headline" name="headline" required minlength="4" maxlength="240" />
+      </div>
+      <div class="field">
+        <label for="sourceUrl">Source URL (the original article — optional but recommended)</label>
+        <input id="sourceUrl" name="sourceUrl" type="url" placeholder="https://..." />
+      </div>
+      <div class="field">
+        <label for="notes">Editor notes for Grok (optional)</label>
+        <textarea id="notes" name="notes" placeholder="e.g. 'focus on the deficit claim, ignore the unrelated jab about housing'"></textarea>
+      </div>
+      <button type="submit" id="check-btn">Run Fact-Check</button>
+    </form>
+
+    <div id="status"></div>
+
+    <form id="publish-form" style="display:none;margin-top:2rem">
+      <div class="rule rule--double" aria-hidden="true" style="margin:1.5rem 0"></div>
+
+      <div class="field">
+        <label for="verdict">Verdict</label>
+        <select id="verdict" name="verdict" required>
+          <option value="true">Verified True</option>
+          <option value="mostly-true">Mostly True</option>
+          <option value="mixed">Mixed</option>
+          <option value="mostly-false">Mostly False</option>
+          <option value="false">False</option>
+          <option value="unverified">Unverified</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="kicker">Kicker (optional — e.g. "Politics", "Editor's Note")</label>
+        <input id="kicker" name="kicker" maxlength="80" />
+      </div>
+
+      <div class="field">
+        <label for="section">Section</label>
+        <select id="section" name="section" required>
+          <option>Politics</option>
+          <option>Economy</option>
+          <option>Science</option>
+          <option>World</option>
+          <option>Tech</option>
+          <option selected>Misc</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="sourceTitle">Source title (optional — defaults to hostname)</label>
+        <input id="sourceTitle" name="sourceTitle" maxlength="160" />
+      </div>
+
+      <div class="field">
+        <label for="summary">Summary (one sentence — runs under the headline)</label>
+        <textarea id="summary" name="summary" required minlength="8" maxlength="400"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="body">Body (Markdown supported)</label>
+        <textarea id="body" name="body" required style="min-height:18rem"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="citations">Citations (one per line: <code>Title | https://url</code>)</label>
+        <textarea id="citations" name="citations" placeholder="Title of source | https://example.com/source"></textarea>
+      </div>
+
+      <div class="field">
+        <label>
+          <input type="checkbox" id="draft" /> Save as draft (won't appear on the homepage)
+        </label>
+      </div>
+
+      <button type="submit" id="publish-btn">Publish</button>
+      <button type="button" class="secondary" id="reset-btn">Discard</button>
+    </form>
+
+    <div id="publish-status"></div>
+  </section>
+
+  <script is:inline>
+    const $ = (id) => document.getElementById(id);
+    const statusEl = $("status");
+    const publishStatusEl = $("publish-status");
+
+    function setStatus(el, kind, msg) {
+      el.innerHTML = msg
+        ? `<div class="notice ${kind === "error" ? "notice--error" : ""}">${msg}</div>`
+        : "";
+    }
+
+    $("check-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = $("check-btn");
+      btn.disabled = true;
+      setStatus(statusEl, "info", "Researching — Grok is hitting primary sources. ~10–25 seconds.");
+
+      try {
+        const res = await fetch("/api/factcheck", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            headline: $("headline").value.trim(),
+            sourceUrl: $("sourceUrl").value.trim() || undefined,
+            notes: $("notes").value.trim() || undefined,
+          }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Fact-check failed");
+
+        $("verdict").value = data.verdict;
+        $("summary").value = data.summary || "";
+        $("body").value = data.body || "";
+        $("citations").value = (data.citations || [])
+          .map((c) => `${c.title} | ${c.url}`)
+          .join("\n");
+
+        try {
+          const u = new URL($("sourceUrl").value || "");
+          if (u.hostname && !$("sourceTitle").value) $("sourceTitle").value = u.hostname;
+        } catch {}
+
+        $("publish-form").style.display = "block";
+        setStatus(statusEl, "info", "Draft ready below. Edit freely, then publish.");
+        $("verdict").scrollIntoView({ behavior: "smooth", block: "start" });
+      } catch (err) {
+        setStatus(statusEl, "error", String(err.message || err));
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    $("reset-btn").addEventListener("click", () => {
+      $("publish-form").reset();
+      $("publish-form").style.display = "none";
+      setStatus(statusEl, "info", "");
+      setStatus(publishStatusEl, "info", "");
+    });
+
+    $("publish-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = $("publish-btn");
+      btn.disabled = true;
+      setStatus(publishStatusEl, "info", "Committing to repo…");
+
+      const citations = $("citations").value
+        .split("\n")
+        .map((line) => {
+          const idx = line.indexOf("|");
+          if (idx < 0) return null;
+          return { title: line.slice(0, idx).trim(), url: line.slice(idx + 1).trim() };
+        })
+        .filter((c) => c && c.title && c.url);
+
+      const payload = {
+        headline: $("headline").value.trim(),
+        kicker: $("kicker").value.trim() || undefined,
+        summary: $("summary").value.trim(),
+        verdict: $("verdict").value,
+        section: $("section").value,
+        sourceUrl: $("sourceUrl").value.trim(),
+        sourceTitle: $("sourceTitle").value.trim() || undefined,
+        body: $("body").value.trim(),
+        citations,
+        draft: $("draft").checked,
+      };
+
+      try {
+        const res = await fetch("/api/publish", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Publish failed");
+        setStatus(
+          publishStatusEl,
+          "info",
+          `Published. <a href="${data.htmlUrl}" target="_blank" rel="noopener">View commit</a>. ` +
+            `Cloudflare Pages will redeploy and the post will appear at <code>${data.postUrl}</code> in ~30 seconds.`
+        );
+      } catch (err) {
+        setStatus(publishStatusEl, "error", String(err.message || err));
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  </script>
+</BaseLayout>

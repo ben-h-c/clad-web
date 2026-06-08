@@ -1,0 +1,73 @@
+/**
+ * Commit a single file to GitHub via the Contents API. Cloudflare Pages
+ * is watching the repo, so a successful commit triggers an auto-deploy
+ * and the post appears within ~30 seconds.
+ *
+ * Uses a fine-grained PAT with "Contents: Read and write" on this repo
+ * (and nothing else). Stored as the GITHUB_TOKEN secret.
+ */
+
+interface CommitArgs {
+  token: string;
+  repo: string; // "owner/name"
+  branch: string;
+  path: string; // "src/content/posts/2026-06-07-headline.md"
+  contents: string;
+  message: string;
+}
+
+export async function commitFile(args: CommitArgs): Promise<{ url: string; sha: string }> {
+  const url = `https://api.github.com/repos/${args.repo}/contents/${encodeURIComponent(
+    args.path
+  ).replace(/%2F/g, "/")}`;
+
+  // First check whether the file already exists — if it does, we need the
+  // existing sha to update it (otherwise GitHub returns 422).
+  let existingSha: string | undefined;
+  const head = await fetch(`${url}?ref=${encodeURIComponent(args.branch)}`, {
+    headers: gh(args.token),
+  });
+  if (head.ok) {
+    const body: any = await head.json();
+    if (body && typeof body.sha === "string") existingSha = body.sha;
+  } else if (head.status !== 404) {
+    throw new Error(`GitHub GET ${head.status}: ${await head.text()}`);
+  }
+
+  const res = await fetch(url, {
+    method: "PUT",
+    headers: { ...gh(args.token), "Content-Type": "application/json" },
+    body: JSON.stringify({
+      message: args.message,
+      branch: args.branch,
+      content: b64utf8(args.contents),
+      ...(existingSha ? { sha: existingSha } : {}),
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`GitHub PUT ${res.status}: ${await res.text()}`);
+  }
+  const body: any = await res.json();
+  return {
+    url: body?.content?.html_url ?? "",
+    sha: body?.content?.sha ?? "",
+  };
+}
+
+function gh(token: string): Record<string, string> {
+  return {
+    Authorization: `Bearer ${token}`,
+    Accept: "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28",
+    "User-Agent": "clad-web",
+  };
+}
+
+function b64utf8(s: string): string {
+  // Cloudflare Workers' btoa only handles latin1; encode UTF-8 first.
+  const bytes = new TextEncoder().encode(s);
+  let bin = "";
+  for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]!);
+  return btoa(bin);
+}

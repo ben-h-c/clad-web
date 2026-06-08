@@ -1,0 +1,19 @@
+---
+import { dateline, volume } from "~/lib/dateline";
+
+interface Props {
+  date?: Date;
+}
+const { date = new Date() } = Astro.props;
+const vol = volume(date);
+const issue = Math.floor((Date.now() - Date.UTC(2026, 0, 1)) / 86_400_000);
+---
+
+<header class="masthead">
+  <h1 class="masthead__title">Clad</h1>
+  <div class="rule rule--double" aria-hidden="true"></div>
+  <div class="masthead__meta">
+    <span class="edition">Vol. {vol} · No. {issue}</span>
+    <span class="date">{dateline(date)}</span>
+  </div>
+</header>

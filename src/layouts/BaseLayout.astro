@@ -1,0 +1,45 @@
+---
+import "~/styles/global.css";
+import Masthead from "~/components/Masthead.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Clad — fact-checked headlines, edited like a 1920s broadsheet.",
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="description" content={description} />
+    <link rel="alternate" type="application/rss+xml" title="Clad" href="/rss.xml" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="shell">
+      <Masthead />
+      <main>
+        <slot />
+      </main>
+      <footer class="colophon">
+        <p>
+          Clad — published by Ben Cody.
+          AI-assisted reporting; every verdict is hand-reviewed.
+          <a href="/rss.xml">RSS</a>
+          ·
+          <a href="https://ben-h-c.github.io/debate-moderator-ios/privacy.html">Privacy</a>
+          ·
+          <a href="https://ben-h-c.github.io/debate-moderator-ios/terms.html">Terms</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,416 @@
+/*
+ * Newspaper theme, ported from Clad/UI/NewspaperTheme.swift.
+ * 1920s broadsheet: warm cream paper, near-black ink, dense serif type,
+ * heavy ruled borders. Restrained — fact-checker, not tabloid.
+ */
+
+:root {
+  --paper: rgb(245, 237, 217);
+  --ink: rgb(26, 20, 13);
+  --muted-ink: rgb(110, 94, 77);
+  --rule: rgb(10, 8, 5);
+  --red-ink: rgb(148, 26, 26);
+
+  --font-masthead: "Didot", "Bodoni 72", "Playfair Display", Georgia, serif;
+  --font-display: "Bodoni 72", "Playfair Display", Georgia, serif;
+  --font-serif: "Iowan Old Style", "Charter", "Source Serif Pro", Georgia, serif;
+  --font-italic: "Iowan Old Style", "Charter", Georgia, serif;
+
+  --measure: 38rem;
+  --gutter: 1.25rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--red-ink);
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+/* Layout shell */
+
+.shell {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2rem var(--gutter) 4rem;
+}
+
+/* Masthead */
+
+.masthead {
+  text-align: center;
+  padding: 1rem 0 0.75rem;
+}
+
+.masthead__title {
+  font-family: var(--font-masthead);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 8vw, 4.75rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1;
+}
+
+.masthead__meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted-ink);
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.masthead__meta .edition {
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.masthead__meta .date {
+  font-style: italic;
+}
+
+/* Rules */
+
+.rule {
+  height: 1px;
+  background: var(--rule);
+  border: 0;
+  margin: 0;
+}
+
+.rule--thick {
+  height: 2px;
+}
+
+.rule--double {
+  border-top: 2px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  height: 4px;
+  background: transparent;
+}
+
+.dingbat {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ink);
+  margin: 2rem 0;
+}
+
+.dingbat::before,
+.dingbat::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* Typography helpers */
+
+.small-caps {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.dateline {
+  font-style: italic;
+  color: var(--muted-ink);
+  font-size: 0.9rem;
+}
+
+/* Front page */
+
+.front {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 720px) {
+  .front {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.lede {
+  border-top: 2px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 1rem 0 1.25rem;
+}
+
+.lede__kicker {
+  margin-bottom: 0.5rem;
+}
+
+.lede__headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+}
+
+.lede__summary {
+  font-size: 1.05rem;
+  margin: 0.75rem 0 0;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card {
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+}
+
+.card__headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  margin: 0.25rem 0;
+}
+
+.card__headline a {
+  text-decoration: none;
+}
+
+.card__headline a:hover {
+  text-decoration: underline;
+}
+
+.card__summary {
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0;
+  color: var(--ink);
+}
+
+/* Verdict badges — restrained, no emoji */
+
+.verdict {
+  display: inline-block;
+  border: 1px solid var(--rule);
+  padding: 0.15rem 0.55rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.verdict--true {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.verdict--mostly-true,
+.verdict--mixed {
+  background: transparent;
+  color: var(--ink);
+}
+
+.verdict--mostly-false,
+.verdict--false {
+  background: var(--red-ink);
+  color: var(--paper);
+  border-color: var(--red-ink);
+}
+
+/* Post page */
+
+.post {
+  max-width: var(--measure);
+  margin: 2rem auto 0;
+}
+
+.post__kicker {
+  margin-bottom: 0.75rem;
+}
+
+.post__headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.85rem, 5vw, 3rem);
+  line-height: 1.05;
+  margin: 0 0 0.75rem;
+}
+
+.post__byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  color: var(--muted-ink);
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.post__body {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+.post__body p:first-of-type::first-letter {
+  font-family: var(--font-display);
+  font-weight: 700;
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 0.25rem 0.5rem 0 0;
+}
+
+.sources {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+}
+
+.sources h2 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+}
+
+.sources ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.95rem;
+}
+
+.sources li {
+  margin-bottom: 0.4rem;
+}
+
+/* Footer */
+
+.colophon {
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--rule);
+  font-size: 0.8rem;
+  color: var(--muted-ink);
+  font-style: italic;
+  text-align: center;
+}
+
+.colophon a {
+  color: var(--muted-ink);
+}
+
+/* Admin — same paper, but utilitarian */
+
+.admin {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.admin__title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  margin: 0 0 0.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.field label {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.field input,
+.field textarea,
+.field select {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  padding: 0.5rem 0.65rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+}
+
+.field textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+button {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.1rem;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  cursor: pointer;
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--ink);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.notice {
+  border-left: 3px solid var(--ink);
+  padding: 0.5rem 0.75rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: var(--ink);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.notice--error {
+  border-color: var(--red-ink);
+  color: var(--red-ink);
+}

@@ -1,0 +1,55 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import Verdict from "~/components/Verdict.astro";
+import { dateline } from "~/lib/dateline";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts", (p) => !p.data.draft);
+  return posts.map((p) => ({ params: { slug: p.id }, props: { post: p } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const d = post.data;
+---
+<BaseLayout title={`${d.headline} — Clad`} description={d.summary}>
+  <article class="post">
+    <div class="post__kicker">
+      <Verdict verdict={d.verdict} />
+      {d.kicker && <span class="small-caps" style="margin-left:.75rem">{d.kicker}</span>}
+    </div>
+    <h1 class="post__headline">{d.headline}</h1>
+    <div class="post__byline">
+      <span>{dateline(d.publishedAt)}</span>
+      <span>·</span>
+      <span>{d.section}</span>
+      <span>·</span>
+      <span>
+        Source:{" "}
+        <a href={d.sourceUrl} rel="noopener noreferrer" target="_blank">
+          {d.sourceTitle ?? new URL(d.sourceUrl).hostname}
+        </a>
+      </span>
+    </div>
+
+    <div class="post__body">
+      <Content />
+    </div>
+
+    {d.citations.length > 0 && (
+      <section class="sources">
+        <h2>Sources Consulted</h2>
+        <ol>
+          {d.citations.map((c) => (
+            <li>
+              <a href={c.url} rel="noopener noreferrer" target="_blank">{c.title}</a>
+            </li>
+          ))}
+        </ol>
+      </section>
+    )}
+  </article>
+</BaseLayout>

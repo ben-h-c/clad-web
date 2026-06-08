@@ -1,0 +1,9 @@
+# Copy to .dev.vars (which is gitignored) for local development.
+# `wrangler pages dev` picks these up automatically.
+
+XAI_API_KEY=xai-...
+ADMIN_USER=ben
+ADMIN_PASSWORD=replace-me-with-something-long
+GITHUB_TOKEN=github_pat_...
+GITHUB_REPO=ben-h-c/clad-web
+GITHUB_BRANCH=main

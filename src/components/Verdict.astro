@@ -1,0 +1,18 @@
+---
+interface Props {
+  verdict: string;
+}
+const { verdict } = Astro.props;
+
+const labels: Record<string, string> = {
+  "true": "Verified True",
+  "mostly-true": "Mostly True",
+  "mixed": "Mixed",
+  "mostly-false": "Mostly False",
+  "false": "False",
+  "unverified": "Unverified",
+};
+
+const label = labels[verdict] ?? verdict;
+---
+<span class={`verdict verdict--${verdict}`}>{label}</span>
