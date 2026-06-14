@@ -5,7 +5,6 @@ summary: "The segment opens with President Trump's Truth Social post claiming a 
 publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=lN-raBUytGc"
 section: "Politics"
-draft: true
 featured: true
 letterGrade: "B"
 factualityScore: 65
