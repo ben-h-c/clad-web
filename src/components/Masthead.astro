@@ -7,19 +7,26 @@ interface Props {
 const { date = new Date() } = Astro.props;
 const vol = volume(date);
 const issue = Math.floor((Date.now() - Date.UTC(2026, 0, 1)) / 86_400_000);
+
+// In the console, keep the masthead within /admin (the logo and nav shouldn't
+// bounce the editor out to the public site — AdminNav handles that on purpose).
+const isAdmin = Astro.url.pathname.startsWith("/admin");
+const homeHref = isAdmin ? "/admin/" : "/";
 ---
 
 <header class="masthead">
-  <h1 class="masthead__title"><a href="/" style="color:inherit;text-decoration:none">Clad</a></h1>
+  <h1 class="masthead__title"><a href={homeHref} style="color:inherit;text-decoration:none">Clad</a></h1>
   <p class="masthead__tagline small-caps">Political Fact-Checks &amp; Media Bias</p>
   <div class="rule rule--double" aria-hidden="true"></div>
   <div class="masthead__meta">
     <span class="edition">Vol. {vol} · No. {issue}</span>
     <span class="date">{dateline(date)}</span>
   </div>
-  <nav class="masthead__nav" aria-label="Sections">
-    <a href="/archive/">Archive</a>
-    <span aria-hidden="true" class="masthead__nav-sep">·</span>
-    <a href="/corrections/">Corrections</a>
-  </nav>
+  {!isAdmin && (
+    <nav class="masthead__nav" aria-label="Sections">
+      <a href="/archive/">Archive</a>
+      <span aria-hidden="true" class="masthead__nav-sep">·</span>
+      <a href="/corrections/">Corrections</a>
+    </nav>
+  )}
 </header>
