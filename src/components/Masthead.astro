@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import { dateline, volume } from "~/lib/dateline";
 
 interface Props {
@@ -7,6 +8,13 @@ interface Props {
 const { date = new Date() } = Astro.props;
 const vol = volume(date);
 const issue = Math.floor((Date.now() - Date.UTC(2026, 0, 1)) / 86_400_000);
+
+let count = 0;
+try {
+  count = (await getCollection("posts", (p) => !p.data.draft)).length;
+} catch {
+  count = 0;
+}
 
 // In the console, keep the masthead within /admin (the logo and nav shouldn't
 // bounce the editor out to the public site — AdminNav handles that on purpose).
@@ -46,7 +54,7 @@ const homeHref = isAdmin ? "/admin/" : "/";
   <p class="masthead__tagline small-caps">Grading Content &amp; Exposing Bias</p>
   <div class="rule rule--double" aria-hidden="true"></div>
   <div class="masthead__meta">
-    <span class="edition">Vol. {vol} · No. {issue}</span>
+    <span class="edition">Vol. {vol} · No. {issue} · {count} {count === 1 ? "Report" : "Reports"}</span>
     <span class="date">{dateline(date)}</span>
   </div>
 </header>
