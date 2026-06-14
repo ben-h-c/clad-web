@@ -1,0 +1,28 @@
+---
+interface Props {
+  variant?: "full" | "compact";
+}
+const { variant = "full" } = Astro.props;
+---
+{variant === "compact" ? (
+  <p class="disclaimer disclaimer--compact">
+    Clad's reports are editorial commentary and analysis based on publicly
+    available material, presented under fair use. Verdicts describe the
+    evidence, not any person. Every report links its source so readers can
+    verify independently.
+  </p>
+) : (
+  <aside class="disclaimer" aria-label="Editorial disclaimer">
+    <p class="small-caps disclaimer__label">Editorial Note</p>
+    <p>
+      Clad's reports are editorial commentary, opinion, and analysis based on
+      publicly available material (including news broadcasts referenced under
+      fair use for commentary and criticism). Letter grades and verdicts assess
+      the <em>evidence and reporting</em>, not the character of any person named.
+      Quotations are paraphrased from source transcripts and may contain errors;
+      every report links to its original source so readers can review the full
+      material and reach their own conclusions. Corrections are issued as new
+      posts, never silent edits.
+    </p>
+  </aside>
+)}

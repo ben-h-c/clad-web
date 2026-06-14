@@ -1,0 +1,31 @@
+---
+interface Moment {
+  claim: string;
+  verdict: string;
+  note: string;
+}
+interface Props {
+  moments: Moment[];
+}
+const { moments } = Astro.props;
+
+function verdictClass(v: string): string {
+  const s = v.toLowerCase();
+  if (s === "verified") return "km--verified";
+  if (s === "disputed") return "km--disputed";
+  if (s.includes("context")) return "km--context";
+  return "km--unsupported";
+}
+---
+<section class="key-moments">
+  <h2 class="small-caps">Key Moments</h2>
+  <div class="key-moments__list">
+    {moments.map((m) => (
+      <div class={`km ${verdictClass(m.verdict)}`}>
+        <span class="km__verdict small-caps">{m.verdict}</span>
+        <p class="km__claim">{m.claim}</p>
+        {m.note && <p class="km__note">{m.note}</p>}
+      </div>
+    ))}
+  </div>
+</section>

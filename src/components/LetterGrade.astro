@@ -1,0 +1,17 @@
+---
+interface Props {
+  grade: string;
+  size?: "badge" | "hero";
+}
+const { grade, size = "badge" } = Astro.props;
+
+// Tier from the first letter: A/B = ink, C = muted, D/F = red.
+const tier = grade.charAt(0).toUpperCase();
+const tierClass =
+  tier === "A" || tier === "B"
+    ? "grade--good"
+    : tier === "C"
+    ? "grade--mid"
+    : "grade--bad";
+---
+<span class={`letter-grade letter-grade--${size} ${tierClass}`}>{grade}</span>

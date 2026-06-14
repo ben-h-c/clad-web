@@ -1,8 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
-import Verdict from "~/components/Verdict.astro";
-import { shortDate } from "~/lib/dateline";
+import ReportCard from "~/components/ReportCard.astro";
 import { SECTIONS, sectionSlug } from "~/lib/sections";
 
 export const prerender = true;
@@ -26,7 +25,7 @@ const { section, posts } = Astro.props;
 ---
 <BaseLayout
   title={`${section} — Clad`}
-  description={`Fact-checked headlines in ${section}, edited like a 1920s broadsheet.`}
+  description={`Fact-checked news reports in ${section}, edited like a 1920s broadsheet.`}
 >
   <section class="section-page">
     <p class="small-caps section-page__eyebrow">Section</p>
@@ -35,20 +34,11 @@ const { section, posts } = Astro.props;
 
     {posts.length === 0 ? (
       <p class="dateline" style="margin-top:2rem">
-        No posts in this section yet.
+        No reports in this section yet.
       </p>
     ) : (
-      <div class="column" style="margin-top:1.5rem">
-        {posts.map((p) => (
-          <article class="card">
-            <Verdict verdict={p.data.verdict} />
-            <h3 class="card__headline">
-              <a href={`/posts/${p.id}`}>{p.data.headline}</a>
-            </h3>
-            <p class="dateline">{shortDate(p.data.publishedAt)}</p>
-            <p class="card__summary">{p.data.summary}</p>
-          </article>
-        ))}
+      <div class="card-grid" style="margin-top:1.5rem">
+        {posts.map((p) => <ReportCard post={p} />)}
       </div>
     )}
   </section>
