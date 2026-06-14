@@ -27,6 +27,8 @@ export interface AgentConfig {
   recencyWeight?: number;
   popularityWeight?: number;
   engagementWeight?: number;
+  // compliance-auditor
+  maxPostsToAudit?: number;
 }
 
 export interface AgentLastRun {
@@ -116,6 +118,16 @@ export const DEFAULT_REGISTRY: Registry = {
         recencyWeight: 0.45,
         popularityWeight: 0.4,
         engagementWeight: 0.15,
+      },
+    },
+    {
+      id: "compliance-auditor",
+      kind: "compliance-auditor",
+      name: "Compliance Auditor (Don't-Get-Sued)",
+      enabled: true,
+      cron: "0 7 * * *", // daily, 07:00 UTC
+      config: {
+        maxPostsToAudit: 60,
       },
     },
   ],
@@ -270,6 +282,90 @@ export async function getFrontpage(kv: KVNamespace): Promise<string[]> {
 
 export async function setFrontpage(kv: KVNamespace, ids: string[]): Promise<void> {
   await kv.put(FRONTPAGE_KEY, JSON.stringify(ids.slice(0, 30)));
+}
+
+/* ---------- compliance auditor ---------- */
+
+const COMPLIANCE_KEY = "compliance:report";
+
+export type RiskLevel = "high" | "medium" | "low";
+
+export interface ComplianceFinding {
+  postId: string;
+  postUrl: string;
+  headline: string;
+  severity: RiskLevel;
+  category: string;
+  quote: string;
+  issue: string;
+  suggestion: string;
+}
+
+export interface ComplianceReport {
+  generatedAt: string;
+  overallRisk: RiskLevel;
+  summary: string;
+  postsAudited: number;
+  disclaimer: {
+    present: boolean;
+    adequate: boolean;
+    notes: string;
+    suggestions: string[];
+  };
+  findings: ComplianceFinding[];
+}
+
+export async function getComplianceReport(kv: KVNamespace): Promise<ComplianceReport | null> {
+  const raw = await kv.get(COMPLIANCE_KEY);
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw) as ComplianceReport;
+  } catch {
+    return null;
+  }
+}
+
+export async function setComplianceReport(kv: KVNamespace, report: ComplianceReport): Promise<void> {
+  await kv.put(COMPLIANCE_KEY, JSON.stringify(report));
+}
+
+export interface PostContent {
+  id: string;
+  url: string;
+  type: string;
+  headline: string;
+  kicker: string | null;
+  summary: string;
+  verdict: string | null;
+  assessment: string | null;
+  notableConcerns: string[];
+  keyMoments: { claim: string; verdict: string; note: string }[];
+  sourceUrl: string;
+  sourceTitle: string | null;
+  citationCount: number;
+  body: string;
+}
+
+/** Full published-post content for the compliance auditor to review. */
+export async function publishedPostsContent(): Promise<PostContent[]> {
+  const posts = await getCollection("posts", (p) => !p.data.draft);
+  posts.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+  return posts.map((p) => ({
+    id: p.id,
+    url: `/posts/${p.id}/`,
+    type: p.data.type,
+    headline: p.data.headline,
+    kicker: p.data.kicker ?? null,
+    summary: p.data.summary,
+    verdict: p.data.verdict ?? null,
+    assessment: p.data.assessment ?? null,
+    notableConcerns: p.data.notableConcerns ?? [],
+    keyMoments: p.data.keyMoments ?? [],
+    sourceUrl: p.data.sourceUrl,
+    sourceTitle: p.data.sourceTitle ?? null,
+    citationCount: (p.data.citations ?? []).length,
+    body: (p.body ?? "").slice(0, 4000),
+  }));
 }
 
 export interface PostMeta {

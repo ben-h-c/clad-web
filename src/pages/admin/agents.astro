@@ -38,7 +38,13 @@ function runLabel(lastRun: (typeof registry.agents)[number]["lastRun"]) {
                 <span>Enabled</span>
               </label>
             </div>
-            <p class="dateline">{a.kind} · {a.config.maxPublishesPerRun}/run · order: {a.config.order}</p>
+            <p class="dateline">
+              {a.kind}
+              {a.config.maxPublishesPerRun != null && ` · ${a.config.maxPublishesPerRun}/run`}
+              {a.config.order && ` · order: ${a.config.order}`}
+              {a.config.maxFeatured != null && ` · ${a.config.maxFeatured} featured`}
+              {a.config.maxPostsToAudit != null && ` · audits ${a.config.maxPostsToAudit} posts`}
+            </p>
 
             <div class="field" style="max-width:18rem">
               <label>Schedule (cron, UTC)</label>

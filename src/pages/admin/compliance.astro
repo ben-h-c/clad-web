@@ -1,0 +1,137 @@
+---
+import { env } from "cloudflare:workers";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import AdminNav from "~/components/AdminNav.astro";
+import { getComplianceReport, getRegistry } from "~/lib/agents";
+import { shortDate } from "~/lib/dateline";
+
+export const prerender = false;
+
+const report = await getComplianceReport(env.AGENTS);
+const registry = await getRegistry(env.AGENTS);
+const agent = registry.agents.find((a) => a.id === "compliance-auditor");
+
+const RANK = { high: 0, medium: 1, low: 2 } as const;
+const findings = (report?.findings ?? [])
+  .slice()
+  .sort((a, b) => (RANK[a.severity] ?? 3) - (RANK[b.severity] ?? 3));
+
+const counts = {
+  high: findings.filter((f) => f.severity === "high").length,
+  medium: findings.filter((f) => f.severity === "medium").length,
+  low: findings.filter((f) => f.severity === "low").length,
+};
+
+function stamp(iso?: string): string {
+  if (!iso) return "—";
+  const d = new Date(iso);
+  return `${shortDate(d)} ${d.toUTCString().slice(17, 22)} UTC`;
+}
+---
+<BaseLayout title="Clad — Compliance">
+  <section class="admin">
+    <AdminNav current="compliance" />
+    <h2 class="admin__title">Compliance — Don't Get Sued</h2>
+    <p class="dateline">
+      Automated legal-risk review of every published report: defamation/libel
+      exposure, missing attribution, privacy, copyright, and disclaimer
+      coverage. Runs on a schedule ({agent?.cron ?? "0 7 * * *"} UTC) and on
+      demand. This is automated risk-spotting, <strong>not legal advice</strong>.
+    </p>
+
+    <div class="comp-actions">
+      <button type="button" id="run-audit" class="secondary">Run audit now</button>
+      <span id="run-status" class="dateline"></span>
+    </div>
+
+    {!report ? (
+      <p class="comp-empty">
+        No audit has run yet. Click <strong>Run audit now</strong> — the auditor
+        runs within ~60s; refresh this page for results.
+      </p>
+    ) : (
+      <>
+        <div class={`comp-summary comp-risk--${report.overallRisk}`}>
+          <div class="comp-summary__top">
+            <span class={`comp-badge comp-badge--${report.overallRisk}`}>
+              {report.overallRisk} risk
+            </span>
+            <span class="dateline">
+              {report.postsAudited} posts audited · {stamp(report.generatedAt)}
+            </span>
+          </div>
+          <p class="comp-summary__text">{report.summary}</p>
+          <p class="comp-counts">
+            <span class="comp-badge comp-badge--high">{counts.high} high</span>
+            <span class="comp-badge comp-badge--medium">{counts.medium} medium</span>
+            <span class="comp-badge comp-badge--low">{counts.low} low</span>
+          </p>
+        </div>
+
+        <div class={`comp-disclaimer ${report.disclaimer.adequate ? "ok" : "warn"}`}>
+          <h3 class="comp-disclaimer__title">
+            Site disclaimer:{" "}
+            {report.disclaimer.present ? (report.disclaimer.adequate ? "present & adequate" : "present — needs work") : "missing"}
+          </h3>
+          {report.disclaimer.notes && <p>{report.disclaimer.notes}</p>}
+          {report.disclaimer.suggestions.length > 0 && (
+            <ul>
+              {report.disclaimer.suggestions.map((s) => <li>{s}</li>)}
+            </ul>
+          )}
+        </div>
+
+        <h3 class="comp-section-title">
+          Findings ({findings.length})
+        </h3>
+        {findings.length === 0 ? (
+          <p class="comp-empty">No legal-risk findings. Nothing flagged.</p>
+        ) : (
+          <ul class="comp-findings">
+            {findings.map((f) => (
+              <li class={`comp-finding comp-risk--${f.severity}`}>
+                <div class="comp-finding__head">
+                  <span class={`comp-badge comp-badge--${f.severity}`}>{f.severity}</span>
+                  <span class="comp-finding__cat small-caps">{f.category}</span>
+                  {f.postUrl && (
+                    <a class="comp-finding__post" href={f.postUrl} target="_blank" rel="noopener">
+                      {f.headline || f.postUrl} ↗
+                    </a>
+                  )}
+                </div>
+                {f.quote && <blockquote class="comp-finding__quote">“{f.quote}”</blockquote>}
+                {f.issue && <p class="comp-finding__issue"><strong>Risk:</strong> {f.issue}</p>}
+                {f.suggestion && (
+                  <p class="comp-finding__fix"><strong>Suggested fix:</strong> {f.suggestion}</p>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </>
+    )}
+  </section>
+
+  <script is:inline>
+    document.getElementById("run-audit")?.addEventListener("click", async (e) => {
+      const btn = e.target;
+      const status = document.getElementById("run-status");
+      btn.disabled = true;
+      status.textContent = "Queuing audit…";
+      try {
+        const res = await fetch("/api/admin/agents", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ agentId: "compliance-auditor", run: true }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Failed");
+        status.textContent = "Queued — runs within ~60s. Refresh for results.";
+      } catch (err) {
+        status.textContent = String(err.message || err);
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  </script>
+</BaseLayout>

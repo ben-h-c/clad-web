@@ -10,6 +10,7 @@ import { getConfig, reportStatus } from "./api.mjs";
 import { isDue } from "./cron.mjs";
 import { runYoutubeScanner } from "./youtubeScanner.mjs";
 import { runFrontpageCurator } from "./frontpageCurator.mjs";
+import { runComplianceAuditor } from "./complianceAuditor.mjs";
 
 const ONCE = process.argv.includes("--once");
 const TICK_MS = 60_000;
@@ -18,6 +19,7 @@ const running = new Set(); // single-flight per agent id
 const KINDS = {
   "youtube-scanner": runYoutubeScanner,
   "frontpage-curator": runFrontpageCurator,
+  "compliance-auditor": runComplianceAuditor,
 };
 
 function log(...args) {

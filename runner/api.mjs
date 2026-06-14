@@ -45,6 +45,14 @@ export function setFrontpage(ids) {
   return call("/api/agent/frontpage", { method: "POST", body: JSON.stringify({ ids }) });
 }
 
+export function getAuditContent() {
+  return call("/api/agent/compliance", { method: "GET" });
+}
+
+export function putComplianceReport(report) {
+  return call("/api/agent/compliance", { method: "POST", body: JSON.stringify(report) });
+}
+
 export function reportStatus(status) {
   return call("/api/agent/status", { method: "POST", body: JSON.stringify(status) });
 }
