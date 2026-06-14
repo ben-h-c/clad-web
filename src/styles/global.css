@@ -65,6 +65,26 @@ p {
 .masthead {
   text-align: center;
   padding: 1rem 0 0.75rem;
+  position: relative;
+}
+
+.masthead__search {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.masthead__search:hover {
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .masthead__title {

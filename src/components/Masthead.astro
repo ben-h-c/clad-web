@@ -15,6 +15,14 @@ const homeHref = isAdmin ? "/admin/" : "/";
 ---
 
 <header class="masthead">
+  {!isAdmin && (
+    <a class="masthead__search" href="/search/" aria-label="Search" title="Search">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+      </svg>
+    </a>
+  )}
   <h1 class="masthead__title"><a href={homeHref} style="color:inherit;text-decoration:none">Clad</a></h1>
   <p class="masthead__tagline small-caps">Political Fact-Checks &amp; Media Bias</p>
   <div class="rule rule--double" aria-hidden="true"></div>
@@ -22,13 +30,4 @@ const homeHref = isAdmin ? "/admin/" : "/";
     <span class="edition">Vol. {vol} · No. {issue}</span>
     <span class="date">{dateline(date)}</span>
   </div>
-  {!isAdmin && (
-    <nav class="masthead__nav" aria-label="Sections">
-      <a href="/search/">Search</a>
-      <span aria-hidden="true" class="masthead__nav-sep">·</span>
-      <a href="/archive/">Archive</a>
-      <span aria-hidden="true" class="masthead__nav-sep">·</span>
-      <a href="/corrections/">Corrections</a>
-    </nav>
-  )}
 </header>
