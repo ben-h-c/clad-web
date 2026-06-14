@@ -1,4 +1,5 @@
 import { getPosts, setFrontpage } from "./api.mjs";
+import { isNewsOutlet } from "../src/lib/networks.ts";
 
 const YT_VIDEOS = "https://www.googleapis.com/youtube/v3/videos";
 
@@ -19,10 +20,16 @@ export async function runFrontpageCurator(agent) {
 
   const res = await getPosts();
   if (!res.ok) return { ok: false, message: `posts fetch ${res.status}` };
-  const posts = res.body.posts || [];
+  const allPosts = res.body.posts || [];
+  // Editorial rule: only established news outlets are eligible for the front page.
+  const posts = allPosts.filter((p) => isNewsOutlet(p.sourceTitle));
   if (posts.length === 0) {
     await setFrontpage([]);
-    return { ok: true, message: "no published posts", submitted: 0 };
+    return {
+      ok: true,
+      message: `no news-outlet posts (of ${allPosts.length} published)`,
+      submitted: 0,
+    };
   }
 
   // YouTube stats for the posts that have a video id (batched, 50 per call).

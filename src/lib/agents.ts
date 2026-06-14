@@ -279,6 +279,7 @@ export interface PostMeta {
   topics: string[];
   publishedAt: string; // ISO date
   leanScore: number | null;
+  sourceTitle: string | null;
 }
 
 /** Metadata for published (non-draft) posts, for the curator to score. */
@@ -291,6 +292,7 @@ export async function publishedPostsMeta(): Promise<PostMeta[]> {
     topics: p.data.topics ?? [],
     publishedAt: p.data.publishedAt.toISOString(),
     leanScore: typeof p.data.leanScore === "number" ? p.data.leanScore : null,
+    sourceTitle: p.data.sourceTitle ?? null,
   }));
 }
 
