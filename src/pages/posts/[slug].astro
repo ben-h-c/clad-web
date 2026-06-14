@@ -62,9 +62,11 @@ const lean = leanLabel(d.leanScore, d.politicalLean);
 const ogParts = isBroadcast
   ? [d.letterGrade ? `Article Grade: ${d.letterGrade}` : null, lean].filter(Boolean)
   : [d.verdict ? `Verdict: ${VERDICT_LABELS[d.verdict]}` : null].filter(Boolean);
-// Lead with grade + lean so they're always visible — platforms truncate the
-// title (~70 chars), which would hide anything placed after a long headline.
-const ogTitle = ogParts.length ? `${ogParts.join(" · ")} — ${d.headline}` : d.headline;
+// The generated preview image (/og/<slug>.png) carries the grade + lean
+// visually, so the title stays clean; the description keeps them as a backstop
+// for the rare client that shows text but not the image.
+const ogTitle = d.headline;
+const ogImage = `/og/${post.id}.png`;
 const ogDescription = isBroadcast
   ? `${ogParts.join(" · ")} · Factuality ${d.factualityScore}/100. ${d.summary}`.slice(0, 200)
   : `${ogParts.join(" · ")}. ${d.summary}`.slice(0, 200);
@@ -74,7 +76,7 @@ const ogDescription = isBroadcast
   description={d.summary}
   ogTitle={ogTitle}
   ogDescription={ogDescription}
-  ogImage={d.thumbnail}
+  ogImage={ogImage}
   ogType="article"
 >
   <article class="post">

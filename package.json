@@ -6,6 +6,7 @@
   "description": "Clad — newspaper-format fact-checks of the news, powered by Grok via xAI.",
   "scripts": {
     "dev": "astro dev",
+    "og": "node scripts/genOgImages.mjs",
     "build": "astro build",
     "preview": "astro build && wrangler dev",
     "deploy": "astro build && wrangler deploy",
@@ -15,7 +16,12 @@
   "dependencies": {
     "@astrojs/cloudflare": "^13.6.1",
     "@astrojs/rss": "^4.0.18",
-    "astro": "^6.4.0"
+    "@fontsource/playfair-display": "^5.2.8",
+    "@resvg/resvg-wasm": "^2.6.2",
+    "astro": "^6.4.0",
+    "gray-matter": "^4.0.3",
+    "satori": "^0.26.0",
+    "satori-html": "^0.3.2"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20251001.0",

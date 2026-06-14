@@ -7,3 +7,6 @@ dist
 .env.local
 .DS_Store
 *.log
+
+# generated social-preview images
+public/og/
