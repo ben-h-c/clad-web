@@ -1,13 +1,15 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { checkAgentToken, tokenUnauthorized } from "~/lib/agentAuth";
-import { existingVideoIds, isSeen, getDraft, draftId } from "~/lib/agents";
+import { existingVideoIds, isSeen, getDraft, draftId, findDuplicateStory } from "~/lib/agents";
 
 export const prerender = false;
 
-// Given candidate video ids, return which are already known (published,
-// pending as a draft, or in the seen-ledger) so the runner can skip them
-// before spending transcript + xAI budget.
+// Pre-filter for the runner: returns which candidate video ids are already
+// known — published, pending, in the seen-ledger, OR the same story already
+// covered by the same network (so we skip before spending transcript + xAI
+// budget). Accepts either `candidates: [{videoId, channel, title}]` (preferred,
+// enables same-network story dedup) or a plain `videoIds: []`.
 export const POST: APIRoute = async ({ request }) => {
   if (!checkAgentToken(request.headers.get("authorization"), env.AGENT_TOKEN)) {
     return tokenUnauthorized();
@@ -20,24 +22,43 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ error: "Invalid JSON body" }, 400);
   }
 
-  const videoIds: string[] = Array.isArray(payload?.videoIds)
-    ? payload.videoIds.map((v: unknown) => String(v)).filter(Boolean)
-    : [];
   const agentId = String(payload?.agentId ?? "").trim();
+  const candidates: { videoId: string; channel?: string; title?: string }[] =
+    Array.isArray(payload?.candidates)
+      ? payload.candidates
+          .map((c: any) => ({
+            videoId: String(c?.videoId ?? "").trim(),
+            channel: c?.channel ? String(c.channel) : "",
+            title: c?.title ? String(c.title) : "",
+          }))
+          .filter((c: any) => c.videoId)
+      : Array.isArray(payload?.videoIds)
+      ? payload.videoIds.map((v: unknown) => ({ videoId: String(v) })).filter((c: any) => c.videoId)
+      : [];
 
   const published = await existingVideoIds();
   const known: string[] = [];
-  for (const id of videoIds) {
-    if (published.has(id)) {
-      known.push(id);
+  for (const c of candidates) {
+    if (published.has(c.videoId)) {
+      known.push(c.videoId);
       continue;
     }
-    if (await isSeen(env.AGENTS, id)) {
-      known.push(id);
+    if (await isSeen(env.AGENTS, c.videoId)) {
+      known.push(c.videoId);
       continue;
     }
-    if (agentId && (await getDraft(env.AGENTS, draftId(agentId, id)))) {
-      known.push(id);
+    if (agentId && (await getDraft(env.AGENTS, draftId(agentId, c.videoId)))) {
+      known.push(c.videoId);
+      continue;
+    }
+    // Same network already ran this story (different video id)?
+    if (c.channel && c.title) {
+      const dup = await findDuplicateStory(env.AGENTS, {
+        channel: c.channel,
+        texts: [c.title],
+        includeDrafts: true,
+      });
+      if (dup) known.push(c.videoId);
     }
   }
 

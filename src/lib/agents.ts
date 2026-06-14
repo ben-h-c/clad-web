@@ -191,3 +191,103 @@ export async function existingVideoIds(): Promise<Set<string>> {
   }
   return ids;
 }
+
+/* ---------- same-network story dedup ----------
+ * Two posts may cover the same topic from DIFFERENT networks, but the same
+ * network must never run the same story twice. We detect this by comparing the
+ * candidate's title/headline against existing posts from the SAME channel using
+ * token-overlap (Jaccard). Same channel + high overlap = duplicate. Different
+ * channels never match here, so cross-network coverage of one topic is allowed.
+ */
+
+const STOP = new Set(
+  ("the a an of to in on for and or with at by is are was were as that this it he she they we you " +
+    "new news says say said after over amid into from but not has have had will would could about " +
+    "his her its their your live breaking update updates report").split(" ")
+);
+
+export const SAME_STORY_THRESHOLD = 0.5;
+
+function storyTokens(s: string): Set<string> {
+  return new Set(
+    (s || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, " ")
+      .split(/\s+/)
+      .filter((w) => w.length > 2 && !STOP.has(w))
+  );
+}
+
+function jaccard(a: Set<string>, b: Set<string>): number {
+  if (a.size === 0 || b.size === 0) return 0;
+  let inter = 0;
+  for (const x of a) if (b.has(x)) inter++;
+  return inter / (a.size + b.size - inter);
+}
+
+export function normChannel(c: string | undefined): string {
+  return (c || "").toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+/** Best token-overlap between any pair of texts from each side. */
+export function sameStory(textsA: string[], textsB: string[]): number {
+  let max = 0;
+  const setsB = textsB.filter(Boolean).map(storyTokens);
+  for (const ta of textsA.filter(Boolean)) {
+    const A = storyTokens(ta);
+    for (const B of setsB) max = Math.max(max, jaccard(A, B));
+  }
+  return max;
+}
+
+export interface StoryRef {
+  channel: string;
+  texts: string[]; // [videoTitle, headline]
+}
+
+/** Published (incl. hidden — the file is still in the repo) stories. */
+export async function publishedStories(): Promise<StoryRef[]> {
+  const posts = await getCollection("posts");
+  return posts.map((p) => ({
+    channel: normChannel(p.data.sourceTitle),
+    texts: [p.data.videoTitle ?? "", p.data.headline ?? ""],
+  }));
+}
+
+async function draftStories(kv: KVNamespace, excludeDraftId?: string): Promise<StoryRef[]> {
+  const drafts = await listDrafts(kv);
+  return drafts
+    .filter((d) => d.draftId !== excludeDraftId)
+    .map((d) => ({
+      channel: normChannel(d.source.channel),
+      texts: [d.source.videoTitle ?? "", d.report.headline ?? ""],
+    }));
+}
+
+/**
+ * Is this candidate a duplicate of an existing same-network story? Checks
+ * published posts and (optionally) pending drafts. Returns a short reason or null.
+ */
+export async function findDuplicateStory(
+  kv: KVNamespace,
+  cand: { channel: string; texts: string[]; includeDrafts?: boolean; excludeDraftId?: string }
+): Promise<string | null> {
+  const nc = normChannel(cand.channel);
+  if (!nc) return null; // no channel → can't attribute to a network; skip this check
+
+  const pub = await publishedStories();
+  for (const s of pub) {
+    if (s.channel === nc && sameStory(cand.texts, s.texts) >= SAME_STORY_THRESHOLD) {
+      return "already published by this network";
+    }
+  }
+  if (cand.includeDrafts) {
+    const drafts = await draftStories(kv, cand.excludeDraftId);
+    for (const s of drafts) {
+      if (s.channel === nc && sameStory(cand.texts, s.texts) >= SAME_STORY_THRESHOLD) {
+        return "already pending from this network";
+      }
+    }
+  }
+  return null;
+}

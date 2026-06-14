@@ -88,8 +88,11 @@ export async function runYoutubeScanner(agent) {
     };
   }
 
-  // Pre-dedupe against published/pending/seen.
-  const known = await getKnown(agent.id, candidates.map((v) => v.videoId));
+  // Pre-dedupe against published/pending/seen AND same-network same-story.
+  const known = await getKnown(
+    agent.id,
+    candidates.map((v) => ({ videoId: v.videoId, channel: v.channel, title: v.title }))
+  );
   const knownSet = new Set(known.ok ? known.body.known || [] : []);
   const fresh = candidates.filter((v) => !knownSet.has(v.videoId));
 

@@ -4,6 +4,7 @@ import { checkAgentToken, tokenUnauthorized } from "~/lib/agentAuth";
 import {
   draftId,
   existingVideoIds,
+  findDuplicateStory,
   getDraft,
   markSeen,
   putDraft,
@@ -69,6 +70,22 @@ export const POST: APIRoute = async ({ request }) => {
 
   if (report.headline.length < 4 || report.summary.length < 8) {
     return json({ error: "report missing headline/summary" }, 400);
+  }
+
+  // Same-network story dedup: a different video from the same channel covering
+  // the same story should not be re-posted. (Same topic from a DIFFERENT
+  // network is fine — channels are compared, so it won't match.)
+  const channel = p?.source?.channel ? String(p.source.channel) : "";
+  const videoTitle = p?.source?.videoTitle ? String(p.source.videoTitle) : "";
+  const dup = await findDuplicateStory(env.AGENTS, {
+    channel,
+    texts: [videoTitle, report.headline],
+    includeDrafts: true,
+    excludeDraftId: id,
+  });
+  if (dup) {
+    await markSeen(env.AGENTS, videoId);
+    return json({ ok: false, reason: "duplicate-story", detail: dup }, 409);
   }
 
   const draft: PendingDraft = {
