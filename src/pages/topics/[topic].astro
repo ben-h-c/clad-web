@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import ReportCard from "~/components/ReportCard.astro";
+import LetterGrade from "~/components/LetterGrade.astro";
+import PoliticalLean from "~/components/PoliticalLean.astro";
+import { aggregateTopics } from "~/lib/topics";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const all = await getCollection("posts", (p) => !p.data.draft);
+  const topics = aggregateTopics(all);
+  return topics.map((t) => ({
+    params: { topic: t.slug },
+    props: { topic: t },
+  }));
+}
+
+const { topic } = Astro.props;
+const posts = topic.posts.sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+---
+<BaseLayout title={`${topic.display} — Clad`} description={`All Clad reports tagged ${topic.display}.`}>
+  <section class="topic-page">
+    <p class="small-caps" style="color:var(--muted-ink)">Topic · {topic.count} {topic.count === 1 ? "report" : "reports"}</p>
+    <h2 class="topic-page__title">{topic.display}</h2>
+
+    <div class="topic-page__agg">
+      {topic.avgGrade && (
+        <div class="scoreband__grade">
+          <LetterGrade grade={topic.avgGrade} size="card" />
+          <span class="scoreband__cap small-caps">Avg grade</span>
+        </div>
+      )}
+      {topic.avgLean !== null && (
+        <div class="scoreband__bias"><PoliticalLean score={topic.avgLean} /></div>
+      )}
+    </div>
+
+    <div class="rule rule--double" aria-hidden="true" style="margin:1.25rem 0"></div>
+
+    <div class="feed-list">
+      {posts.map((p) => <ReportCard post={p} variant="bar" />)}
+    </div>
+  </section>
+</BaseLayout>

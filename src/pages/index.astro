@@ -3,9 +3,10 @@ import { getCollection } from "astro:content";
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import HeroStrip from "~/components/HeroStrip.astro";
-import ReportCard from "~/components/ReportCard.astro";
+import TopicCard from "~/components/TopicCard.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
 import { getFrontpage } from "~/lib/agents";
+import { aggregateTopics } from "~/lib/topics";
 
 // SSR so the hero reflects the curator's live KV-stored selection without a
 // rebuild. Edge/browser-cached briefly to keep load down.
@@ -26,6 +27,8 @@ if (heroPosts.length === 0) {
   heroPosts = flagged.length > 0 ? flagged : all.slice(0, 8);
 }
 heroPosts = heroPosts.slice(0, 15);
+
+const topics = aggregateTopics(all);
 ---
 <BaseLayout
   title="Clad — Political Fact-Checks & Media Bias"
@@ -38,11 +41,12 @@ heroPosts = heroPosts.slice(0, 15);
       <HeroStrip posts={heroPosts} />
       <section class="feed">
         <div class="feed__head">
-          <h2 class="feed__title">All Reports</h2>
+          <h2 class="feed__title">Topics</h2>
+          <a class="category__more" href="/search/">Search all →</a>
         </div>
         <div class="rule rule--double" aria-hidden="true"></div>
-        <div class="feed-list">
-          {all.map((p) => <ReportCard post={p} variant="bar" />)}
+        <div class="topic-grid">
+          {topics.map((t) => <TopicCard topic={t} />)}
         </div>
       </section>
     </>

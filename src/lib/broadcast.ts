@@ -108,7 +108,7 @@ IMPORTANT: use the FULL granularity of the grade. If it's a C-minus, return "C-"
 
 \`lean_rationale\`: one or two sentences naming the specific cues that drove the lean_score (e.g. "Relied solely on administration officials and framed the policy in its preferred terms"). Keep it factual, not pejorative.
 
-\`topics\`: 2 to 4 short topic labels covered ("Federal Reserve policy", "Ukraine war updates"). Skip filler / transitions.
+\`topics\`: 2 to 4 SHORT, CANONICAL topic tags (1-3 words each) that will group related stories on a dashboard. Use the plainest common name for the subject and REUSE the same wording across stories about it — e.g. "Iran", "DC crime", "Ukraine war", "Federal Reserve", "Trump health". Avoid long or one-off phrasings ("UFC promotion costs at the South Lawn") — prefer the broad tag ("White House UFC event") so different networks' takes land under the same topic. Skip filler / transitions.
 
 \`summary\`: factual description of what the broadcast was about. Don't editorialize here. Two short paragraphs (5-7 sentences total): the first covers what segments ran and what they were about; the second covers the sourcing approach (named vs anonymous sources, graphics referenced), notable guests/experts, and throughlines. The reader didn't watch it — give them enough to understand what was discussed.
 
