@@ -84,15 +84,19 @@ export const DEFAULT_REGISTRY: Registry = {
       kind: "youtube-scanner",
       name: "YouTube News Scanner",
       enabled: true,
-      cron: "0 */6 * * *",
+      cron: "0 * * * *",
       config: {
         regionCode: "US",
         videoCategoryId: "25",
-        order: "viewCount",
-        publishedWithinHours: 24,
+        // "date" surfaces fresh uploads (new stories) instead of the same
+        // top-viewed videos that dedup keeps skipping.
+        order: "date",
+        publishedWithinHours: 48,
         maxCandidatesPerRun: 8,
-        maxPublishesPerRun: 3,
-        query: "politics OR congress OR white house OR election",
+        maxPublishesPerRun: 4,
+        maxScanPages: 2,
+        query:
+          "Trump OR Biden OR Congress OR Senate OR \"Supreme Court\" OR \"White House\" OR election OR immigration OR economy OR \"foreign policy\" OR Ukraine OR Israel OR Iran OR \"Federal Reserve\"",
       },
     },
     {
