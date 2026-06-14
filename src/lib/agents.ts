@@ -147,9 +147,13 @@ export async function getRegistry(kv: KVNamespace): Promise<Registry> {
   } catch {
     return DEFAULT_REGISTRY;
   }
+  let changed = false;
+  // Prune retired agents so they disappear from the stored registry + console.
+  const before = reg.agents.length;
+  reg.agents = reg.agents.filter((a) => !RETIRED_AGENT_IDS.has(a.id));
+  if (reg.agents.length !== before) changed = true;
   // Reconcile: add any default agents that aren't in the stored registry yet
   // (so new agent kinds appear without wiping the existing config/lastRun).
-  let changed = false;
   for (const def of DEFAULT_REGISTRY.agents) {
     if (!reg.agents.some((a) => a.id === def.id)) {
       reg.agents.push(def);
@@ -159,6 +163,9 @@ export async function getRegistry(kv: KVNamespace): Promise<Registry> {
   if (changed) await kv.put(REGISTRY_KEY, JSON.stringify(reg));
   return reg;
 }
+
+// Agents that have been retired; pruned from any stored registry on read.
+const RETIRED_AGENT_IDS = new Set<string>(["trending-topics"]);
 
 export async function putRegistry(kv: KVNamespace, reg: Registry): Promise<void> {
   await kv.put(REGISTRY_KEY, JSON.stringify(reg));
