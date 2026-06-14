@@ -7,6 +7,25 @@ export const prerender = false;
 export const POST: APIRoute = async ({ request }) => {
   if (!env.XAI_API_KEY) return json({ error: "XAI_API_KEY not configured" }, 503);
 
+  // Single shared key — one editor, one bucket. The basic-auth gate already
+  // limits who can hit this; the rate limit is a backstop for a leaked
+  // credential and stops the xAI bill from running away.
+  if (env.FACTCHECK_LIMITER) {
+    const { success } = await env.FACTCHECK_LIMITER.limit({ key: "factcheck" });
+    if (!success) {
+      return new Response(
+        JSON.stringify({ error: "Rate limit exceeded. Try again in a minute." }),
+        {
+          status: 429,
+          headers: {
+            "Content-Type": "application/json",
+            "Retry-After": "60",
+          },
+        }
+      );
+    }
+  }
+
   let payload: any;
   try {
     payload = await request.json();

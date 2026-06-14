@@ -59,7 +59,7 @@ adapter's Workerd) and `wrangler dev` read it automatically.
      this repo only. No other scopes.
    - `GITHUB_REPO` — e.g. `ben-h-c/clad-web`
    - `GITHUB_BRANCH` — usually `main`
-5. Add your custom domain (`clad.app` or similar) and let Cloudflare manage DNS.
+5. Add your custom domain (`cladfacts.com` or similar) and let Cloudflare manage DNS.
 
 Every push to the configured branch triggers a build. Publishing from
 `/admin` produces such a push, which is what makes the auto-deploy loop close.

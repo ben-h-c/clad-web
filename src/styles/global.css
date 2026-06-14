@@ -95,6 +95,120 @@ p {
   font-style: italic;
 }
 
+.masthead__nav {
+  margin-top: 0.5rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.masthead__nav a {
+  text-decoration: none;
+}
+
+.masthead__nav a:hover {
+  text-decoration: underline;
+}
+
+.masthead__nav-sep {
+  color: var(--muted-ink);
+}
+
+/* Section / archive landing pages */
+
+.section-page,
+.archive-page {
+  max-width: var(--measure);
+  margin: 1.5rem auto 0;
+}
+
+.section-page__eyebrow,
+.archive-page__eyebrow {
+  color: var(--muted-ink);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.section-page__title,
+.archive-page__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.85rem, 5vw, 2.75rem);
+  line-height: 1.05;
+  margin: 0 0 0.75rem;
+}
+
+.archive-list {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.archive-list li {
+  border-top: 1px solid var(--rule);
+  padding: 0.6rem 0;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.archive-list li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.archive-list .archive-date {
+  font-style: italic;
+  color: var(--muted-ink);
+  font-size: 0.9rem;
+  min-width: 7rem;
+}
+
+.archive-index {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.archive-index a {
+  text-decoration: none;
+}
+
+.archive-index a:hover {
+  text-decoration: underline;
+}
+
+/* Correction banners */
+
+.correction-banner {
+  border: 1px solid var(--red-ink);
+  padding: 0.75rem 0.9rem;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.95rem;
+  background: rgba(148, 26, 26, 0.04);
+}
+
+.correction-banner__label {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red-ink);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
 /* Rules */
 
 .rule {

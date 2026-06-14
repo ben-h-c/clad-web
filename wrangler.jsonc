@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "clad-web",
+  "workers_dev": true,
+  "preview_urls": true,
+  "routes": [
+    { "pattern": "cladfacts.com", "custom_domain": true },
+    { "pattern": "www.cladfacts.com", "custom_domain": true }
+  ],
+  // Rate-limit /api/factcheck so a leaked basic-auth credential can't burn
+  // the xAI key. The endpoint is one-editor-only; 20 calls/min is generous.
+  "ratelimits": [
+    {
+      "name": "FACTCHECK_LIMITER",
+      "namespace_id": "1001",
+      "simple": { "limit": 20, "period": 60 }
+    }
+  ]
+}

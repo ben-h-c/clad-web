@@ -1,7 +1,12 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 
 export const prerender = false;
+
+const posts = (await getCollection("posts", (p) => !p.data.draft))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+  .slice(0, 100);
 ---
 <BaseLayout title="Clad — Editorial Desk">
   <section class="admin">
@@ -79,6 +84,20 @@ export const prerender = false;
       <div class="field">
         <label for="citations">Citations (one per line: <code>Title | https://url</code>)</label>
         <textarea id="citations" name="citations" placeholder="Title of source | https://example.com/source"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="correctionOf">
+          Correction of (optional — pick the post this corrects)
+        </label>
+        <select id="correctionOf" name="correctionOf">
+          <option value="">— Not a correction —</option>
+          {posts.map((p) => (
+            <option value={p.id}>
+              {p.data.publishedAt.toISOString().slice(0, 10)} — {p.data.headline}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div class="field">
@@ -179,6 +198,7 @@ export const prerender = false;
         body: $("body").value.trim(),
         citations,
         draft: $("draft").checked,
+        correctionOf: $("correctionOf").value.trim() || undefined,
       };
 
       try {

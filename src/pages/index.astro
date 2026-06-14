@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import Verdict from "~/components/Verdict.astro";
 import { shortDate } from "~/lib/dateline";
+import { sectionSlug } from "~/lib/sections";
 
 export const prerender = true;
 
@@ -38,7 +39,7 @@ const [lede, ...rest] = sorted;
             <h3 class="card__headline">
               <a href={`/posts/${p.id}`}>{p.data.headline}</a>
             </h3>
-            <p class="dateline">{shortDate(p.data.publishedAt)} · {p.data.section}</p>
+            <p class="dateline">{shortDate(p.data.publishedAt)} · <a href={`/sections/${sectionSlug(p.data.section)}/`} style="color:inherit">{p.data.section}</a></p>
             <p class="card__summary">{p.data.summary}</p>
           </article>
         ))}
@@ -57,7 +58,7 @@ const [lede, ...rest] = sorted;
               <h3 class="card__headline">
                 <a href={`/posts/${p.id}`}>{p.data.headline}</a>
               </h3>
-              <p class="dateline">{shortDate(p.data.publishedAt)} · {p.data.section}</p>
+              <p class="dateline">{shortDate(p.data.publishedAt)} · <a href={`/sections/${sectionSlug(p.data.section)}/`} style="color:inherit">{p.data.section}</a></p>
               <p class="card__summary">{p.data.summary}</p>
             </article>
           ))}
