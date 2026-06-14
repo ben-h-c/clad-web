@@ -1,0 +1,63 @@
+---
+type: "broadcast"
+headline: "Rathbone critiques two-party system and Democratic 'sheep dogs'"
+summary: "The video is a monologue attacking Democratic-aligned online figures for supporting the corporate duopoly and urging votes for Democrats. The host promotes Green Party candidates, accuses both parties of enabling Israel policy, and describes a ratchet effect where Democrats block leftward movement."
+publishedAt: 2026-06-14
+sourceUrl: "https://www.youtube.com/watch?v=LkIhzBmUHvo"
+sourceTitle: "Rathbone "
+section: "Politics"
+letterGrade: "D-"
+factualityScore: 35
+politicalLean: "left"
+leanScore: -72
+leanRationale: "Frames Democrats as primary gatekeepers of corporate power and controlled opposition while treating Republican alignment as secondary; consistent left anti-imperialist framing"
+gradeRationale: "Graded D-: load-bearing claims about specific votes, ballot sabotage, and bipartisan 'genocide' funding rest on assertion without sourcing or context"
+topics:
+  - "US two-party system"
+  - "Democratic Party"
+  - "Israel-Gaza conflict"
+assessment: "The segment consists entirely of opinion and ideological framing with minimal verifiable evidence presented. Assertions about AOC's record, DNC ballot actions, and 'Epstein class' control are stated without documentation. Viewers receive no counter-evidence on voting records, primary sources, or alternative explanations for party behavior. The ratchet-effect narrative and genocide characterization are presented as settled fact rather than contested interpretations."
+notableConcerns:
+  - "Multiple factual assertions made without cited evidence or sourcing"
+  - "Conflates policy disagreement with coordinated conspiracy"
+keyMoments:
+  - claim: "AOC voted to send more weapons to Israel and functions as a Zionist"
+    verdict: "missing context"
+    note: "AOC has criticized aspects of Israel policy while supporting some aid; full voting record requires primary congressional data"
+  - claim: "DNC illegally sabotaged Green Party ballot access in recent cycles"
+    verdict: "unsupported"
+    note: "Lawsuits exist but no final court finding of illegal DNC action presented; claims require specific case citations"
+  - claim: "US support for Gaza operations is a bipartisan 'live stream genocide'"
+    verdict: "disputed"
+    note: "Aid and diplomatic positions are bipartisan but 'genocide' label remains legally contested at ICC and ICJ"
+videoId: "LkIhzBmUHvo"
+videoTitle: "Why I don&#39;t trust the US Government..."
+thumbnail: "https://img.youtube.com/vi/LkIhzBmUHvo/maxresdefault.jpg"
+citations:
+  - title: "A Note from Rep. Alexandria Ocasio-Cortez"
+    url: "https://ocasiocortezforms.house.gov/news/email/show.aspx?ID=55LU2VD3J7CAG"
+  - title: "At DSA forum, AOC pledges not to vote for any military aid to Israel"
+    url: "https://www.cityandstateny.com/politics/2026/04/dsa-forum-aoc-pledges-not-vote-any-military-aid-israel/412544/"
+  - title: "Ocasio-Cortez says she’ll vote against any military aid to Israel, including for Iron Dome system"
+    url: "https://www.cnn.com/2026/04/01/politics/ocasio-cortez-vote-against-military-aid-israel-iron-dome"
+  - title: "Alexandria Ocasio-Cortez to oppose all U.S. military aid to Israel"
+    url: "https://www.nbcnews.com/politics/congress/alexandria-ocasio-cortez-will-now-oppose-all-us-military-aid-israel-rcna266294"
+  - title: "Major parties battle over third-party ballot access"
+    url: "https://wisconsinexaminer.com/2024/08/16/major-parties-battle-over-third-party-ballot-access/"
+  - title: "Democratic staffer files complaint against Green Party in Wisconsin ballot fight"
+    url: "https://abcnews.com/Politics/democratic-staffer-files-complaint-green-party-wisconsin-ballot/story?id=112895335"
+  - title: "Democrats try to block Green Party from presidential ballot in Wisconsin"
+    url: "https://apnews.com/article/wisconsin-jill-stein-harris-trump-lawsuit-405e8bae8ff9becfa81a1360708d59a0"
+  - title: "Is Democracy on the ballot? Third-party suppression a problem"
+    url: "https://www.gp.org/third_party_suppression_a_problem"
+  - title: "The Sheepdog Caucus and So-Called “Democratic” Socialists"
+    url: "https://www.blackagendareport.com/sheepdog-caucus-and-so-called-democratic-socialists"
+  - title: "Bernie Sanders, Sheepdog Socialist"
+    url: "https://dissentmagazine.org/blog/dnc-unconventional-bernie-sanders-sheepdog-socialist/"
+  - title: "On the Iron Dome Vote"
+    url: "https://www.dsausa.org/statements/on-the-iron-dome-vote/"
+  - title: "US Supreme Court declines to restore Green Party to Nevada ballot"
+    url: "https://www.reuters.com/legal/us-supreme-court-declines-restore-green-party-nevada-ballot-2024-09-20/"
+---
+
+
