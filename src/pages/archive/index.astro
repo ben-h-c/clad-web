@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+
+export const prerender = true;
+
+const all = await getCollection("posts", (p) => !p.data.draft);
+const byYear = new Map<number, number>();
+for (const p of all) {
+  const y = p.data.publishedAt.getUTCFullYear();
+  byYear.set(y, (byYear.get(y) ?? 0) + 1);
+}
+const years = [...byYear.entries()].sort((a, b) => b[0] - a[0]);
+---
+<BaseLayout
+  title="Archive — Clad"
+  description="Every fact-check published, by year."
+>
+  <section class="archive-page">
+    <p class="small-caps archive-page__eyebrow">Archive</p>
+    <h2 class="archive-page__title">Archive</h2>
+    <div class="rule rule--double" aria-hidden="true"></div>
+
+    {years.length === 0 ? (
+      <p class="dateline" style="margin-top:2rem">No posts published yet.</p>
+    ) : (
+      <ul class="archive-index">
+        {years.map(([year, count]) => (
+          <li>
+            <a href={`/archive/${year}/`}>
+              {year} <span class="dateline">— {count} {count === 1 ? "post" : "posts"}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+
+    <p class="dateline" style="margin-top:2rem">
+      Also: <a href="/corrections/">corrections</a>, <a href="/rss.xml">RSS</a>.
+    </p>
+  </section>
+</BaseLayout>

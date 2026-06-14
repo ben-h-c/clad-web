@@ -38,6 +38,11 @@ const posts = defineCollection({
       .default([]),
     section: z.enum(["Politics", "Economy", "Science", "World", "Tech", "Misc"]).default("Misc"),
     draft: z.boolean().default(false),
+    // If set, this post is a correction of the post with this id (the slug
+    // under `src/content/posts/`, without the `.md` extension). Corrections
+    // are issued as a NEW post that references the original — we never
+    // silently edit a published verdict.
+    correctionOf: z.string().optional(),
   }),
 });
 

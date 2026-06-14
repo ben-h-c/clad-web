@@ -14,6 +14,7 @@ interface Frontmatter {
   sourceTitle?: string;
   section: string;
   draft?: boolean;
+  correctionOf?: string;
   citations: { title: string; url: string }[];
 }
 
@@ -28,6 +29,7 @@ export function emitPost(fm: Frontmatter, body: string): string {
   if (fm.sourceTitle) lines.push(`sourceTitle: ${q(fm.sourceTitle)}`);
   lines.push(`section: ${q(fm.section)}`);
   if (fm.draft) lines.push(`draft: true`);
+  if (fm.correctionOf) lines.push(`correctionOf: ${q(fm.correctionOf)}`);
   if (fm.citations.length === 0) {
     lines.push("citations: []");
   } else {

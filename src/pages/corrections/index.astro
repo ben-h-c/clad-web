@@ -1,0 +1,51 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { shortDate } from "~/lib/dateline";
+
+export const prerender = true;
+
+const all = await getCollection("posts", (p) => !p.data.draft);
+const byId = new Map(all.map((p) => [p.id, p]));
+const corrections = all
+  .filter((p) => p.data.correctionOf)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+<BaseLayout
+  title="Corrections — Clad"
+  description="Corrections issued by Clad, each linking the original post."
+>
+  <section class="archive-page">
+    <p class="small-caps archive-page__eyebrow">Corrections</p>
+    <h2 class="archive-page__title">Corrections</h2>
+    <div class="rule rule--double" aria-hidden="true"></div>
+
+    {corrections.length === 0 ? (
+      <p class="dateline" style="margin-top:2rem">
+        No corrections have been issued.
+      </p>
+    ) : (
+      <ul class="archive-list">
+        {corrections.map((c) => {
+          const original = c.data.correctionOf
+            ? byId.get(c.data.correctionOf) ?? null
+            : null;
+          return (
+            <li>
+              <span class="archive-date">{shortDate(c.data.publishedAt)}</span>
+              <span>
+                <a href={`/posts/${c.id}/`}>{c.data.headline}</a>
+                {original && (
+                  <>
+                    {" "}— corrects{" "}
+                    <a href={`/posts/${original.id}/`}>{original.data.headline}</a>
+                  </>
+                )}
+              </span>
+            </li>
+          );
+        })}
+      </ul>
+    )}
+  </section>
+</BaseLayout>

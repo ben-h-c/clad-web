@@ -30,6 +30,7 @@ export const POST: APIRoute = async ({ request }) => {
   const kicker = p.kicker ? str(p.kicker) : undefined;
   const sourceTitle = p.sourceTitle ? str(p.sourceTitle) : undefined;
   const draft = Boolean(p.draft);
+  const correctionOf = p.correctionOf ? str(p.correctionOf) : undefined;
   const citations = Array.isArray(p.citations)
     ? p.citations
         .map((c: any) => ({ title: str(c?.title ?? ""), url: str(c?.url ?? "") }))
@@ -57,6 +58,7 @@ export const POST: APIRoute = async ({ request }) => {
       sourceTitle,
       section,
       draft,
+      correctionOf,
       citations,
     },
     body

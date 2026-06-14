@@ -2,16 +2,28 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import Verdict from "~/components/Verdict.astro";
-import { dateline } from "~/lib/dateline";
+import { dateline, shortDate } from "~/lib/dateline";
+import { sectionSlug } from "~/lib/sections";
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const posts = await getCollection("posts", (p) => !p.data.draft);
-  return posts.map((p) => ({ params: { slug: p.id }, props: { post: p } }));
+  const all = await getCollection("posts", (p) => !p.data.draft);
+  return all.map((p) => {
+    const original = p.data.correctionOf
+      ? all.find((q) => q.id === p.data.correctionOf) ?? null
+      : null;
+    const successors = all
+      .filter((q) => q.data.correctionOf === p.id)
+      .sort((a, b) => a.data.publishedAt.valueOf() - b.data.publishedAt.valueOf());
+    return {
+      params: { slug: p.id },
+      props: { post: p, original, successors },
+    };
+  });
 }
 
-const { post } = Astro.props;
+const { post, original, successors } = Astro.props;
 const { Content } = await render(post);
 const d = post.data;
 ---
@@ -25,7 +37,7 @@ const d = post.data;
     <div class="post__byline">
       <span>{dateline(d.publishedAt)}</span>
       <span>·</span>
-      <span>{d.section}</span>
+      <span><a href={`/sections/${sectionSlug(d.section)}/`} style="color:inherit">{d.section}</a></span>
       <span>·</span>
       <span>
         Source:{" "}
@@ -34,6 +46,40 @@ const d = post.data;
         </a>
       </span>
     </div>
+
+    {original && (
+      <div class="correction-banner" role="note">
+        <span class="correction-banner__label">Correction</span>
+        This post corrects an earlier report:{" "}
+        <a href={`/posts/${original.id}/`}>{original.data.headline}</a>{" "}
+        ({shortDate(original.data.publishedAt)}).
+      </div>
+    )}
+
+    {successors.length > 0 && (
+      <div class="correction-banner" role="note">
+        <span class="correction-banner__label">Corrected</span>
+        {successors.length === 1 ? (
+          <>
+            A correction to this post has been issued:{" "}
+            <a href={`/posts/${successors[0]!.id}/`}>{successors[0]!.data.headline}</a>{" "}
+            ({shortDate(successors[0]!.data.publishedAt)}).
+          </>
+        ) : (
+          <>
+            Corrections to this post:
+            <ul style="margin:.4rem 0 0;padding-left:1.25rem">
+              {successors.map((s) => (
+                <li>
+                  <a href={`/posts/${s.id}/`}>{s.data.headline}</a>{" "}
+                  ({shortDate(s.data.publishedAt)})
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
+    )}
 
     <div class="post__body">
       <Content />

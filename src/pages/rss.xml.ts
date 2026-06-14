@@ -14,7 +14,7 @@ export async function GET(context: APIContext) {
     title: "Clad",
     description:
       "Fact-checked headlines. Each verdict is sourced and hand-reviewed.",
-    site: context.site ?? "https://clad.app",
+    site: context.site ?? "https://cladfacts.com",
     items: sorted.map((p) => ({
       title: `[${p.data.verdict.toUpperCase()}] ${p.data.headline}`,
       pubDate: p.data.publishedAt,

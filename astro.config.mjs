@@ -8,7 +8,7 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   output: "server",
   adapter: cloudflare(),
-  site: "https://clad.app",
+  site: "https://cladfacts.com",
   trailingSlash: "ignore",
   build: {
     format: "directory",

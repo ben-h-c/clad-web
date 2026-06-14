@@ -1,5 +1,6 @@
 ---
 import { dateline, volume } from "~/lib/dateline";
+import { SECTIONS, sectionSlug } from "~/lib/sections";
 
 interface Props {
   date?: Date;
@@ -10,10 +11,20 @@ const issue = Math.floor((Date.now() - Date.UTC(2026, 0, 1)) / 86_400_000);
 ---
 
 <header class="masthead">
-  <h1 class="masthead__title">Clad</h1>
+  <h1 class="masthead__title"><a href="/" style="color:inherit;text-decoration:none">Clad</a></h1>
   <div class="rule rule--double" aria-hidden="true"></div>
   <div class="masthead__meta">
     <span class="edition">Vol. {vol} · No. {issue}</span>
     <span class="date">{dateline(date)}</span>
   </div>
+  <nav class="masthead__nav" aria-label="Sections">
+    {SECTIONS.map((s, i) => (
+      <>
+        {i > 0 && <span aria-hidden="true" class="masthead__nav-sep">·</span>}
+        <a href={`/sections/${sectionSlug(s)}/`}>{s}</a>
+      </>
+    ))}
+    <span aria-hidden="true" class="masthead__nav-sep">·</span>
+    <a href="/archive/">Archive</a>
+  </nav>
 </header>
