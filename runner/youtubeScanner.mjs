@@ -45,104 +45,105 @@ export async function runYoutubeScanner(agent) {
     Date.now() - (c.publishedWithinHours || 24) * 3600_000
   ).toISOString();
 
-  const params = new URLSearchParams({
-    key,
-    part: "snippet",
-    type: "video",
-    regionCode: c.regionCode || "US",
-    videoCategoryId: c.videoCategoryId || "25",
-    order: c.order || "viewCount",
-    publishedAfter,
-    q: c.query || "politics",
-    // Cast a wide net (one search = 100 quota units), then keep only the
-    // recognized news networks below.
-    maxResults: "50",
-    relevanceLanguage: "en",
-  });
-
-  const res = await fetch(`${YT_API}?${params}`);
-  if (!res.ok) {
-    const body = await res.text().catch(() => "");
-    return { ok: false, message: `YouTube API ${res.status}: ${body.slice(0, 160)}` };
-  }
-  const data = await res.json();
-  const all = (data.items || [])
-    .filter((it) => it.id?.videoId)
-    .map((it) => ({
-      videoId: it.id.videoId,
-      title: it.snippet?.title || "",
-      channel: it.snippet?.channelTitle || "",
-      channelId: it.snippet?.channelId || "",
-      publishedAt: it.snippet?.publishedAt || "",
-    }));
-
-  // Restrict to the exact US news-network channel IDs.
-  const candidates = all.filter((v) => NETWORK_CHANNEL_IDS.has(v.channelId));
-
-  if (candidates.length === 0) {
-    return {
-      ok: true,
-      message: `no network matches among ${all.length} results`,
-      submitted: 0,
-      skipped: 0,
-    };
-  }
-
-  // Pre-dedupe against published/pending/seen AND same-network same-story.
-  const known = await getKnown(
-    agent.id,
-    candidates.map((v) => ({ videoId: v.videoId, channel: v.channel, title: v.title }))
-  );
-  const knownSet = new Set(known.ok ? known.body.known || [] : []);
-  const fresh = candidates.filter((v) => !knownSet.has(v.videoId));
-
   const limit = c.maxPublishesPerRun || 3;
+  const maxPages = c.maxScanPages || 4; // limited loop: keep looking across pages
+
   let submitted = 0;
-  let skipped = candidates.length - fresh.length;
+  let skipped = 0;
   let noTranscript = 0;
+  let networkSeen = 0;
+  let pageToken = "";
 
-  // Walk all fresh candidates until we've drafted `limit` — only videos that
-  // actually have a transcript are considered (no web-search fallback).
-  for (const v of fresh) {
-    if (submitted >= limit) break;
-    const sourceUrl = `https://www.youtube.com/watch?v=${v.videoId}`;
-    const transcript = await fetchTranscript(v.videoId);
-    if (!transcript) {
-      noTranscript++;
-      skipped++;
-      continue;
-    }
-    let report;
-    try {
-      report = await generateBroadcastReport(xaiKey, {
-        transcript,
-        sourceUrl,
-        videoTitle: v.title,
-        channel: v.channel,
-      });
-    } catch (err) {
-      skipped++;
-      continue;
-    }
-
-    const out = await submitDraft({
-      agentId: agent.id,
-      sourceUrl,
-      report,
-      source: {
-        channel: v.channel,
-        videoTitle: v.title,
-        transcriptUsed: true,
-        publishedAt: v.publishedAt,
-      },
+  // Limited loop: page through results until we've drafted `limit` transcribed
+  // reports or exhausted maxPages / results. Videos without captions are skipped
+  // and the loop keeps going to the next candidate.
+  for (let page = 0; page < maxPages && submitted < limit; page++) {
+    const params = new URLSearchParams({
+      key,
+      part: "snippet",
+      type: "video",
+      regionCode: c.regionCode || "US",
+      videoCategoryId: c.videoCategoryId || "25",
+      order: c.order || "viewCount",
+      publishedAfter,
+      q: c.query || "politics",
+      maxResults: "50",
+      relevanceLanguage: "en",
     });
-    if (out.ok) submitted++;
-    else skipped++;
+    if (pageToken) params.set("pageToken", pageToken);
+
+    const res = await fetch(`${YT_API}?${params}`);
+    if (!res.ok) {
+      const body = await res.text().catch(() => "");
+      if (page === 0) return { ok: false, message: `YouTube API ${res.status}: ${body.slice(0, 160)}` };
+      break; // first page worked; a later page failed — stop with what we have
+    }
+    const data = await res.json();
+    pageToken = data.nextPageToken || "";
+
+    const networkCands = (data.items || [])
+      .filter((it) => it.id?.videoId && NETWORK_CHANNEL_IDS.has(it.snippet?.channelId))
+      .map((it) => ({
+        videoId: it.id.videoId,
+        title: it.snippet?.title || "",
+        channel: it.snippet?.channelTitle || "",
+        publishedAt: it.snippet?.publishedAt || "",
+      }));
+    networkSeen += networkCands.length;
+
+    if (networkCands.length > 0) {
+      // Pre-dedupe against published/pending/seen AND same-network same-story.
+      const known = await getKnown(
+        agent.id,
+        networkCands.map((v) => ({ videoId: v.videoId, channel: v.channel, title: v.title }))
+      );
+      const knownSet = new Set(known.ok ? known.body.known || [] : []);
+      const fresh = networkCands.filter((v) => !knownSet.has(v.videoId));
+      skipped += networkCands.length - fresh.length;
+
+      for (const v of fresh) {
+        if (submitted >= limit) break;
+        const sourceUrl = `https://www.youtube.com/watch?v=${v.videoId}`;
+        const transcript = await fetchTranscript(v.videoId);
+        if (!transcript) {
+          noTranscript++;
+          skipped++;
+          continue;
+        }
+        let report;
+        try {
+          report = await generateBroadcastReport(xaiKey, {
+            transcript,
+            sourceUrl,
+            videoTitle: v.title,
+            channel: v.channel,
+          });
+        } catch {
+          skipped++;
+          continue;
+        }
+        const out = await submitDraft({
+          agentId: agent.id,
+          sourceUrl,
+          report,
+          source: {
+            channel: v.channel,
+            videoTitle: v.title,
+            transcriptUsed: true,
+            publishedAt: v.publishedAt,
+          },
+        });
+        if (out.ok) submitted++;
+        else skipped++;
+      }
+    }
+
+    if (!pageToken) break; // no more pages
   }
 
   return {
     ok: true,
-    message: `${candidates.length} candidates, ${submitted} drafted, ${skipped} skipped (${noTranscript} had no transcript)`,
+    message: `${networkSeen} network candidates scanned, ${submitted} drafted, ${skipped} skipped (${noTranscript} had no transcript)`,
     submitted,
     skipped,
   };
