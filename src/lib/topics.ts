@@ -100,14 +100,18 @@ export function aggregateTopics(posts: CollectionEntry<"posts">[]): TopicAgg[] {
     else { anchors.push({ topic: t, tokens: tt }); canonOf.set(t, t); }
   }
 
-  // 3) build clusters (dedup articles that share multiple topics in a cluster)
+  // 3) assign each article to ONE tile — its PRIMARY topic (the first tag,
+  //    mapped to its canonical cluster) — so no article appears in multiple
+  //    groups.
   const map = new Map<string, { display: string; slug: string; posts: CollectionEntry<"posts">[] }>();
-  for (const [t, ps] of byTopic) {
-    const canon = canonOf.get(t)!;
+  for (const p of posts) {
+    const primary = (p.data.topics?.[0] ?? "").trim();
+    if (!primary) continue;
+    const canon = canonOf.get(primary) ?? primary;
     const slug = topicSlug(canon);
+    if (!slug) continue;
     if (!map.has(slug)) map.set(slug, { display: canon, slug, posts: [] });
-    const bucket = map.get(slug)!;
-    for (const p of ps) if (!bucket.posts.some((q) => q.id === p.id)) bucket.posts.push(p);
+    map.get(slug)!.posts.push(p);
   }
 
   const now = Date.now();
