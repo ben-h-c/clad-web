@@ -27,11 +27,11 @@ const heroPosts = featured.length > 0 ? featured : all.slice(0, 8);
       <HeroStrip posts={heroPosts} />
       <section class="feed">
         <div class="feed__head">
-          <h2 class="feed__title">Latest Reports</h2>
+          <h2 class="feed__title">All Reports</h2>
         </div>
         <div class="rule rule--double" aria-hidden="true"></div>
-        <div class="card-grid">
-          {all.map((p) => <ReportCard post={p} />)}
+        <div class="feed-list">
+          {all.map((p) => <ReportCard post={p} variant="bar" />)}
         </div>
       </section>
     </>

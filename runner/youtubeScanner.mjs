@@ -96,14 +96,23 @@ export async function runYoutubeScanner(agent) {
   const limit = c.maxPublishesPerRun || 3;
   let submitted = 0;
   let skipped = candidates.length - fresh.length;
+  let noTranscript = 0;
 
-  for (const v of fresh.slice(0, limit)) {
+  // Walk all fresh candidates until we've drafted `limit` — only videos that
+  // actually have a transcript are considered (no web-search fallback).
+  for (const v of fresh) {
+    if (submitted >= limit) break;
     const sourceUrl = `https://www.youtube.com/watch?v=${v.videoId}`;
     const transcript = await fetchTranscript(v.videoId);
+    if (!transcript) {
+      noTranscript++;
+      skipped++;
+      continue;
+    }
     let report;
     try {
       report = await generateBroadcastReport(xaiKey, {
-        transcript: transcript || undefined,
+        transcript,
         sourceUrl,
         videoTitle: v.title,
         channel: v.channel,
@@ -120,7 +129,7 @@ export async function runYoutubeScanner(agent) {
       source: {
         channel: v.channel,
         videoTitle: v.title,
-        transcriptUsed: Boolean(transcript),
+        transcriptUsed: true,
         publishedAt: v.publishedAt,
       },
     });
@@ -130,7 +139,7 @@ export async function runYoutubeScanner(agent) {
 
   return {
     ok: true,
-    message: `${candidates.length} candidates, ${submitted} drafted, ${skipped} skipped`,
+    message: `${candidates.length} candidates, ${submitted} drafted, ${skipped} skipped (${noTranscript} had no transcript)`,
     submitted,
     skipped,
   };

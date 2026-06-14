@@ -11,14 +11,6 @@ const posts = (await getCollection("posts", (p) => !p.data.draft))
 
 const LETTER_GRADES = ["A+","A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F"];
 const KEY_MOMENT_VERDICTS = ["verified","disputed","missing context","unsupported"];
-const POLITICAL_LEANS = [
-  { value: "left", label: "Leans Left" },
-  { value: "center-left", label: "Center-Left" },
-  { value: "center", label: "Centered" },
-  { value: "center-right", label: "Center-Right" },
-  { value: "right", label: "Leans Right" },
-  { value: "none", label: "No Political Bias" },
-];
 ---
 <BaseLayout title="Clad — Editorial Desk">
   <section class="admin">
@@ -92,17 +84,18 @@ const POLITICAL_LEANS = [
 
         <div class="field-row">
           <div class="field">
-            <label for="bc-lean">Political lean</label>
-            <select id="bc-lean">
-              {POLITICAL_LEANS.map((l) => (
-                <option value={l.value} selected={l.value === "center"}>{l.label}</option>
-              ))}
-            </select>
+            <label for="bc-lean-score">Political lean (−100 left … 0 center … +100 right)</label>
+            <input id="bc-lean-score" type="number" min="-100" max="100" value="0" />
           </div>
           <div class="field">
             <label for="bc-lean-rationale">Lean rationale (why)</label>
             <input id="bc-lean-rationale" maxlength="300" />
           </div>
+        </div>
+
+        <div class="field">
+          <label for="bc-grade-rationale">Why this grade (the punchy reason shown on cards)</label>
+          <input id="bc-grade-rationale" maxlength="300" placeholder="e.g. Several unsupported claims and missing context on key figures" />
         </div>
 
         <div class="field">
@@ -363,8 +356,9 @@ const POLITICAL_LEANS = [
         $("bc-headline").value = data.headline || $("bc-video-title").value || "";
         $("bc-grade").value = data.letterGrade || "C";
         $("bc-score").value = data.factualityScore ?? 50;
-        if (data.politicalLean) $("bc-lean").value = data.politicalLean;
+        $("bc-lean-score").value = (typeof data.leanScore === "number" ? data.leanScore : 0);
         $("bc-lean-rationale").value = data.leanRationale || "";
+        $("bc-grade-rationale").value = data.gradeRationale || "";
         $("bc-summary").value = data.summary || "";
         $("bc-assessment").value = data.assessment || "";
         $("bc-channel-2").value = $("bc-channel").value.trim();
@@ -419,8 +413,9 @@ const POLITICAL_LEANS = [
         assessment: $("bc-assessment").value.trim(),
         letterGrade: $("bc-grade").value,
         factualityScore: Number($("bc-score").value),
-        politicalLean: $("bc-lean").value,
+        leanScore: Number($("bc-lean-score").value) || 0,
         leanRationale: $("bc-lean-rationale").value.trim() || undefined,
+        gradeRationale: $("bc-grade-rationale").value.trim() || undefined,
         sourceUrl: $("bc-url").value.trim(),
         sourceTitle: $("bc-channel-2").value.trim() || undefined,
         videoTitle: $("bc-video-title").value.trim() || undefined,

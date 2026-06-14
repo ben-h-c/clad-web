@@ -32,7 +32,9 @@ export interface Frontmatter {
   letterGrade?: string;
   factualityScore?: number;
   politicalLean?: string;
+  leanScore?: number;
   leanRationale?: string;
+  gradeRationale?: string;
   topics?: string[];
   assessment?: string;
   notableConcerns?: string[];
@@ -63,7 +65,9 @@ export function emitPost(fm: Frontmatter, body: string): string {
     if (fm.factualityScore != null)
       lines.push(`factualityScore: ${Math.round(fm.factualityScore)}`);
     if (fm.politicalLean) lines.push(`politicalLean: ${q(fm.politicalLean)}`);
+    if (fm.leanScore != null) lines.push(`leanScore: ${Math.round(fm.leanScore)}`);
     if (fm.leanRationale) lines.push(`leanRationale: ${q(fm.leanRationale)}`);
+    if (fm.gradeRationale) lines.push(`gradeRationale: ${q(fm.gradeRationale)}`);
     emitStringArray(lines, "topics", fm.topics ?? []);
     if (fm.assessment) lines.push(`assessment: ${q(fm.assessment)}`);
     emitStringArray(lines, "notableConcerns", fm.notableConcerns ?? []);

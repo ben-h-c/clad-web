@@ -106,9 +106,16 @@ const paragraphs = (text: string) =>
           </div>
           <div class="report__metrics">
             <FactualityBar score={d.factualityScore!} />
-            {d.politicalLean && <PoliticalLean lean={d.politicalLean} size="header" />}
+            {(d.leanScore != null || d.politicalLean) && (
+              <PoliticalLean score={d.leanScore} lean={d.politicalLean} size="header" />
+            )}
           </div>
         </div>
+        {d.gradeRationale && (
+          <p class="grade-rationale">
+            <span class="small-caps">Why this grade:</span> {d.gradeRationale}
+          </p>
+        )}
         {d.leanRationale && (
           <p class="lean-rationale">
             <span class="small-caps">Why this lean:</span> {d.leanRationale}
