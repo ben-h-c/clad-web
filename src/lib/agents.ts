@@ -94,9 +94,12 @@ export const DEFAULT_REGISTRY: Registry = {
         publishedWithinHours: 48,
         maxCandidatesPerRun: 8,
         maxPublishesPerRun: 4,
-        maxScanPages: 2,
+        maxScanPages: 3,
+        // Broad US national-news landscape (not just DC politics), kept to
+        // substantive news that can carry a lean; the network allow-list +
+        // category 25 keep out sports/entertainment.
         query:
-          "Trump OR Biden OR Congress OR Senate OR \"Supreme Court\" OR \"White House\" OR election OR immigration OR economy OR \"foreign policy\" OR Ukraine OR Israel OR Iran OR \"Federal Reserve\"",
+          "US news OR politics OR government OR Congress OR \"Supreme Court\" OR economy OR inflation OR jobs OR immigration OR healthcare OR education OR crime OR \"criminal justice\" OR \"foreign policy\" OR election OR \"White House\" OR climate OR energy OR labor OR business OR abortion OR \"civil rights\" OR guns OR housing OR border OR Ukraine OR Israel OR Iran OR China",
       },
     },
     {
