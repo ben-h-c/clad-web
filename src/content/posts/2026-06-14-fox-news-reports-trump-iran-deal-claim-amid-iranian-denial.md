@@ -1,0 +1,62 @@
+---
+type: "broadcast"
+headline: "Fox News reports Trump Iran deal claim amid Iranian denial"
+summary: "The segment covered President Trump's departure for the G7 in Geneva and his Truth Social announcement of an imminent electronic peace deal with Iran that would dismantle its nuclear program and open the Strait of Hormuz. Reporter Aishah Hasnie noted Iranian state media statements that no signing would occur that weekend. A White House official outlined terms including destruction of nuclear material and no sanctions relief without full compliance. Hudson Institute fellow Rebeccah Heinrichs expressed low confidence the deal would materialize given Iran's lack of agreement and ongoing regional actions."
+publishedAt: 2026-06-14
+sourceUrl: "https://www.youtube.com/watch?v=erieUL3NrgQ"
+sourceTitle: "Fox News"
+section: "Politics"
+letterGrade: "B-"
+factualityScore: 62
+politicalLean: "center-right"
+leanScore: 35
+leanRationale: "Emphasized White House terms and past U.S. strikes favorably while giving limited airtime to Iranian position and protests"
+gradeRationale: "Graded B-: accurately relayed Trump's announcement and Iranian rebuttal but title overstated imminence while expert segment highlighted major compliance gaps"
+topics:
+  - "Iran nuclear program"
+  - "Trump foreign policy"
+  - "G7 summit"
+assessment: "The broadcast correctly transmitted the administration's stated conditions and the Iranian denial but framed the story around an unconfirmed deal whose prospects the on-air expert rated very low. Viewers received no independent verification of the claimed destruction of Iran's uranium stockpile or ballistic missile program beyond administration assertions. The title's use of 'imminent' contrasted with the reported timeline uncertainty and lack of Iranian buy-in. Coverage of G7 agenda items and protests was brief and secondary to the Iran narrative."
+notableConcerns:
+  - "Title asserted imminence not supported by Iranian statements in the same segment"
+keyMoments:
+  - claim: "Trump announced a peace deal with Iran will be signed today electronically"
+    verdict: "missing context"
+    note: "Trump posted the claim on Truth Social; Iranian foreign ministry spokesperson told state media no signing this weekend"
+  - claim: "All Iranian nuclear material will be destroyed and program dismantled under the deal"
+    verdict: "unsupported"
+    note: "Terms attributed to unnamed White House official; no confirmation from Iran or inspectors"
+  - claim: "U.S. strikes already degraded Iran's weaponization and missile programs"
+    verdict: "verified"
+    note: "Consistent with public assessments of prior Israeli-U.S. operations against Iranian sites"
+videoId: "erieUL3NrgQ"
+videoTitle: "NEW: Trump promises IMMINENT PEACE DEAL with Iran"
+thumbnail: "https://img.youtube.com/vi/erieUL3NrgQ/maxresdefault.jpg"
+citations:
+  - title: "Trump promises imminent peace deal with Iran"
+    url: "https://www.foxnews.com/video/6398382441112"
+  - title: "June 11, 2026 — Trump cancels planned strikes and touts ..."
+    url: "https://www.cnn.com/2026/06/11/world/live-news/iran-war-trump-israel-hnk"
+  - title: "'Dishonorable': Trump says leaked Iran ceasefire terms fake"
+    url: "https://www.aljazeera.com/news/2026/6/12/dishonorable-trump-says-leaked-iran-ceasefire-terms-fake"
+  - title: "Trump says Iran peace deal to be signed Sunday"
+    url: "https://www.euronews.com/2026/06/12/iran-says-deal-with-us-closer-than-ever-as-trump-warns-tehran-to-get-act-together"
+  - title: "Trump claims Iran deal reached, Tehran says no \"final ..."
+    url: "https://www.axios.com/2026/06/11/trump-cancel-iran-strikes-deal-strait"
+  - title: "U.S., Iran signal peace deal near as Tehran claims victory"
+    url: "https://www.reuters.com/world/middle-east/trump-says-iran-war-deal-close-strait-hormuz-tensions-linger-2026-06-12/"
+  - title: "U.S.-Iran Peace Deal Expected To Be Signed Sunday ..."
+    url: "https://www.forbes.com/sites/antoniopequenoiv/2026/06/13/us-iran-peace-deal-expected-to-be-signed-sunday-trump-says/"
+  - title: "Trump calls off Iran strikes, tells The Post US-Tehran deal ..."
+    url: "https://nypost.com/2026/06/11/us-news/trump-calls-off-more-iran-strikes-claims-us-tehran-peace-deal-has-been-approved/"
+  - title: "Iran and Ukraine loom over G7 as France accommodates ..."
+    url: "https://www.reuters.com/world/china/iran-ukraine-loom-over-g7-france-accommodates-trump-2026-06-11/"
+  - title: "Trump raises the stakes on an Iran deal before G7 summit"
+    url: "https://apnews.com/article/trump-iran-deal-g7-537299c0944acf9c4d20f3f25473b6a2"
+  - title: "Trump to Meet Mideast Partners on Sidelines of G7 in France"
+    url: "https://www.bloomberg.com/news/articles/2026-06-13/trump-to-meet-with-mideast-partners-on-sidelines-of-g7-in-france"
+  - title: "Trump claims peace deal with Iran 'largely negotiated' ..."
+    url: "https://www.theguardian.com/world/2026/may/23/trump-ceasefire-iran-strait-of-hormuz"
+---
+
+
