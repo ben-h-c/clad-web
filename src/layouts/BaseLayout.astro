@@ -5,12 +5,28 @@ import Masthead from "~/components/Masthead.astro";
 interface Props {
   title: string;
   description?: string;
+  /** Social-preview overrides. Default to the page title/description. */
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
 }
 
 const {
   title,
   description = "Clad — fact-checked headlines, edited like a 1920s broadsheet.",
+  ogTitle,
+  ogDescription,
+  ogImage,
+  ogType = "website",
 } = Astro.props;
+
+const site = Astro.site ?? new URL("https://cladfacts.com");
+const canonical = new URL(Astro.url.pathname, site).href;
+const shareTitle = ogTitle ?? title;
+const shareDescription = ogDescription ?? description;
+// Resolve the share image to an absolute URL (relative paths -> site origin).
+const shareImage = ogImage ? new URL(ogImage, site).href : null;
 ---
 <!doctype html>
 <html lang="en">
@@ -19,9 +35,23 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
     <link rel="alternate" type="application/rss+xml" title="Clad" href="/rss.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+
+    <!-- Open Graph / social link previews -->
+    <meta property="og:site_name" content="Clad" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={shareTitle} />
+    <meta property="og:description" content={shareDescription} />
+    {shareImage && <meta property="og:image" content={shareImage} />}
+
+    <meta name="twitter:card" content={shareImage ? "summary_large_image" : "summary"} />
+    <meta name="twitter:title" content={shareTitle} />
+    <meta name="twitter:description" content={shareDescription} />
+    {shareImage && <meta name="twitter:image" content={shareImage} />}
   </head>
   <body>
     <div class="shell">

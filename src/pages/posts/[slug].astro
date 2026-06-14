@@ -43,8 +43,38 @@ const sourceHost = (() => {
 const paragraphs = (text: string) =>
   text.split(/\n{2,}/).map((s) => s.trim()).filter(Boolean);
 const shareUrl = new URL(`/posts/${post.id}/`, Astro.site ?? "https://cladfacts.com").href;
+
+// Social-preview composition: surface grade + political lean alongside the
+// headline so they show in the unfurl card (image + title) on every platform.
+function leanLabel(score: number | null | undefined, lean: string | undefined): string | null {
+  const enumScore: Record<string, number> = {
+    left: -80, "center-left": -40, center: 0, "center-right": 40, right: 80, none: 0,
+  };
+  const s = typeof score === "number" ? score : lean ? enumScore[lean] ?? null : null;
+  if (s === null) return null;
+  return Math.abs(s) < 5 ? "Centered" : `${Math.abs(s)}% ${s > 0 ? "Right" : "Left"}-leaning`;
+}
+const VERDICT_LABELS: Record<string, string> = {
+  true: "True", "mostly-true": "Mostly True", mixed: "Mixed",
+  "mostly-false": "Mostly False", false: "False", unverified: "Unverified",
+};
+const lean = leanLabel(d.leanScore, d.politicalLean);
+const ogParts = isBroadcast
+  ? [d.letterGrade, lean].filter(Boolean)
+  : [d.verdict ? VERDICT_LABELS[d.verdict] : null].filter(Boolean);
+const ogTitle = ogParts.length ? `${ogParts.join(" · ")} — ${d.headline}` : d.headline;
+const ogDescription = isBroadcast
+  ? `Factuality ${d.factualityScore}/100. ${d.summary}`.slice(0, 200)
+  : d.summary.slice(0, 200);
 ---
-<BaseLayout title={`${d.headline} — Clad`} description={d.summary}>
+<BaseLayout
+  title={`${d.headline} — Clad`}
+  description={d.summary}
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  ogImage={d.thumbnail}
+  ogType="article"
+>
   <article class="post">
     <div class="post__kicker">
       {isBroadcast ? (
