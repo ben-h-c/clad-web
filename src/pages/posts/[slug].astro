@@ -62,7 +62,7 @@ const lean = leanLabel(d.leanScore, d.politicalLean);
 const ogParts = isBroadcast
   ? [d.letterGrade, lean].filter(Boolean)
   : [d.verdict ? VERDICT_LABELS[d.verdict] : null].filter(Boolean);
-const ogTitle = ogParts.length ? `${ogParts.join(" · ")} — ${d.headline}` : d.headline;
+const ogTitle = ogParts.length ? `${d.headline} — ${ogParts.join(" · ")}` : d.headline;
 const ogDescription = isBroadcast
   ? `Factuality ${d.factualityScore}/100. ${d.summary}`.slice(0, 200)
   : d.summary.slice(0, 200);
