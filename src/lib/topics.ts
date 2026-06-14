@@ -49,15 +49,65 @@ export interface TopicAgg {
   posts: CollectionEntry<"posts">[];
 }
 
+const TOPIC_STOP = new Set(
+  "the a an of and or to in on for at by with news update updates the".split(" ")
+);
+function topicTokens(t: string): Set<string> {
+  return new Set(
+    t.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter((w) => w.length >= 2 && !TOPIC_STOP.has(w))
+  );
+}
+// Similarity: 1 if one token set fully contains the other (e.g. "ufc" ⊂
+// "white house ufc"), else Jaccard overlap.
+function topicSim(a: Set<string>, b: Set<string>): number {
+  if (a.size === 0 || b.size === 0) return 0;
+  const [small, big] = a.size <= b.size ? [a, b] : [b, a];
+  if ([...small].every((x) => big.has(x))) return 1;
+  let inter = 0;
+  for (const x of a) if (b.has(x)) inter++;
+  return inter / (a.size + b.size - inter);
+}
+
 export function aggregateTopics(posts: CollectionEntry<"posts">[]): TopicAgg[] {
-  const map = new Map<string, { display: string; slug: string; posts: CollectionEntry<"posts">[] }>();
+  // 1) group articles by exact topic string
+  const byTopic = new Map<string, CollectionEntry<"posts">[]>();
   for (const p of posts) {
     for (const t of p.data.topics ?? []) {
-      const slug = topicSlug(t);
-      if (!slug) continue;
-      if (!map.has(slug)) map.set(slug, { display: t, slug, posts: [] });
-      map.get(slug)!.posts.push(p);
+      const key = t.trim();
+      if (!key) continue;
+      if (!byTopic.has(key)) byTopic.set(key, []);
+      byTopic.get(key)!.push(p);
     }
+  }
+
+  // 2) cluster similar topic strings into a canonical tag. Process by article
+  //    count desc so the most-covered phrasing becomes the canonical label and
+  //    variant phrasings attach to it.
+  const distinct = [...byTopic.keys()].sort(
+    (a, b) => byTopic.get(b)!.length - byTopic.get(a)!.length || a.length - b.length
+  );
+  const anchors: { topic: string; tokens: Set<string> }[] = [];
+  const canonOf = new Map<string, string>();
+  for (const t of distinct) {
+    const tt = topicTokens(t);
+    let best: { topic: string; tokens: Set<string> } | null = null;
+    let bestSim = 0;
+    for (const a of anchors) {
+      const s = topicSim(tt, a.tokens);
+      if (s > bestSim) { bestSim = s; best = a; }
+    }
+    if (best && bestSim >= 0.5) canonOf.set(t, best.topic);
+    else { anchors.push({ topic: t, tokens: tt }); canonOf.set(t, t); }
+  }
+
+  // 3) build clusters (dedup articles that share multiple topics in a cluster)
+  const map = new Map<string, { display: string; slug: string; posts: CollectionEntry<"posts">[] }>();
+  for (const [t, ps] of byTopic) {
+    const canon = canonOf.get(t)!;
+    const slug = topicSlug(canon);
+    if (!map.has(slug)) map.set(slug, { display: canon, slug, posts: [] });
+    const bucket = map.get(slug)!;
+    for (const p of ps) if (!bucket.posts.some((q) => q.id === p.id)) bucket.posts.push(p);
   }
 
   const now = Date.now();
