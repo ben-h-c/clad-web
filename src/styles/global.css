@@ -87,6 +87,128 @@ p {
   color: var(--paper);
 }
 
+.masthead__menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: left;
+  z-index: 20;
+}
+
+.masthead__menu > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  height: 2.4rem;
+  padding: 0 0.7rem;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.masthead__menu > summary::-webkit-details-marker {
+  display: none;
+}
+
+.masthead__menu[open] > summary,
+.masthead__menu > summary:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.masthead__menu-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.masthead__menu-list {
+  position: absolute;
+  top: 2.4rem;
+  left: 0;
+  min-width: 12rem;
+  margin: 0;
+  padding: 0.3rem 0;
+  list-style: none;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 3px 3px 0 rgba(10, 8, 5, 0.18);
+}
+
+.masthead__menu-list li {
+  margin: 0;
+}
+
+.masthead__menu-list a {
+  display: block;
+  padding: 0.5rem 0.9rem;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.masthead__menu-list a:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+@media (max-width: 30rem) {
+  .masthead__menu-label {
+    display: none;
+  }
+}
+
+/* Static prose pages (About, etc.) */
+
+.static-page {
+  max-width: var(--measure);
+  margin: 1.5rem auto 0;
+}
+
+.static-page__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.85rem, 5vw, 2.75rem);
+  line-height: 1.05;
+  margin: 0.25rem 0 1rem;
+}
+
+.static-page__sub {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 1.75rem 0 0.5rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+  scroll-margin-top: 1rem;
+}
+
+.static-page p,
+.static-page li {
+  line-height: 1.6;
+}
+
+.static-page ul {
+  padding-left: 1.2rem;
+}
+
+.static-page li {
+  margin: 0.4rem 0;
+}
+
+.static-page__note {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-style: italic;
+  color: var(--muted-ink);
+  font-size: 0.9rem;
+}
+
 .masthead__title {
   font-family: var(--font-masthead);
   font-weight: 700;

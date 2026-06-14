@@ -1,0 +1,70 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+
+export const prerender = true;
+---
+<BaseLayout
+  title="About Clad — Political Fact-Checks & Media Bias"
+  description="What Clad is, how it grades political broadcasts for accuracy and bias, and how to get in touch."
+>
+  <article class="static-page">
+    <h2 class="static-page__title">About Clad</h2>
+
+    <p>
+      Clad is an independent publication that fact-checks U.S. political news.
+      We watch broadcast segments and reporting from across the spectrum, then
+      publish a graded report card: an overall letter grade for accuracy, a
+      factuality score, a measured read of political lean, and a plain-language
+      explanation of <em>why</em> a segment earned its grade. Every report links
+      back to its original source so you can verify it yourself.
+    </p>
+
+    <h3 class="static-page__sub">How we grade</h3>
+    <ul>
+      <li>
+        <strong>Letter grade &amp; factuality.</strong> Each report gets an
+        overall grade (A+ to F) and a 0–100 factuality score reflecting how well
+        its claims hold up against the available evidence.
+      </li>
+      <li>
+        <strong>Political lean.</strong> We rate lean as a magnitude and
+        direction (for example, "78% right-leaning"), not a simple left/right
+        label — and we explain the reasoning.
+      </li>
+      <li>
+        <strong>Key moments.</strong> Notable claims are pulled out individually
+        and marked verified, disputed, missing context, or unsupported.
+      </li>
+      <li>
+        <strong>Sources.</strong> Each report cites the material it draws on so
+        the assessment is checkable, not just assertable.
+      </li>
+    </ul>
+
+    <h3 class="static-page__sub">Corrections</h3>
+    <p>
+      When we get something wrong, we issue a correction as a new post rather
+      than silently editing the original. Accuracy is the whole point.
+    </p>
+
+    <h3 class="static-page__sub" id="contact">Contact</h3>
+    <p>
+      Questions, tips, or corrections? Email the editor at
+      <a href="mailto:editor@cladfacts.com">editor@cladfacts.com</a>.
+    </p>
+
+    <h3 class="static-page__sub" id="subscribe">Subscribe</h3>
+    <p>
+      Follow new reports with our feed:
+      <a href="/rss.xml">subscribe via RSS</a>. Paste that link into any feed
+      reader to get every new report as it publishes.
+    </p>
+
+    <p class="static-page__note">
+      Clad's reports are editorial commentary, opinion, and analysis based on
+      publicly available material, presented under fair use for commentary and
+      criticism. Grades and verdicts assess the evidence and reporting, not the
+      character of any person named.
+    </p>
+  </article>
+</BaseLayout>

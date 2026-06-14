@@ -16,6 +16,25 @@ const homeHref = isAdmin ? "/admin/" : "/";
 
 <header class="masthead">
   {!isAdmin && (
+    <details class="masthead__menu">
+      <summary aria-label="Menu" title="Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <span class="masthead__menu-label small-caps">Menu</span>
+      </summary>
+      <ul class="masthead__menu-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/search/">Search</a></li>
+        <li><a href="/about/">About Clad</a></li>
+        <li><a href="/about/#contact">Contact</a></li>
+        <li><a href="/rss.xml">Subscribe (RSS)</a></li>
+      </ul>
+    </details>
+  )}
+  {!isAdmin && (
     <a class="masthead__search" href="/search/" aria-label="Search" title="Search">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
         <circle cx="11" cy="11" r="7"></circle>
@@ -31,3 +50,11 @@ const homeHref = isAdmin ? "/admin/" : "/";
     <span class="date">{dateline(date)}</span>
   </div>
 </header>
+{!isAdmin && (
+  <script is:inline>
+    document.addEventListener("click", (e) => {
+      const menu = document.querySelector(".masthead__menu");
+      if (menu && menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+  </script>
+)}
