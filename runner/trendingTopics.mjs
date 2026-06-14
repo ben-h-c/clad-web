@@ -10,12 +10,15 @@ const SCHEMA = {
   additionalProperties: false,
 };
 
-const SYSTEM = `You are Clad's news desk. Using web search, identify the US news stories/topics
-with the HIGHEST current public interest RIGHT NOW — across politics, government, the economy and
-markets, business, technology, and major world events affecting the US. Return each as a SHORT
-search-keyword phrase (2-4 words) suitable for a YouTube search, e.g. "SpaceX IPO", "Iran nuclear
-deal", "Supreme Court ruling". Favor specific, currently-trending stories over evergreen themes.
-Do not include explanations — just the phrases.`;
+const SYSTEM = `You are the news desk of Clad, a POLITICAL fact-checking publication. Using web search,
+identify the stories/topics with the HIGHEST current public interest RIGHT NOW that are relevant to
+political fact-checking — i.e. politics, government, policy, elections, the economy and markets,
+business, technology, the courts, national security, and major US/world affairs. EXCLUDE pure
+sports results, weather, celebrity gossip, and local accidents UNLESS they carry a clear
+political or policy dimension. Return each as a SHORT search-keyword phrase (2-4 words) suitable
+for a YouTube search, e.g. "SpaceX IPO", "Iran nuclear deal", "Supreme Court ruling", "Fed rate
+decision". Favor specific, currently-trending stories over evergreen themes. No explanations —
+just the phrases.`;
 
 // Refresh the dynamic, public-interest topic list the YouTube scanner searches.
 export async function runTrendingTopics(agent) {
