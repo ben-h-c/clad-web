@@ -74,7 +74,7 @@ export const DEFAULT_REGISTRY: Registry = {
       id: "youtube-news-scanner",
       kind: "youtube-scanner",
       name: "YouTube News Scanner",
-      enabled: false,
+      enabled: true,
       cron: "0 */6 * * *",
       config: {
         regionCode: "US",
