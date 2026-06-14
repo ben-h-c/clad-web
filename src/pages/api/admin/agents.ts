@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
-import { getRegistry, patchAgent } from "~/lib/agents";
+import { getRegistry, patchAgent, setRunNow } from "~/lib/agents";
 
 export const prerender = false;
 
@@ -19,6 +19,14 @@ export const POST: APIRoute = async ({ request }) => {
 
   const agentId = String(p?.agentId ?? "").trim();
   if (!agentId) return json({ error: "agentId required" }, 400);
+
+  // Manual run trigger — the runner picks it up on its next tick (~60s).
+  if (p?.run === true) {
+    const reg = await getRegistry(env.AGENTS);
+    if (!reg.agents.some((a) => a.id === agentId)) return json({ error: "Agent not found" }, 404);
+    const at = await setRunNow(env.AGENTS, agentId);
+    return json({ ok: true, queued: true, at }, 200);
+  }
 
   const patch: { enabled?: boolean; cron?: string } = {};
   if (typeof p.enabled === "boolean") patch.enabled = p.enabled;

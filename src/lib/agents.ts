@@ -72,6 +72,7 @@ const REGISTRY_KEY = "agents:registry";
 const FRONTPAGE_KEY = "frontpage:featured";
 const DRAFT_PREFIX = "draft:";
 const SEEN_PREFIX = "seen:";
+const RUNNOW_PREFIX = "runnow:";
 const DRAFT_TTL = 14 * 24 * 60 * 60; // 14 days
 const SEEN_TTL = 30 * 24 * 60 * 60; // 30 days
 
@@ -174,6 +175,25 @@ export async function setLastRun(
   if (!agent) return;
   agent.lastRun = lastRun;
   await putRegistry(kv, reg);
+}
+
+// Manual "run now" requests: the console sets a timestamp; the runner picks it
+// up on its next tick (~60s) and runs the agent regardless of cron, then clears.
+export async function setRunNow(kv: KVNamespace, agentId: string): Promise<string> {
+  const at = new Date().toISOString();
+  await kv.put(RUNNOW_PREFIX + agentId, at, { expirationTtl: 3600 });
+  return at;
+}
+export async function getRunNow(kv: KVNamespace, agentId: string): Promise<string | null> {
+  return await kv.get(RUNNOW_PREFIX + agentId);
+}
+export async function clearRunNow(kv: KVNamespace, agentId: string, ts?: string): Promise<void> {
+  if (!ts) {
+    await kv.delete(RUNNOW_PREFIX + agentId);
+    return;
+  }
+  const cur = await kv.get(RUNNOW_PREFIX + agentId);
+  if (cur === ts) await kv.delete(RUNNOW_PREFIX + agentId);
 }
 
 export function draftId(agentId: string, videoId: string): string {

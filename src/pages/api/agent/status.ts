@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { checkAgentToken, tokenUnauthorized } from "~/lib/agentAuth";
-import { setLastRun, type AgentLastRun } from "~/lib/agents";
+import { setLastRun, clearRunNow, type AgentLastRun } from "~/lib/agents";
 
 export const prerender = false;
 
@@ -30,6 +30,10 @@ export const POST: APIRoute = async ({ request }) => {
   };
 
   await setLastRun(env.AGENTS, agentId, lastRun);
+  // If this run consumed a manual "run now" request, clear it.
+  if (payload?.consumedRunNow) {
+    await clearRunNow(env.AGENTS, agentId, String(payload.consumedRunNow));
+  }
   return json({ ok: true }, 200);
 };
 

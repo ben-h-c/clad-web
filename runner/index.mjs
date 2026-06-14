@@ -24,14 +24,14 @@ function log(...args) {
   console.log(new Date().toISOString(), ...args);
 }
 
-async function runAgent(agent) {
+async function runAgent(agent, consumedRunNow = null) {
   if (running.has(agent.id)) {
     log(`skip ${agent.id}: still running`);
     return;
   }
   running.add(agent.id);
   const started = Date.now();
-  log(`running ${agent.id} (${agent.kind})`);
+  log(`running ${agent.id} (${agent.kind})${consumedRunNow ? " [manual]" : ""}`);
   let result;
   try {
     const fn = KINDS[agent.kind];
@@ -50,6 +50,7 @@ async function runAgent(agent) {
     submitted: result.submitted || 0,
     skipped: result.skipped || 0,
     durationMs: Date.now() - started,
+    consumedRunNow,
   };
   log(`done ${agent.id}: ${status.ok ? "ok" : "FAIL"} — ${status.message}`);
   await reportStatus(status);
@@ -65,8 +66,9 @@ async function tick() {
   const now = new Date();
   for (const agent of agents) {
     if (!agent.enabled) continue;
-    if (!isDue(agent.cron, agent.lastRun?.at, now)) continue;
-    await runAgent(agent);
+    const manual = agent.runNowAt || null;
+    if (!manual && !isDue(agent.cron, agent.lastRun?.at, now)) continue;
+    await runAgent(agent, manual);
   }
 }
 

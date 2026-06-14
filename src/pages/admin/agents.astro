@@ -48,6 +48,7 @@ function runLabel(lastRun: (typeof registry.agents)[number]["lastRun"]) {
             <p class={`run-badge ${run.cls}`}>{run.text}</p>
 
             <button type="button" class="a-save">Save</button>
+            <button type="button" class="secondary a-run">Run now</button>
             <span class="a-status"></span>
           </article>
         );
@@ -76,6 +77,26 @@ function runLabel(lastRun: (typeof registry.agents)[number]["lastRun"]) {
           const data = await res.json();
           if (!res.ok) throw new Error(data.error || "Save failed");
           status.textContent = "Saved.";
+        } catch (err) {
+          status.textContent = String(err.message || err);
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      el.querySelector(".a-run").addEventListener("click", async (e) => {
+        const btn = e.target;
+        btn.disabled = true;
+        status.textContent = "Queuing run…";
+        try {
+          const res = await fetch("/api/admin/agents", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ agentId: id, run: true }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || "Failed");
+          status.textContent = "Queued — runs within ~60s. Refresh for last-run status.";
         } catch (err) {
           status.textContent = String(err.message || err);
         } finally {
