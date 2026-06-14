@@ -101,10 +101,7 @@ export const DEFAULT_REGISTRY: Registry = {
         publishedWithinHours: 48,
         maxCandidatesPerRun: 8,
         maxPublishesPerRun: 15,
-        // Kept low: each search page costs 100 YouTube API quota units, and the
-        // default quota is ~100 searches/day. hourly x 2 categories x 2 pages
-        // (~96 searches/day) stays under budget. Raise only with a quota bump.
-        maxScanPages: 2,
+        maxScanPages: 4,
         // Focused query — a very long OR query (40+ terms) caused YouTube to
         // miss obvious matches (e.g. SpaceX IPO videos). Keep it tight.
         query:
