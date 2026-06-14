@@ -1,0 +1,88 @@
+---
+import { env } from "cloudflare:workers";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import AdminNav from "~/components/AdminNav.astro";
+import { contentStats, fetchVisitorStats } from "~/lib/stats";
+import { shortDate } from "~/lib/dateline";
+
+export const prerender = false;
+
+const s = await contentStats(env.AGENTS);
+const visitors = await fetchVisitorStats(env);
+---
+<BaseLayout title="Clad — Stats">
+  <section class="admin">
+    <AdminNav current="stats" />
+    <h2 class="admin__title">Statistics</h2>
+
+    <h3 class="small-caps" style="color:var(--muted-ink)">Visitors</h3>
+    {visitors ? (
+      <div class="stat-grid">
+        <div class="stat"><span class="stat__num">{visitors.visitors24h}</span><span class="stat__label small-caps">Visitors · 24h</span></div>
+        <div class="stat"><span class="stat__num">{visitors.pageviews24h}</span><span class="stat__label small-caps">Pageviews · 24h</span></div>
+        <div class="stat"><span class="stat__num">{visitors.visitors7d}</span><span class="stat__label small-caps">Visitors · 7d</span></div>
+        <div class="stat"><span class="stat__num">{visitors.pageviews7d}</span><span class="stat__label small-caps">Pageviews · 7d</span></div>
+      </div>
+    ) : (
+      <p class="dateline">
+        Visitor analytics not configured yet. Cloudflare Web Analytics
+        (cookieless) can be wired up to show real visitor counts here.
+      </p>
+    )}
+
+    <h3 class="small-caps" style="color:var(--muted-ink)">Content</h3>
+    <div class="stat-grid">
+      <div class="stat"><span class="stat__num">{s.published}</span><span class="stat__label small-caps">Published</span></div>
+      <div class="stat"><span class="stat__num">{s.hidden}</span><span class="stat__label small-caps">Hidden</span></div>
+      <div class="stat"><span class="stat__num">{s.pendingDrafts}</span><span class="stat__label small-caps">Pending</span></div>
+      <div class="stat"><span class="stat__num">{s.lastPublish ? shortDate(new Date(s.lastPublish)) : "—"}</span><span class="stat__label small-caps">Last publish</span></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.5rem">
+      <div>
+        <h3 class="small-caps" style="color:var(--muted-ink)">By Grade</h3>
+        <table class="stat-table">
+          <tbody>
+            {s.byGrade.length === 0 ? <tr><td>No graded reports</td></tr> : s.byGrade.map((g) => (
+              <tr><th>{g.label}</th><td>{g.count}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3 class="small-caps" style="color:var(--muted-ink)">By Political Lean</h3>
+        <table class="stat-table">
+          <tbody>
+            {s.byLean.length === 0 ? <tr><td>No leans recorded</td></tr> : s.byLean.map((l) => (
+              <tr><th>{l.label}</th><td>{l.count}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3 class="small-caps" style="color:var(--muted-ink)">By Month</h3>
+        <table class="stat-table">
+          <tbody>
+            {s.byMonth.map((m) => (
+              <tr><th>{m.label}</th><td>{m.count}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h3 class="small-caps" style="color:var(--muted-ink)">Agent Activity</h3>
+    <table class="stat-table">
+      <tbody>
+        {s.agentRuns.map((a) => (
+          <tr>
+            <th>{a.name}</th>
+            <td>{a.ok === null ? "never run" : a.ok ? "OK" : "FAILED"}</td>
+            <td>{a.at ? shortDate(new Date(a.at)) : "—"}</td>
+            <td class="dateline">{a.message}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
+</BaseLayout>

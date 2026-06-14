@@ -1,0 +1,108 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import AdminNav from "~/components/AdminNav.astro";
+import LetterGrade from "~/components/LetterGrade.astro";
+import Verdict from "~/components/Verdict.astro";
+import { shortDate } from "~/lib/dateline";
+
+export const prerender = false;
+
+const posts = (await getCollection("posts")).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+---
+<BaseLayout title="Clad — Posts">
+  <section class="admin">
+    <AdminNav current="posts" />
+    <h2 class="admin__title">Posts</h2>
+    <p class="dateline">
+      Manage published reports. <strong>Hide</strong> takes a post off the public
+      site (reversible). <strong>Delete</strong> removes it from the repo
+      entirely (git history keeps a copy). Changes go live in ~30s.
+    </p>
+
+    {posts.length === 0 ? (
+      <p class="dateline" style="margin-top:2rem">No posts yet.</p>
+    ) : (
+      <ul class="post-rows">
+        {posts.map((p) => (
+          <li class="post-row" data-id={p.id} data-draft={p.data.draft ? "1" : "0"}>
+            <div class="post-row__main">
+              {p.data.type === "broadcast" && p.data.letterGrade ? (
+                <LetterGrade grade={p.data.letterGrade} />
+              ) : p.data.verdict ? (
+                <Verdict verdict={p.data.verdict} />
+              ) : null}
+              <span class="post-row__headline">
+                <a href={`/posts/${p.id}/`} target="_blank" rel="noopener">{p.data.headline}</a>
+              </span>
+              {p.data.draft && <span class="post-row__hidden small-caps">Hidden</span>}
+            </div>
+            <p class="dateline">
+              {shortDate(p.data.publishedAt)}
+              {p.data.type === "broadcast" && p.data.politicalLean ? ` · ${p.data.politicalLean}` : ""}
+            </p>
+            <div class="post-row__actions">
+              <button type="button" class="secondary small p-toggle">
+                {p.data.draft ? "Unhide" : "Hide"}
+              </button>
+              <button type="button" class="secondary small p-delete">Delete</button>
+              <span class="p-status"></span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+
+  <script is:inline>
+    document.querySelectorAll(".post-row").forEach((row) => {
+      const id = row.getAttribute("data-id");
+      const status = row.querySelector(".p-status");
+      const toggleBtn = row.querySelector(".p-toggle");
+      const deleteBtn = row.querySelector(".p-delete");
+      const setStatus = (kind, msg) => {
+        status.innerHTML = msg
+          ? `<span class="notice ${kind === "error" ? "notice--error" : ""}" style="display:inline-block;padding:.2rem .5rem;margin:0">${msg}</span>`
+          : "";
+      };
+      const send = async (action) => {
+        [toggleBtn, deleteBtn].forEach((b) => (b.disabled = true));
+        setStatus("info", "Working…");
+        try {
+          const res = await fetch("/api/admin/posts", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action, id }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || "Failed");
+          if (action === "delete") {
+            setStatus("info", "Deleted — gone in ~30s.");
+            row.style.opacity = "0.5";
+            deleteBtn.remove();
+            toggleBtn.remove();
+          } else {
+            const nowHidden = action === "hide";
+            row.setAttribute("data-draft", nowHidden ? "1" : "0");
+            toggleBtn.textContent = nowHidden ? "Unhide" : "Hide";
+            setStatus("info", (nowHidden ? "Hidden" : "Unhidden") + " — live in ~30s.");
+            [toggleBtn, deleteBtn].forEach((b) => (b.disabled = false));
+          }
+        } catch (err) {
+          setStatus("error", String(err.message || err));
+          [toggleBtn, deleteBtn].forEach((b) => (b.disabled = false));
+        }
+      };
+      toggleBtn.addEventListener("click", () => {
+        send(row.getAttribute("data-draft") === "1" ? "unhide" : "hide");
+      });
+      deleteBtn.addEventListener("click", () => {
+        if (confirm("Delete this post from the site permanently? (git history keeps a copy)")) {
+          send("delete");
+        }
+      });
+    });
+  </script>
+</BaseLayout>

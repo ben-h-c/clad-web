@@ -1,6 +1,7 @@
 ---
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import AdminNav from "~/components/AdminNav.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
 import { listDrafts } from "~/lib/agents";
@@ -12,11 +13,11 @@ const drafts = await listDrafts(env.AGENTS);
 ---
 <BaseLayout title="Clad — Pending Queue">
   <section class="admin">
+    <AdminNav current="queue" />
     <h2 class="admin__title">Pending Approval</h2>
     <p class="dateline">
       Reports drafted by agents. Review each, then approve (publishes live) or
       reject (discards). Nothing here is public until you approve it.
-      <a href="/admin/">← Editorial Desk</a> · <a href="/admin/agents/">Agents</a>
     </p>
 
     {drafts.length === 0 ? (
