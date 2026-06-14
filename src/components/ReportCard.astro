@@ -59,7 +59,7 @@ const leanLabel = d.politicalLean ? LEAN_LABELS[d.politicalLean] : null;
         <h3 class="report-card__headline">{d.headline}</h3>
       </div>
       <p class="report-card__meta">
-        {shortDate(d.publishedAt)} · {d.section}{leanLabel ? ` · ${leanLabel}` : ""}
+        {shortDate(d.publishedAt)}{leanLabel ? ` · ${leanLabel}` : ""}
       </p>
       <p class="report-card__summary">{d.summary}</p>
     </div>

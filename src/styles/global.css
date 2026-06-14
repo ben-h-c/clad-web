@@ -77,6 +77,12 @@ p {
   line-height: 1;
 }
 
+.masthead__tagline {
+  text-align: center;
+  color: var(--muted-ink);
+  margin: 0.35rem 0 0;
+}
+
 .masthead__meta {
   display: flex;
   justify-content: space-between;
@@ -492,6 +498,23 @@ p {
   font-style: italic;
   color: var(--muted-ink);
   margin: 0.5rem 0 0;
+}
+
+/* Latest-reports feed */
+
+.feed {
+  margin-top: 2.5rem;
+}
+
+.feed__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.feed .rule--double {
+  margin: 0.5rem 0 1.25rem;
 }
 
 /* Category sections */

@@ -7,7 +7,6 @@ import { extractVideoId, thumbnailUrl } from "~/lib/youtube";
 
 export const prerender = false;
 
-const SECTIONS = ["Politics", "Economy", "Science", "World", "Tech", "Misc"];
 const VERDICTS = ["true", "mostly-true", "mixed", "mostly-false", "false", "unverified"];
 const LETTER_GRADES = ["A+","A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F"];
 const KEY_MOMENT_VERDICTS = ["verified", "disputed", "missing context", "unsupported"];
@@ -30,7 +29,8 @@ export const POST: APIRoute = async ({ request }) => {
   // Shared fields
   const headline = str(p.headline);
   const summary = str(p.summary);
-  const section = str(p.section ?? "Misc");
+  // Politics-only publication — every report is political news.
+  const section = "Politics";
   const kicker = p.kicker ? str(p.kicker) : undefined;
   const sourceTitle = p.sourceTitle ? str(p.sourceTitle) : undefined;
   const draft = Boolean(p.draft);
@@ -44,7 +44,6 @@ export const POST: APIRoute = async ({ request }) => {
 
   if (headline.length < 4) return json({ error: "Headline too short" }, 400);
   if (summary.length < 8) return json({ error: "Summary too short" }, 400);
-  if (!SECTIONS.includes(section)) return json({ error: "Invalid section" }, 400);
 
   let fm: Frontmatter;
   let body: string;
