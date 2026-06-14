@@ -14,9 +14,8 @@ leanScore: -38
 leanRationale: "Emphasized bipartisan rebukes of the fund and administration setbacks while using loaded phrasing like 'highway robbery' from Democratic voices and minimal counterbalancing administration defense."
 gradeRationale: "Graded C-: transcript shows multiple unsupported or vague claims on the $1.8B fund status and Iran developments, with heavy reliance on partisan commentary and missing primary sourcing."
 topics:
-  - "Trump DOJ anti-weaponization fund"
-  - "US-Iran military strikes"
-  - "Congressional funding disputes"
+  - "Trump DOJ"
+  - "Iran"
 assessment: "The reporting highlights legitimate congressional resistance to the fund but provides little detail on the underlying legal rationale or specific cases of alleged weaponization. Iran coverage lacks updates on strike scope or administration strategy, leaving viewers without context on escalation risks or diplomatic efforts. Framing leans toward portraying the fund as politically toxic without exploring its stated purpose of addressing perceived DOJ overreach under prior leadership. Disjointed transitions and off-topic asides reduce coherence. Viewers miss primary documents such as court orders or the exact legislative text blocking the fund."
 notableConcerns:
   - "Disjointed structure mixing unrelated topics"

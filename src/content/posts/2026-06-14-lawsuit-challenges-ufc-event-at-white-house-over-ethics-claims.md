@@ -14,9 +14,7 @@ leanScore: -72
 leanRationale: "Sole sourcing from lawsuit plaintiffs and critics, repeated use of loaded terms like 'volcano of corruption' and 'self-enrichment' without balancing administration or UFC perspectives."
 gradeRationale: "Graded C-: heavy reliance on plaintiffs' framing with minimal counter-evidence, unsupported corruption assertions, and missing context on event approvals or legal standards."
 topics:
-  - "White House event lawsuit"
-  - "Presidential ethics claims"
-  - "UFC sponsorship packages"
+  - "White House UFC"
 assessment: "The broadcast presents the plaintiffs' allegations as established fact while giving little weight to government rebuttals or procedural context. No primary documents such as permits or ethics opinions are referenced, and the discussion conflates commercial sponsorship with proven illegality. Viewers miss details on whether the event received required approvals or how similar past White House athletic events were handled. The emphasis on poll numbers and subjective descriptions of tackiness tilts the narrative toward skepticism of the administration without equivalent scrutiny of the lawsuit's standing arguments."
 notableConcerns:
   - "Exclusive reliance on plaintiffs' counsel for legal analysis"

@@ -14,9 +14,7 @@ leanScore: -72
 leanRationale: "Relies on Democratic-leaning framing, equates past policy statements with medical transparency, and contrasts coverage with hypothetical Biden scrutiny without equivalent sourcing."
 gradeRationale: "Graded C-: several claims rest on a single Washington Post report without independent verification, while unrelated campaign promises are presented as evidence of health disclosure patterns."
 topics:
-  - "Presidential health disclosure"
-  - "Donald Trump medical exams"
-  - "White House credibility"
+  - "Trump health"
 assessment: "The segment accurately reports the existence of the Washington Post specialist count and poll numbers but offers no counterbalancing medical context or statements from current White House physicians. Framing links unrelated policy disputes to health transparency without evidence that those disputes involved medical claims. Viewer perception is skewed by repeated emphasis on potential concealment while omitting that presidents have historically varied in disclosure detail. The constitutional-national security argument is asserted without reference to statutory requirements or past precedents beyond general norms. Balance is limited by the absence of Republican or medical-expert voices defending current practices."
 notableConcerns:
   - "Conflation of policy statements with medical disclosure record"

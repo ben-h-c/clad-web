@@ -13,10 +13,7 @@ leanScore: -72
 leanRationale: "Solely featured critical guests and voters; repeatedly used loaded terms such as 'demeaning the office' and 'Marie Antoinette problem' while omitting administration statements or precedents"
 gradeRationale: "Graded C-: heavy reliance on opinion framing and selective voter quotes with limited counter-evidence or primary documentation on event planning and legal basis"
 topics:
-  - "White House events"
-  - "Trump administration"
-  - "UFC event planning"
-  - "Economic sentiment"
+  - "White House UFC"
 assessment: "The segment accurately described the physical setup and scheduling but presented subjective judgments about dignity and political motivation as established fact without balancing administration rationales or historical event precedents. Viewer perception is skewed by exclusive sourcing from administration critics and emphasis on economic complaints while omitting data on inflation trends or official statements defending the event. The framing treats the choice of venue as unprecedented without examining past large-scale White House gatherings. Missing context includes details on security logistics, anniversary commemoration plans, and any formal objections from preservation authorities."
 notableConcerns:
   - "Exclusive use of critical guests and voters without opposing perspectives"

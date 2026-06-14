@@ -14,9 +14,8 @@ leanScore: 5
 leanRationale: "Balanced sourcing with administration statements offset by Democratic skepticism and analyst caution; minor right tilt from emphasis on projected deal benefits."
 gradeRationale: "Graded C+: heavy reliance on anonymous administration sourcing for major diplomatic claims and projections without corroboration; historical context on past false starts provided but timelines and specifics remain unverified."
 topics:
-  - "U.S.-Iran diplomacy"
-  - "White House UFC event"
-  - "Energy market impacts"
+  - "White House UFC"
+  - "Iran"
 assessment: "The broadcast accurately describes the UFC logistics and lawsuit outcome but presents the Iran deal as imminent based solely on one unnamed official and presidential statements. Viewers lack independent confirmation or details on the blockade referenced, and the 60-day timeline appears aspirational. Inclusion of Democratic and analyst skepticism mitigates some overstatement, yet the framing treats the MOU as a near-certainty despite explicit caveats from Iran's foreign minister. No primary documents or named experts beyond the administration are cited."
 notableConcerns:
   - "Reliance on single anonymous source for load-bearing diplomatic details"

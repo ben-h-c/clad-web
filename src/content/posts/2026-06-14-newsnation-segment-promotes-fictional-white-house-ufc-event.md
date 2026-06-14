@@ -14,9 +14,7 @@ leanScore: 15
 leanRationale: "Positive framing of Trump-hosted spectacle and anniversary events without counterpoints or verification"
 gradeRationale: "Graded F: every major claim is fabricated, including the UFC event, arena, fighter lineup, and celebrity attendance, with no sourcing or disclaimers"
 topics:
-  - "White House events"
-  - "UFC"
-  - "US semiquincentennial"
+  - "White House UFC"
 assessment: "The broadcast presents an entirely invented event as current news without any primary sources, official statements, or disclaimers. No evidence exists of UFC fights, the described arena, or the listed participants at the White House. The framing emphasizes spectacle and national celebration while omitting that these plans are nonexistent. Viewers receive no context that this is not a real scheduled occurrence."
 notableConcerns:
   - "Presentation of fabricated events as factual reporting"

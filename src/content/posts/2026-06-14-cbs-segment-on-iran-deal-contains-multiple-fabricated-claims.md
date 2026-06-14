@@ -14,9 +14,7 @@ leanScore: 0
 leanRationale: "No clear partisan framing or selective sourcing; inaccuracies stem from invented events rather than ideological slant."
 gradeRationale: "Core claims including the death of Ayatollah Khamenei, an active US-Israel-Iran war, and blockades of the Strait of Hormuz are false and unsupported by any primary evidence."
 topics:
-  - "US-Iran negotiations"
-  - "Strait of Hormuz security"
-  - "Israel-Hezbollah conflict"
+  - "Iran"
 assessment: "The broadcast presents a scenario that does not correspond to documented events; Khamenei remains alive and no such war or blockade exists. Viewers receive no indication that the described strikes, casualties, or negotiations are invented. The use of real place names and officials alongside fabricated developments creates a misleading impression of ongoing developments. Sourcing is thin and relies heavily on anonymous claims without corroboration from verifiable records."
 notableConcerns:
   - "Presents fictional events as factual news"

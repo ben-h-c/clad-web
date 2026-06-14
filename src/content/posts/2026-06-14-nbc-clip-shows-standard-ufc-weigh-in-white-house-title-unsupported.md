@@ -13,8 +13,7 @@ leanScore: 0
 leanRationale: "No discernible political framing or sourcing bias in the provided clip."
 gradeRationale: "Graded C-: transcript accurately reports fighter weights but provides no evidence for the White House claim in the title, with no sourcing or context supplied."
 topics:
-  - "UFC weigh-ins"
-  - "Mixed martial arts events"
+  - "White House UFC"
 assessment: "The title asserts a UFC event at the White House, yet the transcript contains no supporting statements or visuals. Standard weight announcements match typical UFC protocol but offer no verification of location or event legitimacy. Viewers receive no background on whether this is an actual scheduled card or a hypothetical scenario. The mismatch between headline and content risks creating a false impression of a high-profile political venue hosting the fights."
 notableConcerns:
   - "Title asserts White House location with zero supporting evidence in the clip"

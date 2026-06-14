@@ -13,9 +13,7 @@ leanScore: -12
 leanRationale: "Framing emphasizes taxpayer cost questions and optics concerns while treating unverified production details as established; no counterbalancing administration or organizer statements."
 gradeRationale: "Graded C-: multiple load-bearing claims on costs, permits, and logistics presented without sourcing or verification; several details appear speculative or unconfirmed."
 topics:
-  - "White House events"
-  - "UFC promotion costs"
-  - "government logistics"
+  - "White House UFC"
 assessment: "The broadcast raises legitimate questions about ancillary public costs but relies heavily on anonymous estimates and unverified production figures. No primary documents, budget filings, or official statements are referenced to substantiate the $60 million or $30 million loss claims. Viewer perception may be skewed by treating logistical speculation as imminent fact while omitting any confirmation that permits or judicial clearance actually occurred. The piece mixes event promotion details with cost skepticism without balancing sourcing."
 notableConcerns:
   - "Reliance on unsourced cost figures"

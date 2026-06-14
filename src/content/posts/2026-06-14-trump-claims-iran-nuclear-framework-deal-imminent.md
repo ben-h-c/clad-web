@@ -14,9 +14,7 @@ leanScore: -28
 leanRationale: "Anchor's repeated skepticism about Trump's prior deal announcements and emphasis on Iranian disputes introduced a mildly critical framing"
 gradeRationale: "Graded C-: accurately relayed Trump's statements but offered minimal sourcing or verification for load-bearing claims on timelines, uranium transfers, and Hormuz access"
 topics:
-  - "US-Iran negotiations"
-  - "Nuclear nonproliferation"
-  - "Strait of Hormuz shipping"
+  - "Iran"
 assessment: "The report correctly attributed claims to Trump but lacked independent verification or historical context on past Iran deal timelines. Viewers received no details on enforcement mechanisms, IAEA monitoring status, or reactions from other regional actors beyond listed partners. The anchor's aside on prior announcements highlighted pattern recognition yet offered no data on how often such statements preceded actual agreements. Missing counterpoints include Iran's official positions and economic analyses of Hormuz disruption risks."
 notableConcerns:
   - "Heavy reliance on administration claims without corroborating documents or third-party confirmation"

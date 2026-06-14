@@ -14,8 +14,7 @@ leanScore: 15
 leanRationale: "Positive framing of the event as historic with emphasis on administration cooperation and no counterbalancing perspectives presented."
 gradeRationale: "Graded B: descriptive logistics and setup details hold up but key claims on event scale, security, and partnerships lack independent sourcing or verification."
 topics:
-  - "UFC event at White House"
-  - "America 250 celebrations"
+  - "White House UFC"
 assessment: "The broadcast functions primarily as event promotion rather than investigative reporting, accurately conveying visible setup elements but presenting unverified assertions about security rigor and uniqueness. Viewers receive no context on prior White House lawn events, cost details, or potential disruptions to normal operations. The framing treats the occasion as a straightforward milestone without exploring scheduling or policy implications. Limited sourcing leaves claims about the event's scale dependent on UFC representatives alone."
 notableConcerns:
   - "Reliance on single organizational source for security and logistical claims"
