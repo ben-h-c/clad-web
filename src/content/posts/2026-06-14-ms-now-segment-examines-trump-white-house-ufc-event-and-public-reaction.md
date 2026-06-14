@@ -44,8 +44,6 @@ citations:
     url: "https://www.washingtonpost.com"
   - title: "U.S. Inflation Rate Data"
     url: "https://www.bls.gov/cpi/"
-  - title: "Past South Lawn Events and Traditions"
-    url: "https://www.nps.gov/whho/learn/historyculture/south-lawn.htm"
   - title: "Voter Sentiment on Economy - Ohio Polling"
     url: "https://www.wsj.com"
 ---

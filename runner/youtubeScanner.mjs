@@ -1,4 +1,5 @@
 import { generateBroadcastReport } from "../src/lib/broadcast.ts";
+import { validateCitations } from "../src/lib/citations.ts";
 import { fetchTranscript } from "./transcript.mjs";
 import { getKnown, submitDraft } from "./api.mjs";
 
@@ -122,6 +123,7 @@ export async function runYoutubeScanner(agent) {
           skipped++;
           continue;
         }
+        report.citations = await validateCitations(report.citations);
         const out = await submitDraft({
           agentId: agent.id,
           sourceUrl,

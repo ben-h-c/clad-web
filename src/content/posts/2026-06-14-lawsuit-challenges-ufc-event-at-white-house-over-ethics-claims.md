@@ -37,12 +37,8 @@ thumbnail: "https://img.youtube.com/vi/sWbDvx8maCU/maxresdefault.jpg"
 citations:
   - title: "U.S. Constitution Article II, Section 1 (Emoluments Clause)"
     url: "https://www.archives.gov/founding-docs/constitution-transcript"
-  - title: "White House Event Permitting Guidelines"
-    url: "https://www.whitehouse.gov/about-the-white-house/grounds-and-gardens/"
   - title: "Reuters/Ipsos polling on Trump events"
     url: "https://www.reuters.com/politics/"
-  - title: "Federal ethics rules on use of public property"
-    url: "https://www.oge.gov/web/oge.nsf/0/8B8B8B8B8B8B8B8B"
   - title: "TKO Group Holdings UFC sponsorship disclosures"
     url: "https://investors.tkogrp.com/"
 ---

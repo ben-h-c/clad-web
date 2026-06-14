@@ -5,6 +5,7 @@ import { datedSlug } from "~/lib/slug";
 import { emitPost, type Frontmatter, type KeyMoment } from "~/lib/yaml";
 import { extractVideoId, thumbnailUrl } from "~/lib/youtube";
 import { leanBucket } from "~/lib/broadcast";
+import { validateCitations } from "~/lib/citations";
 
 export const prerender = false;
 
@@ -36,11 +37,13 @@ export const POST: APIRoute = async ({ request }) => {
   const draft = Boolean(p.draft);
   const featured = Boolean(p.featured);
   const correctionOf = p.correctionOf ? str(p.correctionOf) : undefined;
-  const citations = Array.isArray(p.citations)
+  const rawCitations = Array.isArray(p.citations)
     ? p.citations
         .map((c: any) => ({ title: str(c?.title ?? ""), url: str(c?.url ?? "") }))
         .filter((c: any) => c.title && c.url)
     : [];
+  // Drop dead links so "Sources Consulted" never shows 404s.
+  const citations = await validateCitations(rawCitations);
 
   if (headline.length < 4) return json({ error: "Headline too short" }, 400);
   if (summary.length < 8) return json({ error: "Summary too short" }, 400);

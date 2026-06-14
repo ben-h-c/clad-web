@@ -39,14 +39,10 @@ thumbnail: "https://img.youtube.com/vi/7hNAA2JZI_A/maxresdefault.jpg"
 citations:
   - title: "TKO Group Holdings SEC Filings"
     url: "https://www.sec.gov/edgar/search/"
-  - title: "White House South Lawn Event Policy"
-    url: "https://www.whitehouse.gov/about-the-white-house/the-grounds/"
   - title: "America 250 Commission Official Site"
     url: "https://america250.org/"
   - title: "U.S. Secret Service Event Security Guidelines"
     url: "https://www.secretservice.gov/"
-  - title: "National Park Service Special Events Permits"
-    url: "https://www.nps.gov/aboutus/permits.htm"
 ---
 
 
