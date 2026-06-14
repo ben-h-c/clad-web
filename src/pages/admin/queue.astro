@@ -108,7 +108,7 @@ const drafts = await listDrafts(env.AGENTS);
           ? `<div class="notice ${kind === "error" ? "notice--error" : ""}">${msg}</div>`
           : "";
       };
-      const send = async (action, btn) => {
+      const send = async (action, force = false) => {
         item.querySelectorAll("button").forEach((b) => (b.disabled = true));
         setStatus("info", action === "approve" ? "Publishing…" : "Discarding…");
         try {
@@ -118,10 +118,17 @@ const drafts = await listDrafts(env.AGENTS);
             body: JSON.stringify({
               action,
               draftId: id,
+              force,
               featured: item.querySelector(".q-featured").checked,
             }),
           });
           const data = await res.json();
+          if (res.status === 409 && data.duplicate) {
+            item.querySelectorAll("button").forEach((b) => (b.disabled = false));
+            if (confirm(data.error + "\n\nPublish anyway?")) return send("approve", true);
+            setStatus("error", "Skipped (possible duplicate).");
+            return;
+          }
           if (!res.ok) throw new Error(data.error || "Failed");
           if (action === "reject") {
             item.remove();
@@ -134,8 +141,8 @@ const drafts = await listDrafts(env.AGENTS);
           item.querySelectorAll("button").forEach((b) => (b.disabled = false));
         }
       };
-      item.querySelector(".q-approve").addEventListener("click", (e) => send("approve", e.target));
-      item.querySelector(".q-reject").addEventListener("click", (e) => send("reject", e.target));
+      item.querySelector(".q-approve").addEventListener("click", () => send("approve"));
+      item.querySelector(".q-reject").addEventListener("click", () => send("reject"));
     });
   </script>
 </BaseLayout>

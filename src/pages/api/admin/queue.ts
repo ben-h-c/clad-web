@@ -4,7 +4,7 @@ import { commitFile } from "~/lib/github";
 import { datedSlug } from "~/lib/slug";
 import { emitPost } from "~/lib/yaml";
 import { buildBroadcastFrontmatter } from "~/lib/postBuild";
-import { deleteDraft, getDraft, listDrafts, markSeen } from "~/lib/agents";
+import { deleteDraft, findDuplicateStory, getDraft, listDrafts, markSeen } from "~/lib/agents";
 
 export const prerender = false;
 
@@ -40,6 +40,19 @@ export const POST: APIRoute = async ({ request }) => {
 
   const draft = await getDraft(env.AGENTS, id);
   if (!draft) return json({ error: "Draft not found" }, 404);
+
+  // Backstop: block approving a story this network has already published
+  // (something may have gone live since the draft was created). Override with
+  // {force:true} if the editor is sure it's a distinct story.
+  if (!p?.force) {
+    const dup = await findDuplicateStory(env.AGENTS, {
+      channel: draft.source.channel ?? "",
+      texts: [draft.source.videoTitle ?? "", draft.report.headline],
+    });
+    if (dup) {
+      return json({ error: `Looks like a duplicate — ${dup}. Re-approve to publish anyway.`, duplicate: true }, 409);
+    }
+  }
 
   const fm = buildBroadcastFrontmatter(draft.report, {
     sourceUrl: draft.sourceUrl,

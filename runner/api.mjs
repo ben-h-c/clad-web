@@ -26,10 +26,10 @@ export function getConfig() {
   return call("/api/agent/config", { method: "GET" });
 }
 
-export function getKnown(agentId, videoIds) {
+export function getKnown(agentId, candidates) {
   return call("/api/agent/seen", {
     method: "POST",
-    body: JSON.stringify({ agentId, videoIds }),
+    body: JSON.stringify({ agentId, candidates }),
   });
 }
 
