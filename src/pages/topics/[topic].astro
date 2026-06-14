@@ -4,6 +4,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import ReportCard from "~/components/ReportCard.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
+import ShareBar from "~/components/ShareBar.astro";
 import { aggregateTopics } from "~/lib/topics";
 
 export const prerender = true;
@@ -21,8 +22,28 @@ const { topic } = Astro.props;
 const posts = topic.posts.sort(
   (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
 );
+
+const shareUrl = new URL(`/topics/${topic.slug}/`, Astro.site ?? "https://cladfacts.com").href;
+const leanLbl =
+  topic.avgLean === null
+    ? null
+    : Math.abs(topic.avgLean) < 5
+      ? "Centered"
+      : `${Math.abs(topic.avgLean)}% ${topic.avgLean > 0 ? "Right" : "Left"}-leaning`;
+const ogDescription = [
+  `${topic.count} fact-checked ${topic.count === 1 ? "report" : "reports"} on ${topic.display}`,
+  topic.avgGrade ? `avg grade ${topic.avgGrade}` : null,
+  leanLbl,
+].filter(Boolean).join(" · ");
 ---
-<BaseLayout title={`${topic.display} — Clad`} description={`All Clad reports tagged ${topic.display}.`}>
+<BaseLayout
+  title={`${topic.display} — Clad`}
+  description={`All Clad reports tagged ${topic.display}.`}
+  ogTitle={`${topic.display} — ${topic.count} ${topic.count === 1 ? "report" : "reports"}`}
+  ogDescription={ogDescription}
+  ogImage={`/og/topic-${topic.slug}.png`}
+  ogType="website"
+>
   <section class="topic-page">
     <p class="small-caps" style="color:var(--muted-ink)">Topic · {topic.count} {topic.count === 1 ? "report" : "reports"}</p>
     <h2 class="topic-page__title">{topic.display}</h2>
@@ -38,6 +59,8 @@ const posts = topic.posts.sort(
         <div class="scoreband__bias"><PoliticalLean score={topic.avgLean} /></div>
       )}
     </div>
+
+    <ShareBar url={shareUrl} title={`${topic.display} — Clad`} />
 
     <div class="rule rule--double" aria-hidden="true" style="margin:1.25rem 0"></div>
 

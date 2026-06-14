@@ -7,6 +7,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { renderOgCard } from "./ogCard.mjs";
+import { aggregateTopics } from "../src/lib/topics.ts";
 
 const cwd = process.cwd();
 const POSTS_DIR = path.join(cwd, "src/content/posts");
@@ -32,12 +33,16 @@ export async function generateOgImages() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
   const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".md"));
+  const pseudoPosts = [];
   let made = 0;
   for (const file of files) {
     const { data: d } = matter(fs.readFileSync(path.join(POSTS_DIR, file), "utf8"));
     if (d.draft) continue;
     const slug = file.replace(/\.md$/, "");
     const isBroadcast = d.type === "broadcast";
+
+    // Collected for topic-group aggregation below.
+    pseudoPosts.push({ id: slug, data: { ...d, publishedAt: new Date(d.publishedAt) } });
 
     try {
       const png = await renderOgCard({
@@ -55,7 +60,32 @@ export async function generateOgImages() {
       console.error(`[og] failed for ${slug}: ${err?.message || err}`);
     }
   }
-  console.log(`[og] generated ${made} preview images -> public/og/`);
+
+  // Topic-group cards (one per /topics/<slug>/ page) so whole topics share too.
+  let topicsMade = 0;
+  try {
+    const topics = aggregateTopics(pseudoPosts);
+    for (const t of topics) {
+      try {
+        const png = await renderOgCard({
+          headline: t.display,
+          badge: t.avgGrade ?? "—",
+          badgeLabel: "AVG GRADE",
+          lean: leanLabel(t.avgLean, null),
+          metaLine: `TOPIC · ${t.count} ${t.count === 1 ? "REPORT" : "REPORTS"}`,
+          thumbnail: t.thumbnail ?? undefined,
+        });
+        fs.writeFileSync(path.join(OUT_DIR, `topic-${t.slug}.png`), png);
+        topicsMade++;
+      } catch (err) {
+        console.error(`[og] failed for topic ${t.slug}: ${err?.message || err}`);
+      }
+    }
+  } catch (err) {
+    console.error(`[og] topic aggregation failed: ${err?.message || err}`);
+  }
+
+  console.log(`[og] generated ${made} article + ${topicsMade} topic preview images -> public/og/`);
 }
 
 // Allow running directly: `node scripts/genOgImages.mjs`

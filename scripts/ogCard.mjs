@@ -72,9 +72,12 @@ export async function renderOgCard(input) {
   const thumb = await loadThumb(input.thumbnail);
   const color = gradeColor(input.badge);
 
-  const meta = [input.lean ? "POLITICAL LEAN" : null, input.factuality != null ? `FACTUALITY ${input.factuality}/100` : null]
-    .filter(Boolean)
-    .join("    ·    ");
+  const meta =
+    input.metaLine != null
+      ? input.metaLine
+      : [input.lean ? "POLITICAL LEAN" : null, input.factuality != null ? `FACTUALITY ${input.factuality}/100` : null]
+          .filter(Boolean)
+          .join("    ·    ");
 
   const thumbBlock = thumb
     ? `<img src="${thumb}" style="width:1200px;height:286px;object-fit:cover;" />`
