@@ -1,0 +1,63 @@
+---
+type: "broadcast"
+headline: "Max Left video labels SpaceX IPO a pump-and-dump scam"
+summary: "The video asserts that SpaceX began trading via IPO at $135 per share with a $1.78 trillion valuation and $75 billion raised. It labels the offering a pump-and-dump benefiting early Twitter investors and warns that NASDAQ rule changes will force the company into index funds.\nThe segment relies on the host's narration with no named guests, primary documents, or on-screen data sources. It closes with a sarcastic aside about access to IPO shares."
+publishedAt: 2026-06-14
+sourceUrl: "https://www.youtube.com/watch?v=XIyalZTaF-k"
+sourceTitle: "Max Left"
+section: "Politics"
+letterGrade: "C+"
+factualityScore: 65
+politicalLean: "left"
+leanScore: -65
+leanRationale: "Channel name and framing target Elon Musk-linked companies with loaded terms like 'pump and dump scam' while omitting counter-evidence or context on private-to-public transition."
+gradeRationale: "Graded C+: core claims on IPO pricing, valuation, and occurrence are supported by reporting, but assertions labeling it a scam and linking Twitter investors lack evidence."
+topics:
+  - "SpaceX"
+  - "IPOs"
+  - "Stock market"
+assessment: "The broadcast correctly reports the SpaceX IPO details and pricing that align with market coverage. However, the pump-and-dump framing and linkage to Twitter investors receive no sourcing or regulatory records. Viewers see a one-sided interpretation that emphasizes risk to retirement accounts without presenting counter-evidence on index inclusion standards. The absence of balanced expert commentary leaves the audience with a selectively negative impression of the debut."
+notableConcerns:
+  - "Unsubstantiated 'pump and dump' characterization"
+  - "Unverified linkage between Twitter investors and SpaceX shares"
+keyMoments:
+  - claim: "SpaceX started trading at $135 per share with $1.78 trillion valuation"
+    verdict: "verified"
+    note: "Pricing and valuation figures match contemporaneous Reuters and CNBC reporting on the IPO."
+  - claim: "Early Twitter investors are being bundled into the SpaceX IPO for a pump-and-dump"
+    verdict: "unsupported"
+    note: "No public records or filings link X investors to any SpaceX share offering."
+  - claim: "NASDAQ is changing rules to admit immature large companies into index funds"
+    verdict: "missing context"
+    note: "Nasdaq has proposed listing standard updates, but no direct tie to SpaceX index inclusion is documented."
+videoId: "XIyalZTaF-k"
+videoTitle: "SpaceX IPO is a pump and dump scam"
+thumbnail: "https://img.youtube.com/vi/XIyalZTaF-k/maxresdefault.jpg"
+citations:
+  - title: "Exclusive: SpaceX plans to set IPO price at $135 per share, targeting record $75 billion raise, source says"
+    url: "https://www.reuters.com/business/media-telecom/spacex-plans-raise-75-billion-ipo-135-per-share-source-says-2026-06-03/"
+  - title: "SpaceX IPO explained: Price is set, but retail still up in the air"
+    url: "https://www.cnbc.com/2026/06/09/spacex-ipo-explained-stock-price-date.html"
+  - title: "SpaceX IPO closes up 19% and delivers the world's first trillionaire"
+    url: "https://techcrunch.com/2026/06/12/spacex-ipo-closes-up-19-and-delivers-the-worlds-first-trillionaire/"
+  - title: "SpaceX Stock Just Launched. What Investors Should Know After the IPO"
+    url: "https://money.usnews.com/investing/articles/spacex-stock-just-launched-what-investors-should-know-after-the-ipo"
+  - title: "Musk's SpaceX prices record $75 billion IPO at $135 a share"
+    url: "https://www.reuters.com/world/musks-spacex-prices-record-75-billion-ipo-135-share-2026-06-11/"
+  - title: "SpaceX targets $135 IPO price at valuation of $1.77 trillion"
+    url: "https://www.cnbc.com/2026/06/03/spacex-ipo-stock-price-roadshow-musk.html"
+  - title: "SpaceX IPO: SPCX Debuts At $150 (Live Updates)"
+    url: "https://www.forbes.com/sites/tylerroush/2026/06/12/spacex-opens-at-150-surging-17-after-largest-ipo-ever-live-updates/"
+  - title: "SpaceX market cap tops $2 trillion after shares of Elon Musk’s rocket company gain 19% on debut"
+    url: "https://www.cnbc.com/2026/06/12/spacex-stock-jumps-2-trillion.html"
+  - title: "SpaceX says it’s worth $1.75tn as it targets largest stock market debut"
+    url: "https://www.bbc.com/news/articles/cvgz237n40jo"
+  - title: "Skeptics Question Whether SpaceX Is Worth $1.77 Trillion"
+    url: "https://www.nytimes.com/2026/06/11/technology/spacex-valuation-skeptics.html"
+  - title: "Nasdaq Proposes Changes to its Listing Standards"
+    url: "https://ir.nasdaq.com/news-releases/news-release-details/nasdaq-proposes-changes-its-listing-standards"
+  - title: "Nasdaq-100 Index® Methodology Changes"
+    url: "https://indexes.nasdaqomx.com/docs/2026_May_NDX_Changes_FAQ.pdf"
+---
+
+
