@@ -7,7 +7,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { renderOgCard } from "./ogCard.mjs";
-import { aggregateTopics } from "../src/lib/topics.ts";
+import { aggregateTopics } from "./topicsAgg.mjs";
 
 const cwd = process.cwd();
 const POSTS_DIR = path.join(cwd, "src/content/posts");

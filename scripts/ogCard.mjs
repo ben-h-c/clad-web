@@ -50,7 +50,8 @@ async function loadThumb(thumbnail) {
   if (!thumbnail) return null;
   try {
     if (/^https?:\/\//.test(thumbnail)) {
-      const r = await fetch(thumbnail);
+      // Bounded fetch: never let a hung request stall the whole build.
+      const r = await fetch(thumbnail, { signal: AbortSignal.timeout(8000) });
       if (!r.ok) return null;
       const buf = Buffer.from(await r.arrayBuffer());
       const mime = thumbnail.endsWith(".png") ? "image/png" : "image/jpeg";
