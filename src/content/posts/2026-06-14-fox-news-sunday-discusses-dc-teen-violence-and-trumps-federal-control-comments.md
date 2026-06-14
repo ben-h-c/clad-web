@@ -9,6 +9,8 @@ section: "Politics"
 featured: true
 letterGrade: "C"
 factualityScore: 50
+politicalLean: "right"
+leanRationale: "Fox News Sunday segment emphasizes DC youth crime incidents and Trump's federal takeover proposals via law enforcement and community guest interviews, reflecting the network's typical law-and-order framing without noted counter-perspectives."
 topics:
   - "DC crime and teen violence"
   - "Trump DC safety proposals"
@@ -25,7 +27,21 @@ keyMoments:
     note: "Topic highlighted with guest interviews; broader crime data and statistics not independently confirmed in research."
 videoId: "vqbuys4BfPY"
 thumbnail: "https://img.youtube.com/vi/vqbuys4BfPY/maxresdefault.jpg"
-citations: []
+citations:
+  - title: "Trump threatens to federalize DC after ex-DOGE employee ..."
+    url: "https://www.foxnews.com/us/trump-warns-take-federal-control-washington-dc-youth-violence-continues"
+  - title: "Police group says teen mob chaos set stage for Trump ..."
+    url: "https://www.foxnews.com/us/dc-soft-crime-leaders-let-teens-run-wild-opened-door-trump-takeover-police-group"
+  - title: "U.S. Attorney Pirro Announces New Enforcement ..."
+    url: "https://www.justice.gov/usao-dc/pr/us-attorney-pirro-announces-new-enforcement-measures-targeting-teen-takeovers"
+  - title: "Experts warn teen takeovers will surge this summer as ..."
+    url: "https://www.foxnews.com/politics/inside-teen-takeovers-threatening-explode-summer-cities-remain-edge-very-worried"
+  - title: "Trump threatens 'complete and total federal takeover' of DC"
+    url: "https://www.nbcwashington.com/news/local/trump-threatens-complete-and-total-federal-takeover-of-dc/3978724/"
+  - title: "Trump zeroes in on federal takeover of DC as FBI patrols ..."
+    url: "https://www.cnn.com/2025/08/11/politics/trump-washington-dc-crime"
+  - title: "DC mayor says Trump federal law enforcement surge is ..."
+    url: "https://www.nbcnews.com/politics/politics-news/bowser-trump-police-takeover-lower-dc-crime-national-guard-ice-rcna227582"
 ---
 
 
