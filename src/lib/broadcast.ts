@@ -232,7 +232,30 @@ export async function generateBroadcastReport(
   } catch {
     throw new Error("xAI did not return valid JSON.");
   }
-  return normalizeBroadcast(parsed);
+  const report = normalizeBroadcast(parsed);
+
+  // Ground the citations in a real web search so they're plentiful and resolve
+  // (the transcript path has no web access and otherwise invents URLs). Merge
+  // grounded sources first, then any the report already produced; dedupe by URL.
+  try {
+    const grounded = await gatherCitations(apiKey, report);
+    if (grounded.length > 0) {
+      const seen = new Set<string>();
+      const merged: { title: string; url: string }[] = [];
+      for (const c of [...grounded, ...report.citations]) {
+        const key = c.url.replace(/\/+$/, "").toLowerCase();
+        if (!seen.has(key)) {
+          seen.add(key);
+          merged.push(c);
+        }
+      }
+      report.citations = merged.slice(0, 18);
+    }
+  } catch {
+    // keep the report's own citations if the grounding pass fails
+  }
+
+  return report;
 }
 
 async function callChat(apiKey: string, system: string, user: string): Promise<string> {
@@ -282,6 +305,72 @@ async function callResponsesWithSearch(apiKey: string, system: string, user: str
   const text = extractResponsesText(data);
   if (!text) throw new Error("xAI returned no output text.");
   return text;
+}
+
+const CITATIONS_SCHEMA = {
+  type: "object",
+  properties: {
+    citations: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: { title: { type: "string" }, url: { type: "string" } },
+        required: ["title", "url"],
+        additionalProperties: false,
+      },
+    },
+  },
+  required: ["citations"],
+  additionalProperties: false,
+} as const;
+
+// Web-search pass to gather REAL, working sources for the report's claims, so
+// the citation list is plentiful and resolves (the report model alone, with no
+// browsing, tends to invent URLs that 404).
+async function gatherCitations(
+  apiKey: string,
+  report: BroadcastReport
+): Promise<{ title: string; url: string }[]> {
+  const claims = report.keyMoments.map((m) => `- ${m.claim}`).join("\n");
+  const system = `You are Clad's research desk. Using web search, find AS MANY credible, currently-working sources as you can (aim for 8-15) that corroborate, contradict, or add essential context to the report below. Rules:
+- Only include URLs you actually found via search and that load — do NOT guess or fabricate URLs or deep paths.
+- Prefer primary sources (official data, agency pages, filings, statutes, court records), named experts, and reputable news outlets across the spectrum.
+- Each entry needs an accurate title and a working URL.
+Return ONLY JSON: { "citations": [ { "title": string, "url": string } ] }`;
+  const user = `Headline: ${report.headline}
+Topics: ${report.topics.join(", ")}
+Summary: ${report.summary}
+Key claims:
+${claims}`;
+
+  const res = await fetch("https://api.x.ai/v1/responses", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+    body: JSON.stringify({
+      model: SEARCH_MODEL,
+      input: [
+        { role: "system", content: system },
+        { role: "user", content: user },
+      ],
+      tools: [{ type: "web_search" }],
+      text: { format: { type: "json_schema", name: "citation_list", schema: CITATIONS_SCHEMA, strict: true } },
+    }),
+  });
+  if (!res.ok) return [];
+  const data: any = await res.json();
+  const text = extractResponsesText(data);
+  if (!text) return [];
+  let parsed: any;
+  try {
+    parsed = JSON.parse(text);
+  } catch {
+    return [];
+  }
+  if (!Array.isArray(parsed?.citations)) return [];
+  return parsed.citations
+    .map((c: any) => ({ title: String(c?.title ?? "").trim(), url: String(c?.url ?? "").trim() }))
+    .filter((c: { title: string; url: string }) => c.title && /^https?:\/\//.test(c.url))
+    .slice(0, 18);
 }
 
 /** Pull the assistant's text out of a /v1/responses payload. */
