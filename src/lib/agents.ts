@@ -254,6 +254,30 @@ export async function putDraft(kv: KVNamespace, draft: PendingDraft): Promise<vo
   });
 }
 
+// Maintenance: wipe KV families for a clean start.
+async function clearByPrefix(kv: KVNamespace, prefix: string): Promise<number> {
+  let cursor: string | undefined;
+  let count = 0;
+  do {
+    const list = await kv.list({ prefix, cursor });
+    for (const k of list.keys) {
+      await kv.delete(k.name);
+      count++;
+    }
+    cursor = list.list_complete ? undefined : list.cursor;
+  } while (cursor);
+  return count;
+}
+export async function clearDrafts(kv: KVNamespace): Promise<number> {
+  return clearByPrefix(kv, DRAFT_PREFIX);
+}
+export async function clearSeen(kv: KVNamespace): Promise<number> {
+  return clearByPrefix(kv, SEEN_PREFIX);
+}
+export async function clearFrontpage(kv: KVNamespace): Promise<void> {
+  await kv.delete(FRONTPAGE_KEY);
+}
+
 export async function deleteDraft(kv: KVNamespace, id: string): Promise<void> {
   await kv.delete(DRAFT_PREFIX + id);
 }
