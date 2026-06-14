@@ -35,12 +35,13 @@ export const POST: APIRoute = async ({ request }) => {
 
   const videoId = extractVideoId(youtubeUrl);
   if (!videoId) return json({ error: "Not a valid YouTube URL" }, 400);
-  if (transcript.length < 80) return json({ error: "Transcript too short — paste the full transcript" }, 400);
+  // Transcript is optional: if given we use it; if omitted Grok researches the
+  // video via web search. A 1–79 char transcript is treated as "not provided".
   if (transcript.length > 200_000) return json({ error: "Transcript too long" }, 400);
 
   try {
     const report = await generateBroadcastReport(env.XAI_API_KEY, {
-      transcript,
+      transcript: transcript.length >= 80 ? transcript : undefined,
       sourceUrl: youtubeUrl,
       videoTitle,
       channel,

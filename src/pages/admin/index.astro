@@ -24,8 +24,10 @@ const SECTIONS = ["Politics","Economy","Science","World","Tech","Misc"];
     <!-- ============ BROADCAST MODE ============ -->
     <div id="broadcast-mode">
       <p class="dateline">
-        Paste a news video's YouTube URL and its transcript. Grok grades the
-        broadcast and drafts a report card. You edit, then publish.
+        Paste a news video's YouTube URL. Grok researches the video via web
+        search, grades the broadcast, and drafts a report card — you edit, then
+        publish. Web research can miss or mis-identify a video; if the draft
+        looks off, paste the transcript below for an accurate read.
       </p>
 
       <form id="bc-input-form">
@@ -34,7 +36,7 @@ const SECTIONS = ["Politics","Economy","Science","World","Tech","Misc"];
           <input id="bc-url" type="url" required placeholder="https://www.youtube.com/watch?v=..." />
         </div>
         <div class="field">
-          <label for="bc-video-title">Video title (optional)</label>
+          <label for="bc-video-title">Video title (optional — helps Grok find the right video)</label>
           <input id="bc-video-title" maxlength="200" />
         </div>
         <div class="field">
@@ -42,8 +44,8 @@ const SECTIONS = ["Politics","Economy","Science","World","Tech","Misc"];
           <input id="bc-channel" maxlength="160" placeholder="e.g. PBS NewsHour" />
         </div>
         <div class="field">
-          <label for="bc-transcript">Transcript (paste the full transcript)</label>
-          <textarea id="bc-transcript" required style="min-height:14rem"></textarea>
+          <label for="bc-transcript">Transcript (optional — paste for a more accurate report)</label>
+          <textarea id="bc-transcript" style="min-height:10rem"></textarea>
         </div>
         <div class="field">
           <label for="bc-notes">Editor notes for Grok (optional)</label>
@@ -330,7 +332,7 @@ const SECTIONS = ["Politics","Economy","Science","World","Tech","Misc"];
       e.preventDefault();
       const btn = $("bc-analyze-btn");
       btn.disabled = true;
-      setStatus($("bc-status"), "info", "Analyzing — Grok is grading the broadcast. ~15–40 seconds.");
+      setStatus($("bc-status"), "info", "Analyzing — Grok is researching and grading the broadcast. Web research can take ~20–90 seconds.");
       try {
         const res = await fetch("/api/broadcast", {
           method: "POST",
