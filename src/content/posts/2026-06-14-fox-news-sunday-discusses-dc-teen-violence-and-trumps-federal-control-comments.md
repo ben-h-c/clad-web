@@ -6,7 +6,6 @@ publishedAt: 2026-06-14
 sourceUrl: "https://youtu.be/vqbuys4BfPY?is=8ySJ5rJlPdX7ieM6"
 sourceTitle: "Fox News"
 section: "Politics"
-draft: true
 featured: true
 letterGrade: "C"
 factualityScore: 50
