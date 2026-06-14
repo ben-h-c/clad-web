@@ -128,11 +128,17 @@ If the content is too sparse to evaluate, do not force a failing grade — pick 
 
 Return ONLY the JSON object, no markdown fence and no commentary.`;
 
-// Transcript path: proven chat/completions + grok-4. Web-search path: the
-// Responses API (/v1/responses), which is where xAI's server-side agentic
-// tools live, with grok-4.3 (the model xAI documents for web_search).
-const CHAT_MODEL = "grok-4";
+// All reports go through the Responses API (/v1/responses) with web_search so
+// every draft is grounded in current facts, using grok-4.3 (the model xAI
+// documents for web_search).
 const SEARCH_MODEL = "grok-4.3";
+
+// Added when a transcript IS supplied: still require web search so the report
+// reflects current facts, not just the transcript or the model's stale prior
+// knowledge (the #1 source of inaccurate drafts).
+const TRANSCRIPT_WEB_ADDENDUM = `
+
+You have the transcript of what was said. Do NOT rely only on the transcript or on your prior knowledge: ALWAYS use web search to verify the factual claims against the most recent, authoritative information BEFORE grading. Many claims concern recent events, newly released products/models/policies, or fast-moving figures — confirm the current facts via search and let what you find drive the letter grade, factuality score, key-moment verdicts, notable concerns, and rationales. If your prior knowledge conflicts with current search results, trust the search results. Never label something false or nonexistent merely because it is unfamiliar to you — check first.`;
 
 // Added to the system prompt when no transcript is supplied and the model must
 // research the video itself via web search.
@@ -224,9 +230,10 @@ export async function generateBroadcastReport(
     .filter((l) => l !== "")
     .join("\n");
 
-  const raw = hasTranscript
-    ? await callChat(apiKey, SYSTEM_PROMPT, userMessage)
-    : await callResponsesWithSearch(apiKey, SYSTEM_PROMPT + WEB_SEARCH_ADDENDUM, userMessage);
+  // ALWAYS web-search before producing a report — even when a transcript is
+  // supplied — so drafts reflect current facts instead of stale training data.
+  const addendum = hasTranscript ? TRANSCRIPT_WEB_ADDENDUM : WEB_SEARCH_ADDENDUM;
+  const raw = await callResponsesWithSearch(apiKey, SYSTEM_PROMPT + addendum, userMessage);
 
   let parsed: any;
   try {
@@ -296,7 +303,12 @@ export async function reviseBroadcastReport(
     .filter((l) => l !== "")
     .join("\n");
 
-  const raw = await callChat(apiKey, SYSTEM_PROMPT + REVISE_ADDENDUM, userMessage);
+  // Web-search on revision too, so corrections are grounded in current facts.
+  const raw = await callResponsesWithSearch(
+    apiKey,
+    SYSTEM_PROMPT + REVISE_ADDENDUM + "\n\nUse web search to verify current facts before revising.",
+    userMessage
+  );
   let parsed: any;
   try {
     parsed = JSON.parse(raw);
@@ -307,27 +319,6 @@ export async function reviseBroadcastReport(
   // Preserve the original citations if the revision dropped them.
   if (revised.citations.length === 0) revised.citations = input.report.citations;
   return revised;
-}
-
-async function callChat(apiKey: string, system: string, user: string): Promise<string> {
-  const res = await fetch("https://api.x.ai/v1/chat/completions", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
-    body: JSON.stringify({
-      model: CHAT_MODEL,
-      temperature: 0.3,
-      response_format: { type: "json_object" },
-      messages: [
-        { role: "system", content: system },
-        { role: "user", content: user },
-      ],
-    }),
-  });
-  if (!res.ok) throw new Error(`xAI ${res.status}: ${(await res.text().catch(() => "")).slice(0, 400)}`);
-  const data: any = await res.json();
-  const raw = data?.choices?.[0]?.message?.content;
-  if (typeof raw !== "string") throw new Error("xAI returned no message content.");
-  return raw;
 }
 
 async function callResponsesWithSearch(apiKey: string, system: string, user: string): Promise<string> {
