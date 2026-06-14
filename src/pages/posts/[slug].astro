@@ -5,6 +5,7 @@ import Verdict from "~/components/Verdict.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
 import FactualityBar from "~/components/FactualityBar.astro";
 import KeyMoments from "~/components/KeyMoments.astro";
+import PoliticalLean from "~/components/PoliticalLean.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
 import { dateline, shortDate } from "~/lib/dateline";
 import { sectionSlug } from "~/lib/sections";
@@ -104,10 +105,18 @@ const paragraphs = (text: string) =>
         <div class="report__scorecard">
           <div class="report__grade">
             <LetterGrade grade={d.letterGrade!} size="hero" />
-            <span class="small-caps">Overall</span>
+            <span class="small-caps">Grade</span>
           </div>
-          <FactualityBar score={d.factualityScore!} />
+          <div class="report__metrics">
+            <FactualityBar score={d.factualityScore!} />
+            {d.politicalLean && <PoliticalLean lean={d.politicalLean} size="header" />}
+          </div>
         </div>
+        {d.leanRationale && (
+          <p class="lean-rationale">
+            <span class="small-caps">Why this lean:</span> {d.leanRationale}
+          </p>
+        )}
 
         {d.videoId && (
           <div class="video-embed">

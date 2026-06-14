@@ -20,6 +20,16 @@ const source = d.sourceTitle ?? (() => {
 const hq = d.videoId
   ? `https://img.youtube.com/vi/${d.videoId}/hqdefault.jpg`
   : null;
+
+const LEAN_LABELS: Record<string, string> = {
+  left: "Leans Left",
+  "center-left": "Center-Left",
+  center: "Centered",
+  "center-right": "Center-Right",
+  right: "Leans Right",
+  none: "No Bias",
+};
+const leanLabel = d.politicalLean ? LEAN_LABELS[d.politicalLean] : null;
 ---
 <article class="report-card">
   <a class="report-card__link" href={`/posts/${post.id}/`}>
@@ -39,14 +49,17 @@ const hq = d.videoId
     <div class="report-card__body">
       <div class="report-card__titlerow">
         {isBroadcast && d.letterGrade ? (
-          <LetterGrade grade={d.letterGrade} />
+          <span class="grade-tag">
+            <span class="grade-tag__label small-caps">Grade</span>
+            <LetterGrade grade={d.letterGrade} />
+          </span>
         ) : d.verdict ? (
           <Verdict verdict={d.verdict} />
         ) : null}
         <h3 class="report-card__headline">{d.headline}</h3>
       </div>
       <p class="report-card__meta">
-        {shortDate(d.publishedAt)} · {d.section}
+        {shortDate(d.publishedAt)} · {d.section}{leanLabel ? ` · ${leanLabel}` : ""}
       </p>
       <p class="report-card__summary">{d.summary}</p>
     </div>

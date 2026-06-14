@@ -1,0 +1,42 @@
+---
+interface Props {
+  lean: string;
+  size?: "badge" | "header";
+}
+const { lean, size = "badge" } = Astro.props;
+
+const LABELS: Record<string, string> = {
+  left: "Leans Left",
+  "center-left": "Center-Left",
+  center: "Centered",
+  "center-right": "Center-Right",
+  right: "Leans Right",
+  none: "No Political Bias",
+};
+
+// Position on a 0–4 left→right scale for the marker; null = no political axis.
+const POS: Record<string, number | null> = {
+  left: 0,
+  "center-left": 1,
+  center: 2,
+  "center-right": 3,
+  right: 4,
+  none: null,
+};
+
+const label = LABELS[lean] ?? lean;
+const pos = POS[lean] ?? null;
+---
+<div class={`lean lean--${size}`}>
+  <span class="small-caps lean__label">Political Lean</span>
+  <span class="lean__value">{label}</span>
+  {pos !== null && (
+    <div class="lean__scale" aria-hidden="true">
+      <span class="lean__scale-end">L</span>
+      <div class="lean__track">
+        <span class="lean__marker" style={`left:${(pos / 4) * 100}%`}></span>
+      </div>
+      <span class="lean__scale-end">R</span>
+    </div>
+  )}
+</div>
