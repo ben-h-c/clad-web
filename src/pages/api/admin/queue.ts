@@ -5,6 +5,7 @@ import { datedSlug } from "~/lib/slug";
 import { emitPost } from "~/lib/yaml";
 import { buildBroadcastFrontmatter } from "~/lib/postBuild";
 import { deleteDraft, findDuplicateStory, getDraft, listDrafts, markSeen } from "~/lib/agents";
+import { resolveThumbnail } from "~/lib/thumbnail";
 
 export const prerender = false;
 
@@ -54,6 +55,15 @@ export const POST: APIRoute = async ({ request }) => {
     }
   }
 
+  const slug = datedSlug(draft.report.headline, new Date());
+  const thumbnail = await resolveThumbnail({
+    videoId: draft.videoId,
+    title: draft.report.headline,
+    slug,
+    xaiKey: env.XAI_API_KEY,
+    github: { token: env.GITHUB_TOKEN, repo: env.GITHUB_REPO, branch: env.GITHUB_BRANCH },
+  });
+
   const fm = buildBroadcastFrontmatter(draft.report, {
     sourceUrl: draft.sourceUrl,
     videoId: draft.videoId,
@@ -61,9 +71,9 @@ export const POST: APIRoute = async ({ request }) => {
     sourceTitle: draft.source.channel,
     featured: Boolean(p?.featured),
     draft: false,
+    thumbnail: thumbnail || undefined,
   });
 
-  const slug = datedSlug(fm.headline, new Date());
   const path = `src/content/posts/${slug}.md`;
   const fileBody = emitPost(fm, "");
 

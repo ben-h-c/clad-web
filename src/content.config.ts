@@ -99,7 +99,7 @@ const posts = defineCollection({
         .default([]),
       videoId: z.string().optional(),
       videoTitle: z.string().optional(),
-      thumbnail: z.string().url().optional(),
+      thumbnail: z.string().optional(),
     })
     .superRefine((d, ctx) => {
       if (d.type === "verdict" && !d.verdict) {

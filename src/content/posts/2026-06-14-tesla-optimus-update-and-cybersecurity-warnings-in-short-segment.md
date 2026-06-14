@@ -32,7 +32,7 @@ keyMoments:
     note: "Musk has posted defenses of Optimus safety on X, consistent with his public statements on the project."
 videoId: "xpoKYe_W_C4"
 videoTitle: "Elon Musk’s Shocking AI Reveal: Changing the Future Forever! | US News Pulse"
-thumbnail: "https://img.youtube.com/vi/xpoKYe_W_C4/maxresdefault.jpg"
+thumbnail: "https://img.youtube.com/vi/xpoKYe_W_C4/hqdefault.jpg"
 citations:
   - title: "AI & Robotics"
     url: "https://www.tesla.com/AI"

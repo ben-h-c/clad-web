@@ -18,7 +18,15 @@ const contrast =
 <a class="topic-card" href={`/topics/${topic.slug}/`}>
   {topic.thumbnail && (
     <div class="topic-card__thumb">
-      <img src={topic.thumbnail} alt="" loading="lazy" decoding="async" width="320" height="180" />
+      <img
+        src={topic.thumbnail}
+        alt=""
+        loading="lazy"
+        decoding="async"
+        width="320"
+        height="180"
+        onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')"
+      />
     </div>
   )}
   <div class="topic-card__top">

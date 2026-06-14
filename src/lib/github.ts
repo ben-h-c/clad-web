@@ -55,6 +55,46 @@ export async function commitFile(args: CommitArgs): Promise<{ url: string; sha: 
   };
 }
 
+/**
+ * Commit raw bytes (e.g. a generated image) to the repo. `base64` must already
+ * be base64 of the file's bytes — the GitHub Contents API stores it verbatim.
+ */
+export async function commitBinaryFile(args: {
+  token: string;
+  repo: string;
+  branch: string;
+  path: string;
+  base64: string;
+  message: string;
+}): Promise<{ url: string; sha: string }> {
+  const url = contentsUrl(args.repo, args.path);
+
+  let existingSha: string | undefined;
+  const head = await fetch(`${url}?ref=${encodeURIComponent(args.branch)}`, {
+    headers: gh(args.token),
+  });
+  if (head.ok) {
+    const body: any = await head.json();
+    if (body && typeof body.sha === "string") existingSha = body.sha;
+  } else if (head.status !== 404) {
+    throw new Error(`GitHub GET ${head.status}: ${await head.text()}`);
+  }
+
+  const res = await fetch(url, {
+    method: "PUT",
+    headers: { ...gh(args.token), "Content-Type": "application/json" },
+    body: JSON.stringify({
+      message: args.message,
+      branch: args.branch,
+      content: args.base64.replace(/\s/g, ""),
+      ...(existingSha ? { sha: existingSha } : {}),
+    }),
+  });
+  if (!res.ok) throw new Error(`GitHub PUT ${res.status}: ${await res.text()}`);
+  const body: any = await res.json();
+  return { url: body?.content?.html_url ?? "", sha: body?.content?.sha ?? "" };
+}
+
 interface FileRef {
   token: string;
   repo: string;

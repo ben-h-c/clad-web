@@ -17,6 +17,7 @@ export interface BuildOptions {
   kicker?: string;
   correctionOf?: string;
   publishedAt?: string; // ISO date; defaults to today (UTC)
+  thumbnail?: string; // resolved working thumbnail; falls back to the YouTube still
 }
 
 export function buildBroadcastFrontmatter(
@@ -47,7 +48,7 @@ export function buildBroadcastFrontmatter(
     keyMoments: report.keyMoments,
     videoId: opts.videoId,
     videoTitle: opts.videoTitle,
-    thumbnail: thumbnailUrl(opts.videoId),
+    thumbnail: opts.thumbnail || thumbnailUrl(opts.videoId),
     citations: report.citations,
   };
 }

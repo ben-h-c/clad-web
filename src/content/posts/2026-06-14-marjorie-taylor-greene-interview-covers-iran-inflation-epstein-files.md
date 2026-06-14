@@ -34,7 +34,7 @@ keyMoments:
     note: "Trustees project depletion of reserves around 2033-2035 under current law, not outright bankruptcy"
 videoId: "uMjYiDwNOdk"
 videoTitle: "Marjorie Taylor Greene on Trump Iran deal: She&#39;ll believe it when it’s signed | NewsNation Prime"
-thumbnail: "https://img.youtube.com/vi/uMjYiDwNOdk/maxresdefault.jpg"
+thumbnail: "https://img.youtube.com/vi/uMjYiDwNOdk/hqdefault.jpg"
 citations:
   - title: "Marjorie Taylor Greene warns voter frustration over inflation, Iran ahead of midterms"
     url: "https://www.newsnationnow.com/prime/marjorie-taylor-greene-trump-iran-war/"

@@ -30,7 +30,7 @@ keyMoments:
     note: "Directly stated in Mexico's attorney general announcement."
 videoId: "5Vl7kT207sw"
 videoTitle: "5195, Massive Smugglers Tunnel Busted from Tijuana To U S  Border"
-thumbnail: "https://img.youtube.com/vi/5Vl7kT207sw/maxresdefault.jpg"
+thumbnail: "https://img.youtube.com/vi/5Vl7kT207sw/hqdefault.jpg"
 citations:
   - title: "Mexico uncovers 870-foot tunnel with electronic rail near US border"
     url: "https://www.foxnews.com/world/hidden-tunnel-discovered-tijuana-may-have-supported-cross-border-trafficking-operations"

@@ -3,9 +3,10 @@ import { env } from "cloudflare:workers";
 import { commitFile } from "~/lib/github";
 import { datedSlug } from "~/lib/slug";
 import { emitPost, type Frontmatter, type KeyMoment } from "~/lib/yaml";
-import { extractVideoId, thumbnailUrl } from "~/lib/youtube";
+import { extractVideoId } from "~/lib/youtube";
 import { leanBucket } from "~/lib/broadcast";
 import { validateCitations } from "~/lib/citations";
+import { resolveThumbnail } from "~/lib/thumbnail";
 
 export const prerender = false;
 
@@ -48,6 +49,9 @@ export const POST: APIRoute = async ({ request }) => {
   if (headline.length < 4) return json({ error: "Headline too short" }, 400);
   if (summary.length < 8) return json({ error: "Summary too short" }, 400);
 
+  const slug = datedSlug(headline, new Date());
+  const github = { token: env.GITHUB_TOKEN, repo: env.GITHUB_REPO, branch: env.GITHUB_BRANCH };
+
   let fm: Frontmatter;
   let body: string;
 
@@ -57,6 +61,14 @@ export const POST: APIRoute = async ({ request }) => {
     body = str(p.body);
     if (!VERDICTS.includes(verdict)) return json({ error: "Invalid verdict" }, 400);
     if (!sourceUrl) return json({ error: "Source URL required" }, 400);
+    // Verdict posts have no video — generate an illustration so every post has art.
+    const thumbnail = await resolveThumbnail({
+      videoId: extractVideoId(sourceUrl),
+      title: headline,
+      slug,
+      xaiKey: env.XAI_API_KEY,
+      github,
+    });
     fm = {
       type: "verdict",
       headline,
@@ -70,6 +82,7 @@ export const POST: APIRoute = async ({ request }) => {
       featured,
       correctionOf,
       verdict,
+      thumbnail: thumbnail || undefined,
       citations,
     };
   } else {
@@ -103,6 +116,8 @@ export const POST: APIRoute = async ({ request }) => {
       return json({ error: "Factuality score must be 0–100" }, 400);
     if (assessment.length < 8) return json({ error: "Assessment too short" }, 400);
 
+    const thumbnail = await resolveThumbnail({ videoId, title: headline, slug, xaiKey: env.XAI_API_KEY, github });
+
     fm = {
       type: "broadcast",
       headline,
@@ -127,13 +142,12 @@ export const POST: APIRoute = async ({ request }) => {
       keyMoments,
       videoId,
       videoTitle,
-      thumbnail: thumbnailUrl(videoId),
+      thumbnail: thumbnail || thumbnailUrl(videoId),
       citations,
     };
     body = str(p.body); // optional extra notes/markdown under the report
   }
 
-  const slug = datedSlug(headline, new Date());
   const path = `src/content/posts/${slug}.md`;
   const fileBody = emitPost(fm, body);
 
