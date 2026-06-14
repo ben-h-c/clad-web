@@ -1,5 +1,6 @@
 ---
 type: "broadcast"
+draft: true
 headline: "Fox News Sunday discusses DC teen violence and Trump's federal control comments"
 summary: "The segment aired on Fox News Sunday and focused on recent incidents of teen 'takeovers' and brawls in Washington, D.C. It featured interviews with Maryland dad Rafael Jauregui and DC Police Union President Gregg Pemberton on curbing youth crime. The broadcast also covered President Donald Trump's statements suggesting possible federal takeover of the city to address safety and business concerns. Sourcing relied on named guests from affected communities and law enforcement, along with video clips of Trump's Oval Office remarks. No independent transcripts or third-party fact-checks of the full segment were located in available sources."
 publishedAt: 2026-06-14
