@@ -13,10 +13,15 @@ const ogImages = {
   name: "clad-og-images",
   hooks: {
     "astro:config:setup": () => {
-      try {
-        fs.rmSync(path.join(process.cwd(), ".astro"), { recursive: true, force: true });
-      } catch {
-        /* nothing to clear */
+      // The content data store lives in node_modules/.astro/data-store.json,
+      // which Cloudflare's build cache persists — so deleted posts came back as
+      // phantom entries. Clear both so content is always re-read from disk.
+      for (const dir of [".astro", "node_modules/.astro"]) {
+        try {
+          fs.rmSync(path.join(process.cwd(), dir), { recursive: true, force: true });
+        } catch {
+          /* nothing to clear */
+        }
       }
     },
     "astro:build:start": async () => {
