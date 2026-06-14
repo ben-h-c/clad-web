@@ -20,6 +20,7 @@ export interface AgentConfig {
   maxPublishesPerRun?: number;
   maxScanPages?: number;
   query?: string;
+  requireNetwork?: boolean; // if true, only the major-network channel allow-list
   // frontpage-curator
   maxFeatured?: number;
   perTopicCap?: number;

@@ -52,8 +52,11 @@ export async function runYoutubeScanner(agent) {
   let submitted = 0;
   let skipped = 0;
   let noTranscript = 0;
-  let networkSeen = 0;
+  let candidatesSeen = 0;
   let pageToken = "";
+  // Network allow-list is optional now — accept any channel with a transcript
+  // unless requireNetwork is set.
+  const requireNetwork = !!c.requireNetwork;
 
   // Limited loop: page through results until we've drafted `limit` transcribed
   // reports or exhausted maxPages / results. Videos without captions are skipped
@@ -83,17 +86,21 @@ export async function runYoutubeScanner(agent) {
     pageToken = data.nextPageToken || "";
 
     const networkCands = (data.items || [])
-      .filter((it) => it.id?.videoId && NETWORK_CHANNEL_IDS.has(it.snippet?.channelId))
+      .filter(
+        (it) =>
+          it.id?.videoId &&
+          (!requireNetwork || NETWORK_CHANNEL_IDS.has(it.snippet?.channelId))
+      )
       .map((it) => ({
         videoId: it.id.videoId,
         title: it.snippet?.title || "",
         channel: it.snippet?.channelTitle || "",
         publishedAt: it.snippet?.publishedAt || "",
       }));
-    networkSeen += networkCands.length;
+    candidatesSeen += networkCands.length;
 
     if (networkCands.length > 0) {
-      // Pre-dedupe against published/pending/seen AND same-network same-story.
+      // Pre-dedupe against published/pending/seen AND same-channel same-story.
       const known = await getKnown(
         agent.id,
         networkCands.map((v) => ({ videoId: v.videoId, channel: v.channel, title: v.title }))
@@ -145,7 +152,7 @@ export async function runYoutubeScanner(agent) {
 
   return {
     ok: true,
-    message: `${networkSeen} network candidates scanned, ${submitted} drafted, ${skipped} skipped (${noTranscript} had no transcript)`,
+    message: `${candidatesSeen} candidates scanned, ${submitted} drafted, ${skipped} skipped (${noTranscript} had no transcript)`,
     submitted,
     skipped,
   };
