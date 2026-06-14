@@ -33,8 +33,6 @@ videoId: "WWesWnnl0cQ"
 videoTitle: "What it takes to host a UFC event on the White House lawn"
 thumbnail: "https://img.youtube.com/vi/WWesWnnl0cQ/maxresdefault.jpg"
 citations:
-  - title: "White House Grounds and South Lawn"
-    url: "https://www.whitehouse.gov/about-the-white-house/grounds/"
   - title: "UFC Official Site - Events"
     url: "https://www.ufc.com/events"
   - title: "America 250 Commission"

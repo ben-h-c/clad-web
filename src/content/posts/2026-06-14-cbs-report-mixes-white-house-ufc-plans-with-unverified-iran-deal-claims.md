@@ -42,12 +42,8 @@ citations:
     url: "https://www.eia.gov/international/analysis/special-topics/World_Oil_Transit_Chokepoints"
   - title: "Reuters - Iran says nothing finalized on nuclear deal"
     url: "https://www.reuters.com/world/middle-east/iran-says-nuclear-deal-talks-ongoing-nothing-finalised-2024-06-20/"
-  - title: "U.S. District Court docket - advocacy group lawsuit dismissal"
-    url: "https://www.courtlistener.com/docket/"
   - title: "G7 Summit 2024 agenda and schedule"
     url: "https://www.g7.org/"
-  - title: "Department of Energy - historical oil supply disruption timelines"
-    url: "https://www.energy.gov/policy/articles/oil-market-chronology"
 ---
 
 

@@ -2,6 +2,7 @@ import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { generateBroadcastReport } from "~/lib/broadcast";
 import { extractVideoId } from "~/lib/youtube";
+import { validateCitations } from "~/lib/citations";
 
 export const prerender = false;
 
@@ -47,6 +48,7 @@ export const POST: APIRoute = async ({ request }) => {
       channel,
       notes,
     });
+    report.citations = await validateCitations(report.citations);
     return json({ ...report, videoId }, 200);
   } catch (err: any) {
     return json({ error: err?.message ?? "Report generation failed" }, 502);
