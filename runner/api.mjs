@@ -37,6 +37,14 @@ export function submitDraft(draft) {
   return call("/api/agent/draft", { method: "POST", body: JSON.stringify(draft) });
 }
 
+export function getPosts() {
+  return call("/api/agent/posts", { method: "GET" });
+}
+
+export function setFrontpage(ids) {
+  return call("/api/agent/frontpage", { method: "POST", body: JSON.stringify({ ids }) });
+}
+
 export function reportStatus(status) {
   return call("/api/agent/status", { method: "POST", body: JSON.stringify(status) });
 }
