@@ -1,0 +1,68 @@
+---
+type: "broadcast"
+headline: "Marjorie Taylor Greene Interview Covers Iran, Inflation, Epstein Files"
+summary: "NewsNation Prime aired a two-part interview with former Rep. Marjorie Taylor Greene. Segments addressed inflation data, Trump's Iran policy claims, MTG's opposition to the conflict, the Epstein files release, her break with Trump, and her post-Congress plans including a new show.\nThe sourcing relied on MTG as the sole named guest; the host referenced prior Trump statements, Tulsi Gabbard testimony, and Georgia election law changes without additional on-air experts or data graphics."
+publishedAt: 2026-06-14
+sourceUrl: "https://www.youtube.com/watch?v=uMjYiDwNOdk"
+sourceTitle: "NewsNation"
+section: "Politics"
+featured: true
+letterGrade: "B-"
+factualityScore: 62
+politicalLean: "center"
+leanScore: 12
+leanRationale: "Platformed a single prominent critic of the administration with limited pushback; framing emphasized skepticism of foreign policy and elite accountability"
+gradeRationale: "Graded B-: interview accurately captured MTG's statements but several load-bearing claims on Iran nuclear status, Social Security timeline, and election processes lacked sourcing or counter-evidence"
+topics:
+  - "Iran conflict"
+  - "US inflation"
+  - "Epstein files"
+  - "2028 election"
+assessment: "The broadcast presented MTG's perspective with minimal interruption, allowing her to link inflation to the Iran conflict and criticize both parties. Viewers received little context on the current assessed status of Iran's nuclear program from U.S. intelligence assessments or the legal basis for U.S. aid levels to Israel. Claims about Social Security insolvency and California ballot counting were stated without qualification or rebuttal. The format favored personal narrative over verification of specific factual assertions."
+notableConcerns:
+  - "Reliance on single-source interview without contemporaneous data checks"
+  - "Unsubstantiated assertions on nuclear intelligence and election legality presented without correction"
+keyMoments:
+  - claim: "Inflation topped 4 percent, highest in three years"
+    verdict: "missing context"
+    note: "Recent CPI data showed elevated readings but the three-year comparison requires precise month-by-month verification against BLS releases"
+  - claim: "Tulsi Gabbard told Congress Iran was nowhere near a nuclear weapon, corroborated by other agencies"
+    verdict: "missing context"
+    note: "Gabbard testimony referenced 2025 assessments; IAEA and ODNI reports have described Iran's breakout capacity differently in subsequent updates"
+  - claim: "U.S. gives Israel $3.8 billion annually"
+    verdict: "verified"
+    note: "Matches the baseline level of U.S. security assistance under the 2016 MOU"
+  - claim: "Social Security will be bankrupt in 2032"
+    verdict: "unsupported"
+    note: "Trustees project depletion of reserves around 2033-2035 under current law, not outright bankruptcy"
+videoId: "uMjYiDwNOdk"
+videoTitle: "Marjorie Taylor Greene on Trump Iran deal: She&#39;ll believe it when it’s signed | NewsNation Prime"
+thumbnail: "https://img.youtube.com/vi/uMjYiDwNOdk/maxresdefault.jpg"
+citations:
+  - title: "Marjorie Taylor Greene warns voter frustration over inflation, Iran ahead of midterms"
+    url: "https://www.newsnationnow.com/prime/marjorie-taylor-greene-trump-iran-war/"
+  - title: "Marjorie Taylor Greene on Trump Iran deal: She'll believe it when it's signed | NewsNation Prime"
+    url: "https://www.newsnationnow.com/video/marjorie-taylor-greene-on-trump-iran-deal-shell-believe-it-when-it%E2%80%99s-signed-newsnation-prime/11881761/"
+  - title: "United States Inflation Rate"
+    url: "https://tradingeconomics.com/united-states/inflation-cpi"
+  - title: "US inflation hits new three-year high amid energy price surge"
+    url: "https://www.aljazeera.com/economy/2026/6/10/us-inflation-hits-new-three-year-high-amid-energy-price-surge"
+  - title: "Current U.S. Inflation Rates: 2000-2026"
+    url: "https://www.usinflationcalculator.com/inflation/current-inflation-rates/"
+  - title: "DNI Gabbard Opening Statement as Delivered to the House Permanent Select Committee on Intelligence"
+    url: "https://www.dni.gov/index.php/newsroom/congressional-testimonies/congressional-testimonies-2025/4061-ata-hpsci-opening-statement-as-delivered"
+  - title: "Tulsi Gabbard: Iran is not building a nuclear weapon"
+    url: "https://www.c-span.org/clip/senate-committee/user-clip-tulsi-gabbard-iran-is-not-building-a-nuclear-weapon/5166205"
+  - title: "U.S. Aid to Israel in Four Charts"
+    url: "https://www.cfr.org/articles/us-aid-israel-four-charts"
+  - title: "U.S. Foreign Assistance by Country - Israel"
+    url: "https://foreignassistance.gov/cd/israel/"
+  - title: "Social Security insolvency now projected for 2032, putting benefits at risk of a 22% cut"
+    url: "https://www.cbsnews.com/news/social-security-trust-fund-insolvency-2032-trustees-report/"
+  - title: "US Social Security trust fund set for 2032 insolvency, report finds"
+    url: "https://www.reuters.com/markets/wealth/us-social-security-trust-fund-set-2032-insolvency-report-finds-2026-06-09/"
+  - title: "What Every American Should Know About U.S. Aid to Israel"
+    url: "https://www.ajc.org/news/what-every-american-should-know-about-us-aid-to-israel"
+---
+
+
