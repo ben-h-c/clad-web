@@ -1,7 +1,7 @@
 import { generateBroadcastReport } from "../src/lib/broadcast.ts";
 import { validateCitations } from "../src/lib/citations.ts";
 import { fetchTranscript } from "./transcript.mjs";
-import { getKnown, submitDraft } from "./api.mjs";
+import { getKnown, submitDraft, getTrending } from "./api.mjs";
 
 const YT_API = "https://www.googleapis.com/youtube/v3/search";
 
@@ -58,9 +58,6 @@ export async function runYoutubeScanner(agent) {
   // unless requireNetwork is set.
   const requireNetwork = !!c.requireNetwork;
 
-  // Limited loop: page through results until we've drafted `limit` transcribed
-  // reports or exhausted maxPages / results. Videos without captions are skipped
-  // and the loop keeps going to the next candidate.
   // Search across one or more YouTube categories (e.g. News & Politics +
   // Science & Technology) so hot stories that live outside the "news" category
   // — tech, space, markets — are caught too. "any" / "" means no category filter.
@@ -69,105 +66,139 @@ export async function runYoutubeScanner(agent) {
       ? c.videoCategoryIds
       : [c.videoCategoryId || "25"];
 
-  for (const category of categories) {
+  // Build the list of searches: the stable base query PLUS the dynamic
+  // public-interest "trending" topics (refreshed by the trending-topics agent).
+  // Trending topics are chunked into short OR-queries — a single over-long
+  // query makes YouTube drop obvious matches.
+  let trendingTopics = [];
+  try {
+    const tr = await getTrending();
+    if (tr.ok && Array.isArray(tr.body?.topics)) trendingTopics = tr.body.topics;
+  } catch {
+    /* trending optional */
+  }
+  const chunk = (arr, n) => {
+    const out = [];
+    for (let i = 0; i < arr.length; i += n) out.push(arr.slice(i, i + n));
+    return out;
+  };
+  const trendingPlans = chunk(trendingTopics, 8)
+    .map((g) => g.map((t) => `"${String(t).replace(/"/g, "")}"`).join(" OR "))
+    .map((q) => ({ query: q, pages: Math.min(2, maxPages), trending: true }));
+  const queryPlans = [{ query: c.query || "politics", pages: maxPages, trending: false }, ...trendingPlans];
+
+  // Limited loop: run each query plan across each category, paging until we've
+  // drafted `limit` transcribed reports. `processed` avoids handling the same
+  // video twice when plans overlap.
+  const processed = new Set();
+  let trendingDrafts = 0;
+
+  for (const plan of queryPlans) {
     if (submitted >= limit) break;
-    pageToken = "";
 
-    for (let page = 0; page < maxPages && submitted < limit; page++) {
-      const params = new URLSearchParams({
-        key,
-        part: "snippet",
-        type: "video",
-        regionCode: c.regionCode || "US",
-        order: c.order || "viewCount",
-        publishedAfter,
-        q: c.query || "politics",
-        maxResults: "50",
-        relevanceLanguage: "en",
-      });
-      if (category && category !== "any") params.set("videoCategoryId", String(category));
-      if (pageToken) params.set("pageToken", pageToken);
+    for (const category of categories) {
+      if (submitted >= limit) break;
+      pageToken = "";
 
-      const res = await fetch(`${YT_API}?${params}`);
-      if (!res.ok) {
-        const body = await res.text().catch(() => "");
-        if (page === 0 && category === categories[0]) {
-          return { ok: false, message: `YouTube API ${res.status}: ${body.slice(0, 160)}` };
-        }
-        break; // a later page/category failed — stop this category, keep what we have
-      }
-      const data = await res.json();
-      pageToken = data.nextPageToken || "";
+      for (let page = 0; page < plan.pages && submitted < limit; page++) {
+        const params = new URLSearchParams({
+          key,
+          part: "snippet",
+          type: "video",
+          regionCode: c.regionCode || "US",
+          order: c.order || "viewCount",
+          publishedAfter,
+          q: plan.query,
+          maxResults: "50",
+          relevanceLanguage: "en",
+        });
+        if (category && category !== "any") params.set("videoCategoryId", String(category));
+        if (pageToken) params.set("pageToken", pageToken);
 
-      const networkCands = (data.items || [])
-        .filter(
-          (it) =>
-            it.id?.videoId &&
-            (!requireNetwork || NETWORK_CHANNEL_IDS.has(it.snippet?.channelId))
-        )
-        .map((it) => ({
-          videoId: it.id.videoId,
-          title: it.snippet?.title || "",
-          channel: it.snippet?.channelTitle || "",
-          publishedAt: it.snippet?.publishedAt || "",
-        }));
-      candidatesSeen += networkCands.length;
-
-      if (networkCands.length > 0) {
-        // Pre-dedupe against published/pending/seen AND same-channel same-story.
-        const known = await getKnown(
-          agent.id,
-          networkCands.map((v) => ({ videoId: v.videoId, channel: v.channel, title: v.title }))
-        );
-        const knownSet = new Set(known.ok ? known.body.known || [] : []);
-        const fresh = networkCands.filter((v) => !knownSet.has(v.videoId));
-        skipped += networkCands.length - fresh.length;
-
-        for (const v of fresh) {
-          if (submitted >= limit) break;
-          const sourceUrl = `https://www.youtube.com/watch?v=${v.videoId}`;
-          const transcript = await fetchTranscript(v.videoId);
-          if (!transcript) {
-            noTranscript++;
-            skipped++;
-            continue;
+        const res = await fetch(`${YT_API}?${params}`);
+        if (!res.ok) {
+          const body = await res.text().catch(() => "");
+          if (page === 0 && category === categories[0] && plan === queryPlans[0]) {
+            return { ok: false, message: `YouTube API ${res.status}: ${body.slice(0, 160)}` };
           }
-          let report;
-          try {
-            report = await generateBroadcastReport(xaiKey, {
-              transcript,
+          break; // a later page/category/plan failed — keep what we have
+        }
+        const data = await res.json();
+        pageToken = data.nextPageToken || "";
+
+        const networkCands = (data.items || [])
+          .filter(
+            (it) =>
+              it.id?.videoId &&
+              (!requireNetwork || NETWORK_CHANNEL_IDS.has(it.snippet?.channelId))
+          )
+          .map((it) => ({
+            videoId: it.id.videoId,
+            title: it.snippet?.title || "",
+            channel: it.snippet?.channelTitle || "",
+            publishedAt: it.snippet?.publishedAt || "",
+          }));
+        candidatesSeen += networkCands.length;
+
+        if (networkCands.length > 0) {
+          // Pre-dedupe against published/pending/seen AND same-channel same-story.
+          const known = await getKnown(
+            agent.id,
+            networkCands.map((v) => ({ videoId: v.videoId, channel: v.channel, title: v.title }))
+          );
+          const knownSet = new Set(known.ok ? known.body.known || [] : []);
+          const fresh = networkCands.filter((v) => !knownSet.has(v.videoId) && !processed.has(v.videoId));
+          skipped += networkCands.length - fresh.length;
+
+          for (const v of fresh) {
+            if (submitted >= limit) break;
+            processed.add(v.videoId);
+            const sourceUrl = `https://www.youtube.com/watch?v=${v.videoId}`;
+            const transcript = await fetchTranscript(v.videoId);
+            if (!transcript) {
+              noTranscript++;
+              skipped++;
+              continue;
+            }
+            let report;
+            try {
+              report = await generateBroadcastReport(xaiKey, {
+                transcript,
+                sourceUrl,
+                videoTitle: v.title,
+                channel: v.channel,
+              });
+            } catch {
+              skipped++;
+              continue;
+            }
+            report.citations = await validateCitations(report.citations);
+            const out = await submitDraft({
+              agentId: agent.id,
               sourceUrl,
-              videoTitle: v.title,
-              channel: v.channel,
+              report,
+              source: {
+                channel: v.channel,
+                videoTitle: v.title,
+                transcriptUsed: true,
+                publishedAt: v.publishedAt,
+              },
             });
-          } catch {
-            skipped++;
-            continue;
+            if (out.ok) {
+              submitted++;
+              if (plan.trending) trendingDrafts++;
+            } else skipped++;
           }
-          report.citations = await validateCitations(report.citations);
-          const out = await submitDraft({
-            agentId: agent.id,
-            sourceUrl,
-            report,
-            source: {
-              channel: v.channel,
-              videoTitle: v.title,
-              transcriptUsed: true,
-              publishedAt: v.publishedAt,
-            },
-          });
-          if (out.ok) submitted++;
-          else skipped++;
         }
-      }
 
-      if (!pageToken) break; // no more pages in this category
+        if (!pageToken) break; // no more pages for this plan/category
+      }
     }
   }
 
   return {
     ok: true,
-    message: `${candidatesSeen} candidates scanned, ${submitted} drafted, ${skipped} skipped (${noTranscript} had no transcript)`,
+    message: `${candidatesSeen} scanned, ${submitted} drafted (${trendingDrafts} from ${trendingTopics.length} trending topics), ${skipped} skipped (${noTranscript} no transcript)`,
     submitted,
     skipped,
   };

@@ -30,6 +30,8 @@ export interface AgentConfig {
   engagementWeight?: number;
   // compliance-auditor
   maxPostsToAudit?: number;
+  // trending-topics
+  maxTopics?: number;
 }
 
 export interface AgentLastRun {
@@ -130,6 +132,16 @@ export const DEFAULT_REGISTRY: Registry = {
       cron: "0 7 * * *", // daily, 07:00 UTC
       config: {
         maxPostsToAudit: 60,
+      },
+    },
+    {
+      id: "trending-topics",
+      kind: "trending-topics",
+      name: "Trending Topics (public interest)",
+      enabled: true,
+      cron: "0 */4 * * *", // every 4 hours
+      config: {
+        maxTopics: 15,
       },
     },
   ],
@@ -284,6 +296,30 @@ export async function getFrontpage(kv: KVNamespace): Promise<string[]> {
 
 export async function setFrontpage(kv: KVNamespace, ids: string[]): Promise<void> {
   await kv.put(FRONTPAGE_KEY, JSON.stringify(ids.slice(0, 30)));
+}
+
+/* ---------- trending topics (dynamic, public-interest search terms) ---------- */
+
+const TRENDING_KEY = "agents:trending";
+
+export interface TrendingTopics {
+  updatedAt: string;
+  topics: string[];
+}
+
+export async function getTrendingTopics(kv: KVNamespace): Promise<TrendingTopics | null> {
+  const raw = await kv.get(TRENDING_KEY);
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw) as TrendingTopics;
+  } catch {
+    return null;
+  }
+}
+
+export async function setTrendingTopics(kv: KVNamespace, topics: string[]): Promise<void> {
+  const clean = topics.map((t) => String(t).trim()).filter(Boolean).slice(0, 30);
+  await kv.put(TRENDING_KEY, JSON.stringify({ updatedAt: new Date().toISOString(), topics: clean }));
 }
 
 /* ---------- compliance auditor ---------- */

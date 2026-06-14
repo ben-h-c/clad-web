@@ -2185,6 +2185,25 @@ button.small {
   align-self: flex-start;
 }
 
+.trending-panel {
+  border: 1px solid var(--rule);
+  background: rgba(10, 8, 5, 0.03);
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.trending-panel__label {
+  color: var(--muted-ink);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.trending-panel__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
 .agents {
   display: flex;
   flex-direction: column;

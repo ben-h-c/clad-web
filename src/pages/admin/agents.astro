@@ -2,12 +2,13 @@
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import AdminNav from "~/components/AdminNav.astro";
-import { getRegistry } from "~/lib/agents";
+import { getRegistry, getTrendingTopics } from "~/lib/agents";
 import { shortDate } from "~/lib/dateline";
 
 export const prerender = false;
 
 const registry = await getRegistry(env.AGENTS);
+const trending = await getTrendingTopics(env.AGENTS);
 
 function runLabel(lastRun: (typeof registry.agents)[number]["lastRun"]) {
   if (!lastRun) return { cls: "run--never", text: "Never run" };
@@ -25,6 +26,18 @@ function runLabel(lastRun: (typeof registry.agents)[number]["lastRun"]) {
     <p class="dateline">
       Background agents that draft reports for review.
     </p>
+
+    {trending && trending.topics.length > 0 && (
+      <div class="trending-panel">
+        <p class="small-caps trending-panel__label">
+          Currently trending — what the scanner is also searching for
+          {trending.updatedAt && ` · updated ${shortDate(new Date(trending.updatedAt))}`}
+        </p>
+        <div class="trending-panel__tags">
+          {trending.topics.map((t) => <span class="topic-tag">{t}</span>)}
+        </div>
+      </div>
+    )}
 
     <div class="agents">
       {registry.agents.map((a) => {
