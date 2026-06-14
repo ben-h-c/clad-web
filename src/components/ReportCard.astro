@@ -1,0 +1,61 @@
+---
+import Verdict from "~/components/Verdict.astro";
+import LetterGrade from "~/components/LetterGrade.astro";
+import { shortDate } from "~/lib/dateline";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"posts">;
+}
+const { post } = Astro.props;
+const d = post.data;
+const isBroadcast = d.type === "broadcast";
+const source = d.sourceTitle ?? (() => {
+  try {
+    return new URL(d.sourceUrl).hostname.replace(/^www\./, "");
+  } catch {
+    return d.sourceUrl;
+  }
+})();
+const hq = d.videoId
+  ? `https://img.youtube.com/vi/${d.videoId}/hqdefault.jpg`
+  : null;
+---
+<article class="report-card">
+  <a class="report-card__link" href={`/posts/${post.id}/`}>
+    {d.thumbnail && (
+      <div class="report-card__thumb">
+        <img
+          src={d.thumbnail}
+          alt=""
+          width="320"
+          height="180"
+          loading="lazy"
+          decoding="async"
+          onerror={hq ? `this.onerror=null;this.src='${hq}'` : undefined}
+        />
+        {isBroadcast && d.letterGrade && (
+          <span class="report-card__grade"><LetterGrade grade={d.letterGrade} /></span>
+        )}
+      </div>
+    )}
+    <div class="report-card__body">
+      {!d.thumbnail && (
+        isBroadcast && d.letterGrade ? (
+          <LetterGrade grade={d.letterGrade} />
+        ) : d.verdict ? (
+          <Verdict verdict={d.verdict} />
+        ) : null
+      )}
+      <h3 class="report-card__headline">{d.headline}</h3>
+      <p class="report-card__meta">
+        {shortDate(d.publishedAt)} · {d.section}
+      </p>
+      <p class="report-card__summary">{d.summary}</p>
+    </div>
+  </a>
+  <p class="report-card__source">
+    {isBroadcast ? "▶ " : ""}Source:{" "}
+    <a href={d.sourceUrl} rel="noopener noreferrer" target="_blank">{source}</a>
+  </p>
+</article>

@@ -1,0 +1,16 @@
+---
+interface Props {
+  score: number;
+}
+const { score } = Astro.props;
+const pct = Math.max(0, Math.min(100, Math.round(score)));
+---
+<div class="factuality">
+  <div class="factuality__head">
+    <span class="small-caps">Factuality</span>
+    <span class="factuality__score">{pct}<span class="factuality__max">/100</span></span>
+  </div>
+  <div class="factuality__bar" role="meter" aria-valuenow={pct} aria-valuemin="0" aria-valuemax="100" aria-label="Factuality score">
+    <div class="factuality__fill" style={`width:${pct}%`}></div>
+  </div>
+</div>

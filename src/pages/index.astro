@@ -1,69 +1,37 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
-import Verdict from "~/components/Verdict.astro";
-import { shortDate } from "~/lib/dateline";
-import { sectionSlug } from "~/lib/sections";
+import HeroStrip from "~/components/HeroStrip.astro";
+import CategorySection from "~/components/CategorySection.astro";
+import Disclaimer from "~/components/Disclaimer.astro";
+import { SECTIONS } from "~/lib/sections";
 
 export const prerender = true;
 
-const all = await getCollection("posts", (p) => !p.data.draft);
-const sorted = all.sort(
+const all = (await getCollection("posts", (p) => !p.data.draft)).sort(
   (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
 );
 
-const [lede, ...rest] = sorted;
----
-<BaseLayout title="Clad — Fact-Checked Headlines">
-  {lede && (
-    <article class="front">
-      <section class="lede">
-        <div class="lede__kicker">
-          <Verdict verdict={lede.data.verdict} />
-          {lede.data.kicker && (
-            <span class="small-caps" style="margin-left:.75rem">{lede.data.kicker}</span>
-          )}
-        </div>
-        <h2 class="lede__headline">
-          <a href={`/posts/${lede.id}`} style="text-decoration:none;color:inherit">
-            {lede.data.headline}
-          </a>
-        </h2>
-        <p class="dateline">{shortDate(lede.data.publishedAt)} · {lede.data.section}</p>
-        <p class="lede__summary">{lede.data.summary}</p>
-      </section>
-      <aside class="column">
-        {rest.slice(0, 6).map((p) => (
-          <article class="card">
-            <Verdict verdict={p.data.verdict} />
-            <h3 class="card__headline">
-              <a href={`/posts/${p.id}`}>{p.data.headline}</a>
-            </h3>
-            <p class="dateline">{shortDate(p.data.publishedAt)} · <a href={`/sections/${sectionSlug(p.data.section)}/`} style="color:inherit">{p.data.section}</a></p>
-            <p class="card__summary">{p.data.summary}</p>
-          </article>
-        ))}
-      </aside>
-    </article>
-  )}
+const featured = all.filter((p) => p.data.featured).slice(0, 12);
+// If nothing is flagged featured, fall back to the most recent so the strip
+// is never empty.
+const heroPosts = featured.length > 0 ? featured : all.slice(0, 8);
 
-  {rest.length > 6 && (
+const bySection = SECTIONS.map((section) => ({
+  section,
+  posts: all.filter((p) => p.data.section === section),
+})).filter((g) => g.posts.length > 0);
+---
+<BaseLayout title="Clad — Fact-Checked News Reports">
+  {all.length === 0 ? (
+    <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
+  ) : (
     <>
-      <div class="dingbat">❦</div>
-      <section class="front">
-        <div class="column" style="grid-column:1/-1">
-          {rest.slice(6).map((p) => (
-            <article class="card">
-              <Verdict verdict={p.data.verdict} />
-              <h3 class="card__headline">
-                <a href={`/posts/${p.id}`}>{p.data.headline}</a>
-              </h3>
-              <p class="dateline">{shortDate(p.data.publishedAt)} · <a href={`/sections/${sectionSlug(p.data.section)}/`} style="color:inherit">{p.data.section}</a></p>
-              <p class="card__summary">{p.data.summary}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <HeroStrip posts={heroPosts} />
+      {bySection.map((g) => (
+        <CategorySection section={g.section} posts={g.posts} />
+      ))}
     </>
   )}
+  <Disclaimer />
 </BaseLayout>

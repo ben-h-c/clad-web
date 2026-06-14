@@ -2,12 +2,15 @@ import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { commitFile } from "~/lib/github";
 import { datedSlug } from "~/lib/slug";
-import { emitPost } from "~/lib/yaml";
+import { emitPost, type Frontmatter, type KeyMoment } from "~/lib/yaml";
+import { extractVideoId, thumbnailUrl } from "~/lib/youtube";
 
 export const prerender = false;
 
 const SECTIONS = ["Politics", "Economy", "Science", "World", "Tech", "Misc"];
 const VERDICTS = ["true", "mostly-true", "mixed", "mostly-false", "false", "unverified"];
+const LETTER_GRADES = ["A+","A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F"];
+const KEY_MOMENT_VERDICTS = ["verified", "disputed", "missing context", "unsupported"];
 
 export const POST: APIRoute = async ({ request }) => {
   if (!env.GITHUB_TOKEN || !env.GITHUB_REPO || !env.GITHUB_BRANCH) {
@@ -21,15 +24,16 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ error: "Invalid JSON body" }, 400);
   }
 
+  const type = p.type === "broadcast" ? "broadcast" : "verdict";
+
+  // Shared fields
   const headline = str(p.headline);
   const summary = str(p.summary);
-  const verdict = str(p.verdict);
-  const sourceUrl = str(p.sourceUrl);
   const section = str(p.section ?? "Misc");
-  const body = str(p.body);
   const kicker = p.kicker ? str(p.kicker) : undefined;
   const sourceTitle = p.sourceTitle ? str(p.sourceTitle) : undefined;
   const draft = Boolean(p.draft);
+  const featured = Boolean(p.featured);
   const correctionOf = p.correctionOf ? str(p.correctionOf) : undefined;
   const citations = Array.isArray(p.citations)
     ? p.citations
@@ -39,30 +43,86 @@ export const POST: APIRoute = async ({ request }) => {
 
   if (headline.length < 4) return json({ error: "Headline too short" }, 400);
   if (summary.length < 8) return json({ error: "Summary too short" }, 400);
-  if (!VERDICTS.includes(verdict)) return json({ error: "Invalid verdict" }, 400);
   if (!SECTIONS.includes(section)) return json({ error: "Invalid section" }, 400);
-  if (!sourceUrl) return json({ error: "Source URL required" }, 400);
 
-  const now = new Date();
-  const slug = datedSlug(headline, now);
-  const path = `src/content/posts/${slug}.md`;
+  let fm: Frontmatter;
+  let body: string;
 
-  const fileBody = emitPost(
-    {
+  if (type === "verdict") {
+    const verdict = str(p.verdict);
+    const sourceUrl = str(p.sourceUrl);
+    body = str(p.body);
+    if (!VERDICTS.includes(verdict)) return json({ error: "Invalid verdict" }, 400);
+    if (!sourceUrl) return json({ error: "Source URL required" }, 400);
+    fm = {
+      type: "verdict",
       headline,
       kicker,
       summary,
-      verdict,
-      publishedAt: now.toISOString().slice(0, 10),
+      publishedAt: today(),
       sourceUrl,
       sourceTitle,
       section,
       draft,
+      featured,
       correctionOf,
+      verdict,
       citations,
-    },
-    body
-  );
+    };
+  } else {
+    const sourceUrl = str(p.sourceUrl);
+    const videoId = extractVideoId(sourceUrl);
+    const letterGrade = str(p.letterGrade);
+    const factualityScore = Number(p.factualityScore);
+    const assessment = str(p.assessment);
+    const videoTitle = p.videoTitle ? str(p.videoTitle) : undefined;
+    const topics = toStringArray(p.topics).slice(0, 4);
+    const notableConcerns = toStringArray(p.notableConcerns).slice(0, 3);
+    const keyMoments: KeyMoment[] = Array.isArray(p.keyMoments)
+      ? p.keyMoments
+          .map((m: any) => ({
+            claim: str(m?.claim ?? ""),
+            verdict: KEY_MOMENT_VERDICTS.includes(m?.verdict) ? str(m.verdict) : "unsupported",
+            note: str(m?.note ?? ""),
+          }))
+          .filter((m: KeyMoment) => m.claim)
+      : [];
+
+    if (!videoId) return json({ error: "A valid YouTube URL is required" }, 400);
+    if (!LETTER_GRADES.includes(letterGrade)) return json({ error: "Invalid letter grade" }, 400);
+    if (!Number.isFinite(factualityScore) || factualityScore < 0 || factualityScore > 100)
+      return json({ error: "Factuality score must be 0–100" }, 400);
+    if (assessment.length < 8) return json({ error: "Assessment too short" }, 400);
+
+    fm = {
+      type: "broadcast",
+      headline,
+      kicker,
+      summary,
+      publishedAt: today(),
+      sourceUrl,
+      sourceTitle,
+      section,
+      draft,
+      featured,
+      correctionOf,
+      letterGrade,
+      factualityScore,
+      topics,
+      assessment,
+      notableConcerns,
+      keyMoments,
+      videoId,
+      videoTitle,
+      thumbnail: thumbnailUrl(videoId),
+      citations,
+    };
+    body = str(p.body); // optional extra notes/markdown under the report
+  }
+
+  const slug = datedSlug(headline, new Date());
+  const path = `src/content/posts/${slug}.md`;
+  const fileBody = emitPost(fm, body);
 
   try {
     const out = await commitFile({
@@ -81,6 +141,15 @@ export const POST: APIRoute = async ({ request }) => {
 
 function str(v: unknown): string {
   return typeof v === "string" ? v.trim() : "";
+}
+
+function toStringArray(v: unknown): string[] {
+  if (!Array.isArray(v)) return [];
+  return v.map((s) => str(s)).filter(Boolean);
+}
+
+function today(): string {
+  return new Date().toISOString().slice(0, 10);
 }
 
 function json(body: unknown, status: number): Response {

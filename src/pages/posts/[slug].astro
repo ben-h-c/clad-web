@@ -2,8 +2,13 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import Verdict from "~/components/Verdict.astro";
+import LetterGrade from "~/components/LetterGrade.astro";
+import FactualityBar from "~/components/FactualityBar.astro";
+import KeyMoments from "~/components/KeyMoments.astro";
+import Disclaimer from "~/components/Disclaimer.astro";
 import { dateline, shortDate } from "~/lib/dateline";
 import { sectionSlug } from "~/lib/sections";
+import { embedUrl } from "~/lib/youtube";
 
 export const prerender = true;
 
@@ -26,11 +31,25 @@ export async function getStaticPaths() {
 const { post, original, successors } = Astro.props;
 const { Content } = await render(post);
 const d = post.data;
+const isBroadcast = d.type === "broadcast";
+const sourceHost = (() => {
+  try {
+    return new URL(d.sourceUrl).hostname.replace(/^www\./, "");
+  } catch {
+    return d.sourceUrl;
+  }
+})();
+const paragraphs = (text: string) =>
+  text.split(/\n{2,}/).map((s) => s.trim()).filter(Boolean);
 ---
 <BaseLayout title={`${d.headline} — Clad`} description={d.summary}>
   <article class="post">
     <div class="post__kicker">
-      <Verdict verdict={d.verdict} />
+      {isBroadcast ? (
+        <LetterGrade grade={d.letterGrade!} />
+      ) : (
+        <Verdict verdict={d.verdict!} />
+      )}
       {d.kicker && <span class="small-caps" style="margin-left:.75rem">{d.kicker}</span>}
     </div>
     <h1 class="post__headline">{d.headline}</h1>
@@ -42,7 +61,7 @@ const d = post.data;
       <span>
         Source:{" "}
         <a href={d.sourceUrl} rel="noopener noreferrer" target="_blank">
-          {d.sourceTitle ?? new URL(d.sourceUrl).hostname}
+          {d.sourceTitle ?? sourceHost}
         </a>
       </span>
     </div>
@@ -55,7 +74,6 @@ const d = post.data;
         ({shortDate(original.data.publishedAt)}).
       </div>
     )}
-
     {successors.length > 0 && (
       <div class="correction-banner" role="note">
         <span class="correction-banner__label">Corrected</span>
@@ -81,9 +99,68 @@ const d = post.data;
       </div>
     )}
 
-    <div class="post__body">
-      <Content />
-    </div>
+    {isBroadcast ? (
+      <div class="report">
+        <div class="report__scorecard">
+          <div class="report__grade">
+            <LetterGrade grade={d.letterGrade!} size="hero" />
+            <span class="small-caps">Overall</span>
+          </div>
+          <FactualityBar score={d.factualityScore!} />
+        </div>
+
+        {d.videoId && (
+          <div class="video-embed">
+            <iframe
+              src={embedUrl(d.videoId)}
+              title={`Source video: ${d.headline}`}
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </div>
+        )}
+
+        {d.topics.length > 0 && (
+          <div class="topics">
+            <h2 class="small-caps">Topics in This Edition</h2>
+            <div class="topics__tags">
+              {d.topics.map((t) => <span class="topic-tag">{t}</span>)}
+            </div>
+          </div>
+        )}
+
+        <section class="report__section">
+          <h2 class="small-caps">Summary</h2>
+          {paragraphs(d.summary).map((p) => <p>{p}</p>)}
+        </section>
+
+        <section class="report__section">
+          <h2 class="small-caps">Editorial Assessment</h2>
+          {paragraphs(d.assessment!).map((p) => <p>{p}</p>)}
+        </section>
+
+        {d.keyMoments.length > 0 && <KeyMoments moments={d.keyMoments} />}
+
+        {d.notableConcerns.length > 0 && (
+          <section class="notable-concerns">
+            <h2 class="small-caps">Notable Concerns</h2>
+            <ul>
+              {d.notableConcerns.map((c) => <li>{c}</li>)}
+            </ul>
+          </section>
+        )}
+
+        <div class="post__body report__body">
+          <Content />
+        </div>
+      </div>
+    ) : (
+      <div class="post__body">
+        <Content />
+      </div>
+    )}
 
     {d.citations.length > 0 && (
       <section class="sources">
@@ -97,5 +174,7 @@ const d = post.data;
         </ol>
       </section>
     )}
+
+    <Disclaimer />
   </article>
 </BaseLayout>

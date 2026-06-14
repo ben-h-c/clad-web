@@ -16,15 +16,20 @@ export async function GET(context: APIContext) {
       "Fact-checked headlines. Each verdict is sourced and hand-reviewed.",
     site: context.site ?? "https://cladfacts.com",
     items: sorted.map((p) => ({
-      title: `[${p.data.verdict.toUpperCase()}] ${p.data.headline}`,
+      title: `[${ratingLabel(p.data)}] ${p.data.headline}`,
       pubDate: p.data.publishedAt,
       description: p.data.summary,
       link: `/posts/${p.id}/`,
-      categories: [p.data.section, p.data.verdict],
+      categories: [p.data.section, ratingLabel(p.data)],
       customData: `<source url="${p.data.sourceUrl}">${escapeXml(p.data.sourceTitle ?? "")}</source>`,
     })),
     customData: `<language>en-us</language>`,
   });
+}
+
+function ratingLabel(d: { type?: string; verdict?: string; letterGrade?: string }): string {
+  if (d.type === "broadcast") return d.letterGrade ? `GRADE ${d.letterGrade}` : "REPORT";
+  return d.verdict ? d.verdict.toUpperCase() : "UNRATED";
 }
 
 function escapeXml(s: string): string {

@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import Verdict from "~/components/Verdict.astro";
+import LetterGrade from "~/components/LetterGrade.astro";
 import { shortDate } from "~/lib/dateline";
 
 export const prerender = true;
@@ -55,7 +56,11 @@ const monthName = MONTH_NAMES[monthIdx];
         <li>
           <span class="archive-date">{shortDate(p.data.publishedAt)}</span>
           <span style="flex:1;min-width:0">
-            <Verdict verdict={p.data.verdict} />{" "}
+            {p.data.type === "broadcast" && p.data.letterGrade ? (
+              <LetterGrade grade={p.data.letterGrade} />
+            ) : p.data.verdict ? (
+              <Verdict verdict={p.data.verdict} />
+            ) : null}{" "}
             <a href={`/posts/${p.id}/`}>{p.data.headline}</a>
           </span>
         </li>

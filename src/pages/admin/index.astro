@@ -7,116 +7,257 @@ export const prerender = false;
 const posts = (await getCollection("posts", (p) => !p.data.draft))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
   .slice(0, 100);
+
+const LETTER_GRADES = ["A+","A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F"];
+const KEY_MOMENT_VERDICTS = ["verified","disputed","missing context","unsupported"];
+const SECTIONS = ["Politics","Economy","Science","World","Tech","Misc"];
 ---
 <BaseLayout title="Clad — Editorial Desk">
   <section class="admin">
     <h2 class="admin__title">Editorial Desk</h2>
-    <p class="dateline">
-      Paste a headline. Grok finds sources. You edit. Hit publish — the post is
-      committed to the repo and Cloudflare redeploys.
-    </p>
 
-    <form id="check-form">
-      <div class="field">
-        <label for="headline">Headline</label>
-        <input id="headline" name="headline" required minlength="4" maxlength="240" />
-      </div>
-      <div class="field">
-        <label for="sourceUrl">Source URL (the original article — optional but recommended)</label>
-        <input id="sourceUrl" name="sourceUrl" type="url" placeholder="https://..." />
-      </div>
-      <div class="field">
-        <label for="notes">Editor notes for Grok (optional)</label>
-        <textarea id="notes" name="notes" placeholder="e.g. 'focus on the deficit claim, ignore the unrelated jab about housing'"></textarea>
-      </div>
-      <button type="submit" id="check-btn">Run Fact-Check</button>
-    </form>
+    <div class="mode-switch" role="tablist" aria-label="Report type">
+      <button type="button" class="mode-btn is-active" id="mode-broadcast" role="tab">Broadcast Report</button>
+      <button type="button" class="mode-btn" id="mode-headline" role="tab">Headline Fact-Check</button>
+    </div>
 
-    <div id="status"></div>
+    <!-- ============ BROADCAST MODE ============ -->
+    <div id="broadcast-mode">
+      <p class="dateline">
+        Paste a news video's YouTube URL and its transcript. Grok grades the
+        broadcast and drafts a report card. You edit, then publish.
+      </p>
 
-    <form id="publish-form" style="display:none;margin-top:2rem">
-      <div class="rule rule--double" aria-hidden="true" style="margin:1.5rem 0"></div>
+      <form id="bc-input-form">
+        <div class="field">
+          <label for="bc-url">YouTube URL</label>
+          <input id="bc-url" type="url" required placeholder="https://www.youtube.com/watch?v=..." />
+        </div>
+        <div class="field">
+          <label for="bc-video-title">Video title (optional)</label>
+          <input id="bc-video-title" maxlength="200" />
+        </div>
+        <div class="field">
+          <label for="bc-channel">Channel / source (optional)</label>
+          <input id="bc-channel" maxlength="160" placeholder="e.g. PBS NewsHour" />
+        </div>
+        <div class="field">
+          <label for="bc-transcript">Transcript (paste the full transcript)</label>
+          <textarea id="bc-transcript" required style="min-height:14rem"></textarea>
+        </div>
+        <div class="field">
+          <label for="bc-notes">Editor notes for Grok (optional)</label>
+          <textarea id="bc-notes" placeholder="e.g. 'focus on the economic claims in the first segment'"></textarea>
+        </div>
+        <button type="submit" id="bc-analyze-btn">Analyze Transcript</button>
+      </form>
 
-      <div class="field">
-        <label for="verdict">Verdict</label>
-        <select id="verdict" name="verdict" required>
-          <option value="true">Verified True</option>
-          <option value="mostly-true">Mostly True</option>
-          <option value="mixed">Mixed</option>
-          <option value="mostly-false">Mostly False</option>
-          <option value="false">False</option>
-          <option value="unverified">Unverified</option>
-        </select>
-      </div>
+      <div id="bc-status"></div>
 
-      <div class="field">
-        <label for="kicker">Kicker (optional — e.g. "Politics", "Editor's Note")</label>
-        <input id="kicker" name="kicker" maxlength="80" />
-      </div>
+      <form id="bc-review-form" style="display:none;margin-top:2rem">
+        <div class="rule rule--double" aria-hidden="true" style="margin:1.5rem 0"></div>
 
-      <div class="field">
-        <label for="section">Section</label>
-        <select id="section" name="section" required>
-          <option>Politics</option>
-          <option>Economy</option>
-          <option>Science</option>
-          <option>World</option>
-          <option>Tech</option>
-          <option selected>Misc</option>
-        </select>
-      </div>
+        <div class="bc-thumb-preview" id="bc-thumb-wrap" style="display:none">
+          <img id="bc-thumb" alt="Video thumbnail" />
+        </div>
 
-      <div class="field">
-        <label for="sourceTitle">Source title (optional — defaults to hostname)</label>
-        <input id="sourceTitle" name="sourceTitle" maxlength="160" />
-      </div>
+        <div class="field">
+          <label for="bc-headline">Headline</label>
+          <input id="bc-headline" required minlength="4" maxlength="200" />
+        </div>
 
-      <div class="field">
-        <label for="summary">Summary (one sentence — runs under the headline)</label>
-        <textarea id="summary" name="summary" required minlength="8" maxlength="400"></textarea>
-      </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="bc-grade">Letter grade</label>
+            <select id="bc-grade" required>
+              {LETTER_GRADES.map((g) => <option value={g}>{g}</option>)}
+            </select>
+          </div>
+          <div class="field">
+            <label for="bc-score">Factuality (0–100)</label>
+            <input id="bc-score" type="number" min="0" max="100" required />
+          </div>
+          <div class="field">
+            <label for="bc-section">Section</label>
+            <select id="bc-section" required>
+              {SECTIONS.map((s) => <option selected={s === "Politics"}>{s}</option>)}
+            </select>
+          </div>
+        </div>
 
-      <div class="field">
-        <label for="body">Body (Markdown supported)</label>
-        <textarea id="body" name="body" required style="min-height:18rem"></textarea>
-      </div>
+        <div class="field">
+          <label for="bc-summary">Summary (factual — what the broadcast covered; blank line between paragraphs)</label>
+          <textarea id="bc-summary" required minlength="8" style="min-height:8rem"></textarea>
+        </div>
 
-      <div class="field">
-        <label for="citations">Citations (one per line: <code>Title | https://url</code>)</label>
-        <textarea id="citations" name="citations" placeholder="Title of source | https://example.com/source"></textarea>
-      </div>
+        <div class="field">
+          <label for="bc-assessment">Editorial assessment (your take on accuracy/sourcing)</label>
+          <textarea id="bc-assessment" required minlength="8" style="min-height:7rem"></textarea>
+        </div>
 
-      <div class="field">
-        <label for="correctionOf">
-          Correction of (optional — pick the post this corrects)
-        </label>
-        <select id="correctionOf" name="correctionOf">
-          <option value="">— Not a correction —</option>
-          {posts.map((p) => (
-            <option value={p.id}>
-              {p.data.publishedAt.toISOString().slice(0, 10)} — {p.data.headline}
-            </option>
-          ))}
-        </select>
-      </div>
+        <div class="field">
+          <label>Topics (2–4)</label>
+          <div id="bc-topics-list" class="tag-list"></div>
+          <button type="button" class="secondary small" data-add-tag="bc-topics-list">+ Add topic</button>
+        </div>
 
-      <div class="field">
-        <label>
-          <input type="checkbox" id="draft" /> Save as draft (won't appear on the homepage)
-        </label>
-      </div>
+        <div class="field">
+          <label>Notable concerns (0–3)</label>
+          <div id="bc-concerns-list" class="tag-list"></div>
+          <button type="button" class="secondary small" data-add-tag="bc-concerns-list">+ Add concern</button>
+        </div>
 
-      <button type="submit" id="publish-btn">Publish</button>
-      <button type="button" class="secondary" id="reset-btn">Discard</button>
-    </form>
+        <div class="field">
+          <label>Key moments (3–5 claims, each with a verdict)</label>
+          <div id="bc-km-list" class="km-list"></div>
+          <button type="button" class="secondary small" id="bc-add-km">+ Add key moment</button>
+        </div>
 
-    <div id="publish-status"></div>
+        <div class="field">
+          <label for="bc-channel-2">Channel / source label</label>
+          <input id="bc-channel-2" maxlength="160" />
+        </div>
+
+        <div class="field">
+          <label for="bc-citations">Additional citations (one per line: <code>Title | https://url</code>)</label>
+          <textarea id="bc-citations" placeholder="BLS October release | https://www.bls.gov/"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="bc-correctionOf">Correction of (optional)</label>
+          <select id="bc-correctionOf">
+            <option value="">— Not a correction —</option>
+            {posts.map((p) => (
+              <option value={p.id}>
+                {p.data.publishedAt.toISOString().slice(0, 10)} — {p.data.headline}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div class="field">
+          <label><input type="checkbox" id="bc-featured" /> Feature on the front-page strip</label>
+        </div>
+        <div class="field">
+          <label><input type="checkbox" id="bc-draft" /> Save as draft (won't appear publicly)</label>
+        </div>
+
+        <button type="submit" id="bc-publish-btn">Publish Report</button>
+        <button type="button" class="secondary" id="bc-discard-btn">Discard</button>
+      </form>
+
+      <div id="bc-publish-status"></div>
+    </div>
+
+    <!-- ============ HEADLINE MODE ============ -->
+    <div id="headline-mode" style="display:none">
+      <p class="dateline">
+        Paste a headline. Grok finds sources. You edit. Hit publish.
+      </p>
+
+      <form id="hl-input-form">
+        <div class="field">
+          <label for="hl-headline">Headline</label>
+          <input id="hl-headline" required minlength="4" maxlength="240" />
+        </div>
+        <div class="field">
+          <label for="hl-url">Source URL (optional but recommended)</label>
+          <input id="hl-url" type="url" placeholder="https://..." />
+        </div>
+        <div class="field">
+          <label for="hl-notes">Editor notes for Grok (optional)</label>
+          <textarea id="hl-notes"></textarea>
+        </div>
+        <button type="submit" id="hl-analyze-btn">Run Fact-Check</button>
+      </form>
+
+      <div id="hl-status"></div>
+
+      <form id="hl-review-form" style="display:none;margin-top:2rem">
+        <div class="rule rule--double" aria-hidden="true" style="margin:1.5rem 0"></div>
+        <div class="field">
+          <label for="hl-verdict">Verdict</label>
+          <select id="hl-verdict" required>
+            <option value="true">Verified True</option>
+            <option value="mostly-true">Mostly True</option>
+            <option value="mixed">Mixed</option>
+            <option value="mostly-false">Mostly False</option>
+            <option value="false">False</option>
+            <option value="unverified">Unverified</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="hl-kicker">Kicker (optional)</label>
+          <input id="hl-kicker" maxlength="80" />
+        </div>
+        <div class="field">
+          <label for="hl-section">Section</label>
+          <select id="hl-section" required>
+            {SECTIONS.map((s) => <option selected={s === "Misc"}>{s}</option>)}
+          </select>
+        </div>
+        <div class="field">
+          <label for="hl-sourceTitle">Source title (optional — defaults to hostname)</label>
+          <input id="hl-sourceTitle" maxlength="160" />
+        </div>
+        <div class="field">
+          <label for="hl-summary">Summary (one sentence)</label>
+          <textarea id="hl-summary" required minlength="8" maxlength="400"></textarea>
+        </div>
+        <div class="field">
+          <label for="hl-body">Body (Markdown)</label>
+          <textarea id="hl-body" required style="min-height:18rem"></textarea>
+        </div>
+        <div class="field">
+          <label for="hl-citations">Citations (one per line: <code>Title | https://url</code>)</label>
+          <textarea id="hl-citations"></textarea>
+        </div>
+        <div class="field">
+          <label><input type="checkbox" id="hl-featured" /> Feature on the front-page strip</label>
+        </div>
+        <div class="field">
+          <label><input type="checkbox" id="hl-draft" /> Save as draft</label>
+        </div>
+        <button type="submit" id="hl-publish-btn">Publish</button>
+        <button type="button" class="secondary" id="hl-discard-btn">Discard</button>
+      </form>
+
+      <div id="hl-publish-status"></div>
+    </div>
   </section>
+
+  <template id="tag-template">
+    <div class="tag-row">
+      <input class="tag-input" type="text" />
+      <button type="button" class="secondary small tag-remove" aria-label="Remove">×</button>
+    </div>
+  </template>
+
+  <template id="km-template">
+    <div class="km-row">
+      <div class="field">
+        <label>Claim</label>
+        <input class="km-claim" type="text" />
+      </div>
+      <div class="field">
+        <label>Verdict</label>
+        <select class="km-verdict">
+          <option value="verified">verified</option>
+          <option value="disputed">disputed</option>
+          <option value="missing context">missing context</option>
+          <option value="unsupported">unsupported</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Note</label>
+        <textarea class="km-note"></textarea>
+      </div>
+      <button type="button" class="secondary small km-remove">Remove moment</button>
+    </div>
+  </template>
 
   <script is:inline>
     const $ = (id) => document.getElementById(id);
-    const statusEl = $("status");
-    const publishStatusEl = $("publish-status");
 
     function setStatus(el, kind, msg) {
       el.innerHTML = msg
@@ -124,61 +265,8 @@ const posts = (await getCollection("posts", (p) => !p.data.draft))
         : "";
     }
 
-    $("check-form").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const btn = $("check-btn");
-      btn.disabled = true;
-      setStatus(statusEl, "info", "Researching — Grok is hitting primary sources. ~10–25 seconds.");
-
-      try {
-        const res = await fetch("/api/factcheck", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            headline: $("headline").value.trim(),
-            sourceUrl: $("sourceUrl").value.trim() || undefined,
-            notes: $("notes").value.trim() || undefined,
-          }),
-        });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || "Fact-check failed");
-
-        $("verdict").value = data.verdict;
-        $("summary").value = data.summary || "";
-        $("body").value = data.body || "";
-        $("citations").value = (data.citations || [])
-          .map((c) => `${c.title} | ${c.url}`)
-          .join("\n");
-
-        try {
-          const u = new URL($("sourceUrl").value || "");
-          if (u.hostname && !$("sourceTitle").value) $("sourceTitle").value = u.hostname;
-        } catch {}
-
-        $("publish-form").style.display = "block";
-        setStatus(statusEl, "info", "Draft ready below. Edit freely, then publish.");
-        $("verdict").scrollIntoView({ behavior: "smooth", block: "start" });
-      } catch (err) {
-        setStatus(statusEl, "error", String(err.message || err));
-      } finally {
-        btn.disabled = false;
-      }
-    });
-
-    $("reset-btn").addEventListener("click", () => {
-      $("publish-form").reset();
-      $("publish-form").style.display = "none";
-      setStatus(statusEl, "info", "");
-      setStatus(publishStatusEl, "info", "");
-    });
-
-    $("publish-form").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const btn = $("publish-btn");
-      btn.disabled = true;
-      setStatus(publishStatusEl, "info", "Committing to repo…");
-
-      const citations = $("citations").value
+    function parseCitations(text) {
+      return text
         .split("\n")
         .map((line) => {
           const idx = line.indexOf("|");
@@ -186,21 +274,143 @@ const posts = (await getCollection("posts", (p) => !p.data.draft))
           return { title: line.slice(0, idx).trim(), url: line.slice(idx + 1).trim() };
         })
         .filter((c) => c && c.title && c.url);
+    }
 
+    /* ---------- mode switching ---------- */
+    function setMode(mode) {
+      const bc = mode === "broadcast";
+      $("broadcast-mode").style.display = bc ? "block" : "none";
+      $("headline-mode").style.display = bc ? "none" : "block";
+      $("mode-broadcast").classList.toggle("is-active", bc);
+      $("mode-headline").classList.toggle("is-active", !bc);
+    }
+    $("mode-broadcast").addEventListener("click", () => setMode("broadcast"));
+    $("mode-headline").addEventListener("click", () => setMode("headline"));
+
+    /* ---------- tag editors (template clone, no innerHTML of model data) ---------- */
+    function addTag(listId, value) {
+      const tpl = $("tag-template").content.firstElementChild.cloneNode(true);
+      tpl.querySelector(".tag-input").value = value || "";
+      tpl.querySelector(".tag-remove").addEventListener("click", () => tpl.remove());
+      $(listId).appendChild(tpl);
+    }
+    document.querySelectorAll("[data-add-tag]").forEach((btn) => {
+      btn.addEventListener("click", () => addTag(btn.getAttribute("data-add-tag"), ""));
+    });
+    function serializeTags(listId) {
+      return [...$(listId).querySelectorAll(".tag-input")]
+        .map((i) => i.value.trim())
+        .filter(Boolean);
+    }
+
+    /* ---------- key moments editor ---------- */
+    function addKeyMoment(data) {
+      const row = $("km-template").content.firstElementChild.cloneNode(true);
+      if (data) {
+        row.querySelector(".km-claim").value = data.claim || "";
+        if (data.verdict) row.querySelector(".km-verdict").value = data.verdict;
+        row.querySelector(".km-note").value = data.note || "";
+      }
+      row.querySelector(".km-remove").addEventListener("click", () => row.remove());
+      $("bc-km-list").appendChild(row);
+    }
+    $("bc-add-km").addEventListener("click", () => addKeyMoment());
+    function serializeKeyMoments() {
+      return [...$("bc-km-list").querySelectorAll(".km-row")]
+        .map((row) => ({
+          claim: row.querySelector(".km-claim").value.trim(),
+          verdict: row.querySelector(".km-verdict").value,
+          note: row.querySelector(".km-note").value.trim(),
+        }))
+        .filter((m) => m.claim);
+    }
+
+    /* ---------- broadcast: analyze ---------- */
+    $("bc-input-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = $("bc-analyze-btn");
+      btn.disabled = true;
+      setStatus($("bc-status"), "info", "Analyzing — Grok is grading the broadcast. ~15–40 seconds.");
+      try {
+        const res = await fetch("/api/broadcast", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            youtubeUrl: $("bc-url").value.trim(),
+            transcript: $("bc-transcript").value.trim(),
+            videoTitle: $("bc-video-title").value.trim() || undefined,
+            channel: $("bc-channel").value.trim() || undefined,
+            notes: $("bc-notes").value.trim() || undefined,
+          }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Analysis failed");
+
+        $("bc-headline").value = data.headline || $("bc-video-title").value || "";
+        $("bc-grade").value = data.letterGrade || "C";
+        $("bc-score").value = data.factualityScore ?? 50;
+        $("bc-summary").value = data.summary || "";
+        $("bc-assessment").value = data.assessment || "";
+        $("bc-channel-2").value = $("bc-channel").value.trim();
+
+        $("bc-topics-list").innerHTML = "";
+        (data.topics || []).forEach((t) => addTag("bc-topics-list", t));
+        $("bc-concerns-list").innerHTML = "";
+        (data.notableConcerns || []).forEach((c) => addTag("bc-concerns-list", c));
+        $("bc-km-list").innerHTML = "";
+        (data.keyMoments || []).forEach((m) => addKeyMoment(m));
+
+        $("bc-review-form").dataset.videoId = data.videoId || "";
+        if (data.videoId) {
+          $("bc-thumb").src = `https://img.youtube.com/vi/${data.videoId}/hqdefault.jpg`;
+          $("bc-thumb-wrap").style.display = "block";
+        }
+
+        $("bc-review-form").style.display = "block";
+        setStatus($("bc-status"), "info", "Draft ready below. Edit freely, then publish.");
+        $("bc-headline").scrollIntoView({ behavior: "smooth", block: "start" });
+      } catch (err) {
+        setStatus($("bc-status"), "error", String(err.message || err));
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    $("bc-discard-btn").addEventListener("click", () => {
+      $("bc-review-form").reset();
+      $("bc-review-form").style.display = "none";
+      $("bc-km-list").innerHTML = "";
+      $("bc-topics-list").innerHTML = "";
+      $("bc-concerns-list").innerHTML = "";
+      setStatus($("bc-status"), "info", "");
+      setStatus($("bc-publish-status"), "info", "");
+    });
+
+    /* ---------- broadcast: publish ---------- */
+    $("bc-review-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = $("bc-publish-btn");
+      btn.disabled = true;
+      setStatus($("bc-publish-status"), "info", "Committing to repo…");
       const payload = {
-        headline: $("headline").value.trim(),
-        kicker: $("kicker").value.trim() || undefined,
-        summary: $("summary").value.trim(),
-        verdict: $("verdict").value,
-        section: $("section").value,
-        sourceUrl: $("sourceUrl").value.trim(),
-        sourceTitle: $("sourceTitle").value.trim() || undefined,
-        body: $("body").value.trim(),
-        citations,
-        draft: $("draft").checked,
-        correctionOf: $("correctionOf").value.trim() || undefined,
+        type: "broadcast",
+        headline: $("bc-headline").value.trim(),
+        summary: $("bc-summary").value.trim(),
+        assessment: $("bc-assessment").value.trim(),
+        letterGrade: $("bc-grade").value,
+        factualityScore: Number($("bc-score").value),
+        section: $("bc-section").value,
+        sourceUrl: $("bc-url").value.trim(),
+        sourceTitle: $("bc-channel-2").value.trim() || undefined,
+        videoTitle: $("bc-video-title").value.trim() || undefined,
+        topics: serializeTags("bc-topics-list"),
+        notableConcerns: serializeTags("bc-concerns-list"),
+        keyMoments: serializeKeyMoments(),
+        citations: parseCitations($("bc-citations").value),
+        featured: $("bc-featured").checked,
+        draft: $("bc-draft").checked,
+        correctionOf: $("bc-correctionOf").value.trim() || undefined,
       };
-
       try {
         const res = await fetch("/api/publish", {
           method: "POST",
@@ -209,14 +419,92 @@ const posts = (await getCollection("posts", (p) => !p.data.draft))
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || "Publish failed");
-        setStatus(
-          publishStatusEl,
-          "info",
+        setStatus($("bc-publish-status"), "info",
           `Published. <a href="${data.htmlUrl}" target="_blank" rel="noopener">View commit</a>. ` +
-            `Cloudflare Pages will redeploy and the post will appear at <code>${data.postUrl}</code> in ~30 seconds.`
-        );
+          `Cloudflare redeploys and the report appears at <code>${data.postUrl}</code> in ~30 seconds.`);
       } catch (err) {
-        setStatus(publishStatusEl, "error", String(err.message || err));
+        setStatus($("bc-publish-status"), "error", String(err.message || err));
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    /* ---------- headline: analyze ---------- */
+    $("hl-input-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = $("hl-analyze-btn");
+      btn.disabled = true;
+      setStatus($("hl-status"), "info", "Researching — Grok is hitting primary sources. ~10–25 seconds.");
+      try {
+        const res = await fetch("/api/factcheck", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            headline: $("hl-headline").value.trim(),
+            sourceUrl: $("hl-url").value.trim() || undefined,
+            notes: $("hl-notes").value.trim() || undefined,
+          }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Fact-check failed");
+        $("hl-verdict").value = data.verdict;
+        $("hl-summary").value = data.summary || "";
+        $("hl-body").value = data.body || "";
+        $("hl-citations").value = (data.citations || []).map((c) => `${c.title} | ${c.url}`).join("\n");
+        try {
+          const u = new URL($("hl-url").value || "");
+          if (u.hostname && !$("hl-sourceTitle").value) $("hl-sourceTitle").value = u.hostname;
+        } catch {}
+        $("hl-review-form").style.display = "block";
+        setStatus($("hl-status"), "info", "Draft ready below. Edit freely, then publish.");
+        $("hl-verdict").scrollIntoView({ behavior: "smooth", block: "start" });
+      } catch (err) {
+        setStatus($("hl-status"), "error", String(err.message || err));
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    $("hl-discard-btn").addEventListener("click", () => {
+      $("hl-review-form").reset();
+      $("hl-review-form").style.display = "none";
+      setStatus($("hl-status"), "info", "");
+      setStatus($("hl-publish-status"), "info", "");
+    });
+
+    /* ---------- headline: publish ---------- */
+    $("hl-review-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = $("hl-publish-btn");
+      btn.disabled = true;
+      setStatus($("hl-publish-status"), "info", "Committing to repo…");
+      const payload = {
+        type: "verdict",
+        headline: $("hl-headline").value.trim(),
+        kicker: $("hl-kicker").value.trim() || undefined,
+        summary: $("hl-summary").value.trim(),
+        verdict: $("hl-verdict").value,
+        section: $("hl-section").value,
+        sourceUrl: $("hl-url").value.trim(),
+        sourceTitle: $("hl-sourceTitle").value.trim() || undefined,
+        body: $("hl-body").value.trim(),
+        citations: parseCitations($("hl-citations").value),
+        featured: $("hl-featured").checked,
+        draft: $("hl-draft").checked,
+      };
+      try {
+        const res = await fetch("/api/publish", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Publish failed");
+        setStatus($("hl-publish-status"), "info",
+          `Published. <a href="${data.htmlUrl}" target="_blank" rel="noopener">View commit</a>. ` +
+          `Appears at <code>${data.postUrl}</code> in ~30 seconds.`);
+      } catch (err) {
+        setStatus($("hl-publish-status"), "error", String(err.message || err));
       } finally {
         btn.disabled = false;
       }
