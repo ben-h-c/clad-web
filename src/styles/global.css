@@ -1038,10 +1038,37 @@ p {
   overflow: hidden;
 }
 
+.gradeboard__sub-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.15rem;
+}
+
 .gradeboard__source {
   font-size: 0.7rem;
   color: var(--muted-ink);
-  margin-top: 0.1rem;
+}
+
+.gradeboard__lean {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.05rem 0.35rem;
+  border: 1px solid var(--rule);
+  white-space: nowrap;
+}
+
+.gradeboard__lean--left {
+  background: rgba(26, 60, 110, 0.12);
+}
+.gradeboard__lean--right {
+  background: rgba(148, 26, 26, 0.12);
+}
+.gradeboard__lean--center {
+  background: rgba(10, 8, 5, 0.05);
+  color: var(--muted-ink);
 }
 
 @media (max-width: 38rem) {
