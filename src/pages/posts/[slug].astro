@@ -7,6 +7,7 @@ import FactualityBar from "~/components/FactualityBar.astro";
 import KeyMoments from "~/components/KeyMoments.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
+import ShareBar from "~/components/ShareBar.astro";
 import { dateline, shortDate } from "~/lib/dateline";
 import { embedUrl } from "~/lib/youtube";
 
@@ -41,6 +42,7 @@ const sourceHost = (() => {
 })();
 const paragraphs = (text: string) =>
   text.split(/\n{2,}/).map((s) => s.trim()).filter(Boolean);
+const shareUrl = new URL(`/posts/${post.id}/`, Astro.site ?? "https://cladfacts.com").href;
 ---
 <BaseLayout title={`${d.headline} — Clad`} description={d.summary}>
   <article class="post">
@@ -63,6 +65,8 @@ const paragraphs = (text: string) =>
         </a>
       </span>
     </div>
+
+    <ShareBar url={shareUrl} title={`${d.headline} — Clad`} />
 
     {original && (
       <div class="correction-banner" role="note">
