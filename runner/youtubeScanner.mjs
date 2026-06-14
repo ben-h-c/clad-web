@@ -4,6 +4,40 @@ import { getKnown, submitDraft } from "./api.mjs";
 
 const YT_API = "https://www.googleapis.com/youtube/v3/search";
 
+// Allow-list of popular US English news networks. We match a video's channel
+// title (case-insensitive substring) against these so the agent only drafts
+// reports from recognized news outlets — not random uploads. Editorial policy,
+// kept in the runner so it's easy to adjust.
+const NETWORKS = [
+  "cnn",
+  "fox news",
+  "fox business",
+  "msnbc",
+  "abc news",
+  "cbs news",
+  "nbc news",
+  "pbs newshour",
+  "newsnation",
+  "c-span",
+  "cspan",
+  "reuters",
+  "associated press",
+  "bloomberg",
+  "cnbc",
+  "the hill",
+  "washington post",
+  "wall street journal",
+  "usa today",
+  "politico",
+  "npr",
+  "forbes breaking news",
+];
+
+function isNetwork(channelTitle) {
+  const t = (channelTitle || "").toLowerCase();
+  return NETWORKS.some((n) => t.includes(n));
+}
+
 // Run one scan for a youtube-scanner agent. Returns a status summary.
 export async function runYoutubeScanner(agent) {
   const key = process.env.YOUTUBE_API_KEY;
@@ -25,7 +59,9 @@ export async function runYoutubeScanner(agent) {
     order: c.order || "viewCount",
     publishedAfter,
     q: c.query || "politics",
-    maxResults: String(c.maxCandidatesPerRun || 8),
+    // Cast a wide net (one search = 100 quota units), then keep only the
+    // recognized news networks below.
+    maxResults: "50",
     relevanceLanguage: "en",
   });
 
@@ -35,7 +71,7 @@ export async function runYoutubeScanner(agent) {
     return { ok: false, message: `YouTube API ${res.status}: ${body.slice(0, 160)}` };
   }
   const data = await res.json();
-  const candidates = (data.items || [])
+  const all = (data.items || [])
     .filter((it) => it.id?.videoId)
     .map((it) => ({
       videoId: it.id.videoId,
@@ -44,7 +80,17 @@ export async function runYoutubeScanner(agent) {
       publishedAt: it.snippet?.publishedAt || "",
     }));
 
-  if (candidates.length === 0) return { ok: true, message: "no candidates", submitted: 0, skipped: 0 };
+  // Restrict to popular US news networks.
+  const candidates = all.filter((v) => isNetwork(v.channel));
+
+  if (candidates.length === 0) {
+    return {
+      ok: true,
+      message: `no network matches among ${all.length} results`,
+      submitted: 0,
+      skipped: 0,
+    };
+  }
 
   // Pre-dedupe against published/pending/seen.
   const known = await getKnown(agent.id, candidates.map((v) => v.videoId));
