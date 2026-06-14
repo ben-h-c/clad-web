@@ -15,5 +15,12 @@
       "namespace_id": "1001",
       "simple": { "limit": 20, "period": 60 }
     }
+  ],
+  // Agent state (registry, pending drafts, seen-ledger). The `id` below is a
+  // placeholder for local dev (wrangler dev simulates KV locally); replace it
+  // with the real namespace id from `wrangler kv namespace create AGENTS`
+  // before deploying to production.
+  "kv_namespaces": [
+    { "binding": "AGENTS", "id": "REPLACE_WITH_REAL_AGENTS_KV_ID" }
   ]
 }

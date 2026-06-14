@@ -1,0 +1,14 @@
+{
+  "name": "clad-agent-runner",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Mac-side agent runner for clad-web: scans YouTube, drafts reports, submits to the approval queue.",
+  "scripts": {
+    "start": "node index.mjs",
+    "once": "node index.mjs --once"
+  },
+  "dependencies": {
+    "cron-parser": "^4.9.0"
+  }
+}

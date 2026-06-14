@@ -2,13 +2,19 @@ import { defineMiddleware } from "astro:middleware";
 import { env } from "cloudflare:workers";
 import { checkBasicAuth, unauthorized } from "~/lib/auth";
 
+// Agent endpoints authenticate with a bearer token inside the route, so they
+// must bypass the editor basic-auth gate.
+const AGENT_API = (path: string) => path.startsWith("/api/agent/");
+
 const PROTECTED = (path: string) =>
   path === "/admin" ||
   path.startsWith("/admin/") ||
   path.startsWith("/api/");
 
 export const onRequest = defineMiddleware(async (context, next) => {
-  if (!PROTECTED(context.url.pathname)) return next();
+  const path = context.url.pathname;
+  if (AGENT_API(path)) return next();
+  if (!PROTECTED(path)) return next();
 
   if (!env.ADMIN_USER || !env.ADMIN_PASSWORD) {
     return new Response(
