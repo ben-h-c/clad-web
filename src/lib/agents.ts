@@ -11,13 +11,21 @@ import { getCollection } from "astro:content";
 import type { BroadcastReport } from "~/lib/broadcast";
 
 export interface AgentConfig {
-  regionCode: string;
-  videoCategoryId: string;
-  order: "date" | "viewCount";
-  publishedWithinHours: number;
-  maxCandidatesPerRun: number;
-  maxPublishesPerRun: number;
-  query: string;
+  // youtube-scanner
+  regionCode?: string;
+  videoCategoryId?: string;
+  order?: "date" | "viewCount";
+  publishedWithinHours?: number;
+  maxCandidatesPerRun?: number;
+  maxPublishesPerRun?: number;
+  maxScanPages?: number;
+  query?: string;
+  // frontpage-curator
+  maxFeatured?: number;
+  perTopicCap?: number;
+  recencyWeight?: number;
+  popularityWeight?: number;
+  engagementWeight?: number;
 }
 
 export interface AgentLastRun {
@@ -60,6 +68,7 @@ export interface PendingDraft {
 }
 
 const REGISTRY_KEY = "agents:registry";
+const FRONTPAGE_KEY = "frontpage:featured";
 const DRAFT_PREFIX = "draft:";
 const SEEN_PREFIX = "seen:";
 const DRAFT_TTL = 14 * 24 * 60 * 60; // 14 days
@@ -86,6 +95,20 @@ export const DEFAULT_REGISTRY: Registry = {
         query: "politics OR congress OR white house OR election",
       },
     },
+    {
+      id: "frontpage-curator",
+      kind: "frontpage-curator",
+      name: "Front Page Curator",
+      enabled: true,
+      cron: "30 */3 * * *",
+      config: {
+        maxFeatured: 15,
+        perTopicCap: 2,
+        recencyWeight: 0.45,
+        popularityWeight: 0.4,
+        engagementWeight: 0.15,
+      },
+    },
   ],
 };
 
@@ -95,11 +118,23 @@ export async function getRegistry(kv: KVNamespace): Promise<Registry> {
     await kv.put(REGISTRY_KEY, JSON.stringify(DEFAULT_REGISTRY));
     return DEFAULT_REGISTRY;
   }
+  let reg: Registry;
   try {
-    return JSON.parse(raw) as Registry;
+    reg = JSON.parse(raw) as Registry;
   } catch {
     return DEFAULT_REGISTRY;
   }
+  // Reconcile: add any default agents that aren't in the stored registry yet
+  // (so new agent kinds appear without wiping the existing config/lastRun).
+  let changed = false;
+  for (const def of DEFAULT_REGISTRY.agents) {
+    if (!reg.agents.some((a) => a.id === def.id)) {
+      reg.agents.push(def);
+      changed = true;
+    }
+  }
+  if (changed) await kv.put(REGISTRY_KEY, JSON.stringify(reg));
+  return reg;
 }
 
 export async function putRegistry(kv: KVNamespace, reg: Registry): Promise<void> {
@@ -190,6 +225,45 @@ export async function existingVideoIds(): Promise<Set<string>> {
     if (p.data.videoId) ids.add(p.data.videoId);
   }
   return ids;
+}
+
+/* ---------- front-page curation ---------- */
+
+export async function getFrontpage(kv: KVNamespace): Promise<string[]> {
+  const raw = await kv.get(FRONTPAGE_KEY);
+  if (!raw) return [];
+  try {
+    const v = JSON.parse(raw);
+    return Array.isArray(v) ? v.map(String) : [];
+  } catch {
+    return [];
+  }
+}
+
+export async function setFrontpage(kv: KVNamespace, ids: string[]): Promise<void> {
+  await kv.put(FRONTPAGE_KEY, JSON.stringify(ids.slice(0, 30)));
+}
+
+export interface PostMeta {
+  id: string;
+  videoId: string | null;
+  headline: string;
+  topics: string[];
+  publishedAt: string; // ISO date
+  leanScore: number | null;
+}
+
+/** Metadata for published (non-draft) posts, for the curator to score. */
+export async function publishedPostsMeta(): Promise<PostMeta[]> {
+  const posts = await getCollection("posts", (p) => !p.data.draft);
+  return posts.map((p) => ({
+    id: p.id,
+    videoId: p.data.videoId ?? null,
+    headline: p.data.headline,
+    topics: p.data.topics ?? [],
+    publishedAt: p.data.publishedAt.toISOString(),
+    leanScore: typeof p.data.leanScore === "number" ? p.data.leanScore : null,
+  }));
 }
 
 /* ---------- same-network story dedup ----------

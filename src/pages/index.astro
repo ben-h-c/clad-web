@@ -1,20 +1,31 @@
 ---
 import { getCollection } from "astro:content";
+import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import HeroStrip from "~/components/HeroStrip.astro";
 import ReportCard from "~/components/ReportCard.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
+import { getFrontpage } from "~/lib/agents";
 
-export const prerender = true;
+// SSR so the hero reflects the curator's live KV-stored selection without a
+// rebuild. Edge/browser-cached briefly to keep load down.
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "public, max-age=120");
 
 const all = (await getCollection("posts", (p) => !p.data.draft)).sort(
   (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
 );
+const byId = new Map(all.map((p) => [p.id, p]));
 
-const featured = all.filter((p) => p.data.featured).slice(0, 12);
-// If nothing is flagged featured, fall back to the most recent so the strip
-// is never empty.
-const heroPosts = featured.length > 0 ? featured : all.slice(0, 8);
+// Hero = the Front Page Curator's selection (ordered). Fall back to manually
+// featured posts, then most-recent, so the strip is never empty.
+let curated = await getFrontpage(env.AGENTS);
+let heroPosts = curated.map((id) => byId.get(id)).filter((p) => p !== undefined);
+if (heroPosts.length === 0) {
+  const flagged = all.filter((p) => p.data.featured);
+  heroPosts = flagged.length > 0 ? flagged : all.slice(0, 8);
+}
+heroPosts = heroPosts.slice(0, 15);
 ---
 <BaseLayout
   title="Clad — Political Fact-Checks & Media Bias"
