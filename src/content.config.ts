@@ -39,6 +39,15 @@ const KEY_MOMENT_VERDICTS = [
   "unsupported",
 ] as const;
 
+const POLITICAL_LEANS = [
+  "left",
+  "center-left",
+  "center",
+  "center-right",
+  "right",
+  "none",
+] as const;
+
 const posts = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/posts" }),
   schema: z
@@ -72,6 +81,8 @@ const posts = defineCollection({
       // broadcast-report fields (mirror iOS BroadcastReview)
       letterGrade: z.enum(LETTER_GRADES).optional(),
       factualityScore: z.number().int().min(0).max(100).optional(),
+      politicalLean: z.enum(POLITICAL_LEANS).optional(),
+      leanRationale: z.string().optional(),
       topics: z.array(z.string()).max(4).default([]),
       assessment: z.string().optional(),
       notableConcerns: z.array(z.string()).max(3).default([]),
@@ -110,4 +121,4 @@ const posts = defineCollection({
 });
 
 export const collections = { posts };
-export { VERDICTS, LETTER_GRADES, KEY_MOMENT_VERDICTS };
+export { VERDICTS, LETTER_GRADES, KEY_MOMENT_VERDICTS, POLITICAL_LEANS };

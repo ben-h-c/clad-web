@@ -11,6 +11,7 @@ const SECTIONS = ["Politics", "Economy", "Science", "World", "Tech", "Misc"];
 const VERDICTS = ["true", "mostly-true", "mixed", "mostly-false", "false", "unverified"];
 const LETTER_GRADES = ["A+","A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F"];
 const KEY_MOMENT_VERDICTS = ["verified", "disputed", "missing context", "unsupported"];
+const POLITICAL_LEANS = ["left", "center-left", "center", "center-right", "right", "none"];
 
 export const POST: APIRoute = async ({ request }) => {
   if (!env.GITHUB_TOKEN || !env.GITHUB_REPO || !env.GITHUB_BRANCH) {
@@ -76,6 +77,8 @@ export const POST: APIRoute = async ({ request }) => {
     const factualityScore = Number(p.factualityScore);
     const assessment = str(p.assessment);
     const videoTitle = p.videoTitle ? str(p.videoTitle) : undefined;
+    const politicalLean = POLITICAL_LEANS.includes(p.politicalLean) ? str(p.politicalLean) : undefined;
+    const leanRationale = p.leanRationale ? str(p.leanRationale) : undefined;
     const topics = toStringArray(p.topics).slice(0, 4);
     const notableConcerns = toStringArray(p.notableConcerns).slice(0, 3);
     const keyMoments: KeyMoment[] = Array.isArray(p.keyMoments)
@@ -108,6 +111,8 @@ export const POST: APIRoute = async ({ request }) => {
       correctionOf,
       letterGrade,
       factualityScore,
+      politicalLean,
+      leanRationale,
       topics,
       assessment,
       notableConcerns,

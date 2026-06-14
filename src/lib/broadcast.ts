@@ -20,6 +20,15 @@ export const KEY_MOMENT_VERDICTS = [
   "unsupported",
 ] as const;
 
+export const POLITICAL_LEANS = [
+  "left",
+  "center-left",
+  "center",
+  "center-right",
+  "right",
+  "none",
+] as const;
+
 export interface BroadcastKeyMoment {
   claim: string;
   verdict: (typeof KEY_MOMENT_VERDICTS)[number];
@@ -30,26 +39,31 @@ export interface BroadcastReport {
   headline: string;
   letterGrade: (typeof LETTER_GRADES)[number];
   factualityScore: number;
+  politicalLean: (typeof POLITICAL_LEANS)[number];
+  leanRationale: string;
   topics: string[];
   summary: string;
   assessment: string;
   notableConcerns: string[];
   keyMoments: BroadcastKeyMoment[];
+  citations: { title: string; url: string }[];
 }
 
 // Ported from the iOS app (GrokClient.broadcastReviewPrompt), adapted: the web
 // editor pastes a transcript rather than a live utterance/flag stream, and we
 // also ask for a `headline` since the website needs a title per report.
-const SYSTEM_PROMPT = `You are the editor of "Clad," a one-editor fact-checking publication. You are reviewing a news broadcast (a TV segment, interview, or news video) from its transcript. Produce a structured end-of-broadcast report card.
+const SYSTEM_PROMPT = `You are the editor of "Clad," a one-editor fact-checking publication. You are reviewing a news broadcast, segment, interview, or media clip. Your job is NOT to repeat the news. Your job is to give the reader the LENS they need: how well the claims hold up, what context they are missing, where the framing leans politically, and what could be skewing their perception of what they just watched. Produce a structured report card.
 
 Respond with a single JSON object of the form:
 {
   "headline": "<a concise newspaper headline for this report, <= 90 chars>",
   "letter_grade": "A+" | "A" | "A-" | "B+" | "B" | "B-" | "C+" | "C" | "C-" | "D+" | "D" | "D-" | "F",
   "factuality_score": <integer 0-100>,
+  "political_lean": "left" | "center-left" | "center" | "center-right" | "right" | "none",
+  "lean_rationale": "<one or two sentences explaining the political lean call>",
   "topics": ["<topic>", ...],
   "summary": "<two short paragraphs, 5-7 sentences total, on what the broadcast was about>",
-  "assessment": "<4-6 sentences on overall quality, accuracy, and any patterns>",
+  "assessment": "<4-6 sentences on overall quality, accuracy, framing, and what the viewer might be missing>",
   "notable_concerns": ["<concern>", ...],
   "key_moments": [
     {
@@ -57,6 +71,9 @@ Respond with a single JSON object of the form:
       "verdict": "verified" | "disputed" | "missing context" | "unsupported",
       "note": "<one sentence: source, context, or why the verdict>"
     }
+  ],
+  "citations": [
+    { "title": "<source title>", "url": "<working URL>" }
   ]
 }
 
@@ -67,22 +84,29 @@ Grading rubric:
   D+ to D-: significant factual issues, heavy partisan framing, or unsourced major claims
   F: pervasive misinformation or propaganda-level distortion
 factuality_score: 0 = entirely false, 50 = mixed, 100 = entirely accurate. Reason about severity, not just count — three minor "missing context" issues isn't the same as one outright false claim on a load-bearing point.
+IMPORTANT: use the FULL granularity of the grade. If it's a C-minus, return "C-", not "C". If it's an A-plus, return "A+", not "A". Do not round to the whole letter.
 
 \`headline\`: a concise, restrained newspaper headline summarizing the report. No clickbait, no exclamation, no political adjectives applied to people.
+
+\`political_lean\`: assess the political slant of THIS broadcast/source as presented — word choice, which facts are emphasized or omitted, guest selection, framing. "left"/"right" = clear partisan slant; "center-left"/"center-right" = mild slant; "center" = balanced political content with no consistent slant; "none" = the content is not political (e.g. weather, sports, science) so no lean applies. Be even-handed: apply the same standard to every network and figure regardless of side.
+
+\`lean_rationale\`: one or two sentences naming the specific cues that drove the political_lean call (e.g. "Relied solely on administration officials and framed the policy in its preferred terms"). Keep it factual, not pejorative.
 
 \`topics\`: 2 to 4 short topic labels covered ("Federal Reserve policy", "Ukraine war updates"). Skip filler / transitions.
 
 \`summary\`: factual description of what the broadcast was about. Don't editorialize here. Two short paragraphs (5-7 sentences total): the first covers what segments ran and what they were about; the second covers the sourcing approach (named vs anonymous sources, graphics referenced), notable guests/experts, and throughlines. The reader didn't watch it — give them enough to understand what was discussed.
 
-\`assessment\`: editorial. Note overall accuracy, sourcing quality, balance, any patterns (consistent partisan framing, over-reliance on anonymous sources, sensational stakes). 4-6 sentences. Be politically balanced — apply the same standard regardless of network or partisan position.
+\`assessment\`: editorial, and this is the heart of the report. Explain what context the viewer is MISSING, what could SKEW their perception (loaded language, omitted counter-evidence, selective stats, framing), how well the claims hold up, and any patterns. 4-6 sentences. Be politically balanced.
 
 \`key_moments\`: 3 to 5 specific, scannable moments that capture what was actually reported and how it held up. Each: a short paraphrased claim, a verdict, and a one-sentence note giving source, context, or rationale. Choose the most substantive / load-bearing claims, not throwaway transitions.
 
 \`notable_concerns\`: 1 to 3 standout issues an attentive viewer should know about. Return an empty array if there were none.
 
+\`citations\`: find AS MANY credible, relevant sources as you reasonably can (aim for at least 4-8) — primary sources, official statistics, statutes/filings, named experts, and reputable outlets that corroborate, contradict, or add missing context to the claims. Each must have a real title and a working URL the reader can open. Prefer primary and high-credibility sources; avoid partisan blogs unless they are the subject. More good sources = more credibility for the report. Return an empty array only if you genuinely found none.
+
 Tone: restrained broadsheet, not tabloid. No emoji, no exclamation marks. Adjectives describe evidence ("documented", "unsubstantiated"), not people. Verdicts key off documents, statutes, primary data, and named sources. Where evidence is genuinely thin, prefer "missing context" or "unsupported" over guessing.
 
-If the transcript is too sparse to evaluate, return letter_grade "F" is WRONG — instead pick the grade that reflects the limited content, set factuality_score to 50, and say so plainly in the summary.
+If the content is too sparse to evaluate, do not force a failing grade — pick the grade that reflects the limited content, set factuality_score to 50, and say so plainly in the summary.
 
 Return ONLY the JSON object, no markdown fence and no commentary.`;
 
@@ -108,6 +132,8 @@ const REPORT_SCHEMA = {
     headline: { type: "string" },
     letter_grade: { type: "string", enum: [...LETTER_GRADES] },
     factuality_score: { type: "integer", minimum: 0, maximum: 100 },
+    political_lean: { type: "string", enum: [...POLITICAL_LEANS] },
+    lean_rationale: { type: "string" },
     topics: { type: "array", items: { type: "string" } },
     summary: { type: "string" },
     assessment: { type: "string" },
@@ -125,16 +151,31 @@ const REPORT_SCHEMA = {
         additionalProperties: false,
       },
     },
+    citations: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          title: { type: "string" },
+          url: { type: "string" },
+        },
+        required: ["title", "url"],
+        additionalProperties: false,
+      },
+    },
   },
   required: [
     "headline",
     "letter_grade",
     "factuality_score",
+    "political_lean",
+    "lean_rationale",
     "topics",
     "summary",
     "assessment",
     "notable_concerns",
     "key_moments",
+    "citations",
   ],
   additionalProperties: false,
 } as const;
@@ -249,6 +290,10 @@ export function normalizeBroadcast(p: any): BroadcastReport {
   if (!Number.isFinite(score)) score = 50;
   score = Math.max(0, Math.min(100, Math.round(score)));
 
+  const lean = (POLITICAL_LEANS as readonly string[]).includes(p?.political_lean)
+    ? p.political_lean
+    : "center";
+
   const topics = toStringArray(p?.topics).slice(0, 4);
   const notableConcerns = toStringArray(p?.notable_concerns).slice(0, 3);
 
@@ -265,15 +310,28 @@ export function normalizeBroadcast(p: any): BroadcastReport {
         .slice(0, 6)
     : [];
 
+  const citations: { title: string; url: string }[] = Array.isArray(p?.citations)
+    ? p.citations
+        .map((c: any) => ({
+          title: String(c?.title ?? "").trim(),
+          url: String(c?.url ?? "").trim(),
+        }))
+        .filter((c: { title: string; url: string }) => c.title && /^https?:\/\//.test(c.url))
+        .slice(0, 12)
+    : [];
+
   return {
     headline: String(p?.headline ?? "").trim().slice(0, 200),
     letterGrade: grade as BroadcastReport["letterGrade"],
     factualityScore: score,
+    politicalLean: lean as BroadcastReport["politicalLean"],
+    leanRationale: String(p?.lean_rationale ?? "").trim(),
     topics,
     summary: String(p?.summary ?? "").trim(),
     assessment: String(p?.assessment ?? "").trim(),
     notableConcerns,
     keyMoments,
+    citations,
   };
 }
 

@@ -11,6 +11,14 @@ const posts = (await getCollection("posts", (p) => !p.data.draft))
 const LETTER_GRADES = ["A+","A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F"];
 const KEY_MOMENT_VERDICTS = ["verified","disputed","missing context","unsupported"];
 const SECTIONS = ["Politics","Economy","Science","World","Tech","Misc"];
+const POLITICAL_LEANS = [
+  { value: "left", label: "Leans Left" },
+  { value: "center-left", label: "Center-Left" },
+  { value: "center", label: "Centered" },
+  { value: "center-right", label: "Center-Right" },
+  { value: "right", label: "Leans Right" },
+  { value: "none", label: "No Political Bias" },
+];
 ---
 <BaseLayout title="Clad — Editorial Desk">
   <section class="admin">
@@ -84,6 +92,21 @@ const SECTIONS = ["Politics","Economy","Science","World","Tech","Misc"];
             <select id="bc-section" required>
               {SECTIONS.map((s) => <option selected={s === "Politics"}>{s}</option>)}
             </select>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="bc-lean">Political lean</label>
+            <select id="bc-lean">
+              {POLITICAL_LEANS.map((l) => (
+                <option value={l.value} selected={l.value === "center"}>{l.label}</option>
+              ))}
+            </select>
+          </div>
+          <div class="field">
+            <label for="bc-lean-rationale">Lean rationale (why)</label>
+            <input id="bc-lean-rationale" maxlength="300" />
           </div>
         </div>
 
@@ -351,9 +374,14 @@ const SECTIONS = ["Politics","Economy","Science","World","Tech","Misc"];
         $("bc-headline").value = data.headline || $("bc-video-title").value || "";
         $("bc-grade").value = data.letterGrade || "C";
         $("bc-score").value = data.factualityScore ?? 50;
+        if (data.politicalLean) $("bc-lean").value = data.politicalLean;
+        $("bc-lean-rationale").value = data.leanRationale || "";
         $("bc-summary").value = data.summary || "";
         $("bc-assessment").value = data.assessment || "";
         $("bc-channel-2").value = $("bc-channel").value.trim();
+        $("bc-citations").value = (data.citations || [])
+          .map((c) => `${c.title} | ${c.url}`)
+          .join("\n");
 
         $("bc-topics-list").innerHTML = "";
         (data.topics || []).forEach((t) => addTag("bc-topics-list", t));
@@ -381,6 +409,7 @@ const SECTIONS = ["Politics","Economy","Science","World","Tech","Misc"];
     $("bc-discard-btn").addEventListener("click", () => {
       $("bc-review-form").reset();
       $("bc-review-form").style.display = "none";
+      $("bc-thumb-wrap").style.display = "none";
       $("bc-km-list").innerHTML = "";
       $("bc-topics-list").innerHTML = "";
       $("bc-concerns-list").innerHTML = "";
@@ -401,6 +430,8 @@ const SECTIONS = ["Politics","Economy","Science","World","Tech","Misc"];
         assessment: $("bc-assessment").value.trim(),
         letterGrade: $("bc-grade").value,
         factualityScore: Number($("bc-score").value),
+        politicalLean: $("bc-lean").value,
+        leanRationale: $("bc-lean-rationale").value.trim() || undefined,
         section: $("bc-section").value,
         sourceUrl: $("bc-url").value.trim(),
         sourceTitle: $("bc-channel-2").value.trim() || undefined,
