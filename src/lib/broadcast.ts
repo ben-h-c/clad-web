@@ -100,6 +100,8 @@ Grading rubric:
 factuality_score: 0 = entirely false, 50 = mixed, 100 = entirely accurate. Reason about severity, not just count — three minor "missing context" issues isn't the same as one outright false claim on a load-bearing point.
 IMPORTANT: use the FULL granularity of the grade. If it's a C-minus, return "C-", not "C". If it's an A-plus, return "A+", not "A". Do not round to the whole letter.
 
+KNOWLEDGE-CUTOFF GUARDRAIL: Do NOT declare that a real company, product, AI model, person, law, or event "does not exist" or is "fabricated" merely because it is unfamiliar to you or postdates your training. New models and products (including those from Anthropic, OpenAI, Google, and others) are released constantly. If a broadcast references something you cannot confirm, treat its existence as plausible and assess the SOURCE's specific claims about it (numbers, quotes, framing) rather than calling the subject itself fake. Only mark something as false/unsupported when there is a concrete, articulable reason — not just absence from your own knowledge.
+
 \`headline\`: a concise, restrained newspaper headline summarizing the report. No clickbait, no exclamation, no political adjectives applied to people.
 
 \`grade_rationale\`: one or two sentences explaining WHY the broadcast earned its letter grade — name the specific failings or strengths (e.g. "Graded C-: several load-bearing claims were unsupported and key statistics lacked context", or "Graded A-: claims were well-sourced to primary data with minor framing concerns"). This is what the reader sees first, so make it concrete, not generic.
@@ -256,6 +258,55 @@ export async function generateBroadcastReport(
   }
 
   return report;
+}
+
+const REVISE_ADDENDUM = `
+
+You are REVISING an existing report based on EDITOR FEEDBACK. You are given the current report (JSON) and the editor's notes describing what is wrong with it.
+
+Treat the editor's correction as AUTHORITATIVE and factually correct. If the editor says something exists, is true, or is false, accept that and fix every part of the report that contradicts it — including the headline, summary, assessment, key moments, notable concerns, the letter grade, the factuality score, and the rationales. A common case: you may have wrongly claimed a real product, company, model, person, or event does not exist — if the editor corrects you, accept it and re-grade accordingly (do not penalize the source for a claim that is actually true).
+
+Keep everything the editor did NOT flag intact. Return the COMPLETE corrected report in the same JSON schema.`;
+
+/**
+ * Re-run Grok over an existing report with editor feedback, returning a
+ * corrected report. Used by the pending-queue "flag for revision" flow.
+ */
+export async function reviseBroadcastReport(
+  apiKey: string,
+  input: {
+    report: BroadcastReport;
+    feedback: string;
+    sourceUrl: string;
+    videoTitle?: string;
+    channel?: string;
+  }
+): Promise<BroadcastReport> {
+  const userMessage = [
+    input.videoTitle ? `Video title: ${input.videoTitle}` : "",
+    input.channel ? `Channel: ${input.channel}` : "",
+    `Source URL: ${input.sourceUrl}`,
+    "",
+    "EDITOR FEEDBACK (authoritative — correct the report to address this):",
+    input.feedback.trim(),
+    "",
+    "CURRENT REPORT (JSON to revise):",
+    JSON.stringify(input.report),
+  ]
+    .filter((l) => l !== "")
+    .join("\n");
+
+  const raw = await callChat(apiKey, SYSTEM_PROMPT + REVISE_ADDENDUM, userMessage);
+  let parsed: any;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    throw new Error("xAI did not return valid JSON.");
+  }
+  const revised = normalizeBroadcast(parsed);
+  // Preserve the original citations if the revision dropped them.
+  if (revised.citations.length === 0) revised.citations = input.report.citations;
+  return revised;
 }
 
 async function callChat(apiKey: string, system: string, user: string): Promise<string> {

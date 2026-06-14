@@ -87,6 +87,17 @@ const drafts = await listDrafts(env.AGENTS);
               </details>
             )}
 
+            <div class="q-revise">
+              <label class="small-caps" for={`rev-${d.draftId}`}>Flag for revision — tell Grok what's wrong</label>
+              <textarea
+                id={`rev-${d.draftId}`}
+                class="q-comment"
+                rows="2"
+                placeholder="e.g. Anthropic's Claude models DO exist — correct the claim that they don't and re-grade accordingly."
+              ></textarea>
+              <button type="button" class="secondary q-revise-btn">Send to Grok to fix</button>
+            </div>
+
             <div class="queue-item__actions">
               <label><input type="checkbox" class="q-featured" /> Feature on front page</label>
               <button type="button" class="q-approve">Approve &amp; Publish</button>
@@ -143,6 +154,30 @@ const drafts = await listDrafts(env.AGENTS);
       };
       item.querySelector(".q-approve").addEventListener("click", () => send("approve"));
       item.querySelector(".q-reject").addEventListener("click", () => send("reject"));
+
+      item.querySelector(".q-revise-btn").addEventListener("click", async () => {
+        const comment = item.querySelector(".q-comment").value.trim();
+        if (comment.length < 3) {
+          setStatus("error", "Add a comment describing what to fix.");
+          return;
+        }
+        item.querySelectorAll("button").forEach((b) => (b.disabled = true));
+        setStatus("info", "Sending to Grok to fix — this can take ~20–40s…");
+        try {
+          const res = await fetch("/api/admin/queue", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action: "revise", draftId: id, comment }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || "Revision failed");
+          setStatus("info", "Revised. Reloading to show the corrected draft…");
+          setTimeout(() => location.reload(), 900);
+        } catch (err) {
+          setStatus("error", String(err.message || err));
+          item.querySelectorAll("button").forEach((b) => (b.disabled = false));
+        }
+      });
     });
   </script>
 </BaseLayout>

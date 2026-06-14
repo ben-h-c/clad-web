@@ -2156,6 +2156,35 @@ button.small {
   border-top: 1px solid var(--rule);
 }
 
+.q-revise {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--rule);
+}
+
+.q-revise label {
+  color: var(--muted-ink);
+}
+
+.q-comment {
+  width: 100%;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  padding: 0.5rem 0.65rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.q-revise .q-revise-btn {
+  align-self: flex-start;
+}
+
 .agents {
   display: flex;
   flex-direction: column;

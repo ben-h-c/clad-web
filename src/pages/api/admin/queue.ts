@@ -4,8 +4,9 @@ import { commitFile } from "~/lib/github";
 import { datedSlug } from "~/lib/slug";
 import { emitPost } from "~/lib/yaml";
 import { buildBroadcastFrontmatter } from "~/lib/postBuild";
-import { deleteDraft, findDuplicateStory, getDraft, listDrafts, markSeen } from "~/lib/agents";
+import { deleteDraft, findDuplicateStory, getDraft, listDrafts, markSeen, putDraft } from "~/lib/agents";
 import { resolveThumbnail } from "~/lib/thumbnail";
+import { reviseBroadcastReport } from "~/lib/broadcast";
 
 export const prerender = false;
 
@@ -31,8 +32,32 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ ok: true }, 200);
   }
 
+  // Flag for revision: send the draft back to Grok with the editor's comment,
+  // then store the corrected report back on the same draft (stays in the queue).
+  if (action === "revise") {
+    const comment = String(p?.comment ?? "").trim();
+    if (comment.length < 3) return json({ error: "Add a comment describing what to fix." }, 400);
+    if (!env.XAI_API_KEY) return json({ error: "xAI is not configured." }, 503);
+    const draft = await getDraft(env.AGENTS, id);
+    if (!draft) return json({ error: "Draft not found" }, 404);
+    try {
+      const revised = await reviseBroadcastReport(env.XAI_API_KEY, {
+        report: draft.report,
+        feedback: comment,
+        sourceUrl: draft.sourceUrl,
+        videoTitle: draft.source.videoTitle,
+        channel: draft.source.channel,
+      });
+      draft.report = revised;
+      await putDraft(env.AGENTS, draft);
+      return json({ ok: true, headline: revised.headline }, 200);
+    } catch (err: any) {
+      return json({ error: err?.message ?? "Revision failed" }, 502);
+    }
+  }
+
   if (action !== "approve") {
-    return json({ error: "action must be 'approve' or 'reject'" }, 400);
+    return json({ error: "action must be 'approve', 'reject', or 'revise'" }, 400);
   }
 
   if (!env.GITHUB_TOKEN || !env.GITHUB_REPO || !env.GITHUB_BRANCH) {
