@@ -86,53 +86,86 @@ If the transcript is too sparse to evaluate, return letter_grade "F" is WRONG �
 
 Return ONLY the JSON object, no markdown fence and no commentary.`;
 
+// Transcript path: proven chat/completions + grok-4. Web-search path: the
+// Responses API (/v1/responses), which is where xAI's server-side agentic
+// tools live, with grok-4.3 (the model xAI documents for web_search).
+const CHAT_MODEL = "grok-4";
+const SEARCH_MODEL = "grok-4.3";
+
+// Added to the system prompt when no transcript is supplied and the model must
+// research the video itself via web search.
+const WEB_SEARCH_ADDENDUM = `
+
+No transcript was provided — you are given a YouTube URL. Use web search to research THAT SPECIFIC video: find its transcript or captions, the channel's own description, and reputable coverage of what was said. Identify the exact video (match the title/channel if given). Base your report on what the video actually contains, not on the topic in general.
+
+If you cannot find enough reliable information about the actual content of this specific video, do NOT fabricate claims. Instead set factuality_score to 50, choose a grade reflecting the uncertainty, and state plainly in the summary that the video's content could not be independently verified and the editor should supply a transcript.`;
+
+// JSON Schema for the Responses-API structured output (snake_case to match the
+// prompt's contract; normalizeBroadcast maps it to our camelCase shape).
+const REPORT_SCHEMA = {
+  type: "object",
+  properties: {
+    headline: { type: "string" },
+    letter_grade: { type: "string", enum: [...LETTER_GRADES] },
+    factuality_score: { type: "integer", minimum: 0, maximum: 100 },
+    topics: { type: "array", items: { type: "string" } },
+    summary: { type: "string" },
+    assessment: { type: "string" },
+    notable_concerns: { type: "array", items: { type: "string" } },
+    key_moments: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          claim: { type: "string" },
+          verdict: { type: "string", enum: [...KEY_MOMENT_VERDICTS] },
+          note: { type: "string" },
+        },
+        required: ["claim", "verdict", "note"],
+        additionalProperties: false,
+      },
+    },
+  },
+  required: [
+    "headline",
+    "letter_grade",
+    "factuality_score",
+    "topics",
+    "summary",
+    "assessment",
+    "notable_concerns",
+    "key_moments",
+  ],
+  additionalProperties: false,
+} as const;
+
 export async function generateBroadcastReport(
   apiKey: string,
   input: {
-    transcript: string;
+    transcript?: string;
     sourceUrl: string;
     videoTitle?: string;
     channel?: string;
     notes?: string;
   }
 ): Promise<BroadcastReport> {
+  const hasTranscript = !!input.transcript && input.transcript.trim().length >= 80;
+
   const userMessage = [
     input.videoTitle ? `Video title: ${input.videoTitle}` : "",
     input.channel ? `Channel: ${input.channel}` : "",
     `Source URL: ${input.sourceUrl}`,
     input.notes ? `Editor notes: ${input.notes}` : "",
     "",
-    "Transcript:",
-    input.transcript,
+    hasTranscript ? "Transcript:" : "No transcript provided — research the video at the Source URL.",
+    hasTranscript ? input.transcript!.trim() : "",
   ]
     .filter((l) => l !== "")
     .join("\n");
 
-  const res = await fetch("https://api.x.ai/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      model: "grok-4",
-      temperature: 0.3,
-      response_format: { type: "json_object" },
-      messages: [
-        { role: "system", content: SYSTEM_PROMPT },
-        { role: "user", content: userMessage },
-      ],
-    }),
-  });
-
-  if (!res.ok) {
-    const text = await res.text().catch(() => "");
-    throw new Error(`xAI ${res.status}: ${text.slice(0, 400)}`);
-  }
-
-  const data: any = await res.json();
-  const raw = data?.choices?.[0]?.message?.content;
-  if (typeof raw !== "string") throw new Error("xAI returned no message content.");
+  const raw = hasTranscript
+    ? await callChat(apiKey, SYSTEM_PROMPT, userMessage)
+    : await callResponsesWithSearch(apiKey, SYSTEM_PROMPT + WEB_SEARCH_ADDENDUM, userMessage);
 
   let parsed: any;
   try {
@@ -141,6 +174,70 @@ export async function generateBroadcastReport(
     throw new Error("xAI did not return valid JSON.");
   }
   return normalizeBroadcast(parsed);
+}
+
+async function callChat(apiKey: string, system: string, user: string): Promise<string> {
+  const res = await fetch("https://api.x.ai/v1/chat/completions", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+    body: JSON.stringify({
+      model: CHAT_MODEL,
+      temperature: 0.3,
+      response_format: { type: "json_object" },
+      messages: [
+        { role: "system", content: system },
+        { role: "user", content: user },
+      ],
+    }),
+  });
+  if (!res.ok) throw new Error(`xAI ${res.status}: ${(await res.text().catch(() => "")).slice(0, 400)}`);
+  const data: any = await res.json();
+  const raw = data?.choices?.[0]?.message?.content;
+  if (typeof raw !== "string") throw new Error("xAI returned no message content.");
+  return raw;
+}
+
+async function callResponsesWithSearch(apiKey: string, system: string, user: string): Promise<string> {
+  const res = await fetch("https://api.x.ai/v1/responses", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+    body: JSON.stringify({
+      model: SEARCH_MODEL,
+      input: [
+        { role: "system", content: system },
+        { role: "user", content: user },
+      ],
+      tools: [{ type: "web_search" }],
+      text: {
+        format: {
+          type: "json_schema",
+          name: "broadcast_report",
+          schema: REPORT_SCHEMA,
+          strict: true,
+        },
+      },
+    }),
+  });
+  if (!res.ok) throw new Error(`xAI ${res.status}: ${(await res.text().catch(() => "")).slice(0, 400)}`);
+  const data: any = await res.json();
+  const text = extractResponsesText(data);
+  if (!text) throw new Error("xAI returned no output text.");
+  return text;
+}
+
+/** Pull the assistant's text out of a /v1/responses payload. */
+function extractResponsesText(data: any): string | null {
+  if (typeof data?.output_text === "string" && data.output_text) return data.output_text;
+  const output = Array.isArray(data?.output) ? data.output : [];
+  for (const item of output) {
+    const content = Array.isArray(item?.content) ? item.content : [];
+    for (const c of content) {
+      if ((c?.type === "output_text" || c?.type === "text") && typeof c?.text === "string") {
+        return c.text;
+      }
+    }
+  }
+  return null;
 }
 
 export function normalizeBroadcast(p: any): BroadcastReport {
