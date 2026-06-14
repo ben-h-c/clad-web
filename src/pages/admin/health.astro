@@ -1,0 +1,34 @@
+---
+import { env } from "cloudflare:workers";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import AdminNav from "~/components/AdminNav.astro";
+import { healthReport } from "~/lib/health";
+
+export const prerender = false;
+
+const rows = await healthReport(env);
+const bad = rows.filter((r) => r.status === "bad").length;
+const warn = rows.filter((r) => r.status === "warn").length;
+const overall = bad > 0 ? "Issues found" : warn > 0 ? "Minor warnings" : "All systems normal";
+---
+<BaseLayout title="Clad — Health">
+  <section class="admin">
+    <AdminNav current="health" />
+    <h2 class="admin__title">Health</h2>
+    <p class="dateline">
+      {overall}{bad ? ` · ${bad} error${bad === 1 ? "" : "s"}` : ""}{warn ? ` · ${warn} warning${warn === 1 ? "" : "s"}` : ""}.
+      Checks config, agent runs, queue, and content. Deeper request-latency/error
+      metrics would come from Cloudflare's analytics — not wired yet.
+    </p>
+
+    <div style="margin-top:1.5rem">
+      {rows.map((r) => (
+        <div class="health-row">
+          <span class={`health-dot health-dot--${r.status}`}></span>
+          <span class="health-row__label">{r.label}</span>
+          <span class="health-row__detail">{r.detail}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

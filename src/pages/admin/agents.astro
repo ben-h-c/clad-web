@@ -1,6 +1,7 @@
 ---
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import AdminNav from "~/components/AdminNav.astro";
 import { getRegistry } from "~/lib/agents";
 import { shortDate } from "~/lib/dateline";
 
@@ -19,10 +20,10 @@ function runLabel(lastRun: (typeof registry.agents)[number]["lastRun"]) {
 ---
 <BaseLayout title="Clad — Agents">
   <section class="admin">
+    <AdminNav current="agents" />
     <h2 class="admin__title">Agents</h2>
     <p class="dateline">
       Background agents that draft reports for review.
-      <a href="/admin/">← Editorial Desk</a> · <a href="/admin/queue/">Pending Queue</a>
     </p>
 
     <div class="agents">

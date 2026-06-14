@@ -55,6 +55,50 @@ export async function commitFile(args: CommitArgs): Promise<{ url: string; sha: 
   };
 }
 
+interface FileRef {
+  token: string;
+  repo: string;
+  branch: string;
+  path: string;
+}
+
+/** Fetch a file's decoded contents + sha, or null if it doesn't exist. */
+export async function getFile(
+  args: FileRef
+): Promise<{ contents: string; sha: string } | null> {
+  const url = contentsUrl(args.repo, args.path);
+  const res = await fetch(`${url}?ref=${encodeURIComponent(args.branch)}`, {
+    headers: gh(args.token),
+  });
+  if (res.status === 404) return null;
+  if (!res.ok) throw new Error(`GitHub GET ${res.status}: ${await res.text()}`);
+  const body: any = await res.json();
+  const contents = typeof body?.content === "string" ? b64decodeUtf8(body.content) : "";
+  return { contents, sha: body?.sha ?? "" };
+}
+
+/** Delete a file. Treats an already-missing file as success. */
+export async function deleteFile(
+  args: FileRef & { message: string }
+): Promise<{ deleted: boolean }> {
+  const existing = await getFile(args);
+  if (!existing) return { deleted: false }; // already gone
+  const res = await fetch(contentsUrl(args.repo, args.path), {
+    method: "DELETE",
+    headers: { ...gh(args.token), "Content-Type": "application/json" },
+    body: JSON.stringify({ message: args.message, branch: args.branch, sha: existing.sha }),
+  });
+  if (!res.ok) throw new Error(`GitHub DELETE ${res.status}: ${await res.text()}`);
+  return { deleted: true };
+}
+
+function contentsUrl(repo: string, path: string): string {
+  return `https://api.github.com/repos/${repo}/contents/${encodeURIComponent(path).replace(
+    /%2F/g,
+    "/"
+  )}`;
+}
+
 function gh(token: string): Record<string, string> {
   return {
     Authorization: `Bearer ${token}`,
@@ -70,4 +114,12 @@ function b64utf8(s: string): string {
   let bin = "";
   for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]!);
   return btoa(bin);
+}
+
+function b64decodeUtf8(s: string): string {
+  // GitHub returns base64 with newlines; strip them, then decode to UTF-8.
+  const bin = atob(s.replace(/\n/g, ""));
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
 }

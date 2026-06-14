@@ -1,0 +1,43 @@
+---
+import { env } from "cloudflare:workers";
+import { listDrafts } from "~/lib/agents";
+
+interface Props {
+  current: string;
+}
+const { current } = Astro.props;
+
+let pending = 0;
+try {
+  pending = (await listDrafts(env.AGENTS)).length;
+} catch {
+  pending = 0;
+}
+
+const links = [
+  { key: "desk", label: "Editorial Desk", href: "/admin/" },
+  { key: "queue", label: `Pending Queue${pending ? ` (${pending})` : ""}`, href: "/admin/queue/" },
+  { key: "posts", label: "Posts", href: "/admin/posts/" },
+  { key: "agents", label: "Agents", href: "/admin/agents/" },
+  { key: "stats", label: "Stats", href: "/admin/stats/" },
+  { key: "health", label: "Health", href: "/admin/health/" },
+];
+const currentLabel = links.find((l) => l.key === current)?.label ?? "Console";
+---
+<nav class="admin-nav">
+  <details>
+    <summary>☰ {currentLabel}</summary>
+    <ul>
+      {links.map((l) => (
+        <li>
+          {l.key === current ? (
+            <span class="admin-nav__current">{l.label}</span>
+          ) : (
+            <a href={l.href}>{l.label}</a>
+          )}
+        </li>
+      ))}
+    </ul>
+  </details>
+  <a class="admin-nav__site" href="/" target="_blank" rel="noopener">View site ↗</a>
+</nav>
