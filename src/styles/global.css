@@ -719,6 +719,89 @@ p {
   margin: 0;
 }
 
+/* Topic dashboard */
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1rem;
+}
+
+.topic-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--rule);
+  padding: 0.9rem 1rem;
+  background: rgba(10, 8, 5, 0.02);
+}
+
+.topic-card:hover {
+  background: rgba(10, 8, 5, 0.06);
+}
+
+.topic-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.topic-card__count {
+  color: var(--muted-ink);
+}
+
+.topic-card__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.topic-card:hover .topic-card__name {
+  text-decoration: underline;
+}
+
+.topic-card__meta {
+  font-style: italic;
+  color: var(--muted-ink);
+  font-size: 0.85rem;
+  margin: 0.4rem 0 0;
+}
+
+.topic-card__contrast {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* Topic page */
+
+.topic-page {
+  max-width: var(--measure);
+  margin: 1.5rem auto 0;
+}
+
+.topic-page__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.85rem, 5vw, 2.75rem);
+  line-height: 1.05;
+  margin: 0.25rem 0 1rem;
+}
+
+.topic-page__agg {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  border: 1px solid var(--rule);
+  background: rgba(10, 8, 5, 0.03);
+  padding: 0.75rem 1rem;
+}
+
 /* Latest-reports feed */
 
 .feed {
