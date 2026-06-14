@@ -1,5 +1,6 @@
 ---
 type: "broadcast"
+draft: true
 headline: "Trump Announces Strike on Tren de Aragua Leader, Addresses Missing Children"
 summary: "The segment opens with President Trump's Truth Social post claiming a U.S. strike killed the leader of the Venezuelan gang Tren de Aragua. It details crimes attributed to the gang and names victims including Jocelyn Nungaray and Laken Riley before transitioning to an interview with Deputy White House Press Secretary Abigail Jackson.\nJackson discusses administration efforts to locate over 146,000 previously unaccounted-for children, references Biden-era policies on sponsors, and touches on ongoing talks with Iran. The broadcast relies on named administration officials, Trump's social media statements, and selective citations of a New York Times article and congressional remarks."
 publishedAt: 2026-06-14
