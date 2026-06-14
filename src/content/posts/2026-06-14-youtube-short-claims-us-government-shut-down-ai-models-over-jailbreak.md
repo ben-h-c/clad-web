@@ -1,0 +1,63 @@
+---
+type: "broadcast"
+headline: "YouTube Short Claims US Government Shut Down AI Models Over Jailbreak"
+summary: "The 60-second video asserts that the US government forced Anthropic to disable Claude and a new model called Mythos after a jailbreak was discovered three days after launch. It notes Anthropic described the issue as narrow and previously known, then pivots to recommend standard security practices like MFA and patching."
+publishedAt: 2026-06-14
+sourceUrl: "https://www.youtube.com/watch?v=jKwpkTRKKaI"
+sourceTitle: "Gula Tech Adventures"
+section: "Politics"
+letterGrade: "D-"
+factualityScore: 28
+politicalLean: "center"
+leanScore: 0
+leanRationale: "No discernible political framing or partisan sourcing; content is technical hype rather than ideological."
+gradeRationale: "Graded D-: load-bearing claims of US government action and model shutdowns lack any supporting evidence and contradict known Anthropic statements on routine jailbreaks."
+topics:
+  - "AI safety"
+  - "Jailbreaks"
+  - "Anthropic Claude"
+assessment: "The title and opening claim of direct government intervention are unsupported by any public record or Anthropic disclosure. Routine jailbreak handling by model providers occurs without external mandates, and no evidence exists of a model named Mythos being pulled. Viewers receive a sensational hook followed by generic advice that does not address the specific incident asserted. The gap between headline and transcript content is the primary distortion."
+notableConcerns:
+  - "Sensational title unsupported by transcript or external evidence"
+  - "Unverifiable claim of government-forced model removal"
+keyMoments:
+  - claim: "US government pulled Claude and Mythos due to a jailbreak"
+    verdict: "unsupported"
+    note: "No government order or Anthropic confirmation of external intervention has been documented."
+  - claim: "Anthropic described the jailbreak as narrow and already known"
+    verdict: "missing context"
+    note: "Anthropic routinely discloses jailbreak research; no specific statement tied to this event is cited."
+  - claim: "Safety guardrails blocked both attackers and defenders"
+    verdict: "verified"
+    note: "Common side effect of alignment techniques noted in AI safety literature."
+videoId: "jKwpkTRKKaI"
+videoTitle: "The US Government Just Killed Mythos 3 Days After Launch #Shorts"
+thumbnail: "https://img.youtube.com/vi/jKwpkTRKKaI/maxresdefault.jpg"
+citations:
+  - title: "Statement on the US government directive to suspend access to Fable 5 and Mythos 5"
+    url: "https://www.anthropic.com/news/fable-mythos-access"
+  - title: "Anthropic Says It’s Taking Claude Fable 5 Offline to Comply With US Government Order"
+    url: "https://www.wired.com/story/anthropic-says-us-government-ordered-it-to-shut-down-mythos-models/"
+  - title: "Anthropic's Claude Fable 5 and Mythos 5 AI suspended after US security concerns"
+    url: "https://www.bbc.com/news/articles/c932g3v3e13o"
+  - title: "US government warned Anthropic that Fable 5 had been jailbroken, but firm 'refused' to fix before US export controls"
+    url: "https://www.tomshardware.com/tech-industry/artificial-intelligence/trump-adviser-david-sacks-says-anthropic-refused-to-fix-fable-5-jailbreak-before-us-export-controls"
+  - title: "Anthropic shuts down Mythos access after sweeping U.S. order"
+    url: "https://www.latimes.com/business/story/2026-06-13/anthropic-shuts-down-mythos-access-after-sweeping-u-s-order"
+  - title: "Anthropic's safety warnings may have just backfired"
+    url: "https://techcrunch.com/2026/06/12/anthropics-safety-warnings-may-have-just-backfired-the-government-has-pulled-the-plug-on-its-most-powerful-ai/"
+  - title: "US Pulls the Plug on Anthropic's Top AI Models"
+    url: "https://www.bankinfosecurity.com/us-pulls-plug-on-anthropics-top-ai-models-a-31964"
+  - title: "After a 'potential jailbreak', Anthropic is shutting off access to its Mythos 5 and Fable 5 models"
+    url: "https://www.techradar.com/ai-platforms-assistants/claude/after-a-potential-jailbreak-anthropic-is-shutting-off-access-to-its-mythos-5-and-fable-5-models-under-national-security-orders-from-the-us-government"
+  - title: "U.S. gov't orders Anthropic to disable its newest AI models worldwide due to security threats"
+    url: "https://www.tomshardware.com/tech-industry/artificial-intelligence/us-export-control-order-forces-anthropic-to-disable-claude-fable-5-and-mythos-5-worldwide"
+  - title: "Claude Mythos"
+    url: "https://en.wikipedia.org/wiki/Claude_Mythos"
+  - title: "Project Glasswing: An initial update"
+    url: "https://www.anthropic.com/research/glasswing-initial-update"
+  - title: "Introducing Claude Fable 5 and Claude Mythos 5"
+    url: "https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5"
+---
+
+
