@@ -13,9 +13,7 @@ leanScore: 0
 leanRationale: "Neutral sourcing and language; correspondent emphasizes uncertainty and vagueness rather than endorsing any side's narrative."
 gradeRationale: "Graded C: broadcast correctly notes lack of technical details and past unfulfilled claims but relays multiple unverified administration signals without corroboration or historical context on Hormuz or nuclear issues."
 topics:
-  - "US-Iran relations"
-  - "Nuclear negotiations"
-  - "Strait of Hormuz"
+  - "Iran"
 assessment: "The broadcast accurately conveys that concrete terms are absent and flags repeated past claims by the president, yet it presents the existence of active signals and a 60-day timeline as established without named sources or documents. Viewers receive no background on the legal status of prior accords such as the JCPOA or on the physical and legal requirements for reopening Hormuz. Speculation about immediate oil-price drops is noted as uncertain but not placed against market data or historical precedent. The framing stays cautious but leaves the impression of imminent progress based largely on anonymous or administration assertions."
 notableConcerns:
   - "Heavy reliance on unnamed administration statements"

@@ -14,8 +14,6 @@ leanRationale: "Fox News packaging emphasizes a pro-Trump angle via the title wh
 gradeRationale: "Graded C-: title frames a refusal to criticize Trump that the provided transcript does not support or even address, with garbled text offering no verifiable claims"
 topics:
   - "NBA"
-  - "Sports media"
-  - "Trump comments"
 assessment: "The broadcast title introduces an unsubstantiated political framing that the audio does not contain. Viewers receive no context on the actual Knicks game outcome, Smith's prior statements, or why the refusal occurred. The transcript text appears garbled and unrelated to the headline, leaving the core claim unsupported. No primary footage, game details, or counter-statements are provided to clarify the exchange."
 notableConcerns:
   - "Title introduces claim absent from audio"

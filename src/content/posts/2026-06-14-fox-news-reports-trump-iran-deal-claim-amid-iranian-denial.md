@@ -13,9 +13,7 @@ leanScore: 35
 leanRationale: "Emphasized White House terms and past U.S. strikes favorably while giving limited airtime to Iranian position and protests"
 gradeRationale: "Graded B-: accurately relayed Trump's announcement and Iranian rebuttal but title overstated imminence while expert segment highlighted major compliance gaps"
 topics:
-  - "Iran nuclear program"
-  - "Trump foreign policy"
-  - "G7 summit"
+  - "Iran"
 assessment: "The broadcast correctly transmitted the administration's stated conditions and the Iranian denial but framed the story around an unconfirmed deal whose prospects the on-air expert rated very low. Viewers received no independent verification of the claimed destruction of Iran's uranium stockpile or ballistic missile program beyond administration assertions. The title's use of 'imminent' contrasted with the reported timeline uncertainty and lack of Iranian buy-in. Coverage of G7 agenda items and protests was brief and secondary to the Iran narrative."
 notableConcerns:
   - "Title asserted imminence not supported by Iranian statements in the same segment"

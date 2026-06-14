@@ -13,9 +13,7 @@ leanScore: 22
 leanRationale: "Framing emphasizes Trump administration success in negotiations and downplays Israeli concerns, relying on administration-aligned sources and optimistic quotes."
 gradeRationale: "Graded C-: several load-bearing claims about an imminent US-Iran peace deal and Pakistan-mediated signing lack sourcing or corroboration, while accurate context on prior missile exchanges is mixed with speculative negotiation details."
 topics:
-  - "Israel-Hezbollah conflict"
-  - "Iran negotiations"
-  - "Strait of Hormuz"
+  - "Iran"
 assessment: "The report accurately notes established events such as Iran's October 2024 missile barrage and recent Hezbollah-Israel exchanges but introduces unsupported assertions of an imminent signed agreement within 24 hours. Viewer perception may be skewed by optimistic framing of Trump-brokered outcomes without counter-evidence from Israeli officials or independent verification of the Pakistan-Qatar timeline. Civilian impact details are provided but lack recent casualty figures from neutral monitors. The exclusion of direct Israeli perspectives on the negotiations creates an incomplete picture of regional tensions."
 notableConcerns:
   - "Unsubstantiated claims of imminent Pakistan-mediated signing"

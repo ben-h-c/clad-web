@@ -13,10 +13,8 @@ leanScore: -72
 leanRationale: "Segment relied exclusively on Democratic-leaning analysts, framed all developments negatively, and emphasized voter frustration without equivalent positive or neutral perspectives."
 gradeRationale: "Graded C-: several load-bearing claims like an active 'war with Iran' lacked sourcing and context, while poll data and voter quotes were presented without counter-statistics or broader economic indicators."
 topics:
-  - "Trump approval"
-  - "US economy"
-  - "Iran policy"
-  - "2026 midterms"
+  - "Trump DOJ"
+  - "Iran"
 assessment: "The report accurately conveyed the cited poll numbers and voter anecdotes but presented an Iran 'war' framing without evidence of declared conflict or sustained strikes. Selective emphasis on price complaints omitted recent inflation trends and administration data on energy production. Guest selection skewed toward critics, and analysis assumed widespread base erosion without referencing counter-polling on Republican enthusiasm. Viewers missed primary economic data releases and details on actual Iran negotiations status."
 notableConcerns:
   - "Unsubstantiated 'war with Iran' characterization"

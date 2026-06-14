@@ -13,9 +13,7 @@ leanScore: 15
 leanRationale: "Positive framing of patriotic event and fighter enthusiasm with no counterpoints or critical context"
 gradeRationale: "Graded B: fighter statements and bonus amounts presented directly but White House event details and America 250 connection lack independent sourcing or confirmation"
 topics:
-  - "UFC"
-  - "White House event"
-  - "America 250"
+  - "White House UFC"
 assessment: "The clip accurately relays fighter remarks and bonus figures but provides no verification that a White House UFC event is confirmed or scheduled. Viewer perception may be skewed by the celebratory tone that presents the card as historic without noting logistical, security, or precedent issues for hosting such an event on White House grounds. Missing context includes whether America 250 planning has formally incorporated a UFC component and how the fighters were selected. The segment functions primarily as event promotion rather than independent reporting."
 notableConcerns: []
 keyMoments:

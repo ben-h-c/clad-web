@@ -14,8 +14,6 @@ leanRationale: "Positive framing of Trump as decisive deal-maker who restrains I
 gradeRationale: "Graded C-: load-bearing claims about an imminent signed deal, specific Trump-Netanyahu exchange, and port blockade lift rest on single unnamed sourcing with no corroboration or timeline evidence."
 topics:
   - "Iran"
-  - "Israel"
-  - "US-Iran negotiations"
 assessment: "The broadcast presents unverified assertions from a single source as imminent fact without supporting evidence from other parties or documents. No context is given on the legal or logistical feasibility of lifting port restrictions by executive order or the status of existing sanctions. Viewers receive no counter-statements from Israeli or Iranian officials and no historical comparison to prior negotiation timelines. The framing emphasizes Trump's personal intervention while omitting any discussion of congressional or allied constraints."
 notableConcerns:
   - "Reliance on single uncorroborated source for time-sensitive claims"

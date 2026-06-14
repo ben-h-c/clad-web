@@ -13,9 +13,7 @@ leanScore: -82
 leanRationale: "Relied exclusively on Democratic senator and host framing; emphasized corruption allegations and administration failures while omitting counter-statements or administration responses"
 gradeRationale: "Graded C-: one-sided sourcing from single Democratic senator, several load-bearing claims on war casualties and corruption lacked sourcing or context, poll presented without methodology"
 topics:
-  - "White House UFC event"
-  - "Trump administration"
-  - "Men's mental health"
+  - "White House UFC"
 assessment: "The broadcast presented a uniformly critical perspective without administration or Republican rebuttals, leaving viewers without context on event approvals, trust management of assets, or actual casualty figures referenced. Claims about a 'reckless war' and specific soldier deaths were stated without evidence or sourcing. The masculinity discussion introduced cultural framing that shifted abruptly from policy. Viewers missed primary documents on the stock disclosure timing and any data on event costs or legal precedents for South Lawn events. The overall approach prioritized partisan commentary over balanced reporting of the anniversary programming."
 notableConcerns:
   - "Exclusive reliance on one Democratic voice"

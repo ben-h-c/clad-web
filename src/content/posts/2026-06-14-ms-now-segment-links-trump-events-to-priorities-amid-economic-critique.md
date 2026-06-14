@@ -13,10 +13,8 @@ leanScore: -78
 leanRationale: "Segment used exclusively critical commentary, omitted counter-statistics on wages or employment, and framed all administration actions through a bread-and-circuses lens with no opposing guests"
 gradeRationale: "C-: several load-bearing claims on inflation, insider trading, and event significance lacked sourcing or context while relying on selective framing and anonymous voter clips"
 topics:
-  - "Trump administration"
-  - "White House events"
-  - "US economy"
-  - "UFC"
+  - "Trump DOJ"
+  - "White House UFC"
 assessment: "The broadcast accurately noted the UFC event timing and Rubio's moon-landing comparison but presented them without balancing data on inflation trends or event logistics. Heavy emphasis on profit motives and cultural disparity relied on insinuation rather than documented transactions. Viewer perception is skewed by consistent negative framing of entertainment initiatives and omission of any administration economic claims or positive metrics. The bread-and-circuses analogy functions as editorial overlay rather than neutral analysis. Sourcing stayed within like-minded commentary and brief anonymous clips."
 notableConcerns:
   - "One-sided sourcing and framing"

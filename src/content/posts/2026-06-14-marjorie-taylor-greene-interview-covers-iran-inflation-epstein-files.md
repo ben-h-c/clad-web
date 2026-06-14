@@ -14,10 +14,7 @@ leanScore: 12
 leanRationale: "Platformed a single prominent critic of the administration with limited pushback; framing emphasized skepticism of foreign policy and elite accountability"
 gradeRationale: "Graded B-: interview accurately captured MTG's statements but several load-bearing claims on Iran nuclear status, Social Security timeline, and election processes lacked sourcing or counter-evidence"
 topics:
-  - "Iran conflict"
-  - "US inflation"
-  - "Epstein files"
-  - "2028 election"
+  - "Iran"
 assessment: "The broadcast presented MTG's perspective with minimal interruption, allowing her to link inflation to the Iran conflict and criticize both parties. Viewers received little context on the current assessed status of Iran's nuclear program from U.S. intelligence assessments or the legal basis for U.S. aid levels to Israel. Claims about Social Security insolvency and California ballot counting were stated without qualification or rebuttal. The format favored personal narrative over verification of specific factual assertions."
 notableConcerns:
   - "Reliance on single-source interview without contemporaneous data checks"
