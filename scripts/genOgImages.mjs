@@ -1,10 +1,17 @@
 /**
- * Build step: generate a social-preview PNG for every published post into
- * public/og/<slug>.png. Runs in plain Node before `astro build` so the Cloudflare
+ * Build step: generate a social-preview PNG for every published post and topic
+ * into public/og/. Runs in plain Node before `astro build` so the Cloudflare
  * Worker just serves the static images. See ogCard.mjs for the rendering.
+ *
+ * INCREMENTAL: rendering each card is CPU-heavy (~0.5-1s), so a full pass over
+ * every card on every deploy is slow and was timing builds out. We keep the
+ * generated PNGs committed to the repo plus a manifest of content hashes, and
+ * only re-render a card when its inputs change. Bump CARD_VERSION to force a
+ * full re-render after a design change.
  */
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import matter from "gray-matter";
 import { renderOgCard } from "./ogCard.mjs";
 import { aggregateTopics } from "./topicsAgg.mjs";
@@ -12,6 +19,8 @@ import { aggregateTopics } from "./topicsAgg.mjs";
 const cwd = process.cwd();
 const POSTS_DIR = path.join(cwd, "src/content/posts");
 const OUT_DIR = path.join(cwd, "public/og");
+const MANIFEST = path.join(OUT_DIR, "manifest.json");
+const CARD_VERSION = 1; // bump to invalidate all cards after a design change
 
 const VERDICT_LABELS = {
   true: "True", "mostly-true": "Mostly True", mixed: "Mixed",
@@ -25,6 +34,10 @@ function leanLabel(score, lean) {
   return Math.abs(s) < 5 ? "Centered" : `${Math.abs(s)}% ${s > 0 ? "Right" : "Left"}-leaning`;
 }
 
+function hashOf(obj) {
+  return crypto.createHash("sha1").update(`${CARD_VERSION}:` + JSON.stringify(obj)).digest("hex").slice(0, 16);
+}
+
 export async function generateOgImages() {
   if (!fs.existsSync(POSTS_DIR)) {
     console.log("[og] no posts dir; skipping");
@@ -32,60 +45,83 @@ export async function generateOgImages() {
   }
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
+  let oldManifest = {};
+  try {
+    oldManifest = JSON.parse(fs.readFileSync(MANIFEST, "utf8"));
+  } catch {
+    oldManifest = {};
+  }
+  const newManifest = {};
+  const expected = new Set(["manifest.json"]);
+  let rendered = 0;
+  let skipped = 0;
+
+  // One unit of work: render `file` only if its content hash changed.
+  async function ensureCard(file, hash, render) {
+    expected.add(file);
+    newManifest[file] = hash;
+    const exists = fs.existsSync(path.join(OUT_DIR, file));
+    if (exists && oldManifest[file] === hash) {
+      skipped++;
+      return;
+    }
+    try {
+      const png = await render();
+      fs.writeFileSync(path.join(OUT_DIR, file), png);
+      rendered++;
+    } catch (err) {
+      console.error(`[og] failed for ${file}: ${err?.message || err}`);
+    }
+  }
+
   const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".md"));
   const pseudoPosts = [];
-  let made = 0;
   for (const file of files) {
     const { data: d } = matter(fs.readFileSync(path.join(POSTS_DIR, file), "utf8"));
     if (d.draft) continue;
     const slug = file.replace(/\.md$/, "");
     const isBroadcast = d.type === "broadcast";
-
-    // Collected for topic-group aggregation below.
     pseudoPosts.push({ id: slug, data: { ...d, publishedAt: new Date(d.publishedAt) } });
 
-    try {
-      const png = await renderOgCard({
-        headline: d.headline,
-        badge: isBroadcast ? d.letterGrade ?? "—" : VERDICT_LABELS[d.verdict] ?? "—",
-        badgeLabel: isBroadcast ? "ARTICLE GRADE" : "VERDICT",
-        lean: isBroadcast ? leanLabel(d.leanScore, d.politicalLean) : null,
-        factuality: isBroadcast && typeof d.factualityScore === "number" ? d.factualityScore : null,
-        source: d.sourceTitle ?? null,
-        thumbnail: d.thumbnail,
-      });
-      fs.writeFileSync(path.join(OUT_DIR, `${slug}.png`), png);
-      made++;
-    } catch (err) {
-      console.error(`[og] failed for ${slug}: ${err?.message || err}`);
-    }
+    const card = {
+      headline: d.headline,
+      badge: isBroadcast ? d.letterGrade ?? "—" : VERDICT_LABELS[d.verdict] ?? "—",
+      badgeLabel: isBroadcast ? "ARTICLE GRADE" : "VERDICT",
+      lean: isBroadcast ? leanLabel(d.leanScore, d.politicalLean) : null,
+      factuality: isBroadcast && typeof d.factualityScore === "number" ? d.factualityScore : null,
+      thumbnail: d.thumbnail,
+    };
+    await ensureCard(`${slug}.png`, hashOf(card), () => renderOgCard(card));
   }
 
   // Topic-group cards (one per /topics/<slug>/ page) so whole topics share too.
-  let topicsMade = 0;
   try {
-    const topics = aggregateTopics(pseudoPosts);
-    for (const t of topics) {
-      try {
-        const png = await renderOgCard({
-          headline: t.display,
-          badge: t.avgGrade ?? "—",
-          badgeLabel: "AVG GRADE",
-          lean: leanLabel(t.avgLean, null),
-          metaLine: `TOPIC · ${t.count} ${t.count === 1 ? "REPORT" : "REPORTS"}`,
-          thumbnail: t.thumbnail ?? undefined,
-        });
-        fs.writeFileSync(path.join(OUT_DIR, `topic-${t.slug}.png`), png);
-        topicsMade++;
-      } catch (err) {
-        console.error(`[og] failed for topic ${t.slug}: ${err?.message || err}`);
-      }
+    for (const t of aggregateTopics(pseudoPosts)) {
+      const card = {
+        headline: t.display,
+        badge: t.avgGrade ?? "—",
+        badgeLabel: "AVG GRADE",
+        lean: leanLabel(t.avgLean, null),
+        metaLine: `TOPIC · ${t.count} ${t.count === 1 ? "REPORT" : "REPORTS"}`,
+        thumbnail: t.thumbnail ?? undefined,
+      };
+      await ensureCard(`topic-${t.slug}.png`, hashOf(card), () => renderOgCard(card));
     }
   } catch (err) {
     console.error(`[og] topic aggregation failed: ${err?.message || err}`);
   }
 
-  console.log(`[og] generated ${made} article + ${topicsMade} topic preview images -> public/og/`);
+  // Prune images for posts/topics that no longer exist, to bound repo growth.
+  let pruned = 0;
+  for (const f of fs.readdirSync(OUT_DIR)) {
+    if (!expected.has(f)) {
+      fs.rmSync(path.join(OUT_DIR, f), { force: true });
+      pruned++;
+    }
+  }
+
+  fs.writeFileSync(MANIFEST, JSON.stringify(newManifest));
+  console.log(`[og] ${rendered} rendered, ${skipped} unchanged (cached), ${pruned} pruned -> public/og/`);
 }
 
 // Allow running directly: `node scripts/genOgImages.mjs`
