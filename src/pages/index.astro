@@ -28,7 +28,7 @@ if (heroPosts.length === 0) {
 }
 heroPosts = heroPosts.slice(0, 15);
 
-const topics = aggregateTopics(all);
+const topics = aggregateTopics(all).slice(0, 12);
 ---
 <BaseLayout
   title="Clad — Political Fact-Checks & Media Bias"

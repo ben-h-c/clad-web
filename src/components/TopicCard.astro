@@ -16,6 +16,11 @@ const contrast =
   topic.leanSpread && topic.leanSpread[1] - topic.leanSpread[0] >= 60;
 ---
 <a class="topic-card" href={`/topics/${topic.slug}/`}>
+  {topic.thumbnail && (
+    <div class="topic-card__thumb">
+      <img src={topic.thumbnail} alt="" loading="lazy" decoding="async" width="320" height="180" />
+    </div>
+  )}
   <div class="topic-card__top">
     {topic.avgGrade && <LetterGrade grade={topic.avgGrade} size="card" />}
     <span class="topic-card__count small-caps">

@@ -45,6 +45,7 @@ export interface TopicAgg {
   avgLean: number | null;
   leanSpread: [number, number] | null;
   latest: number;
+  thumbnail: string | null;
   posts: CollectionEntry<"posts">[];
 }
 
@@ -59,10 +60,18 @@ export function aggregateTopics(posts: CollectionEntry<"posts">[]): TopicAgg[] {
     }
   }
 
-  const out: TopicAgg[] = [];
+  const now = Date.now();
+  const out: (TopicAgg & { _score: number })[] = [];
   for (const g of map.values()) {
     const gpas = g.posts.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n != null);
     const leans = g.posts.map((p) => leanScoreOf(p.data)).filter((n): n is number => n != null);
+    const latest = Math.max(...g.posts.map((p) => p.data.publishedAt.valueOf()));
+    // Representative image: newest article in the topic that has a thumbnail.
+    const byNew = [...g.posts].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+    const thumbnail = byNew.find((p) => p.data.thumbnail)?.data.thumbnail ?? null;
+    // Freshness-weighted popularity so active topics rank up and stale ones fade.
+    const ageDays = (now - latest) / 86_400_000;
+    const score = g.posts.length * Math.exp(-ageDays / 14);
     out.push({
       display: g.display,
       slug: g.slug,
@@ -70,10 +79,12 @@ export function aggregateTopics(posts: CollectionEntry<"posts">[]): TopicAgg[] {
       avgGrade: gpas.length ? gpaToGrade(gpas.reduce((a, b) => a + b, 0) / gpas.length) : null,
       avgLean: leans.length ? Math.round(leans.reduce((a, b) => a + b, 0) / leans.length) : null,
       leanSpread: leans.length ? [Math.min(...leans), Math.max(...leans)] : null,
-      latest: Math.max(...g.posts.map((p) => p.data.publishedAt.valueOf())),
+      latest,
+      thumbnail,
       posts: g.posts,
+      _score: score,
     });
   }
-  out.sort((a, b) => b.count - a.count || b.latest - a.latest);
-  return out;
+  out.sort((a, b) => b._score - a._score || b.count - a.count || b.latest - a.latest);
+  return out.map(({ _score, ...t }) => t);
 }
