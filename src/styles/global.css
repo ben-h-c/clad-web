@@ -833,6 +833,108 @@ p {
   margin: 0.5rem 0 1.25rem;
 }
 
+/* Best & worst graded board — compact, smaller than hero/topic tiles */
+
+.gradeboard {
+  margin-top: 2.5rem;
+}
+
+.gradeboard .rule--double {
+  margin: 0.5rem 0 1.25rem;
+}
+
+.gradeboard__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.gradeboard__col--bottom {
+  border-left: 1px solid var(--rule);
+  padding-left: 1.5rem;
+}
+
+.gradeboard__sub {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--muted-ink);
+  margin: 0 0 0.5rem;
+}
+
+.gradeboard__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gradeboard__item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
+  border-top: 1px solid rgba(10, 8, 5, 0.18);
+}
+
+.gradeboard__item:first-child {
+  border-top: none;
+}
+
+.gradeboard__rank {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--muted-ink);
+  width: 1.1rem;
+  text-align: right;
+  flex: none;
+}
+
+.gradeboard__item .letter-grade--card {
+  flex: none;
+}
+
+.gradeboard__link {
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.gradeboard__link:hover .gradeboard__headline {
+  text-decoration: underline;
+}
+
+.gradeboard__headline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.gradeboard__source {
+  font-size: 0.7rem;
+  color: var(--muted-ink);
+  margin-top: 0.1rem;
+}
+
+@media (max-width: 38rem) {
+  .gradeboard__cols {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .gradeboard__col--bottom {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--rule);
+    padding-top: 1.25rem;
+  }
+}
+
 /* Category sections */
 
 .category {

@@ -4,9 +4,10 @@ import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import HeroStrip from "~/components/HeroStrip.astro";
 import TopicCard from "~/components/TopicCard.astro";
+import GradeBoard from "~/components/GradeBoard.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
 import { getFrontpage } from "~/lib/agents";
-import { aggregateTopics } from "~/lib/topics";
+import { aggregateTopics, gradeToGpa } from "~/lib/topics";
 
 // SSR so the hero reflects the curator's live KV-stored selection without a
 // rebuild. Edge/browser-cached briefly to keep load down.
@@ -29,6 +30,25 @@ if (heroPosts.length === 0) {
 heroPosts = heroPosts.slice(0, 15);
 
 const topics = aggregateTopics(all).slice(0, 12);
+
+// Best & worst graded. Rank only graded (broadcast) posts; recency breaks ties.
+const graded = all.filter((p) => gradeToGpa(p.data.letterGrade) != null);
+const byGradeDesc = [...graded].sort(
+  (a, b) =>
+    gradeToGpa(b.data.letterGrade)! - gradeToGpa(a.data.letterGrade)! ||
+    b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+const topGraded = byGradeDesc.slice(0, 10);
+const topIds = new Set(topGraded.map((p) => p.id));
+// Lowest = worst-first, excluding any already shown in the top column.
+const bottomGraded = [...graded]
+  .filter((p) => !topIds.has(p.id))
+  .sort(
+    (a, b) =>
+      gradeToGpa(a.data.letterGrade)! - gradeToGpa(b.data.letterGrade)! ||
+      b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+  )
+  .slice(0, 10);
 ---
 <BaseLayout
   title="Clad — Political Fact-Checks & Media Bias"
@@ -39,6 +59,7 @@ const topics = aggregateTopics(all).slice(0, 12);
   ) : (
     <>
       <HeroStrip posts={heroPosts} />
+      {topGraded.length > 0 && <GradeBoard top={topGraded} bottom={bottomGraded} />}
       <section class="feed">
         <div class="feed__head">
           <h2 class="feed__title">Topics</h2>

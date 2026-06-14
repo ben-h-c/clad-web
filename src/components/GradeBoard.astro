@@ -1,0 +1,52 @@
+---
+import type { CollectionEntry } from "astro:content";
+import LetterGrade from "~/components/LetterGrade.astro";
+
+interface Props {
+  top: CollectionEntry<"posts">[];
+  bottom: CollectionEntry<"posts">[];
+}
+const { top, bottom } = Astro.props;
+
+function sourceOf(d: CollectionEntry<"posts">["data"]): string {
+  if (d.sourceTitle) return d.sourceTitle;
+  try {
+    return new URL(d.sourceUrl).hostname.replace(/^www\./, "");
+  } catch {
+    return "";
+  }
+}
+
+const columns = [
+  { key: "top", label: "Highest Graded", posts: top },
+  { key: "bottom", label: "Lowest Graded", posts: bottom },
+];
+---
+<section class="gradeboard">
+  <div class="feed__head">
+    <h2 class="feed__title">Best &amp; Worst Graded</h2>
+    <a class="category__more" href="/search/">See all →</a>
+  </div>
+  <div class="rule rule--double" aria-hidden="true"></div>
+  <div class="gradeboard__cols">
+    {columns.map((col) => (
+      <div class={`gradeboard__col gradeboard__col--${col.key}`}>
+        <h3 class="gradeboard__sub small-caps">{col.label}</h3>
+        <ol class="gradeboard__list">
+          {col.posts.map((p, i) => (
+            <li class="gradeboard__item">
+              <span class="gradeboard__rank">{i + 1}</span>
+              {p.data.letterGrade && <LetterGrade grade={p.data.letterGrade} size="card" />}
+              <a class="gradeboard__link" href={`/posts/${p.id}/`}>
+                <span class="gradeboard__headline">{p.data.headline}</span>
+                {sourceOf(p.data) && (
+                  <span class="gradeboard__source small-caps">{sourceOf(p.data)}</span>
+                )}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    ))}
+  </div>
+</section>
