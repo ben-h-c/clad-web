@@ -101,11 +101,14 @@ export const DEFAULT_REGISTRY: Registry = {
         publishedWithinHours: 48,
         maxCandidatesPerRun: 8,
         maxPublishesPerRun: 15,
-        maxScanPages: 5,
-        // Broad US national landscape: politics + economy + business/markets +
-        // tech/space + major companies, so hot stories surface, not just DC.
+        // Kept low: each search page costs 100 YouTube API quota units, and the
+        // default quota is ~100 searches/day. hourly x 2 categories x 2 pages
+        // (~96 searches/day) stays under budget. Raise only with a quota bump.
+        maxScanPages: 2,
+        // Focused query — a very long OR query (40+ terms) caused YouTube to
+        // miss obvious matches (e.g. SpaceX IPO videos). Keep it tight.
         query:
-          "US news OR politics OR government OR Congress OR \"Supreme Court\" OR economy OR inflation OR jobs OR immigration OR healthcare OR education OR crime OR \"criminal justice\" OR \"foreign policy\" OR election OR \"White House\" OR climate OR energy OR labor OR business OR \"stock market\" OR \"Wall Street\" OR stocks OR earnings OR IPO OR \"Federal Reserve\" OR \"interest rates\" OR technology OR \"artificial intelligence\" OR \"Big Tech\" OR SpaceX OR Tesla OR Musk OR Nvidia OR Apple OR Amazon OR abortion OR guns OR border OR Ukraine OR Israel OR Iran OR China",
+          "politics OR Congress OR \"White House\" OR election OR Trump OR \"Supreme Court\" OR economy OR inflation OR \"Wall Street\" OR stocks OR IPO OR SpaceX OR Tesla OR Musk OR Nvidia OR \"artificial intelligence\" OR immigration OR Iran OR Israel OR Ukraine OR China",
       },
     },
     {
