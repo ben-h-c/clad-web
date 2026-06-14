@@ -585,6 +585,120 @@ p {
   }
 }
 
+/* Search */
+
+.search-page {
+  max-width: var(--measure);
+  margin: 1.5rem auto 0;
+}
+
+.search-page__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.85rem, 5vw, 2.75rem);
+  margin: 0 0 0.5rem;
+}
+
+#search-input {
+  width: 100%;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 2px solid var(--rule);
+  margin: 0.75rem 0 1rem;
+}
+
+.topic-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.topic-chip {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  padding: 0.3rem 0.6rem;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  cursor: pointer;
+}
+
+.topic-chip:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.search-result {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+  border-top: 1px solid var(--rule);
+  padding: 1rem 0;
+}
+
+.search-result:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.search-result__thumb {
+  flex: 0 0 9rem;
+}
+
+.search-result__thumb img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  display: block;
+  filter: grayscale(0.25) contrast(1.02);
+}
+
+.search-result__head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.search-result__grade {
+  font-family: var(--font-display);
+  font-weight: 700;
+  border: 1px solid var(--rule);
+  padding: 0 0.4rem;
+  font-size: 0.9rem;
+}
+
+.search-result__hl {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.search-result:hover .search-result__hl {
+  text-decoration: underline;
+}
+
+.search-result__meta {
+  font-style: italic;
+  color: var(--muted-ink);
+  font-size: 0.85rem;
+  margin: 0.3rem 0;
+}
+
+.search-result__blurb {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
 /* Latest-reports feed */
 
 .feed {

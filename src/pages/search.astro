@@ -1,0 +1,134 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+
+export const prerender = true;
+---
+<BaseLayout
+  title="Search — Clad"
+  description="Search Clad's fact-checked political reports by topic, headline, or network."
+>
+  <section class="search-page">
+    <h2 class="search-page__title">Search</h2>
+    <p class="dateline">Search reports by topic, headline, network, or grade rationale.</p>
+
+    <form id="search-form" role="search" onsubmit="return false">
+      <input
+        id="search-input"
+        type="search"
+        placeholder="e.g. Iran, Trump, inflation, CBS…"
+        autocomplete="off"
+        autofocus
+      />
+    </form>
+
+    <div id="topic-chips" class="topic-chips"></div>
+    <p id="search-count" class="dateline"></p>
+    <div id="search-results" class="feed-list"></div>
+  </section>
+
+  <script is:inline>
+    const $ = (id) => document.getElementById(id);
+    const input = $("search-input");
+    const resultsEl = $("search-results");
+    const countEl = $("search-count");
+    const chipsEl = $("topic-chips");
+    let records = [];
+
+    const LEAN = (s) =>
+      s === null ? "" : Math.abs(s) < 5 ? "Centered" : `${Math.abs(s)}% ${s > 0 ? "Right" : "Left"}`;
+    const shortDate = (iso) =>
+      new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    const esc = (s) =>
+      String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+    function tokens(q) {
+      return q.toLowerCase().split(/\s+/).filter((t) => t.length > 1);
+    }
+
+    function scoreRecord(r, ts) {
+      let score = 0;
+      const hl = r.headline.toLowerCase();
+      const tp = r.topics.join(" ").toLowerCase();
+      for (const t of ts) {
+        if (hl.includes(t)) score += 3;
+        else if (tp.includes(t)) score += 2;
+        else if (r.text.includes(t)) score += 1;
+        else return 0; // every term must match somewhere
+      }
+      return score;
+    }
+
+    function render(list) {
+      countEl.textContent = list.length
+        ? `${list.length} result${list.length === 1 ? "" : "s"}`
+        : "No matches.";
+      resultsEl.innerHTML = list
+        .map((r) => {
+          const lean = LEAN(r.leanScore);
+          const gradeBadge = r.grade
+            ? `<span class="search-result__grade">${esc(r.grade)}</span>` : "";
+          const thumb = r.thumbnail
+            ? `<div class="search-result__thumb"><img src="${esc(r.thumbnail)}" alt="" loading="lazy" width="160" height="90"></div>` : "";
+          return `<a class="search-result" href="/posts/${esc(r.id)}/">
+            ${thumb}
+            <div class="search-result__body">
+              <div class="search-result__head">${gradeBadge}<span class="search-result__hl">${esc(r.headline)}</span></div>
+              <p class="search-result__meta">${shortDate(r.date)}${r.channel ? " · " + esc(r.channel) : ""}${lean ? " · " + lean : ""}</p>
+              <p class="search-result__blurb">${esc(r.blurb || "")}</p>
+            </div>
+          </a>`;
+        })
+        .join("");
+    }
+
+    function run(q) {
+      const ts = tokens(q);
+      if (ts.length === 0) {
+        render(records.slice(0, 30));
+        countEl.textContent = `${records.length} reports`;
+        return;
+      }
+      const scored = records
+        .map((r) => ({ r, s: scoreRecord(r, ts) }))
+        .filter((x) => x.s > 0)
+        .sort((a, b) => b.s - a.s || new Date(b.r.date) - new Date(a.r.date))
+        .map((x) => x.r);
+      render(scored);
+    }
+
+    function buildChips() {
+      const freq = new Map();
+      for (const r of records) for (const t of r.topics) freq.set(t, (freq.get(t) || 0) + 1);
+      const top = [...freq.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12);
+      chipsEl.innerHTML = top
+        .map(([t]) => `<button type="button" class="topic-chip" data-topic="${esc(t)}">${esc(t)}</button>`)
+        .join("");
+      chipsEl.querySelectorAll(".topic-chip").forEach((b) => {
+        b.addEventListener("click", () => {
+          input.value = b.getAttribute("data-topic");
+          run(input.value);
+          syncUrl(input.value);
+        });
+      });
+    }
+
+    function syncUrl(q) {
+      const u = new URL(location.href);
+      if (q) u.searchParams.set("q", q); else u.searchParams.delete("q");
+      history.replaceState(null, "", u);
+    }
+
+    input.addEventListener("input", () => { run(input.value); syncUrl(input.value); });
+
+    fetch("/search-index.json")
+      .then((r) => r.json())
+      .then((data) => {
+        records = data;
+        buildChips();
+        const q = new URL(location.href).searchParams.get("q") || "";
+        if (q) input.value = q;
+        run(q);
+      })
+      .catch(() => { countEl.textContent = "Search index failed to load."; });
+  </script>
+</BaseLayout>
