@@ -34,20 +34,17 @@ const hq = d.videoId
           decoding="async"
           onerror={hq ? `this.onerror=null;this.src='${hq}'` : undefined}
         />
-        {isBroadcast && d.letterGrade && (
-          <span class="report-card__grade"><LetterGrade grade={d.letterGrade} /></span>
-        )}
       </div>
     )}
     <div class="report-card__body">
-      {!d.thumbnail && (
-        isBroadcast && d.letterGrade ? (
+      <div class="report-card__titlerow">
+        {isBroadcast && d.letterGrade ? (
           <LetterGrade grade={d.letterGrade} />
         ) : d.verdict ? (
           <Verdict verdict={d.verdict} />
-        ) : null
-      )}
-      <h3 class="report-card__headline">{d.headline}</h3>
+        ) : null}
+        <h3 class="report-card__headline">{d.headline}</h3>
+      </div>
       <p class="report-card__meta">
         {shortDate(d.publishedAt)} · {d.section}
       </p>

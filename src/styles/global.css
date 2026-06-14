@@ -438,10 +438,16 @@ p {
   filter: grayscale(0.25) contrast(1.02);
 }
 
-.report-card__grade {
-  position: absolute;
-  top: 0.4rem;
-  left: 0.4rem;
+.report-card__titlerow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0.4rem 0 0.25rem;
+}
+
+.report-card__titlerow .letter-grade,
+.report-card__titlerow .verdict {
+  flex: 0 0 auto;
 }
 
 .report-card__headline {
@@ -449,7 +455,7 @@ p {
   font-weight: 700;
   font-size: 1.2rem;
   line-height: 1.2;
-  margin: 0.35rem 0 0.25rem;
+  margin: 0;
 }
 
 .report-card__link:hover .report-card__headline {
