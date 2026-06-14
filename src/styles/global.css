@@ -1071,16 +1071,29 @@ p {
   color: var(--muted-ink);
 }
 
+/* Keep the two columns side-by-side on phones — stacking them doubles the
+   scroll. Just tighten the spacing. Stack only on very narrow screens. */
 @media (max-width: 38rem) {
   .gradeboard__cols {
+    gap: 0.85rem;
+  }
+  .gradeboard__col--bottom {
+    padding-left: 0.85rem;
+  }
+  .gradeboard__sub-meta {
+    gap: 0.3rem;
+  }
+}
+
+@media (max-width: 22rem) {
+  .gradeboard__cols {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
   }
   .gradeboard__col--bottom {
     border-left: none;
     padding-left: 0;
     border-top: 1px solid var(--rule);
-    padding-top: 1.25rem;
+    padding-top: 1rem;
   }
 }
 
@@ -2204,4 +2217,103 @@ button.small {
   font-size: 0.85rem;
   font-style: italic;
   color: var(--muted-ink);
+}
+
+/* ---------- Mobile density pass ----------
+ * Fit more on a phone screen with less scrolling: a tighter masthead, smaller
+ * section gaps, a denser front-page hero, and a two-up topic grid. */
+@media (max-width: 600px) {
+  .shell {
+    padding: 0.85rem var(--gutter) 2.25rem;
+  }
+
+  /* Masthead: reclaim a lot of vertical space */
+  .masthead {
+    padding: 0.4rem 0 0.4rem;
+  }
+  .masthead__title {
+    font-size: clamp(2rem, 13vw, 2.6rem);
+    letter-spacing: 0.08em;
+  }
+  .masthead__tagline {
+    font-size: 0.78rem;
+    margin-top: 0.2rem;
+  }
+  .masthead .rule--double {
+    margin: 0.4rem 0;
+  }
+  .masthead__meta {
+    margin-top: 0.3rem;
+  }
+
+  /* Tighter gaps between the big sections */
+  .hero,
+  .gradeboard,
+  .feed {
+    margin-top: 1.1rem;
+  }
+  .feed .rule--double,
+  .gradeboard .rule--double {
+    margin: 0.4rem 0 0.85rem;
+  }
+
+  /* Front-page hero: narrower cards (more peek), compact scoreband */
+  .hero-strip {
+    gap: 0.75rem;
+    padding: 0.4rem 0 0.75rem;
+  }
+  .hero-strip__item {
+    flex-basis: clamp(12.5rem, 80%, 16rem);
+  }
+  .scoreband {
+    gap: 0.6rem;
+    padding: 0.45rem 0.6rem;
+    margin: 0.3rem 0 0.5rem;
+  }
+  .scoreband__bias {
+    min-width: 8rem;
+    padding-left: 0.6rem;
+  }
+  /* The L—R scale bar is decorative; drop it on cards to save height */
+  .scoreband .lean__scale {
+    display: none;
+  }
+  .scoreband .lean__value {
+    font-size: 1rem;
+  }
+  .report-card__thumb {
+    margin-bottom: 0.45rem;
+  }
+
+  /* Topics: two-up instead of one giant card per row */
+  .topic-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+  }
+  .topic-card__top {
+    margin: 0.55rem 0.6rem 0.3rem;
+  }
+  .topic-card__name {
+    font-size: 1rem;
+    margin: 0 0.6rem;
+  }
+  .topic-card__meta {
+    font-size: 0.72rem;
+    margin: 0.3rem 0.6rem 0.7rem;
+  }
+
+  /* Section headings a touch smaller */
+  .feed__title,
+  .gradeboard .feed__title {
+    font-size: 1.35rem;
+  }
+
+  /* Gradeboard rows: denser */
+  .gradeboard__item {
+    gap: 0.45rem;
+    padding: 0.3rem 0;
+  }
+  .gradeboard__headline {
+    font-size: 0.85rem;
+  }
 }
