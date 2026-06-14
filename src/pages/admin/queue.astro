@@ -1,0 +1,137 @@
+---
+import { env } from "cloudflare:workers";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import LetterGrade from "~/components/LetterGrade.astro";
+import PoliticalLean from "~/components/PoliticalLean.astro";
+import { listDrafts } from "~/lib/agents";
+import { embedUrl } from "~/lib/youtube";
+
+export const prerender = false;
+
+const drafts = await listDrafts(env.AGENTS);
+---
+<BaseLayout title="Clad — Pending Queue">
+  <section class="admin">
+    <h2 class="admin__title">Pending Approval</h2>
+    <p class="dateline">
+      Reports drafted by agents. Review each, then approve (publishes live) or
+      reject (discards). Nothing here is public until you approve it.
+      <a href="/admin/">← Editorial Desk</a> · <a href="/admin/agents/">Agents</a>
+    </p>
+
+    {drafts.length === 0 ? (
+      <p class="dateline" style="margin-top:2rem">The queue is empty.</p>
+    ) : (
+      <div class="queue">
+        {drafts.map((d) => (
+          <article class="queue-item" data-draft-id={d.draftId}>
+            <div class="queue-item__head">
+              <span class="grade-tag">
+                <span class="grade-tag__label small-caps">Grade</span>
+                <LetterGrade grade={d.report.letterGrade} />
+              </span>
+              <h3 class="queue-item__headline">{d.report.headline}</h3>
+            </div>
+            <p class="dateline">
+              {d.source.channel ?? "Unknown channel"} ·{" "}
+              Factuality {d.report.factualityScore}/100 ·{" "}
+              {d.source.transcriptUsed ? "transcript" : "web research only"} ·{" "}
+              <a href={d.sourceUrl} target="_blank" rel="noopener noreferrer">source video</a>
+            </p>
+
+            <PoliticalLean lean={d.report.politicalLean} />
+            {d.report.leanRationale && (
+              <p class="lean-rationale"><span class="small-caps">Why:</span> {d.report.leanRationale}</p>
+            )}
+
+            <div class="video-embed" style="max-width:480px;margin:1rem 0">
+              <iframe
+                src={embedUrl(d.videoId)}
+                title={d.report.headline}
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+            </div>
+
+            <details>
+              <summary class="small-caps">Summary &amp; assessment</summary>
+              <p>{d.report.summary}</p>
+              <p><em>{d.report.assessment}</em></p>
+            </details>
+
+            {d.report.keyMoments.length > 0 && (
+              <details>
+                <summary class="small-caps">{d.report.keyMoments.length} key moments</summary>
+                <ul>
+                  {d.report.keyMoments.map((m) => (
+                    <li><strong>[{m.verdict}]</strong> {m.claim} — <em>{m.note}</em></li>
+                  ))}
+                </ul>
+              </details>
+            )}
+
+            {d.report.citations.length > 0 && (
+              <details>
+                <summary class="small-caps">{d.report.citations.length} citations</summary>
+                <ol>
+                  {d.report.citations.map((c) => (
+                    <li><a href={c.url} target="_blank" rel="noopener noreferrer">{c.title}</a></li>
+                  ))}
+                </ol>
+              </details>
+            )}
+
+            <div class="queue-item__actions">
+              <label><input type="checkbox" class="q-featured" /> Feature on front page</label>
+              <button type="button" class="q-approve">Approve &amp; Publish</button>
+              <button type="button" class="secondary q-reject">Reject</button>
+            </div>
+            <div class="q-status"></div>
+          </article>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <script is:inline>
+    document.querySelectorAll(".queue-item").forEach((item) => {
+      const id = item.getAttribute("data-draft-id");
+      const status = item.querySelector(".q-status");
+      const setStatus = (kind, msg) => {
+        status.innerHTML = msg
+          ? `<div class="notice ${kind === "error" ? "notice--error" : ""}">${msg}</div>`
+          : "";
+      };
+      const send = async (action, btn) => {
+        item.querySelectorAll("button").forEach((b) => (b.disabled = true));
+        setStatus("info", action === "approve" ? "Publishing…" : "Discarding…");
+        try {
+          const res = await fetch("/api/admin/queue", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              action,
+              draftId: id,
+              featured: item.querySelector(".q-featured").checked,
+            }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || "Failed");
+          if (action === "reject") {
+            item.remove();
+          } else {
+            setStatus("info", `Published. <a href="${data.postUrl}">${data.postUrl}</a> — live in ~30s.`);
+            item.querySelectorAll("button").forEach((b) => b.remove());
+          }
+        } catch (err) {
+          setStatus("error", String(err.message || err));
+          item.querySelectorAll("button").forEach((b) => (b.disabled = false));
+        }
+      };
+      item.querySelector(".q-approve").addEventListener("click", (e) => send("approve", e.target));
+      item.querySelector(".q-reject").addEventListener("click", (e) => send("reject", e.target));
+    });
+  </script>
+</BaseLayout>

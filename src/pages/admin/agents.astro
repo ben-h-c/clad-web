@@ -1,0 +1,86 @@
+---
+import { env } from "cloudflare:workers";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getRegistry } from "~/lib/agents";
+import { shortDate } from "~/lib/dateline";
+
+export const prerender = false;
+
+const registry = await getRegistry(env.AGENTS);
+
+function runLabel(lastRun: (typeof registry.agents)[number]["lastRun"]) {
+  if (!lastRun) return { cls: "run--never", text: "Never run" };
+  const when = new Date(lastRun.at);
+  const stamp = `${shortDate(when)} ${when.toUTCString().slice(17, 22)} UTC`;
+  return lastRun.ok
+    ? { cls: "run--ok", text: `OK · ${stamp} · ${lastRun.message}` }
+    : { cls: "run--fail", text: `FAILED · ${stamp} · ${lastRun.message}` };
+}
+---
+<BaseLayout title="Clad — Agents">
+  <section class="admin">
+    <h2 class="admin__title">Agents</h2>
+    <p class="dateline">
+      Background agents that draft reports for review.
+      <a href="/admin/">← Editorial Desk</a> · <a href="/admin/queue/">Pending Queue</a>
+    </p>
+
+    <div class="agents">
+      {registry.agents.map((a) => {
+        const run = runLabel(a.lastRun);
+        return (
+          <article class="agent" data-agent-id={a.id}>
+            <div class="agent__head">
+              <h3 class="agent__name">{a.name}</h3>
+              <label class="agent__toggle">
+                <input type="checkbox" class="a-enabled" checked={a.enabled} />
+                <span>Enabled</span>
+              </label>
+            </div>
+            <p class="dateline">{a.kind} · {a.config.maxPublishesPerRun}/run · order: {a.config.order}</p>
+
+            <div class="field" style="max-width:18rem">
+              <label>Schedule (cron, UTC)</label>
+              <input type="text" class="a-cron" value={a.cron} />
+            </div>
+
+            <p class={`run-badge ${run.cls}`}>{run.text}</p>
+
+            <button type="button" class="a-save">Save</button>
+            <span class="a-status"></span>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <script is:inline>
+    document.querySelectorAll(".agent").forEach((el) => {
+      const id = el.getAttribute("data-agent-id");
+      const status = el.querySelector(".a-status");
+      el.querySelector(".a-save").addEventListener("click", async (e) => {
+        const btn = e.target;
+        btn.disabled = true;
+        status.textContent = "Saving…";
+        try {
+          const res = await fetch("/api/admin/agents", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              agentId: id,
+              enabled: el.querySelector(".a-enabled").checked,
+              cron: el.querySelector(".a-cron").value.trim(),
+            }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || "Save failed");
+          status.textContent = "Saved.";
+        } catch (err) {
+          status.textContent = String(err.message || err);
+        } finally {
+          btn.disabled = false;
+        }
+      });
+    });
+  </script>
+</BaseLayout>

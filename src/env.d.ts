@@ -15,5 +15,7 @@ declare module "cloudflare:workers" {
     GITHUB_REPO: string;
     GITHUB_BRANCH: string;
     FACTCHECK_LIMITER: RateLimitBinding;
+    AGENT_TOKEN: string;
+    AGENTS: KVNamespace;
   }
 }

@@ -1,12 +1,16 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import { env } from "cloudflare:workers";
+import { listDrafts } from "~/lib/agents";
 
 export const prerender = false;
 
 const posts = (await getCollection("posts", (p) => !p.data.draft))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
   .slice(0, 100);
+
+const pendingCount = (await listDrafts(env.AGENTS)).length;
 
 const LETTER_GRADES = ["A+","A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F"];
 const KEY_MOMENT_VERDICTS = ["verified","disputed","missing context","unsupported"];
@@ -22,6 +26,10 @@ const POLITICAL_LEANS = [
 <BaseLayout title="Clad — Editorial Desk">
   <section class="admin">
     <h2 class="admin__title">Editorial Desk</h2>
+    <p class="dateline">
+      <a href="/admin/queue/">Pending Queue{pendingCount > 0 ? ` (${pendingCount})` : ""}</a>
+      · <a href="/admin/agents/">Agents</a>
+    </p>
 
     <div class="mode-switch" role="tablist" aria-label="Report type">
       <button type="button" class="mode-btn is-active" id="mode-broadcast" role="tab">Broadcast Report</button>

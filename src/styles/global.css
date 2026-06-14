@@ -1149,3 +1149,112 @@ button.small {
   border: 1px solid var(--rule);
   display: block;
 }
+
+/* Agent queue + management */
+
+.queue {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.queue-item {
+  border: 1px solid var(--rule);
+  padding: 1rem 1.25rem;
+}
+
+.queue-item__head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.queue-item__headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.queue-item details {
+  margin: 0.6rem 0;
+}
+
+.queue-item summary {
+  cursor: pointer;
+  color: var(--muted-ink);
+}
+
+.queue-item__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--rule);
+}
+
+.agents {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.agent {
+  border: 1px solid var(--rule);
+  padding: 1rem 1.25rem;
+}
+
+.agent__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.agent__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.agent__toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.run-badge {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.6rem;
+  border-left: 3px solid var(--muted-ink);
+  margin: 0.75rem 0;
+}
+
+.run--ok {
+  border-left-color: var(--ink);
+}
+
+.run--fail {
+  border-left-color: var(--red-ink);
+  color: var(--red-ink);
+}
+
+.run--never {
+  font-style: italic;
+  color: var(--muted-ink);
+}
+
+.a-status,
+.q-status {
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--muted-ink);
+}

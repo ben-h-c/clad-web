@@ -7,3 +7,11 @@ ADMIN_PASSWORD=replace-me-with-something-long
 GITHUB_TOKEN=github_pat_...
 GITHUB_REPO=ben-h-c/clad-web
 GITHUB_BRANCH=main
+
+# Bearer token the agent runner uses to call /api/agent/* (separate from the
+# basic-auth console login). Use a long random string; set the same value in
+# runner/.env. In production set via `wrangler secret put AGENT_TOKEN`.
+AGENT_TOKEN=replace-with-a-long-random-string
+
+# The YouTube Data API key is NOT set here — it lives only in runner/.env
+# (the runner runs on the Mac, not in the Worker).

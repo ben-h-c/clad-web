@@ -15,5 +15,9 @@
       "namespace_id": "1001",
       "simple": { "limit": 20, "period": 60 }
     }
+  ],
+  // Agent state (registry, pending drafts, seen-ledger).
+  "kv_namespaces": [
+    { "binding": "AGENTS", "id": "231fcd9cfeaa4ed99367550cd2c10877" }
   ]
 }
