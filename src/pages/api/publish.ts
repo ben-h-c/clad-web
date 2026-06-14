@@ -4,13 +4,13 @@ import { commitFile } from "~/lib/github";
 import { datedSlug } from "~/lib/slug";
 import { emitPost, type Frontmatter, type KeyMoment } from "~/lib/yaml";
 import { extractVideoId, thumbnailUrl } from "~/lib/youtube";
+import { leanBucket } from "~/lib/broadcast";
 
 export const prerender = false;
 
 const VERDICTS = ["true", "mostly-true", "mixed", "mostly-false", "false", "unverified"];
 const LETTER_GRADES = ["A+","A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F"];
 const KEY_MOMENT_VERDICTS = ["verified", "disputed", "missing context", "unsupported"];
-const POLITICAL_LEANS = ["left", "center-left", "center", "center-right", "right", "none"];
 
 export const POST: APIRoute = async ({ request }) => {
   if (!env.GITHUB_TOKEN || !env.GITHUB_REPO || !env.GITHUB_BRANCH) {
@@ -76,8 +76,12 @@ export const POST: APIRoute = async ({ request }) => {
     const factualityScore = Number(p.factualityScore);
     const assessment = str(p.assessment);
     const videoTitle = p.videoTitle ? str(p.videoTitle) : undefined;
-    const politicalLean = POLITICAL_LEANS.includes(p.politicalLean) ? str(p.politicalLean) : undefined;
+    let leanScore = Number(p.leanScore);
+    if (!Number.isFinite(leanScore)) leanScore = 0;
+    leanScore = Math.max(-100, Math.min(100, Math.round(leanScore)));
+    const politicalLean = leanBucket(leanScore);
     const leanRationale = p.leanRationale ? str(p.leanRationale) : undefined;
+    const gradeRationale = p.gradeRationale ? str(p.gradeRationale) : undefined;
     const topics = toStringArray(p.topics).slice(0, 4);
     const notableConcerns = toStringArray(p.notableConcerns).slice(0, 3);
     const keyMoments: KeyMoment[] = Array.isArray(p.keyMoments)
@@ -111,7 +115,9 @@ export const POST: APIRoute = async ({ request }) => {
       letterGrade,
       factualityScore,
       politicalLean,
+      leanScore,
       leanRationale,
+      gradeRationale,
       topics,
       assessment,
       notableConcerns,

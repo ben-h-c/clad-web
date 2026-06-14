@@ -40,9 +40,12 @@ const drafts = await listDrafts(env.AGENTS);
               <a href={d.sourceUrl} target="_blank" rel="noopener noreferrer">source video</a>
             </p>
 
-            <PoliticalLean lean={d.report.politicalLean} />
+            {d.report.gradeRationale && (
+              <p class="grade-rationale"><span class="small-caps">Why this grade:</span> {d.report.gradeRationale}</p>
+            )}
+            <PoliticalLean score={d.report.leanScore} lean={d.report.politicalLean} />
             {d.report.leanRationale && (
-              <p class="lean-rationale"><span class="small-caps">Why:</span> {d.report.leanRationale}</p>
+              <p class="lean-rationale"><span class="small-caps">Why this lean:</span> {d.report.leanRationale}</p>
             )}
 
             <div class="video-embed" style="max-width:480px;margin:1rem 0">

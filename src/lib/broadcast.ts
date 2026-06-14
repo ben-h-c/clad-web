@@ -39,14 +39,27 @@ export interface BroadcastReport {
   headline: string;
   letterGrade: (typeof LETTER_GRADES)[number];
   factualityScore: number;
+  // Signed left↔right axis: -100 = fully left, 0 = center, +100 = fully right.
+  leanScore: number;
   politicalLean: (typeof POLITICAL_LEANS)[number];
   leanRationale: string;
+  gradeRationale: string;
   topics: string[];
   summary: string;
   assessment: string;
   notableConcerns: string[];
   keyMoments: BroadcastKeyMoment[];
   citations: { title: string; url: string }[];
+}
+
+// Map a -100..100 lean score to the legacy bucket (kept for back-compat with
+// older posts/UI that reference the enum).
+export function leanBucket(score: number): (typeof POLITICAL_LEANS)[number] {
+  if (score <= -60) return "left";
+  if (score <= -20) return "center-left";
+  if (score < 20) return "center";
+  if (score < 60) return "center-right";
+  return "right";
 }
 
 // Ported from the iOS app (GrokClient.broadcastReviewPrompt), adapted: the web
@@ -59,8 +72,9 @@ Respond with a single JSON object of the form:
   "headline": "<a concise newspaper headline for this report, <= 90 chars>",
   "letter_grade": "A+" | "A" | "A-" | "B+" | "B" | "B-" | "C+" | "C" | "C-" | "D+" | "D" | "D-" | "F",
   "factuality_score": <integer 0-100>,
-  "political_lean": "left" | "center-left" | "center" | "center-right" | "right" | "none",
-  "lean_rationale": "<one or two sentences explaining the political lean call>",
+  "grade_rationale": "<one or two sentences on WHY it earned that grade — name the failings, e.g. 'several unsupported claims and missing context on key figures'>",
+  "lean_score": <integer -100 to 100>,
+  "lean_rationale": "<one or two sentences explaining the lean score>",
   "topics": ["<topic>", ...],
   "summary": "<two short paragraphs, 5-7 sentences total, on what the broadcast was about>",
   "assessment": "<4-6 sentences on overall quality, accuracy, framing, and what the viewer might be missing>",
@@ -88,9 +102,11 @@ IMPORTANT: use the FULL granularity of the grade. If it's a C-minus, return "C-"
 
 \`headline\`: a concise, restrained newspaper headline summarizing the report. No clickbait, no exclamation, no political adjectives applied to people.
 
-\`political_lean\`: assess the political slant of THIS broadcast/source as presented — word choice, which facts are emphasized or omitted, guest selection, framing. "left"/"right" = clear partisan slant; "center-left"/"center-right" = mild slant; "center" = balanced political content with no consistent slant; "none" = the content is not political (e.g. weather, sports, science) so no lean applies. Be even-handed: apply the same standard to every network and figure regardless of side.
+\`grade_rationale\`: one or two sentences explaining WHY the broadcast earned its letter grade — name the specific failings or strengths (e.g. "Graded C-: several load-bearing claims were unsupported and key statistics lacked context", or "Graded A-: claims were well-sourced to primary data with minor framing concerns"). This is what the reader sees first, so make it concrete, not generic.
 
-\`lean_rationale\`: one or two sentences naming the specific cues that drove the political_lean call (e.g. "Relied solely on administration officials and framed the policy in its preferred terms"). Keep it factual, not pejorative.
+\`lean_score\`: an integer from -100 to 100 measuring the political slant of THIS broadcast/source as presented (word choice, which facts are emphasized or omitted, guest selection, framing). -100 = strongly left, 0 = centered / no discernible slant, +100 = strongly right. Use the full range and be precise (e.g. -21 for a mild left tilt, 78 for a strong right tilt). Be even-handed: apply the same standard to every network and figure regardless of side. If the content is not political, use 0.
+
+\`lean_rationale\`: one or two sentences naming the specific cues that drove the lean_score (e.g. "Relied solely on administration officials and framed the policy in its preferred terms"). Keep it factual, not pejorative.
 
 \`topics\`: 2 to 4 short topic labels covered ("Federal Reserve policy", "Ukraine war updates"). Skip filler / transitions.
 
@@ -132,7 +148,8 @@ const REPORT_SCHEMA = {
     headline: { type: "string" },
     letter_grade: { type: "string", enum: [...LETTER_GRADES] },
     factuality_score: { type: "integer", minimum: 0, maximum: 100 },
-    political_lean: { type: "string", enum: [...POLITICAL_LEANS] },
+    grade_rationale: { type: "string" },
+    lean_score: { type: "integer", minimum: -100, maximum: 100 },
     lean_rationale: { type: "string" },
     topics: { type: "array", items: { type: "string" } },
     summary: { type: "string" },
@@ -168,7 +185,8 @@ const REPORT_SCHEMA = {
     "headline",
     "letter_grade",
     "factuality_score",
-    "political_lean",
+    "grade_rationale",
+    "lean_score",
     "lean_rationale",
     "topics",
     "summary",
@@ -290,9 +308,16 @@ export function normalizeBroadcast(p: any): BroadcastReport {
   if (!Number.isFinite(score)) score = 50;
   score = Math.max(0, Math.min(100, Math.round(score)));
 
-  const lean = (POLITICAL_LEANS as readonly string[]).includes(p?.political_lean)
-    ? p.political_lean
-    : "center";
+  // Prefer the new numeric lean_score; fall back to the legacy enum if a caller
+  // still sends one.
+  let leanScore = Number(p?.lean_score);
+  if (!Number.isFinite(leanScore)) {
+    const enumScore: Record<string, number> = {
+      left: -80, "center-left": -40, center: 0, "center-right": 40, right: 80, none: 0,
+    };
+    leanScore = enumScore[p?.political_lean] ?? 0;
+  }
+  leanScore = Math.max(-100, Math.min(100, Math.round(leanScore)));
 
   const topics = toStringArray(p?.topics).slice(0, 4);
   const notableConcerns = toStringArray(p?.notable_concerns).slice(0, 3);
@@ -324,8 +349,10 @@ export function normalizeBroadcast(p: any): BroadcastReport {
     headline: String(p?.headline ?? "").trim().slice(0, 200),
     letterGrade: grade as BroadcastReport["letterGrade"],
     factualityScore: score,
-    politicalLean: lean as BroadcastReport["politicalLean"],
+    leanScore,
+    politicalLean: leanBucket(leanScore),
     leanRationale: String(p?.lean_rationale ?? "").trim(),
+    gradeRationale: String(p?.grade_rationale ?? "").trim(),
     topics,
     summary: String(p?.summary ?? "").trim(),
     assessment: String(p?.assessment ?? "").trim(),

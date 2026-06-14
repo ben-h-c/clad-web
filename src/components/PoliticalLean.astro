@@ -1,42 +1,36 @@
 ---
 interface Props {
-  lean: string;
+  // Preferred: signed -100 (left) .. +100 (right). Falls back to the legacy
+  // enum when an older post has no numeric score.
+  score?: number;
+  lean?: string;
   size?: "badge" | "header";
 }
-const { lean, size = "badge" } = Astro.props;
+const { score, lean, size = "badge" } = Astro.props;
 
-const LABELS: Record<string, string> = {
-  left: "Leans Left",
-  "center-left": "Center-Left",
-  center: "Centered",
-  "center-right": "Center-Right",
-  right: "Leans Right",
-  none: "No Political Bias",
+const ENUM_TO_SCORE: Record<string, number> = {
+  left: -80, "center-left": -40, center: 0, "center-right": 40, right: 80, none: 0,
 };
 
-// Position on a 0–4 left→right scale for the marker; null = no political axis.
-const POS: Record<string, number | null> = {
-  left: 0,
-  "center-left": 1,
-  center: 2,
-  "center-right": 3,
-  right: 4,
-  none: null,
-};
+const raw = typeof score === "number" ? score : lean ? ENUM_TO_SCORE[lean] ?? 0 : 0;
+const s = Math.max(-100, Math.min(100, Math.round(raw)));
+const mag = Math.abs(s);
 
-const label = LABELS[lean] ?? lean;
-const pos = POS[lean] ?? null;
+const label =
+  mag < 5 ? "Centered" : `${mag}% ${s > 0 ? "Right" : "Left"}-leaning`;
+
+// marker position on a 0..100 track (left → right)
+const pos = (s + 100) / 2;
 ---
 <div class={`lean lean--${size}`}>
   <span class="small-caps lean__label">Political Lean</span>
   <span class="lean__value">{label}</span>
-  {pos !== null && (
-    <div class="lean__scale" aria-hidden="true">
-      <span class="lean__scale-end">L</span>
-      <div class="lean__track">
-        <span class="lean__marker" style={`left:${(pos / 4) * 100}%`}></span>
-      </div>
-      <span class="lean__scale-end">R</span>
+  <div class="lean__scale" aria-hidden="true">
+    <span class="lean__scale-end">L</span>
+    <div class="lean__track">
+      <span class="lean__center"></span>
+      <span class="lean__marker" style={`left:${pos}%`}></span>
     </div>
-  )}
+    <span class="lean__scale-end">R</span>
+  </div>
 </div>
