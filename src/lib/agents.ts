@@ -14,6 +14,7 @@ export interface AgentConfig {
   // youtube-scanner
   regionCode?: string;
   videoCategoryId?: string;
+  videoCategoryIds?: string[]; // search across multiple categories (e.g. ["25","28"])
   order?: "date" | "viewCount";
   publishedWithinHours?: number;
   maxCandidatesPerRun?: number;
@@ -91,7 +92,9 @@ export const DEFAULT_REGISTRY: Registry = {
       cron: "0 * * * *",
       config: {
         regionCode: "US",
-        videoCategoryId: "25",
+        // News & Politics (25) + Science & Technology (28) so big tech/space/
+        // markets stories (e.g. a SpaceX IPO) are caught, not just DC politics.
+        videoCategoryIds: ["25", "28"],
         // "date" surfaces fresh uploads (new stories) instead of the same
         // top-viewed videos that dedup keeps skipping.
         order: "date",
@@ -99,11 +102,10 @@ export const DEFAULT_REGISTRY: Registry = {
         maxCandidatesPerRun: 8,
         maxPublishesPerRun: 4,
         maxScanPages: 3,
-        // Broad US national-news landscape (not just DC politics), kept to
-        // substantive news that can carry a lean; the network allow-list +
-        // category 25 keep out sports/entertainment.
+        // Broad US national landscape: politics + economy + business/markets +
+        // tech/space + major companies, so hot stories surface, not just DC.
         query:
-          "US news OR politics OR government OR Congress OR \"Supreme Court\" OR economy OR inflation OR jobs OR immigration OR healthcare OR education OR crime OR \"criminal justice\" OR \"foreign policy\" OR election OR \"White House\" OR climate OR energy OR labor OR business OR abortion OR \"civil rights\" OR guns OR housing OR border OR Ukraine OR Israel OR Iran OR China",
+          "US news OR politics OR government OR Congress OR \"Supreme Court\" OR economy OR inflation OR jobs OR immigration OR healthcare OR education OR crime OR \"criminal justice\" OR \"foreign policy\" OR election OR \"White House\" OR climate OR energy OR labor OR business OR \"stock market\" OR \"Wall Street\" OR stocks OR earnings OR IPO OR \"Federal Reserve\" OR \"interest rates\" OR technology OR \"artificial intelligence\" OR \"Big Tech\" OR SpaceX OR Tesla OR Musk OR Nvidia OR Apple OR Amazon OR abortion OR guns OR border OR Ukraine OR Israel OR Iran OR China",
       },
     },
     {

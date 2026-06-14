@@ -61,93 +61,108 @@ export async function runYoutubeScanner(agent) {
   // Limited loop: page through results until we've drafted `limit` transcribed
   // reports or exhausted maxPages / results. Videos without captions are skipped
   // and the loop keeps going to the next candidate.
-  for (let page = 0; page < maxPages && submitted < limit; page++) {
-    const params = new URLSearchParams({
-      key,
-      part: "snippet",
-      type: "video",
-      regionCode: c.regionCode || "US",
-      videoCategoryId: c.videoCategoryId || "25",
-      order: c.order || "viewCount",
-      publishedAfter,
-      q: c.query || "politics",
-      maxResults: "50",
-      relevanceLanguage: "en",
-    });
-    if (pageToken) params.set("pageToken", pageToken);
+  // Search across one or more YouTube categories (e.g. News & Politics +
+  // Science & Technology) so hot stories that live outside the "news" category
+  // — tech, space, markets — are caught too. "any" / "" means no category filter.
+  const categories =
+    Array.isArray(c.videoCategoryIds) && c.videoCategoryIds.length
+      ? c.videoCategoryIds
+      : [c.videoCategoryId || "25"];
 
-    const res = await fetch(`${YT_API}?${params}`);
-    if (!res.ok) {
-      const body = await res.text().catch(() => "");
-      if (page === 0) return { ok: false, message: `YouTube API ${res.status}: ${body.slice(0, 160)}` };
-      break; // first page worked; a later page failed — stop with what we have
-    }
-    const data = await res.json();
-    pageToken = data.nextPageToken || "";
+  for (const category of categories) {
+    if (submitted >= limit) break;
+    pageToken = "";
 
-    const networkCands = (data.items || [])
-      .filter(
-        (it) =>
-          it.id?.videoId &&
-          (!requireNetwork || NETWORK_CHANNEL_IDS.has(it.snippet?.channelId))
-      )
-      .map((it) => ({
-        videoId: it.id.videoId,
-        title: it.snippet?.title || "",
-        channel: it.snippet?.channelTitle || "",
-        publishedAt: it.snippet?.publishedAt || "",
-      }));
-    candidatesSeen += networkCands.length;
+    for (let page = 0; page < maxPages && submitted < limit; page++) {
+      const params = new URLSearchParams({
+        key,
+        part: "snippet",
+        type: "video",
+        regionCode: c.regionCode || "US",
+        order: c.order || "viewCount",
+        publishedAfter,
+        q: c.query || "politics",
+        maxResults: "50",
+        relevanceLanguage: "en",
+      });
+      if (category && category !== "any") params.set("videoCategoryId", String(category));
+      if (pageToken) params.set("pageToken", pageToken);
 
-    if (networkCands.length > 0) {
-      // Pre-dedupe against published/pending/seen AND same-channel same-story.
-      const known = await getKnown(
-        agent.id,
-        networkCands.map((v) => ({ videoId: v.videoId, channel: v.channel, title: v.title }))
-      );
-      const knownSet = new Set(known.ok ? known.body.known || [] : []);
-      const fresh = networkCands.filter((v) => !knownSet.has(v.videoId));
-      skipped += networkCands.length - fresh.length;
-
-      for (const v of fresh) {
-        if (submitted >= limit) break;
-        const sourceUrl = `https://www.youtube.com/watch?v=${v.videoId}`;
-        const transcript = await fetchTranscript(v.videoId);
-        if (!transcript) {
-          noTranscript++;
-          skipped++;
-          continue;
+      const res = await fetch(`${YT_API}?${params}`);
+      if (!res.ok) {
+        const body = await res.text().catch(() => "");
+        if (page === 0 && category === categories[0]) {
+          return { ok: false, message: `YouTube API ${res.status}: ${body.slice(0, 160)}` };
         }
-        let report;
-        try {
-          report = await generateBroadcastReport(xaiKey, {
-            transcript,
-            sourceUrl,
-            videoTitle: v.title,
-            channel: v.channel,
-          });
-        } catch {
-          skipped++;
-          continue;
-        }
-        report.citations = await validateCitations(report.citations);
-        const out = await submitDraft({
-          agentId: agent.id,
-          sourceUrl,
-          report,
-          source: {
-            channel: v.channel,
-            videoTitle: v.title,
-            transcriptUsed: true,
-            publishedAt: v.publishedAt,
-          },
-        });
-        if (out.ok) submitted++;
-        else skipped++;
+        break; // a later page/category failed — stop this category, keep what we have
       }
-    }
+      const data = await res.json();
+      pageToken = data.nextPageToken || "";
 
-    if (!pageToken) break; // no more pages
+      const networkCands = (data.items || [])
+        .filter(
+          (it) =>
+            it.id?.videoId &&
+            (!requireNetwork || NETWORK_CHANNEL_IDS.has(it.snippet?.channelId))
+        )
+        .map((it) => ({
+          videoId: it.id.videoId,
+          title: it.snippet?.title || "",
+          channel: it.snippet?.channelTitle || "",
+          publishedAt: it.snippet?.publishedAt || "",
+        }));
+      candidatesSeen += networkCands.length;
+
+      if (networkCands.length > 0) {
+        // Pre-dedupe against published/pending/seen AND same-channel same-story.
+        const known = await getKnown(
+          agent.id,
+          networkCands.map((v) => ({ videoId: v.videoId, channel: v.channel, title: v.title }))
+        );
+        const knownSet = new Set(known.ok ? known.body.known || [] : []);
+        const fresh = networkCands.filter((v) => !knownSet.has(v.videoId));
+        skipped += networkCands.length - fresh.length;
+
+        for (const v of fresh) {
+          if (submitted >= limit) break;
+          const sourceUrl = `https://www.youtube.com/watch?v=${v.videoId}`;
+          const transcript = await fetchTranscript(v.videoId);
+          if (!transcript) {
+            noTranscript++;
+            skipped++;
+            continue;
+          }
+          let report;
+          try {
+            report = await generateBroadcastReport(xaiKey, {
+              transcript,
+              sourceUrl,
+              videoTitle: v.title,
+              channel: v.channel,
+            });
+          } catch {
+            skipped++;
+            continue;
+          }
+          report.citations = await validateCitations(report.citations);
+          const out = await submitDraft({
+            agentId: agent.id,
+            sourceUrl,
+            report,
+            source: {
+              channel: v.channel,
+              videoTitle: v.title,
+              transcriptUsed: true,
+              publishedAt: v.publishedAt,
+            },
+          });
+          if (out.ok) submitted++;
+          else skipped++;
+        }
+      }
+
+      if (!pageToken) break; // no more pages in this category
+    }
   }
 
   return {
