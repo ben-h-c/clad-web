@@ -4,39 +4,34 @@ import { getKnown, submitDraft } from "./api.mjs";
 
 const YT_API = "https://www.googleapis.com/youtube/v3/search";
 
-// Allow-list of popular US English news networks. We match a video's channel
-// title (case-insensitive substring) against these so the agent only drafts
-// reports from recognized news outlets — not random uploads. Editorial policy,
-// kept in the runner so it's easy to adjust.
-const NETWORKS = [
-  "cnn",
-  "fox news",
-  "fox business",
-  "msnbc",
-  "abc news",
-  "cbs news",
-  "nbc news",
-  "pbs newshour",
-  "newsnation",
-  "c-span",
-  "cspan",
-  "reuters",
-  "associated press",
-  "bloomberg",
-  "cnbc",
-  "the hill",
-  "washington post",
-  "wall street journal",
-  "usa today",
-  "politico",
-  "npr",
-  "forbes breaking news",
-];
-
-function isNetwork(channelTitle) {
-  const t = (channelTitle || "").toLowerCase();
-  return NETWORKS.some((n) => t.includes(n));
-}
+// Allow-list of popular US English news networks, by exact YouTube channel ID.
+// Using IDs (not title substrings) keeps out foreign affiliates that share a
+// name — e.g. US "CNN" vs India's "CNN-News18". Editorial policy; resolved via
+// the YouTube Data API and kept in the runner so it's easy to adjust.
+const NETWORK_CHANNEL_IDS = new Set([
+  "UCupvZG-5ko_eiXAupbDfxWw", // CNN
+  "UCXIJgqnII2ZOINSWNOGFThA", // Fox News
+  "UCCXoCcu9Rp7NPbTzIvogpZg", // Fox Business
+  "UCaXkIU1QidjPwiAYu6GcHjg", // MSNBC (now "MS NOW")
+  "UCBi2mrWuNuyYy4gbM6fU18Q", // ABC News
+  "UC8p1vwvWtl6T73JiExfWs1g", // CBS News
+  "UCeY0bbntWzzVIaj2z3QigXg", // NBC News
+  "UC6ZFN9Tx6xh-skXCuRHCDpQ", // PBS NewsHour
+  "UCCjG8NtOig0USdrT5D1FpxQ", // NewsNation
+  "UCb--64Gl51jIEVE-GLDAVTg", // C-SPAN
+  "UChqUTb7kYRX8-EiaN3XFrSQ", // Reuters
+  "UC52X5wxOL_s5yw0dQk7NtgA", // Associated Press
+  "UCIALMKvObZNtJ6AmdCLP7Lg", // Bloomberg Television
+  "UChirEOpgFCupRAk5etXqPaA", // Bloomberg News
+  "UCvJJ_dzjViJCoLf5uKUTwoA", // CNBC
+  "UCPWXiRWZ29zrxPFIQT7eHSA", // The Hill
+  "UCHd62-u_v4DvJ8TCFtpi4GA", // Washington Post
+  "UCK7tptUDHh-RYDsdxO1-5QQ", // The Wall Street Journal
+  "UCP6HGa63sBC7-KHtkme-p-g", // USA TODAY
+  "UCgjtvMmHXbutALaw9XzRkAg", // POLITICO
+  "UCJnS2EsPfv46u1JR8cnD0NA", // NPR
+  "UCg40OxZ1GYh3u3jBntB6DLg", // Forbes Breaking News
+]);
 
 // Run one scan for a youtube-scanner agent. Returns a status summary.
 export async function runYoutubeScanner(agent) {
@@ -77,11 +72,12 @@ export async function runYoutubeScanner(agent) {
       videoId: it.id.videoId,
       title: it.snippet?.title || "",
       channel: it.snippet?.channelTitle || "",
+      channelId: it.snippet?.channelId || "",
       publishedAt: it.snippet?.publishedAt || "",
     }));
 
-  // Restrict to popular US news networks.
-  const candidates = all.filter((v) => isNetwork(v.channel));
+  // Restrict to the exact US news-network channel IDs.
+  const candidates = all.filter((v) => NETWORK_CHANNEL_IDS.has(v.channelId));
 
   if (candidates.length === 0) {
     return {
