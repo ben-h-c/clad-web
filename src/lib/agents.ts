@@ -100,8 +100,8 @@ export const DEFAULT_REGISTRY: Registry = {
         order: "date",
         publishedWithinHours: 48,
         maxCandidatesPerRun: 8,
-        maxPublishesPerRun: 4,
-        maxScanPages: 3,
+        maxPublishesPerRun: 15,
+        maxScanPages: 5,
         // Broad US national landscape: politics + economy + business/markets +
         // tech/space + major companies, so hot stories surface, not just DC.
         query:
