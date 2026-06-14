@@ -30,8 +30,6 @@ export interface AgentConfig {
   engagementWeight?: number;
   // compliance-auditor
   maxPostsToAudit?: number;
-  // trending-topics
-  maxTopics?: number;
 }
 
 export interface AgentLastRun {
@@ -132,16 +130,6 @@ export const DEFAULT_REGISTRY: Registry = {
       cron: "0 7 * * *", // daily, 07:00 UTC
       config: {
         maxPostsToAudit: 60,
-      },
-    },
-    {
-      id: "trending-topics",
-      kind: "trending-topics",
-      name: "Trending Topics (public interest)",
-      enabled: true,
-      cron: "0 */4 * * *", // every 4 hours
-      config: {
-        maxTopics: 15,
       },
     },
   ],
@@ -298,28 +286,86 @@ export async function setFrontpage(kv: KVNamespace, ids: string[]): Promise<void
   await kv.put(FRONTPAGE_KEY, JSON.stringify(ids.slice(0, 30)));
 }
 
-/* ---------- trending topics (dynamic, public-interest search terms) ---------- */
+/* ---------- search categories (editor-managed scanner search terms) ---------- */
 
-const TRENDING_KEY = "agents:trending";
+const CATEGORIES_KEY = "agents:categories";
 
-export interface TrendingTopics {
-  updatedAt: string;
-  topics: string[];
+export interface SearchCategory {
+  id: string;
+  label: string; // the YouTube search phrase
+  group: string;
+  enabled: boolean;
 }
 
-export async function getTrendingTopics(kv: KVNamespace): Promise<TrendingTopics | null> {
-  const raw = await kv.get(TRENDING_KEY);
-  if (!raw) return null;
-  try {
-    return JSON.parse(raw) as TrendingTopics;
-  } catch {
-    return null;
+// Curated catalog the editor toggles on/off. New entries here are reconciled
+// into the stored list (added, defaulting to their `enabled` here) without
+// wiping the editor's existing on/off choices.
+export const DEFAULT_CATEGORIES: SearchCategory[] = [
+  { id: "us-politics", label: "US politics", group: "Politics & Government", enabled: true },
+  { id: "congress", label: "Congress", group: "Politics & Government", enabled: true },
+  { id: "white-house", label: "White House", group: "Politics & Government", enabled: true },
+  { id: "elections", label: "elections", group: "Politics & Government", enabled: true },
+  { id: "supreme-court", label: "Supreme Court", group: "Politics & Government", enabled: true },
+  { id: "immigration", label: "immigration policy", group: "Politics & Government", enabled: true },
+  { id: "abortion", label: "abortion law", group: "Politics & Government", enabled: true },
+  { id: "guns", label: "gun policy", group: "Politics & Government", enabled: true },
+  { id: "stock-market", label: "stock market", group: "Economy & Finance", enabled: true },
+  { id: "federal-reserve", label: "Federal Reserve", group: "Economy & Finance", enabled: true },
+  { id: "inflation", label: "inflation", group: "Economy & Finance", enabled: true },
+  { id: "ipo", label: "IPO", group: "Economy & Finance", enabled: true },
+  { id: "earnings", label: "company earnings", group: "Economy & Finance", enabled: true },
+  { id: "jobs", label: "jobs report", group: "Economy & Finance", enabled: true },
+  { id: "housing", label: "housing market", group: "Economy & Finance", enabled: true },
+  { id: "crypto", label: "cryptocurrency", group: "Economy & Finance", enabled: true },
+  { id: "ai", label: "artificial intelligence", group: "Technology", enabled: true },
+  { id: "spacex", label: "SpaceX", group: "Technology", enabled: true },
+  { id: "tesla", label: "Tesla", group: "Technology", enabled: true },
+  { id: "nvidia", label: "Nvidia", group: "Technology", enabled: true },
+  { id: "big-tech", label: "big tech", group: "Technology", enabled: true },
+  { id: "ai-regulation", label: "AI regulation", group: "Technology", enabled: true },
+  { id: "openai", label: "OpenAI", group: "Technology", enabled: true },
+  { id: "anthropic", label: "Anthropic Claude", group: "Technology", enabled: true },
+  { id: "ukraine", label: "Ukraine war", group: "World", enabled: true },
+  { id: "israel-gaza", label: "Israel Gaza", group: "World", enabled: true },
+  { id: "iran", label: "Iran", group: "World", enabled: true },
+  { id: "china", label: "China US relations", group: "World", enabled: true },
+];
+
+export async function getSearchCategories(kv: KVNamespace): Promise<SearchCategory[]> {
+  const raw = await kv.get(CATEGORIES_KEY);
+  if (!raw) {
+    await kv.put(CATEGORIES_KEY, JSON.stringify(DEFAULT_CATEGORIES));
+    return DEFAULT_CATEGORIES;
   }
+  let list: SearchCategory[];
+  try {
+    list = JSON.parse(raw) as SearchCategory[];
+  } catch {
+    return DEFAULT_CATEGORIES;
+  }
+  if (!Array.isArray(list)) return DEFAULT_CATEGORIES;
+  let changed = false;
+  for (const def of DEFAULT_CATEGORIES) {
+    if (!list.some((x) => x.id === def.id)) {
+      list.push(def);
+      changed = true;
+    }
+  }
+  if (changed) await kv.put(CATEGORIES_KEY, JSON.stringify(list));
+  return list;
 }
 
-export async function setTrendingTopics(kv: KVNamespace, topics: string[]): Promise<void> {
-  const clean = topics.map((t) => String(t).trim()).filter(Boolean).slice(0, 30);
-  await kv.put(TRENDING_KEY, JSON.stringify({ updatedAt: new Date().toISOString(), topics: clean }));
+export async function setSearchCategories(kv: KVNamespace, list: SearchCategory[]): Promise<void> {
+  const clean = (Array.isArray(list) ? list : [])
+    .map((c) => ({
+      id: String(c.id || "").trim(),
+      label: String(c.label || "").trim(),
+      group: String(c.group || "Custom").trim() || "Custom",
+      enabled: Boolean(c.enabled),
+    }))
+    .filter((c) => c.id && c.label)
+    .slice(0, 200);
+  await kv.put(CATEGORIES_KEY, JSON.stringify(clean));
 }
 
 /* ---------- compliance auditor ---------- */

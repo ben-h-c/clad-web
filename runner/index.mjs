@@ -11,7 +11,6 @@ import { isDue } from "./cron.mjs";
 import { runYoutubeScanner } from "./youtubeScanner.mjs";
 import { runFrontpageCurator } from "./frontpageCurator.mjs";
 import { runComplianceAuditor } from "./complianceAuditor.mjs";
-import { runTrendingTopics } from "./trendingTopics.mjs";
 
 const ONCE = process.argv.includes("--once");
 const TICK_MS = 60_000;
@@ -21,7 +20,6 @@ const KINDS = {
   "youtube-scanner": runYoutubeScanner,
   "frontpage-curator": runFrontpageCurator,
   "compliance-auditor": runComplianceAuditor,
-  "trending-topics": runTrendingTopics,
 };
 
 function log(...args) {

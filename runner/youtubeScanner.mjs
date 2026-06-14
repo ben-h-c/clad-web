@@ -1,7 +1,7 @@
 import { generateBroadcastReport } from "../src/lib/broadcast.ts";
 import { validateCitations } from "../src/lib/citations.ts";
 import { fetchTranscript } from "./transcript.mjs";
-import { getKnown, submitDraft, getTrending } from "./api.mjs";
+import { getKnown, submitDraft, getCategories } from "./api.mjs";
 
 const YT_API = "https://www.googleapis.com/youtube/v3/search";
 
@@ -66,32 +66,35 @@ export async function runYoutubeScanner(agent) {
       ? c.videoCategoryIds
       : [c.videoCategoryId || "25"];
 
-  // Build the list of searches: the stable base query PLUS the dynamic
-  // public-interest "trending" topics (refreshed by the trending-topics agent).
-  // Trending topics are chunked into short OR-queries — a single over-long
-  // query makes YouTube drop obvious matches.
-  let trendingTopics = [];
+  // Build the list of searches from the editor-managed category list (toggled
+  // on the /admin/categories page). Categories are chunked into short OR-queries
+  // — a single over-long query makes YouTube drop obvious matches. If no
+  // categories are enabled, fall back to the agent's base query.
+  let enabledCategories = [];
   try {
-    const tr = await getTrending();
-    if (tr.ok && Array.isArray(tr.body?.topics)) trendingTopics = tr.body.topics;
+    const cr = await getCategories();
+    if (cr.ok && Array.isArray(cr.body?.categories)) enabledCategories = cr.body.categories;
   } catch {
-    /* trending optional */
+    /* categories optional */
   }
   const chunk = (arr, n) => {
     const out = [];
     for (let i = 0; i < arr.length; i += n) out.push(arr.slice(i, i + n));
     return out;
   };
-  const trendingPlans = chunk(trendingTopics, 8)
-    .map((g) => g.map((t) => `"${String(t).replace(/"/g, "")}"`).join(" OR "))
-    .map((q) => ({ query: q, pages: Math.min(2, maxPages), trending: true }));
-  const queryPlans = [{ query: c.query || "politics", pages: maxPages, trending: false }, ...trendingPlans];
+  const queryPlans = enabledCategories.length
+    ? chunk(enabledCategories, 8).map((g) => ({
+        query: g.map((t) => `"${String(t).replace(/"/g, "")}"`).join(" OR "),
+        pages: Math.min(2, maxPages),
+        fromCategory: true,
+      }))
+    : [{ query: c.query || "politics", pages: maxPages, fromCategory: false }];
 
   // Limited loop: run each query plan across each category, paging until we've
   // drafted `limit` transcribed reports. `processed` avoids handling the same
   // video twice when plans overlap.
   const processed = new Set();
-  let trendingDrafts = 0;
+  let categoryDrafts = 0;
 
   for (const plan of queryPlans) {
     if (submitted >= limit) break;
@@ -186,7 +189,7 @@ export async function runYoutubeScanner(agent) {
             });
             if (out.ok) {
               submitted++;
-              if (plan.trending) trendingDrafts++;
+              if (plan.fromCategory) categoryDrafts++;
             } else skipped++;
           }
         }
@@ -198,7 +201,7 @@ export async function runYoutubeScanner(agent) {
 
   return {
     ok: true,
-    message: `${candidatesSeen} scanned, ${submitted} drafted (${trendingDrafts} from ${trendingTopics.length} trending topics), ${skipped} skipped (${noTranscript} no transcript)`,
+    message: `${candidatesSeen} scanned, ${submitted} drafted (${categoryDrafts} from ${enabledCategories.length} enabled categories), ${skipped} skipped (${noTranscript} no transcript)`,
     submitted,
     skipped,
   };

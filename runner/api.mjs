@@ -53,12 +53,8 @@ export function putComplianceReport(report) {
   return call("/api/agent/compliance", { method: "POST", body: JSON.stringify(report) });
 }
 
-export function getTrending() {
-  return call("/api/agent/trending", { method: "GET" });
-}
-
-export function putTrending(topics) {
-  return call("/api/agent/trending", { method: "POST", body: JSON.stringify({ topics }) });
+export function getCategories() {
+  return call("/api/agent/categories", { method: "GET" });
 }
 
 export function reportStatus(status) {

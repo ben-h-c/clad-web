@@ -1,0 +1,142 @@
+---
+import { env } from "cloudflare:workers";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import AdminNav from "~/components/AdminNav.astro";
+import { getSearchCategories } from "~/lib/agents";
+
+export const prerender = false;
+
+const categories = await getSearchCategories(env.AGENTS);
+const groups = [...new Set(categories.map((c) => c.group))];
+const byGroup = groups.map((g) => ({ group: g, items: categories.filter((c) => c.group === g) }));
+const enabledCount = categories.filter((c) => c.enabled).length;
+---
+<BaseLayout title="Clad — Search Categories">
+  <section class="admin">
+    <AdminNav current="categories" />
+    <h2 class="admin__title">Search Categories</h2>
+    <p class="dateline">
+      Toggle the topics the YouTube scanner searches for. Only enabled categories
+      are scanned. Changes apply on the scanner's next run (no static or
+      AI-generated list — this is your manual control).
+    </p>
+
+    <div class="cat-toolbar">
+      <button type="button" id="cat-save">Save changes</button>
+      <span id="cat-status" class="dateline"></span>
+      <span class="dateline" id="cat-count">{enabledCount} of {categories.length} enabled</span>
+    </div>
+
+    <div id="cat-groups">
+      {byGroup.map((g) => (
+        <div class="cat-group" data-group={g.group}>
+          <h3 class="cat-group__title">{g.group}</h3>
+          <div class="cat-grid">
+            {g.items.map((c) => (
+              <label class="cat-item">
+                <input
+                  type="checkbox"
+                  class="cat-toggle"
+                  data-id={c.id}
+                  data-label={c.label}
+                  data-group={c.group}
+                  checked={c.enabled}
+                />
+                <span>{c.label}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="cat-add">
+      <h3 class="cat-group__title">Add a category</h3>
+      <div class="cat-add__row">
+        <input type="text" id="cat-new-label" placeholder="Search phrase, e.g. tariffs" />
+        <input type="text" id="cat-new-group" placeholder="Group (e.g. Economy & Finance)" />
+        <button type="button" id="cat-add-btn" class="secondary">Add</button>
+      </div>
+      <p class="dateline">Added categories appear above (enabled). Click <strong>Save changes</strong> to keep them.</p>
+    </div>
+  </section>
+
+  <script is:inline>
+    const status = document.getElementById("cat-status");
+    const setStatus = (msg, err) => {
+      status.textContent = msg || "";
+      status.style.color = err ? "var(--red-ink)" : "";
+    };
+
+    function collect() {
+      return [...document.querySelectorAll(".cat-toggle")].map((el) => ({
+        id: el.getAttribute("data-id"),
+        label: el.getAttribute("data-label"),
+        group: el.getAttribute("data-group"),
+        enabled: el.checked,
+      }));
+    }
+
+    function updateCount() {
+      const all = document.querySelectorAll(".cat-toggle");
+      const on = [...all].filter((e) => e.checked).length;
+      document.getElementById("cat-count").textContent = `${on} of ${all.length} enabled`;
+    }
+    document.getElementById("cat-groups").addEventListener("change", updateCount);
+
+    // Add-custom: append a toggle to the matching (or a new) group, enabled.
+    document.getElementById("cat-add-btn").addEventListener("click", () => {
+      const label = document.getElementById("cat-new-label").value.trim();
+      const group = document.getElementById("cat-new-group").value.trim() || "Custom";
+      if (!label) return;
+      const id = label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 40);
+      if ([...document.querySelectorAll(".cat-toggle")].some((e) => e.getAttribute("data-id") === id)) {
+        setStatus("That category already exists.", true);
+        return;
+      }
+      let groupEl = [...document.querySelectorAll(".cat-group")].find((g) => g.getAttribute("data-group") === group);
+      if (!groupEl) {
+        groupEl = document.createElement("div");
+        groupEl.className = "cat-group";
+        groupEl.setAttribute("data-group", group);
+        groupEl.innerHTML = `<h3 class="cat-group__title">${group}</h3><div class="cat-grid"></div>`;
+        document.getElementById("cat-groups").appendChild(groupEl);
+      }
+      const lbl = document.createElement("label");
+      lbl.className = "cat-item";
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.className = "cat-toggle";
+      input.checked = true;
+      input.setAttribute("data-id", id);
+      input.setAttribute("data-label", label);
+      input.setAttribute("data-group", group);
+      const span = document.createElement("span");
+      span.textContent = label;
+      lbl.append(input, span);
+      groupEl.querySelector(".cat-grid").appendChild(lbl);
+      document.getElementById("cat-new-label").value = "";
+      updateCount();
+      setStatus("Added — remember to Save.");
+    });
+
+    document.getElementById("cat-save").addEventListener("click", async (e) => {
+      e.target.disabled = true;
+      setStatus("Saving…");
+      try {
+        const res = await fetch("/api/admin/categories", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ categories: collect() }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Save failed");
+        setStatus(`Saved — ${data.enabled} of ${data.total} enabled. Applies on the scanner's next run.`);
+      } catch (err) {
+        setStatus(String(err.message || err), true);
+      } finally {
+        e.target.disabled = false;
+      }
+    });
+  </script>
+</BaseLayout>

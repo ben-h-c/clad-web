@@ -2185,23 +2185,67 @@ button.small {
   align-self: flex-start;
 }
 
-.trending-panel {
-  border: 1px solid var(--rule);
-  background: rgba(10, 8, 5, 0.03);
-  padding: 0.85rem 1rem;
+/* Search categories admin page */
+
+.cat-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0 1.5rem;
+}
+
+.cat-group {
   margin-bottom: 1.5rem;
 }
 
-.trending-panel__label {
-  color: var(--muted-ink);
-  display: block;
-  margin-bottom: 0.5rem;
+.cat-group__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin: 0 0 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
 }
 
-.trending-panel__tags {
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: 0.4rem 1rem;
+}
+
+.cat-item {
   display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0;
+  cursor: pointer;
+}
+
+.cat-add {
+  border-top: 2px solid var(--rule);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.cat-add__row {
+  display: flex;
+  gap: 0.6rem;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.cat-add__row input {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  padding: 0.45rem 0.6rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+}
+
+.cat-add__row input#cat-new-label {
+  flex: 1;
+  min-width: 12rem;
 }
 
 .agents {
