@@ -1,0 +1,63 @@
+---
+type: "broadcast"
+headline: "US EB-4 visa cap reached for FY2025-26, affecting religious workers"
+summary: "The segment reports that the annual EB-4 employment-based visa quota for fiscal year 2025-26 has been exhausted, halting new issuances for religious workers including Hindu priests, Sikh granthis, and others. It explains the category's annual caps and notes longer waits for Indian applicants until the next fiscal year quota opens.\nThe report relies on general immigration rules and unnamed experts rather than citing a specific State Department or USCIS announcement. It suggests alternatives such as EB-1 through EB-3 categories and advises seeking legal counsel."
+publishedAt: 2026-06-14
+sourceUrl: "https://www.youtube.com/watch?v=KA3AxBfHE0w"
+sourceTitle: "TimesXP"
+section: "Politics"
+letterGrade: "C-"
+factualityScore: 55
+politicalLean: "center"
+leanScore: 0
+leanRationale: "No discernible political slant; focus remains on procedural impact for Indian applicants with neutral language."
+gradeRationale: "Graded C-: core claim of quota exhaustion is plausible but transcript contains clear date errors and frames routine cap limits as a sudden 'block' without sourcing the announcement."
+topics:
+  - "EB-4 visas"
+  - "US immigration"
+  - "Religious workers"
+assessment: "The broadcast accurately describes that EB-4 visas are numerically limited and can exhaust mid-year, but it misstates the resumption timeline as FY2027 and presents the cap as an abrupt policy decision rather than standard annual limits. Viewers lack reference to the monthly Visa Bulletin or official data confirming exhaustion for this category. No primary sources or statistics are provided to substantiate the scale of impact on Indian religious workers. The framing emphasizes uncertainty without noting that religious worker EB-4 numbers are small relative to other employment categories."
+notableConcerns:
+  - "Incorrect fiscal year resumption date"
+  - "Routine cap exhaustion presented as a targeted block"
+keyMoments:
+  - claim: "No more EB-4 visas will be issued for the remainder of FY 2025-26"
+    verdict: "missing context"
+    note: "Annual per-country and category limits exist; no specific blocking announcement referenced or linked."
+  - claim: "Processing resumes when FY 2027 quota opens"
+    verdict: "unsupported"
+    note: "Standard practice resumes with the next fiscal year quota, not FY2027."
+  - claim: "EB-4 covers Hindu priests, Sikh granthis, Christian missionaries, and Muslim clerics"
+    verdict: "verified"
+    note: "Consistent with INA Section 101(a)(27)(C) special immigrant provisions for religious workers."
+videoId: "KA3AxBfHE0w"
+videoTitle: "U.S Blocks EB-4 Green Cards for Indian Religious Workers | U.S. Immigration"
+thumbnail: "https://img.youtube.com/vi/KA3AxBfHE0w/maxresdefault.jpg"
+citations:
+  - title: "Special Immigrant Religious Workers"
+    url: "https://www.uscis.gov/working-in-the-united-states/permanent-workers/employment-based-immigration-fourth-preference-eb-4/special-immigrant-religious-workers"
+  - title: "Visa Bulletin For April 2026"
+    url: "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2026/visa-bulletin-for-april-2026.html"
+  - title: "EB-4 Visas and the Non-Minister Sunset Provision"
+    url: "https://www.cliniclegal.org/resources/religious-immigration-law/eb-4-visas-and-non-minister-sunset-provision-what-are-they-and"
+  - title: "Visa Bulletin For April 2025"
+    url: "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2025/visa-bulletin-for-april-2025.html"
+  - title: "Religious Worker Immigration: In Brief"
+    url: "https://www.congress.gov/crs-product/R48829"
+  - title: "USCIS Publishes Interim Final Rule to Alleviate Status Disruptions for Nonimmigrant Religious Workers"
+    url: "https://phillipslytle.com/uscis-publishes-interim-final-rule-to-alleviate-status-disruptions-for-nonimmigrant-religious-workers/"
+  - title: "Understanding the EB-4 Green Card Backlog for Religious Workers and What You Can Do About It"
+    url: "https://www.garfinkelimmigration.com/2025/06/03/understanding-the-eb-4-green-card-backlog-for-religious-workers-and-what-you-can-do-about-it/"
+  - title: "Improving Continuity for Religious Organizations and Their Employees"
+    url: "https://www.federalregister.gov/documents/2026/01/16/2026-00830/improving-continuity-for-religious-organizations-and-their-employees"
+  - title: "EB-4 Religious Workers"
+    url: "https://reevesimmigration.com/services/eb-4-religious-workers/"
+  - title: "Religious Workers, EB-4"
+    url: "https://www.usvisahelp.com/immigrant-employment-rw.php"
+  - title: "Annual Limit for EB4 Visa Category Reached"
+    url: "https://www.murthy.com/2025/03/03/annual-limit-for-eb4-visa-category-reached/"
+  - title: "EB-4 Permanent Residency Processing to Resume on Oct. 1, 2025"
+    url: "https://www.cliniclegal.org/resources/religious-immigration-law/eb-4-permanent-residency-processing-resume-oct-1-2025"
+---
+
+
