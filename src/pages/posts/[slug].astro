@@ -8,7 +8,6 @@ import KeyMoments from "~/components/KeyMoments.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
 import { dateline, shortDate } from "~/lib/dateline";
-import { sectionSlug } from "~/lib/sections";
 import { embedUrl } from "~/lib/youtube";
 
 export const prerender = true;
@@ -56,8 +55,6 @@ const paragraphs = (text: string) =>
     <h1 class="post__headline">{d.headline}</h1>
     <div class="post__byline">
       <span>{dateline(d.publishedAt)}</span>
-      <span>·</span>
-      <span><a href={`/sections/${sectionSlug(d.section)}/`} style="color:inherit">{d.section}</a></span>
       <span>·</span>
       <span>
         Source:{" "}

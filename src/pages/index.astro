@@ -2,9 +2,8 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import HeroStrip from "~/components/HeroStrip.astro";
-import CategorySection from "~/components/CategorySection.astro";
+import ReportCard from "~/components/ReportCard.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
-import { SECTIONS } from "~/lib/sections";
 
 export const prerender = true;
 
@@ -16,21 +15,25 @@ const featured = all.filter((p) => p.data.featured).slice(0, 12);
 // If nothing is flagged featured, fall back to the most recent so the strip
 // is never empty.
 const heroPosts = featured.length > 0 ? featured : all.slice(0, 8);
-
-const bySection = SECTIONS.map((section) => ({
-  section,
-  posts: all.filter((p) => p.data.section === section),
-})).filter((g) => g.posts.length > 0);
 ---
-<BaseLayout title="Clad — Fact-Checked News Reports">
+<BaseLayout
+  title="Clad — Political Fact-Checks & Media Bias"
+  description="Fact-checked political broadcasts, graded for accuracy and called out for bias, edited like a 1920s broadsheet."
+>
   {all.length === 0 ? (
     <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
   ) : (
     <>
       <HeroStrip posts={heroPosts} />
-      {bySection.map((g) => (
-        <CategorySection section={g.section} posts={g.posts} />
-      ))}
+      <section class="feed">
+        <div class="feed__head">
+          <h2 class="feed__title">Latest Reports</h2>
+        </div>
+        <div class="rule rule--double" aria-hidden="true"></div>
+        <div class="card-grid">
+          {all.map((p) => <ReportCard post={p} />)}
+        </div>
+      </section>
     </>
   )}
   <Disclaimer />

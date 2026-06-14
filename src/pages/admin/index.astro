@@ -10,7 +10,6 @@ const posts = (await getCollection("posts", (p) => !p.data.draft))
 
 const LETTER_GRADES = ["A+","A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F"];
 const KEY_MOMENT_VERDICTS = ["verified","disputed","missing context","unsupported"];
-const SECTIONS = ["Politics","Economy","Science","World","Tech","Misc"];
 const POLITICAL_LEANS = [
   { value: "left", label: "Leans Left" },
   { value: "center-left", label: "Center-Left" },
@@ -86,12 +85,6 @@ const POLITICAL_LEANS = [
           <div class="field">
             <label for="bc-score">Factuality (0–100)</label>
             <input id="bc-score" type="number" min="0" max="100" required />
-          </div>
-          <div class="field">
-            <label for="bc-section">Section</label>
-            <select id="bc-section" required>
-              {SECTIONS.map((s) => <option selected={s === "Politics"}>{s}</option>)}
-            </select>
           </div>
         </div>
 
@@ -214,12 +207,6 @@ const POLITICAL_LEANS = [
         <div class="field">
           <label for="hl-kicker">Kicker (optional)</label>
           <input id="hl-kicker" maxlength="80" />
-        </div>
-        <div class="field">
-          <label for="hl-section">Section</label>
-          <select id="hl-section" required>
-            {SECTIONS.map((s) => <option selected={s === "Misc"}>{s}</option>)}
-          </select>
         </div>
         <div class="field">
           <label for="hl-sourceTitle">Source title (optional — defaults to hostname)</label>
@@ -432,7 +419,6 @@ const POLITICAL_LEANS = [
         factualityScore: Number($("bc-score").value),
         politicalLean: $("bc-lean").value,
         leanRationale: $("bc-lean-rationale").value.trim() || undefined,
-        section: $("bc-section").value,
         sourceUrl: $("bc-url").value.trim(),
         sourceTitle: $("bc-channel-2").value.trim() || undefined,
         videoTitle: $("bc-video-title").value.trim() || undefined,
@@ -517,7 +503,6 @@ const POLITICAL_LEANS = [
         kicker: $("hl-kicker").value.trim() || undefined,
         summary: $("hl-summary").value.trim(),
         verdict: $("hl-verdict").value,
-        section: $("hl-section").value,
         sourceUrl: $("hl-url").value.trim(),
         sourceTitle: $("hl-sourceTitle").value.trim() || undefined,
         body: $("hl-body").value.trim(),
