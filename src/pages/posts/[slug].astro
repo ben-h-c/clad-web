@@ -62,10 +62,12 @@ const lean = leanLabel(d.leanScore, d.politicalLean);
 const ogParts = isBroadcast
   ? [d.letterGrade ? `Article Grade: ${d.letterGrade}` : null, lean].filter(Boolean)
   : [d.verdict ? `Verdict: ${VERDICT_LABELS[d.verdict]}` : null].filter(Boolean);
-const ogTitle = ogParts.length ? `${d.headline} — ${ogParts.join(" · ")}` : d.headline;
+// Lead with grade + lean so they're always visible — platforms truncate the
+// title (~70 chars), which would hide anything placed after a long headline.
+const ogTitle = ogParts.length ? `${ogParts.join(" · ")} — ${d.headline}` : d.headline;
 const ogDescription = isBroadcast
-  ? `Factuality ${d.factualityScore}/100. ${d.summary}`.slice(0, 200)
-  : d.summary.slice(0, 200);
+  ? `${ogParts.join(" · ")} · Factuality ${d.factualityScore}/100. ${d.summary}`.slice(0, 200)
+  : `${ogParts.join(" · ")}. ${d.summary}`.slice(0, 200);
 ---
 <BaseLayout
   title={`${d.headline} — Clad`}
