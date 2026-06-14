@@ -444,6 +444,38 @@ p {
   filter: grayscale(0.25) contrast(1.02);
 }
 
+/* Prominent grade + bias scoreband on cards */
+
+.scoreband {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  border: 1px solid var(--rule);
+  background: rgba(10, 8, 5, 0.03);
+  padding: 0.6rem 0.85rem;
+  margin: 0.4rem 0 0.75rem;
+}
+
+.scoreband__grade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  flex: 0 0 auto;
+}
+
+.scoreband__cap {
+  color: var(--muted-ink);
+}
+
+.scoreband__bias {
+  flex: 1;
+  min-width: 11rem;
+  border-left: 1px solid var(--rule);
+  padding-left: 1.25rem;
+}
+
 .report-card__titlerow {
   display: flex;
   align-items: baseline;
@@ -628,6 +660,12 @@ p {
 .letter-grade--badge {
   font-size: 0.95rem;
   padding: 0.1rem 0.45rem;
+}
+
+.letter-grade--card {
+  font-size: 2rem;
+  padding: 0.25rem 0.75rem;
+  border-width: 2px;
 }
 
 .letter-grade--hero {

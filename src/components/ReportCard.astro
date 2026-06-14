@@ -1,6 +1,7 @@
 ---
 import Verdict from "~/components/Verdict.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
+import PoliticalLean from "~/components/PoliticalLean.astro";
 import { shortDate } from "~/lib/dateline";
 import type { CollectionEntry } from "astro:content";
 
@@ -29,10 +30,6 @@ const ENUM_TO_SCORE: Record<string, number> = {
 const leanScore = typeof d.leanScore === "number"
   ? d.leanScore
   : d.politicalLean ? ENUM_TO_SCORE[d.politicalLean] ?? 0 : null;
-const leanLabel =
-  leanScore === null ? null
-  : Math.abs(leanScore) < 5 ? "Centered"
-  : `${Math.abs(leanScore)}% ${leanScore > 0 ? "Right" : "Left"}`;
 
 // Card text: explain WHY it was graded (fall back to summary for legacy posts).
 const blurb = (isBroadcast && d.gradeRationale) ? d.gradeRationale : d.summary;
@@ -53,20 +50,23 @@ const blurb = (isBroadcast && d.gradeRationale) ? d.gradeRationale : d.summary;
       </div>
     )}
     <div class="report-card__body">
-      <div class="report-card__titlerow">
-        {isBroadcast && d.letterGrade ? (
-          <span class="grade-tag">
-            <span class="grade-tag__label small-caps">Grade</span>
-            <LetterGrade grade={d.letterGrade} />
-          </span>
-        ) : d.verdict ? (
-          <Verdict verdict={d.verdict} />
-        ) : null}
-        <h3 class="report-card__headline">{d.headline}</h3>
-      </div>
-      <p class="report-card__meta">
-        {shortDate(d.publishedAt)}{leanLabel ? ` · ${leanLabel}` : ""}
-      </p>
+      {isBroadcast && d.letterGrade ? (
+        <div class="scoreband">
+          <div class="scoreband__grade">
+            <LetterGrade grade={d.letterGrade} size="card" />
+            <span class="scoreband__cap small-caps">Grade</span>
+          </div>
+          {leanScore !== null && (
+            <div class="scoreband__bias">
+              <PoliticalLean score={leanScore} />
+            </div>
+          )}
+        </div>
+      ) : d.verdict ? (
+        <div class="report-card__titlerow"><Verdict verdict={d.verdict} /></div>
+      ) : null}
+      <h3 class="report-card__headline">{d.headline}</h3>
+      <p class="report-card__meta">{shortDate(d.publishedAt)}</p>
       <p class="report-card__summary">{blurb}</p>
     </div>
   </a>
