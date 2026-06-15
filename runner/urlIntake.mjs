@@ -1,7 +1,7 @@
 import { extractVideoId } from "../src/lib/youtube.ts";
 import { generateBroadcastReport } from "../src/lib/broadcast.ts";
 import { validateCitations } from "../src/lib/citations.ts";
-import { fetchTranscript } from "./transcript.mjs";
+import { fetchTranscript, fetchVideoMeta } from "./transcript.mjs";
 import { getUrlQueue, removeUrls, submitDraft } from "./api.mjs";
 
 const MAX_PER_TICK = 5;
@@ -43,14 +43,27 @@ export async function processUrlQueue(log = () => {}) {
       continue;
     }
 
+    // Real channel/title (no API quota) so the source shows the network, not
+    // "youtube.com", and same-network dedup + the news-outlet front-page filter work.
+    const meta = await fetchVideoMeta(videoId).catch(() => null);
+
     try {
-      const report = await generateBroadcastReport(xaiKey, { transcript, sourceUrl });
+      const report = await generateBroadcastReport(xaiKey, {
+        transcript,
+        sourceUrl,
+        videoTitle: meta?.title || undefined,
+        channel: meta?.channel || undefined,
+      });
       report.citations = await validateCitations(report.citations);
       const out = await submitDraft({
         agentId: "url-intake",
         sourceUrl,
         report,
-        source: { transcriptUsed: true },
+        source: {
+          channel: meta?.channel || undefined,
+          videoTitle: meta?.title || undefined,
+          transcriptUsed: true,
+        },
       });
       if (out.ok) drafted++;
       // Drop whether drafted or rejected as a duplicate (409).

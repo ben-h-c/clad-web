@@ -51,6 +51,31 @@ export async function fetchTranscript(videoId, timeoutMs = 45000) {
   }
 }
 
+// Fetch a video's channel + title via yt-dlp (no YouTube Data API). Returns
+// { channel, title } or null. Used so manually-submitted URLs get a real source
+// name instead of falling back to "youtube.com".
+export function fetchVideoMeta(videoId, timeoutMs = 20000) {
+  return new Promise((resolve) => {
+    const args = [
+      "--skip-download",
+      "--no-warnings",
+      "--no-playlist",
+      "--print",
+      "%(channel)s\t%(title)s",
+      `https://www.youtube.com/watch?v=${videoId}`,
+    ];
+    execFile(YT_DLP, args, { timeout: timeoutMs }, (err, stdout) => {
+      if (err || !stdout) return resolve(null);
+      const line = String(stdout).trim().split("\n")[0] || "";
+      const [channel, ...rest] = line.split("\t");
+      resolve({
+        channel: (channel || "").trim() || null,
+        title: rest.join("\t").trim() || null,
+      });
+    }).on("error", () => resolve(null));
+  });
+}
+
 // Lower score = preferred. Auto captions (orig / a.<lang>) rank after manual.
 function score(name) {
   return /\.orig\.|\.a\.|-orig\./.test(name) ? 1 : 0;
