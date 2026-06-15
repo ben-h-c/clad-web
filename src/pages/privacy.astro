@@ -1,0 +1,110 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+
+export const prerender = true;
+const updated = "June 15, 2026";
+---
+<BaseLayout
+  title="Privacy Policy — Clad"
+  description="How CladFacts (cladfacts.com) handles your information: no accounts, no tracking, no advertising."
+>
+  <article class="static-page">
+    <h2 class="static-page__title">Privacy Policy</h2>
+    <p class="dateline">Last updated: {updated}</p>
+
+    <p>
+      This Privacy Policy explains how CladFacts ("Clad," "we," "us") handles
+      information in connection with the website at
+      <strong>cladfacts.com</strong> (the "Site"). Clad is an independent
+      political fact-checking publication. The Site is read-only for visitors:
+      there are no user accounts, logins, comments, newsletters, or purchases.
+    </p>
+
+    <h3 class="static-page__sub">The short version</h3>
+    <p>
+      We don't want your data and we don't try to collect it. The Site has
+      <strong>no advertising, no analytics, no third-party trackers, and no user
+      accounts.</strong> We don't sell or share personal information, because we
+      don't gather it.
+    </p>
+
+    <h3 class="static-page__sub">Information we collect</h3>
+    <ul>
+      <li>
+        <strong>No personal information from visitors.</strong> You can read the
+        Site without giving us any personal details. We don't ask for, or store,
+        names, emails, or accounts for readers.
+      </li>
+      <li>
+        <strong>Standard server logs.</strong> The Site is hosted on Cloudflare,
+        which—like any web host—processes basic technical request data (such as
+        IP address, browser type, and pages requested) to deliver the Site,
+        defend against abuse, and keep it online. This is handled by Cloudflare
+        under its own terms; we do not use it to build profiles of readers.
+      </li>
+      <li>
+        <strong>If you email us.</strong> If you contact the editor at
+        <a href="mailto:editor@cladfacts.com">editor@cladfacts.com</a>, we
+        receive whatever you put in that message and use it only to respond.
+      </li>
+    </ul>
+
+    <h3 class="static-page__sub">Cookies</h3>
+    <p>
+      The Site sets <strong>no advertising or analytics cookies</strong> and uses
+      no cross-site trackers. It may set a strictly necessary cookie for basic
+      security and functionality. Note that pages embedding a YouTube player load
+      content from YouTube, which may set its own cookies and collect data when
+      you interact with a video—see the section below.
+    </p>
+
+    <h3 class="static-page__sub">Third-party content and links</h3>
+    <ul>
+      <li>
+        <strong>Embedded YouTube videos.</strong> Reports may embed the original
+        source video from YouTube. When you play an embedded video, Google/YouTube
+        may collect data and set cookies under
+        <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Google's Privacy Policy</a>.
+      </li>
+      <li>
+        <strong>Hosting.</strong> The Site runs on Cloudflare, subject to
+        Cloudflare's privacy practices.
+      </li>
+      <li>
+        <strong>Outbound links.</strong> Reports link to original sources and
+        cited material on other websites. We are not responsible for the privacy
+        practices of sites we link to.
+      </li>
+    </ul>
+
+    <h3 class="static-page__sub">Children</h3>
+    <p>
+      The Site is intended for a general audience and is not directed to children
+      under 13, and we do not knowingly collect information from them.
+    </p>
+
+    <h3 class="static-page__sub">Your choices</h3>
+    <p>
+      Because we don't collect personal information from readers, there's little
+      to access, correct, or delete. If you've emailed us and want that
+      correspondence removed, ask and we will delete it.
+    </p>
+
+    <h3 class="static-page__sub">Changes</h3>
+    <p>
+      We may update this policy as the Site evolves. Material changes will be
+      reflected by the "Last updated" date above.
+    </p>
+
+    <h3 class="static-page__sub" id="contact">Contact</h3>
+    <p>
+      Questions about privacy? Email
+      <a href="mailto:editor@cladfacts.com">editor@cladfacts.com</a>.
+    </p>
+
+    <p class="static-page__note">
+      This page describes the website only. It is provided for transparency and
+      is not legal advice.
+    </p>
+  </article>
+</BaseLayout>

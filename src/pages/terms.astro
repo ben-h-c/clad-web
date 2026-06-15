@@ -1,0 +1,99 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+
+export const prerender = true;
+const updated = "June 15, 2026";
+---
+<BaseLayout
+  title="Terms of Use — Clad"
+  description="The terms governing use of CladFacts (cladfacts.com): editorial commentary, no warranties, fair use."
+>
+  <article class="static-page">
+    <h2 class="static-page__title">Terms of Use</h2>
+    <p class="dateline">Last updated: {updated}</p>
+
+    <p>
+      These Terms govern your use of the website at <strong>cladfacts.com</strong>
+      (the "Site"), operated by CladFacts ("Clad," "we," "us"). By using the Site
+      you agree to these Terms. If you don't agree, please don't use the Site.
+    </p>
+
+    <h3 class="static-page__sub">What Clad is</h3>
+    <p>
+      Clad is an independent political fact-checking publication. Its reports are
+      <strong>editorial commentary, opinion, and analysis</strong> of news
+      broadcasts and other publicly available material, produced with AI
+      assistance and reviewed by a human editor. Letter grades, factuality
+      scores, and political-lean ratings assess the <em>evidence and reporting</em>
+      in the material reviewed—they are our opinions, not statements of fact about
+      the character of any person named. Source material (including short
+      quotations and embedded clips) is used for the purposes of commentary and
+      criticism under fair use.
+    </p>
+
+    <h3 class="static-page__sub">No warranties; not professional advice</h3>
+    <p>
+      The Site and its content are provided <strong>"as is," without warranties
+      of any kind</strong>, express or implied. While we strive for accuracy and
+      issue corrections, we do not warrant that content is complete, current, or
+      error-free. Nothing on the Site is legal, financial, medical, or other
+      professional advice. Every report links to its sources; please verify
+      independently and form your own conclusions.
+    </p>
+
+    <h3 class="static-page__sub">Corrections</h3>
+    <p>
+      When we get something wrong, we issue a correction as a new post rather than
+      silently editing the original.
+    </p>
+
+    <h3 class="static-page__sub">Acceptable use</h3>
+    <p>You agree not to:</p>
+    <ul>
+      <li>use the Site for any unlawful purpose;</li>
+      <li>attempt to disrupt, overload, or gain unauthorized access to the Site or its systems;</li>
+      <li>scrape or harvest the Site in a manner that burdens it or misrepresents its content; or</li>
+      <li>republish substantial portions of our content as your own.</li>
+    </ul>
+
+    <h3 class="static-page__sub">Intellectual property</h3>
+    <p>
+      The original reports, grades, ratings, and design on the Site are Clad's
+      and are protected by intellectual-property laws. Third-party names, logos,
+      quotations, and video content remain the property of their respective
+      owners and appear here for commentary and identification. You may share
+      links to our pages freely.
+    </p>
+
+    <h3 class="static-page__sub">Third-party content and links</h3>
+    <p>
+      Reports embed source videos (e.g., from YouTube) and link to outside
+      sources. We don't control and aren't responsible for third-party content,
+      websites, or their terms and privacy practices.
+    </p>
+
+    <h3 class="static-page__sub">Limitation of liability</h3>
+    <p>
+      To the fullest extent permitted by law, Clad will not be liable for any
+      indirect, incidental, or consequential damages arising from your use of, or
+      inability to use, the Site or its content.
+    </p>
+
+    <h3 class="static-page__sub">Changes</h3>
+    <p>
+      We may update these Terms as the Site evolves; the "Last updated" date above
+      reflects the current version. Continued use after changes means you accept
+      them.
+    </p>
+
+    <h3 class="static-page__sub" id="contact">Contact</h3>
+    <p>
+      Questions, or think we got something wrong? Email
+      <a href="mailto:editor@cladfacts.com">editor@cladfacts.com</a>.
+    </p>
+
+    <p class="static-page__note">
+      These Terms are provided for transparency and are not legal advice.
+    </p>
+  </article>
+</BaseLayout>
