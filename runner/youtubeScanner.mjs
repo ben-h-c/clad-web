@@ -58,18 +58,10 @@ export async function runYoutubeScanner(agent) {
   // unless requireNetwork is set.
   const requireNetwork = !!c.requireNetwork;
 
-  // Search across one or more YouTube categories (e.g. News & Politics +
-  // Science & Technology) so hot stories that live outside the "news" category
-  // — tech, space, markets — are caught too. "any" / "" means no category filter.
-  const categories =
-    Array.isArray(c.videoCategoryIds) && c.videoCategoryIds.length
-      ? c.videoCategoryIds
-      : [c.videoCategoryId || "25"];
-
   // Build the list of searches from the editor-managed category list (toggled
-  // on the /admin/categories page). Categories are chunked into short OR-queries
-  // — a single over-long query makes YouTube drop obvious matches. If no
-  // categories are enabled, fall back to the agent's base query.
+  // on the /admin/categories page), chunked into short OR-queries (a single
+  // over-long query makes YouTube drop matches). Fall back to the base query if
+  // no categories are enabled.
   let enabledCategories = [];
   try {
     const cr = await getCategories();
@@ -82,13 +74,27 @@ export async function runYoutubeScanner(agent) {
     for (let i = 0; i < arr.length; i += n) out.push(arr.slice(i, i + n));
     return out;
   };
-  const queryPlans = enabledCategories.length
-    ? chunk(enabledCategories, 8).map((g) => ({
-        query: g.map((t) => `"${String(t).replace(/"/g, "")}"`).join(" OR "),
-        pages: Math.min(2, maxPages),
-        fromCategory: true,
-      }))
-    : [{ query: c.query || "politics", pages: maxPages, fromCategory: false }];
+
+  // QUOTA NOTE: each search.list costs 100 YouTube API units. Keep per-run
+  // searches low = (plans x categories x pages). With category phrases we don't
+  // also filter by YouTube category (the phrase is the filter), so categories =
+  // ["any"] (one pass, no videoCategoryId) and 1 page per chunk.
+  let categories;
+  let queryPlans;
+  if (enabledCategories.length) {
+    categories = ["any"];
+    queryPlans = chunk(enabledCategories, 12).map((g) => ({
+      query: g.map((t) => `"${String(t).replace(/"/g, "")}"`).join(" OR "),
+      pages: 1,
+      fromCategory: true,
+    }));
+  } else {
+    categories =
+      Array.isArray(c.videoCategoryIds) && c.videoCategoryIds.length
+        ? c.videoCategoryIds
+        : [c.videoCategoryId || "25"];
+    queryPlans = [{ query: c.query || "politics", pages: maxPages, fromCategory: false }];
+  }
 
   // Limited loop: run each query plan across each category, paging until we've
   // drafted `limit` transcribed reports. `processed` avoids handling the same
