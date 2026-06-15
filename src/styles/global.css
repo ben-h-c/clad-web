@@ -2248,6 +2248,31 @@ button.small {
   min-width: 12rem;
 }
 
+#urls {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.9rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  resize: vertical;
+  margin: 0.5rem 0;
+}
+
+.intake-list {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+.intake-list li {
+  border-top: 1px solid rgba(10, 8, 5, 0.18);
+  padding: 0.35rem 0;
+  font-size: 0.85rem;
+  word-break: break-all;
+}
+
 .agents {
   display: flex;
   flex-direction: column;

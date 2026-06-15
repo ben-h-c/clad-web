@@ -57,6 +57,14 @@ export function getCategories() {
   return call("/api/agent/categories", { method: "GET" });
 }
 
+export function getUrlQueue() {
+  return call("/api/agent/urlqueue", { method: "GET" });
+}
+
+export function removeUrls(urls) {
+  return call("/api/agent/urlqueue", { method: "POST", body: JSON.stringify({ remove: urls }) });
+}
+
 export function reportStatus(status) {
   return call("/api/agent/status", { method: "POST", body: JSON.stringify(status) });
 }

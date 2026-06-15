@@ -386,6 +386,40 @@ export async function getSearchCategories(kv: KVNamespace): Promise<SearchCatego
   return list;
 }
 
+/* ---------- manual URL intake queue (bypasses the YouTube search quota) ----------
+ * The editor (or a browser tool) drops YouTube URLs here; the runner pulls them,
+ * fetches transcripts via yt-dlp, generates a web-grounded report, and drafts it
+ * — no YouTube Data API search calls involved. */
+
+const URLQUEUE_KEY = "agents:urlqueue";
+
+export async function getUrlQueue(kv: KVNamespace): Promise<string[]> {
+  const raw = await kv.get(URLQUEUE_KEY);
+  if (!raw) return [];
+  try {
+    const v = JSON.parse(raw);
+    return Array.isArray(v) ? v.map(String) : [];
+  } catch {
+    return [];
+  }
+}
+export async function enqueueUrls(kv: KVNamespace, urls: string[]): Promise<string[]> {
+  const set = new Set(await getUrlQueue(kv));
+  for (const u of urls) {
+    const s = String(u).trim();
+    if (s) set.add(s);
+  }
+  const list = [...set].slice(0, 500);
+  await kv.put(URLQUEUE_KEY, JSON.stringify(list));
+  return list;
+}
+export async function dequeueUrls(kv: KVNamespace, urls: string[]): Promise<string[]> {
+  const remove = new Set(urls.map((u) => String(u)));
+  const list = (await getUrlQueue(kv)).filter((u) => !remove.has(u));
+  await kv.put(URLQUEUE_KEY, JSON.stringify(list));
+  return list;
+}
+
 export async function setSearchCategories(kv: KVNamespace, list: SearchCategory[]): Promise<void> {
   const clean = (Array.isArray(list) ? list : [])
     .map((c) => ({

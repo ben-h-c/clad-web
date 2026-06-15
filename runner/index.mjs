@@ -11,6 +11,7 @@ import { isDue } from "./cron.mjs";
 import { runYoutubeScanner } from "./youtubeScanner.mjs";
 import { runFrontpageCurator } from "./frontpageCurator.mjs";
 import { runComplianceAuditor } from "./complianceAuditor.mjs";
+import { processUrlQueue } from "./urlIntake.mjs";
 
 const ONCE = process.argv.includes("--once");
 const TICK_MS = 60_000;
@@ -59,6 +60,14 @@ async function runAgent(agent, consumedRunNow = null) {
 }
 
 async function tick() {
+  // Process any editor-supplied URLs first (quota-free intake), independent of
+  // the agent registry.
+  try {
+    await processUrlQueue(log);
+  } catch (err) {
+    log(`url-intake error: ${String(err?.message || err).slice(0, 120)}`);
+  }
+
   const cfg = await getConfig();
   if (!cfg.ok) {
     log(`config fetch failed: ${cfg.status} ${JSON.stringify(cfg.body).slice(0, 120)}`);

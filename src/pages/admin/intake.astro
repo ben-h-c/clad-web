@@ -1,0 +1,68 @@
+---
+import { env } from "cloudflare:workers";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import AdminNav from "~/components/AdminNav.astro";
+import { getUrlQueue } from "~/lib/agents";
+
+export const prerender = false;
+
+const queue = await getUrlQueue(env.AGENTS);
+---
+<BaseLayout title="Clad — Add URLs">
+  <section class="admin">
+    <AdminNav current="intake" />
+    <h2 class="admin__title">Add URLs</h2>
+    <p class="dateline">
+      Paste YouTube links (one per line). The runner fetches each transcript and
+      generates a web-grounded report into the Pending Queue for your approval.
+      This path uses no YouTube search quota — find videos however you like and
+      drop the links here.
+    </p>
+
+    <textarea id="urls" rows="8" placeholder="https://www.youtube.com/watch?v=...
+https://youtu.be/...
+https://www.youtube.com/shorts/..."></textarea>
+    <div class="comp-actions">
+      <button type="button" id="add">Add to queue</button>
+      <span id="status" class="dateline"></span>
+    </div>
+
+    <h3 class="comp-section-title">Queue ({queue.length})</h3>
+    {queue.length === 0 ? (
+      <p class="dateline">Nothing queued. Processed links leave the queue automatically.</p>
+    ) : (
+      <ul class="intake-list">
+        {queue.map((u) => (
+          <li><a href={u} target="_blank" rel="noopener">{u}</a></li>
+        ))}
+      </ul>
+    )}
+    <p class="dateline">The runner processes ~5 links per minute; refresh to see the queue shrink and drafts appear in the Pending Queue.</p>
+  </section>
+
+  <script is:inline>
+    const status = document.getElementById("status");
+    document.getElementById("add").addEventListener("click", async (e) => {
+      const urls = document.getElementById("urls").value.trim();
+      if (!urls) { status.textContent = "Paste at least one URL."; return; }
+      e.target.disabled = true;
+      status.textContent = "Adding…";
+      try {
+        const res = await fetch("/api/admin/urlqueue", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ urls }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Failed");
+        status.textContent = `Added ${data.added}. Queue now ${data.total}. Processing…`;
+        document.getElementById("urls").value = "";
+        setTimeout(() => location.reload(), 1200);
+      } catch (err) {
+        status.textContent = String(err.message || err);
+      } finally {
+        e.target.disabled = false;
+      }
+    });
+  </script>
+</BaseLayout>
