@@ -35,6 +35,18 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* Never allow sideways scroll of the page itself (the hero strip keeps its
+     own internal horizontal scroll). */
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Media never forces the page wider than the screen. */
+img,
+iframe,
+svg,
+video {
+  max-width: 100%;
 }
 
 a {
@@ -2386,6 +2398,36 @@ button.small {
 @media (max-width: 600px) {
   .shell {
     padding: 0.85rem var(--gutter) 2.25rem;
+  }
+
+  /* Let flex children shrink instead of forcing the page wider than the screen. */
+  .scoreband__bias,
+  .factuality,
+  .lean,
+  .report__metrics > * {
+    min-width: 0;
+  }
+  .scoreband {
+    gap: 0.5rem;
+  }
+  .scoreband__bias {
+    padding-left: 0.6rem;
+  }
+  .lean__scale {
+    max-width: 100%;
+  }
+  /* Long source URLs / citations wrap instead of overflowing. */
+  .report-card__source,
+  .post__byline,
+  .sources a {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  /* Masthead meta can wrap if the edition line gets long. */
+  .masthead__meta {
+    flex-wrap: wrap;
+    gap: 0.25rem 0.75rem;
+    justify-content: center;
   }
 
   /* Masthead: reclaim a lot of vertical space */
