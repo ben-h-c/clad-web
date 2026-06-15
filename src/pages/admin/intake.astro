@@ -16,7 +16,8 @@ const queue = await getUrlQueue(env.AGENTS);
       Paste YouTube links (one per line). The runner fetches each transcript and
       generates a web-grounded report into the Pending Queue for your approval.
       This path uses no YouTube search quota — find videos however you like and
-      drop the links here.
+      drop the links here. <strong>Videos without captions are skipped</strong>
+      (no transcript, no report).
     </p>
 
     <textarea id="urls" rows="8" placeholder="https://www.youtube.com/watch?v=...

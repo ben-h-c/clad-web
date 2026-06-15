@@ -19,6 +19,7 @@ export async function processUrlQueue(log = () => {}) {
   const batch = q.body.urls.slice(0, MAX_PER_TICK);
   const done = [];
   let drafted = 0;
+  let noTranscript = 0;
 
   for (const url of batch) {
     const videoId = extractVideoId(url);
@@ -27,35 +28,42 @@ export async function processUrlQueue(log = () => {}) {
       continue;
     }
     const sourceUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+    // Transcript required: if the video has no captions, skip it entirely —
+    // do NOT fall back to Grok web-search (drop it from the queue).
     let transcript = null;
     try {
       transcript = await fetchTranscript(videoId);
     } catch {
-      /* fall back to web-search-only */
+      /* treated as no transcript below */
     }
+    if (!transcript) {
+      noTranscript++;
+      done.push(url);
+      continue;
+    }
+
     try {
-      const report = await generateBroadcastReport(xaiKey, {
-        transcript: transcript || undefined,
-        sourceUrl,
-      });
+      const report = await generateBroadcastReport(xaiKey, { transcript, sourceUrl });
       report.citations = await validateCitations(report.citations);
       const out = await submitDraft({
         agentId: "url-intake",
         sourceUrl,
         report,
-        source: { transcriptUsed: !!transcript },
+        source: { transcriptUsed: true },
       });
       if (out.ok) drafted++;
-      // Drop from the queue whether drafted or rejected as a duplicate (409);
-      // only a hard generation failure (caught below) leaves nothing to retry.
+      // Drop whether drafted or rejected as a duplicate (409).
       done.push(url);
     } catch (err) {
-      // Generation failed — drop it too, so a bad URL can't wedge the queue.
+      // Generation failed — drop it so a bad URL can't wedge the queue.
       log(`url-intake failed for ${videoId}: ${String(err?.message || err).slice(0, 120)}`);
       done.push(url);
     }
   }
 
   if (done.length) await removeUrls(done);
-  if (drafted) log(`url-intake: drafted ${drafted} of ${batch.length} queued URLs`);
+  if (drafted || noTranscript) {
+    log(`url-intake: drafted ${drafted}, skipped ${noTranscript} (no transcript) of ${batch.length}`);
+  }
 }
