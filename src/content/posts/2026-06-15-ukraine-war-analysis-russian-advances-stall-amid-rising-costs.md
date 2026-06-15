@@ -4,6 +4,7 @@ headline: "Ukraine War Analysis: Russian Advances Stall Amid Rising Costs"
 summary: "The broadcast analyzes shifting momentum in the Russia-Ukraine war as of mid-2026, highlighting slowed Russian territorial gains, high casualties, economic strains, and new Ukrainian long-range drone tactics. It covers Russian manpower shortages, Putin's declining approval, and political changes in Hungary enabling EU aid. Sourcing draws on CSIS estimates, ISW mapping, Swedish intelligence analysis, VCIOM polls, and Ukrainian official statements, with references to specific strikes and infrastructure impacts."
 publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=T8y7ZIq4jXY"
+sourceTitle: "RealLifeLore"
 section: "Politics"
 letterGrade: "B+"
 factualityScore: 82

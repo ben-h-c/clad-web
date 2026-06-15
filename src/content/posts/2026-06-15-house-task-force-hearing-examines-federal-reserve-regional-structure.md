@@ -4,6 +4,7 @@ headline: "House Task Force Hearing Examines Federal Reserve Regional Structure"
 summary: "The June 12, 2026 field hearing in Oklahoma City examined the structure of the Federal Reserve System, focusing on its 12 regional Reserve Banks, Board of Governors oversight, and role in monetary policy. Witnesses included former Kansas City Fed presidents Thomas Hoenig and Esther George, Dallas Fed board member Gary Kelly, and University of Oklahoma economist Benjamin Keen. Segments covered historical origins in the 1913 Federal Reserve Act, regional expertise in areas like agriculture and energy, public-private governance via boards of directors, and benefits for independence and diverse perspectives. Sourcing relied on witness testimony, direct references to the 1913 Act, FOMC processes, and examples from crises like 2008 and 2020."
 publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=sO84-oxmpbQ"
+sourceTitle: "Forbes Breaking News"
 section: "Politics"
 letterGrade: "A-"
 factualityScore: 90
