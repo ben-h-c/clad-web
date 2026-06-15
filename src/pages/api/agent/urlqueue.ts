@@ -1,7 +1,8 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { checkAgentToken, tokenUnauthorized } from "~/lib/agentAuth";
-import { getUrlQueue, dequeueUrls } from "~/lib/agents";
+import { getUrlQueue, dequeueUrls, markSeen } from "~/lib/agents";
+import { extractVideoId } from "~/lib/youtube";
 
 export const prerender = false;
 
@@ -25,6 +26,12 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ error: "Invalid JSON body" }, 400);
   }
   const remove = Array.isArray(p?.remove) ? p.remove : [];
+  // Mark every processed URL's video as seen — whatever the outcome (drafted,
+  // duplicate, or skipped for no transcript) — so re-submitting it is ignored.
+  for (const u of remove) {
+    const vid = extractVideoId(String(u));
+    if (vid) await markSeen(env.AGENTS, vid);
+  }
   const list = await dequeueUrls(env.AGENTS, remove);
   return json({ ok: true, remaining: list.length }, 200);
 };

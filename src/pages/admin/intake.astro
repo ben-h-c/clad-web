@@ -56,7 +56,8 @@ https://www.youtube.com/shorts/..."></textarea>
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || "Failed");
-        status.textContent = `Added ${data.added}. Queue now ${data.total}. Processing…`;
+        const skipped = data.skipped ? ` (${data.skipped} already submitted, ignored)` : "";
+        status.textContent = `Added ${data.added}${skipped}. Queue now ${data.total}. Processing…`;
         document.getElementById("urls").value = "";
         setTimeout(() => location.reload(), 1200);
       } catch (err) {
