@@ -55,19 +55,32 @@ export async function generateOgImages() {
   const expected = new Set(["manifest.json"]);
   let rendered = 0;
   let skipped = 0;
+  let deferred = 0;
+
+  // Hard wall-clock budget for new renders: the build must never hang here
+  // (Cloudflare kills builds at 20 min). Cached cards are always free; only
+  // NEW/changed cards count against this. Anything past the budget is left for
+  // the next build (its existing image, if any, keeps serving).
+  const startTime = Date.now();
+  const MAX_MS = 120_000;
 
   // One unit of work: render `file` only if its content hash changed.
   async function ensureCard(file, hash, render) {
     expected.add(file);
-    newManifest[file] = hash;
     const exists = fs.existsSync(path.join(OUT_DIR, file));
     if (exists && oldManifest[file] === hash) {
+      newManifest[file] = hash;
       skipped++;
+      return;
+    }
+    if (Date.now() - startTime > MAX_MS) {
+      deferred++; // over budget — retry next build (no manifest entry, file kept)
       return;
     }
     try {
       const png = await render();
       fs.writeFileSync(path.join(OUT_DIR, file), png);
+      newManifest[file] = hash;
       rendered++;
     } catch (err) {
       console.error(`[og] failed for ${file}: ${err?.message || err}`);
@@ -121,7 +134,9 @@ export async function generateOgImages() {
   }
 
   fs.writeFileSync(MANIFEST, JSON.stringify(newManifest));
-  console.log(`[og] ${rendered} rendered, ${skipped} unchanged (cached), ${pruned} pruned -> public/og/`);
+  console.log(
+    `[og] ${rendered} rendered, ${skipped} cached, ${deferred} deferred (over ${MAX_MS / 1000}s budget), ${pruned} pruned -> public/og/`
+  );
 }
 
 // Allow running directly: `node scripts/genOgImages.mjs`
