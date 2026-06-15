@@ -1,0 +1,59 @@
+---
+type: "broadcast"
+headline: "Atlanta Officials Outline Welcoming Approach for 2026 World Cup Visitors"
+summary: "The segment features Atlanta city officials, likely including the mayor or staff from the Office of International and Immigrant Affairs, discussing preparations to host international visitors for upcoming matches. They highlight Atlanta's airport infrastructure, relationships with federal and state partners, and efforts to guide diplomats through visa processes while committing to abide by U.S. immigration laws.\nThe discussion centers on making the city welcoming for fans from participating countries without aggressive enforcement tactics, referencing direct communication with diplomats ahead of the first group-stage fixtures. No named experts or opposing viewpoints appear; sourcing is primarily city statements and implied coordination with customs and border officials."
+publishedAt: 2026-06-15
+sourceUrl: "https://www.youtube.com/watch?v=p6kX7C8wq3M"
+section: "Politics"
+letterGrade: "A-"
+factualityScore: 85
+politicalLean: "center"
+leanScore: -10
+leanRationale: "Emphasizes hospitality and reduced enforcement friction for international visitors while affirming compliance with federal law; standard local government framing for tourism event."
+gradeRationale: "Claims on airport status, office existence, and World Cup hosting are verified by primary rankings and official schedules; minor caveats on 'most efficient' label and exact country counts lack full context."
+topics:
+  - "2026 FIFA World Cup"
+  - "Atlanta airport"
+  - "Immigration policy"
+assessment: "The broadcast accurately reflects Atlanta's established airport rankings and its confirmed role hosting eight 2026 World Cup matches at Mercedes-Benz Stadium. Framing prioritizes a 'welcoming' message consistent with the city's Office of International and Immigrant Affairs mission, with explicit nods to federal law compliance. Viewers may miss nuances such as recent shifts in airport operations rankings or the broader federal context on visa policies affecting certain countries. Overall, the piece is fact-based promotional content rather than investigative reporting, with no evident misinformation."
+notableConcerns: []
+keyMoments:
+  - claim: "Atlanta has the world's busiest and most efficient airport"
+    verdict: "verified"
+    note: "Hartsfield-Jackson (ATL) ranked #1 by passenger traffic in 2025 by ACI and OAG; efficiency noted in historical ATRS awards and city statements."
+  - claim: "Mayor's Office of International and Immigrant Affairs communicates directly with diplomats from participating countries"
+    verdict: "verified"
+    note: "Office exists and operates as Welcoming Atlanta, with public mission to engage international communities and support visa navigation."
+  - claim: "Atlanta will host matches involving the first five fixtures and 10 countries"
+    verdict: "missing context"
+    note: "Atlanta hosts eight matches total, starting with group-stage games featuring teams including Spain, Cabo Verde, South Africa, Czechia, Saudi Arabia, Morocco, Haiti and Uzbekistan."
+videoId: "p6kX7C8wq3M"
+thumbnail: "https://img.youtube.com/vi/p6kX7C8wq3M/maxresdefault.jpg"
+citations:
+  - title: "World Cup Atlanta 2026 | FIFA World Cup 26 Atlanta™ | Official Site"
+    url: "https://atlantafwc26.com/"
+  - title: "Office of International & Immigrant Affairs - Welcoming Atlanta"
+    url: "https://www.atlantaga.gov/government/mayor-s-office/executive-offices/office-of-international-immigrant-affairs"
+  - title: "Welcoming Atlanta"
+    url: "https://www.welcomingatlanta.com/"
+  - title: "City of Atlanta Highlights Comprehensive Preparations for FIFA World Cup 2026"
+    url: "https://www.atlantaga.gov/Home/Components/News/News/15702/672"
+  - title: "World Cup countdown: Atlanta finalizes preparations before fans arrive | FOX 5 Atlanta"
+    url: "https://www.fox5atlanta.com/news/world-cup-countdown-atlanta-finalizes-preparations-before-fans-arrive"
+  - title: "Atlanta airport ready to welcome visitors for the FIFA World Cup | 11alive.com"
+    url: "https://www.11alive.com/article/news/local/hartsfield-jackson-atlanta-international-airport-world-cup-welcome/85-bb430137-8068-4a28-bd8f-15d8f4b86fd9"
+  - title: "FIFA World Cup 2026™ Atlanta - Discover Atlanta"
+    url: "https://discoveratlanta.com/fifaworldcup2026/"
+  - title: "Atlanta mayor says working with authorities as World Cup host criticized over immigration policies"
+    url: "https://newsroom.ap.org/detail/AtlantamayorsaysworkingwithauthoritiesasWorldCuphostcriticizedoverimmigrationpolicies/d4ef2c7f5a5247619c4c34b56e93de37/video"
+  - title: "Atlanta prepares for 500K visitors as World Cup matches approach"
+    url: "https://www.wsbtv.com/news/local/atlanta/atlanta-prepares-500k-visitors-world-cup-matches-approach-95-days/UCJ4DLC44NFXZKVFVV7MDQLR3Y/"
+  - title: "How US airports are preparing for the 2026 World Cup"
+    url: "https://thepointsguy.com/guide/world-cup-airports/"
+  - title: "Atlanta United Announces Soccer Celebration Plans"
+    url: "https://www.atlutd.com/news/atlanta-united-announces-soccer-celebration-plans"
+  - title: "FIFA World Cup 2026 - Atlanta Beltline"
+    url: "https://beltline.org/fifa-world-cup/"
+---
+
+
