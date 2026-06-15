@@ -1,0 +1,62 @@
+---
+type: "broadcast"
+headline: "House Task Force Hearing Examines Federal Reserve Regional Structure"
+summary: "The June 12, 2026 field hearing in Oklahoma City examined the structure of the Federal Reserve System, focusing on its 12 regional Reserve Banks, Board of Governors oversight, and role in monetary policy. Witnesses included former Kansas City Fed presidents Thomas Hoenig and Esther George, Dallas Fed board member Gary Kelly, and University of Oklahoma economist Benjamin Keen. Segments covered historical origins in the 1913 Federal Reserve Act, regional expertise in areas like agriculture and energy, public-private governance via boards of directors, and benefits for independence and diverse perspectives. Sourcing relied on witness testimony, direct references to the 1913 Act, FOMC processes, and examples from crises like 2008 and 2020."
+publishedAt: 2026-06-15
+sourceUrl: "https://www.youtube.com/watch?v=sO84-oxmpbQ"
+section: "Politics"
+letterGrade: "A-"
+factualityScore: 90
+politicalLean: "center"
+leanScore: 0
+leanRationale: "Bipartisan opening statements and questioning from Chairman Lucas and Ranking Member Vargas both affirm the decentralized structure; no partisan framing or selective sourcing."
+gradeRationale: "Graded A-: claims are well-supported by the Federal Reserve Act of 1913, historical record, and witness expertise; minor framing as uniformly positive with limited discussion of potential reforms or criticisms."
+topics:
+  - "Federal Reserve"
+  - "Monetary Policy"
+  - "Central Banking"
+assessment: "The hearing provides a clear, evidence-based defense of the decentralized Fed structure drawn from statute and operational experience. Viewers gain useful context on how regional input informs policy but may miss counterarguments for greater centralization or efficiency reforms amid technological change. Claims about historical failures of prior central banks and regional contributions (e.g., FRED database, agricultural surveys) hold up against official records. The format emphasizes consensus on benefits like trust and responsiveness while touching lightly on challenges such as AI-driven data shifts or discount window stigma."
+notableConcerns: []
+keyMoments:
+  - claim: "The 1913 Federal Reserve Act established 12 regional banks to distribute power and avoid concentration seen in prior failed central banks."
+    verdict: "verified"
+    note: "Confirmed in Federal Reserve Act text and historical analyses from the Federal Reserve and congressional records."
+  - claim: "Regional banks provide district-specific expertise, such as agriculture at Kansas City and energy at Dallas, informing FOMC decisions."
+    verdict: "verified"
+    note: "Standard description in Fed publications; Kansas City Fed has long focused on agriculture, Dallas on energy."
+  - claim: "The decentralized structure insulates the Fed from short-term political pressure while maintaining accountability to Congress."
+    verdict: "verified"
+    note: "Consistent with the Act's design of public-private partnership and congressional oversight mechanisms."
+  - claim: "Regional input helped address liquidity needs of community banks during the 2008 financial crisis beyond New York focus."
+    verdict: "verified"
+    note: "Supported by witness accounts and Fed crisis response documentation."
+videoId: "sO84-oxmpbQ"
+thumbnail: "https://img.youtube.com/vi/sO84-oxmpbQ/maxresdefault.jpg"
+citations:
+  - title: "“Examining the Structure of the Federal Reserve System”"
+    url: "https://financialservices.house.gov/calendar/EventSingle.aspx?EventID=411133"
+  - title: "Committee Majority Staff Memorandum - June 12, 2026 Task Force Hearing"
+    url: "https://www.congress.gov/119/meeting/house/119382/documents/HHRG-119-BA00-20260612-SD002.pdf"
+  - title: "House Republicans rally around regional Fed banks"
+    url: "https://www.americanbanker.com/news/house-republicans-rally-around-regional-fed-banks"
+  - title: "Lucas: Monetary Policy Transmission is Different in Oklahoma than it is in New York"
+    url: "https://financialservices.house.gov/news/documentsingle.aspx?DocumentID=411163"
+  - title: "Task Force on Monetary Policy, Treasury Market Resilience, and Economic Prosperity"
+    url: "https://www.congress.gov/event/119th-congress/house-event/119382"
+  - title: "Examining the Structure of the Federal Reserve System"
+    url: "https://www.legistorm.com/hearings/view/HHRG119382/house.html"
+  - title: "The Fed Explained - Who We Are"
+    url: "https://www.federalreserve.gov/aboutthefed/fedexplained/who-we-are.htm"
+  - title: "Federal Reserve Act Signed into Law"
+    url: "https://www.federalreservehistory.org/essays/federal-reserve-act-signed"
+  - title: "History and Purpose of the Federal Reserve"
+    url: "https://www.stlouisfed.org/in-plain-english/history-and-purpose-of-the-fed"
+  - title: "The Founding of the Fed"
+    url: "https://www.newyorkfed.org/aboutthefed/history_article.html"
+  - title: "Federal Reserve Act"
+    url: "https://www.federalreserve.gov/aboutthefed/fract.htm"
+  - title: "12 Banks, one System: The origin and evolution of the Federal Reserve Districts"
+    url: "https://www.frbservices.org/news/fed360/issues/081425/fed-facts-twelve-banks-one-system"
+---
+
+
