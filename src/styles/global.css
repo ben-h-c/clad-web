@@ -861,6 +861,90 @@ p {
   gap: 1rem;
 }
 
+/* Topics as rows */
+.topic-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.topic-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.6rem 0.25rem;
+  border-top: 1px solid var(--rule);
+  text-decoration: none;
+  color: inherit;
+}
+.topic-row-item:last-child .topic-row {
+  border-bottom: 1px solid var(--rule);
+}
+
+.topic-row__thumb {
+  flex: none;
+  width: 88px;
+  height: 50px;
+  border: 1px solid var(--rule);
+  background: var(--ink);
+  overflow: hidden;
+}
+.topic-row__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(0.25) contrast(1.02);
+}
+
+.topic-row__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.topic-row__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+.topic-row:hover .topic-row__name {
+  text-decoration: underline;
+}
+.topic-row__meta {
+  font-style: italic;
+  color: var(--muted-ink);
+  font-size: 0.85rem;
+}
+.topic-row__grade {
+  flex: none;
+}
+
+.show-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.65rem 1rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  cursor: pointer;
+}
+.show-more:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
 .topic-card {
   display: block;
   text-decoration: none;

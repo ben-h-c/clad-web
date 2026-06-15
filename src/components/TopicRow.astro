@@ -1,0 +1,40 @@
+---
+import LetterGrade from "~/components/LetterGrade.astro";
+import type { TopicAgg } from "~/lib/topics";
+
+interface Props {
+  topic: TopicAgg;
+}
+const { topic } = Astro.props;
+
+function leanLabel(s: number | null): string | null {
+  if (s === null) return null;
+  return Math.abs(s) < 5 ? "Centered" : `${Math.abs(s)}% ${s > 0 ? "Right" : "Left"}`;
+}
+const lean = leanLabel(topic.avgLean);
+---
+<a class="topic-row" href={`/topics/${topic.slug}/`}>
+  {topic.thumbnail && (
+    <span class="topic-row__thumb">
+      <img
+        src={topic.thumbnail}
+        alt=""
+        loading="lazy"
+        decoding="async"
+        width="88"
+        height="50"
+        onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')"
+      />
+    </span>
+  )}
+  <span class="topic-row__body">
+    <span class="topic-row__name">{topic.display}</span>
+    <span class="topic-row__meta">
+      {topic.count} {topic.count === 1 ? "report" : "reports"}
+      {lean && <> · {lean}</>}
+    </span>
+  </span>
+  {topic.avgGrade && (
+    <span class="topic-row__grade"><LetterGrade grade={topic.avgGrade} size="card" /></span>
+  )}
+</a>

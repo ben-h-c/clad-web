@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import HeroStrip from "~/components/HeroStrip.astro";
-import TopicCard from "~/components/TopicCard.astro";
+import TopicRow from "~/components/TopicRow.astro";
 import GradeBoard from "~/components/GradeBoard.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
 import { getFrontpage } from "~/lib/agents";
@@ -34,7 +34,8 @@ if (heroPosts.length === 0) {
 }
 heroPosts = heroPosts.slice(0, 15);
 
-const topics = aggregateTopics(all).slice(0, 12);
+const topics = aggregateTopics(all);
+const TOPICS_PER_PAGE = 20;
 
 // Best & worst graded. Rank only graded (broadcast) posts; recency breaks ties.
 const graded = all.filter((p) => gradeToGpa(p.data.letterGrade) != null);
@@ -71,10 +72,33 @@ const bottomGraded = [...graded]
           <a class="category__more" href="/search/">Search all →</a>
         </div>
         <div class="rule rule--double" aria-hidden="true"></div>
-        <div class="topic-grid">
-          {topics.map((t) => <TopicCard topic={t} />)}
-        </div>
+        <ul class="topic-rows">
+          {topics.map((t, i) => (
+            <li class="topic-row-item" hidden={i >= TOPICS_PER_PAGE}>
+              <TopicRow topic={t} />
+            </li>
+          ))}
+        </ul>
+        {topics.length > TOPICS_PER_PAGE && (
+          <button type="button" id="topics-more" class="show-more" data-step={TOPICS_PER_PAGE}>
+            Show more <span aria-hidden="true">↓</span>
+          </button>
+        )}
       </section>
+      <script is:inline>
+        (() => {
+          const btn = document.getElementById("topics-more");
+          if (!btn) return;
+          const items = Array.from(document.querySelectorAll(".topic-row-item"));
+          const step = Number(btn.getAttribute("data-step")) || 20;
+          let shown = step;
+          btn.addEventListener("click", () => {
+            shown += step;
+            items.forEach((el, i) => { if (i < shown) el.hidden = false; });
+            if (shown >= items.length) btn.hidden = true;
+          });
+        })();
+      </script>
     </>
   )}
   <Disclaimer />
