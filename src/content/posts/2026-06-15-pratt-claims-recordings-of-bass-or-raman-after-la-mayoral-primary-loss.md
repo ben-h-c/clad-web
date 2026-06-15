@@ -1,0 +1,62 @@
+---
+type: "broadcast"
+headline: "Pratt claims recordings of Bass or Raman after LA mayoral primary loss"
+summary: "The segment covers Spencer Pratt's social media video after placing third in the June 2, 2026 Los Angeles mayoral primary. Pratt concedes the race but vows to expose alleged corruption by top vote-getters Mayor Karen Bass and Councilwoman Nithya Raman, whom he labels corrupt communists, and claims possession of a damaging audio recording of one of them.\n\nNBC 4's Conan Nolan reports on the video's content and tone, interspersing clips and commentary from former Supervisor Zev Yaroslavsky, who dismisses the recording claim as cheap talk designed for attention. The piece notes Pratt's third-place finish behind Bass and Raman, who advance to the November general election."
+publishedAt: 2026-06-15
+sourceUrl: "https://www.youtube.com/watch?v=7AvEYk08Jfo"
+sourceTitle: "NBCLA"
+section: "Politics"
+letterGrade: "B+"
+factualityScore: 85
+politicalLean: "center"
+leanScore: 5
+leanRationale: "Straightforward news framing with loaded descriptors like 'bizarre' and 'vitriolic' applied to Pratt's video; no partisan sourcing imbalance"
+gradeRationale: "Graded B+: accurately reported Pratt's unverified recording claim and election results with expert skepticism; minor missing context on lack of any corroboration or prior evidence"
+topics:
+  - "LA mayoral election"
+  - "Spencer Pratt"
+  - "Karen Bass"
+  - "Nithya Raman"
+assessment: "The broadcast factually recounts Pratt's statements and the election outcome without endorsing the recording allegation. It provides useful context via expert dismissal but lacks follow-up on whether any evidence of the recording exists or prior instances of similar claims. Framing emphasizes the video's theatrical style, which could skew viewer perception toward viewing Pratt's threat as empty rhetoric rather than a substantive allegation requiring verification. Viewers miss details on campaign context or any public records that might support or refute the corruption assertions referenced."
+notableConcerns: []
+keyMoments:
+  - claim: "Pratt claims to possess an audio recording of Bass or Raman that would force resignation"
+    verdict: "unsupported"
+    note: "Pratt stated this in his June 2026 video; no corroboration, release, or evidence reported in contemporaneous coverage from multiple outlets"
+  - claim: "Pratt finished third in the June 2, 2026 LA mayoral primary"
+    verdict: "verified"
+    note: "Confirmed by Ballotpedia and Wikipedia with Bass at ~34%, Raman ~29%, Pratt ~25-26%"
+  - claim: "Yaroslavsky dismisses recording claim as 'talk is cheap' and attention-seeking"
+    verdict: "verified"
+    note: "Quoted directly in the segment; consistent with reporting from Guardian and KTLA"
+videoId: "7AvEYk08Jfo"
+videoTitle: "Spencer Pratt says he has recordings of Bass or Raman. Does he?"
+thumbnail: "https://img.youtube.com/vi/7AvEYk08Jfo/hqdefault.jpg"
+citations:
+  - title: "Spencer Pratt says he has recordings of Bass or Raman. ... Does he?"
+    url: "https://www.youtube.com/watch?v=7AvEYk08Jfo"
+  - title: "Spencer Pratt responds to L.A. mayoral race loss, says 'it's war'"
+    url: "https://abc7.com/post/spencer-pratt-responds-los-angeles-mayoral-race-loss-video/19283238/"
+  - title: "Pratt concedes LA mayor race with scathing video teasing next move, 'bombshell' info he holds on 'commie animals'"
+    url: "https://www.foxnews.com/politics/pratt-concedes-la-mayor-race-scathing-video-teasing-next-move-bombshell-info-holds-commie-animals"
+  - title: "Spencer Pratt Says He Has Audio That Will Make Bass, Raman Resign: ‘It’s War’"
+    url: "https://www.newsweek.com/spencer-pratt-audio-make-bass-raman-resign-its-war-12069060"
+  - title: "Spencer Pratt concedes LA mayor race, but declares 'war' against advancing candidates"
+    url: "https://www.theguardian.com/us-news/2026/jun/12/spencer-pratt-concedes-la-mayor-race"
+  - title: "Despite Trump Claims, Spencer Pratt Seems to Accept L.A. Election Results"
+    url: "https://www.nytimes.com/2026/06/12/us/elections/spencer-pratt-la-mayor.html"
+  - title: "2026 Los Angeles mayoral election"
+    url: "https://en.wikipedia.org/wiki/2026_Los_Angeles_mayoral_election"
+  - title: "Spencer Pratt"
+    url: "https://ballotpedia.org/Spencer_Pratt"
+  - title: "Spencer Pratt out of LA mayor race as left-wing rival Nithya Raman advances"
+    url: "https://www.bbc.com/news/articles/cx219kxkj1jo"
+  - title: "Los Angeles Mayor Primary 2026 Live Results"
+    url: "https://www.nbcnews.com/politics/2026-primary-elections/los-angeles-mayor-results"
+  - title: "LA Mayor Race: Raman Passes Pratt in Quest for Second-Place Slot"
+    url: "https://www.kqed.org/news/12086611/la-mayor-race-raman-passes-pratt-in-quest-for-second-place-slot"
+  - title: "Pratt out, Raman in: What Los Angeles voters can now expect in the mayoral race"
+    url: "https://calmatters.org/commentary/2026/06/raman-pratt-los-angeles-mayor/"
+---
+
+
