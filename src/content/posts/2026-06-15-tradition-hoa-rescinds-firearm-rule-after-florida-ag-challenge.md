@@ -1,0 +1,61 @@
+---
+type: "broadcast"
+headline: "Tradition HOA rescinds firearm rule after Florida AG challenge"
+summary: "CBS 12 News reports that the Tradition Community Association in western Port St. Lucie permanently repealed its firearms policy banning open and concealed carry in common areas. The change followed weeks of resident backlash and pressure from Florida Attorney General James Uthmeier, who called the rule unenforceable under state law. The segment includes on-site reporting, resident reactions favoring the repeal, and the AG's announcement on X. The HOA had sent a May letter notifying residents of the ban. Uthmeier stated the reversal protects lawful concealed carry."
+publishedAt: 2026-06-15
+sourceUrl: "https://www.youtube.com/watch?v=V0WvPOubqCI"
+sourceTitle: "CBS 12 News - WPEC"
+section: "Politics"
+letterGrade: "A-"
+factualityScore: 92
+politicalLean: "center"
+leanScore: 0
+leanRationale: "Neutral local reporting; quotes residents supporting repeal and references state law protections without partisan framing or selective sourcing."
+gradeRationale: "Graded A-: claims accurately reflect primary documents including AG's letter and HOA reversal announcement; minor spelling of AG name and limited resident dissent context."
+topics:
+  - "HOA firearm rules"
+  - "Florida gun laws"
+  - "Port St. Lucie"
+assessment: "The broadcast accurately conveys the timeline and outcome based on the AG's May 21 letter and June 10 HOA confirmation. It notes the community is public-facing, highlighting enforcement inconsistencies raised by residents. Viewer context missing includes some residents' opposition to repeal for safety reasons and the specific Florida statutes cited by the AG. Framing is straightforward without loaded language; sourcing relies on named officials and local interviews rather than anonymous claims. No major factual errors or distortions."
+notableConcerns: []
+keyMoments:
+  - claim: "Tradition HOA permanently repealed its firearms ban in common areas after AG challenge"
+    verdict: "verified"
+    note: "Confirmed in June 10 HOA letter posted by AG Uthmeier; matches CBS12 and WPBF reporting."
+  - claim: "AG called the policy unenforceable and warned of potential legal action"
+    verdict: "verified"
+    note: "Directly from May 21 AG letter to HOA president and subsequent statements."
+  - claim: "Residents glad ban is gone; some found rules confusing and inconsistent with public access"
+    verdict: "verified"
+    note: "Resident quotes align with multiple local outlets covering the backlash."
+videoId: "V0WvPOubqCI"
+videoTitle: "Tradition HOA rescinds firearm rule after challenge from Florida attorney general"
+thumbnail: "https://img.youtube.com/vi/V0WvPOubqCI/maxresdefault.jpg"
+citations:
+  - title: "Florida attorney general issues warning to Port St. Lucie HOA over firearms ban"
+    url: "https://cbs12.com/news/local/florida-news-attorney-general-james-uthmeier-tradition-community-association-inc-issues-warning-to-port-st-lucie-hoa-over-firearms-ban-parks-trails-recreation-spaces-gathering-facilities-open-conceal-carry-residents-reaction-right-to-bear-arms-2nd"
+  - title: "Letter to Tradition Community Assoc. - 5/21/26"
+    url: "https://www.myfloridalegal.com/sites/default/files/From%20the%20desk%20documents/hoa-2a-letter.pdf"
+  - title: "Florida AG warns Port St. Lucie HOA over gun restrictions"
+    url: "https://www.wpbf.com/article/florida-ag-challenges-firearm-possession-restrictions-tradition/71375481"
+  - title: "Florida attorney general challenges Tradition HOA gun ban in Port St. Lucie"
+    url: "https://www.wqcs.org/wqcs-news/2026-05-22/florida-attorney-general-challenges-tradition-hoa-gun-ban-in-port-st-lucie"
+  - title: "Florida Attorney General gives statement on Port St. Lucie HOA letter"
+    url: "https://www.tcpalm.com/story/news/local/florida/2026/05/23/florida-attorney-general-gives-statement-port-st-lucie-county-hoa-letter-guns-laws-treasure-coast/90212659007"
+  - title: "Tradition HOA rescinds firearm rule after challenge from Florida attorney general"
+    url: "https://cw34.com/news/local/tradition-hoa-rescinds-firearm-rule-common-areas-florida-attorney-general-james-uthmeier-guns-open-carry-tradition-communication-association-florida-news"
+  - title: "Tradition community association letter bans guns in common areas, upsetting some residents"
+    url: "https://cbs12.com/news/local/florida-tradition-port-st-lucie-community-association-no-guns-common-areas-firearms-open-carry-concealed-carry-permit-2a-second-amendment-gun-rights-public-safety-debate-st-lucie-county-guns-board-meeting"
+  - title: "Tradition HOA bans guns in common areas sparking debate"
+    url: "https://www.wptv.com/news/local-news/our-community/port-st-lucie/tradition-hoa-bans-firearms-in-common-areas-sparking-debate-and-pushback-from-port-st-lucie-official"
+  - title: "Florida AG to Port St. Lucie HOA: Drop the Gun Ban by June 1 or We Enforce the Law"
+    url: "https://www.usacarry.com/florida-ag-to-port-st-lucie-hoa-drop-the-gun-ban-by-june-1-or-we-enforce-the-law/"
+  - title: "AG Uthmeier Forces Tradition HOA to Rescind Unlawful Gun Ban"
+    url: "https://community.usconcealedcarry.com/t/ag-uthmeier-forces-tradition-hoa-to-rescind-unlawful-gun-ban/129606"
+  - title: "Tradition HOA bans firearms in common areas"
+    url: "https://www.wflx.com/video/2026/05/19/tradition-hoa-bans-firearms-common-areas/"
+  - title: "Tradition HOA rescinds firearm rule after challenge from Florida attorney general"
+    url: "https://cbs12.com/news/local/tradition-hoa-rescinds-firearm-rule-common-areas-florida-attorney-general-james-uthmeier-guns-open-carry-tradition-communication-association-florida-news"
+---
+
+
