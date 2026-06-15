@@ -1167,29 +1167,21 @@ p {
   color: var(--muted-ink);
 }
 
-/* Keep the two columns side-by-side on phones — stacking them doubles the
-   scroll. Just tighten the spacing. Stack only on very narrow screens. */
+/* On phones, stack the two columns full-width — two columns are too narrow
+   for the headlines (text gets cut off). One column reads cleanly. */
 @media (max-width: 38rem) {
   .gradeboard__cols {
-    gap: 0.85rem;
-  }
-  .gradeboard__col--bottom {
-    padding-left: 0.85rem;
-  }
-  .gradeboard__sub-meta {
-    gap: 0.3rem;
-  }
-}
-
-@media (max-width: 22rem) {
-  .gradeboard__cols {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
   .gradeboard__col--bottom {
     border-left: none;
     padding-left: 0;
     border-top: 1px solid var(--rule);
     padding-top: 1rem;
+  }
+  .gradeboard__sub-meta {
+    gap: 0.4rem;
   }
 }
 
