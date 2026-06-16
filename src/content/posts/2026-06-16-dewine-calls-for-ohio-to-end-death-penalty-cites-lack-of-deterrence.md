@@ -1,0 +1,61 @@
+---
+type: "broadcast"
+headline: "DeWine calls for Ohio to end death penalty, cites lack of deterrence"
+summary: "The segment features Ohio Gov. Mike DeWine announcing at a June 16, 2026 news conference that the state should abolish the death penalty. He states he no longer views it as a deterrent to murder and that the moral justification for it has vanished. DeWine suggests the legislature act or refer the matter to voters."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=sladf0FVU9Y"
+sourceTitle: "Associated Press"
+section: "Politics"
+letterGrade: "A"
+factualityScore: 95
+politicalLean: "center"
+leanScore: 0
+leanRationale: "Neutral Associated Press clip focused solely on DeWine's remarks without partisan framing or selective emphasis."
+gradeRationale: "Graded A: Direct, accurate reporting of DeWine's June 16, 2026 press conference statement with proper sourcing and no unsubstantiated claims."
+topics:
+  - "death penalty"
+  - "Ohio politics"
+  - "Mike DeWine"
+assessment: "The broadcast accurately conveys DeWine's prepared remarks without alteration or added commentary. It correctly situates the statement amid Ohio's long-running unofficial moratorium on executions since 2018. Viewers receive the core quote and recommendation but little additional context on execution data, costs, or legislative prospects. The reporting is straightforward and sourced to the governor's own words."
+notableConcerns: []
+keyMoments:
+  - claim: "DeWine no longer believes the death penalty is a deterrent to murder"
+    verdict: "verified"
+    note: "Direct quote from his June 16, 2026 press conference, reported across multiple outlets including AP."
+  - claim: "Legislature should abolish the death penalty or put it to a public vote"
+    verdict: "verified"
+    note: "Explicit recommendation made in the same announcement."
+  - claim: "Ohio has not carried out an execution since 2018"
+    verdict: "verified"
+    note: "Confirmed by state records and contemporary reporting; DeWine has issued repeated reprieves."
+videoId: "sladf0FVU9Y"
+videoTitle: "Mike DeWine says Ohio should abolish the death penalty: Not a 'deterrent to murder'"
+thumbnail: "https://img.youtube.com/vi/sladf0FVU9Y/maxresdefault.jpg"
+citations:
+  - title: "Republican Gov. Mike DeWine says Ohio should abolish the death penalty, saying it is not a deterrent"
+    url: "https://apnews.com/article/death-penalty-ohio-dewine-6210d7fbcecde9fe88657a76521e90fe"
+  - title: "Republican Gov. Mike DeWine wants Ohio to abolish the death penalty"
+    url: "https://www.macombdaily.com/2026/06/16/mike-dewine-ohio-death-penalty/"
+  - title: "Republican Gov. Mike DeWine says Ohio should abolish the death penalty"
+    url: "https://www.washingtonpost.com/national/2026/06/16/death-penalty-ohio-dewine/a5bb07ae-698c-11f1-830e-133d20cadd28_story.html"
+  - title: "‘Not a deterrent.’ Gov. DeWine asks Ohio lawmakers to abolish executions"
+    url: "https://www.statenews.org/government-politics/2026-06-16/gov-dewine-plans-to-make-announcement-on-death-penalty-in-ohio"
+  - title: "Mike DeWine urges Ohio to repeal death penalty"
+    url: "https://www.dispatch.com/story/news/politics/state/2026/06/16/end-ohio-death-penalty-dewine/88051467007/"
+  - title: "Ohio governor Mike DeWine announces opposition to death penalty"
+    url: "https://www.cleveland.com/news/2026/06/ohio-governor-mike-dewine-announces-opposition-to-death-penalty.html"
+  - title: "Gov. Mike DeWine calls for Ohio to abolish the death penalty"
+    url: "https://www.nbc4i.com/news/politics/ohio-gov-mike-dewine-calls-for-ohio-to-abolish-death-penalty/"
+  - title: "Ohio Governor Mike DeWine opposes death penalty, reversing past support"
+    url: "https://www.aljazeera.com/amp/news/2026/6/16/ohio-governor-mike-dewine-opposes-death-penalty-reversing-past-support"
+  - title: "DeWine: 'Ohio should abolish the death penalty'"
+    url: "https://abc6onyourside.com/news/local/ohio-gov-mike-dewine-calls-news-conference"
+  - title: "Republican Gov. Mike DeWine, who has postponed executions for years, says Ohio should abolish the death penalty"
+    url: "https://wtop.com/national/2026/06/republican-gov-mike-dewine-who-has-postponed-executions-for-years-says-ohio-should-abolish-the-death-penalty/"
+  - title: "Capital punishment in Ohio"
+    url: "https://en.wikipedia.org/wiki/Capital_punishment_in_Ohio"
+  - title: "Execution Schedule"
+    url: "https://drc.ohio.gov/about/capital-punishment/execution-schedule"
+---
+
+
