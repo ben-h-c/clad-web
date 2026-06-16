@@ -68,7 +68,7 @@ const byGradeDesc = [...graded].sort(
     gradeToGpa(b.data.letterGrade)! - gradeToGpa(a.data.letterGrade)! ||
     b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
 );
-const topGraded = byGradeDesc.slice(0, 10);
+const topGraded = byGradeDesc.slice(0, 5);
 const topIds = new Set(topGraded.map((p) => p.id));
 // Lowest = worst-first, excluding any already shown in the top column.
 const bottomGraded = [...graded]
@@ -78,7 +78,7 @@ const bottomGraded = [...graded]
       gradeToGpa(a.data.letterGrade)! - gradeToGpa(b.data.letterGrade)! ||
       b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
   )
-  .slice(0, 10);
+  .slice(0, 5);
 ---
 <BaseLayout
   title="Clad — Grading Content & Exposing Bias"
