@@ -1,0 +1,143 @@
+---
+import { gradeToGpa, gpaToGrade, leanScoreOf, type TopicAgg } from "~/lib/topics";
+import { isNewsOutlet } from "~/lib/networks";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  posts: CollectionEntry<"posts">[];
+  topics: TopicAgg[];
+}
+const { posts, topics } = Astro.props;
+
+const mean = (ns: number[]) => (ns.length ? ns.reduce((a, b) => a + b, 0) / ns.length : null);
+function leanLabel(s: number | null): string {
+  if (s === null) return "—";
+  return Math.abs(s) < 5 ? "Center" : `${Math.abs(Math.round(s))}% ${s > 0 ? "Right" : "Left"}`;
+}
+// Grade band drives the bar colour: A/B = ink, C = muted, D/F = red.
+function gradeTier(gpa: number): "good" | "mid" | "bad" {
+  if (gpa >= 7) return "good"; // B- and up
+  if (gpa >= 4) return "mid"; // C- to C+
+  return "bad";
+}
+
+// ---- aggregate by media network (established outlets, >=4 graded reports) ----
+type Net = { name: string; count: number; lean: number | null; gpa: number | null };
+const byNet = new Map<string, { leans: number[]; gpas: number[] }>();
+for (const p of posts) {
+  const name = p.data.sourceTitle;
+  if (!name || !isNewsOutlet(name)) continue;
+  if (!byNet.has(name)) byNet.set(name, { leans: [], gpas: [] });
+  const e = byNet.get(name)!;
+  const l = leanScoreOf(p.data);
+  if (l !== null) e.leans.push(l);
+  const g = gradeToGpa(p.data.letterGrade);
+  if (g !== null) e.gpas.push(g);
+}
+const networks: Net[] = [...byNet.entries()]
+  .map(([name, e]) => ({
+    name,
+    count: Math.max(e.leans.length, e.gpas.length),
+    lean: mean(e.leans),
+    gpa: mean(e.gpas),
+  }))
+  .filter((n) => n.count >= 4);
+
+const biasByNet = [...networks].filter((n) => n.lean !== null).sort((a, b) => a.lean! - b.lean!);
+const gradeByNet = [...networks].filter((n) => n.gpa !== null).sort((a, b) => b.gpa! - a.gpa!);
+
+// ---- overall coverage lean split ----
+const allLeans = posts.map((p) => leanScoreOf(p.data)).filter((n): n is number => n !== null);
+const split = { left: 0, center: 0, right: 0 };
+for (const s of allLeans) {
+  if (s < -15) split.left++;
+  else if (s > 15) split.right++;
+  else split.center++;
+}
+const splitTotal = allLeans.length || 1;
+const pct = (n: number) => Math.round((n / splitTotal) * 100);
+const overallGpa = mean(posts.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n !== null));
+
+// ---- top issues right now (already recency/popularity-ranked) ----
+const topIssues = topics.slice(0, 10);
+---
+<section class="charts">
+  <div class="feed__head">
+    <h2 class="feed__title">By the Numbers</h2>
+  </div>
+  <div class="rule rule--double" aria-hidden="true"></div>
+
+  <div class="charts__grid">
+    <!-- Overall coverage -->
+    <div class="chart-card">
+      <h3 class="chart-card__title small-caps">Overall coverage lean</h3>
+      <div class="split-bar" role="img" aria-label={`Left ${pct(split.left)}%, Center ${pct(split.center)}%, Right ${pct(split.right)}%`}>
+        <span class="split-bar__seg split--left" style={`width:${pct(split.left)}%`}></span>
+        <span class="split-bar__seg split--center" style={`width:${pct(split.center)}%`}></span>
+        <span class="split-bar__seg split--right" style={`width:${pct(split.right)}%`}></span>
+      </div>
+      <div class="split-legend">
+        <span><i class="dot split--left"></i> Left {pct(split.left)}%</span>
+        <span><i class="dot split--center"></i> Center {pct(split.center)}%</span>
+        <span><i class="dot split--right"></i> Right {pct(split.right)}%</span>
+      </div>
+      <p class="chart-card__note">
+        Across {splitTotal} graded reports · average grade{" "}
+        <strong>{overallGpa !== null ? gpaToGrade(overallGpa) : "—"}</strong>
+      </p>
+    </div>
+
+    <!-- Political bias by network -->
+    <div class="chart-card">
+      <h3 class="chart-card__title small-caps">Political bias by network</h3>
+      <div class="chart-rows">
+        {biasByNet.map((n) => (
+          <div class="chart-row">
+            <span class="chart-row__label" title={n.name}>{n.name}</span>
+            <div class="bias-track">
+              <span class="bias-center" aria-hidden="true"></span>
+              <span
+                class={`bias-bar ${n.lean! >= 0 ? "is-right" : "is-left"}`}
+                style={`width:${Math.min(50, Math.abs(n.lean!) / 2)}%; ${n.lean! >= 0 ? "left:50%" : "right:50%"}`}
+              ></span>
+            </div>
+            <span class="chart-row__val">{leanLabel(n.lean)}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Average grade by network -->
+    <div class="chart-card">
+      <h3 class="chart-card__title small-caps">Average grade by network</h3>
+      <div class="chart-rows">
+        {gradeByNet.map((n) => (
+          <div class="chart-row">
+            <span class="chart-row__label" title={n.name}>{n.name}</span>
+            <div class="grade-track">
+              <span class={`grade-bar grade--${gradeTier(n.gpa!)}`} style={`width:${(n.gpa! / 12) * 100}%`}></span>
+            </div>
+            <span class="chart-row__val">{gpaToGrade(n.gpa!)}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Top issues -->
+    <div class="chart-card chart-card--wide">
+      <h3 class="chart-card__title small-caps">Top issues right now</h3>
+      <ul class="issue-rows">
+        {topIssues.map((t) => (
+          <li class="issue-row">
+            <a class="issue-row__name" href={`/topics/${t.slug}/`}>{t.display}</a>
+            <span class="issue-row__count">{t.count} {t.count === 1 ? "report" : "reports"}</span>
+            <span class={`issue-row__lean ${t.avgLean === null ? "" : t.avgLean > 5 ? "is-right" : t.avgLean < -5 ? "is-left" : "is-center"}`}>
+              {leanLabel(t.avgLean)}
+            </span>
+            <span class="issue-row__grade">{t.avgGrade ?? "—"}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

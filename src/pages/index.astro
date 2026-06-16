@@ -6,6 +6,7 @@ import HeroStrip from "~/components/HeroStrip.astro";
 import BreakingStrip from "~/components/BreakingStrip.astro";
 import TopicRow from "~/components/TopicRow.astro";
 import GradeBoard from "~/components/GradeBoard.astro";
+import HomeCharts from "~/components/HomeCharts.astro";
 import Ticker from "~/components/Ticker.astro";
 import QuipTicker from "~/components/QuipTicker.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
@@ -126,6 +127,7 @@ const bottomGraded = [...graded]
         })();
       </script>
       {topGraded.length > 0 && <GradeBoard top={topGraded} bottom={bottomGraded} />}
+      <HomeCharts posts={all} topics={topics} />
     </>
   )}
   <Disclaimer />
