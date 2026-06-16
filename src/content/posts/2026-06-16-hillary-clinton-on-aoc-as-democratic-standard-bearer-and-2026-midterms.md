@@ -1,0 +1,62 @@
+---
+type: "broadcast"
+headline: "Hillary Clinton on AOC as Democratic Standard-Bearer and 2026 Midterms"
+summary: "Forbes Breaking News aired a clip of Hillary Clinton responding to a question about Alexandria Ocasio-Cortez polling highest among women as a potential national Democratic standard-bearer. Clinton disputed the cited polls, noted AOC ranks in the top five alongside Kamala Harris and sometimes Gavin Newsom in her preferred surveys, stressed the need for polls including both men and women, and urged focus on winning the House and Senate in the 2026 midterms with strong House prospects and even odds in the Senate."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=CHYvEgE6QPM"
+sourceTitle: "Forbes Breaking News"
+section: "Politics"
+letterGrade: "A-"
+factualityScore: 85
+politicalLean: "center"
+leanScore: 0
+leanRationale: "Straight presentation of the interview with no added commentary, sourcing, or framing that favors one side"
+gradeRationale: "Graded A-: direct interview clip accurately conveys Clinton's statements, which align closely with recent 2028 primary polling and 2026 midterm forecasts; minor missing context on gender-specific breakdowns"
+topics:
+  - "Democratic Party"
+  - "2026 midterms"
+  - "AOC"
+  - "Hillary Clinton"
+assessment: "The segment accurately reports Clinton's remarks without distortion. Recent national 2028 Democratic primary polls show Harris and Newsom leading or tied, with AOC typically fourth or fifth overall but stronger among younger voters. Gender-specific data is limited but consistent with Clinton's view that no single poll makes AOC the clear leader among women alone. Midterm forecasts support her assessment of House opportunities and roughly even Senate chances. Viewers receive the core exchange but lack details on exact poll sources or age/gender crosstabs that contextualize the debate."
+notableConcerns: []
+keyMoments:
+  - claim: "AOC is polling highest among women as Democratic standard-bearer"
+    verdict: "missing context"
+    note: "Some youth polls favor AOC among younger Democrats; broader national surveys show Harris/Newsom ahead overall, with limited gender-specific data confirming top rank among women"
+  - claim: "Reliable polls place AOC in top five with Harris and Newsom"
+    verdict: "verified"
+    note: "Multiple 2026 polls including Yale Youth Poll and RCP averages confirm AOC ranks in top five nationally behind or near Harris and Newsom"
+  - claim: "Democrats have good chances to win House, 50-50 Senate in 2026"
+    verdict: "verified"
+    note: "Current forecasts from Sabato, 270toWin, and NYT polling show Democrats favored for House gains and competitive Senate outlook"
+videoId: "CHYvEgE6QPM"
+videoTitle: "Hillary Clinton Asked: How Would You Feel About AOC Becoming The 'Standard-Bearer' For The Democrats"
+thumbnail: "https://img.youtube.com/vi/CHYvEgE6QPM/maxresdefault.jpg"
+citations:
+  - title: "2028 Democratic Presidential Primary: Latest Polls"
+    url: "https://www.nytimes.com/interactive/polls/president-democratic-primary-polls-2028.html"
+  - title: "Kamala Harris, Gavin Newsom neck-and-neck in new ranked-choice poll"
+    url: "https://fairvote.org/press/kamala-harris-gavin-newsom-ranked-choice-poll/"
+  - title: "AOC, Rubio lead latest 2028 presidential primary poll"
+    url: "https://www.usatoday.com/story/news/politics/2026/05/12/aoc-rubio-lead-2028-presidential-primary-poll/90048662007/"
+  - title: "What history tells us about the 2026 midterm elections"
+    url: "https://www.brookings.edu/articles/what-history-tells-us-about-the-2026-midterm-elections/"
+  - title: "United States House of Representatives elections, 2026"
+    url: "https://ballotpedia.org/United_States_House_of_Representatives_elections,_2026"
+  - title: "2026 Senate - Sabato's Crystal Ball"
+    url: "https://centerforpolitics.org/crystalball/2026-senate/"
+  - title: "United States Congress elections, 2026"
+    url: "https://ballotpedia.org/United_States_Congress_elections,_2026"
+  - title: "The Race for Congress: Latest 2026 Polls"
+    url: "https://www.nytimes.com/interactive/polls/congressional-vote-2026.html"
+  - title: "2026 United States Senate elections"
+    url: "https://en.wikipedia.org/wiki/2026_United_States_Senate_elections"
+  - title: "Predictions for the Senate - 2026 Midterms"
+    url: "https://www.racetothewh.com/senate/26"
+  - title: "AOC's Chances of Beating Kamala Harris to Be Democratic Nominee"
+    url: "https://www.yahoo.com/news/politics/articles/aoc-chances-beating-kamala-harris-170446123.html"
+  - title: "Buttigieg, Newsom & Ocasio-Cortez Lead Democrats, Vance ..."
+    url: "https://scholars.unh.edu/cgi/viewcontent.cgi?article=1898&context=survey_center_polls"
+---
+
+
