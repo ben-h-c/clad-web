@@ -6,7 +6,7 @@ import HeroStrip from "~/components/HeroStrip.astro";
 import TopicRow from "~/components/TopicRow.astro";
 import GradeBoard from "~/components/GradeBoard.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
-import { getFrontpage } from "~/lib/agents";
+import { getFrontpage, getBreaking } from "~/lib/agents";
 import { aggregateTopics, gradeToGpa } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 
@@ -33,6 +33,13 @@ if (heroPosts.length === 0) {
   heroPosts = flagged.length > 0 ? flagged : outlets.slice(0, 8);
 }
 heroPosts = heroPosts.slice(0, 15);
+
+// Breaking News = the curator's most-recent/important outlet selection.
+const breakingIds = await getBreaking(env.AGENTS);
+const breakingPosts = breakingIds
+  .map((id) => byId.get(id))
+  .filter((p) => p !== undefined && isNewsOutlet(p.data.sourceTitle))
+  .slice(0, 12);
 
 const topics = aggregateTopics(all);
 const TOPICS_PER_PAGE = 20;
@@ -64,7 +71,8 @@ const bottomGraded = [...graded]
     <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
   ) : (
     <>
-      <HeroStrip posts={heroPosts} />
+      <HeroStrip posts={breakingPosts} title="Breaking News" variant="breaking" />
+      <HeroStrip posts={heroPosts} title="Front Page" />
       {topGraded.length > 0 && <GradeBoard top={topGraded} bottom={bottomGraded} />}
       <section class="feed">
         <div class="feed__head">

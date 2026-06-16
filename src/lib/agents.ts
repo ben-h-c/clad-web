@@ -30,6 +30,9 @@ export interface AgentConfig {
   engagementWeight?: number;
   // compliance-auditor
   maxPostsToAudit?: number;
+  // breaking-news-curator
+  maxBreaking?: number;
+  recencyHours?: number;
 }
 
 export interface AgentLastRun {
@@ -130,6 +133,17 @@ export const DEFAULT_REGISTRY: Registry = {
       cron: "0 7 * * *", // daily, 07:00 UTC
       config: {
         maxPostsToAudit: 60,
+      },
+    },
+    {
+      id: "breaking-news-curator",
+      kind: "breaking-news-curator",
+      name: "Breaking News Curator",
+      enabled: true,
+      cron: "*/30 * * * *", // every 30 minutes — keep it fresh
+      config: {
+        maxBreaking: 10,
+        recencyHours: 36,
       },
     },
   ],
@@ -315,6 +329,23 @@ export async function getFrontpage(kv: KVNamespace): Promise<string[]> {
 
 export async function setFrontpage(kv: KVNamespace, ids: string[]): Promise<void> {
   await kv.put(FRONTPAGE_KEY, JSON.stringify(ids.slice(0, 30)));
+}
+
+const BREAKING_KEY = "breaking:featured";
+
+export async function getBreaking(kv: KVNamespace): Promise<string[]> {
+  const raw = await kv.get(BREAKING_KEY);
+  if (!raw) return [];
+  try {
+    const v = JSON.parse(raw);
+    return Array.isArray(v) ? v.map(String) : [];
+  } catch {
+    return [];
+  }
+}
+
+export async function setBreaking(kv: KVNamespace, ids: string[]): Promise<void> {
+  await kv.put(BREAKING_KEY, JSON.stringify(ids.slice(0, 20)));
 }
 
 /* ---------- search categories (editor-managed scanner search terms) ---------- */

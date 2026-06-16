@@ -4,15 +4,17 @@ import type { CollectionEntry } from "astro:content";
 
 interface Props {
   posts: CollectionEntry<"posts">[];
+  title?: string;
+  variant?: string;
 }
-const { posts } = Astro.props;
+const { posts, title = "Front Page", variant } = Astro.props;
 ---
 {posts.length > 0 && (
-  <section class="hero">
+  <section class={`hero${variant ? ` hero--${variant}` : ""}`}>
     <div class="hero__head">
-      <h2 class="small-caps">Front Page</h2>
+      <h2 class="small-caps">{title}</h2>
     </div>
-    <div class="hero-strip" aria-label="Featured reports">
+    <div class="hero-strip" aria-label={`${title} reports`}>
       {posts.map((p) => (
         <div class="hero-strip__item">
           <ReportCard post={p} />

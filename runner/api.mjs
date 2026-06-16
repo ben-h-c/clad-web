@@ -45,6 +45,10 @@ export function setFrontpage(ids) {
   return call("/api/agent/frontpage", { method: "POST", body: JSON.stringify({ ids }) });
 }
 
+export function setBreaking(ids) {
+  return call("/api/agent/breaking", { method: "POST", body: JSON.stringify({ ids }) });
+}
+
 export function getAuditContent() {
   return call("/api/agent/compliance", { method: "GET" });
 }

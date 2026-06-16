@@ -10,6 +10,7 @@ import { getConfig, reportStatus } from "./api.mjs";
 import { isDue } from "./cron.mjs";
 import { runYoutubeScanner } from "./youtubeScanner.mjs";
 import { runFrontpageCurator } from "./frontpageCurator.mjs";
+import { runBreakingCurator } from "./breakingCurator.mjs";
 import { runComplianceAuditor } from "./complianceAuditor.mjs";
 import { processUrlQueue } from "./urlIntake.mjs";
 
@@ -20,6 +21,7 @@ const running = new Set(); // single-flight per agent id
 const KINDS = {
   "youtube-scanner": runYoutubeScanner,
   "frontpage-curator": runFrontpageCurator,
+  "breaking-news-curator": runBreakingCurator,
   "compliance-auditor": runComplianceAuditor,
 };
 
