@@ -1,0 +1,61 @@
+---
+type: "broadcast"
+headline: "NBC Reports Meteor Fireball Visible Across Multiple States"
+summary: "The short NBC News segment shows video of a bright fireball streaking across the sky and states it was seen over homes and highways in Arkansas, Missouri, Tennessee, and additional states. It attributes details to NASA, noting the object traveled at 56,000 mph, was brighter than Venus, and disintegrated.\n\nThe clip relies on public video footage and direct NASA statements via the American Meteor Society database. No guests appear; the report is concise and centers on the June 14-15, 2026 event captured by NASA cameras."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=MtXduAQ_xd0"
+sourceTitle: "NBC News"
+section: "Politics"
+letterGrade: "A+"
+factualityScore: 100
+politicalLean: "center"
+leanScore: 0
+leanRationale: "Straightforward factual reporting with no political framing, selective emphasis, or partisan sourcing."
+gradeRationale: "All claims verified against NASA data and eyewitness reports; precise match on speed, brightness, path, and states affected with no inaccuracies or missing context."
+topics:
+  - "Meteor"
+  - "Fireball sighting"
+  - "NASA"
+assessment: "The broadcast accurately summarizes the confirmed details of the bolide event without exaggeration or omission. NASA’s official analysis matches the reported speed, brightness (16 times Venus), trajectory from Mississippi to Missouri, and visibility across more than a dozen states including the ones named. Viewers receive a clear, evidence-based account; the only minor difference is the transcript’s phrasing of “brighter than Venus” versus the precise “16 times brighter” in source data, which does not alter accuracy. No counter-evidence or alternative explanations are needed given the consensus from cameras and hundreds of reports."
+notableConcerns: []
+keyMoments:
+  - claim: "Massive fireball seen in Arkansas, Missouri, Tennessee, and more states"
+    verdict: "verified"
+    note: "NASA/AMS data confirm sightings in those states plus Alabama, Georgia, Mississippi and others; nearly 400 reports logged."
+  - claim: "NASA: meteor traveled 56,000 mph"
+    verdict: "verified"
+    note: "Official NASA event page lists 55,800 mph (rounded to 56,000) from Tupelo, MS northwest."
+  - claim: "Burned brighter than Venus before disintegrating"
+    verdict: "verified"
+    note: "NASA states peak brightness 16 times Venus; disintegrated 34 miles above Mark Twain National Forest, MO after 300 miles."
+videoId: "MtXduAQ_xd0"
+videoTitle: "Meteor streaks across the skies over several states"
+thumbnail: "https://img.youtube.com/vi/MtXduAQ_xd0/maxresdefault.jpg"
+citations:
+  - title: "Events in 2026 4372-2026 - American Meteor Society"
+    url: "https://fireball.amsmeteors.org/members/imo_view/event/2026/4372"
+  - title: "Event 20260615-032626 - NASA Fireball Network"
+    url: "https://fireballs.ndc.nasa.gov/skyfalls/events/20260615-032626"
+  - title: "Night sky erupts as brilliant fireball blazes across the Mid-South - FOX13 Memphis"
+    url: "https://www.fox13memphis.com/news/night-sky-erupts-as-brilliant-fireball-blazes-across-the-mid-south/article_d1c5d1e4-f851-4128-929b-e75c97489367.html"
+  - title: "Watch: Fireball lights the night sky over 15 U.S. states - UPI"
+    url: "https://www.upi.com/Odd_News/2026/06/15/fireball-fifteen-states-Sunday-night/4431781538985/"
+  - title: "Bright meteor spotted flying over Christian County, NASA explains - Christian County Now"
+    url: "https://christiancountynow.com/news/267762-bright-meteor-spotted-flying-over-christian-county-nasa-explains/"
+  - title: "Fireball streaks across the night sky in over a dozen states - FOX Weather"
+    url: "https://www.foxweather.com/earth-space/video-fireball-streaks-across-night-sky-several-states"
+  - title: "Rare, green meteor spotted across 15 states, including TN - Columbia Daily Herald"
+    url: "https://www.columbiadailyherald.com/story/news/local/2026/06/15/meteor-nashville-tennessee-videos/90556690007/"
+  - title: "Fireball caught on camera in the Heartland - KFVS12"
+    url: "https://www.kfvs12.com/2026/06/15/fireball-caught-camera-heartland/"
+  - title: "Browse Events - International Meteor Organization"
+    url: "https://fireball.imo.net/members/imo_view/browse_events"
+  - title: "NASA's All Sky Fireball Network"
+    url: "https://fireballs.ndc.nasa.gov/"
+  - title: "American Meteor Society - Fireball Reports"
+    url: "https://fireball.amsmeteors.org/members/imo_view/browse_reports"
+  - title: "Residents from over a dozen states saw a fireball blaze... - The Tennessean (via Facebook)"
+    url: "https://www.facebook.com/tennessean/videos/rare-green-meteor-spotted-across-15-states-including-tn-did-you-miss-it-watch/3908187529475026/"
+---
+
+
