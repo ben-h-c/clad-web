@@ -2716,6 +2716,15 @@ button.small {
 .charts {
   margin-top: 2rem;
 }
+.charts__scroll {
+  position: relative;
+}
+/* Charts only scroll on desktop, so hide their arrows on stacked mobile. */
+@media (max-width: 720px) {
+  .charts__scroll .hero-arrow {
+    display: none;
+  }
+}
 /* Mobile-first: stacked single column. */
 .charts__grid {
   display: flex;

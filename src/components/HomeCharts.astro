@@ -67,6 +67,8 @@ const topIssues = topics.slice(0, 10);
   </div>
   <div class="rule rule--double" aria-hidden="true"></div>
 
+  <div class="charts__scroll">
+    <button type="button" class="hero-arrow hero-arrow--left" aria-label="Scroll left" hidden>‹</button>
   <div class="charts__grid">
     <!-- Overall coverage -->
     <div class="chart-card">
@@ -140,4 +142,31 @@ const topIssues = topics.slice(0, 10);
       </ul>
     </div>
   </div>
+    <button type="button" class="hero-arrow hero-arrow--right" aria-label="Scroll right">›</button>
+  </div>
 </section>
+
+<script is:inline>
+  (() => {
+    const wrap = document.querySelector(".charts__scroll");
+    if (!wrap) return;
+    const strip = wrap.querySelector(".charts__grid");
+    const left = wrap.querySelector(".hero-arrow--left");
+    const right = wrap.querySelector(".hero-arrow--right");
+    if (!strip || !left || !right) return;
+    const update = () => {
+      const max = strip.scrollWidth - strip.clientWidth;
+      if (max <= 4) { left.hidden = true; right.hidden = true; return; }
+      left.hidden = strip.scrollLeft <= 2;
+      right.hidden = strip.scrollLeft >= max - 2;
+    };
+    const step = () => Math.max(280, strip.clientWidth * 0.85);
+    left.addEventListener("click", () => strip.scrollBy({ left: -step(), behavior: "smooth" }));
+    right.addEventListener("click", () => strip.scrollBy({ left: step(), behavior: "smooth" }));
+    strip.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    window.addEventListener("load", update);
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", update);
+    else update();
+  })();
+</script>
