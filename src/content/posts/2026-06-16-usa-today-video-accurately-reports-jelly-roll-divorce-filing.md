@@ -1,0 +1,61 @@
+---
+type: "broadcast"
+headline: "USA Today Video Accurately Reports Jelly Roll Divorce Filing"
+summary: "The USA TODAY segment reports that Jelly Roll filed for divorce from Bunnie XO (Alisa DeFord) on May 18 in Tennessee court. It notes their 2016 marriage, past public discussions of relationship challenges including a 2018 split, and Jelly Roll's February Grammy dedication to her.\nThe video draws from court records reviewed by USA TODAY, references TMZ as the initial reporter, and mentions the couple's openness about ups and downs. No representatives' comments are included."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=REEYidouZEI"
+sourceTitle: "USA TODAY"
+section: "Politics"
+letterGrade: "A"
+factualityScore: 95
+politicalLean: "center"
+leanScore: 0
+leanRationale: "No discernible political slant; entertainment reporting focused on factual court filing and relationship history."
+gradeRationale: "Graded A: All claims verified by multiple outlets citing court records; minor note on spelling variation of Bunnie's first name."
+topics:
+  - "Celebrity divorce"
+  - "Jelly Roll"
+  - "Country music"
+assessment: "The broadcast is a straightforward, fact-based report grounded in primary court documents, corroborated across outlets including TMZ, Rolling Stone, Billboard, and People. Viewers receive accurate details on the filing date, location, and marriage timeline with no embellishment or unsubstantiated speculation. Minor context on ongoing proceedings or statements from the parties is absent, as is typical for initial reporting of filings. No loaded framing or omitted counter-evidence skews the piece."
+notableConcerns: []
+keyMoments:
+  - claim: "Jelly Roll filed for divorce from Bunnie XO on May 18"
+    verdict: "verified"
+    note: "Confirmed by court records cited by TMZ, USA TODAY, People, and others in Williamson County, Tennessee."
+  - claim: "Couple married in 2016 after nearly a decade together"
+    verdict: "verified"
+    note: "Multiple sources confirm 2016 Las Vegas marriage; filing reported June 2026."
+  - claim: "Bunnie told fans in 2024 they briefly split in 2018"
+    verdict: "verified"
+    note: "Consistent with prior public statements referenced in coverage of their relationship history."
+videoId: "REEYidouZEI"
+videoTitle: "Jelly Roll divorces Bunnie XO after nearly 10 years of marriage"
+thumbnail: "https://img.youtube.com/vi/REEYidouZEI/maxresdefault.jpg"
+citations:
+  - title: "Jelly Roll Files For Divorce From Bunnie XO"
+    url: "https://www.tmz.com/2026/06/15/jelly-roll-bunnie-xo-divorce/"
+  - title: "Jelly Roll Files for Divorce From Bunnie XO After Nearly 10 Years of Marriage"
+    url: "https://www.billboard.com/music/music-news/jelly-roll-divorce-bunnie-xo-1236273835/"
+  - title: "Jelly Roll Files for Divorce from Bunnie Xo After Nearly 10 Years of Marriage"
+    url: "https://people.com/jelly-roll-files-for-divorce-from-bunnie-xo-after-a-decade-of-marriage-11998987"
+  - title: "Jelly Roll divorces Bunnie XO after almost 10 years of marriage"
+    url: "https://www.usatoday.com/story/entertainment/celebrities/2026/06/15/jelly-roll-divorce-bunnie-xo/90567339007/"
+  - title: "Jelly Roll, Wife Bunnie Xo Break Up, Divorcing After 10 Years Married"
+    url: "https://www.eonline.com/news/1422044/jelly-roll-wife-bunnie-xo-break-up-divorcing-after-10-years-married"
+  - title: "Jelly Roll files for divorce from wife Bunnie XO"
+    url: "https://www.wsmv.com/2026/06/16/jelly-roll-files-divorce-wife-bunnie-xo/"
+  - title: "BREAKING: Jelly Roll Files for Divorce From Wife Bunnie XO"
+    url: "https://countrynow.com/breaking-jelly-roll-files-for-divorce-from-wife-bunnie-xo/"
+  - title: "Jelly Roll divorces Bunnie XO after 10-year marriage"
+    url: "https://www.tennessean.com/story/entertainment/music/2026/06/15/jelly-roll-divorce-bunnie-xo-nashville-couple/90567480007/"
+  - title: "Jelly Roll files for divorce after nearly 10 years with Bunnie XO"
+    url: "https://www.latimes.com/entertainment-arts/story/2026-06-15/jelly-roll-files-for-divorce-after-nearly-10-years-with-bunnie-xo"
+  - title: "Jelly Roll Files For Divorce From Bunnie Xo: REPORT"
+    url: "https://tasteofcountry.com/jelly-roll-bunnie-xo-divorce/"
+  - title: "Jelly Roll divorces Bunnie XO after nearly 10 years of marriage"
+    url: "https://www.theleafchronicle.com/story/entertainment/music/2026/06/15/jelly-roll-divorce-bunnie-xo-nashville-couple/90567480007/"
+  - title: "Jelly Roll Files for Divorce From Bunnie Xo"
+    url: "https://www.rollingstone.com/music/music-country/jelly-roll-files-divorce-bunnie-xo-1235578379/"
+---
+
+
