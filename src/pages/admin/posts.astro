@@ -25,9 +25,24 @@ const posts = (await getCollection("posts")).sort(
     {posts.length === 0 ? (
       <p class="dateline" style="margin-top:2rem">No posts yet.</p>
     ) : (
+      <>
+      <div class="post-search">
+        <input
+          type="search"
+          id="post-search"
+          placeholder="Search posts by headline, topic, or source…"
+          autocomplete="off"
+        />
+        <span id="post-search-count" class="dateline"></span>
+      </div>
       <ul class="post-rows">
         {posts.map((p) => (
-          <li class="post-row" data-id={p.id} data-draft={p.data.draft ? "1" : "0"}>
+          <li
+            class="post-row"
+            data-id={p.id}
+            data-draft={p.data.draft ? "1" : "0"}
+            data-search={`${p.data.headline} ${(p.data.topics ?? []).join(" ")} ${p.data.sourceTitle ?? ""} ${p.id}`.toLowerCase()}
+          >
             <div class="post-row__main">
               {p.data.type === "broadcast" && p.data.letterGrade ? (
                 <LetterGrade grade={p.data.letterGrade} />
@@ -53,10 +68,30 @@ const posts = (await getCollection("posts")).sort(
           </li>
         ))}
       </ul>
+      </>
     )}
   </section>
 
   <script is:inline>
+    (() => {
+      const input = document.getElementById("post-search");
+      const count = document.getElementById("post-search-count");
+      if (!input) return;
+      const rows = Array.from(document.querySelectorAll(".post-row"));
+      const apply = () => {
+        const q = input.value.trim().toLowerCase();
+        let shown = 0;
+        rows.forEach((r) => {
+          const hit = !q || (r.getAttribute("data-search") || "").includes(q);
+          r.hidden = !hit;
+          if (hit) shown++;
+        });
+        count.textContent = q ? `${shown} of ${rows.length}` : `${rows.length} posts`;
+      };
+      input.addEventListener("input", apply);
+      apply();
+    })();
+
     document.querySelectorAll(".post-row").forEach((row) => {
       const id = row.getAttribute("data-id");
       const status = row.querySelector(".p-status");
