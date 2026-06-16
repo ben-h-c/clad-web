@@ -472,6 +472,39 @@ export async function setSearchCategories(kv: KVNamespace, list: SearchCategory[
   await kv.put(CATEGORIES_KEY, JSON.stringify(clean));
 }
 
+/* ---------- markets ticker ----------
+ * The runner fetches quotes (residential IP, reliable) and posts them here; the
+ * home page reads this blob to render the scrolling ticker. */
+
+const TICKER_KEY = "ticker:quotes";
+
+export interface TickerQuote {
+  label: string; // display label, e.g. "S&P 500", "NVDA"
+  price: number;
+  changePct: number; // signed percent change vs previous close
+}
+
+export interface TickerData {
+  updatedAt: string;
+  quotes: TickerQuote[];
+}
+
+export async function getTicker(kv: KVNamespace): Promise<TickerData | null> {
+  const raw = await kv.get(TICKER_KEY);
+  if (!raw) return null;
+  try {
+    const v = JSON.parse(raw);
+    return v && Array.isArray(v.quotes) ? (v as TickerData) : null;
+  } catch {
+    return null;
+  }
+}
+
+export async function setTicker(kv: KVNamespace, quotes: TickerQuote[]): Promise<void> {
+  const data: TickerData = { updatedAt: new Date().toISOString(), quotes };
+  await kv.put(TICKER_KEY, JSON.stringify(data));
+}
+
 /* ---------- newsroom classifications (Grok-scored, shared by curators) ----------
  * A small per-post judgment the curators reuse so they don't re-call Grok every
  * tick. Stored as one blob keyed by post id. The runner classifies new posts and

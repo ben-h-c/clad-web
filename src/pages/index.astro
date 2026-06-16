@@ -5,8 +5,9 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import HeroStrip from "~/components/HeroStrip.astro";
 import TopicRow from "~/components/TopicRow.astro";
 import GradeBoard from "~/components/GradeBoard.astro";
+import Ticker from "~/components/Ticker.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
-import { getFrontpage, getBreaking } from "~/lib/agents";
+import { getFrontpage, getBreaking, getTicker } from "~/lib/agents";
 import { aggregateTopics, gradeToGpa } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 
@@ -41,6 +42,8 @@ const breakingPosts = breakingIds
   .filter((p) => p !== undefined && isNewsOutlet(p.data.sourceTitle))
   .slice(0, 12);
 
+const ticker = await getTicker(env.AGENTS);
+
 const topics = aggregateTopics(all);
 const TOPICS_PER_PAGE = 20;
 
@@ -72,6 +75,7 @@ const bottomGraded = [...graded]
   ) : (
     <>
       <HeroStrip posts={breakingPosts} title="Breaking News" variant="breaking" />
+      <Ticker data={ticker} />
       <HeroStrip posts={heroPosts} title="Front Page" />
       <section class="feed">
         <div class="feed__head">

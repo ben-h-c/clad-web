@@ -77,6 +77,10 @@ export function reportStatus(status) {
   return call("/api/agent/status", { method: "POST", body: JSON.stringify(status) });
 }
 
+export function setTicker(quotes) {
+  return call("/api/agent/ticker", { method: "POST", body: JSON.stringify({ quotes }) });
+}
+
 export function getClassifications() {
   return call("/api/agent/classify", { method: "GET" });
 }

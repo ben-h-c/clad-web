@@ -1,0 +1,34 @@
+---
+import type { TickerData } from "~/lib/agents";
+
+interface Props {
+  data: TickerData | null;
+}
+const { data } = Astro.props;
+const quotes = data?.quotes ?? [];
+
+const fmt = (n: number) =>
+  n >= 1000 ? n.toLocaleString("en-US", { maximumFractionDigits: 0 })
+  : n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const pct = (n: number) => `${n >= 0 ? "+" : ""}${n.toFixed(2)}%`;
+// Repeat the list so the marquee loops seamlessly (animation shifts by 50%).
+const loop = quotes.length > 0 ? [...quotes, ...quotes] : [];
+---
+{quotes.length > 0 && (
+  <section class="ticker" aria-label="Markets ticker">
+    <span class="ticker__label small-caps">Markets</span>
+    <div class="ticker__viewport">
+      <div class="ticker__track" style={`--n:${quotes.length}`}>
+        {loop.map((q, i) => (
+          <span class="ticker__item" aria-hidden={i >= quotes.length ? "true" : undefined}>
+            <span class="ticker__sym">{q.label}</span>
+            <span class="ticker__price">{fmt(q.price)}</span>
+            <span class={`ticker__chg ${q.changePct >= 0 ? "is-up" : "is-down"}`}>
+              {q.changePct >= 0 ? "▲" : "▼"} {pct(q.changePct)}
+            </span>
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

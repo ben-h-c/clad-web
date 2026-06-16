@@ -13,6 +13,7 @@ import { runFrontpageCurator } from "./frontpageCurator.mjs";
 import { runBreakingCurator } from "./breakingCurator.mjs";
 import { runComplianceAuditor } from "./complianceAuditor.mjs";
 import { processUrlQueue } from "./urlIntake.mjs";
+import { updateTicker } from "./ticker.mjs";
 
 const ONCE = process.argv.includes("--once");
 const TICK_MS = 60_000;
@@ -68,6 +69,13 @@ async function tick() {
     await processUrlQueue(log);
   } catch (err) {
     log(`url-intake error: ${String(err?.message || err).slice(0, 120)}`);
+  }
+
+  // Refresh the markets ticker (throttled internally to ~2 min).
+  try {
+    await updateTicker(log);
+  } catch (err) {
+    log(`ticker error: ${String(err?.message || err).slice(0, 120)}`);
   }
 
   const cfg = await getConfig();
