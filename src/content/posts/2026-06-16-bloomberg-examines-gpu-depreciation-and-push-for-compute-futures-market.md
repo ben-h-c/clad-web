@@ -1,0 +1,62 @@
+---
+type: "broadcast"
+headline: "Bloomberg Examines GPU Depreciation and Push for Compute Futures Market"
+summary: "The segment discusses efforts to create a futures market for GPU compute power, potentially larger than oil, featuring an interview with Carmen Li of Silicon Data and Compute Exchange. It covers GPU lifespan, resale depreciation data triggered by Michael Burry's tweet on hyperscaler accounting, comparisons to older GPUs like L40S, and challenges in standardizing compute for derivatives trading.\nThe sourcing centers on Li's company data and indices, with references to partnerships involving ICE, Ornn, and CME. The throughline is the rapid growth and volatility in AI infrastructure markets driving new financial products."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=4sIDwybIsQo"
+sourceTitle: "Bloomberg Television"
+section: "Politics"
+letterGrade: "A-"
+factualityScore: 92
+politicalLean: "center"
+leanScore: 0
+leanRationale: "Neutral business reporting focused on market data and expert interview; no partisan framing or selective sourcing."
+gradeRationale: "Claims on H100 resale values (85 cents year 2, 84 cents year 3 for refurbished) match Silicon Data analysis and contemporaneous reporting; Burry tweet context accurate; rental pricing and market efforts corroborated by multiple sources with minor lack of updated 2026 figures."
+topics:
+  - "AI compute"
+  - "GPU market"
+  - "futures trading"
+  - "NVIDIA H100"
+assessment: "The broadcast accurately presents industry data on H100 depreciation that aligns with Silicon Data's November-December analysis and independent reporting. It provides useful context on why Burry highlighted shorter useful lives versus company assumptions of up to six years. Viewers miss broader market volatility details, such as recent rental price surges and Blackwell transition impacts, plus the distinction between refurbished versus used unit pricing. Framing is straightforward and data-focused without evident bias, though it relies heavily on one expert's perspective and proprietary indices."
+notableConcerns: []
+keyMoments:
+  - claim: "Burry tweet sparked discussion leading to H100 refurbished resale at 85 cents on the dollar after one year and 84 cents after two more years."
+    verdict: "verified"
+    note: "Matches Silicon Data findings cited in Business Insider and direct analysis reports from 2025-2026."
+  - claim: "Hyperscalers charge 40 cents per GPU-hour for L40S GPUs."
+    verdict: "verified"
+    note: "Aligns with marketplace and neo-cloud rates around $0.40-0.47/hr; hyperscalers typically higher but segment context fits."
+  - claim: "GPU depreciation data shows leveling after initial drop, better than typical car depreciation."
+    verdict: "verified"
+    note: "Supported by multiple secondary market analyses showing 75-90% retention in early years for refurbished H100s."
+videoId: "4sIDwybIsQo"
+videoTitle: "Inside the Race to Build a Compute Futures Market Bigger Than Oil"
+thumbnail: "https://img.youtube.com/vi/4sIDwybIsQo/maxresdefault.jpg"
+citations:
+  - title: "Carmen Li's Plan to Build a Futures Market for Compute | Odd Lots"
+    url: "https://www.bloomberg.com/news/videos/2026-06-15/carmen-li-s-plan-to-build-a-futures-market-for-compute-video"
+  - title: "Silicon Data CEO on Creating Futures Market for Computing Power"
+    url: "https://www.bloomberg.com/news/videos/2026-05-18/silicon-data-ceo-on-futures-market-for-computing-power-video"
+  - title: "AI Compute To Become a Wall Street Asset"
+    url: "https://www.bloomberg.com/news/videos/2026-06-01/ai-compute-to-become-a-wall-street-asset"
+  - title: "Unpacking H100 GPU Market Value Trends"
+    url: "https://www.silicondata.com/use-cases/h100-gpu-market-value-trends/"
+  - title: "GPU Performance Data for Companies"
+    url: "https://www.silicondata.com/"
+  - title: "CME Group and Silicon Data Partner to Launch First Compute Futures"
+    url: "https://www.cmegroup.com/media-room/press-releases/2026/5/12/cme_group_and_silicondatapartnertolaunchfirstcomputefutures.html"
+  - title: "ICE and Ornn to Launch GPU Compute Futures Contracts"
+    url: "https://ir.theice.com/press/news-details/2026/ICE-and-Ornn-to-Launch-GPU-Compute-Futures-Contracts/default.aspx"
+  - title: "Silicon Data CEO Carmen Li Expands Leadership to Include Compute Exchange"
+    url: "https://natlawreview.com/press-releases/silicon-data-ceo-carmen-li-expands-leadership-include-compute-exchange"
+  - title: "The GPU Procurement Marketplace"
+    url: "https://compute.exchange/about"
+  - title: "AI Demand Boosts GPU Prices, Says Silicon Data CEO Carmen Li"
+    url: "https://www.businessinsider.com/ai-demand-boosts-gpu-prices-silicon-data-ceo-carmen-li-2026-4"
+  - title: "Used GPU Market: A100 & H100 Pricing, Depreciation"
+    url: "https://hashrateindex.com/blog/used-gpu-market-pricing-deprecation-secondary-ai/"
+  - title: "The ex-Citi VP at the heart of GPU trading"
+    url: "https://www.efinancialcareers.com/news/trading-gpus"
+---
+
+
