@@ -1,0 +1,62 @@
+---
+type: "broadcast"
+headline: "Greystones initiative delays smartphones for preteens amid anxiety concerns"
+summary: "CBS News reports on Greystones, Ireland, where principal Rachel Harper launched the 'It Takes a Village' initiative after noting rising anxiety in students post-COVID. The voluntary community code delays smartphones until middle school, supported by parent pledges, phone-free school policies, and alternatives like youth cafes and pet projects. Interviews feature kids preferring in-person play, Harper citing a poll of 800 respondents where 95% of teachers observed increased anxiety, and parent Alex Dobs on reduced peer pressure. The segment notes better focus and sleep but acknowledges ongoing worries like AI."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=U8h9Qbxl_ng"
+sourceTitle: "CBS News"
+section: "Politics"
+letterGrade: "B+"
+factualityScore: 85
+politicalLean: "center"
+leanScore: 0
+leanRationale: "Neutral presentation focused on community efforts and child wellbeing without partisan framing or selective sourcing."
+gradeRationale: "Graded B+: core facts on the 'It Takes a Village' program, poll results, and reported benefits are corroborated by multiple sources, with minor issues in oversimplified brain science claims and limited outcome data."
+topics:
+  - "smartphone restrictions"
+  - "child mental health"
+  - "Ireland education"
+assessment: "The broadcast accurately captures a documented local effort backed by school leaders and consistent with coverage in outlets like The New York Times and The Guardian. Claims about anxiety trends align with the initiative's own evaluations and surveys. The brain-scan analogy voiced by a student is a common but imprecise popularization of addiction research showing overlapping neural patterns, not a direct equivalence. Viewer may miss formal longitudinal data on outcomes or counterpoints on technology access benefits. Framing emphasizes positive community impact with balanced acknowledgment of persistent issues."
+notableConcerns:
+  - "Oversimplified scientific claim on brain scans linking scrolling directly to alcohol effects"
+keyMoments:
+  - claim: "Community poll of 800 found 95% of teachers saw increased anxiety levels linked to online world"
+    verdict: "verified"
+    note: "Matches initiative reports and repeated in CBS and other coverage of Harper's survey."
+  - claim: "Brain scans show scrolling activates the same brain areas as drinking alcohol"
+    verdict: "missing context"
+    note: "Student paraphrase of addiction studies; research notes similar white-matter changes in internet vs substance addiction but not identical real-time effects."
+  - claim: "Kids show better focus in school and improved sleep after initiative"
+    verdict: "verified"
+    note: "Anecdotal reports from teachers and parents in Greystones coverage and evaluation summaries."
+videoId: "U8h9Qbxl_ng"
+videoTitle: "How an Irish village is bringing back smartphone-free childhoods"
+thumbnail: "https://img.youtube.com/vi/U8h9Qbxl_ng/maxresdefault.jpg"
+citations:
+  - title: "It Takes A Village Greystones | It Takes A Village | Ireland"
+    url: "https://www.ittakesavillagegreystones-delgany.com/"
+  - title: "A Phone-Free Childhood? One Irish Village Is Making It Happen"
+    url: "https://www.nytimes.com/2026/03/25/realestate/ireland-cell-phones-children.html"
+  - title: "'Much easier to say no': Irish town unites in smartphone ban for young children"
+    url: "https://www.theguardian.com/technology/2023/jun/03/much-easier-to-say-no-irish-town-unites-in-smartphone-ban-for-young-children"
+  - title: "Pupils know the rules at our school – no smartphones"
+    url: "https://www.theguardian.com/commentisfree/2023/jul/31/pupils-school-smartphones-parents-teachers-social-media"
+  - title: "(PDF) It Takes A Village Report: Research Evaluation"
+    url: "https://www.researchgate.net/publication/390073808_It_Takes_A_Village_Report_Research_Evaluation"
+  - title: "'The level of anxiety we're facing in schools is unprecedented'"
+    url: "https://www.irishtimes.com/ireland/education/2023/05/11/the-level-of-anxiety-were-facing-in-schools-is-unprecedented/"
+  - title: "Wicklow teachers 'overwhelmed' as anxiety rises in primary schools"
+    url: "https://www.independent.ie/county/wicklow/bray-news/wicklow-teachers-overwhelmed-as-anxiety-rises-in-primary-schools/a/134743015.html"
+  - title: "The Irish town tackling anxiety by keeping kids off smartphones"
+    url: "https://www.abc.net.au/listen/programs/canberra-mornings/greystones-phone-free-childhood/106521050"
+  - title: "What the Tech? Possible lessons from the Greystones pack"
+    url: "https://www.wrdw.com/2025/09/23/what-tech-possible-lessons-greystones-pack/"
+  - title: "What The Tech: A Irish town's pact to keep kids phone free"
+    url: "https://www.waka.com/2025/09/16/what-the-tech-a-irish-towns-pact-to-keep-kids-phone-free/"
+  - title: "U.K. announces plan to ban social media for children under 16"
+    url: "https://www.wwaytv3.com/u-k-announces-plan-to-ban-social-media-for-children-under-16/"
+  - title: "How one Irish town preserves a phone-free adolescence"
+    url: "https://www.wpsdlocal6.com/news/how-one-irish-town-preserves-a-phone-free-adolescence/article_3e9c7493-2225-4aaa-995b-9503f95c795e.html"
+---
+
+
