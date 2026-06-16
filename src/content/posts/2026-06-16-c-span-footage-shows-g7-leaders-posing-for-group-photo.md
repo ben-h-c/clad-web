@@ -1,0 +1,60 @@
+---
+type: "broadcast"
+headline: "C-SPAN Footage Shows G7 Leaders Posing for Group Photo"
+summary: "The clip captures audio from a G7 summit group photo session, including leaders greeting each other, posing directions from photographers, and brief exchanges. Segments feature casual remarks such as references to a 'famous couple' and a translator.\nThe broadcast is raw C-SPAN footage with no narration, graphics, or named experts; it serves as direct documentation of the event's photo op."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=XSXvoOGTVdU"
+sourceTitle: "C-SPAN"
+section: "Politics"
+letterGrade: "B+"
+factualityScore: 85
+politicalLean: "center"
+leanScore: 0
+leanRationale: "C-SPAN provides neutral, non-partisan documentation without commentary or selective framing"
+gradeRationale: "Graded B+: raw unedited footage with no analytical claims or errors, but minimal substantive content or sourcing"
+topics:
+  - "G7 summit"
+  - "World leaders"
+assessment: "The video offers an unfiltered audio snapshot of leaders interacting during the traditional G7 'family photo,' accurately reflecting the informal atmosphere of such summits. No factual assertions are made that require verification, reducing opportunities for distortion or omission. Viewers miss broader context on which leaders attended, the summit's agenda topics like economic or geopolitical issues, and outcomes. As primary footage, it holds high documentary value but provides little analytical depth or surrounding events."
+notableConcerns: []
+keyMoments:
+  - claim: "Leaders exchange greetings during group photo setup"
+    verdict: "verified"
+    note: "Direct audio from the event; consistent with standard G7 photo op procedures documented by C-SPAN"
+  - claim: "Reference to 'famous couple' and enjoyment of the setting"
+    verdict: "verified"
+    note: "Casual leader remarks captured on microphone; typical of informal summit interactions"
+  - claim: "Photographers direct positions for the group shot"
+    verdict: "verified"
+    note: "Matches routine instructions at official leader gatherings"
+videoId: "XSXvoOGTVdU"
+videoTitle: "G7 Group Photo"
+thumbnail: "https://img.youtube.com/vi/XSXvoOGTVdU/maxresdefault.jpg"
+citations:
+  - title: "President Trump Participates in a Group Photo with World Leaders at G7 Summit"
+    url: "https://www.c-span.org/program/white-house-event/president-trump-participates-in-group-photo-with-world-leaders-at-g7-summit/681128"
+  - title: "G-7 Group Photo | June 16, 2025"
+    url: "https://www.c-span.org/program/white-house-event/g-7-group-photo/661298"
+  - title: "G-7 Group Photo with Pope Francis | Video"
+    url: "https://www.c-span.org/program/public-affairs-event/g-7-group-photo-with-pope-francis/643572"
+  - title: "G-7 Summit World Leaders Official Photo"
+    url: "https://www.c-span.org/program/white-house-event/g-7-summit-world-leaders-official-photo/505096"
+  - title: "G-7 Group Photo | June 12, 2021"
+    url: "https://www.c-span.org/program/white-house-event/g-7-group-photo/594822"
+  - title: "G-7 Summit | Organization | C-SPAN.org"
+    url: "https://www.c-span.org/organization/g-7-summit/130449/"
+  - title: "Pres. Trump, G7 Leaders & Ukrainian Pres. Zelensky Take Photo Before Meeting"
+    url: "https://www.c-span.org/event/white-house-event/pres-trump-g7-leaders-ukrainian-pres-zelensky-take-photo-before-meeting/444103"
+  - title: "Secretary Rubio Poses for G7 Group Photo at Foreign Ministers' Meeting"
+    url: "https://www.c-span.org/program/public-affairs-event/secretary-rubio-poses-for-g7-group-photo-at-foreign-ministers-meeting/668930"
+  - title: "G7 Summit, Kananaskis: group photo with Outreach Countries"
+    url: "https://audiovisual.ec.europa.eu/en/media/video/I-273889"
+  - title: "G7 Summit: Watch Trump, Macron, Meloni and other world leaders pose for photos"
+    url: "https://www.youtube.com/watch?v=XK9lhsPHZmQ"
+  - title: "G7 2026: Macron Hosts Trump, Starmer, Carney, Meloni, Merz and Japan’s Takaichi for Photo Op"
+    url: "https://www.youtube.com/watch?v=70_qlLMI5Sk"
+  - title: "Watch: A trade deal, a family photo and the Middle East"
+    url: "https://www.bbc.com/news/videos/cy4nyldel8yo"
+---
+
+
