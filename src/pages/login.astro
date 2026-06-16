@@ -3,6 +3,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getAuth, enabledSocialProviders } from "~/lib/auth-server";
 
 export const prerender = false;
+Astro.response.headers.set("Cache-Control", "no-store");
 
 const session = await getAuth().api.getSession({ headers: Astro.request.headers });
 if (session?.user) return Astro.redirect("/account/");

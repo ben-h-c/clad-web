@@ -3,6 +3,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getAuth } from "~/lib/auth-server";
 
 export const prerender = false;
+Astro.response.headers.set("Cache-Control", "no-store");
 
 const error = Astro.url.searchParams.get("error");
 const session = await getAuth().api.getSession({ headers: Astro.request.headers });

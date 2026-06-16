@@ -3,6 +3,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getAuth, enabledSocialProviders } from "~/lib/auth-server";
 
 export const prerender = false;
+Astro.response.headers.set("Cache-Control", "no-store");
 
 const session = await getAuth().api.getSession({ headers: Astro.request.headers });
 if (session?.user) return Astro.redirect("/account/");
@@ -63,15 +64,8 @@ const providers = enabledSocialProviders();
         });
         const data = await res.json().catch(() => ({}));
         if (!res.ok) throw new Error(data.message || "Could not create account.");
-        // If verification is required, the new account won't have a session yet.
-        const s = await fetch("/api/auth/get-session", { headers: { accept: "application/json" } })
-          .then((r) => (r.ok ? r.json() : null))
-          .catch(() => null);
-        if (s && s.user) {
-          window.location.href = "/account/";
-          return;
-        }
-        // Replace the whole panel with a clear "check your email" confirmation.
+        // Email verification is required, so a new account never gets a session
+        // here — always show the "check your email" confirmation.
         const addr = emailEl.value.trim();
         const article = document.getElementById("register-article");
         const h = document.createElement("h2");
