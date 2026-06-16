@@ -36,6 +36,9 @@ export interface AgentConfig {
   criticalityWeight?: number; // weight of Grok importance score
   stickiness?: number; // incumbent bonus so the strip only swaps for clearly-bigger news
   maxPerTopic?: number; // cap cards per broad topic
+  // quip-writer
+  quipCount?: number; // how many new quips to generate per run
+  maxQuipPool?: number; // cap the rolling pool size
 }
 
 export interface AgentLastRun {
@@ -152,6 +155,17 @@ export const DEFAULT_REGISTRY: Registry = {
         criticalityWeight: 0.35,
         stickiness: 0.15,
         maxPerTopic: 2,
+      },
+    },
+    {
+      id: "quip-writer",
+      kind: "quip-writer",
+      name: "Quip Writer (fun ticker)",
+      enabled: true,
+      cron: "0 9 */3 * *", // ~every 3 days, 09:00 UTC
+      config: {
+        quipCount: 30,
+        maxQuipPool: 120,
       },
     },
   ],
@@ -470,6 +484,33 @@ export async function setSearchCategories(kv: KVNamespace, list: SearchCategory[
     .filter((c) => c.id && c.label)
     .slice(0, 200);
   await kv.put(CATEGORIES_KEY, JSON.stringify(clean));
+}
+
+/* ---------- fun quip ticker ----------
+ * Grok writes witty one-liners for the for-fun ticker under the Front Page; the
+ * runner refreshes the pool every few days and the home page reads it. */
+
+const QUIPS_KEY = "quips:list";
+
+export interface QuipData {
+  updatedAt: string;
+  quips: string[];
+}
+
+export async function getQuips(kv: KVNamespace): Promise<QuipData | null> {
+  const raw = await kv.get(QUIPS_KEY);
+  if (!raw) return null;
+  try {
+    const v = JSON.parse(raw);
+    return v && Array.isArray(v.quips) ? (v as QuipData) : null;
+  } catch {
+    return null;
+  }
+}
+
+export async function setQuips(kv: KVNamespace, quips: string[]): Promise<void> {
+  const data: QuipData = { updatedAt: new Date().toISOString(), quips };
+  await kv.put(QUIPS_KEY, JSON.stringify(data));
 }
 
 /* ---------- markets ticker ----------

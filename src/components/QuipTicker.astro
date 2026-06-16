@@ -1,0 +1,35 @@
+---
+import type { QuipData } from "~/lib/agents";
+
+interface Props {
+  data: QuipData | null;
+}
+const { data } = Astro.props;
+
+// Fallback so the strip is never empty before the quip-writer first runs.
+const FALLBACK = [
+  "Go touch some grass, none of this really matters to you.",
+  "You will not remember this headline in a week.",
+  "Breaking: you are doing great, actually.",
+  "The algorithm is not your friend. Neither is the ticker above this one.",
+  "Drink some water. The news will still be here.",
+  "Nobody is thinking about you as much as you fear. Refreshing, right?",
+  "Hot take: log off and go outside for a bit.",
+];
+const quips = (data?.quips && data.quips.length ? data.quips : FALLBACK);
+// Repeat so the marquee loops seamlessly (animation shifts by 50%).
+const loop = [...quips, ...quips];
+---
+<section class="quips" aria-label="For fun">
+  <span class="quips__label small-caps">For Fun</span>
+  <div class="quips__viewport">
+    <div class="quips__track" style={`--n:${quips.length}`}>
+      {loop.map((q, i) => (
+        <span class="quips__item" aria-hidden={i >= quips.length ? "true" : undefined}>
+          <span class="quips__star" aria-hidden="true">✦</span>
+          {q}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>

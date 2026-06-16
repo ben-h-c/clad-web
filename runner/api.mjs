@@ -81,6 +81,14 @@ export function setTicker(quotes) {
   return call("/api/agent/ticker", { method: "POST", body: JSON.stringify({ quotes }) });
 }
 
+export function getQuips() {
+  return call("/api/agent/quips", { method: "GET" });
+}
+
+export function setQuips(quips) {
+  return call("/api/agent/quips", { method: "POST", body: JSON.stringify({ quips }) });
+}
+
 export function getClassifications() {
   return call("/api/agent/classify", { method: "GET" });
 }

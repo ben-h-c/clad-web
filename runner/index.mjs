@@ -12,6 +12,7 @@ import { runYoutubeScanner } from "./youtubeScanner.mjs";
 import { runFrontpageCurator } from "./frontpageCurator.mjs";
 import { runBreakingCurator } from "./breakingCurator.mjs";
 import { runComplianceAuditor } from "./complianceAuditor.mjs";
+import { runQuipWriter } from "./quipWriter.mjs";
 import { processUrlQueue } from "./urlIntake.mjs";
 import { updateTicker } from "./ticker.mjs";
 
@@ -24,6 +25,7 @@ const KINDS = {
   "frontpage-curator": runFrontpageCurator,
   "breaking-news-curator": runBreakingCurator,
   "compliance-auditor": runComplianceAuditor,
+  "quip-writer": runQuipWriter,
 };
 
 function log(...args) {

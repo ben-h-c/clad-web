@@ -2693,6 +2693,73 @@ button.small {
   }
 }
 
+/* ---------- for-fun quip ticker ---------- */
+.quips {
+  display: flex;
+  align-items: stretch;
+  margin: 1.1rem 0;
+  border-top: 1px dashed var(--rule);
+  border-bottom: 1px dashed var(--rule);
+  overflow: hidden;
+}
+.quips__label {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 0.85rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--muted-ink);
+  white-space: nowrap;
+  border-right: 1px dashed var(--rule);
+}
+.quips__viewport {
+  flex: 1 1 auto;
+  overflow: hidden;
+  position: relative;
+}
+.quips__track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+  /* Slower, easygoing scroll; scales with item count. */
+  animation: quips-scroll calc(var(--n, 8) * 6s) linear infinite;
+}
+.quips:hover .quips__track {
+  animation-play-state: paused;
+}
+.quips__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.4rem;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+.quips__star {
+  color: var(--muted-ink);
+  font-style: normal;
+  font-size: 0.7rem;
+}
+@keyframes quips-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .quips__viewport {
+    overflow-x: auto;
+  }
+  .quips__track {
+    animation: none;
+  }
+}
+
 /* ---------- reader flag form (article page) ---------- */
 .flag {
   margin: 1.25rem 0;
