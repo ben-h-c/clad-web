@@ -1,0 +1,210 @@
+---
+// First-visit onboarding overlay. Auto-opens once per visitor (localStorage),
+// and can be re-opened anytime via the "How it works" footer link. Visuals are
+// themed CSS/SVG mockups (not raster screenshots) so they stay crisp and never
+// go stale as the UI evolves.
+---
+<div class="tour" id="tour" hidden aria-hidden="true">
+  <div class="tour__backdrop" data-tour-skip></div>
+  <div class="tour__dialog" role="dialog" aria-modal="true" aria-labelledby="tour-title">
+    <button type="button" class="tour__close" data-tour-skip aria-label="Close intro">×</button>
+
+    <div class="tour__viewport">
+      <!-- 1 — Welcome -->
+      <section class="tour__step" data-step="0">
+        <div class="tour__art">
+          <div class="mk-card">
+            <span class="mk-grade">B+</span>
+            <div class="mk-lines"><i></i><i></i><i class="short"></i></div>
+            <div class="mk-lean"><span style="left:62%"></span></div>
+          </div>
+        </div>
+        <p class="tour__kicker">Welcome to</p>
+        <h2 class="tour__heading" id="tour-title">CladFacts</h2>
+        <p class="tour__text">
+          We read the news so you can trust it. Our AI analyzes news articles and
+          TV segments, then grades each one for <strong>factual quality</strong>
+          and rates its <strong>political lean</strong> — and every verdict is
+          hand-reviewed before it's published.
+        </p>
+      </section>
+
+      <!-- 2 — Breaking News -->
+      <section class="tour__step" data-step="1" hidden>
+        <div class="tour__art">
+          <ol class="mk-breaking">
+            <li><b>1</b><i></i></li>
+            <li><b>2</b><i></i></li>
+            <li><b>3</b><i class="short"></i></li>
+          </ol>
+        </div>
+        <p class="tour__kicker">Breaking News</p>
+        <h2 class="tour__heading">The biggest stories, ranked by impact</h2>
+        <p class="tour__text">
+          The top strip surfaces what matters most right now. When several outlets
+          cover the same event, we group them so you see the whole picture — not
+          the same story five times.
+        </p>
+      </section>
+
+      <!-- 3 — Front Page -->
+      <section class="tour__step" data-step="2" hidden>
+        <div class="tour__art">
+          <div class="mk-cards">
+            <div class="mk-thumb"><span>A-</span></div>
+            <div class="mk-thumb"><span>C+</span></div>
+            <div class="mk-thumb"><span>B</span></div>
+          </div>
+        </div>
+        <p class="tour__kicker">Front Page</p>
+        <h2 class="tour__heading">Talk shows, fact-checked</h2>
+        <p class="tour__text">
+          Roundtables and commentary — Fox &amp; Friends, The View, Bill Maher,
+          Jon Stewart and more — get the same grade and lean treatment as hard
+          news, so you can weigh the talk against the facts.
+        </p>
+      </section>
+
+      <!-- 4 — Grades & lean -->
+      <section class="tour__step" data-step="3" hidden>
+        <div class="tour__art">
+          <div class="mk-scale">
+            <span class="g a">A</span><span class="g b">B</span><span class="g c">C</span><span class="g d">D</span><span class="g f">F</span>
+          </div>
+          <div class="mk-leanbar">
+            <span class="l">Left</span>
+            <div class="bar"><i style="left:30%"></i></div>
+            <span class="r">Right</span>
+          </div>
+        </div>
+        <p class="tour__kicker">How we score</p>
+        <h2 class="tour__heading">A letter grade and a lean — with reasons</h2>
+        <p class="tour__text">
+          The <strong>grade</strong> (A+ to F) reflects factual accuracy and
+          sourcing. The <strong>lean</strong> shows how far left or right the
+          framing tilts. Each report explains <em>why</em> it got its grade and
+          lean — and you can flag any you disagree with.
+        </p>
+      </section>
+
+      <!-- 5 — Charts & topics -->
+      <section class="tour__step" data-step="4" hidden>
+        <div class="tour__art">
+          <div class="mk-chart">
+            <i style="height:40%"></i><i style="height:70%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:30%"></i>
+          </div>
+        </div>
+        <p class="tour__kicker">By the Numbers</p>
+        <h2 class="tour__heading">See the patterns</h2>
+        <p class="tour__text">
+          Charts break down bias and grading by network, and the Topics section
+          groups coverage by issue so you can compare how different outlets handle
+          the same story.
+        </p>
+      </section>
+
+      <!-- 6 — Account -->
+      <section class="tour__step" data-step="5" hidden>
+        <div class="tour__art">
+          <div class="mk-perks">
+            <span><b>♥</b>Save articles</span>
+            <span><b>🔔</b>Topic alerts</span>
+            <span><b>✉</b>Newsletter</span>
+          </div>
+        </div>
+        <p class="tour__kicker">Make it yours</p>
+        <h2 class="tour__heading">Create a free account</h2>
+        <p class="tour__text">
+          Save articles to read later, follow the topics you care about, and opt
+          in to alerts and our newsletter. Always free to browse — no account
+          required.
+        </p>
+        <div class="tour__cta">
+          <a class="auth-submit" href="/register/" data-tour-skip>Create account</a>
+          <button type="button" class="auth-submit secondary" data-tour-skip>Browse the site</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="tour__footer">
+      <button type="button" class="tour__skip" data-tour-skip>Skip</button>
+      <div class="tour__dots" id="tour-dots" aria-hidden="true"></div>
+      <div class="tour__nav">
+        <button type="button" class="tour__back" id="tour-back" hidden>Back</button>
+        <button type="button" class="tour__next" id="tour-next">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (() => {
+    const KEY = "clad_tour_v1";
+    const tour = document.getElementById("tour");
+    if (!tour) return;
+    const steps = Array.from(tour.querySelectorAll(".tour__step"));
+    const dotsWrap = document.getElementById("tour-dots");
+    const back = document.getElementById("tour-back");
+    const next = document.getElementById("tour-next");
+    let i = 0;
+
+    // Build dots.
+    const dots = steps.map((_, n) => {
+      const d = document.createElement("span");
+      d.className = "tour__dot";
+      d.addEventListener("click", () => go(n));
+      dotsWrap.append(d);
+      return d;
+    });
+
+    const render = () => {
+      steps.forEach((s, n) => (s.hidden = n !== i));
+      dots.forEach((d, n) => d.classList.toggle("is-on", n === i));
+      back.hidden = i === 0;
+      next.textContent = i === steps.length - 1 ? "Finish" : "Next";
+    };
+    const go = (n) => { i = Math.max(0, Math.min(steps.length - 1, n)); render(); };
+
+    const open = () => {
+      tour.hidden = false;
+      tour.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      go(0);
+    };
+    const close = () => {
+      tour.hidden = true;
+      tour.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      try { localStorage.setItem(KEY, "1"); } catch {}
+    };
+
+    next.addEventListener("click", () => (i === steps.length - 1 ? close() : go(i + 1)));
+    back.addEventListener("click", () => go(i - 1));
+    tour.querySelectorAll("[data-tour-skip]").forEach((el) =>
+      el.addEventListener("click", (e) => {
+        // Let the "Create account" link navigate; still mark as seen.
+        if (el.tagName !== "A") e.preventDefault();
+        close();
+      })
+    );
+    document.addEventListener("keydown", (e) => {
+      if (tour.hidden) return;
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowRight") next.click();
+      else if (e.key === "ArrowLeft" && i > 0) back.click();
+    });
+
+    // Re-open from the footer link, anywhere.
+    document.getElementById("how-it-works")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      open();
+    });
+
+    // Auto-open on first visit — but not on admin/auth utility pages.
+    const path = location.pathname;
+    const suppressed = /^\/(admin|login|register|account|verified)(\/|$)/.test(path);
+    let seen = true;
+    try { seen = !!localStorage.getItem(KEY); } catch {}
+    if (!seen && !suppressed) open();
+  })();
+</script>

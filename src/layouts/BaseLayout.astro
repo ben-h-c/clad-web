@@ -1,6 +1,7 @@
 ---
 import "~/styles/global.css";
 import Masthead from "~/components/Masthead.astro";
+import OnboardingTour from "~/components/OnboardingTour.astro";
 
 interface Props {
   title: string;
@@ -69,6 +70,8 @@ const shareImage = ogImage ? new URL(ogImage, site).href : null;
           Clad — AI-assisted reporting; every verdict is hand-reviewed.
           <a href="/about/">About</a>
           ·
+          <a href="#" id="how-it-works">How it works</a>
+          ·
           <a href="/privacy/">Privacy</a>
           ·
           <a href="/terms/">Terms</a>
@@ -81,5 +84,6 @@ const shareImage = ogImage ? new URL(ogImage, site).href : null;
         <p>© {new Date().getFullYear()} CladFacts LLC. All rights reserved.</p>
       </footer>
     </div>
+    <OnboardingTour />
   </body>
 </html>
