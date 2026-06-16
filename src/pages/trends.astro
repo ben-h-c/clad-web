@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
-import { buildTrends, leanColor, leanLabel } from "~/lib/trends";
+import { buildTrends, leanLabel } from "~/lib/trends";
 
 export const prerender = true;
 
@@ -33,37 +33,42 @@ const gradeText = (g: string | null) => (g ? `Avg grade ${g}` : "");
     ) : (
       <>
         <div class="trends__legend" aria-hidden="true">
-          <span class="lg"><i style="background:rgba(59,110,165,0.85)"></i> Leans left</span>
-          <span class="lg"><i style="background:rgba(140,140,140,0.6)"></i> Balanced</span>
-          <span class="lg"><i style="background:rgba(178,59,46,0.85)"></i> Leans right</span>
+          <span class="lg"><i style="background:#3b6ea5"></i> Left</span>
+          <span class="lg"><i style="background:#9a9a9a"></i> Center</span>
+          <span class="lg"><i style="background:#b23b2e"></i> Right</span>
           <span class="lg"><i class="lg__heavy"></i> Heavy news week</span>
         </div>
 
         <figure class="trendchart" role="img"
           aria-label={`Weekly coverage volume and political lean from ${weeks[0]!.label} to ${weeks[weeks.length - 1]!.label}.`}>
-          <div class="trendchart__scroll">
-            <div class="trendchart__plot" style={`--h:${CHART_H}px`}>
-              {weeks.map((w) => (
-                <div class={`tc-col${w.heavy ? " is-heavy" : ""}${w.skewed ? " is-skewed" : ""}`}>
-                  <div class="tc-bars" style={`height:${CHART_H}px`}>
-                    {w.heavy && <span class="tc-flag" title="Heavy news week">▲</span>}
-                    <span class="tc-count">{w.count || ""}</span>
-                    <span
-                      class="tc-bar"
-                      style={`height:${Math.round((w.count / maxCount) * (CHART_H - 22))}px;background:${leanColor(w.avgLean)}`}
-                      title={`${w.label} · ${w.count} ${w.count === 1 ? "report" : "reports"} · ${leanLabel(w.avgLean)}${w.avgGrade ? ` · avg grade ${w.avgGrade}` : ""}`}
-                    ></span>
+          <div class="trendchart__plot" style={`--h:${CHART_H}px`}>
+            {weeks.map((w) => {
+              const known = w.left + w.center + w.right;
+              const none = Math.max(0, w.count - known);
+              const barH = Math.round((w.count / maxCount) * CHART_H);
+              return (
+                <div class={`tc-col${w.heavy ? " is-heavy" : ""}`}>
+                  {w.heavy && <span class="tc-flag" title="Heavy news week">▲</span>}
+                  <span class="tc-count">{w.count || ""}</span>
+                  <div class="tc-track" style={`height:${CHART_H}px`}>
+                    <div class="tc-stack" style={`height:${barH}px`}
+                      title={`${w.label} · ${w.count} ${w.count === 1 ? "report" : "reports"} — ${w.left} left · ${w.center} center · ${w.right} right`}>
+                      {w.right > 0 && <span class="seg seg--r" style={`flex:${w.right}`}></span>}
+                      {w.center > 0 && <span class="seg seg--c" style={`flex:${w.center}`}></span>}
+                      {w.left > 0 && <span class="seg seg--l" style={`flex:${w.left}`}></span>}
+                      {none > 0 && <span class="seg seg--none" style={`flex:${none}`}></span>}
+                    </div>
                   </div>
-                  <div class="tc-lean" style={`background:${leanColor(w.avgLean)}`} title={leanLabel(w.avgLean)}></div>
                   <div class="tc-label">{w.label}</div>
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
           <figcaption class="trendchart__cap">
-            Bar height = number of reports that week. Color = net political lean
-            of that week's coverage. The strip beneath each bar shows the same
-            lean at a glance.
+            Bar height = number of reports that week. Each bar is split by how
+            many leaned <span class="ink-l">left</span>,
+            <span class="ink-c">center</span>, or
+            <span class="ink-r">right</span>.
           </figcaption>
         </figure>
 

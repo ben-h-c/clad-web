@@ -3936,69 +3936,61 @@ button.small {
   background:
     repeating-linear-gradient(0deg, transparent, transparent 33px, rgba(0, 0, 0, 0.04) 34px);
 }
-.trendchart__scroll { overflow-x: auto; padding: 1rem 1rem 0; }
 .trendchart__plot {
   display: flex;
   align-items: flex-end;
-  gap: 6px;
-  min-width: min-content;
+  gap: 8px;
+  padding: 1rem 1rem 0;
 }
 .tc-col {
-  flex: 1 0 30px;
-  min-width: 30px;
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-.tc-bars {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
 }
 .tc-flag {
-  position: absolute;
-  top: -2px;
   font-size: 0.7rem;
+  line-height: 1;
   color: rgb(150, 30, 20);
 }
 .tc-count {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   color: var(--muted-ink);
-  margin-bottom: 2px;
   font-variant-numeric: tabular-nums;
-  min-height: 0.9em;
+  min-height: 1em;
 }
-.tc-bar {
-  width: 70%;
-  max-width: 30px;
+.tc-track {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.tc-stack {
+  width: 78%;
+  max-width: 52px;
   min-height: 2px;
-  border: 1px solid rgba(0, 0, 0, 0.18);
-  border-bottom: none;
-  transition: filter 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
-.tc-col.is-heavy .tc-bar { box-shadow: 0 -2px 0 rgb(150, 30, 20); }
-.tc-bar:hover { filter: brightness(1.08); }
-.tc-lean {
-  width: 70%;
-  max-width: 30px;
-  height: 6px;
-  margin-top: 3px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-}
+.tc-col.is-heavy .tc-stack { box-shadow: 0 -3px 0 rgb(150, 30, 20); }
+.seg { display: block; width: 100%; min-height: 0; }
+.seg--l { background: #3b6ea5; }
+.seg--c { background: #9a9a9a; }
+.seg--r { background: #b23b2e; }
+.seg--none { background: rgba(0, 0, 0, 0.08); }
 .tc-label {
   margin-top: 5px;
-  font-size: 0.6rem;
+  font-size: 0.62rem;
   color: var(--muted-ink);
-  white-space: nowrap;
-  transform: rotate(-45deg);
-  transform-origin: top right;
-  height: 3.2em;
-  width: 100%;
-  text-align: right;
+  text-align: center;
+  line-height: 1.15;
 }
+.ink-l { color: #2c5781; font-weight: 600; }
+.ink-c { color: #6d6d6d; font-weight: 600; }
+.ink-r { color: #8a2017; font-weight: 600; }
 .trendchart__cap {
   font-size: 0.78rem;
   color: var(--muted-ink);
