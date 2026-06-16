@@ -17,5 +17,18 @@ declare module "cloudflare:workers" {
     FACTCHECK_LIMITER: RateLimitBinding;
     AGENT_TOKEN: string;
     AGENTS: KVNamespace;
+    // User accounts (Better Auth on D1)
+    DB: D1Database;
+    BETTER_AUTH_SECRET: string;
+    BETTER_AUTH_URL?: string;
+    // Social providers (gated — present only once configured)
+    GOOGLE_CLIENT_ID?: string;
+    GOOGLE_CLIENT_SECRET?: string;
+    APPLE_CLIENT_ID?: string;
+    APPLE_CLIENT_SECRET?: string;
+    TWITTER_CLIENT_ID?: string;
+    TWITTER_CLIENT_SECRET?: string;
+    // Transactional email
+    RESEND_API_KEY?: string;
   }
 }

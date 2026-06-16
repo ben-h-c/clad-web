@@ -1,0 +1,82 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getAuth, enabledSocialProviders } from "~/lib/auth-server";
+
+export const prerender = false;
+
+const session = await getAuth().api.getSession({ headers: Astro.request.headers });
+if (session?.user) return Astro.redirect("/account/");
+
+const PROVIDER_LABELS: Record<string, string> = { google: "Google", apple: "Apple", twitter: "X" };
+const providers = enabledSocialProviders();
+---
+<BaseLayout title="Create account — Clad" description="Create a free CladFacts account to save preferences and set topic alerts.">
+  <article class="static-page auth-page">
+    <h2 class="static-page__title">Create your account</h2>
+    <p class="dateline">Save preferences and set up custom topic alerts.</p>
+
+    {providers.length > 0 && (
+      <div class="auth-social">
+        {providers.map((p) => (
+          <button type="button" class="auth-social__btn" data-provider={p}>Continue with {PROVIDER_LABELS[p] ?? p}</button>
+        ))}
+        <div class="auth-or"><span>or</span></div>
+      </div>
+    )}
+
+    <form id="register-form" class="auth-form">
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" autocomplete="name" required />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required />
+      </div>
+      <div class="field">
+        <label for="password">Password (8+ characters)</label>
+        <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required />
+      </div>
+      <button type="submit" class="auth-submit">Create account</button>
+      <div id="register-status" class="auth-status" role="status"></div>
+    </form>
+
+    <p class="auth-alt">Already have an account? <a href="/login/">Sign in</a></p>
+  </article>
+
+  <script is:inline>
+    const status = document.getElementById("register-status");
+    const setErr = (m) => { status.className = "auth-status auth-status--error"; status.textContent = m; };
+    document.getElementById("register-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector(".auth-submit");
+      btn.disabled = true;
+      status.textContent = "Creating your account…";
+      try {
+        const res = await fetch("/api/auth/sign-up/email", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: name.value.trim(), email: email.value.trim(), password: password.value }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.message || "Could not create account.");
+        window.location.href = "/account/";
+      } catch (err) { setErr(String(err.message || err)); btn.disabled = false; }
+    });
+    document.querySelectorAll(".auth-social__btn").forEach((b) => {
+      b.addEventListener("click", async () => {
+        b.disabled = true;
+        try {
+          const res = await fetch("/api/auth/sign-in/social", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ provider: b.getAttribute("data-provider"), callbackURL: "/account/" }),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (data.url) window.location.href = data.url;
+          else throw new Error(data.message || "Could not start sign-in.");
+        } catch (err) { setErr(String(err.message || err)); b.disabled = false; }
+      });
+    });
+  </script>
+</BaseLayout>

@@ -6,9 +6,10 @@ import { checkBasicAuth, unauthorized } from "~/lib/auth";
 // must bypass the editor basic-auth gate.
 const AGENT_API = (path: string) => path.startsWith("/api/agent/");
 
-// Public, unauthenticated endpoints (rate-limited inside the route). Readers
-// submit grade/lean disputes here from article pages — no login.
-const PUBLIC_API = (path: string) => path === "/api/flag";
+// Public, unauthenticated endpoints. Readers submit grade/lean disputes at
+// /api/flag (rate-limited in the route); /api/auth/* is the user-account
+// (Better Auth) surface and must not sit behind the editor basic-auth gate.
+const PUBLIC_API = (path: string) => path === "/api/flag" || path.startsWith("/api/auth/");
 
 const PROTECTED = (path: string) =>
   path === "/admin" ||

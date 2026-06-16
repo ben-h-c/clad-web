@@ -19,5 +19,9 @@
   // Agent state (registry, pending drafts, seen-ledger).
   "kv_namespaces": [
     { "binding": "AGENTS", "id": "231fcd9cfeaa4ed99367550cd2c10877" }
+  ],
+  // User accounts / sessions / preferences / alerts (Better Auth).
+  "d1_databases": [
+    { "binding": "DB", "database_name": "clad-users", "database_id": "afb89ef5-404e-4c68-b591-f96408fc7118" }
   ]
 }

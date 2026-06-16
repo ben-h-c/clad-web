@@ -1,0 +1,41 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getAuth } from "~/lib/auth-server";
+
+export const prerender = false;
+
+const session = await getAuth().api.getSession({ headers: Astro.request.headers });
+if (!session?.user) return Astro.redirect("/login/");
+const user = session.user;
+---
+<BaseLayout title="Your account — Clad" description="Your CladFacts account.">
+  <article class="static-page auth-page">
+    <h2 class="static-page__title">Your account</h2>
+
+    <dl class="account-meta">
+      <dt>Name</dt><dd>{user.name || "—"}</dd>
+      <dt>Email</dt><dd>{user.email}{user.emailVerified ? "" : " (unverified)"}</dd>
+    </dl>
+
+    <h3 class="static-page__sub">Preferences &amp; alerts</h3>
+    <p class="dateline">
+      Saved preferences and custom topic alerts are coming soon — your account is
+      ready for them.
+    </p>
+
+    <div class="account-actions">
+      <button type="button" id="logout-btn" class="auth-submit secondary">Sign out</button>
+      <span id="logout-status" class="auth-status"></span>
+    </div>
+  </article>
+
+  <script is:inline>
+    document.getElementById("logout-btn").addEventListener("click", async (e) => {
+      e.target.disabled = true;
+      try {
+        await fetch("/api/auth/sign-out", { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" });
+      } catch {}
+      window.location.href = "/";
+    });
+  </script>
+</BaseLayout>
