@@ -1,0 +1,61 @@
+---
+type: "broadcast"
+headline: "MSF Reports Persistent Gaps in DRC Ebola Response"
+summary: "The NBC News clip features an MSF field worker describing conditions during the ongoing Ebola outbreak in eastern DRC's Ituri province. The speaker details overwhelming caseloads, late-stage patient arrivals, household-level transmission, community deaths exceeding confirmed cases, and comparisons to the scale of the West Africa epidemic and prior DRC outbreaks.\n\nThe segment relays firsthand observations from an MSF team member on the ground for three weeks, emphasizing gaps in surveillance and response capacity one month after the May 15, 2026 declaration. It draws on MSF's direct operational experience without additional named experts or official graphics."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=MOpFn-BUwP0"
+sourceTitle: "NBC News"
+section: "Politics"
+letterGrade: "A-"
+factualityScore: 92
+politicalLean: "center"
+leanScore: 0
+leanRationale: "Straightforward humanitarian reporting with no discernible political framing, sourcing, or selective emphasis."
+gradeRationale: "Claims align closely with MSF's June 2026 statements and corroborated by WHO/CDC data on case scale, late presentations, and surveillance shortfalls; minor missing context on overall response scale-up."
+topics:
+  - "Ebola"
+  - "DRC"
+  - "MSF"
+assessment: "The broadcast accurately conveys MSF's documented warnings about response gaps, which match the organization's June 15 press release and align with independent assessments from WHO and CDC showing hundreds of confirmed cases with likely underreporting. Viewer perception is not skewed by loaded language or omission of counter-evidence, though broader context on government and international scale-up efforts receives little coverage. The personal testimony effectively highlights real operational challenges like late presentations and unknown true scale without exaggeration. Minor limitation is the absence of quantitative updates or discussion of Bundibugyo-specific diagnostic hurdles noted in other reporting."
+notableConcerns: []
+keyMoments:
+  - claim: "Deaths in the community significantly outweigh confirmed live cases"
+    verdict: "verified"
+    note: "Directly supported by MSF June 15 statement and modeling estimates indicating substantial undercounting of total cases."
+  - claim: "Patients arriving at very late stages with vomiting, diarrhea, and weakness; household transmission observed"
+    verdict: "verified"
+    note: "Matches MSF descriptions of overwhelmed centers and patients never identified as contacts."
+  - claim: "Largest outbreak Congo has seen in many years; scale not seen since start of West Africa epidemic"
+    verdict: "verified"
+    note: "Consistent with reports calling it the largest Bundibugyo outbreak and among DRC's larger recent events."
+videoId: "MOpFn-BUwP0"
+videoTitle: "MSF warns dangerous gaps persist in Ebola response"
+thumbnail: "https://img.youtube.com/vi/MOpFn-BUwP0/maxresdefault.jpg"
+citations:
+  - title: "DRC: MSF warns dangerous gaps persist in Ebola disease response"
+    url: "https://www.msf.org/drc-msf-warns-dangerous-gaps-persist-ebola-disease-response"
+  - title: "Ebola disease outbreak 2026: How MSF is responding"
+    url: "https://www.doctorswithoutborders.org/latest/ebola-disease-outbreak-2026-how-msf-responding"
+  - title: "Epidemic of Ebola Disease caused by Bundibugyo virus in the Democratic Republic of the Congo and Uganda determined a public health emergency of international concern"
+    url: "https://www.who.int/news/item/17-05-2026-epidemic-of-ebola-disease-in-the-democratic-republic-of-the-congo-and-uganda-determined-a-public-health-emergency-of-international-concern"
+  - title: "DR Congo/Uganda: Ebola Outbreak - May 2026"
+    url: "https://reliefweb.int/disaster/ep-2026-000071-cod"
+  - title: "2026 Ebola epidemic"
+    url: "https://en.wikipedia.org/wiki/2026_Ebola_epidemic"
+  - title: "Ebola disease outbreak in the Democratic Republic of the Congo and Uganda"
+    url: "https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda"
+  - title: "Bundibugyo virus disease outbreak in Ituri, Democratic Republic of the Congo"
+    url: "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(26)01072-X/abstract"
+  - title: "NGO warns Ebola epidemic is 'outpacing' response efforts in DRC"
+    url: "https://www.rfi.fr/en/africa/20260615-ngo-warns-ebola-epidemic-is-outpacing-response-efforts-in-drc-msf-ituri-bunia"
+  - title: "Ebola outbreak in DR Congo collides with conflict and hunger"
+    url: "https://news.un.org/en/story/2026/05/1167592"
+  - title: "Distrust, conflict hamper Congo's Ebola response"
+    url: "https://www.npr.org/2026/05/27/nx-s1-5834940/ebola-outbreak-congo"
+  - title: "Ebola spread in DR Congo 'deeply alarming', MSF warns"
+    url: "https://www.bbc.com/news/articles/c99ldxykz4zo"
+  - title: "Ebola disease caused by Bundibugyo virus, Democratic Republic of the Congo"
+    url: "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON605"
+---
+
+
