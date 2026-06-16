@@ -36,9 +36,12 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   /* Never allow sideways scroll of the page itself (the hero strip keeps its
-     own internal horizontal scroll). */
+     own internal horizontal scroll). Use `clip` not `hidden`: `hidden` makes
+     the body a scroll container, which breaks the sticky quip ticker (it would
+     pin to the page top instead of the viewport); `clip` prevents sideways
+     scroll without creating a scroll container. */
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Media never forces the page wider than the screen. */
