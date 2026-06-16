@@ -8,6 +8,7 @@
   <div class="tour__backdrop" data-tour-skip></div>
   <div class="tour__dialog" role="dialog" aria-modal="true" aria-labelledby="tour-title">
     <button type="button" class="tour__close" data-tour-skip aria-label="Close intro">×</button>
+    <div class="tour__progress" aria-hidden="true"><span class="tour__bar" id="tour-bar"></span></div>
 
     <div class="tour__viewport">
       <!-- 1 — Welcome -->
@@ -130,6 +131,7 @@
       <button type="button" class="tour__skip" data-tour-skip>Skip</button>
       <div class="tour__dots" id="tour-dots" aria-hidden="true"></div>
       <div class="tour__nav">
+        <span class="tour__count" id="tour-count" aria-hidden="true"></span>
         <button type="button" class="tour__back" id="tour-back" hidden>Back</button>
         <button type="button" class="tour__next" id="tour-next">Next</button>
       </div>
@@ -146,6 +148,8 @@
     const dotsWrap = document.getElementById("tour-dots");
     const back = document.getElementById("tour-back");
     const next = document.getElementById("tour-next");
+    const bar = document.getElementById("tour-bar");
+    const count = document.getElementById("tour-count");
     let i = 0;
 
     // Build dots.
@@ -158,10 +162,21 @@
     });
 
     const render = () => {
-      steps.forEach((s, n) => (s.hidden = n !== i));
+      steps.forEach((s, n) => {
+        s.hidden = n !== i;
+        s.classList.toggle("is-active", n === i);
+      });
+      // Restart the active step's entrance animation (remove → reflow → add).
+      const active = steps[i];
+      active.classList.remove("play");
+      void active.offsetWidth;
+      active.classList.add("play");
+
       dots.forEach((d, n) => d.classList.toggle("is-on", n === i));
       back.hidden = i === 0;
       next.textContent = i === steps.length - 1 ? "Finish" : "Next";
+      bar.style.width = ((i + 1) / steps.length) * 100 + "%";
+      count.textContent = i + 1 + " / " + steps.length;
     };
     const go = (n) => { i = Math.max(0, Math.min(steps.length - 1, n)); render(); };
 
