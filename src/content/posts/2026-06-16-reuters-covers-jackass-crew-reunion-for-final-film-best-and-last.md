@@ -1,0 +1,61 @@
+---
+type: "broadcast"
+headline: "Reuters covers Jackass crew reunion for final film 'Best and Last'"
+summary: "The Reuters segment features brief interview clips with Jackass cast members discussing the upcoming 'Jackass: Best and Last' as their final film. They reflect on age, the physical toll of stunts, and their approach to producing raw footage without extensive resources.\nThe report draws from CinemaCon presentation footage and ties into the film's June 26, 2026 theatrical release by Paramount, mixing new stunts with archival material. Sourcing relies on direct cast quotes and official film announcements rather than anonymous sources."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=0y7RY8Qpx2w"
+sourceTitle: "Reuters"
+section: "Politics"
+letterGrade: "A"
+factualityScore: 92
+politicalLean: "center"
+leanScore: 0
+leanRationale: "No discernible political slant; neutral entertainment reporting focused on factual promotion and cast remarks."
+gradeRationale: "Accurate, well-sourced reporting on verified film details and cast comments; minor limitation is short runtime providing limited depth."
+topics:
+  - "Jackass film"
+  - "Entertainment news"
+  - "Movie release"
+assessment: "The broadcast accurately conveys the cast's stated rationale for ending the franchise and aligns with confirmed details on the film's production and release. Viewers receive a concise promotional snapshot but miss broader context such as specific new stunts, full cast involvement including archival appearances, or critical reception of prior entries. Framing remains straightforward and non-sensationalized, consistent with Reuters standards, with no evident omissions or loaded language skewing perception."
+notableConcerns: []
+keyMoments:
+  - claim: "Stuntmen and milk both have an expiration date, signaling time to stop"
+    verdict: "verified"
+    note: "Direct quote from cast interview matching Reuters coverage of the final film announcement."
+  - claim: "The crew is older, not necessarily wiser"
+    verdict: "verified"
+    note: "Cast reflection consistent with promotional material for 'Jackass: Best and Last'."
+  - claim: "They didn't start with much nor pick up much along the way to capture the footage"
+    verdict: "verified"
+    note: "Quote emphasizing low-budget origins, corroborated by the film's documented history and Reuters reporting."
+videoId: "0y7RY8Qpx2w"
+videoTitle: "🫏 'Jackass' crew reunite for final emotion-filled film"
+thumbnail: "https://img.youtube.com/vi/0y7RY8Qpx2w/maxresdefault.jpg"
+citations:
+  - title: "Older, not wiser 'Jackass' crew reunite for final emotion-filled film"
+    url: "https://www.reuters.com/business/media-telecom/older-not-wiser-jackass-crew-reunite-final-emotion-filled-film-2026-06-15/"
+  - title: "'Jackass: Best and Last' crew reunite for final emotion-filled film"
+    url: "https://www.reuters.com/video/watch/idRW934516062026RP1/"
+  - title: "Jackass: Best and Last (2026)"
+    url: "https://www.imdb.com/title/tt39316472/"
+  - title: "Jackass: Best and Last"
+    url: "https://en.wikipedia.org/wiki/Jackass:_Best_and_Last"
+  - title: "Jackass: Best and Last"
+    url: "https://www.rottentomatoes.com/m/jackass_best_and_last"
+  - title: "‘Jackass: Best And Last’ Trailer: Johnny Knoxville And Company's Final Movie"
+    url: "https://deadline.com/2026/04/jackass-best-and-last-trailer-johnny-knoxville-1236873317/"
+  - title: "'Jackass: Best and Last' Trailer: Johnny Knoxville Stars in Final Installment"
+    url: "https://www.hollywoodreporter.com/movies/movie-news/jackass-best-and-last-trailer-johnny-knoxville-cinemacon-1236566444/"
+  - title: "New 'Jackass' Movie Coming to Theaters in June"
+    url: "https://variety.com/2026/film/news/jackass-5-movie-theaters-1236625797/"
+  - title: "Jackass: Best and Last | Paramount Pictures"
+    url: "https://www.paramountpictures.com/movies/jackass-best-and-last"
+  - title: "Jackass: Best and Last | Official Website"
+    url: "https://www.jackassmovie.com/"
+  - title: "The 'Jackass' Crew Go Out Swinging in 'Best and Last' Trailer"
+    url: "https://au.rollingstone.com/movies/movie-news/jackass-trailer-best-and-last-johnny-knoxville-94164/"
+  - title: "Jackass: Best and Last director says this really is the end"
+    url: "https://www.polygon.com/jackass-best-and-last-director-says-this-really-is-the-end/"
+---
+
+
