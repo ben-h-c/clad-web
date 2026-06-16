@@ -1,0 +1,61 @@
+---
+type: "broadcast"
+headline: "B-52 Crash at Edwards AFB Kills All Eight Aboard; Probe Ongoing"
+summary: "The ABC News segment reports on a B-52 Stratofortress crash at Edwards Air Force Base in California on June 15, 2026. It describes the aircraft taking off around 11:20 a.m. during a radar modernization test, crashing immediately, bursting into flames, and killing all eight people on board—a mixed crew of military personnel and civilians. Video from wildfire cameras and aerial footage show the smoke plume and charred wreckage on the runway. Officials call it an unsurvivable tragedy, note Boeing's two employees among the victims with family support offered, and state that the cause remains unknown with much information likely classified."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=kkbUttoMW1E"
+sourceTitle: "ABC News"
+section: "Politics"
+letterGrade: "A-"
+factualityScore: 92
+politicalLean: "center"
+leanScore: 0
+leanRationale: "Straightforward factual reporting relying on base officials, Boeing statements, and visual evidence; no partisan framing or selective emphasis."
+gradeRationale: "Graded A-: core facts verified by multiple official and primary sources with timely sourcing; minor deductions for limited context on test mission details and Boeing employees due to ongoing classified investigation."
+topics:
+  - "B-52 crash"
+  - "Edwards Air Force Base"
+  - "military aviation accident"
+assessment: "The broadcast accurately conveys official details from the base and Boeing without unsubstantiated speculation on the cause. It correctly notes the test mission context and the challenges of sharing classified information. Viewers may miss fuller background on the specific radar program or prior B-52 safety record at the base, but the reporting prioritizes confirmed facts over conjecture. No misleading visuals or quotes identified. The piece reflects standard breaking-news constraints on an active military investigation."
+notableConcerns: []
+keyMoments:
+  - claim: "B-52 crashed shortly after 11:20 a.m. takeoff at Edwards AFB during radar test, killing all eight aboard"
+    verdict: "verified"
+    note: "Confirmed by Edwards AFB statement, AP, and multiple outlets; crash deemed unsurvivable per Col. James Hayes."
+  - claim: "Crew included military and civilians; Boeing confirms two employees on board offering family support"
+    verdict: "verified"
+    note: "Matches base reports and Boeing statements cited across AP, BBC, and official releases."
+  - claim: "No indication of cause; much information classified due to military testing"
+    verdict: "verified"
+    note: "Directly from officials and consistent with base public affairs updates on the active investigation."
+videoId: "kkbUttoMW1E"
+videoTitle: "Eight killed in B-52 crash at California base"
+thumbnail: "https://img.youtube.com/vi/kkbUttoMW1E/maxresdefault.jpg"
+citations:
+  - title: "US Air Force B-52 bomber crashes after takeoff, killing 8"
+    url: "https://www.aljazeera.com/news/2026/6/15/us-air-force-b-52-bomber-crashes-after-takeoff-edwards-air-force-base-says"
+  - title: "Eight Crew Members Dead in B-52 Crash at Air Force Base"
+    url: "https://www.nytimes.com/2026/06/15/us/b-52-crash-edwards-air-force-base-california.html"
+  - title: "Air Force B-52 bomber crashes in California, killing all 8 on board"
+    url: "https://www.washingtonpost.com/national-security/2026/06/15/b-52-bomber-crashes-edwards-air-force-base-california/"
+  - title: "8 people died in B-52 bomber crash at US Air Force base in California"
+    url: "https://apnews.com/article/b52-crash-california-edwards-air-force-base-ea237a6eec587adbbf9e7a578014ca93"
+  - title: "Video shows aftermath of B-52 bomber crash at California’s Edwards Air Force Base"
+    url: "https://www.cnn.com/2026/06/15/us/video/edwards-air-force-base-b52-bomber-crash-digvid"
+  - title: "2026 Edwards Air Force Base B-52 crash"
+    url: "https://en.wikipedia.org/wiki/2026_Edwards_Air_Force_Base_B-52_crash"
+  - title: "B-52 crash at Edwards AFB kills 8 aboard: Officials"
+    url: "https://www.newsnationnow.com/us-news/military/b-52-aircraft-crash/"
+  - title: "Video. Eight killed in US Air Force B-52 bomber crash in California"
+    url: "https://www.euronews.com/video/2026/06/16/eight-killed-in-us-air-force-b-52-bomber-crash-in-california"
+  - title: "Edwards Air Force Base official statement on B-52 crash"
+    url: "https://www.facebook.com/EdwardsAirForceBase/posts/alert-a-united-states-air-force-b-52-stratofortress-crashed-shortly-after-takeof/1454596400041262/"
+  - title: "B-52 bomber crashes on takeoff at California Air Force base"
+    url: "https://www.nbcnews.com/video/b-52-bomber-crashes-on-takeoff-at-california-air-force-base-265120837595"
+  - title: "List of accidents and incidents involving the Boeing B-52"
+    url: "https://en.wikipedia.org/wiki/List_of_accidents_and_incidents_involving_the_Boeing_B-52_Stratofortress"
+  - title: "8 killed in B-52 crash: Air Force presser gives early details"
+    url: "https://www.youtube.com/watch?v=fy8jne_aBaE"
+---
+
+
