@@ -573,8 +573,8 @@ p {
 /* Left/right scroll arrows: faint until hovered. */
 .hero-arrow {
   position: absolute;
-  top: 0.5rem;
-  bottom: 1rem;
+  top: 33%;
+  bottom: 33%;
   z-index: 5;
   width: 3.25rem;
   padding: 0;
