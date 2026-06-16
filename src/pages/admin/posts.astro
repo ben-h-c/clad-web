@@ -36,12 +36,16 @@ const posts = (await getCollection("posts")).sort(
         <span id="post-search-count" class="dateline"></span>
       </div>
       <ul class="post-rows">
-        {posts.map((p) => (
+        {posts.map((p) => {
+          const search = [p.data.headline, (p.data.topics ?? []).join(" "), p.data.sourceTitle ?? "", p.id]
+            .join(" ")
+            .toLowerCase();
+          return (
           <li
             class="post-row"
             data-id={p.id}
             data-draft={p.data.draft ? "1" : "0"}
-            data-search={`${p.data.headline} ${(p.data.topics ?? []).join(" ")} ${p.data.sourceTitle ?? ""} ${p.id}`.toLowerCase()}
+            data-search={search}
           >
             <div class="post-row__main">
               {p.data.type === "broadcast" && p.data.letterGrade ? (
@@ -66,7 +70,8 @@ const posts = (await getCollection("posts")).sort(
               <span class="p-status"></span>
             </div>
           </li>
-        ))}
+          );
+        })}
       </ul>
       </>
     )}
