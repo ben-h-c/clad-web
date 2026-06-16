@@ -1,0 +1,61 @@
+---
+type: "broadcast"
+headline: "Congressional Hearing Questions EV Mandates' Effects on Motorcoaches"
+summary: "The clip shows Rep. John Joyce (R-PA) questioning American Bus Association executive Fred Ferguson during a House hearing on vehicle regulations and consumer choice. Joyce highlights past Biden administration emission rules and California's Advanced Clean Cars II waiver as de facto EV mandates that limit options, especially in rural areas, and notes Congress's use of Congressional Review Act resolutions to block them."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=wFku0IfwgTc"
+sourceTitle: "Forbes Breaking News"
+section: "Politics"
+letterGrade: "B+"
+factualityScore: 78
+politicalLean: "center-right"
+leanScore: 35
+leanRationale: "Frames Biden-era rules and California standards negatively as attacks on choice while emphasizing industry concerns and congressional pushback, with no counterbalancing perspectives presented."
+gradeRationale: "Graded B+: core claims on CRAs, costs, and rural impacts align with records and testimony, but NYC trip reduction figure and regulatory cost attribution lack precise sourcing and mix idling with EV rules."
+topics:
+  - "EV mandates"
+  - "motorcoaches"
+  - "Clean Air Act"
+  - "California regulations"
+assessment: "The broadcast accurately conveys the testimony on higher operating costs for electric motorcoaches and charging challenges for interstate routes. Ferguson's statements on doubled costs and market-driven adoption are consistent with industry positions, though broader data on total cost of ownership shows variability by electricity rates and use case. The 35% trip reduction claim to NYC tracks closely with recent ABA surveys on regulatory burdens but appears tied more to idling enforcement than EV-specific mandates in available records. Viewers miss details on infrastructure timelines, federal incentives for electric buses, and differing cost projections from government and industry analyses."
+notableConcerns:
+  - "Partial conflation of idling rules with EV compliance costs in cross-state impact discussion"
+keyMoments:
+  - claim: "Congress blocked California's Advanced Clean Cars II via CRAs including Joyce legislation"
+    verdict: "verified"
+    note: "H.J. Res. 88 and related resolutions passed House and Senate in 2025, disapproving EPA waivers."
+  - claim: "Electric motorcoach running costs about double conventional"
+    verdict: "verified"
+    note: "Ferguson testimony matches ABA statements; some regional data supports higher per-mile energy costs in specific cases."
+  - claim: "35% of East Coast operators reducing NYC trips due to $50k regulatory costs"
+    verdict: "missing context"
+    note: "ABA surveys cite ~40% reductions from idling enforcement; EV-specific attribution not directly corroborated in public data."
+videoId: "wFku0IfwgTc"
+videoTitle: "'Who's Going To Incur That Increased Cost?': Joyce Asks Bus Association CEO About EV Mandates"
+thumbnail: "https://img.youtube.com/vi/wFku0IfwgTc/maxresdefault.jpg"
+citations:
+  - title: "Ferguson Testifies Before Congress in Support of Bipartisan Bus Idling Legislation"
+    url: "https://www.buses.org/news/ferguson-testifies-before-congress-in-support-of-bipartisan-bus-idling-legislation/"
+  - title: "Environment - House Committee on Energy and Commerce"
+    url: "https://energycommerce.house.gov/committees/subcommittee/environment"
+  - title: "H.J.Res.88 - 119th Congress (2025-2026): Providing congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Environmental Protection Agency relating to \"California State Motor Vehicle and Engine Pollution Control Standards; Advanced Clean Cars II; Waiver of Preemption; Notice of Decision\""
+    url: "https://www.congress.gov/bill/119th-congress/house-joint-resolution/88"
+  - title: "Chairmen Guthrie and Griffith Along with Vice Chairman James and Obernolte Issue Statement on Passage of Bills to Stop California EV Mandates"
+    url: "https://energycommerce.house.gov/posts/chairmen-guthrie-and-griffith-issue-statement-on-passage-of-bills-to-stop-california-ev-mandates"
+  - title: "AFP Applauds Utilizing Congressional Review Act and Introduction of H.J. Res. 88 and Other Bills to Counter Biden EPA Overreach"
+    url: "https://americansforprosperity.org/press-release/afp-applauds-utilizing-congressional-review-act-and-introduction-of-h-j-res-88-and-other-bills-to-counter-biden-epa-overreach-2/"
+  - title: "NACAA Policy Background Kit – April 8, 2025"
+    url: "https://www.4cleanair.org/wp-content/uploads/NACAA-CRA-Policy-Toolkit-4_8_25.pdf"
+  - title: "Senate Passes Capito Resolution to End California’s EV Mandate"
+    url: "https://www.capito.senate.gov/news/press-releases/senate-passes-capito-resolution-to-end-californias-ev-mandate"
+  - title: "Congress Legally Can't Repeal California Clean Vehicle Waivers"
+    url: "https://www.sierraclub.org/press-releases/2025/04/sierra-club-statement-congress-legally-can-t-repeal-california-clean-vehicle"
+  - title: "California and the Clean Air Act (CAA) Waiver"
+    url: "https://www.congress.gov/crs-product/R48168"
+  - title: "Dr. Joyce Questions Witnesses on Consumer Choice for Vehicles"
+    url: "https://www.youtube.com/watch?v=TNKuq9K43uc"
+  - title: "American Bus Association Sues New York City Over Discriminatory Idling Enforcement"
+    url: "https://www.buses.org/news/american-bus-association-sues-new-york-city-over-discriminatory-idling-enforcement-that-threatens-interstate-transportation-and-the-citys-economy/"
+---
+
+
