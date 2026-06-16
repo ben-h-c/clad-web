@@ -73,7 +73,7 @@ const TOPIC_BUCKETS = [
   [/newsom|desantis|\bharris\b|\bbiden\b/i, "US Politics"],
   [/\btrump\b/i, "Trump"],
 ];
-function canonicalTopic(t) {
+export function canonicalTopic(t) {
   for (const [re, label] of TOPIC_BUCKETS) if (re.test(t)) return label;
   return t.trim();
 }
