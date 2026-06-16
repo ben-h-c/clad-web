@@ -1,0 +1,60 @@
+---
+type: "broadcast"
+headline: "Rep. Hernández Questions USFS on Proposed El Yunque Recreation Fees"
+summary: "The segment shows Resident Commissioner Pablo José Hernández questioning USFS Chief Schultz during a congressional hearing on a proposal to introduce recreation fees at El Portal del Yunque and La Mina areas of El Yunque National Forest. Hernández emphasizes that access is currently free and argues the new charges would burden Puerto Rican families facing economic challenges. Schultz confirms the proposal creates fees where none existed for those sites and notes the goal of improving trail maintenance and management. Hernández attributes the need for fees to Trump administration budget reductions for the Forest Service and contrasts it with other federal spending priorities."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=Rier3hnfwCQ"
+sourceTitle: "Forbes Breaking News"
+section: "Politics"
+letterGrade: "C+"
+factualityScore: 65
+politicalLean: "left"
+leanScore: -65
+leanRationale: "Frames fee proposal solely as result of Trump administration priorities including war spending and alleged slush fund; attributes shortfall exclusively to federal cuts without noting USFS rationale for maintenance funding."
+gradeRationale: "Core details on current free access and proposed $4/$10/$20/$30 fee structure verified by USFS documents; budget-cut framing partially supported but 75% slash, war spending, and slush-fund claims lack substantiation."
+topics:
+  - "El Yunque fees"
+  - "US Forest Service"
+  - "Puerto Rico public lands"
+assessment: "The exchange accurately captures the USFS fee proposal details released in May 2026, including the shift from free access to structured passes. However, Hernández's attribution of the proposal to a 75% Forest Service budget cut and specific claims about Iran war costs and a $1.8 billion slush fund for the president and January 6 participants are not corroborated by budget documents or official records. The USFS has publicly cited visitor growth and deteriorating trails as reasons for fees, with provisions for free days and resident considerations left unaddressed in the questioning. Viewers miss the agency's stated intent to retain fee revenue locally for site improvements and the broader context of congressional appropriations rejecting some proposed cuts."
+notableConcerns:
+  - "Unsubstantiated claims on exact budget reduction percentage and unrelated federal spending priorities"
+  - "Omission of USFS maintenance and visitor-management rationale for fees"
+keyMoments:
+  - claim: "Current 3-day, annual, and family passes to El Portal del Yunque are free."
+    verdict: "verified"
+    note: "Confirmed by official USFS fee proposal table showing $0 current fees for those passes at the site."
+  - claim: "Proposal introduces $10 3-day pass, $20 annual, $30 family pass at El Portal; $4 at La Mina."
+    verdict: "verified"
+    note: "Matches exact figures in May 2026 USFS proposal announcement and Q&A document."
+  - claim: "Trump budget slashes National Forest Service funding by 75%."
+    verdict: "unsupported"
+    note: "FY2026 request proposes major cuts and program eliminations, but no 75% figure appears in budget justifications or analyses."
+  - claim: "Administration spending $2 billion daily on war in Iran and $1.8 billion slush fund for president and January 6 participants."
+    verdict: "unsupported"
+    note: "No primary sources or official budget data corroborate these specific expenditure figures."
+videoId: "Rier3hnfwCQ"
+videoTitle: "Pablo Hernández Grills USFS Chief On Proposal To Create Entrance Fee For Puerto Rico National Park"
+thumbnail: "https://img.youtube.com/vi/Rier3hnfwCQ/maxresdefault.jpg"
+citations:
+  - title: "Resident Commissioner Pablo José Hernández Protests Fees at El Yunque"
+    url: "https://puertoricoreport.com/resident-commissioner-pablo-jose-hernandez-protests-fees-at-el-yunque/"
+  - title: "Congress members press Forest Service on proposed entrance fees to El Yunque"
+    url: "https://www.sanjuandailystar.com/post/congress-members-press-forest-service-on-proposed-entrance-fees-to-el-yunque"
+  - title: "Comisionado Residente lidera 23 congresistas en oposición a tarifas en El Yunque"
+    url: "https://hernandez.house.gov/media/press-releases/comisionado-residente-lidera-23-congresistas-en-oposicion-tarifas-en-el-yunque"
+  - title: "Pablo José Hernández y demócratas del Congreso denuncian propuesta para cobrar acceso a El Yunque"
+    url: "https://www.elnuevodia.com/corresponsalias/washington-dc/notas/pablo-jose-hernandez-y-democratas-del-congreso-denuncian-propuesta-para-cobrar-acceso-a-el-yunque/"
+  - title: "El Yunque Fee Proposal Questions and Answers"
+    url: "https://www.fs.usda.gov/r08/elyunque/recreation/el-yunque-fee-proposal-questions-and-answers"
+  - title: "El Yunque proposes recreation fees for El Portal Rainforest Center, La Mina Recreation Area"
+    url: "https://www.fs.usda.gov/r08/elyunque/newsroom/releases/el-yunque-proposes-recreation-fees-el-portal-rainforest-center-la"
+  - title: "El Yunque National Forest | Passes"
+    url: "https://www.fs.usda.gov/r08/elyunque/passes"
+  - title: "Puerto Ricans may soon have to pay to access parts of El Yunque"
+    url: "https://www.instagram.com/reel/DZOb3DUNkzc/"
+  - title: "President Trump's FY2027 Forest Service Budget Request"
+    url: "https://www.taxpayer.net/energy-natural-resources/president-trumps-fy2027-forest-service-budget-request/"
+---
+
+
