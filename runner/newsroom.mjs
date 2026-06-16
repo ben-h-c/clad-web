@@ -24,37 +24,47 @@ export function heuristicLighthearted(p) {
   const b = blobOf(p);
   return !HEAVY_POLITICS.test(b) && !TRAGEDY.test(b);
 }
+
+// Talk-show / panel / roundtable / commentary detection. The show name lives in
+// the video's upload title (the headline rarely names it), so weight that.
+const TALK_SHOW =
+  /fox & friends|fox and friends|\bthe five\b|gutfeld|ingraham|\bhannity\b|jesse watters|\bwatters\b|outnumbered|faulkner|america'?s newsroom|fox news sunday|sunday morning futures|life,? liberty|next revolution|media ?buzz|the ?big ?weekend|\bthe view\b|the daily show|jon stewart|bill maher|real time|last week tonight|morning joe|deadline ?white house|the reidout|the beat with|\bvelshi\b|all in with|rachel maddow|the weekend|meet the press|face the nation|state of the union|this week with|washington week|cnn this morning|anderson cooper|\bac ?360\b|news ?night|the lead with|inside politics|smerconish|cuomo|\bkudlow\b|primetime|the story with|special report|reliable sources|town ?hall|round ?table|\bpanel\b|talk show|full episode|reacts? to|debate[sd]?\b|weighs? in|discuss(es|ion)?\b/i;
+function talkBlobOf(p) {
+  return `${p.videoTitle || ""} ${p.headline || ""} ${(p.topics || []).join(" ")} ${p.sourceTitle || ""}`;
+}
+export function heuristicTalkShow(p) {
+  return TALK_SHOW.test(talkBlobOf(p));
+}
+
+/**
+ * Front-page eligible = it's a news-media talk show / panel / roundtable /
+ * commentary segment (Fox & Friends, The Five, The View, Morning Joe, Real Time,
+ * The Daily Show, etc.) — across any network, including late-night political.
+ */
+export function frontPageEligible(p, map) {
+  const c = map[p.id];
+  if (c && typeof c.isTalkShow === "boolean") return c.isTalkShow;
+  return heuristicTalkShow(p);
+}
 export function heuristicCriticality(p) {
   const b = blobOf(p);
   if (TRAGEDY.test(b)) return 80;
   if (HEAVY_POLITICS.test(b)) return 65;
   return 35;
 }
-// Categories that belong on the "cool recent stories" Front Page.
-const FRONT_PAGE_CATEGORIES = new Set(["tech", "science", "sports", "culture", "business"]);
-
-/**
- * Front-page eligible = a fun category (tech/science/sports/culture/business)
- * OR Grok flagged it lighthearted — but always excluding anything that trips the
- * heavy-politics / tragedy keyword guard (so Fed/inflation/hearings/disasters
- * stay off even when categorized "business"). Looser than the bare lighthearted
- * flag so cool tech/business/space stories make the cut.
- */
-export function frontPageEligible(p, map) {
-  if (!heuristicLighthearted(p)) return false;
-  const c = classOf(p, map);
-  return FRONT_PAGE_CATEGORIES.has(c.category) || c.lighthearted;
-}
-
 /** Classification for a post, preferring the Grok cache, else heuristics. */
 export function classOf(p, map) {
   const c = map[p.id];
-  if (c) return c;
+  if (c) {
+    // Older cached entries predate isTalkShow — fall back to the heuristic.
+    return { ...c, isTalkShow: typeof c.isTalkShow === "boolean" ? c.isTalkShow : heuristicTalkShow(p) };
+  }
   return {
     category: heuristicLighthearted(p) ? "other" : "politics",
     broadTopic: canonicalTopic(p.topics?.[0] || p.headline || "") || "misc",
     lighthearted: heuristicLighthearted(p),
     criticality: heuristicCriticality(p),
+    isTalkShow: heuristicTalkShow(p),
     at: "",
   };
 }
@@ -77,8 +87,9 @@ const SCHEMA = {
           broadTopic: { type: "string" },
           lighthearted: { type: "boolean" },
           criticality: { type: "integer", minimum: 0, maximum: 100 },
+          isTalkShow: { type: "boolean" },
         },
-        required: ["i", "category", "broadTopic", "lighthearted", "criticality"],
+        required: ["i", "category", "broadTopic", "lighthearted", "criticality", "isTalkShow"],
         additionalProperties: false,
       },
     },
@@ -92,14 +103,20 @@ const SYSTEM = `You are the desk editor of a news fact-checking site, classifyin
 - "broadTopic": a short, canonical label to GROUP related stories (1-3 words). Reuse the same plain name across stories about the same subject (e.g. "Iran", "SpaceX", "World Cup 2026", "Federal Reserve", "NBA"). This is used to avoid showing too many stories on one subject.
 - "lighthearted": true for any broadly-appealing, NON-political, non-tragic story suitable for a "cool recent stories" front page — sports, entertainment/culture, consumer tech and AI, gadgets, space, science/discovery, notable company/market/deal news (IPOs, big product or business moves), and human interest. It does NOT have to be funny or trivial — an interesting, substantive tech/space/business story still counts. false for politics, government/policy, elections, courts, geopolitics, war, crime, disasters, deaths, public-health crises, or anything heavy/somber.
 - "criticality": integer 0-100 for how important/impactful this is AS BREAKING NEWS right now. Guide: major geopolitical events, wars, attacks, disasters with casualties, market-moving or major national policy news, deaths of major public figures = 80-100; significant national/world news = 55-79; routine politics/business/regional news = 35-54; soft/entertainment/human-interest/novelty = 5-34. Judge the inherent magnitude of the story, not its recency.
+- "isTalkShow": true if this is a segment/clip from a news-media TALK SHOW, panel, roundtable, morning show, or opinion/commentary program — including late-night political comedy. Examples: Fox & Friends, The Five, Outnumbered, Gutfeld!, Hannity, Jesse Watters Primetime, The Ingraham Angle, America's Newsroom, Fox News Sunday, The View, This Week, Good Morning America panels, Morning Joe, Deadline: White House, The ReidOut, Meet the Press, Face the Nation, CNN This Morning, Anderson Cooper 360 panels, State of the Union, Washington Week, Real Time with Bill Maher, The Daily Show (Jon Stewart), Last Week Tonight. Use the VIDEO TITLE (the upload/show name) as the strongest signal — the headline usually won't name the show. false for straight news packages, single-anchor read reports, raw press conferences, or interviews that aren't part of a panel/commentary show.
 
-Return ONLY JSON: { "items": [ { "i": <number>, "category": ..., "broadTopic": ..., "lighthearted": ..., "criticality": ... } ] }. Include every item exactly once.`;
+Return ONLY JSON: { "items": [ { "i": <number>, "category": ..., "broadTopic": ..., "lighthearted": ..., "criticality": ..., "isTalkShow": ... } ] }. Include every item exactly once.`;
 
 async function classifyBatch(xaiKey, batch) {
   const user =
     "Classify these reports:\n" +
     batch
-      .map((p, i) => `${i}. ${p.headline}${p.topics?.length ? `  [topics: ${p.topics.join(", ")}]` : ""}`)
+      .map(
+        (p, i) =>
+          `${i}. ${p.headline}` +
+          (p.videoTitle ? `  [video: ${p.videoTitle}]` : "") +
+          (p.topics?.length ? `  [topics: ${p.topics.join(", ")}]` : "")
+      )
       .join("\n");
 
   const res = await fetch(XAI_RESPONSES, {
@@ -129,6 +146,7 @@ async function classifyBatch(xaiKey, batch) {
       broadTopic: String(it.broadTopic || "").trim() || canonicalTopic(p.topics?.[0] || p.headline || "") || "misc",
       lighthearted: Boolean(it.lighthearted),
       criticality: Math.max(0, Math.min(100, Math.round(Number(it.criticality) || 0))),
+      isTalkShow: Boolean(it.isTalkShow),
       at: new Date().toISOString(),
     };
   }

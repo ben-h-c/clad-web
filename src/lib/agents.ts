@@ -556,8 +556,9 @@ const CLASSIFY_KEY = "agents:classifications";
 export interface PostClassification {
   category: string; // politics | world | business | tech | science | sports | culture | health | tragedy | other
   broadTopic: string; // canonical, human topic label for grouping
-  lighthearted: boolean; // eligible for the (non-political) Front Page
+  lighthearted: boolean; // lighter, non-political (legacy signal)
   criticality: number; // 0-100: how important/impactful as breaking news
+  isTalkShow?: boolean; // talk show / panel / roundtable / commentary segment (Front Page)
   at: string; // ISO timestamp classified
 }
 
@@ -789,6 +790,7 @@ export interface PostMeta {
   id: string;
   videoId: string | null;
   headline: string;
+  videoTitle: string | null;
   topics: string[];
   publishedAt: string; // ISO date
   leanScore: number | null;
@@ -802,6 +804,7 @@ export async function publishedPostsMeta(): Promise<PostMeta[]> {
     id: p.id,
     videoId: p.data.videoId ?? null,
     headline: p.data.headline,
+    videoTitle: p.data.videoTitle ?? null,
     topics: p.data.topics ?? [],
     publishedAt: p.data.publishedAt.toISOString(),
     leanScore: typeof p.data.leanScore === "number" ? p.data.leanScore : null,

@@ -9,7 +9,8 @@ import { getKnown, submitDraft } from "./api.mjs";
 // established news outlets for their newest headlines.)
 const YT_PLAYLIST = "https://www.googleapis.com/youtube/v3/playlistItems";
 
-// Allow-list of US English news outlets, by exact YouTube channel ID. Using IDs
+// Allow-list of US English news outlets + talk/panel/commentary shows, by exact
+// YouTube channel ID (the Front Page features talk-show segments). Using IDs
 // (not title substrings) keeps out foreign affiliates that share a name — e.g.
 // US "CNN" vs India's "CNN-News18". Editorial policy; easy to adjust here.
 const NETWORK_CHANNEL_IDS = [
@@ -35,6 +36,13 @@ const NETWORK_CHANNEL_IDS = [
   "UCgjtvMmHXbutALaw9XzRkAg", // POLITICO
   "UCJnS2EsPfv46u1JR8cnD0NA", // NPR
   "UCg40OxZ1GYh3u3jBntB6DLg", // Forbes Breaking News
+  // Talk shows / panels / roundtables / late-night political (their own
+  // channels — the networks above also upload their panel shows: Fox & Friends,
+  // The Five, Morning Joe, Meet the Press, etc.).
+  "UCeH6qE4V7n5tVwP7NkdrtJg", // The View
+  "UCwWhs_6x42TyRM4Wstoq8HA", // The Daily Show (Jon Stewart)
+  "UC3XTzVzaHQEd30rQbuvCtTQ", // Last Week Tonight
+  "UCy6kyFxaMqGtpE3pQTflK8A", // Real Time with Bill Maher
 ];
 
 // Run one scan: gather the newest headlines across the news outlets, then draft

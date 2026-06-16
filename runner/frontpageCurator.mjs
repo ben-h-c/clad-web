@@ -1,5 +1,4 @@
 import { getPosts, setFrontpage } from "./api.mjs";
-import { isNewsOutlet } from "../src/lib/networks.ts";
 import { ensureClassifications, classOf, frontPageEligible } from "./newsroom.mjs";
 
 const HEADLINE_STOP = new Set(
@@ -45,32 +44,24 @@ export async function runFrontpageCurator(agent) {
   const res = await getPosts();
   if (!res.ok) return { ok: false, message: `posts fetch ${res.status}` };
   const allPosts = res.body.posts || [];
-  // Editorial rule: established news outlets, and the Front Page is for cool,
-  // lighter recent stories — not politics or tragedies. Grok classifies each post
-  // (lighthearted? broad topic?) so this self-adjusts without keyword upkeep;
-  // heuristics fill in for anything not yet classified.
-  const outlets = allPosts.filter((p) => isNewsOutlet(p.sourceTitle));
-  const classMap = await ensureClassifications(outlets, {
+  // The Front Page features news-media TALK SHOWS / panels / roundtables /
+  // commentary segments (Fox & Friends, The Five, The View, Morning Joe, Real
+  // Time, The Daily Show, etc.) across ANY network — including late-night
+  // political. Grok classifies each post (isTalkShow?); the heuristic (which
+  // keys off the video/show title) fills in for anything not yet classified.
+  const classMap = await ensureClassifications(allPosts, {
     xaiKey: process.env.XAI_API_KEY,
     log: (m) => console.log(new Date().toISOString(), m),
   });
-  const light = (p) => frontPageEligible(p, classMap);
+  const isTalk = (p) => frontPageEligible(p, classMap);
   const topicOf = (p) => classOf(p, classMap).broadTopic;
 
-  // Prefer outlet + light; if that pool is thin, drop the outlet restriction
-  // (still light) so the page stays full; only as a last resort fall back to
-  // outlet posts of any kind.
-  let pool = outlets.filter(light);
-  if (pool.length < 6) {
-    const anyLight = allPosts.filter(light);
-    if (anyLight.length > pool.length) pool = anyLight;
-  }
-  if (pool.length === 0) pool = outlets;
+  const pool = allPosts.filter(isTalk);
   if (pool.length === 0) {
     await setFrontpage([]);
     return {
       ok: true,
-      message: `no eligible posts (of ${allPosts.length} published)`,
+      message: `no talk-show segments yet (of ${allPosts.length} published)`,
       submitted: 0,
     };
   }
@@ -157,7 +148,7 @@ export async function runFrontpageCurator(agent) {
   ).size;
   return {
     ok: true,
-    message: `featured ${ids.length} of ${pool.length} lighthearted across ${topicsCovered} topics (rotating)`,
+    message: `featured ${ids.length} of ${pool.length} talk-show segments across ${topicsCovered} topics (rotating)`,
     submitted: ids.length,
   };
 }
