@@ -1,0 +1,63 @@
+---
+type: "broadcast"
+headline: "Reflecting Pool Algae Returns Days After Trump Renovation"
+summary: "The NPR segment reports that the Lincoln Memorial Reflecting Pool on the National Mall, recently renovated and declared finished by President Trump, has developed green algae blooms shortly after refilling. Workers are cleaning it ahead of July 4th events. A Florida visitor interviewed by the Associated Press comments that keeping the pool blue is an impossible task due to chemical and environmental costs."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=2wiXFABof1w"
+sourceTitle: "NPR"
+section: "Politics"
+letterGrade: "B+"
+factualityScore: 85
+politicalLean: "center"
+leanScore: -15
+leanRationale: "Neutral phrasing but emphasis on project shortfall and 'impossible task' quote frames the story around administration embarrassment without equivalent space for mitigation claims"
+gradeRationale: "Graded B+: core facts verified across multiple outlets with accurate AP-sourced quote and timeline; minor shortfall in balancing official 'residual algae/normal startup' explanation"
+topics:
+  - "Reflecting Pool"
+  - "National Mall"
+  - "Trump renovation"
+  - "algae bloom"
+assessment: "The report accurately captures the visible algae issue and renovation timeline corroborated by contemporaneous coverage. It omits Interior Department statements that the bloom is residual from dormant pipes and part of normal startup, with nanobubbler technology intended to control it. The short format relies on a single critical quote and visuals of green water, which could skew viewer perception toward project failure despite the pool's decades-long history of algae problems predating the current work. No factual errors, but selective framing and limited sourcing reduce balance."
+notableConcerns:
+  - "Limited inclusion of official explanations for the algae"
+keyMoments:
+  - claim: "Trump declared renovation work finished on the reflecting pool, which he said would be clean, beautiful, and blue"
+    verdict: "verified"
+    note: "Trump and Interior Secretary announced completion around June 4, 2026, with 'American flag blue' paint applied; cost reported as $14.2 million"
+  - claim: "Parts of the pool are now green with algae blooms"
+    verdict: "verified"
+    note: "Multiple photos and reports from June 10-16, 2026, confirm green algae visible days after refilling"
+  - claim: "Patrick Hicks: impossible task to keep pool blue; relieved to see natural green"
+    verdict: "verified"
+    note: "Direct quote from AP interview with Florida visitor, widely reported June 15-16, 2026"
+videoId: "2wiXFABof1w"
+videoTitle: "Newly repainted reflecting pool turns green from algae blooms"
+thumbnail: "https://img.youtube.com/vi/2wiXFABof1w/maxresdefault.jpg"
+citations:
+  - title: "Algae resurfaces in reflecting pool after multimillion-dollar renovation"
+    url: "https://www.politico.com/news/2026/06/12/algae-resurfaces-in-reflecting-pool-multi-million-dollar-renovation-00960609"
+  - title: "Algae Is Turning the Reflecting Pool Green. Again."
+    url: "https://www.nytimes.com/2026/06/15/climate/reflecting-pool-algae-green.html"
+  - title: "'Residual' Algae Surfaces in Lincoln Memorial Reflecting Pool 1 Day After It's Refilled Following Trump's Renovation"
+    url: "https://people.com/lincoln-memorial-reflecting-pool-algae-after-trump-renovations-11995981"
+  - title: "Reflecting Pool turns green again days after Trump's renovation"
+    url: "https://lufkindailynews.com/ap_video/reflecting-pool-turns-green-again-days-after-trumps-renovation/video_1dd07b72-b823-5ff7-a907-7756cd2cb9d8.html"
+  - title: "Trump Gave Out a No-Bid Contract to Turn D.C.'s Reflecting Pool 'American Flag Blue'"
+    url: "https://www.nytimes.com/2026/05/08/us/politics/reflecting-pool-trump-contract.html"
+  - title: "Trump’s $14M Lincoln Memorial renovation reveals new pool — and some algae"
+    url: "https://globalnews.ca/news/11902000/lincoln-memorial-renovation-donald-trump-washington-dc/"
+  - title: "Fact-checking Trump on Reflecting Pool renovation timeline, cost"
+    url: "https://www.kcra.com/article/fact-check-trump-reflecting-pool-timeline-cost/71434077"
+  - title: "Workers racing to turn reflecting pool blue for Trump may be at risk, union warns"
+    url: "https://www.theguardian.com/us-news/2026/may/17/trump-washington-dc-reflecting-pool"
+  - title: "Algae forms in Washington Reflecting Pool after Trump repairs"
+    url: "https://www.syracuse.com/politics/2026/06/algae-forms-in-washington-reflecting-pool-after-trump-repairs.html"
+  - title: "Algae Forming in Reflecting Pool Days After Trump Renovation"
+    url: "https://www.mediaite.com/media/news/dc-reflecting-pool-growing-algae-just-days-after-trumps-14m-renovation/"
+  - title: "Trump says Obama and Biden spent 'hundreds of millions' on Reflecting Pool renovations"
+    url: "https://apnews.com/article/trump-reflecting-pool-renovations-obama-biden-millions-c261ebc9898149002bb384a084e49b27"
+  - title: "A nonprofit sues the feds over plans to paint the Lincoln Memorial Reflecting Pool blue"
+    url: "https://www.npr.org/2026/05/11/g-s1-121548/a-nonprofit-has-sued-the-federal-government-over-its-plans-to-paint-the-lincoln-memorial-reflecting-pool-blue"
+---
+
+
