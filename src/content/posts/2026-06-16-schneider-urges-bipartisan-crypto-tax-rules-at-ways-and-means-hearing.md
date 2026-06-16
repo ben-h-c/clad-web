@@ -1,0 +1,62 @@
+---
+type: "broadcast"
+headline: "Schneider Urges Bipartisan Crypto Tax Rules at Ways and Means Hearing"
+summary: "The Forbes Breaking News clip shows Rep. Brad Schneider (D-IL) speaking during a House Ways and Means Committee legislative hearing on digital asset taxation. Schneider thanks witnesses, stresses the need for bipartisan solutions to update the tax code for crypto, criticizes last-minute partisan bills, and praises a draft by Reps. Horsford and Miller. He questions witness Mr. Kaercher on tax reporting, AML/KYC gaps, and illicit finance risks while urging focus on compliance and growth."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=GKmrJWM_zWU"
+sourceTitle: "Forbes Breaking News"
+section: "Politics"
+letterGrade: "B"
+factualityScore: 85
+politicalLean: "center-left"
+leanScore: -25
+leanRationale: "Clip emphasizes Democratic member's criticism of 'partisan' majority bills and highlights bipartisan drafts by Horsford and Miller, framing Republicans as obstructing consensus."
+gradeRationale: "Graded B: transcript accurately captures Schneider's remarks on the June 9, 2026 hearing; minor issues include opinion presented without full bill context or counter-views from majority."
+topics:
+  - "Crypto taxation"
+  - "Digital assets"
+  - "Congressional hearing"
+assessment: "The segment accurately relays Schneider's prepared remarks and exchange but provides no details on the specific bills under consideration or responses from Republican members or other witnesses. Viewers miss the broader hearing record, including Chairman Smith's opening on clear rules for innovation and the eight measures reviewed. Framing centers one-side calls for bipartisanship without evidence on why the majority proceeded with its drafts. Overall, it functions as a partisan soundbite rather than balanced coverage of the policy debate."
+notableConcerns:
+  - "One-sided sourcing limited to Democratic perspective and witness response"
+keyMoments:
+  - claim: "Majority dropped partisan bills at 11th hour ignoring a bipartisan draft by Horsford and Miller"
+    verdict: "missing context"
+    note: "Hearing considered multiple bills including Republican-led measures; Schneider's characterization reflects minority view."
+  - claim: "Bipartisan path is only way to ensure durable tax code changes for digital assets"
+    verdict: "verified"
+    note: "Direct quote from Schneider's statement at the June 9, 2026 Ways and Means hearing."
+  - claim: "Focus needed on information reporting, AML/KYC to close digital tax gap and curb illicit finance"
+    verdict: "verified"
+    note: "Witness Kaercher's response aligns with known concerns in crypto tax enforcement."
+videoId: "GKmrJWM_zWU"
+videoTitle: "'We Can Thread This Needle': Brad Schneider Demands Bipartisan Work To Regulate Crypto Tax Code"
+thumbnail: "https://img.youtube.com/vi/GKmrJWM_zWU/maxresdefault.jpg"
+citations:
+  - title: "Full Committee Legislative Hearing on Digital Asset Taxation"
+    url: "https://waysandmeans.house.gov/event/full-committee-legislative-hearing-on-digital-asset-taxation/"
+  - title: "Full Committee Legislative Hearing on Digital Asset Taxation | Congress.gov"
+    url: "https://www.congress.gov/event/119th-congress/house-event/119368"
+  - title: "New Legislation Modernizes Tax Rules for Digital Assets, Improving Access to a Growing Market and Maintaining America’s Competitive Advantage"
+    url: "https://waysandmeans.house.gov/2026/06/09/new-legislation-modernizes-tax-rules-for-digital-assets-improving-access-to-a-growing-market-and-maintaining-americas-competitive-advantage/"
+  - title: "Chairman Smith at Digital Asset Legislative Hearing: America Needs Clear Tax Rules to Remain Digital Asset Capital of the World"
+    url: "https://waysandmeans.house.gov/2026/06/09/chairman-smith-at-digital-asset-legislative-hearing-america-needs-clear-tax-rules-to-remain-digital-asset-capital-of-the-world/"
+  - title: "Cryptocurrency Execs Testify on Digital Currency Taxation, Part 1 | C-SPAN"
+    url: "https://www.c-span.org/program/house-committee/financial--cryptocurrency-execs-testify-on-digital-currency-taxation-part-1/680765"
+  - title: "House Ways and Means Committee Considers Digital Asset Tax Legislation"
+    url: "https://www.cozen.com/news-resources/publications/2026/house-ways-and-means-committee-considers-digital-asset-tax-legislation"
+  - title: "Congressman Max Miller Introduces Bipartisan Digital PARITY Act"
+    url: "https://maxmiller.house.gov/posts/congressman-max-miller-introduces-bipartisan-digital-parity-act"
+  - title: "miller-horsford_digital-asset-tax-bill-discussion-draft.pdf"
+    url: "https://horsford.house.gov/sites/evo-subsites/horsford.house.gov/files/evo-media-document/miller-horsford_digital-asset-tax-bill-discussion-draft.pdf"
+  - title: "Bipartisan 'PARITY' Act Introduced to Modernize Digital Asset Tax Rules"
+    url: "https://tax.thomsonreuters.com/news/bipartisan-parity-act-introduced-to-modernize-digital-asset-tax-rules/"
+  - title: "Vault: W&M duo drop crypto tax bill"
+    url: "https://punchbowl.news/article/vault/wm-duo-crypto/"
+  - title: "House Ways and Means opens hearing on digital asset tax overhaul, examines eight bills"
+    url: "https://citizenportal.ai/articles/8159768/Federal/Legislative/Congressional-Hearings-Compilation/Standing-Committees-House-and-Senate/Ways-and-Means-House-Committee/House-Committee-on-Ways-and-Means-Republicans/House-Ways-and-Means-opens-hearing-on-digital-asset-tax-overhaul-examines-eight-bills"
+  - title: "House Ways and Means Committee explores digital asset tax proposals"
+    url: "https://www.taxathand.com/article/41380/United-States/2026/House-Ways-and-Means-Committee-explores-digital-asset-tax-proposals"
+---
+
+
