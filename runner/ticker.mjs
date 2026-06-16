@@ -1,19 +1,20 @@
 /**
- * Markets ticker feed. Fetches quotes for a set of indices/stocks from Yahoo
- * Finance and posts them to KV, where the home page reads them for the scrolling
- * ticker. Uses Yahoo's cookie+crumb session and a single batched quote request
- * (all symbols at once) to minimise rate-limit risk, refreshed at most every two
- * minutes. On any failure the last good quotes stay in KV (graceful staleness).
+ * Markets ticker feed. Fetches quotes for a set of indices/stocks/crypto/
+ * commodities from CNBC's public quote API (no key, one batched request for all
+ * symbols, returns change %) and posts them to KV, where the home page reads
+ * them for the scrolling ticker. Throttled to at most every two minutes; on any
+ * failure the last good quotes stay in KV (graceful staleness).
  */
 import { setTicker } from "./api.mjs";
 
 const UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
 
+// CNBC symbol -> display label.
 const SYMBOLS = [
-  { sym: "^GSPC", label: "S&P 500" },
-  { sym: "^DJI", label: "DOW" },
-  { sym: "^IXIC", label: "NASDAQ" },
+  { sym: ".SPX", label: "S&P 500" },
+  { sym: ".DJI", label: "DOW" },
+  { sym: ".IXIC", label: "NASDAQ" },
   { sym: "AAPL", label: "AAPL" },
   { sym: "MSFT", label: "MSFT" },
   { sym: "NVDA", label: "NVDA" },
@@ -21,59 +22,36 @@ const SYMBOLS = [
   { sym: "AMZN", label: "AMZN" },
   { sym: "GOOGL", label: "GOOGL" },
   { sym: "META", label: "META" },
-  { sym: "BTC-USD", label: "BTC" },
-  { sym: "CL=F", label: "OIL" },
-  { sym: "GC=F", label: "GOLD" },
+  { sym: "BTC.CM=", label: "BTC" },
+  { sym: "@CL.1", label: "OIL" },
+  { sym: "@GC.1", label: "GOLD" },
 ];
 const LABELS = Object.fromEntries(SYMBOLS.map((s) => [s.sym, s.label]));
+const ORDER = Object.fromEntries(SYMBOLS.map((s, i) => [s.label, i]));
 
 const MIN_INTERVAL_MS = 120_000; // refresh at most every 2 minutes
 let lastRun = 0;
-let session = null; // { cookie, crumb, at }
-const SESSION_TTL = 50 * 60 * 1000; // 50 min
-
-async function getSession() {
-  if (session && Date.now() - session.at < SESSION_TTL) return session;
-  // 1) Hit a Yahoo host to obtain an A1 consent cookie.
-  const r1 = await fetch("https://fc.yahoo.com/", { headers: { "User-Agent": UA } }).catch(() => null);
-  const setCookies = r1?.headers?.getSetCookie?.() ?? [];
-  const cookie = setCookies.map((c) => c.split(";")[0]).join("; ");
-  if (!cookie) throw new Error("no yahoo cookie");
-  // 2) Exchange it for a crumb.
-  const r2 = await fetch("https://query1.finance.yahoo.com/v1/test/getcrumb", {
-    headers: { "User-Agent": UA, Cookie: cookie, Accept: "text/plain" },
-  });
-  const crumb = (await r2.text()).trim();
-  if (!r2.ok || !crumb || crumb.length > 64) throw new Error(`bad crumb (${r2.status})`);
-  session = { cookie, crumb, at: Date.now() };
-  return session;
-}
 
 async function fetchQuotes() {
-  const s = await getSession();
-  const symbols = SYMBOLS.map((x) => x.sym).join(",");
+  const symbols = SYMBOLS.map((s) => s.sym).join("|");
   const url =
-    `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${encodeURIComponent(symbols)}` +
-    `&crumb=${encodeURIComponent(s.crumb)}`;
-  const r = await fetch(url, { headers: { "User-Agent": UA, Cookie: s.cookie, Accept: "application/json" } });
-  if (r.status === 401 || r.status === 403) {
-    session = null; // crumb expired — refresh next run
-    throw new Error(`auth ${r.status}`);
-  }
-  if (!r.ok) throw new Error(`quote ${r.status}`);
+    "https://quote.cnbc.com/quote-html-webservice/quote.htm?" +
+    `symbols=${encodeURIComponent(symbols)}&requestMethod=quick&output=json`;
+  const r = await fetch(url, { headers: { "User-Agent": UA, Accept: "application/json" } });
+  if (!r.ok) throw new Error(`cnbc ${r.status}`);
   const d = await r.json();
-  const rows = d?.quoteResponse?.result ?? [];
+  let rows = d?.QuickQuoteResult?.QuickQuote ?? [];
+  if (!Array.isArray(rows)) rows = [rows];
   const quotes = [];
   for (const row of rows) {
-    const label = LABELS[row.symbol];
-    const price = Number(row.regularMarketPrice);
-    const changePct = Number(row.regularMarketChangePercent);
+    const label = LABELS[row?.symbol];
+    const price = Number(row?.last);
+    const changePct = Number(row?.change_pct);
     if (label && Number.isFinite(price) && Number.isFinite(changePct)) {
       quotes.push({ label, price, changePct });
     }
   }
-  // Preserve our configured order.
-  quotes.sort((a, b) => SYMBOLS.findIndex((s) => s.label === a.label) - SYMBOLS.findIndex((s) => s.label === b.label));
+  quotes.sort((a, b) => (ORDER[a.label] ?? 99) - (ORDER[b.label] ?? 99));
   return quotes;
 }
 
