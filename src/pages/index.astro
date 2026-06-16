@@ -72,6 +72,7 @@ const bottomGraded = [...graded]
   title="Clad — Grading Content & Exposing Bias"
   description="Fact-checked political broadcasts, graded for accuracy and called out for bias, edited like a 1920s broadsheet."
 >
+  <QuipTicker data={quips} />
   {all.length === 0 ? (
     <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
   ) : (
@@ -79,7 +80,6 @@ const bottomGraded = [...graded]
       <HeroStrip posts={breakingPosts} title="Breaking News" variant="breaking" />
       <Ticker data={ticker} />
       <HeroStrip posts={heroPosts} title="Front Page" />
-      <QuipTicker data={quips} />
       <section class="feed">
         <div class="feed__head">
           <h2 class="feed__title">Topics</h2>
