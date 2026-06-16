@@ -1,0 +1,61 @@
+---
+type: "broadcast"
+headline: "Trump says he was unaware of foiled UFC event threat at White House"
+summary: "The brief C-SPAN clip captures President Trump responding to a reporter's question at the G7 summit about whether he was briefed on a thwarted attack planned for the UFC Freedom 250 event held at the White House on June 14, 2026. Trump states he has not heard about it and pivots to praising the fights he watched, noting the quality of the bouts and the arena setup.\n\nThe segment shows Trump answering directly, with no additional narration, graphics, or expert guests. It aligns with FBI Director Kash Patel's public announcement earlier that day regarding arrests tied to the alleged plot."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=JQqssK9T-wg"
+sourceTitle: "C-SPAN"
+section: "Politics"
+letterGrade: "A-"
+factualityScore: 90
+politicalLean: "center"
+leanScore: 0
+leanRationale: "C-SPAN clip presents raw exchange without commentary, guest selection, or editorial emphasis that would indicate slant."
+gradeRationale: "Graded A-: direct recording of Trump's remarks matches contemporaneous reporting; minimal framing or additional claims made by the source."
+topics:
+  - "White House UFC event"
+  - "Trump security"
+  - "FBI thwarted plot"
+assessment: "The clip accurately records Trump's denial of prior knowledge on the day the FBI publicly detailed the foiled plot. Viewers receive the raw exchange but miss broader context on the timing of the threat (known to law enforcement June 10) and the multi-agency response. No loaded language or selective editing is evident. The source's restraint keeps focus on the statement itself rather than interpretation."
+notableConcerns: []
+keyMoments:
+  - claim: "Trump was asked if briefed on attack plans for the UFC event at the White House"
+    verdict: "verified"
+    note: "Reporter's question directly references the FBI announcement made public hours earlier."
+  - claim: "Trump: 'I haven't heard about it'"
+    verdict: "verified"
+    note: "Trump's verbatim response matches multiple news outlets' reporting of his G7 remarks on June 16, 2026."
+  - claim: "Trump describes watching the fights and praises their quality"
+    verdict: "verified"
+    note: "Consistent with his public comments; the event occurred June 14 on the White House South Lawn."
+videoId: "JQqssK9T-wg"
+videoTitle: "President Trump on Thwarted Attack at White House During UFC fight: \"I haven't heard about it.\""
+thumbnail: "https://img.youtube.com/vi/JQqssK9T-wg/maxresdefault.jpg"
+citations:
+  - title: "FBI foiled alleged plot to attack White House UFC event, Patel says"
+    url: "https://www.nbcnews.com/politics/trump-administration/fbi-foils-alleged-plot-attack-white-house-ufc-event-patel-says-rcna350248"
+  - title: "FBI thwarted attack targeting UFC event at White House, director says"
+    url: "https://www.washingtonpost.com/politics/2026/06/16/fbi-thwarted-attack-targeting-ufc-event-white-house-director-says/"
+  - title: "Explosive-drone threat to White House UFC event stopped, Patel says"
+    url: "https://thehill.com/policy/national-security/5925808-fbi-attack-ufc-freedom-250/"
+  - title: "Plan to attack UFC event at White House 'stopped cold,' FBI says"
+    url: "https://www.usatoday.com/story/news/crime/2026/06/16/ultimate-fighting-championship-white-house-attack-fbi-arrest/90569086007/"
+  - title: "FBI's Patel announces multiple arrests connected to 'planned attacks' targeting White House UFC show"
+    url: "https://www.pbs.org/newshour/nation/fbis-patel-announces-multiple-arrests-connected-to-planned-attacks-targeting-white-house-ufc-show"
+  - title: "FBI arrests suspects for plots to attack White House UFC event"
+    url: "https://www.espn.com/mma/story/_/id/49081439/fbi-arrests-suspects-planned-attacks-white-house-ufc-event"
+  - title: "Multiple people arrested for discussing plans to attack UFC fight, source says"
+    url: "https://www.cnn.com/2026/06/16/politics/fbi-arrests-ufc-fight"
+  - title: "Kash Patel Says FBI Foiled Attack Plot At White House UFC Event"
+    url: "https://www.forbes.com/sites/zacharyfolk/2026/06/16/kash-patel-says-fbi-foiled-attack-plot-at-white-house-ufc-event/"
+  - title: "FBI says it disrupted alleged plot targeting UFC event at White House"
+    url: "https://www.cnbc.com/2026/06/16/fbi-alleged-plot-targeting-ufc-event-white-house-trump.html"
+  - title: "FBI says it foiled 'security threat' at White House UFC event on Trump's birthday"
+    url: "https://www.telegraphindia.com/world/federal-bureau-of-investigation-says-it-foiled-alleged-threat-at-white-house-ufc-event-on-trumps-birthday/cid/2165839"
+  - title: "FBI foiled 'plot to attack White House with drones and snipers'"
+    url: "https://www.thetimes.com/us/news-today/article/fbi-foiled-plot-to-attack-white-house-with-drones-and-snipers-27srlhmbx"
+  - title: "FBI: Multiple arrests made in thwarted attacks targeting White House UFC show"
+    url: "https://www.police1.com/terrorism/fbi-multiple-arrests-made-in-thwarted-attacks-targeting-white-house-ufc-show"
+---
+
+
