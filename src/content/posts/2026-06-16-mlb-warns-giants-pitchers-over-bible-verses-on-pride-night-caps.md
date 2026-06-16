@@ -1,0 +1,61 @@
+---
+type: "broadcast"
+headline: "MLB warns Giants pitchers over Bible verses on Pride Night caps"
+summary: "The segment covered three San Francisco Giants pitchers who wrote Bible verses, including Genesis 9:12-16 referencing the rainbow covenant, on their Pride Night caps featuring rainbow logos. MLB issued a verbal warning citing uniform regulations prohibiting any writing on apparel. Player Landen Roupp defended the action as protected expression. Lawmakers including Sen. Josh Hawley and Florida's AG responded critically, and VP Vance commented. The Giants organization later apologized for causing pain to the LGBTQ+ community while affirming inclusion. MLB clarified the warning was routine and content-neutral, comparing it to past warnings for family messages."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=uLzMjVt5HKo"
+sourceTitle: "NBC News"
+section: "Politics"
+letterGrade: "B+"
+factualityScore: 85
+politicalLean: "center"
+leanScore: -15
+leanRationale: "Included MLB's uniform-rule explanation and player defense but highlighted political criticism (Hawley, Vance) and Giants apology; typical mainstream framing prioritizing inclusion concerns."
+gradeRationale: "B+: Core facts verified across multiple outlets with MLB statement and player quotes accurately reported; minor transcription issues in names and slight emphasis on political reactions without full policy history."
+topics:
+  - "MLB Pride Night"
+  - "uniform regulations"
+  - "religious expression"
+assessment: "The broadcast accurately relayed the incident, MLB's stated policy rationale, and reactions from players and politicians. Viewers may miss details on how consistently the no-writing rule has been enforced historically or the 2020 precedent of allowing progressive messages on cleats. The Giants' apology receives prominent airtime, potentially skewing perception toward viewing the players' action as disruptive rather than protected speech. Overall solid sourcing from official statements but limited exploration of double-standard claims or free-expression implications in sports leagues."
+notableConcerns:
+  - "Limited context on uniform rule enforcement precedents beyond MLB statement"
+keyMoments:
+  - claim: "MLB warned players for writing Bible verses on Pride Night hats"
+    verdict: "verified"
+    note: "Confirmed by MLB statements and contemporaneous reporting from The Athletic and KCRA."
+  - claim: "Warning was not about message content but uniform regulations prohibiting any writing"
+    verdict: "verified"
+    note: "Direct quote from MLB clarification; league cited examples like 'I love Mom' warnings."
+  - claim: "Giants organization apologized for causing pain to LGBTQ+ community"
+    verdict: "verified"
+    note: "Reported in segment and corroborated by multiple news outlets covering the incident."
+  - claim: "Lawmakers accused MLB of discriminating against Christians"
+    verdict: "verified"
+    note: "Sen. Hawley letter and Florida AG response accurately summarized."
+videoId: "uLzMjVt5HKo"
+videoTitle: "MLB warns players against writing Bible verses on their hats during Pride month"
+thumbnail: "https://img.youtube.com/vi/uLzMjVt5HKo/maxresdefault.jpg"
+citations:
+  - title: "The MLB warning to Giants pitchers for Bible verses on Pride hats"
+    url: "https://www.usatoday.com/story/sports/mlb/giants/2026/06/15/the-mlb-warning-to-giants-pitchers-for-bible-verses-on-pride-hats/90567190007/"
+  - title: "MLB issues warning to Giants pitchers for writing Bible verses on Pride caps"
+    url: "https://www.nbcsportsbayarea.com/mlb/san-francisco-giants/landen-roupp-bible-pride-warning/1943585/"
+  - title: "Landen Roupp addresses Bible verse on Giants' Pride Night cap"
+    url: "https://www.nbcsportsbayarea.com/mlb/san-francisco-giants/landen-roupp-bible-verse-pride-night-cap/1943122/"
+  - title: "MLB warns S.F. Giants players who wrote Bible verse on Pride hats"
+    url: "https://www.outsports.com/2026/6/15/24136606/san-francisco-giants-pride-night-cap-bible-verse-mlb-response/"
+  - title: "MLB issues warning to Giants pitchers who wrote Bible verses on Pride Night caps"
+    url: "https://www.nytimes.com/athletic/7364268/2026/06/15/sf-giants-pride-night-caps-bible-verses-mlb-warning/"
+  - title: "Giants pitcher Landen Roupp wears Pride Night hat with biblical verse"
+    url: "https://nypost.com/2026/06/12/sports/giants-pitcher-landen-roupp-wears-pride-night-hat-with-bible-verse/"
+  - title: "MLB warns players about altering uniforms after Giants pitchers add Bible verses on Pride Night"
+    url: "https://www.myjournalcourier.com/sports/article/mlb-issues-warning-after-giants-roupp-2-other-22307573.php"
+  - title: "Giants pitchers' Bible verses on Pride Night caps show how they've missed the point"
+    url: "https://www.nytimes.com/athletic/7358121/2026/06/13/sf-giants-pride-night-bible-verses-caps/"
+  - title: "3 Giants' players add Bible verses to their Pride Night caps; MLB issues warning"
+    url: "https://www.kcra.com/article/mlb-giants-pride-night-cap-bible-verses/71603184"
+  - title: "MLB critical of Giants players who wrote Bible verses on Pride Night caps"
+    url: "https://www.theguardian.com/sport/2026/jun/16/mlb-critical-of-giants-players-who-wrote-bible-verses-on-pride-night-caps"
+---
+
+
