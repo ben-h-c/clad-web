@@ -176,5 +176,6 @@ export function aggregateTopics(posts: CollectionEntry<"posts">[]): TopicAgg[] {
     });
   }
   out.sort((a, b) => b._score - a._score || b.count - a.count || b.latest - a.latest);
-  return out.map(({ _score, ...t }) => t);
+  // A topic is for grouping MULTIPLE like articles — drop singletons.
+  return out.filter((t) => t.count >= 2).map(({ _score, ...t }) => t);
 }
