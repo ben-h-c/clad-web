@@ -1,0 +1,61 @@
+---
+type: "broadcast"
+headline: "Knicks celebrate 2026 title on Tonight Show with Fallon shoe retirement"
+summary: "The segment shows the 2026 NBA champion New York Knicks appearing on The Tonight Show Starring Jimmy Fallon. Fallon recounts how Knicks player Josh Hart untied his shoe during a playoff game, turning it into a running good-luck charm for the team's run. The team signs the shoe, Hart adds the final signature, and they raise it into the Studio 6B rafters in a lighthearted ceremony.\nThe broadcast draws from the live Tonight Show episode with Fallon as host and Knicks players as guests. It relies on on-stage visuals, player participation, and Fallon's firsthand account rather than external experts or graphics."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=dgFUu_W8lGQ"
+sourceTitle: "NBC News"
+section: "Politics"
+letterGrade: "A"
+factualityScore: 95
+politicalLean: "center"
+leanScore: 0
+leanRationale: "Pure sports and entertainment coverage with no discernible political framing or selective emphasis."
+gradeRationale: "Accurate reporting of a verified celebratory segment; claims about Knicks championship and shoe stunt corroborated by multiple primary and news sources with no inaccuracies."
+topics:
+  - "NBA"
+  - "New York Knicks"
+  - "Jimmy Fallon"
+assessment: "The clip accurately captures a genuine promotional and celebratory moment tied to the Knicks' first title in over 50 years. Viewers receive the intended humorous context but may miss broader playoff details such as specific series outcomes or how the shoe incident originated in an earlier round. Framing is purely entertaining with no loaded language or omissions of counter-facts, as the event itself is a staged gag rather than a substantive claim. Sourcing is direct from participants."
+notableConcerns: []
+keyMoments:
+  - claim: "New York Knicks are the 2026 NBA World Champions"
+    verdict: "verified"
+    note: "Confirmed by NBA.com playoffs records and multiple news outlets; Knicks defeated Spurs 4-1 in Finals."
+  - claim: "Josh Hart untied Fallon's shoe during a game, which became a lucky charm"
+    verdict: "verified"
+    note: "Documented across ESPN, Yahoo Sports, and Tonight Show clips from playoff games vs. 76ers and later rounds."
+  - claim: "The signed shoe was retired to the Tonight Show rafters"
+    verdict: "verified"
+    note: "Occurred during the June 15, 2026 episode; video and social posts from Fallon Tonight confirm the ceremony."
+videoId: "dgFUu_W8lGQ"
+videoTitle: "Knicks retire Jimmy Fallon's lucky shoe"
+thumbnail: "https://img.youtube.com/vi/dgFUu_W8lGQ/maxresdefault.jpg"
+citations:
+  - title: "Closer look at how the Knicks won the 2026 NBA championship"
+    url: "https://www.nba.com/news/how-the-knicks-won-the-2026-nba-championship"
+  - title: "2026 NBA Finals"
+    url: "https://en.wikipedia.org/wiki/2026_NBA_Finals"
+  - title: "Knicks win NBA championship for first time in over 50 years"
+    url: "https://www.bbc.com/news/articles/c78yw4zw19do"
+  - title: "What was life like when the Knicks won their last NBA title?"
+    url: "https://www.espn.com/nba/story/_/id/49042430/new-york-knicks-2026-nba-finals-champions-1973-san-antonio-spurs"
+  - title: "Knicks win first NBA championship since 1973, ending decades of heartbreak"
+    url: "https://www.usatoday.com/story/sports/nba/playoffs/2026/06/13/knicks-win-nba-championship-beat-spurs-2026-finals/90504958007/"
+  - title: "New York Knicks appear on 'Tonight Show' with Jimmy Fallon"
+    url: "https://www.nbcwashington.com/news/local/knicks-appear-tonight-show-jimmy-fallon-championship-sneaker/4117224/"
+  - title: "Josh Hart honors Jimmy's untied shoe by signing it and retiring it to the rafters"
+    url: "https://www.facebook.com/FallonTonight/posts/josh-hart-honors-jimmys-untied-shoe-by-signing-it-and-retiring-it-to-the-rafters/1614908629997643/"
+  - title: "Knicks stars to join Jimmy Fallon for 'Tonight Show' title celebration"
+    url: "https://www.usatoday.com/story/sports/nba/knicks/2026/06/15/knicks-jalen-brunson-jimmy-fallon-wu-tang-clan-tonight-show/90558567007/"
+  - title: "Knicks Taking Over 'Tonight Show' With Wu-Tang Clan"
+    url: "https://deadline.com/2026/06/knicks-tonight-show-special-episode-wu-tang-clan-1236956069/"
+  - title: "The Knicks Celebrate Championship on 'Fallon': A Preview"
+    url: "https://www.rollingstone.com/tv-movies/tv-movie-news/knicks-celebrate-championship-tonight-show-fallon-preview-1235577889/"
+  - title: "How Knicks guard Josh Hart's Jimmy Fallon stunt led to 'lucky shoe' superstition"
+    url: "https://sports.yahoo.com/articles/knicks-guard-josh-hart-jimmy-145813947.html"
+  - title: "New York Knicks | 2026 NBA Champions"
+    url: "https://www.nba.com/knicks/videos/new-york-knicks-2026-nba-champions"
+---
+
+
