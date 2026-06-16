@@ -360,7 +360,7 @@ const BREAKING_KEY = "breaking:featured";
 // aggregated grade/lean). Groups are ephemeral — regenerated each curator run.
 export type BreakingItem =
   | { type: "post"; id: string }
-  | { type: "group"; slug: string; title: string; ids: string[] };
+  | { type: "group"; slug: string; title: string; topic?: string; ids: string[] };
 
 export async function getBreaking(kv: KVNamespace): Promise<BreakingItem[]> {
   const raw = await kv.get(BREAKING_KEY);
@@ -377,6 +377,7 @@ export async function getBreaking(kv: KVNamespace): Promise<BreakingItem[]> {
             type: "group",
             slug: String(it.slug || ""),
             title: String(it.title || ""),
+            topic: it.topic ? String(it.topic) : undefined,
             ids: it.ids.map(String),
           };
         }

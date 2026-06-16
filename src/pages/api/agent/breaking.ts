@@ -36,7 +36,8 @@ export const POST: APIRoute = async ({ request }) => {
           return {
             type: "group",
             slug: String(it.slug || "").slice(0, 80),
-            title: String(it.title || "").slice(0, 120),
+            title: String(it.title || "").slice(0, 160),
+            topic: it.topic ? String(it.topic).slice(0, 80) : undefined,
             ids: it.ids.map((v: unknown) => String(v)).filter(Boolean),
           };
         }

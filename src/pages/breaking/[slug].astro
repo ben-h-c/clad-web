@@ -46,7 +46,7 @@ const shareUrl = new URL(`/breaking/${slug}/`, Astro.site ?? "https://cladfacts.
 >
   <section class="topic-page">
     <p class="small-caps" style="color:var(--muted-ink)">
-      Developing story · {members.length} reports
+      {group.topic ? `${group.topic} · ` : ""}Developing story · {members.length} reports
     </p>
     <h2 class="topic-page__title">{group.title}</h2>
 

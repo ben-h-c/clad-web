@@ -48,7 +48,7 @@ const breaking = breakingItems
     const members = it.ids
       .map((id) => byId.get(id))
       .filter((p): p is NonNullable<typeof p> => p !== undefined && isNewsOutlet(p.data.sourceTitle));
-    if (members.length >= 2) return { kind: "group" as const, slug: it.slug, title: it.title, members };
+    if (members.length >= 2) return { kind: "group" as const, slug: it.slug, title: it.title, topic: it.topic, members };
     if (members.length === 1) return { kind: "post" as const, post: members[0] };
     return null;
   })

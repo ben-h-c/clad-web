@@ -90,7 +90,7 @@ export async function runBreakingCurator(agent) {
   const groups = new Map();
   for (const s of scored) {
     const key = s.topic && s.topic.trim() ? s.topic.trim() : "misc";
-    if (!groups.has(key)) groups.set(key, { title: key, members: [] });
+    if (!groups.has(key)) groups.set(key, { bucket: key, members: [] });
     groups.get(key).members.push(s);
   }
 
@@ -98,13 +98,18 @@ export async function runBreakingCurator(agent) {
   const ordered = [...groups.values()].sort((a, b) => b.members[0].score - a.members[0].score);
 
   // 2+ articles → a temporary topic group; a lone article stays a single post.
+  // slug stays the stable topic bucket; the title is the lead story's headline
+  // (more descriptive than the bare bucket name).
   const items = [];
   for (const g of ordered.slice(0, maxBreaking)) {
     if (g.members.length >= 2) {
+      const lead = g.members[0];
+      const title = (lead.headline || g.bucket).slice(0, 140);
       items.push({
         type: "group",
-        slug: topicSlug(g.title) || "breaking",
-        title: g.title,
+        slug: topicSlug(g.bucket) || "breaking",
+        topic: g.bucket,
+        title,
         ids: g.members.map((m) => m.id),
       });
     } else {

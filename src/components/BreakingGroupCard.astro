@@ -7,15 +7,21 @@ import type { CollectionEntry } from "astro:content";
 interface Props {
   slug: string;
   title: string;
+  topic?: string;
   members: CollectionEntry<"posts">[];
 }
-const { slug, title, members } = Astro.props;
+const { slug, title, topic, members } = Astro.props;
 
 // Aggregate grade + lean across the grouped reports, like a topic does.
 const gpas = members.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n != null);
 const leans = members.map((p) => leanScoreOf(p.data)).filter((n): n is number => n != null);
 const avgGrade = gpas.length ? gpaToGrade(gpas.reduce((a, b) => a + b, 0) / gpas.length) : null;
 const avgLean = leans.length ? Math.round(leans.reduce((a, b) => a + b, 0) / leans.length) : null;
+
+// members[0] is the lead (highest-impact) story — its grade reasoning stands in
+// for the group's, like a single article card shows its own.
+const lead = members[0];
+const reasoning = lead?.data.gradeRationale || lead?.data.summary || "";
 
 const byNew = [...members].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 const thumb = byNew.find((p) => p.data.thumbnail)?.data.thumbnail ?? null;
@@ -51,8 +57,11 @@ const hqFallback = byNew.find((p) => p.data.videoId)?.data.videoId;
           )}
         </div>
       ) : null}
-      <p class="report-card__kicker small-caps">Developing · {members.length} reports</p>
+      <p class="report-card__kicker small-caps">
+        Developing{topic ? ` · ${topic}` : ""} · {members.length} reports
+      </p>
       <h3 class="report-card__headline">{title}</h3>
+      {reasoning && <p class="report-card__summary">{reasoning}</p>}
     </div>
   </a>
 </article>
