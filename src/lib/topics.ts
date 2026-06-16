@@ -68,12 +68,45 @@ function topicSim(a: Set<string>, b: Set<string>): number {
   return inter / (a.size + b.size - inter);
 }
 
+// Broad canonical buckets: Grok tags articles with very specific topics ("US-Iran
+// deal", "SpaceX IPO", "SpaceX launches"…), which fragments the Topics section.
+// We fold a topic into a broad bucket when it matches; order matters (most
+// specific first). Anything unmatched falls through to token clustering below.
+const TOPIC_BUCKETS: [RegExp, string][] = [
+  [/\biran\b|hormuz|tehran|jcpoa/i, "Iran"],
+  [/gaza|israel|hamas|\bidf\b|hezbollah|netanyahu|west bank/i, "Israel & Gaza"],
+  [/ukraine|russia|putin|zelensky|kremlin/i, "Ukraine & Russia"],
+  [/\bchina\b|taiwan|xi jinping|south china|beijing/i, "China"],
+  [/spacex|starship|starlink/i, "SpaceX"],
+  [/tesla|cybertruck|cybercab|\bfsd\b/i, "Tesla"],
+  [/artificial intelligence|\bai\b|openai|anthropic|\bgrok\b|chatgpt|\bllm\b|gemini|nvidia|data center/i, "AI & Tech"],
+  [/bitcoin|crypto|ethereum|\bbtc\b/i, "Crypto"],
+  [/stock|wall street|s&p|nasdaq|\bdow\b|\bipo\b|earnings|\bmarket\b/i, "Markets"],
+  [/inflation|federal reserve|\bfed\b|interest rate|jobs report|\beconomy\b|housing|tariff|\bgdp\b|recession/i, "Economy"],
+  [/election|mayoral|primary|ballot|\bvoter|\bpoll/i, "Elections"],
+  [/supreme court|scotus|\bcourt\b|lawsuit|\bdoj\b|indictment|ruling|\bjudge/i, "Courts & Law"],
+  [/immigration|\bborder\b|deportation|uscis|\bvisa\b|migrant|ice raid/i, "Immigration"],
+  [/congress|senate|filibuster|shutdown|\bspeaker\b/i, "Congress"],
+  [/\bufc\b/i, "White House UFC"],
+  [/\bg7\b|\bg20\b|\bnato\b|\bsummit\b|foreign policy|diplomacy/i, "Foreign Policy"],
+  [/\bmusk\b/i, "Elon Musk"],
+  [/newsom|desantis|\bharris\b|\bbiden\b/i, "US Politics"],
+  [/\btrump\b/i, "Trump"],
+];
+function bucketize(topic: string): string | null {
+  for (const [re, label] of TOPIC_BUCKETS) if (re.test(topic)) return label;
+  return null;
+}
+function canonicalTopic(t: string): string {
+  return bucketize(t) ?? t.trim();
+}
+
 export function aggregateTopics(posts: CollectionEntry<"posts">[]): TopicAgg[] {
   // 1) group articles by exact topic string
   const byTopic = new Map<string, CollectionEntry<"posts">[]>();
   for (const p of posts) {
     for (const t of p.data.topics ?? []) {
-      const key = t.trim();
+      const key = canonicalTopic(t);
       if (!key) continue;
       if (!byTopic.has(key)) byTopic.set(key, []);
       byTopic.get(key)!.push(p);
@@ -105,8 +138,9 @@ export function aggregateTopics(posts: CollectionEntry<"posts">[]): TopicAgg[] {
   //    groups.
   const map = new Map<string, { display: string; slug: string; posts: CollectionEntry<"posts">[] }>();
   for (const p of posts) {
-    const primary = (p.data.topics?.[0] ?? "").trim();
-    if (!primary) continue;
+    const primaryRaw = (p.data.topics?.[0] ?? "").trim();
+    if (!primaryRaw) continue;
+    const primary = canonicalTopic(primaryRaw);
     const canon = canonOf.get(primary) ?? primary;
     const slug = topicSlug(canon);
     if (!slug) continue;

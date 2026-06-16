@@ -51,11 +51,38 @@ function topicSim(a, b) {
   return inter / (a.size + b.size - inter);
 }
 
+// Keep in sync with TOPIC_BUCKETS in src/lib/topics.ts.
+const TOPIC_BUCKETS = [
+  [/\biran\b|hormuz|tehran|jcpoa/i, "Iran"],
+  [/gaza|israel|hamas|\bidf\b|hezbollah|netanyahu|west bank/i, "Israel & Gaza"],
+  [/ukraine|russia|putin|zelensky|kremlin/i, "Ukraine & Russia"],
+  [/\bchina\b|taiwan|xi jinping|south china|beijing/i, "China"],
+  [/spacex|starship|starlink/i, "SpaceX"],
+  [/tesla|cybertruck|cybercab|\bfsd\b/i, "Tesla"],
+  [/artificial intelligence|\bai\b|openai|anthropic|\bgrok\b|chatgpt|\bllm\b|gemini|nvidia|data center/i, "AI & Tech"],
+  [/bitcoin|crypto|ethereum|\bbtc\b/i, "Crypto"],
+  [/stock|wall street|s&p|nasdaq|\bdow\b|\bipo\b|earnings|\bmarket\b/i, "Markets"],
+  [/inflation|federal reserve|\bfed\b|interest rate|jobs report|\beconomy\b|housing|tariff|\bgdp\b|recession/i, "Economy"],
+  [/election|mayoral|primary|ballot|\bvoter|\bpoll/i, "Elections"],
+  [/supreme court|scotus|\bcourt\b|lawsuit|\bdoj\b|indictment|ruling|\bjudge/i, "Courts & Law"],
+  [/immigration|\bborder\b|deportation|uscis|\bvisa\b|migrant|ice raid/i, "Immigration"],
+  [/congress|senate|filibuster|shutdown|\bspeaker\b/i, "Congress"],
+  [/\bufc\b/i, "White House UFC"],
+  [/\bg7\b|\bg20\b|\bnato\b|\bsummit\b|foreign policy|diplomacy/i, "Foreign Policy"],
+  [/\bmusk\b/i, "Elon Musk"],
+  [/newsom|desantis|\bharris\b|\bbiden\b/i, "US Politics"],
+  [/\btrump\b/i, "Trump"],
+];
+function canonicalTopic(t) {
+  for (const [re, label] of TOPIC_BUCKETS) if (re.test(t)) return label;
+  return t.trim();
+}
+
 export function aggregateTopics(posts) {
   const byTopic = new Map();
   for (const p of posts) {
     for (const t of p.data.topics ?? []) {
-      const key = t.trim();
+      const key = canonicalTopic(t);
       if (!key) continue;
       if (!byTopic.has(key)) byTopic.set(key, []);
       byTopic.get(key).push(p);
@@ -81,8 +108,9 @@ export function aggregateTopics(posts) {
 
   const map = new Map();
   for (const p of posts) {
-    const primary = (p.data.topics?.[0] ?? "").trim();
-    if (!primary) continue;
+    const primaryRaw = (p.data.topics?.[0] ?? "").trim();
+    if (!primaryRaw) continue;
+    const primary = canonicalTopic(primaryRaw);
     const canon = canonOf.get(primary) ?? primary;
     const slug = topicSlug(canon);
     if (!slug) continue;
