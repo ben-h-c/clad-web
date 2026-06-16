@@ -1,0 +1,61 @@
+---
+type: "broadcast"
+headline: "Zeldin defends EPA deregulation, criticizes Congress on Clean Air Act"
+summary: "The POLITICO clip shows EPA Administrator Lee Zeldin in a June 2026 interview at the POLITICO Energy Summit defending the repeal of the 2009 greenhouse gas endangerment finding. He argues the agency is simply following Section 202 of the Clean Air Act and recent Supreme Court rulings rather than pursuing climate regulation.\nZeldin criticizes some members of Congress as intellectually or morally bankrupt for not reading the law and references Loper Bright and West Virginia v. EPA. He claims to speak for Americans frustrated with federal overreach while acknowledging productive members from both parties."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=QHcc0vZ1s0I"
+sourceTitle: "POLITICO"
+section: "Politics"
+letterGrade: "B+"
+factualityScore: 85
+politicalLean: "center-right"
+leanScore: 45
+leanRationale: "Emphasizes administration's statutory interpretation favoring deregulation and portrays congressional critics negatively while highlighting bipartisan engagement selectively."
+gradeRationale: "Graded B+: core legal and procedural claims align with official EPA actions and Supreme Court precedents; minor issues from partisan framing and lack of opposing perspectives in the clip."
+topics:
+  - "EPA policy"
+  - "Clean Air Act"
+  - "congressional oversight"
+assessment: "The segment accurately captures Zeldin's stated rationale, which matches the EPA's February 2026 final rule repealing the endangerment finding and related vehicle standards. Legal references to Chevron's overturn and the major questions doctrine are factually grounded in Supreme Court decisions. Viewers miss counterarguments from environmental groups and Democrats that the repeal undermines public health protections and that scientific consensus on GHG dangers remains unchanged. The framing presents the administration's position as straightforward statutory compliance without exploring litigation risks or economic analyses of the rollback. No major factual errors appear in the clip itself."
+notableConcerns: []
+keyMoments:
+  - claim: "EPA is repealing the 2009 endangerment finding by following Section 202 of the Clean Air Act, not addressing global climate change"
+    verdict: "verified"
+    note: "Matches EPA's February 2026 final rule announcement citing the same statutory limits and recent court decisions."
+  - claim: "Loper Bright overturned Chevron deference and West Virginia v. EPA established the major questions doctrine"
+    verdict: "verified"
+    note: "Accurate descriptions of the 2024 Loper Bright decision and 2022 West Virginia ruling."
+  - claim: "Some members of Congress are intellectually or morally bankrupt for not reading the law before questioning EPA actions"
+    verdict: "missing context"
+    note: "Direct quote reflecting Zeldin's view; no evidence presented on specific members' preparation or counter-claims from Congress."
+videoId: "QHcc0vZ1s0I"
+videoTitle: "Lee Zeldin gets fired up about ‘morally bankrupt’ members of Congress"
+thumbnail: "https://img.youtube.com/vi/QHcc0vZ1s0I/maxresdefault.jpg"
+citations:
+  - title: "POLITICO's Energy Summit"
+    url: "https://www.politico.com/events/2026/06/10/politicos-energy-summit-00001645"
+  - title: "A Conversation with EPA Administrator Lee Zeldin"
+    url: "https://politicos2026energysummit.splashthat.com/CMS"
+  - title: "Lee Zeldin on rising gas prices, energy dominance and AI data centers"
+    url: "https://www.politico.com/video/2026/06/11/lee-zeldin-on-rising-gas-prices-energy-dominance-and-ai-data-centers-2096933"
+  - title: "President Trump and Administrator Zeldin Deliver Single Largest Deregulatory Action in U.S. History"
+    url: "https://www.epa.gov/newsreleases/president-trump-and-administrator-zeldin-deliver-single-largest-deregulatory-action-us"
+  - title: "EPA Rescinds Greenhouse Gas Endangerment Finding and Motor Vehicle Greenhouse Gas Emission Standards"
+    url: "https://www.federalregister.gov/documents/2026/02/18/2026-03157/rescission-of-the-greenhouse-gas-endangerment-finding-and-motor-vehicle-greenhouse-gas-emission"
+  - title: "EPA repeals landmark finding that climate pollution is harmful"
+    url: "https://www.politico.com/news/2026/02/12/epa-repeals-endangerment-finding-vehicle-climate-standards-00732274"
+  - title: "EPA Administrator Lee Zeldin justifies repeal of endangerment finding: 'I have to follow the law'"
+    url: "https://www.youtube.com/watch?v=-IU7h1CcNfE"
+  - title: "Lee Zeldin's EPA Endangerment Finding Repeal: What it Means for Clean Air and the Climate"
+    url: "https://www.lcv.org/blog/epa-endangerment-finding-repeal-what-it-means-for-clean-air-and-climate/"
+  - title: "EPA Moves to Roll Back Endangerment Finding, Threatening Climate Action"
+    url: "https://www.sierraclub.org/sierra/epa-moves-roll-back-endangerment-finding-threatening-climate-action"
+  - title: "EPA Plans to Rescind the 2009 Greenhouse Gas Endangerment Finding: Here's What States Need to Know"
+    url: "https://alec.org/article/epa-plans-to-rescind-the-2009-greenhouse-gas-endangerment-finding-heres-what-states-need-to-know/"
+  - title: "EPA Administrator Lee Zeldin on U.S. Energy Policy"
+    url: "https://www.c-span.org/program/public-affairs-event/epa-administrator-lee-zeldin-on-us-energy-policy/677501"
+  - title: "EPA chief Lee Zeldin got fired up about “morally bankrupt” members of Congress"
+    url: "https://www.instagram.com/reel/DZh8I8hx--7/"
+---
+
+
