@@ -1,15 +1,18 @@
 import { generateBroadcastReport } from "../src/lib/broadcast.ts";
 import { validateCitations } from "../src/lib/citations.ts";
 import { fetchTranscript } from "./transcript.mjs";
-import { getKnown, submitDraft, getCategories } from "./api.mjs";
+import { getKnown, submitDraft } from "./api.mjs";
 
-const YT_API = "https://www.googleapis.com/youtube/v3/search";
+// Pull each outlet's latest uploads via its uploads playlist — 1 quota unit per
+// call, vs 100 per keyword search. (Topic-driven discovery is now handled
+// manually via the Categories page + Dispatch; this agent only watches the
+// established news outlets for their newest headlines.)
+const YT_PLAYLIST = "https://www.googleapis.com/youtube/v3/playlistItems";
 
-// Allow-list of popular US English news networks, by exact YouTube channel ID.
-// Using IDs (not title substrings) keeps out foreign affiliates that share a
-// name — e.g. US "CNN" vs India's "CNN-News18". Editorial policy; resolved via
-// the YouTube Data API and kept in the runner so it's easy to adjust.
-const NETWORK_CHANNEL_IDS = new Set([
+// Allow-list of US English news outlets, by exact YouTube channel ID. Using IDs
+// (not title substrings) keeps out foreign affiliates that share a name — e.g.
+// US "CNN" vs India's "CNN-News18". Editorial policy; easy to adjust here.
+const NETWORK_CHANNEL_IDS = [
   "UCupvZG-5ko_eiXAupbDfxWw", // CNN
   "UCXIJgqnII2ZOINSWNOGFThA", // Fox News
   "UCCXoCcu9Rp7NPbTzIvogpZg", // Fox Business
@@ -32,182 +35,124 @@ const NETWORK_CHANNEL_IDS = new Set([
   "UCgjtvMmHXbutALaw9XzRkAg", // POLITICO
   "UCJnS2EsPfv46u1JR8cnD0NA", // NPR
   "UCg40OxZ1GYh3u3jBntB6DLg", // Forbes Breaking News
-]);
+];
 
-// Run one scan for a youtube-scanner agent. Returns a status summary.
+// Run one scan: gather the newest headlines across the news outlets, then draft
+// the most-recent transcribed ones (up to maxPublishesPerRun).
 export async function runYoutubeScanner(agent) {
   const key = process.env.YOUTUBE_API_KEY;
   const xaiKey = process.env.XAI_API_KEY;
   if (!key) return { ok: false, message: "YOUTUBE_API_KEY not set" };
   if (!xaiKey) return { ok: false, message: "XAI_API_KEY not set" };
 
-  const c = agent.config;
-  const publishedAfter = new Date(
-    Date.now() - (c.publishedWithinHours || 24) * 3600_000
-  ).toISOString();
-
+  const c = agent.config || {};
   const limit = c.maxPublishesPerRun || 3;
-  const maxPages = c.maxScanPages || 4; // limited loop: keep looking across pages
+  const withinHours = c.publishedWithinHours || 48;
+  const cutoff = Date.now() - withinHours * 3600_000;
+  const perChannel = c.perChannel || 4; // newest uploads to pull from each outlet
+
+  // 1) Collect recent uploads from every outlet's uploads playlist (UC… -> UU…).
+  const candidates = [];
+  let firstError = null;
+  for (const channelId of NETWORK_CHANNEL_IDS) {
+    const uploadsId = "UU" + channelId.slice(2);
+    const params = new URLSearchParams({
+      key,
+      part: "snippet",
+      playlistId: uploadsId,
+      maxResults: String(perChannel),
+    });
+    let res;
+    try {
+      res = await fetch(`${YT_PLAYLIST}?${params}`);
+    } catch {
+      continue;
+    }
+    if (!res.ok) {
+      if (!firstError) firstError = `${res.status}: ${(await res.text().catch(() => "")).slice(0, 140)}`;
+      continue;
+    }
+    const data = await res.json();
+    for (const it of data.items || []) {
+      const s = it.snippet || {};
+      const videoId = s.resourceId?.videoId;
+      if (!videoId) continue;
+      const publishedAt = s.publishedAt || "";
+      if (publishedAt && new Date(publishedAt).getTime() < cutoff) continue; // outside the window
+      candidates.push({
+        videoId,
+        title: s.title || "",
+        channel: s.videoOwnerChannelTitle || s.channelTitle || "",
+        publishedAt,
+      });
+    }
+  }
+
+  if (candidates.length === 0) {
+    return {
+      ok: !firstError,
+      message: firstError ? `YouTube API ${firstError}` : `no outlet uploads in the last ${withinHours}h`,
+      submitted: 0,
+      skipped: 0,
+    };
+  }
+
+  // 2) Most-recent first across all outlets = the top current headlines.
+  candidates.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+
+  // 3) Drop anything already published/pending/seen.
+  const known = await getKnown(
+    agent.id,
+    candidates.map((v) => ({ videoId: v.videoId, channel: v.channel, title: v.title }))
+  );
+  const knownSet = new Set(known.ok ? known.body.known || [] : []);
+  const fresh = candidates.filter((v) => !knownSet.has(v.videoId));
 
   let submitted = 0;
-  let skipped = 0;
+  let skipped = candidates.length - fresh.length;
   let noTranscript = 0;
-  let candidatesSeen = 0;
-  let pageToken = "";
-  // Network allow-list is optional now — accept any channel with a transcript
-  // unless requireNetwork is set.
-  const requireNetwork = !!c.requireNetwork;
 
-  // Build the list of searches from the editor-managed category list (toggled
-  // on the /admin/categories page), chunked into short OR-queries (a single
-  // over-long query makes YouTube drop matches). Fall back to the base query if
-  // no categories are enabled.
-  let enabledCategories = [];
-  try {
-    const cr = await getCategories();
-    if (cr.ok && Array.isArray(cr.body?.categories)) enabledCategories = cr.body.categories;
-  } catch {
-    /* categories optional */
-  }
-  const chunk = (arr, n) => {
-    const out = [];
-    for (let i = 0; i < arr.length; i += n) out.push(arr.slice(i, i + n));
-    return out;
-  };
-
-  // QUOTA NOTE: each search.list costs 100 YouTube API units. Keep per-run
-  // searches low = (plans x categories x pages). With category phrases we don't
-  // also filter by YouTube category (the phrase is the filter), so categories =
-  // ["any"] (one pass, no videoCategoryId) and 1 page per chunk.
-  let categories;
-  let queryPlans;
-  if (enabledCategories.length) {
-    categories = ["any"];
-    queryPlans = chunk(enabledCategories, 12).map((g) => ({
-      query: g.map((t) => `"${String(t).replace(/"/g, "")}"`).join(" OR "),
-      pages: 1,
-      fromCategory: true,
-    }));
-  } else {
-    categories =
-      Array.isArray(c.videoCategoryIds) && c.videoCategoryIds.length
-        ? c.videoCategoryIds
-        : [c.videoCategoryId || "25"];
-    queryPlans = [{ query: c.query || "politics", pages: maxPages, fromCategory: false }];
-  }
-
-  // Limited loop: run each query plan across each category, paging until we've
-  // drafted `limit` transcribed reports. `processed` avoids handling the same
-  // video twice when plans overlap.
-  const processed = new Set();
-  let categoryDrafts = 0;
-
-  for (const plan of queryPlans) {
+  // 4) Transcript-required: draft the newest fresh headlines up to the limit.
+  for (const v of fresh) {
     if (submitted >= limit) break;
-
-    for (const category of categories) {
-      if (submitted >= limit) break;
-      pageToken = "";
-
-      for (let page = 0; page < plan.pages && submitted < limit; page++) {
-        const params = new URLSearchParams({
-          key,
-          part: "snippet",
-          type: "video",
-          regionCode: c.regionCode || "US",
-          order: c.order || "viewCount",
-          publishedAfter,
-          q: plan.query,
-          maxResults: "50",
-          relevanceLanguage: "en",
-        });
-        if (category && category !== "any") params.set("videoCategoryId", String(category));
-        if (pageToken) params.set("pageToken", pageToken);
-
-        const res = await fetch(`${YT_API}?${params}`);
-        if (!res.ok) {
-          const body = await res.text().catch(() => "");
-          if (page === 0 && category === categories[0] && plan === queryPlans[0]) {
-            return { ok: false, message: `YouTube API ${res.status}: ${body.slice(0, 160)}` };
-          }
-          break; // a later page/category/plan failed — keep what we have
-        }
-        const data = await res.json();
-        pageToken = data.nextPageToken || "";
-
-        const networkCands = (data.items || [])
-          .filter(
-            (it) =>
-              it.id?.videoId &&
-              (!requireNetwork || NETWORK_CHANNEL_IDS.has(it.snippet?.channelId))
-          )
-          .map((it) => ({
-            videoId: it.id.videoId,
-            title: it.snippet?.title || "",
-            channel: it.snippet?.channelTitle || "",
-            publishedAt: it.snippet?.publishedAt || "",
-          }));
-        candidatesSeen += networkCands.length;
-
-        if (networkCands.length > 0) {
-          // Pre-dedupe against published/pending/seen AND same-channel same-story.
-          const known = await getKnown(
-            agent.id,
-            networkCands.map((v) => ({ videoId: v.videoId, channel: v.channel, title: v.title }))
-          );
-          const knownSet = new Set(known.ok ? known.body.known || [] : []);
-          const fresh = networkCands.filter((v) => !knownSet.has(v.videoId) && !processed.has(v.videoId));
-          skipped += networkCands.length - fresh.length;
-
-          for (const v of fresh) {
-            if (submitted >= limit) break;
-            processed.add(v.videoId);
-            const sourceUrl = `https://www.youtube.com/watch?v=${v.videoId}`;
-            const transcript = await fetchTranscript(v.videoId);
-            if (!transcript) {
-              noTranscript++;
-              skipped++;
-              continue;
-            }
-            let report;
-            try {
-              report = await generateBroadcastReport(xaiKey, {
-                transcript,
-                sourceUrl,
-                videoTitle: v.title,
-                channel: v.channel,
-              });
-            } catch {
-              skipped++;
-              continue;
-            }
-            report.citations = await validateCitations(report.citations);
-            const out = await submitDraft({
-              agentId: agent.id,
-              sourceUrl,
-              report,
-              source: {
-                channel: v.channel,
-                videoTitle: v.title,
-                transcriptUsed: true,
-                publishedAt: v.publishedAt,
-              },
-            });
-            if (out.ok) {
-              submitted++;
-              if (plan.fromCategory) categoryDrafts++;
-            } else skipped++;
-          }
-        }
-
-        if (!pageToken) break; // no more pages for this plan/category
-      }
+    const sourceUrl = `https://www.youtube.com/watch?v=${v.videoId}`;
+    const transcript = await fetchTranscript(v.videoId);
+    if (!transcript) {
+      noTranscript++;
+      skipped++;
+      continue;
     }
+    let report;
+    try {
+      report = await generateBroadcastReport(xaiKey, {
+        transcript,
+        sourceUrl,
+        videoTitle: v.title,
+        channel: v.channel,
+      });
+    } catch {
+      skipped++;
+      continue;
+    }
+    report.citations = await validateCitations(report.citations);
+    const out = await submitDraft({
+      agentId: agent.id,
+      sourceUrl,
+      report,
+      source: {
+        channel: v.channel,
+        videoTitle: v.title,
+        transcriptUsed: true,
+        publishedAt: v.publishedAt,
+      },
+    });
+    if (out.ok) submitted++;
+    else skipped++;
   }
 
   return {
     ok: true,
-    message: `${candidatesSeen} scanned, ${submitted} drafted (${categoryDrafts} from ${enabledCategories.length} enabled categories), ${skipped} skipped (${noTranscript} no transcript)`,
+    message: `${candidates.length} recent outlet headlines, ${submitted} drafted, ${skipped} skipped (${noTranscript} no transcript)`,
     submitted,
     skipped,
   };
