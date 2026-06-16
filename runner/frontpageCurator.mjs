@@ -15,6 +15,17 @@ function headlineTokens(s) {
       .filter((w) => w.length > 2 && !HEADLINE_STOP.has(w))
   );
 }
+// The Front Page is for cool, recent, lighter stories — NOT politics or heavy
+// news. Exclude anything that reads as political/geopolitical or as a tragedy.
+const HEAVY_POLITICS =
+  /\b(?:trump|biden|obama|harris|vance|newsom|desantis|pence|gowdy|warnock|schiff|clinton|mamdani|starmer|presiden\w*|congress\w*|senat\w*|lawmaker\w*|legislat\w*|filibuster|shutdown|impeach\w*|administration|white house|cabinet|governor|mayor\w*|attorney general|election\w*|midterm\w*|primary|primaries|ballot\w*|voter\w*|caucus\w*|campaign\w*|polls?|democrat\w*|republican\w*|gop|bipartisan|doj|fbi|cia|dhs|supreme court|scotus|federal court|lawsuit\w*|indict\w*|ruling|subpoena\w*|immigrat\w*|immigrant\w*|border|deport\w*|visa|migrant\w*|asylum|abortion|guns?|firearm\w*|iran\w*|israel\w*|gaza|hamas|hezbollah|idf|netanyahu|ukrain\w*|russia\w*|putin|zelensky|kremlin|china|chinese|taiwan|beijing|tariff\w*|sanction\w*|federal reserve|inflation|recession|nato|g7|g20|summit|foreign policy|diplomac\w*|geopolit\w*|wars?|military|missile\w*|airstrike\w*|troops|nuclear|genocide|protest\w*|riot\w*|terror\w*|coup|regime|parliament\w*|prime minister|dni|nominat\w*|hearing|probe|policy|policies|regulat\w*|agenc\w*|oversight|forest service|national forest\w*|mining|federal)\b/i;
+const TRAGEDY =
+  /\b(?:crash\w*|dead|dies|died|death\w*|deadly|fatal\w*|kill\w*|homicide|shoot\w*|gunman|gunmen|massacre|stabbing|stabbed|wildfire\w*|flood\w*|hurricane\w*|tornado\w*|earthquake\w*|tsunami|disaster\w*|catastroph\w*|victim\w*|tragedy|tragic|collaps\w*|explos\w*|bomb\w*|injur\w*|wound\w*|casualt\w*|outbreak\w*|pandemic|epidemic|overdose\w*|missing|manhunt|abduct\w*|kidnap\w*|assault\w*)\b/i;
+function isLighthearted(p) {
+  const blob = `${(p.topics || []).join(" ")} ${p.headline || ""}`;
+  return !HEAVY_POLITICS.test(blob) && !TRAGEDY.test(blob);
+}
+
 // Near-duplicate if headlines share >=3 meaningful tokens covering >=50% of the
 // smaller one (overlap coefficient — robust to extra outlet/framing words).
 function isNearDup(tk, chosenTokens) {
@@ -45,22 +56,31 @@ export async function runFrontpageCurator(agent) {
   const res = await getPosts();
   if (!res.ok) return { ok: false, message: `posts fetch ${res.status}` };
   const allPosts = res.body.posts || [];
-  // Editorial rule: only established news outlets are eligible for the front page.
-  const posts = allPosts.filter((p) => isNewsOutlet(p.sourceTitle));
-  if (posts.length === 0) {
+  // Editorial rule: established news outlets, and the Front Page is for cool,
+  // lighter recent stories — not politics or tragedies. Prefer outlet + light;
+  // if that pool is thin, drop the outlet restriction (still light) so the page
+  // stays full; only as a last resort fall back to outlet posts of any kind.
+  const outlets = allPosts.filter((p) => isNewsOutlet(p.sourceTitle));
+  let pool = outlets.filter(isLighthearted);
+  if (pool.length < 6) {
+    const anyLight = allPosts.filter(isLighthearted);
+    if (anyLight.length > pool.length) pool = anyLight;
+  }
+  if (pool.length === 0) pool = outlets;
+  if (pool.length === 0) {
     await setFrontpage([]);
     return {
       ok: true,
-      message: `no news-outlet posts (of ${allPosts.length} published)`,
+      message: `no eligible posts (of ${allPosts.length} published)`,
       submitted: 0,
     };
   }
 
   // YouTube stats for the posts that have a video id (batched, 50 per call).
-  const stats = await fetchStats(posts.map((p) => p.videoId).filter(Boolean), key);
+  const stats = await fetchStats(pool.map((p) => p.videoId).filter(Boolean), key);
 
   const now = Date.now();
-  const scored = posts.map((p) => {
+  const scored = pool.map((p) => {
     const ageH = (now - new Date(p.publishedAt).getTime()) / 3_600_000;
     const recency = Math.exp(-ageH / 72); // ~3-day half-life
     const s = (p.videoId && stats[p.videoId]) || { views: 0, likes: 0, comments: 0 };
@@ -110,12 +130,22 @@ export async function runFrontpageCurator(agent) {
       if (t.arr[round]) take(t.arr[round]);
     }
   }
-  // Backfill by score if still short (very few topics), still skipping near-dups.
+  // Backfill by score if still short, but keep the per-topic cap so a thin pool
+  // can't fill the page with one topic (e.g. four SpaceX-IPO takes). Better a
+  // shorter, varied page than a repetitive full one.
   if (chosen.length < maxFeatured) {
+    const topicCount = new Map();
+    for (const p of chosen) {
+      const t = canonicalTopic(p.topics?.[0] || p.headline || "");
+      topicCount.set(t, (topicCount.get(t) || 0) + 1);
+    }
     const have = new Set(chosen.map((p) => p.id));
     for (const p of [...scored].sort((a, b) => b.score - a.score)) {
       if (chosen.length >= maxFeatured) break;
-      if (!have.has(p.id)) take(p);
+      if (have.has(p.id)) continue;
+      const t = canonicalTopic(p.topics?.[0] || p.headline || "");
+      if ((topicCount.get(t) || 0) >= perTopicCap) continue;
+      if (take(p)) topicCount.set(t, (topicCount.get(t) || 0) + 1);
     }
   }
 
@@ -128,7 +158,7 @@ export async function runFrontpageCurator(agent) {
   ).size;
   return {
     ok: true,
-    message: `featured ${ids.length} of ${posts.length} across ${topicsCovered} topics (rotating)`,
+    message: `featured ${ids.length} of ${pool.length} lighthearted across ${topicsCovered} topics (rotating)`,
     submitted: ids.length,
   };
 }

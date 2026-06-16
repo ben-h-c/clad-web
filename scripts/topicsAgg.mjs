@@ -59,6 +59,8 @@ const TOPIC_BUCKETS = [
   [/\bchina\b|taiwan|xi jinping|south china|beijing/i, "China"],
   [/spacex|starship|starlink/i, "SpaceX"],
   [/tesla|cybertruck|cybercab|\bfsd\b/i, "Tesla"],
+  [/world cup|\bfifa\b/i, "World Cup 2026"],
+  [/\bnba\b|knicks|\bnfl\b|super bowl|playoff|finals|championship/i, "Sports"],
   [/artificial intelligence|\bai\b|openai|anthropic|\bgrok\b|chatgpt|\bllm\b|gemini|nvidia|data center/i, "AI & Tech"],
   [/bitcoin|crypto|ethereum|\bbtc\b/i, "Crypto"],
   [/stock|wall street|s&p|nasdaq|\bdow\b|\bipo\b|earnings|\bmarket\b/i, "Markets"],
