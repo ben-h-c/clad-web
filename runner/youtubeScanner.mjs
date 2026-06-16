@@ -9,10 +9,12 @@ import { getKnown, submitDraft } from "./api.mjs";
 // established news outlets for their newest headlines.)
 const YT_PLAYLIST = "https://www.googleapis.com/youtube/v3/playlistItems";
 
-// Allow-list of US English news outlets + talk/panel/commentary shows, by exact
-// YouTube channel ID (the Front Page features talk-show segments). Using IDs
-// (not title substrings) keeps out foreign affiliates that share a name — e.g.
-// US "CNN" vs India's "CNN-News18". Editorial policy; easy to adjust here.
+// Allow-list of news outlets + talk/panel/commentary shows, by exact YouTube
+// channel ID (the Front Page features talk-show segments). Using IDs (not title
+// substrings) keeps out foreign affiliates that share a name — e.g. US "CNN" vs
+// India's "CNN-News18". Editorial policy; easy to adjust here. Includes major
+// US outlets plus international English-language broadcasters that cover US
+// politics heavily (their lean is graded by the classifier like any other).
 const NETWORK_CHANNEL_IDS = [
   "UCupvZG-5ko_eiXAupbDfxWw", // CNN
   "UCXIJgqnII2ZOINSWNOGFThA", // Fox News
@@ -43,6 +45,15 @@ const NETWORK_CHANNEL_IDS = [
   "UCwWhs_6x42TyRM4Wstoq8HA", // The Daily Show (Jon Stewart)
   "UC3XTzVzaHQEd30rQbuvCtTQ", // Last Week Tonight
   "UCy6kyFxaMqGtpE3pQTflK8A", // Real Time with Bill Maher
+  // International English-language outlets with heavy US coverage.
+  "UC16niRr50-MSBwiO3YDb3RA", // BBC News
+  "UCoMdktPbSTixAyNGwb-UYkQ", // Sky News
+  "UCIRYBXDze5krPDzAEOxFGVA", // Guardian News
+  "UCNye-wNBqNL5ZzHSJj3l8Bg", // Al Jazeera English
+  "UCknLrEdhRCp1aegoMqRaCZg", // DW News
+  "UCQfwfsi5VrQ8yKZ-UWmAEFg", // France 24 English
+  "UCuFFtHWoLl5fauMMD5Ww2jA", // CBC News
+  "UChLtXXpo4Ge1ReTEboVvTDg", // Global News
 ];
 
 // Run one scan: gather the newest headlines across the news outlets, then draft
