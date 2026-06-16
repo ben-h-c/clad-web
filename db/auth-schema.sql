@@ -53,6 +53,16 @@ CREATE TABLE IF NOT EXISTS "topic_alert" (
   "topic" text NOT NULL,
   "createdAt" date NOT NULL
 );
+-- Saved/bookmarked articles (one row per user+article).
+CREATE TABLE IF NOT EXISTS "favorite" (
+  "id" text NOT NULL PRIMARY KEY,
+  "userId" text NOT NULL REFERENCES "user" ("id"),
+  "slug" text NOT NULL,
+  "headline" text NOT NULL DEFAULT '',
+  "createdAt" date NOT NULL,
+  UNIQUE ("userId", "slug")
+);
 CREATE INDEX IF NOT EXISTS "idx_session_userId" ON "session" ("userId");
 CREATE INDEX IF NOT EXISTS "idx_account_userId" ON "account" ("userId");
 CREATE INDEX IF NOT EXISTS "idx_topic_alert_userId" ON "topic_alert" ("userId");
+CREATE INDEX IF NOT EXISTS "idx_favorite_userId" ON "favorite" ("userId");

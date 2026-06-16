@@ -5,8 +5,13 @@ import { getAuth, enabledSocialProviders } from "~/lib/auth-server";
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
 
+// Honor a same-origin ?next= so "Save" / gated actions can bounce readers back
+// to where they were (open-redirect-safe: must be a root-relative path).
+const nextParam = Astro.url.searchParams.get("next");
+const dest = nextParam && nextParam.startsWith("/") && !nextParam.startsWith("//") ? nextParam : "/account/";
+
 const session = await getAuth().api.getSession({ headers: Astro.request.headers });
-if (session?.user) return Astro.redirect("/account/");
+if (session?.user) return Astro.redirect(dest);
 
 const PROVIDER_LABELS: Record<string, string> = { google: "Google", apple: "Apple", twitter: "X" };
 const providers = enabledSocialProviders();
@@ -43,6 +48,8 @@ const providers = enabledSocialProviders();
   <script is:inline>
     const status = document.getElementById("login-status");
     const setErr = (m) => { status.className = "auth-status auth-status--error"; status.textContent = m; };
+    const nextParam = new URLSearchParams(location.search).get("next");
+    const dest = nextParam && nextParam.startsWith("/") && !nextParam.startsWith("//") ? nextParam : "/account/";
     document.getElementById("login-form").addEventListener("submit", async (e) => {
       e.preventDefault();
       const btn = e.target.querySelector(".auth-submit");
@@ -56,7 +63,7 @@ const providers = enabledSocialProviders();
         });
         const data = await res.json().catch(() => ({}));
         if (!res.ok) throw new Error(data.message || "Invalid email or password.");
-        window.location.href = "/account/";
+        window.location.href = dest;
       } catch (err) { setErr(String(err.message || err)); btn.disabled = false; }
     });
     document.querySelectorAll(".auth-social__btn").forEach((b) => {
@@ -66,7 +73,7 @@ const providers = enabledSocialProviders();
           const res = await fetch("/api/auth/sign-in/social", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ provider: b.getAttribute("data-provider"), callbackURL: "/account/" }),
+            body: JSON.stringify({ provider: b.getAttribute("data-provider"), callbackURL: dest }),
           });
           const data = await res.json().catch(() => ({}));
           if (data.url) window.location.href = data.url;

@@ -23,6 +23,7 @@ export const POST: APIRoute = async ({ request }) => {
       env.DB.prepare("DELETE FROM session WHERE userId = ?").bind(id),
       env.DB.prepare("DELETE FROM account WHERE userId = ?").bind(id),
       env.DB.prepare("DELETE FROM topic_alert WHERE userId = ?").bind(id),
+      env.DB.prepare("DELETE FROM favorite WHERE userId = ?").bind(id),
       env.DB.prepare("DELETE FROM user_preferences WHERE userId = ?").bind(id),
       env.DB.prepare("DELETE FROM user WHERE id = ?").bind(id),
     ]);

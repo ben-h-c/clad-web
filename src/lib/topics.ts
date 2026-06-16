@@ -95,6 +95,9 @@ const TOPIC_BUCKETS: [RegExp, string][] = [
   [/newsom|desantis|\bharris\b|\bbiden\b/i, "US Politics"],
   [/\btrump\b/i, "Trump"],
 ];
+// Human-friendly canonical topic labels, surfaced as alert/interest suggestions.
+export const TOPIC_LABELS: string[] = [...new Set(TOPIC_BUCKETS.map(([, label]) => label))];
+
 function bucketize(topic: string): string | null {
   for (const [re, label] of TOPIC_BUCKETS) if (re.test(topic)) return label;
   return null;

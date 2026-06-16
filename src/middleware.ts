@@ -6,6 +6,11 @@ import { checkBasicAuth, unauthorized } from "~/lib/auth";
 // must bypass the editor basic-auth gate.
 const AGENT_API = (path: string) => path.startsWith("/api/agent/");
 
+// Logged-in reader endpoints (favorites, preferences, alerts) authenticate via
+// the Better Auth session cookie inside each route, so they bypass the editor
+// basic-auth gate but are NOT public — the routes return 401 without a session.
+const USER_API = (path: string) => path.startsWith("/api/me/");
+
 // Public, unauthenticated endpoints. Readers submit grade/lean disputes at
 // /api/flag (rate-limited in the route); /api/auth/* is the user-account
 // (Better Auth) surface and must not sit behind the editor basic-auth gate.
@@ -19,6 +24,7 @@ const PROTECTED = (path: string) =>
 export const onRequest = defineMiddleware(async (context, next) => {
   const path = context.url.pathname;
   if (AGENT_API(path)) return next();
+  if (USER_API(path)) return next();
   if (PUBLIC_API(path)) return next();
   if (!PROTECTED(path)) return next();
 

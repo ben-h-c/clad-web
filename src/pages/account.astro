@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getAuth } from "~/lib/auth-server";
+import { getPrefs, listFavorites, listAlerts } from "~/lib/user-data";
+import { TOPIC_LABELS } from "~/lib/topics";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
@@ -8,9 +10,17 @@ Astro.response.headers.set("Cache-Control", "no-store");
 const session = await getAuth().api.getSession({ headers: Astro.request.headers });
 if (!session?.user) return Astro.redirect("/login/");
 const user = session.user;
+
+const [prefs, favorites, alerts] = await Promise.all([
+  getPrefs(user.id),
+  listFavorites(user.id),
+  listAlerts(user.id),
+]);
+const alertTopics = new Set(alerts.map((a) => a.topic.toLowerCase()));
+const suggestions = TOPIC_LABELS.filter((t) => !alertTopics.has(t.toLowerCase()));
 ---
-<BaseLayout title="Your account — Clad" description="Your CladFacts account.">
-  <article class="static-page auth-page">
+<BaseLayout title="Your account — Clad" description="Your CladFacts account, preferences, alerts, and saved articles.">
+  <article class="static-page account">
     <h2 class="static-page__title">Your account</h2>
 
     <dl class="account-meta">
@@ -18,11 +28,84 @@ const user = session.user;
       <dt>Email</dt><dd>{user.email}{user.emailVerified ? "" : " (unverified)"}</dd>
     </dl>
 
-    <h3 class="static-page__sub">Preferences &amp; alerts</h3>
-    <p class="dateline">
-      Saved preferences and custom topic alerts are coming soon — your account is
-      ready for them.
-    </p>
+    <section class="account-section" id="prefs-section">
+      <h3 class="static-page__sub">Email &amp; notifications</h3>
+      <p class="dateline">Choose what we send you. We'll only email what you opt into.</p>
+      <form id="prefs-form" class="prefs">
+        <label class="pref-row">
+          <input type="checkbox" id="pref-newsletter" checked={prefs.newsletter} />
+          <span>
+            <strong>CladFacts newsletter</strong>
+            <small>Our curated rundown of the week's most-checked stories (launching soon).</small>
+          </span>
+        </label>
+        <label class="pref-row">
+          <input type="checkbox" id="pref-breaking" checked={prefs.breakingAlerts} />
+          <span>
+            <strong>Breaking-news alerts</strong>
+            <small>An email when a major story is added to Breaking News.</small>
+          </span>
+        </label>
+        <div class="pref-row pref-row--select">
+          <label for="pref-digest"><strong>Digest frequency</strong></label>
+          <select id="pref-digest">
+            <option value="off" selected={prefs.digest === "off"}>Off</option>
+            <option value="weekly" selected={prefs.digest === "weekly"}>Weekly</option>
+            <option value="daily" selected={prefs.digest === "daily"}>Daily</option>
+          </select>
+        </div>
+        <div class="account-actions">
+          <button type="submit" class="auth-submit">Save preferences</button>
+          <span id="prefs-status" class="auth-status" role="status"></span>
+        </div>
+      </form>
+    </section>
+
+    <section class="account-section" id="alerts-section">
+      <h3 class="static-page__sub">Topic alerts</h3>
+      <p class="dateline">Follow the issues you care about. We'll notify you when there's new coverage.</p>
+      <ul class="chip-list" id="alert-list">
+        {alerts.length === 0 && <li class="chip-empty" data-empty>No topics yet — add one below.</li>}
+        {alerts.map((a) => (
+          <li class="chip" data-id={a.id}>
+            <span class="chip__label">{a.topic}</span>
+            <button type="button" class="chip__remove" aria-label={`Remove ${a.topic}`}>×</button>
+          </li>
+        ))}
+      </ul>
+      <form id="alert-form" class="alert-add">
+        <input
+          type="text"
+          id="alert-input"
+          list="topic-suggestions"
+          maxlength="80"
+          placeholder="Add a topic (e.g. Elections, AI &amp; Tech)…"
+          autocomplete="off"
+        />
+        <datalist id="topic-suggestions">
+          {suggestions.map((t) => <option value={t}></option>)}
+        </datalist>
+        <button type="submit" class="auth-submit secondary">Add</button>
+        <span id="alert-status" class="auth-status" role="status"></span>
+      </form>
+    </section>
+
+    <section class="account-section" id="favorites-section">
+      <h3 class="static-page__sub">Saved articles</h3>
+      <ul class="fav-list" id="fav-list">
+        {favorites.length === 0 && (
+          <li class="fav-empty" data-empty>
+            Nothing saved yet. Tap <strong>Save</strong> on any report to keep it here.
+          </li>
+        )}
+        {favorites.map((f) => (
+          <li class="fav" data-slug={f.slug}>
+            <a class="fav__link" href={`/posts/${f.slug}/`}>{f.headline || f.slug}</a>
+            <button type="button" class="fav__remove" aria-label="Remove from saved">Remove</button>
+          </li>
+        ))}
+      </ul>
+    </section>
 
     <div class="account-actions">
       <button type="button" id="logout-btn" class="auth-submit secondary">Sign out</button>
@@ -31,12 +114,147 @@ const user = session.user;
   </article>
 
   <script is:inline>
-    document.getElementById("logout-btn").addEventListener("click", async (e) => {
-      e.target.disabled = true;
-      try {
-        await fetch("/api/auth/sign-out", { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" });
-      } catch {}
-      window.location.href = "/";
-    });
+    (() => {
+      const setStatus = (el, kind, msg) => {
+        el.className = "auth-status" + (kind === "error" ? " auth-status--error" : "");
+        el.textContent = msg;
+      };
+
+      // --- Preferences ---
+      const prefsForm = document.getElementById("prefs-form");
+      const prefsStatus = document.getElementById("prefs-status");
+      prefsForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        setStatus(prefsStatus, "info", "Saving…");
+        try {
+          const res = await fetch("/api/me/preferences", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              newsletter: document.getElementById("pref-newsletter").checked,
+              breakingAlerts: document.getElementById("pref-breaking").checked,
+              digest: document.getElementById("pref-digest").value,
+            }),
+          });
+          if (!res.ok) throw new Error("Could not save.");
+          setStatus(prefsStatus, "info", "Saved.");
+        } catch (err) {
+          setStatus(prefsStatus, "error", String(err.message || err));
+        }
+      });
+
+      // --- Topic alerts ---
+      const alertForm = document.getElementById("alert-form");
+      const alertInput = document.getElementById("alert-input");
+      const alertList = document.getElementById("alert-list");
+      const alertStatus = document.getElementById("alert-status");
+      const clearEmpty = (ul) => { const e = ul.querySelector("[data-empty]"); if (e) e.remove(); };
+
+      const addChip = (alert) => {
+        clearEmpty(alertList);
+        const li = document.createElement("li");
+        li.className = "chip";
+        li.setAttribute("data-id", alert.id);
+        const label = document.createElement("span");
+        label.className = "chip__label";
+        label.textContent = alert.topic;
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "chip__remove";
+        btn.setAttribute("aria-label", "Remove " + alert.topic);
+        btn.textContent = "×";
+        li.append(label, btn);
+        alertList.append(li);
+      };
+
+      alertForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const topic = alertInput.value.trim();
+        if (!topic) return;
+        setStatus(alertStatus, "info", "Adding…");
+        try {
+          const res = await fetch("/api/me/alerts", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action: "add", topic }),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok) throw new Error(data.error || "Could not add topic.");
+          addChip(data.alert);
+          alertInput.value = "";
+          setStatus(alertStatus, "info", "");
+        } catch (err) {
+          setStatus(alertStatus, "error", String(err.message || err));
+        }
+      });
+
+      alertList.addEventListener("click", async (e) => {
+        const btn = e.target.closest(".chip__remove");
+        if (!btn) return;
+        const li = btn.closest(".chip");
+        const id = li.getAttribute("data-id");
+        btn.disabled = true;
+        try {
+          const res = await fetch("/api/me/alerts", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action: "remove", id }),
+          });
+          if (!res.ok) throw new Error();
+          li.remove();
+          if (!alertList.querySelector(".chip")) {
+            const empty = document.createElement("li");
+            empty.className = "chip-empty";
+            empty.setAttribute("data-empty", "");
+            empty.textContent = "No topics yet — add one below.";
+            alertList.append(empty);
+          }
+        } catch {
+          btn.disabled = false;
+          setStatus(alertStatus, "error", "Could not remove. Try again.");
+        }
+      });
+
+      // --- Saved articles ---
+      const favList = document.getElementById("fav-list");
+      favList.addEventListener("click", async (e) => {
+        const btn = e.target.closest(".fav__remove");
+        if (!btn) return;
+        const li = btn.closest(".fav");
+        const slug = li.getAttribute("data-slug");
+        btn.disabled = true;
+        try {
+          const res = await fetch("/api/me/favorites", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ slug, favorite: false }),
+          });
+          if (!res.ok) throw new Error();
+          li.remove();
+          if (!favList.querySelector(".fav")) {
+            const empty = document.createElement("li");
+            empty.className = "fav-empty";
+            empty.setAttribute("data-empty", "");
+            empty.textContent = "Nothing saved yet.";
+            favList.append(empty);
+          }
+        } catch {
+          btn.disabled = false;
+        }
+      });
+
+      // --- Sign out ---
+      document.getElementById("logout-btn").addEventListener("click", async (e) => {
+        e.target.disabled = true;
+        try {
+          await fetch("/api/auth/sign-out", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: "{}",
+          });
+        } catch {}
+        window.location.href = "/";
+      });
+    })();
   </script>
 </BaseLayout>

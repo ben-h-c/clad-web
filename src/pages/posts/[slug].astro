@@ -100,7 +100,21 @@ const ogDescription = isBroadcast
       </span>
     </div>
 
-    <ShareBar url={shareUrl} title={`${d.headline} — Clad`} />
+    <div class="post__actions">
+      <ShareBar url={shareUrl} title={`${d.headline} — Clad`} />
+      <button
+        type="button"
+        class="save-btn"
+        id="save-btn"
+        data-slug={post.id}
+        data-headline={d.headline}
+        aria-pressed="false"
+        hidden
+      >
+        <span class="save-btn__icon" aria-hidden="true">♡</span>
+        <span class="save-btn__label">Save</span>
+      </button>
+    </div>
 
     {original && (
       <div class="correction-banner" role="note">
@@ -288,6 +302,65 @@ const ogDescription = isBroadcast
             '<p class="flag__thanks">Thanks — your note was sent to the editor.</p>';
         } catch (err) {
           setStatus("error", String(err.message || err));
+          btn.disabled = false;
+        }
+      });
+    })();
+  </script>
+
+  <script is:inline>
+    (() => {
+      const btn = document.getElementById("save-btn");
+      if (!btn) return;
+      const slug = btn.getAttribute("data-slug");
+      const headline = btn.getAttribute("data-headline") || slug;
+      const label = btn.querySelector(".save-btn__label");
+      const icon = btn.querySelector(".save-btn__icon");
+      let signedIn = false;
+      let saved = false;
+
+      const paint = () => {
+        btn.setAttribute("aria-pressed", saved ? "true" : "false");
+        btn.classList.toggle("save-btn--on", saved);
+        icon.textContent = saved ? "♥" : "♡";
+        label.textContent = saved ? "Saved" : "Save";
+      };
+
+      // Determine sign-in + saved state, then reveal the button.
+      fetch("/api/me/favorites", { headers: { Accept: "application/json" } })
+        .then((res) => {
+          if (res.status === 401) { signedIn = false; return null; }
+          signedIn = true;
+          return res.json().catch(() => null);
+        })
+        .then((data) => {
+          if (data && Array.isArray(data.favorites)) {
+            saved = data.favorites.some((f) => f.slug === slug);
+          }
+          paint();
+        })
+        .finally(() => { btn.hidden = false; });
+
+      btn.addEventListener("click", async () => {
+        if (!signedIn) {
+          const next = encodeURIComponent(location.pathname);
+          location.href = "/login/?next=" + next;
+          return;
+        }
+        const next = !saved;
+        btn.disabled = true;
+        try {
+          const res = await fetch("/api/me/favorites", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ slug, headline, favorite: next }),
+          });
+          if (!res.ok) throw new Error();
+          saved = next;
+          paint();
+        } catch {
+          /* leave state unchanged on failure */
+        } finally {
           btn.disabled = false;
         }
       });
