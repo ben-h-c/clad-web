@@ -1,0 +1,63 @@
+---
+type: "broadcast"
+headline: "Trump touts preliminary Iran framework deal on nuclear ban, Hormuz reopening"
+summary: "The USA TODAY segment features President Trump discussing a recent U.S.-Iran framework agreement reached amid ongoing conflict. He highlights the deal's terms including no U.S. financial investment in Iran, Iran's commitment against acquiring nuclear weapons, and references to prior military actions and regional meetings.\nTrump emphasizes that Iran will face severe consequences if it pursues a nuclear weapon and notes the deal's second stage. The clip includes his comments on regime dynamics and thanks to regional leaders, presented as direct remarks from the president."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=Q4sR0KqbUJI"
+sourceTitle: "USA TODAY"
+section: "Politics"
+letterGrade: "B"
+factualityScore: 65
+politicalLean: "center"
+leanScore: 0
+leanRationale: "Neutral presentation of official remarks with no evident partisan sourcing or framing"
+gradeRationale: "B: Accurately conveys Trump's statements but lacks context on the deal's preliminary status and pending nuclear details"
+topics:
+  - "Iran"
+  - "US-Iran deal"
+  - "nuclear weapons"
+  - "Strait of Hormuz"
+assessment: "The broadcast faithfully reports Trump's claims but provides minimal additional sourcing or caveats about the agreement's framework nature, with full nuclear terms still under negotiation and set for further talks. Viewers may miss that multiple outlets report the nuclear provisions as aspirational commitments contingent on future accords rather than fully detailed or verified. Framing centers on Trump's assertions of success without counterpoints from Iranian officials or independent analyses of enforcement. The preliminary ceasefire and Hormuz elements align with contemporaneous reporting, while investment denials address specific rumors."
+notableConcerns:
+  - "Limited context on deal's interim status and unresolved nuclear specifics"
+keyMoments:
+  - claim: "We have a deal that's a fair deal... we are not investing any money in Iran"
+    verdict: "verified"
+    note: "Trump's direct statement matches his public remarks; no U.S. investment obligation is part of the reported framework"
+  - claim: "Iran will never have a nuclear weapon... if they do, they suffer unbelievable consequences"
+    verdict: "missing context"
+    note: "Trump's assertion reflects his framing, but reports indicate nuclear limits remain subject to 60-day follow-on negotiations and generic commitments"
+  - claim: "We didn't want to attack them last week, but we had no choice and we did it twice"
+    verdict: "missing context"
+    note: "References reported U.S. strikes during the 2026 conflict; exact timeline and details align with broader coverage of the war"
+videoId: "Q4sR0KqbUJI"
+videoTitle: "Trump on U.S.-Iran deal: Tehran won't have nuclear weapon, D.C. not investing 'money in Iran'"
+thumbnail: "https://img.youtube.com/vi/Q4sR0KqbUJI/maxresdefault.jpg"
+citations:
+  - title: "What's in the Iran deal Trump says he's ready to sign"
+    url: "https://www.axios.com/2026/06/12/iran-deal-mou-strait-open-sanctions-relief"
+  - title: "As US, Iran announce framework deal to end war, Trump's ..."
+    url: "https://www.lemonde.fr/en/international/article/2026/06/15/iran-us-announce-framework-deal-to-end-war_6754486_4.html"
+  - title: "2025–2026 Iran–United States negotiations"
+    url: "https://en.wikipedia.org/wiki/2025%E2%80%932026_Iran%E2%80%93United_States_negotiations"
+  - title: "First Thing: US and Iran reach framework peace deal to end war"
+    url: "https://www.theguardian.com/us-news/2026/jun/15/first-thing-us-and-iran-reach-framework-peace-deal-to-end-war"
+  - title: "Trump Claims Strait Will Be 'Permanently Toll-Free' Under Agreement With Iran"
+    url: "https://www.nytimes.com/2026/06/14/us/politics/trump-iran-deal-strait-of-hormuz.html"
+  - title: "U.S., Iran signal peace deal near as Tehran claims victory"
+    url: "https://www.reuters.com/world/middle-east/trump-says-iran-war-deal-close-strait-hormuz-tensions-linger-2026-06-12/"
+  - title: "Iran, US agree tentative deal to 'end war': Your questions answered"
+    url: "https://www.aljazeera.com/news/2026/6/15/iran-us-agree-tentative-deal-to-end-war-your-questions-answered"
+  - title: "US and Iran Reach Framework Deal to End War, Reopen Hormuz"
+    url: "https://www.today.com/video/us-and-iran-reach-framework-deal-to-end-war-reopen-hormuz-265092677817"
+  - title: "World leaders react to US and Iran peace deal. War updates"
+    url: "https://www.usatoday.com/story/news/world/2026/06/14/iran-war-live-updates-us-israel-trump--live/90541178007/"
+  - title: "June 11, 2026 — Trump cancels planned strikes and touts ..."
+    url: "https://www.cnn.com/2026/06/11/world/live-news/iran-war-trump-israel-hnk"
+  - title: "Deal is reached to end Iran war and Trump orders stop to U.S. naval blockade"
+    url: "https://www.pbs.org/newshour/world/deal-is-reached-to-end-iran-war-and-trump-orders-stop-to-us-naval-blockade"
+  - title: "Trump heralds Iran deal but questions - and risks - remain"
+    url: "https://www.bbc.com/news/articles/c9824e0rz75o"
+---
+
+
