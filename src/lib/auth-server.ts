@@ -60,10 +60,21 @@ export function getAuth() {
       ? {
           sendOnSignUp: true,
           sendVerificationEmail: async ({ user, url }) => {
+            // Land on a friendly confirmation page after the link is clicked.
+            let link = url;
+            try {
+              const u = new URL(url);
+              u.searchParams.set("callbackURL", "/verified/");
+              link = u.toString();
+            } catch {
+              /* use url as-is */
+            }
             await sendEmail(
               user.email,
               "Verify your CladFacts email",
-              `<p>Welcome to CladFacts. Confirm your email:</p><p><a href="${url}">${url}</a></p>`
+              `<p>Welcome to CladFacts. Confirm your email to finish setting up your account:</p>` +
+                `<p><a href="${link}">Verify my email</a></p>` +
+                `<p>Or paste this link into your browser:<br>${link}</p>`
             );
           },
         }

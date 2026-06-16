@@ -1,0 +1,38 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getAuth } from "~/lib/auth-server";
+
+export const prerender = false;
+
+const error = Astro.url.searchParams.get("error");
+const session = await getAuth().api.getSession({ headers: Astro.request.headers });
+const signedIn = !!session?.user;
+---
+<BaseLayout title={error ? "Verification problem — Clad" : "Email confirmed — Clad"} description="Email verification status.">
+  <article class="static-page auth-page" style="text-align:center">
+    {error ? (
+      <>
+        <h2 class="static-page__title">Verification link problem</h2>
+        <p>
+          This verification link is invalid or has expired. Try signing in — we
+          can send you a fresh link.
+        </p>
+        <p class="account-actions" style="justify-content:center">
+          <a class="auth-submit" href="/login/">Go to sign in</a>
+        </p>
+      </>
+    ) : (
+      <>
+        <h2 class="static-page__title">Email confirmed</h2>
+        <p>Your CladFacts account is now verified. Welcome aboard.</p>
+        <p class="account-actions" style="justify-content:center">
+          {signedIn ? (
+            <a class="auth-submit" href="/account/">Go to your account</a>
+          ) : (
+            <a class="auth-submit" href="/login/">Sign in</a>
+          )}
+        </p>
+      </>
+    )}
+  </article>
+</BaseLayout>
