@@ -67,9 +67,12 @@ p {
 /* Layout shell */
 
 .shell {
-  max-width: 64rem;
+  /* Full-width/fluid: fill the window with comfortable side gutters. Article
+     body text stays readable via its own max-width (--measure); the home-page
+     strips, tickers, topics, and grade board expand to use the space. */
+  max-width: none;
   margin: 0 auto;
-  padding: 2rem var(--gutter) 4rem;
+  padding: 2rem clamp(1.25rem, 4vw, 4rem) 4rem;
 }
 
 /* Masthead */
