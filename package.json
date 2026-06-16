@@ -21,7 +21,8 @@
     "astro": "^6.4.0",
     "gray-matter": "^4.0.3",
     "satori": "^0.26.0",
-    "satori-html": "^0.3.2"
+    "satori-html": "^0.3.2",
+    "workers-og": "^0.0.27"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20251001.0",
