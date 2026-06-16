@@ -1,0 +1,58 @@
+---
+import LetterGrade from "~/components/LetterGrade.astro";
+import PoliticalLean from "~/components/PoliticalLean.astro";
+import { gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  slug: string;
+  title: string;
+  members: CollectionEntry<"posts">[];
+}
+const { slug, title, members } = Astro.props;
+
+// Aggregate grade + lean across the grouped reports, like a topic does.
+const gpas = members.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n != null);
+const leans = members.map((p) => leanScoreOf(p.data)).filter((n): n is number => n != null);
+const avgGrade = gpas.length ? gpaToGrade(gpas.reduce((a, b) => a + b, 0) / gpas.length) : null;
+const avgLean = leans.length ? Math.round(leans.reduce((a, b) => a + b, 0) / leans.length) : null;
+
+const byNew = [...members].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const thumb = byNew.find((p) => p.data.thumbnail)?.data.thumbnail ?? null;
+const hqFallback = byNew.find((p) => p.data.videoId)?.data.videoId;
+---
+<article class="report-card report-card--card report-card--group">
+  <a class="report-card__link" href={`/breaking/${slug}/`}>
+    {thumb && (
+      <div class="report-card__thumb">
+        <img
+          src={thumb}
+          alt=""
+          width="320"
+          height="180"
+          loading="lazy"
+          decoding="async"
+          onerror={hqFallback ? `this.onerror=null;this.src='https://img.youtube.com/vi/${hqFallback}/hqdefault.jpg'` : undefined}
+        />
+        <span class="report-card__grouptag small-caps">{members.length} reports</span>
+      </div>
+    )}
+    <div class="report-card__body">
+      {avgGrade ? (
+        <div class="scoreband">
+          <div class="scoreband__grade">
+            <LetterGrade grade={avgGrade} size="card" />
+            <span class="scoreband__cap small-caps">Avg Grade</span>
+          </div>
+          {avgLean !== null && (
+            <div class="scoreband__bias">
+              <PoliticalLean score={avgLean} />
+            </div>
+          )}
+        </div>
+      ) : null}
+      <p class="report-card__kicker small-caps">Developing · {members.length} reports</p>
+      <h3 class="report-card__headline">{title}</h3>
+    </div>
+  </a>
+</article>

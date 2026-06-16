@@ -355,19 +355,41 @@ export async function setFrontpage(kv: KVNamespace, ids: string[]): Promise<void
 
 const BREAKING_KEY = "breaking:featured";
 
-export async function getBreaking(kv: KVNamespace): Promise<string[]> {
+// The Breaking feed is an ordered list (most impactful first) of items: a single
+// post, or a temporary "group" (a same-story cluster shown as a topic shell with
+// aggregated grade/lean). Groups are ephemeral — regenerated each curator run.
+export type BreakingItem =
+  | { type: "post"; id: string }
+  | { type: "group"; slug: string; title: string; ids: string[] };
+
+export async function getBreaking(kv: KVNamespace): Promise<BreakingItem[]> {
   const raw = await kv.get(BREAKING_KEY);
   if (!raw) return [];
   try {
     const v = JSON.parse(raw);
-    return Array.isArray(v) ? v.map(String) : [];
+    if (!Array.isArray(v)) return [];
+    return v
+      .map((it): BreakingItem | null => {
+        if (typeof it === "string") return { type: "post", id: it }; // legacy shape
+        if (it && it.type === "post" && typeof it.id === "string") return { type: "post", id: it.id };
+        if (it && it.type === "group" && Array.isArray(it.ids)) {
+          return {
+            type: "group",
+            slug: String(it.slug || ""),
+            title: String(it.title || ""),
+            ids: it.ids.map(String),
+          };
+        }
+        return null;
+      })
+      .filter((x): x is BreakingItem => x !== null);
   } catch {
     return [];
   }
 }
 
-export async function setBreaking(kv: KVNamespace, ids: string[]): Promise<void> {
-  await kv.put(BREAKING_KEY, JSON.stringify(ids.slice(0, 50)));
+export async function setBreaking(kv: KVNamespace, items: BreakingItem[]): Promise<void> {
+  await kv.put(BREAKING_KEY, JSON.stringify(items.slice(0, 50)));
 }
 
 /* ---------- search categories (editor-managed scanner search terms) ---------- */

@@ -49,8 +49,8 @@ export function getBreaking() {
   return call("/api/agent/breaking", { method: "GET" });
 }
 
-export function setBreaking(ids) {
-  return call("/api/agent/breaking", { method: "POST", body: JSON.stringify({ ids }) });
+export function setBreaking(items) {
+  return call("/api/agent/breaking", { method: "POST", body: JSON.stringify({ items }) });
 }
 
 export function getAuditContent() {

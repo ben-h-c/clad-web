@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import HeroStrip from "~/components/HeroStrip.astro";
+import BreakingStrip from "~/components/BreakingStrip.astro";
 import TopicRow from "~/components/TopicRow.astro";
 import GradeBoard from "~/components/GradeBoard.astro";
 import Ticker from "~/components/Ticker.astro";
@@ -33,11 +34,25 @@ if (heroPosts.length === 0) {
 }
 heroPosts = heroPosts.slice(0, 50);
 
-// Breaking News = the curator's most-recent/important outlet selection.
-const breakingIds = await getBreaking(env.AGENTS);
-const breakingPosts = breakingIds
-  .map((id) => byId.get(id))
-  .filter((p) => p !== undefined && isNewsOutlet(p.data.sourceTitle))
+// Breaking News = the curator's impact-ordered selection: single outlet posts,
+// or temporary same-story groups (shown as a topic shell with aggregated grade
+// + lean). Resolve each item; a group needs ≥2 resolvable members, else it
+// degrades to a single post.
+const breakingItems = await getBreaking(env.AGENTS);
+const breaking = breakingItems
+  .map((it) => {
+    if (it.type === "post") {
+      const p = byId.get(it.id);
+      return p && isNewsOutlet(p.data.sourceTitle) ? { kind: "post" as const, post: p } : null;
+    }
+    const members = it.ids
+      .map((id) => byId.get(id))
+      .filter((p): p is NonNullable<typeof p> => p !== undefined && isNewsOutlet(p.data.sourceTitle));
+    if (members.length >= 2) return { kind: "group" as const, slug: it.slug, title: it.title, members };
+    if (members.length === 1) return { kind: "post" as const, post: members[0] };
+    return null;
+  })
+  .filter((x): x is NonNullable<typeof x> => x !== null)
   .slice(0, 50);
 
 const ticker = await getTicker(env.AGENTS);
@@ -74,7 +89,7 @@ const bottomGraded = [...graded]
     <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
   ) : (
     <>
-      <HeroStrip posts={breakingPosts} title="Breaking News" variant="breaking" />
+      <BreakingStrip items={breaking} />
       <Ticker data={ticker} />
       <HeroStrip posts={heroPosts} title="Front Page" />
       <section class="feed">

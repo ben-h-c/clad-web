@@ -2712,6 +2712,27 @@ button.small {
   }
 }
 
+/* ---------- breaking same-story group card ---------- */
+.report-card--group .report-card__thumb {
+  position: relative;
+}
+.report-card__grouptag {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0.5rem;
+}
+.report-card--group .report-card__kicker {
+  color: rgb(165, 35, 25);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.2rem;
+}
+
 /* ---------- markets ticker ---------- */
 .ticker {
   display: flex;

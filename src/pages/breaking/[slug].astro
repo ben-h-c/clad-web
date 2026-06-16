@@ -1,0 +1,78 @@
+---
+import { getCollection } from "astro:content";
+import { env } from "cloudflare:workers";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import ReportCard from "~/components/ReportCard.astro";
+import LetterGrade from "~/components/LetterGrade.astro";
+import PoliticalLean from "~/components/PoliticalLean.astro";
+import ShareBar from "~/components/ShareBar.astro";
+import { getBreaking } from "~/lib/agents";
+import { gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
+import { isNewsOutlet } from "~/lib/networks";
+
+// Ephemeral: a breaking-news group exists only while the story is active. SSR so
+// it reflects the live KV selection; 404 once the group ages out of the feed.
+export const prerender = false;
+
+const slug = Astro.params.slug;
+const items = await getBreaking(env.AGENTS);
+const group = items.find((it) => it.type === "group" && it.slug === slug);
+if (!group || group.type !== "group") {
+  return new Response("Not found", { status: 404 });
+}
+
+const all = await getCollection("posts", (p) => !p.data.draft);
+const byId = new Map(all.map((p) => [p.id, p]));
+const members = group.ids
+  .map((id) => byId.get(id))
+  .filter((p) => p !== undefined && isNewsOutlet(p!.data.sourceTitle))
+  .sort((a, b) => b!.data.publishedAt.valueOf() - a!.data.publishedAt.valueOf());
+
+if (members.length === 0) {
+  return new Response("Not found", { status: 404 });
+}
+
+const gpas = members.map((p) => gradeToGpa(p!.data.letterGrade)).filter((n): n is number => n != null);
+const leans = members.map((p) => leanScoreOf(p!.data)).filter((n): n is number => n != null);
+const avgGrade = gpas.length ? gpaToGrade(gpas.reduce((a, b) => a + b, 0) / gpas.length) : null;
+const avgLean = leans.length ? Math.round(leans.reduce((a, b) => a + b, 0) / leans.length) : null;
+
+const shareUrl = new URL(`/breaking/${slug}/`, Astro.site ?? "https://cladfacts.com").href;
+---
+<BaseLayout
+  title={`${group.title} — Breaking — Clad`}
+  description={`Developing story: ${members.length} reports on ${group.title}, graded and checked for bias.`}
+  ogType="website"
+>
+  <section class="topic-page">
+    <p class="small-caps" style="color:var(--muted-ink)">
+      Developing story · {members.length} reports
+    </p>
+    <h2 class="topic-page__title">{group.title}</h2>
+
+    <div class="topic-page__agg">
+      {avgGrade && (
+        <div class="scoreband__grade">
+          <LetterGrade grade={avgGrade} size="card" />
+          <span class="scoreband__cap small-caps">Avg grade</span>
+        </div>
+      )}
+      {avgLean !== null && (
+        <div class="scoreband__bias"><PoliticalLean score={avgLean} /></div>
+      )}
+    </div>
+
+    <p class="dateline">
+      A temporary grouping of multiple outlets' coverage of the same breaking
+      story. It dissolves back into the regular topics once the story settles.
+    </p>
+
+    <ShareBar url={shareUrl} title={`${group.title} — Breaking — Clad`} />
+
+    <div class="rule rule--double" aria-hidden="true" style="margin:1.25rem 0"></div>
+
+    <div class="feed-list">
+      {members.map((p) => <ReportCard post={p!} variant="bar" />)}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,6 +1,7 @@
 import { getPosts, setBreaking, getBreaking } from "./api.mjs";
 import { isNewsOutlet } from "../src/lib/networks.ts";
 import { ensureClassifications, classOf } from "./newsroom.mjs";
+import { topicSlug } from "../scripts/topicsAgg.mjs";
 
 const YT_VIDEOS = "https://www.googleapis.com/youtube/v3/videos";
 
@@ -41,11 +42,14 @@ export async function runBreakingCurator(agent) {
     log: (m) => console.log(new Date().toISOString(), m),
   });
 
-  // Which stories are already on the strip (for stickiness).
+  // Which stories are already on the strip (for stickiness) — flatten groups.
   let current = new Set();
   try {
     const b = await getBreaking();
-    if (b.ok) current = new Set((b.body.ids || []).map(String));
+    if (b.ok) {
+      const ids = (b.body.items || []).flatMap((it) => (it.type === "group" ? it.ids : [it.id]));
+      current = new Set(ids.filter(Boolean).map(String));
+    }
   } catch {
     // ignore — no stickiness this run
   }
@@ -76,51 +80,68 @@ export async function runBreakingCurator(agent) {
 
   scored.sort((a, b) => b.score - a.score);
 
-  const chosen = [];
-  const chosenTokens = [];
-  const topicCount = new Map();
-  const nearDup = (tk) =>
-    chosenTokens.some((t) => {
-      const inter = intersect(t, tk);
-      return inter >= 3 && inter / Math.min(t.size, tk.size) >= 0.5;
-    });
-  const take = (s, capped) => {
-    const tk = headlineTokens(s.headline);
-    if (nearDup(tk)) return false;
-    if (capped && (topicCount.get(s.topic) || 0) >= maxPerTopic) return false;
-    chosen.push(s);
-    chosenTokens.push(tk);
-    topicCount.set(s.topic, (topicCount.get(s.topic) || 0) + 1);
-    return true;
-  };
-
-  // Pass 1: top stories, no near-dups, per-topic cap so one story can't flood.
+  // Cluster same-story articles. Walking best-first, attach each article to an
+  // existing cluster whose representative headline it near-duplicates (≥3 shared
+  // meaningful tokens covering ≥50% of the smaller headline); otherwise start a
+  // new cluster. The representative is the highest-scored member.
+  const clusters = [];
   for (const s of scored) {
-    if (chosen.length >= maxBreaking) break;
-    take(s, true);
+    const tk = headlineTokens(s.headline);
+    let placed = false;
+    for (const cl of clusters) {
+      const inter = intersect(cl.repTokens, tk);
+      if (inter >= 3 && inter / Math.min(cl.repTokens.size, tk.size) >= 0.5) {
+        cl.members.push(s);
+        placed = true;
+        break;
+      }
+    }
+    if (!placed) clusters.push({ rep: s, repTokens: tk, members: [s] });
   }
-  // Pass 2: relax the cap if short on slow news days (still no near-dups).
-  if (chosen.length < maxBreaking) {
-    const have = new Set(chosen.map((s) => s.id));
-    for (const s of scored) {
-      if (chosen.length >= maxBreaking) break;
-      if (!have.has(s.id)) take(s, false);
+
+  // Order by impact: a cluster ranks by its top member's score (criticality-
+  // weighted). Most impactful story first.
+  clusters.sort((a, b) => b.rep.score - a.rep.score);
+
+  // Build the ordered feed: a 2+ article cluster becomes a temporary topic group
+  // (aggregated on the page); a lone article stays a single post.
+  const items = [];
+  for (const cl of clusters.slice(0, maxBreaking)) {
+    if (cl.members.length >= 2) {
+      const title =
+        cl.rep.topic && cl.rep.topic.toLowerCase() !== "misc" ? cl.rep.topic : shortTitle(cl.rep.headline);
+      const memberIds = cl.members.map((m) => m.id);
+      items.push({ type: "group", slug: groupSlug(title, memberIds), title, ids: memberIds });
+    } else {
+      items.push({ type: "post", id: cl.rep.id });
     }
   }
 
-  const ids = chosen.map((s) => s.id);
-  const out = await setBreaking(ids);
+  const out = await setBreaking(items);
   if (!out.ok) return { ok: false, message: `breaking set ${out.status}` };
 
-  const carried = ids.filter((id) => current.has(id)).length;
-  const avgCrit = chosen.length
-    ? Math.round(chosen.reduce((a, s) => a + s.crit, 0) / chosen.length)
-    : 0;
+  const groupCount = items.filter((i) => i.type === "group").length;
+  const articleCount = items.reduce((n, i) => n + (i.type === "group" ? i.ids.length : 1), 0);
   return {
     ok: true,
-    message: `breaking: ${ids.length} of ${posts.length} (avg criticality ${avgCrit}, ${carried} carried over)`,
-    submitted: ids.length,
+    message: `breaking: ${items.length} items (${groupCount} grouped) covering ${articleCount} of ${posts.length} articles, by impact`,
+    submitted: items.length,
   };
+}
+
+function shortTitle(headline) {
+  return String(headline || "")
+    .split(/\s+/)
+    .slice(0, 8)
+    .join(" ");
+}
+function djb2(s) {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
+  return h.toString(36);
+}
+function groupSlug(title, ids) {
+  return `${topicSlug(title) || "breaking"}-${djb2([...ids].sort().join(",")).slice(0, 6)}`;
 }
 
 const HEADLINE_STOP = new Set(
