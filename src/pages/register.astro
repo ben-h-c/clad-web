@@ -11,7 +11,7 @@ const PROVIDER_LABELS: Record<string, string> = { google: "Google", apple: "Appl
 const providers = enabledSocialProviders();
 ---
 <BaseLayout title="Create account — Clad" description="Create a free CladFacts account to save preferences and set topic alerts.">
-  <article class="static-page auth-page">
+  <article class="static-page auth-page" id="register-article">
     <h2 class="static-page__title">Create your account</h2>
     <p class="dateline">Save preferences and set up custom topic alerts.</p>
 
@@ -69,12 +69,27 @@ const providers = enabledSocialProviders();
           .catch(() => null);
         if (s && s.user) {
           window.location.href = "/account/";
-        } else {
-          document.getElementById("register-form").style.display = "none";
-          status.className = "auth-status";
-          status.textContent =
-            "Account created — check your email for a verification link to finish setting up your account.";
+          return;
         }
+        // Replace the whole panel with a clear "check your email" confirmation.
+        const addr = emailEl.value.trim();
+        const article = document.getElementById("register-article");
+        const h = document.createElement("h2");
+        h.className = "static-page__title";
+        h.textContent = "Check your email";
+        const p1 = document.createElement("p");
+        p1.append("We sent a verification link to ");
+        const strong = document.createElement("strong");
+        strong.textContent = addr;
+        p1.append(strong, ". Click it to confirm your account and finish signing up.");
+        const p2 = document.createElement("p");
+        p2.className = "dateline";
+        p2.append("Didn't get it? Check your spam folder, or ");
+        const a = document.createElement("a");
+        a.href = "/register/";
+        a.textContent = "try again";
+        p2.append(a, ".");
+        article.replaceChildren(h, p1, p2);
       } catch (err) { setErr(String(err.message || err)); btn.disabled = false; }
     });
     document.querySelectorAll(".auth-social__btn").forEach((b) => {
