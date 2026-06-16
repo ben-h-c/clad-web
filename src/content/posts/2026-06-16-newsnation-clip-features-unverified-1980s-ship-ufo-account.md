@@ -1,0 +1,63 @@
+---
+type: "broadcast"
+headline: "NewsNation clip features unverified 1980s ship UFO account"
+summary: "The segment is a brief interview with a man describing a 1980s maritime encounter while aged 16 aboard a ship. He recounts sighting a distant disc-like star object, sensing it emitted scanning beams, experiencing a psychic connection, and hearing the captain's tannoy announcement: 'This is your captain speaking. What you have just seen you have not.' Crew discussion was limited due to the rough environment, with no formal orders issued beyond the cryptic message."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=EGCT1XxVuE0"
+sourceTitle: "NewsNation"
+section: "Politics"
+letterGrade: "C-"
+factualityScore: 40
+politicalLean: "center"
+leanScore: 0
+leanRationale: "No discernible political slant; UFO/UAP segment presented as witness interview without partisan framing or sourcing bias"
+gradeRationale: "Graded C-: single anecdotal testimony with no corroborating witnesses, documents, or records; captain's message and psychic elements remain unsupported"
+topics:
+  - "UFO sightings"
+  - "UAP encounters"
+  - "Ship incidents"
+assessment: "The broadcast presents raw personal testimony without independent verification, ship identification, date, location, or additional witnesses. UFO claims of this type are common but typically lack physical evidence or multi-source confirmation, leaving viewers without context on how such accounts are evaluated against official UAP databases or historical records. Framing treats the story seriously as part of ongoing disclosure coverage but omits discussion of alternative explanations like misidentification or memory effects. No graphics or named experts appear to balance the narrative."
+notableConcerns:
+  - "Reliance on single uncorroborated witness account"
+  - "No ship name, registry, or crew details provided for verification"
+keyMoments:
+  - claim: "Disc-like object emitted scanning beams detected from about a mile away"
+    verdict: "unsupported"
+    note: "Sole witness testimony; no radar logs, photos, or other crew statements identified in public records"
+  - claim: "Witness experienced psychic connection with the object"
+    verdict: "unsupported"
+    note: "Personal subjective experience with no external evidence or similar reports from the crew"
+  - claim: "Captain announced over tannoy 'What you have just seen you have not'"
+    verdict: "unsupported"
+    note: "Anecdotal recollection only; no ship logs, other witnesses, or maritime records confirm the event or message"
+videoId: "EGCT1XxVuE0"
+videoTitle: "'This is your captain speaking. What you have just seen, you have not.'"
+thumbnail: "https://img.youtube.com/vi/EGCT1XxVuE0/maxresdefault.jpg"
+citations:
+  - title: "List of reported UFO sightings"
+    url: "https://en.wikipedia.org/wiki/List_of_reported_UFO_sightings"
+  - title: "UFOs | NewsNation"
+    url: "https://www.newsnationnow.com/space/ufo/"
+  - title: "Mystery at the Equator: Captain Stefan Freitag's Startling UFO Encounter From the 1980s"
+    url: "https://www.abovethenormnews.com/2023/07/12/mystery-at-the-equator-captain-stefan-freitags-startling-ufo-encounter-from-the-1980s/"
+  - title: "UFO reports - The National Archives"
+    url: "https://www.nationalarchives.gov.uk/explore-the-collection/explore-by-time-period/postwar/ufo-reports/"
+  - title: "UFO's And Other Strange Things Seen Aboard Ship - gCaptain Forum"
+    url: "https://forum.gcaptain.com/t/ufos-and-other-strange-things-seen-aboard-ship/44445"
+  - title: "Witnesses describe 1996 Brazil UFO encounter"
+    url: "https://www.newsnationnow.com/space/ufo/ufo-conference-new-evidence-james-fox/"
+  - title: "Reality Check: Road to Disclosure"
+    url: "https://www.newsnationnow.com/space/ufo/reality-check-road-to-disclosure/"
+  - title: "UFO files: Questions linger with Pentagon's third drop, Ross ..."
+    url: "https://www.youtube.com/watch?v=wcna3tt0LV4"
+  - title: "The Huge USO that Turned Off a Royal New Zealand Navy ..."
+    url: "https://www.reddit.com/r/ufo/comments/1aq3ie8/the_huge_uso_that_turned_off_a_royal_new_zealand/"
+  - title: "Navy pilots describe encounters with UFOs"
+    url: "https://www.youtube.com/watch?v=ZBtMbBPzqHY"
+  - title: "New UFO files describe spinning discs, glowing orbs and one object shaped like a potato"
+    url: "https://www.newsnationnow.com/politics/ap-politics/ap-new-ufo-files-describe-spinning-discs-glowing-orbs-and-one-object-shaped-like-a-potato/"
+  - title: "UAP recovery video shows 'egg-shaped' object: Exclusive"
+    url: "https://www.newsnationnow.com/space/ufo/hfr-uap-recovery-video-egg-shaped-object-exclusive/"
+---
+
+
