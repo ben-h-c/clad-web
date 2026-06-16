@@ -63,7 +63,18 @@ const providers = enabledSocialProviders();
         });
         const data = await res.json().catch(() => ({}));
         if (!res.ok) throw new Error(data.message || "Could not create account.");
-        window.location.href = "/account/";
+        // If verification is required, the new account won't have a session yet.
+        const s = await fetch("/api/auth/get-session", { headers: { accept: "application/json" } })
+          .then((r) => (r.ok ? r.json() : null))
+          .catch(() => null);
+        if (s && s.user) {
+          window.location.href = "/account/";
+        } else {
+          document.getElementById("register-form").style.display = "none";
+          status.className = "auth-status";
+          status.textContent =
+            "Account created — check your email for a verification link to finish setting up your account.";
+        }
       } catch (err) { setErr(String(err.message || err)); btn.disabled = false; }
     });
     document.querySelectorAll(".auth-social__btn").forEach((b) => {
