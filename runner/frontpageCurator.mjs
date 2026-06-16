@@ -1,5 +1,29 @@
 import { getPosts, setFrontpage } from "./api.mjs";
 import { isNewsOutlet } from "../src/lib/networks.ts";
+import { canonicalTopic } from "../scripts/topicsAgg.mjs";
+
+const HEADLINE_STOP = new Set(
+  ("the a an of to in on for and or with at by is are was were as that this it amid after over " +
+    "new news says say said report reports covers segment video clip interview").split(" ")
+);
+function headlineTokens(s) {
+  return new Set(
+    String(s || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, " ")
+      .split(/\s+/)
+      .filter((w) => w.length > 2 && !HEADLINE_STOP.has(w))
+  );
+}
+// Near-duplicate if headlines share >=3 meaningful tokens covering >=50% of the
+// smaller one (overlap coefficient — robust to extra outlet/framing words).
+function isNearDup(tk, chosenTokens) {
+  return chosenTokens.some((t) => {
+    let inter = 0;
+    for (const x of t) if (tk.has(x)) inter++;
+    return inter >= 3 && inter / Math.min(t.size, tk.size) >= 0.5;
+  });
+}
 
 const YT_VIDEOS = "https://www.googleapis.com/youtube/v3/videos";
 
@@ -46,10 +70,13 @@ export async function runFrontpageCurator(agent) {
     return { ...p, score };
   });
 
-  // Group by primary topic; sort each group best-first.
+  // Group by BROAD topic (canonical bucket) so slight variants of one story
+  // ("Trump Iran deal", "US-Iran MOU", "Iran deal framework") collapse into one
+  // group — otherwise round-robin gives each a slot and the page floods with a
+  // single story.
   const groups = new Map();
   for (const p of scored) {
-    const topic = (p.topics?.[0] || p.headline || "").toLowerCase().trim() || "misc";
+    const topic = canonicalTopic(p.topics?.[0] || p.headline || "") || "misc";
     if (!groups.has(topic)) groups.set(topic, []);
     groups.get(topic).push(p);
   }
@@ -65,20 +92,30 @@ export async function runFrontpageCurator(agent) {
   topicList.sort((a, b) => b.rank - a.rank);
 
   // Round-robin across topics: take the best from each topic first (widest range
-  // of topics), then a second from each, up to perTopicCap rounds.
+  // of topics), then a second from each, up to perTopicCap rounds. Skip any post
+  // whose headline near-duplicates one already chosen (same story, different
+  // outlet/phrasing) so the page never shows the same story twice.
   const chosen = [];
+  const chosenTokens = [];
+  const take = (p) => {
+    const tk = headlineTokens(p.headline);
+    if (isNearDup(tk, chosenTokens)) return false;
+    chosen.push(p);
+    chosenTokens.push(tk);
+    return true;
+  };
   for (let round = 0; round < perTopicCap && chosen.length < maxFeatured; round++) {
     for (const t of topicList) {
       if (chosen.length >= maxFeatured) break;
-      if (t.arr[round]) chosen.push(t.arr[round]);
+      if (t.arr[round]) take(t.arr[round]);
     }
   }
-  // Backfill by score if still short (very few topics).
+  // Backfill by score if still short (very few topics), still skipping near-dups.
   if (chosen.length < maxFeatured) {
     const have = new Set(chosen.map((p) => p.id));
     for (const p of [...scored].sort((a, b) => b.score - a.score)) {
       if (chosen.length >= maxFeatured) break;
-      if (!have.has(p.id)) chosen.push(p);
+      if (!have.has(p.id)) take(p);
     }
   }
 
@@ -87,7 +124,7 @@ export async function runFrontpageCurator(agent) {
   if (!out.ok) return { ok: false, message: `frontpage set ${out.status}` };
 
   const topicsCovered = new Set(
-    chosen.slice(0, maxFeatured).map((p) => (p.topics?.[0] || p.headline || "").toLowerCase().trim())
+    chosen.slice(0, maxFeatured).map((p) => canonicalTopic(p.topics?.[0] || p.headline || ""))
   ).size;
   return {
     ok: true,
