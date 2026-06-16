@@ -2552,6 +2552,11 @@ button.small {
     gap: 0.75rem;
     padding: 0.4rem 0 0.75rem;
   }
+  /* Hide the grade-rationale blurb in Breaking News / Front Page on mobile to
+     reclaim vertical space (desktop keeps it; feed/topic cards keep it too). */
+  .hero .report-card__summary {
+    display: none;
+  }
   .hero-strip__item {
     flex-basis: clamp(12.5rem, 80%, 16rem);
   }
