@@ -26,15 +26,41 @@ export interface WeekStat {
   right: number;
   avgGpa: number | null;
   avgGrade: string | null;
+  good: number; // A/B grades
+  mid: number; // C grades
+  poor: number; // D/F grades
   themes: { topic: string; count: number }[];
   headlines: WeekHeadline[];
   heavy: boolean;
   skewed: boolean;
 }
 
+export interface TopicTrend {
+  topic: string;
+  weekly: number[]; // count per week, aligned to weeks[]
+  total: number;
+  last: number;
+  prev: number;
+  dir: "up" | "down" | "flat";
+}
+
+export interface NetworkStat {
+  name: string;
+  count: number;
+  avgGpa: number | null;
+  avgGrade: string | null;
+  avgLean: number | null;
+  weekly: number[];
+  last: number;
+  prev: number;
+  dir: "up" | "down" | "flat";
+}
+
 export interface TrendsReport {
   weeks: WeekStat[]; // chronological, gap-filled
   callouts: WeekStat[]; // notable weeks, most recent first
+  topics: TopicTrend[]; // top themes by volume, with weekly timeline
+  networks: NetworkStat[]; // outlet leaderboard
   maxCount: number;
   totalPosts: number;
   weekSpan: number;
@@ -74,7 +100,7 @@ function quantile(sorted: number[], q: number): number {
 export function buildTrends(posts: CollectionEntry<"posts">[]): TrendsReport {
   const live = posts.filter((p) => !p.data.draft);
   if (live.length === 0) {
-    return { weeks: [], callouts: [], maxCount: 0, totalPosts: 0, weekSpan: 0, busiest: null };
+    return { weeks: [], callouts: [], topics: [], networks: [], maxCount: 0, totalPosts: 0, weekSpan: 0, busiest: null };
   }
 
   const byWeek = new Map<number, CollectionEntry<"posts">[]>();
@@ -103,6 +129,16 @@ export function buildTrends(posts: CollectionEntry<"posts">[]): TrendsReport {
       if (l <= -LEAN_THRESHOLD) left++;
       else if (l >= LEAN_THRESHOLD) right++;
       else center++;
+    }
+
+    // Grade bands: A/B (gpa ≥ 7), C (4–6), D/F (≤ 3).
+    let good = 0,
+      mid = 0,
+      poor = 0;
+    for (const g of gpas) {
+      if (g >= 7) good++;
+      else if (g >= 4) mid++;
+      else poor++;
     }
 
     // Dominant themes (canonical topic of each tagged topic).
@@ -156,6 +192,9 @@ export function buildTrends(posts: CollectionEntry<"posts">[]): TrendsReport {
       right,
       avgGpa,
       avgGrade: avgGpa == null ? null : gpaToGrade(avgGpa),
+      good,
+      mid,
+      poor,
       themes,
       headlines,
       heavy: false,
@@ -183,9 +222,72 @@ export function buildTrends(posts: CollectionEntry<"posts">[]): TrendsReport {
     null
   );
 
+  const W = weeks.length;
+  const dirOf = (last: number, prev: number): "up" | "down" | "flat" =>
+    last > prev ? "up" : last < prev ? "down" : "flat";
+
+  // Topic momentum — each post's PRIMARY canonical theme, counted per week.
+  const topicWeekly = new Map<string, number[]>();
+  // Network leaderboard — by source outlet.
+  const netAgg = new Map<
+    string,
+    { count: number; gpas: number[]; leans: number[]; weekly: number[] }
+  >();
+
+  weeks.forEach((w, wi) => {
+    for (const p of byWeek.get(w.start) ?? []) {
+      const theme = canonicalTopic(p.data.topics?.[0] ?? "");
+      if (theme) {
+        if (!topicWeekly.has(theme)) topicWeekly.set(theme, new Array(W).fill(0));
+        topicWeekly.get(theme)![wi]++;
+      }
+      const name = (p.data.sourceTitle ?? "").trim() || "Unknown";
+      if (!netAgg.has(name)) netAgg.set(name, { count: 0, gpas: [], leans: [], weekly: new Array(W).fill(0) });
+      const n = netAgg.get(name)!;
+      n.count++;
+      n.weekly[wi]++;
+      const g = gradeToGpa(p.data.letterGrade);
+      if (g != null) n.gpas.push(g);
+      const l = leanScoreOf(p.data);
+      if (l != null) n.leans.push(l);
+    }
+  });
+
+  const topics: TopicTrend[] = [...topicWeekly.entries()]
+    .map(([topic, weekly]) => {
+      const total = weekly.reduce((a, b) => a + b, 0);
+      const last = weekly[W - 1] ?? 0;
+      const prev = W >= 2 ? (weekly[W - 2] ?? 0) : 0;
+      return { topic, weekly, total, last, prev, dir: dirOf(last, prev) };
+    })
+    .sort((a, b) => b.total - a.total || a.topic.localeCompare(b.topic))
+    .slice(0, 8);
+
+  const networks: NetworkStat[] = [...netAgg.entries()]
+    .map(([name, n]) => {
+      const avgGpa = n.gpas.length ? n.gpas.reduce((a, b) => a + b, 0) / n.gpas.length : null;
+      const last = n.weekly[W - 1] ?? 0;
+      const prev = W >= 2 ? (n.weekly[W - 2] ?? 0) : 0;
+      return {
+        name,
+        count: n.count,
+        avgGpa,
+        avgGrade: avgGpa == null ? null : gpaToGrade(avgGpa),
+        avgLean: n.leans.length ? Math.round(n.leans.reduce((a, b) => a + b, 0) / n.leans.length) : null,
+        weekly: n.weekly,
+        last,
+        prev,
+        dir: dirOf(last, prev),
+      };
+    })
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
+    .slice(0, 12);
+
   return {
     weeks,
     callouts,
+    topics,
+    networks,
     maxCount,
     totalPosts: live.length,
     weekSpan: weeks.length,

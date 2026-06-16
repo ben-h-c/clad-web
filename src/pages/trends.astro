@@ -1,16 +1,53 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
-import { buildTrends, leanLabel } from "~/lib/trends";
+import { buildTrends, leanLabel, leanColor } from "~/lib/trends";
+import { gpaToGrade } from "~/lib/topics";
 
 export const prerender = true;
 
 const posts = await getCollection("posts", (p) => !p.data.draft);
 const report = buildTrends(posts);
-const { weeks, callouts, maxCount, totalPosts, weekSpan, busiest } = report;
+const { weeks, callouts, topics, networks, maxCount, totalPosts, weekSpan, busiest } = report;
 
 const CHART_H = 170; // px
 const gradeText = (g: string | null) => (g ? `Avg grade ${g}` : "");
+
+// --- Line-chart geometry (shared by the quality + lean-drift charts) ---
+const VW = 1000;
+const VH = 220;
+const PAD = 36;
+const xFor = (i: number, n: number) => (n <= 1 ? VW / 2 : PAD + (i / (n - 1)) * (VW - 2 * PAD));
+function series(values: (number | null)[], min: number, max: number) {
+  const n = values.length;
+  const pts = values
+    .map((v, i) =>
+      v == null
+        ? null
+        : { x: xFor(i, n), y: VH - PAD - ((v - min) / (max - min || 1)) * (VH - 2 * PAD), v, i }
+    )
+    .filter((p): p is { x: number; y: number; v: number; i: number } => p !== null);
+  const path = pts.map((p, k) => `${k === 0 ? "M" : "L"}${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(" ");
+  return { pts, path };
+}
+
+// Coverage quality: average grade (GPA) per week.
+const gpaVals = weeks.map((w) => w.avgGpa);
+const gpaKnown = gpaVals.filter((v): v is number => v != null);
+const hasQuality = gpaKnown.length > 0;
+const qMin = hasQuality ? Math.max(0, Math.floor(Math.min(...gpaKnown)) - 1) : 0;
+const qMax = hasQuality ? Math.min(12, Math.ceil(Math.max(...gpaKnown)) + 1) : 12;
+const quality = series(gpaVals, qMin, qMax);
+
+// Lean drift: net lean per week, symmetric around 0.
+const leanVals = weeks.map((w) => w.avgLean);
+const leanKnown = leanVals.filter((v): v is number => v != null);
+const hasLean = leanKnown.length > 0;
+const maxAbs = Math.max(20, ...leanKnown.map((v) => Math.abs(v)));
+const lean = series(leanVals, -maxAbs, maxAbs);
+const zeroY = VH - PAD - ((0 - -maxAbs) / (2 * maxAbs || 1)) * (VH - 2 * PAD);
+const leanTxt = (v: number) => (v > 0 ? `${v}R` : v < 0 ? `${-v}L` : "0");
+const arrow = (d: string) => (d === "up" ? "▲" : d === "down" ? "▼" : "—");
 ---
 <BaseLayout
   title="News Trends — Clad"
@@ -77,6 +114,121 @@ const gradeText = (g: string | null) => (g ? `Avg grade ${g}` : "");
             Busiest week so far: <strong>{busiest.label}</strong> with
             {" "}{busiest.count} reports{busiest.avgGrade ? `, averaging a ${busiest.avgGrade}` : ""}.
           </p>
+        )}
+
+        {hasQuality && (
+          <section class="trendmod">
+            <h2 class="trends__sub">Coverage quality over time</h2>
+            <p class="trendmod__lede">Average grade of each week's coverage — is the news getting more or less factual?</p>
+            <figure class="tline" role="img" aria-label="Average weekly grade over time.">
+              <svg viewBox={`0 0 ${VW} ${VH}`} preserveAspectRatio="xMidYMid meet">
+                {[qMin, (qMin + qMax) / 2, qMax].map((gv) => {
+                  const y = VH - PAD - ((gv - qMin) / (qMax - qMin || 1)) * (VH - 2 * PAD);
+                  return (
+                    <>
+                      <line class="tline__grid" x1={PAD} x2={VW - PAD} y1={y} y2={y} />
+                      <text class="tline__ylab" x={PAD - 8} y={y + 4} text-anchor="end">{gpaToGrade(gv)}</text>
+                    </>
+                  );
+                })}
+                <path class="tline__path tline__path--grade" d={quality.path} />
+                {quality.pts.map((p) => (
+                  <>
+                    <circle class="tline__dot tline__dot--grade" cx={p.x} cy={p.y} r="5" />
+                    <text class="tline__val" x={p.x} y={p.y - 11} text-anchor="middle">{gpaToGrade(p.v)}</text>
+                  </>
+                ))}
+                {weeks.map((w, i) => (
+                  <text class="tline__xlab" x={xFor(i, weeks.length)} y={VH - 10} text-anchor="middle">{w.label}</text>
+                ))}
+              </svg>
+            </figure>
+          </section>
+        )}
+
+        {hasLean && (
+          <section class="trendmod">
+            <h2 class="trends__sub">Political lean drift</h2>
+            <p class="trendmod__lede">The net tilt of each week's coverage — above the line leans right, below leans left.</p>
+            <figure class="tline" role="img" aria-label="Net political lean over time.">
+              <svg viewBox={`0 0 ${VW} ${VH}`} preserveAspectRatio="xMidYMid meet">
+                <line class="tline__zero" x1={PAD} x2={VW - PAD} y1={zeroY} y2={zeroY} />
+                <text class="tline__ylab" x={PAD - 8} y={zeroY + 4} text-anchor="end">0</text>
+                <text class="tline__ylab tline__ylab--r" x={VW - PAD + 6} y={PAD + 4} text-anchor="start">R</text>
+                <text class="tline__ylab tline__ylab--l" x={VW - PAD + 6} y={VH - PAD + 4} text-anchor="start">L</text>
+                <path class="tline__path tline__path--lean" d={lean.path} />
+                {lean.pts.map((p) => (
+                  <>
+                    <circle class="tline__dot" cx={p.x} cy={p.y} r="5" style={`fill:${leanColor(p.v)}`} />
+                    <text class="tline__val" x={p.x} y={p.y - 11} text-anchor="middle">{leanTxt(p.v)}</text>
+                  </>
+                ))}
+                {weeks.map((w, i) => (
+                  <text class="tline__xlab" x={xFor(i, weeks.length)} y={VH - 10} text-anchor="middle">{w.label}</text>
+                ))}
+              </svg>
+            </figure>
+          </section>
+        )}
+
+        {topics.length > 0 && (
+          <section class="trendmod">
+            <h2 class="trends__sub">What the news focused on</h2>
+            <p class="trendmod__lede">Top themes by volume, with their week-by-week activity and the latest direction.</p>
+            <ul class="tmom">
+              {topics.map((t) => {
+                const tmax = Math.max(...t.weekly, 1);
+                return (
+                  <li class="tmom__row">
+                    <span class="tmom__name">{t.topic}</span>
+                    <span class="spark" aria-hidden="true">
+                      {t.weekly.map((c) => (
+                        <i style={`height:${c ? Math.max(8, Math.round((c / tmax) * 100)) : 3}%`} title={`${c}`}></i>
+                      ))}
+                    </span>
+                    <span class="tmom__total">{t.total}</span>
+                    <span class={`tmom__dir tmom__dir--${t.dir}`} title={`${t.prev} → ${t.last} last week`}>{arrow(t.dir)}</span>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        )}
+
+        {networks.length > 0 && (
+          <section class="trendmod">
+            <h2 class="trends__sub">Outlets at a glance</h2>
+            <p class="trendmod__lede">Each outlet's volume, average grade, and average lean — with last week's direction.</p>
+            <div class="ntable__wrap">
+              <table class="ntable">
+                <thead>
+                  <tr>
+                    <th>Outlet</th>
+                    <th class="num">Reports</th>
+                    <th class="num">Avg grade</th>
+                    <th>Avg lean</th>
+                    <th class="num">Trend</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {networks.map((n) => (
+                    <tr>
+                      <td>{n.name}</td>
+                      <td class="num">{n.count}</td>
+                      <td class="num">{n.avgGrade ?? "—"}</td>
+                      <td>
+                        <span class="leanmini" title={leanLabel(n.avgLean)}>
+                          <i class="leanmini__mark" style={`left:${50 + (n.avgLean ?? 0) / 2}%;background:${leanColor(n.avgLean)}`}></i>
+                        </span>
+                        <span class="leanmini__txt">{n.avgLean == null ? "—" : leanTxt(n.avgLean)}</span>
+                      </td>
+                      <td class={`num dir dir--${n.dir}`} title={`${n.prev} → ${n.last} last week`}>{arrow(n.dir)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
         )}
 
         <h2 class="trends__sub">Weeks worth noting</h2>
