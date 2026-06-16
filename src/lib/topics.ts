@@ -102,7 +102,7 @@ function bucketize(topic: string): string | null {
   for (const [re, label] of TOPIC_BUCKETS) if (re.test(topic)) return label;
   return null;
 }
-function canonicalTopic(t: string): string {
+export function canonicalTopic(t: string): string {
   return bucketize(t) ?? t.trim();
 }
 

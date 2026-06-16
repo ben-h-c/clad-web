@@ -1,0 +1,130 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { buildTrends, leanColor, leanLabel } from "~/lib/trends";
+
+export const prerender = true;
+
+const posts = await getCollection("posts", (p) => !p.data.draft);
+const report = buildTrends(posts);
+const { weeks, callouts, maxCount, totalPosts, weekSpan, busiest } = report;
+
+const CHART_H = 170; // px
+const gradeText = (g: string | null) => (g ? `Avg grade ${g}` : "");
+---
+<BaseLayout
+  title="News Trends — Clad"
+  description="Week-over-week news trends: coverage volume, political lean, and the key events driving each week."
+>
+  <section class="trends">
+    <header class="trends__head">
+      <p class="small-caps trends__eyebrow">The Record</p>
+      <h1 class="trends__title">News Trends</h1>
+      <p class="trends__lede">
+        How the news moved, week over week — how much was covered, which way it
+        leaned, and the events that defined each stretch. We track
+        <strong>{totalPosts}</strong> graded {totalPosts === 1 ? "report" : "reports"}
+        across <strong>{weekSpan}</strong> {weekSpan === 1 ? "week" : "weeks"}.
+      </p>
+    </header>
+
+    {weeks.length === 0 ? (
+      <p class="dateline">Not enough data yet — check back as coverage accumulates.</p>
+    ) : (
+      <>
+        <div class="trends__legend" aria-hidden="true">
+          <span class="lg"><i style="background:rgba(59,110,165,0.85)"></i> Leans left</span>
+          <span class="lg"><i style="background:rgba(140,140,140,0.6)"></i> Balanced</span>
+          <span class="lg"><i style="background:rgba(178,59,46,0.85)"></i> Leans right</span>
+          <span class="lg"><i class="lg__heavy"></i> Heavy news week</span>
+        </div>
+
+        <figure class="trendchart" role="img"
+          aria-label={`Weekly coverage volume and political lean from ${weeks[0]!.label} to ${weeks[weeks.length - 1]!.label}.`}>
+          <div class="trendchart__scroll">
+            <div class="trendchart__plot" style={`--h:${CHART_H}px`}>
+              {weeks.map((w) => (
+                <div class={`tc-col${w.heavy ? " is-heavy" : ""}${w.skewed ? " is-skewed" : ""}`}>
+                  <div class="tc-bars" style={`height:${CHART_H}px`}>
+                    {w.heavy && <span class="tc-flag" title="Heavy news week">▲</span>}
+                    <span class="tc-count">{w.count || ""}</span>
+                    <span
+                      class="tc-bar"
+                      style={`height:${Math.round((w.count / maxCount) * (CHART_H - 22))}px;background:${leanColor(w.avgLean)}`}
+                      title={`${w.label} · ${w.count} ${w.count === 1 ? "report" : "reports"} · ${leanLabel(w.avgLean)}${w.avgGrade ? ` · avg grade ${w.avgGrade}` : ""}`}
+                    ></span>
+                  </div>
+                  <div class="tc-lean" style={`background:${leanColor(w.avgLean)}`} title={leanLabel(w.avgLean)}></div>
+                  <div class="tc-label">{w.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <figcaption class="trendchart__cap">
+            Bar height = number of reports that week. Color = net political lean
+            of that week's coverage. The strip beneath each bar shows the same
+            lean at a glance.
+          </figcaption>
+        </figure>
+
+        {busiest && (
+          <p class="trends__takeaway">
+            Busiest week so far: <strong>{busiest.label}</strong> with
+            {" "}{busiest.count} reports{busiest.avgGrade ? `, averaging a ${busiest.avgGrade}` : ""}.
+          </p>
+        )}
+
+        <h2 class="trends__sub">Weeks worth noting</h2>
+        {callouts.length === 0 ? (
+          <p class="dateline">No standout weeks yet — coverage has been steady and balanced.</p>
+        ) : (
+          <ul class="callouts">
+            {callouts.map((w) => (
+              <li class="callout">
+                <div class="callout__top">
+                  <span class="callout__week">{w.label}</span>
+                  <span class="callout__badges">
+                    {w.heavy && <span class="badge badge--heavy">Heavy · {w.count} reports</span>}
+                    {w.skewed && (
+                      <span class={`badge badge--${w.leanDir}`}>Leaned {leanLabel(w.avgLean)}</span>
+                    )}
+                    {w.avgGrade && <span class="badge badge--grade">{gradeText(w.avgGrade)}</span>}
+                  </span>
+                </div>
+
+                <div class="callout__split" aria-hidden="true">
+                  <span class="split split--l" style={`flex:${w.left || 0.001}`}>{w.left || ""}</span>
+                  <span class="split split--c" style={`flex:${w.center || 0.001}`}>{w.center || ""}</span>
+                  <span class="split split--r" style={`flex:${w.right || 0.001}`}>{w.right || ""}</span>
+                </div>
+                <p class="callout__splitcap">
+                  {w.left} left · {w.center} center · {w.right} right
+                </p>
+
+                {w.themes.length > 0 && (
+                  <p class="callout__themes">
+                    <span class="small-caps">Themes:</span>{" "}
+                    {w.themes.map((t, i) => (
+                      <>{i > 0 ? " · " : ""}{t.topic}{t.count > 1 ? ` (${t.count})` : ""}</>
+                    ))}
+                  </p>
+                )}
+
+                {w.headlines.length > 0 && (
+                  <ul class="callout__events">
+                    {w.headlines.map((h) => (
+                      <li>
+                        <a href={`/posts/${h.slug}/`}>{h.headline}</a>
+                        {h.grade && <span class="callout__grade">{h.grade}</span>}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </>
+    )}
+  </section>
+</BaseLayout>
