@@ -73,7 +73,6 @@ const bottomGraded = [...graded]
     <>
       <HeroStrip posts={breakingPosts} title="Breaking News" variant="breaking" />
       <HeroStrip posts={heroPosts} title="Front Page" />
-      {topGraded.length > 0 && <GradeBoard top={topGraded} bottom={bottomGraded} />}
       <section class="feed">
         <div class="feed__head">
           <h2 class="feed__title">Topics</h2>
@@ -107,6 +106,7 @@ const bottomGraded = [...graded]
           });
         })();
       </script>
+      {topGraded.length > 0 && <GradeBoard top={topGraded} bottom={bottomGraded} />}
     </>
   )}
   <Disclaimer />
