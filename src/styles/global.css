@@ -693,20 +693,17 @@ p {
 .tour__step.play .mk-chart i:nth-child(3) { animation-delay: 0.4s; }
 .tour__step.play .mk-chart i:nth-child(4) { animation-delay: 0.5s; }
 .tour__step.play .mk-chart i:nth-child(5) { animation-delay: 0.6s; }
-.mk-perks { display: flex; gap: 1.4rem; flex-wrap: wrap; justify-content: center; }
-.mk-perks span {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.75rem;
-  color: var(--muted-ink);
+.mk-logo {
+  font-family: var(--font-masthead, var(--display, Georgia, serif));
+  font-weight: 700;
+  font-size: clamp(2.75rem, 12vw, 3.75rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--ink);
+  padding-left: 0.18em;
 }
-.mk-perks b { font-size: 1.7rem; line-height: 1; color: var(--tour-accent); }
-.tour__step.play .mk-perks span { animation: tourPop 0.5s ease both; }
-.tour__step.play .mk-perks span:nth-child(1) { animation-delay: 0.22s; }
-.tour__step.play .mk-perks span:nth-child(2) { animation-delay: 0.34s; }
-.tour__step.play .mk-perks span:nth-child(3) { animation-delay: 0.46s; }
+.tour__step.play .mk-logo { animation: tourPop 0.55s 0.1s ease both; }
 
 @keyframes tourFade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes tourIn {
