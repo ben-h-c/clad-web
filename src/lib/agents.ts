@@ -695,6 +695,7 @@ const COMPLIANCE_KEY = "compliance:report";
 export type RiskLevel = "high" | "medium" | "low";
 
 export interface ComplianceFinding {
+  id?: string; // stable id within a report, for approve-and-apply
   postId: string;
   postUrl: string;
   headline: string;
@@ -731,6 +732,18 @@ export async function getComplianceReport(kv: KVNamespace): Promise<ComplianceRe
 
 export async function setComplianceReport(kv: KVNamespace, report: ComplianceReport): Promise<void> {
   await kv.put(COMPLIANCE_KEY, JSON.stringify(report));
+}
+
+/** Drop a finding from the stored report once its fix has been applied. */
+export async function removeComplianceFinding(
+  kv: KVNamespace,
+  id: string
+): Promise<ComplianceReport | null> {
+  const report = await getComplianceReport(kv);
+  if (!report) return null;
+  report.findings = report.findings.filter((f) => f.id !== id);
+  await setComplianceReport(kv, report);
+  return report;
 }
 
 export interface PostContent {

@@ -91,7 +91,7 @@ function stamp(iso?: string): string {
         ) : (
           <ul class="comp-findings">
             {findings.map((f) => (
-              <li class={`comp-finding comp-risk--${f.severity}`}>
+              <li class={`comp-finding comp-risk--${f.severity}`} data-finding-id={f.id}>
                 <div class="comp-finding__head">
                   <span class={`comp-badge comp-badge--${f.severity}`}>{f.severity}</span>
                   <span class="comp-finding__cat small-caps">{f.category}</span>
@@ -106,15 +106,54 @@ function stamp(iso?: string): string {
                 {f.suggestion && (
                   <p class="comp-finding__fix"><strong>Suggested fix:</strong> {f.suggestion}</p>
                 )}
+                {f.id && (
+                  <div class="comp-finding__actions">
+                    <button type="button" class="c-apply">Approve &amp; apply fix</button>
+                    <span class="c-apply-status dateline"></span>
+                  </div>
+                )}
               </li>
             ))}
           </ul>
+          <p class="dateline" style="margin-top:1rem">
+            “Approve &amp; apply” has AI make the minimal edit to the post or page
+            and commits it — live after the next rebuild (~30s). It's revertable
+            in git. Re-run the audit afterward to confirm.
+          </p>
         )}
       </>
     )}
   </section>
 
   <script is:inline>
+    document.querySelectorAll(".comp-finding").forEach((li) => {
+      const btn = li.querySelector(".c-apply");
+      const status = li.querySelector(".c-apply-status");
+      if (!btn) return;
+      btn.addEventListener("click", async () => {
+        const id = li.getAttribute("data-finding-id");
+        if (!confirm("Apply this fix? AI will edit the post/page and commit it (revertable in git).")) return;
+        btn.disabled = true;
+        status.textContent = "Applying…";
+        try {
+          const res = await fetch("/api/admin/compliance", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action: "apply", id }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || "Failed");
+          status.textContent = "";
+          li.classList.add("comp-finding--applied");
+          li.querySelector(".comp-finding__actions").innerHTML =
+            `<span class="dateline">Applied to ${data.file} — live in ~30s.${data.note ? " " + data.note : ""}</span>`;
+        } catch (err) {
+          status.textContent = String(err.message || err);
+          btn.disabled = false;
+        }
+      });
+    });
+
     document.getElementById("run-audit")?.addEventListener("click", async (e) => {
       const btn = e.target;
       const status = document.getElementById("run-status");

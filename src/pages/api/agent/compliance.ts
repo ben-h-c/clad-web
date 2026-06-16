@@ -54,7 +54,7 @@ export const POST: APIRoute = async ({ request }) => {
       suggestions: toStrArr(p?.disclaimer?.suggestions).slice(0, 10),
     },
     findings: Array.isArray(p?.findings)
-      ? p.findings.slice(0, 200).map(normFinding)
+      ? p.findings.slice(0, 200).map((f: any, i: number) => normFinding(f, i))
       : [],
   };
 
@@ -62,8 +62,9 @@ export const POST: APIRoute = async ({ request }) => {
   return json({ ok: true, findings: report.findings.length }, 200);
 };
 
-function normFinding(f: any): ComplianceFinding {
+function normFinding(f: any, i: number): ComplianceFinding {
   return {
+    id: `f${i}`,
     postId: str(f?.postId),
     postUrl: str(f?.postUrl),
     headline: str(f?.headline).slice(0, 300),
