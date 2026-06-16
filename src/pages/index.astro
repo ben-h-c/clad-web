@@ -126,8 +126,8 @@ const bottomGraded = [...graded]
           });
         })();
       </script>
-      {topGraded.length > 0 && <GradeBoard top={topGraded} bottom={bottomGraded} />}
       <HomeCharts posts={all} topics={topics} />
+      {topGraded.length > 0 && <GradeBoard top={topGraded} bottom={bottomGraded} />}
     </>
   )}
   <Disclaimer />

@@ -2716,18 +2716,34 @@ button.small {
 .charts {
   margin-top: 2rem;
 }
+/* Mobile-first: stacked single column. */
 .charts__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   margin-top: 1rem;
 }
 .chart-card {
   border: 1px solid var(--rule);
   padding: 0.9rem 1.1rem 1.1rem;
 }
-.chart-card--wide {
-  grid-column: 1 / -1;
+/* Laptop/desktop: a horizontal scrolling strip of chart cards. */
+@media (min-width: 721px) {
+  .charts__grid {
+    flex-direction: row;
+    overflow-x: auto;
+    align-items: stretch;
+    padding-bottom: 0.75rem;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+  }
+  .chart-card {
+    flex: 0 0 clamp(20rem, 32vw, 26rem);
+    scroll-snap-align: start;
+  }
+  .chart-card--wide {
+    flex: 0 0 clamp(26rem, 44vw, 38rem);
+  }
 }
 .chart-card__title {
   margin: 0 0 0.75rem;
@@ -2882,9 +2898,6 @@ button.small {
   font-weight: 700;
 }
 @media (max-width: 720px) {
-  .charts__grid {
-    grid-template-columns: 1fr;
-  }
   .chart-row {
     grid-template-columns: 7rem 1fr 4.5rem;
   }
