@@ -1,0 +1,62 @@
+---
+type: "broadcast"
+headline: "NPR Interviews Warnock on Faith in Progressive Politics"
+summary: "The segment features Michel Martin interviewing Georgia Sen. Raphael Warnock about his new book 'The Crooked Places Made Straight: Reflections on the Moral Meaning of America,' released June 16, 2026. Warnock argues progressives should reclaim faith language in politics, contrasts it with conservative Christian approaches, and describes his faith as a bridge requiring humility rather than a weapon."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=Bmn9vT1PcGY"
+sourceTitle: "NPR"
+section: "Politics"
+letterGrade: "B+"
+factualityScore: 85
+politicalLean: "center-left"
+leanScore: -28
+leanRationale: "NPR segment centers Democratic senator's critique of Republican faith-politics linkage while interviewer probes gently on toxicity without balancing voices or data"
+gradeRationale: "Graded B+: accurate presentation of Warnock's statements with minor concerns over limited counter-perspectives and framing that emphasizes one side's moral claims"
+topics:
+  - "Faith and politics"
+  - "Raphael Warnock"
+  - "Religion in US politics"
+assessment: "The interview accurately conveys Warnock's positions as a pastor-senator emphasizing moral imagination over orthodoxy. Viewers miss broader context on how faith influences both parties' policies, empirical data on religious voting patterns, and responses from conservative figures. Framing positions Republican association with faith as dominant while presenting Warnock's view as corrective, with the interviewer noting toxicity concerns but not exploring counter-evidence. Overall solid for a book discussion but typical of NPR's selective sourcing on cultural issues."
+notableConcerns:
+  - "Limited inclusion of opposing viewpoints on faith-politics interplay"
+keyMoments:
+  - claim: "Republicans have long dominated citing religious values in politics; progressives should animate theirs with faith too"
+    verdict: "verified"
+    note: "Warnock's stated argument in the interview; aligns with book promotion per NPR transcript and Penguin Random House details"
+  - claim: "Faith is not a weapon but a bridge; requires humility, not certainty or orthodoxy"
+    verdict: "verified"
+    note: "Direct quote from Warnock; consistent with his public statements and book themes on moral imagination"
+  - claim: "Toxicity in politics often stems from claims of possessing all truth, opposite of true faith"
+    verdict: "missing context"
+    note: "Opinion framed as general truth; interviewer raises the point but segment provides no counter-examples or polling on public views of faith in politics"
+videoId: "Bmn9vT1PcGY"
+videoTitle: "In a new book, Georgia Democrat Sen. Raphael Warnock writes about how faith is applied to politics"
+thumbnail: "https://img.youtube.com/vi/Bmn9vT1PcGY/maxresdefault.jpg"
+citations:
+  - title: "Sen. Warnock's new book calls on U.S. to commit to a greater moral imagination"
+    url: "https://www.npr.org/2026/06/16/nx-s1-5670372/sen-warnocks-new-book-calls-on-u-s-to-commit-to-a-greater-moral-imagination"
+  - title: "Sen. Warnock says U.S. politics is about right and wrong"
+    url: "https://www.npr.org/2026/06/16/nx-s1-5670372/raphael-warnock-christianity-politics-new-book"
+  - title: "The Crooked Places Made Straight by Raphael G. Warnock"
+    url: "https://www.penguinrandomhouse.com/books/780969/the-crooked-places-made-straight-by-raphael-g-warnock/"
+  - title: "The Crooked Places Made Straight: Reflections on the Moral Meaning of America"
+    url: "https://www.amazon.com/Crooked-Places-Made-Straight-Reflections/dp/B0G42SJJDT"
+  - title: "In new book, Warnock shares vision for straightening out politics"
+    url: "https://www.ajc.com/politics/2026/06/in-new-book-warnock-shares-vision-for-straightening-out-politics/"
+  - title: "The Crooked Places Made Straight: Reflections on the Moral Meaning of America"
+    url: "http://www.publishersweekly.com/9798217058983"
+  - title: "An Evening with Senator Raphael Warnock"
+    url: "https://cathedral.org/calendar/an-evening-with-senator-raphael-warnock/"
+  - title: "The Crooked Places Made Straight: Reflections on the Moral Meaning of America"
+    url: "https://www.barnesandnoble.com/w/the-crooked-places-made-straight-raphael-g-warnock/1148820044"
+  - title: "The Crooked Places Made Straight: Reflections on the Moral Meaning of America"
+    url: "https://www.goodreads.com/book/show/244444637-the-crooked-places-made-straight"
+  - title: "Books: Book Reviews, Book News, and Author Interviews"
+    url: "https://www.npr.org/books/"
+  - title: "Senator Raphael Warnock - Faith, Politics, and \"The Crooked Places Made Straight\""
+    url: "https://www.youtube.com/watch?v=4kYixqen93U"
+  - title: "Michel Martin"
+    url: "https://www.npr.org/people/5201175/michel-martin"
+---
+
+
