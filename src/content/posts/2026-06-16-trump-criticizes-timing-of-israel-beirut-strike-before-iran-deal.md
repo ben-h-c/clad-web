@@ -1,0 +1,62 @@
+---
+type: "broadcast"
+headline: "Trump criticizes timing of Israel Beirut strike before Iran deal"
+summary: "The short video shows President Trump speaking at the G7 summit, criticizing Israel's recent strike in Beirut against Hezbollah targets. He states the attack occurred about two hours before signing a US-Iran agreement, calls Israel's campaign against Hezbollah overly prolonged with excessive civilian harm, and suggests Syria could handle the group more effectively.\nThe segment uses direct audio from Trump with minimal narration or graphics. It draws from his on-the-record comments to reporters, consistent with multiple outlets reporting the same remarks on June 16, 2026."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=oDoJivgzU_4"
+sourceTitle: "Fox News"
+section: "Politics"
+letterGrade: "A-"
+factualityScore: 95
+politicalLean: "center"
+leanScore: 15
+leanRationale: "Fox News channel selection and hashtag framing emphasize Trump's comments without added commentary or counter-views, producing a mild right-leaning presentation of primary material."
+gradeRationale: "Graded A-: clip accurately presents Trump's unedited remarks with title matching content; minor concern over lack of surrounding context on the US-Iran deal and Lebanon conflict."
+topics:
+  - "Israel"
+  - "Lebanon"
+  - "Hezbollah"
+  - "US-Iran deal"
+assessment: "The broadcast accurately relays Trump's statements without alteration or fabrication. Viewers may miss broader context on the ongoing US-Iran negotiations, the scale of Israeli operations in Lebanon since early 2026, and reactions from Israel or Iran. The title accurately captures the core admission but frames it as 'admits,' which aligns with his words. No misleading edits or unsupported network claims appear; sourcing is primary audio. Potential skew comes from selective emphasis on Trump's frustration with Israel amid a right-leaning outlet's coverage."
+notableConcerns: []
+keyMoments:
+  - claim: "Israel has been fighting Hezbollah too long with too many people killed; apartment buildings should not be knocked down unnecessarily"
+    verdict: "verified"
+    note: "Direct quote from Trump's G7 remarks, corroborated by CBS News, Reuters, and Times of Israel reporting the same comments."
+  - claim: "Trump suggested letting Syria handle Hezbollah because they would do a better job"
+    verdict: "verified"
+    note: "Exact statement in transcript and multiple contemporaneous reports including Bloomberg and Jerusalem Post."
+  - claim: "Trump did not like the Beirut attack occurring two hours before signing the US-Iran agreement"
+    verdict: "verified"
+    note: "Core claim matching video title; confirmed in Reuters, Al Jazeera, and The National coverage of the June 14-16 events."
+videoId: "oDoJivgzU_4"
+videoTitle: "Trump admits he 'DIDN'T LIKE' timing of Israel's Lebanon attack #shorts #US #Israel #Iran #foxnews"
+thumbnail: "https://img.youtube.com/vi/oDoJivgzU_4/maxresdefault.jpg"
+citations:
+  - title: "Israel's recent attack in Lebanon was 'too much,' Trump says"
+    url: "https://www.cbsnews.com/news/trump-iran-deal-netanyahu-israel-attack-lebanon/"
+  - title: "Trump says Iran will 'never have nuclear weapon' under US deal"
+    url: "https://www.bbc.co.uk/news/live/c98247ml02qt"
+  - title: "Iran live updates: Trump says MOU is 'fair,' denies that US ..."
+    url: "https://abcnews.com/International/live-updates/iran-live-updates-israel-withdraw-lebanon-katz-after/?id=133879236"
+  - title: "Iran peace deal agreed as Trump blasts Israel over Lebanon"
+    url: "https://www.youtube.com/watch?v=wfk0xp4zFY4"
+  - title: "Israeli Strikes Since March Kill Almost 3800, Lebanon Says"
+    url: "https://www.haaretz.com/israel-news/israel-security/2026-06-16/ty-article-live/trump-says-iran-agreed-to-never-have-a-nuclear-weapon/0000019e-ce00-d730-a99e-ee4a65fc0000"
+  - title: "Trump hails Iran deal at G7 summit"
+    url: "https://apnews.com/live/g7-summit-trump-updates-06-15-2026"
+  - title: "US-Iran war; Trump urges Israel not to strike Lebanon with ..."
+    url: "https://edition.cnn.com/2026/06/14/world/live-news/iran-war-trump-israel?post-id=cmqdwy89w00003b6rps16ox9c"
+  - title: "Trump tells Netanyahu 'be responsible with Lebanon, let Syria handle Hezbollah' at G7"
+    url: "https://www.euronews.com/culture/2026/06/16/trump-tells-netanyahu-be-responsible-with-lebanon-let-syria-handle-hezbollah-at-g7"
+  - title: "Trump condemns Israel's attack on Beirut as Iran says US ..."
+    url: "https://www.aljazeera.com/news/2026/6/14/trump-condemns-israel-attack-on-beirut-says-iran-deal-still-close"
+  - title: "Trump is 'not happy' with Israel over Lebanon strikes amid ..."
+    url: "https://nypost.com/2026/06/16/us-news/trump-is-not-happy-with-israel-over-lebanon-strikes-amid-iran-peace-deal-talks/"
+  - title: "Trump says Israeli strike on Lebanon should not have ..."
+    url: "https://www.reuters.com/world/asia-pacific/us-iran-inch-closer-deal-timing-remains-unclear-2026-06-14/"
+  - title: "US and Iran reach framework peace deal to end war"
+    url: "https://www.theguardian.com/world/2026/jun/14/trump-calls-for-restraint-israel-airstrikes-beirut-us-iran-peace-deal"
+---
+
+
