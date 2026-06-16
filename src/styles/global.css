@@ -2735,6 +2735,54 @@ button.small {
 .chart-card {
   border: 1px solid var(--rule);
   padding: 0.9rem 1.1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+}
+/* Clip the body to a compact height (with a fade) only when it's tall enough to
+   need it (JS adds .is-clipped) and not expanded. */
+.chart-card.is-clipped:not(.is-expanded) .chart-card__body {
+  overflow: hidden;
+  max-height: 8.5rem;
+  -webkit-mask-image: linear-gradient(#000 68%, transparent);
+  mask-image: linear-gradient(#000 68%, transparent);
+}
+.chart-expand {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  padding: 0.15rem 0;
+  background: none;
+  border: none;
+  color: var(--muted-ink);
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+.chart-expand:hover {
+  color: var(--ink);
+}
+.chart-expand.is-hidden {
+  display: none;
+}
+.charts-expand-all {
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+}
+/* Per-chart toggle on mobile; one "expand all" on desktop (shared row). */
+.charts-expand-all {
+  display: none;
+}
+@media (min-width: 721px) {
+  .chart-expand {
+    display: none;
+  }
+  .charts-expand-all {
+    display: inline-block;
+  }
 }
 /* Laptop/desktop: a horizontal scrolling strip of chart cards. */
 @media (min-width: 721px) {

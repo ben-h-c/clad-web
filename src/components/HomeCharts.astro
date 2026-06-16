@@ -64,6 +64,9 @@ const topIssues = topics.slice(0, 10);
 <section class="charts">
   <div class="feed__head">
     <h2 class="feed__title">By the Numbers</h2>
+    <button type="button" class="charts-expand-all" aria-expanded="false">
+      <span class="charts-expand-all__txt">Expand all</span> <span aria-hidden="true">▾</span>
+    </button>
   </div>
   <div class="rule rule--double" aria-hidden="true"></div>
 
@@ -73,73 +76,85 @@ const topIssues = topics.slice(0, 10);
     <!-- Overall coverage -->
     <div class="chart-card">
       <h3 class="chart-card__title small-caps">Overall coverage lean</h3>
-      <div class="split-bar" role="img" aria-label={`Left ${pct(split.left)}%, Center ${pct(split.center)}%, Right ${pct(split.right)}%`}>
-        <span class="split-bar__seg split--left" style={`width:${pct(split.left)}%`}></span>
-        <span class="split-bar__seg split--center" style={`width:${pct(split.center)}%`}></span>
-        <span class="split-bar__seg split--right" style={`width:${pct(split.right)}%`}></span>
+      <div class="chart-card__body">
+        <div class="split-bar" role="img" aria-label={`Left ${pct(split.left)}%, Center ${pct(split.center)}%, Right ${pct(split.right)}%`}>
+          <span class="split-bar__seg split--left" style={`width:${pct(split.left)}%`}></span>
+          <span class="split-bar__seg split--center" style={`width:${pct(split.center)}%`}></span>
+          <span class="split-bar__seg split--right" style={`width:${pct(split.right)}%`}></span>
+        </div>
+        <div class="split-legend">
+          <span><i class="dot split--left"></i> Left {pct(split.left)}%</span>
+          <span><i class="dot split--center"></i> Center {pct(split.center)}%</span>
+          <span><i class="dot split--right"></i> Right {pct(split.right)}%</span>
+        </div>
+        <p class="chart-card__note">
+          Across {splitTotal} graded reports · average grade{" "}
+          <strong>{overallGpa !== null ? gpaToGrade(overallGpa) : "—"}</strong>
+        </p>
       </div>
-      <div class="split-legend">
-        <span><i class="dot split--left"></i> Left {pct(split.left)}%</span>
-        <span><i class="dot split--center"></i> Center {pct(split.center)}%</span>
-        <span><i class="dot split--right"></i> Right {pct(split.right)}%</span>
-      </div>
-      <p class="chart-card__note">
-        Across {splitTotal} graded reports · average grade{" "}
-        <strong>{overallGpa !== null ? gpaToGrade(overallGpa) : "—"}</strong>
-      </p>
+      <button type="button" class="chart-expand" aria-expanded="false"><span class="chart-expand__txt">Expand</span> <span aria-hidden="true">▾</span></button>
     </div>
 
     <!-- Political bias by network -->
     <div class="chart-card">
       <h3 class="chart-card__title small-caps">Political bias by network</h3>
-      <div class="chart-rows">
-        {biasByNet.map((n) => (
-          <div class="chart-row">
-            <span class="chart-row__label" title={n.name}>{n.name}</span>
-            <div class="bias-track">
-              <span class="bias-center" aria-hidden="true"></span>
-              <span
-                class={`bias-bar ${n.lean! >= 0 ? "is-right" : "is-left"}`}
-                style={`width:${Math.min(50, Math.abs(n.lean!) / 2)}%; ${n.lean! >= 0 ? "left:50%" : "right:50%"}`}
-              ></span>
+      <div class="chart-card__body">
+        <div class="chart-rows">
+          {biasByNet.map((n) => (
+            <div class="chart-row">
+              <span class="chart-row__label" title={n.name}>{n.name}</span>
+              <div class="bias-track">
+                <span class="bias-center" aria-hidden="true"></span>
+                <span
+                  class={`bias-bar ${n.lean! >= 0 ? "is-right" : "is-left"}`}
+                  style={`width:${Math.min(50, Math.abs(n.lean!) / 2)}%; ${n.lean! >= 0 ? "left:50%" : "right:50%"}`}
+                ></span>
+              </div>
+              <span class="chart-row__val">{leanLabel(n.lean)}</span>
             </div>
-            <span class="chart-row__val">{leanLabel(n.lean)}</span>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+      <button type="button" class="chart-expand" aria-expanded="false"><span class="chart-expand__txt">Expand</span> <span aria-hidden="true">▾</span></button>
     </div>
 
     <!-- Average grade by network -->
     <div class="chart-card">
       <h3 class="chart-card__title small-caps">Average grade by network</h3>
-      <div class="chart-rows">
-        {gradeByNet.map((n) => (
-          <div class="chart-row">
-            <span class="chart-row__label" title={n.name}>{n.name}</span>
-            <div class="grade-track">
-              <span class={`grade-bar grade--${gradeTier(n.gpa!)}`} style={`width:${(n.gpa! / 12) * 100}%`}></span>
+      <div class="chart-card__body">
+        <div class="chart-rows">
+          {gradeByNet.map((n) => (
+            <div class="chart-row">
+              <span class="chart-row__label" title={n.name}>{n.name}</span>
+              <div class="grade-track">
+                <span class={`grade-bar grade--${gradeTier(n.gpa!)}`} style={`width:${(n.gpa! / 12) * 100}%`}></span>
+              </div>
+              <span class="chart-row__val">{gpaToGrade(n.gpa!)}</span>
             </div>
-            <span class="chart-row__val">{gpaToGrade(n.gpa!)}</span>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+      <button type="button" class="chart-expand" aria-expanded="false"><span class="chart-expand__txt">Expand</span> <span aria-hidden="true">▾</span></button>
     </div>
 
     <!-- Top issues -->
     <div class="chart-card chart-card--wide">
       <h3 class="chart-card__title small-caps">Top issues right now</h3>
-      <ul class="issue-rows">
-        {topIssues.map((t) => (
-          <li class="issue-row">
-            <a class="issue-row__name" href={`/topics/${t.slug}/`}>{t.display}</a>
-            <span class="issue-row__count">{t.count} {t.count === 1 ? "report" : "reports"}</span>
-            <span class={`issue-row__lean ${t.avgLean === null ? "" : t.avgLean > 5 ? "is-right" : t.avgLean < -5 ? "is-left" : "is-center"}`}>
-              {leanLabel(t.avgLean)}
-            </span>
-            <span class="issue-row__grade">{t.avgGrade ?? "—"}</span>
-          </li>
-        ))}
-      </ul>
+      <div class="chart-card__body">
+        <ul class="issue-rows">
+          {topIssues.map((t) => (
+            <li class="issue-row">
+              <a class="issue-row__name" href={`/topics/${t.slug}/`}>{t.display}</a>
+              <span class="issue-row__count">{t.count} {t.count === 1 ? "report" : "reports"}</span>
+              <span class={`issue-row__lean ${t.avgLean === null ? "" : t.avgLean > 5 ? "is-right" : t.avgLean < -5 ? "is-left" : "is-center"}`}>
+                {leanLabel(t.avgLean)}
+              </span>
+              <span class="issue-row__grade">{t.avgGrade ?? "—"}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <button type="button" class="chart-expand" aria-expanded="false"><span class="chart-expand__txt">Expand</span> <span aria-hidden="true">▾</span></button>
     </div>
   </div>
     <button type="button" class="hero-arrow hero-arrow--right" aria-label="Scroll right">›</button>
@@ -148,25 +163,74 @@ const topIssues = topics.slice(0, 10);
 
 <script is:inline>
   (() => {
-    const wrap = document.querySelector(".charts__scroll");
-    if (!wrap) return;
-    const strip = wrap.querySelector(".charts__grid");
-    const left = wrap.querySelector(".hero-arrow--left");
-    const right = wrap.querySelector(".hero-arrow--right");
-    if (!strip || !left || !right) return;
-    const update = () => {
+    const section = document.querySelector(".charts");
+    if (!section) return;
+
+    /* ---- horizontal scroll arrows (desktop strip) ---- */
+    const wrap = section.querySelector(".charts__scroll");
+    const strip = wrap && wrap.querySelector(".charts__grid");
+    const left = wrap && wrap.querySelector(".hero-arrow--left");
+    const right = wrap && wrap.querySelector(".hero-arrow--right");
+    const updateArrows = () => {
+      if (!strip || !left || !right) return;
       const max = strip.scrollWidth - strip.clientWidth;
       if (max <= 4) { left.hidden = true; right.hidden = true; return; }
       left.hidden = strip.scrollLeft <= 2;
       right.hidden = strip.scrollLeft >= max - 2;
     };
-    const step = () => Math.max(280, strip.clientWidth * 0.85);
-    left.addEventListener("click", () => strip.scrollBy({ left: -step(), behavior: "smooth" }));
-    right.addEventListener("click", () => strip.scrollBy({ left: step(), behavior: "smooth" }));
-    strip.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    window.addEventListener("load", update);
-    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", update);
-    else update();
+    if (strip && left && right) {
+      const step = () => Math.max(280, strip.clientWidth * 0.85);
+      left.addEventListener("click", () => strip.scrollBy({ left: -step(), behavior: "smooth" }));
+      right.addEventListener("click", () => strip.scrollBy({ left: step(), behavior: "smooth" }));
+      strip.addEventListener("scroll", updateArrows, { passive: true });
+    }
+
+    /* ---- collapse / expand ---- */
+    const cards = [...section.querySelectorAll(".chart-card")];
+    const setCard = (card, expand) => {
+      card.classList.toggle("is-expanded", expand);
+      const b = card.querySelector(".chart-expand");
+      if (b) {
+        b.setAttribute("aria-expanded", String(expand));
+        const t = b.querySelector(".chart-expand__txt");
+        if (t) t.textContent = expand ? "Collapse" : "Expand";
+      }
+    };
+    // Measure (while not clipped) whether each body overflows the compact box;
+    // clip + show an expand button only for those. Short cards stay as-is.
+    const COLLAPSE_PX = 8.5 * 16;
+    const syncFits = () => {
+      cards.forEach((card) => {
+        const body = card.querySelector(".chart-card__body");
+        const b = card.querySelector(".chart-expand");
+        if (!body) return;
+        const tall = body.scrollHeight > COLLAPSE_PX + 6;
+        card.classList.toggle("is-clipped", tall);
+        if (b) b.classList.toggle("is-hidden", !tall);
+      });
+    };
+    cards.forEach((card) => {
+      const b = card.querySelector(".chart-expand");
+      if (b) b.addEventListener("click", () => { setCard(card, !card.classList.contains("is-expanded")); syncFits(); updateArrows(); });
+    });
+
+    const allBtn = section.querySelector(".charts-expand-all");
+    if (allBtn) {
+      allBtn.addEventListener("click", () => {
+        const expand = allBtn.getAttribute("aria-expanded") !== "true";
+        allBtn.setAttribute("aria-expanded", String(expand));
+        const t = allBtn.querySelector(".charts-expand-all__txt");
+        if (t) t.textContent = expand ? "Collapse all" : "Expand all";
+        cards.forEach((card) => setCard(card, expand));
+        syncFits();
+        updateArrows();
+      });
+    }
+
+    const init = () => { syncFits(); updateArrows(); };
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+    else init();
+    window.addEventListener("load", init);
+    window.addEventListener("resize", () => { syncFits(); updateArrows(); });
   })();
 </script>
