@@ -1,0 +1,60 @@
+---
+type: "broadcast"
+headline: "NBC News report on Wilmington, Del., hospital shooting holds up to verification"
+summary: "The NBC News segment covers breaking news of a shooting at Wilmington Hospital in Delaware. It reports two people shot around 3:30 p.m., the hospital placed on lockdown, a large police response including people exiting with hands raised, and an expected police update at 7:30 p.m. Reporter Johnny Archer from NBC10 Philadelphia provides on-scene details from the Wilmington campus.\nThe coverage relies on Wilmington Police statements, live chopper footage, and visual confirmation of the police perimeter and evacuations. No named guests or experts appear; it focuses on official police information and real-time visuals from the scene."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=Y8_fJdqqai4"
+sourceTitle: "NBC News"
+section: "Politics"
+letterGrade: "A-"
+factualityScore: 90
+politicalLean: "center"
+leanScore: 0
+leanRationale: "Straightforward breaking news coverage of a local crime incident with no discernible political framing or selective emphasis"
+gradeRationale: "Accurate, timely reporting of verified incident details; minor limitation is lack of later updates on shooter status or victim conditions in the provided segment"
+topics:
+  - "Wilmington hospital shooting"
+  - "Delaware crime"
+assessment: "The broadcast accurately relayed the core facts of the June 16, 2026, incident at ChristianaCare’s Wilmington Hospital as confirmed by multiple contemporaneous reports. Details on the time, number of victims, lockdown, and heavy police presence align directly with official accounts. The segment appropriately notes the absence of an immediate update on the shooter or victims’ conditions. Viewers receive a clear picture of the immediate response but lack later context such as any arrest or victim outcomes, which is typical for live breaking coverage. No misleading language or omitted counter-evidence is present."
+notableConcerns: []
+keyMoments:
+  - claim: "Two people shot inside Wilmington Hospital around 3:30 p.m.; hospital on lockdown"
+    verdict: "verified"
+    note: "Confirmed by Wilmington Police and multiple outlets including CNN and 6abc on June 16, 2026"
+  - claim: "Large police response with dozens exiting with hands up"
+    verdict: "verified"
+    note: "Live footage and on-scene reporting matched by NBC10 Philadelphia and other local coverage"
+  - claim: "Police searching for possible shooter; update expected at 7:30 p.m."
+    verdict: "verified"
+    note: "Consistent with police scanner audio and statements reported by CBS Philadelphia and others"
+videoId: "Y8_fJdqqai4"
+videoTitle: "Two people shot inside Delaware hospital"
+thumbnail: "https://img.youtube.com/vi/Y8_fJdqqai4/maxresdefault.jpg"
+citations:
+  - title: "2 people shot at Wilmington Hospital in Del., officials say – NBC10 Philadelphia"
+    url: "https://www.nbcphiladelphia.com/news/local/police-respond-to-shooting-at-wilmington-hospital-in-delaware/4418401/"
+  - title: "Wilmington, Delaware, hospital on lockdown after 2 people shot inside | CNN"
+    url: "https://www.cnn.com/2026/06/16/us/wilmington-delaware-hospital-shooting"
+  - title: "2 workers reportedly shot inside Wilmington Hospital in Delaware; facility on lockdown - 6abc Philadelphia"
+    url: "https://6abc.com/post/possible-shooting-reported-wilmington-hospital-delaware/19310822/"
+  - title: "Live updates: 2 shot at Wilmington Hospital, campus on lockdown - NBC10 Philadelphia"
+    url: "https://www.nbcphiladelphia.com/news/local/live-updates-2-people-shot-at-wilmington-hospital-in-del-campus-on-lockdown/4418495/"
+  - title: "2 reportedly shot inside Wilmington Hospital - WHYY"
+    url: "https://whyy.org/articles/workers-shot-wilmington-hospital-delaware/"
+  - title: "Wilmington Hospital Campus Shooting Incident - ChristianaCare News"
+    url: "https://news.christianacare.org/2026/06/wilmington-hospital-campus-shooting-incident/"
+  - title: "2 people shot at Wilmington Hospital in Delaware as police search for \"possible active shooter\" - CBS Philadelphia"
+    url: "https://www.cbsnews.com/philadelphia/news/wilmington-hospital-delaware-shooting/"
+  - title: "Delaware hospital locked down after 2 people are shot inside - Houston Chronicle"
+    url: "https://www.houstonchronicle.com/news/article/delaware-hospital-locked-down-after-2-people-are-22308537.php"
+  - title: "2 workers were reportedly shot inside Wilmington Hospital in Delaware on Tuesday afternoon - 6abc Action News (Facebook)"
+    url: "https://www.facebook.com/6abcActionNews/videos/2-workers-were-reportedly-shot-inside-wilmington-hospital-in-delaware-on-tuesday/1665180634767296/"
+  - title: "Here's everything you need to know about the shooting situation at Wilmington Hospital - NBC10 Philadelphia (Facebook)"
+    url: "https://www.facebook.com/nbcphiladelphia/videos/heres-everything-you-need-to-know-about-the-shooting-situation-at-wilmington-hos/1709790736724264/"
+  - title: "Wilmington Hospital in Delaware is on lockdown after at least two people were shot - NBC10 Philadelphia (Facebook)"
+    url: "https://www.facebook.com/nbcphiladelphia/posts/wilmington-hospital-in-delaware-is-on-lockdown-after-at-least-two-people-were-sh/1387190950223367/"
+  - title: "Multiple people reportedly shot inside Delaware hospital - FOX 29 Philadelphia (YouTube)"
+    url: "https://www.youtube.com/watch?v=qigAF17VhPU"
+---
+
+
