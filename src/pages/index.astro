@@ -22,17 +22,14 @@ const all = (await getCollection("posts", (p) => !p.data.draft)).sort(
 );
 const byId = new Map(all.map((p) => [p.id, p]));
 
-// Hero = the Front Page Curator's selection (ordered). Editorial rule: the
-// front page only features established news outlets. Fall back to manually
-// featured posts, then most-recent — all restricted to news outlets.
-const outlets = all.filter((p) => isNewsOutlet(p.data.sourceTitle));
+// Hero = the Front Page Curator's selection (ordered) — news-media talk-show /
+// panel / commentary segments across any network. Fall back to manually
+// featured, then most-recent, if the curator hasn't run yet.
 let curated = await getFrontpage(env.AGENTS);
-let heroPosts = curated
-  .map((id) => byId.get(id))
-  .filter((p) => p !== undefined && isNewsOutlet(p.data.sourceTitle));
+let heroPosts = curated.map((id) => byId.get(id)).filter((p) => p !== undefined);
 if (heroPosts.length === 0) {
-  const flagged = outlets.filter((p) => p.data.featured);
-  heroPosts = flagged.length > 0 ? flagged : outlets.slice(0, 8);
+  const flagged = all.filter((p) => p.data.featured);
+  heroPosts = flagged.length > 0 ? flagged : all.slice(0, 8);
 }
 heroPosts = heroPosts.slice(0, 15);
 
