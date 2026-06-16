@@ -89,8 +89,11 @@ export async function runBreakingCurator(agent) {
   // score order (scored is already sorted desc).
   const groups = new Map();
   for (const s of scored) {
-    const key = s.topic && s.topic.trim() ? s.topic.trim() : "misc";
-    if (!groups.has(key)) groups.set(key, { bucket: key, members: [] });
+    const raw = s.topic && s.topic.trim() ? s.topic.trim() : "misc";
+    // Case/whitespace-insensitive key so classifier variance ("B-52 crash" vs
+    // "B-52 Crash") doesn't split one subject into two groups (or collide slugs).
+    const key = raw.toLowerCase().replace(/\s+/g, " ");
+    if (!groups.has(key)) groups.set(key, { bucket: raw, members: [] });
     groups.get(key).members.push(s);
   }
 
