@@ -160,6 +160,32 @@ const ogDescription = isBroadcast
           </p>
         )}
 
+        <details class="flag" data-post-id={post.id}>
+          <summary class="flag__summary">Disagree with this grade or political lean?</summary>
+          <div class="flag__body">
+            <p class="flag__intro">
+              Tell us why. Your note goes to the editor, who reviews every
+              submission and may re-grade the report.
+            </p>
+            <fieldset class="flag__aspect">
+              <legend class="small-caps">What do you disagree with?</legend>
+              <label><input type="radio" name="aspect" value="grade" checked /> The grade</label>
+              <label><input type="radio" name="aspect" value="lean" /> The political lean</label>
+              <label><input type="radio" name="aspect" value="both" /> Both</label>
+            </fieldset>
+            <textarea
+              class="flag__comment"
+              rows="4"
+              maxlength="2000"
+              placeholder="Explain what you think is wrong and why — cite specifics if you can."
+            ></textarea>
+            <div class="flag__actions">
+              <button type="button" class="flag__submit">Submit to editor</button>
+            </div>
+            <div class="flag__status" role="status"></div>
+          </div>
+        </details>
+
         {d.videoId && (
           <div class="video-embed">
             <iframe
@@ -228,4 +254,43 @@ const ogDescription = isBroadcast
 
     <Disclaimer />
   </article>
+
+  <script is:inline>
+    (() => {
+      const box = document.querySelector(".flag");
+      if (!box) return;
+      const postId = box.getAttribute("data-post-id");
+      const btn = box.querySelector(".flag__submit");
+      const comment = box.querySelector(".flag__comment");
+      const status = box.querySelector(".flag__status");
+      const setStatus = (kind, msg) => {
+        status.className = `flag__status flag__status--${kind}`;
+        status.textContent = msg;
+      };
+      btn.addEventListener("click", async () => {
+        const aspect = (box.querySelector('input[name="aspect"]:checked') || {}).value;
+        const text = comment.value.trim();
+        if (text.length < 3) {
+          setStatus("error", "Please add a comment.");
+          return;
+        }
+        btn.disabled = true;
+        setStatus("info", "Submitting…");
+        try {
+          const res = await fetch("/api/flag", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ postId, aspect, comment: text }),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok) throw new Error(data.error || "Could not submit");
+          box.querySelector(".flag__body").innerHTML =
+            '<p class="flag__thanks">Thanks — your note was sent to the editor.</p>';
+        } catch (err) {
+          setStatus("error", String(err.message || err));
+          btn.disabled = false;
+        }
+      });
+    })();
+  </script>
 </BaseLayout>

@@ -6,6 +6,10 @@ import { checkBasicAuth, unauthorized } from "~/lib/auth";
 // must bypass the editor basic-auth gate.
 const AGENT_API = (path: string) => path.startsWith("/api/agent/");
 
+// Public, unauthenticated endpoints (rate-limited inside the route). Readers
+// submit grade/lean disputes here from article pages — no login.
+const PUBLIC_API = (path: string) => path === "/api/flag";
+
 const PROTECTED = (path: string) =>
   path === "/admin" ||
   path.startsWith("/admin/") ||
@@ -14,6 +18,7 @@ const PROTECTED = (path: string) =>
 export const onRequest = defineMiddleware(async (context, next) => {
   const path = context.url.pathname;
   if (AGENT_API(path)) return next();
+  if (PUBLIC_API(path)) return next();
   if (!PROTECTED(path)) return next();
 
   if (!env.ADMIN_USER || !env.ADMIN_PASSWORD) {

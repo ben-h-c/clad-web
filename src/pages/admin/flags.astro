@@ -1,0 +1,117 @@
+---
+import { env } from "cloudflare:workers";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import AdminNav from "~/components/AdminNav.astro";
+import { listFlags } from "~/lib/agents";
+import { shortDate } from "~/lib/dateline";
+
+export const prerender = false;
+
+const flags = await listFlags(env.AGENTS);
+const aspectLabel = (a: string) =>
+  a === "grade" ? "Grade" : a === "lean" ? "Political lean" : "Grade & lean";
+const leanLabel = (s: number | null) =>
+  s == null ? "—" : Math.abs(s) < 5 ? "Centered" : `${Math.abs(s)}% ${s > 0 ? "Right" : "Left"}`;
+---
+<BaseLayout title="Clad — Reader Flags">
+  <section class="admin">
+    <AdminNav current="flags" />
+    <h2 class="admin__title">Reader Flags</h2>
+    <p class="dateline">
+      Readers who disagreed with a report's grade or political lean. Re-grade
+      with AI (re-evaluates the report and updates the live post), or just mark
+      it reviewed.
+    </p>
+
+    {flags.length === 0 ? (
+      <p class="dateline" style="margin-top:2rem">No reader flags yet.</p>
+    ) : (
+      <div class="flags-admin">
+        {flags.map((f) => (
+          <article class={`flag-item flag-item--${f.status}`} data-flag-id={f.id}>
+            <div class="flag-item__head">
+              <span class={`flag-badge flag-badge--${f.status}`}>{f.status}</span>
+              <span class="flag-badge flag-badge--aspect">{aspectLabel(f.aspect)}</span>
+              <span class="dateline">{shortDate(new Date(f.createdAt))}</span>
+            </div>
+            <h3 class="flag-item__headline">
+              <a href={`/posts/${f.postId}/`} target="_blank" rel="noopener">{f.postHeadline}</a>
+            </h3>
+            <p class="dateline">
+              Current: Grade <strong>{f.currentGrade ?? "—"}</strong> · Lean{" "}
+              <strong>{leanLabel(f.currentLeanScore)}</strong>
+            </p>
+            <blockquote class="flag-item__comment">{f.comment}</blockquote>
+            {f.resolutionNote && (
+              <p class="flag-item__resolution"><span class="small-caps">Resolution:</span> {f.resolutionNote}</p>
+            )}
+            <div class="flag-item__actions">
+              <button type="button" class="f-regrade">Re-grade with AI</button>
+              <button type="button" class="secondary f-review">Mark reviewed</button>
+              <button type="button" class="secondary f-delete">Delete</button>
+            </div>
+            <div class="f-status"></div>
+          </article>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <script is:inline>
+    document.querySelectorAll(".flag-item").forEach((item) => {
+      const id = item.getAttribute("data-flag-id");
+      const status = item.querySelector(".f-status");
+      const buttons = () => item.querySelectorAll("button");
+      const setStatus = (kind, msg) => {
+        status.innerHTML = msg
+          ? `<div class="notice ${kind === "error" ? "notice--error" : ""}">${msg}</div>`
+          : "";
+      };
+      const call = async (action) => {
+        buttons().forEach((b) => (b.disabled = true));
+        try {
+          const res = await fetch("/api/admin/flags", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action, id }),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok) throw new Error(data.error || "Failed");
+          return data;
+        } catch (err) {
+          setStatus("error", String(err.message || err));
+          buttons().forEach((b) => (b.disabled = false));
+          throw err;
+        }
+      };
+
+      item.querySelector(".f-delete").addEventListener("click", async () => {
+        if (!confirm("Delete this flag?")) return;
+        try { await call("delete"); item.remove(); } catch {}
+      });
+      item.querySelector(".f-review").addEventListener("click", async () => {
+        try {
+          await call("review");
+          item.classList.remove("flag-item--open");
+          item.classList.add("flag-item--reviewed");
+          const badge = item.querySelector(".flag-badge");
+          if (badge) { badge.textContent = "reviewed"; badge.className = "flag-badge flag-badge--reviewed"; }
+          setStatus("info", "Marked reviewed.");
+        } catch {}
+      });
+      item.querySelector(".f-regrade").addEventListener("click", async () => {
+        if (!confirm("Re-grade this report with AI? It re-evaluates the video and updates the live post (~30–60s).")) return;
+        setStatus("info", "Re-grading with AI — this can take ~30–60s…");
+        try {
+          const d = await call("regrade");
+          setStatus(
+            "info",
+            `Done. Grade ${d.oldGrade} → <strong>${d.newGrade}</strong>, lean ${d.oldLean ?? "—"} → <strong>${d.newLean}</strong>. Live in ~30s.`
+          );
+          const badge = item.querySelector(".flag-badge");
+          if (badge) { badge.textContent = "updated"; badge.className = "flag-badge flag-badge--updated"; }
+        } catch {}
+      });
+    });
+  </script>
+</BaseLayout>

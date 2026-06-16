@@ -1,6 +1,6 @@
 ---
 import { env } from "cloudflare:workers";
-import { listDrafts } from "~/lib/agents";
+import { listDrafts, openFlagCount } from "~/lib/agents";
 
 interface Props {
   current: string;
@@ -13,12 +13,19 @@ try {
 } catch {
   pending = 0;
 }
+let flags = 0;
+try {
+  flags = await openFlagCount(env.AGENTS);
+} catch {
+  flags = 0;
+}
 
 const links = [
   { key: "desk", label: "Editorial Desk", href: "/admin/" },
   { key: "queue", label: `Pending Queue${pending ? ` (${pending})` : ""}`, href: "/admin/queue/" },
   { key: "intake", label: "Add URLs", href: "/admin/intake/" },
   { key: "posts", label: "Posts", href: "/admin/posts/" },
+  { key: "flags", label: `Reader Flags${flags ? ` (${flags})` : ""}`, href: "/admin/flags/" },
   { key: "agents", label: "Agents", href: "/admin/agents/" },
   { key: "categories", label: "Categories", href: "/admin/categories/" },
   { key: "compliance", label: "Compliance", href: "/admin/compliance/" },

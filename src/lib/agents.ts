@@ -464,6 +464,104 @@ export async function setSearchCategories(kv: KVNamespace, list: SearchCategory[
   await kv.put(CATEGORIES_KEY, JSON.stringify(clean));
 }
 
+/* ---------- reader flags (public "I disagree with the grade/lean") ----------
+ * A reader on an article can flag the grade and/or political-lean assignment and
+ * leave a comment. Stored one-per-key under `flag:`; the editor reviews them in
+ * the console and either re-grades with AI or marks them reviewed. */
+
+const FLAG_PREFIX = "flag:";
+const FLAG_TTL = 180 * 24 * 60 * 60; // keep flags ~6 months
+
+export type FlagAspect = "grade" | "lean" | "both";
+export type FlagStatus = "open" | "reviewed" | "updated";
+
+export interface ReaderFlag {
+  id: string;
+  postId: string;
+  postHeadline: string;
+  aspect: FlagAspect;
+  comment: string;
+  currentGrade: string | null;
+  currentLeanScore: number | null;
+  createdAt: string;
+  status: FlagStatus;
+  resolvedAt?: string;
+  resolutionNote?: string;
+}
+
+export async function addFlag(
+  kv: KVNamespace,
+  f: Omit<ReaderFlag, "id" | "createdAt" | "status">
+): Promise<ReaderFlag> {
+  const flag: ReaderFlag = {
+    ...f,
+    id: crypto.randomUUID(),
+    createdAt: new Date().toISOString(),
+    status: "open",
+  };
+  await kv.put(FLAG_PREFIX + flag.id, JSON.stringify(flag), { expirationTtl: FLAG_TTL });
+  return flag;
+}
+
+export async function listFlags(kv: KVNamespace): Promise<ReaderFlag[]> {
+  const out: ReaderFlag[] = [];
+  let cursor: string | undefined;
+  do {
+    const list = await kv.list({ prefix: FLAG_PREFIX, cursor });
+    for (const key of list.keys) {
+      const raw = await kv.get(key.name);
+      if (raw) {
+        try {
+          out.push(JSON.parse(raw) as ReaderFlag);
+        } catch {
+          // skip malformed
+        }
+      }
+    }
+    cursor = list.list_complete ? undefined : list.cursor;
+  } while (cursor);
+  // Open first, then newest-first within each status.
+  out.sort((a, b) => {
+    if ((a.status === "open") !== (b.status === "open")) return a.status === "open" ? -1 : 1;
+    return b.createdAt.localeCompare(a.createdAt);
+  });
+  return out;
+}
+
+export async function getFlag(kv: KVNamespace, id: string): Promise<ReaderFlag | null> {
+  const raw = await kv.get(FLAG_PREFIX + id);
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw) as ReaderFlag;
+  } catch {
+    return null;
+  }
+}
+
+export async function setFlagStatus(
+  kv: KVNamespace,
+  id: string,
+  status: FlagStatus,
+  resolutionNote?: string
+): Promise<ReaderFlag | null> {
+  const flag = await getFlag(kv, id);
+  if (!flag) return null;
+  flag.status = status;
+  flag.resolvedAt = new Date().toISOString();
+  if (resolutionNote) flag.resolutionNote = resolutionNote;
+  await kv.put(FLAG_PREFIX + id, JSON.stringify(flag), { expirationTtl: FLAG_TTL });
+  return flag;
+}
+
+export async function deleteFlag(kv: KVNamespace, id: string): Promise<void> {
+  await kv.delete(FLAG_PREFIX + id);
+}
+
+export async function openFlagCount(kv: KVNamespace): Promise<number> {
+  const flags = await listFlags(kv);
+  return flags.filter((f) => f.status === "open").length;
+}
+
 /* ---------- compliance auditor ---------- */
 
 const COMPLIANCE_KEY = "compliance:report";
