@@ -882,6 +882,15 @@ p {
   padding: 0;
 }
 
+/* Two columns of topics on laptop/desktop; single column on mobile. */
+@media (min-width: 720px) {
+  .topic-rows {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.25rem;
+  }
+}
+
 .topic-row {
   display: flex;
   align-items: center;
