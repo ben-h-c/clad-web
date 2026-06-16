@@ -2623,17 +2623,6 @@ button.small {
   background: rgba(0, 0, 0, 0.03);
   overflow: hidden;
 }
-.ticker__label {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  padding: 0 0.85rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  color: var(--paper);
-  background: var(--ink);
-  white-space: nowrap;
-}
 .ticker__viewport {
   flex: 1 1 auto;
   overflow: hidden;
@@ -2701,17 +2690,6 @@ button.small {
   border-top: 1px dashed var(--rule);
   border-bottom: 1px dashed var(--rule);
   overflow: hidden;
-}
-.quips__label {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  padding: 0 0.85rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  color: var(--muted-ink);
-  white-space: nowrap;
-  border-right: 1px dashed var(--rule);
 }
 .quips__viewport {
   flex: 1 1 auto;

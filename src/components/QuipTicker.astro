@@ -21,7 +21,6 @@ const quips = (data?.quips && data.quips.length ? data.quips : FALLBACK);
 const loop = [...quips, ...quips];
 ---
 <section class="quips" aria-label="For fun">
-  <span class="quips__label small-caps">For Fun</span>
   <div class="quips__viewport">
     <div class="quips__track" style={`--n:${quips.length}`}>
       {loop.map((q, i) => (

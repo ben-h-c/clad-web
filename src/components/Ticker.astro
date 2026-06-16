@@ -16,7 +16,6 @@ const loop = quotes.length > 0 ? [...quotes, ...quotes] : [];
 ---
 {quotes.length > 0 && (
   <section class="ticker" aria-label="Markets ticker">
-    <span class="ticker__label small-caps">Markets</span>
     <div class="ticker__viewport">
       <div class="ticker__track" style={`--n:${quotes.length}`}>
         {loop.map((q, i) => (
