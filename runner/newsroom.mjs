@@ -30,6 +30,22 @@ export function heuristicCriticality(p) {
   if (HEAVY_POLITICS.test(b)) return 65;
   return 35;
 }
+// Categories that belong on the "cool recent stories" Front Page.
+const FRONT_PAGE_CATEGORIES = new Set(["tech", "science", "sports", "culture", "business"]);
+
+/**
+ * Front-page eligible = a fun category (tech/science/sports/culture/business)
+ * OR Grok flagged it lighthearted — but always excluding anything that trips the
+ * heavy-politics / tragedy keyword guard (so Fed/inflation/hearings/disasters
+ * stay off even when categorized "business"). Looser than the bare lighthearted
+ * flag so cool tech/business/space stories make the cut.
+ */
+export function frontPageEligible(p, map) {
+  if (!heuristicLighthearted(p)) return false;
+  const c = classOf(p, map);
+  return FRONT_PAGE_CATEGORIES.has(c.category) || c.lighthearted;
+}
+
 /** Classification for a post, preferring the Grok cache, else heuristics. */
 export function classOf(p, map) {
   const c = map[p.id];
@@ -74,7 +90,7 @@ const SCHEMA = {
 const SYSTEM = `You are the desk editor of a news fact-checking site, classifying short video reports. For EACH numbered item return:
 - "category": one of politics, world, business, tech, science, sports, culture, health, tragedy, other.
 - "broadTopic": a short, canonical label to GROUP related stories (1-3 words). Reuse the same plain name across stories about the same subject (e.g. "Iran", "SpaceX", "World Cup 2026", "Federal Reserve", "NBA"). This is used to avoid showing too many stories on one subject.
-- "lighthearted": true ONLY for lighter, broadly-appealing, non-political, non-tragic stories suitable for a "cool recent stories" front page — sports, entertainment/culture, consumer tech, space, science, fun business/markets, human interest. false for politics, government/policy, elections, courts, geopolitics, war, crime, disasters, deaths, or anything heavy/somber.
+- "lighthearted": true for any broadly-appealing, NON-political, non-tragic story suitable for a "cool recent stories" front page — sports, entertainment/culture, consumer tech and AI, gadgets, space, science/discovery, notable company/market/deal news (IPOs, big product or business moves), and human interest. It does NOT have to be funny or trivial — an interesting, substantive tech/space/business story still counts. false for politics, government/policy, elections, courts, geopolitics, war, crime, disasters, deaths, public-health crises, or anything heavy/somber.
 - "criticality": integer 0-100 for how important/impactful this is AS BREAKING NEWS right now. Guide: major geopolitical events, wars, attacks, disasters with casualties, market-moving or major national policy news, deaths of major public figures = 80-100; significant national/world news = 55-79; routine politics/business/regional news = 35-54; soft/entertainment/human-interest/novelty = 5-34. Judge the inherent magnitude of the story, not its recency.
 
 Return ONLY JSON: { "items": [ { "i": <number>, "category": ..., "broadTopic": ..., "lighthearted": ..., "criticality": ... } ] }. Include every item exactly once.`;

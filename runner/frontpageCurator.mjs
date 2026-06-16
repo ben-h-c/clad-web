@@ -1,6 +1,6 @@
 import { getPosts, setFrontpage } from "./api.mjs";
 import { isNewsOutlet } from "../src/lib/networks.ts";
-import { ensureClassifications, classOf } from "./newsroom.mjs";
+import { ensureClassifications, classOf, frontPageEligible } from "./newsroom.mjs";
 
 const HEADLINE_STOP = new Set(
   ("the a an of to in on for and or with at by is are was were as that this it amid after over " +
@@ -54,7 +54,7 @@ export async function runFrontpageCurator(agent) {
     xaiKey: process.env.XAI_API_KEY,
     log: (m) => console.log(new Date().toISOString(), m),
   });
-  const light = (p) => classOf(p, classMap).lighthearted;
+  const light = (p) => frontPageEligible(p, classMap);
   const topicOf = (p) => classOf(p, classMap).broadTopic;
 
   // Prefer outlet + light; if that pool is thin, drop the outlet restriction
