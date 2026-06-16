@@ -1,0 +1,61 @@
+---
+type: "broadcast"
+headline: "NewsNation profiles A4 executive director Lisa Gold on AAPI arts advocacy"
+summary: "The segment features Lisa Gold, executive director of the Asian American Arts Alliance (A4), sharing her personal story and role advocating for greater opportunities for AAPI artists. It covers her background, transition into the position after the prior director stepped down, and emphasis on representation in the arts. The second paragraph notes sourcing from the subject herself via interview, with the organization's website and prior NEA coverage confirming her tenure since 2018 and A4's mission."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=l2u0agM72g0"
+sourceTitle: "NewsNation"
+section: "Politics"
+letterGrade: "A-"
+factualityScore: 90
+politicalLean: "center"
+leanScore: 0
+leanRationale: "No discernible political slant; segment is a neutral human-interest profile focused on personal experience and organizational mission."
+gradeRationale: "Graded A-: all verifiable claims match primary sources including the organization's site and NEA profile; minor limitation is the segment's brevity and lack of external perspectives."
+topics:
+  - "AAPI arts"
+  - "Nonprofit organizations"
+  - "Asian American representation"
+assessment: "The broadcast accurately presents Gold's verified role and the organization's self-described unique position as the sole national service nonprofit for AAPI artists across disciplines. Viewers receive a concise, positive profile but miss broader context on A4's programs, impact metrics, or challenges faced by AAPI artists. Framing is straightforward and celebratory without loaded language or selective omission of counterpoints. No factual errors or partisan cues appear."
+notableConcerns: []
+keyMoments:
+  - claim: "Lisa Gold is executive director of Asian American Arts Alliance (A4)"
+    verdict: "verified"
+    note: "Confirmed on A4's official about page and multiple profiles including NEA."
+  - claim: "A4 is the only nonprofit service organization in the country ensuring representation, equity, and opportunities for AAPI artists and arts organizations"
+    verdict: "verified"
+    note: "Directly supported by National Endowment for the Arts article describing A4 as the sole such dedicated national service organization."
+  - claim: "Gold grew up never seeing anyone like herself on TV or in movies"
+    verdict: "missing context"
+    note: "Personal anecdote consistent with common AAPI representation discussions; no independent verification attempted or needed for profile format."
+videoId: "l2u0agM72g0"
+videoTitle: "Nonprofit director advocates for greater opportunities for AAPI artists | My American Story"
+thumbnail: "https://img.youtube.com/vi/l2u0agM72g0/maxresdefault.jpg"
+citations:
+  - title: "About - Asian American Arts Alliance"
+    url: "https://www.aaartsalliance.org/about"
+  - title: "A Letter from the Executive Director - Asian American Arts Alliance"
+    url: "https://www.aaartsalliance.org/magazine/stories/a-letter-from-the-executive-director"
+  - title: "Making Space for Asian Americans in the Arts - National Endowment for the Arts"
+    url: "https://www.arts.gov/stories/magazine/2021/2/showing-strength-through-creativity-equity-and-access-arts-asian-americanpacific-islander/making-space-asian-americans-arts"
+  - title: "“There Was No One Who Looked Like Me”: Lisa Gold, A4, and the Link Between Art and Politics - ArtsJournal"
+    url: "https://www.artsjournal.com/calltime/2022/10/27/there-was-no-one-who-looked-like-me-lisa-gold-a4-and-the-link-between-art-and-politics/"
+  - title: "Asian American Arts Alliance - Google Arts & Culture"
+    url: "https://artsandculture.google.com/partner/asian-american-arts-alliance"
+  - title: "Asian American Pacific Islander Leadership Spotlight - Common Impact"
+    url: "https://commonimpact.org/lisa-gold-aapi-heritage-month/"
+  - title: "Lisa Gold, Executive Director, Asian American Art Alliance - Brooklyn Public Library"
+    url: "https://www.bklynlibrary.org/video/emily-warren-roebling"
+  - title: "Spotlight: Asian American Arts Alliance (A4) - Copyright Alliance"
+    url: "https://copyrightalliance.org/asian-american-arts-alliance-community-partner-spotlight/"
+  - title: "Asian American Arts Alliance | New York NY - NYCON"
+    url: "https://www.nycon.org/membership/our-current-nonprofit-members/record/001o000000b90TCAAY"
+  - title: "Asian American Arts Alliance - LinkedIn Company Page"
+    url: "https://www.linkedin.com/company/aaartsalliance"
+  - title: "Asian American Arts Alliance (A4) Records - NYU APA"
+    url: "https://apa.nyu.edu/collection/asian-american-arts-alliance-a4-records/"
+  - title: "My American Story: Nonprofit director Lisa advocates for AAPI artists - NewsNation"
+    url: "https://www.newsnationnow.com/us-news/my-american-story/my-american-story-nonprofit-director-lisa-aapi-artists/"
+---
+
+
