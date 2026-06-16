@@ -5,47 +5,44 @@ export const prerender = true;
 ---
 <BaseLayout
   title="About Clad — Grading Content & Exposing Bias"
-  description="What Clad is, how it grades political broadcasts for accuracy and bias, and how to get in touch."
+  description="What Clad is, and exactly how it grades political broadcasts for accuracy and political lean, writes its summaries, sources its claims, and corrects mistakes."
 >
   <article class="static-page">
     <h2 class="static-page__title">About Clad</h2>
 
     <p>
       Clad is an independent publication that fact-checks U.S. political news.
-      We watch broadcast segments and reporting from across the spectrum, then
-      publish a graded report card: an overall letter grade for accuracy, a
-      factuality score, a measured read of political lean, and a plain-language
-      explanation of <em>why</em> a segment earned its grade. Every report links
-      back to its original source so you can verify it yourself.
+      We watch broadcast segments, panel shows, and reporting from across the
+      spectrum, then publish a graded report card: an overall letter grade for
+      accuracy, a factuality score, a measured read of political lean, and a
+      plain-language explanation of <em>why</em> a segment earned its grade.
+      Every report links back to its original source so you can verify it
+      yourself.
     </p>
 
-    <h3 class="static-page__sub">How we grade</h3>
-    <ul>
-      <li>
-        <strong>Letter grade &amp; factuality.</strong> Each report gets an
-        overall grade (A+ to F) and a 0–100 factuality score reflecting how well
-        its claims hold up against the available evidence.
-      </li>
-      <li>
-        <strong>Political lean.</strong> We rate lean as a magnitude and
-        direction (for example, "78% right-leaning"), not a simple left/right
-        label — and we explain the reasoning.
-      </li>
-      <li>
-        <strong>Key moments.</strong> Notable claims are pulled out individually
-        and marked verified, disputed, missing context, or unsupported.
-      </li>
-      <li>
-        <strong>Sources.</strong> Each report cites the material it draws on so
-        the assessment is checkable, not just assertable.
-      </li>
-    </ul>
-
-    <h3 class="static-page__sub">Corrections</h3>
     <p>
-      When we get something wrong, we issue a correction as a new post rather
-      than silently editing the original. Accuracy is the whole point.
+      Because the value of any rating depends entirely on the method behind it,
+      here is exactly how each part of a report is produced — and where the
+      limits are.
     </p>
+
+    <h3 class="static-page__sub">How we assess political leaning</h3>
+    <p>Each report assigns a political-lean score on a scale from -100 (strongly left) through 0 (centered, no discernible slant) to +100 (strongly right). The score reflects only the segment under review and is based on observable cues such as word choice, which facts are emphasized or omitted, guest and source selection, and overall framing. The same criteria apply to every network and figure. Non-political content receives a score of 0. The final value is shown with both its numeric magnitude and a short rationale that names the specific cues observed in the segment.</p>
+
+    <h3 class="static-page__sub">How we grade for accuracy</h3>
+    <p>Accuracy is reported with both a letter grade (A+ through F) and a factuality score (0–100). The letter grade evaluates severity rather than simply counting issues: A indicates high accuracy, sound sourcing, and balance with minimal problems; B indicates mostly accurate material with only minor concerns; C indicates a mix of accurate and problematic claims along with noticeable patterns such as one-sided sourcing or missing context; D indicates significant factual issues, heavy partisan framing, or major unsourced claims; F indicates pervasive misinformation or propaganda-level distortion. The 0–100 factuality score complements the letter grade by placing the segment on a continuum from entirely false (0) to entirely accurate (100).</p>
+
+    <h3 class="static-page__sub">How we write the summary, analysis, and key moments</h3>
+    <p>The summary is a factual, non-editorial description of the segment’s content. It notes the topics covered, the sourcing approach (named versus anonymous), notable guests, and the main throughlines. The assessment section explains what context may be missing, how loaded language or selective statistics could shape viewer perception, how individual claims hold up, and any recurring patterns. Adjectives in the assessment describe the evidence itself (documented, unsubstantiated) rather than individuals. Key moments isolate three to five load-bearing claims and label each one verified, disputed, missing context, or unsupported, accompanied by a one-sentence rationale citing the relevant source or reasoning.</p>
+
+    <h3 class="static-page__sub">How we verify and source every report</h3>
+    <p>Reports cover U.S. political news and commentary video segments from established network newscasts, morning shows, roundtables, and opinion programs. Transcripts are taken from on-screen captions when available; otherwise the specific video is researched via web search. Before any grade is assigned, every factual claim is checked against current authoritative sources through live web search. The system does not label a claim false simply because it is unfamiliar or recent; verification occurs first, and search results take precedence over prior assumptions. All sources cited are primary documents, official data, statutes, named experts, or reputable outlets across the spectrum. Every report also links directly to its original source video.</p>
+
+    <h3 class="static-page__sub">Human oversight, corrections, and your right to challenge us</h3>
+    <p>Reports are drafted with AI assistance and then reviewed and approved by a human editor before publication. Corrections appear as new posts rather than silent edits to the original report. Readers may flag any grade or political-lean score they believe is incorrect — every submission is reviewed by an editor, who may adjust the rating after re-examination.</p>
+
+    <h3 class="static-page__sub">What we do not claim</h3>
+    <p>This process is AI-assisted analysis of video segments. Transcripts may contain paraphrase or transcription errors. Grades evaluate the reporting and the evidence presented, not the character of any person named. The output constitutes editorial commentary and analysis; it is not legal or financial advice.</p>
 
     <h3 class="static-page__sub" id="contact">Contact</h3>
     <p>
