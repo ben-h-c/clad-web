@@ -122,6 +122,13 @@ p {
   background: var(--ink);
   color: var(--paper);
 }
+/* On phones the text link crowds the centered title — use the ☰ menu's
+   Sign in / Account item instead. */
+@media (max-width: 600px) {
+  .masthead__account {
+    display: none;
+  }
+}
 
 /* Auth pages (login / register / account) */
 .auth-page {
