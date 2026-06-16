@@ -45,6 +45,10 @@ export function setFrontpage(ids) {
   return call("/api/agent/frontpage", { method: "POST", body: JSON.stringify({ ids }) });
 }
 
+export function getBreaking() {
+  return call("/api/agent/breaking", { method: "GET" });
+}
+
 export function setBreaking(ids) {
   return call("/api/agent/breaking", { method: "POST", body: JSON.stringify({ ids }) });
 }
@@ -71,4 +75,15 @@ export function removeUrls(urls) {
 
 export function reportStatus(status) {
   return call("/api/agent/status", { method: "POST", body: JSON.stringify(status) });
+}
+
+export function getClassifications() {
+  return call("/api/agent/classify", { method: "GET" });
+}
+
+export function putClassifications(updates, keepIds) {
+  return call("/api/agent/classify", {
+    method: "POST",
+    body: JSON.stringify({ updates, keepIds }),
+  });
 }

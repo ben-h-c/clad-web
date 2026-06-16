@@ -1,22 +1,20 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { checkAgentToken, tokenUnauthorized } from "~/lib/agentAuth";
-import { getBreaking, setBreaking } from "~/lib/agents";
+import { getClassifications, mergeClassifications, type ClassificationMap } from "~/lib/agents";
 
 export const prerender = false;
 
-// Read the current Breaking strip (so the curator can apply stickiness — only
-// swap in a story that's significantly more important than what's already up).
+// Shared newsroom classification cache. GET returns the full map; POST merges
+// new entries and (optionally) prunes any post ids not in `keepIds`.
 export const GET: APIRoute = async ({ request }) => {
   if (!checkAgentToken(request.headers.get("authorization"), env.AGENT_TOKEN)) {
     return tokenUnauthorized();
   }
-  const ids = await getBreaking(env.AGENTS);
-  return json({ ok: true, ids }, 200);
+  const map = await getClassifications(env.AGENTS);
+  return json({ ok: true, classifications: map }, 200);
 };
 
-// The breaking-news curator posts the ordered list of post ids to feature in
-// the Breaking News strip.
 export const POST: APIRoute = async ({ request }) => {
   if (!checkAgentToken(request.headers.get("authorization"), env.AGENT_TOKEN)) {
     return tokenUnauthorized();
@@ -27,11 +25,13 @@ export const POST: APIRoute = async ({ request }) => {
   } catch {
     return json({ error: "Invalid JSON body" }, 400);
   }
-  const ids: string[] = Array.isArray(payload?.ids)
-    ? payload.ids.map((v: unknown) => String(v)).filter(Boolean)
+  const updates: ClassificationMap =
+    payload?.updates && typeof payload.updates === "object" ? payload.updates : {};
+  const keepIds: string[] = Array.isArray(payload?.keepIds)
+    ? payload.keepIds.map((v: unknown) => String(v))
     : [];
-  await setBreaking(env.AGENTS, ids);
-  return json({ ok: true, count: ids.length }, 200);
+  const merged = await mergeClassifications(env.AGENTS, updates, keepIds);
+  return json({ ok: true, count: Object.keys(merged).length }, 200);
 };
 
 function json(body: unknown, status: number): Response {

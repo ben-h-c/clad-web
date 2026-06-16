@@ -33,6 +33,9 @@ export interface AgentConfig {
   // breaking-news-curator
   maxBreaking?: number;
   recencyHours?: number;
+  criticalityWeight?: number; // weight of Grok importance score
+  stickiness?: number; // incumbent bonus so the strip only swaps for clearly-bigger news
+  maxPerTopic?: number; // cap cards per broad topic
 }
 
 export interface AgentLastRun {
@@ -140,10 +143,15 @@ export const DEFAULT_REGISTRY: Registry = {
       kind: "breaking-news-curator",
       name: "Breaking News Curator",
       enabled: true,
-      cron: "*/30 * * * *", // every 30 minutes — keep it fresh
+      cron: "*/15 * * * *", // every 15 minutes — keep it fresh
       config: {
         maxBreaking: 10,
         recencyHours: 36,
+        recencyWeight: 0.35,
+        popularityWeight: 0.3,
+        criticalityWeight: 0.35,
+        stickiness: 0.15,
+        maxPerTopic: 2,
       },
     },
   ],
@@ -462,6 +470,50 @@ export async function setSearchCategories(kv: KVNamespace, list: SearchCategory[
     .filter((c) => c.id && c.label)
     .slice(0, 200);
   await kv.put(CATEGORIES_KEY, JSON.stringify(clean));
+}
+
+/* ---------- newsroom classifications (Grok-scored, shared by curators) ----------
+ * A small per-post judgment the curators reuse so they don't re-call Grok every
+ * tick. Stored as one blob keyed by post id. The runner classifies new posts and
+ * merges them in; entries for posts no longer present are pruned on merge. */
+
+const CLASSIFY_KEY = "agents:classifications";
+
+export interface PostClassification {
+  category: string; // politics | world | business | tech | science | sports | culture | health | tragedy | other
+  broadTopic: string; // canonical, human topic label for grouping
+  lighthearted: boolean; // eligible for the (non-political) Front Page
+  criticality: number; // 0-100: how important/impactful as breaking news
+  at: string; // ISO timestamp classified
+}
+
+export type ClassificationMap = Record<string, PostClassification>;
+
+export async function getClassifications(kv: KVNamespace): Promise<ClassificationMap> {
+  const raw = await kv.get(CLASSIFY_KEY);
+  if (!raw) return {};
+  try {
+    const v = JSON.parse(raw);
+    return v && typeof v === "object" ? (v as ClassificationMap) : {};
+  } catch {
+    return {};
+  }
+}
+
+/** Merge new classifications in and prune any not in `keepIds` (current posts). */
+export async function mergeClassifications(
+  kv: KVNamespace,
+  updates: ClassificationMap,
+  keepIds?: string[]
+): Promise<ClassificationMap> {
+  const cur = await getClassifications(kv);
+  const merged: ClassificationMap = { ...cur, ...updates };
+  if (keepIds && keepIds.length) {
+    const keep = new Set(keepIds);
+    for (const id of Object.keys(merged)) if (!keep.has(id)) delete merged[id];
+  }
+  await kv.put(CLASSIFY_KEY, JSON.stringify(merged));
+  return merged;
 }
 
 /* ---------- reader flags (public "I disagree with the grade/lean") ----------
