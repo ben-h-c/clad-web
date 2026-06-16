@@ -32,6 +32,7 @@ const { posts, title = "Front Page", variant } = Astro.props;
   (() => {
     if (window.__heroArrows) return;
     window.__heroArrows = true;
+    const updaters = [];
     const wire = (wrap) => {
       const strip = wrap.querySelector(".hero-strip");
       const left = wrap.querySelector(".hero-arrow--left");
@@ -39,6 +40,7 @@ const { posts, title = "Front Page", variant } = Astro.props;
       if (!strip || !left || !right) return;
       const update = () => {
         const max = strip.scrollWidth - strip.clientWidth;
+        if (max <= 4) { left.hidden = true; right.hidden = true; return; }
         left.hidden = strip.scrollLeft <= 2;
         right.hidden = strip.scrollLeft >= max - 2;
       };
@@ -46,9 +48,17 @@ const { posts, title = "Front Page", variant } = Astro.props;
       left.addEventListener("click", () => strip.scrollBy({ left: -step(), behavior: "smooth" }));
       right.addEventListener("click", () => strip.scrollBy({ left: step(), behavior: "smooth" }));
       strip.addEventListener("scroll", update, { passive: true });
-      window.addEventListener("resize", update);
+      updaters.push(update);
       update();
     };
-    document.querySelectorAll(".hero-strip-wrap").forEach(wire);
+    const init = () => {
+      document.querySelectorAll(".hero-strip-wrap").forEach(wire);
+      requestAnimationFrame(() => updaters.forEach((u) => u()));
+    };
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+    else init();
+    // Re-measure once images/fonts have loaded and on resize.
+    window.addEventListener("load", () => updaters.forEach((u) => u()));
+    window.addEventListener("resize", () => updaters.forEach((u) => u()));
   })();
 </script>
