@@ -1,0 +1,115 @@
+---
+import { env } from "cloudflare:workers";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import AdminNav from "~/components/AdminNav.astro";
+import { shortDate } from "~/lib/dateline";
+
+export const prerender = false;
+
+interface UserRow {
+  id: string;
+  name: string | null;
+  email: string;
+  emailVerified: number;
+  createdAt: string;
+}
+
+let users: UserRow[] = [];
+let providersByUser = new Map<string, string[]>();
+let dbError = "";
+try {
+  const u = await env.DB.prepare(
+    "SELECT id, name, email, emailVerified, createdAt FROM user ORDER BY createdAt DESC LIMIT 1000"
+  ).all<UserRow>();
+  users = u.results ?? [];
+  const a = await env.DB.prepare("SELECT userId, providerId FROM account").all<{ userId: string; providerId: string }>();
+  for (const row of a.results ?? []) {
+    if (!providersByUser.has(row.userId)) providersByUser.set(row.userId, []);
+    providersByUser.get(row.userId)!.push(row.providerId);
+  }
+} catch (e: any) {
+  dbError = e?.message ?? "Could not read users";
+}
+
+const PROVIDER_LABEL: Record<string, string> = {
+  credential: "Email",
+  google: "Google",
+  apple: "Apple",
+  twitter: "X",
+};
+function methods(id: string): string {
+  const ps = providersByUser.get(id) ?? [];
+  if (ps.length === 0) return "—";
+  return [...new Set(ps.map((p) => PROVIDER_LABEL[p] ?? p))].join(", ");
+}
+function stamp(iso: string): string {
+  try {
+    return shortDate(new Date(iso));
+  } catch {
+    return iso;
+  }
+}
+---
+<BaseLayout title="Clad — Users">
+  <section class="admin">
+    <AdminNav current="users" />
+    <h2 class="admin__title">Users</h2>
+    <p class="dateline">
+      Registered accounts ({users.length}). Created via email/password or social
+      sign-in. <strong>Delete</strong> permanently removes an account and its
+      sessions, preferences, and alerts.
+    </p>
+
+    {dbError ? (
+      <p class="comp-empty">Couldn't load users: {dbError}</p>
+    ) : users.length === 0 ? (
+      <p class="dateline" style="margin-top:2rem">No accounts yet.</p>
+    ) : (
+      <ul class="user-rows">
+        {users.map((u) => (
+          <li class="user-row" data-id={u.id}>
+            <div class="user-row__main">
+              <span class="user-row__name">{u.name || "(no name)"}</span>
+              <span class="user-row__email">{u.email}</span>
+            </div>
+            <p class="dateline">
+              {methods(u.id)} · {u.emailVerified ? "verified" : "unverified"} · joined {stamp(u.createdAt)}
+            </p>
+            <div class="user-row__actions">
+              <button type="button" class="secondary small u-delete">Delete</button>
+              <span class="u-status"></span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+
+  <script is:inline>
+    document.querySelectorAll(".user-row").forEach((row) => {
+      const id = row.getAttribute("data-id");
+      const status = row.querySelector(".u-status");
+      const btn = row.querySelector(".u-delete");
+      btn.addEventListener("click", async () => {
+        if (!confirm("Permanently delete this account and all its data?")) return;
+        btn.disabled = true;
+        status.textContent = "Deleting…";
+        try {
+          const res = await fetch("/api/admin/users", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action: "delete", id }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || "Failed");
+          row.style.opacity = "0.5";
+          status.textContent = "Deleted.";
+          btn.remove();
+        } catch (err) {
+          status.textContent = String(err.message || err);
+          btn.disabled = false;
+        }
+      });
+    });
+  </script>
+</BaseLayout>

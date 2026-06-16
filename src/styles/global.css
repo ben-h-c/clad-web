@@ -2309,6 +2309,42 @@ button.small {
   margin: 1rem 0 0;
 }
 
+.user-rows {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+}
+.user-row {
+  border-top: 1px solid var(--rule);
+  padding: 0.6rem 0;
+}
+.user-row:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+.user-row__main {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.user-row__name {
+  font-weight: 700;
+}
+.user-row__email {
+  color: var(--muted-ink);
+  font-size: 0.9rem;
+}
+.user-row__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.35rem;
+}
+.user-row__actions .u-status {
+  font-size: 0.82rem;
+  color: var(--muted-ink);
+}
+
 .post-row {
   border-top: 1px solid var(--rule);
   padding: 0.75rem 0;
