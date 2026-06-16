@@ -554,6 +554,10 @@ p {
   vertical-align: middle;
 }
 
+.hero-strip-wrap {
+  position: relative;
+}
+
 .hero-strip {
   display: flex;
   gap: 1.25rem;
@@ -564,6 +568,49 @@ p {
   border-top: 2px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   scrollbar-width: thin;
+}
+
+/* Left/right scroll arrows: faint until hovered. */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.35;
+  transition: opacity 0.15s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+.hero-arrow:hover,
+.hero-arrow:focus-visible {
+  opacity: 1;
+}
+.hero-arrow--left {
+  left: 0.3rem;
+}
+.hero-arrow--right {
+  right: 0.3rem;
+}
+.hero-arrow[hidden] {
+  display: none;
+}
+/* Touch devices scroll by swiping; hide the arrows there. */
+@media (max-width: 600px) {
+  .hero-arrow {
+    display: none;
+  }
 }
 
 .hero-strip__item {

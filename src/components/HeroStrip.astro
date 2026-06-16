@@ -14,12 +14,41 @@ const { posts, title = "Front Page", variant } = Astro.props;
     <div class="hero__head">
       <h2 class="small-caps">{title}</h2>
     </div>
-    <div class="hero-strip" aria-label={`${title} reports`}>
-      {posts.map((p) => (
-        <div class="hero-strip__item">
-          <ReportCard post={p} />
-        </div>
-      ))}
+    <div class="hero-strip-wrap">
+      <button type="button" class="hero-arrow hero-arrow--left" aria-label="Scroll left" hidden>‹</button>
+      <div class="hero-strip" aria-label={`${title} reports`}>
+        {posts.map((p) => (
+          <div class="hero-strip__item">
+            <ReportCard post={p} />
+          </div>
+        ))}
+      </div>
+      <button type="button" class="hero-arrow hero-arrow--right" aria-label="Scroll right">›</button>
     </div>
   </section>
 )}
+
+<script is:inline>
+  (() => {
+    if (window.__heroArrows) return;
+    window.__heroArrows = true;
+    const wire = (wrap) => {
+      const strip = wrap.querySelector(".hero-strip");
+      const left = wrap.querySelector(".hero-arrow--left");
+      const right = wrap.querySelector(".hero-arrow--right");
+      if (!strip || !left || !right) return;
+      const update = () => {
+        const max = strip.scrollWidth - strip.clientWidth;
+        left.hidden = strip.scrollLeft <= 2;
+        right.hidden = strip.scrollLeft >= max - 2;
+      };
+      const step = () => Math.max(240, strip.clientWidth * 0.8);
+      left.addEventListener("click", () => strip.scrollBy({ left: -step(), behavior: "smooth" }));
+      right.addEventListener("click", () => strip.scrollBy({ left: step(), behavior: "smooth" }));
+      strip.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", update);
+      update();
+    };
+    document.querySelectorAll(".hero-strip-wrap").forEach(wire);
+  })();
+</script>
