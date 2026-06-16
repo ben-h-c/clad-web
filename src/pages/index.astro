@@ -31,14 +31,14 @@ if (heroPosts.length === 0) {
   const flagged = all.filter((p) => p.data.featured);
   heroPosts = flagged.length > 0 ? flagged : all.slice(0, 8);
 }
-heroPosts = heroPosts.slice(0, 15);
+heroPosts = heroPosts.slice(0, 50);
 
 // Breaking News = the curator's most-recent/important outlet selection.
 const breakingIds = await getBreaking(env.AGENTS);
 const breakingPosts = breakingIds
   .map((id) => byId.get(id))
   .filter((p) => p !== undefined && isNewsOutlet(p.data.sourceTitle))
-  .slice(0, 12);
+  .slice(0, 50);
 
 const ticker = await getTicker(env.AGENTS);
 const quips = await getQuips(env.AGENTS);

@@ -15,7 +15,7 @@ export async function runBreakingCurator(agent) {
   if (!key) return { ok: false, message: "YOUTUBE_API_KEY not set" };
 
   const c = agent.config || {};
-  const maxBreaking = c.maxBreaking || 10;
+  const maxBreaking = c.maxBreaking || 50;
   const recencyHours = c.recencyHours || 36;
   const maxPerTopic = c.maxPerTopic || 2;
   const wR = c.recencyWeight ?? 0.35;

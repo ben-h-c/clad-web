@@ -124,7 +124,7 @@ export const DEFAULT_REGISTRY: Registry = {
       enabled: true,
       cron: "30 */3 * * *",
       config: {
-        maxFeatured: 15,
+        maxFeatured: 50,
         perTopicCap: 2,
         recencyWeight: 0.45,
         popularityWeight: 0.4,
@@ -148,7 +148,7 @@ export const DEFAULT_REGISTRY: Registry = {
       enabled: true,
       cron: "*/15 * * * *", // every 15 minutes — keep it fresh
       config: {
-        maxBreaking: 10,
+        maxBreaking: 50,
         recencyHours: 36,
         recencyWeight: 0.35,
         popularityWeight: 0.3,
@@ -350,7 +350,7 @@ export async function getFrontpage(kv: KVNamespace): Promise<string[]> {
 }
 
 export async function setFrontpage(kv: KVNamespace, ids: string[]): Promise<void> {
-  await kv.put(FRONTPAGE_KEY, JSON.stringify(ids.slice(0, 30)));
+  await kv.put(FRONTPAGE_KEY, JSON.stringify(ids.slice(0, 50)));
 }
 
 const BREAKING_KEY = "breaking:featured";
@@ -367,7 +367,7 @@ export async function getBreaking(kv: KVNamespace): Promise<string[]> {
 }
 
 export async function setBreaking(kv: KVNamespace, ids: string[]): Promise<void> {
-  await kv.put(BREAKING_KEY, JSON.stringify(ids.slice(0, 20)));
+  await kv.put(BREAKING_KEY, JSON.stringify(ids.slice(0, 50)));
 }
 
 /* ---------- search categories (editor-managed scanner search terms) ---------- */

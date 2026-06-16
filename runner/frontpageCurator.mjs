@@ -35,7 +35,7 @@ export async function runFrontpageCurator(agent) {
   if (!key) return { ok: false, message: "YOUTUBE_API_KEY not set" };
 
   const c = agent.config || {};
-  const maxFeatured = c.maxFeatured || 15;
+  const maxFeatured = c.maxFeatured || 50;
   const perTopicCap = c.perTopicCap || 2;
   const wR = c.recencyWeight ?? 0.45;
   const wP = c.popularityWeight ?? 0.4;
