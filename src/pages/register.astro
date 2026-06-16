@@ -53,10 +53,13 @@ const providers = enabledSocialProviders();
       btn.disabled = true;
       status.textContent = "Creating your account…";
       try {
+        const nameEl = document.getElementById("name");
+        const emailEl = document.getElementById("email");
+        const pwEl = document.getElementById("password");
         const res = await fetch("/api/auth/sign-up/email", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name: name.value.trim(), email: email.value.trim(), password: password.value }),
+          body: JSON.stringify({ name: nameEl.value.trim(), email: emailEl.value.trim(), password: pwEl.value }),
         });
         const data = await res.json().catch(() => ({}));
         if (!res.ok) throw new Error(data.message || "Could not create account.");
