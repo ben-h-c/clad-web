@@ -1,0 +1,61 @@
+---
+type: "broadcast"
+headline: "NBC Reports FBI Thwarted Alleged Drone Plot at White House UFC Event"
+summary: "The segment delivers breaking news that the FBI disrupted an alleged drone attack plot targeting the UFC Freedom 250 event held on the White House South Lawn. It notes the event drew more than 4,000 attendees, including President Trump on his 80th birthday, Vice President JD Vance, and several cabinet members, and quotes a senior law enforcement official describing the plot as 'quite serious.'\nThe report relies on statements from the FBI via NBC News and an unnamed senior official. No on-air guests or additional graphics are referenced in the provided transcript; the throughline is the successful prevention of the threat to the high-profile gathering."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=hxhym5LsoJQ"
+sourceTitle: "NBC News"
+section: "Politics"
+letterGrade: "A-"
+factualityScore: 88
+politicalLean: "center"
+leanScore: 0
+leanRationale: "Straightforward breaking-news reporting focused on law-enforcement action with no partisan framing, loaded language, or selective emphasis."
+gradeRationale: "Graded A-: core claims on the FBI disruption, event details, and official assessment align with multiple contemporaneous reports and Director Kash Patel's statements; minor deduction for reliance on anonymous senior official without further sourcing."
+topics:
+  - "White House UFC event"
+  - "FBI"
+  - "drone plot"
+assessment: "The broadcast accurately conveys verified facts about the event and the FBI's action, consistent with official announcements and reporting across outlets. Viewer perception is unlikely to be skewed, as the piece sticks to law-enforcement sourcing without speculation or omission of counter-details. Missing context includes the precise nature of the plot (explosive drones intended to trigger panic for a secondary attack) and the number of arrests, which emerged in fuller reporting. Overall, it functions as a concise, timely alert rather than in-depth analysis."
+notableConcerns: []
+keyMoments:
+  - claim: "FBI disrupted an alleged drone attack plot on the White House UFC event"
+    verdict: "verified"
+    note: "Confirmed by FBI Director Kash Patel's statement and reports from multiple outlets citing law-enforcement sources."
+  - claim: "Event held on president's 80th birthday with more than 4,000 attendees including president, VP JD Vance, and cabinet members"
+    verdict: "verified"
+    note: "Matches event details: June 14, 2026, UFC Freedom 250 on White House South Lawn; attendance figures around 4,300 reported."
+  - claim: "Plot was 'quite serious'"
+    verdict: "verified"
+    note: "Consistent with Patel's description of a multi-state operation thwarting planned attacks involving explosive drones."
+videoId: "hxhym5LsoJQ"
+videoTitle: "FBI foils an alleged plot to attack the White House UFC event"
+thumbnail: "https://img.youtube.com/vi/hxhym5LsoJQ/maxresdefault.jpg"
+citations:
+  - title: "FBI foiled alleged plot to attack White House UFC event, Kash Patel says"
+    url: "https://www.nbcnews.com/politics/trump-administration/fbi-foils-alleged-plot-attack-white-house-ufc-event-patel-says-rcna350248"
+  - title: "FBI disrupts alleged plot targeting UFC event at White House, officials say"
+    url: "https://www.cbsnews.com/news/fbi-disrupts-alleged-plot-targeting-ufc-event-white-house/"
+  - title: "Multiple people arrested for discussing plans to attack UFC fight at White House, officials say"
+    url: "https://www.cnn.com/2026/06/16/politics/fbi-arrests-ufc-fight"
+  - title: "FBI disrupts plot targeting UFC event: Sources"
+    url: "https://abcnews.com/US/fbi-disrupts-plot-targeting-ufc-event-sources/story?id=133915057"
+  - title: "Five people detained for alleged 'planned attacks' on White House UFC event"
+    url: "https://www.theguardian.com/us-news/2026/jun/16/white-house-ufc-fight-planned-attacks"
+  - title: "FBI disrupts alleged explosive-drone plot targeting White House UFC event, officials say"
+    url: "https://www.foxnews.com/politics/fbi-disrupts-alleged-explosive-drone-plot-targeting-white-house-ufc-event-officials-say"
+  - title: "Explosive-drone threat to White House UFC event stopped, Patel says"
+    url: "https://thehill.com/policy/national-security/5925808-fbi-attack-ufc-freedom-250/"
+  - title: "FBI stops drone plot targeting UFC event at White House"
+    url: "https://wjla.com/news/local/fbi-stops-drone-plot-targeting-ufc-event-at-white-house-washington-dc-donald-trump-kash-patel"
+  - title: "FBI breaks up alleged drone attack plot targeting White House UFC event: FOX News"
+    url: "https://www.fox5dc.com/news/fbi-breaks-up-alleged-drone-attack-plot-targeting-white-house-ufc-event-fox-news"
+  - title: "UFC Freedom 250"
+    url: "https://www.ufc.com/event/ufc-freedom-250"
+  - title: "UFC Freedom 250 fight event at White House"
+    url: "https://www.cnn.com/2026/06/14/politics/live-news/ufc-fight-white-house"
+  - title: "UFC Freedom 250 turns White House South Lawn into the ultimate fight night"
+    url: "https://wtop.com/sports/2026/06/ufc-freedom-250-turns-white-house-south-lawn-into-the-ultimate-fight-night/"
+---
+
+
