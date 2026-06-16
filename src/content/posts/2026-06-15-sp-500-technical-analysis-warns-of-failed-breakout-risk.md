@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "S&P 500 Technical Analysis Warns of Failed Breakout Risk"
 summary: "The video presents a detailed technical analysis of the S&P 500 on daily and logarithmic charts. It examines a recently broken parallel channel, a retrace bounce, lower lows, and a potential failed breakout that could lead to significant downside. The analyst links the recent bounce to easing oil prices from Iran deal hopes and the SpaceX IPO debut."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=3pY0O8sKVPU"
 sourceTitle: "Gareth Soloway"
 section: "Politics"

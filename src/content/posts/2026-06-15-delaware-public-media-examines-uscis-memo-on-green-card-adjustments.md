@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Delaware Public Media examines USCIS memo on green card adjustments"
 summary: "The segment discusses a May 2026 USCIS policy memo directing that adjustment of status applications for green cards generally require consular processing abroad except in extraordinary circumstances. Guests Rick Hogan, an immigration attorney, and Mike Brickner of ACLU Delaware explain the memo's effects on applicants already in the U.S., including students and workers, and place it within the Trump administration's wider immigration agenda including TPS rescissions and DACA challenges.\nThe interview covers potential court challenges expected in coming months, family separations, business impacts such as brain drain in Delaware, and increased discrimination risks. Sources include the attorney, ACLU director, and references to the USCIS memo itself; no administration officials or counter-sources appear."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-12
 sourceUrl: "https://www.youtube.com/watch?v=aKkX8tfq_U0"
 sourceTitle: "Delaware Public Media"
 section: "Politics"

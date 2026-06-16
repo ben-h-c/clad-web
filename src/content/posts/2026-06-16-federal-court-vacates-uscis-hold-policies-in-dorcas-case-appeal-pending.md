@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Federal Court Vacates USCIS Hold Policies in Dorcas Case; Appeal Pending"
 summary: "The segment covers a June 5, 2026, federal district court ruling in Dorcas International Institute of Rhode Island v. USCIS striking down four USCIS internal policies that imposed adjudication holds on certain immigration benefit applications. It details the background of reported delays in I-485, EAD, and naturalization cases, the lawsuit challenging broad hold mechanisms, the court's order vacating the policies nationwide, USCIS's statement of opposition while committing to compliance, and the subsequent appeal to the First Circuit Court of Appeals."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=W87UvYee7Fc"
 sourceTitle: "Immigration Updates Today"
 section: "Politics"

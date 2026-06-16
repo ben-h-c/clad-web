@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Jim Cramer praises SpaceX IPO execution on CNBC"
 summary: "CNBC segment features Jim Cramer and host discussing SpaceX's recent IPO on its first trading day. They cover the deal structure with Morgan Stanley handling retail and Goldman institutional, retail investor sentiment, valuation around $1.75-2 trillion, and expected volatility. Gwynne Shotwell is referenced regarding long-term outlook.\nCramer calls it the best-executed IPO he recalls, predicts potential growth to $2.5 trillion, contrasts with Chinese competition in space and tech, and encourages long-term holding despite short-term swings. Sourcing relies on on-air commentary and referenced CNBC reporting on retail buyers."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-12
 sourceUrl: "https://www.youtube.com/watch?v=ZmMAK3pZjvk"
 sourceTitle: "CNBC Television"
 section: "Politics"

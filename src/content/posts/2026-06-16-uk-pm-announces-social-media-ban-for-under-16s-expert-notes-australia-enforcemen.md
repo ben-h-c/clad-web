@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "UK PM Announces Social Media Ban for Under-16s, Expert Notes Australia Enforcement Issues"
 summary: "The segment covers UK Prime Minister Keir Starmer's announcement of a proposed ban on social media access for children under 16, describing it as shaping values and improving child safety and happiness. It includes commentary on Australia's similar ban introduced in late 2025, noting that initial evaluations show roughly two-thirds of children bypassing restrictions via methods like VPNs. The expert expresses concerns about enforcement effectiveness, avoiding criminalization of minors, and the need for parental education beyond the ban itself."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=x-IvqdglyIQ"
 sourceTitle: "USA TODAY"
 section: "Politics"

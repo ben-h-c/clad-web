@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NDTV on Anthropic Fable 5 and Mythos 5 global suspension after US directive"
 summary: "The segment reports that Anthropic suspended access to its advanced models Fable 5 and Mythos 5 worldwide after receiving a US export control directive requiring it to bar foreign nationals, including its own employees. The company complied by disabling the models for everyone, citing compliance difficulties, though it disputes the national security rationale as based on limited flaws. Anthropic warns of broader innovation risks and notes prior policy disputes with the Trump administration. It highlights India's position as Anthropic's second-largest market after the US, where developers and firms rely on the models for coding and research, spurring calls for domestic AI investment. The report concludes by questioning long-term reliance on foreign AI infrastructure."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=HT1FrbPOPDw"
 sourceTitle: "NDTV"
 section: "Politics"

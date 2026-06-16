@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Technical Analysis Weighs SPY QQQ Expected Moves Amid VIX Signals"
 summary: "The video delivers technical analysis of SPY, QQQ, and IWM using daily, weekly, 2-hour, and 30-minute charts. It covers weekly and daily expected-move ranges, potential 2-hour chart rolls or divergences, head-and-shoulders patterns, and a possible Monday pullback before upside continuation. It also examines IWM near annual expected-move levels and VIX behavior ahead of VIX expiration and OPEX."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=ki3Iwjl4rKw"
 sourceTitle: "Money Making Market"
 section: "Politics"

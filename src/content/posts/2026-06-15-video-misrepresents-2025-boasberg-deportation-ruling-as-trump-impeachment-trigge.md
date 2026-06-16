@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Video misrepresents 2025 Boasberg deportation ruling as Trump impeachment trigger"
 summary: "The video claims Judge James Boasberg issued a devastating ruling finding Trump in criminal contempt for defying subpoenas and court orders, sparking bipartisan impeachment momentum. It intersperses this with 2023 Mike Pence grand jury testimony before special counsel Jack Smith on January 6 matters. Segments describe detailed judicial findings of obstruction, Republican defections, and articles of impeachment drafted within hours.\nThe sourcing relies on anonymous 'sources say,' misnamed the judge repeatedly, and mixes old footage with narration. No named experts or primary documents beyond the judge's quoted language are presented; the throughline is that this ruling dooms Trump politically and legally."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-13
 sourceUrl: "https://www.youtube.com/watch?v=tez61p7D68Y"
 sourceTitle: "United Briefing"
 section: "Politics"

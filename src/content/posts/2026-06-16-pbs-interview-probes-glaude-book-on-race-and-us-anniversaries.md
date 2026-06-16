@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "PBS interview probes Glaude book on race and U.S. anniversaries"
 summary: "PBS NewsHour's Geoff Bennett interviews Princeton professor Eddie Glaude Jr. about his May 2026 book 'America, U.S.A.: How Race Shadows the Nation's Anniversaries.' Glaude opens with his rejection of loving the nation-state, recounts a childhood racial incident, differentiates his approach from Baldwin and Du Bois, and links 1920s Klan influence on immigration quotas and Sesquicentennial events to recurring patterns in 1965 legislation and today's debates. He rejects sentimentality in favor of confronting a fundamental choice between freedom ideals and white republic commitments. The interview draws on Glaude's personal narrative and historical analysis; no other guests or data graphics appear."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=Pwauw8ErIpw"
 sourceTitle: "PBS NewsHour"
 section: "Politics"

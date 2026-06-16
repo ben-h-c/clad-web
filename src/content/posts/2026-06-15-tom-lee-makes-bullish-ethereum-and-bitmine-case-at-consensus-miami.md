@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Tom Lee Makes Bullish Ethereum and Bitmine Case at Consensus Miami"
 summary: "Tom Lee, Fundstrat co-founder and Bitmine chairman, spoke at Consensus in Miami arguing that the crypto bear market has ended with Bitcoin posting three consecutive up months and software stocks bottoming. He highlighted Ethereum's historical portfolio diversification benefits over 10 years, its undervaluation relative to Bitcoin ratios, and future drivers including agentic AI and tokenization potentially driving massive market growth. Lee detailed Bitmine's rapid accumulation of over 4% of ETH supply, staking operations, investments in Mr. Beast and other entities, and stock outperformance versus ETH itself."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=kqpng6-WQE0"
 sourceTitle: "CoinDesk"
 section: "Politics"

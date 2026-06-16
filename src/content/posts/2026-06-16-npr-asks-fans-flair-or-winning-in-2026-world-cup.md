@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NPR Asks Fans: Flair or Winning in 2026 World Cup"
 summary: "The segment features street interviews with soccer fans asked whether they prefer beautiful, flair-filled play or winning-focused competition ahead of the 2026 World Cup. Most respondents favor beauty and memorable moments, citing the game's aesthetic appeal, while a few emphasize competition and victory. It includes references to skillful passing and a specific dribbling move.\n\nNPR produced the short video with on-the-ground interviews from fans; no named experts or graphics are used beyond the vox pops, and it ties into broader network coverage of the tournament."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=5ivF64PfWUo"
 sourceTitle: "NPR"
 section: "Politics"

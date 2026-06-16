@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Obama questions value of new Iran deal in ABC interview amid ongoing conflict"
 summary: "ABC News aired an exclusive clip from Robin Roberts' interview with former President Barack Obama ahead of the Obama Presidential Center opening. Obama discussed the ongoing US-Iran conflict, expressing skepticism about any new nuclear agreement under the Trump administration and advocating for diplomacy over military action. The segment references the 2015 JCPOA and the US withdrawal from it. Sourcing is the direct interview with Obama; no additional experts or data graphics are included in the provided clip. The throughline is Obama's reflection on foreign policy lessons regarding Iran."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=Rn0K55vILaA"
 sourceTitle: "ABC News"
 section: "Politics"

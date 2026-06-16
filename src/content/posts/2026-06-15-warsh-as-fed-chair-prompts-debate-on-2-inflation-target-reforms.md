@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Warsh as Fed Chair Prompts Debate on 2% Inflation Target Reforms"
 summary: "The segment analyzes Kevin Warsh's potential impact as incoming Fed chair, focusing on possible reforms to the inflation framework. It covers the history of the 2% target, debates over whether strong growth causes inflation, and calls for adjusted measures excluding shelter and financial services. Guest Kevin Warsh's CEO of Infrastructure Capital Management discusses supply-side dynamics and the need for a more flexible target around 3-4%. The discussion extends to market reactions, AI-driven stocks like Nvidia and Marvell, and historical Fed chair transitions. Sourcing relies on guest commentary and general references to internal Fed debates without citing specific primary documents or named governors."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-13
 sourceUrl: "https://www.youtube.com/watch?v=IjGfh25XCzI"
 sourceTitle: "Fox Business Clips"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "EU Migration Pact enters application amid readiness and rights concerns"
 summary: "The broadcast reports that the EU Pact on Migration and Asylum entered into application on 12 June 2026. Segments cover screening, border procedures, faster asylum decisions, deportations, and the shift from mandatory relocation quotas to flexible solidarity. It includes quotes from EU officials, a migration expert at the European Policy Centre, and an interview with Shaina Tabback of the Carnegie Endowment for International Peace on climate drivers.\nSourcing draws on EU Commission reports, named experts, and statements from member-state officials such as Germany's interior minister. The throughline contrasts promised improvements with skepticism over implementation capacity and human-rights safeguards."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-13
 sourceUrl: "https://www.youtube.com/watch?v=CilYWeF3ZGI"
 sourceTitle: "DW News"
 section: "Politics"

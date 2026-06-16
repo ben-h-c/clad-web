@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS analysis of Trump's Q1 2026 stock trades from ethics filing"
 summary: "The segment reports a CBS investigation into over 3,600 stock trades in President Trump's accounts during the first three months of 2026, drawn from his May financial disclosure. Total transaction values fell between roughly $200 million and $695 million, concentrated in tech stocks including Apple, Oracle, Amazon, and Microsoft. Reporters discuss possible tax-loss harvesting, note the president's exemption from certain conflict rules, and highlight specific timing around Nvidia, Palantir, Eli Lilly, and UFC-related holdings. The Trump Organization stated trades were handled by independent managers with no family visibility. An interactive CBS data tool is promoted."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=fNjNFhZ-luk"
 sourceTitle: "CBS News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters Covers Vandalism During Geneva Anti-G7 Protests"
 summary: "The Reuters video reports on protests in Geneva on June 14, 2026, ahead of the G7 summit scheduled for June 15-17 in nearby Évian-les-Bains, France. It highlights specific acts of vandalism including a Tesla vehicle set on fire and windows smashed at a UN office or agency, with police responding by firing tear gas. The march reportedly began peacefully before some participants targeted symbols of capitalism and multilateral institutions. The provided transcript captures a protester or bystander comment acknowledging the violence while emphasizing an anti-oppression message against powerful countries."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=reI9I1t_TDQ"
 sourceTitle: "Reuters"
 section: "Politics"

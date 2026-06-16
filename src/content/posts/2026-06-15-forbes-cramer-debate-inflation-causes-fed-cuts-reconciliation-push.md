@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Forbes, Cramer debate inflation causes, Fed cuts, reconciliation push"
 summary: "The Fox Business segment features Steve Forbes and Sen. Kevin Cramer discussing inflation, Federal Reserve policy, and Republican legislative priorities. Forbes argues prosperity does not cause inflation and a strong dollar permits rate cuts, while criticizing the Fed's model. Cramer addresses reconciliation efforts for military and border funding, tax relief, and waste reduction."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-13
 sourceUrl: "https://www.youtube.com/watch?v=ndFUeu_3ua4"
 sourceTitle: "Fox Business"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "KFC US Struggles Amid Chicken Boom; Global Growth and New Menu Push Detailed"
 summary: "The CNBC segment examines KFC's domestic challenges despite chicken's popularity in US fast food. It covers KFC's fourth-place US market share, loss of ground to Chick-fil-A, Popeyes, and Raising Cane's, and its diminished role in Yum Brands' portfolio. International success in markets like China is contrasted with US issues, alongside a 2025 US turnaround plan featuring menu expansions, beverages, and new restaurant designs."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=vwOxJJ80t3k"
 sourceTitle: "CNBC"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Anthropic suspends Fable 5, Mythos 5 access after US export controls"
 summary: "The segment covers Anthropic's abrupt suspension of access to its newest models, Fable 5 and Mythos 5, for all users after a US government directive restricted use by foreign nationals on national security grounds. It notes the models' recent release, with Fable 5 positioned as a safer public version of the more restricted Mythos, and references Anthropic's prior advocacy for industry oversight including papal engagement and calls to pause advanced development.\n\nSourcing draws from Anthropic's compliance statement and company quotes on AI governance. It highlights an ongoing dispute with the Trump administration stemming from Anthropic's refusal to allow use in lethal autonomous weapons, and frames the action as part of broader US efforts to limit Chinese access to advanced AI."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-13
 sourceUrl: "https://www.youtube.com/watch?v=MDaZ31jx2vQ"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX IPO Debut Fuels Discussion on Market Flows and Upcoming AI Listings"
 summary: "Yahoo Finance broadcast from Nasdaq floor on SpaceX's June 12, 2026 IPO debut day. Segments cover opening trade details (56 million shares, $8.4B volume), intraday price action peaking near $176, broader space-sector performance, potential capital rotation out of chip/Mag-7 names, and implications for pending OpenAI and Anthropic IPOs.\n\nSourcing relies on on-site reporters, trader commentary from Caleb, Vanda Research note, and Wall Street Journal fee-pool data. Guests and analysts discuss institutional vs. retail appetite, bank underwriting windfalls (Goldman/Morgan Stanley), and durability risks for mega-IPOs amid possible ceasefire-driven market strength."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-12
 sourceUrl: "https://www.youtube.com/watch?v=eNXGiUjKZxQ"
 sourceTitle: "Yahoo Finance"
 section: "Politics"

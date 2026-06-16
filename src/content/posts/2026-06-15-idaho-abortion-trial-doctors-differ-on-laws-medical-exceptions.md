@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Idaho Abortion Trial: Doctors Differ on Law's Medical Exceptions"
 summary: "The segment covers day three of a federal trial in Boise challenging Idaho's near-total abortion ban. It focuses on testimony from the chair of the Idaho Board of Medicine and key witnesses Dr. Dustin Hughes for the state and Dr. Stacy Seyb, the plaintiff maternal-fetal medicine specialist. Hughes described managing high-risk cases through early delivery without viewing it as a banned abortion and noted referrals for complex cases; Seyb's approach differed on timing for infections, leading one patient to be airlifted out of state. The report highlights the central dispute over how imminent a threat to the mother's life must be under the law. Sourcing relies on direct court observations and named witnesses with no anonymous sources or graphics referenced."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-12
 sourceUrl: "https://www.youtube.com/watch?v=9-6OkSLruuE"
 sourceTitle: "KTVB"
 section: "Politics"

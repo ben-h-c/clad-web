@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Grok 5 vs Gemini 3.5: Video separates hype from released models as of mid-2026"
 summary: "The video examines claims that xAI's unreleased Grok 5 has won the AGI race against Google's Gemini 3.5 family. It contrasts Gemini 3.5 Flash, released in May 2026 with agentic and coding strengths, against Grok 5 still in training on the Colossus cluster. It covers Grok 4.3 as the current released xAI model, benchmarks from Artificial Analysis, pricing, capabilities like video understanding, and the multi-lab competitive landscape including OpenAI and Anthropic."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-13
 sourceUrl: "https://www.youtube.com/watch?v=1OZF-8IReYo"
 sourceTitle: "App & Tech Hub"
 section: "Politics"

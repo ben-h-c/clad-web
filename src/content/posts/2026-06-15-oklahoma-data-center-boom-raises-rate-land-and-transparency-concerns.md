@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Oklahoma data center boom raises rate, land, and transparency concerns"
 summary: "The segment examines the rapid expansion of data centers across Oklahoma, focusing on Google’s $9 billion investment including new campuses near Council Hill and Summit in Muskogee County plus Pryor and Stillwater sites, and Meta’s Project Anthem in Tulsa. It highlights resident complaints about sudden construction, noise, accidents, water and power demands, farmland conversion, and utility rate hikes in places like Tulsa and rural communities."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-12
 sourceUrl: "https://www.youtube.com/watch?v=aXUMhSAN08g"
 sourceTitle: "Oklahoma's Own Originals"
 section: "Politics"

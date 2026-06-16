@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Apollo Economist Slok Analyzes Strong US Economy, Oil Drop and Warsh Fed Outlook"
 summary: "CNBC segment features Apollo Global chief economist Torsten Slok discussing the market rally, falling oil prices and implications for Fed rate policy. Slok highlights robust consumer demand across air travel, hotels, restaurants, Broadway and employment data, plus tailwinds from the AI boom and One Big Beautiful Bill tax measures. The discussion covers Warsh's first FOMC appearance, potential shift toward less forward guidance, and inflation outlook with oil effects viewed as transitory amid core readings near 3%. Political context includes the President's travel to Geneva amid Iran deal developments."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=Q9ak3gAXpjs"
 sourceTitle: "CNBC Television"
 section: "Politics"

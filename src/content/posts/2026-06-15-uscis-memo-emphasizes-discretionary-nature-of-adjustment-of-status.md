@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "USCIS Memo Emphasizes Discretionary Nature of Adjustment of Status"
 summary: "The video reports early implementation of a USCIS policy memo on adjustment of status (AOS) applications. It describes recent denials in Fairfax and Hartford field offices for overstays despite positive equities, guidance in Tampa to deny or pause cases, and contrasting lenient approaches in New York offices where the memo is reportedly not being applied."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-12
 sourceUrl: "https://www.youtube.com/watch?v=eV0Jc1lxqLk"
 sourceTitle: "Darian Immigration Law"
 section: "Politics"

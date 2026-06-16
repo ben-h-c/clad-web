@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NPR Covers Trump UFC Event on White House Lawn for 80th Birthday"
 summary: "The NPR segment reports on President Trump hosting UFC Freedom 250 on the White House South Lawn to mark his 80th birthday. It notes the event was delayed by storms, an underdog victory by Justin Gaethje over Ilia Topuria for the lightweight title, and includes analysis from Mara Liasson on age issues in the midterms. Democrats are said to have criticized the event as out of touch. The report references White House denials regarding any signs of decline like closed eyes in meetings. Sourcing draws on correspondent commentary and general political context without named additional guests or specific graphics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=9upEwOMIH-M"
 sourceTitle: "NPR"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bulwark critiques Trump Iran MOU as similar to JCPOA with key caveats"
 summary: "The Bulwark video features Will Saletan dissecting Sunday show appearances by Defense Secretary Pete Hegseth on Face the Nation and UN Ambassador Mike Waltz on ABC and Fox News. Segments cover claims of an Iran deal promising no nuclear weapons, a 'wall' against the bomb versus the JCPOA 'path,' pay-for-performance sanctions relief, Strait of Hormuz control with 125 million barrels shipped, zero Iranian transits, regime devastation forcing Iran to the table 'begging,' and the deal as a preliminary MOU with details for later negotiation."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=LRdpTPFVFyk"
 sourceTitle: "The Bulwark"
 section: "Politics"

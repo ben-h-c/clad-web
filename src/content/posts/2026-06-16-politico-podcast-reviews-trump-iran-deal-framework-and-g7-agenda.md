@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "POLITICO Podcast Reviews Trump-Iran Deal Framework and G7 Agenda"
 summary: "The June 15, 2026, Playbook Podcast discussed President Trump's announcement of a preliminary peace framework with Iran that would reopen the Strait of Hormuz, lift the US naval blockade, and extend a ceasefire, with formal signing expected Friday in Switzerland or Geneva. Hosts Jack Blanchard and Megan Messerly analyzed the lack of public details, market reactions including falling oil prices, and questions over enforcement and Iran's nuclear program. They also covered the G7 summit in France, where the deal would dominate talks alongside Ukraine and trade, and the UFC event held on the White House South Lawn the previous night.\nThe episode relied on administration statements, prior reporting from senior White House officials, and commentary from Senator Lindsey Graham. It highlighted implementation hurdles such as demining and supply chain recovery while noting European allies' interest in specifics. The discussion framed the deal as a potential victory lap for Trump amid ongoing skepticism about its durability."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=Iqq-QDsD2XE"
 sourceTitle: "POLITICO"
 section: "Politics"

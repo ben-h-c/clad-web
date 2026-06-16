@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "UK announces social media ban for under-16s; parallels to Australia and other nations"
 summary: "The segment covers UK Prime Minister Keir Starmer's June 15, 2026 announcement of a social media ban for children under 16, including platforms like TikTok, Snapchat, Instagram, YouTube, Facebook, and X, plus restrictions on gaming, livestreaming, and AI romantic companions for under-18s. Legislation is expected before Christmas with implementation in spring 2027. It notes Australia as the first mover with similar rules effective late 2025, lists comparable efforts in Canada, Brazil, and Indonesia, and references Big Tech warnings about driving users to unregulated spaces. Enforcement would target companies with fines for noncompliance. The report includes a parent poll reference from Australia's experience and Starmer's quote emphasizing child safety."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=5cBm2ktpwKg"
 sourceTitle: "NewsNation"
 section: "Politics"

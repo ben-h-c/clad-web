@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Congressional Debate on Federal Fraud Resolution Highlights Partisan Divide"
 summary: "The segment is a House floor debate on a GOP resolution highlighting fraud in states like Minnesota and Ohio. A Democratic lawmaker criticizes it as partisan, citing fraud cases in Republican-led states such as Mississippi's TANF scheme and high SNAP fraud in Oklahoma and Alabama, while accusing the Trump administration of pardoning fraudsters, firing inspectors general, purchasing luxury jets, accepting a Qatari plane, and profiting from crypto ventures. The resolution and Democratic response are entered into the record alongside media articles.\nSourcing draws from a Democratic staff report, CBS/PBS/KFF articles, and floor statements; no administration officials or counter-experts appear. The throughline is that the GOP resolution ignores fraud across party lines and administration actions."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=T9fu58a0Z5o"
 sourceTitle: "Hook Global"
 section: "Politics"

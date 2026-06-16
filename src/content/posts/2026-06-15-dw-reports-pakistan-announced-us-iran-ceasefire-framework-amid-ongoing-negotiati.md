@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "DW reports Pakistan-announced US-Iran ceasefire framework amid ongoing negotiations"
 summary: "DW News live stream covers Pakistan Prime Minister Shahbaz Sharif's announcement of a US-Iran peace deal ending military operations, including in Lebanon, with signing set for June 19 in Switzerland. Trump confirms on Truth Social, authorizing opening of the Strait of Hormuz and lifting the US naval blockade. Iranian state media claims Iran forced the deal. Segments include Washington correspondent analysis of mediation role, domestic US reactions, and expert interview with Middle East studies professor on hurdles like Netanyahu's actions, nuclear issues, and Hezbollah dynamics."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=RaVBwbLHUt0"
 sourceTitle: "DW News"
 section: "Politics"

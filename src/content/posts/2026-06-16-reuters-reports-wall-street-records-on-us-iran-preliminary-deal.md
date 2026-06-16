@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters Reports Wall Street Records on US-Iran Preliminary Deal"
 summary: "The Reuters segment covers Monday's market rally driven by news of a preliminary US-Iran agreement to end hostilities and reopen the Strait of Hormuz. Indexes rose sharply with the Dow posting a record close; oil prices fell and sectors like airlines gained while energy lagged. An asset manager comments on the deal's potential to ease inflation. Attention turns to the upcoming Fed meeting under new Chair Kevin Warsh. The report draws on market data, analyst commentary, and contemporaneous news of the framework deal expected to be formalized in Switzerland."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=k7nfznVGcZE"
 sourceTitle: "Reuters"
 section: "Politics"

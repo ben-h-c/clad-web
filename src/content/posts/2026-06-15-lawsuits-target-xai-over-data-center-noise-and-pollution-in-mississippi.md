@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Lawsuits Target xAI Over Data Center Noise and Pollution in Mississippi"
 summary: "The segment covers recent class-action lawsuits against xAI and SpaceX over noise from gas turbines powering data centers in Southaven, Mississippi, alongside an NAACP suit on unpermitted air pollution at the Colossus 2 site. It also references a New Jersey data center noise complaint and broader issues with Grok, including safety concerns and privacy."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=dEZEkgvS-wM"
 sourceTitle: "The Damage Report"
 section: "Politics"

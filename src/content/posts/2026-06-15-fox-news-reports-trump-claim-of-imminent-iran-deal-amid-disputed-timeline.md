@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News reports Trump claim of imminent Iran deal amid disputed timeline"
 summary: "The segment covers President Trump's Truth Social announcement of an imminent electronic peace deal with Iran, expected on or around June 14, 2026, including commitments against nuclear weapons, immediate opening of the Strait of Hormuz, and dismantling of Iran's nuclear program. Reporter Aishah Hasnie details terms from a White House official and notes Iranian state media statements disputing the signing timeline. It transitions to Trump's G7 plans in Geneva, side meetings, and protests. Hudson Institute senior fellow Rebeccah Heinrichs expresses low confidence the deal will fully prevent a nuclear Iran or meet all US demands."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=erieUL3NrgQ"
 sourceTitle: "Fox News"
 section: "Politics"

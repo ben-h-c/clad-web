@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "The View Celebrates Knicks Title, Critiques Trump UFC Event"
 summary: "The June 15, 2026 broadcast opened with celebration of the New York Knicks' first NBA title in 53 years over the Spurs, featuring live interview with captain and Finals MVP Jaylen Brunson. Segments covered Carolina Hurricanes Stanley Cup progress, a UFC cage event on the White House South Lawn for Trump's 80th birthday, and a fighter's slur against Michelle Obama.\n\nThe show included birthday segments for co-host Alyssa Farah Griffin with adoptable dogs from Muddy Paws Rescue and View Your Deal promotions. Sourcing relied on host commentary, Brunson interview, and on-screen clips; no outside experts or Trump administration guests appeared."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=kaSeYDxJz0I"
 sourceTitle: "The View"
 section: "Politics"

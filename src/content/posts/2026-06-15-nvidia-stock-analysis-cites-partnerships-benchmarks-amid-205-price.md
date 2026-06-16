@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Nvidia Stock Analysis Cites Partnerships, Benchmarks Amid $205 Price"
 summary: "The broadcast reviews Nvidia's recent news and argues the stock at around $205 with a forward PE of 20.65 remains undervalued given accelerating revenue growth and multiple AI-related partnerships. Segments cover a SK Hynix multi-year memory partnership and SK Telecom gigawatt-scale AI cloud deal announced June 7, a third-party agentic AI benchmark favoring Nvidia's GB300 NVL72, Nvidia GPUs supporting Apple's Private Cloud Compute on Google Cloud, additional deals with Naver and robotics firms, and brief notes on Anthropic model access restrictions and OpenAI pricing rumors."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=cDLOTt1PWvg"
 sourceTitle: "Jose Najarro Stocks"
 section: "Politics"

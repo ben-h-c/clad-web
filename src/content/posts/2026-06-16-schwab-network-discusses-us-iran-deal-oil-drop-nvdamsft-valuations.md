@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Schwab Network discusses US-Iran deal, oil drop, NVDA/MSFT valuations"
 summary: "The segment features an interview with Ted Thatcher of Bright Light Wealth Management from the NYSE floor. It covers the market's positive reaction to a reported US-Iran peace framework, falling oil prices, persistent but contained inflation, and attractive forward valuations in tech names like NVDA and MSFT amid expectations of easier Fed policy under new Chair Kevin Warsh."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=Xxq0MQl2WT0"
 sourceTitle: "Schwab Network"
 section: "Politics"

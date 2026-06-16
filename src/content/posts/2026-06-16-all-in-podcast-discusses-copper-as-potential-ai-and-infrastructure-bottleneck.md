@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "All-In Podcast Discusses Copper as Potential AI and Infrastructure Bottleneck"
 summary: "The segment features investor Dan Dreyfus outlining surging demand for copper and other critical minerals driven by AI data centers, electrification, defense spending, and re-industrialization. He contrasts this with decades of underinvestment in U.S. mining and infrastructure, highlighting China's dominance in processing and recent export controls. The discussion covers grid fragility, labor shortages, silver supply shortfalls, and the need for accelerated permitting and domestic production. Guests reference primary data sources and historical commodity cycles while exploring investment implications and policy responses."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-10
 sourceUrl: "https://www.youtube.com/watch?v=xTO1aQ_m44I"
 sourceTitle: "All-In Podcast"
 section: "Politics"

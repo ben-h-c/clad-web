@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CNBC Preview of Trump's G7 Summit Amid Iran, Ukraine Tensions"
 summary: "The segment previews President Trump's upcoming G7 summit in Evian, France, focusing on his relationships with leaders including better ties with Italy's Meloni and Japan versus tensions with others. It covers expected discussions on tariffs, the Iran war's economic fallout including the Strait of Hormuz, Ukraine support questions, and a US shift toward Gulf partnerships. Zelenskyy is noted as attending to advocate on Ukraine. Additional topics include AI regulation, troop pullouts from Germany and Japan, supply chains, and China. The broadcast draws on reporter commentary without citing specific documents, polls, or on-record officials."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=hkZrpOyvY-o"
 sourceTitle: "CNBC"
 section: "Politics"

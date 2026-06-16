@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fetterman and McCormick on Bipartisanship, AI Data Centers, and Party Extremes"
 summary: "The All-In Podcast segment features Democratic Sen. John Fetterman and Republican Sen. Dave McCormick discussing their personal friendship, shared votes against government shutdowns, and collaboration on energy, fentanyl, and antisemitism. They address AI and data center development in Pennsylvania as economic opportunities, criticize Democratic moratorium proposals, and decry extremes including Maine candidate Graham Platner."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-10
 sourceUrl: "https://www.youtube.com/watch?v=0y28p0jqPro"
 sourceTitle: "All-In Podcast"
 section: "Politics"

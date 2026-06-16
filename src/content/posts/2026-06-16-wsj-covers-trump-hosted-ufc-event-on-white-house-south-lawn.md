@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "WSJ Covers Trump-Hosted UFC Event on White House South Lawn"
 summary: "The segment reports from the White House on President Trump's 80th birthday celebration featuring a UFC fight night on the South Lawn. It describes 4,000 fans, multiple bouts, military flyovers, tributes, and a fighter's post-fight comment about Michelle Obama. The report also covers the political backdrop including Trump's approval ratings, the Iran war, rising prices, and upcoming midterms.\n\nWSJ reporting draws on on-site observation, unnamed crowd and fighter references, and general polling mentions. No named experts or graphics are detailed in the transcript. The throughline contrasts the spectacle with Trump's political challenges."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=Cy7EJox7MHc"
 sourceTitle: "The Wall Street Journal"
 section: "Politics"

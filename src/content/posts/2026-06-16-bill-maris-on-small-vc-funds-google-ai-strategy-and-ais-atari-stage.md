@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bill Maris on Small VC Funds, Google AI Strategy, and AI's Atari Stage"
 summary: "All-In Podcast episode features Bill Maris, founder of Google Ventures and Section 32, sharing career lessons and views on venture strategy and AI. Segments cover his early data-center startup, building GV with data-driven methods, why small funds outperform, AI's current 'Atari stage,' and potential Google pricing moves against competitors."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-09
 sourceUrl: "https://www.youtube.com/watch?v=0umrMuUClC4"
 sourceTitle: "All-In Podcast"
 section: "Politics"

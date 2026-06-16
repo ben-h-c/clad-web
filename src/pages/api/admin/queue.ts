@@ -80,7 +80,14 @@ export const POST: APIRoute = async ({ request }) => {
     }
   }
 
-  const slug = datedSlug(draft.report.headline, new Date());
+  // Date the post by the source video's real publish date (captured by the
+  // scanner), not the moment it's approved — so trends/archive reflect when the
+  // news actually happened. Fall back to today if the date is missing/malformed.
+  const srcDate = (draft.source?.publishedAt ?? "").slice(0, 10);
+  const publishedAt = /^\d{4}-\d{2}-\d{2}$/.test(srcDate) ? srcDate : "";
+  const when = publishedAt ? new Date(`${publishedAt}T00:00:00Z`) : new Date();
+
+  const slug = datedSlug(draft.report.headline, when);
   const thumbnail = await resolveThumbnail({
     videoId: draft.videoId,
     title: draft.report.headline,
@@ -96,6 +103,7 @@ export const POST: APIRoute = async ({ request }) => {
     sourceTitle: draft.source.channel,
     featured: Boolean(p?.featured),
     draft: false,
+    publishedAt: publishedAt || undefined,
     thumbnail: thumbnail || undefined,
   });
 

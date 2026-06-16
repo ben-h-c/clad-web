@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "The View Interviews Knicks Champion Jalen Brunson on Title Win and Family Moment"
 summary: "The segment features Knicks captain and Finals MVP Jalen Brunson discussing the team's 2026 championship victory over the San Antonio Spurs, their first title since 1973. Hosts congratulate him on leading the comeback in Game 4, his 45-point Game 5 performance, pregame music routine, and composure under physical play. Brunson recounts the emotional post-game hug with his father, former Knicks player and current coach Rick Brunson. The View plays the team theme song and highlights family influence and leadership. Sourcing relies on Brunson's firsthand account, host recollections of Garden viewing, and video clips of the series-clinching moments."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=XEvZP6txHZU"
 sourceTitle: "The View"
 section: "Politics"

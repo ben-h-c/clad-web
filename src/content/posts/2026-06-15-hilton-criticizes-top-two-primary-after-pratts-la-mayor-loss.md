@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Hilton Criticizes Top-Two Primary After Pratt's LA Mayor Loss"
 summary: "The segment features Steve Hilton, a Republican candidate for California governor, reacting to Spencer Pratt's third-place finish in the June 2, 2026, Los Angeles mayoral primary. Hilton praises Pratt's campaign and homelessness plan, calls the outcome a travesty, and argues the top-two primary system denies voters a real choice between change candidates. He offers Pratt a role in his potential administration. The clip is sourced from Hilton's commentary with references to his Golden Together policy group and Pratt's published plan; no other guests or data graphics are shown."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-10
 sourceUrl: "https://www.youtube.com/watch?v=iIh2bFSbvkQ"
 sourceTitle: "New York Post"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Tucker Carlson Interviews Gideon Levy on Israeli Policies and Gaza"
 summary: "Tucker Carlson interviews Haaretz columnist Gideon Levy on the state of conflicts in Gaza, the West Bank, Lebanon, and Iran. Levy describes ongoing wars without clear goals, criticizes Netanyahu's motivations, Israeli public apathy or denial, and US unconditional support. Segments cover practical risks to Israel, media coverage failures, and skepticism toward US plans for Gaza redevelopment. The sourcing is almost entirely Levy's commentary with no counter-guests or Israeli government perspectives presented."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-12
 sourceUrl: "https://www.youtube.com/watch?v=PLaL-kv4a7A"
 sourceTitle: "Tucker Carlson"
 section: "Politics"

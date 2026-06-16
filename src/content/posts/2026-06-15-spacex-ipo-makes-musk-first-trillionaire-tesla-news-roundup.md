@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX IPO Makes Musk First Trillionaire; Tesla News Roundup"
 summary: "The episode covers recent Tesla and SpaceX developments including Grok memory features, Optimus diner promotions, FSD updates, a new Tesla patent, Boring Company Vegas loop service, Cybercab sightings, Starlink deals, and the SpaceX IPO. It also includes sponsor segments, viewer supercharger reviews, and brief mentions of unrelated news like an inflatable Elon Musk display."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=YYznv5cPx_0"
 sourceTitle: "Now You Know"
 section: "Politics"

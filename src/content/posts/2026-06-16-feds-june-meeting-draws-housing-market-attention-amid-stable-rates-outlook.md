@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fed's June meeting draws housing market attention amid stable rates outlook"
 summary: "The segment covers the upcoming June 16-17 Federal Reserve meeting, noting no rate cut is expected but attention centers on signals from incoming Chair Kevin Warsh regarding future policy. It discusses implications for the housing market and localizes to Denver conditions. 9NEWS real estate expert Lane Lyon, a Coldwell Banker managing broker, provides analysis. Sourcing relies on the expert's observations, general economist consensus referenced in dialogue, and implied market data on inventory and days on market."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=0y98XVaScF0"
 sourceTitle: "9NEWS"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Pratt claims recordings of Bass or Raman after LA mayoral primary loss"
 summary: "The segment covers Spencer Pratt's social media video after placing third in the June 2, 2026 Los Angeles mayoral primary. Pratt concedes the race but vows to expose alleged corruption by top vote-getters Mayor Karen Bass and Councilwoman Nithya Raman, whom he labels corrupt communists, and claims possession of a damaging audio recording of one of them.\n\nNBC 4's Conan Nolan reports on the video's content and tone, interspersing clips and commentary from former Supervisor Zev Yaroslavsky, who dismisses the recording claim as cheap talk designed for attention. The piece notes Pratt's third-place finish behind Bass and Raman, who advance to the November general election."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-13
 sourceUrl: "https://www.youtube.com/watch?v=7AvEYk08Jfo"
 sourceTitle: "NBCLA"
 section: "Politics"

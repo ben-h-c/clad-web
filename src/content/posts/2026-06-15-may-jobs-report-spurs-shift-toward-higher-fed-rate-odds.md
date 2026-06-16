@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "May Jobs Report Spurs Shift Toward Higher Fed Rate Odds"
 summary: "The video analyzes the May 2026 jobs report showing 172,000 jobs added versus 80,000 expected, with unemployment steady at 4.3%. It details sector gains and losses, wage growth at 3.4%, and how markets repriced higher odds of Fed rate hikes by year-end. Segments cover the upcoming June 17 Fed meeting under new Chair Kevin Warsh, May CPI at 4.2%, energy-driven inflation from the Iran conflict, and personal finance advice on variable debt and home purchases."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=6-DLp3g9jqk"
 sourceTitle: "Nima Jay"
 section: "Politics"

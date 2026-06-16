@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Expert Interview Analyzes 2026 US-China Dynamics, Tariffs, Taiwan, and Regional Ties"
 summary: "The video features an interview with Scott Kennedy of CSIS discussing China's diplomacy, including Xi Jinping's visit to North Korea, recent US-China summits, and evolving economic influence over Taiwan. It covers the continuity and shifts in US tariff and technology policies from the first Trump term through Biden and into the second term. The discussion addresses the 2025 Liberation Day tariffs, Chinese retaliation, the February 2026 Supreme Court ruling repealing certain tariffs, and the US-Israel military campaign against Iran starting February 28, 2026. Kennedy analyzes China's economic resilience, semiconductor dynamics, and long-term geopolitical confidence despite slowing growth. Segments draw on Kennedy's expertise in Chinese business and economics with references to supply chains, rare earths, and military exercises."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-13
 sourceUrl: "https://www.youtube.com/watch?v=jRdWEhEUIAE"
 sourceTitle: "Pyotr Kurzin | Geopolitics"
 section: "Politics"

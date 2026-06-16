@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "White House UFC event: $60M cost, Trump ties, low poll support"
 summary: "The segment examined a UFC event on the White House South Lawn on June 14, 2026, dubbed UFC Freedom 250, celebrating America's 250th anniversary and President Trump's 80th birthday. It covered corporate sponsors, crypto promotions, merchandise, a related fundraiser, and federal agency involvement.\n\nSourcing drew from a legal filing detailing agency resources, a Reuters/Ipsos poll, financial disclosures, and CNN commentary. Guests discussed the event's entertainment-politics blend, a fighter's post-fight remarks about Michelle Obama, and comparisons to prior administrations' events."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-15
 sourceUrl: "https://www.youtube.com/watch?v=8R6vwvNyMgY"
 sourceTitle: "The Hill"
 section: "Politics"

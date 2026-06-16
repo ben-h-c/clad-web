@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NAR May 2026 sales rise 3.2% but remain near multi-year lows amid affordability crunch"
 summary: "The video analyzes the June 2026 NAR Existing-Home Sales report showing May 2026 sales at a seasonally adjusted annual rate of 4.17 million, up 3.2% both month-over-month and year-over-year—the highest since December. It notes the median price rose 1.3% to $429,300 and highlights stronger gains at higher price points. The segment contrasts short-term headlines with long-term charts arguing sales volumes remain near historic lows comparable to the 2008-2012 period. It attributes low demand to poor affordability, citing a mortgage cost-to-income ratio near 38%, and discusses seller behavior with a Nashville listing example before promoting Reventure's tools and forecasts."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-13
 sourceUrl: "https://www.youtube.com/watch?v=CKBUpSFFWYo"
 sourceTitle: "Reventure Consulting"
 section: "Politics"

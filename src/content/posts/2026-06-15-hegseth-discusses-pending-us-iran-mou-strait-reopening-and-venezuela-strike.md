@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Hegseth discusses pending US-Iran MOU, Strait reopening and Venezuela strike"
 summary: "The segment features an interview with Defense Secretary Pete Hegseth on Face the Nation about a preliminary US-Iran memorandum of understanding to extend a ceasefire, reopen the Strait of Hormuz, and begin 60 days of nuclear negotiations. It covers ongoing Israeli strikes on Hezbollah in Lebanon, the performance-based nature of the deal, US military posture including the blockade and Project Freedom, and a separate US strike killing Tren de Aragua leader Nino Guerrero in Venezuela. Hegseth asserts US control of the strait, immediate reopening expectations, and plans for nuclear material removal."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=4SqNcMBFbdA"
 sourceTitle: "Face the Nation"
 section: "Politics"

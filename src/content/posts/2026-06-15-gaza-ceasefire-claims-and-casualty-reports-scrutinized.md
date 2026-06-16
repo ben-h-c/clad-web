@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Gaza Ceasefire Claims and Casualty Reports Scrutinized"
 summary: "The segment covers ongoing violence in Gaza despite the October 10, 2025 US-brokered ceasefire, highlighting daily strikes, civilian deaths including children, and specific cases like the killing of 8-year-old Jad Suleiman in Jabalia. It discusses a 7-month-old baby shot in the West Bank and criticizes the ceasefire as ineffective or illusory, with attention shifted to Lebanon and Iran.\nTrita Parsi provides analysis on how the ceasefire announcement halted European pressure, including a potential UEFA vote to suspend Israel. Sourcing relies on DropSite News testimonies, Gaza Health Ministry data, and commentary; graphics and video of grieving families are referenced."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=ZrYpwxp3LCc"
 sourceTitle: "The Young Turks"
 section: "Politics"

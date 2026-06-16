@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bank of America flags 7 of 10 bear-market signals; video mixes verified warnings with value-investing pitch"
 summary: "The video summarizes a recent Bank of America client note warning that seven of ten bear-market signposts are now triggered, valuations are elevated on most metrics, and investors should consider taking profits while remaining selective on individual stocks. It also covers Moody's economist Mark Zandi placing 40% odds on a recession within a year due to stagnant real disposable income, oil-price risks tied to Iran, and Fed constraints, plus the Buffett market-cap-to-GDP ratio hitting multi-decade highs."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-13
 sourceUrl: "https://www.youtube.com/watch?v=b1TUHQeJjUs"
 sourceTitle: "Everything Money"
 section: "Politics"

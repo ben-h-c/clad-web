@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News segment on Starmer's Iran comments and UK defense resignations"
 summary: "The segment covered UK Prime Minister Keir Starmer's recent phone call with President Trump on supporting a U.S.-led Iran peace deal, contrasting it with his prior statements distancing Britain from the conflict. It highlighted resignations by Defence Secretary John Healey and Armed Forces Minister Al Carns over inadequate defense funding. Guests discussed Starmer's low popularity, Labour's poor polling behind Reform UK, and broader European political trends.\n\nSourcing relied on on-air commentary and implied recent news reports; no primary documents or independent experts were featured beyond the guest Christian Whitton. The throughline framed Starmer's shift as politically motivated weakness amid domestic crisis."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-14
 sourceUrl: "https://www.youtube.com/watch?v=7ehuTv-1GBQ"
 sourceTitle: "Fox News"
 section: "Politics"

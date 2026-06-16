@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "IDF Reports Precision Strikes Killing Three Gaza Commanders"
 summary: "The segment covers recent IDF precision strikes in Gaza that killed two Palestinian Islamic Jihad platoon commanders and one Hamas deputy company commander. It presents visuals and reports the military's account of the operation targeting figures planning imminent attacks.\nThe sourcing relies primarily on the IDF statement, with the video description repeating those details; no independent experts or opposing views appear in the provided transcript, which consists mainly of music and minimal narration."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-13
 sourceUrl: "https://www.youtube.com/watch?v=0LDgSWfx3ac"
 sourceTitle: "Times Now"
 section: "Politics"
