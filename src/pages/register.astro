@@ -79,11 +79,39 @@ const providers = enabledSocialProviders();
         const p2 = document.createElement("p");
         p2.className = "dateline";
         p2.append("Didn't get it? Check your spam folder, or ");
-        const a = document.createElement("a");
-        a.href = "/register/";
-        a.textContent = "try again";
-        p2.append(a, ".");
-        article.replaceChildren(h, p1, p2);
+        const resend = document.createElement("button");
+        resend.type = "button";
+        resend.className = "auth-linklike";
+        resend.textContent = "resend the email";
+        p2.append(resend, ".");
+        const rstatus = document.createElement("div");
+        rstatus.className = "auth-status";
+        rstatus.setAttribute("role", "status");
+        const p3 = document.createElement("p");
+        p3.className = "auth-alt";
+        const signin = document.createElement("a");
+        signin.href = "/login/";
+        signin.textContent = "Sign in";
+        p3.append("Already verified? ", signin);
+        resend.addEventListener("click", async () => {
+          resend.disabled = true;
+          rstatus.className = "auth-status";
+          rstatus.textContent = "Sending…";
+          try {
+            const r = await fetch("/api/auth/send-verification-email", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email: addr, callbackURL: "/verified/" }),
+            });
+            if (!r.ok) throw new Error("Could not resend. Try again in a moment.");
+            rstatus.textContent = "Sent — check your inbox (and spam).";
+          } catch (err) {
+            rstatus.className = "auth-status auth-status--error";
+            rstatus.textContent = String(err.message || err);
+            resend.disabled = false;
+          }
+        });
+        article.replaceChildren(h, p1, p2, rstatus, p3);
       } catch (err) { setErr(String(err.message || err)); btn.disabled = false; }
     });
     document.querySelectorAll(".auth-social__btn").forEach((b) => {
