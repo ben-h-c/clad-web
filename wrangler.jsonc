@@ -3,6 +3,9 @@
   "name": "clad-web",
   "workers_dev": true,
   "preview_urls": true,
+  // Better Auth needs Node built-ins (node:crypto, etc.) at runtime.
+  "compatibility_date": "2026-04-15",
+  "compatibility_flags": ["nodejs_compat"],
   "routes": [
     { "pattern": "cladfacts.com", "custom_domain": true },
     { "pattern": "www.cladfacts.com", "custom_domain": true }
