@@ -1,0 +1,61 @@
+---
+type: "broadcast"
+headline: "WaPo report details $600M White House ballroom cost, half from taxpayers"
+summary: "CBS News segment reports on a Washington Post investigation finding that the White House ballroom and East Wing project, originally estimated at $200 million, has risen to $600 million per March 2026 Clark Construction documents. Half the cost ($300 million) is projected to come from taxpayer funds via the Secret Service and White House Military Office, contradicting President Trump's repeated statements that no taxpayer money would be used. The segment features an interview with WaPo reporter Sarah Blaskey explaining the internal status reports from collaborative contractor-White House meetings."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=IaT_h3bMUEA"
+sourceTitle: "CBS News"
+section: "Politics"
+letterGrade: "A-"
+factualityScore: 95
+politicalLean: "center"
+leanScore: 0
+leanRationale: "Straight reporting of documented findings with no loaded language or selective emphasis"
+gradeRationale: "Claims verified by WaPo documents and contractor estimates; minor missing context on full funding breakdown and project scope changes"
+topics:
+  - "White House ballroom"
+  - "Trump administration"
+  - "federal spending"
+assessment: "The broadcast accurately relays primary document-based reporting without distortion. Viewer context missing includes the evolution of project scope (size, materials, security features) driving cost increases and any administration responses or private donation updates post-March 2026. Framing is neutral and evidence-focused, relying on contractor records rather than anonymous sourcing. No unsupported claims or partisan slant detected."
+notableConcerns: []
+keyMoments:
+  - claim: "Project cost rose from $200M to $600M per Clark Construction documents"
+    verdict: "verified"
+    note: "WaPo obtained internal estimates from July 2025 to March 2026 showing scope changes and price escalation"
+  - claim: "Taxpayers on hook for $300M via Secret Service and White House Military Office"
+    verdict: "verified"
+    note: "Explicitly detailed in March 2026 contractor summary provided to the White House"
+  - claim: "Trump stated no taxpayer money would be spent"
+    verdict: "verified"
+    note: "Consistent with multiple public statements cited in WaPo reporting and transcript"
+videoId: "IaT_h3bMUEA"
+videoTitle: "Taxpayer money expected to fund half of Trump's White House ballroom project, Washington Post finds"
+thumbnail: "https://img.youtube.com/vi/IaT_h3bMUEA/maxresdefault.jpg"
+citations:
+  - title: "Records reveal $600M estimate for Trump’s ballroom project, with half from taxpayers"
+    url: "https://www.washingtonpost.com/investigations/2026/06/16/records-reveal-600m-estimate-trumps-ballroom-project-with-half-taxpayers/"
+  - title: "White House State Ballroom"
+    url: "https://en.wikipedia.org/wiki/White_House_State_Ballroom"
+  - title: "Trump always planned to rely 'heavily' on taxpayers for his ballroom"
+    url: "https://www.alternet.org/white-house-ballroom-costs/"
+  - title: "Who’s Paying for the White House Ballroom?"
+    url: "https://www.factcheck.org/2026/05/whos-paying-for-the-white-house-ballroom/"
+  - title: "Trump leads media tour of ballroom building site as funding row grows"
+    url: "https://www.theguardian.com/us-news/2026/may/19/trump-ballroom-east-wing-media-tour"
+  - title: "WATCH: Trump calls planned White House ballroom 'a gift'"
+    url: "https://www.pbs.org/newshour/politics/trump-shows-reporters-ballroom-construction-site-as-lawmakers-balk-at-1b-for-white-house-security"
+  - title: "Trump renews petition for White House ballroom, pointing to nearby shooting"
+    url: "https://www.aljazeera.com/news/2026/5/25/trump-renews-petition-for-white-house-ballroom-pointing-to-nearby-shooting"
+  - title: "Who is paying for Trump's $600M ballroom? Report finds taxpayers are footing half the bill"
+    url: "https://www.youtube.com/watch?v=M6NnVVpl5Rs"
+  - title: "Trump’s ballroom price tag hits $600M, with taxpayers covering much of it: Report"
+    url: "https://ground.news/article/trumps-ballroom-price-tag-hits-600m-with-taxpayers-covering-much-of-it-report_f85edd"
+  - title: "Ballroom donors won $50B in contracts after giving to Trump ballroom project, report says"
+    url: "https://www.washingtonpost.com/politics/2026/06/04/donors-won-50b-contracts-after-giving-trump-ballroom-project-report-says/"
+  - title: "Trump shows off White House ballroom construction as funding stalls in Congress"
+    url: "https://www.washingtonpost.com/politics/2026/05/19/trump-took-journalists-tour-planned-white-house-ballroom/"
+  - title: "Trump ballroom soars to $600M, with taxpayers on hook for half: Report"
+    url: "https://www.usatoday.com/story/news/politics/2026/06/16/trump-ballroom-cost-taxpayer-money/90574600007/"
+---
+
+
