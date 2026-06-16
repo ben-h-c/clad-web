@@ -45,23 +45,38 @@ export async function runFrontpageCurator(agent) {
     const score = wR * recency + wP * popularity + wE * engagement;
     return { ...p, score };
   });
-  scored.sort((a, b) => b.score - a.score);
 
-  // Diversity-aware greedy selection.
-  const topicCount = new Map();
-  const chosen = [];
+  // Group by primary topic; sort each group best-first.
+  const groups = new Map();
   for (const p of scored) {
-    if (chosen.length >= maxFeatured) break;
     const topic = (p.topics?.[0] || p.headline || "").toLowerCase().trim() || "misc";
-    const n = topicCount.get(topic) || 0;
-    if (n >= perTopicCap) continue;
-    topicCount.set(topic, n + 1);
-    chosen.push(p);
+    if (!groups.has(topic)) groups.set(topic, []);
+    groups.get(topic).push(p);
   }
-  // If the cap left us short of maxFeatured (few topics), backfill by score.
+  for (const arr of groups.values()) arr.sort((a, b) => b.score - a.score);
+
+  // Order topics by their best post's score, but jitter it so the lineup ROTATES
+  // run to run (keeps the front page fluid/interesting instead of static), while
+  // still favoring strong, recent topics.
+  const topicList = [...groups.values()].map((arr) => ({
+    arr,
+    rank: arr[0].score * (0.7 + Math.random() * 0.6),
+  }));
+  topicList.sort((a, b) => b.rank - a.rank);
+
+  // Round-robin across topics: take the best from each topic first (widest range
+  // of topics), then a second from each, up to perTopicCap rounds.
+  const chosen = [];
+  for (let round = 0; round < perTopicCap && chosen.length < maxFeatured; round++) {
+    for (const t of topicList) {
+      if (chosen.length >= maxFeatured) break;
+      if (t.arr[round]) chosen.push(t.arr[round]);
+    }
+  }
+  // Backfill by score if still short (very few topics).
   if (chosen.length < maxFeatured) {
     const have = new Set(chosen.map((p) => p.id));
-    for (const p of scored) {
+    for (const p of [...scored].sort((a, b) => b.score - a.score)) {
       if (chosen.length >= maxFeatured) break;
       if (!have.has(p.id)) chosen.push(p);
     }
@@ -71,9 +86,12 @@ export async function runFrontpageCurator(agent) {
   const out = await setFrontpage(ids);
   if (!out.ok) return { ok: false, message: `frontpage set ${out.status}` };
 
+  const topicsCovered = new Set(
+    chosen.slice(0, maxFeatured).map((p) => (p.topics?.[0] || p.headline || "").toLowerCase().trim())
+  ).size;
   return {
     ok: true,
-    message: `featured ${ids.length} of ${posts.length} across ${topicCount.size} topics`,
+    message: `featured ${ids.length} of ${posts.length} across ${topicsCovered} topics (rotating)`,
     submitted: ids.length,
   };
 }
