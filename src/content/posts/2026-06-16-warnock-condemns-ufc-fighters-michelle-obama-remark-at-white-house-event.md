@@ -1,0 +1,62 @@
+---
+type: "broadcast"
+headline: "Warnock condemns UFC fighter's Michelle Obama remark at White House event"
+summary: "The segment features Sen. Raphael Warnock discussing his new book and responding to a UFC fighter's post-match comment at the June 14, 2026, UFC Freedom 250 event on the White House South Lawn. Warnock describes the remark as a vicious, bigoted attack on Michelle Obama, criticizes President Trump's presence and praise for performers without condemnation, and ties it to historical prejudice against Black women and a supposed moral contraction under the administration.\n\nWarnock, interviewed on MS NOW, draws personal connections to women in his life and calls for condemnation of hate. The segment promotes his book as offering moral guidance and ends with the host displaying its cover. No other guests or opposing perspectives appear."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=jT0HbRqeWl8"
+sourceTitle: "MS NOW"
+section: "Politics"
+letterGrade: "B-"
+factualityScore: 80
+politicalLean: "left"
+leanScore: -75
+leanRationale: "Relies exclusively on Democratic senator's moral condemnation of Trump, the event, and the fighter while framing remarks as 'evil' and linking them to broader administration attacks on voters and the 'American creed.'"
+gradeRationale: "Core event accurately reported; fighter's slur and lack of on-site condemnation verified by multiple outlets, but segment offers one-sided framing with limited counter-context or sourcing beyond the guest."
+topics:
+  - "UFC White House event"
+  - "Michelle Obama"
+  - "Raphael Warnock"
+assessment: "The broadcast accurately captures the fighter Josh Hokit's verified statement calling Michelle Obama 'a man' and the mixed crowd reaction, but presents Warnock's interpretation unchallenged. Missing context includes UFC CEO Dana White's subsequent criticism of the remark, the event's framing as part of the U.S. 250th anniversary, and the broader mixed reception of the fights themselves. The segment leans heavily on loaded moral language ('evil come alive') without engaging counter-arguments about free speech at a sporting event or the fighter's individual views. Viewers receive a partisan lens equating one comment with systemic administration policy, omitting any defense or nuance around public figures and political speech."
+notableConcerns:
+  - "One-sided sourcing limited to Democratic senator with no balancing voices or event organizers"
+keyMoments:
+  - claim: "UFC fighter attacked Michelle Obama by name at White House event with no objection from Trump"
+    verdict: "verified"
+    note: "Josh Hokit stated 'Michelle Obama is a man' post-fight; Trump attended but issued no on-site condemnation per multiple reports."
+  - claim: "The remark reflects bigotry and historical attacks on Black women as not 'really women'"
+    verdict: "missing context"
+    note: "Warnock's interpretation; the comment revives a longstanding false conspiracy theory about Obama but the segment provides no discussion of its prevalence or rebuttals."
+  - claim: "Trump has unleashed evil and is at war with the American creed"
+    verdict: "unsupported"
+    note: "Opinion expressed by Warnock; no evidence presented tying the single remark to administration policy or broader actions."
+videoId: "jT0HbRqeWl8"
+videoTitle: "'This is bigotry, this is evil come alive': Warnock condemns UFC fighter's Michelle Obama attack"
+thumbnail: "https://img.youtube.com/vi/jT0HbRqeWl8/maxresdefault.jpg"
+citations:
+  - title: "UFC fighter calls Michelle Obama 'a man' after White ..."
+    url: "https://www.nbcwashington.com/news/national-international/josh-hokit-michelle-obama-man-ufc/4117060/"
+  - title: "The UFC Freedom 250 Fight at the White House in Photos"
+    url: "https://time.com/article/2026/06/15/ufc-fight-white-house-freedom-250-photos/"
+  - title: "UFC Freedom 250"
+    url: "https://en.wikipedia.org/wiki/UFC_Freedom_250"
+  - title: "UFC fighter says 'Michelle Obama is a man' after winning ..."
+    url: "https://wgme.com/news/nation-world/ufc-fighter-says-michelle-obama-is-a-man-after-winning-white-house-match-joe-rogan-josh-hokit-derrick-lewis-president-trump-dana-white"
+  - title: "UFC Stages Successful White House Fight Night—if Not for ..."
+    url: "https://time.com/article/2026/06/15/ufc-fight-white-house-hokit-obama/"
+  - title: "At the White House UFC fight, a victor said Michelle Obama is a man ..."
+    url: "https://www.politifact.com/factchecks/2026/jun/15/josh-hokit/josh-hokit-ufc-white-house-michelle-obama/"
+  - title: "'This is bigotry, this is evil come alive': Warnock condemns UFC ..."
+    url: "https://www.ms.now/the-last-word/watch/this-is-bigotry-this-is-evil-come-alive-warnock-condemns-ufc-fighter-s-michelle-obama-attack-2503741507723"
+  - title: "Warnock condemns UFC fighter's Michelle Obama attack"
+    url: "https://www.youtube.com/watch?v=jT0HbRqeWl8"
+  - title: "Trump hosts UFC fights on White House lawn"
+    url: "https://www.bbc.com/news/articles/c892xnwg5vlo"
+  - title: "Trump and Dana White kick off UFC event on the ..."
+    url: "https://abcnews.com/Politics/inside-trumps-ufc-fight-white-house-south-lawn/story?id=133819655"
+  - title: "UFC fighter Josh Hokit insulted former first lady Michelle ..."
+    url: "https://www.instagram.com/reel/DZnU4Ghjj5B/"
+  - title: "UFC White House Results: Topuria vs. Gaethje"
+    url: "https://www.mmafighting.com/ufc/493954/ufc-white-house-results-topuria-vs-gaethje"
+---
+
+
