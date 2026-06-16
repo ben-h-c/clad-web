@@ -11,7 +11,7 @@ import Ticker from "~/components/Ticker.astro";
 import QuipTicker from "~/components/QuipTicker.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
 import { getFrontpage, getBreaking, getTicker, getQuips } from "~/lib/agents";
-import { aggregateTopics, gradeToGpa } from "~/lib/topics";
+import { aggregateTopics, gradeToGpa, leanScoreOf } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 
 // SSR so the hero reflects the curator's live KV-stored selection without a
@@ -80,6 +80,25 @@ const bottomGraded = [...graded]
       b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
   )
   .slice(0, 5);
+
+// Most politically biased: the most left-leaning and most right-leaning posts.
+const leaned = all.filter((p) => leanScoreOf(p.data) != null);
+const mostLeft = [...leaned]
+  .sort(
+    (a, b) =>
+      leanScoreOf(a.data)! - leanScoreOf(b.data)! ||
+      b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+  )
+  .slice(0, 5);
+const leftIds = new Set(mostLeft.map((p) => p.id));
+const mostRight = [...leaned]
+  .filter((p) => !leftIds.has(p.id))
+  .sort(
+    (a, b) =>
+      leanScoreOf(b.data)! - leanScoreOf(a.data)! ||
+      b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+  )
+  .slice(0, 5);
 ---
 <BaseLayout
   title="Clad — Grading Content & Exposing Bias"
@@ -128,6 +147,15 @@ const bottomGraded = [...graded]
       </script>
       <HomeCharts posts={all} topics={topics} />
       {topGraded.length > 0 && <GradeBoard top={topGraded} bottom={bottomGraded} />}
+      {mostLeft.length > 0 && (
+        <GradeBoard
+          title="Most Politically Biased"
+          topLabel="Most Left-Leaning"
+          bottomLabel="Most Right-Leaning"
+          top={mostLeft}
+          bottom={mostRight}
+        />
+      )}
     </>
   )}
   <Disclaimer />

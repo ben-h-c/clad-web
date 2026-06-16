@@ -6,8 +6,17 @@ import { leanScoreOf } from "~/lib/topics";
 interface Props {
   top: CollectionEntry<"posts">[];
   bottom: CollectionEntry<"posts">[];
+  title?: string;
+  topLabel?: string;
+  bottomLabel?: string;
 }
-const { top, bottom } = Astro.props;
+const {
+  top,
+  bottom,
+  title = "Best & Worst Graded",
+  topLabel = "Highest Graded",
+  bottomLabel = "Lowest Graded",
+} = Astro.props;
 
 function sourceOf(d: CollectionEntry<"posts">["data"]): string {
   if (d.sourceTitle) return d.sourceTitle;
@@ -26,13 +35,13 @@ function leanOf(d: CollectionEntry<"posts">["data"]): { label: string; dir: stri
 }
 
 const columns = [
-  { key: "top", label: "Highest Graded", posts: top },
-  { key: "bottom", label: "Lowest Graded", posts: bottom },
+  { key: "top", label: topLabel, posts: top },
+  { key: "bottom", label: bottomLabel, posts: bottom },
 ];
 ---
 <section class="gradeboard">
   <div class="feed__head">
-    <h2 class="feed__title">Best &amp; Worst Graded</h2>
+    <h2 class="feed__title">{title}</h2>
     <a class="category__more" href="/search/">See all →</a>
   </div>
   <div class="rule rule--double" aria-hidden="true"></div>
