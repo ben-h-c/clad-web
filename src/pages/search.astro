@@ -1,16 +1,19 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getAccess } from "~/lib/access";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
+
+const fullAccess = (await getAccess(Astro.request.headers)).fullAccess;
 ---
 <BaseLayout
   title="Search — Clad"
-  description="Search Clad's fact-checked political reports by topic, headline, or network."
+  description="Search Clad's fact-checked political reports by topic, headline, network, grade, bias, or date."
 >
-  <section class="search-page">
+  <section class="search-page" data-full-access={fullAccess ? "1" : "0"}>
     <h2 class="search-page__title">Search</h2>
-    <p class="dateline">Search reports by topic, headline, network, or grade rationale.</p>
+    <p class="dateline">Search reports by topic, headline, or network — then filter by outlet, date{fullAccess ? ", grade, and political bias" : ""}.</p>
 
     <form id="search-form" role="search" onsubmit="return false">
       <input
@@ -21,6 +24,46 @@ Astro.response.headers.set("Cache-Control", "no-store");
         autofocus
       />
     </form>
+
+    <div class="search-filters">
+      <label class="search-filter">
+        <span>Outlet</span>
+        <select id="f-outlet"><option value="">All outlets</option></select>
+      </label>
+      {fullAccess && (
+        <label class="search-filter">
+          <span>Grade</span>
+          <select id="f-grade">
+            <option value="">Any grade</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+          </select>
+        </label>
+      )}
+      {fullAccess && (
+        <label class="search-filter">
+          <span>Political bias</span>
+          <select id="f-bias">
+            <option value="">Any lean</option>
+            <option value="left">Leans left</option>
+            <option value="center">Centered</option>
+            <option value="right">Leans right</option>
+          </select>
+        </label>
+      )}
+      <label class="search-filter">
+        <span>From</span>
+        <input type="date" id="f-from" />
+      </label>
+      <label class="search-filter">
+        <span>To</span>
+        <input type="date" id="f-to" />
+      </label>
+      <button type="button" id="f-clear" class="search-filter__clear">Clear</button>
+    </div>
 
     <div id="topic-chips" class="topic-chips"></div>
     <p id="search-count" class="dateline"></p>
@@ -33,6 +76,11 @@ Astro.response.headers.set("Cache-Control", "no-store");
     const resultsEl = $("search-results");
     const countEl = $("search-count");
     const chipsEl = $("topic-chips");
+    const fOutlet = $("f-outlet");
+    const fGrade = $("f-grade");
+    const fBias = $("f-bias");
+    const fFrom = $("f-from");
+    const fTo = $("f-to");
     let records = [];
 
     const LEAN = (s) =>
@@ -82,19 +130,60 @@ Astro.response.headers.set("Cache-Control", "no-store");
         .join("");
     }
 
-    function run(q) {
-      const ts = tokens(q);
-      if (ts.length === 0) {
-        render(records.slice(0, 30));
-        countEl.textContent = `${records.length} reports`;
-        return;
+    function passesFilters(r) {
+      if (fOutlet && fOutlet.value && r.channel !== fOutlet.value) return false;
+      if (fGrade && fGrade.value) {
+        if (!r.grade || r.grade.charAt(0).toUpperCase() !== fGrade.value) return false;
       }
-      const scored = records
-        .map((r) => ({ r, s: scoreRecord(r, ts) }))
-        .filter((x) => x.s > 0)
-        .sort((a, b) => b.s - a.s || new Date(b.r.date) - new Date(a.r.date))
-        .map((x) => x.r);
-      render(scored);
+      if (fBias && fBias.value) {
+        if (r.leanScore === null || r.leanScore === undefined) return false;
+        const dir = r.leanScore <= -8 ? "left" : r.leanScore >= 8 ? "right" : "center";
+        if (dir !== fBias.value) return false;
+      }
+      if (fFrom && fFrom.value && new Date(r.date) < new Date(fFrom.value)) return false;
+      if (fTo && fTo.value) {
+        const end = new Date(fTo.value);
+        end.setHours(23, 59, 59, 999);
+        if (new Date(r.date) > end) return false;
+      }
+      return true;
+    }
+
+    function anyFilter() {
+      return (fOutlet && fOutlet.value) || (fGrade && fGrade.value) || (fBias && fBias.value) ||
+        (fFrom && fFrom.value) || (fTo && fTo.value);
+    }
+
+    function run() {
+      const q = input.value;
+      const ts = tokens(q);
+      let list;
+      if (ts.length === 0) {
+        list = records.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+      } else {
+        list = records
+          .map((r) => ({ r, s: scoreRecord(r, ts) }))
+          .filter((x) => x.s > 0)
+          .sort((a, b) => b.s - a.s || new Date(b.r.date) - new Date(a.r.date))
+          .map((x) => x.r);
+      }
+      list = list.filter(passesFilters);
+      const total = list.length;
+      render(list.slice(0, 200));
+      countEl.textContent = total
+        ? `${total} result${total === 1 ? "" : "s"}${ts.length === 0 && !anyFilter() ? " (showing newest)" : ""}`
+        : "No matches.";
+    }
+
+    function buildOutlets() {
+      const set = new Set();
+      for (const r of records) if (r.channel) set.add(r.channel);
+      [...set].sort((a, b) => a.localeCompare(b)).forEach((c) => {
+        const o = document.createElement("option");
+        o.value = c;
+        o.textContent = c;
+        fOutlet.appendChild(o);
+      });
     }
 
     function buildChips() {
@@ -107,7 +196,7 @@ Astro.response.headers.set("Cache-Control", "no-store");
       chipsEl.querySelectorAll(".topic-chip").forEach((b) => {
         b.addEventListener("click", () => {
           input.value = b.getAttribute("data-topic");
-          run(input.value);
+          run();
           syncUrl(input.value);
         });
       });
@@ -119,16 +208,23 @@ Astro.response.headers.set("Cache-Control", "no-store");
       history.replaceState(null, "", u);
     }
 
-    input.addEventListener("input", () => { run(input.value); syncUrl(input.value); });
+    input.addEventListener("input", () => { run(); syncUrl(input.value); });
+    [fOutlet, fGrade, fBias, fFrom, fTo].forEach((el) => el && el.addEventListener("change", run));
+    const clearBtn = $("f-clear");
+    if (clearBtn) clearBtn.addEventListener("click", () => {
+      [fOutlet, fGrade, fBias, fFrom, fTo].forEach((el) => { if (el) el.value = ""; });
+      run();
+    });
 
     fetch("/search-index.json")
       .then((r) => r.json())
       .then((data) => {
-        records = data;
+        records = Array.isArray(data) ? data : [];
         buildChips();
+        buildOutlets();
         const q = new URL(location.href).searchParams.get("q") || "";
         if (q) input.value = q;
-        run(q);
+        run();
       })
       .catch(() => { countEl.textContent = "Search index failed to load."; });
   </script>
