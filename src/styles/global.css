@@ -4516,3 +4516,8 @@ button.small {
    redirect flow needs a Services ID we don't configure, so hide it on the
    web. Shown only when running inside the app (html.clad-app). */
 html:not(.clad-app) .auth-social__btn--app-only { display: none !important; }
+
+/* App-only "Go Premium" button: hidden on the web (which sells via Stripe);
+   shown only in the iOS app, where it opens the native StoreKit paywall. */
+.js-app-purchase { display: none; }
+html.clad-app .js-app-purchase { display: inline-block; }

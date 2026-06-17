@@ -65,9 +65,21 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
   <head>
     <meta charset="utf-8" />
     <!-- The iOS app injects window.__cladNative at document start. Flag the
-         document as in-app so reader-app CSS can hide purchase surfaces
-         (no in-app purchase / external buy links — App Review 3.1.1/3.1.3). -->
-    <script is:inline>if(window.__cladNative)document.documentElement.classList.add('clad-app')</script>
+         document as in-app so CSS can hide the web/Stripe purchase surfaces
+         and reveal the app-only "Go Premium" button, which routes to the
+         native StoreKit paywall via the cladPurchase bridge (Apple IAP). -->
+    <script is:inline>
+      if (window.__cladNative) {
+        document.documentElement.classList.add('clad-app');
+        document.addEventListener('click', function (e) {
+          var b = e.target.closest && e.target.closest('.js-app-purchase');
+          if (b && window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.cladPurchase) {
+            e.preventDefault();
+            window.webkit.messageHandlers.cladPurchase.postMessage({});
+          }
+        });
+      }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#f5edd9" />
