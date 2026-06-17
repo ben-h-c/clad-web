@@ -33,6 +33,13 @@ function fmtDate(d: Date): string {
   return d.toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
 }
 
+/** Absolute thumbnail URL for an email (YouTube still, or generated image). */
+function thumbUrl(d: Post["data"]): string | null {
+  if (d.thumbnail) return d.thumbnail.startsWith("/") ? SITE + d.thumbnail : d.thumbnail;
+  if (d.videoId) return `https://img.youtube.com/vi/${d.videoId}/hqdefault.jpg`;
+  return null;
+}
+
 /**
  * Build a digest, or null when there's nothing new in the window. `followed`
  * is the user's raw followed-topic strings; `showGrades` gates premium content.
@@ -78,13 +85,24 @@ export function buildDigest(opts: {
       } else {
         scoreLine = `<div style="font:13px Georgia,serif;color:${ACCENT};margin:2px 0 4px"><a href="${SITE}/upgrade/" style="color:${ACCENT};text-decoration:none">🔒 Unlock the grade &amp; lean →</a></div>`;
       }
-      const blurb = esc((d.summary || "").slice(0, 180));
+      const blurb = esc((d.summary || "").slice(0, 160));
+      const thumb = thumbUrl(d);
+      const thumbCell = thumb
+        ? `<td width="128" valign="top" style="padding-right:12px">
+             <a href="${url}"><img src="${esc(thumb)}" width="128" height="72" alt="" style="display:block;width:128px;height:72px;object-fit:cover;border:1px solid #e6ddcb"></a>
+           </td>`
+        : "";
       return `
         <tr><td style="padding:14px 0;border-bottom:1px solid #e6ddcb">
-          <a href="${url}" style="font:700 18px Georgia,serif;color:${INK};text-decoration:none;line-height:1.25">${esc(d.headline)}</a>
-          <div style="font:12px Georgia,serif;color:${MUTED};margin:3px 0">${esc(meta)}</div>
-          ${scoreLine}
-          <div style="font:14px Georgia,serif;color:#333;line-height:1.5">${blurb}…</div>
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+            ${thumbCell}
+            <td valign="top">
+              <a href="${url}" style="font:700 17px Georgia,serif;color:${INK};text-decoration:none;line-height:1.25">${esc(d.headline)}</a>
+              <div style="font:12px Georgia,serif;color:${MUTED};margin:3px 0">${esc(meta)}</div>
+              ${scoreLine}
+              <div style="font:13px Georgia,serif;color:#333;line-height:1.45">${blurb}…</div>
+            </td>
+          </tr></table>
         </td></tr>`;
     })
     .join("");
