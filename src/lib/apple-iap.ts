@@ -18,8 +18,13 @@ const DEFAULT_BUNDLE_ID = "com.bencody.cladfacts";
 const PROD_BASE = "https://api.storekit.itunes.apple.com";
 const SANDBOX_BASE = "https://api.storekit-sandbox.itunes.apple.com";
 
+// Public identifiers (not secrets) — hard-coded so they deploy deterministically
+// with the code; env overrides allowed. Only APPLE_IAP_KEY (the .p8) is secret.
+const APPLE_IAP_KEY_ID = "568T76Y3KF";
+const APPLE_IAP_ISSUER_ID = "3567e5ca-08e3-4811-9138-7d07d8aaf2eb";
+
 export function iapConfigured(): boolean {
-  return !!(env.APPLE_IAP_KEY && env.APPLE_IAP_KEY_ID && env.APPLE_IAP_ISSUER_ID);
+  return !!env.APPLE_IAP_KEY;
 }
 
 export interface AppleStatus {
@@ -103,9 +108,9 @@ export function decodeJwsPayload(jws: string | undefined | null): any {
 
 async function makeApiToken(): Promise<string> {
   const now = Math.floor(Date.now() / 1000);
-  const header = { alg: "ES256", kid: env.APPLE_IAP_KEY_ID!, typ: "JWT" };
+  const header = { alg: "ES256", kid: env.APPLE_IAP_KEY_ID || APPLE_IAP_KEY_ID, typ: "JWT" };
   const payload = {
-    iss: env.APPLE_IAP_ISSUER_ID!,
+    iss: env.APPLE_IAP_ISSUER_ID || APPLE_IAP_ISSUER_ID,
     iat: now,
     exp: now + 20 * 60,
     aud: "appstoreconnect-v1",
