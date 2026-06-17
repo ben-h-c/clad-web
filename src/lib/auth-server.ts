@@ -16,11 +16,18 @@ async function sendEmail(to: string, subject: string, html: string): Promise<voi
 
 let cached: ReturnType<typeof betterAuth> | null = null;
 
-/** Which social providers are configured (so the UI only shows live buttons). */
+// The CladFacts iOS app's bundle id — the audience of native Sign in with
+// Apple id tokens. Public identifier; hard-coded so native Apple sign-in works
+// deterministically without a separately-managed secret (env override allowed).
+const APPLE_APP_BUNDLE_ID = "com.bencody.cladfacts";
+
+/** Which social providers are offered. Google + Apple are always offered
+ *  (the iOS app needs both; Apple is app-only — hidden on web via CSS since
+ *  the web OAuth redirect flow would need a Services ID we don't configure). */
 export function enabledSocialProviders(): string[] {
   const out: string[] = [];
   if (env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET) out.push("google");
-  if (env.APPLE_CLIENT_ID && env.APPLE_CLIENT_SECRET) out.push("apple");
+  out.push("apple");
   if (env.TWITTER_CLIENT_ID && env.TWITTER_CLIENT_SECRET) out.push("twitter");
   return out;
 }
@@ -49,14 +56,17 @@ export function getAuth() {
       clientSecret: env.GOOGLE_CLIENT_SECRET,
     };
   }
-  if (env.APPLE_CLIENT_ID && env.APPLE_CLIENT_SECRET) {
-    socialProviders.apple = {
-      clientId: env.APPLE_CLIENT_ID,
-      clientSecret: env.APPLE_CLIENT_SECRET,
-      // Native Sign in with Apple tokens are audienced to the app bundle id.
-      ...(env.APPLE_APP_BUNDLE_ID ? { appBundleIdentifier: env.APPLE_APP_BUNDLE_ID } : {}),
-    };
-  }
+  // Native Sign in with Apple needs only the app bundle id as the id-token
+  // audience — Better Auth verifies the token against Apple's public keys, no
+  // Services ID or client secret (those are only for the web OAuth redirect
+  // flow, which the app doesn't use). So always register apple for native.
+  // If a Services ID + secret are ever set, they enable the web flow too.
+  socialProviders.apple = {
+    appBundleIdentifier: env.APPLE_APP_BUNDLE_ID || APPLE_APP_BUNDLE_ID,
+    ...(env.APPLE_CLIENT_ID && env.APPLE_CLIENT_SECRET
+      ? { clientId: env.APPLE_CLIENT_ID, clientSecret: env.APPLE_CLIENT_SECRET }
+      : {}),
+  };
   if (env.TWITTER_CLIENT_ID && env.TWITTER_CLIENT_SECRET)
     socialProviders.twitter = { clientId: env.TWITTER_CLIENT_ID, clientSecret: env.TWITTER_CLIENT_SECRET };
 

@@ -4511,3 +4511,8 @@ button.small {
 .clad-app [data-app-hide] {
   display: none !important;
 }
+
+/* Sign in with Apple is app-only: native in the iOS app, but the web OAuth
+   redirect flow needs a Services ID we don't configure, so hide it on the
+   web. Shown only when running inside the app (html.clad-app). */
+html:not(.clad-app) .auth-social__btn--app-only { display: none !important; }

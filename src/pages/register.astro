@@ -19,7 +19,7 @@ const providers = enabledSocialProviders();
     {providers.length > 0 && (
       <div class="auth-social">
         {providers.map((p) => (
-          <button type="button" class="auth-social__btn" data-provider={p}>Continue with {PROVIDER_LABELS[p] ?? p}</button>
+          <button type="button" class:list={["auth-social__btn", p === "apple" && "auth-social__btn--app-only"]} data-provider={p}>Continue with {PROVIDER_LABELS[p] ?? p}</button>
         ))}
         <div class="auth-or"><span>or</span></div>
       </div>
