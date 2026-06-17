@@ -4442,3 +4442,18 @@ button.small {
   margin: 0 0 0.2rem;
 }
 .discover-sec__blurb { color: var(--muted-ink); font-size: 0.95rem; margin: 0 0 0.4rem; line-height: 1.45; }
+
+/* --- Legal pages (privacy / terms) --- */
+.legal__h4 {
+  font-family: var(--display, Georgia, serif);
+  font-size: 1.02rem;
+  margin: 1rem 0 0.3rem;
+}
+.legal__callout {
+  border: 1px solid var(--ink);
+  background: rgba(150, 30, 20, 0.05);
+  padding: 0.7rem 0.9rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.legal ul ul { margin-top: 0.3rem; }

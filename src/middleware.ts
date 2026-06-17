@@ -18,7 +18,14 @@ const STRIPE_API = (path: string) => path.startsWith("/api/stripe/");
 // Public, unauthenticated endpoints. Readers submit grade/lean disputes at
 // /api/flag (rate-limited in the route); /api/auth/* is the user-account
 // (Better Auth) surface and must not sit behind the editor basic-auth gate.
-const PUBLIC_API = (path: string) => path === "/api/flag" || path.startsWith("/api/auth/");
+// /api/posts(.json|/<slug>.json) is the reader JSON feed consumed by the
+// iOS app (and any future client) — tier gating happens inside the route
+// via getAccess(), same model as the homepage.
+const PUBLIC_API = (path: string) =>
+  path === "/api/flag" ||
+  path.startsWith("/api/auth/") ||
+  path === "/api/posts.json" ||
+  path.startsWith("/api/posts/");
 
 const PROTECTED = (path: string) =>
   path === "/admin" ||
