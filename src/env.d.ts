@@ -36,5 +36,12 @@ declare module "cloudflare:workers" {
     STRIPE_PRICE_ANNUAL?: string;
     STRIPE_WEBHOOK_SECRET?: string;
     PUBLIC_STRIPE_PUBLISHABLE_KEY?: string;
+    // APNs push (iOS app) — gated: push fan-out is inert until all are set.
+    // APNS_KEY is the full .p8 file contents (PKCS#8 PEM, ES256 auth key).
+    APNS_KEY?: string;
+    APNS_KEY_ID?: string;
+    APNS_TEAM_ID?: string;
+    // Defaults to com.bencody.cladfacts if unset.
+    APNS_BUNDLE_ID?: string;
   }
 }

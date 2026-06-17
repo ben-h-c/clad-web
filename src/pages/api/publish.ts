@@ -7,6 +7,7 @@ import { extractVideoId } from "~/lib/youtube";
 import { leanBucket } from "~/lib/broadcast";
 import { validateCitations } from "~/lib/citations";
 import { resolveThumbnail } from "~/lib/thumbnail";
+import { sendBreakingPush, apnsConfigured } from "~/lib/push";
 
 export const prerender = false;
 
@@ -160,7 +161,24 @@ export const POST: APIRoute = async ({ request }) => {
       contents: fileBody,
       message: `publish: ${headline}`,
     });
-    return json({ ok: true, slug, htmlUrl: out.url, postUrl: `/posts/${slug}/` }, 200);
+
+    // Notify the iOS app. Best-effort: a push failure must never fail a
+    // publish. Skip drafts. By the time a notification is delivered and
+    // tapped, Cloudflare will have rebuilt and the post URL will be live.
+    let push: Awaited<ReturnType<typeof sendBreakingPush>> | null = null;
+    if (!draft && apnsConfigured()) {
+      try {
+        push = await sendBreakingPush({
+          title: "CladFacts",
+          body: headline,
+          slug,
+        });
+      } catch (e: any) {
+        console.error("push fan-out failed:", e?.message ?? e);
+      }
+    }
+
+    return json({ ok: true, slug, htmlUrl: out.url, postUrl: `/posts/${slug}/`, push }, 200);
   } catch (err: any) {
     return json({ error: err?.message ?? "Publish failed" }, 502);
   }

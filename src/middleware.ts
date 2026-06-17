@@ -25,7 +25,10 @@ const PUBLIC_API = (path: string) =>
   path === "/api/flag" ||
   path.startsWith("/api/auth/") ||
   path === "/api/posts.json" ||
-  path.startsWith("/api/posts/");
+  path.startsWith("/api/posts/") ||
+  // iOS push-token (un)registration. Anonymous devices may opt into
+  // breaking-news alerts; the route reads any session cookie itself.
+  path.startsWith("/api/push/");
 
 const PROTECTED = (path: string) =>
   path === "/admin" ||
