@@ -49,6 +49,11 @@ declare module "cloudflare:workers" {
     APNS_KEY?: string;
     APNS_KEY_ID?: string;
     APNS_TEAM_ID?: string;
+    // Apple In-App Purchase — App Store Server API key (verifies app
+    // subscriptions). APPLE_IAP_KEY is the full .p8 contents (the secret).
+    APPLE_IAP_KEY?: string;
+    APPLE_IAP_KEY_ID?: string;
+    APPLE_IAP_ISSUER_ID?: string;
     // Defaults to com.bencody.cladfacts if unset.
     APNS_BUNDLE_ID?: string;
   }

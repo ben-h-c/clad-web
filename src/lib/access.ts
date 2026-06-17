@@ -31,15 +31,31 @@ export async function getAccess(headers: Headers): Promise<Access> {
 
   const now = Date.now();
 
+  // Premium unlocks from EITHER rail: Stripe (web) or Apple IAP (iOS app).
   const sub = await env.DB.prepare(
     "SELECT status, currentPeriodEnd FROM subscription WHERE userId = ?"
   )
     .bind(user.id)
     .first<{ status: string; currentPeriodEnd: string | null }>();
 
-  const active = !!sub && (sub.status === "active" || sub.status === "trialing");
-  const periodOk = !sub?.currentPeriodEnd || new Date(sub.currentPeriodEnd).getTime() > now;
-  if (active && periodOk) {
+  const stripeActive =
+    !!sub &&
+    (sub.status === "active" || sub.status === "trialing") &&
+    (!sub.currentPeriodEnd || new Date(sub.currentPeriodEnd).getTime() > now);
+
+  // Apple IAP entitlement: active subscription whose period hasn't lapsed.
+  const apple = await env.DB.prepare(
+    "SELECT status, expiresAt FROM apple_subscription WHERE userId = ?"
+  )
+    .bind(user.id)
+    .first<{ status: string; expiresAt: string | null }>();
+  const appleActive =
+    !!apple &&
+    apple.status === "active" &&
+    !!apple.expiresAt &&
+    new Date(apple.expiresAt).getTime() > now;
+
+  if (stripeActive || appleActive) {
     return { tier: "paid", fullAccess: true, signedIn: true, trialEndsAt: null };
   }
 

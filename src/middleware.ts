@@ -28,7 +28,10 @@ const PUBLIC_API = (path: string) =>
   path.startsWith("/api/posts/") ||
   // iOS push-token (un)registration. Anonymous devices may opt into
   // breaking-news alerts; the route reads any session cookie itself.
-  path.startsWith("/api/push/");
+  path.startsWith("/api/push/") ||
+  // iOS in-app purchase: /api/iap/apple reads the session cookie itself;
+  // /api/iap/apple/notifications is Apple's server webhook (no session).
+  path.startsWith("/api/iap/");
 
 const PROTECTED = (path: string) =>
   path === "/admin" ||
