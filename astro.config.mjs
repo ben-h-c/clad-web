@@ -33,11 +33,6 @@ export default defineConfig({
   integrations: [clearContentCache],
   site: "https://cladfacts.com",
   trailingSlash: "ignore",
-  // Some clients (incl. Search Console) request the sitemap with a trailing
-  // slash; the endpoint lives at /sitemap.xml, so redirect the slashed form.
-  redirects: {
-    "/sitemap.xml/": "/sitemap.xml",
-  },
   build: {
     format: "directory",
   },

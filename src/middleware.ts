@@ -27,6 +27,9 @@ const PROTECTED = (path: string) =>
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const path = context.url.pathname;
+  // The sitemap endpoint lives at /sitemap.xml; some clients (Search Console)
+  // request the trailing-slash form, which would 404 — redirect it.
+  if (path === "/sitemap.xml/") return context.redirect("/sitemap.xml", 301);
   if (AGENT_API(path)) return next();
   if (USER_API(path)) return next();
   if (STRIPE_API(path)) return next();
