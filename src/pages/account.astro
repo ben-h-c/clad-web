@@ -42,6 +42,21 @@ const planLabel = access.tier === "paid" ? "Premium" : access.tier === "trial" ?
       </p>
     </header>
 
+    {access.tier !== "paid" && (
+      <section class="account-card clad-app-only">
+        <div class="account-card__head">
+          <h3 class="account-card__title">Go Premium</h3>
+        </div>
+        <p class="account-card__desc">
+          Unlock every letter grade and political-lean rating, the News Trends
+          dashboard, topics, and search — across the app, web, and your widget.
+        </p>
+        <div class="account-actions">
+          <button type="button" class="auth-submit js-app-purchase">Go Premium</button>
+        </div>
+      </section>
+    )}
+
     <section class="account-card account-card--plan" id="plan-section">
       <div class="account-card__head">
         <h3 class="account-card__title">Membership</h3>

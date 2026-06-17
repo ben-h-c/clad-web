@@ -4521,3 +4521,7 @@ html:not(.clad-app) .auth-social__btn--app-only { display: none !important; }
    shown only in the iOS app, where it opens the native StoreKit paywall. */
 .js-app-purchase { display: none; }
 html.clad-app .js-app-purchase { display: inline-block; }
+
+/* App-only blocks: hidden on the web, shown only inside the iOS app. */
+.clad-app-only { display: none; }
+html.clad-app .clad-app-only { display: block; }
