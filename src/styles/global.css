@@ -4491,3 +4491,23 @@ button.small {
   flex: 1 1 18rem;
   max-width: 28rem;
 }
+
+/* --- Reader-app (iOS) purchase-surface hiding ---
+   When running inside the CladFacts iOS app (window.__cladNative → the
+   <html>.clad-app class set in BaseLayout), hide every in-app purchase
+   surface: pricing, checkout, upgrade links, the billing portal, and
+   trial upsells. The app is a "reader" app — Premium content unlocks for
+   users who subscribed on the web, but the app neither sells nor links out
+   to buy (App Review 3.1.1 / 3.1.3). Mark any future CTA with
+   data-app-hide to suppress it too. */
+.clad-app a[href*="/upgrade"],
+.clad-app a[href*="/api/stripe"],
+.clad-app #plan-section,
+.clad-app #portal-btn,
+.clad-app .plans,
+.clad-app .paywall__cta,
+.clad-app .paywall-banner__cta,
+.clad-app .upgrade__trial,
+.clad-app [data-app-hide] {
+  display: none !important;
+}
