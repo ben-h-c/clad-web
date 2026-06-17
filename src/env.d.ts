@@ -24,8 +24,15 @@ declare module "cloudflare:workers" {
     // Social providers (gated — present only once configured)
     GOOGLE_CLIENT_ID?: string;
     GOOGLE_CLIENT_SECRET?: string;
+    // iOS native Google Sign-In mints id tokens with the iOS OAuth client ID
+    // as their audience; adding it lets the native sign-in verify server-side
+    // while the web flow keeps using GOOGLE_CLIENT_ID (the array's index 0).
+    GOOGLE_IOS_CLIENT_ID?: string;
     APPLE_CLIENT_ID?: string;
     APPLE_CLIENT_SECRET?: string;
+    // Native Sign in with Apple id tokens carry the app bundle id as audience
+    // (vs the web Services ID); set this so native apple sign-in verifies.
+    APPLE_APP_BUNDLE_ID?: string;
     TWITTER_CLIENT_ID?: string;
     TWITTER_CLIENT_SECRET?: string;
     // Transactional email

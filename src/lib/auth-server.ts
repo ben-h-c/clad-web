@@ -29,11 +29,26 @@ export function getAuth() {
   if (cached) return cached;
 
   const hasEmail = !!env.RESEND_API_KEY;
-  const socialProviders: Record<string, { clientId: string; clientSecret: string }> = {};
-  if (env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET)
-    socialProviders.google = { clientId: env.GOOGLE_CLIENT_ID, clientSecret: env.GOOGLE_CLIENT_SECRET };
-  if (env.APPLE_CLIENT_ID && env.APPLE_CLIENT_SECRET)
-    socialProviders.apple = { clientId: env.APPLE_CLIENT_ID, clientSecret: env.APPLE_CLIENT_SECRET };
+  // `clientId` may be a string (web only) or an array whose index 0 drives the
+  // web auth-code flow and whose remaining entries are additional accepted
+  // id-token audiences — that's how Better Auth supports native iOS sign-in.
+  const socialProviders: Record<string, Record<string, unknown>> = {};
+  if (env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET) {
+    socialProviders.google = {
+      clientId: env.GOOGLE_IOS_CLIENT_ID
+        ? [env.GOOGLE_CLIENT_ID, env.GOOGLE_IOS_CLIENT_ID]
+        : env.GOOGLE_CLIENT_ID,
+      clientSecret: env.GOOGLE_CLIENT_SECRET,
+    };
+  }
+  if (env.APPLE_CLIENT_ID && env.APPLE_CLIENT_SECRET) {
+    socialProviders.apple = {
+      clientId: env.APPLE_CLIENT_ID,
+      clientSecret: env.APPLE_CLIENT_SECRET,
+      // Native Sign in with Apple tokens are audienced to the app bundle id.
+      ...(env.APPLE_APP_BUNDLE_ID ? { appBundleIdentifier: env.APPLE_APP_BUNDLE_ID } : {}),
+    };
+  }
   if (env.TWITTER_CLIENT_ID && env.TWITTER_CLIENT_SECRET)
     socialProviders.twitter = { clientId: env.TWITTER_CLIENT_ID, clientSecret: env.TWITTER_CLIENT_SECRET };
 

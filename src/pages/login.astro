@@ -68,12 +68,21 @@ const providers = enabledSocialProviders();
     });
     document.querySelectorAll(".auth-social__btn").forEach((b) => {
       b.addEventListener("click", async () => {
+        const provider = b.getAttribute("data-provider");
+        // In the iOS app, Google/Apple OAuth can't complete inside the webview
+        // (passkeys / disallowed_useragent). Hand off to native sign-in, which
+        // posts an id token to the server and injects the session cookie back.
+        if (window.__cladNative && (provider === "google" || provider === "apple")
+            && window.webkit?.messageHandlers?.cladAuth) {
+          window.webkit.messageHandlers.cladAuth.postMessage({ provider });
+          return;
+        }
         b.disabled = true;
         try {
           const res = await fetch("/api/auth/sign-in/social", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ provider: b.getAttribute("data-provider"), callbackURL: dest }),
+            body: JSON.stringify({ provider, callbackURL: dest }),
           });
           const data = await res.json().catch(() => ({}));
           if (data.url) window.location.href = data.url;
