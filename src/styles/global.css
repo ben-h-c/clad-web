@@ -253,9 +253,82 @@ p {
 }
 
 /* --- Account dashboard --- */
-.account-section {
-  margin: 2rem 0;
-  padding-top: 1.5rem;
+.account-hero {
+  margin: 0.5rem 0 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid var(--ink);
+}
+.account-hero__eyebrow { color: var(--muted-ink); letter-spacing: 0.16em; margin: 0; }
+.account-hero__title {
+  font-family: var(--display, Georgia, serif);
+  font-size: clamp(1.6rem, 5vw, 2.3rem);
+  line-height: 1.05;
+  margin: 0.15rem 0 0.5rem;
+}
+.account-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted-ink);
+}
+.account-pill {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.12rem 0.5rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--ink);
+}
+.account-pill--ok { border-color: #2e7d4f; color: #2e7d4f; }
+.account-pill--warn { border-color: #b23b2e; color: #b23b2e; }
+
+.account-card {
+  margin: 1.1rem 0;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+.account-card--plan {
+  border-color: var(--ink);
+  background:
+    radial-gradient(120% 120% at 100% 0%, rgba(150, 30, 20, 0.05), transparent 55%),
+    var(--paper);
+}
+.account-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+.account-card__title {
+  font-family: var(--display, Georgia, serif);
+  font-size: 1.25rem;
+  margin: 0;
+}
+.account-card__desc {
+  color: var(--muted-ink);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 0.4rem;
+}
+.account-count {
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted-ink);
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 999px;
+  min-width: 1.5rem;
+  text-align: center;
+  padding: 0.1rem 0.5rem;
+}
+.account-signout {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
   border-top: 1px solid var(--rule);
 }
 .prefs {
@@ -283,9 +356,12 @@ p {
 }
 .pref-row--select {
   align-items: center;
+  justify-content: space-between;
   gap: 0.75rem;
 }
+.pref-row--select > span { flex: 1; }
 .pref-row--select select {
+  flex: none;
   font: inherit;
   padding: 0.3rem 0.5rem;
   border: 1px solid var(--rule);

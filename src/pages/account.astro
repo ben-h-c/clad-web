@@ -25,63 +25,97 @@ const [prefs, favorites, alerts] = await Promise.all([
 ]);
 const alertTopics = new Set(alerts.map((a) => a.topic.toLowerCase()));
 const suggestions = TOPIC_LABELS.filter((t) => !alertTopics.has(t.toLowerCase()));
+const firstName = (user.name || "").trim().split(/\s+/)[0] || "there";
+const planLabel = access.tier === "paid" ? "Premium" : access.tier === "trial" ? "Free trial" : "Free";
 ---
-<BaseLayout title="Your account — Clad" description="Your CladFacts account, preferences, alerts, and saved articles.">
+<BaseLayout title="Your account — Clad" description="Manage your CladFacts membership, email preferences, topic alerts, and saved articles.">
   <article class="static-page account">
-    <h2 class="static-page__title">Your account</h2>
+    <header class="account-hero">
+      <p class="account-hero__eyebrow small-caps">Your account</p>
+      <h2 class="account-hero__title">Welcome back, {firstName}.</h2>
+      <p class="account-hero__meta">
+        <span>{user.email}</span>
+        {user.emailVerified
+          ? <span class="account-pill account-pill--ok">Verified</span>
+          : <span class="account-pill account-pill--warn">Email unverified</span>}
+        <span class="account-pill">{planLabel}</span>
+      </p>
+    </header>
 
-    <dl class="account-meta">
-      <dt>Name</dt><dd>{user.name || "—"}</dd>
-      <dt>Email</dt><dd>{user.email}{user.emailVerified ? "" : " (unverified)"}</dd>
-    </dl>
-
-    <section class="account-section" id="plan-section">
-      <h3 class="static-page__sub">Membership</h3>
+    <section class="account-card account-card--plan" id="plan-section">
+      <div class="account-card__head">
+        <h3 class="account-card__title">Membership</h3>
+        {access.tier === "paid" ? (
+          <span class="plan-badge plan-badge--paid">Premium</span>
+        ) : access.tier === "trial" ? (
+          <span class="plan-badge plan-badge--trial">Trial · {trialDaysLeft} {trialDaysLeft === 1 ? "day" : "days"} left</span>
+        ) : (
+          <span class="plan-badge plan-badge--free">Free</span>
+        )}
+      </div>
       {access.tier === "paid" ? (
         <>
-          <p class="plan-badge plan-badge--paid">Premium member</p>
+          <p class="account-card__desc">
+            You have <strong>full access</strong> — every letter grade, political-lean rating,
+            the News Trends dashboard, search, and the ability to flag coverage. Thanks for
+            supporting independent fact-checking.
+          </p>
           <div class="account-actions">
-            <button type="button" id="portal-btn" class="auth-submit secondary">Manage subscription</button>
+            <button type="button" id="portal-btn" class="auth-submit secondary">Manage billing</button>
             <span id="portal-status" class="auth-status"></span>
           </div>
         </>
       ) : access.tier === "trial" ? (
         <>
-          <p class="plan-badge plan-badge--trial">Free trial — {trialDaysLeft} {trialDaysLeft === 1 ? "day" : "days"} left</p>
-          <p class="dateline">Full access ends soon. Subscribe to keep grades, lean ratings, trends, and search.</p>
-          <div class="account-actions"><a class="auth-submit" href="/upgrade/">Go Premium — {PRICE.monthly}/mo</a></div>
+          <p class="account-card__desc">
+            Your free week unlocks <strong>everything</strong> — grades, political-lean ratings,
+            Trends, and search. It ends in <strong>{trialDaysLeft} {trialDaysLeft === 1 ? "day" : "days"}</strong>;
+            subscribe now so nothing locks.
+          </p>
+          <div class="account-actions">
+            <a class="auth-submit" href="/upgrade/">Go Premium — {PRICE.monthly}/mo</a>
+          </div>
         </>
       ) : (
         <>
-          <p class="plan-badge plan-badge--free">Free plan</p>
-          <p class="dateline">Grades and political-lean ratings are hidden on the free plan. Upgrade for full access.</p>
-          <div class="account-actions"><a class="auth-submit" href="/upgrade/">See plans</a></div>
+          <p class="account-card__desc">
+            On the free plan, <strong>grades and political-lean ratings are hidden</strong> and the
+            Trends dashboard, search, and flagging are locked. Upgrade to unlock the full picture.
+          </p>
+          <div class="account-actions">
+            <a class="auth-submit" href="/upgrade/">See plans — from {PRICE.monthly}/mo</a>
+          </div>
         </>
       )}
     </section>
 
-    <section class="account-section" id="prefs-section">
-      <h3 class="static-page__sub">Email &amp; notifications</h3>
-      <p class="dateline">Choose what we send you. We'll only email what you opt into.</p>
+    <section class="account-card" id="prefs-section">
+      <div class="account-card__head">
+        <h3 class="account-card__title">Email preferences</h3>
+      </div>
+      <p class="account-card__desc">We only email what you turn on here — and never sell your address.</p>
       <form id="prefs-form" class="prefs">
         <label class="pref-row">
           <input type="checkbox" id="pref-newsletter" checked={prefs.newsletter} />
           <span>
-            <strong>CladFacts newsletter</strong>
-            <small>Our curated rundown of the week's most-checked stories (launching soon).</small>
+            <strong>Weekly newsletter</strong>
+            <small>A short rundown of the week's most-checked stories and biggest grade swings. (Launching soon.)</small>
           </span>
         </label>
         <label class="pref-row">
           <input type="checkbox" id="pref-breaking" checked={prefs.breakingAlerts} />
           <span>
             <strong>Breaking-news alerts</strong>
-            <small>An email when a major story is added to Breaking News.</small>
+            <small>A one-off email the moment a major story hits Breaking News — high-impact events only, not every post.</small>
           </span>
         </label>
         <div class="pref-row pref-row--select">
-          <label for="pref-digest"><strong>Digest frequency</strong></label>
-          <select id="pref-digest">
-            <option value="off" selected={prefs.digest === "off"}>Off</option>
+          <span>
+            <strong>News digest</strong>
+            <small>A recurring roundup of new fact-checks on a set schedule.</small>
+          </span>
+          <select id="pref-digest" aria-label="Digest frequency">
+            <option value="off" selected={prefs.digest === "off"}>Don't send</option>
             <option value="weekly" selected={prefs.digest === "weekly"}>Weekly</option>
             <option value="daily" selected={prefs.digest === "daily"}>Daily</option>
           </select>
@@ -93,15 +127,20 @@ const suggestions = TOPIC_LABELS.filter((t) => !alertTopics.has(t.toLowerCase())
       </form>
     </section>
 
-    <section class="account-section" id="alerts-section">
-      <h3 class="static-page__sub">Topic alerts</h3>
-      <p class="dateline">Follow the issues you care about. We'll notify you when there's new coverage.</p>
+    <section class="account-card" id="alerts-section">
+      <div class="account-card__head">
+        <h3 class="account-card__title">Followed topics</h3>
+        <span class="account-count" id="alert-count">{alerts.length}</span>
+      </div>
+      <p class="account-card__desc">
+        Topics you follow power your alerts and digest — we'll prioritize new coverage on these.
+      </p>
       <ul class="chip-list" id="alert-list">
-        {alerts.length === 0 && <li class="chip-empty" data-empty>No topics yet — add one below.</li>}
+        {alerts.length === 0 && <li class="chip-empty" data-empty>You're not following any topics yet — add one below.</li>}
         {alerts.map((a) => (
           <li class="chip" data-id={a.id}>
             <span class="chip__label">{a.topic}</span>
-            <button type="button" class="chip__remove" aria-label={`Remove ${a.topic}`}>×</button>
+            <button type="button" class="chip__remove" aria-label={`Unfollow ${a.topic}`}>×</button>
           </li>
         ))}
       </ul>
@@ -111,23 +150,27 @@ const suggestions = TOPIC_LABELS.filter((t) => !alertTopics.has(t.toLowerCase())
           id="alert-input"
           list="topic-suggestions"
           maxlength="80"
-          placeholder="Add a topic (e.g. Elections, AI &amp; Tech)…"
+          placeholder="Follow a topic — e.g. Elections, AI &amp; Tech, Iran…"
           autocomplete="off"
         />
         <datalist id="topic-suggestions">
           {suggestions.map((t) => <option value={t}></option>)}
         </datalist>
-        <button type="submit" class="auth-submit secondary">Add</button>
+        <button type="submit" class="auth-submit secondary">Follow</button>
         <span id="alert-status" class="auth-status" role="status"></span>
       </form>
     </section>
 
-    <section class="account-section" id="favorites-section">
-      <h3 class="static-page__sub">Saved articles</h3>
+    <section class="account-card" id="favorites-section">
+      <div class="account-card__head">
+        <h3 class="account-card__title">Saved articles</h3>
+        <span class="account-count" id="fav-count">{favorites.length}</span>
+      </div>
+      <p class="account-card__desc">Reports you've bookmarked to read later.</p>
       <ul class="fav-list" id="fav-list">
         {favorites.length === 0 && (
           <li class="fav-empty" data-empty>
-            Nothing saved yet. Tap <strong>Save</strong> on any report to keep it here.
+            Nothing saved yet — tap <strong>♥ Save</strong> on any report to keep it here.
           </li>
         )}
         {favorites.map((f) => (
@@ -139,7 +182,7 @@ const suggestions = TOPIC_LABELS.filter((t) => !alertTopics.has(t.toLowerCase())
       </ul>
     </section>
 
-    <div class="account-actions">
+    <div class="account-actions account-signout">
       <button type="button" id="logout-btn" class="auth-submit secondary">Sign out</button>
       <span id="logout-status" class="auth-status"></span>
     </div>
@@ -151,6 +194,7 @@ const suggestions = TOPIC_LABELS.filter((t) => !alertTopics.has(t.toLowerCase())
         el.className = "auth-status" + (kind === "error" ? " auth-status--error" : "");
         el.textContent = msg;
       };
+      const setCount = (id, n) => { const el = document.getElementById(id); if (el) el.textContent = String(n); };
 
       // --- Preferences ---
       const prefsForm = document.getElementById("prefs-form");
@@ -197,6 +241,7 @@ const suggestions = TOPIC_LABELS.filter((t) => !alertTopics.has(t.toLowerCase())
         btn.textContent = "×";
         li.append(label, btn);
         alertList.append(li);
+        setCount("alert-count", alertList.querySelectorAll(".chip").length);
       };
 
       alertForm.addEventListener("submit", async (e) => {
@@ -234,11 +279,12 @@ const suggestions = TOPIC_LABELS.filter((t) => !alertTopics.has(t.toLowerCase())
           });
           if (!res.ok) throw new Error();
           li.remove();
+          setCount("alert-count", alertList.querySelectorAll(".chip").length);
           if (!alertList.querySelector(".chip")) {
             const empty = document.createElement("li");
             empty.className = "chip-empty";
             empty.setAttribute("data-empty", "");
-            empty.textContent = "No topics yet — add one below.";
+            empty.textContent = "You're not following any topics yet — add one below.";
             alertList.append(empty);
           }
         } catch {
@@ -263,6 +309,7 @@ const suggestions = TOPIC_LABELS.filter((t) => !alertTopics.has(t.toLowerCase())
           });
           if (!res.ok) throw new Error();
           li.remove();
+          setCount("fav-count", favList.querySelectorAll(".fav").length);
           if (!favList.querySelector(".fav")) {
             const empty = document.createElement("li");
             empty.className = "fav-empty";
