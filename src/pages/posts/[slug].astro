@@ -72,6 +72,25 @@ const ogDescription = locked
   : isBroadcast
     ? `${ogParts.join(" · ")} · Factuality ${d.factualityScore}/100. ${d.summary}`.slice(0, 200)
     : `${ogParts.join(" · ")}. ${d.summary}`.slice(0, 200);
+
+// NewsArticle structured data (grade-free — body text is public; grade is gated).
+const published = d.publishedAt.toISOString();
+const newsLd = {
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  headline: d.headline,
+  description: d.summary,
+  image: [new URL(ogImage, Astro.site ?? "https://cladfacts.com").href],
+  datePublished: published,
+  dateModified: published,
+  mainEntityOfPage: { "@type": "WebPage", "@id": shareUrl },
+  author: { "@type": "Organization", name: "CladFacts" },
+  publisher: {
+    "@type": "Organization",
+    name: "CladFacts",
+    logo: { "@type": "ImageObject", url: new URL("/favicon.svg", Astro.site ?? "https://cladfacts.com").href },
+  },
+};
 ---
 <BaseLayout
   title={`${d.headline} — Clad`}
@@ -80,7 +99,9 @@ const ogDescription = locked
   ogDescription={ogDescription}
   ogImage={ogImage}
   ogType="article"
+  jsonLd={newsLd}
 >
+  <meta slot="head" property="article:published_time" content={published} />
   <article class="post">
     <div class="post__kicker">
       {locked ? (

@@ -16,7 +16,7 @@ if (session?.user) return Astro.redirect(dest);
 const PROVIDER_LABELS: Record<string, string> = { google: "Google", apple: "Apple", twitter: "X" };
 const providers = enabledSocialProviders();
 ---
-<BaseLayout title="Sign in — Clad" description="Sign in to your CladFacts account.">
+<BaseLayout title="Sign in — Clad" description="Sign in to your CladFacts account." noindex={true}>
   <article class="static-page auth-page">
     <h2 class="static-page__title">Sign in</h2>
 

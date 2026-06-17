@@ -9,7 +9,7 @@ const error = Astro.url.searchParams.get("error");
 const session = await getAuth().api.getSession({ headers: Astro.request.headers });
 const signedIn = !!session?.user;
 ---
-<BaseLayout title={error ? "Verification problem — Clad" : "Email confirmed — Clad"} description="Email verification status.">
+<BaseLayout title={error ? "Verification problem — Clad" : "Email confirmed — Clad"} description="Email verification status." noindex={true}>
   <article class="static-page auth-page" style="text-align:center">
     {error ? (
       <>

@@ -28,7 +28,7 @@ const suggestions = TOPIC_LABELS.filter((t) => !alertTopics.has(t.toLowerCase())
 const firstName = (user.name || "").trim().split(/\s+/)[0] || "there";
 const planLabel = access.tier === "paid" ? "Premium" : access.tier === "trial" ? "Free trial" : "Free";
 ---
-<BaseLayout title="Your account — Clad" description="Manage your CladFacts membership, email preferences, topic alerts, and saved articles.">
+<BaseLayout title="Your account — Clad" description="Manage your CladFacts membership, email preferences, topic alerts, and saved articles." noindex={true}>
   <article class="static-page account">
     <header class="account-hero">
       <p class="account-hero__eyebrow small-caps">Your account</p>

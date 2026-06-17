@@ -11,6 +11,10 @@ interface Props {
   ogDescription?: string;
   ogImage?: string;
   ogType?: "website" | "article";
+  /** Keep this page out of search indexes (auth/utility pages). */
+  noindex?: boolean;
+  /** Extra JSON-LD object(s) to emit in <head> (e.g. NewsArticle). */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
@@ -20,6 +24,8 @@ const {
   ogDescription,
   ogImage,
   ogType = "website",
+  noindex = false,
+  jsonLd,
 } = Astro.props;
 
 const site = Astro.site ?? new URL("https://cladfacts.com");
@@ -28,6 +34,31 @@ const shareTitle = ogTitle ?? title;
 const shareDescription = ogDescription ?? description;
 // Resolve the share image to an absolute URL (relative paths -> site origin).
 const shareImage = ogImage ? new URL(ogImage, site).href : null;
+
+// Site-wide structured data: the publisher + a searchable website. Page-specific
+// schema (e.g. NewsArticle) is passed in via the jsonLd prop.
+const SITE_URL = site.origin;
+const orgLd = {
+  "@context": "https://schema.org",
+  "@type": "NewsMediaOrganization",
+  name: "CladFacts",
+  legalName: "CladFacts LLC",
+  url: SITE_URL,
+  logo: `${SITE_URL}/favicon.svg`,
+  description: "AI-assisted fact-checking that grades news for accuracy and rates its political bias.",
+};
+const siteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "CladFacts",
+  url: SITE_URL,
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${SITE_URL}/search/?q={search_term_string}`,
+    "query-input": "required name=search_term_string",
+  },
+};
+const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
 ---
 <!doctype html>
 <html lang="en">
@@ -35,15 +66,21 @@ const shareImage = ogImage ? new URL(ogImage, site).href : null;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#f5edd9" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="preconnect" href="https://img.youtube.com" />
+    <link rel="preconnect" href="https://i.ytimg.com" />
     <title>{title}</title>
 
     <!-- Open Graph / social link previews -->
     <meta property="og:site_name" content="Clad" />
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={shareTitle} />
     <meta property="og:description" content={shareDescription} />
     {shareImage && <meta property="og:image" content={shareImage} />}
@@ -58,6 +95,11 @@ const shareImage = ogImage ? new URL(ogImage, site).href : null;
     <meta name="twitter:description" content={shareDescription} />
     {shareImage && <meta name="twitter:image" content={shareImage} />}
     {shareImage && <meta name="twitter:image:alt" content={shareTitle} />}
+
+    {ldBlocks.map((block) => (
+      <script type="application/ld+json" set:html={JSON.stringify(block)} />
+    ))}
+    <slot name="head" />
   </head>
   <body>
     <div class="shell">

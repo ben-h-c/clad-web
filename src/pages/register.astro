@@ -11,7 +11,7 @@ if (session?.user) return Astro.redirect("/account/");
 const PROVIDER_LABELS: Record<string, string> = { google: "Google", apple: "Apple", twitter: "X" };
 const providers = enabledSocialProviders();
 ---
-<BaseLayout title="Create account — Clad" description="Create a free CladFacts account to save preferences and set topic alerts.">
+<BaseLayout title="Create account — Clad" description="Create a free CladFacts account to save preferences and set topic alerts." noindex={true}>
   <article class="static-page auth-page" id="register-article">
     <h2 class="static-page__title">Create your account</h2>
     <p class="dateline">Save preferences and set up custom topic alerts.</p>

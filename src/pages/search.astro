@@ -10,6 +10,7 @@ const fullAccess = (await getAccess(Astro.request.headers)).fullAccess;
 <BaseLayout
   title="Search — Clad"
   description="Search Clad's fact-checked political reports by topic, headline, network, grade, bias, or date."
+  noindex={true}
 >
   <section class="search-page" data-full-access={fullAccess ? "1" : "0"}>
     <h2 class="search-page__title">Search</h2>
