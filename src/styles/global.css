@@ -4375,3 +4375,12 @@ button.small {
   font-weight: 700;
   white-space: nowrap;
 }
+
+/* --- Admin: News Digest --- */
+.digest-stats { display: flex; gap: 1.5rem; margin: 1rem 0 1.25rem; }
+.digest-stat { display: flex; flex-direction: column; }
+.digest-stat__n { font-family: var(--display, Georgia, serif); font-size: 1.6rem; font-weight: 700; line-height: 1; }
+.digest-stat span:last-child { font-size: 0.75rem; color: var(--muted-ink); text-transform: uppercase; letter-spacing: 0.05em; }
+.digest-actions { margin: 1rem 0 1.5rem; }
+.digest-preview { margin-top: 0.5rem; }
+.digest-frame { width: 100%; max-width: 640px; height: 560px; border: 1px solid var(--rule); background: #f5edd9; }

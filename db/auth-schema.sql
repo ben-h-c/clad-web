@@ -73,6 +73,12 @@ CREATE TABLE IF NOT EXISTS "subscription" (
   "currentPeriodEnd" date,
   "updatedAt" date NOT NULL
 );
+-- News-digest send log (one row per user; updated when a digest is emailed).
+CREATE TABLE IF NOT EXISTS "digest_send" (
+  "userId" text NOT NULL PRIMARY KEY REFERENCES "user" ("id"),
+  "lastSentAt" date,
+  "updatedAt" date NOT NULL
+);
 CREATE INDEX IF NOT EXISTS "idx_session_userId" ON "session" ("userId");
 CREATE INDEX IF NOT EXISTS "idx_account_userId" ON "account" ("userId");
 CREATE INDEX IF NOT EXISTS "idx_topic_alert_userId" ON "topic_alert" ("userId");

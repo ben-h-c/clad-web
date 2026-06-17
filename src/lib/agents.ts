@@ -168,6 +168,16 @@ export const DEFAULT_REGISTRY: Registry = {
         maxQuipPool: 120,
       },
     },
+    {
+      id: "digest-sender",
+      kind: "digest-sender",
+      name: "News Digest Sender",
+      enabled: true,
+      // Daily at 13:00 UTC (~8am ET); the endpoint decides daily vs weekly and
+      // skips users who already got one this period.
+      cron: "0 13 * * *",
+      config: {},
+    },
   ],
 };
 

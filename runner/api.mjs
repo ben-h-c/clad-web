@@ -93,6 +93,10 @@ export function getClassifications() {
   return call("/api/agent/classify", { method: "GET" });
 }
 
+export function runDigest() {
+  return call("/api/agent/digest", { method: "POST", body: "{}" });
+}
+
 export function putClassifications(updates, keepIds) {
   return call("/api/agent/classify", {
     method: "POST",
