@@ -194,6 +194,14 @@ export const DEFAULT_REGISTRY: Registry = {
       cron: "0 11 * * *", // daily, 11:00 UTC
       config: { maxSections: 6, poolSize: 80 },
     },
+    {
+      id: "dead-video-pruner",
+      kind: "dead-video-pruner",
+      name: "Dead Video Pruner",
+      enabled: true,
+      cron: "0 12 * * *", // daily, 12:00 UTC
+      config: { maxDeletePerRun: 25, dryRun: false },
+    },
   ],
 };
 

@@ -16,6 +16,7 @@ import { runQuipWriter } from "./quipWriter.mjs";
 import { runDigestSender } from "./digestSender.mjs";
 import { runNewsletterSender } from "./newsletterSender.mjs";
 import { runDiscoverCurator } from "./discoverCurator.mjs";
+import { runDeadVideoPruner } from "./deadVideoPruner.mjs";
 import { processUrlQueue } from "./urlIntake.mjs";
 import { updateTicker } from "./ticker.mjs";
 
@@ -32,6 +33,7 @@ const KINDS = {
   "digest-sender": runDigestSender,
   "newsletter-sender": runNewsletterSender,
   "discover-curator": runDiscoverCurator,
+  "dead-video-pruner": runDeadVideoPruner,
 };
 
 function log(...args) {
