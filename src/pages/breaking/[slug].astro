@@ -17,7 +17,7 @@ export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
 
 const access = await getAccess(Astro.request.headers);
-if (!access.fullAccess) return Astro.redirect("/upgrade/");
+const locked = !access.fullAccess;
 
 const slug = Astro.params.slug;
 const items = await getBreaking(env.AGENTS);
@@ -55,17 +55,24 @@ const shareUrl = new URL(`/breaking/${slug}/`, Astro.site ?? "https://cladfacts.
     </p>
     <h2 class="topic-page__title">{group.title}</h2>
 
-    <div class="topic-page__agg">
-      {avgGrade && (
-        <div class="scoreband__grade">
-          <LetterGrade grade={avgGrade} size="card" />
-          <span class="scoreband__cap small-caps">Avg grade</span>
-        </div>
-      )}
-      {avgLean !== null && (
-        <div class="scoreband__bias"><PoliticalLean score={avgLean} /></div>
-      )}
-    </div>
+    {locked ? (
+      <p class="grade-lock-panel" style="margin:0.75rem 0">
+        🔒 Average grade &amp; political-lean for this story are
+        <a href="/upgrade/"> Premium</a>.
+      </p>
+    ) : (
+      <div class="topic-page__agg">
+        {avgGrade && (
+          <div class="scoreband__grade">
+            <LetterGrade grade={avgGrade} size="card" />
+            <span class="scoreband__cap small-caps">Avg grade</span>
+          </div>
+        )}
+        {avgLean !== null && (
+          <div class="scoreband__bias"><PoliticalLean score={avgLean} /></div>
+        )}
+      </div>
+    )}
 
     <p class="dateline">
       A temporary grouping of multiple outlets' coverage of the same breaking

@@ -15,9 +15,9 @@ import { getAccess } from "~/lib/access";
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
 
-// Article pages (grades + lean + full report) are full-access only.
+// Article text is open (SEO); grade, lean, factuality + flagging are Premium.
 const access = await getAccess(Astro.request.headers);
-if (!access.fullAccess) return Astro.redirect("/upgrade/");
+const locked = !access.fullAccess;
 
 const all = await getCollection("posts", (p) => !p.data.draft);
 const post = all.find((p) => p.id === Astro.params.slug);
@@ -65,9 +65,13 @@ const ogParts = isBroadcast
 // for the rare client that shows text but not the image.
 const ogTitle = d.headline;
 const ogImage = `/og/${post.id}.png`;
-const ogDescription = isBroadcast
-  ? `${ogParts.join(" · ")} · Factuality ${d.factualityScore}/100. ${d.summary}`.slice(0, 200)
-  : `${ogParts.join(" · ")}. ${d.summary}`.slice(0, 200);
+// Restricted readers (incl. crawlers) get a grade-free description so the
+// grade/lean stays Premium; full-access requests keep the rich snippet.
+const ogDescription = locked
+  ? d.summary.slice(0, 200)
+  : isBroadcast
+    ? `${ogParts.join(" · ")} · Factuality ${d.factualityScore}/100. ${d.summary}`.slice(0, 200)
+    : `${ogParts.join(" · ")}. ${d.summary}`.slice(0, 200);
 ---
 <BaseLayout
   title={`${d.headline} — Clad`}
@@ -79,7 +83,9 @@ const ogDescription = isBroadcast
 >
   <article class="post">
     <div class="post__kicker">
-      {isBroadcast ? (
+      {locked ? (
+        <span class="grade-lock" aria-label="Premium">🔒 Grade — Premium</span>
+      ) : isBroadcast ? (
         <LetterGrade grade={d.letterGrade!} />
       ) : (
         <Verdict verdict={d.verdict!} />
@@ -149,54 +155,68 @@ const ogDescription = isBroadcast
 
     {isBroadcast ? (
       <div class="report">
-        <div class="report__scorecard">
-          <div class="report__grade">
-            <LetterGrade grade={d.letterGrade!} size="hero" />
-            <span class="small-caps">Grade</span>
-          </div>
-          <div class="report__metrics">
-            <FactualityBar score={d.factualityScore!} />
-            {(d.leanScore != null || d.politicalLean) && (
-              <PoliticalLean score={d.leanScore} lean={d.politicalLean} size="header" />
-            )}
-          </div>
-        </div>
-        {d.gradeRationale && (
-          <p class="grade-rationale">
-            <span class="small-caps">Why this grade:</span> {d.gradeRationale}
-          </p>
-        )}
-        {d.leanRationale && (
-          <p class="lean-rationale">
-            <span class="small-caps">Why this lean:</span> {d.leanRationale}
-          </p>
-        )}
-
-        <details class="flag" data-post-id={post.id}>
-          <summary class="flag__summary">Disagree with this grade or political lean?</summary>
-          <div class="flag__body">
-            <p class="flag__intro">
-              Tell us why. Your note goes to the editor, who reviews every
-              submission and may re-grade the report.
+        {locked ? (
+          <div class="report__locked">
+            <p class="grade-lock-panel">
+              🔒 The <strong>letter grade</strong>, factuality score, and
+              <strong> political-lean</strong> rating for this report are part of
+              <a href="/upgrade/"> CladFacts Premium</a>. The full report below is
+              free to read.
             </p>
-            <fieldset class="flag__aspect">
-              <legend class="small-caps">What do you disagree with?</legend>
-              <label><input type="radio" name="aspect" value="grade" checked /> The grade</label>
-              <label><input type="radio" name="aspect" value="lean" /> The political lean</label>
-              <label><input type="radio" name="aspect" value="both" /> Both</label>
-            </fieldset>
-            <textarea
-              class="flag__comment"
-              rows="4"
-              maxlength="2000"
-              placeholder="Explain what you think is wrong and why — cite specifics if you can."
-            ></textarea>
-            <div class="flag__actions">
-              <button type="button" class="flag__submit">Submit to editor</button>
-            </div>
-            <div class="flag__status" role="status"></div>
           </div>
-        </details>
+        ) : (
+          <>
+            <div class="report__scorecard">
+              <div class="report__grade">
+                <LetterGrade grade={d.letterGrade!} size="hero" />
+                <span class="small-caps">Grade</span>
+              </div>
+              <div class="report__metrics">
+                <FactualityBar score={d.factualityScore!} />
+                {(d.leanScore != null || d.politicalLean) && (
+                  <PoliticalLean score={d.leanScore} lean={d.politicalLean} size="header" />
+                )}
+              </div>
+            </div>
+            {d.gradeRationale && (
+              <p class="grade-rationale">
+                <span class="small-caps">Why this grade:</span> {d.gradeRationale}
+              </p>
+            )}
+            {d.leanRationale && (
+              <p class="lean-rationale">
+                <span class="small-caps">Why this lean:</span> {d.leanRationale}
+              </p>
+            )}
+
+            <details class="flag" data-post-id={post.id}>
+              <summary class="flag__summary">Disagree with this grade or political lean?</summary>
+              <div class="flag__body">
+                <p class="flag__intro">
+                  Tell us why. Your note is reprocessed through the same grading
+                  logic; if the output is still off the report is removed, and if
+                  it holds up it stays.
+                </p>
+                <fieldset class="flag__aspect">
+                  <legend class="small-caps">What do you disagree with?</legend>
+                  <label><input type="radio" name="aspect" value="grade" checked /> The grade</label>
+                  <label><input type="radio" name="aspect" value="lean" /> The political lean</label>
+                  <label><input type="radio" name="aspect" value="both" /> Both</label>
+                </fieldset>
+                <textarea
+                  class="flag__comment"
+                  rows="4"
+                  maxlength="2000"
+                  placeholder="Explain what you think is wrong and why — cite specifics if you can."
+                ></textarea>
+                <div class="flag__actions">
+                  <button type="button" class="flag__submit">Submit for review</button>
+                </div>
+                <div class="flag__status" role="status"></div>
+              </div>
+            </details>
+          </>
+        )}
 
         {d.videoId && (
           <div class="video-embed">

@@ -9,8 +9,9 @@ type Item =
 
 interface Props {
   items: Item[];
+  locked?: boolean;
 }
-const { items } = Astro.props;
+const { items, locked = false } = Astro.props;
 ---
 {items.length > 0 && (
   <section class="hero hero--breaking">
@@ -23,9 +24,9 @@ const { items } = Astro.props;
         {items.map((it) => (
           <div class="hero-strip__item">
             {it.kind === "group" ? (
-              <BreakingGroupCard slug={it.slug} title={it.title} topic={it.topic} members={it.members} />
+              <BreakingGroupCard slug={it.slug} title={it.title} topic={it.topic} members={it.members} locked={locked} />
             ) : (
-              <ReportCard post={it.post} />
+              <ReportCard post={it.post} locked={locked} />
             )}
           </div>
         ))}

@@ -12,7 +12,7 @@ export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
 
 const access = await getAccess(Astro.request.headers);
-if (!access.fullAccess) return Astro.redirect("/upgrade/");
+const locked = !access.fullAccess;
 
 const all = await getCollection("posts", (p) => !p.data.draft);
 const topic = aggregateTopics(all).find((t) => t.slug === Astro.params.topic);
@@ -47,24 +47,31 @@ const ogDescription = [
     <p class="small-caps" style="color:var(--muted-ink)">Topic · {topic.count} {topic.count === 1 ? "report" : "reports"}</p>
     <h2 class="topic-page__title">{topic.display}</h2>
 
-    <div class="topic-page__agg">
-      {topic.avgGrade && (
-        <div class="scoreband__grade">
-          <LetterGrade grade={topic.avgGrade} size="card" />
-          <span class="scoreband__cap small-caps">Avg grade</span>
-        </div>
-      )}
-      {topic.avgLean !== null && (
-        <div class="scoreband__bias"><PoliticalLean score={topic.avgLean} /></div>
-      )}
-    </div>
+    {locked ? (
+      <p class="grade-lock-panel" style="margin:0.75rem 0">
+        🔒 Average grade &amp; political-lean for this topic are
+        <a href="/upgrade/"> Premium</a>.
+      </p>
+    ) : (
+      <div class="topic-page__agg">
+        {topic.avgGrade && (
+          <div class="scoreband__grade">
+            <LetterGrade grade={topic.avgGrade} size="card" />
+            <span class="scoreband__cap small-caps">Avg grade</span>
+          </div>
+        )}
+        {topic.avgLean !== null && (
+          <div class="scoreband__bias"><PoliticalLean score={topic.avgLean} /></div>
+        )}
+      </div>
+    )}
 
     <ShareBar url={shareUrl} title={`${topic.display} — Clad`} />
 
     <div class="rule rule--double" aria-hidden="true" style="margin:1.25rem 0"></div>
 
     <div class="feed-list">
-      {posts.map((p) => <ReportCard post={p} variant="bar" />)}
+      {posts.map((p) => <ReportCard post={p} variant="bar" locked={locked} />)}
     </div>
   </section>
 </BaseLayout>

@@ -4,14 +4,15 @@ import type { TopicAgg } from "~/lib/topics";
 
 interface Props {
   topic: TopicAgg;
+  locked?: boolean;
 }
-const { topic } = Astro.props;
+const { topic, locked = false } = Astro.props;
 
 function leanLabel(s: number | null): string | null {
   if (s === null) return null;
   return Math.abs(s) < 5 ? "Centered" : `${Math.abs(s)}% ${s > 0 ? "Right" : "Left"}`;
 }
-const lean = leanLabel(topic.avgLean);
+const lean = locked ? null : leanLabel(topic.avgLean);
 ---
 <a class="topic-row" href={`/topics/${topic.slug}/`}>
   {topic.thumbnail && (
@@ -34,7 +35,8 @@ const lean = leanLabel(topic.avgLean);
       {lean && <> · {lean}</>}
     </span>
   </span>
-  {topic.avgGrade && (
+  {!locked && topic.avgGrade && (
     <span class="topic-row__grade"><LetterGrade grade={topic.avgGrade} size="card" /></span>
   )}
+  {locked && <span class="topic-row__grade grade-lock" aria-label="Premium">🔒</span>}
 </a>

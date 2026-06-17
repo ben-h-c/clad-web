@@ -9,8 +9,9 @@ interface Props {
   title: string;
   topic?: string;
   members: CollectionEntry<"posts">[];
+  locked?: boolean;
 }
-const { slug, title, topic, members } = Astro.props;
+const { slug, title, topic, members, locked = false } = Astro.props;
 
 // Aggregate grade + lean across the grouped reports, like a topic does.
 const gpas = members.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n != null);
@@ -21,7 +22,9 @@ const avgLean = leans.length ? Math.round(leans.reduce((a, b) => a + b, 0) / lea
 // members[0] is the lead (highest-impact) story — its grade reasoning stands in
 // for the group's, like a single article card shows its own.
 const lead = members[0];
-const reasoning = lead?.data.gradeRationale || lead?.data.summary || "";
+const reasoning = locked
+  ? lead?.data.summary || ""
+  : lead?.data.gradeRationale || lead?.data.summary || "";
 
 const byNew = [...members].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 const thumb = byNew.find((p) => p.data.thumbnail)?.data.thumbnail ?? null;
@@ -44,7 +47,11 @@ const hqFallback = byNew.find((p) => p.data.videoId)?.data.videoId;
       </div>
     )}
     <div class="report-card__body">
-      {avgGrade ? (
+      {locked ? (
+        <div class="scoreband scoreband--locked">
+          <span class="grade-lock" aria-label="Premium">🔒 Grade &amp; lean — Premium</span>
+        </div>
+      ) : avgGrade ? (
         <div class="scoreband">
           <div class="scoreband__grade">
             <LetterGrade grade={avgGrade} size="card" />

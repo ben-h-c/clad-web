@@ -6,8 +6,9 @@ interface Props {
   posts: CollectionEntry<"posts">[];
   title?: string;
   variant?: string;
+  locked?: boolean;
 }
-const { posts, title = "Front Page", variant } = Astro.props;
+const { posts, title = "Front Page", variant, locked = false } = Astro.props;
 ---
 {posts.length > 0 && (
   <section class={`hero${variant ? ` hero--${variant}` : ""}`}>
@@ -19,7 +20,7 @@ const { posts, title = "Front Page", variant } = Astro.props;
       <div class="hero-strip" aria-label={`${title} reports`}>
         {posts.map((p) => (
           <div class="hero-strip__item">
-            <ReportCard post={p} />
+            <ReportCard post={p} locked={locked} />
           </div>
         ))}
       </div>

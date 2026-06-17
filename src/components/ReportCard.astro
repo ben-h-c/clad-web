@@ -8,8 +8,10 @@ import type { CollectionEntry } from "astro:content";
 interface Props {
   post: CollectionEntry<"posts">;
   variant?: "card" | "bar";
+  /** Hide grade + political-lean (free/anonymous readers). */
+  locked?: boolean;
 }
-const { post, variant = "card" } = Astro.props;
+const { post, variant = "card", locked = false } = Astro.props;
 const d = post.data;
 const isBroadcast = d.type === "broadcast";
 const source = d.sourceTitle ?? (() => {
@@ -32,7 +34,8 @@ const leanScore = typeof d.leanScore === "number"
   : d.politicalLean ? ENUM_TO_SCORE[d.politicalLean] ?? 0 : null;
 
 // Card text: explain WHY it was graded (fall back to summary for legacy posts).
-const blurb = (isBroadcast && d.gradeRationale) ? d.gradeRationale : d.summary;
+// Locked readers never see the grade rationale — always the neutral summary.
+const blurb = (!locked && isBroadcast && d.gradeRationale) ? d.gradeRationale : d.summary;
 ---
 <article class={`report-card report-card--${variant}`}>
   <a class="report-card__link" href={`/posts/${post.id}/`}>
@@ -50,7 +53,11 @@ const blurb = (isBroadcast && d.gradeRationale) ? d.gradeRationale : d.summary;
       </div>
     )}
     <div class="report-card__body">
-      {isBroadcast && d.letterGrade ? (
+      {locked ? (
+        <div class="scoreband scoreband--locked">
+          <span class="grade-lock" aria-label="Premium">🔒 Grade &amp; lean — Premium</span>
+        </div>
+      ) : isBroadcast && d.letterGrade ? (
         <div class="scoreband">
           <div class="scoreband__grade">
             <LetterGrade grade={d.letterGrade} size="card" />

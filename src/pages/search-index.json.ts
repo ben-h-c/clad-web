@@ -3,16 +3,11 @@ import { getAccess } from "~/lib/access";
 
 export const prerender = false;
 
-// Search index of all published posts (carries grades + lean), so it's
-// full-access only — the /search page that consumes it is gated too.
+// Search index of all published posts. Open to everyone (SEO + free search),
+// but grade + political-lean are omitted for restricted readers (Premium).
 export async function GET({ request }: { request: Request }) {
   const access = await getAccess(request.headers);
-  if (!access.fullAccess) {
-    return new Response(JSON.stringify({ error: "upgrade" }), {
-      status: 403,
-      headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
-    });
-  }
+  const locked = !access.fullAccess;
 
   const posts = (await getCollection("posts", (p) => !p.data.draft)).sort(
     (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
@@ -23,7 +18,7 @@ export async function GET({ request }: { request: Request }) {
     const channel = d.sourceTitle ?? (() => {
       try { return new URL(d.sourceUrl).hostname.replace(/^www\./, ""); } catch { return ""; }
     })();
-    const blurb = (d.type === "broadcast" && d.gradeRationale) ? d.gradeRationale : d.summary;
+    const blurb = (!locked && d.type === "broadcast" && d.gradeRationale) ? d.gradeRationale : d.summary;
     const text = [
       d.headline, d.summary, d.assessment ?? "", d.gradeRationale ?? "",
       (d.topics ?? []).join(" "), channel,
@@ -34,9 +29,9 @@ export async function GET({ request }: { request: Request }) {
       blurb,
       topics: d.topics ?? [],
       channel,
-      grade: d.type === "broadcast" ? (d.letterGrade ?? null) : (d.verdict ?? null),
+      grade: locked ? null : d.type === "broadcast" ? (d.letterGrade ?? null) : (d.verdict ?? null),
       isBroadcast: d.type === "broadcast",
-      leanScore: typeof d.leanScore === "number" ? d.leanScore : null,
+      leanScore: locked ? null : (typeof d.leanScore === "number" ? d.leanScore : null),
       date: d.publishedAt.toISOString(),
       thumbnail: d.thumbnail ?? null,
       text,
@@ -44,6 +39,6 @@ export async function GET({ request }: { request: Request }) {
   });
 
   return new Response(JSON.stringify(records), {
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", "Cache-Control": "private, no-store" },
   });
 }
