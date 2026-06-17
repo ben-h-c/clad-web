@@ -97,6 +97,10 @@ export function runDigest() {
   return call("/api/agent/digest", { method: "POST", body: "{}" });
 }
 
+export function runNewsletter() {
+  return call("/api/agent/newsletter", { method: "POST", body: "{}" });
+}
+
 export function putClassifications(updates, keepIds) {
   return call("/api/agent/classify", {
     method: "POST",

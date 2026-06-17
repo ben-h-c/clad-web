@@ -5,94 +5,115 @@ import AdminNav from "~/components/AdminNav.astro";
 
 export const prerender = false;
 
-let optedIn = 0;
-let breakdown = { daily: 0, weekly: 0 };
+let digest = { daily: 0, weekly: 0 };
+let newsletter = 0;
 let dbError = "";
 try {
   const c = await env.DB.prepare(
     "SELECT json_extract(prefs,'$.digest') AS cadence, count(*) AS n FROM user_preferences WHERE json_extract(prefs,'$.digest') IN ('daily','weekly') GROUP BY cadence"
   ).all<{ cadence: string; n: number }>();
   for (const r of c.results ?? []) {
-    if (r.cadence === "daily") breakdown.daily = r.n;
-    if (r.cadence === "weekly") breakdown.weekly = r.n;
+    if (r.cadence === "daily") digest.daily = r.n;
+    if (r.cadence === "weekly") digest.weekly = r.n;
   }
-  optedIn = breakdown.daily + breakdown.weekly;
+  const nl = await env.DB.prepare(
+    "SELECT count(*) AS n FROM user_preferences WHERE json_extract(prefs,'$.newsletter') = 1"
+  ).first<{ n: number }>();
+  newsletter = nl?.n ?? 0;
 } catch (e: any) {
   dbError = e?.message ?? "Could not read subscribers";
 }
+const digestTotal = digest.daily + digest.weekly;
 const resendOn = !!env.RESEND_API_KEY;
 ---
-<BaseLayout title="Clad — News Digest">
+<BaseLayout title="Clad — Email">
   <section class="admin">
     <AdminNav current="digest" />
-    <h2 class="admin__title">News Digest</h2>
-    <p class="dateline">
-      Opt-in email roundup of recent fact-checks, personalized to each reader's
-      followed topics. Subscribers see grades &amp; lean; free readers get
-      headlines with an upgrade nudge. The sender runs daily (07–08 ET) and only
-      emails users who are due (daily every day, weekly every 7 days).
-    </p>
-
+    <h2 class="admin__title">Email</h2>
     {dbError && <p class="comp-empty">Couldn't read subscribers: {dbError}</p>}
     {!resendOn && <p class="comp-empty">Resend isn't configured — emails won't send until RESEND_API_KEY is set.</p>}
 
+    <!-- News Digest -->
+    <h3 class="static-page__sub">News Digest</h3>
+    <p class="dateline">
+      Personalized roundup of recent fact-checks (led by each reader's followed topics).
+      Sender runs daily; emails daily users every day and weekly users every 7 days.
+      Subscribers see grades; free readers get an upgrade nudge.
+    </p>
     <div class="digest-stats">
-      <div class="digest-stat"><span class="digest-stat__n">{optedIn}</span><span>opted in</span></div>
-      <div class="digest-stat"><span class="digest-stat__n">{breakdown.daily}</span><span>daily</span></div>
-      <div class="digest-stat"><span class="digest-stat__n">{breakdown.weekly}</span><span>weekly</span></div>
+      <div class="digest-stat"><span class="digest-stat__n">{digestTotal}</span><span>opted in</span></div>
+      <div class="digest-stat"><span class="digest-stat__n">{digest.daily}</span><span>daily</span></div>
+      <div class="digest-stat"><span class="digest-stat__n">{digest.weekly}</span><span>weekly</span></div>
     </div>
+    <form class="alert-add email-test" data-kind="digest">
+      <input type="email" placeholder="you@example.com" autocomplete="email" />
+      <button type="submit" class="auth-submit secondary">Send test digest</button>
+      <span class="auth-status" role="status"></span>
+    </form>
+    <div class="digest-preview" data-preview="digest"><p class="dateline">Loading preview…</p></div>
 
-    <div class="digest-actions">
-      <form id="test-form" class="alert-add">
-        <input id="test-to" type="email" placeholder="you@example.com" autocomplete="email" />
-        <button type="submit" class="auth-submit secondary">Send test to this address</button>
-        <span id="test-status" class="auth-status" role="status"></span>
-      </form>
+    <!-- Weekly Newsletter -->
+    <h3 class="static-page__sub" style="margin-top:2.5rem">Weekly Newsletter</h3>
+    <p class="dateline">
+      Editorial "week in review" — same for everyone: the week's numbers, top stories, and the
+      best/worst grades + most-biased coverage. Sends Mondays (~9am ET). Subscribers see grades;
+      free readers get the stories plus an upgrade nudge.
+    </p>
+    <div class="digest-stats">
+      <div class="digest-stat"><span class="digest-stat__n">{newsletter}</span><span>opted in</span></div>
     </div>
-
-    <h3 class="static-page__sub">Preview</h3>
-    <p class="dateline">Sample of the current digest (subscriber view, top stories).</p>
-    <div id="preview-wrap" class="digest-preview"><p class="dateline">Loading preview…</p></div>
+    <form class="alert-add email-test" data-kind="newsletter">
+      <input type="email" placeholder="you@example.com" autocomplete="email" />
+      <button type="submit" class="auth-submit secondary">Send test newsletter</button>
+      <span class="auth-status" role="status"></span>
+    </form>
+    <div class="digest-preview" data-preview="newsletter"><p class="dateline">Loading preview…</p></div>
   </section>
 
   <script is:inline>
     (() => {
-      const wrap = document.getElementById("preview-wrap");
-      fetch("/api/admin/digest")
-        .then((r) => r.json())
-        .then((d) => {
-          if (d.preview && d.preview.html) {
-            const f = document.createElement("iframe");
-            f.className = "digest-frame";
-            f.setAttribute("title", "Digest preview");
-            f.srcdoc = d.preview.html;
-            wrap.replaceChildren(f);
-          } else {
-            wrap.innerHTML = '<p class="dateline">No recent posts to preview.</p>';
-          }
-        })
-        .catch(() => { wrap.innerHTML = '<p class="dateline">Preview failed to load.</p>'; });
+      const endpoint = (kind) => kind === "newsletter" ? "/api/admin/newsletter" : "/api/admin/digest";
 
-      const form = document.getElementById("test-form");
-      const status = document.getElementById("test-status");
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const to = document.getElementById("test-to").value.trim();
-        status.className = "auth-status";
-        status.textContent = "Sending…";
-        try {
-          const res = await fetch("/api/admin/digest", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ to }),
-          });
-          const data = await res.json().catch(() => ({}));
-          if (!res.ok) throw new Error(data.error || "Failed");
-          status.textContent = "Sent — check the inbox.";
-        } catch (err) {
-          status.className = "auth-status auth-status--error";
-          status.textContent = String(err.message || err);
-        }
+      document.querySelectorAll("[data-preview]").forEach((wrap) => {
+        const kind = wrap.getAttribute("data-preview");
+        fetch(endpoint(kind))
+          .then((r) => r.json())
+          .then((d) => {
+            if (d.preview && d.preview.html) {
+              const f = document.createElement("iframe");
+              f.className = "digest-frame";
+              f.setAttribute("title", kind + " preview");
+              f.srcdoc = d.preview.html;
+              wrap.replaceChildren(f);
+            } else {
+              wrap.innerHTML = '<p class="dateline">No recent posts to preview.</p>';
+            }
+          })
+          .catch(() => { wrap.innerHTML = '<p class="dateline">Preview failed to load.</p>'; });
+      });
+
+      document.querySelectorAll(".email-test").forEach((form) => {
+        const kind = form.getAttribute("data-kind");
+        const status = form.querySelector(".auth-status");
+        const input = form.querySelector("input");
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          status.className = "auth-status";
+          status.textContent = "Sending…";
+          try {
+            const res = await fetch(endpoint(kind), {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ to: input.value.trim() }),
+            });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok) throw new Error(data.error || "Failed");
+            status.textContent = "Sent — check the inbox.";
+          } catch (err) {
+            status.className = "auth-status auth-status--error";
+            status.textContent = String(err.message || err);
+          }
+        });
       });
     })();
   </script>

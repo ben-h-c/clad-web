@@ -79,6 +79,12 @@ CREATE TABLE IF NOT EXISTS "digest_send" (
   "lastSentAt" date,
   "updatedAt" date NOT NULL
 );
+-- Weekly-newsletter send log (separate opt-in/cadence from the digest).
+CREATE TABLE IF NOT EXISTS "newsletter_send" (
+  "userId" text NOT NULL PRIMARY KEY REFERENCES "user" ("id"),
+  "lastSentAt" date,
+  "updatedAt" date NOT NULL
+);
 CREATE INDEX IF NOT EXISTS "idx_session_userId" ON "session" ("userId");
 CREATE INDEX IF NOT EXISTS "idx_account_userId" ON "account" ("userId");
 CREATE INDEX IF NOT EXISTS "idx_topic_alert_userId" ON "topic_alert" ("userId");

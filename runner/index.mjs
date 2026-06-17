@@ -14,6 +14,7 @@ import { runBreakingCurator } from "./breakingCurator.mjs";
 import { runComplianceAuditor } from "./complianceAuditor.mjs";
 import { runQuipWriter } from "./quipWriter.mjs";
 import { runDigestSender } from "./digestSender.mjs";
+import { runNewsletterSender } from "./newsletterSender.mjs";
 import { processUrlQueue } from "./urlIntake.mjs";
 import { updateTicker } from "./ticker.mjs";
 
@@ -28,6 +29,7 @@ const KINDS = {
   "compliance-auditor": runComplianceAuditor,
   "quip-writer": runQuipWriter,
   "digest-sender": runDigestSender,
+  "newsletter-sender": runNewsletterSender,
 };
 
 function log(...args) {

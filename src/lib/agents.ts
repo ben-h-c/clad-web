@@ -178,6 +178,14 @@ export const DEFAULT_REGISTRY: Registry = {
       cron: "0 13 * * *",
       config: {},
     },
+    {
+      id: "newsletter-sender",
+      kind: "newsletter-sender",
+      name: "Weekly Newsletter Sender",
+      enabled: true,
+      cron: "0 14 * * 1", // Mondays 14:00 UTC (~9am ET)
+      config: {},
+    },
   ],
 };
 
