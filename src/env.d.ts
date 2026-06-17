@@ -43,8 +43,9 @@ declare module "cloudflare:workers" {
     STRIPE_PRICE_ANNUAL?: string;
     STRIPE_WEBHOOK_SECRET?: string;
     PUBLIC_STRIPE_PUBLISHABLE_KEY?: string;
-    // APNs push (iOS app) — gated: push fan-out is inert until all are set.
-    // APNS_KEY is the full .p8 file contents (PKCS#8 PEM, ES256 auth key).
+    // APNs push (iOS app). APNS_KEY is the full .p8 contents (the only real
+    // secret) and gates push. APNS_KEY_ID / APNS_TEAM_ID are hard-coded in
+    // lib/push.ts (public identifiers) — these env vars are optional overrides.
     APNS_KEY?: string;
     APNS_KEY_ID?: string;
     APNS_TEAM_ID?: string;
