@@ -18,13 +18,25 @@ const APNS_TEAM_ID = "R7AV32BX6D";
 function keyId(): string { return env.APNS_KEY_ID || APNS_KEY_ID; }
 function teamId(): string { return env.APNS_TEAM_ID || APNS_TEAM_ID; }
 
+// The private .p8 lives in KV (key "secret:APNS_KEY"), not as a Worker secret:
+// this Worker's git-CI deploys wipe newly-added runtime secrets, but KV is
+// independent of deploys. Env var still wins if set.
+async function getApnsKey(): Promise<string | null> {
+  if (env.APNS_KEY) return env.APNS_KEY;
+  try {
+    return (await env.AGENTS.get("secret:APNS_KEY")) || null;
+  } catch {
+    return null;
+  }
+}
+
 // Workers have a per-request subrequest cap. One-editor publication, so the
 // install base is small; we still cap defensively and log any overflow
 // rather than silently dropping recipients.
 const MAX_TOKENS_PER_SEND = 800;
 
-export function apnsConfigured(): boolean {
-  return !!env.APNS_KEY;
+export async function apnsConfigured(): Promise<boolean> {
+  return !!(await getApnsKey());
 }
 
 interface PushPayload {
@@ -49,7 +61,7 @@ export async function sendBreakingPush(payload: PushPayload): Promise<{
   pruned: number;
   skipped: number;
 }> {
-  if (!apnsConfigured()) return { sent: 0, failed: 0, pruned: 0, skipped: 0 };
+  if (!(await apnsConfigured())) return { sent: 0, failed: 0, pruned: 0, skipped: 0 };
 
   const rows = await env.DB.prepare(
     "SELECT token, environment FROM push_token"
@@ -141,7 +153,9 @@ async function makeProviderToken(): Promise<string> {
   const claims = { iss: teamId(), iat: Math.floor(Date.now() / 1000) };
 
   const signingInput = `${b64url(JSON.stringify(header))}.${b64url(JSON.stringify(claims))}`;
-  const key = await importPrivateKey(env.APNS_KEY!);
+  const pem = await getApnsKey();
+  if (!pem) throw new Error("APNS_KEY not configured");
+  const key = await importPrivateKey(pem);
   const signature = await crypto.subtle.sign(
     { name: "ECDSA", hash: "SHA-256" },
     key,

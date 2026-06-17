@@ -23,8 +23,20 @@ const SANDBOX_BASE = "https://api.storekit-sandbox.itunes.apple.com";
 const APPLE_IAP_KEY_ID = "568T76Y3KF";
 const APPLE_IAP_ISSUER_ID = "3567e5ca-08e3-4811-9138-7d07d8aaf2eb";
 
-export function iapConfigured(): boolean {
-  return !!env.APPLE_IAP_KEY;
+// The private .p8 lives in KV (key "secret:APPLE_IAP_KEY"), not as a Worker
+// secret: this Worker's git-CI (Workers Builds) deploys wipe newly-added
+// runtime secrets, but KV is independent of deploys. Env var still wins if set.
+async function getIapKey(): Promise<string | null> {
+  if (env.APPLE_IAP_KEY) return env.APPLE_IAP_KEY;
+  try {
+    return (await env.AGENTS.get("secret:APPLE_IAP_KEY")) || null;
+  } catch {
+    return null;
+  }
+}
+
+export async function iapConfigured(): Promise<boolean> {
+  return !!(await getIapKey());
 }
 
 export interface AppleStatus {
@@ -49,7 +61,7 @@ export async function getAppleSubscriptionStatus(
   originalTransactionId: string,
   environment: "sandbox" | "production" = "production"
 ): Promise<AppleStatus | null> {
-  if (!iapConfigured()) return null;
+  if (!(await iapConfigured())) return null;
   const order =
     environment === "sandbox" ? [SANDBOX_BASE, PROD_BASE] : [PROD_BASE, SANDBOX_BASE];
 
@@ -117,7 +129,9 @@ async function makeApiToken(): Promise<string> {
     bid: env.APPLE_APP_BUNDLE_ID || DEFAULT_BUNDLE_ID,
   };
   const signingInput = `${b64url(JSON.stringify(header))}.${b64url(JSON.stringify(payload))}`;
-  const key = await importPrivateKey(env.APPLE_IAP_KEY!);
+  const pem = await getIapKey();
+  if (!pem) throw new Error("APPLE_IAP_KEY not configured");
+  const key = await importPrivateKey(pem);
   const sig = await crypto.subtle.sign(
     { name: "ECDSA", hash: "SHA-256" },
     key,

@@ -166,7 +166,7 @@ export const POST: APIRoute = async ({ request }) => {
     // publish. Skip drafts. By the time a notification is delivered and
     // tapped, Cloudflare will have rebuilt and the post URL will be live.
     let push: Awaited<ReturnType<typeof sendBreakingPush>> | null = null;
-    if (!draft && apnsConfigured()) {
+    if (!draft && (await apnsConfigured())) {
       try {
         push = await sendBreakingPush({
           title: "CladFacts",

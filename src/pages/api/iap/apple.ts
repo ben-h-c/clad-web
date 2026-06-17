@@ -12,7 +12,7 @@ export const prerender = false;
 //
 // Body: { originalTransactionId: string, environment?: "sandbox"|"production" }
 export const POST: APIRoute = async ({ request }) => {
-  if (!iapConfigured()) return json({ error: "In-app purchase is not configured." }, 503);
+  if (!(await iapConfigured())) return json({ error: "In-app purchase is not configured." }, 503);
 
   const user = await getSessionUser(request.headers);
   if (!user) return json({ error: "Sign in required." }, 401);

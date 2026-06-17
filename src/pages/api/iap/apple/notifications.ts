@@ -10,7 +10,7 @@ export const prerender = false;
 // originalTransactionId, then re-query the authoritative status from Apple and
 // update the stored entitlement. Always 200 so Apple doesn't retry forever.
 export const POST: APIRoute = async ({ request }) => {
-  if (!iapConfigured()) return new Response(null, { status: 200 });
+  if (!(await iapConfigured())) return new Response(null, { status: 200 });
 
   let body: any;
   try {
