@@ -76,29 +76,58 @@ function planLabel(id: string, createdAt: string): { text: string; paid: boolean
     ) : users.length === 0 ? (
       <p class="dateline" style="margin-top:2rem">No accounts yet.</p>
     ) : (
+      <>
+      <div class="user-search">
+        <input id="user-search-input" type="search" placeholder="Search by name, email, or plan…" autocomplete="off" />
+        <span id="user-search-count" class="dateline"></span>
+      </div>
       <ul class="user-rows">
-        {users.map((u) => (
-          <li class="user-row" data-id={u.id}>
+        {users.map((u) => {
+          const plan = planLabel(u.id, u.createdAt);
+          const search = `${u.name ?? ""} ${u.email} ${methods(u.id)} ${plan.text}`.toLowerCase();
+          return (
+          <li class="user-row" data-id={u.id} data-search={search}>
             <div class="user-row__main">
               <span class="user-row__name">{u.name || "(no name)"}</span>
               <span class="user-row__email">{u.email}</span>
             </div>
             <p class="dateline">
-              {methods(u.id)} · {u.emailVerified ? "verified" : "unverified"} · joined {stamp(u.createdAt)} · <strong>{planLabel(u.id, u.createdAt).text}</strong>
+              {methods(u.id)} · {u.emailVerified ? "verified" : "unverified"} · joined {stamp(u.createdAt)} · <strong>{plan.text}</strong>
             </p>
-            <div class="user-row__actions" data-paid={planLabel(u.id, u.createdAt).paid ? "1" : "0"}>
+            <div class="user-row__actions" data-paid={plan.paid ? "1" : "0"}>
               <button type="button" class="small u-grant">Grant Premium</button>
               <button type="button" class="secondary small u-revoke">Revoke</button>
               <button type="button" class="secondary small u-delete">Delete</button>
               <span class="u-status"></span>
             </div>
           </li>
-        ))}
+          );
+        })}
       </ul>
+      </>
     )}
   </section>
 
   <script is:inline>
+    (() => {
+      const input = document.getElementById("user-search-input");
+      const countEl = document.getElementById("user-search-count");
+      const rows = Array.from(document.querySelectorAll(".user-row"));
+      if (!input) return;
+      const apply = () => {
+        const q = input.value.trim().toLowerCase();
+        let shown = 0;
+        rows.forEach((r) => {
+          const hit = !q || (r.getAttribute("data-search") || "").includes(q);
+          r.style.display = hit ? "" : "none";
+          if (hit) shown++;
+        });
+        if (countEl) countEl.textContent = q ? `${shown} of ${rows.length}` : `${rows.length} accounts`;
+      };
+      input.addEventListener("input", apply);
+      apply();
+    })();
+
     document.querySelectorAll(".user-row").forEach((row) => {
       const id = row.getAttribute("data-id");
       const status = row.querySelector(".u-status");
