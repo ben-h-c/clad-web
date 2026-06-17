@@ -1,0 +1,56 @@
+---
+import { getCollection } from "astro:content";
+import { env } from "cloudflare:workers";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import ReportCard from "~/components/ReportCard.astro";
+import { getDiscover } from "~/lib/agents";
+import { getAccess } from "~/lib/access";
+
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "private, no-store");
+
+// Discover is a Premium perk — restricted readers get the upgrade wall.
+const access = await getAccess(Astro.request.headers);
+if (!access.fullAccess) return Astro.redirect("/upgrade/");
+
+const sections = await getDiscover(env.AGENTS);
+const all = await getCollection("posts", (p) => !p.data.draft);
+const byId = new Map(all.map((p) => [p.id, p]));
+const resolved = sections
+  .map((s) => ({ ...s, posts: s.ids.map((id) => byId.get(id)).filter((p) => p !== undefined) }))
+  .filter((s) => s.posts.length >= 2);
+---
+<BaseLayout
+  title="Discover — Clad"
+  description="Serendipitous collections of fact-checked coverage — offbeat angles you wouldn't ordinarily see grouped."
+  noindex={true}
+>
+  <section class="discover">
+    <header class="discover__head">
+      <p class="small-caps discover__eyebrow">Premium</p>
+      <h2 class="discover__title">Discover</h2>
+      <p class="discover__lede">
+        Fresh, unexpected collections from the CladFacts desk — offbeat angles
+        and hidden throughlines you wouldn't ordinarily see grouped together.
+        Refreshed regularly.
+      </p>
+    </header>
+
+    {resolved.length === 0 ? (
+      <p class="dateline" style="margin-top:2rem">
+        New collections are being curated — check back shortly.
+      </p>
+    ) : (
+      resolved.map((s) => (
+        <section class="discover-sec">
+          <h3 class="discover-sec__title">{s.title}</h3>
+          {s.blurb && <p class="discover-sec__blurb">{s.blurb}</p>}
+          <div class="rule rule--double" aria-hidden="true"></div>
+          <div class="feed-list">
+            {s.posts.map((p) => <ReportCard post={p!} variant="bar" />)}
+          </div>
+        </section>
+      ))
+    )}
+  </section>
+</BaseLayout>

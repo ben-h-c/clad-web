@@ -4423,3 +4423,22 @@ button.small {
   align-self: flex-end;
 }
 .search-filter__clear:hover { background: rgba(0, 0, 0, 0.04); }
+
+/* --- Discover page --- */
+.discover { max-width: 60rem; margin: 0 auto; padding: 1rem 0 2rem; }
+.discover__head { padding-bottom: 1.25rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; }
+.discover__eyebrow { color: rgb(150, 30, 20); letter-spacing: 0.16em; margin: 0; }
+.discover__title {
+  font-family: var(--display, Georgia, serif);
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin: 0.15rem 0 0.5rem;
+  line-height: 1.05;
+}
+.discover__lede { max-width: 42rem; color: var(--ink); line-height: 1.55; margin: 0; }
+.discover-sec { margin: 2rem 0; }
+.discover-sec__title {
+  font-family: var(--display, Georgia, serif);
+  font-size: 1.5rem;
+  margin: 0 0 0.2rem;
+}
+.discover-sec__blurb { color: var(--muted-ink); font-size: 0.95rem; margin: 0 0 0.4rem; line-height: 1.45; }

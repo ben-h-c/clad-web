@@ -186,6 +186,14 @@ export const DEFAULT_REGISTRY: Registry = {
       cron: "0 14 * * 1", // Mondays 14:00 UTC (~9am ET)
       config: {},
     },
+    {
+      id: "discover-curator",
+      kind: "discover-curator",
+      name: "Discover Curator",
+      enabled: true,
+      cron: "0 11 * * *", // daily, 11:00 UTC
+      config: { maxSections: 6, poolSize: 80 },
+    },
   ],
 };
 
@@ -369,6 +377,38 @@ export async function getFrontpage(kv: KVNamespace): Promise<string[]> {
 
 export async function setFrontpage(kv: KVNamespace, ids: string[]): Promise<void> {
   await kv.put(FRONTPAGE_KEY, JSON.stringify(ids.slice(0, 50)));
+}
+
+const DISCOVER_KEY = "discover:sections";
+
+// Discover = serendipitous, Grok-invented collections (fresh each run) grouping
+// articles under offbeat angles a reader wouldn't ordinarily see together.
+export interface DiscoverSection {
+  title: string;
+  blurb: string;
+  ids: string[];
+}
+
+export async function getDiscover(kv: KVNamespace): Promise<DiscoverSection[]> {
+  const raw = await kv.get(DISCOVER_KEY);
+  if (!raw) return [];
+  try {
+    const v = JSON.parse(raw);
+    if (!Array.isArray(v)) return [];
+    return v
+      .filter((s) => s && typeof s.title === "string" && Array.isArray(s.ids))
+      .map((s) => ({
+        title: String(s.title),
+        blurb: typeof s.blurb === "string" ? s.blurb : "",
+        ids: s.ids.map(String),
+      }));
+  } catch {
+    return [];
+  }
+}
+
+export async function setDiscover(kv: KVNamespace, sections: DiscoverSection[]): Promise<void> {
+  await kv.put(DISCOVER_KEY, JSON.stringify(sections.slice(0, 8)));
 }
 
 const BREAKING_KEY = "breaking:featured";

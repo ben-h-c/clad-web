@@ -45,6 +45,10 @@ export function setFrontpage(ids) {
   return call("/api/agent/frontpage", { method: "POST", body: JSON.stringify({ ids }) });
 }
 
+export function setDiscover(sections) {
+  return call("/api/agent/discover", { method: "POST", body: JSON.stringify({ sections }) });
+}
+
 export function getBreaking() {
   return call("/api/agent/breaking", { method: "GET" });
 }

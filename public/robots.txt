@@ -8,5 +8,6 @@ Disallow: /register
 Disallow: /verified
 Disallow: /upgrade
 Disallow: /search
+Disallow: /discover
 
 Sitemap: https://cladfacts.com/sitemap.xml
