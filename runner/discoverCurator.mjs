@@ -9,18 +9,25 @@
 import { getPosts, setDiscover } from "./api.mjs";
 
 const XAI_RESPONSES = "https://api.x.ai/v1/responses";
-const MODEL = "grok-4.20-0309-non-reasoning";
+// Reasoning model — this runs once a day and needs genuine creativity to find
+// cross-topic throughlines and invent fresh angle titles (the non-reasoning
+// tier either grouped by topic or parroted the example titles).
+const MODEL = "grok-4.20-0309-reasoning";
 
 const SYSTEM = `You are CladFacts's "Discover" editor. From the numbered news reports below, invent a set of FRESH, surprising thematic collections that a curious reader would not ordinarily see grouped together. Think like a magazine features editor finding hidden throughlines.
 
+CRITICAL: A collection is a THEME, PATTERN, TONE, or IDEA that connects reports about DIFFERENT, UNRELATED stories — NOT a cluster of reports about the same event or subject.
+- BAD (do NOT do this): grouping several reports that are all about Iran, or all about one plane crash, or all about a single election. That's just a topic.
+- GOOD: a crash + a corporate merger + a court ruling grouped under "Unintended Consequences"; a tech IPO + a farm-bill vote + a sports deal under "Follow the Money"; stories where opposing sides landed in the same place under "Strange Bedfellows".
+
 Rules:
-- Invent 4-6 collections. Each needs:
-  - "title": a punchy, specific, intriguing name (max ~42 chars). Examples of the VIBE (do NOT reuse verbatim): "Where Left & Right Quietly Agree", "Buried Leads", "Numbers That Surprised Us", "Strange Bedfellows", "Follow the Money", "Quietly Consequential", "The Long Game", "Hometown Ripples".
-  - "blurb": one short sentence (max ~120 chars) on why these belong together.
-  - "items": 3-6 report indices that genuinely fit the angle.
+- Invent 4-6 collections. Each MUST draw from at least 3 DISTINCT underlying stories/subjects. If reports share the same subject, they do NOT belong in the same collection.
+- Each collection needs:
+  - "title": a punchy, intriguing ANGLE you INVENT YOURSELF (max ~42 chars), specific to THESE reports. The following only convey the desired tone — using any of them verbatim is a failure: "Where Left & Right Quietly Agree", "Buried Leads", "Strange Bedfellows", "Follow the Money", "The Long Game". Write your own, fresh each time.
+  - "blurb": one short sentence (max ~120 chars) naming the throughline.
+  - "items": 3-6 report indices spanning different subjects that share that throughline.
 - Each report appears in AT MOST one collection. Use ONLY the provided indices.
-- Avoid generic topic names ("Politics", "Tech", "World") — these are ANGLES, not categories.
-- Prefer non-obvious, cross-topic groupings over restating the headline.
+- Never use a subject as a title ("Iran", "the election", "the crash") — these are ANGLES, not topics.
 
 Return ONLY JSON: { "sections": [ { "title": string, "blurb": string, "items": [number] } ] }`;
 
