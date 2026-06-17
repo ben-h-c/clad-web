@@ -5,11 +5,18 @@ import { env } from "cloudflare:workers";
  * token-based auth: an ES256 JWT signed with the .p8 auth key, refreshed
  * per send (publishes are infrequent, so we don't cache the token).
  *
- * Inert until APNS_KEY, APNS_KEY_ID, and APNS_TEAM_ID are all set — so the
- * publish flow keeps working before push is configured.
+ * The Key ID, Team ID, and bundle id are public identifiers, hard-coded so
+ * they deploy deterministically with the code. Only APNS_KEY (the private .p8)
+ * is a real secret and stays a Worker secret. Push is inert until it's set.
  */
 
 const DEFAULT_BUNDLE_ID = "com.bencody.cladfacts";
+// Public identifiers (not secrets); env overrides allowed.
+const APNS_KEY_ID = "N88QRFM4D2";
+const APNS_TEAM_ID = "R7AV32BX6D";
+
+function keyId(): string { return env.APNS_KEY_ID || APNS_KEY_ID; }
+function teamId(): string { return env.APNS_TEAM_ID || APNS_TEAM_ID; }
 
 // Workers have a per-request subrequest cap. One-editor publication, so the
 // install base is small; we still cap defensively and log any overflow
@@ -17,7 +24,7 @@ const DEFAULT_BUNDLE_ID = "com.bencody.cladfacts";
 const MAX_TOKENS_PER_SEND = 800;
 
 export function apnsConfigured(): boolean {
-  return !!(env.APNS_KEY && env.APNS_KEY_ID && env.APNS_TEAM_ID);
+  return !!env.APNS_KEY;
 }
 
 interface PushPayload {
@@ -129,9 +136,9 @@ export async function sendBreakingPush(payload: PushPayload): Promise<{
 // --- JWT (ES256) -----------------------------------------------------------
 
 async function makeProviderToken(): Promise<string> {
-  const header = { alg: "ES256", kid: env.APNS_KEY_ID! };
+  const header = { alg: "ES256", kid: keyId() };
   // iat must be seconds since epoch; APNs rejects tokens older than 1 hour.
-  const claims = { iss: env.APNS_TEAM_ID!, iat: Math.floor(Date.now() / 1000) };
+  const claims = { iss: teamId(), iat: Math.floor(Date.now() / 1000) };
 
   const signingInput = `${b64url(JSON.stringify(header))}.${b64url(JSON.stringify(claims))}`;
   const key = await importPrivateKey(env.APNS_KEY!);
