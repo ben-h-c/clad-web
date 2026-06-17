@@ -34,10 +34,18 @@ export function getAuth() {
   // id-token audiences — that's how Better Auth supports native iOS sign-in.
   const socialProviders: Record<string, Record<string, unknown>> = {};
   if (env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET) {
+    // The CladFacts iOS app does native Google Sign-In; its id tokens are
+    // audienced to the iOS OAuth client ID (NOT the web client ID), so the
+    // server must accept it as an additional audience. The client ID is a
+    // public identifier (it ships in the app bundle), so it's hard-coded here
+    // — that keeps it deterministically in the deployed config rather than
+    // depending on a separately-managed secret. Index 0 still drives the web
+    // auth-code flow. Env override allowed for flexibility.
+    const googleIosClientId =
+      env.GOOGLE_IOS_CLIENT_ID ||
+      "636876201929-188cd2rm456p4kslsg06ctadlaag2s7g.apps.googleusercontent.com";
     socialProviders.google = {
-      clientId: env.GOOGLE_IOS_CLIENT_ID
-        ? [env.GOOGLE_CLIENT_ID, env.GOOGLE_IOS_CLIENT_ID]
-        : env.GOOGLE_CLIENT_ID,
+      clientId: [env.GOOGLE_CLIENT_ID, googleIosClientId],
       clientSecret: env.GOOGLE_CLIENT_SECRET,
     };
   }
