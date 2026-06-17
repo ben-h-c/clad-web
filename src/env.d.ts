@@ -30,5 +30,11 @@ declare module "cloudflare:workers" {
     TWITTER_CLIENT_SECRET?: string;
     // Transactional email
     RESEND_API_KEY?: string;
+    // Stripe (paid tier) — gated: the subscription flow is inert until set
+    STRIPE_SECRET_KEY?: string;
+    STRIPE_PRICE_MONTHLY?: string;
+    STRIPE_PRICE_ANNUAL?: string;
+    STRIPE_WEBHOOK_SECRET?: string;
+    PUBLIC_STRIPE_PUBLISHABLE_KEY?: string;
   }
 }

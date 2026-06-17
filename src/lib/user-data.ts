@@ -17,6 +17,7 @@ export interface SessionUser {
   name: string;
   email: string;
   emailVerified: boolean;
+  createdAt: string | null; // ISO; used for the free-trial window
 }
 
 /** Resolve the signed-in user from the request cookies, or null. */
@@ -24,7 +25,13 @@ export async function getSessionUser(headers: Headers): Promise<SessionUser | nu
   const session = await getAuth().api.getSession({ headers });
   const u = session?.user;
   if (!u) return null;
-  return { id: u.id, name: u.name, email: u.email, emailVerified: !!u.emailVerified };
+  return {
+    id: u.id,
+    name: u.name,
+    email: u.email,
+    emailVerified: !!u.emailVerified,
+    createdAt: u.createdAt ? new Date(u.createdAt).toISOString() : null,
+  };
 }
 
 export function jsonResponse(body: unknown, status = 200): Response {

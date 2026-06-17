@@ -2,14 +2,20 @@ import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { getCollection } from "astro:content";
 import { addFlag, type FlagAspect } from "~/lib/agents";
+import { getAccess } from "~/lib/access";
 
 export const prerender = false;
 
 const ASPECTS: FlagAspect[] = ["grade", "lean", "both"];
 
-// Public endpoint: a reader disputes a post's grade and/or political lean.
-// Rate-limited per IP so it can't be spammed; stored for the editor to review.
+// Readers with full access (trial/paid) can dispute a post's grade and/or
+// political lean. Rate-limited per IP; stored for the editor to review.
 export const POST: APIRoute = async ({ request, clientAddress }) => {
+  const access = await getAccess(request.headers);
+  if (!access.fullAccess) {
+    return json({ error: "Flagging is a Premium feature.", upgrade: true }, 403);
+  }
+
   const ip =
     request.headers.get("CF-Connecting-IP") ||
     request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||

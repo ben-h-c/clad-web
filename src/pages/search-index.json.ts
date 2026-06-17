@@ -1,11 +1,19 @@
 import { getCollection } from "astro:content";
+import { getAccess } from "~/lib/access";
 
-export const prerender = true;
+export const prerender = false;
 
-// A lightweight, prerendered search index of all published posts. The /search
-// page loads this and filters client-side. Rebuilt on each deploy (so new
-// posts appear after the ~30s rebuild that publishing triggers).
-export async function GET() {
+// Search index of all published posts (carries grades + lean), so it's
+// full-access only — the /search page that consumes it is gated too.
+export async function GET({ request }: { request: Request }) {
+  const access = await getAccess(request.headers);
+  if (!access.fullAccess) {
+    return new Response(JSON.stringify({ error: "upgrade" }), {
+      status: 403,
+      headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+    });
+  }
+
   const posts = (await getCollection("posts", (p) => !p.data.draft)).sort(
     (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
   );

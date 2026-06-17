@@ -62,6 +62,17 @@ CREATE TABLE IF NOT EXISTS "favorite" (
   "createdAt" date NOT NULL,
   UNIQUE ("userId", "slug")
 );
+-- Paid subscription state (one row per user). Trial is derived from
+-- user.createdAt, so a row only exists once a Stripe subscription is created.
+CREATE TABLE IF NOT EXISTS "subscription" (
+  "userId" text NOT NULL PRIMARY KEY REFERENCES "user" ("id"),
+  "status" text NOT NULL DEFAULT 'none',
+  "plan" text,
+  "stripeCustomerId" text,
+  "stripeSubscriptionId" text,
+  "currentPeriodEnd" date,
+  "updatedAt" date NOT NULL
+);
 CREATE INDEX IF NOT EXISTS "idx_session_userId" ON "session" ("userId");
 CREATE INDEX IF NOT EXISTS "idx_account_userId" ON "account" ("userId");
 CREATE INDEX IF NOT EXISTS "idx_topic_alert_userId" ON "topic_alert" ("userId");

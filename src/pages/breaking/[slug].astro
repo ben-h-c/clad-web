@@ -9,10 +9,15 @@ import ShareBar from "~/components/ShareBar.astro";
 import { getBreaking } from "~/lib/agents";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
+import { getAccess } from "~/lib/access";
 
 // Ephemeral: a breaking-news group exists only while the story is active. SSR so
 // it reflects the live KV selection; 404 once the group ages out of the feed.
 export const prerender = false;
+Astro.response.headers.set("Cache-Control", "no-store");
+
+const access = await getAccess(Astro.request.headers);
+if (!access.fullAccess) return Astro.redirect("/upgrade/");
 
 const slug = Astro.params.slug;
 const items = await getBreaking(env.AGENTS);

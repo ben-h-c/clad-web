@@ -11,6 +11,10 @@ const AGENT_API = (path: string) => path.startsWith("/api/agent/");
 // basic-auth gate but are NOT public — the routes return 401 without a session.
 const USER_API = (path: string) => path.startsWith("/api/me/");
 
+// Stripe endpoints: checkout/portal check the session inside; the webhook is
+// verified by Stripe's signature. Neither sits behind the editor basic-auth gate.
+const STRIPE_API = (path: string) => path.startsWith("/api/stripe/");
+
 // Public, unauthenticated endpoints. Readers submit grade/lean disputes at
 // /api/flag (rate-limited in the route); /api/auth/* is the user-account
 // (Better Auth) surface and must not sit behind the editor basic-auth gate.
@@ -25,6 +29,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const path = context.url.pathname;
   if (AGENT_API(path)) return next();
   if (USER_API(path)) return next();
+  if (STRIPE_API(path)) return next();
   if (PUBLIC_API(path)) return next();
   if (!PROTECTED(path)) return next();
 

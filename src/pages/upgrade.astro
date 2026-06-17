@@ -1,0 +1,122 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getAccess, stripeConfigured, PRICE, TRIAL_DAYS } from "~/lib/access";
+
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "no-store");
+
+const access = await getAccess(Astro.request.headers);
+const live = stripeConfigured();
+const canceled = Astro.url.searchParams.get("canceled") === "1";
+
+const daysLeft =
+  access.tier === "trial" && access.trialEndsAt
+    ? Math.max(1, Math.ceil((access.trialEndsAt - Date.now()) / 86_400_000))
+    : null;
+---
+<BaseLayout title="Go Premium — Clad" description="Unlock every grade, political-lean rating, and the full CladFacts archive.">
+  <article class="static-page upgrade">
+    <p class="small-caps upgrade__eyebrow">CladFacts Premium</p>
+    <h2 class="static-page__title">See the grade behind every story</h2>
+    <p class="upgrade__lede">
+      Free readers get the front page. <strong>Premium</strong> unlocks every
+      letter grade and political-lean rating, full articles, the News Trends
+      dashboard, topic pages, search, and the ability to flag coverage you
+      dispute.
+    </p>
+
+    {canceled && <p class="auth-status">Checkout canceled — no charge was made.</p>}
+
+    {access.tier === "paid" ? (
+      <div class="upgrade__status">
+        <p>You're a <strong>Premium</strong> member. Thanks for supporting CladFacts.</p>
+        <button type="button" id="portal-btn" class="auth-submit">Manage subscription</button>
+        <span id="portal-status" class="auth-status"></span>
+      </div>
+    ) : (
+      <>
+        {access.tier === "trial" && (
+          <p class="upgrade__trial">
+            You're on your <strong>free week</strong> — {daysLeft} {daysLeft === 1 ? "day" : "days"} left of full access.
+            Subscribe now so nothing locks when it ends.
+          </p>
+        )}
+
+        <ul class="upgrade__perks">
+          <li>Every letter grade &amp; political-lean rating</li>
+          <li>Full article reports &amp; sources</li>
+          <li>News Trends, topics &amp; search</li>
+          <li>Flag grades or bias you disagree with</li>
+        </ul>
+
+        <div class="plans">
+          <div class="plan">
+            <h3 class="plan__name">Monthly</h3>
+            <p class="plan__price">{PRICE.monthly}<span>/mo</span></p>
+            <button type="button" class="auth-submit plan__btn" data-plan="monthly" disabled={!live}>
+              {live ? "Start Premium" : "Coming soon"}
+            </button>
+          </div>
+          <div class="plan plan--best">
+            <span class="plan__tag">Best value</span>
+            <h3 class="plan__name">Annual</h3>
+            <p class="plan__price">{PRICE.annual}<span>/yr</span></p>
+            <p class="plan__sub">{PRICE.annualPerMonth}/mo, billed yearly</p>
+            <button type="button" class="auth-submit plan__btn" data-plan="annual" disabled={!live}>
+              {live ? "Start Premium" : "Coming soon"}
+            </button>
+          </div>
+        </div>
+
+        {!access.signedIn && (
+          <p class="upgrade__note">
+            New here? <a href="/register/">Create a free account</a> — your first
+            {" "}{TRIAL_DAYS} days are full access, no card required.
+          </p>
+        )}
+        <div id="checkout-status" class="auth-status" role="status"></div>
+      </>
+    )}
+  </article>
+
+  <script is:inline>
+    (() => {
+      const cstat = document.getElementById("checkout-status");
+      document.querySelectorAll(".plan__btn").forEach((btn) => {
+        if (btn.disabled) return;
+        btn.addEventListener("click", async () => {
+          btn.disabled = true;
+          if (cstat) cstat.textContent = "Starting checkout…";
+          try {
+            const res = await fetch("/api/stripe/checkout", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ plan: btn.getAttribute("data-plan") }),
+            });
+            if (res.status === 401) { location.href = "/login/?next=/upgrade/"; return; }
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok || !data.url) throw new Error(data.error || "Could not start checkout.");
+            location.href = data.url;
+          } catch (err) {
+            if (cstat) { cstat.className = "auth-status auth-status--error"; cstat.textContent = String(err.message || err); }
+            btn.disabled = false;
+          }
+        });
+      });
+      const portal = document.getElementById("portal-btn");
+      if (portal) portal.addEventListener("click", async () => {
+        portal.disabled = true;
+        try {
+          const res = await fetch("/api/stripe/portal", { method: "POST" });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok || !data.url) throw new Error(data.error || "Could not open billing.");
+          location.href = data.url;
+        } catch (err) {
+          const s = document.getElementById("portal-status");
+          if (s) { s.className = "auth-status auth-status--error"; s.textContent = String(err.message || err); }
+          portal.disabled = false;
+        }
+      });
+    })();
+  </script>
+</BaseLayout>

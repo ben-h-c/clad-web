@@ -3,6 +3,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getAuth } from "~/lib/auth-server";
 import { getPrefs, listFavorites, listAlerts } from "~/lib/user-data";
 import { TOPIC_LABELS } from "~/lib/topics";
+import { getAccess, PRICE } from "~/lib/access";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
@@ -10,6 +11,12 @@ Astro.response.headers.set("Cache-Control", "no-store");
 const session = await getAuth().api.getSession({ headers: Astro.request.headers });
 if (!session?.user) return Astro.redirect("/login/");
 const user = session.user;
+
+const access = await getAccess(Astro.request.headers);
+const trialDaysLeft =
+  access.tier === "trial" && access.trialEndsAt
+    ? Math.max(1, Math.ceil((access.trialEndsAt - Date.now()) / 86_400_000))
+    : null;
 
 const [prefs, favorites, alerts] = await Promise.all([
   getPrefs(user.id),
@@ -27,6 +34,31 @@ const suggestions = TOPIC_LABELS.filter((t) => !alertTopics.has(t.toLowerCase())
       <dt>Name</dt><dd>{user.name || "—"}</dd>
       <dt>Email</dt><dd>{user.email}{user.emailVerified ? "" : " (unverified)"}</dd>
     </dl>
+
+    <section class="account-section" id="plan-section">
+      <h3 class="static-page__sub">Membership</h3>
+      {access.tier === "paid" ? (
+        <>
+          <p class="plan-badge plan-badge--paid">Premium member</p>
+          <div class="account-actions">
+            <button type="button" id="portal-btn" class="auth-submit secondary">Manage subscription</button>
+            <span id="portal-status" class="auth-status"></span>
+          </div>
+        </>
+      ) : access.tier === "trial" ? (
+        <>
+          <p class="plan-badge plan-badge--trial">Free trial — {trialDaysLeft} {trialDaysLeft === 1 ? "day" : "days"} left</p>
+          <p class="dateline">Full access ends soon. Subscribe to keep grades, lean ratings, trends, and search.</p>
+          <div class="account-actions"><a class="auth-submit" href="/upgrade/">Go Premium — {PRICE.monthly}/mo</a></div>
+        </>
+      ) : (
+        <>
+          <p class="plan-badge plan-badge--free">Free plan</p>
+          <p class="dateline">Grades and political-lean ratings are hidden on the free plan. Upgrade for full access.</p>
+          <div class="account-actions"><a class="auth-submit" href="/upgrade/">See plans</a></div>
+        </>
+      )}
+    </section>
 
     <section class="account-section" id="prefs-section">
       <h3 class="static-page__sub">Email &amp; notifications</h3>
@@ -240,6 +272,22 @@ const suggestions = TOPIC_LABELS.filter((t) => !alertTopics.has(t.toLowerCase())
           }
         } catch {
           btn.disabled = false;
+        }
+      });
+
+      // --- Manage subscription (Stripe billing portal) ---
+      const portal = document.getElementById("portal-btn");
+      if (portal) portal.addEventListener("click", async () => {
+        portal.disabled = true;
+        const s = document.getElementById("portal-status");
+        try {
+          const res = await fetch("/api/stripe/portal", { method: "POST" });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok || !data.url) throw new Error(data.error || "Could not open billing.");
+          location.href = data.url;
+        } catch (err) {
+          if (s) { s.className = "auth-status auth-status--error"; s.textContent = String(err.message || err); }
+          portal.disabled = false;
         }
       });
 

@@ -10,26 +10,24 @@ import Disclaimer from "~/components/Disclaimer.astro";
 import ShareBar from "~/components/ShareBar.astro";
 import { dateline, shortDate } from "~/lib/dateline";
 import { embedUrl } from "~/lib/youtube";
+import { getAccess } from "~/lib/access";
 
-export const prerender = true;
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "no-store");
 
-export async function getStaticPaths() {
-  const all = await getCollection("posts", (p) => !p.data.draft);
-  return all.map((p) => {
-    const original = p.data.correctionOf
-      ? all.find((q) => q.id === p.data.correctionOf) ?? null
-      : null;
-    const successors = all
-      .filter((q) => q.data.correctionOf === p.id)
-      .sort((a, b) => a.data.publishedAt.valueOf() - b.data.publishedAt.valueOf());
-    return {
-      params: { slug: p.id },
-      props: { post: p, original, successors },
-    };
-  });
-}
+// Article pages (grades + lean + full report) are full-access only.
+const access = await getAccess(Astro.request.headers);
+if (!access.fullAccess) return Astro.redirect("/upgrade/");
 
-const { post, original, successors } = Astro.props;
+const all = await getCollection("posts", (p) => !p.data.draft);
+const post = all.find((p) => p.id === Astro.params.slug);
+if (!post) return new Response(null, { status: 404 });
+const original = post.data.correctionOf
+  ? all.find((q) => q.id === post.data.correctionOf) ?? null
+  : null;
+const successors = all
+  .filter((q) => q.data.correctionOf === post.id)
+  .sort((a, b) => a.data.publishedAt.valueOf() - b.data.publishedAt.valueOf());
 const { Content } = await render(post);
 const d = post.data;
 const isBroadcast = d.type === "broadcast";

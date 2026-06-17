@@ -1,7 +1,12 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getAccess } from "~/lib/access";
 
-export const prerender = true;
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "no-store");
+
+const access = await getAccess(Astro.request.headers);
+if (!access.fullAccess) return Astro.redirect("/upgrade/");
 ---
 <BaseLayout
   title="Search — Clad"

@@ -3,8 +3,13 @@ import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { buildTrends, leanLabel, leanColor } from "~/lib/trends";
 import { gpaToGrade } from "~/lib/topics";
+import { getAccess } from "~/lib/access";
 
-export const prerender = true;
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "no-store");
+
+const access = await getAccess(Astro.request.headers);
+if (!access.fullAccess) return Astro.redirect("/upgrade/");
 
 const posts = await getCollection("posts", (p) => !p.data.draft);
 const report = buildTrends(posts);

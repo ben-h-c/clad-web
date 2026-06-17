@@ -16,6 +16,7 @@ interface UserRow {
 
 let users: UserRow[] = [];
 let providersByUser = new Map<string, string[]>();
+let subByUser = new Map<string, string>();
 let dbError = "";
 try {
   const u = await env.DB.prepare(
@@ -27,6 +28,8 @@ try {
     if (!providersByUser.has(row.userId)) providersByUser.set(row.userId, []);
     providersByUser.get(row.userId)!.push(row.providerId);
   }
+  const s = await env.DB.prepare("SELECT userId, status FROM subscription").all<{ userId: string; status: string }>();
+  for (const row of s.results ?? []) subByUser.set(row.userId, row.status);
 } catch (e: any) {
   dbError = e?.message ?? "Could not read users";
 }
@@ -48,6 +51,14 @@ function stamp(iso: string): string {
   } catch {
     return iso;
   }
+}
+const TRIAL_MS = 7 * 86_400_000;
+function planLabel(id: string, createdAt: string): { text: string; paid: boolean } {
+  const status = subByUser.get(id);
+  if (status === "active" || status === "trialing") return { text: "Premium", paid: true };
+  const created = new Date(createdAt).getTime();
+  if (!Number.isNaN(created) && Date.now() < created + TRIAL_MS) return { text: "Trial", paid: false };
+  return { text: "Free", paid: false };
 }
 ---
 <BaseLayout title="Clad — Users">
@@ -73,9 +84,11 @@ function stamp(iso: string): string {
               <span class="user-row__email">{u.email}</span>
             </div>
             <p class="dateline">
-              {methods(u.id)} · {u.emailVerified ? "verified" : "unverified"} · joined {stamp(u.createdAt)}
+              {methods(u.id)} · {u.emailVerified ? "verified" : "unverified"} · joined {stamp(u.createdAt)} · <strong>{planLabel(u.id, u.createdAt).text}</strong>
             </p>
-            <div class="user-row__actions">
+            <div class="user-row__actions" data-paid={planLabel(u.id, u.createdAt).paid ? "1" : "0"}>
+              <button type="button" class="small u-grant">Grant Premium</button>
+              <button type="button" class="secondary small u-revoke">Revoke</button>
               <button type="button" class="secondary small u-delete">Delete</button>
               <span class="u-status"></span>
             </div>
@@ -89,25 +102,41 @@ function stamp(iso: string): string {
     document.querySelectorAll(".user-row").forEach((row) => {
       const id = row.getAttribute("data-id");
       const status = row.querySelector(".u-status");
-      const btn = row.querySelector(".u-delete");
-      btn.addEventListener("click", async () => {
+      const post = async (body) => {
+        const res = await fetch("/api/admin/users", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...body, id }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.error || "Failed");
+        return data;
+      };
+
+      row.querySelector(".u-grant").addEventListener("click", async () => {
+        status.textContent = "Granting…";
+        try { await post({ action: "grant" }); status.textContent = "Premium granted."; }
+        catch (err) { status.textContent = String(err.message || err); }
+      });
+      row.querySelector(".u-revoke").addEventListener("click", async () => {
+        status.textContent = "Revoking…";
+        try { await post({ action: "revoke" }); status.textContent = "Reverted to free."; }
+        catch (err) { status.textContent = String(err.message || err); }
+      });
+
+      const del = row.querySelector(".u-delete");
+      del.addEventListener("click", async () => {
         if (!confirm("Permanently delete this account and all its data?")) return;
-        btn.disabled = true;
+        del.disabled = true;
         status.textContent = "Deleting…";
         try {
-          const res = await fetch("/api/admin/users", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ action: "delete", id }),
-          });
-          const data = await res.json();
-          if (!res.ok) throw new Error(data.error || "Failed");
+          await post({ action: "delete" });
           row.style.opacity = "0.5";
           status.textContent = "Deleted.";
-          btn.remove();
+          del.remove();
         } catch (err) {
           status.textContent = String(err.message || err);
-          btn.disabled = false;
+          del.disabled = false;
         }
       });
     });

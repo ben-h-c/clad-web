@@ -13,11 +13,14 @@ import Disclaimer from "~/components/Disclaimer.astro";
 import { getFrontpage, getBreaking, getTicker, getQuips } from "~/lib/agents";
 import { aggregateTopics, gradeToGpa, leanScoreOf } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
+import { getAccess, PRICE, TRIAL_DAYS } from "~/lib/access";
 
 // SSR so the hero reflects the curator's live KV-stored selection without a
-// rebuild. Edge/browser-cached briefly to keep load down.
+// rebuild. Per-user (grades hidden for restricted readers), so never shared-cache.
 export const prerender = false;
-Astro.response.headers.set("Cache-Control", "public, max-age=120");
+Astro.response.headers.set("Cache-Control", "private, no-store");
+
+const access = await getAccess(Astro.request.headers);
 
 const all = (await getCollection("posts", (p) => !p.data.draft)).sort(
   (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
@@ -58,6 +61,25 @@ const breaking = breakingItems
 
 const ticker = await getTicker(env.AGENTS);
 const quips = await getQuips(env.AGENTS);
+
+// Grade-free headline preview for restricted (free/anonymous) readers. Pulls
+// only id + headline — no grade or lean ever reaches the page for these users.
+const previewSource = [
+  ...breaking.map((b) => (b.kind === "post" ? b.post : b.members[0])),
+  ...heroPosts,
+];
+const previewSeen = new Set<string>();
+const preview: { id: string; headline: string; kicker?: string }[] = [];
+for (const p of previewSource) {
+  if (!p || previewSeen.has(p.id)) continue;
+  previewSeen.add(p.id);
+  preview.push({ id: p.id, headline: p.data.headline, kicker: p.data.kicker });
+  if (preview.length >= 18) break;
+}
+const trialDaysLeft =
+  access.tier === "trial" && access.trialEndsAt
+    ? Math.max(1, Math.ceil((access.trialEndsAt - Date.now()) / 86_400_000))
+    : null;
 
 const topics = aggregateTopics(all);
 const TOPICS_PER_PAGE = 20;
@@ -107,7 +129,7 @@ const mostRight = [...leaned]
   <QuipTicker data={quips} />
   {all.length === 0 ? (
     <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
-  ) : (
+  ) : access.fullAccess ? (
     <>
       <BreakingStrip items={breaking} />
       <Ticker data={ticker} />
@@ -156,6 +178,47 @@ const mostRight = [...leaned]
           bottom={mostRight}
         />
       )}
+    </>
+  ) : (
+    <>
+      <Ticker data={ticker} />
+
+      <section class="paywall">
+        <p class="small-caps paywall__eyebrow">CladFacts Premium</p>
+        <h2 class="paywall__title">Unlock every grade &amp; political-lean rating</h2>
+        <p class="paywall__lede">
+          {access.signedIn
+            ? "Your free week has ended. Subscribe to keep full access to grades, political-lean ratings, full reports, trends, and search."
+            : `Create a free account for ${TRIAL_DAYS} days of full access — no card required — then keep it for ${PRICE.monthly}/mo or ${PRICE.annual}/yr.`}
+        </p>
+        <div class="paywall__cta">
+          <a class="auth-submit" href="/upgrade/">See plans</a>
+          {!access.signedIn && <a class="auth-submit secondary" href="/register/">Start free week</a>}
+        </div>
+      </section>
+
+      <section class="feed preview-feed">
+        <div class="feed__head">
+          <h2 class="feed__title">Today's headlines</h2>
+          <span class="preview-feed__tag small-caps">Free preview</span>
+        </div>
+        <div class="rule rule--double" aria-hidden="true"></div>
+        <ul class="preview-list">
+          {preview.map((p) => (
+            <li class="preview-row">
+              <a class="preview-row__link" href={`/posts/${p.id}/`}>
+                {p.kicker && <span class="preview-row__kicker small-caps">{p.kicker}</span>}
+                <span class="preview-row__headline">{p.headline}</span>
+              </a>
+              <span class="preview-row__lock" title="Grade hidden — Premium" aria-label="Premium">🔒</span>
+            </li>
+          ))}
+        </ul>
+        <p class="preview-feed__foot">
+          Grades, political-lean ratings, full reports, and the News Trends
+          dashboard are <a href="/upgrade/">Premium</a>.
+        </p>
+      </section>
     </>
   )}
   <Disclaimer />
