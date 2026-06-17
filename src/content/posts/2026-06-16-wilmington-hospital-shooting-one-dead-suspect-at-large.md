@@ -1,0 +1,62 @@
+---
+type: "broadcast"
+headline: "Wilmington Hospital Shooting: One Dead, Suspect at Large"
+summary: "CBS News aired a press conference following a June 16, 2026, shooting at Wilmington Hospital (ChristianaCare campus). Officials including the mayor, police chief, governor, and hospital leadership addressed the incident, confirming one death, one injury, an active manhunt for the suspect, and praise for first responders.\nThe broadcast featured prepared remarks on the 3:30 p.m. shooting inside the hospital, lockdown status, inter-agency coordination, and condolences, followed by limited Q&A where details on victims and the shooter were withheld pending investigation."
+publishedAt: 2026-06-16
+sourceUrl: "https://www.youtube.com/watch?v=TyqKk6PvM9A"
+sourceTitle: "CBS News"
+section: "Politics"
+letterGrade: "A-"
+factualityScore: 85
+politicalLean: "center"
+leanScore: 0
+leanRationale: "Neutral reporting of local officials' remarks with no partisan framing or selective emphasis."
+gradeRationale: "Accurately conveyed official statements from the press conference with timely details on victims and response; minor missing context on evolving investigation facts like suspect-employee link."
+topics:
+  - "Wilmington shooting"
+  - "hospital violence"
+  - "Delaware crime"
+assessment: "The segment provides a clear, factual record of official statements at the time, supporting public safety messaging without sensationalism. Viewers receive accurate early details on the response but miss later context such as the workplace nature of the incident and reports identifying the suspect as a possible temporary employee. Sourcing relies entirely on named public officials, which is appropriate for breaking news but leaves room for independent verification as more information emerges. Overall, it serves as a reliable snapshot rather than a complete analysis."
+notableConcerns: []
+keyMoments:
+  - claim: "One gunshot victim died; the other victim's condition is unknown"
+    verdict: "verified"
+    note: "Confirmed by police chief and multiple contemporaneous reports from ABC News and CBS Philadelphia."
+  - claim: "Suspect remains at large; investigation active"
+    verdict: "verified"
+    note: "Directly stated by Chief Campos; aligns with ongoing manhunt reports from ABC News and WHYY."
+  - claim: "Shooting occurred inside Wilmington Hospital around 3:30 p.m."
+    verdict: "verified"
+    note: "Consistent across police statements, hospital alerts, and news outlets including NBC Philadelphia."
+  - claim: "Incident believed to be a workplace shooting"
+    verdict: "missing context"
+    note: "Not stated in the press conference but reported later by ABC News based on official information."
+videoId: "TyqKk6PvM9A"
+videoTitle: "Police say suspect is still at large after Wilmington, Delaware, hospital shooting"
+thumbnail: "https://img.youtube.com/vi/TyqKk6PvM9A/maxresdefault.jpg"
+citations:
+  - title: "Wilmington Hospital Campus Shooting Incident"
+    url: "https://news.christianacare.org/2026/06/wilmington-hospital-campus-shooting-incident/"
+  - title: "No suspect in custody in Wilmington Hospital shooting"
+    url: "https://www.delawareonline.com/story/news/crime/2026/06/16/police-investigate-possible-shooting-at-wilmington-hospital--live/90578619007/"
+  - title: "2 workers reportedly shot inside Wilmington Hospital in Delaware; facility on lockdown"
+    url: "https://6abc.com/post/possible-shooting-reported-wilmington-hospital-delaware/19310822/"
+  - title: "Live updates: 1 dead, 1 hurt in shooting at Wilmington Hospital in Delaware"
+    url: "https://www.nbcphiladelphia.com/news/local/live-updates-2-people-shot-at-wilmington-hospital-in-del-campus-on-lockdown/4418495/"
+  - title: "2 people shot at Wilmington Hospital in Delaware as police search for \"possible active shooter\""
+    url: "https://www.cbsnews.com/philadelphia/news/wilmington-hospital-delaware-shooting/"
+  - title: "Manhunt underway after 2 shot at Delaware hospital: Officials"
+    url: "https://abcnews.com/US/manhunt-underway-after-2-shot-delaware-hospital-officials/story?id=133940899"
+  - title: "2 People Shot at a Hospital in Wilmington, Del., Police Say"
+    url: "https://www.nytimes.com/2026/06/16/us/wilmington-delaware-hospital-shooting.html"
+  - title: "Shooting at ChristianaCare in Wilmington locks down the hospital"
+    url: "https://spotlightdelaware.org/2026/06/16/shooting-at-christianacare-in-wilmington-locks-down-the-hospital/"
+  - title: "Delaware Hospital Locked Down After 2 People Are Shot Inside"
+    url: "https://www.usnews.com/news/us/articles/2026-06-16/delaware-hospital-locked-down-after-2-people-are-shot-inside"
+  - title: "2 shot at ChristianaCare hospital; suspect sought"
+    url: "https://www.beckershospitalreview.com/quality/patient-safety-outcomes/2-shot-at-christianacare-hospital-suspect-sought/"
+  - title: "2 reportedly shot inside Wilmington Hospital"
+    url: "https://whyy.org/articles/workers-shot-wilmington-hospital-delaware/"
+---
+
+
