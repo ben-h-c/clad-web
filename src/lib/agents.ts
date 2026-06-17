@@ -136,7 +136,7 @@ export const DEFAULT_REGISTRY: Registry = {
       kind: "compliance-auditor",
       name: "Compliance Auditor (Don't-Get-Sued)",
       enabled: true,
-      cron: "0 7 * * *", // daily, 07:00 UTC
+      cron: "0 7 * * 1", // weekly, Mondays 07:00 UTC
       config: {
         maxPostsToAudit: 60,
       },

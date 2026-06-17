@@ -7,7 +7,8 @@
 import { getQuips, setQuips } from "./api.mjs";
 
 const XAI_RESPONSES = "https://api.x.ai/v1/responses";
-const MODEL = "grok-4.3";
+// One-liner generation doesn't need the premium reasoning model.
+const MODEL = "grok-4.20-0309-non-reasoning";
 
 const SYSTEM = `You write short, witty one-liner "quips" for a fun scrolling ticker at the very bottom of CladFacts, a news fact-checking site. The vibe: self-aware and cheeky, gently roasting the reader for doomscrolling and reminding them not to take the news (or themselves) too seriously. Think dry, absurd, a little nihilistic, but warm — never mean.
 

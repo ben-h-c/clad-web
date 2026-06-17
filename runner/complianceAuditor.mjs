@@ -191,7 +191,8 @@ async function callResponses(apiKey, system, user) {
         { role: "system", content: system },
         { role: "user", content: user },
       ],
-      tools: [{ type: "web_search" }],
+      // No web search — the audit reviews our own posts + policies (provided in
+      // the prompt); live browsing isn't needed and was a recurring cost.
       text: { format: { type: "json_schema", name: "compliance_report", schema: SCHEMA, strict: true } },
     }),
   });

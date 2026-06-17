@@ -9,7 +9,9 @@ import { getClassifications, putClassifications } from "./api.mjs";
 import { canonicalTopic } from "../scripts/topicsAgg.mjs";
 
 const XAI_RESPONSES = "https://api.x.ai/v1/responses";
-const MODEL = "grok-4.3";
+// Classification is simple structured output — use the cheap non-reasoning tier
+// (no web search needed), not the premium reasoning model.
+const MODEL = "grok-4.20-0309-non-reasoning";
 
 // ---- heuristic fallback (used only when Grok is unavailable) ----
 const HEAVY_POLITICS =
