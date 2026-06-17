@@ -52,14 +52,15 @@ export async function getAccess(headers: Headers): Promise<Access> {
   return { tier: "free", fullAccess: false, signedIn: true, trialEndsAt };
 }
 
-/** Stripe is "configured" only once its secret + at least one price are set. */
+/** Stripe is "configured" once its secret key is set. Price IDs now live in
+ *  code (see src/lib/stripe.ts), so they no longer gate this. */
 export function stripeConfigured(): boolean {
-  return !!env.STRIPE_SECRET_KEY && !!(env.STRIPE_PRICE_MONTHLY || env.STRIPE_PRICE_ANNUAL);
+  return !!env.STRIPE_SECRET_KEY;
 }
 
 // Display pricing (copy only — the real amounts live on the Stripe Price).
 export const PRICE = {
-  monthly: "$5.99",
-  annual: "$49.99",
-  annualPerMonth: "$4.17",
+  monthly: "$2.99",
+  annual: "$29.99",
+  annualPerMonth: "$2.49",
 } as const;

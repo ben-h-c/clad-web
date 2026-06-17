@@ -27,8 +27,18 @@ async function stripe(path: string, body: string): Promise<any> {
   return data;
 }
 
-export function priceFor(plan: string): string | undefined {
-  return plan === "annual" ? env.STRIPE_PRICE_ANNUAL : env.STRIPE_PRICE_MONTHLY;
+// Stripe Price IDs are the source of truth in code (they are not secrets —
+// just identifiers). They're hard-coded so a price change deploys with the
+// code via git→CI, deterministically; the older STRIPE_PRICE_* Worker env
+// vars are stale (they point at the previous prices) and are intentionally
+// NOT read here. An explicit env override is still honored if ever set anew.
+const PRICE_IDS = {
+  monthly: "price_1TjL8hByYhIV2aMNT74BMEHO",
+  annual: "price_1TjL8sByYhIV2aMNueLeuMDP",
+} as const;
+
+export function priceFor(plan: string): string {
+  return plan === "annual" ? PRICE_IDS.annual : PRICE_IDS.monthly;
 }
 
 export async function createCheckoutSession(opts: {
