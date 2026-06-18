@@ -125,10 +125,10 @@ const mostRight = [...leaned]
           <span>
             {access.signedIn
               ? "Your free week has ended — grades & political-lean ratings are hidden."
-              : `Free preview — grades & political-lean ratings are Premium.`}
+              : "Free preview — grades & political-lean ratings are Premium. Create a free account for a 7-day free trial of full access."}
           </span>
-          <a class="paywall-banner__cta" href="/upgrade/">
-            {access.signedIn ? "Upgrade" : "Start free week"}
+          <a class="paywall-banner__cta" href={access.signedIn ? "/upgrade/" : "/register/"}>
+            {access.signedIn ? "Upgrade" : "Create free account"}
           </a>
         </aside>
       )}
