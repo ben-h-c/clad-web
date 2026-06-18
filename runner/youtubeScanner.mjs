@@ -54,6 +54,15 @@ const NETWORK_CHANNEL_IDS = [
   "UCQfwfsi5VrQ8yKZ-UWmAEFg", // France 24 English
   "UCuFFtHWoLl5fauMMD5Ww2jA", // CBC News
   "UChLtXXpo4Ge1ReTEboVvTDg", // Global News
+  // UK news + commentary — much of it (free-speech debates, immigration, knife
+  // crime, grooming-gang cases) resonates in US political discourse.
+  "UCatt7TBjfBkiJWx8khav_Gg", // Piers Morgan Uncensored
+  "UC0vn8ISa4LKMunLbzaXLnOQ", // GB News
+  "UCm0yTweyAa0PwEIp0l3N_gA", // TalkTV
+  "UCPgLNge0xqQHWM5B5EFH9Cg", // The Telegraph
+  "UCTrQ7HXWRRxr7OsOtodr2_w", // Channel 4 News
+  "UCIzXayRP7-P0ANpq-nD-h5g", // The Sun
+  "UCFQgi22Ht00CpaOQLtvZx2A", // ITV News
 ];
 
 // Run one scan: gather the newest headlines across the news outlets, then draft
