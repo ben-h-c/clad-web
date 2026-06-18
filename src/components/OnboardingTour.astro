@@ -232,11 +232,14 @@
       open();
     });
 
+    // TEMP: first-visit auto-open is disabled. Set AUTO_OPEN = true to restore
+    // it. The "How it works" footer link still opens the tour manually.
+    const AUTO_OPEN = false;
     // Auto-open on first visit — but not on admin/auth utility pages.
     const path = location.pathname;
     const suppressed = /^\/(admin|login|register|account|verified)(\/|$)/.test(path);
     let seen = true;
     try { seen = !!localStorage.getItem(KEY); } catch {}
-    if (!seen && !suppressed) open();
+    if (AUTO_OPEN && !seen && !suppressed) open();
   })();
 </script>
