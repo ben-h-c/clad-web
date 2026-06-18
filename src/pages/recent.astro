@@ -1,0 +1,65 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import ReportCard from "~/components/ReportCard.astro";
+import { getAccess } from "~/lib/access";
+
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "private, no-store");
+
+// Article text is open; grades + lean are gated per tier (locked for free).
+const access = await getAccess(Astro.request.headers);
+const locked = !access.fullAccess;
+
+const posts = (await getCollection("posts", (p) => !p.data.draft)).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+const PER_PAGE = 30;
+const shown = posts.slice(0, 150);
+---
+<BaseLayout
+  title="Recent — Clad"
+  description="The most recent CladFacts reports, newest first."
+>
+  <section class="recent">
+    <header class="recent__head">
+      <h2 class="recent__title">Recent</h2>
+      <p class="dateline">Every report, newest first.</p>
+    </header>
+    <div class="rule rule--double" aria-hidden="true"></div>
+
+    {shown.length === 0 ? (
+      <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
+    ) : (
+      <>
+        <ul class="recent-list">
+          {shown.map((p, i) => (
+            <li class="recent-item" hidden={i >= PER_PAGE}>
+              <ReportCard post={p} variant="bar" locked={locked} />
+            </li>
+          ))}
+        </ul>
+        {shown.length > PER_PAGE && (
+          <button type="button" id="recent-more" class="show-more" data-step={PER_PAGE}>
+            Show more <span aria-hidden="true">↓</span>
+          </button>
+        )}
+      </>
+    )}
+  </section>
+
+  <script is:inline>
+    (() => {
+      const btn = document.getElementById("recent-more");
+      if (!btn) return;
+      const items = Array.from(document.querySelectorAll(".recent-item"));
+      const step = Number(btn.getAttribute("data-step")) || 30;
+      let shown = step;
+      btn.addEventListener("click", () => {
+        shown += step;
+        items.forEach((el, i) => { if (i < shown) el.hidden = false; });
+        if (shown >= items.length) btn.hidden = true;
+      });
+    })();
+  </script>
+</BaseLayout>

@@ -38,6 +38,9 @@ if (heroPosts.length === 0) {
 }
 heroPosts = heroPosts.slice(0, 50);
 
+// Recent = the newest reports overall (any type/outlet), newest first.
+const recent = all.slice(0, 30);
+
 // Breaking News = the curator's impact-ordered selection: single outlet posts,
 // or temporary same-story groups (shown as a topic shell with aggregated grade
 // + lean). Resolve each item; a group needs ≥2 resolvable members, else it
@@ -132,6 +135,7 @@ const mostRight = [...leaned]
       <BreakingStrip items={breaking} locked={locked} />
       <Ticker data={ticker} />
       <HeroStrip posts={heroPosts} title="Front Page" locked={locked} />
+      <HeroStrip posts={recent} title="Recent" locked={locked} />
       <section class="feed">
         <div class="feed__head">
           <h2 class="feed__title">Topics</h2>
