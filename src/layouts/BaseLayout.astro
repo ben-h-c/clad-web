@@ -33,7 +33,9 @@ const canonical = new URL(Astro.url.pathname, site).href;
 const shareTitle = ogTitle ?? title;
 const shareDescription = ogDescription ?? description;
 // Resolve the share image to an absolute URL (relative paths -> site origin).
-const shareImage = ogImage ? new URL(ogImage, site).href : null;
+// Pages without their own image fall back to a branded card so link previews
+// (X/Twitter, etc.) always show a large image.
+const shareImage = new URL(ogImage ?? "/og/brand.png", site).href;
 
 // Site-wide structured data: the publisher + a searchable website. Page-specific
 // schema (e.g. NewsArticle) is passed in via the jsonLd prop.

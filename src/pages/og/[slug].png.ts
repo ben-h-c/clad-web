@@ -101,6 +101,19 @@ function markup(card: Card, thumb: string | null): string {
   </div>`;
 }
 
+// Default brand card for pages without a specific image (homepage, about, etc.)
+// so link unfurls (X/Twitter, etc.) always show a large preview.
+function brandMarkup(): string {
+  return `
+  <div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;align-items:center;justify-content:center;text-align:center;">
+    <div style="display:flex;font-size:28px;color:${MUTED};letter-spacing:10px;">FACT-CHECKING THE NEWS</div>
+    <div style="display:flex;font-size:190px;font-weight:700;letter-spacing:16px;line-height:1;margin:14px 0;">CLAD</div>
+    <div style="display:flex;width:740px;height:4px;background:${INK};"></div>
+    <div style="display:flex;font-size:32px;color:${MUTED};letter-spacing:4px;margin-top:22px;">GRADING CONTENT & EXPOSING BIAS</div>
+    <div style="display:flex;font-size:25px;color:${INK};margin-top:28px;width:880px;justify-content:center;line-height:1.3;">AI-assisted fact-checks that grade the news for accuracy and rate its political bias.</div>
+  </div>`;
+}
+
 // Fonts are static assets; fetch + cache them in module scope (per isolate).
 let fontsPromise: Promise<{ name: string; data: ArrayBuffer; weight: 400 | 700; style: "normal" }[]> | null = null;
 function loadFonts(origin: string) {
@@ -125,6 +138,21 @@ export const GET: APIRoute = async ({ params, request, locals }) => {
   const cacheKey = new Request(new URL(request.url).toString());
   const hit = await cache.match(cacheKey);
   if (hit) return hit;
+
+  // Branded default card (homepage / pages without their own image).
+  if (slug === "brand") {
+    const fonts = await loadFonts(new URL(request.url).origin);
+    const img = new ImageResponse(brandMarkup(), { width: 1200, height: 630, fonts: fonts as any, format: "png" });
+    const resp = new Response(img.body, {
+      headers: {
+        "Content-Type": "image/png",
+        "Cache-Control": "public, max-age=86400, s-maxage=604800, immutable",
+      },
+    });
+    const cf = (locals as any)?.cfContext;
+    if (cf?.waitUntil) cf.waitUntil(cache.put(cacheKey, resp.clone()));
+    return resp;
+  }
 
   const card = await buildCard(slug);
   if (!card) return new Response("Not found", { status: 404 });
