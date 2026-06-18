@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Senate Finance Hearing Scrutinizes Trump IRS Settlement, Treasury Actions"
 summary: "The segment covers a Senate Finance Committee hearing with Treasury Secretary Scott Bessent. Senators including Sheldon Whitehouse and Catherine Cortez Masto question Bessent on an IRS settlement providing audit immunity to Trump and his family/businesses, the Charles Littlejohn contractor leak of over 400,000 tax returns, pursuit of contractor accountability, a potential defense analysis memo, harm analysis from the leaks, and preparations for a $250 bill featuring Trump's likeness. Bessent repeatedly cites ongoing litigation and refers questions to DOJ while clarifying his role performing commissioner duties without a confirmed IRS commissioner. Additional topics include deficit reduction goals and currency law requirements."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T16:49:52Z
 sourceUrl: "https://www.youtube.com/watch?v=RgqxmcNmMP0"
 sourceTitle: "Hook Global"
 section: "Politics"

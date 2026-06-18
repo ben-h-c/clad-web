@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump claims $1.5-2T US damage to Iran, denies US funding in deal talks"
 summary: "Forbes Breaking News clip shows President Trump speaking at the G7 summit about a US-Iran memorandum of understanding following recent military strikes. He states the US caused $1.5-2 trillion in damage to Iran, rules out US investment or aid, references a fake news story about JD Vance's comments on a potential reconstruction fund, and describes elimination of Iranian leadership groups including an anecdote about a breakfast bombing killing 88 people. He notes no regime change intent but observes resulting leadership changes, and contrasts with the Obama-era JCPOA."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T19:55:30Z
 sourceUrl: "https://www.youtube.com/watch?v=JzcCQqTbO0I"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

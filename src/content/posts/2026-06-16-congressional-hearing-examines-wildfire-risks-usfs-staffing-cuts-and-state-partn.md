@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Congressional Hearing Examines Wildfire Risks, USFS Staffing Cuts and State Partnerships"
 summary: "The clip shows Rep. Emily Randall (D-WA) questioning USFS Chief Tom Schultz during a House committee hearing on fire readiness, climate resiliency, low snowpack in the Pacific Northwest, and impacts of recent federal staffing changes and grant terms. Randall highlights third-lowest snowpack, NWS and USFS personnel reductions, lab closures, and hold-ups in Washington state partnerships totaling tens of millions in funding. Schultz responds on drought-driven longer fire seasons, higher fuel densities, and the priority of active forest management including thinning and prescribed fire; he notes nearly 300 agreements signed with Washington despite new terms."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T06:00:23Z
 sourceUrl: "https://www.youtube.com/watch?v=IDN7fCfVltE"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

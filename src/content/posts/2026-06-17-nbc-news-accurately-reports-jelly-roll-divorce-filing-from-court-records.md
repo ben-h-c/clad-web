@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC News accurately reports Jelly Roll divorce filing from court records"
 summary: "NBC News segment reports that country music star Jelly Roll filed for divorce from his wife Bunnie Xo (spelled Bunny Exo in transcript) based on Tennessee court records. The couple had been married nearly a decade. It references Jelly Roll's public thanks to her at the February Grammys and notes outreach to attorneys with no response received."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T10:58:17Z
 sourceUrl: "https://www.youtube.com/watch?v=Pl2zdHjmWl4"
 sourceTitle: "NBC News"
 section: "Politics"

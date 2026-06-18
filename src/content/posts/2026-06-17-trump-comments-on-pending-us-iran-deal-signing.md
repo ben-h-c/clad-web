@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Comments on Pending US-Iran Deal Signing"
 summary: "The segment features President Trump responding to a question about the status of the pending US-Iran agreement and whether a signing would occur on Friday. Trump describes his experience with deals, notes uncertainty, expresses optimism that parties want to sign, and clarifies it is a detailed memorandum of understanding rather than a final contract.\nThe clip draws from a press event tied to G7 discussions, with Trump speaking directly; no additional guests or graphics are referenced in the available transcript."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T16:47:28Z
 sourceUrl: "https://www.youtube.com/watch?v=JhR9FND8N8A"
 sourceTitle: "Associated Press"
 section: "Politics"

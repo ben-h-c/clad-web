@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX Surpasses Amazon, Briefly Tops Microsoft After IPO Rally"
 summary: "The Reuters segment covers SpaceX's post-IPO stock surge on June 16-17 2026, noting shares rose up to 17% intraday to push market value past Amazon and briefly above Microsoft, ranking it fifth globally with a ~$2.8T cap. It highlights the jump from the $135 IPO price, ongoing index inclusions, record options trading volume, and a $60B all-stock deal for the Cursor AI coding startup."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:28:51Z
 sourceUrl: "https://www.youtube.com/watch?v=krCEHfHtLn0"
 sourceTitle: "Reuters"
 section: "Politics"

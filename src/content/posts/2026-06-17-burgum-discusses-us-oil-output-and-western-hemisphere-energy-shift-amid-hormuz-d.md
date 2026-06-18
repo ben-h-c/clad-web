@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Burgum Discusses US Oil Output and Western Hemisphere Energy Shift Amid Hormuz Disruptions"
 summary: "Fox Business host Larry Kudlow interviews Interior Secretary Doug Burgum on US crude output at 13.6 million barrels per day and goals to reach 15 million. Burgum credits Trump policies for boosting Western Hemisphere production including Venezuela and Guyana, reducing reliance on OPEC and adversaries. Discussion covers recent Strait of Hormuz disruptions from Iran conflict, alternative supply routes, and falling global prices. Burgum highlights diplomatic and economic wins with Middle East alignment. Sourcing is primarily the guest's statements with host questions referencing recent events and price levels around $75-76 WTI."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T04:00:30Z
 sourceUrl: "https://www.youtube.com/watch?v=jqHNyjBvdec"
 sourceTitle: "Fox Business"
 section: "Politics"

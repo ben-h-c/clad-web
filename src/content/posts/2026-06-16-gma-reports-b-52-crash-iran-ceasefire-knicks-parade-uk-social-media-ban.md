@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "GMA reports B-52 crash, Iran ceasefire, Knicks parade, UK social media ban"
 summary: "The June 16, 2026 GMA broadcast covered flash flooding along the Gulf Coast with a fatality in Texas, a deadly B-52 bomber crash at Edwards AFB killing all eight aboard on a test mission, and President Trump's G7 appearance amid a new U.S.-Iran ceasefire deal whose terms remain undisclosed. Segments also addressed falling but still elevated gas prices, a DOJ probe into Gov. Gavin Newsom, Southern California wildfires, a 6.7-magnitude earthquake in Indonesia, the UK's planned social media ban for under-16s, and the upcoming Knicks ticker-tape parade after their first title in 53 years.\nThe show relied on live field correspondents, official statements from bases and governments, and graphics for weather and prices; guests included meteorologists and anchors with sports commentary from Michael Strahan."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T12:01:55Z
 sourceUrl: "https://www.youtube.com/watch?v=sn0qQHJcMag"
 sourceTitle: "ABC News"
 section: "Politics"

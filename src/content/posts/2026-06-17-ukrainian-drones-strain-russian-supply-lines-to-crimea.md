@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Ukrainian drones strain Russian supply lines to Crimea"
 summary: "The segment examines whether recent Ukrainian drone attacks are threatening Russian control over Crimea. It covers strikes on supply routes including a key land corridor highway and several bridges, resulting in reduced freight traffic, fuel rationing, and shortages. Russia has acknowledged fuel problems while remaining silent on corridor attacks. Ukraine's drone forces commander signals intent to further isolate the peninsula. Experts assess that full control is not yet at risk but reinforcements could signal concern. Crimea remains internationally recognized as Ukrainian territory with potential negotiating value."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T13:41:09Z
 sourceUrl: "https://www.youtube.com/watch?v=EpkP8Vc7NNM"
 sourceTitle: "Sky News"
 section: "Politics"

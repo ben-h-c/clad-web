@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC interviews NY-12 candidate Laura Dunn on impeachment, AI PACs in primary"
 summary: "The segment covers the crowded Democratic primary for New York's 12th District to replace retiring Rep. Jerry Nadler, featuring candidates including Laura Dunn, Jack Schlossberg, George Conway, and Micah Lasher. It discusses super PAC spending from AI companies and Michael Bloomberg. Dunn highlights her federal policy experience and argues impeachment of President Trump should be a day one priority if Democrats retake the House. The host plays a clip of Minority Leader Hakeem Jeffries saying Democrats have not ruled out accountability measures but will focus on affordability. Dunn criticizes that stance and discusses AI industry involvement and willingness to work with Trump on housing affordability."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:57:02Z
 sourceUrl: "https://www.youtube.com/watch?v=5dpTrjEhg7c"
 sourceTitle: "NBC News"
 section: "Politics"

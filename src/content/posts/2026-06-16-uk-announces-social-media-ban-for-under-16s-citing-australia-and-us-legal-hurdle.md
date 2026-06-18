@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "UK Announces Social Media Ban for Under-16s, Citing Australia and US Legal Hurdles"
 summary: "The segment discusses UK Prime Minister Keir Starmer's June 2026 announcement of a social media ban for children under 16, following Australia's lead. It covers platforms affected, US warnings against blunt restrictions, court challenges in America, research on mental health risks, and enforcement difficulties seen in Australia. It calls for greater corporate responsibility alongside parental efforts.\nThe discussion features commentary from Lindsey Granger and a co-host, referencing Pew Research, studies on anxiety/depression, Section 230, and examples of lawsuits. Sourcing draws on government statements, news reports like BBC, and general expert consensus rather than new primary data or guests."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:30:13Z
 sourceUrl: "https://www.youtube.com/watch?v=xHNfGJRXZ-U"
 sourceTitle: "The Hill"
 section: "Politics"

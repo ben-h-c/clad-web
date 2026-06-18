@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Senate Hearing Examines AI Privacy, Bias, and Civil Rights in K-12 Education"
 summary: "The clip covers a Senate HELP Committee hearing round with Sen. Lisa Blunt Rochester questioning witnesses on educational data privacy, cybersecurity incidents, and AI civil rights issues. Topics include the PowerSchool breach, FERPA/COPPA adequacy, chatbot risks, algorithmic bias in grading and predictions, student surveillance, and the digital divide.\nWitnesses include Delaware education officials and experts who discuss state-level guardrails, call for updates to privacy laws due to emerging AI tools, and cite parent/advocacy concerns with examples of ongoing work like AI literacy efforts and human-in-the-loop requirements. Florida is referenced for leadership on consequential decision-making legislation."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T09:30:20Z
 sourceUrl: "https://www.youtube.com/watch?v=MXXQ-VCYM0Q"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

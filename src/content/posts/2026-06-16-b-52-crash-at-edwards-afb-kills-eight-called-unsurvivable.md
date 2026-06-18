@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "B-52 Crash at Edwards AFB Kills Eight, Called Unsurvivable"
 summary: "The segment reports a B-52 Stratofortress crashing shortly after takeoff at Edwards Air Force Base in California on June 15, 2026. Officials described the incident as unsurvivable, with all eight people aboard killed; the plane burst into flames. An aviation expert discusses typical causes of such accidents, noting the need to examine human, material, and environmental factors through records and investigations.\n\nSourcing relies on official statements from Edwards AFB and standard expert commentary; no named on-scene sources or graphics beyond the title are referenced. The report emphasizes the rarity and tragedy while stressing that determining the cause is premature."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:30:29Z
 sourceUrl: "https://www.youtube.com/watch?v=XjGaEiEO8gA"
 sourceTitle: "Fox News"
 section: "Politics"

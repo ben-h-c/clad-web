@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Examines Trump-Iran Framework, Warsh Fed Debut at G7"
 summary: "The segment covers President Trump's G7 comments on an interim U.S.-Iran agreement expected to be signed within 48 hours, including reopening the Strait of Hormuz and sanctions relief tied to further talks. It also details the FOMC meeting under new Chair Kevin Warsh, where rates stayed unchanged amid hawkish dot-plot projections, plus AI discussions and Senate interviews on housing legislation. The second half features Senators Tina Smith, Ted Budd, and Dick Durbin reacting to the Iran framework, Fed signals, and nominations, followed by a political panel on primaries and deal fallout. Sourcing draws on live Trump remarks, Bloomberg reporting on an MOU document, analyst commentary, and on-camera senators."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:57:58Z
 sourceUrl: "https://www.youtube.com/watch?v=OSABwSQB_bQ"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

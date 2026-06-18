@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Sam Worthington Promotes Harlan Coben Netflix Series and Family Life on The View"
 summary: "The segment features Sam Worthington promoting the upcoming Netflix thriller series 'I Will Find You,' adapted from Harlan Coben's 2023 novel. Hosts discuss the plot's twists, co-stars including Britt Lower and Milo Ventimiglia, Worthington's role as a sympathetic father character, and his real-life family with three sons.\nWorthington shares anecdotes about his Australian upbringing, his wife's influence on taking the role, past films like 'The Debt,' and Avatar sequels. The conversation remains light and promotional ahead of the June 18, 2026 premiere."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:00:10Z
 sourceUrl: "https://www.youtube.com/watch?v=LWmTwfolTnI"
 sourceTitle: "The View"
 section: "Politics"

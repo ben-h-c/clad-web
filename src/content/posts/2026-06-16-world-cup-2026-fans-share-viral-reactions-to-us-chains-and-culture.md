@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "World Cup 2026 fans share viral reactions to U.S. chains and culture"
 summary: "NewsNation segment highlights European soccer fans visiting the U.S. for the 2026 World Cup and their enthusiastic encounters with American staples. It covers Trader Joe's canvas tote bags, ranch dressing, Waffle House visits, free restaurant refills, Texas Roadhouse rolls, and Scottish fans in Boston singing 'Take Me Home, Country Roads' while reacting to NFL cheerleaders. A German fan named Freddie's road trip and Waffle House's Atlanta pop-up soccer merch shop are featured as examples of positive cultural exchange. The report ends with discussion of whether exposure boosts U.S. soccer interest amid Team USA's early tournament performance. Sourcing relies on social media clips, on-the-ground reporter narration, and named examples rather than anonymous officials or data graphics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:39:41Z
 sourceUrl: "https://www.youtube.com/watch?v=u0JFd10bY-w"
 sourceTitle: "NewsNation"
 section: "Politics"

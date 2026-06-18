@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "U.S. Travel Warnings to China Highlight Ongoing Tensions"
 summary: "The broadcast covers recent U.S. embassy travel warnings to China issued over two days, including risks of arbitrary detention and issues with dual citizenship. It also reports the Supreme Court upholding certain Trump-era tariffs on Chinese imports. Additional segments address counterfeit World Cup merchandise seizures, a reported Chinese tracking device in a UK prime minister's vehicle, a police raid on an underground church in China, Google disclosures on Chinese-linked hackers targeting research institutions, White House restrictions on Anthropic AI models, and rising Taiwan-China tensions with analysis from a geopolitical expert."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:00:06Z
 sourceUrl: "https://www.youtube.com/watch?v=Tw1lBqIibZk"
 sourceTitle: "China in Focus - NTD"
 section: "Politics"

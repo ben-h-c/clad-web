@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Laverne Cox Delivers Affirmative Message to LGBTQ Youth on Daily Show"
 summary: "The segment features Laverne Cox interviewed by Desi Lydic on The Daily Show, promoting her memoir 'Transcendent.' Cox responds to a question about advice for young LGBTQ people who may face similar challenges, urging them not to be afraid, seek support groups or local centers if parents are unsupportive, and affirming that their identities are 'divine beautiful things' and that they are 'worthy' as children of God."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T18:02:37Z
 sourceUrl: "https://www.youtube.com/watch?v=cfYXVhkz9Nc"
 sourceTitle: "The Daily Show"
 section: "Politics"

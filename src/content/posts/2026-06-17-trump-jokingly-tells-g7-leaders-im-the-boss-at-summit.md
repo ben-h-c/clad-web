@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump jokingly tells G7 leaders 'I'm the boss' at summit"
 summary: "USA Today clip shows President Trump arriving at a G7 leaders’ meeting in Évian-les-Bains, France, on the summit’s final day. He enters late, says “I’m the boss,” draws laughter from attendees, and sits beside French President Macron with UK Prime Minister Starmer nearby. The brief segment features hot-mic audio of greetings and the remark. Sourcing consists solely of the on-site video footage with no additional experts, documents, or analysis presented."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T20:40:16Z
 sourceUrl: "https://www.youtube.com/watch?v=b93S_5iswFY"
 sourceTitle: "USA TODAY"
 section: "Politics"

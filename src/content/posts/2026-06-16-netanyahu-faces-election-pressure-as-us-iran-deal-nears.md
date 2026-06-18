@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Netanyahu Faces Election Pressure as US-Iran Deal Nears"
 summary: "The segment examines domestic pressures on Israeli Prime Minister Benjamin Netanyahu amid the multi-front conflict, focusing on Hezbollah threats in Lebanon and Iranian influence. It discusses expectations for a US-Iran memorandum of understanding to be signed around Friday, extending ceasefires while advancing talks, and its potential impact on the Israeli election four months away.\nThe discussion draws on expert analysis of Netanyahu's security-focused messaging versus opposition critiques on war costs and leadership style. Guests and commentary reference figures including Naftali Bennett and Gadi Eisenkot, highlighting voter fatigue and shifting preferences in polls."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T06:32:39Z
 sourceUrl: "https://www.youtube.com/watch?v=FwNKuVm3IZE"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Obama Meets NYC Mayor Mamdani at Bronx Preschool Event"
 summary: "The segment analyzes former President Barack Obama's April 2026 appearance alongside New York City Mayor Zohran Mamdani at a Bronx Pre-K center, where they read books and sang 'Wheels on the Bus' with children. It frames the event as notable for signaling Obama's respect for Mamdani despite policy differences and draws parallels to Obama's own early movement-building. Commentators cite unnamed Obama associates describing Mamdani as an 'exceptional talent' and suggesting the joint appearance was deliberate. The discussion ties the moment to broader Democratic dynamics ahead of 2028. Sourcing relies on insider anecdotes and observations of the public event rather than on-the-record statements from Obama."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:19:07Z
 sourceUrl: "https://www.youtube.com/watch?v=yrkUyaG9_qE"
 sourceTitle: "The Hill"
 section: "Politics"

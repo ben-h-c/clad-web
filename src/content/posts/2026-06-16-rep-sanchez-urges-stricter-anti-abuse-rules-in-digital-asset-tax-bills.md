@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Rep. Sánchez Urges Stricter Anti-Abuse Rules in Digital Asset Tax Bills"
 summary: "The Forbes clip shows Rep. Linda Sánchez speaking at a June 2026 House Ways and Means Committee hearing on digital asset taxation. She criticizes unlimited deferral for newly minted assets from mining and staking, warns of inequities and stepped-up basis loopholes, and calls for stronger anti-abuse measures including wash-sale rules and higher charitable-giving thresholds due to volatility.\n\nSánchez questions witness Michael Kaercher (NYU Tax Law Center) on parity with other industries and references provisions from the bipartisan Digital Asset PARITY Act. The segment uses direct hearing footage with no additional graphics or outside experts."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T06:30:34Z
 sourceUrl: "https://www.youtube.com/watch?v=nTCr8f3zM7s"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

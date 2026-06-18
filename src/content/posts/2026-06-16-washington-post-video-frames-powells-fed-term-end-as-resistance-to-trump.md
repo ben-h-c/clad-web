@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Washington Post video frames Powell's Fed term end as resistance to Trump"
 summary: "The video recounts Jerome Powell completing his term as Federal Reserve Chair amid tensions with President Trump over interest rates and alleged mismanagement of Fed building renovations. It highlights Trump's public threats to remove Powell and a DOJ subpoena investigation, which Powell addressed in a January 2026 video defending the Fed's independence.\nPowell stepped down as chair on May 15, 2026, with Kevin Warsh succeeding him; he briefly remained on the board. The piece uses the High Noon analogy and praises Powell for resisting political pressure. It draws on public statements, video footage, and Trump's quotes without named expert guests or opposing viewpoints."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:16:08Z
 sourceUrl: "https://www.youtube.com/watch?v=cnE6eTXkrT8"
 sourceTitle: "Washington Post"
 section: "Politics"

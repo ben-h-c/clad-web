@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Quebec man criticizes rights commission for closing racial profiling complaint"
 summary: "Global News reports on Halisi Giddings, a Black man from Montreal's South Shore, whose 2025 racial profiling complaint against Longueuil police was dropped by the Quebec Human Rights and Youth Rights Commission more than a year after filing. The segment covers Giddings' 2024 traffic stop allegation and notes his case as one of four handled by CRARR that were closed this spring following court authorization of a related class action. CRARR argues the commission closed files prematurely before the opt-out deadline, denying individual advantages like faster processes and corrective remedies. The commission states it closed individual files matching the class action facts but cannot discuss specifics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:01:46Z
 sourceUrl: "https://www.youtube.com/watch?v=aXg-xRlXJKM"
 sourceTitle: "Global News"
 section: "Politics"

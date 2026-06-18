@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Guilbeault Details Resignation Over Carney Alberta Pipeline Deal"
 summary: "The segment features an extended interview with outgoing Liberal MP and former environment minister Steven Guilbeault on his resignation from cabinet and planned exit from Parliament. Guilbeault cites the federal-Alberta pipeline MOU and perceived backsliding on climate commitments as the breaking point after nearly seven years in cabinet."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T15:28:53Z
 sourceUrl: "https://www.youtube.com/watch?v=FnY5NJkcRow"
 sourceTitle: "CBC News"
 section: "Politics"

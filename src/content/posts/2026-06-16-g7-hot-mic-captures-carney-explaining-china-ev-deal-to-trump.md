@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "G7 Hot Mic Captures Carney Explaining China EV Deal to Trump"
 summary: "The segment covers Prime Minister Mark Carney at the G7 summit in Évian-les-Bains, France, including a hot-mic exchange with President Trump on Canada's limited Chinese EV import quota. Trade Minister Dominic LeBlanc explains the time-limited deal as relief for Canadian canola and seafood exporters. Panelists (Sria Devetti, Lisa Ra, Nathan Cullen, Emily Nicola) discuss the significance of overheard comments and other G7 hot-mic moments involving Trump, Macron, and Zelensky."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:44:14Z
 sourceUrl: "https://www.youtube.com/watch?v=8io0R7mfN_M"
 sourceTitle: "CBC News"
 section: "Politics"

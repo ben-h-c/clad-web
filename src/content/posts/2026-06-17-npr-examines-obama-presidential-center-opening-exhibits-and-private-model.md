@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NPR Examines Obama Presidential Center Opening, Exhibits and Private Model"
 summary: "The segment reports from a replica Oval Office at the Obama Presidential Center in Chicago ahead of its public opening. It describes the 19.3-acre campus including a museum tower, Chicago Public Library branch, sports facilities, gardens and playground. Exhibits cover pre-presidency history, the 2008 campaign, Michelle Obama's dresses, a White House model and a timeline of accomplishments.\n\nReporting draws from on-site observation, quotes from center staff or Obama associates emphasizing balance and inspiration, and references to the private foundation model. No named outside historians or critics appear. The piece highlights the center's self-guided legacy narrative distinct from traditional National Archives libraries."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:00:17Z
 sourceUrl: "https://www.youtube.com/watch?v=c6EwcSlR7PA"
 sourceTitle: "NPR"
 section: "Politics"

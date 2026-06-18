@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Vance Criticizes Suozzi's Votes on Tax Bill in NY-3 Campaign Event"
 summary: "The Forbes clip shows Vice President JD Vance at a Long Island event endorsing Republican Mike LiPetri against Democratic Rep. Tom Suozzi in the NY-3 race. Vance attacks Suozzi for voting against a major tax bill providing cuts on tips, overtime, Social Security, and raising the SALT deduction cap, while praising administration achievements on jobs, safety, and Middle East policy.\nVance highlights record-low NYC murders and falling gas prices post-Iran conflict. Sourcing is the speech itself with no additional reporting, experts, or graphics; it promotes LiPetri and criticizes Suozzi's alignment with Pelosi and Hochul."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T21:42:56Z
 sourceUrl: "https://www.youtube.com/watch?v=Iqj0hsCFxas"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

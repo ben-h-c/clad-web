@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News reports on leaked US-Iran MOU details amid tentative ceasefire deal"
 summary: "The segment covers breaking developments on a reported US-Iran memorandum of understanding to extend a ceasefire, reopen the Strait of Hormuz, pause certain activities, and begin 60-day talks on nuclear issues and sanctions relief. It includes details from Axios on leaked terms, comments from VP Vance on rollout timing, Trump remarks, and analysis from a former CIA official. Sourcing draws from media leaks, official statements, and on-air guests; the broadcast questions durability given ongoing tensions in Lebanon and with proxies."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T09:48:06Z
 sourceUrl: "https://www.youtube.com/watch?v=yvsXT1EnogI"
 sourceTitle: "Fox News"
 section: "Politics"

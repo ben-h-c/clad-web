@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Obamas Speak at Presidential Center Stakeholder Reception on South Side"
 summary: "The C-SPAN segment aired remarks by Michelle and Barack Obama at a stakeholder reception for the Obama Presidential Center in Chicago's Jackson Park. Michelle Obama described touring the completed museum, the transformation of the previously neglected area into accessible public space, and the center's message of value to local youth. Barack Obama recounted his early days organizing on the South Side, how the community shaped his life and career, gratitude to the project team, and the center's role in honoring everyday values and families like his in-laws."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:56:54Z
 sourceUrl: "https://www.youtube.com/watch?v=4aBx1Cn-qJA"
 sourceTitle: "C-SPAN"
 section: "Politics"

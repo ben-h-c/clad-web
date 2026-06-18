@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg 'The Close' reviews market pause, Fed, oil and housing"
 summary: "The broadcast covered the day's market action with the S&P 500 and Nasdaq lower amid a pause after a three-day rally, while the Dow hit a record. Segments examined oil's drop below $80 on Iran ceasefire expectations, broadening equity participation via equal-weight vs cap-weighted indexes, and upcoming earnings.\nGuests included Liz Saunders of Charles Schwab on sector rotation, Aswath Damodaran on SpaceX valuation, Christopher Merrill on senior and student housing, and others on analyst calls, Yum Brands, the LA World Cup and Fed communications under Kevin Warsh."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:33:47Z
 sourceUrl: "https://www.youtube.com/watch?v=rCJJw4fYnp8"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

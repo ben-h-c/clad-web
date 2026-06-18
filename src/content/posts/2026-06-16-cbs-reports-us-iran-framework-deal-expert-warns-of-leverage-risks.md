@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS reports US-Iran framework deal, expert warns of leverage risks"
 summary: "The segment covers the recent announcement of a US-Iran framework agreement ending hostilities, reopening the Strait of Hormuz, and launching 60-day nuclear talks. It includes President Trump's claims, Vice President Vance's statements on prices and shipping, comments from Sen. Tim Kaine, and disputes over potential tolls. The second part features an interview with University of Chicago professor Robert Pape analyzing the deal's weaknesses relative to the JCPOA and risks to US global position. Sourcing includes on-air reporting from Nancy Cordes at the G7, social media posts, and Pape's Substack and expertise."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:13:54Z
 sourceUrl: "https://www.youtube.com/watch?v=kJFCtMk-qCA"
 sourceTitle: "CBS News"
 section: "Politics"

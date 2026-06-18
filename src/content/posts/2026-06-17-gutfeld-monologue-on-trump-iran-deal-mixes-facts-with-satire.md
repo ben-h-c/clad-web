@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Gutfeld monologue on Trump Iran deal mixes facts with satire"
 summary: "Greg Gutfeld's monologue on Fox News discusses a pending US-Iran agreement following weeks of conflict, framing it as the culmination of Trump's long-standing stance against the regime. It contrasts Trump with Obama and Carter, references past actions like the Soleimani strike, and touches on domestic policies such as border security and appliance regulations. Vice President JD Vance appears as the guest for the hour. Sourcing relies on Gutfeld's commentary with audience reactions; no external experts or data graphics cited in the segment."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T03:45:18Z
 sourceUrl: "https://www.youtube.com/watch?v=vUhgz48Ci-A"
 sourceTitle: "Fox News"
 section: "Politics"

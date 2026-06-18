@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Senate Hearing: Kaine Seeks Guidance on AI Tools for K-12 Classrooms"
 summary: "The Forbes clip covers Senator Tim Kaine's remarks during a Senate HELP Subcommittee hearing on AI in K-12 education held around June 16, 2026. Kaine shares personal stories about influential teachers, highlights AI's limits in replicating human relationships, and asks witnesses for practical guidance on evaluating vendor AI tools for school boards and superintendents.\nWitnesses including Education Secretary Cardona and others respond with advice on developing district visions, using federal toolkits for risk mitigation and strategy, assessing instructional return on investment, and maintaining skepticism toward AI outputs. The segment focuses on benefits like administrative offloading while cautioning against over-reliance."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T11:45:25Z
 sourceUrl: "https://www.youtube.com/watch?v=q_-toWvzwEc"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

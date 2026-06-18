@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Brief Reports on G7 Iran Deal, BOJ Rate Hike, Oil Drop"
 summary: "The broadcast opens with market updates on oil's longest losing streak tied to a US-Iran interim deal reopening the Strait of Hormuz, Asian and European equity reactions, BOJ's 25bp rate hike to 1%, and futures ahead of the FOMC. Segments cover individual movers including SpaceX, Qualcomm, and Dave & Busters; AI developments with Anthropic and OpenAI finances; and front-page news on a B-52 crash, Hormuz mines, and a proposed Iran investment fund."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T11:20:00Z
 sourceUrl: "https://www.youtube.com/watch?v=qfvtb50LtNc"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

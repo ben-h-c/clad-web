@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox segment hails Trump Iran deal at G7 amid market moves"
 summary: "The Fox News segment covers President Trump arriving in France for the G7 summit, presenting his Iran peace deal announcement as a 'gift' of world peace for his birthday. It highlights an agreement ending hostilities, electronic signing of the deal, falling oil prices, and a surging stock market. The report notes a formal signing ceremony planned for Friday in Switzerland.\n\nThe segment relies on Trump's statements and market observations, with no named guests or additional experts. It frames the events as a major breakthrough following recent U.S.-Iran conflict."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:30:14Z
 sourceUrl: "https://www.youtube.com/watch?v=T4HqNvTXmLw"
 sourceTitle: "Fox News"
 section: "Politics"

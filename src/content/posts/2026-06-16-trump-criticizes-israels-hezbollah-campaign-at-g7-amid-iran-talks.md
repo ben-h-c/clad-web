@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump criticizes Israel's Hezbollah campaign at G7 amid Iran talks"
 summary: "The CBS News segment covers President Trump's comments at the G7 summit criticizing Israel's handling of its conflict with Hezbollah in Lebanon as overly prolonged and detrimental to the Iran deal. It also reports on the electronically signed US-Iran memorandum of understanding, movement of ships through the Strait of Hormuz, falling gas prices, and related diplomatic meetings including with Ukrainian President Zelensky."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:14:11Z
 sourceUrl: "https://www.youtube.com/watch?v=eiyNRPsNQCA"
 sourceTitle: "CBS News"
 section: "Politics"

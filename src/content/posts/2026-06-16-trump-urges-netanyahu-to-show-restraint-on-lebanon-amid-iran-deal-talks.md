@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Urges Netanyahu to Show Restraint on Lebanon Amid Iran Deal Talks"
 summary: "The Bloomberg segment features President Trump speaking to reporters, likely at the G7 summit, on expectations for Israel in ongoing regional deals. He discusses Hezbollah, praises the Syrian leader, criticizes prolonged Israeli operations in Lebanon, and urges Netanyahu to act more responsibly while defending their relationship."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:46:38Z
 sourceUrl: "https://www.youtube.com/watch?v=6N-VlRcttcQ"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

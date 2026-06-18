@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Germany rejects UniCredit Commerzbank bid; transcript misattributes rejection source"
 summary: "The segment covers Germany's opposition to UniCredit's bid for Commerzbank, citing low price and aggressive tactics, the government's 12% stake from the 2008 crisis, and support for the bank's independence in Frankfurt. It also reports Frankfurt prosecutors opening a preliminary market manipulation investigation following a complaint by Commerzbank's works council. UniCredit acknowledged the probe as standard protocol. The offer acceptance period is noted as winding down."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:12:54Z
 sourceUrl: "https://www.youtube.com/watch?v=HUINO8-KPps"
 sourceTitle: "Reuters"
 section: "Politics"

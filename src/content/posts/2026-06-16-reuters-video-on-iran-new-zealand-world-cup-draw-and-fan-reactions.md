@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters video on Iran-New Zealand World Cup draw and fan reactions"
 summary: "The Reuters video covers Iran's 2-2 draw with New Zealand in their 2026 World Cup Group G opener at SoFi Stadium in Los Angeles on June 15. It includes fan commentary linking the result and Iran's sporting performance to national pride following a recent conflict. Segments highlight the charged atmosphere in a city with a large Iranian diaspora.\nThe clip draws on on-site fan interviews and match footage. It references the broader political context including protests against Tehran's government and a tentative agreement ending U.S.-Iran hostilities, with mixed crowd reactions including anthem boos and pre-revolutionary flags."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T08:42:41Z
 sourceUrl: "https://www.youtube.com/watch?v=kHfwhAAvbHw"
 sourceTitle: "Reuters"
 section: "Politics"

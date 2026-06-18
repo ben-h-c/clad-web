@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Warsh: Fed targets broad inflation, not specific grocery prices"
 summary: "PBS NewsHour clip features Fed Chair Kevin Warsh responding to a question about communicating policy to consumers facing rising grocery prices. Warsh explains that the Fed lacks first-order control over individual prices such as oil, eggs, or milk but focuses on preventing those shocks from spreading through the economy. The segment occurs amid elevated inflation tied to an Iran-related energy shock. Sourcing is direct from Warsh's remarks during a recent appearance; no additional guests or graphics are referenced in the provided transcript."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T19:47:26Z
 sourceUrl: "https://www.youtube.com/watch?v=3PvuMypgATY"
 sourceTitle: "PBS NewsHour"
 section: "Politics"

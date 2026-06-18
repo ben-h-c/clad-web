@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Touts Iran MOU at G7, Pushes Ukraine-Russia Deal"
 summary: "The segment covers President Trump's attendance at the G7 summit in France, where he promotes a recently announced memorandum of understanding with Iran to end the war, reopen the Strait of Hormuz, and prevent nuclear weapons. It discusses VP Vance's comments on a potential $300 billion reconstruction fund from Gulf states, Trump's criticism of Israel's Lebanon actions, and European readiness to assist with Hormuz security. The broadcast also addresses the Ukraine war, including Trump's calls for Russia to make a deal and his meeting with President Zelenskyy."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:45:21Z
 sourceUrl: "https://www.youtube.com/watch?v=9q_T8ChZgkU"
 sourceTitle: "The Hill"
 section: "Politics"

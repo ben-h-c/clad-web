@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "House Ways and Means Chairman Pushes Clear Crypto Tax Rules at Hearing"
 summary: "The segment features House Ways and Means Committee Chairman Jason Smith delivering opening remarks at a June 2026 legislative hearing on digital asset taxation. Smith highlights rapid growth in crypto ownership and market size, identifies three gaps in current tax rules covering mining, staking, parity, and compliance burdens like 1099-DA forms, and outlines eight bills and drafts addressing de minimis exclusions, income treatment, charitable deductions, securities safe harbors, anti-abuse rules, and voluntary disclosure.\nThe broadcast draws directly from the official committee hearing transcript and statement, references specific member-introduced legislation including bipartisan efforts by Reps. Horsford and Miller, and positions the proposals as necessary for simplicity and competitiveness with countries like Singapore and Switzerland."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T00:00:30Z
 sourceUrl: "https://www.youtube.com/watch?v=9ZeKk48q-tc"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

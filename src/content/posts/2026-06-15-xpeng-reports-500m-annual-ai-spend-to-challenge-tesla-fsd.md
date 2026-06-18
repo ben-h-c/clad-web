@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Xpeng Reports $500M Annual AI Spend to Challenge Tesla FSD"
 summary: "The segment reports Xpeng's head of autonomous driving stating the firm spends roughly $500 million yearly on AI model training alone to rival Tesla's Full Self-Driving system. It contrasts Tesla's video end-to-end neural network approach with Xpeng's vision-language-action (VLA) model that incorporates language inputs for reasoning while removing language as an intermediate step in VLA 2.0."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T16:17:05Z
 sourceUrl: "https://www.youtube.com/watch?v=MluxpVbPnCY"
 sourceTitle: "Ryan Shaw"
 section: "Politics"

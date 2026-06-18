@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Lebanon returns amid fragile truce, ongoing strikes and US-Iran deal tensions"
 summary: "The segment covers recent Israeli strikes in southern Lebanon shortly after a US-Iran memorandum of understanding aimed at ending broader hostilities, including in Lebanon. It highlights continued clashes despite a fragile ceasefire and thousands of displaced residents returning home against official advice.\nFrance 24 correspondent Rennie Davis reports from Beirut on traffic heading south, Lebanese army demining efforts, resident interviews expressing doubt about the truce's durability, and personal stories of destroyed homes. Sourcing relies on eyewitness accounts, local authorities, and context from the US-Iran talks."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T09:59:12Z
 sourceUrl: "https://www.youtube.com/watch?v=CsfK1820crY"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

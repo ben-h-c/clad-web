@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "PEI school bus passing persists despite strict penalties and recent fatality"
 summary: "The segment examines ongoing failures by drivers to stop for school buses with flashing red lights in Prince Edward Island, despite strict penalties. It highlights dashcam evidence from a parent, the May 2026 fatality of 13-year-old Isabella Bastardo Jiménez, and comments from a veteran bus driver on near-weekly violations.\nEnforcement challenges are detailed with 2025 complaint and charge figures from RCMP, alongside discussion of past camera use and current provincial considerations for new technology, route changes, and education campaigns."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T12:51:47Z
 sourceUrl: "https://www.youtube.com/watch?v=_66EItCo1LM"
 sourceTitle: "CBC News"
 section: "Politics"

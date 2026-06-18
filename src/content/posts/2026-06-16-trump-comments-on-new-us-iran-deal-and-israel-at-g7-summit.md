@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Comments on New US-Iran Deal and Israel at G7 Summit"
 summary: "USA TODAY clip shows President Trump speaking at the G7 summit in France on June 16, 2026, defending a preliminary US-Iran peace agreement. He emphasizes no US financial investment in Iran, strong nuclear restrictions, and potential consequences for violations. Trump also criticizes Israel's Lebanon operations against Hezbollah and suggests Syria could handle the group more effectively. He claims unique credit for Israel's survival and urges Netanyahu to show more responsibility in Lebanon."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:01:28Z
 sourceUrl: "https://www.youtube.com/watch?v=d7ffsu7H2k0"
 sourceTitle: "USA TODAY"
 section: "Politics"

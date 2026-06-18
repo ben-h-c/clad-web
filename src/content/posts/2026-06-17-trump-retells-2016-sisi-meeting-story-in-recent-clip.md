@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Retells 2016 Sisi Meeting Story in Recent Clip"
 summary: "Fox News short clip shows President Trump recounting his first 2016 meeting with Egyptian President Abdel Fattah el-Sisi to Sisi himself. Trump claims they met first in a hotel, developed instant chemistry, and Sisi showed little interest in meeting Hillary Clinton afterward because he expected Trump to win.\nThe segment is a brief, lightly edited exchange presented without additional narration, sourcing details, or fact-checking overlays. No experts or opposing viewpoints appear."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T12:30:49Z
 sourceUrl: "https://www.youtube.com/watch?v=K5l1lHOOWso"
 sourceTitle: "Fox News"
 section: "Politics"

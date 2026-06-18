@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Vivek Ramaswamy praises Elon Musk and American capitalism on Fox News"
 summary: "The segment features Jesse Watters interviewing Vivek Ramaswamy, candidate for Ohio governor, on the value of celebrating success versus villainizing it. Ramaswamy highlights Elon Musk's journey from South Africa as emblematic of the American dream and contrasts free enterprise with socialism and zero-sum thinking. He references the upcoming 250th anniversary of US independence and Adam Smith's Wealth of Nations. Ramaswamy shares his own immigrant background and calls for Republicans to embrace success. The discussion critiques politicians on the left for exploiting wealth redistribution and notes Democrats' shift toward socialism."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T07:30:08Z
 sourceUrl: "https://www.youtube.com/watch?v=eOmtWbcDj2Q"
 sourceTitle: "Fox News"
 section: "Politics"

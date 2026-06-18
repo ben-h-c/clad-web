@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "PBS report on White House UFC plot arrests accurate with inter-agency context"
 summary: "The segment covered the foiled plot targeting the UFC Freedom 250 event on the White House South Lawn on June 14, 2026. It detailed arrests of five men, including 19-year-old Tyson Propper, plans involving explosive drones and gunfire on crowds, and the mother's tip to police. The second part addressed FBI Director Kash Patel's early announcement on X and criticism from the Secret Service deputy director over potential harm to the ongoing probe."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:44:34Z
 sourceUrl: "https://www.youtube.com/watch?v=iQ94OEnEd7w"
 sourceTitle: "PBS NewsHour"
 section: "Politics"

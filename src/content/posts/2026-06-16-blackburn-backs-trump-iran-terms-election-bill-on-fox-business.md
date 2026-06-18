@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Blackburn backs Trump Iran terms, election bill on Fox Business"
 summary: "Fox Business segment features Sen. Marsha Blackburn discussing election reform legislation and endorsing President Trump's conditions for an Iran deal. Segments cover tying voter ID to FISA or reconciliation bills and supporting removal of enriched uranium, IAEA oversight, open Strait of Hormuz, no ballistic missiles, and no funding to Iran. Blackburn references an MOU and the goal of ending conflict. The interview draws on Blackburn's statements and recent legislative action without additional guests or data graphics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T08:00:03Z
 sourceUrl: "https://www.youtube.com/watch?v=m5qT-8LqDhc"
 sourceTitle: "Fox Business"
 section: "Politics"

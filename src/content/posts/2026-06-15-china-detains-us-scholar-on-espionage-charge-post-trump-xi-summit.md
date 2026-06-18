@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "China Detains US Scholar on Espionage Charge Post-Trump Xi Summit"
 summary: "The broadcast covers the arrest of US citizen and UC Berkeley scholar U Min Zin in China on espionage charges shortly after the Trump-Xi summit, alongside risks for Americans traveling there. Segments also detail SpaceX's record IPO on NASDAQ under ticker SPCX, Google's lawsuit against a Chinese cybercrime group using AI for scams, and a massive DDoS attack on a nonprofit aiding exits from the Chinese Communist Party."
-publishedAt: 2026-06-13
+publishedAt: 2026-06-13T01:00:06Z
 sourceUrl: "https://www.youtube.com/watch?v=T94gOc1xwx4"
 sourceTitle: "China in Focus - NTD"
 section: "Politics"

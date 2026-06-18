@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Vance attributes Trump 2028 comments to entertainment value"
 summary: "The segment features Vice President JD Vance on Fox & Friends responding to questions about 2028 presidential ambitions and comments from Secretary of State Marco Rubio. Vance states the team remains focused on current responsibilities rather than future races.\nVance describes President Trump's comments on 2028 as an effort to 'stir the pot' for entertainment value, referencing a hypothetical 'apprentice' style process. He notes the administration is only 18 months in and prioritizes midterms first. Sourcing is Vance's direct interview remarks with no additional guests or graphics referenced."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:30:33Z
 sourceUrl: "https://www.youtube.com/watch?v=VZi19ZRFiiM"
 sourceTitle: "Fox News"
 section: "Politics"

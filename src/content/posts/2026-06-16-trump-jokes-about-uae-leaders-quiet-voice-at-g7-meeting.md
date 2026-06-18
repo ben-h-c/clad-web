@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Jokes About UAE Leader's Quiet Voice at G7 Meeting"
 summary: "The clip shows President Trump and UAE President Sheikh Mohamed bin Zayed Al Nahyan at a bilateral meeting during the G7 Summit in Evian-les-Bains, France. The Sheikh thanks Trump for U.S. support as an ally during a recent 'six-week war' in the Middle East and expresses interest in strengthening ties. Trump responds with a humorous remark about the Sheikh's soft-spoken delivery being a sign of wealth and confidence.\nThe segment is a short, direct recording of the exchange with no additional guests, graphics, or analysis. It focuses on the personal rapport between the leaders."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:45:26Z
 sourceUrl: "https://www.youtube.com/watch?v=Wxhb2maakME"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

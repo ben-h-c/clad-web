@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Huffman Questions Forest Service Chief on Fire Functions Transfer Proposal"
 summary: "The segment is a clip from a House committee hearing where Ranking Member Rep. Jared Huffman questions USDA Forest Service Chief Tom Schultz on a proposal to transfer wildfire functions and personnel to a new National Wildland Fire Service under the Interior Department. Huffman asks about the need for congressional authorization, impacts on non-fire land management activities like trails and timber, and the status of a required study.\n\nSchultz confirms the transfer requires budget action by Congress, notes integration challenges between fire and land management staff, and states the study RFQ closes June 8 with results expected late fall or early winter. Huffman also raises concerns about Undersecretary Michael Boren and Sawtooth National Forest matters before time expires."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:00:10Z
 sourceUrl: "https://www.youtube.com/watch?v=YyUxaPevolQ"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

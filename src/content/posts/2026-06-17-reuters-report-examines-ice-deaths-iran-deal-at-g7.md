@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters report examines ICE deaths, Iran deal at G7"
 summary: "The broadcast covers Reuters' analysis showing the death rate in US ICE immigration detention centers more than doubled under President Trump, highlighting the case of detainee Tuan Van Bui and expert concerns over medical care. It also reports on a proposed $300 billion private investment fund tied to a US-Iran framework deal discussed at the G7 summit in France, where leaders are navigating relations with Trump. Additional segments address lighter topics like sports and primaries."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T10:40:16Z
 sourceUrl: "https://www.youtube.com/watch?v=Y1GIOrcQHjg"
 sourceTitle: "Reuters"
 section: "Politics"

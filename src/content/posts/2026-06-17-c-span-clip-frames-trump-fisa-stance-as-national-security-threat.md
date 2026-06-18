@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "C-SPAN clip frames Trump FISA stance as national security threat"
 summary: "The segment features a congressional speech criticizing President Trump for blocking FISA Section 702 reauthorization. It highlights his withdrawal of Jay Clayton's DNI nomination, insistence on linking renewal to the SAVE America Act, and retention of Bill Pulte as acting DNI. The speaker accuses Trump of holding national security hostage for political gain.\n\nSourcing draws from Trump's public statements and Senate actions. No opposing guests or detailed counterarguments appear; graphics or documents are not referenced in the transcript. The throughline portrays Republican internal divisions and Trump's demands as reckless."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T14:56:11Z
 sourceUrl: "https://www.youtube.com/watch?v=vyYwb-1KuDI"
 sourceTitle: "C-SPAN"
 section: "Politics"

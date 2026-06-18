@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "The Hill analyzes Trump Iran MOU against past promises amid ongoing negotiations"
 summary: "The segment recaps the timeline of the US-Iran conflict starting over 100 days prior, including Trump's March-April-May statements on negotiations and a potential deal, the April ceasefire, and the recent digital signing of an MOU. It features analysis from guest Drew Petrillo on what the agreement achieves versus initial war aims. The second part details MOU provisions reported by Iranian officials to Reuters, including Strait of Hormuz reopening, sanctions relief, and $25 billion in asset releases, plus planned Friday signing in Switzerland and questions about nuclear issues, proxies, and future talks. Sourcing draws from Trump quotes, administration statements, Reuters, and unnamed Iranian officials, with references to graphics and Vice President Vance comments."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:28:14Z
 sourceUrl: "https://www.youtube.com/watch?v=8R9TNiKxrB8"
 sourceTitle: "The Hill"
 section: "Politics"

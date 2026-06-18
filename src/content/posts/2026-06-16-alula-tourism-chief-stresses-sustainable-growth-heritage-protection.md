@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "AlUla Tourism Chief Stresses Sustainable Growth, Heritage Protection"
 summary: "The Reuters segment features comments from the AlUla tourism chief on plans to attract visitors while avoiding mass tourism. The chief highlights AlUla's 7,000-year continuous history, need to protect artifacts and monuments, and desire to include local communities in development for long-term sustainability rather than short-term gains."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:24:14Z
 sourceUrl: "https://www.youtube.com/watch?v=-1wPGYqygC8"
 sourceTitle: "Reuters"
 section: "Politics"

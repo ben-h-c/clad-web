@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "MS NOW panel critiques Trump-Iran deal as U.S. strategic defeat"
 summary: "The segment features former CIA Director John Brennan, Atlantic writer Tom Nichols, and former UN mission spokesperson Higar Shamali analyzing a recently signed U.S.-Iran memorandum to end fighting after months of conflict. Discussion covers nuclear negotiations, Strait of Hormuz access, sanctions relief, Lebanese ceasefire terms, and Israeli restrictions on Hezbollah targets. Guests cite a 60-day probationary period and Gulf-funded reconstruction options. Sourcing draws on Vance's Fox News and CBS appearances, Trump's public statements, and panelists' prior reporting; no administration officials or primary texts are presented."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:06:23Z
 sourceUrl: "https://www.youtube.com/watch?v=7AhhY474ZP0"
 sourceTitle: "MS NOW"
 section: "Politics"

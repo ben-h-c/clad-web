@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters covers BMW profit warning tied to China and Iran conflict"
 summary: "The segment reports BMW's late Tuesday profit warning, which triggered a share price drop of more than 7%. The company cited persistent weakness in China and worse-than-expected effects from the Iran conflict on energy prices and global consumer sentiment. It lowered its 2026 automotive operating margin guidance to 1-3% from 4-6% and announced intensified cost-cutting with a negative one-off impact in the second half. Analysts described the cut as larger than anticipated and suggestive of broader strategic changes focused on German operations and assembly footprint. Shares reached multi-year lows and pressured peers Volkswagen and Mercedes."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T10:55:13Z
 sourceUrl: "https://www.youtube.com/watch?v=YXguYFM8_Ho"
 sourceTitle: "Reuters"
 section: "Politics"

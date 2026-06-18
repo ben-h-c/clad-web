@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Senate Passes Scott Resolution Condemning Xi Jinping"
 summary: "Forbes Breaking News aired Sen. Rick Scott (R-FL) introducing and securing unanimous Senate passage of S.Res.444 on October 9, 2025, condemning Xi Jinping and the CCP for deceit, threats to peace, and crimes against humanity. The segment features Scott's extended floor speech detailing alleged CCP actions.\n\nThe broadcast relies on Scott's statements and Senate procedural audio; no additional guests or external experts appear. It follows standard C-SPAN-style coverage of the unanimous consent adoption after discharge from the Foreign Relations Committee."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:42:43Z
 sourceUrl: "https://www.youtube.com/watch?v=G_gL_t3CnTc"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

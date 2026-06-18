@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "McFaul critiques Trump Ukraine strategy amid Russia talks and Kyiv cathedral strike"
 summary: "The segment covers Trump's shift from an Iran agreement to Russia-Ukraine diplomacy, including planned Moscow visits by Steve Witkoff and Jared Kushner, calls with Putin and Zelensky, and Zelensky at the G7. It highlights a Russian missile strike damaging Kyiv's historic Dormition Cathedral and features analysis from Michael McFaul.\nMcFaul criticizes the thin Iran memorandum, absence of interagency process, one-sided shuttle diplomacy to Moscow, and preemptive concessions on NATO and aid. He argues Putin is losing on the battlefield and turning to civilian terror, while praising the intent to negotiate but faulting the lack of strategy."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:45:34Z
 sourceUrl: "https://www.youtube.com/watch?v=taRwmod8hp8"
 sourceTitle: "MS NOW"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Al Jazeera reports Ukraine drone strikes on eight Russian regions, UK tanker seizure"
 summary: "The segment covers recent Ukrainian drone attacks striking eight Russian regions, including an apartment block fire in Oryol and an oil depot blaze in Rybinsk north of Moscow. It features analysis from military expert Marina Miron on Ukraine's cumulative strategy targeting logistics and creating pressure on Russian defenses and public perception.\n\nDiscussion addresses messaging aimed at Russian security services, civilians, Ukrainian morale, and international audiences ahead of a July summit. The broadcast also notes the UK's recent seizure of a Russian shadow fleet tanker by Royal Marines, marking an escalation in enforcement efforts."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T13:15:08Z
 sourceUrl: "https://www.youtube.com/watch?v=UW2H43s6m9w"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

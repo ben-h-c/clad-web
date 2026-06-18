@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "MS NOW segment mixes verified reporting with partisan framing on Trump-era controversies"
 summary: "The June 15 broadcast led with NYT excerpts from the forthcoming book 'Regime Change' detailing 2025 White House debates over a Scharf memo on suspending habeas corpus for undocumented immigrants and invoking the Insurrection Act amid Minnesota ICE protests and shootings. It then covered Gavin Newsom's public accusation of a politically motivated DOJ investigation into him and his wife, criticism of a UFC event on the White House lawn for Trump's 80th birthday, and analysis of a US-Iran deal reopening the Strait of Hormuz after months of conflict. The program closed with discussion of voter fraud claims and midterm implications.\nSourcing centered on the NYT book excerpts and reporting, plus on-air guests including Glenn Thrush, legal analysts, and Sen. Alex Padilla. Segments repeatedly highlighted alleged internal administration radicalism and retribution themes."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:08:52Z
 sourceUrl: "https://www.youtube.com/watch?v=nmYah3ZmwAk"
 sourceTitle: "MS NOW"
 section: "Politics"

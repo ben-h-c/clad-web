@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "C-SPAN Airs Senate HELP Testimony on AI Risks and Safeguards in K-12 Education"
 summary: "The segment covers Erin Mote's testimony before the Senate HELP Subcommittee on AI in K-12 classrooms. Mote, CEO of InnovateEDU, discusses high AI adoption rates, risks of consumer-grade tools leading to cognitive surrender, lack of teacher training, and calls for evidence-based procurement and a waterfall regulatory approach."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:52:23Z
 sourceUrl: "https://www.youtube.com/watch?v=1YiR9TUYarY"
 sourceTitle: "C-SPAN"
 section: "Politics"

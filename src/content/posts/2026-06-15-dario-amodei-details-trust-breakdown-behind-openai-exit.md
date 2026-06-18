@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Dario Amodei Details Trust Breakdown Behind OpenAI Exit"
 summary: "The short clip from Startup Universe features Dario Amodei responding to a question about disagreements at OpenAI. He states that safety concerns alone did not prompt his exit; instead, lack of trust, mismatched values, perceived dishonesty, and differing vision made continued work untenable. He concludes that starting a separate company resolved the impasse. The video is presented under an inspirational tech hashtag title. No other segments or guests appear in the provided material."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T15:06:38Z
 sourceUrl: "https://www.youtube.com/watch?v=i-si8mCvIRo"
 sourceTitle: "Startup Universe "
 section: "Politics"

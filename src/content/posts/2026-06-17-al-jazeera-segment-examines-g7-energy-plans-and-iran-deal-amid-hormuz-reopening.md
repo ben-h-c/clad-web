@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Al Jazeera segment examines G7 energy plans and Iran deal amid Hormuz reopening"
 summary: "The segment discusses G7 commitments to diversify energy supplies away from the Strait of Hormuz and boost stocks following its reported closure and reopening. Analyst Maximilian Hess addresses market-driven oil and gas flows post-reopening, regional political shifts involving the US, Iran, and Gulf states, a leaked MOU including a potential $300 billion investment fund, and limited impact of renewed G7 support for Ukraine sanctions on Russia."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T15:45:21Z
 sourceUrl: "https://www.youtube.com/watch?v=rv9fmwCLQzI"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

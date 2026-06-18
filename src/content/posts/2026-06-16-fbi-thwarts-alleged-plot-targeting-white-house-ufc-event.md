@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "FBI Thwarts Alleged Plot Targeting White House UFC Event"
 summary: "CBS News broke the story of the FBI arresting at least five people in connection with an alleged plot to attack the UFC Freedom 250 event held on the White House South Lawn. The segment featured justice reporter Jake Rosen citing sources on a family tip leading to a Signal chat, details of explosive-laden drones and snipers, and expectations for unsealed charges. The event drew thousands to the grounds. Reporting drew from FBI Director Kash Patel's X post announcing awareness on June 10 and a multi-state operation, plus Secret Service statements and unnamed law enforcement sources. No guests appeared beyond the anchor-reporter exchange."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:22:10Z
 sourceUrl: "https://www.youtube.com/watch?v=ycnpJN3iF2A"
 sourceTitle: "CBS News"
 section: "Politics"

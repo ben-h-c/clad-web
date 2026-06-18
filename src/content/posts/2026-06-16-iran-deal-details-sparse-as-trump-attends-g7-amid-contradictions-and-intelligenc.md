@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Iran deal details sparse as Trump attends G7 amid contradictions and intelligence concerns"
 summary: "The broadcast covers a tentative US-Iran memorandum of understanding to end conflict, reopen the Strait of Hormuz, and begin nuclear talks, with formal signing set for Friday. Segments detail ongoing contradictions from Iranian and Israeli officials, intelligence warnings on nuclear commitments, potential sanctions relief, and reactions from Obama and G7 allies. A live interview with a Politico White House reporter discusses uncertainties, Vance's role, and parallel Ukraine talks at the summit in France."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T10:12:03Z
 sourceUrl: "https://www.youtube.com/watch?v=m53fm7zU6fA"
 sourceTitle: "MS NOW"
 section: "Politics"

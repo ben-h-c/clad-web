@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "AP examines NYC recycling process, limits, and priorities"
 summary: "The segment tours the Sims Sunset Park MRF, one of North America's largest, showing how NYC's curbside recyclables are sorted daily by magnets, scanners, robots, and workers before baling for sale. It highlights contamination issues from non-recyclables like plastic bags and notes that New Yorkers recycle less than half of eligible materials."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:00:11Z
 sourceUrl: "https://www.youtube.com/watch?v=bRj2w7LV0cI"
 sourceTitle: "Associated Press"
 section: "Politics"

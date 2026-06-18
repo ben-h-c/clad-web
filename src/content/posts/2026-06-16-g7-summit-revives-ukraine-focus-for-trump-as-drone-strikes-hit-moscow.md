@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "G7 Summit Revives Ukraine Focus for Trump as Drone Strikes Hit Moscow"
 summary: "The segment covers the G7 summit in France where US President Trump met Ukrainian President Zelenskyy amid efforts by European leaders to refocus attention on the Ukraine war after the Iran conflict. It highlights Ukraine's recent military actions including deep strikes on Russian energy infrastructure, its EU accession progress, and contrasts with prior tensions. Trump comments on Russian and Ukrainian losses and calls for a deal, while Zelenskyy states readiness for ceasefire with G7 backing. Interview with Ukrainian MP Kira Rudik and Europe correspondent Rosie Birchard provide analysis on leverage, security guarantees, and European aid including a €90B loan."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:35:57Z
 sourceUrl: "https://www.youtube.com/watch?v=7CXf9w7JFZU"
 sourceTitle: "DW News"
 section: "Politics"

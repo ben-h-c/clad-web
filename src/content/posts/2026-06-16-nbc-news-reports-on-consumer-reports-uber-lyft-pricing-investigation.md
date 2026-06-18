@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC News reports on Consumer Reports Uber, Lyft pricing investigation"
 summary: "The segment covers a new Consumer Reports investigation finding that Uber and Lyft often quote different prices for identical trips requested at the same time. Volunteers across multiple states observed median price differences of 50%, with examples like Austin routes ranging $25-$65; NBC conducted its own small test showing 27-37% spreads. Uber attributed variations to real-time factors and denied personalization; Lyft did not comment. The report also references the House Oversight Committee's March 2026 investigation into surveillance pricing and notes companies' use of data for discounts."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:53:59Z
 sourceUrl: "https://www.youtube.com/watch?v=MBivvQN3nX4"
 sourceTitle: "NBC News"
 section: "Politics"

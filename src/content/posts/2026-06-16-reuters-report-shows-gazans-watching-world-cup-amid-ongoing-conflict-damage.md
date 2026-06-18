@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters report shows Gazans watching World Cup amid ongoing conflict damage"
 summary: "The segment depicts displaced Gazans in Khan Younis shelters and Gaza City cafes attempting to watch 2026 World Cup matches despite unreliable power, internet, and the presence of Israeli drones. It describes makeshift viewing setups with backup generators and interviews fans who express persistent fear of attacks.\n\nBackground covers the two-year Israeli military campaign after the October 2023 Hamas attacks, an October 2025 truce with continued strikes, Israeli occupation of much of Gaza, and damage to sports infrastructure including the conversion of stadiums into detention sites and tent camps. Sourcing relies on on-the-ground reporting, named local residents, and statements from the Palestinian Football Association."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:35:14Z
 sourceUrl: "https://www.youtube.com/watch?v=AtWRf3ycxow"
 sourceTitle: "Reuters"
 section: "Politics"

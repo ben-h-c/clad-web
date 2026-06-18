@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC report on US-Iran MOU accurately details deal terms and reactions"
 summary: "The broadcast covers the White House release of the 14-point US-Iran MOU ending military operations, reopening the Strait of Hormuz without tolls, providing $300 billion reconstruction aid and sanctions relief, and setting a 60-day window for nuclear talks. Segments detail Trump's press conference threats of renewed bombing if terms are violated, note the absence of ballistic missile provisions, and include reactions from Israel, congressional leaders, and NBC analysts.\n\nSourcing relies on senior administration officials reading the MOU on a phone briefing, named lawmakers such as Cassidy, Graham, Blumenthal and Murphy, and on-the-ground correspondents in Geneva and Tel Aviv. Graphics reference the MOU text and prior Trump statements on missiles."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T21:42:06Z
 sourceUrl: "https://www.youtube.com/watch?v=9mnWLw1-efg"
 sourceTitle: "NBC News"
 section: "Politics"

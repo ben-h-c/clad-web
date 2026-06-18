@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC Nightly News reports on Delaware hospital shooting and foiled White House plot"
 summary: "The broadcast opened with breaking news on a shooting at ChristianaCare's Wilmington Hospital in Delaware, where two people were shot and the campus was placed on lockdown. It then covered the FBI's foiling of an alleged plot targeting a White House UFC event involving explosive drones and snipers, with five suspects arrested across multiple states. Additional segments addressed Gulf Coast flooding, a potential first named storm, a fatal B-52 bomber crash killing eight, a police shooting of a one-year-old in Mississippi, updates on an Iran deal, the Washington Reflecting Pool turning green, and new details from the New York Times on Jeffrey Epstein's final days from cellmates."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:05:29Z
 sourceUrl: "https://www.youtube.com/watch?v=1Fjw9jABBpk"
 sourceTitle: "NBC News"
 section: "Politics"

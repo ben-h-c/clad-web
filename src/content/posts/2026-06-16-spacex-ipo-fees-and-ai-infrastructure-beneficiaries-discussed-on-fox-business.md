@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX IPO Fees and AI Infrastructure Beneficiaries Discussed on Fox Business"
 summary: "Segment features Charles Payne and guest Jessica Goldman analyzing the recent SpaceX IPO, Goldman Sachs' role in a $500 million fee pool, and potential stock beneficiaries amid AI growth. Discussion covers ETFs, tokenization, Bitcoin proxies, Microsoft enterprise AI, Credo for connectivity, GE Vernova generators, and Vertiv cooling solutions.\nSourcing relies on guest commentary, chart references, and general market observations without named external experts or new data releases; throughline is identifying bottlenecks and winners in AI infrastructure and SpaceX-related opportunities."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T06:00:29Z
 sourceUrl: "https://www.youtube.com/watch?v=BeHzwOvYOdA"
 sourceTitle: "Fox Business"
 section: "Politics"

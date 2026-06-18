@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Ilhan Omar criticizes GOP bills on rural healthcare worker classification and Medicaid funding"
 summary: "The segment features Rep. Ilhan Omar's opening statement at a June 9, 2026, House Workforce Protections Subcommittee hearing on locum tenens providers and rural healthcare access. She argues that HR 8347 would misclassify healthcare workers as independent contractors, eroding protections, and criticizes HR 1 for large cuts harming rural hospitals."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T08:15:29Z
 sourceUrl: "https://www.youtube.com/watch?v=tkXtZC9v-F0"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

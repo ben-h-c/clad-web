@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Makerfield by-election preview highlights local discontent ahead of tight Labour-Reform contest"
 summary: "The segment profiles the Makerfield constituency in northern England ahead of its June 18, 2026 by-election. It describes a typical working-class area with shuttered businesses and deprivation, noting frontrunners are Labour and Reform UK among 14 candidates. Local residents express anger over economic stagnation, political inaction, and a metaphor of an illegal rubbish dump. The report positions the contest as potentially pivotal for Labour leadership ambitions and Reform's national rise."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T12:38:40Z
 sourceUrl: "https://www.youtube.com/watch?v=vjvDiBQIEiI"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

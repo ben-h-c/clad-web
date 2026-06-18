@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Knicks 2026 championship parade details and context"
 summary: "The segment reports the New York Knicks' 2026 NBA championship win over the San Antonio Spurs in a 4-1 series, highlighted by a Game 5 victory in San Antonio. It previews the upcoming ticker-tape parade on Thursday at 10 a.m. along Broadway's Canyon of Heroes ending at City Hall. The report notes post-victory celebrations in Manhattan with some incidents of violence and property damage, and quotes NYPD Commissioner Jessica Tisch on unacceptable behavior. It emphasizes heavy NYPD security and expected attendance by millions."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T23:23:29Z
 sourceUrl: "https://www.youtube.com/watch?v=6UmGin4twH8"
 sourceTitle: "NewsNation"
 section: "Politics"

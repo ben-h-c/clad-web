@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "DC renovations for America 250 draw mixed reactions amid Reflecting Pool algae issues"
 summary: "The segment covers algae on the newly renovated Lincoln Memorial Reflecting Pool, public opinions on its $14-16 million makeover, and broader Trump administration DC improvements ahead of America 250 celebrations. It includes on-site reactions at the Mall, White House area, and Union Station, plus mentions of east wing changes, fixed fountains, and security measures.\n\nSourcing relies on unnamed residents, a Trump quote on the renovations as a gift to future presidents, and reporter narration referencing construction and protests. Segments highlight both beautification successes and questions about planning, costs, and lack of public input."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:34:48Z
 sourceUrl: "https://www.youtube.com/watch?v=T0SmhHfWNAg"
 sourceTitle: "USA TODAY"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "AP Video: Tim Howard Surprises Fans Pitchside at 2026 World Cup"
 summary: "The brief AP video features voiceover describing soccer fans being surprised by former US goalkeeper Tim Howard joining their group photo on the World Cup pitch. It highlights the fans' excitement and the restricted access to pitchside areas during a match. The segment shows fans experiencing live action up close. The clip is tied to the US men's national team's 4-1 opening win over Paraguay in the 2026 World Cup."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:00:11Z
 sourceUrl: "https://www.youtube.com/watch?v=Rao3PpyF9g0"
 sourceTitle: "Associated Press"
 section: "Politics"

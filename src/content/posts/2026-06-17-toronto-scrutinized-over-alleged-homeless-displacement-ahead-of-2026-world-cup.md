@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Toronto Scrutinized Over Alleged Homeless Displacement Ahead of 2026 World Cup"
 summary: "The segment examines accusations that Toronto authorities and security are displacing homeless individuals from Union Station and FIFA zones ahead of the 2026 World Cup to present a polished image. It includes anonymous interviews with affected individuals alleging assaults, bathroom removals, and increased aggression by police and private security.\nThe report notes the city's stated commitment to respectful conduct, highlights its late submission of the FIFA human rights plan, and features critic comments that the plan inadequately protects unhoused people. Sourcing centers on advocacy groups like the Toronto Underhoused and Homeless Union alongside brief city responses."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T12:30:30Z
 sourceUrl: "https://www.youtube.com/watch?v=WxKJpBMUV2o"
 sourceTitle: "DW News"
 section: "Politics"

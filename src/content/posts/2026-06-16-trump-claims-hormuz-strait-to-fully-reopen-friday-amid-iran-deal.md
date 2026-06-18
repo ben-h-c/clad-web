@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Claims Hormuz Strait to Fully Reopen Friday Amid Iran Deal"
 summary: "Bloomberg News aired President Trump's comments stating the Strait of Hormuz, already partially open, would fully reopen Friday as part of a US-Iran framework agreement. He highlighted falling oil prices, rising stock markets, and Iran's commitment to forgo nuclear weapons under strong oversight. The segment referenced ongoing mine clearance and potential for renewed relations. Sourcing consisted of Trump's direct remarks at the G7 alongside French President Macron, with references to administration briefings on the deal signing expected Friday. No independent experts or counter-sources appeared."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T18:00:22Z
 sourceUrl: "https://www.youtube.com/watch?v=ym5eWLaD7_E"
 sourceTitle: "Bloomberg News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Ron Baron discusses $25B SpaceX stake post-IPO on CNBC"
 summary: "The segment features Ron Baron of Baron Capital discussing SpaceX's recent IPO debut, his firm's $25 billion stake after additional purchases, and long-term optimism on the company's growth. Baron recounts conversations with Elon Musk and underwriters, highlights Starlink, AI compute, and revenue potential. The second part covers sourcing from Baron's direct statements, references to the IPO prospectus and recent Musk comments, with CNBC hosts providing context on trading and valuations."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T12:24:31Z
 sourceUrl: "https://www.youtube.com/watch?v=uUC6OCqI3vs"
 sourceTitle: "CNBC Television"
 section: "Politics"

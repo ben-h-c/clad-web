@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Jeremy Allen White Reflects on Wrapping 'The Bear'"
 summary: "The brief Associated Press clip features Jeremy Allen White discussing his emotions about concluding work on the FX series The Bear. He expresses sadness over leaving the cast, crew, and creative world built by Chris Storer, Joe, the writers, and team, while praising the environment that encouraged self-trust and built confidence among the actors.\nThe segment draws directly from White's interview remarks without additional narration or graphics. It ties into the show's Season 4 finale episode titled Goodbye, released June 2025 on Hulu, with Season 5 confirmed as the final season premiering June 2026."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T11:30:55Z
 sourceUrl: "https://www.youtube.com/watch?v=GwD124mCaoc"
 sourceTitle: "Associated Press"
 section: "Politics"

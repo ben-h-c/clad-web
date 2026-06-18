@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Hydrogen peroxide deployed for Reflecting Pool algae amid renovation"
 summary: "The Reuters segment covers National Park Service workers treating algae blooms in the Lincoln Memorial Reflecting Pool using hydrogen peroxide. An on-site or expert voice notes it as a short-term fix most effective early in an outbreak, questions whether nanobubble technology was properly scaled, and warns that algae often rebound.\nThe report draws from visual footage of treatment and statements aligned with Department of the Interior updates on the combined hydrogen peroxide and nanobubble approach following recent renovations."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T07:56:02Z
 sourceUrl: "https://www.youtube.com/watch?v=LNKRxQj6gBI"
 sourceTitle: "Reuters"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Sen. Mike Lee Questions OMB Nominee on Uniform Guidance Reforms"
 summary: "The segment shows Sen. Mike Lee questioning OMB nominee Mr. Duncan on proposed updates to Uniform Guidance (2 CFR Part 200) for federal grants. Discussion covers added accountability layers, bans on funding certain practices, E-Verify mandates, and political appointee oversight.\nThe clip continues with Lee's questions on the America First Act to restrict federal benefits like Medicaid and SNAP to U.S. citizens and lawful permanent residents. Duncan commits to supporting such reforms. Sourcing is direct from the Senate hearing with no additional experts or graphics referenced."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T13:57:15Z
 sourceUrl: "https://www.youtube.com/watch?v=CSraN99dcIU"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

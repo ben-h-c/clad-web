@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Last Week Tonight previews Makerfield by-election and Labour leadership tensions"
 summary: "The segment introduces the Makerfield by-election scheduled for 18 June 2026 as a potential trigger for a Labour leadership challenge. It recaps Keir Starmer's 2024 victory ending 14 years of Conservative government and notes his declining support, positioning Andy Burnham as a possible rival via the by-election created by the sitting MP's resignation."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:00:23Z
 sourceUrl: "https://www.youtube.com/watch?v=OD17jrheh9E"
 sourceTitle: "LastWeekTonight"
 section: "Politics"

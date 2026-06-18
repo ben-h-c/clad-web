@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Secondary Markets Surge as Private Companies Delay IPOs"
 summary: "All-In Podcast panel with Forge CEO Kelly Rodriguez, Atreides CIO Gavin Baker, and Brad Gerstner discusses the rise of secondary markets in late-stage private companies. Segments cover record transaction volumes, employee liquidity at firms like SpaceX, reasons companies remain private longer, SPV structures, and risks for retail investors entering via platforms or funds.\nThe discussion draws on presenter slides showing VC inflows vs. outflows, secondary premiums, and competition with IPOs/M&A. Sourcing mixes named market data with founder/allocator anecdotes; guests include venture investors and a marketplace operator advocating orderly access via regulated platforms like Forge-Schwab partnerships."
-publishedAt: 2026-06-07
+publishedAt: 2026-06-07T18:26:25Z
 sourceUrl: "https://www.youtube.com/watch?v=V0lFjTWx36I"
 sourceTitle: "All-In Podcast"
 section: "Politics"

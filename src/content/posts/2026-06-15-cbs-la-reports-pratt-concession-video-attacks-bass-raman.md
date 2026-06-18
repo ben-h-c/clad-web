@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS LA Reports Pratt Concession Video Attacks Bass, Raman"
 summary: "The segment covers Spencer Pratt's concession video after the June 2, 2026 LA mayoral primary, where he attacks advancing candidates Karen Bass and Nithya Raman, vows continued activism, and references secret recordings. Pratt declares 'it's war' but does not claim the election was stolen.\nCBS LA reporter Tom Wait analyzes the video, notes the shift from early leads to final results with late ballots favoring Raman, and confirms outreach to the Bass and Raman campaigns for comment."
-publishedAt: 2026-06-13
+publishedAt: 2026-06-13T04:27:22Z
 sourceUrl: "https://www.youtube.com/watch?v=J6nvg6oIG64"
 sourceTitle: "CBS LA"
 section: "Politics"

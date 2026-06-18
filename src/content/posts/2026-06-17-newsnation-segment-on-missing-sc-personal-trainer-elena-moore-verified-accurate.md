@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NewsNation segment on missing SC personal trainer Elena Moore verified accurate"
 summary: "The segment reports on the ongoing search for 39-year-old personal trainer Elena Katherine Moore last seen leaving a Planet Fitness in Lexington, South Carolina, on Thursday evening. It highlights newly obtained security footage from a nearby Publix parking lot showing her walking and discusses how this broadens the search area. Police and fire services, aided by drones and the sheriff's department, are searching wooded areas; a private investigator provides updates on the case, reward, and lack of cell phone activity.\nThe broadcast relies on police descriptions, surveillance details, and an on-air interview with private investigator Henry Dukes of Duke's Investigations, who confirms the footage significance, family reporting, and search scale. No other guests appear."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T07:22:47Z
 sourceUrl: "https://www.youtube.com/watch?v=8LWCvuR1XX8"
 sourceTitle: "NewsNation"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Schneider Urges Bipartisan Crypto Tax Rules at Ways and Means Hearing"
 summary: "The Forbes Breaking News clip shows Rep. Brad Schneider (D-IL) speaking during a House Ways and Means Committee legislative hearing on digital asset taxation. Schneider thanks witnesses, stresses the need for bipartisan solutions to update the tax code for crypto, criticizes last-minute partisan bills, and praises a draft by Reps. Horsford and Miller. He questions witness Mr. Kaercher on tax reporting, AML/KYC gaps, and illicit finance risks while urging focus on compliance and growth."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:30:09Z
 sourceUrl: "https://www.youtube.com/watch?v=GKmrJWM_zWU"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

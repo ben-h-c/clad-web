@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Thune on Iran MOU details, FISA reauthorization, and SAVE Act hurdles"
 summary: "The segment features Senate Majority Leader John Thune discussing the recently announced US-Iran memorandum of understanding, noting that lawmakers have not seen the full text despite online reports of a 14-point plan. Thune praises the administration's actions against Iran but stresses the need to review details on compliance and financial incentives. The interview shifts to FISA Section 702 reauthorization challenges tied to the SAVE America Act, Jay Clayton's DNI nomination, potential reconciliation or supplemental funding packages, and a bipartisan housing bill. Thune highlights Senate procedural constraints and Democratic opposition."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T05:15:00Z
 sourceUrl: "https://www.youtube.com/watch?v=-UGpo8EGnkQ"
 sourceTitle: "Fox News"
 section: "Politics"

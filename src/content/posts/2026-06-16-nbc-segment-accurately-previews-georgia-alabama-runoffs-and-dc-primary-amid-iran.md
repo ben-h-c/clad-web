@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC segment accurately previews Georgia, Alabama runoffs and DC primary amid Iran war context"
 summary: "The segment covers Republican runoff elections on June 16, 2026, in Georgia for U.S. Senate (Mike Collins vs. Derek Dooley) and governor (Bert Jones vs. Rick Jackson), plus Alabama's Senate runoff. It includes on-the-ground voter interviews in Georgia on Trump endorsements, attack ads, and issues such as taxes, conservatism, gas prices, and the ongoing war with Iran. Steve Kornacki provides geographic analysis of primary results and key counties. It closes with the Democratic primary for D.C. mayor featuring Janeese Lewis George and Kenyan McDuffie under ranked-choice voting."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:25:53Z
 sourceUrl: "https://www.youtube.com/watch?v=hltQ3qv39tg"
 sourceTitle: "NBC News"
 section: "Politics"

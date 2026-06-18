@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Blumenthal Presses DOJ IG Nominee Berthiaume on 2020 Election and Jan. 6"
 summary: "The segment shows Sen. Richard Blumenthal questioning Trump-nominated DOJ Inspector General candidate Don Richard Berthiaume Jr. during a May 2026 Senate Judiciary Committee confirmation hearing. Blumenthal tests the nominee's independence by asking who won the 2020 election and whether the Capitol was attacked on January 6, pressing for direct answers. The nominee affirms Biden's certification as winner and acknowledges violence but resists the word 'attack.'\nAdditional questions cover Epstein files audit, FBI Director Kash Patel allegations, and other oversight matters. Sourcing relies on the live hearing record with no external experts or graphics shown in the clip."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T16:57:38Z
 sourceUrl: "https://www.youtube.com/watch?v=gA_IFhgWINY"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

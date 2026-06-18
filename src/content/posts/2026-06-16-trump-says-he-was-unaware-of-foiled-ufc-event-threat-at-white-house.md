@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump says he was unaware of foiled UFC event threat at White House"
 summary: "The brief C-SPAN clip captures President Trump responding to a reporter's question at the G7 summit about whether he was briefed on a thwarted attack planned for the UFC Freedom 250 event held at the White House on June 14, 2026. Trump states he has not heard about it and pivots to praising the fights he watched, noting the quality of the bouts and the arena setup.\n\nThe segment shows Trump answering directly, with no additional narration, graphics, or expert guests. It aligns with FBI Director Kash Patel's public announcement earlier that day regarding arrests tied to the alleged plot."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:20:15Z
 sourceUrl: "https://www.youtube.com/watch?v=JQqssK9T-wg"
 sourceTitle: "C-SPAN"
 section: "Politics"

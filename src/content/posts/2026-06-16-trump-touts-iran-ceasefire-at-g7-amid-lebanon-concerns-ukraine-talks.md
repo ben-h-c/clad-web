@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump touts Iran ceasefire at G7 amid Lebanon concerns, Ukraine talks"
 summary: "MS NOW broadcast covers Trump at the 2026 G7 Summit in France, focusing on his efforts to promote a preliminary US-Iran ceasefire deal. Segments discuss meetings with Qatar and UAE leaders, Trump's criticism of Israel's Lebanon operations, and parallel Ukraine discussions with Zelenskyy.\nReporter Ines de la Quiter provides live updates on closed-door talks, Israel's stance on Lebanon, Iranian conditions for ceasefire, and Zelenskyy's offer to meet Putin. Sourcing draws from on-site reporting, Trump's public remarks, social media from Zelenskyy, and Kremlin responses."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:28:16Z
 sourceUrl: "https://www.youtube.com/watch?v=roXtqxKSUeA"
 sourceTitle: "MS NOW"
 section: "Politics"

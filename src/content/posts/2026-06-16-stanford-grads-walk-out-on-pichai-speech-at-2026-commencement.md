@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Stanford grads walk out on Pichai speech at 2026 commencement"
 summary: "The Fox News short covers Stanford University's 2026 commencement where dozens to hundreds of graduates walked out as Google CEO Sundar Pichai began his speech. Students chanted 'Free Palestine' and displayed flags in protest.\nThe clip is a visual montage of the exit with minimal narration. Sourcing relies on on-scene footage and standard news graphics; no named experts or detailed interviews. It aligns with Fox's pattern of spotlighting protest actions at elite universities."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:30:12Z
 sourceUrl: "https://www.youtube.com/watch?v=O_azTkXa1XU"
 sourceTitle: "Fox News"
 section: "Politics"

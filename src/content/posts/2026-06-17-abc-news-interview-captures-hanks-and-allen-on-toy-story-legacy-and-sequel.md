@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News Interview Captures Hanks and Allen on Toy Story Legacy and Sequel"
 summary: "The ABC News segment features Tom Hanks and Tim Allen reflecting on voicing Woody and Buzz Lightyear across the Toy Story franchise. They discuss the upcoming Toy Story 5, including a new tech-savvy character and a surprise Taylor Swift song. The clip mixes archival footage with current interview remarks on recording separately, character aging, and themes of friendship.\nHanks and Allen appear in a standard promotional sit-down; sourcing relies on their direct comments plus brief clips from the films. The throughline emphasizes the enduring appeal and timely tech themes of the series ahead of the June 19 release."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T06:15:46Z
 sourceUrl: "https://www.youtube.com/watch?v=hGHIwA1iVRQ"
 sourceTitle: "ABC News"
 section: "Politics"

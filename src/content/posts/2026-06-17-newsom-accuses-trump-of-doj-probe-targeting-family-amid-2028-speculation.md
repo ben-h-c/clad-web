@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Newsom accuses Trump of DOJ probe targeting family amid 2028 speculation"
 summary: "The DW News segment covers California Gov. Gavin Newsom accusing President Trump of directing the Justice Department to investigate him and his wife Jennifer Siebel Newsom. Newsom claims federal agents have been contacting family, friends and former employees demanding records in what he calls a politically motivated 'witch hunt' tied to his potential 2028 presidential bid.\n\nThe broadcast features Newsom's video remarks and an interview with California attorney and commentator Ethan Bearman, who agrees the actions amount to abuse of power if true. Bearman discusses Newsom as a leading 2028 Democratic contender and defends his confrontational style against Trump."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T04:00:30Z
 sourceUrl: "https://www.youtube.com/watch?v=F52LBxSjw6s"
 sourceTitle: "DW News"
 section: "Politics"

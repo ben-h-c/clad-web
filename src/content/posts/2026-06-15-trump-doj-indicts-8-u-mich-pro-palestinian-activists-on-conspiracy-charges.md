@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump DOJ Indicts 8 U-Mich Pro-Palestinian Activists on Conspiracy Charges"
 summary: "The segment discusses federal indictments unsealed June 10, 2026, against eight individuals tied to University of Michigan pro-Palestinian activism from 2023-2024 protests. It covers conspiracy to transmit threats via social media and telecommunications, prior unsuccessful state prosecutions by AG Dana Nessel after local prosecutor Eli Savit declined, and political context including regents pressure and elections.\nThe broadcast features attorney Amy Doukoure from CAIR Michigan, references the 63-page indictment's language on vandalism and symbols, and argues the charges target protected speech like divestment demands rather than specific credible threats."
-publishedAt: 2026-06-12
+publishedAt: 2026-06-12T18:15:10Z
 sourceUrl: "https://www.youtube.com/watch?v=3vPmfYgym9g"
 sourceTitle: "Breaking Points"
 section: "Politics"

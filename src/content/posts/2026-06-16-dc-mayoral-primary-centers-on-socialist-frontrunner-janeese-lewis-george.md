@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "DC Mayoral Primary Centers on Socialist Frontrunner Janeese Lewis George"
 summary: "The segment discusses the June 16, 2026, DC Democratic mayoral primary, highlighting frontrunner Janeese Lewis George, a self-described democratic socialist and Ward 4 councilmember leading polls against Kenyan McDuffie. It covers her platform priorities including 72,000 new housing units in five years, expanded rent control, and taxing non-resident business income, plus comparisons to NYC Mayor Zohran Mamdani and potential Trump intervention via home rule. The discussion then shifts to other 2026 primaries in Georgia, Alabama, and Oklahoma, focusing on Trump endorsements and Brian Kemp dynamics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:30:05Z
 sourceUrl: "https://www.youtube.com/watch?v=l1nm9ntdyOQ"
 sourceTitle: "The Hill"
 section: "Politics"

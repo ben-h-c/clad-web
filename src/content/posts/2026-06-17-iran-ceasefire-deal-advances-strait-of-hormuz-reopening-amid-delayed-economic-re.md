@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Iran ceasefire deal advances Strait of Hormuz reopening amid delayed economic relief"
 summary: "The segment discusses the recent US-Iran ceasefire agreement and plans to reopen the Strait of Hormuz after months of closure. It covers market reactions, logistical hurdles to full reopening, and potential timelines for energy flows resuming. Guest Rosemary Becchi analyzes economic ripple effects on oil and gas prices. The discussion also addresses reports of a possible $300 billion Iran reconstruction fund, including conflicting statements from Trump and Vance, and conditions tied to the memorandum of understanding such as proxy funding and sanctions relief."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T16:59:03Z
 sourceUrl: "https://www.youtube.com/watch?v=P3-3S7ZpWs8"
 sourceTitle: "The Hill"
 section: "Politics"

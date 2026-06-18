@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Nvidia Seeks at Least $20 Billion in First Bond Sale Since 2021"
 summary: "Bloomberg Television segment reports Nvidia is preparing to raise at least $20 billion via its first corporate bond offering since 2021. The broadcast notes the deal spans seven tranches with maturities from two to 30 years and discusses use of proceeds for general corporate purposes and refinancing.\n\nGuest Ed Ludlow contextualizes the move alongside similar activity by Alphabet and Amazon, highlighting Nvidia's large cash reserves yet strategic rationale for accessing low-cost capital to support AI ecosystem investments. Reporting draws on Bloomberg's own sourcing and parallels other tech giants' debt strategies."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T16:34:23Z
 sourceUrl: "https://www.youtube.com/watch?v=BIk0klh-vgo"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

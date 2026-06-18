@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Federal Trial Tests Idaho Abortion Bans in Doctor's Lawsuit"
 summary: "The segment covers an ongoing five-day federal trial in Boise challenging two Idaho abortion laws. A Boise maternal-fetal medicine specialist filed the lawsuit arguing the statutes prevent medically necessary care in high-risk pregnancies. The laws challenged are the Defense of Life Act, which permits abortion only to prevent the mother's death or in cases of rape or incest, and the six-week ban prohibiting abortions after six weeks. The trial, before a federal judge, began Monday and concludes June 15."
-publishedAt: 2026-06-12
+publishedAt: 2026-06-12T13:07:20Z
 sourceUrl: "https://www.youtube.com/watch?v=gHbfOI7vh2M"
 sourceTitle: "KPVI News"
 section: "Politics"

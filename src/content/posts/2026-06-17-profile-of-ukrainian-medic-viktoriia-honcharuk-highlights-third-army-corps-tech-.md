@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Profile of Ukrainian medic Viktoriia Honcharuk highlights Third Army Corps tech shift"
 summary: "The segment is an interview profile of Viktoriia Honcharuk, who left her Morgan Stanley investment analyst role in New York shortly after Russia's 2022 full-scale invasion to return to Ukraine and serve as a combat medic. It covers her initial motivations, battlefield experiences including treating wounded and losing friends, and her current role in military-civilian tech partnerships.\nHoncharuk discusses her work with Ukraine's Third Army Corps under commander Andriy Biletsky, highlighting advances in unmanned ground vehicles for assaults, plans to replace a third of infantry roles with robots, and the corps' responsibility for 150 km of the front line. Sourcing relies on her firsthand account during her appearance at the Eurosatory defense show in Paris."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T13:44:44Z
 sourceUrl: "https://www.youtube.com/watch?v=Cjg344FQhFA"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

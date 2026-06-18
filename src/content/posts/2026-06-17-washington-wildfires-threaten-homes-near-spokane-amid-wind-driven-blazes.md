@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Washington Wildfires Threaten Homes Near Spokane Amid Wind-Driven Blazes"
 summary: "The segment covers an active wildfire emergency in Washington state, centering on the Upriver Fire east of Spokane where evacuations were ordered and homes threatened or lost overnight. It mentions strong winds fueling multiple fires, including the Toke Cannon (Tulcannon) Fire, dry conditions, and broader western fire activity including California. Reporter Alex Stone provides on-scene details from Spokane, noting challenges in assessing damage due to ongoing activity and hopes for calmer winds. Sourcing relies on the reporter's observations, local firefighter knowledge, and brief video clips of flames; no named experts or officials appear beyond the anchors."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T13:51:36Z
 sourceUrl: "https://www.youtube.com/watch?v=2kvPwmmdRVg"
 sourceTitle: "ABC News"
 section: "Politics"

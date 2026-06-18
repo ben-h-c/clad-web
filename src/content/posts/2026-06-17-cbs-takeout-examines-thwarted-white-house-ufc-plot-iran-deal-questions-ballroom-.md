@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS Takeout examines thwarted White House UFC plot, Iran deal questions, ballroom costs"
 summary: "The segment led with the FBI and Secret Service thwarting an alleged drone and sniper plot targeting the UFC event on the White House South Lawn, detailing five arrests across states, encrypted chats, and a family tip. It covered President Trump's promotion of a preliminary Iran agreement at the G7, including questions over the unpublished memorandum, nuclear provisions, and Lebanon references. Additional segments addressed ballooning White House ballroom costs per Washington Post documents, Georgia primaries and redistricting, housing prices, and an interview with Sen. Raphael Warnock."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:06:04Z
 sourceUrl: "https://www.youtube.com/watch?v=bpRjhjpofvc"
 sourceTitle: "CBS News"
 section: "Politics"

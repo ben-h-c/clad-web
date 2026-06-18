@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "AP report on US-Iran interim deal aligns with recent developments"
 summary: "The June 16, 2026 AP broadcast covers an interim US-Iran deal to extend a ceasefire and reopen the Strait of Hormuz, with a signing planned Friday in Switzerland mediated by Pakistan. It notes mismatched points in the MOU, ongoing Israeli operations against Hezbollah in Lebanon including territorial control, and unresolved issues over Iran's nuclear program and enriched uranium stockpile that precipitated the February 2026 war."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:50:15Z
 sourceUrl: "https://www.youtube.com/watch?v=CUiIUuaTx8g"
 sourceTitle: "Associated Press"
 section: "Politics"

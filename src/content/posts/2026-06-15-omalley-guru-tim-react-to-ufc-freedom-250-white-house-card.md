@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "O'Malley, Guru, Tim React to UFC Freedom 250 White House Card"
 summary: "The video is a late-night reaction stream featuring Sean O'Malley, MMA Guru, and Tim discussing O'Malley's TKO win over Aiemann Zahabi and the rest of the UFC Freedom 250 card at the White House South Lawn. Segments cover fight breakdowns, walkouts, performance analysis, and card-wide highlights like Gaethje's upset over Topuria and Gane's win over Pereira.\nO'Malley provides firsthand details on his fight, the event atmosphere, and post-fight activities; the group relies on live commentary recall, personal observations, and casual speculation rather than named experts or external sourcing."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T14:51:23Z
 sourceUrl: "https://www.youtube.com/watch?v=WteFe24khuE"
 sourceTitle: "Suga Sean O'Malley"
 section: "Politics"

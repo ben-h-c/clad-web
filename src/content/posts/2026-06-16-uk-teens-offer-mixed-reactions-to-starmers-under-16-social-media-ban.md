@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "UK Teens Offer Mixed Reactions to Starmer's Under-16 Social Media Ban"
 summary: "The Reuters video shows UK teenagers reacting to Prime Minister Keir Starmer's announcement of a social media ban for under-16s. Teens discuss potential benefits for mental health and family time alongside concerns about losing contact with friends and the feasibility of enforcement.\nSegments feature individual opinions on restrictions versus outright bans, with one noting surprise at the policy moving forward. Sourcing relies solely on unnamed teens in what appears to be a street or school setting; no experts, officials, or graphics are referenced."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:40:44Z
 sourceUrl: "https://www.youtube.com/watch?v=czQ_88C9ie8"
 sourceTitle: "Reuters"
 section: "Politics"

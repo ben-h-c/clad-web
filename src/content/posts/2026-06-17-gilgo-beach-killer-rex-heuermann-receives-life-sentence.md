@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Gilgo Beach Killer Rex Heuermann Receives Life Sentence"
 summary: "NewsNation covered the June 17, 2026 sentencing of Rex Heuermann in Suffolk County Court for the Gilgo Beach serial killings. The segment included live reporting from outside the courthouse, details on victim impact statements, Heuermann's brief remarks, and the judge's pointed comments before handing down consecutive life sentences without parole.\n\nReporting drew from in-court observations, victim family statements, and comments from the judge and district attorney. It noted Heuermann's admission to eight killings and upcoming DNA processing for CODIS to check links to other cases."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:50:06Z
 sourceUrl: "https://www.youtube.com/watch?v=J2rmrHZ2e9w"
 sourceTitle: "NewsNation"
 section: "Politics"

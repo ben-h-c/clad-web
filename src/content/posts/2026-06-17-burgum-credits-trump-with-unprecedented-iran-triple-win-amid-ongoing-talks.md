@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Burgum credits Trump with unprecedented Iran 'triple win' amid ongoing talks"
 summary: "Fox Business clip features Interior Secretary Doug Burgum discussing Western Hemisphere oil output including Canada, US, Mexico, Venezuela, Argentina, Brazil and Guyana, projecting independence from OPEC. He highlights California's foreign oil imports, Ghana/Guyana production growth, and praises Trump's handling of Iran as a historic 'triple win' via military action without ground troops, economic blockade, and diplomatic realignment with Middle East allies and Israel."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T00:00:36Z
 sourceUrl: "https://www.youtube.com/watch?v=Z_IrmMow5TY"
 sourceTitle: "Fox Business"
 section: "Politics"

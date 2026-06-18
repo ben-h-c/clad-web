@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News reports expert warnings of more California sharks amid strong El Niño"
 summary: "The segment warns of increased shark activity off Southern California this summer due to a strong El Niño warming Pacific waters. Experts, primarily Chris Lowe of the CSULB Shark Lab, predict juvenile white sharks pushed north from Mexico, similar to 2015, with possible hammerhead sightings; advice includes swimming in groups and staying vigilant.\nThe report references 2015's record global attacks and California's first hammerhead bites, notes sharks in shallow water, and stresses that experts are not promoting fear but awareness. Sourcing relies on named marine biologists and historical records rather than anonymous officials or graphics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:36:04Z
 sourceUrl: "https://www.youtube.com/watch?v=28yOvi5nKtY"
 sourceTitle: "ABC News"
 section: "Politics"

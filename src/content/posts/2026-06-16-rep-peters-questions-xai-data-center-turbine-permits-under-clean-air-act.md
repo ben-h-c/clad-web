@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Rep. Peters Questions xAI Data Center Turbine Permits Under Clean Air Act"
 summary: "In a House hearing segment, Rep. Scott Peters (D-CA) highlights Clean Air Act benefits and criticizes xAI's Memphis, TN and Southaven, MS data centers for operating dozens of unpermitted natural gas turbines. He alleges the turbines, mounted on trailers, were improperly classified as mobile sources to evade permits, emitting significant pollutants while powering large AI facilities. Peters questions enforcement and references recent EPA guidance clarifying stationary-source requirements. Witness Ms. Garcia concurs on the need for enforcement and notes community harm."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T03:45:14Z
 sourceUrl: "https://www.youtube.com/watch?v=dbI4_UzNBmU"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NYT Details Epstein Jail Writings and Circumstances of 2019 Death"
 summary: "The segment covers a New York Times investigation into Jeffrey Epstein's final weeks in the Metropolitan Correctional Center in 2019, focusing on newly obtained handwritten notes including a purported suicide note from an earlier incident and other writings showing mental decline. It discusses the denial of bail, prior apparent suicide attempt, jail security failures like non-recording cameras, and interviews with inmates.\nThe broadcast features an interview with NYT reporter Michael Rothfeld, referencing court documents, unsealed notes, inmate statements, and consultations with pathologists. It highlights evidence of suicidal intent while noting unresolved questions about the official suicide ruling."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T03:30:26Z
 sourceUrl: "https://www.youtube.com/watch?v=l6qNFbZoiVk"
 sourceTitle: "MS NOW"
 section: "Politics"

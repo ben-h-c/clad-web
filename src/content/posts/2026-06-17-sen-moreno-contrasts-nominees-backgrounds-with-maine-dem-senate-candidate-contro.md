@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Sen. Moreno contrasts nominees' backgrounds with Maine Dem Senate candidate controversies"
 summary: "Sen. Moreno questions several nominees during a confirmation hearing, asking rapid yes/no questions about possession of a Nazi tattoo, statements on rape and intoxication, racial tipping stereotypes, violent sexual fantasies, and public masturbation. He contrasts their clean answers with controversies surrounding Democratic Maine Senate nominee Graham Platner. A veteran nominee responds critically to Platner's reported comments about Afghanistan service members."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T14:56:38Z
 sourceUrl: "https://www.youtube.com/watch?v=ka7naMR2o8k"
 sourceTitle: "C-SPAN"
 section: "Politics"

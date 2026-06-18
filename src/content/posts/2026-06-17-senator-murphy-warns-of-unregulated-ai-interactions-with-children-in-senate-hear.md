@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Senator Murphy Warns of Unregulated AI Interactions With Children in Senate Hearing"
 summary: "The segment features Senator Chris Murphy speaking at a Senate hearing on AI, highlighting risks of unregulated AI use by children including outsourcing of critical thinking and relationships. He references a New York Times piece on deepfakes and questions AI companies' profit motives versus educational benefits.\nMurphy engages with witnesses on cognitive surrender research, brain development differences, and potential approval processes or state-level sandboxes for AI tools in education. Witnesses discuss neuroscience distinctions for developing brains and evidence-based implementation approaches."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:45:26Z
 sourceUrl: "https://www.youtube.com/watch?v=UhhwEEyD1oM"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

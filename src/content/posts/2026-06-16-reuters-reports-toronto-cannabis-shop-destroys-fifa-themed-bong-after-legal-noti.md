@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters reports Toronto cannabis shop destroys FIFA-themed bong after legal notice"
 summary: "The Reuters video covers a Toronto cannabis shop, Cosmic Charlies on Queen Street, that sold one golden bong resembling the World Cup trophy for C$50. After receiving a copyright infringement notice from FIFA's lawyers, the owners destroyed the item and noted the resulting publicity. The segment features owner commentary on the unexpected viral attention and PR value ahead of the 2026 World Cup hosted in Canada. It is a short, light feature based on recent events in mid-June 2026."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:30:44Z
 sourceUrl: "https://www.youtube.com/watch?v=c8C1yRF9Asc"
 sourceTitle: "Reuters"
 section: "Politics"

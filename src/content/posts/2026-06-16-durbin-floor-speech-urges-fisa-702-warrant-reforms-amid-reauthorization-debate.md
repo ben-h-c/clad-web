@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Durbin Floor Speech Urges FISA 702 Warrant Reforms Amid Reauthorization Debate"
 summary: "Sen. Dick Durbin delivers a Senate floor speech criticizing abuses of FISA Section 702 warrantless surveillance, which sweeps up Americans' communications. He details documented violations by the FBI and intelligence agencies, cites specific compliance failures, and calls for the bipartisan SAFE Act requiring warrants for U.S. person queries.\nThe speech references PCLOB and FISC reports, criticizes Trump nominees like Bill Pulte for DNI, links reauthorization to election reform demands, and notes ongoing collection authority through March 2027 despite potential lapse. Sourcing draws on declassified court opinions, Brennan Center summaries, and Senate records."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:45:25Z
 sourceUrl: "https://www.youtube.com/watch?v=q8yQPqyCq54"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

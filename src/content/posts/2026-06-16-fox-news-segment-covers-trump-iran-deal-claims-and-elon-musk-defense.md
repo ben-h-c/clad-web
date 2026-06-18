@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News segment covers Trump Iran deal claims and Elon Musk defense"
 summary: "The broadcast opens with President Trump's arrival in France for the G7 and reports on a new US-Iran agreement ending hostilities, including details on nuclear restrictions, sanctions relief tied to performance, and reopening of the Strait of Hormuz via Project Freedom. It includes quotes from the president on oil prices, stocks, and the deal's terms, followed by analysis of military actions and proxy controls. The segment shifts to a panel discussion defending Elon Musk's wealth creation against Democratic criticisms, with guests including Morgan Ortegus, comedians, and Cat Beck critiquing government spending and economic misunderstandings."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T09:00:29Z
 sourceUrl: "https://www.youtube.com/watch?v=nb66K1KMnRQ"
 sourceTitle: "Fox News"
 section: "Politics"

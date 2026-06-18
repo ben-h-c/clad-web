@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Remarks on Keeping Strait of Hormuz Open"
 summary: "Forbes Breaking News clip shows President Trump taking a reporter's question on ensuring the Strait of Hormuz remains open. The exchange includes light banter about the questioner before Trump answers that only a strong U.S. president can achieve it, referencing past blockades that prevented oil shipments. The second paragraph notes the sourcing is direct video of Trump's response with no named experts, graphics, or extended analysis; the throughline is Trump's view that leadership strength trumps formal agreements."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:30:24Z
 sourceUrl: "https://www.youtube.com/watch?v=DDBvX7uOwzA"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

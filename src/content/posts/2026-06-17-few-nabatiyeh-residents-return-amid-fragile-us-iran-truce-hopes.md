@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Few Nabatiyeh Residents Return Amid Fragile US-Iran Truce Hopes"
 summary: "The segment reports from Nabatiyeh in southern Lebanon, showing widespread destruction after months of fighting between Israel and Hezbollah. Very few residents have returned due to ongoing insecurity. It notes recent artillery or missile activity near Ali al-Taher hill, about two miles away, where intense clashes occurred in the past week. Locals express skepticism about a lasting solution and are awaiting a US-Iran memorandum of understanding scheduled for signing on Friday."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:30:20Z
 sourceUrl: "https://www.youtube.com/watch?v=0X4I3qv7_Lc"
 sourceTitle: "Associated Press"
 section: "Politics"

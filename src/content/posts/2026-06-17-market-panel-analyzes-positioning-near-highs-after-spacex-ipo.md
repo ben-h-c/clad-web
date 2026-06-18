@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Market Panel Analyzes Positioning Near Highs After SPACEX IPO"
 summary: "CNBC panel discusses market pullback near record highs, momentum across sectors, and implications of the recent SPACEX IPO. Guests cover broadening participation beyond tech, rate environment effects, and portfolio management challenges. Sourcing relies on on-air experts referencing live market data, recent CPI figures, and IPO trading activity. The segment ties together SPACEX enthusiasm, equal-weight index performance, and expectations around the upcoming Fed meeting under new Chair Kevin Warsh."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-16T18:26:11Z
 sourceUrl: "https://www.youtube.com/watch?v=QCyTlNMVhS8"
 sourceTitle: "CNBC Television"
 section: "Politics"

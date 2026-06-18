@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Iranian Protesters, Flags, and Team Travel at 2026 World Cup Opener"
 summary: "The segment covers Iran's 2-2 draw with New Zealand in Los Angeles on June 15, 2026, focusing on hundreds of Iranian-American protesters outside SoFi Stadium waving pre-revolutionary Lion and Sun flags despite a FIFA ban. Some flags entered the stadium, the anthem drew mixed cheers and boos, and Iran's coach complained about immediate post-match return to Mexico training base. Hosts discuss regime opposition among diaspora and players, separation of people from government, and travel burdens. The broadcast references The Athletic reporting and prior Iranian women's team events."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T17:02:04Z
 sourceUrl: "https://www.youtube.com/watch?v=g8LXnnaBGRg"
 sourceTitle: "The Hill"
 section: "Politics"

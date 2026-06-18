@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Broadcom Earnings Analysis: Margin Mix and Guidance Fuel Post-Report Selloff"
 summary: "The video examines Broadcom's recent quarterly results, identifying the CFO's gross margin guidance of approximately 74% for the next quarter due to a higher mix of AI semiconductor revenue versus higher-margin infrastructure software as the primary trigger for the post-earnings stock decline. It also covers the company's decision to reiterate rather than raise its 2027 AI revenue target above $100 billion, which disappointed investors amid elevated expectations. The segment discusses how operating margins are expected to hold steady at 67% and contrasts the short-term pullback with longer-term gains.\nThe analysis draws directly from the earnings call transcript and management statements, with references to historical performance and peer examples like Apple. No independent experts or additional data sources are featured. The throughline is that strong revenue growth was overshadowed by unmet expectations for margin expansion and raised guidance."
-publishedAt: 2026-06-12
+publishedAt: 2026-06-12T13:45:19Z
 sourceUrl: "https://www.youtube.com/watch?v=E98koq91n1A"
 sourceTitle: "Parkev Tatevosian, CFA"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Barrasso Cites Recent DOJ Cases in Senate Speech on Medicaid Fraud"
 summary: "Sen. John Barrasso delivered a Senate floor speech decrying Medicaid fraud, highlighting cases in Minnesota involving autism services and daycares, hospice providers in Los Angeles, and an Ohio scheme. He credited Republican legislation, work requirements, and a Trump-Vance anti-fraud task force while accusing Democrats of ignoring abuse. The second paragraph notes sourcing via DOJ announcements, references to Dr. Oz, Sen. Ernst investigations, and national estimates; no outside guests appeared."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:37:01Z
 sourceUrl: "https://www.youtube.com/watch?v=WWgO-C7_RmI"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

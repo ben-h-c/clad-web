@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News Reports Vance Defends White House on Epstein Files Transparency"
 summary: "ABC News clip covers Vice President JD Vance's appearance on The View on June 16, 2026, where he was questioned about a New York Times report on White House handling of Epstein files. Vance defends the administration's transparency, cites the Epstein Files Transparency Act signed by President Trump, and references emails showing Epstein's animosity toward Trump and Trump's report to police. The segment notes Trump's denial of wrongdoing. Vance promotes his book on faith amid the discussion."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:15:27Z
 sourceUrl: "https://www.youtube.com/watch?v=MJhH-7vgt5g"
 sourceTitle: "ABC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fed Holds Rates at 3.5-3.75% Under New Chair Warsh; Markets Drop"
 summary: "CBS News covered the Federal Reserve's June 17, 2026, decision to hold the federal funds rate steady at 3.5-3.75% in a unanimous vote under new Chair Kevin Warsh. Segments included live NYSE footage showing market reaction, clips from Warsh's press conference, and analysis from reporter Kelly O'Grady on economic projections. The second segment addressed the Summary of Economic Projections showing possible 2026 rate hike, inflation above 3%, steady GDP growth, and Warsh's signals on reduced forward guidance and fewer press conferences. Sourcing relied on live exchange visuals, Fed statements, and named on-site reporting."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T20:39:29Z
 sourceUrl: "https://www.youtube.com/watch?v=XCHGvN2nXRo"
 sourceTitle: "CBS News"
 section: "Politics"

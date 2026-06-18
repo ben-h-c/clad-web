@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "USFS Reorganization: Nevada Lab, State Director Plan Under Scrutiny in Hearing"
 summary: "The segment shows Rep. Susie Lee questioning USFS Chief Tom Schultz about the March 2026 USDA reorganization plan. It covers the potential closure or consolidation of the Reno Great Basin Ecology Laboratory (listed for evaluation) and the shift from regional offices to 15 state directors, with Nevada paired under a Utah-Nevada director in Salt Lake City, also the proposed new HQ location.\nThe sourcing consists of direct hearing testimony from the Chief, who clarifies that no final decisions have been made on closures, emphasizes facilities and budget constraints over research cuts, and defends the state-director model as providing better local coverage than the prior regional structure. The exchange highlights place-based research concerns and wildfire season timing."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:15:08Z
 sourceUrl: "https://www.youtube.com/watch?v=rxo5H2qVTAU"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

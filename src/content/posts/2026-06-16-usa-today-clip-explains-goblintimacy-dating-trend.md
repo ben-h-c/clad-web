@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "USA TODAY clip explains 'goblintimacy' dating trend"
 summary: "The brief USA TODAY video describes the 'goblintimacy' dating trend, in which daters present their authentic selves including flaws and baggage early to filter incompatible partners. It notes that experts distinguish this from low-effort approaches and warn that intimacy develops gradually through trust.\nThe segment draws on quotes from dating coaches Amy Chan and Damona Hoffman featured in the outlet's accompanying article, emphasizing balanced advice on authenticity versus oversharing."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:00:32Z
 sourceUrl: "https://www.youtube.com/watch?v=T7MzZj9owYk"
 sourceTitle: "USA TODAY"
 section: "Politics"

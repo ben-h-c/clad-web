@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Segment Examines Trump-Netanyahu Strains Amid US-Iran Deal Talks"
 summary: "The Bloomberg segment discusses Israel's recent strikes on Hezbollah targets in southern Beirut and their impact on the fragile US-Iran peace negotiations. It explores strains in the Trump-Netanyahu relationship, noting Netanyahu secured extensive US military support against Iran but faces frustration over the lack of regime change and potential limits on further action against proxies like Hezbollah and Hamas.\nThe commentary draws on public statements from officials, reports of heated exchanges, and the broader context of joint US-Israel strikes that killed senior Iranian leaders without achieving full regime change. It highlights Israel's goals versus the emerging diplomatic framework."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T02:22:51Z
 sourceUrl: "https://www.youtube.com/watch?v=fqauR2FCRuY"
 sourceTitle: "Bloomberg News"
 section: "Politics"

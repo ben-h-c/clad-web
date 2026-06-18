@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg covers US-Iran 14-point MOU, Warsh Fed debut, SpaceX market gains"
 summary: "The broadcast opens with top stories on a reported US-Iran agreement featuring financial incentives for Tehran, the first Fed decision under Chair Kevin Warsh, and SpaceX surpassing Amazon in market value with Elon Musk's wealth exceeding $1.3 trillion. Segments cover market reactions, G7 discussions on the deal and AI, European tech ambitions at Viva Tech, and interviews on AI adoption and European investment priorities."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T09:53:29Z
 sourceUrl: "https://www.youtube.com/watch?v=8VduhuK5mV4"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

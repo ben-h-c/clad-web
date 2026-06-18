@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Washington Post details $600M ballroom estimate with taxpayer share"
 summary: "The segment centers on new Washington Post reporting revealing internal contractor estimates for President Trump's East Wing ballroom project at the White House. It highlights a March 2026 Clark Construction summary projecting $600 million total cost with more than half from taxpayers, contradicting Trump's repeated public assurances of zero taxpayer funding and donor-only financing. Guests discuss the project's unpopularity amid high living costs and link it to broader claims of voter suppression and election subversion tactics. Sourcing relies on the WaPo documents, Trump's past statements, and commentary from Democratic-aligned guests including election lawyer Mark Elias."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:29:52Z
 sourceUrl: "https://www.youtube.com/watch?v=GYni8XopDeg"
 sourceTitle: "MS NOW"
 section: "Politics"

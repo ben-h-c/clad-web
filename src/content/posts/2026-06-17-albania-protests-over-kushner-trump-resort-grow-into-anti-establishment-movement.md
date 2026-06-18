@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Albania protests over Kushner-Trump resort grow into anti-establishment movement"
 summary: "DW News reports on Albania's 'Flamingo Revolution,' with daily protests in Tirana and diaspora cities against a luxury resort project linked to Jared Kushner and Ivanka Trump on Sazan Island and the Narta Lagoon protected area. The segment covers how environmental concerns over privatization of public and protected land have broadened into demands for Prime Minister Edi Rama's resignation and rejection of the political establishment. It includes interviews with a researcher on Albanian politics and a Tirana-based journalist. Sourcing draws on on-street footage, expert commentary, and the journalist's reporting on investigations into the project."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T22:55:39Z
 sourceUrl: "https://www.youtube.com/watch?v=3cS2FZcoWPM"
 sourceTitle: "DW News"
 section: "Politics"

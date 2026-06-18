@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Cornell student rejects internship citing unwillingness to work for Jewish founders"
 summary: "Fox News panel discusses Austin Franco, a Cornell student, who rejected an internship interview with VryfID, a New York startup founded by Jewish brothers Gabe and Aiden Einhorn, writing 'Not interested in working for a Jew.' The founders shared the exchange, prompting Franco to double down online about unpleasant experiences with Jews and his commitment to his beliefs. Cornell opened an investigation through its Office of Civil Rights and condemned antisemitism.\nThe segment references Franco's studies in Industrial and Labor Relations and places the incident in the context of rising antisemitism on campuses after October 7, 2023, with hosts citing personal experiences and calling for greater accountability from universities and parents."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:15:37Z
 sourceUrl: "https://www.youtube.com/watch?v=qJ67krsWupc"
 sourceTitle: "Fox News"
 section: "Politics"

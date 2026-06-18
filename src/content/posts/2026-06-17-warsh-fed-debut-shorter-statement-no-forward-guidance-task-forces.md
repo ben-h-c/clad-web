@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Warsh Fed Debut: Shorter Statement, No Forward Guidance, Task Forces"
 summary: "Reuters Market Talk segment discusses Kevin Warsh's first FOMC meeting and press conference as Fed chair. It covers the shortened 132-word policy statement versus Powell's longer version, absence of forward guidance or dot plots, commitment to the 2% inflation target, and appointment of five task forces on data and communication. Guest Brian Mulberry of Zacks Investment Management provides investor perspective on regime change, reduced market reliance on guidance, and historical context including Greenspan comparisons."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T21:45:37Z
 sourceUrl: "https://www.youtube.com/watch?v=Fn0FNTD7aIk"
 sourceTitle: "Reuters"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "WSJ Investigation: Backdoored Smart Devices Fuel Residential Proxy Botnets"
 summary: "The broadcast examines how cheap internet-connected devices such as digital picture frames and streaming boxes sold on Amazon and Walmart often contain pre-installed residential proxy malware. WSJ reporter Jack Gillum purchased and tested several devices on an isolated network, documenting unauthorized outbound traffic to gambling, adult, cryptocurrency, and login sites shortly after connection. Interviews with a U.S. Department of Defense cyber investigator and Comcast security staff detail how these backdoors enable botnets for DDoS attacks, fraud, and other crimes. The segment references the recent arrest of a 23-year-old Ottawa man linked to the Kimwolf botnet controlling over a million devices."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T16:00:22Z
 sourceUrl: "https://www.youtube.com/watch?v=apEPPKYgLL0"
 sourceTitle: "The Wall Street Journal"
 section: "Politics"

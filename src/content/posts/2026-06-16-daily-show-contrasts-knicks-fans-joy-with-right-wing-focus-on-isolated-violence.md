@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Daily Show contrasts Knicks fans' joy with right-wing focus on isolated violence"
 summary: "The segment opens with host Jon Stewart describing the joyous, communal atmosphere during New York Knicks fans' celebration of the team's first NBA title in 53 years. It contrasts this with right-wing media clips highlighting chaos, then acknowledges specific incidents before pivoting to mock a separate White House UFC event. Stewart emphasizes personal experience of solidarity and diversity while dismissing portrayals of widespread barbarity."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:18:37Z
 sourceUrl: "https://www.youtube.com/watch?v=MQ21AcUOZzg"
 sourceTitle: "The Daily Show"
 section: "Politics"

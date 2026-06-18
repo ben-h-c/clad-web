@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "MS NOW segment critiques Trump's Iran MOU claims as misleading"
 summary: "The segment analyzes President Trump's recent claims about a US-Iran memorandum of understanding ending recent hostilities. It highlights headlines from the Wall Street Journal calling it a retreat and National Review accusing the administration of insulting intelligence. Lawrence compares Trump's assertions about a 'no nuclear weapon' pledge to the 2015 JCPOA language and accuses the White House of sending misleading talking points to Congress. It covers Trump's statements on regime change, Israel's security, and Obama's policy.\nThe broadcast draws from public Trump remarks, obtained congressional talking points, and conservative media editorials. It features no administration guests or counter-sources, focusing on perceived inconsistencies in Trump's Iran narrative amid a recent conflict and emerging ceasefire framework."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T03:25:09Z
 sourceUrl: "https://www.youtube.com/watch?v=G3DXrxwXUBk"
 sourceTitle: "MS NOW"
 section: "Politics"

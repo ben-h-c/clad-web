@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Harvard Report: US Household Growth Slows Third Straight Year in 2025"
 summary: "CBS News segment covers the Harvard Joint Center for Housing Studies' State of the Nation's Housing 2026 report, which documents household growth declining for the third consecutive year to roughly 1 million in 2025 from pandemic-era peaks near 2 million. It interviews managing director Chris Herbert on causes including weaker job growth, low consumer confidence, high housing costs prompting young adults to delay independence, slower population growth from demographics, and reduced immigration."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:41:35Z
 sourceUrl: "https://www.youtube.com/watch?v=3sRgwkqGHiw"
 sourceTitle: "CBS News"
 section: "Politics"

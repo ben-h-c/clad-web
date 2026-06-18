@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Schumer Presser Blasts Trump Iran Deal, Pushes War Powers Vote"
 summary: "Senate Democratic Leader Chuck Schumer, joined by Sens. Schatz and Murphy, held a press conference criticizing President Trump's recently announced U.S.-Iran agreement. They called for release of details, a Gang of Eight briefing, and the ninth war powers resolution vote to end U.S. involvement after over 100 days of conflict. Segments covered costs, unachieved objectives, and a separate critique of alleged Trump 'slush fund' and IRS deals. Q&A touched on nominations, Senate races, and appropriations. Sourcing was limited to the senators' statements with no external experts or documents referenced."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:02:25Z
 sourceUrl: "https://www.youtube.com/watch?v=P5e72N-9hDY"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

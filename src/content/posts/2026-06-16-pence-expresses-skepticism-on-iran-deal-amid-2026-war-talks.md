@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Pence expresses skepticism on Iran deal amid 2026 war talks"
 summary: "C-SPAN clip shows former Vice President Mike Pence discussing U.S. military actions against Iran and a potential peace settlement. Pence credits President Trump with historic direct strikes on the leading state sponsor of terrorism in 2025 and 2026, granting latitude for negotiations but voicing concerns over unknown deal terms. He argues against trusting Iran without verifiable nuclear dismantlement, ballistic missile curbs, ending proxy support, and Strait of Hormuz reopening, preferring U.S. forces complete objectives if unmet."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:40:24Z
 sourceUrl: "https://www.youtube.com/watch?v=k_uRxpAjiA8"
 sourceTitle: "C-SPAN"
 section: "Politics"

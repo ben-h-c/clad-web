@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC Accurately Calls Collins Win in Georgia GOP Senate Runoff"
 summary: "NBC News declares Rep. Mike Collins the winner of the Republican Senate primary runoff in Georgia. Collins defeated former football coach Derek Dooley and will face Democratic incumbent Sen. Jon Ossoff in November. The segment notes the race's importance for Senate control and basic national dynamics favoring Ossoff initially."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:17:18Z
 sourceUrl: "https://www.youtube.com/watch?v=0RMNX3ggT84"
 sourceTitle: "NBC News"
 section: "Politics"

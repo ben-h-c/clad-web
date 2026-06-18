@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump comments on Eduardo Bolsonaro's Brazil court sentence at G7"
 summary: "The clip shows President Trump responding to a question about his G7 interactions with Brazilian President Lula in Evian, France. He discusses tariffs, political tensions in Brazil, and reacts to news that Eduardo Bolsonaro had been arrested or faced arrest related to a statement made in Texas, calling the Brazilian system tough while claiming US elections are rigged.\n\nThe segment draws from live remarks at the June 2026 G7 summit, with Trump as the sole speaker and no additional guests, graphics, or sourced counterpoints presented."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:45:32Z
 sourceUrl: "https://www.youtube.com/watch?v=Zo5rBqcuRHE"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

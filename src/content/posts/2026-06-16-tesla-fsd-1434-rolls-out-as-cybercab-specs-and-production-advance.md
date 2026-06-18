@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Tesla FSD 14.3.4 Rolls Out as Cybercab Specs and Production Advance"
 summary: "The broadcast covers recent Tesla developments including FSD supervised v14.3.4 rollout with new features like Smart Summon on Cybertruck and streak gamification, record Cybercab sightings at Giga Texas, and EPA certification details on the vehicle's FWD powertrain, 48 kWh battery, weight, and range. It also discusses a Reuters probe into Tesla's European FSD safety claims, SpaceX's record IPO under ticker SPCX, Rivian autonomy plans, and updates on competitors and charging."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:01:59Z
 sourceUrl: "https://www.youtube.com/watch?v=oboSCVimCVA"
 sourceTitle: "Ryan Shaw"
 section: "Politics"

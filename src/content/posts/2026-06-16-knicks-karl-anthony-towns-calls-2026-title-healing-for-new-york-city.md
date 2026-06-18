@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Knicks' Karl-Anthony Towns Calls 2026 Title 'Healing' for New York City"
 summary: "The short Reuters clip features New York Knicks forward Karl-Anthony Towns speaking at a Raising Cane's event in Times Square. Towns reflects on the team's 2026 NBA championship victory over the San Antonio Spurs, describing it as a 'healing experience' for fans, alumni, and players. He notes the resilience required in New York City and the importance of staying focused. The segment consists solely of Towns' remarks with no additional narration, graphics, or interviews. It aired amid widespread coverage of the Knicks' first title in 53 years."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:23:17Z
 sourceUrl: "https://www.youtube.com/watch?v=Y2NyxWJIebw"
 sourceTitle: "Reuters"
 section: "Politics"

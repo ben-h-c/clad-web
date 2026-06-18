@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump suggests Syria handle Hezbollah fight better than Israel"
 summary: "The segment features US President Donald Trump speaking to reporters on the sidelines of the G7 summit, criticizing Israel's prolonged military campaign against Hezbollah in Lebanon for causing excessive civilian deaths and property destruction. Trump proposes allowing Syria under President Ahmed al-Sharaa to take over the fight, claiming Damascus would be more effective and less indiscriminate. He references past US support for Israel, his personal relationship with Netanyahu, and concerns that the Lebanon situation could undermine a potential US-Iran deal."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:58:08Z
 sourceUrl: "https://www.youtube.com/watch?v=-x1Ca1yOUQU"
 sourceTitle: "Guardian News"
 section: "Politics"

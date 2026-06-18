@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Social Security reform push: Insolvency in 2032, GOP divisions ahead of midterms"
 summary: "The segment features The Hill's Alexander Bolton discussing House Speaker Mike Johnson's call for Republicans to address entitlement spending including Social Security, Medicare, and Medicaid if they retain the majority. It covers the program's projected 2032 insolvency, $40 trillion national debt, interest costs, and political risks ahead of midterms. Bolton cites Republican divisions, historical precedent from Bush's 2005 privatization effort, and input from senators like Hawley, Sanders, Kaine, Durbin, and Curtis on possible fixes such as raising the retirement age, lifting the payroll tax cap, means-testing, or expanding private accounts."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T23:00:18Z
 sourceUrl: "https://www.youtube.com/watch?v=pDZvRWDU7Cs"
 sourceTitle: "The Hill"
 section: "Politics"

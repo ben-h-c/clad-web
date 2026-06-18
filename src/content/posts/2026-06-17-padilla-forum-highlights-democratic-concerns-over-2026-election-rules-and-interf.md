@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Padilla forum highlights Democratic concerns over 2026 election rules and interference"
 summary: "MS NOW segment covers a Democratic-led forum on protecting the 2026 midterms from alleged interference by the Trump administration and allies. Sen. Alex Padilla (D-CA) discusses concerns over a USPS proposed rule tied to a March 2026 executive order on mail-in ballots and voter rolls, preparedness among election officials, and voter advice on registration and early voting.\nThe discussion references a Brennan Center survey statistic, lawsuits by attorneys general, and a letter from former officials warning of a 'rolling coup.' It includes commentary on California elections and calls for public preparedness against scenarios like federal agents at polls."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:13:10Z
 sourceUrl: "https://www.youtube.com/watch?v=EQk0spY3nmA"
 sourceTitle: "MS NOW"
 section: "Politics"

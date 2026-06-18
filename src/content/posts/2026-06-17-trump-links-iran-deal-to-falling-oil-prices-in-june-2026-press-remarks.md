@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump links Iran deal to falling oil prices in June 2026 press remarks"
 summary: "The segment shows President Trump responding to a question on an Iran agreement's effect on energy prices. He claims the US bombed Iran to eliminate its nuclear threat, notes plummeting oil prices and low Iowa gasoline prices, and asserts the economy's resilience. He criticizes Democrats for inventing the 'affordability' issue and credits his administration with lowering costs including eggs.\n\nSourcing relies on Trump's statements; no independent experts or data graphics are referenced in the clip. The exchange also briefly touches on Vice President J.D. Vance's media appearance."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T22:45:35Z
 sourceUrl: "https://www.youtube.com/watch?v=PAy_kUJv17c"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

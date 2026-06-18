@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX to Acquire Cursor AI Coding Startup for $60B After IPO"
 summary: "The segment reports SpaceX's agreement to buy AI coding startup Cursor for $60 billion days after its IPO. It discusses Cursor's focus on AI tools for writing and debugging code, its competition with OpenAI and Anthropic, and SpaceX's recent acquisition of xAI as part of broader AI ambitions. Analysts speculate on the deal's strategic value, closing timeline in Q3, use of stock, potential for more M&A, and comparisons to OpenAI and Anthropic's IPO plans."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:13:01Z
 sourceUrl: "https://www.youtube.com/watch?v=ROBBm9JR8uk"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

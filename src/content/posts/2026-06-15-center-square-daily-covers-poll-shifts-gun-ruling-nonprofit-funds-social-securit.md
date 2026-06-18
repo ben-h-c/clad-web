@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Center Square Daily Covers Poll Shifts, Gun Ruling, Nonprofit Funds, Social Security"
 summary: "The June 12, 2026 episode of The Center Square Daily opened with a Noble Predictive Insights poll showing rising voter concern over inflation (43%, up from 37%) and a Democratic generic-ballot lead of six points. It then covered the Washington Supreme Court’s 5-4 ruling stripping gun rights after two DUIs in seven years, followed by segments on a $2.5 million federal grant to the Alliance for Innovative Regulation and the latest Social Security trustees report projecting insolvency in 2032. The program closed with a Dunhill Travel Deals analysis ranking Arkansas the most affordable summer road-trip state."
-publishedAt: 2026-06-12
+publishedAt: 2026-06-12T20:00:06Z
 sourceUrl: "https://www.youtube.com/watch?v=Di-8jcLktxc"
 sourceTitle: "The Center Square"
 section: "Politics"

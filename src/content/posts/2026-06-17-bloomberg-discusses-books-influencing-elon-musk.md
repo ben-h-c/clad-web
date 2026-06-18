@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Discusses Books Influencing Elon Musk"
 summary: "The Bloomberg Television segment examines three books linked to Elon Musk: Isaac Asimov's Foundation series, Douglas Adams' The Hitchhiker's Guide to the Galaxy, and Walter Isaacson's biography of Benjamin Franklin. Hosts note Musk's placement of the Asimov series in a Tesla Roadster launched into space and discuss personal influences from each title. The discussion references Musk's admiration for Franklin as an entrepreneur-inventor parallel to his own path. Sourcing draws on public statements and known anecdotes rather than new interviews or documents. The segment concludes with light banter on reading habits."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T17:45:35Z
 sourceUrl: "https://www.youtube.com/watch?v=nQeHqWmys3Y"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

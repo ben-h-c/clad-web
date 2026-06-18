@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "FBI foils drone plot at White House UFC event; Vance discusses threat, Iran deal"
 summary: "Fox & Friends segment covers the FBI's disruption of an alleged explosive-drone plot targeting the UFC Freedom 250 event at the White House South Lawn. Vice President JD Vance, who attended, reacts to the threat, links it to political rhetoric, discusses a potential Iran nuclear deal, promotes his new faith-focused book, and addresses 2028 speculation.\nThe segment uses official FBI statements from Director Kash Patel, unnamed sources for plot details, and live commentary from hosts Ainsley Earhardt, Lawrence Jones, and Griff Jenkins. Vance is the primary guest; throughlines include national security successes and calls to reduce divisive language."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:45:06Z
 sourceUrl: "https://www.youtube.com/watch?v=7Ojg8Uc1n84"
 sourceTitle: "Fox News"
 section: "Politics"

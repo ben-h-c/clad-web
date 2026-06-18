@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters reports on China's growing dog preschools amid rising pet spending"
 summary: "The Reuters video profiles luxury 'puppy preschools' in China, such as facilities in Shanghai offering structured activities like games, treadmills, music, and socialization for dogs without owners present. It features interviews with pet owners who view dogs as family members or children and are willing to spend hundreds monthly on premium care. The second paragraph notes sourcing via on-site footage and owner quotes, highlighting the shift toward treating pets as companions in urban China. Market context includes references to booming pet spending."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T09:09:50Z
 sourceUrl: "https://www.youtube.com/watch?v=OB_BXWr3u48"
 sourceTitle: "Reuters"
 section: "Politics"

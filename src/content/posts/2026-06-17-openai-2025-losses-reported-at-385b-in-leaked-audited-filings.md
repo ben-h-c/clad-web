@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "OpenAI 2025 Losses Reported at $38.5B in Leaked Audited Filings"
 summary: "The broadcast presents exclusive details from OpenAI's audited financial statements for 2024 and 2025, obtained and verified independently. It reports revenue, costs, and net losses attributable to the company, including breakdowns for cost of revenue and R&D, plus notes on non-controlling interests and a 2025 corporate structure conversion.\n\nSourcing relies on documents viewed by the host and confirmed by the Financial Times. No guests appear; the segment stays narrowly focused on top-line numbers from the filings, with a promise of deeper follow-up analysis."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-16T20:11:32Z
 sourceUrl: "https://www.youtube.com/watch?v=Z-gFqQUQUmI"
 sourceTitle: "Better Offline"
 section: "Politics"

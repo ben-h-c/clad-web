@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC Accurately Reports Trump-Zelenskyy G7 Meeting"
 summary: "The segment covers President Trump meeting privately with Ukrainian President Volodymyr Zelenskyy on the sidelines of the G7 summit in Evian-les-Bains, France. It notes pressure from allies to address Russia's war in Ukraine and includes Trump's post-meeting comments urging a deal due to heavy losses on both sides.\n\nThe broadcast references the war surpassing World War I in length as of the prior week. Sourcing relies on the president's own statements and standard news context; no named experts or additional graphics are detailed in the provided transcript."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:09:55Z
 sourceUrl: "https://www.youtube.com/watch?v=gGLYiqV2LJU"
 sourceTitle: "NBC News"
 section: "Politics"

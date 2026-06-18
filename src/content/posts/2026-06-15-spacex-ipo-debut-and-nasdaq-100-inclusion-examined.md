@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX IPO Debut and Nasdaq 100 Inclusion Examined"
 summary: "The segment analyzes SpaceX's recent IPO performance, noting a 15-20% first-day gain to levels near 175 after pricing at an implied lower level. It highlights expected Nasdaq 100 inclusion in roughly 13 trading days, bringing passive inflows, and the speaker's thesis of melt-up price action through month-end followed by uncertainty. The host states they hold no SpaceX shares due to post-IPO volatility risks but sees the move as evidence of strong growth-stock appetite and improved liquidity."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T21:00:32Z
 sourceUrl: "https://www.youtube.com/watch?v=Y_3FHFKBEWc"
 sourceTitle: "Real Vision"
 section: "Politics"

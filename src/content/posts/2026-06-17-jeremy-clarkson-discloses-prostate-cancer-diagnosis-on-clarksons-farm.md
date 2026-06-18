@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Jeremy Clarkson Discloses Prostate Cancer Diagnosis on Clarkson's Farm"
 summary: "BBC News segment covers Jeremy Clarkson's revelation of an aggressive prostate cancer diagnosis during an episode of Clarkson's Farm. He describes it as caught early, notes partial prostate removal, and reassures viewers he will be fine. Footage filmed across 2024-2025; Clarkson posted an Instagram warning ahead of the episodes' release."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T09:34:36Z
 sourceUrl: "https://www.youtube.com/watch?v=5VguZrMZrrg"
 sourceTitle: "BBC News"
 section: "Politics"

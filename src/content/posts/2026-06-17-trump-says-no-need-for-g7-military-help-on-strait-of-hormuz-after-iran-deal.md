@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Says No Need for G7 Military Help on Strait of Hormuz After Iran Deal"
 summary: "The segment shows a Japanese Yomiuri reporter asking President Trump whether he requested G7 nations, including Japan, to send military forces to the Strait of Hormuz and what he specifically wants from Japan. Trump responds that he made no such request, does not need assistance, and notes that allies offered help only after the conflict ended. He mentions a mild UK request for ships post-war, Japan's reluctance during active fighting despite an offer, and that the US handled operations with Israel and affected Arab states.\n\nThe clip is a direct recording of the exchange at what appears to be a G7-related event in mid-June 2026, following a US-Iran ceasefire deal. No additional graphics, experts, or narration are present; it relies solely on Trump's unscripted answers."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T20:45:14Z
 sourceUrl: "https://www.youtube.com/watch?v=RKqxlK6oyFw"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

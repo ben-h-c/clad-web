@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox Business discusses Trump-Iran deal announcement and crypto legislation"
 summary: "The segment covers President Trump's announcement of a US-Iran deal to end conflict, with signing set for Friday in Switzerland. Reported terms include Iran's no-nuclear-weapons pledge, reopening of the Strait of Hormuz, and US reversal of sanctions. It features Sen. Markwayne Mullin (identified as Kramer) on the deal's status as an MOU and congressional review under the Nuclear Agreement Review Act. The discussion shifts to the CLARITY Act crypto bill passed by Senate Banking but stalled on the floor, including quotes from Michael Selig and Jamie Dimon on stablecoins and yields. Mullin addresses legislative hurdles, ethics concerns, SAVE America Act, FISA, Jay Clayton's DNI nomination, and Kevin Warsh's Fed meeting."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:30:17Z
 sourceUrl: "https://www.youtube.com/watch?v=D6UrHdlIk6A"
 sourceTitle: "Fox Business"
 section: "Politics"

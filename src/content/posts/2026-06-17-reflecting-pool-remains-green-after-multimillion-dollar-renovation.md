@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reflecting Pool remains green after multimillion-dollar renovation"
 summary: "The USA TODAY segment shows visitors at the Lincoln Memorial Reflecting Pool commenting on its green appearance shortly after a renovation intended to restore a blue hue. Interviewees note the water color resembles pre-renovation conditions despite millions spent and express surprise or skepticism ahead of July 4th.\nThe piece relies on on-site visitor interviews with no named experts or officials; background music and editing emphasize the visual mismatch between expectations and observed algae. It ties into broader coverage of the project timing before America's 250th anniversary celebrations."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:01:15Z
 sourceUrl: "https://www.youtube.com/watch?v=krljVL0jDXM"
 sourceTitle: "USA TODAY"
 section: "Politics"

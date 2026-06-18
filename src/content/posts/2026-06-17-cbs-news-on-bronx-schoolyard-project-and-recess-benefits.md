@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS News on Bronx schoolyard project and recess benefits"
 summary: "The CBS News segment covers the opening of a new community schoolyard at P.S. 57 Crescent in the Bronx, built in partnership with the Trust for Public Land. It shows before-and-after visuals, student involvement in design, and community access after hours. Expert comments cite the American Academy of Pediatrics on recess needs, principal observations on classroom benefits, and the ideal duration of about 20 minutes. The report concludes with the positive impacts on health and development. Sourcing relies on on-site interviews, TPL project details, and AAP statements without named external experts or data graphics beyond visuals."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T21:58:59Z
 sourceUrl: "https://www.youtube.com/watch?v=m0xpNAzUL_A"
 sourceTitle: "CBS News"
 section: "Politics"

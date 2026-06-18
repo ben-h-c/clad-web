@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Doggett Questions Crypto Tax Bills on Advantages, Bailouts, Trump Ties"
 summary: "The segment shows Rep. Lloyd Doggett (D-TX) questioning an expert witness during a House Ways and Means hearing on cryptocurrency tax legislation. Doggett probes whether mining/staking bills and the Clarity Act provide special tax treatment, enable tax deferral for Trump-linked firms like American Bitcoin, risk future bailouts via retirement accounts, and fail to address illicit finance risks involving entities like Binance and groups such as Hamas and Hezbollah."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T07:30:03Z
 sourceUrl: "https://www.youtube.com/watch?v=m24vi4UxOCk"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "AP report on FBI disruption of alleged White House UFC plot aligns with court filings and officials"
 summary: "The segment reports on federal court papers unsealed June 16, 2026, detailing an FBI multi-state operation that disrupted an alleged plot to attack the UFC event held on the White House South Lawn. The event marked President Donald Trump's 80th birthday on June 14-15, 2026. The affidavit describes roughly 20 participants who exchanged maps, discussed safe houses and escape routes, and considered using explosive-laden drones and firearms against attendees. The FBI learned of the threat on June 10; five arrests occurred in states including Ohio, Missouri, and California. Director Kash Patel credited rapid action by the FBI, partners, and DOJ. One arrestee mentioned a TikTok group called Vanguard of the Old; some participants referenced Jeffrey Epstein associates in governance. The report notes Trump's prior association with Epstein and his statement that contact ended before Epstein's crimes were public."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:11:25Z
 sourceUrl: "https://www.youtube.com/watch?v=11-1qPtcQmE"
 sourceTitle: "Associated Press"
 section: "Politics"

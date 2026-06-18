@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC Nightline Profiles Platonic Co-Parenting Among Friends"
 summary: "Nightline segment follows two Brooklyn friends, Amritha Vijayaraghavan (straight) and Andrew Stephens (gay), who have lived together for years, share a 3-year-old son and recently welcomed a daughter, splitting finances with no romantic involvement. It also profiles two single moms, Bernie and Annabel, raising children together in NYC under a 'MOM' cooperative model, plus attorney Diana Adams on legal navigation.\nThe report highlights pandemic-era rethinking of family, legal hurdles in clinics and paperwork, positive public reactions, and claims of greater stability without romantic dynamics. Sourcing relies on participant interviews, Adams' expertise, and social media documentation."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T06:08:16Z
 sourceUrl: "https://www.youtube.com/watch?v=DhTHNJzAMfc"
 sourceTitle: "ABC News"
 section: "Politics"

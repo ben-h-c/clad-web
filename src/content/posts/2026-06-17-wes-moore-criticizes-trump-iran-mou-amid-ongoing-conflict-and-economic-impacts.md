@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Wes Moore criticizes Trump Iran MoU amid ongoing conflict and economic impacts"
 summary: "The segment features Maryland Gov. Wes Moore criticizing President Trump's memorandum of understanding with Iran to end the recent conflict. Moore highlights rising gas prices, inflation, war costs to Americans, lack of regime change, Iranian control of the Strait of Hormuz, and unreleased deal details. The discussion shifts to criticism of a recent White House UFC event featuring military flyovers and perceived politicization of the armed forces, including claims of VA funding cuts amid casualties."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:25:17Z
 sourceUrl: "https://www.youtube.com/watch?v=jYoN3vamtHs"
 sourceTitle: "MS NOW"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Threatens to Resume Iran Bombing If Deal Violated"
 summary: "The Bloomberg Television segment airs a brief clip of President Trump speaking at the G7 summit in France. He states that the US-Iran agreement is a memorandum of understanding, not fully written, and warns that violations or unmet understandings would lead to resumed US bombing of Iran."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T21:43:33Z
 sourceUrl: "https://www.youtube.com/watch?v=blOQfxDmrVM"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

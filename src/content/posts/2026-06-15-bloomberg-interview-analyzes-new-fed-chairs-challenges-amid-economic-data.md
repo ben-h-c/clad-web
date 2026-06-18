@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Interview Analyzes New Fed Chair's Challenges Amid Economic Data"
 summary: "The segment features an interview with Ira Jersey, Bloomberg Intelligence chief US interest rate strategist, previewing new Fed Chair Kevin Walsh's upcoming FOMC meeting and press conference. Discussion covers Walsh's challenges asserting influence on the committee, three policy camps within the Fed, impacts of potential Iran war resolution on oil and rates, and recent data including jobs and May inflation.\nJersey addresses expectations for communications policy changes and the dot plot. The broadcast ends with a brief tangent on the ongoing 2026 World Cup, ticketing issues, and attendance concerns. Sourcing relies on the named expert guest with references to economic data releases and historical Fed practices."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T13:48:33Z
 sourceUrl: "https://www.youtube.com/watch?v=ZUFxUb35X2M"
 sourceTitle: "Bloomberg Podcasts"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox panel critiques socialist wins in DC, other cities"
 summary: "The segment discusses Janeese Lewis George's lead in the DC Democratic mayoral primary as a DSA-backed candidate, alongside other progressive wins and polling shifts ahead of midterms. Panelists highlight DSA organization versus DNC weaknesses and debate Trump-era policy responses.\nThe sourcing relies on panel commentary from Kayleigh McEnany, Jessica Tarlov, Dana Perino, Jesse Watters, and Greg Gutfeld, with references to NBC/Quinnipiac polls, candidate platforms like Medicare for All, and specific races in Maine and Georgia."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:45:44Z
 sourceUrl: "https://www.youtube.com/watch?v=6H_GDiy6MHI"
 sourceTitle: "Fox News"
 section: "Politics"

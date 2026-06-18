@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump denies US role in reported $300B Iran reconstruction fund"
 summary: "The Reuters clip shows President Trump rejecting reports that a new US-Iran agreement includes a $300 billion reconstruction fund financed by Gulf allies. He states the US will not contribute any funds. Trump contrasts this with the 2015 JCPOA under Obama, citing a $1.7 billion cash payment plus additional amounts delivered by plane. He claims the Iranians mocked Obama over the payment."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T13:57:55Z
 sourceUrl: "https://www.youtube.com/watch?v=DkdM4ZrPObo"
 sourceTitle: "Reuters"
 section: "Politics"

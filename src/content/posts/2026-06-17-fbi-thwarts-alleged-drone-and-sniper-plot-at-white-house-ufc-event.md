@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "FBI Thwarts Alleged Drone and Sniper Plot at White House UFC Event"
 summary: "DW News segment reports on an FBI-disrupted plot targeting a UFC event held at the White House. It references FBI findings on attack plans involving potential violence networks and notes the President's lack of prior briefing on details. The report covers arrests and the multi-state operation that prevented the alleged attack."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T03:23:30Z
 sourceUrl: "https://www.youtube.com/watch?v=A3PISPQ8RLQ"
 sourceTitle: "DW News"
 section: "Politics"

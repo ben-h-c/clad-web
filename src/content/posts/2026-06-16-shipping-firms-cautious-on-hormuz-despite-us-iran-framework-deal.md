@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Shipping firms cautious on Hormuz despite US-Iran framework deal"
 summary: "The segment covers shipping industry response to a tentative US-Iran peace framework that aims to reopen the Strait of Hormuz after conflict-related closure. It notes Trump social media claims of tankers resuming movement and the waterway being safe, contrasted with vessel tracking data showing minimal activity. Companies express caution pending safety assurances and operational details. Sourcing includes Trump's Truth Social post, vessel tracking observations, and direct comments from firms like Hapag-Lloyd and Maersk plus unnamed Asian/European companies via Reuters. Throughline emphasizes wariness despite the deal amid the strait's role in global oil trade."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T06:54:13Z
 sourceUrl: "https://www.youtube.com/watch?v=YqcpWVGxdBc"
 sourceTitle: "Reuters"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS News accurately covers Heuermann's Gilgo Beach life sentence"
 summary: "CBS News reports on the June 17, 2026 sentencing of Rex Heuermann to life without parole for the Gilgo Beach murders. The segment includes live updates from the courtroom, victim impact statements describing him as a coward and monster, Heuermann's brief address to the court, and comments from the Suffolk County District Attorney. It notes his April guilty plea to eight murders and the role of DNA from a discarded pizza crust in cracking the decades-old case."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T17:54:42Z
 sourceUrl: "https://www.youtube.com/watch?v=_OxQw_tk9Mg"
 sourceTitle: "CBS News"
 section: "Politics"

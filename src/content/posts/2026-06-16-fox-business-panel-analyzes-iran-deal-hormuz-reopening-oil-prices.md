@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox Business panel analyzes Iran deal, Hormuz reopening, oil prices"
 summary: "The segment covers President Trump's G7 remarks on a U.S.-Iran framework deal to end conflict and reopen the Strait of Hormuz, with a signing ceremony planned for Friday in Switzerland. Stocks rally and oil falls to around $80 amid partial reopening and mine-clearing. Panelists David Bahnsen, Taylor Riggs, Dagen McDowell, and Gerri Willis discuss market reactions, supply shocks, risk premiums, China's demand drop, and longer-term economic effects including AI-driven investment and midterm politics. Sourcing relies on Trump's public statements, unnamed mediators, and market data; guests provide expert commentary on commodities and macro trends."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T00:00:27Z
 sourceUrl: "https://www.youtube.com/watch?v=oUYEgwFDEJ4"
 sourceTitle: "Fox Business"
 section: "Politics"

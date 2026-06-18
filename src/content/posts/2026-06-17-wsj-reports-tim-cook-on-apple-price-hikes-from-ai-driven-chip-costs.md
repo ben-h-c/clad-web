@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "WSJ Reports Tim Cook on Apple Price Hikes from AI-Driven Chip Costs"
 summary: "The WSJ segment features an exclusive interview with outgoing Apple CEO Tim Cook discussing rising prices for memory and storage chips. Cook states that Apple can no longer fully absorb the costs and that price increases are unavoidable across products."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T22:41:26Z
 sourceUrl: "https://www.youtube.com/watch?v=WiCg4CsrkY4"
 sourceTitle: "The Wall Street Journal"
 section: "Politics"

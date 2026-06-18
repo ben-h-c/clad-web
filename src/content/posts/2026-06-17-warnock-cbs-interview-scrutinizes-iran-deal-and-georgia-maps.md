@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Warnock CBS Interview Scrutinizes Iran Deal and Georgia Maps"
 summary: "CBS News extended interview with Sen. Raphael Warnock covers the recent US-Iran agreement ending hostilities, reopening of the Strait of Hormuz, and calls for congressional approval via war powers resolution. It shifts to Georgia legislative plans for congressional redistricting ahead of 2028, linking it to a recent Supreme Court decision, plus discussion of Warnock's book on faith, equity, education programs, and mass incarceration."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:03:41Z
 sourceUrl: "https://www.youtube.com/watch?v=TaEq5dnVFwo"
 sourceTitle: "CBS News"
 section: "Politics"

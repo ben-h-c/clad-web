@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Congressional Hearing Questions EV Mandates' Effects on Motorcoaches"
 summary: "The clip shows Rep. John Joyce (R-PA) questioning American Bus Association executive Fred Ferguson during a House hearing on vehicle regulations and consumer choice. Joyce highlights past Biden administration emission rules and California's Advanced Clean Cars II waiver as de facto EV mandates that limit options, especially in rural areas, and notes Congress's use of Congressional Review Act resolutions to block them."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:15:25Z
 sourceUrl: "https://www.youtube.com/watch?v=wFku0IfwgTc"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

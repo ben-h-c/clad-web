@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Mangione Defense Plans Extreme Emotional Disturbance Argument in CEO Murder Case"
 summary: "ABC News reported on a hearing in the Luigi Mangione case involving the murder of UnitedHealthcare CEO Brian Thompson. The segment detailed the judge's acceptance of the defense's plan to pursue an extreme emotional disturbance psychiatric defense and the dismissal of a weapons possession count due to an improper search.\nLegal analyst Brian Buckmeyer explained the implications, noting that the defense must disclose psychiatric evidence, potential trial delays, reduced penalties if successful (manslaughter instead of murder), and how it differs from an insanity defense. The report covered prosecution strategies to counter the claim with evidence of planning."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T14:46:48Z
 sourceUrl: "https://www.youtube.com/watch?v=azsEEljwqoc"
 sourceTitle: "ABC News"
 section: "Politics"

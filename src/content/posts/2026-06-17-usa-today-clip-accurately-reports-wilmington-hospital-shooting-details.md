@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "USA Today clip accurately reports Wilmington hospital shooting details"
 summary: "The segment covers a shooting at ChristianaCare Wilmington Hospital in Delaware on June 16, 2026. It reports police locating two gunshot victims inside the facility, with one dying from injuries and details on the second victim and identities withheld out of respect for families. The clip includes police radio communications about the active scene and hospital context.\n\nSourcing relies on real-time police scanner audio and official statements. No named guests or experts appear; it focuses on immediate law enforcement response. The broadcast emphasizes the unusual nature of violence occurring inside a hospital."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T05:00:17Z
 sourceUrl: "https://www.youtube.com/watch?v=I90CW6rpE_I"
 sourceTitle: "USA TODAY"
 section: "Politics"

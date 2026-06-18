@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters covers Jackass crew reunion for final film 'Best and Last'"
 summary: "The Reuters segment features brief interview clips with Jackass cast members discussing the upcoming 'Jackass: Best and Last' as their final film. They reflect on age, the physical toll of stunts, and their approach to producing raw footage without extensive resources.\nThe report draws from CinemaCon presentation footage and ties into the film's June 26, 2026 theatrical release by Paramount, mixing new stunts with archival material. Sourcing relies on direct cast quotes and official film announcements rather than anonymous sources."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:00:15Z
 sourceUrl: "https://www.youtube.com/watch?v=0y7RY8Qpx2w"
 sourceTitle: "Reuters"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Iran Deal Faces Contradictions on Lebanon, Hormuz, Funding"
 summary: "The segment covered an emerging US-Iran interim agreement to extend a ceasefire, reopen the Strait of Hormuz, and launch nuclear talks, with a formal signing set for Friday. It highlighted conflicting statements from Netanyahu on Lebanon presence, Iran's foreign minister on violations, and tensions over possible reconstruction funding. The second part addressed internal US politics, including differences between President Trump and Vice President Vance on the $300 billion fund, Republican hawk skepticism from figures like Lindsey Graham, and historical analogies to Iraq and Vietnam. Sourcing drew on senior US officials, CBS interviews with Vance, Trump social media posts, and commentary from analysts and guests."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:17:44Z
 sourceUrl: "https://www.youtube.com/watch?v=VsB4IezgB6U"
 sourceTitle: "MS NOW"
 section: "Politics"

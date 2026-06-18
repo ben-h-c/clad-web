@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Oil Outlook After US-Iran Deal: Recovery Timeline and SPR Refill"
 summary: "The segment features energy expert Andy Lipow discussing oil market recovery following a US-Iran deal to reopen the Strait of Hormuz. It covers mine clearance, shipping backlogs, stored oil releases from Gulf producers, and timelines for supply normalization. The discussion also addresses the depleted US SPR at historic lows, planned refills via exchange agreements, tanker demand, and long-term gasoline price recovery."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:00:25Z
 sourceUrl: "https://www.youtube.com/watch?v=6CgHMNdkrhE"
 sourceTitle: "Fox Business"
 section: "Politics"

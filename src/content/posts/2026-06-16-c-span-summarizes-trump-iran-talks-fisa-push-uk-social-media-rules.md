@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "C-SPAN summarizes Trump-Iran talks, FISA push, UK social media rules"
 summary: "The June 15, 2026 broadcast covers President Trump's claims of a near-final US-Iran memorandum on ending hostilities, reopening the Strait of Hormuz, and nuclear limits, alongside comments from Macron, Starmer, and Netanyahu on Israel-Lebanon issues. Segments also address the Senate's FISA Section 702 reauthorization tied to Jay Clayton's DNI nomination, with remarks from Thune, Schumer, and Warner.\nThe program includes the UK prime minister's announcement of a social media ban for under-16s, Gavin Newsom's accusations of a DOJ probe, Georgia Senate runoff updates, and a historical note on the Miranda v. Arizona anniversary. Sourcing draws from direct audio clips, AP dispatches, Washington Post, Politico, and The Hill."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T22:08:00Z
 sourceUrl: "https://www.youtube.com/watch?v=GwdpLEywjSc"
 sourceTitle: "C-SPAN"
 section: "Politics"

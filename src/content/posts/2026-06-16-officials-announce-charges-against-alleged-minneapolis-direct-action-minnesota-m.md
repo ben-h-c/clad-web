@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Officials announce charges against alleged Minneapolis Direct Action Minnesota members"
 summary: "The Reuters broadcast covers a live press conference where officials announce federal charges against members of Direct Action Minnesota, described as an antifa-affiliated group. Segments detail alleged actions on March 1, 2026, including blocking a federal building north of St. Paul with vehicles and shields, and engaging in stalking, surveillance, and harassment of officers, including following them home. A specific example involves an individual named Isaac S. on or around May 4, 2026. Officials stress accountability for threats to federal agents while affirming the right to peaceful protest."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:21:11Z
 sourceUrl: "https://www.youtube.com/watch?v=Sa1_TE0s92s"
 sourceTitle: "Reuters"
 section: "Politics"

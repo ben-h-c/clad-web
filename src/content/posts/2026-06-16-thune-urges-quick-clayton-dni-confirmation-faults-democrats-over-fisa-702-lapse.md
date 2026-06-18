@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Thune urges quick Clayton DNI confirmation, faults Democrats over FISA 702 lapse"
 summary: "Sen. John Thune speaks on the Senate floor about President Trump's June 11, 2026 nomination of Jay Clayton, current U.S. Attorney for the Southern District of New York and former SEC chairman, to be Director of National Intelligence. He highlights Clayton's resume, notes praise from the Democratic vice chairman of the Senate Intelligence Committee, and announces plans for a swift committee hearing and floor vote.\nThune criticizes Democrats for blocking reauthorization of Section 702 of FISA over Bill Pulte's short-term acting DNI appointment, states the authorization lapsed as of Friday, and reads past Democratic quotes underscoring the program's importance to national security while warning of increased risks."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T20:07:47Z
 sourceUrl: "https://www.youtube.com/watch?v=1zVbjKwv7pk"
 sourceTitle: "C-SPAN"
 section: "Politics"

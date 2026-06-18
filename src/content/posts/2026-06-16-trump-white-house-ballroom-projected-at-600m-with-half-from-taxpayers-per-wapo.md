@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump White House ballroom projected at $600M with half from taxpayers, per WaPo"
 summary: "MS NOW segment examines President Trump's planned White House ballroom and related construction projects, including an arch and reflecting pool renovations. Guests Jonathan Lemire, Pat McCrory and Chuck Rocha discuss optics, funding sources, Trump's shift from base-focused politics, and potential midterm impacts. The discussion highlights a Washington Post report on costs and private vs. public funding. Sourcing draws on guest commentary, on-screen graphics with project estimates, and references to prior Trump statements and public polling."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:31:15Z
 sourceUrl: "https://www.youtube.com/watch?v=M6NnVVpl5Rs"
 sourceTitle: "MS NOW"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NYT Probe Details Epstein's Final Days, Supports Suicide Finding"
 summary: "NBC News reports on a New York Times investigation released June 16, 2026, examining Jeffrey Epstein's death in federal custody. The segment highlights newly public handwritten notes by Epstein, accounts from cellmates Nicholas Tartaglione and Efrain Reyes, and ignored warnings to guards.\nThe broadcast draws on the Times' review of millions of documents and dozens of interviews. It references the DOJ Inspector General's prior conclusion of suicide and notes that Epstein was left alone despite prior incidents and explicit warnings from cellmates."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:29:24Z
 sourceUrl: "https://www.youtube.com/watch?v=1Wisyk18pho"
 sourceTitle: "NBC News"
 section: "Politics"

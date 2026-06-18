@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News segment hails US-Iran strikes and tentative deal as major success"
 summary: "The segment features Jesse Watters interviewing Jim Hansen on recent US military action against Iran and a resulting deal. Hansen describes the strikes as immensely successful, notes a short document preventing Iranian nuclear weapons, and outlines regional realignments involving Gulf states, Turkey, and figures like Tom Barrack and JD Vance. Discussion covers buried uranium, inspections, G7 dynamics, and shifting regional power dynamics away from Iranian influence."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T08:15:16Z
 sourceUrl: "https://www.youtube.com/watch?v=xceq--QlDOo"
 sourceTitle: "Fox News"
 section: "Politics"

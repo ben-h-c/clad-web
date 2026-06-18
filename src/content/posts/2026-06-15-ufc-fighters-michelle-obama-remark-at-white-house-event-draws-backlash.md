@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "UFC fighter's Michelle Obama remark at White House event draws backlash"
 summary: "The segment covers UFC Freedom 250, held June 14, 2026, on the White House South Lawn as the first professional sporting event there. Heavyweight Josh Hokit defeated Derrick Lewis by KO/TKO in round 2, then during a Joe Rogan post-fight interview declared 'Michelle Obama is a man. Am I right, America?' The clip notes mixed crowd reactions, social media spread, and Trump's praise of the event on Truth Social. Attendees included Trump, Dana White, JD Vance, Mark Zuckerberg, Tyson Fury, and Shane Gillis."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T13:03:59Z
 sourceUrl: "https://www.youtube.com/watch?v=KarWW7w4tp8"
 sourceTitle: "The Economic Times"
 section: "Politics"

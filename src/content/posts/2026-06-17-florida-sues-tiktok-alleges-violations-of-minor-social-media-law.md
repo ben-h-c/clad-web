@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Florida sues TikTok, alleges violations of minor social media law"
 summary: "The segment reports Florida Attorney General James Uthmeier filing a civil lawsuit against TikTok on June 15, 2026, alleging violations of the state's Online Protections for Minors Act. It covers claims that TikTok allows accounts for children under 14, fails to obtain parental consent for 15- and 16-year-olds, misrepresents exposure to harmful content, and uses addictive features. The broadcast includes AG quotes calling it a crisis with kids using the app over eight hours daily and notes TikTok's response suspending accounts for users under 14 in Florida."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T19:45:37Z
 sourceUrl: "https://www.youtube.com/watch?v=f6rSg0WgnxE"
 sourceTitle: "NewsNation"
 section: "Politics"

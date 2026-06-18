@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Pulse Covers Iran Deal, SpaceX Surge, BOJ Hike, Oil Outlook"
 summary: "The June 16, 2026 episode of Bloomberg's The Pulse with Francine Lacqua covered the U.S.-Iran agreement to reopen the Strait of Hormuz, G7 summit reactions, Ukraine developments, SpaceX's 20% share surge and $2.5 trillion valuation, AI/tech discussions including Anthropic and NVIDIA, and central bank actions. Segments also addressed BOJ's rate hike to 1%, China's weak consumer demand, Ireland's economy with AIB CEO, AI's labor market impact, and oil market implications with expert Jeff Currie.\nGuests included correspondents, strategists like Neil and Elise, economists, and executives such as AIB's Colin Hunt and Abaxx's Jeff Currie. Sourcing relied on named experts, live updates, and market data rather than anonymous sources."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T10:32:54Z
 sourceUrl: "https://www.youtube.com/watch?v=0HF9WVx594U"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

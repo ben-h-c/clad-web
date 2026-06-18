@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Daybreak Europe covers US-Iran draft deal, Fed meeting, SpaceX gains"
 summary: "The broadcast opens with market updates on Asian and European stocks, oil prices below $80 on Iran deal expectations, and bond yields ahead of the Fed decision. It details a Bloomberg-sourced draft US-Iran agreement providing Tehran immediate oil sales rights, a $300 billion development fund, and eventual access to frozen assets, alongside Strait of Hormuz reopening and nuclear assurances. Segments cover Kevin Warsh's first Fed meeting, SpaceX surpassing Amazon at $2.65 trillion market cap, AI sovereignty at Viva Tech, BMW profitability cuts, G7 talks on Ukraine and tech, and UK by-election politics."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T06:59:44Z
 sourceUrl: "https://www.youtube.com/watch?v=a-7793BH-TQ"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Expert raises concerns over Iran deal leverage and Hezbollah link"
 summary: "CBS News segment features analyst Aaron Miller discussing a US-Iran memorandum of understanding signed electronically by President Trump and Iranian officials. It covers Iran's potential use of the process to protect Hezbollah and tie Lebanon ceasefire progress to the broader deal, distinctions between US taxpayer funds and sanctions relief or frozen assets, and questions about the unreleased MOU text and pace of future nuclear talks."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T17:54:08Z
 sourceUrl: "https://www.youtube.com/watch?v=MdbEwY4btlQ"
 sourceTitle: "CBS News"
 section: "Politics"

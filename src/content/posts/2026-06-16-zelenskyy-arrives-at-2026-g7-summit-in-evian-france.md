@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Zelenskyy Arrives at 2026 G7 Summit in Évian, France"
 summary: "Bloomberg News clip shows Ukrainian President Volodymyr Zelenskyy arriving at the 2026 G7 summit in Évian-les-Bains, France. He answers casual questions about his overnight arrival, lack of sleep, upcoming schedule including meetings in Brussels, a possible climate summit, and a prior phone call with France.\nThe segment uses direct on-camera audio and video without narration, graphics, or additional experts. It captures real-time interaction with reporters upon arrival at the June 15-17 summit hosted by France."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:00:20Z
 sourceUrl: "https://www.youtube.com/watch?v=cc8OeaNx3B4"
 sourceTitle: "Bloomberg News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Democrats Outline Affordability Agenda; GOP Inaction Criticized"
 summary: "The segment discusses a recent Politico report on House Minority Leader Hakeem Jeffries stating that Democrats' first bill upon regaining the House majority would target lowering costs in housing, gas, utilities, groceries, and health care. Batya comments that Republicans should address these issues now but have not, and that financially strained Americans prioritize such relief over partisan skepticism of Democratic plans. The segment questions whether congressional action is occurring behind the scenes."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T23:30:32Z
 sourceUrl: "https://www.youtube.com/watch?v=pWe15cTIkt0"
 sourceTitle: "NewsNation"
 section: "Politics"

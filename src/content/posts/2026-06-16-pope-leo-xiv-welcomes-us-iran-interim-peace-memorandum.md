@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Pope Leo XIV Welcomes US-Iran Interim Peace Memorandum"
 summary: "The short Reuters video clip shows Pope Leo XIV speaking to journalists about the recent US-Iran memorandum of understanding, an interim framework to end hostilities. He expresses gratitude for the agreement set for formal signing on Friday, stresses preference for dialogue over war, and notes remaining issues to resolve.\nThe report draws directly from the Pope's public remarks at Castel Gandolfo; no other guests or graphics are featured. It aligns with contemporaneous coverage of the preliminary ceasefire deal involving the Strait of Hormuz and further nuclear talks."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:56:24Z
 sourceUrl: "https://www.youtube.com/watch?v=pIXUfQsmi68"
 sourceTitle: "Reuters"
 section: "Politics"

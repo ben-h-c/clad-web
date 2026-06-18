@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS report on B-52 crash at Edwards AFB accurately relays official details"
 summary: "CBS News aired live coverage of a press conference at Edwards Air Force Base following a B-52 Stratofortress crash on June 15, 2026. The segment reported eight fatalities on a test flight, described the immediate post-takeoff crash and fire response, and outlined next-of-kin notifications and the multi-month investigation process. Officials confirmed a mixed crew of military personnel, government civilians, and contractors on a routine radar modernization test sortie conducted daily at the base. The broadcast noted the crash was contained on the airfield runway, operations would pause temporarily, and no cause information would be released until safety and accident boards complete their work."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T00:27:32Z
 sourceUrl: "https://www.youtube.com/watch?v=IQcY6577g04"
 sourceTitle: "CBS News"
 section: "Politics"

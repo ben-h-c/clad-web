@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Senator Blunt Rochester Urges AI Safeguards in K-12 Education"
 summary: "The segment features Senator Lisa Blunt Rochester's opening statement at a Senate HELP Subcommittee hearing on the future of K-12 education in the age of artificial intelligence. She highlights AI adoption in schools, personal concerns as a grandmother, calls for safeguards on cognitive development and data privacy, and references a requested GAO investigation while briefly opposing planned transfers of Department of Education functions.\nThe statement draws on recent usage statistics, praises Delaware's state-level efforts, and anticipates testimony from state education officials. Sourcing relies on the senator's prepared remarks with references to reports and the GAO request; no additional expert analysis or graphics are shown in the clip."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:45:27Z
 sourceUrl: "https://www.youtube.com/watch?v=_dQQWbhP6Nc"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

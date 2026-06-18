@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Outlines Iran Ceasefire Deal Details at G7 Summit Presser"
 summary: "The segment shows President Trump at the 2026 G7 summit in France responding to questions after meetings with world leaders, including the UAE president. He discusses the recent U.S.-Iran ceasefire following a six-week war, a 60-day MOU for further nuclear talks, reopening the Strait of Hormuz toll-free, and expansion of the Abraham Accords.\nTrump also addresses Lindsey Graham's comments, the recent UFC event on the White House lawn, potential sanctions on Russia, removal of enriched uranium, and a Versailles dinner. Sourcing is primarily Trump's own statements in a live Q&A with reporters; no other guests or experts appear."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:06:19Z
 sourceUrl: "https://www.youtube.com/watch?v=T9s6Ysngyo4"
 sourceTitle: "Fox Business"
 section: "Politics"

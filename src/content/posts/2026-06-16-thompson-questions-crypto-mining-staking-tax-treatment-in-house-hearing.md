@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Thompson Questions Crypto Mining, Staking Tax Treatment in House Hearing"
 summary: "The clip shows Rep. Mike Thompson (D-CA) during a House Ways and Means Committee hearing on digital asset tax proposals. Thompson stresses the importance of addressing taxpayer liability and seeks clarification on tax treatment of mining and staking rewards.\nWitness Michael Kaercher argues rewards represent payment for services updating the blockchain ledger rather than self-created property, citing a recent Tax Court memorandum opinion as confirming immediate taxation upon receipt. The segment ends with Thompson yielding back."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T04:00:10Z
 sourceUrl: "https://www.youtube.com/watch?v=td-U33wIlF8"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

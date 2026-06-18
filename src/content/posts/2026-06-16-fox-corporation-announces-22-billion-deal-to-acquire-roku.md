@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox Corporation Announces $22 Billion Deal to Acquire Roku"
 summary: "The segment covers Fox Corporation's June 15, 2026 announcement of a $22 billion cash-and-stock acquisition of Roku, including quotes from Lachlan Murdoch and Roku CEO Anthony Wood. It discusses the strategic fit with Fox's Tubi service, advertising revenue goals, and broader industry trends like cord-cutting and platform consolidation.\nPanelists from The Hill's Rising analyze impacts on content distribution, viewer reach across devices, and political advertising on streaming. They reference Roku's 100 million global users, other platforms like Fubo and Samsung TV, and concerns over fewer owners controlling more outlets."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:15:00Z
 sourceUrl: "https://www.youtube.com/watch?v=a13mYo_HmfU"
 sourceTitle: "The Hill"
 section: "Politics"

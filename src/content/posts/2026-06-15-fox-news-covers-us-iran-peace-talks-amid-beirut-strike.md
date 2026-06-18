@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News covers US-Iran peace talks amid Beirut strike"
 summary: "The segment analyzes an imminent US-Iran peace deal mediated by Pakistan, with electronic signing expected soon after technical talks. It discusses the impact of a recent Israeli strike on Beirut in response to Hezbollah attacks, expressing concern it could derail negotiations. Guests include retired Rear Admiral Montgomery and reference US Ambassador to the UN Mike Waltz. Coverage addresses Strait of Hormuz reopening, Iran's nuclear commitments, the US naval blockade, and military advice to President Trump."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T21:00:20Z
 sourceUrl: "https://www.youtube.com/watch?v=9_08eSkSfjU"
 sourceTitle: "Fox News"
 section: "Politics"

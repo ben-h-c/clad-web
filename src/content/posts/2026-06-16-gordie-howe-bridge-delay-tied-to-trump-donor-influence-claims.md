@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Gordie Howe Bridge delay tied to Trump donor influence claims"
 summary: "The segment uses a Bay Bridge analogy to introduce the Gordie Howe International Bridge spanning the Detroit River from Detroit to Windsor, Ontario. It claims the Canada-funded project is complete and ready but blocked from opening by President Trump to protect a competing private bridge owned by a donor family.\nThe video cites a Globe and Mail headline, details a $1 million donation to Trump's super PAC by the Ambassador Bridge's Moroun family, their meeting with Commerce Secretary Howard Lutnick, and the subsequent policy shift. It reports the planned June opening was canceled, framing the delay as corruption depriving users of a finished infrastructure project."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T05:22:00Z
 sourceUrl: "https://www.youtube.com/watch?v=iLdvv7iJjEU"
 sourceTitle: "MS NOW"
 section: "Politics"

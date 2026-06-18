@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Segment on G7 AI Talks and US Anthropic Restrictions Largely Accurate"
 summary: "The segment covers AI CEOs from OpenAI, Anthropic, Meta and Salesforce briefing G7 leaders in Evian, France, following the Trump administration's restrictions on foreign access to Anthropic's Mythos 5 and Fable 5 models over national security. It notes Anthropic's ongoing talks with the administration and suspension of the models. French President Macron is reported pushing for vetted European access via cyber defense authorities. G7 leaders issued a statement tasking finance ministers and central bankers with AI risks and rewards discussions."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T16:48:21Z
 sourceUrl: "https://www.youtube.com/watch?v=Q_L9f6XC_wg"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "JD Vance Addresses Pope Leo XIV's Criticisms on War and Migration"
 summary: "The Fox News short features JD Vance responding to a question about Pope Leo XIV's criticisms of the Trump administration regarding war and migrant treatment. Vance acknowledges media portrayals, notes the Pope's statements supporting national borders, and stresses balancing moral principles with practical governance while respecting distinct roles.\nVance draws on his Catholic perspective to argue for humane border enforcement without ceding policy decisions to the Pope. Sourcing relies on Vance's direct interview comments; no additional guests or graphics referenced in the clip."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:30:38Z
 sourceUrl: "https://www.youtube.com/watch?v=N-t1b3G9kyI"
 sourceTitle: "Fox News"
 section: "Politics"

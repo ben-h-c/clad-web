@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX Falcon 9 launch video marks 70th mission of 2026 from California"
 summary: "The clip shows raw audio from a Falcon 9 launch sequence, including ignition, liftoff, stage separation, fairing deployment, and first-stage landing confirmation. It is titled as SpaceX's 70th Falcon launch and landing of 2026 from a California site.\nThe video originates from The Space Road channel and consists primarily of mission control communications during what appears to be a Starlink-related mission from Vandenberg Space Force Base (SLC-4E). No narration, graphics, or additional analysis are present beyond the launch audio and title."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T18:36:12Z
 sourceUrl: "https://www.youtube.com/watch?v=Ir2ZG4yy8Kc"
 sourceTitle: "The Space Road"
 section: "Politics"

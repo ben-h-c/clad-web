@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Schumer Demands Details on Trump-Iran Understanding"
 summary: "The Forbes Breaking News segment airs Senate Minority Leader Chuck Schumer's floor speech criticizing President Trump's handling of the Iran conflict. Schumer demands immediate transparency on a recent 'understanding' or memo with Iran, including classified briefings for the Gang of Eight, full congressional updates, and public disclosure of terms involving troops, the Strait of Hormuz, nuclear issues, and war costs.\nSchumer cites over 100 days of conflict, 13 American deaths, hundreds wounded, tens of billions spent, higher gas prices, and claims the U.S. is worse off. He announces Democrats will force another war powers resolution vote. The clip relies on Schumer's direct remarks with no additional sourcing, experts, or administration responses shown."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:45:05Z
 sourceUrl: "https://www.youtube.com/watch?v=LqTbhW98TkM"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

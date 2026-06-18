@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Comments on Iran MoU Progress and Recent US Actions"
 summary: "The segment features President Trump responding to questions on a pending US-Iran memorandum of understanding, expected formal signing, historical context of strikes including Soleimani and B-2 bombers, and related topics like Venezuela, Ukraine aid, India relations, and domestic legislation. Trump describes a detailed MoU, rapid military outcomes in Iran and Venezuela, and conditions for signing related bills.\nSourcing consists of on-camera remarks by Trump during what appears to be a press availability; no independent experts or graphics are referenced in the transcript. The throughline emphasizes US strength leading to diplomatic progress."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T14:50:29Z
 sourceUrl: "https://www.youtube.com/watch?v=DLbOW7JOM5o"
 sourceTitle: "MS NOW"
 section: "Politics"

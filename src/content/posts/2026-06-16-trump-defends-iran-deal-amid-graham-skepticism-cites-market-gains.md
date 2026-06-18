@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Defends Iran Deal Amid Graham Skepticism, Cites Market Gains"
 summary: "The clip shows President Trump responding to questions about Sen. Lindsey Graham's skepticism toward a new U.S.-Iran agreement ending recent conflict. Trump initially warns he will speak to Graham, then affirms Graham supports it and highlights deal benefits. Segments focus on the exchange, Trump's claim of no U.S. payments, rising stock markets (2500+ points), and assurance Iran will never obtain nuclear weapons. Sourcing is direct footage of Trump with reporter questions; no additional experts or graphics referenced beyond the live remarks."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:45:27Z
 sourceUrl: "https://www.youtube.com/watch?v=mGMcB8wInO0"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

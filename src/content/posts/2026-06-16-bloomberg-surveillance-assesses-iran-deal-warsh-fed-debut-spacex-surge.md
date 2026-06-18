@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Surveillance assesses Iran deal, Warsh Fed debut, SpaceX surge"
 summary: "Bloomberg Surveillance covered markets reacting to a tentative U.S.-Iran agreement reopening the Strait of Hormuz, President Trump's G7 comments, and the start of Kevin Warsh's first FOMC meeting as Fed Chair. Segments addressed oil price declines, equity stabilization near records, and SpaceX's post-IPO rally approaching Amazon's market cap."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:55:39Z
 sourceUrl: "https://www.youtube.com/watch?v=rnMu7rqSiE4"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

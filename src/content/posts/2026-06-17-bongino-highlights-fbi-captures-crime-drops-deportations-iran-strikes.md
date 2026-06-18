@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bongino Highlights FBI Captures, Crime Drops, Deportations, Iran Strikes"
 summary: "The segment features Dan Bongino reacting to crime statistics and discussing changes at the FBI under Director Kash Patel. It covers captures of fugitives from the Ten Most Wanted list, shifts away from certain partnerships, and large-scale deportation efforts. Bongino defends aggressive enforcement and addresses recent US military action against Iran."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T10:45:37Z
 sourceUrl: "https://www.youtube.com/watch?v=EeTnjQpOm4M"
 sourceTitle: "Fox News"
 section: "Politics"

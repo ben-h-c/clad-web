@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC News covers Trump-Iran deal at G7 amid unverified claims and other stories"
 summary: "The broadcast reports on President Trump's G7 meetings in France, highlighting a framework peace deal with Iran to end conflict and reopen the Strait of Hormuz, with interviews from VP Vance and analysis from experts. Segments also cover a B-52 crash killing eight at Edwards AFB, flooding in the South, a Human Rights Campaign report on LGBTQ challenges under the Trump administration, World Cup preparations in Kansas City, and other topics including FISA reauthorization and market reactions."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:40:34Z
 sourceUrl: "https://www.youtube.com/watch?v=bs5dD56-drM"
 sourceTitle: "NBC News"
 section: "Politics"

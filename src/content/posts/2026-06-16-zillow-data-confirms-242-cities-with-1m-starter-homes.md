@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Zillow Data Confirms 242 Cities with $1M+ Starter Homes"
 summary: "Fox Business short discusses recent Zillow analysis showing 242 U.S. cities where typical starter homes exceed $1 million, up from 80 in February 2020. California leads with the most such cities, followed by Northeast states. Hosts note inflation adjustment, new millionaires from companies like SpaceX, and broader market dynamics including wage impacts. Sourcing relies on the Zillow report and general economic observations rather than named experts or additional datasets."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:00:26Z
 sourceUrl: "https://www.youtube.com/watch?v=lTCp8i6AGW8"
 sourceTitle: "Fox Business"
 section: "Politics"

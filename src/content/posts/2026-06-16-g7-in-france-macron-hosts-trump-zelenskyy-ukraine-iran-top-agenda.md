@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "G7 in France: Macron hosts Trump, Zelenskyy; Ukraine, Iran top agenda"
 summary: "The segment covers the G7 summit hosted by French President Emmanuel Macron in Evian-les-Bains, France, with U.S. President Donald Trump and other leaders present. Ukraine is placed first on the agenda for the summit's full day of meetings, with Ukrainian President Volodymyr Zelenskyy invited by Macron to push for renewed focus on ending Russia's invasion and pressuring Moscow via Trump. Trump's priorities include a recent U.S.-Iran agreement to end conflict with Israel, alongside discussions involving Egypt, Qatar and the UAE. The day ends with a leaders' dinner aimed at projecting G7 unity amid multiple global challenges."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T08:45:06Z
 sourceUrl: "https://www.youtube.com/watch?v=oX437yqH5NY"
 sourceTitle: "Associated Press"
 section: "Politics"

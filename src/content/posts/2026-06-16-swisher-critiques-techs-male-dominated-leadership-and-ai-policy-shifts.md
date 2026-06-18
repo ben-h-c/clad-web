@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Swisher critiques tech's male-dominated leadership and AI policy shifts"
 summary: "C-SPAN clip features journalist Kara Swisher discussing the predominance of white male leaders in tech, calling it a 'billionaire boys club' that harms innovation. She draws parallels to Hollywood's resistance to digital change and critiques recent AI policy decisions.\nSwisher references lobbying by figures including Zuckerberg and David Sacks that allegedly led Trump to abandon a planned AI executive order similar to Biden's, citing concerns over China and safety. The segment draws on Swisher's long experience interviewing tech executives with minimal additional sourcing or graphics shown."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:00:29Z
 sourceUrl: "https://www.youtube.com/watch?v=52iWp9xrKf8"
 sourceTitle: "C-SPAN"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox segment praises Trump Iran pressure, contrasts with Obama deal claims"
 summary: "The segment features Miranda Devine and host Larry Kudlow discussing Trump's Iran policy versus Obama and Biden approaches. They highlight the JCPOA payments, Trump's first-term sanctions impact, recent maximum pressure measures including oil export blocks, and Abraham Accords effects.\nDevine and Kudlow cite administration officials, reference a WSJ story, and play an Obama clip. The discussion frames Trump actions as uniquely effective in weakening Iran economically and militarily."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T07:00:11Z
 sourceUrl: "https://www.youtube.com/watch?v=eUgBRSczt-4"
 sourceTitle: "Fox Business"
 section: "Politics"

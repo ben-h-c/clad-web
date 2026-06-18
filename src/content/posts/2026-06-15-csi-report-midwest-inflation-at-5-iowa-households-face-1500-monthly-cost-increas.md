@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CSI report: Midwest inflation at 5%, Iowa households face $1,500 monthly cost increase since 2020"
 summary: "The segment covers a new Common Sense Institute report on Midwest inflation reaching 5% year-over-year in May 2026. It details cumulative extra costs for Iowa households since 2020 and category-specific increases, especially energy. The report attributes energy spikes partly to regional industry and the war with Iran, notes a possible tentative deal, and projects relief by year-end.\n\nSourcing relies on the CSI report, which uses BLS CPI data for the Midwest region. No named guests or additional experts appear; the broadcast presents CSI findings directly alongside the video title framing the $1,500 monthly figure."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T13:25:33Z
 sourceUrl: "https://www.youtube.com/watch?v=nTD5pouKEN4"
 sourceTitle: "We Are Iowa Local 5 News"
 section: "Politics"

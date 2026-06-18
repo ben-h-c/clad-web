@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Knicks parade announcement matches official plans"
 summary: "The Reuters clip features Mayor Zohran Mamdani announcing that the New York Knicks have won the NBA championship after 53 years and will hold a ticker-tape parade Thursday at 10 a.m. along Broadway from Battery Park to City Hall. The event is described as free and open to the public and the first such parade for the franchise down the Canyon of Heroes.\nThe segment relies on the mayor's direct statement with no additional guests, graphics, or anonymous sourcing referenced in the transcript."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:21:11Z
 sourceUrl: "https://www.youtube.com/watch?v=3YWb77XyYRM"
 sourceTitle: "Reuters"
 section: "Politics"

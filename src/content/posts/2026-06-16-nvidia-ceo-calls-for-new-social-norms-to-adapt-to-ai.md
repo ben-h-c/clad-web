@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Nvidia CEO Calls for New Social Norms to Adapt to AI"
 summary: "The short AP video clip features Nvidia CEO Jensen Huang discussing AI adaptation during an interview. He draws parallels to the automobile era, arguing that new social norms, regulations, and safer technology must develop together as AI advances rapidly. Huang advocates universal AI use, highlighting free tiers, internet accessibility, and ease of use as tools that close technology gaps. The segment is sourced directly from Huang without additional guests or graphics. It emphasizes embracing AI to create opportunities rather than fearing it."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:00:38Z
 sourceUrl: "https://www.youtube.com/watch?v=pRbESFTp7UY"
 sourceTitle: "Associated Press"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump and Kemp Back Rival Candidates in Georgia GOP Senate Runoff"
 summary: "The segment previews Georgia's June 16, 2026, Republican Senate primary runoff between Rep. Mike Collins and former football coach Derek Dooley. It covers the long-running Trump-Kemp rivalry stemming from 2020 election disputes and 2022 primaries, Kemp's early backing of Dooley, and Trump's late endorsement of Collins. The discussion also addresses implications for the general election against Sen. Jon Ossoff and broader Republican Party factions."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:00:01Z
 sourceUrl: "https://www.youtube.com/watch?v=isVr8QBail8"
 sourceTitle: "The Hill"
 section: "Politics"

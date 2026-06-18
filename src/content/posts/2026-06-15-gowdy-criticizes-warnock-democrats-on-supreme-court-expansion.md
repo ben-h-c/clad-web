@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Gowdy criticizes Warnock, Democrats on Supreme Court expansion"
 summary: "Fox News segment features Dana Perino interviewing Trey Gowdy after Sen. Raphael Warnock said 'all options' including adding justices and a code of ethics are on the table for Supreme Court reform. Gowdy argues against expansion, notes the nine-justice norm for over 100 years, highlights Warnock's Georgia win, and criticizes viewing the Court as political while opposing cameras in courtrooms."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T16:30:17Z
 sourceUrl: "https://www.youtube.com/watch?v=aZ2bVvVjcTc"
 sourceTitle: "Fox News Clips"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Covers SpaceX Surge, Hormuz Deal and China Data Slump"
 summary: "The broadcast covered Tuesday morning market action including SpaceX options trading debut and valuation gains past $2.5 trillion. Segments addressed G7 skepticism on Trump's Friday Hormuz reopening timeline, conflicting Wall Street forecasts on oil normalization, weak China retail sales at pandemic lows, and the Bank of Japan's rate hike to 1%. Guests included economists from Aberdeen, Calibrate Partners and Standard Chartered plus on-the-ground reporting from Evian. Sourcing relied on named analysts, Bloomberg scoops and live data feeds with discussion of futures, yields and sector moves."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T10:47:17Z
 sourceUrl: "https://www.youtube.com/watch?v=F6uX_GHDDm8"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

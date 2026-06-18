@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Blunt Rochester Questions Experts on AI in K-12 Education at Senate Hearing"
 summary: "The segment shows Sen. Lisa Blunt Rochester (D-DE) at a Senate Health, Education, Labor and Pensions Committee hearing questioning witnesses on AI use in K-12 education. She references her own AI literacy test, highlights state-level work as laboratories for policy, and asks about exciting developments in Delaware, challenges like privacy and bias, and unique federal roles.\n\nWitnesses include Delaware Education Secretary Cindy Marten (transcribed as Martin), who discusses state guidance implementation, teacher support, accessibility, and needs for federal evidence-based paths; Ms. Mode on the lack of long-term causal studies; and Mr. Jones of QuantHub on rapid curriculum refresh rates due to AI advancement. The clip ends with encouragement for public input, including from youth."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:45:13Z
 sourceUrl: "https://www.youtube.com/watch?v=hc8ealjkuXc"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

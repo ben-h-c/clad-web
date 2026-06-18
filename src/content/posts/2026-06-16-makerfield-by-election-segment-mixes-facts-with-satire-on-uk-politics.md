@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Makerfield by-election segment mixes facts with satire on UK politics"
 summary: "The segment covers the upcoming Makerfield by-election on 18 June 2026, triggered by the Labour MP's resignation to enable Andy Burnham's candidacy as a potential challenge to Keir Starmer. It discusses Labour's heavy losses in May 2026 local elections, Starmer's declining popularity, economic struggles, and the rise of Reform UK under Nigel Farage alongside the newer Restore Britain party. Sourcing draws on clips of politicians, voters, and candidates, plus references to polls, election results, and social media posts."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T06:30:16Z
 sourceUrl: "https://www.youtube.com/watch?v=RZL_TctrNco"
 sourceTitle: "LastWeekTonight"
 section: "Politics"

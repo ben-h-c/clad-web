@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters Covers Iranian Diaspora Protests at 2026 World Cup Opener"
 summary: "The Reuters clip shows Iranian diaspora protesters outside a World Cup venue chanting against the Islamic Republic and waving the pre-1979 Lion and Sun flag. Protesters describe the regime as tyrannical and claim the flag represents the true Iranian people, stating the vast majority inside Iran and the diaspora reject the government.\nThe segment relies on on-the-ground protester interviews and chants at an international sporting event. It captures the opposition narrative without additional narration, expert commentary, or official Iranian government responses."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T03:11:51Z
 sourceUrl: "https://www.youtube.com/watch?v=_JZNhF1L0eg"
 sourceTitle: "Reuters"
 section: "Politics"

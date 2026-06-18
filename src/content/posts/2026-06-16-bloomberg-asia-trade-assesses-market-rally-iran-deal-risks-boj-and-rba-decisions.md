@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Asia Trade assesses market rally, Iran deal risks, BOJ and RBA decisions"
 summary: "The broadcast covers Asian equity rallies fueled by the US-Iran interim peace deal, SpaceX stock surges, and easing oil prices ahead of BOJ and RBA policy decisions on June 16, 2026. Segments include market setup, central bank previews, geopolitics analysis, and corporate news on IPOs and biotech."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T06:35:18Z
 sourceUrl: "https://www.youtube.com/watch?v=DpELXHE05L8"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

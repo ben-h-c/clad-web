@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "RBC President Cites Retirement Wave Driving Need for Efficiency and AI Tools"
 summary: "Bloomberg Television interviewed the RBC President on the role of AI in banking operations and customer growth, alongside challenges from an aging workforce. The segment emphasized shifting AI use from back-office cost savings to front-line revenue enablement, targeting additional customers while addressing talent shortages. The president highlighted demographic pressures, the need for efficiency through attrition rather than layoffs, and opportunities for younger workers to advance faster with new tools. Sourcing relied on the executive's statements and demographic projections referenced in the discussion."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:50:51Z
 sourceUrl: "https://www.youtube.com/watch?v=fe1vBXxSzBE"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

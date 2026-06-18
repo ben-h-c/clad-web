@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News Segment Reviews Uncertainties in US-Iran Preliminary Deal"
 summary: "The segment covered a preliminary US-Iran agreement to reopen the Strait of Hormuz, extend a ceasefire for 60 days, and launch negotiations on Iran's nuclear program, with signing expected Friday. Vice President Vance described it as advancing peace and stability while committing to verification that Iran never obtains a nuclear weapon. Host Emily and analyst Guy Benson discussed three key elements: immediate Strait reopening, conditional sanctions relief, and the unresolved nuclear issue. Benson highlighted the nuclear question as decisive and expressed caution given Iran's history. The discussion referenced G-7 reactions and ongoing verification needs."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T05:15:23Z
 sourceUrl: "https://www.youtube.com/watch?v=1Zqzdo88YEY"
 sourceTitle: "Fox News"
 section: "Politics"

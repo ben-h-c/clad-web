@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NewsNation report on Tycen Proper UFC White House plot arrest largely accurate"
 summary: "The segment reports on the identification and federal charges against 19-year-old Ohio man Tycen Proper for allegedly plotting an attack on the UFC fight at the White House. It details the mother's tip leading to the investigation, discovery of firearms and Signal chat plans involving drones and snipers, the group's name and motivations, and involvement of multiple suspects.\n\nReporting draws from newly unsealed court records and statements by FBI Director Kash Patel; notes Secret Service cooperation and Trump's comments from the G7 summit in France that he had not been briefed."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:03:33Z
 sourceUrl: "https://www.youtube.com/watch?v=h_3W6DsRwog"
 sourceTitle: "NewsNation"
 section: "Politics"

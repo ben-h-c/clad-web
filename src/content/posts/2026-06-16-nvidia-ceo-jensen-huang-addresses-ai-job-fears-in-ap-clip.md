@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Nvidia CEO Jensen Huang Addresses AI Job Fears in AP Clip"
 summary: "The AP segment shows Nvidia CEO Jensen Huang responding to worries about AI risks and job loss. He advises engaging directly with tools like ChatGPT, cites the Uber driver's role from prior tech revolutions, and notes that past innovations such as the PC, internet, and iPhone ultimately created new opportunities rather than leaving people behind."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:20:31Z
 sourceUrl: "https://www.youtube.com/watch?v=SldZdiefXzY"
 sourceTitle: "Associated Press"
 section: "Politics"

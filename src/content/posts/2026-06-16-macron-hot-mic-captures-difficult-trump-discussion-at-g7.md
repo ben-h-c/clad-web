@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Macron Hot Mic Captures 'Difficult' Trump Discussion at G7"
 summary: "The short segment from The Hill shows a hot mic capture of French President Emmanuel Macron speaking with Ukrainian President Volodymyr Zelenskyy at the G7 summit in Évian-les-Bains, France. Macron is heard discussing arrangements and noting a 'difficult discussion' the previous day involving the G7 group. The clip runs the raw audio with minimal added narration. Sourcing is the live event footage itself; no named experts or additional graphics are referenced. The throughline is the candid moment ahead of Ukraine-related talks."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T17:37:50Z
 sourceUrl: "https://www.youtube.com/watch?v=j11ieUyYprc"
 sourceTitle: "The Hill"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NPR Report from Inside Rwampara Ebola Treatment Center in DRC Outbreak"
 summary: "The segment shows reporter Emmet Livingstone inside the Rwampara Ebola Treatment Center in Ituri province, eastern DRC, the declared epicenter of the ongoing outbreak. He describes wearing full protective gear including multiple layers, goggles, and masks while moving between isolated patient rooms, noting extreme discomfort, breathing difficulty, and fogged vision. Doctors attend to patients who are in significant pain, with some crying out; the virus causes whole-body aches at certain stages."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:00:06Z
 sourceUrl: "https://www.youtube.com/watch?v=6zlXX6CjTBo"
 sourceTitle: "NPR"
 section: "Politics"

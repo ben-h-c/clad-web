@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Attributes Versailles G7 Dinner Invite to Aesthetic Appeal and Productivity"
 summary: "The clip shows President Trump responding to a question about attending a Versailles dinner the next evening during the G7 summit in France. He cites his appreciation for beautiful places, an invitation from French President Macron, and states it will not impact his Oval Office schedule. Trump then pivots to positive economic updates, claiming record stock market and 401(k) levels, declining prices and inflation, and falling fuel and gas prices, referencing specific Iowa gas station figures."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:35:23Z
 sourceUrl: "https://www.youtube.com/watch?v=4Q74uEF54XA"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

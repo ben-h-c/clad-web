@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters interview examines central bank challenges amid demographics and debt"
 summary: "The segment features host Peter Falen interviewing economists Charles Goodhart and Manoj Pradhan on their book 'The Unanchored Central Banker.' They argue aging populations, fiscal pressures, and geopolitical issues will sustain higher inflation, weakening central bank independence and tools. Discussion covers demographics' fiscal impact via healthcare costs (Baumol's cost disease), government debt dynamics, China's role in past disinflation, Phillips curves, AI productivity potential, and risks of bond market crises or political pressure on banks like the Fed under Trump."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T07:20:06Z
 sourceUrl: "https://www.youtube.com/watch?v=i-Xywaun1E8"
 sourceTitle: "Reuters"
 section: "Politics"

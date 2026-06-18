@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX IPO Advice Urges Fundamentals Over Hype"
 summary: "The short video features financial advisor Jason Matthews cautioning viewers against investing in SpaceX solely due to hype or FOMO. He stresses evaluating financials, fitting any purchase into a broader retirement plan, and considering historical IPO underperformance. Segments include client anecdotes about excitement at the $135 IPO price and reminders that many hyped IPOs later decline. Sourcing relies on the advisor's general expertise and market history references rather than named reports or graphics."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T15:01:52Z
 sourceUrl: "https://www.youtube.com/watch?v=Xt_UIbSV0d0"
 sourceTitle: "Jason Matthews"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "USA Today Video Accurately Reports Jelly Roll Divorce Filing"
 summary: "The USA TODAY segment reports that Jelly Roll filed for divorce from Bunnie XO (Alisa DeFord) on May 18 in Tennessee court. It notes their 2016 marriage, past public discussions of relationship challenges including a 2018 split, and Jelly Roll's February Grammy dedication to her.\nThe video draws from court records reviewed by USA TODAY, references TMZ as the initial reporter, and mentions the couple's openness about ups and downs. No representatives' comments are included."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T12:00:26Z
 sourceUrl: "https://www.youtube.com/watch?v=REEYidouZEI"
 sourceTitle: "USA TODAY"
 section: "Politics"

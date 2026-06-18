@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump touts strong US-Iran MoU ahead of expected signing"
 summary: "The segment covers remarks by President Trump on a US-Iran memorandum of understanding, describing it as strong and detailed with Iranian leaders eager to sign. It includes context on prior US actions against Iran and ties into broader discussions on regional peace, the Strait of Hormuz, and related diplomacy during what appears to be a multilateral summit setting.\nTrump's quotes are presented directly alongside questions on implementation timelines, with brief references to military history and future steps. Sourcing relies primarily on Trump's on-camera statements."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T14:34:36Z
 sourceUrl: "https://www.youtube.com/watch?v=FUCg8WpyKps"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

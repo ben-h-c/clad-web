@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox segment highlights voter ID support and modest Democratic midterm polling edge"
 summary: "Fox Business segment discusses prospects for a third reconciliation bill including voter ID provisions from the Save America Act. Host Elizabeth and Rep. Randy Fine cite Gallup and Pew polls showing broad support for voter ID, including among minorities. They reference CNN analyst Harry Enten on a modest Democratic generic ballot lead of about 5 points. Fine argues voters see Democrats as out of step and predicts Republican success in November amid falling gas prices from an Iran deal."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T07:00:33Z
 sourceUrl: "https://www.youtube.com/watch?v=R5tJhvP3uCM"
 sourceTitle: "Fox Business"
 section: "Politics"

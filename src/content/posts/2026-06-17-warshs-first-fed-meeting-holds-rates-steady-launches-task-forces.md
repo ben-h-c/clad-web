@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Warsh's first Fed meeting holds rates steady, launches task forces"
 summary: "CBS News segment covers the June 16-17, 2026 FOMC meeting, the first under new Chairman Kevin Warsh. The Fed unanimously held rates at 3.5%-3.75%, the first decision since Powell's last cut in December 2025. Warsh convened task forces on communications, inflation frameworks, data use, balance sheet, and productivity/jobs. He signaled less forward guidance and conditional press conferences. Discussion notes rapid data shifts from the Iran war's energy price impact, with March projections favoring cuts now shifting toward possible hikes."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T21:41:44Z
 sourceUrl: "https://www.youtube.com/watch?v=3qlLjfhfcvQ"
 sourceTitle: "CBS News"
 section: "Politics"

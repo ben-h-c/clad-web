@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Examines SpaceX Valuation Milestone Amid Oil Drop and Fed Transition"
 summary: "The broadcast focused on SpaceX surging past Amazon in market value toward $3 trillion and acquiring Cursor, alongside Robinhood and BlackRock job cuts. Segments also covered Brent crude falling below $80 on a prospective US-Iran interim agreement, the first FOMC meeting under new Fed Chair Kevin Warsh, and G7 summit developments on the Strait of Hormuz."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:00:23Z
 sourceUrl: "https://www.youtube.com/watch?v=xYQeVng50uY"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

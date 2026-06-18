@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "G7 Allies Voice Skepticism on Quick Hormuz Reopening Under US-Iran Deal"
 summary: "Bloomberg segment from the G7 summit in Evian, France, reports optimism over a US-Iran agreement ending hostilities, contrasted with European doubts about rapid reopening of the Strait of Hormuz. Correspondent Oliver Crook details skepticism on timelines, sanctions relief, and leverage. The report shifts to Ukraine, noting Zelensky's arrival and Trump's pledge to refocus after the Iran deal. Trump is quoted on prioritizing Ukraine peace efforts amid ongoing casualties."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T05:59:57Z
 sourceUrl: "https://www.youtube.com/watch?v=4Eymf0WAuzA"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News examines secrecy in Mangione murder case hearing"
 summary: "ABC News segment covers Luigi Mangione's upcoming June 16 state court appearance in the Brian Thompson murder case. It discusses a prior sealed virtual hearing on June 3 ordered at the defense's request with no public explanation, and questions about transparency ahead of the open in-person hearing. Legal analyst Brian Buckmeer addresses possible reasons for closure such as HIPAA or mental health matters, the $1.5 million defense fundraising amid public support, and challenges for jury selection including potential animus toward health insurers. Trial is noted as expected in September."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:58:41Z
 sourceUrl: "https://www.youtube.com/watch?v=PKg9EDeQj-4"
 sourceTitle: "ABC News"
 section: "Politics"

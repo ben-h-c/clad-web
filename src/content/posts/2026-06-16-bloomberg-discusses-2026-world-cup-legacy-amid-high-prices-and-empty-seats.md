@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Discusses 2026 World Cup Legacy Amid High Prices and Empty Seats"
 summary: "The Bloomberg Television segment examined the emerging legacy of the 2026 FIFA World Cup, centered on optics of empty seats, steep ticket prices that render the event inaccessible, and FIFA's role in distributing World Cup revenue globally. Panelists discussed how high costs undermine excitement and growth in the United States while contrasting that with FIFA's distribution of funds to its 211 member associations."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T02:00:07Z
 sourceUrl: "https://www.youtube.com/watch?v=pDw3flIN5MU"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

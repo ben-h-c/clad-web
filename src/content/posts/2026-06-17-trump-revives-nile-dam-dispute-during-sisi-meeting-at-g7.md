@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Revives Nile Dam Dispute During Sisi Meeting at G7"
 summary: "The clip shows President Trump speaking at a bilateral meeting with Egyptian President Abdel Fattah el-Sisi on the sidelines of the G7 summit in Evian, France, on June 17, 2026. Trump discusses trade and pledges to revisit the Grand Ethiopian Renaissance Dam (GERD) dispute, stating the Nile 'is getting a little emptier' due to the Ethiopian project and referencing a prior deal he claims was abandoned after the 2020 election.\nThe segment is a direct video excerpt from Forbes Breaking News with minimal added narration. It draws solely from Trump's on-camera comments; no experts, graphics, or Ethiopian/Sudanese perspectives are included."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T22:45:16Z
 sourceUrl: "https://www.youtube.com/watch?v=n27mDJggsgI"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

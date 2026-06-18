@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "RBC CEO McKay on Markets, AI Deployment, USMCA Review and Canada Growth"
 summary: "Bloomberg Newsmakers featured an interview with RBC President and CEO Dave McKay. Segments covered current market risk appetite including SpaceX IPO participation, capital demands from AI and tech, RBC's US expansion amid trade talks, AI tools deployed internally by McKay, and economic conditions in the US and Canada.\nMcKay was the sole guest; discussion drew on his direct experience and bank data. Sourcing was primarily anecdotal from the CEO with references to internal models, recent earnings, and public trade statistics. The throughline was optimism about growth opportunities despite trade frictions and AI-driven change."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T03:26:19Z
 sourceUrl: "https://www.youtube.com/watch?v=tUClxFLe9QA"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

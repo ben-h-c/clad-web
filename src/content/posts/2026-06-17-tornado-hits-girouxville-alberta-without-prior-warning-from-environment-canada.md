@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Tornado hits Girouxville, Alberta without prior warning from Environment Canada"
 summary: "The segment reports on a tornado that touched down in Girouxville, a village in northwestern Alberta's Municipal District of Smoky River, on the evening of June 15, 2026. It damaged homes, uprooted trees, caused power outages, and affected a nearby farm, but resulted in no serious injuries. Residents began cleanup the next day. The interview features fire chief Marcel Maure discussing the sudden onset, lack of warning, community response, and desire for better advance alerts.\nEnvironment Canada confirmed no tornado watch or warning was issued prior to the event because the storm did not develop typically. The report includes on-site context, photos of damage, and Maure's account of responding to calls without prior notice."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:14:35Z
 sourceUrl: "https://www.youtube.com/watch?v=F4I-y1sTrs4"
 sourceTitle: "CBC News"
 section: "Politics"

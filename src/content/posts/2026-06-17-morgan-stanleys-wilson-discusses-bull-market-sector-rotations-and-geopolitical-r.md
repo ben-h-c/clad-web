@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Morgan Stanley's Wilson Discusses Bull Market, Sector Rotations and Geopolitical Risks"
 summary: "Bloomberg interview with Morgan Stanley CIO Mike Wilson on the equity bull market's drivers, sector rotations, and resilience to recent events. Wilson emphasizes earnings growth, liquidity trends, and investor focus beyond Middle East tensions and prior tariff concerns.\nWilson references Fed policy transitions under new Chair Kevin Warsh, ongoing commodity and tech rotations, and his year-end S&P 500 target of 8,000. Discussion draws on his firm's recent research notes and observed market price action."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:51:42Z
 sourceUrl: "https://www.youtube.com/watch?v=ITpqKPi_tH4"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

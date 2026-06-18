@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Axios, NYT Detail White House Epstein Files Meetings and Leak Fears"
 summary: "The segment opens with a New York Times report on White House Situation Room meetings last summer over handling Epstein files involving Trump. It then covers an Axios report that officials fear NYT reporters Maggie Haberman and Jonathan Swan obtained audio of those meetings for their upcoming book Regime Change. Rep. Ro Khanna (D-CA), sponsor of the Epstein Files Transparency Act, is interviewed about the files, Trump's plane flights, and alleged efforts to limit disclosures. The segment briefly shifts to a separate discussion of a recent Iran-related deal and war."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:06:09Z
 sourceUrl: "https://www.youtube.com/watch?v=m0-Br3kb8B4"
 sourceTitle: "MS NOW"
 section: "Politics"

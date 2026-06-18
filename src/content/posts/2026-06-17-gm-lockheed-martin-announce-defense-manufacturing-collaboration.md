@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "GM, Lockheed Martin Announce Defense Manufacturing Collaboration"
 summary: "The segment covers a new collaboration between General Motors Defense and Lockheed Martin announced at a Detroit conference. Executives discuss using GM's manufacturing and supply chain expertise to help scale munitions output, drawing on GM's WWII history and current infantry vehicle work. It addresses depleted US stockpiles from Ukraine and Iran conflicts, cost challenges versus cheaper adversary systems like Shahed drones, and Lockheed's broader plans including Patriot missile ramp-up.\n\nSourcing relies on live interviews with Lockheed COO Frank St. John and GM's Dr. Bruce Brown. References include Lockheed's Q1 earnings call details on Patriot timelines, a $9 billion investment figure, and President Trump urging Defense Secretary Hegseth on inventory levels below requirements for potential conflicts like Taiwan."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T00:00:18Z
 sourceUrl: "https://www.youtube.com/watch?v=mEROWa2j3RU"
 sourceTitle: "Fox Business"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox Business segment examines alleged Chinese border operations and US-China tensions"
 summary: "The segment opened with Kristi Noem discussing alleged Chinese-orchestrated operations funneling nationals across US southern and northern borders via Latin American 'travel agency' style networks, primarily young men. It then featured an interview with Rep. John Moolenaar on these border issues, China-Mexico cartel fentanyl ties, US farmland purchases, and espionage concerns.\nMoolenaar addressed the recent arrest of US citizen Min Zin in China, ongoing pushes for Jimmy Lai's release, Trump's demand linking the SAVE America Act to FISA renewal, and defense spending increases to $1.5 trillion via reconciliation."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T12:30:17Z
 sourceUrl: "https://www.youtube.com/watch?v=U_tVpQIgxVU"
 sourceTitle: "Fox Business"
 section: "Politics"

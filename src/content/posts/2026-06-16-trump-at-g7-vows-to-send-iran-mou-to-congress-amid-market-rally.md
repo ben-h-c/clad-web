@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump at G7 vows to send Iran MOU to Congress amid market rally"
 summary: "C-SPAN clip shows President Trump at the G7 Summit responding to questions about Sen. Lindsey Graham's skepticism of a new US-Iran memorandum of understanding. Trump jokes about Graham, highlights stock market gains, asserts the deal prevents Iran from obtaining a nuclear weapon, and agrees to send the agreement to Congress for review. He claims the US pays nothing and does nothing under the deal. The segment is a direct press exchange with no narration or additional segments. Sourcing is the president's own statements; no experts, documents, or graphics referenced beyond the live remarks."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:18:53Z
 sourceUrl: "https://www.youtube.com/watch?v=vQcVfNg74h4"
 sourceTitle: "C-SPAN"
 section: "Politics"

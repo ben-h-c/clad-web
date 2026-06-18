@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS Reports on Trump-Iran MOU Amid Unknown Details and Regional Tensions"
 summary: "The segment covers President Trump's second day at the G7 summit in France, where he promoted a memorandum of understanding to end the US-Iran war. It notes the document is a short framework whose text remains unseen, with Trump planning a potential public reading later in the week. CBS correspondent Nancy Cortis reports from Geneva on Trump's repeated insistence that no US funds will go to Iran and congressional Republicans' reluctance to endorse it without details. The report also addresses Lebanon as a potential flashpoint, with Trump criticizing Israeli actions against Hezbollah and praising Iranian cooperation. National security contributor Joe Zach discusses enforcement challenges, the need for the full text, and concerns over proxies, missiles, and nuclear benchmarks."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:30:17Z
 sourceUrl: "https://www.youtube.com/watch?v=iAGeHDKifpc"
 sourceTitle: "CBS News"
 section: "Politics"

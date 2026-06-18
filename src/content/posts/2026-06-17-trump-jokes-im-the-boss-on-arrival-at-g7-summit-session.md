@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump jokes 'I'm the boss' on arrival at G7 summit session"
 summary: "The short Reuters clip shows U.S. President Donald Trump arriving at a G7 working session in Evian, France, on the summit's final day. He jokingly declares 'I'm the boss' upon taking his seat, prompting laughter from other leaders already present, followed by brief greetings.\nThe segment uses direct audio from the room with minimal narration, focusing on the exchange between Trump and fellow attendees including host Emmanuel Macron."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T12:53:56Z
 sourceUrl: "https://www.youtube.com/watch?v=piY5ZdP3htc"
 sourceTitle: "Reuters"
 section: "Politics"

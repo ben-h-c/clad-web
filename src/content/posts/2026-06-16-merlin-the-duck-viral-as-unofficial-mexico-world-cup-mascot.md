@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Merlin the Duck Viral as Unofficial Mexico World Cup Mascot"
 summary: "NBC News segment reports on Merlin, a two-year-old duck in Mexico City dressed in a national team jersey and socks. The video shows him waddling amid fans celebrating Mexico's World Cup-opening win and notes the clip's rapid spread online with millions of views and a potential FIFA commercial opportunity.\nThe piece draws from widely circulated social media footage and public sightings; no named experts or anonymous sources are used beyond the general viral narrative, consistent with similar reports from PBS, AP, and Euronews."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:14:53Z
 sourceUrl: "https://www.youtube.com/watch?v=wZ6vOq1tZDA"
 sourceTitle: "NBC News"
 section: "Politics"

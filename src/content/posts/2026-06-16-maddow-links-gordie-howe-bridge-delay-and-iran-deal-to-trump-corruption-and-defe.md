@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Maddow links Gordie Howe Bridge delay and Iran deal to Trump corruption and defeat"
 summary: "The June 15, 2026 episode of The Rachel Maddow Show focused on two main stories: the completed but unopened Gordie Howe International Bridge across the Detroit River, delayed at the Trump administration's request, and the framework deal ending the US-Iran conflict with the Strait of Hormuz set to reopen. Segments also covered alleged corruption ties via a donor meeting, other Trump policies (reflecting pool, Kennedy Center, DOJ actions against Newsom), measles and screwworm issues, fake elector cases, lawsuits against administration moves, and Democratic election-protection wargaming. Sourcing included Globe and Mail and Detroit News reporting, interviews with election attorney Mark Elias and commentator Ayan Mohaldin, and references to Politico, NYT, and WaPo headlines. The throughline framed events as consequences of presidential corruption and policy failure."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T05:30:29Z
 sourceUrl: "https://www.youtube.com/watch?v=ZLEqcbz1Qy0"
 sourceTitle: "MS NOW"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "UNHCR launches asylum campaign ahead of World Refugee Day amid global displacement trends"
 summary: "The FRANCE 24 segment covers the UNHCR's 'until everyone's safe' campaign launch ahead of World Refugee Day on June 20. It highlights pressures on asylum rights, cites displacement in Lebanon since March 2026 and Sudan's ongoing crisis, and includes an interview with a UNHCR global spokesperson."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T19:48:29Z
 sourceUrl: "https://www.youtube.com/watch?v=D6NZWg0JIyY"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

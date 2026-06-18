@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Baby Giraffes Recovered Safe After Year Missing From Virginia Zoo"
 summary: "The segment reports that two baby giraffes missing from Natural Bridge Zoo in Virginia for over a year have been found safe. They are now at a specialized facility, with the Attorney General's office not disclosing the exact location. It notes animal abuse allegations at the zoo dating to 2023 and that one owner served jail time for refusing to reveal the giraffes' whereabouts."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T12:47:42Z
 sourceUrl: "https://www.youtube.com/watch?v=oxyH3ptd3Iw"
 sourceTitle: "NBC News"
 section: "Politics"

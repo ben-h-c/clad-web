@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg analyzes US-Iran Hormuz deal impact on oil supply and prices"
 summary: "The segment examines an emerging US-Iran memorandum of understanding to reopen the Strait of Hormuz after months of closure amid conflict. Analysts discuss phased implementation over 30-60 days rather than immediate full reopening, concerns over mine clearance, shipping lanes, and potential future tolls. Brent crude trading below $80 per barrel is noted alongside market sentiment driving lowered price forecasts despite unchanged fundamentals."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T06:11:35Z
 sourceUrl: "https://www.youtube.com/watch?v=vM2y9bkDTEM"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox segment on alleged White House UFC drone plot aligns with DOJ details"
 summary: "The segment covers the FBI's disruption of an alleged plot targeting the UFC Freedom 250 event at the White House on June 14. It details five arrests from a network of over 20, Signal chats planning drone-borne explosives and sniper positions, and the key tip from a suspect's mother that broke the case. A retired FBI agent provides context on the investigation timeline, drone threats, and ongoing efforts to apprehend remaining suspects.\nThe report draws from DOJ statements, court documents, and expert commentary, highlighting the plot's rudimentary yet concerning sophistication and the role of early detection."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T06:45:24Z
 sourceUrl: "https://www.youtube.com/watch?v=nHh1hQKzY5U"
 sourceTitle: "Fox News"
 section: "Politics"

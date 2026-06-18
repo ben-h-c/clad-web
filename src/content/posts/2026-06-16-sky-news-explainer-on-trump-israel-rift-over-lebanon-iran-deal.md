@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Sky News Explainer on Trump-Israel Rift Over Lebanon, Iran Deal"
 summary: "The segment examines whether recent U.S. criticism of Israeli operations in Lebanon signals a shift in Trump's alliance with Israel. It covers joint U.S.-Israel strikes on Iran, Netanyahu's Hezbollah campaign, and Trump's push for a deal reopening the Strait of Hormuz. The report cites Trump's direct criticism of Netanyahu as 'effing crazy' and quotes on excessive civilian casualties. Netanyahu faces a dilemma between defying Trump or appearing weak ahead of elections. Sourcing draws on public statements and official casualty figures."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:34:00Z
 sourceUrl: "https://www.youtube.com/watch?v=ii9RtOBO9fM"
 sourceTitle: "Sky News"
 section: "Politics"

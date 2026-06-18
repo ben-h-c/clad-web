@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Urges Netanyahu to Use Softer Touch Against Hezbollah in Lebanon"
 summary: "The clip captures U.S. President Donald Trump speaking at the close of the G7 summit in France on June 17, 2026. He praises Israeli Prime Minister Benjamin Netanyahu personally while criticizing Israel's military responses to Hezbollah in Lebanon, calling for a softer approach and expressing sympathy for Lebanon's decline."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:49:30Z
 sourceUrl: "https://www.youtube.com/watch?v=2jJH0PaUmLM"
 sourceTitle: "Reuters"
 section: "Politics"

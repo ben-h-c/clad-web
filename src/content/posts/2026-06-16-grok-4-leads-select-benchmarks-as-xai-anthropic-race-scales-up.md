@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Grok 4 Leads Select Benchmarks as xAI, Anthropic Race Scales Up"
 summary: "The broadcast traces the origins of Anthropic and xAI from OpenAI alumni, details the Colossus supercluster buildout in Memphis, compares Grok 4 and Claude 4 family capabilities on benchmarks, and discusses Grok 5 expectations. It covers training approaches, enterprise use cases, real-time data advantages, and the broader capital race. Sourcing relies on company announcements, benchmark leaderboards, and reported funding rounds; no named external guests appear."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T15:15:16Z
 sourceUrl: "https://www.youtube.com/watch?v=giL9vlsFcUY"
 sourceTitle: "App & Tech Hub"
 section: "Politics"

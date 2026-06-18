@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Sky News report on southern Lebanon returns amid fragile truce"
 summary: "The segment shows crowds returning to southern Lebanon after recent fighting, highlighting optimism mixed with fear and widespread local support for Hezbollah as a protector. It covers destruction from Israeli strikes, paramedics recovering bodies in places like Touline, and uncertainty over the ceasefire holding.\n\nIt includes quotes from residents, paramedics, Israeli Prime Minister Netanyahu on maintaining a buffer zone, and a Hezbollah spokesman claiming triumph. Reporter Adam Parsons files from Jerusalem, drawing on on-the-ground footage and official statements from both sides."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T21:42:52Z
 sourceUrl: "https://www.youtube.com/watch?v=da66IRlIQmM"
 sourceTitle: "Sky News"
 section: "Politics"

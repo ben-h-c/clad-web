@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Hot Mic Captures Macron-Zelensky Exchange on Trump Meeting at G7"
 summary: "The Forbes Breaking News segment airs a brief hot-mic audio clip from the G7 summit in Évian-les-Bains, France, showing French President Emmanuel Macron greeting Ukrainian President Volodymyr Zelensky. They discuss arrival times, sleep, schedules, G7 sessions limited to principals, bilaterals, and Zelensky's need to depart for Brazil or Brussels. The title frames it as a viral moment catching talk about President Trump. Reports confirm the leaders referenced a prior difficult meeting with Trump while game-planning engagement."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:10:05Z
 sourceUrl: "https://www.youtube.com/watch?v=VhLy5-BX8Rg"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

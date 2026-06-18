@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fed Holds Rates Steady at 3.5-3.75% Under New Chair Warsh"
 summary: "The segment features Federal Reserve Chair Kevin Warsh delivering remarks after the June 16-17, 2026 FOMC meeting. The committee voted to hold the federal funds rate target range at 3.5% to 3.75%, reaffirmed ample reserves, and released a shorter policy statement without forward guidance.\nWarsh discussed solid economic growth amid Middle East uncertainty, persistent inflation above 2%, the committee's commitment to price stability, and median SEP projections for GDP, unemployment, inflation, and the policy rate path. He noted refraining from personal projections and plans to review monetary policy practices."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:43:53Z
 sourceUrl: "https://www.youtube.com/watch?v=NIziu2DrHiM"
 sourceTitle: "C-SPAN"
 section: "Politics"

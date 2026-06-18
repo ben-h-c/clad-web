@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Iran deal coverage at G7 mixes verified details with pending questions"
 summary: "The segment covers ongoing questions around a tentative US-Iran agreement to end recent conflict, including delayed release of the text, immediate oil sanctions relief allowing sales, and a planned signing Friday in Switzerland. It notes Israeli-Iranian tensions over Lebanon/Hezbollah, Republican senators' calls for briefings and a congressional vote, and Trump's openness to sending the deal to Congress. G7 discussions also touch Ukraine, with European leaders showing warmer engagement toward Trump.\nSourcing draws from WSJ reporting, public statements by Trump, Vance, senators like Thune, Kennedy, and Cassidy, plus on-site reporting from the G7 in France. Guests and analysts highlight uncertainties around nuclear limits and implementation."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T10:28:27Z
 sourceUrl: "https://www.youtube.com/watch?v=NpSwp-z_h20"
 sourceTitle: "MS NOW"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Al Jazeera reports on DRC Ebola outbreak amid containment challenges"
 summary: "The segment covers warnings from health officials that the Ebola outbreak in eastern DRC has not peaked, citing insecurity hampering efforts in Ituri province. It reports over 70,000 displaced people in siege-like conditions, 837 confirmed cases, and nearly 200 deaths. The head of Africa CDC highlights gaps in contact tracing, noting expected 32,000 contacts versus only 6,000 identified due to insecurity and limited personnel."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T09:37:50Z
 sourceUrl: "https://www.youtube.com/watch?v=Xb94X61mYWw"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

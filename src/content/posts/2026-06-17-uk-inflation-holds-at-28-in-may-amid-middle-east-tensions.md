@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "UK inflation holds at 2.8% in May amid Middle East tensions"
 summary: "Sky News segment reports UK CPI inflation remaining flat at 2.8% for May 2026, contrary to expectations of a rise from fuel prices linked to Middle East conflict. It breaks down contributions from transport (up) offset by food and other categories (down), notes Bank of England policy meeting, and discusses oil price movements following a US-Iran deal. The report includes a clip from the Chief Secretary to the Treasury welcoming the figures while noting ongoing pressures."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T09:04:26Z
 sourceUrl: "https://www.youtube.com/watch?v=5iqcvglUXgI"
 sourceTitle: "Sky News"
 section: "Politics"

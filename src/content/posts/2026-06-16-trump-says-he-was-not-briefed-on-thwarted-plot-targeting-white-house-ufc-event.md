@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump says he was not briefed on thwarted plot targeting White House UFC event"
 summary: "The short AP clip shows a reporter asking President Trump at the G7 summit whether he was briefed on attack plans for the UFC event at the White House. Trump replies he has not heard about it and then discusses watching the fights, appearing to interpret 'attack' literally as the bouts. The segment includes laughter and Trump praising the event organized with Dana White. It references the FBI's recent announcement of arrests in a thwarted plot involving drones and snipers targeting the June 14-15 event."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:13:01Z
 sourceUrl: "https://www.youtube.com/watch?v=IvW2eknusBM"
 sourceTitle: "Associated Press"
 section: "Politics"

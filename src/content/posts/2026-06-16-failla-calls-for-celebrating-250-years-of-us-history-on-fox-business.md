@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Failla Calls for Celebrating 250 Years of US History on Fox Business"
 summary: "The Fox Business short features comedian Jimmy Failla discussing the America 250 commemoration. He argues viewers should celebrate 250 years of American history and exceptionalism rather than recent events, shares his rise from cab driver to media host as evidence of the American dream, and notes that critics of America are effectively opposing its people. Failla adds that independents form the largest political group."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:00:12Z
 sourceUrl: "https://www.youtube.com/watch?v=0ShQCYTEp1E"
 sourceTitle: "Fox Business"
 section: "Politics"

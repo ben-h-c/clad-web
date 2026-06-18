@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Highlights Iran Deal Framework, Stresses No Nuclear Weapon"
 summary: "The segment features President Trump speaking alongside Qatar's emir about a recent US-Iran agreement. He contrasts it with the Obama-era deal, stresses no US financial investment, and asserts Iran will never acquire a nuclear weapon under strong consequences. Trump discusses regime figures, references protester deaths, a UFC event, and praises Qatar's mediation efforts."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:30:39Z
 sourceUrl: "https://www.youtube.com/watch?v=ZTTLqwjzmnI"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Congressional Hearing Examines IRS Cuts' Effect on Crypto Tax Rules"
 summary: "The segment shows Rep. Don Beyer questioning witnesses during a House hearing on digital asset tax legislation. He highlights IRS workforce reductions, challenges implementing mark-to-market rules and broker reporting, and bills addressing Puerto Rico tax shelters and mining/staking income. Witnesses discuss guidance delays, enforcement impacts, and parity with other assets. The second part covers sourcing via congressional testimony and named experts, with references to JCT estimates and prior IRS leadership appearances."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T02:00:17Z
 sourceUrl: "https://www.youtube.com/watch?v=YLqW_Gtaag4"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

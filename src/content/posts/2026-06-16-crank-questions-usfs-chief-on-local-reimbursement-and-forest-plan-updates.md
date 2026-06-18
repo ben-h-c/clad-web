@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Crank Questions USFS Chief on Local Reimbursement and Forest Plan Updates"
 summary: "The segment shows Rep. Jeff Crank questioning USFS Chief Schultz during a House hearing. Topics include Teller County Sheriff's Office costs for law enforcement in Pike National Forest, the Fix Our Forests Act's treatment of fire regime 5 areas, and delays updating the 1984 Pike-San Isabel National Forest Plan."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:45:16Z
 sourceUrl: "https://www.youtube.com/watch?v=K6OAjwm6-wY"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "MSNBC segment on NYT book, White House leaks, habeas corpus debate"
 summary: "The segment discusses Donald Trump's claimed Iran deal as falling short of unconditional surrender, then focuses on Axios reporting that White House officials suspect NYT reporters Maggie Haberman and Jonathan Swan used Situation Room audio for their forthcoming book 'Regime Change.' It highlights NYT excerpts on internal debates led by Stephen Miller to suspend habeas corpus for immigrants by framing their presence as an 'invasion,' countered by a staff secretary memo, and JD Vance's push to invoke the Insurrection Act after Minnesota shootings of two individuals by federal agents. The host contrasts this with historical facts on habeas corpus and WWII's end."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T03:39:03Z
 sourceUrl: "https://www.youtube.com/watch?v=wcePgoXyers"
 sourceTitle: "MS NOW"
 section: "Politics"

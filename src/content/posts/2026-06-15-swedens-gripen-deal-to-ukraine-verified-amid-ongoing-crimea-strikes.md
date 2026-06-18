@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Sweden's Gripen Deal to Ukraine Verified Amid Ongoing Crimea Strikes"
 summary: "The broadcast covers Sweden's May 2026 announcement donating 16 older Gripen C/D jets to Ukraine in 2027 while Ukraine buys 20 new E/F models, with Zelenskyy pursuing up to 150 total. It details Gripen operational advantages including austere basing and Meteor missile compatibility, then shifts to Ukrainian drone superiority, stalled Russian advances, and strikes targeting Crimea logistics and air defenses.\nThe segment draws on Ukrainian Air Force statements, Finnish President Stubb's casualty comments, Russian milblogger Rybar, and recent strike reports. It frames a potential Ukrainian summer push toward isolating Crimea without a direct amphibious assault."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T17:00:39Z
 sourceUrl: "https://www.youtube.com/watch?v=6BfCTzpQtAs"
 sourceTitle: "The Sun"
 section: "Politics"

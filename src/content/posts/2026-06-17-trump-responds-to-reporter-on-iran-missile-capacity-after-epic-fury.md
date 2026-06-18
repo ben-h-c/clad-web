@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Responds to Reporter on Iran Missile Capacity After Epic Fury"
 summary: "The Forbes Breaking News video shows President Trump fielding questions from a reporter about Operation Epic Fury, the US-led campaign against Iran that began February 28, 2026. Trump defends the results of strikes on Iranian ballistic missiles and production capacity while addressing a follow-up on Iran's civilian nuclear program.\n\nThe segment consists of Trump's unscripted responses during what appears to be an Air Force One or press interaction, with no additional narration, graphics, or expert guests. It directly quotes Trump's estimates of missile destruction and rationale for sparing certain infrastructure."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T20:39:03Z
 sourceUrl: "https://www.youtube.com/watch?v=zjZAFkpl3uY"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

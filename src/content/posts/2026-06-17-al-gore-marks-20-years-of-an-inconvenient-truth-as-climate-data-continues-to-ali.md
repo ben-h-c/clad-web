@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Al Gore Marks 20 Years of 'An Inconvenient Truth' as Climate Data Continues to Align"
 summary: "ABC News segment marks the 20th anniversary of Al Gore's 2006 documentary 'An Inconvenient Truth.' Correspondent Ginger Zee interviews Gore at his Tennessee farm, discussing film accuracy, rising CO2, warming-driven hurricane intensification, record temperatures, and U.S. energy shifts. It covers Gore's views on renewables comprising most new capacity in 2025 and solar surpassing coal generation in May 2026. The piece notes U.S. withdrawal from the Paris Agreement under the current administration and positions climate action as a moral issue."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T03:29:55Z
 sourceUrl: "https://www.youtube.com/watch?v=FW2KvxN8dUA"
 sourceTitle: "ABC News"
 section: "Politics"

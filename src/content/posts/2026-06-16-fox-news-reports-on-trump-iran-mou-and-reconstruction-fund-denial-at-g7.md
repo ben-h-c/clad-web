@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News reports on Trump Iran MOU and reconstruction fund denial at G7"
 summary: "The segment covers President Trump at the G7 summit in France, highlighting a new memorandum of understanding with Iran on reopening the Strait of Hormuz and preventing nuclear weapons. It discusses White House warnings to Iran, Democratic criticism, and a $300 billion reconstruction fund denied as US-funded 'fake news' by Trump. Vice President Vance is quoted clarifying Gulf coalition funding tied to compliance. Additional topics include Ukraine ceasefire prospects and broader G7 agenda items like AI and trade.\nThe broadcast relies on on-site reporting from Aishah Hasnie, expert commentary from Dr. Rebecca Grant, clips of Trump and Vance, and references to unnamed US officials. It contrasts the new deal favorably with the 2015 JCPOA and notes the short, unreleased MOU text."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T09:30:08Z
 sourceUrl: "https://www.youtube.com/watch?v=qCdFkFUdibc"
 sourceTitle: "Fox News"
 section: "Politics"

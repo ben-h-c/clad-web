@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump hails preliminary Iran deal at G7 amid scrutiny on terms and Israel stance"
 summary: "ABC News reports on President Trump at the G7 summit in France discussing a preliminary US-Iran agreement to end hostilities, reopen the Strait of Hormuz, and address Iran's nuclear program over 60 days. Segments cover Trump's positive comments on the deal, Iran's conditions involving Lebanon, Trump's criticism of Israel's Lebanon operations, and questions on sanctions relief. The report notes the deal remains unpublished with ongoing negotiations.\nSourcing draws from Trump's on-camera remarks, Iran's foreign minister statements, Netanyahu's position, and senior administration officials. It references the prior Obama-era JCPOA and current ceasefire context. Throughline is uncertainty over final terms despite the announced framework."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:32:31Z
 sourceUrl: "https://www.youtube.com/watch?v=ugQhw4aA_TY"
 sourceTitle: "ABC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Al Jazeera analysis examines US-Iran ceasefire talks and Ukraine diplomacy"
 summary: "The segment features analyst Doug Bandow discussing prospects for Ukraine-Russia talks at the G7, Europe's role, and especially the recent US-Iran memorandum of understanding following a 60-day ceasefire framework. It covers trust-building in early ceasefire phases, the value of direct Washington-Tehran negotiations after Pakistan mediation, and tensions involving Israel. Bandow highlights distrust stemming from prior events including leadership losses and past negotiation breakdowns. The discussion also addresses Trump's evolving criticism of Netanyahu over the war's duration and outcomes."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:11:44Z
 sourceUrl: "https://www.youtube.com/watch?v=eIHQR7Wf0XM"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Dem Senator Questions Trump Iran Deal Terms and US Munitions Readiness"
 summary: "The segment features an interview with Sen. Mark Warner (D-VA), vice chair of the Senate Intelligence Committee, discussing Trump administration negotiations with Iran over nuclear terms. Warner expresses skepticism about Iran's willingness to meet US demands on enriched uranium, ballistic missiles, and the Strait of Hormuz, referencing intel doubts from officials like Ratcliffe and Rubio."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:11:17Z
 sourceUrl: "https://www.youtube.com/watch?v=jZlHjoCCXVE"
 sourceTitle: "MS NOW"
 section: "Politics"

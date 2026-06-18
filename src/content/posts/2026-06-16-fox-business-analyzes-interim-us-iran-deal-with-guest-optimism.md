@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox Business analyzes interim US-Iran deal with guest optimism"
 summary: "The segment features host Elizabeth and guest Lt. Col. Mike (likely a retired officer) reacting to an interim US-Iran deal. They discuss optimism over pausing fighting, opening the Strait of Hormuz, and preventing Iranian nuclear weapons. Clips play of VP J.D. Vance and Defense Secretary Pete Hegseth touting the deal as a 'wall to a bomb' with inspections and US oversight. The guest calls criticism of unseen details immature. Obama is noted slamming the deal.\nThe broadcast sources primarily from administration statements and the guest's analysis, with no independent experts or full deal text referenced. It emphasizes performance-based metrics and accountability."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T05:00:38Z
 sourceUrl: "https://www.youtube.com/watch?v=p5pt4hoKJmw"
 sourceTitle: "Fox Business"
 section: "Politics"

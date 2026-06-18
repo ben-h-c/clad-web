@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox Business Casts Doubt on Details of Iran Ceasefire Framework"
 summary: "The Fox Business short discusses an emerging US-Iran ceasefire framework announced in mid-June 2026 to end recent conflict, reopen the Strait of Hormuz, and set up further talks. It highlights uncertainty over nuclear provisions, Trump's denial of a $300 million US fund for Iran contrasted with reports of a $300 billion envisioned reconstruction package, and Iran's public 2015 commitments that were not upheld. The segment notes potential benefits but stresses widespread concerns, particularly among congressional Republicans."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:00:00Z
 sourceUrl: "https://www.youtube.com/watch?v=7f9yorcaD4U"
 sourceTitle: "Fox Business"
 section: "Politics"

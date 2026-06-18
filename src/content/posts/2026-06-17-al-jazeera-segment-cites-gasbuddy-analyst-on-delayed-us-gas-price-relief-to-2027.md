@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Al Jazeera segment cites GasBuddy analyst on delayed US gas price relief to 2027"
 summary: "The segment features Patrick De Haan of GasBuddy explaining that US national average gasoline prices are unlikely to return below $3 per gallon until 2027. It attributes the delay to significant depletion of global oil inventories following disruptions from the recent US-Iran conflict, with recovery likened to filling a pool with a garden hose; hurricane season is noted as a potential additional factor.\nThe broadcast relies on a single named expert analyst, references pre-war price levels from before US attacks on Iran, and draws from ongoing market reporting on inventory levels without additional guests or graphics shown in the transcript."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T06:20:22Z
 sourceUrl: "https://www.youtube.com/watch?v=ENwzzkPsjgw"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

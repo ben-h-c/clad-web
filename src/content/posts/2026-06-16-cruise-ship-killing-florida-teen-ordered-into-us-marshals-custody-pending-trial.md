@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Cruise ship killing: Florida teen ordered into US Marshals custody pending trial"
 summary: "ABC News segment reports that 16-year-old Timothy Hudson (T.H.), accused of killing and sexually assaulting his stepsister Anna Kepner aboard the Carnival Horizon cruise ship in November 2025, has been ordered into U.S. Marshals custody after a judge revoked pretrial release. The broadcast includes statements from a legal analyst discussing the judge's concerns over danger and lack of remorse, notes the adult indictment, possible Miller hearing at sentencing, and upcoming litigation leading to a September trial.\nThe report draws on court filings, a judge's order, and commentary from analyst Brian Buckmeer; it references the shared cabin, another minor present, and the federal nature of the case due to international waters."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:45:37Z
 sourceUrl: "https://www.youtube.com/watch?v=VK6nNiIaZYA"
 sourceTitle: "ABC News"
 section: "Politics"

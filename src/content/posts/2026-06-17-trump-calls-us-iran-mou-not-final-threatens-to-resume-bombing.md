@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Calls US-Iran MOU Not Final, Threatens to Resume Bombing"
 summary: "The segment shows President Trump responding to questions about a US-Iran memorandum of understanding at what appears to be the G7 Summit. He states that the MOU is not final and warns that if he does not like the outcome or if Iran misbehaves, the US will resume bombing. The clip captures his comments on Iran's behavior over 47 years. Sourcing consists of direct on-camera remarks by Trump with ABC News context from the event."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T12:25:57Z
 sourceUrl: "https://www.youtube.com/watch?v=N_H9ShrVTS4"
 sourceTitle: "ABC News"
 section: "Politics"

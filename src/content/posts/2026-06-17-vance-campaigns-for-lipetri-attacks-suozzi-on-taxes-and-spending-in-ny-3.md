@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Vance Campaigns for LiPetri, Attacks Suozzi on Taxes and Spending in NY-3"
 summary: "The clip shows Vice President JD Vance speaking at a campaign event in Bethpage, Long Island, endorsing Republican Mike LiPetri against incumbent Democrat Tom Suozzi in New York's 3rd congressional district for the 2026 election. Vance praises the district and its residents while criticizing Suozzi's record on taxes, alleged protection of fraud, and public safety. He urges voters to reject Suozzi and support LiPetri for lower taxes and stronger law enforcement. The segment is a direct recording of the rally speech with no added narration or counterpoints."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:00:12Z
 sourceUrl: "https://www.youtube.com/watch?v=rg2FAm3INjw"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

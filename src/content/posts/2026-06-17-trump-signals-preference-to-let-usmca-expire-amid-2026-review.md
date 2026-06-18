@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump signals preference to let USMCA expire amid 2026 review"
 summary: "CBS News reports from Paris on President Trump's press conference following the G7 summit. Segments cover his comments on the USMCA trade agreement, the Iran memorandum, Ukraine's battlefield position, U.S. military aid funding, and potential Russia sanctions.\nThe broadcast relies on live presidential quotes and brief anchor explanation of the deal's structure. No named experts or graphics are referenced; the throughline is Trump's willingness to let agreements lapse or negotiate bilaterally rather than multilaterally."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T20:38:49Z
 sourceUrl: "https://www.youtube.com/watch?v=tzwU02Pqkcg"
 sourceTitle: "CBS News"
 section: "Politics"

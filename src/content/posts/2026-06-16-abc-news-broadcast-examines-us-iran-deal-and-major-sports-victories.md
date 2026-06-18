@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News Broadcast Examines US-Iran Deal and Major Sports Victories"
 summary: "The broadcast covers a range of overnight developments including a reported US-Iran ceasefire framework, the Carolina Hurricanes Stanley Cup win, the New York Knicks NBA championship celebration, severe weather impacts, and a deadly skydiving plane crash. Segments also highlight World Cup fan interactions and a White House UFC event. Sourcing relies on named reporters, official statements, and some anonymous administration sources, with graphics referenced for weather and sports highlights; guests include analysts on the Iran deal and team captains."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T12:06:25Z
 sourceUrl: "https://www.youtube.com/watch?v=6akH7B1V4qo"
 sourceTitle: "ABC News"
 section: "Politics"

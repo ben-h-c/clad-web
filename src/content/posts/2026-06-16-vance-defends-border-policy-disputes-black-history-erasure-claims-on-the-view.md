@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Vance Defends Border Policy, Disputes Black History Erasure Claims on The View"
 summary: "The segment featured Vice President JD Vance discussing immigration enforcement alongside Catholic teaching on borders and charity. Hosts Whoopi Goldberg, Sunny Hostin, and Ana Navarro pressed on alleged administration stigmatization of people of color, removal of Black history from museums, and refugee admissions skewed toward white South Africans. Vance disputed the erasure claim, highlighted DC crime reductions benefiting all residents, and affirmed that all citizens are welcome in the coalition. The exchange ended abruptly as hosts moved to other news. Sourcing relied on host assertions and audience reaction with Vance providing direct responses; no external experts or data visuals appeared."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:45:52Z
 sourceUrl: "https://www.youtube.com/watch?v=-NVC0_GrxYQ"
 sourceTitle: "The View"
 section: "Politics"

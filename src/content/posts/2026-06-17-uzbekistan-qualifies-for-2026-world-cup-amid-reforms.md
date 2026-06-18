@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Uzbekistan qualifies for 2026 World Cup amid reforms"
 summary: "The segment covers Uzbekistan's national team, the White Wolves, qualifying for the 2026 World Cup for the first time as the inaugural Central Asian nation. It highlights youth development, breakout players in Europe and the Middle East, and ties the success to President Shavkat Mirziyoyev's reforms after the Karimov era. Fans and officials express national pride, with references to a 'golden generation' in sports and other fields. The broadcast notes Uzbekistan's opening to China, Europe, and the US, alongside modest gains for women and greater openness than a decade prior. Critics of slow democratic change are briefly mentioned but not elaborated."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T20:45:34Z
 sourceUrl: "https://www.youtube.com/watch?v=gF0TEjO_PgI"
 sourceTitle: "NPR"
 section: "Politics"

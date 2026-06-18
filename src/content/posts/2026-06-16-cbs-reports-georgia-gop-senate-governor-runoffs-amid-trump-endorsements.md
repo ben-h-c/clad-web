@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS reports Georgia GOP Senate, governor runoffs amid Trump endorsements"
 summary: "CBS News covers primary elections and runoffs in California, Oklahoma, Alabama, Georgia, and DC on June 16, 2026. Focus is on Georgia’s Republican Senate runoff between Rep. Mike Collins and former coach Derek Dooley, and governor runoff between Lt. Gov. Burt Jones and billionaire Rick Jackson. Correspondent Skyler Henry details Trump’s late endorsement of Collins (with jab at Dooley), Jones’s endorsements from Trump and Gov. Brian Kemp, Jackson’s backing from Sens. Cruz and Scott, and heavy self-funding; notes rainy weather may affect turnout."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:26:57Z
 sourceUrl: "https://www.youtube.com/watch?v=xox017v4SjE"
 sourceTitle: "CBS News"
 section: "Politics"

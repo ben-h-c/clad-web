@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NewsNation covers Jelly Roll divorce, Beckham rift, Tyra Netflix suit"
 summary: "The segment discusses Jelly Roll filing for divorce from Bunnie XO amid past infidelity admissions and his recent weight loss and religious turn. It covers the ongoing Beckham family feud involving Brooklyn Beckham cutting ties and a recent ad poking at parents. It also addresses Tyra Banks' claims against a Netflix documentary on America's Next Top Model, including editing disputes and her interview experience.\nThe discussion features host Jesse Weber and guest Paula Froelich speculating on motivations, referencing public statements, past interviews, and the documentary's production. Sourcing draws from public filings, social media, and prior media appearances rather than new original reporting."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T17:31:41Z
 sourceUrl: "https://www.youtube.com/watch?v=QpOmiNPnPU4"
 sourceTitle: "NewsNation"
 section: "Politics"

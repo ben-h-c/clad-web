@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "MS NOW segment examines market reaction to interim US-Iran deal, Fed under Warsh, Social Security outlook"
 summary: "The segment opens with market reaction to news of a US-Iran agreement, noting Dow record highs and falling oil prices around $80 per barrel. It features experts Brendan Greeley and Natasha Cern discussing why markets prioritize conflict resolution over deal details, the Fed's first meeting under new Chair Kevin Warsh amid 4.2% inflation and White House rate-cut pressure, and the latest Social Security trustees report showing earlier trust fund depletion."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:43:15Z
 sourceUrl: "https://www.youtube.com/watch?v=Zyu_ecRsBV0"
 sourceTitle: "MS NOW"
 section: "Politics"

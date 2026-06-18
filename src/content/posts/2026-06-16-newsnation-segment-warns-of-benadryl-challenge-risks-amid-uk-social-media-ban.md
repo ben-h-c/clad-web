@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NewsNation segment warns of Benadryl challenge risks amid UK social media ban"
 summary: "The segment opens with the UK's new social media ban for under-16s announced by PM Keir Starmer, covering platforms like TikTok and Snapchat with restrictions on gaming and livestreaming, set to take effect early next year. It positions this as the fifth such national effort and contrasts it with U.S. experiences.\nIt then details the resurfacing Benadryl challenge, where teens ingest large amounts of the drug seeking a euphoric high, leading to seizures, cardiac arrest, and other harms. Interview with father Richard Preston about his 15-year-old daughter Leah in ICU with no brain activity after multiple attempts; references three Connecticut teen deaths possibly linked and doubled poison control calls among teens."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T07:00:38Z
 sourceUrl: "https://www.youtube.com/watch?v=HsAftgngpiY"
 sourceTitle: "NewsNation"
 section: "Politics"

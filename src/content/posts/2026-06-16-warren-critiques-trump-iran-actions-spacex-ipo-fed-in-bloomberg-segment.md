@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Warren Critiques Trump Iran Actions, SpaceX IPO, Fed in Bloomberg Segment"
 summary: "Bloomberg interviews Sen. Elizabeth Warren on the Iran conflict and potential deal, Pentagon funding requests, Jay Clayton's DNI nomination, Kevin Warsh's first Fed meeting, a bipartisan housing bill, and concerns over the recent SpaceX IPO. Warren criticizes Trump administration actions across these areas, highlighting costs, lack of transparency, and market risks.\nThe segment features Warren as the sole guest, referencing public records, her prior letters/statements, and constituent feedback; graphics or documents are not detailed in the transcript. It ties throughlines of accountability, economic harm to families, and regulatory oversight."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:54:23Z
 sourceUrl: "https://www.youtube.com/watch?v=1mYm1gw4S5k"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

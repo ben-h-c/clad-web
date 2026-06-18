@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Forbes Replays Trump's June 2015 Presidential Announcement Speech"
 summary: "The Forbes Breaking News video is an unedited replay of Donald Trump's June 16, 2015, speech at Trump Tower announcing his Republican presidential candidacy. It covers his critiques of U.S. trade deals, border security, Obamacare, foreign policy in Iraq and Iran, and economic statistics, culminating in his pledge to 'make America great again.'\nThe sourcing is the candidate's own remarks with no additional narration, guests or graphics; the broadcast runs the complete speech as a historical flashback on its anniversary."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:15:34Z
 sourceUrl: "https://www.youtube.com/watch?v=YElM4vzXAGc"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

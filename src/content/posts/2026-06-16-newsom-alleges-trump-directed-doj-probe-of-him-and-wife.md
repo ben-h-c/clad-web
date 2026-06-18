@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Newsom Alleges Trump-Directed DOJ Probe of Him and Wife"
 summary: "The clip shows California Gov. Gavin Newsom delivering a statement accusing President Trump of directing the Department of Justice to investigate him and his wife, Jennifer Siebel Newsom. Newsom claims federal agents have contacted associates, sought records, and targeted his wife due to his potential presidential run.\n\nThe segment consists of Newsom's video remarks posted on social media, with no additional narration or guests in the provided transcript. It references prior calls for his arrest and frames the actions as politically motivated harassment of a public servant with nothing to hide."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T21:11:29Z
 sourceUrl: "https://www.youtube.com/watch?v=7phgVt2IYmU"
 sourceTitle: "The Wall Street Journal"
 section: "Politics"

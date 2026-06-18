@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX IPO: Retail investor guide highlights risks, rules, and index hurdles"
 summary: "The segment covers SpaceX's June 2026 IPO priced at $135 per share targeting a $1.75 trillion valuation and a record $75 billion raise. It details an unusually high 30% retail allocation, participation via brokerages like Fidelity (lowered $2,000 minimum), Robinhood, SoFi, and E-Trade, plus restrictions on early selling. Additional topics include potential Nasdaq-100 inclusion, blocked fast-track S&P 500 entry due to profitability rules, and the company's $4.9 billion 2025 net loss driven by AI spending."
-publishedAt: 2026-06-12
+publishedAt: 2026-06-12T14:00:02Z
 sourceUrl: "https://www.youtube.com/watch?v=LIVGZoUN9D0"
 sourceTitle: "CNBC"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Al Jazeera report on Trump-Iran MOU tracks official US and Iranian statements"
 summary: "The segment reports the White House confirmation that President Trump signed a memorandum of understanding with Iran to end the war, with electronic signatures by both presidents now in effect. It details a 14-point MOU covering cessation of military operations, lifting the US naval blockade, immediate Iranian oil exports, a $300 billion reconstruction fund supervised by the US but funded by allies, and further nuclear negotiations. A formal signing is scheduled for Geneva on Friday launching a 60-day process.\nMike Hanna from the White House discusses official briefings, earlier confusion from Vice President Pence's statements, Republican concerns over perceived leniency, and administration insistence that no US funds are directly provided while highlighting Iran's reaffirmed non-nuclear policy."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T22:31:36Z
 sourceUrl: "https://www.youtube.com/watch?v=P6zKY3Enla4"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

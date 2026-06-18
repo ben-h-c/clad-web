@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "FIFA Projects Record $13B Revenue for 2026 World Cup Cycle"
 summary: "The segment examines FIFA's projected earnings for the 2026 World Cup, estimated at 11-13 billion dollars, compared to the prior tournament. It questions how funds are allocated by the nonprofit organization, noting expansion to more matches and dynamic ticket pricing as drivers of higher revenue. The discussion highlights plans to grow soccer globally, particularly in the US market.\nFIFA's official revised 2023-2026 budget and prior cycle reports serve as the main reference points, with commentary from an analyst or expert. No named guests appear in the provided transcript; emphasis stays on revenue doubling and the nonprofit structure."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T04:00:29Z
 sourceUrl: "https://www.youtube.com/watch?v=bJrIGbkEDps"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

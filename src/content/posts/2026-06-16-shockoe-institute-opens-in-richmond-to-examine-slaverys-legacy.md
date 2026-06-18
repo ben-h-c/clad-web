@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Shockoe Institute opens in Richmond to examine slavery's legacy"
 summary: "The PBS NewsHour segment profiles the newly opened Shockoe Institute in Richmond, Virginia, part of its Art in Action series. It covers student tours of the 'Expanding Freedom' exhibit, details on the domestic slave trade, the institute's location in the former Main Street Station, and its $11 million Mellon Foundation funding. The second paragraph notes sourcing from institute president Marlon Buckner, historian Greg Kimball, and visitor reactions, with plans for future symposia and programming."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:08:02Z
 sourceUrl: "https://www.youtube.com/watch?v=Mi2aacHDf00"
 sourceTitle: "PBS NewsHour"
 section: "Politics"

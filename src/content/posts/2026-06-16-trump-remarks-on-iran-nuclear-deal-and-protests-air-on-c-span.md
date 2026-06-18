@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Remarks on Iran Nuclear Deal and Protests Air on C-SPAN"
 summary: "C-SPAN aired remarks by President Trump discussing US-Iran relations, a claimed agreement preventing Iran from acquiring a nuclear weapon, contrasts with the prior JCPOA, and recent Iranian internal developments. Segments cover non-payment under the new arrangement versus Obama's $1.7 billion cash transfer, regime dynamics after leadership changes, and Qatar's role.\nTrump references 42,000 protester deaths, execution of a wrestler at a White House UFC event, and praises Qatari bravery and rationality of current Iranian officials. Sourcing is direct from the speaker with no additional guests or graphics noted in the clip."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:29:38Z
 sourceUrl: "https://www.youtube.com/watch?v=I3FxGvGr1v0"
 sourceTitle: "C-SPAN"
 section: "Politics"

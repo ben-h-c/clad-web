@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Iran Claims US-Iran Deal Requires Israeli Withdrawal from Lebanon"
 summary: "The segment reports Iran's foreign minister stating that a tentative US-Iran deal to end the war requires Israeli withdrawal from Lebanese territory occupied during the conflict. It notes a US official's denial that the deal includes such a provision and Israeli Prime Minister Netanyahu's assertion that forces will remain in Lebanon as long as necessary. The deal's full terms remain unpublished. The report outlines the war's timeline, including US and Israeli strikes on Iran in February, Hezbollah attacks on Israel beginning March 2, and Israeli seizure of Lebanese territory while fighting Hezbollah. Negotiations have been hampered by disagreements, contributing to an uneasy ceasefire and closure of the Strait of Hormuz."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:45:01Z
 sourceUrl: "https://www.youtube.com/watch?v=w55Rm0qSOiQ"
 sourceTitle: "Associated Press"
 section: "Politics"

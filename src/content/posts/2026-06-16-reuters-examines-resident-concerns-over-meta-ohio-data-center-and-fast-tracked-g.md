@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters examines resident concerns over Meta Ohio data center and fast-tracked gas plant"
 summary: "The segment profiles Bowling Green-area residents opposing Meta's new AI-optimized data center and an associated 350 MW natural-gas power plant. It highlights construction disruption, lost views, safety fears for a home daycare, and broader concerns about rapid off-grid plant approvals. A local economic official counters with job and investment benefits. The piece references a Reuters review of filings showing dozens of similar fast-tracked projects nationwide and cites a Harvard researcher on air-quality risks, plus examples from Memphis and Georgia. Ohio legislation limiting public records access for such projects is noted."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:41:05Z
 sourceUrl: "https://www.youtube.com/watch?v=uuVOox_r_SI"
 sourceTitle: "Reuters"
 section: "Politics"

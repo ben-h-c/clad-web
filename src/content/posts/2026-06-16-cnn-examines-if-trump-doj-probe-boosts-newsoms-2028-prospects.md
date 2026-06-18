@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CNN examines if Trump DOJ probe boosts Newsom's 2028 prospects"
 summary: "CNN segment discusses Gavin Newsom accusing the Trump DOJ of targeting his wife Jennifer Siebel Newsom with a tax investigation, which he calls politically motivated. Analysts Harry Enten and Caitlyn Poland review Google search spikes, Democratic polling on fighting Trump, and Newsom's rising 2028 primary numbers. Legal analyst Joey Jackson addresses investigation procedures and perceptions of weaponization."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T17:45:05Z
 sourceUrl: "https://www.youtube.com/watch?v=9PeqL3-9yak"
 sourceTitle: "CNN"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX IPO Pushes Musk to First Trillionaire Status"
 summary: "The segment reports SpaceX's record IPO at a ~$1.8T valuation that rose above $2T in trading, making Elon Musk the world's first trillionaire with an estimated $1.1T net worth. It notes his wealth exceeds the next richest individuals combined, exceeds GDPs of many nations, and created thousands of new millionaires among employees, while emphasizing that most holdings are illiquid paper gains.\nThe broadcast draws on standard financial context and public market data rather than named guests or proprietary analysis; it contrasts the recent success with SpaceX's earlier rocket-landing milestones."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T17:52:10Z
 sourceUrl: "https://www.youtube.com/watch?v=6GZLmuwEo88"
 sourceTitle: "Daniel Cross | Market Analyst"
 section: "Politics"

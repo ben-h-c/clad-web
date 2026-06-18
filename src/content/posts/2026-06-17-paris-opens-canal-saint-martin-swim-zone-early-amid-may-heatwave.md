@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Paris opens Canal Saint-Martin swim zone early amid May heatwave"
 summary: "The segment covers Paris authorities opening a monitored 100m swimming zone in the Canal Saint-Martin free of charge ahead of an expected heatwave. It notes this is one of 10 planned sites (three on the Seine), normally opening in July but advanced due to an early May heatwave that prompted unauthorized swimming. Officials stress daily water quality monitoring, safety perimeters, and capacity limits. Météo France warns of rising temperatures becoming the norm. The report closes with France's slowing greenhouse gas emissions reductions after 2022-2023 drops."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T09:55:44Z
 sourceUrl: "https://www.youtube.com/watch?v=T7o_08zcpF0"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

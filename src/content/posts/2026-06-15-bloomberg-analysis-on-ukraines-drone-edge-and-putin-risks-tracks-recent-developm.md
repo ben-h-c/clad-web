@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg analysis on Ukraine's drone edge and Putin risks tracks recent developments"
 summary: "The segment summarizes a Bloomberg Opinion column asserting Ukraine holds a battlefield edge in 2026 due to drone superiority, inflicting high Russian losses while making localized gains. It notes slower Russian advances despite heavy casualties, shortened Ukrainian drone development cycles, and the removal of Orban as a Russian ally after Hungary's April election."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T01:00:06Z
 sourceUrl: "https://www.youtube.com/watch?v=Na2g58KkSiQ"
 sourceTitle: "Kanal13"
 section: "Politics"

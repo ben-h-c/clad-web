@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC interview profiles JFK grandson Jack Schlossberg’s NY-12 congressional bid"
 summary: "ABC News aired an interview with Jack Schlossberg, the 33-year-old grandson of President John F. Kennedy, who is one of eight Democrats in the June 23, 2026 primary for New York’s 12th congressional district seat being vacated by retiring Rep. Jerry Nadler. Schlossberg discussed entering the race after working on the 2024 Biden-Harris campaign, his disappointment with the Democratic Party’s outreach to young voters, and his view that impeachment proceedings against President Trump would be necessary. He addressed questions about relying on the Kennedy name, distinguished his identity as both a Schlossberg and Kennedy, and rejected suggestions that RFK Jr. damages the family legacy. The segment opened with reference to his 2017 political debut and framed his candidacy around generational change within the party."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T10:41:52Z
 sourceUrl: "https://www.youtube.com/watch?v=GWabAuS57s0"
 sourceTitle: "ABC News"
 section: "Politics"

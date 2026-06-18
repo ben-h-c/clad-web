@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg reports on tentative US-Iran deal to reopen Strait of Hormuz"
 summary: "The segment aired on Bloomberg Television and focused on Vice President JD Vance's Fox News interview comments denying any US taxpayer funds to Iran under a new deal. It then cut to anchor Abeer Abu Omar for updates on an expected Friday signing in Switzerland of a memorandum of understanding to reopen the Strait of Hormuz after a period of conflict.\n\nThe report drew on Vance's direct quotes, diverging US-Iran statements, a Bloomberg-sourced document referencing President Trump's views on negotiations, and analyst observations about shipping timelines and the 60-day ceasefire window for nuclear talks. It highlighted ongoing uncertainties pending release of the actual MOU text."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T05:42:23Z
 sourceUrl: "https://www.youtube.com/watch?v=CMqVTnf4zmk"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

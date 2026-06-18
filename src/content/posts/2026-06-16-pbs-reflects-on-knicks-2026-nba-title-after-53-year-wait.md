@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "PBS reflects on Knicks' 2026 NBA title after 53-year wait"
 summary: "The segment covers the New York Knicks' victory in the 2026 NBA Finals, their first title since 1973, after defeating the San Antonio Spurs in five games. Host William Brangham discusses the 53-year drought, fan celebrations in New York, and interviews analyst Monica McNutt, who was courtside for Game 5. McNutt reflects on the emotional impact, the city's basketball culture, Jalen Brunson's leadership, and front-office decisions including the coaching change. The second paragraph notes sourcing from the on-site guest, video clips of the game and celebrations, and references to specific past Finals losses in 1999 and 1994."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T23:25:12Z
 sourceUrl: "https://www.youtube.com/watch?v=-D40MKvQQDM"
 sourceTitle: "PBS NewsHour"
 section: "Politics"

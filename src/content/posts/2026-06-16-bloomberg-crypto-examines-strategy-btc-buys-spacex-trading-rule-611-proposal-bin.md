@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Crypto examines Strategy BTC buys, SpaceX trading, Rule 611 proposal, Binance EU exit"
 summary: "The June 16, 2026 Bloomberg Crypto segment covered Strategy's latest Bitcoin purchases and prior small sale, Bitcoin price movements tied to geopolitical events, SpaceX post-IPO valuation and crypto perpetual futures trading, Robinhood workforce cuts, and Citi's new blockchain depository receipts for private shares. It featured interviews with BlackRock's Rick Reeder on exposure, Citi's Shahmir Khaliq on tokenization, Bloomberg Intelligence analyst on Rule 611, and reporters on Kalshi prediction markets and Binance's potential EU exit.\nSourcing relied on named executives, on-air analysts, and real-time market data graphics. Segments linked tokenization trends, regulatory changes, and institutional adoption as recurring themes."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:43:01Z
 sourceUrl: "https://www.youtube.com/watch?v=MUMR3L3aOsI"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

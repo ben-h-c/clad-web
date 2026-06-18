@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX IPO Ends Era of Shrinking Public Markets Amid AI Capital Surge"
 summary: "The broadcast analyzes the SpaceX IPO as the largest in history, priced at $135 per share for a ~$75 billion raise and $1.77–1.78 trillion valuation. It contrasts this with the prior two-decade trend of shrinking public equity supply via buybacks and low IPO activity, attributing the reversal to massive AI-driven infrastructure spending by tech firms. Segments cover dual-class shares, Texas reincorporation, retail allocation mechanics, bank fee compression, and follow-on raises by Alphabet and Meta."
-publishedAt: 2026-06-13
+publishedAt: 2026-06-13T22:00:06Z
 sourceUrl: "https://www.youtube.com/watch?v=wKXgeNwNRJ4"
 sourceTitle: "Patrick Boyle"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Gilgo Beach Killer Heuermann Receives Maximum Life Sentence"
 summary: "The BBC News segment reports on the June 17, 2026 sentencing of Rex Heuermann, the Gilgo Beach serial killer, who received the maximum penalty after pleading guilty to eight murders. It covers victim family impact statements, Heuermann's brief courtroom remarks, and the judge's strong rebuke.\nThe report relies on direct courthouse reporting, quotes from the hearing, and official sentencing details without additional guests or graphics referenced in the transcript."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T22:55:04Z
 sourceUrl: "https://www.youtube.com/watch?v=Xo_sJ0jMFDM"
 sourceTitle: "BBC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Secret Service officials criticize Patel's timing on UFC plot announcement"
 summary: "The segment reports on FBI Director Kash Patel's morning X post announcing the foiling of a terrorist plot targeting the UFC Freedom 250 event on the White House South Lawn. It details Secret Service anger over the timing, as the case remained sealed with additional suspects at large, and notes Deputy Director Matt Quinn's indirect rebuke emphasizing operational secrecy. The broadcast describes the investigation's origins in a Cincinnati tip about Signal chats planning drone and sniper attacks, an initial sealed arrest on June 13, and Patel's post allegedly compromising further arrests. It also covers a pattern of similar premature announcements by Patel in the Brown University and Charlie Kirk cases."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:40:29Z
 sourceUrl: "https://www.youtube.com/watch?v=_nwBLW4MLxc"
 sourceTitle: "MS NOW"
 section: "Politics"

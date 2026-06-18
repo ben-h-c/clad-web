@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Rep. Amodei Praises USFS Support for Nevada Sawmill and Timber Supply"
 summary: "The segment is a congressional hearing clip in which Rep. Mark Amodei (R-NV) thanks the USFS Chief for organizational adjustments benefiting the Humboldt-Toiyabe National Forest and for supporting timber feedstock for a new Nevada sawmill. Amodei also discusses wildfire risk mapping and asset allocation."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:00:30Z
 sourceUrl: "https://www.youtube.com/watch?v=NmFouv1dKiU"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

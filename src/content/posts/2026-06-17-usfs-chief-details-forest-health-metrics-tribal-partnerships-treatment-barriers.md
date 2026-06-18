@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "USFS Chief Details Forest Health Metrics, Tribal Partnerships, Treatment Barriers"
 summary: "The segment features Rep. Jeff Hurd questioning USFS Chief Schultz on metrics for long-term forest resilience, tribal partnerships in management, and primary bottlenecks to scaling treatments on national forests. Schultz emphasizes FIA trend data and productivity/growth rates over simple acres-treated counts, highlights ongoing co-stewardship agreements including with Great Sioux Nation tribes, and identifies the massive scale of needed fuels reduction plus air-quality constraints on prescribed fire as key challenges.\nSchultz draws on agency data and field experience; no external guests or graphics referenced beyond internal USFS references. The exchange underscores the need for partners (states, tribes, counties) to expand work beyond current annual treatment levels."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T10:30:20Z
 sourceUrl: "https://www.youtube.com/watch?v=M7L4ITWOdu0"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

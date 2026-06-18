@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters clip captures Cape Verde goalkeeper Vozinha’s mother reacting to son’s World Cup heroics"
 summary: "The short Reuters video features comments from the mother of Cape Verde goalkeeper Vozinha (Josimar José Évora Dias) after her son’s standout performance in Cape Verde’s 2026 World Cup group-stage match against Spain. She describes her emotions watching from home, recalls her late father-in-law taking the young Vozinha to play football despite the father’s disapproval, and notes the grandfather’s prediction that he would one day see his grandson at the World Cup.\nThe segment is sourced directly from the mother with on-camera remarks; no graphics or additional guests appear. It forms part of Reuters coverage of Cape Verde’s historic debut draw."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:39:01Z
 sourceUrl: "https://www.youtube.com/watch?v=jyUZneB1IwU"
 sourceTitle: "Reuters"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CryptosRUs video mixes verified IPO and AI events with premature war claims"
 summary: "The video recaps recent market events including the SpaceX IPO performance and Anthropic's model removal, then highlights breaking news on a US-Pakistan announced end to conflict with Iran. It links the developments to a Bitcoin price rise to around 65-66k and forecasts a positive week for crypto and tech. The host also promotes his Ask Clash AI tool. Segments cover weekly market recap, skepticism on IPO hype, AI regulatory concerns, and technical chart analysis."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T01:00:04Z
 sourceUrl: "https://www.youtube.com/watch?v=_Owt9X5i_Qw"
 sourceTitle: "CryptosRUs"
 section: "Politics"

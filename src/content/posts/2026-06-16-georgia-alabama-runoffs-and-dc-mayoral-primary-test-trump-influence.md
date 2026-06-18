@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Georgia, Alabama runoffs and DC mayoral primary test Trump influence"
 summary: "The segment reports on Republican Senate runoffs in Georgia and Alabama on June 16, 2026, and the Democratic mayoral primary in Washington, DC, highlighting tests of President Trump's political influence. It details Trump's endorsement of Mike Collins in Georgia against Derek Dooley (backed by Gov. Brian Kemp), Barry Moore in Alabama against Jared Hudson, and Trump's threat of federal intervention if Janeese Lewis George wins in DC. Polls close that night with results expected to preview midterm dynamics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:00:34Z
 sourceUrl: "https://www.youtube.com/watch?v=AYxcdwUo1gQ"
 sourceTitle: "NewsNation"
 section: "Politics"

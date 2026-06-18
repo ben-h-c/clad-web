@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Kornacki breaks down Georgia, Alabama GOP runoff results on NBC"
 summary: "NBC News' Steve Kornacki provides live analysis of Republican primary runoffs in Georgia for U.S. Senate (Mike Collins vs. Derek Douly) and governor (Rick Jackson vs. Bert Jones), plus Alabama's Senate runoff (Barry Moore vs. Jared Hudson). Segments cover early vs. election-day vote trends, geographic strongholds, and the impact of Trump endorsements. Kornacki uses maps and county data to explain dynamics, with brief mentions of Oklahoma and D.C. races. Sourcing relies on real-time county results, historical primary data, and decision desk inputs."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:12:02Z
 sourceUrl: "https://www.youtube.com/watch?v=CoQJGixRHwo"
 sourceTitle: "NBC News"
 section: "Politics"

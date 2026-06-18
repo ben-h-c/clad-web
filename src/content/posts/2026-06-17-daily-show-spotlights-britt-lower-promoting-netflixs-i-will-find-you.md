@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Daily Show Spotlights Britt Lower Promoting Netflix's 'I Will Find You'"
 summary: "The segment features Jordan Klepper interviewing actor Britt Lower about her new Netflix miniseries 'I Will Find You,' an adaptation of a Harlan Coben novel premiering June 18. Lower discusses her role as an investigative journalist alongside Sam Worthington's character, shares personal anecdotes about improv, circus performance, and character preparation, and receives congratulations for her Emmy win for Severance. The conversation stays light and comedic with audience interaction.\nLower promotes the thriller's plot involving a search for a son while highlighting her hands-on approach to roles; Klepper jokes about the birthday paradox after learning he and Worthington share August 2 birthdays. The interview ends with plugs for the series and Severance season 3."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T03:30:20Z
 sourceUrl: "https://www.youtube.com/watch?v=BJwSzGiDGss"
 sourceTitle: "The Daily Show"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "The View critiques Trump's Iran MOU as worse than Obama's deal"
 summary: "Segment features Alyssa Farah Griffin analyzing a leaked preliminary US-Iran memorandum of understanding announced in mid-June 2026 to end recent conflict. She calls it a worse surrender than the Obama-era deal, citing elimination of forces, end to naval blockade, lack of written inspection guarantees, and a $300 billion reconstruction fund. Discussion notes Republican outrage directed at JD Vance as negotiator and questions regime change. Sourcing draws from the leaked MOU text, White House statements, and panel commentary with no on-air experts or primary documents shown."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T19:55:18Z
 sourceUrl: "https://www.youtube.com/watch?v=rzRaRMOs7vo"
 sourceTitle: "The View"
 section: "Politics"

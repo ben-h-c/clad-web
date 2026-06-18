@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Texas Flooding Report: Waco, Houston Areas Face Ongoing Rain Threat"
 summary: "The segment covers weekend thunderstorms causing severe flooding in central Texas, including submerged cars in Waco and flash flooding in the Hill Country. It reports an ongoing search for a missing person whose car was swept away roughly 250 miles west of Houston. CBS correspondent Jason Allen reports live from Houston on receding but still significant floodwaters at bayou confluences, limited infrastructure damage so far, and preparations for additional rain potentially lasting into midweek with tropical moisture."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T00:17:40Z
 sourceUrl: "https://www.youtube.com/watch?v=V3lloI-6mpE"
 sourceTitle: "CBS News"
 section: "Politics"

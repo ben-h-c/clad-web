@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fallout Producer Credits California Tax Incentives for Production Return"
 summary: "The segment reports on Amazon Prime's Fallout series relocating production from New York for Season 2 to California, aided by $25 million in state tax credits, with Season 3 receiving $42 million more. It highlights soundstage activity, quotes producer Jonathan Nolan on the rebates' role and industry's complacency, and notes job losses and declining stage occupancy.\nNolan, who advocated for expanding the program to $750 million annually, and actor Walton Goggins discuss the benefits of filming in Los Angeles. Sourcing draws from California Film Commission announcements, Milken Institute data, and FilmLA reports, with on-set footage and direct interviews."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T12:09:49Z
 sourceUrl: "https://www.youtube.com/watch?v=urULxTf4aLk"
 sourceTitle: "Reuters"
 section: "Politics"

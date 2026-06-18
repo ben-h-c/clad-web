@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC report details June 2026 southern floods and World Cup weather disruptions"
 summary: "The segment covers severe storms and flash flooding across Texas, Louisiana, and Mississippi, including dramatic rescue footage near Waco on Interstate 35. It also references hail in Pennsylvania, strong winds in Ohio, and tornado threats tied to the ongoing FIFA World Cup.\nThe report cites 18 million people under flood watches, up to 5 inches of rain per hour in spots, and notes England's team sheltering in Kansas City plus the shutdown of Houston's FIFA FanFest. It is filed by NBC's Priscilla Thompson from Houston and frames the events as part of a multi-day severe weather pattern."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T04:39:46Z
 sourceUrl: "https://www.youtube.com/watch?v=TUbFrOqDUgg"
 sourceTitle: "NBC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBC Fact Check Accurately Flags AI-Generated Iran Soccer Image"
 summary: "The CBC News segment examines a widely shared photo purporting to show an Iranian World Cup player holding a children's backpack in tribute to victims of a school airstrike. It identifies the image as AI-generated using OpenAI tools, citing the company's confirmation and visual inconsistencies such as a non-official kit and an unrecognizable player. The report contrasts this with authentic photographs of Iran's team wearing #168 lapel pins upon arrival in Tijuana and a prior backpack tribute during a match in Turkey, plus fan tributes at the Iran-New Zealand game in Los Angeles."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T21:45:05Z
 sourceUrl: "https://www.youtube.com/watch?v=_5VlHk7fUCg"
 sourceTitle: "CBC News"
 section: "Politics"

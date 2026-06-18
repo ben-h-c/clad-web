@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Kudlow highlights Trump-era strikes crippling Iran's military and economy"
 summary: "The segment features Larry Kudlow arguing that President Trump has severely damaged Iran's military, nuclear, naval, and economic capabilities through prior strikes. It dismisses reports of a $300 billion US reparations or investment fund for Iran as fake news and quotes Trump denying any obligation to fund Iran. Kudlow references Operation Midnight Hammer (2025 B-2 strikes on nuclear sites) and Operation Epic Fury (2026 campaign against missiles, navy, and industry) as having left Iran a shadow of its former self, ending its regional hegemony alongside Israeli actions."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:00:00Z
 sourceUrl: "https://www.youtube.com/watch?v=cxnbkAUzp7s"
 sourceTitle: "Fox Business"
 section: "Politics"

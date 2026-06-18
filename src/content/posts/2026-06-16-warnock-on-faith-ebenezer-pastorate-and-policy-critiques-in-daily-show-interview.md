@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Warnock on Faith, Ebenezer Pastorate, and Policy Critiques in Daily Show Interview"
 summary: "The segment is an interview between Jon Stewart and Sen. Raphael Warnock (D-GA) discussing Warnock's path to ministry, his ongoing role as senior pastor of Ebenezer Baptist Church, and his new book 'The Crooked Places Made Straight.' They cover his upbringing, the church's civil rights legacy, balancing Senate and pulpit duties, and themes of moral meaning in America drawn from Isaiah."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T03:30:11Z
 sourceUrl: "https://www.youtube.com/watch?v=4kYixqen93U"
 sourceTitle: "The Daily Show"
 section: "Politics"

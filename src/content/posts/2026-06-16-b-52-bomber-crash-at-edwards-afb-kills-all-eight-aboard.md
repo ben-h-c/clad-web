@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "B-52 Bomber Crash at Edwards AFB Kills All Eight Aboard"
 summary: "The Reuters segment reports on a B-52 Stratofortress crash during takeoff at Edwards Air Force Base in California on June 15, 2026. It states all eight aboard died, describes the mixed crew of military personnel, civilians, and contractors, notes two Boeing employees among the dead, and confirms the aircraft was on a routine test mission for radar modernization. Operations were halted due to runway damage, and the cause is under investigation.\nThe report cites Air Force Colonel James Hayes, Boeing statements, and aviation records, noting this as the first B-52 crash since 2016. It includes visuals of smoke and references the base grounding through Tuesday."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T08:37:55Z
 sourceUrl: "https://www.youtube.com/watch?v=rkqi5DvTMTI"
 sourceTitle: "Reuters"
 section: "Politics"

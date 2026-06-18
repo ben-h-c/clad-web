@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "France 24 interview assesses US-Iran deal and shifting European defense role"
 summary: "The segment features an interview with François Heisbourg of the International Institute for Strategic Studies discussing a US-Iran memorandum of understanding described as a truce or peace deal. Topics include uncertainties around the Strait of Hormuz reopening, mine clearance needs, Gulf states' role, and Trump's reported comments on becoming 'guardian of the Middle East.'\nHeisbourg analyzes Macron's interactions with Trump at the G7, potential US troop reductions in Europe, and implications for NATO and Ukraine, noting Europe's increased leverage due to arms provision shifts."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T13:42:23Z
 sourceUrl: "https://www.youtube.com/watch?v=-YbMrpOaBqk"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

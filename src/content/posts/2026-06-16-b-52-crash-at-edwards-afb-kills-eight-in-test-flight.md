@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "B-52 Crash at Edwards AFB Kills Eight in Test Flight"
 summary: "The broadcast covers a B-52 Stratofortress crash shortly after takeoff from Edwards Air Force Base in California on June 15, 2026. Officials describe the incident as unsurvivable, with all eight aboard killed during a local test sortie supporting the radar modernization program. First responders cordoned the area and extinguished the fire. Notifications to next of kin were underway. The cause remains unknown and under investigation, with no timeline for release."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T05:00:13Z
 sourceUrl: "https://www.youtube.com/watch?v=GXG9WU3NqZA"
 sourceTitle: "Associated Press"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "All-In Podcast Features Four Investor Pitches on MGM, Talen Energy, Aktis, GEODNET"
 summary: "The broadcast covers a live pitch competition hosted by the All-In Podcast with four investors presenting top ideas. Aaron Cowen of Suvretta Capital pitches MGM Resorts highlighting Barry Diller's stake and bid plus Japan and Dubai expansion options. Dan Dreyfus of Bornite Capital pitches Talen Energy as undervalued power assets benefiting from AI-driven demand. Oleg Nodelman of EcoR1 Capital pitches Aktis Oncology's radiopharmaceutical platform for cancer. Kyle Samani pitches the GEODNET token and its decentralized RTK network for robotics and precision location. Segments include audience questions, bestie feedback, rankings, and a live audience vote."
-publishedAt: 2026-06-12
+publishedAt: 2026-06-12T01:36:11Z
 sourceUrl: "https://www.youtube.com/watch?v=fO5sC7qS04E"
 sourceTitle: "All-In Podcast"
 section: "Politics"

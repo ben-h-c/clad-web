@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Signals Possible Congressional Review of Iran Deal"
 summary: "Bloomberg News clip shows President Trump stating he had not considered sending the Iran deal to Congress but now likes the idea and will do so. He jokes that Democrats would oppose it and that Congress would approve anyway. The segment is a brief excerpt of remarks made amid negotiations for an interim US-Iran agreement. Sourcing relies on Trump's direct comments, consistent with contemporaneous reporting from multiple outlets on the June 2026 provisional deal framework."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:00:31Z
 sourceUrl: "https://www.youtube.com/watch?v=QKP3mJ6yxFQ"
 sourceTitle: "Bloomberg News"
 section: "Politics"

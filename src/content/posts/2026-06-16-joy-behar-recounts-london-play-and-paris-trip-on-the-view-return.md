@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Joy Behar Recounts London Play and Paris Trip on The View Return"
 summary: "The segment welcomes Joy Behar back to The View after her European trip. She discusses performing her play My First Ex-Husband in London, a fan traveling from Beirut, experiences in Paris including food and a hop-on bus tour, and comparisons to the UK show Loose Women.\nBehar mentions a dinner hosted by David Zaslav and notes sports events like the French Open and World Cup. The conversation remains casual and anecdotal with co-host reactions and light banter throughout."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T17:24:05Z
 sourceUrl: "https://www.youtube.com/watch?v=FosNugHQbcg"
 sourceTitle: "The View"
 section: "Politics"

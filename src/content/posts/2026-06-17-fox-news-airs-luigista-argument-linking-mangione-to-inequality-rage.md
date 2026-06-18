@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News Airs 'Luigista' Argument Linking Mangione to Inequality Rage"
 summary: "The brief segment features a self-described 'Luigista' arguing that Luigi Mangione's alleged actions served as a 'temperature check' exposing deep-seated rage over wealth inequality, government policies, and the healthcare system. The speaker claims Mangione provided an outlet for frustrations with elites allegedly harming ordinary Americans.\nThe clip draws on real online discourse and supporter activity around the ongoing murder case of UnitedHealthcare CEO Brian Thompson. Sourcing is limited to the anonymous or pseudonymous advocate's statements, with no named experts, polls, or opposing views presented in the provided transcript."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T04:30:14Z
 sourceUrl: "https://www.youtube.com/watch?v=Mw1Y03E4BSI"
 sourceTitle: "Fox News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Comments on Prospects for More Nations to Join Abraham Accords"
 summary: "The clip shows a reporter asking President Trump whether discussions have occurred with Arab leaders about additional countries joining the Abraham Accords, similar to the UAE. Trump expresses enthusiasm for expansion, praises existing signatories for remaining committed despite regional conflict, identifies Iran as the primary past impediment, and predicts broader participation soon. The exchange is brief and non-specific. Sourcing consists of the president's direct remarks with no additional guests, data, or on-screen graphics referenced in the transcript."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T17:00:24Z
 sourceUrl: "https://www.youtube.com/watch?v=KJX2BgIHMYY"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Iowa cancer incidence ranks second nationally with rising rates amid environmental and behavioral factors"
 summary: "The PBS NewsHour segment examines Iowa's elevated and rising cancer incidence rates, now second-highest nationally, with personal stories from patients and families in Des Moines and rural areas. It covers drivers including prostate, breast, lung cancers, and melanoma; potential factors like binge drinking, unchanged cigarette taxes, radon, and agricultural pesticide/nitrate exposure; and responses from the Iowa Cancer Registry, farmers, industry groups, and oncologists.\nThe report draws on interviews with Mary Charlton of the Iowa Cancer Registry, Harkin Institute researchers, a fifth-generation farmer, Iowa Corn Growers Association vice president, and a rural oncology director. It notes high incidence but mortality rates aligned with national figures and references upcoming 2026 elections where the issue has surfaced."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:50:46Z
 sourceUrl: "https://www.youtube.com/watch?v=HtND1E712Os"
 sourceTitle: "PBS NewsHour"
 section: "Politics"

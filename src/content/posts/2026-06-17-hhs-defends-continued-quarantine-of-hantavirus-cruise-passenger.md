@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "HHS Defends Continued Quarantine of Hantavirus Cruise Passenger"
 summary: "The short NPR segment reports that Angela Perriman, a passenger from the MV Hondius cruise ship outbreak, remains held in a Nebraska federal quarantine facility. HHS defends the decision under Secretary Robert F. Kennedy Jr., citing the need for 24/7 monitoring that Florida refuses to provide and the virus's high fatality rate. The report notes opposition from Florida officials, independent experts, and an internal CDC reviewer who deem a guard unnecessary.\nThe broadcast relies on an HHS spokeswoman statement and contrasts it with unnamed experts and a CDC internal review. It is a brief update within a news roundup, with no on-air guests or graphics referenced."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:00:03Z
 sourceUrl: "https://www.youtube.com/watch?v=tkynNycaJp8"
 sourceTitle: "NPR"
 section: "Politics"

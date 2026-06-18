@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Vance Outlines US-Iran MOU Release Timeline and Terms"
 summary: "The Reuters clip features Vice President JD Vance explaining the US-Iran memorandum of understanding during an interview, likely on Fox News with Sean Hannity. Vance addresses the release timeline for the MOU, diplomatic protocols involving Pakistan and Qatar, a formal Friday ceremony, and key terms including no direct US funds to Iran and conditional sanctions relief or third-country investment."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T05:34:17Z
 sourceUrl: "https://www.youtube.com/watch?v=XZVaWMYW_EY"
 sourceTitle: "Reuters"
 section: "Politics"

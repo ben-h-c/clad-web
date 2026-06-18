@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Senate Hearing Examines Specific AI Literacy Skills for K-12 Students"
 summary: "The segment is a clip from a June 16, 2026, Senate HELP Subcommittee hearing on the future of K-12 education in the age of AI. Senator Jim Banks (R-IN) questions witnesses on concrete AI skills for students and teachers, plus methods to measure proficiency.\nWitnesses include Delaware Secretary of Education Cynthia Marten, Erin Mote of InnovateEDU and EDSAFE AI Alliance, and Joshua Jones of QuantHub. They emphasize AI literacy, critical thinking, tool selection, ethics, discernment, and controlled assessments rather than direct LLM exposure. The discussion highlights state-level leadership and integration with core subjects."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T12:30:05Z
 sourceUrl: "https://www.youtube.com/watch?v=kz9mxVLfWM8"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

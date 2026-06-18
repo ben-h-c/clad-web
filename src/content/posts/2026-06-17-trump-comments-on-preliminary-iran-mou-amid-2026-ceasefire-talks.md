@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump comments on preliminary Iran MOU amid 2026 ceasefire talks"
 summary: "The Reuters video features President Trump defending a preliminary US-Iran memorandum of understanding reached in mid-June 2026. He highlights avoiding economic damage from prolonged conflict, positive market reactions to peace prospects, Iran's commitment against nuclear weapons, and the deal's nature as an MOU with potential enforcement via renewed military action if violated.\nThe segment draws directly from Trump's remarks at the G7 summit and related public statements, referencing the MOU framework for reopening the Strait of Hormuz and deferring full nuclear negotiations. No additional guests or graphics are detailed in the provided transcript."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:52:12Z
 sourceUrl: "https://www.youtube.com/watch?v=Ck1DKXnaQLo"
 sourceTitle: "Reuters"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg analyzes Warsh's first Fed meeting and market reaction"
 summary: "The segment covers the first FOMC meeting under new Chair Kevin Warsh, where rates were held steady amid a unanimous vote but a split SEP showing some members favoring hikes later in the year. Markets reacted with S&P 500 down 1.3%, sharp rises in 2-year yields, and traders pricing in an October hike; Warsh announced five task forces on communications, balance sheet, data, productivity/jobs, and inflation framework. Guests included DoubleLine's portfolio manager, Bloomberg strategist Michael Ball, former Fed Vice Chair Alan Blinder, Conference Board economist Dana Peterson, ex-FDIC Chair Sheila Bair, Barings' Kelly Burton, and Bloomberg's Mike McKee."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T21:51:16Z
 sourceUrl: "https://www.youtube.com/watch?v=27vKlAZrKUM"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

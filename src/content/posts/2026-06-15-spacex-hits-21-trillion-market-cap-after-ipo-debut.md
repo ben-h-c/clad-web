@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX Hits $2.1 Trillion Market Cap After IPO Debut"
 summary: "The YouTube video from Rich Mindset features a title asserting that SpaceX's valuation has reached US$2.1 trillion, equivalent to approximately Rp37.100 quadrillion. The provided transcript contains only background music with no spoken content or analysis. The segment appears to be a short clip or thumbnail-focused presentation highlighting the recent market milestone. Sourcing relies entirely on the headline claim without named experts, graphics, or further details."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T20:26:16Z
 sourceUrl: "https://www.youtube.com/watch?v=XMu8sPUcMfQ"
 sourceTitle: "Rich Mindset"
 section: "Politics"

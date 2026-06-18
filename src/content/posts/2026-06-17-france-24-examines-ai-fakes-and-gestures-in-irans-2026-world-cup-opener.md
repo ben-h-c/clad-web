@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "France 24 examines AI fakes and gestures in Iran's 2026 World Cup opener"
 summary: "France 24 reports on Iran's 2-2 draw with New Zealand in Los Angeles as part of the 2026 World Cup, amid US-Iran tensions from a recent war. Segments cover viral misleading images of players with backpacks allegedly honoring Minab schoolgirls killed in a US strike, an authentic older photo from a Nigeria friendly, lapel pins worn by the team, and player Mohammad Mohebi's finger-gun celebration after scoring."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T19:53:58Z
 sourceUrl: "https://www.youtube.com/watch?v=sPn41oynGCY"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

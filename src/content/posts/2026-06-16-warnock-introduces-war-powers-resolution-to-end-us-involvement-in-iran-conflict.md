@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Warnock Introduces War Powers Resolution to End U.S. Involvement in Iran Conflict"
 summary: "The Forbes Breaking News clip shows Sen. Raphael Warnock (D-GA) delivering a Senate floor speech criticizing President Trump's military campaign against Iran. He highlights 109 days of conflict, a fragile truce, U.S. casualties, economic impacts, and introduces S.J.Res. 172 to require congressional authorization or force removal of U.S. forces.\n\nThe segment consists solely of Warnock's remarks with no additional reporting, guests, or counterbalancing statements. It references primary congressional action and cites casualty figures, energy price spikes, and civilian harm in Iran."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:31:20Z
 sourceUrl: "https://www.youtube.com/watch?v=Rf7MvhjUdk0"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

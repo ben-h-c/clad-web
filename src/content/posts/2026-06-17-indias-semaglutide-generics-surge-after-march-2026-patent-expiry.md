@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "India's semaglutide generics surge after March 2026 patent expiry"
 summary: "The DW News segment covers the rapid rollout of Indian generic semaglutide versions after Novo Nordisk's patent expired in March 2026. It highlights an 80% price reduction, market growth from €13M to €127M, and India's large diabetic and overweight populations driving potential billion-dollar expansion. The report notes over 15 Indian brands capturing significant share while premium products persist, alongside concerns over loose prescriptions and safety risks flagged by regulators. Sourcing draws on industry data, analyst estimates, and company launches without named on-camera experts."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:44:17Z
 sourceUrl: "https://www.youtube.com/watch?v=2zo7_336rnM"
 sourceTitle: "DW News"
 section: "Politics"

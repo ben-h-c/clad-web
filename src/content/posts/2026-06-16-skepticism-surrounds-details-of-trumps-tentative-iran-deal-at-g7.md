@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Skepticism Surrounds Details of Trump's Tentative Iran Deal at G7"
 summary: "The segment featured MS NOW anchors and contributors Chris Jansing, Sam Stein, and Kimberly Atkins Store discussing the G7 summit in Evian-les-Bains, France. They focused on President Trump's tentative US-Iran memorandum of understanding to end recent conflict, reopen the Strait of Hormuz, provide sanctions relief and possible reconstruction funding, and defer nuclear issues to 60 days of talks.\nThe panel stressed the lack of public text, questioned leverage with allies and Congress's muted response, and highlighted risks of returning to pre-war status quo while raising midterm electoral implications for Republicans."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:14:12Z
 sourceUrl: "https://www.youtube.com/watch?v=Bd1uQwbGmmg"
 sourceTitle: "MS NOW"
 section: "Politics"

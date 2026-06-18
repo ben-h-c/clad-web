@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "BOJ Raises Rates to 1% Amid Yen Pressure and China Data Weakness"
 summary: "The segment covers the Bank of Japan's June policy meeting, including a 25bp rate hike to 1%—its highest since 1995—in a 7-1 vote with the governor absent due to hospitalization. Analysts discuss yen weakness, quantitative tightening plans, and implications of the recent US-Iran interim peace deal for energy prices and inflation. China data releases show retail sales contracting for the first time since late 2022 alongside tepid investment but resilient industrial production tied to exports and AI. Additional segments address India's trade diplomacy and biotech sector outlook."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T07:15:33Z
 sourceUrl: "https://www.youtube.com/watch?v=mM_jGy-tpiA"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

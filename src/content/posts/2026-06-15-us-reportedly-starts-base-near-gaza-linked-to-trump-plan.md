@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "US Reportedly Starts Base Near Gaza Linked to Trump Plan"
 summary: "The segment discusses reports of US military construction of a large base near Gaza's border, near Re'em base in southern Israel, per Israel Hayom. It frames the facility as a potential military-civilian hub to support the Trump Gaza plan, replacing a site in Kiryat Gat, and possibly hosting international personnel for humanitarian and security roles. It also covers the planned shutdown or overhaul of the Civil Military Coordination Center (CMCC) in favor of an International Stabilization Force (ISF) with reduced US troop numbers. The broadcast notes the unverified status of the base report and lack of official US or Israeli confirmation. Sourcing relies primarily on the Israel Hayom article, multiple reports citing US and diplomatic sources on the CMCC, and references to Trump's 20-point plan endorsed by UN resolution in late 2025."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T04:17:04Z
 sourceUrl: "https://www.youtube.com/watch?v=txt4abf5TXs"
 sourceTitle: "Hindustan Times"
 section: "Politics"

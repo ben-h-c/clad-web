@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "The Bear Cast Celebrates Final Season at New York Premiere Event"
 summary: "The Reuters video covers the cast of FX's The Bear gathering for the final season premiere event in New York. Actors reflect on the show's impact, their off-screen bonds, career growth, and souvenirs taken from the set. Segments include on-carpet interviews highlighting the five-season run ending with the June 25, 2026 premiere. The piece relies on direct cast quotes and event footage without additional experts or graphics. The throughline is the celebratory close to the series and the cast's personal connections."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T09:55:11Z
 sourceUrl: "https://www.youtube.com/watch?v=fd09t9ZNjK0"
 sourceTitle: "Reuters"
 section: "Politics"

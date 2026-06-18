@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Harris Interview on Iran War, Gas Prices, and Energy Policy"
 summary: "The Forbes clip shows Kamala Harris in an interview responding to questions about a US-Iran conflict that began with strikes in February 2026. She labels it a war of choice by President Trump, links it directly to higher gas prices costing Americans an extra $500 on average, and contrasts it with her own approach. The discussion shifts to energy, noting solar electricity surpassing coal for the first time in May 2026, criticizing coal promotion and California refinery policies, and advocating renewables and solar mandates. The segment relies on Harris as the sole speaker with no other guests or on-screen data beyond the interview itself."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:00:38Z
 sourceUrl: "https://www.youtube.com/watch?v=2RnakVffJGg"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

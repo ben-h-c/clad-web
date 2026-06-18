@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Vozinha's World Cup Heroics and Follower Surge Hold Up to Scrutiny"
 summary: "The ABC News segment highlights 40-year-old Cape Verde goalkeeper Vozinha (Jose Mario Diaz) after his World Cup debut against Spain. It covers his 27 shots faced, seven saves, man-of-the-match award and the 0-0 draw, plus his Instagram followers surging from 56,000 to over 5.6 million. The clip notes the scale relative to Cape Verde's population.\nThe report relies on match statistics and social media metrics without named on-camera guests or graphics beyond the title. It frames the story around Vozinha's viral rise following Cape Verde's first World Cup appearance."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T11:33:08Z
 sourceUrl: "https://www.youtube.com/watch?v=q0HcxYSTggI"
 sourceTitle: "ABC News"
 section: "Politics"

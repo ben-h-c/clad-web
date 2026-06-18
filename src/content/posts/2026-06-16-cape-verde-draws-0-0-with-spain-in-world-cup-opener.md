@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Cape Verde Draws 0-0 with Spain in World Cup Opener"
 summary: "The Washington Post clip covers Cape Verde's historic 0-0 draw against Spain in their first World Cup match on June 15, 2026. It features a player or coach quote highlighting the shock of the result given Cape Verde's 1% odds."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:10:35Z
 sourceUrl: "https://www.youtube.com/watch?v=fmkcbWuA5bA"
 sourceTitle: "Washington Post"
 section: "Politics"

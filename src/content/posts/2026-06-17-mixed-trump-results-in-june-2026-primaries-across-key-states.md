@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Mixed Trump results in June 2026 primaries across key states"
 summary: "The segment covers June 2026 Republican primary runoffs and primaries in Georgia, Alabama, and Oklahoma, plus Democratic races. It highlights mixed outcomes for Trump-endorsed candidates, including wins in Georgia and Alabama Senate races but a loss in the Georgia governor runoff. Democrats' internal progressive-moderate divides are noted alongside DC's mayoral primary.\n\nSourcing draws on on-air analysts with references to specific candidates, endorsements by Trump and Georgia Gov. Brian Kemp, campaign spending figures, and projected general election matchups. Throughline is testing of Trump's midterm influence ahead of November."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T09:49:53Z
 sourceUrl: "https://www.youtube.com/watch?v=clpF10u-4AA"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

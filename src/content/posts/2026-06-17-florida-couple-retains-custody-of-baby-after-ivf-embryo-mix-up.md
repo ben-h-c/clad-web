@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Florida Couple Retains Custody of Baby After IVF Embryo Mix-Up"
 summary: "The segment covers an alleged embryo mix-up at the Fertility Center of Orlando involving Tiffany Score and Steven Mills. They gave birth to daughter Shea in December 2025 via IVF but discovered through genetic testing she was not biologically theirs and was 100% South Asian. A lawsuit was filed, biological parents were identified and remain anonymous, and a custody agreement was reached allowing the birth parents to retain permanent custody while the genetic parents stay involved."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:54:21Z
 sourceUrl: "https://www.youtube.com/watch?v=EF57lYOcwPA"
 sourceTitle: "NBC News"
 section: "Politics"

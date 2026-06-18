@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Currie: Hormuz oil flows unlikely to normalize before year-end amid Iran ceasefire talks"
 summary: "Bloomberg segment features Jeff Currie of Carlyle discussing implications of a potential US-Iran ceasefire deal for oil flows through the Strait of Hormuz. He argues uncertainty remains high, physical traders are not resuming normal activity, and normalization of flows could take until year-end even if a deal is signed. Currie highlights destocking by financial and physical players, slow production restarts in the Gulf, and the need to replenish over a billion barrels of drawn-down inventories.\nThe interview draws on Currie's expertise and references observable market signals such as collapsing open interest, low VaR, German heating oil stocks, and consumer behavior at retailers. It contrasts paper market optimism with physical market caution and references historical shutdowns like COVID for recovery timelines."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T09:40:38Z
 sourceUrl: "https://www.youtube.com/watch?v=n1AB4ohgIms"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

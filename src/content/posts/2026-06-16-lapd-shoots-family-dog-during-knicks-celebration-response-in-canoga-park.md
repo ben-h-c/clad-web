@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "LAPD Shoots Family Dog During Knicks Celebration Response in Canoga Park"
 summary: "The NBC News segment covers the shooting of a 2-year-old Golden St. Bernard Doodle named Jamison by LAPD officers on Saturday night in a Canoga Park apartment on Jordan Avenue. Officers responded to reports of a woman screaming; the family states the screams were celebratory over the New York Knicks winning the NBA championship. The video shows the mother grieving beside the dog, with family members describing the incident via interview and FaceTime account. A growing hallway memorial with flowers and cards is shown, and neighbors describe the dog as playful.\nThe report draws on LAPD statements, on-scene family interviews, neighbor comments, and cellphone footage of the aftermath. It highlights the family's call for justice and contrasts the police account of the dog charging with the family's insistence there was no danger."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:48:44Z
 sourceUrl: "https://www.youtube.com/watch?v=ryN1HTcgBGs"
 sourceTitle: "NBC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC News covers flash floods in South, severe weather nationwide"
 summary: "The segment reports on severe storms and flash flooding impacting Texas, Louisiana, and Mississippi, including dramatic rescue footage from flooded roads near Waco and warnings for up to 18 million people. It places the event in a broader pattern of severe weather with hail in Pennsylvania, strong winds in Ohio, and a tornado threat in Kansas City affecting England's World Cup team and fan events. Reporting draws on on-scene video, eyewitness accounts, and official alerts. The broadcast highlights fast-moving floodwaters stranding vehicles and requiring boat and foot rescues."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:20:07Z
 sourceUrl: "https://www.youtube.com/watch?v=KtDAH2YI73M"
 sourceTitle: "NBC News"
 section: "Politics"

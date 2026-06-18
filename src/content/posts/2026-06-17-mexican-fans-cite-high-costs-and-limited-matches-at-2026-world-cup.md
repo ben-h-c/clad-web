@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Mexican fans cite high costs and limited matches at 2026 World Cup"
 summary: "The Reuters segment covers Mexican fans watching the 2026 World Cup via FanFest or at home, highlighting affordability barriers. It features fan Eduardo Marine comparing his 2018 Russia trip costs to current single-ticket prices and notes limited matches hosted in Mexico. Additional segments discuss broadcast access challenges for local businesses and authorities in Monterrey erecting walls to obscure poor neighborhoods along tourist routes. Sourcing draws on named fans, local managers, and visual evidence of urban measures. The throughline emphasizes exclusion despite Mexico co-hosting the event for the first time since 1986."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:51:18Z
 sourceUrl: "https://www.youtube.com/watch?v=Ro5OynV6sHk"
 sourceTitle: "Reuters"
 section: "Politics"

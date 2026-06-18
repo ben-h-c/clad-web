@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Schumer Seeks Permanent Ban on DOJ Anti-Weaponization Fund; Hagerty Objects"
 summary: "The Forbes Breaking News clip shows Senate Minority Leader Chuck Schumer speaking on the floor to introduce legislation (referenced as S4791) permanently banning a proposed DOJ 'anti-weaponization' or 'MAGA slush fund.' Schumer quotes Trump favorably referencing the fund and accuses Republicans of enabling corruption favoring Trump allies and January 6 defendants. Sen. Bill Hagerty objects, defending against the proposal by highlighting alleged Biden-era DOJ abuses including Arctic Frost, Mar-a-Lago raid, Senate subpoenas, and pro-life prosecutions; he notes Acting AG Todd Blanche stated the fund would not proceed. Schumer responds briefly after the objection is sustained."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T17:09:04Z
 sourceUrl: "https://www.youtube.com/watch?v=wl6lLOzCuUc"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

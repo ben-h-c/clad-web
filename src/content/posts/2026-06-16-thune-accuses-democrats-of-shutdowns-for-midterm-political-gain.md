@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Thune Accuses Democrats of Shutdowns for Midterm Political Gain"
 summary: "The broadcast is a Senate floor speech by Majority Leader John Thune criticizing Democrats for rejecting border and ICE funding reforms and causing multiple government shutdowns to improve their 2026 midterm prospects. Thune cites Schumer quotes on strategic decisions and \"every day gets better for us,\" details impacts on airports, TSA workers, national security, and federal employees, and contrasts this with House Democrats' reported priorities like election law changes over affordability. The second paragraph covers sourcing via direct Senate remarks, referenced news articles on Democratic strategy, and contrasts with claimed Democratic messaging on helping workers."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:44:12Z
 sourceUrl: "https://www.youtube.com/watch?v=AQ2MwQrSGJo"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

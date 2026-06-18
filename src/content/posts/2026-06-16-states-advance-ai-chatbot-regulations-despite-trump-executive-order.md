@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "States Advance AI Chatbot Regulations Despite Trump Executive Order"
 summary: "The CBS19 segment reports that several states are enacting AI regulations on chatbots, particularly those interacting with children, despite a Trump administration executive order from six months earlier aimed at curbing such laws. It names Colorado, Connecticut, Idaho, Iowa, Nebraska, and Oregon as having passed relevant measures.\nThe broadcast references President Trump's December 2025 executive order directing the Attorney General to create a litigation task force against burdensome state AI laws. Sourcing relies on the order's provisions and legislative developments; no guests or graphics are mentioned in the transcript."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T17:37:48Z
 sourceUrl: "https://www.youtube.com/watch?v=U1hODSdD7bs"
 sourceTitle: "CBS19"
 section: "Politics"

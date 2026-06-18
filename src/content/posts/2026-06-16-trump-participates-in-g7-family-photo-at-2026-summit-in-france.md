@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Participates in G7 Family Photo at 2026 Summit in France"
 summary: "The short Bloomberg Television clip shows audio and visuals from a G7 leaders' family photo at the 2026 summit in Évian-les-Bains, France. Casual dialogue includes pleasantries such as compliments on the photo and expressions of thanks among participants.\nThe segment captures President Donald Trump and other G7 leaders posing, consistent with routine summit coverage. Sourcing relies on live event footage with no named guests or graphics beyond the title overlay."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:39:52Z
 sourceUrl: "https://www.youtube.com/watch?v=FUAagMBwaqQ"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

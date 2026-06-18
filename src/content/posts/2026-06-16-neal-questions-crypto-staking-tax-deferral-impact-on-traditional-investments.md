@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Neal Questions Crypto Staking Tax Deferral Impact on Traditional Investments"
 summary: "The Forbes Breaking News clip shows Rep. Richard Neal (D-MA), ranking member of the House Ways and Means Committee, questioning witness Mr. Ketcher during the June 9, 2026 hearing on digital asset taxation. Neal and the witness discuss how deferring income recognition on crypto staking rewards could create tax advantages over bank accounts, stocks, and bonds. They highlight risks of shifting savings away from traditional instruments and urge caution regarding retirement accounts. The segment draws directly from committee testimony without additional reporting or guests."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T09:30:07Z
 sourceUrl: "https://www.youtube.com/watch?v=4ZNMpizBs0s"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

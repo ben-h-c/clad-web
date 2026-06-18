@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NewsNation covers Trump DC takeover threat and GOP primary runoffs"
 summary: "The segment opens with an overview of multiple June 16 primaries including Georgia Senate and governor runoffs, Alabama Senate, Oklahoma House/Senate, and the DC mayoral Democratic primary. It highlights Trump's endorsement power and then focuses on the DC race. Trump is quoted warning of a possible federal takeover if Janeese Lewis George wins. National Guard presence in DC is noted as ongoing for months. Sourcing relies on Trump's public comments, candidate names, and general reporting; no named experts or graphics are referenced beyond poll timing."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:29:30Z
 sourceUrl: "https://www.youtube.com/watch?v=Nm5cEmaSXHo"
 sourceTitle: "NewsNation"
 section: "Politics"

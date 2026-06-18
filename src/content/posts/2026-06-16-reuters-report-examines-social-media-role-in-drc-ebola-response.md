@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters Report Examines Social Media Role in DRC Ebola Response"
 summary: "The Reuters segment profiles Congolese social media influencers, including Bob Langa Jakub (SEBO), working with the Ministry of Health to produce awareness videos about the Ebola outbreak centered in Bunia, Ituri Province. It highlights challenges like insecurity limiting traditional outreach and quotes ministry official Hussein Tuabu on using platforms like TikTok and Facebook to reach youth.\nThe report notes over 800 cases of the Bundibugyo strain, which lacks approved vaccines or treatments, and mentions ongoing efforts at Bunia General Hospital amid rising cases. Sourcing draws from named local influencers, ministry officials, and hospital workers."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:20:51Z
 sourceUrl: "https://www.youtube.com/watch?v=S3fcGcvrwws"
 sourceTitle: "Reuters"
 section: "Politics"

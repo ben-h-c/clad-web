@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News examines Trump's Iran MOU, notes limited details released"
 summary: "ABC News reports on President Trump at the G7 summit in Geneva touting a signed preliminary agreement with Iran. Segments cover pressure to release the text, Vance's description of the short MOU, port blockade lift and Strait of Hormuz reopening, 60 days of nuclear talks, oil sales reports, and reactions from Nikki Haley and Senate Republican leader John Thune. Trump reiterates Iran will never have a nuclear weapon; sources note US intelligence skepticism."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T00:12:26Z
 sourceUrl: "https://www.youtube.com/watch?v=Y463OMT0k_0"
 sourceTitle: "ABC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "House Ways and Means Hearing Examines Crypto Tax Clarity Proposals"
 summary: "The segment covers a June 9, 2026 House Ways and Means Committee legislative hearing chaired by Rep. Jason Smith on digital asset tax reforms. It features Smith's opening statement and Q&A with witnesses from Coinbase, Kraken, and tax experts discussing ownership demographics, stablecoins, de minimis rules, staking/mining rewards, and reporting burdens.\n\nWitnesses cite Coinbase Institute data on American ownership, a Kraken survey on tax confusion, and examples of IRS Form 1099-DA filings. The discussion focuses on proposed bills addressing timing of income recognition, transaction fee exemptions, charitable giving valuations, and parity with traditional assets. Sourcing relies on named witnesses and referenced surveys rather than anonymous officials."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T10:00:35Z
 sourceUrl: "https://www.youtube.com/watch?v=32UCx8JZJHY"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

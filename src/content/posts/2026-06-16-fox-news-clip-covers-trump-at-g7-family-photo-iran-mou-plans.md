@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News clip covers Trump at G7 family photo, Iran MOU plans"
 summary: "The brief Fox News segment shows G7 leaders posing for the traditional family photo at the 2026 summit in Évian-les-Bains, France. Trump is highlighted front and center. Anchors note the contrast with Biden's placement at a prior APEC event and joke about Macron gripping his wife's hand. They mention Trump returning to the US and JD Vance heading to Geneva to formally sign a US-Iran memorandum of understanding later in the week."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:30:33Z
 sourceUrl: "https://www.youtube.com/watch?v=HBVQvvGZ5S4"
 sourceTitle: "Fox News"
 section: "Politics"

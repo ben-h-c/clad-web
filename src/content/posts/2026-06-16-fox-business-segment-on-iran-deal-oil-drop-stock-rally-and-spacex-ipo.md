@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox Business segment on Iran deal, oil drop, stock rally and SpaceX IPO"
 summary: "The segment discusses President Trump's touting of a preliminary US-Iran agreement, falling oil prices near $75, and a strong stock-market rally led by tech and AI. Panelists analyze the Dow's records, semiconductor gains, and the SpaceX IPO surge amid Fed rate expectations.\nGuests include Barron's editor Joshua Schaefer and analysts Brian Brenberg, Taylor Ricks, Lou, and Lydia. Sourcing relies on live market data, Trump statements, JD Vance comments, and economic indicators like import prices; the throughline is geopolitical relief boosting equities."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:00:27Z
 sourceUrl: "https://www.youtube.com/watch?v=QAhVY_K9ZNA"
 sourceTitle: "Fox Business"
 section: "Politics"

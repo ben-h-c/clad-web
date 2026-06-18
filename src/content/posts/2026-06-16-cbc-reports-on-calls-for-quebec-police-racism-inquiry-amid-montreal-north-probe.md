@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBC reports on calls for Quebec police racism inquiry amid Montreal North probe"
 summary: "The segment covers a Quebec network of Black youth organizations calling for a province-wide public inquiry into racism and racial profiling in police forces. It follows Montreal police confirmation that 16 officers at Station 39 in Montreal North are under investigation for alleged racist acts during stops, including collecting hair locks and ethnic-based ticketing. Residents describe longstanding distrust. Quebec's public security minister indicated the probe could lead to an inquiry, and Premier Christine Fréchette has not ruled it out. SPVM Chief Fady Dagher is set to meet community groups with recommendations."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:21:15Z
 sourceUrl: "https://www.youtube.com/watch?v=13ca3yKoJRU"
 sourceTitle: "CBC News"
 section: "Politics"

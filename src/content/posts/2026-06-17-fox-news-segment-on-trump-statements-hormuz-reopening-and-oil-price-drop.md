@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News segment on Trump statements, Hormuz reopening and oil price drop"
 summary: "The segment covers energy market reactions to developments in a US-Iran agreement on reopening the Strait of Hormuz. It highlights Trump's claims of increasing ship traffic and a full reopening by Friday, alongside sharp drops in crude oil prices below $76 per barrel. Experts discuss impacts on gas prices, production recovery, and remaining deal uncertainties. It also touches on Fed policy views from Kevin Warsh.\nThe broadcast relies on Trump's social media posts, AAA gas price data, and analysis from Mohamed El-Erian. It references unnamed senior administration officials for shipping figures and notes market resilience tied to AI earnings."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T06:00:06Z
 sourceUrl: "https://www.youtube.com/watch?v=_bZ2SGKFhhc"
 sourceTitle: "Fox News"
 section: "Politics"

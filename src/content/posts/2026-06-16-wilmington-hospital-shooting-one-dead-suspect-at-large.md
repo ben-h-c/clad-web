@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Wilmington Hospital Shooting: One Dead, Suspect at Large"
 summary: "CBS News aired a press conference following a June 16, 2026, shooting at Wilmington Hospital (ChristianaCare campus). Officials including the mayor, police chief, governor, and hospital leadership addressed the incident, confirming one death, one injury, an active manhunt for the suspect, and praise for first responders.\nThe broadcast featured prepared remarks on the 3:30 p.m. shooting inside the hospital, lockdown status, inter-agency coordination, and condolences, followed by limited Q&A where details on victims and the shooter were withheld pending investigation."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:52:19Z
 sourceUrl: "https://www.youtube.com/watch?v=TyqKk6PvM9A"
 sourceTitle: "CBS News"
 section: "Politics"

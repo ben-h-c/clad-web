@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "AP examines rightward political shift in Latin America amid crime concerns"
 summary: "The segment reports a regional political backlash against earlier left-leaning governments, driven by public concerns over rising extortion and other crimes. It highlights conservative candidates in Colombia, Peru, and Chile campaigning on tough-on-crime platforms inspired by El Salvador's Nayib Bukele.\n\nAP sourcing draws on expert commentary and references recent electoral trends; the piece notes Bukele-style tactics despite documented risks to democratic norms and civil liberties."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T08:15:27Z
 sourceUrl: "https://www.youtube.com/watch?v=lMJeudP_7jA"
 sourceTitle: "Associated Press"
 section: "Politics"

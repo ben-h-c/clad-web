@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Guardian clip captures anti-regime protests at 2026 Iran World Cup opener"
 summary: "The short Guardian News segment shows anti-regime Iranian-American protesters gathered outside the Los Angeles stadium ahead of Iran's opening 2026 World Cup match against New Zealand. Demonstrators express support for the players while denouncing the Islamic Republic government, reference past deaths in protests, and appeal for international pressure including from President Trump."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:18:23Z
 sourceUrl: "https://www.youtube.com/watch?v=zaDj8nTi4kU"
 sourceTitle: "Guardian News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Gas prices track lower after US-Iran ceasefire deal but remain elevated"
 summary: "ABC News segment tracks US gas prices following a preliminary US-Iran ceasefire deal and expected reopening of the Strait of Hormuz. Reporter Elizabeth Schulze reports from Alabama, citing local and national averages, GasBuddy expectations for further declines by July 4, and persistent elevation above pre-war levels. Segments also cover airline fares staying firm, fuel surcharges for businesses, and the typical lag between crude price drops and consumer relief.\nThe report draws on real-time averages, analyst views, and a price chart showing the post-war spike and recent decline. It references the 60-day ceasefire window and shipping uncertainties without named on-camera experts beyond the correspondent."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:53:06Z
 sourceUrl: "https://www.youtube.com/watch?v=ouVxOZUkA9A"
 sourceTitle: "ABC News"
 section: "Politics"

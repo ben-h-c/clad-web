@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Holds Press Conference on Iran Peace Deal and Strait Reopening"
 summary: "The segment shows President Trump speaking alongside a Middle Eastern leader after signing or finalizing an interim peace agreement with Iran. He highlights the deal's prohibition on Iranian nuclear weapons, reopening of the Strait of Hormuz on a toll-free basis, falling oil prices, rising stock markets, and massive U.S. investment inflows. Reporters ask about the document text, Abraham Accords expansion, congressional review, enriched uranium disposal, and related topics. Trump responds directly and fields questions on sanctions, future fights at the White House, and a Versailles dinner."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:34:26Z
 sourceUrl: "https://www.youtube.com/watch?v=qUpEYJDTRZg"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "WaPo Investigation Details Modeling Agent's Emails With Epstein"
 summary: "The Washington Post segment examines emails between Jeffrey Epstein and modeling agent Ramsey Elkholy (mis-transcribed in video as Eli or similar), who exchanged over 100 messages over a decade. It highlights discussions of women, their ages and bodies, offers to scout models internationally, and requests for favors like Victoria's Secret introductions. Elkholy is interviewed and describes the language as performative and out of context. The report also covers the Post's custom search tool for navigating the large DOJ document release and emphasizes verification against originals."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:00:54Z
 sourceUrl: "https://www.youtube.com/watch?v=n78eP3BEmAQ"
 sourceTitle: "Washington Post"
 section: "Politics"

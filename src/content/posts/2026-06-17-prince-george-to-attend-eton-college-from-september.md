@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Prince George to Attend Eton College from September"
 summary: "The segment reports Kensington Palace's announcement that Prince George will start at Eton College in September 2026. It notes the school choice follows reviews of options, highlights the £63,000+ annual fees paid privately, and positions the move as following Prince William's path."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T00:00:13Z
 sourceUrl: "https://www.youtube.com/watch?v=JMnGNQOnSQQ"
 sourceTitle: "BBC News"
 section: "Politics"

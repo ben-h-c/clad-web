@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg analyzes US-Iran Hormuz deal, G7 talks, Ukraine and AI curbs"
 summary: "The June 15, 2026 episode of Balance of Power covered the newly announced US-Iran framework agreement to end conflict and reopen the Strait of Hormuz, alongside the G7 summit in France where leaders discussed the deal and Ukraine. Segments included market reactions to falling oil prices and rising equities, interviews with Rep. Dina Titus, the Ukrainian ambassador, defense experts Becca Wasser and Gen. Wesley Clark, and analysis of Anthropic AI export restrictions."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T23:47:13Z
 sourceUrl: "https://www.youtube.com/watch?v=ExFjDAiop8U"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

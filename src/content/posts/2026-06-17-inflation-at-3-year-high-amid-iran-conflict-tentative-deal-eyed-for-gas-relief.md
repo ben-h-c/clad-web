@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Inflation at 3-year high amid Iran conflict; tentative deal eyed for gas relief"
 summary: "The segment examines surging US inflation tied to the Iran conflict and a tentative US-Iran memorandum of understanding that could ease energy prices. It discusses the Federal Reserve's upcoming rate decision under new Chair Kevin Warsh, lingering supply chain disruptions to fuel, food, and other goods, and recent declines in national gas averages. Experts note that even with a deal, price relief will be gradual due to depleted inventories and business cost pass-through.\nThe broadcast features analysis from Drew Petrillo, references to Trump comments at the G7, and quotes from Sen. Angela Alsobrooks criticizing the war's impact and Sen. Lindsey Graham expressing cautious optimism. It cites government figures on price changes and Bloomberg/CNN reporting on MOU elements like sanctions relief and a reconstruction fund."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T12:31:39Z
 sourceUrl: "https://www.youtube.com/watch?v=SpGtJkE8VOc"
 sourceTitle: "The Hill"
 section: "Politics"

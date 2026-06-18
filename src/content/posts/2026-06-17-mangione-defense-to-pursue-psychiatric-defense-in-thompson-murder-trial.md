@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Mangione Defense to Pursue Psychiatric Defense in Thompson Murder Trial"
 summary: "The segment reports on a brief pretrial hearing in Luigi Mangione's New York state case for the 2024 killing of UnitedHealthcare CEO Brian Thompson. It covers Mangione's in-person appearance, the judge's disclosure of the defense's planned psychiatric strategy from a sealed meeting, and discussions on setting the trial date."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T17:00:04Z
 sourceUrl: "https://www.youtube.com/watch?v=brHxBaelv8s"
 sourceTitle: "The Hill"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Vance Defends Tentative US-Iran Ceasefire Deal on ABC News"
 summary: "ABC News' George Stephanopoulos interviews Vice President JD Vance about a recent US-Iran framework agreement extending a fragile ceasefire, reopening the Strait of Hormuz, and opening 60 days of nuclear talks. Vance describes a two-track performance-based deal with sanctions relief only after Iranian compliance on verification and non-proliferation."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T14:15:32Z
 sourceUrl: "https://www.youtube.com/watch?v=iokInGPBwUY"
 sourceTitle: "ABC News"
 section: "Politics"

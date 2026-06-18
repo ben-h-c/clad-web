@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Supreme Court Affirms Objectively Reasonable Standard for Emergency Home Entries in Case v. Montana"
 summary: "The broadcast covers the January 2026 unanimous Supreme Court decision in Case v. Montana. It details the underlying incident involving a 911 call from the petitioner's ex-girlfriend reporting suicide threats, police observations of an empty holster and notepad, a 40-minute wait, warrantless entry, and subsequent shooting and evidence recovery.\nThe segment describes the legal arguments, notes the Trump administration's amicus support for a lower standard, explains the Court's rejection of both reasonable suspicion and probable cause in favor of the Brigham City v. Stuart objectively reasonable basis test, and affirms the Montana judgment while clarifying the nationwide rule."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T00:00:01Z
 sourceUrl: "https://www.youtube.com/watch?v=yY3pR7Njzs8"
 sourceTitle: "Armed Scholar"
 section: "Politics"

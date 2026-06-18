@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Kalshi Sets Daily Volume Records During World Cup and NBA Finals"
 summary: "Bloomberg Television segment features commentary on Kalshi prediction market volumes, noting multiple days above $1 billion daily—well above the prior $500 million NFL peak—attributed to compounding liquidity across more markets and participants. Discussion projects potential $300 billion annualized run rate for the month and $7 billion for the week, citing ongoing World Cup, politics, culture, and crypto activity. The clip references the power of exchange-driven growth and higher engagement. Sourcing is primarily the on-air speaker's statements with no additional named experts or graphics detailed in the transcript. The segment ties recent spikes to major sports events including the NBA Finals and World Cup."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T20:41:11Z
 sourceUrl: "https://www.youtube.com/watch?v=UnXpAg8IXek"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Crypto Clarity Act Push and Bitcoin Update Scrutinized"
 summary: "The broadcast covers Bitcoin trading above $64,000 amid reports of a potential US-Iran peace deal confirmed by Pakistan's prime minister and Trump. It discusses Fed Chair Kevin Warsh's upcoming first FOMC meeting, rate expectations, and the Crypto Clarity Act timeline with quotes from White House adviser Patrick Witt and Sen. Tim Scott. Segments include technical analysis suggesting Bitcoin support levels and bullish divergence patterns. Sourcing draws on podcast clips, journalist commentary, and on-screen quotes; no named experts beyond industry figures appear."
-publishedAt: 2026-06-13
+publishedAt: 2026-06-13T21:29:37Z
 sourceUrl: "https://www.youtube.com/watch?v=CdsTuErwm5k"
 sourceTitle: "Altcoin Daily"
 section: "Politics"

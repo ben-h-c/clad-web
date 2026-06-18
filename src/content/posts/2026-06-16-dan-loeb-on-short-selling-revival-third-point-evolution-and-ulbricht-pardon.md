@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Dan Loeb on Short Selling Revival, Third Point Evolution, and Ulbricht Pardon"
 summary: "The All-In Podcast episode features an extended interview with Dan Loeb, founder and CIO of Third Point. Segments cover the resurgence of short selling, Loeb's early career on chat boards and at Jefferies, the firm's shift toward business quality and credit strategies, multi-strat operations including private credit and insurance, and his philanthropy focused on education reform and criminal justice."
-publishedAt: 2026-06-05
+publishedAt: 2026-06-05T19:37:19Z
 sourceUrl: "https://www.youtube.com/watch?v=i8OI8CNdZgU"
 sourceTitle: "All-In Podcast"
 section: "Politics"

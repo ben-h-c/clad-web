@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "DC mayoral primary: Lewis George leads; comparisons to NYC's Mamdani examined"
 summary: "The segment discusses the June 16, 2026 DC Democratic mayoral primary where Janeese Lewis George holds a commanding lead and is positioned to advance to the November ballot. It explores comparisons to NYC Mayor Zohran Mamdani, noting shared democratic socialist platforms on universal childcare, affordable housing, and labor issues. Former NYC Deputy Mayor Tiffany Rasberry analyzes similarities in coalitions and challenges like budget deficits and federal relations."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T13:44:37Z
 sourceUrl: "https://www.youtube.com/watch?v=mn3v94iwORQ"
 sourceTitle: "The Hill"
 section: "Politics"

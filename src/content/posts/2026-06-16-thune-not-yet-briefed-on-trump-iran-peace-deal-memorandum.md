@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Thune: Not Yet Briefed on Trump-Iran Peace Deal Memorandum"
 summary: "C-SPAN clip shows Senate Majority Leader John Thune responding to questions about a memorandum of understanding on a US-Iran peace deal announced by President Trump. Thune states he has not been briefed, notes that lawmakers are requesting details, and says he will withhold further comment until receiving specific information. The segment is a short, unedited exchange from Capitol Hill remarks on June 16, 2026.\nThe sourcing is direct video of Thune's press gaggle; no guests or graphics. It captures the throughline of congressional frustration over limited information on the recently announced interim agreement amid ongoing negotiations."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:46:22Z
 sourceUrl: "https://www.youtube.com/watch?v=c--ZouJtoH4"
 sourceTitle: "C-SPAN"
 section: "Politics"

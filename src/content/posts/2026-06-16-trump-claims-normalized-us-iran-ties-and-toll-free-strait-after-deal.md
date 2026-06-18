@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Claims Normalized US-Iran Ties and Toll-Free Strait After Deal"
 summary: "The Bloomberg clip features President Trump discussing a recently reached US-Iran agreement to end recent conflict. He states a deal has been signed, the Strait of Hormuz will open toll-free, ships are moving, oil prices are falling, and relations are now normalized within a 60-day framework extendable beyond that."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:00:26Z
 sourceUrl: "https://www.youtube.com/watch?v=R3uqWckOYcY"
 sourceTitle: "Bloomberg News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Ukrainian drone strikes disrupt Russian oil and logistics, per milbloggers and reports"
 summary: "The broadcast analyzes recent Ukrainian long-range drone strikes on Russian oil refineries and mid-range attacks on supply routes in occupied southern Ukraine. Segments cite Russian milbloggers acknowledging fires at facilities north of Moscow, fuel shortages in Donetsk and Rostov regions, and impacts on military movement toward Crimea and the front lines.\nIt references Bloomberg data on declining Russian refining capacity, footage of strikes, and a fundraiser for Ukrainian drone units. Sourcing draws from named Russian milbloggers (Two Majors, Maxim Kalashnikov, Romanov, Vovvoid), opposition channels, and maps of affected highways."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T16:00:33Z
 sourceUrl: "https://www.youtube.com/watch?v=RJ2YsNjchBc"
 sourceTitle: "Preston Stewart"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News Reports on Proposed Iran MOU and Conditional $300B Fund"
 summary: "The segment covered an emerging U.S.-Iran memorandum of understanding to end recent conflict, reopen the Strait of Hormuz, provide sanctions relief contingent on compliance, and advance nuclear talks. It highlighted speculation around a $300 billion reconstruction fund financed by Gulf states, with comments from President Trump, Vice President Vance, and expert analysis from a Middle East Institute fellow. The broadcast referenced a 60-day window for the MOU, upcoming signing discussions, and political reactions including Democratic critiques. Sourcing drew on administration statements, unnamed reporters, and the guest expert; graphics and live elements from Geneva/Switzerland were referenced."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T08:15:16Z
 sourceUrl: "https://www.youtube.com/watch?v=434Br5Gmcpg"
 sourceTitle: "Fox News"
 section: "Politics"

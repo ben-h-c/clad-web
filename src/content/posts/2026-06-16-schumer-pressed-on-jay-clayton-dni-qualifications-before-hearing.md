@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Schumer Pressed on Jay Clayton DNI Qualifications Before Hearing"
 summary: "The Forbes Breaking News clip shows a reporter questioning Senate Democratic Leader Chuck Schumer about Jay Clayton's suitability for Director of National Intelligence. The query references Senate Majority Leader John Thune's endorsement based on Clayton's tenure as U.S. Attorney for the Southern District of New York and its handling of terrorism matters. Schumer defers to the upcoming confirmation hearing. The segment is brief and consists of the live exchange with minimal narration."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:45:19Z
 sourceUrl: "https://www.youtube.com/watch?v=EvZINp0LSO8"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

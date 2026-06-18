@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Redistricting analysis shows GOP edge for 2026 midterms; Vance media tour draws scrutiny"
 summary: "CBS News panel discussed an NRCC/internal Republican assessment on mid-decade redistricting ahead of the 2026 House elections. It highlighted Democrats now defending 23 Trump-won seats (up from 13) and a net creation of 10 additional red-leaning districts. Panelists debated the impact alongside the generic ballot and special election results. The segment then covered Vice President JD Vance's media appearances, including on The View, where he addressed his past 'childless cat lady' comments and promoted an Iran deal."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:42:45Z
 sourceUrl: "https://www.youtube.com/watch?v=IUfS35eVbEc"
 sourceTitle: "CBS News"
 section: "Politics"

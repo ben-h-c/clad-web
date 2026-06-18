@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Conservative MP introduces bill to ease psilocybin access for medical use"
 summary: "The segment covers Conservative MP Corey Tochor introducing private member's Bill C-286 to facilitate doctor-prescribed psilocybin therapy for mental health conditions including PTSD and end-of-life anxiety. It features a Canadian veteran describing benefits for his PTSD and Tochor explaining the bill's motivation from constituent Thomas Hartle's case and broader patient stories. The interview addresses party positions, scientific evidence, differences from cannabis legalization, and potential for cross-party support. Sourcing relies on the MP interview, veteran testimony, and references to Health Canada processes and studies."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:57:32Z
 sourceUrl: "https://www.youtube.com/watch?v=WUjBFFCAseI"
 sourceTitle: "CBC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CNN report on foiled White House UFC attack plot aligns with court filings"
 summary: "The segment details an alleged plot by five men to attack the June 14 UFC Freedom 250 event on the White House South Lawn using explosive drones and snipers targeting high-value attendees including politicians. It reports the plot was thwarted after a mother's tip led to arrests on conspiracy to murder charges, with ongoing investigation and additional suspects sought.\nCourt documents describe anti-government ideology with some Christian ultra-religious elements and anti-Israel views; experts John Miller and Phil Mudd discuss intent versus capability and resource allocation for such threats."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:47:22Z
 sourceUrl: "https://www.youtube.com/watch?v=vSeQMhmXZWg"
 sourceTitle: "CNN"
 section: "Politics"

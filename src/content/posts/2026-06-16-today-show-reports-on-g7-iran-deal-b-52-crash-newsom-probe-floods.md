@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "TODAY Show Reports on G7 Iran Deal, B-52 Crash, Newsom Probe, Floods"
 summary: "The June 16, 2026 episode opened with President Trump at the G7 summit in Geneva touting a new U.S.-Iran memorandum of understanding aimed at ending conflict and preventing nuclear weapons. Segments followed on a fatal B-52 bomber crash at Edwards AFB, a DOJ investigation into Governor Gavin Newsom and his wife, severe flooding across the South, and Britain's planned social media restrictions for under-16s. Later coverage included Serena and Venus Williams' Wimbledon doubles entry, consumer pricing on ride-share apps, and lighter features on Dolly Parton and Hamilton casting."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:06:58Z
 sourceUrl: "https://www.youtube.com/watch?v=UyFqn3Bn9RE"
 sourceTitle: "NBC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Obamas Discuss Democracy, Project 2025 in ABC Interview Ahead of Center Opening"
 summary: "ABC News' Robin Roberts interviewed former President Barack Obama and former First Lady Michelle Obama at the Obama Presidential Center site. The segment focused on their reflections on the center's meaning, contemporary political challenges including policy reversals, and the nature of American democracy.\nThe broadcast drew primarily from the Obamas' direct comments during the sit-down, with Roberts posing questions on public discouragement and specific references to Project 2025. No additional guests or external experts appeared in the clip."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T13:33:20Z
 sourceUrl: "https://www.youtube.com/watch?v=-MNsW_1ys6E"
 sourceTitle: "ABC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump criticizes Israel on Lebanon, eyes quick Iran deal signing"
 summary: "The segment features President Trump speaking at the G7 summit, praising Prime Minister Netanyahu while urging restraint against Hezbollah in Lebanon. He references a US-Iran memorandum of understanding reached Sunday that he expects to be signed shortly, notes sending a copy to Israel, and expresses sympathy for Lebanon. Trump distinguishes self-defense from excessive responses to minor incidents."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T21:58:39Z
 sourceUrl: "https://www.youtube.com/watch?v=x4MmvCHF8EI"
 sourceTitle: "Associated Press"
 section: "Politics"

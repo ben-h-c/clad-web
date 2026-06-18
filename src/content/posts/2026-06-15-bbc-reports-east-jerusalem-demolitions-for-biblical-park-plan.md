@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "BBC Reports East Jerusalem Demolitions for Biblical Park Plan"
 summary: "The segment covers intensified Israeli demolitions in East Jerusalem's Al-Bustan neighborhood in Silwan since the Gaza war, with nearly half the area cleared for a planned biblical-themed park. It includes interviews with affected residents like Fayez Abu Awad, details on pre-1948 property laws favoring settlers, and an Old City eviction case. The report also addresses Jerusalem Day marches and revived plans to seize properties near Al-Aqsa Mosque. Sourcing draws on on-the-ground reporting, resident testimony, Jerusalem municipality statements, and activist commentary."
-publishedAt: 2026-06-12
+publishedAt: 2026-06-12T09:06:22Z
 sourceUrl: "https://www.youtube.com/watch?v=RJWVHMrv9GI"
 sourceTitle: "BBC News"
 section: "Politics"

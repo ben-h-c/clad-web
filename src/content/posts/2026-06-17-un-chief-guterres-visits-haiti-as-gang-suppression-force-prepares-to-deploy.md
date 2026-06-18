@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "UN Chief Guterres Visits Haiti as Gang Suppression Force Prepares to Deploy"
 summary: "The segment covers UN Secretary-General António Guterres's June 16, 2026 visit to Port-au-Prince, focusing on the humanitarian crisis and the upcoming deployment of a new UN-authorized Gang Suppression Force. It includes footage and quotes from Guterres at the force headquarters and a displacement shelter, plus statistics on violence, displacement and sexual violence.\nGuterres's remarks and on-site visits are presented directly alongside context from UN Security Council approvals and troop contributions from Jamaica, Chad, El Salvador and Guatemala. No named experts or additional guests appear; sourcing relies on official UN statements, shelter resident comments and aggregated violence data."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T09:52:43Z
 sourceUrl: "https://www.youtube.com/watch?v=F0aLl379Qwc"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

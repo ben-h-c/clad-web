@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Video links Meta-Anduril helmet and SpaceX orbital data centers, exaggerates timing"
 summary: "The video reports that Meta partnered with Anduril on an AI-powered combat helmet system called EagleEye, which provides real-time battlefield awareness, drone spotting, and target marking. It also covers SpaceX's plans for satellites functioning as solar-powered orbital AI data centers, with an FCC filing for up to one million units. The segment frames both as recent developments showing AI moving from apps to physical infrastructure.\nThe sourcing relies on company announcements and public filings. It references Anduril's unveiling and Palmer Luckey's comments on the helmet as a 'teammate,' alongside SpaceX's FCC application and Musk statements on the satellite constellation."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T16:50:19Z
 sourceUrl: "https://www.youtube.com/watch?v=wMEEfqZdX58"
 sourceTitle: "Prateek Mahajan"
 section: "Politics"

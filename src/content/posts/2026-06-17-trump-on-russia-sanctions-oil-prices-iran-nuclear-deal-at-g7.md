@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump on Russia sanctions, oil prices, Iran nuclear deal at G7"
 summary: "Forbes Breaking News clip shows a reporter asking President Trump about reimposing sanctions on Russia amid renewed focus on the Ukraine war. Trump responds that the administration is reviewing the issue while monitoring tumbling oil prices around $74-75 per barrel, expected to return to levels from four months prior. He adds that an Iran without nuclear weapons will be achieved, noting strong support from the prime minister."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T21:00:17Z
 sourceUrl: "https://www.youtube.com/watch?v=XKFaFWwX8yA"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

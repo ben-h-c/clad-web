@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Starbase Update Tracks Booster 20 Prep and Tower Work for Flight 13"
 summary: "The video covers Starbase activities June 7-12, 2026, including ongoing work on the orbital launch mount tower arms (chopsticks) and carriage system maintenance, plus refurbishment after Flight 12 from Pad 2. It details Booster 20 completing a second cryo proof test, rolling back to Mega Bay 1 for engine installation ahead of Flight 13, and Booster 21's LOX tank being temporarily moved to accommodate it."
-publishedAt: 2026-06-13
+publishedAt: 2026-06-13T22:55:09Z
 sourceUrl: "https://www.youtube.com/watch?v=7ii_4O-P008"
 sourceTitle: "NASASpaceflight"
 section: "Politics"

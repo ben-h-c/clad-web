@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Hickenlooper Senate Speech Critiques Trump Iran Policy, Economy"
 summary: "Senator John Hickenlooper (D-CO) delivered floor remarks criticizing President Trump's handling of inflation, an ongoing conflict with Iran, and rising costs for Coloradans and farmers. Segments covered Trump's reported comments on inflation, war duration and costs, a new memorandum of understanding with Iran, tariff impacts, and fertilizer price surges linked to the Strait of Hormuz. Hickenlooper contrasted these with campaign promises and highlighted burdens on families, farmers, and working people. The speech drew on Joint Economic Committee minority data and referenced recent administration actions on the Iran deal."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:30:31Z
 sourceUrl: "https://www.youtube.com/watch?v=TSKApjg6qBM"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

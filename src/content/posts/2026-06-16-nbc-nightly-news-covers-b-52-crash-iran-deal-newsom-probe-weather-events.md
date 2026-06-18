@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC Nightly News covers B-52 crash, Iran deal, Newsom probe, weather events"
 summary: "The June 15, 2026 episode led with the B-52 bomber crash at Edwards Air Force Base killing eight and the recent F-18 crash in Washington state. It then covered President Trump's touted memorandum with Iran on the Strait of Hormuz and nuclear issues, including an interview with Vice President JD Vance. Additional segments addressed Gov. Gavin Newsom's accusations of a DOJ investigation into him and his wife, flash floods in the South, a deadly skydiving plane crash in Missouri, Amazon drone complaints in Texas, a meteor fireball, and a volcanic whirlwind in Hawaii."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T02:16:48Z
 sourceUrl: "https://www.youtube.com/watch?v=YLnnSRE-8iQ"
 sourceTitle: "NBC News"
 section: "Politics"

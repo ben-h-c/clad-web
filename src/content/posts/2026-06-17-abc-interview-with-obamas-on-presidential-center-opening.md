@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC Interview with Obamas on Presidential Center Opening"
 summary: "ABC News conducted an exclusive interview with Barack and Michelle Obama days before the public opening of their presidential center in Chicago. Segments covered their first private tour of the completed museum, reflections on the presidency, the ACA, post-White House balance, and hopes for inspiring future leaders.\nThe broadcast featured direct quotes from the Obamas, descriptions of exhibits including a replica Oval Office and '10 letters a day,' and references to current events like Project 2025. No outside experts or opposing voices were included; it focused on the couple's perspectives ahead of the June 2026 opening."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T14:31:52Z
 sourceUrl: "https://www.youtube.com/watch?v=X0a4GHqOlOg"
 sourceTitle: "ABC News"
 section: "Politics"

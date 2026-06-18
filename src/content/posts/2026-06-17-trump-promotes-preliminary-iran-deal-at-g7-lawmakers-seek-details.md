@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump promotes preliminary Iran deal at G7; lawmakers seek details"
 summary: "The segment covers President Trump at the G7 summit in France promoting a preliminary peace agreement or memorandum of understanding with Iran to end a months-long conflict. Key elements include no Iranian nuclear weapon, reopening the Strait of Hormuz, a 60-day ceasefire extension, upcoming signing in Geneva, potential US sanctions relief, and continued US military presence. Lawmakers including Sen. Chuck Schumer and Sen. John Kennedy express doubts and call for briefings or Senate approval. Trump agrees to send the deal to Congress, with VP Vance promising text release soon."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:00:21Z
 sourceUrl: "https://www.youtube.com/watch?v=EC5BqlOWWxA"
 sourceTitle: "The Hill"
 section: "Politics"

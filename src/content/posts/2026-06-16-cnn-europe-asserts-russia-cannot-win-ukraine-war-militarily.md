@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CNN: Europe asserts Russia cannot win Ukraine war militarily"
 summary: "Segment reports Ukraine's deep strikes damaging Russia, claims Russia cannot win militarily, cites Western estimate of 500,000 Russian deaths, notes economic strain and Putin's comments. It covers a Russian strike on Kyiv's Lavra monastery, Zelensky's G7 push for air defenses amid US focus on Iran ceasefire, and expert analysis on needing pressure on Putin.\nSourcing relies on CNN correspondents, Zelensky clips, and former ambassador William Taylor; references G7 meeting with Trump and Europeans, drone attacks, and ongoing missile strikes."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:30:29Z
 sourceUrl: "https://www.youtube.com/watch?v=tFs4ioXes3w"
 sourceTitle: "CNN"
 section: "Politics"

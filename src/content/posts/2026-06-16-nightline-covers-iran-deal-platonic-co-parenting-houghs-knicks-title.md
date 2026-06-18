@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Nightline covers Iran deal, platonic co-parenting, Houghs, Knicks title"
 summary: "The June 15, 2026 Nightline broadcast opened with President Trump at the G7 touting an initial U.S.-Iran agreement to extend a ceasefire and partially reopen the Strait of Hormuz on day 108 of the conflict. It then examined the growing trend of platonic co-parenting through profiles of two New York friend pairs raising children together without romance or marriage. Segments followed on Derek and Haley Hough's recovery from Haley's onstage brain injury and the New York Knicks' first NBA title in 53 years."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:00:22Z
 sourceUrl: "https://www.youtube.com/watch?v=_GYxnf1AkTs"
 sourceTitle: "ABC News"
 section: "Politics"

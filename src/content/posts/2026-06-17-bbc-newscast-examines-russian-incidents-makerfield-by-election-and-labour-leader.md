@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "BBC Newscast examines Russian incidents, Makerfield by-election and Labour leadership tensions"
 summary: "The episode covers Prime Minister Keir Starmer's G7 interviews on Russian and Iranian proxy threats following a Russian warship firing warning shots at a UK yacht and arson convictions tied to Russia. It also discusses the upcoming Makerfield by-election featuring Andy Burnham and internal Labour tensions including Wes Streeting's signals of a potential leadership challenge and John Healey's recent defence secretary resignation over funding."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:51:26Z
 sourceUrl: "https://www.youtube.com/watch?v=vzy4-f4VxeI"
 sourceTitle: "BBC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "C-SPAN airs McChrystal essay on Grant's loyalty to law in 1868 Stanton crisis"
 summary: "C-SPAN broadcast the reading of an essay by retired Gen. Stanley McChrystal on Ulysses S. Grant, commissioned by the More Perfect organization for its In Pursuit series marking America's 250th anniversary. The piece highlights Grant's character through his pre-war failures, his handling of the 1868 Stanton crisis as interim Secretary of War, and his later presidency enforcing Reconstruction and suppressing the Ku Klux Klan."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T10:00:35Z
 sourceUrl: "https://www.youtube.com/watch?v=iegIDeEJIN4"
 sourceTitle: "C-SPAN"
 section: "Politics"

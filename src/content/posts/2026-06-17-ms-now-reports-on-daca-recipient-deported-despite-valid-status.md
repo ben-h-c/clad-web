@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "MS NOW reports on DACA recipient deported despite valid status"
 summary: "The segment covers the 14th anniversary of DACA and reports on increased detentions and deportations of DACA recipients under the Trump administration, including those with valid status and no criminal records. It features an interview with deported DACA recipient Jessica Trevino-Villegas and her 14-year-old U.S. citizen daughter Sarah describing their December arrest and family separation.\nReporter Laura Barron-Lopez cites the family's account of the arrest, notes DHS non-response on specifics, references attorney arguments that valid DACA prevents removal, and notes multiple similar cases of U.S. citizen children affected."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T14:46:07Z
 sourceUrl: "https://www.youtube.com/watch?v=6I5aizVsa1c"
 sourceTitle: "MS NOW"
 section: "Politics"

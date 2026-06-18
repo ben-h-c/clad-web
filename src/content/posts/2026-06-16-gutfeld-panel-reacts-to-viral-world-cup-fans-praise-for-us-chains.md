@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Gutfeld Panel Reacts to Viral World Cup Fans' Praise for U.S. Chains"
 summary: "The segment features Greg Gutfeld and panelists Morgan, Kat, Joe, and Dave reacting to stories of World Cup tourists from Europe and Asia discovering and enjoying American chain restaurants, large portions, and middle-American hospitality. They highlight specific viral reactions to Waffle House at 1 a.m., Buc-ee's, In-N-Out, biscuits and gravy, and Walmart while joking about European perceptions and media portrayals of the U.S.\n\nDiscussion draws from social media posts by fans like a German tourist named Freddy, contrasts these experiences with pop culture depictions of America, and includes banter about portion sizes, casual dining, and Southern kindness versus coastal cities. No formal guests or graphics; sourced from X posts and anecdotal reports."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T04:30:02Z
 sourceUrl: "https://www.youtube.com/watch?v=taHBNnF1W-w"
 sourceTitle: "Fox News"
 section: "Politics"

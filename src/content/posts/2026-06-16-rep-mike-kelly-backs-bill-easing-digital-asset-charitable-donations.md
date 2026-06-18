@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Rep. Mike Kelly Backs Bill Easing Digital Asset Charitable Donations"
 summary: "The Forbes clip shows Rep. Mike Kelly (R-PA) questioning witnesses during a June 9, 2026 Ways & Means hearing on digital asset taxation. Kelly highlights outdated 1986 tax code appraisal rules as barriers to donating widely traded cryptocurrencies and endorses the proposed Charitable Deductions for Digital Asset Donations Act for parity with stocks.\nMr. Slotkin explains that the bill defines eligible assets with market-price safeguards and eliminates qualified appraisals for qualifying donations. The segment focuses on facilitating philanthropy without added costs."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T05:00:34Z
 sourceUrl: "https://www.youtube.com/watch?v=ugUedPJ5RJc"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

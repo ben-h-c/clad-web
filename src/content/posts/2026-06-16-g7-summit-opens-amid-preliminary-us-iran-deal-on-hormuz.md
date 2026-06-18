@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "G7 summit opens amid preliminary US-Iran deal on Hormuz"
 summary: "The segment examines day one of the G7 summit in France, set against the backdrop of a new preliminary US-Iran agreement. It features an interview with former US ambassador to NATO Lt. Gen. Doug Lute discussing reactions, upcoming bilateral meetings, and potential challenges. The second paragraph covers sourcing via the on-air expert and references to public statements, IDF reports, and reported elements of the deal such as Strait of Hormuz access. Key throughlines include uncertainty over the framework's details and risks from ongoing regional tensions."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T03:30:21Z
 sourceUrl: "https://www.youtube.com/watch?v=W4lhsLk-Ovs"
 sourceTitle: "ABC News"
 section: "Politics"

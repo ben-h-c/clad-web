@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Segment on US-Iran Deal and Oil Price Drop Holds Up Well"
 summary: "The segment covers a draft US-Iran MOU seen by Bloomberg, including provisions for ending hostilities, reopening the Strait of Hormuz, lifting some sanctions, and financial incentives for Iran. It discusses oil prices falling below $80/barrel in reaction, market movements in Asia, and the new Fed Chair Kevin Warsh's upcoming meeting. Guests include correspondents and analysts on geopolitics, energy, and monetary policy.\nAdditional segments address Indian AI unicorn funding, Indonesian policy uncertainty, US export controls on Anthropic AI models, and UK political developments."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T05:40:47Z
 sourceUrl: "https://www.youtube.com/watch?v=QNckN9s3t7s"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

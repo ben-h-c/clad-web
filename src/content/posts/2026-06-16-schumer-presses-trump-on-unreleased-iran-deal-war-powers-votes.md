@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Schumer presses Trump on unreleased Iran deal, war powers votes"
 summary: "The C-SPAN clip shows Senate Minority Leader Chuck Schumer criticizing President Trump for announcing a peace deal with Iran without releasing details two days prior. Schumer announces the ninth Democratic push for a war powers resolution to end U.S. involvement and demands a Gang of Eight briefing, full congressional update, and public disclosure.\n\nSegments reference over 100 days of conflict, 13 U.S. deaths, hundreds wounded, and tens of billions spent. Schumer asserts the Iran regime is now more extreme, controls the Strait of Hormuz more than before, and that gas prices have risen sharply, leaving Americans bearing costs."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:15:26Z
 sourceUrl: "https://www.youtube.com/watch?v=tE56f5EGhSs"
 sourceTitle: "C-SPAN"
 section: "Politics"

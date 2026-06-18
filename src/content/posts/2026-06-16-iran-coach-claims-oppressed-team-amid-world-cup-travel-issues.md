@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Iran coach claims 'oppressed' team amid World Cup travel issues"
 summary: "The USA TODAY segment covers comments from Iran head coach Amir Ghalenoei after his team's 2-2 draw with New Zealand in Los Angeles. He described the squad as the 'most oppressed' at the tournament due to last-minute travel mandates forcing an immediate return to their Tijuana, Mexico base camp. The report references earlier federation decisions to relocate the camp from Arizona amid U.S. visa uncertainty and diplomatic tensions. Sourcing centers on the coach's post-match press conference statements with brief historical context on the team's arrival and visa negotiations. The throughline emphasizes logistical disruptions affecting the Iran squad."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:03:12Z
 sourceUrl: "https://www.youtube.com/watch?v=C-ZEEkQTXzc"
 sourceTitle: "USA TODAY"
 section: "Politics"

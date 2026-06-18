@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Leger Fernandez Questions Forest Service Chief on Corps Agreements and Research Budget"
 summary: "The segment shows Rep. Melanie Leger Fernandez questioning U.S. Forest Service Chief Tom Schultz during a congressional hearing. She raises concerns about delays in Conservation Corps agreements due to changes in counting volunteer labor as in-kind match and criticizes proposed zeroing of research funding in the Trump administration budget. Schultz responds that the manual is under review and notes congressional funding levels differ from the request. She also links staffing reductions to a screwworm outbreak spreading toward New Mexico."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T06:30:29Z
 sourceUrl: "https://www.youtube.com/watch?v=n8LKhR-RR7k"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

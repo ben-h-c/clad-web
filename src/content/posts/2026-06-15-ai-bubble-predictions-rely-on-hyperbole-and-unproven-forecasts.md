@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "AI Bubble Predictions Rely on Hyperbole and Unproven Forecasts"
 summary: "The video analyzes four headwinds for an AI bubble burst: eroding public narrative, energy constraints tied to Iran conflict, supply-demand dynamics from major IPOs, and future social backlash. It predicts Nvidia earnings pressure this summer via SpaceX IPO diverting capital, followed by underperforming AI company listings and a 2027 reckoning. A sponsor segment promotes a digital gaming marketplace."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T15:00:34Z
 sourceUrl: "https://www.youtube.com/watch?v=w8jiiVEW8r4"
 sourceTitle: "Moore's Law Is Dead"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Mike Collins wins Georgia GOP Senate nomination to face Ossoff"
 summary: "The clip covers Republican Rep. Mike Collins' victory speech after winning the Georgia GOP Senate nomination runoff. Collins highlights his business background and contrasts it with Democratic Sen. Jon Ossoff. The segment confirms Collins will face Ossoff in the November general election."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T03:15:01Z
 sourceUrl: "https://www.youtube.com/watch?v=bSrIrDET2qw"
 sourceTitle: "Associated Press"
 section: "Politics"

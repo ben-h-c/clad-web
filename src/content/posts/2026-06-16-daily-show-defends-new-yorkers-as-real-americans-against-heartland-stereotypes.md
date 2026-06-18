@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Daily Show defends New Yorkers as 'real' Americans against heartland stereotypes"
 summary: "The segment satirizes the narrative that 'real Americans' live only in middle America or the heartland while portraying New York City residents as out-of-touch elites. It argues New Yorkers exemplify hard work, sacrifice, and the American dream through diversity and density. The host contrasts this with stereotypes of rural simplicity and notes elites exist everywhere, concluding the true divide is between community-oriented people and those who enjoy division or negativity."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:33:44Z
 sourceUrl: "https://www.youtube.com/watch?v=jiiWnZam8_k"
 sourceTitle: "The Daily Show"
 section: "Politics"

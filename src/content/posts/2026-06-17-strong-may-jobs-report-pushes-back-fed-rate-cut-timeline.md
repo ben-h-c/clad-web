@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Strong May Jobs Report Pushes Back Fed Rate Cut Timeline"
 summary: "The segment discusses the May 2026 jobs report showing 172,000 new jobs, far exceeding economist forecasts. It features commentary from David McLaughlin of Nuffield Financial Services on implications for inflation and delayed interest rate cuts until Q3 or Q4. The report also covers the stock market's sharp decline, the worst day since October, driven by big tech sell-offs. McLaughlin attributes energy price pressures primarily to uncertainty from the Iranian war and Strait of Hormuz disruptions, predicting relief once resolved."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-16T20:54:45Z
 sourceUrl: "https://www.youtube.com/watch?v=TzG0CkRryi4"
 sourceTitle: "WMUR-TV"
 section: "Politics"

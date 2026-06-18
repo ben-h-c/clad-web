@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Schumer criticizes lack of details in Trump-Iran deal announcement"
 summary: "C-SPAN clip shows Senate Minority Leader Chuck Schumer on the Senate floor criticizing President Trump's handling of the US-Iran conflict. Schumer highlights the lack of details nearly 24 hours after a potential deal announcement, notes repeated unfulfilled claims that the war is over, and questions troop safety, war goals, and a proposed 60-day negotiation period.\nSchumer argues the US is worse off after more than 100 days of war, citing a more radical Iranian regime, greater Iranian control over the Strait of Hormuz, and persistently high gasoline prices. The segment draws solely from Schumer's prepared remarks with no counterbalancing sources, guests, or administration responses presented."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T20:38:00Z
 sourceUrl: "https://www.youtube.com/watch?v=rPM24MQ4VQo"
 sourceTitle: "C-SPAN"
 section: "Politics"

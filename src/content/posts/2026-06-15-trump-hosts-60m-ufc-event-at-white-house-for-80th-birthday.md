@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Hosts $60M UFC Event at White House for 80th Birthday"
 summary: "The segment covered President Trump's departure for the G7 summit in Evian, France, after hosting a UFC fight night on the White House South Lawn to mark his 80th birthday and the U.S. 250th anniversary. It described the $60 million event with 4,000 guests, the Octagon cage setup, appearances by Dana White, and criticism from Democrats. The report also noted protests in Geneva and Trump's announcement of a deal related to the Iran conflict."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T12:23:48Z
 sourceUrl: "https://www.youtube.com/watch?v=M0L9_2NlN_Y"
 sourceTitle: "TODAY"
 section: "Politics"

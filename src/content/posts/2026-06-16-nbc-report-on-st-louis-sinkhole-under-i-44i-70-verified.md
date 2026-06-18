@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC report on St. Louis sinkhole under I-44/I-70 verified"
 summary: "The brief NBC News clip reports a large sinkhole that opened under an elevated section of I-44 and I-70 near downtown St. Louis, exposing structural supports. It notes MoDOT warnings that related interstate closures could last at least a week and mentions a water main break as a suspected factor.\nThe segment draws on standard traffic and official statements without named on-air guests or graphics beyond the basic description. It aligns with the timeline of the June 13-14, 2026, incident near Broadway and Biddle Street."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T12:38:08Z
 sourceUrl: "https://www.youtube.com/watch?v=ijV6fWbL7p0"
 sourceTitle: "NBC News"
 section: "Politics"

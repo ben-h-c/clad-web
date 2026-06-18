@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump touts preliminary Iran framework deal on nuclear ban, Hormuz reopening"
 summary: "The USA TODAY segment features President Trump discussing a recent U.S.-Iran framework agreement reached amid ongoing conflict. He highlights the deal's terms including no U.S. financial investment in Iran, Iran's commitment against acquiring nuclear weapons, and references to prior military actions and regional meetings.\nTrump emphasizes that Iran will face severe consequences if it pursues a nuclear weapon and notes the deal's second stage. The clip includes his comments on regime dynamics and thanks to regional leaders, presented as direct remarks from the president."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:04:17Z
 sourceUrl: "https://www.youtube.com/watch?v=Q4sR0KqbUJI"
 sourceTitle: "USA TODAY"
 section: "Politics"

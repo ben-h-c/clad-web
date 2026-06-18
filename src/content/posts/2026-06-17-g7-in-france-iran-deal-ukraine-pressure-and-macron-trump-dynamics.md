@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "G7 in France: Iran Deal, Ukraine Pressure, and Macron-Trump Dynamics"
 summary: "The segment covers the concluding day of the G7 summit in Évian-les-Bains, France. It highlights a communique supporting a US-Iran deal ending recent hostilities and calls to increase pressure on Russia regarding Ukraine. France 24 correspondent Philip Tur reports on behind-the-scenes French efforts linking support for the Iran agreement to greater US engagement on Ukraine, plus offers of naval assistance in the Strait of Hormuz. It also discusses a planned dinner at Versailles between Presidents Macron and Trump amid a year of tensions over tariffs and other issues."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T12:53:41Z
 sourceUrl: "https://www.youtube.com/watch?v=xunRdiIsicw"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

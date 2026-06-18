@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "France 24 reviews papers on Polish killing, Epstein, India WC miss, Beckham ad"
 summary: "The segment reviews recent newspaper stories including the killing of Russian artist Semyon Skrepetsky in Poland, a New York Times investigation into Jeffrey Epstein's final days in jail, reasons for India's continued absence from the FIFA World Cup, and backlash to Brooklyn Beckham's promotional advert. It draws from sources like the Moscow Times, Polish media, BBC, NYT, and Daily Mail. Guests or analysis focus on summarizing key articles without additional experts. The throughline is a quick international news digest tied to print coverage."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T07:43:07Z
 sourceUrl: "https://www.youtube.com/watch?v=hKdzl5aZMOU"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

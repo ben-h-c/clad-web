@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Dan Ives Discusses Anthropic-Pentagon Dispute, OpenAI Losses, AI M&A"
 summary: "Bloomberg segment features Wedbush analyst Dan Ives discussing tensions between Anthropic and the Trump administration over AI model access and restrictions. Ives addresses the global nature of AI deployment, OpenAI's heavy losses, recent M&A activity, and analogies for top AI performers."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T11:55:44Z
 sourceUrl: "https://www.youtube.com/watch?v=VgeCf6DEgjo"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

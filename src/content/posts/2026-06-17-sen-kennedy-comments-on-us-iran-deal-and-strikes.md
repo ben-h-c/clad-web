@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Sen. Kennedy comments on US-Iran deal and strikes"
 summary: "The clip features Sen. John Kennedy discussing a recent US-Iran framework agreement following months of conflict and US/Israeli strikes. He notes the conceptual nature of the roughly page-and-a-half document aimed at ending hostilities and reopening shipping routes.\nKennedy highlights lowered oil prices, Iran's diminished military and nuclear capabilities after extensive bombing, and skepticism about Iran's recovery funding sources. The segment draws from public statements by the president and vice president without new documents or independent verification shown."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T03:30:17Z
 sourceUrl: "https://www.youtube.com/watch?v=4rURY4UVnyM"
 sourceTitle: "Fox News"
 section: "Politics"

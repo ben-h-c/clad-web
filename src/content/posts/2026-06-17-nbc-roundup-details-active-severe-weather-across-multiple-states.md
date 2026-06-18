@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC roundup details active severe weather across multiple states"
 summary: "The segment opens with tornado reports and damage from Illinois (confirmed north of Springfield, Chicago-area trees down) and apparent twisters in Alabama and Indiana. It covers flooding and rescues in Texas near San Antonio, Mississippi, and Louisiana tied to Tropical Storm Arthur, which formed off the Texas coast and prompted preparations in New Orleans with reported deaths in Louisiana. It closes with wildfires destroying homes and prompting evacuations in eastern Washington and road closures from fires near the Everglades in Florida. Sourcing includes on-scene reporters, emergency manager confirmations, and user-submitted video; the throughline is a coast-to-coast roundup of simultaneous threats."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:52:59Z
 sourceUrl: "https://www.youtube.com/watch?v=b0keD1LGKi4"
 sourceTitle: "NBC News"
 section: "Politics"

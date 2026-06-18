@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bank of Japan raises rates to 1% amid Iran conflict energy shock"
 summary: "The Reuters segment covers the Bank of Japan's June 16, 2026, decision to raise its short-term policy rate to 1% from 0.75%. It attributes the move to persistent inflation risks from the Iran war-driven energy shock and notes alignment with other central banks. The report mentions Deputy Governor Shinichi Uchida's comments on the US-Iran peace deal, Governor Kazuo Ueda's absence for medical reasons, the Nikkei's record high above 70,000, and continuation of JGB purchases with a planned taper pause. The second paragraph notes market reaction and the complicating effect of Middle East conflict on Japan's fuel-import-dependent economy."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T11:22:35Z
 sourceUrl: "https://www.youtube.com/watch?v=aNo4UKB1WbA"
 sourceTitle: "Reuters"
 section: "Politics"

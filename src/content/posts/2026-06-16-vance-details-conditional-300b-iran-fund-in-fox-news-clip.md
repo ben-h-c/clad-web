@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Vance details conditional $300B Iran fund in Fox News clip"
 summary: "The segment features Vice President JD Vance explaining terms of a US-Iran framework agreement on Fox News. He addresses a proposed $300 billion reconstruction fund, stressing that no American taxpayer money is involved under any circumstances. Vance describes how the deal would permit investments from allies such as the UAE only after Iran meets all US requirements, framing it as an incentive for behavioral change."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:30:12Z
 sourceUrl: "https://www.youtube.com/watch?v=hYqIBMrh1-Y"
 sourceTitle: "Fox News"
 section: "Politics"

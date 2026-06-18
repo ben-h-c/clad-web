@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Warnock interview: Iran war costs, deal, congressional role, Georgia redistricting"
 summary: "CBS News interview with Sen. Raphael Warnock covers the ~100-day US-Iran war under Trump, a preliminary US-Iran MOU to end hostilities and reopen the Strait of Hormuz, congressional approval needs, Warnock's war powers resolution (failed 47-48), gas prices, and geopolitical fallout. Second segment addresses Georgia runoffs, redistricting efforts, and criticism of the Supreme Court on voting rights and multi-racial democracy. Sourced from the senator with no opposing guests or data graphics referenced."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:34:22Z
 sourceUrl: "https://www.youtube.com/watch?v=UvvlxLW7KFU"
 sourceTitle: "CBS News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Zeldin defends EPA deregulation, criticizes Congress on Clean Air Act"
 summary: "The POLITICO clip shows EPA Administrator Lee Zeldin in a June 2026 interview at the POLITICO Energy Summit defending the repeal of the 2009 greenhouse gas endangerment finding. He argues the agency is simply following Section 202 of the Clean Air Act and recent Supreme Court rulings rather than pursuing climate regulation.\nZeldin criticizes some members of Congress as intellectually or morally bankrupt for not reading the law and references Loper Bright and West Virginia v. EPA. He claims to speak for Americans frustrated with federal overreach while acknowledging productive members from both parties."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T14:00:10Z
 sourceUrl: "https://www.youtube.com/watch?v=QHcc0vZ1s0I"
 sourceTitle: "POLITICO"
 section: "Politics"

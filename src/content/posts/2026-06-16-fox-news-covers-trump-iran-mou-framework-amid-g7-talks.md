@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News covers Trump-Iran MOU framework amid G7 talks"
 summary: "The segment reports on an imminent US-Iran memorandum of understanding extending a ceasefire, reopening the Strait of Hormuz without tolls, and setting up nuclear program talks. President Trump is set to meet Qatari and UAE leaders on the sidelines of the G7 in France, with details expected soon and formal signing planned for Friday. It includes clips of JD Vance and Trump on sanctions relief and nuclear prevention, plus Netanyahu remarks on ongoing threats. Analysts discuss Qatar's mediation role, private investment incentives, and enforcement questions. Sourcing draws on administration officials, Vance remarks, Trump statements, and on-the-ground reporting from Tel Aviv."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:00:07Z
 sourceUrl: "https://www.youtube.com/watch?v=si4EmL8MJyI"
 sourceTitle: "Fox News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "OpenAI and Anthropic IPO Analysis Centers on Harnesses and Token Economics"
 summary: "The broadcast is a solo analytical monologue examining the strategic bets underlying OpenAI and Anthropic's planned IPOs. It contrasts raw model intelligence (tokens) with the surrounding application layer (harnesses) such as Codex and Claude Code, and discusses $200 subscription plans, forward-deployed engineering, and whether labs or enterprises will own workflows. The piece presents both bull and bear cases for trillion-dollar valuations and advises companies and individuals on building versus renting harnesses. Sourcing relies on public reports, a SemiAnalysis analysis, and observed product features; no named guests or on-screen graphics are referenced."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T17:00:39Z
 sourceUrl: "https://www.youtube.com/watch?v=7RDK84LLL2U"
 section: "Politics"
 letterGrade: "A-"

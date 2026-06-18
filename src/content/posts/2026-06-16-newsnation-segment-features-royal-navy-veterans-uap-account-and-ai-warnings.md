@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NewsNation segment features Royal Navy veteran's UAP account and AI warnings"
 summary: "The Reality Check segment opens with host Ross Coulthart discussing historical examples of creative 'downloads' or inspirations attributed to figures like Kekulé, Tesla, Ramanujan and Paul McCartney, then links this to modern claims of communications from nonhuman intelligence. It features an extended interview with John Seir (pen name), a former Royal Navy sailor who describes a childhood near-death experience, a 1980s shipboard UAP sighting in the North Atlantic, a subsequent train encounter with a monk-like figure, and ongoing intuitive downloads warning about AI risks to humanity. Seir withholds ship and personal details citing security and loyalty concerns. The segment references Seir's self-published book and notes similar accounts from other viewers."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:00:06Z
 sourceUrl: "https://www.youtube.com/watch?v=Y62KInNHZAY"
 sourceTitle: "NewsNation"
 section: "Politics"

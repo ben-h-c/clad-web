@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Retired Rear Admiral Assesses Trump's Iran Deal and Military Damage Claims"
 summary: "Forbes Breaking News segment features retired Rear Admiral Mark Montgomery discussing whether the recent US-Iran peace deal improves American and global security. The interview covers the impact of prior combat on Iran's capabilities and compares the deal to the 2015 JCPOA.\nMontgomery, a senior director at FDD, offers analysis based on public and intelligence estimates of strikes. He reacts to a leaked or recent Obama interview commenting on the new agreement's similarities to the prior deal. The segment focuses on military outcomes versus diplomatic terms."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T03:20:34Z
 sourceUrl: "https://www.youtube.com/watch?v=S7sD1FKSDwQ"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

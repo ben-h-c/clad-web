@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Last Week Tonight on Trump-Iran MoU: Satirical Take on Recent Deal Claims"
 summary: "The segment covers the latest developments in U.S.-Iran negotiations amid the 2025-2026 conflict, focusing on President Trump's announcements of an imminent peace deal or memorandum of understanding. It details the chaotic sequence of threats and reversals, provisions for reopening the Strait of Hormuz, and deferral of nuclear program talks. The piece also references Iranian pushback and Trump's prior comments about missing his son Don Jr.'s wedding due to Iran-related timing."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T16:00:39Z
 sourceUrl: "https://www.youtube.com/watch?v=ipjz8u0QwAA"
 sourceTitle: "LastWeekTonight"
 section: "Politics"

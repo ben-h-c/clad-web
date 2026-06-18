@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Firstpost report on UFC Freedom 250 at White House largely matches public records"
 summary: "The segment covers President Trump's 80th birthday UFC Freedom 250 event on the White House South Lawn on June 14, 2026, featuring seven fights, a full octagon, fighter jets, and performances. It notes ~4,300 attendees, rain delays, large fight bonuses, and Trump's appearance with Dana White. Segments also address a failed lawsuit by the Public Integrity Project and social media controversy over alleged DM screenshots between Daniel Cormier and Eric Trump suggesting fight rigging. A fighter's post-win remark about Michelle Obama is highlighted. Sourcing draws from on-site clips, attendee quotes, fighter statements, Eric Trump's denial, and public event announcements."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T14:48:53Z
 sourceUrl: "https://www.youtube.com/watch?v=AeCSmAw2QiQ"
 sourceTitle: "Firstpost"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News spotlights Mekai Curtis on final season of Raising Kanan"
 summary: "ABC News aired a brief interview with actor Mekai Curtis promoting the fifth and final season of Starz series Power Book III: Raising Kanan. Curtis discussed his character's evolution over five seasons, portraying a young Kanan Stark inspired by 50 Cent's life in 1990s Queens, working with the producer, and what he will miss from the production.\nThe segment featured Curtis reflecting on empathy in acting, 50 Cent's mentorship role, cast camaraderie, and his future projects. It concluded with a note that the season is now streaming on Starz."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T03:27:29Z
 sourceUrl: "https://www.youtube.com/watch?v=Fnu06QoN6RY"
 sourceTitle: "ABC News"
 section: "Politics"

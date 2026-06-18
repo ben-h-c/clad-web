@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "FBI foils alleged drone and sniper plot targeting White House UFC event"
 summary: "The segment reports on an alleged foiled plot to attack the UFC Freedom 250 event at the White House using explosive-laden drones, armed shooters, and a follow-on assault. It details 23 individuals identified via Signal, plans targeting specific lawmakers over pro-Israel ties, a 19-year-old suspect whose mother alerted authorities, and comments from the Secret Service and a White House official. \nSourcing draws from investigators, court documents, Secret Service statements, and a named White House official; the report references Kash Patel's comments and notes ongoing investigation with suspects at large."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T03:00:28Z
 sourceUrl: "https://www.youtube.com/watch?v=XW1YMwwbbjo"
 sourceTitle: "The Hill"
 section: "Politics"

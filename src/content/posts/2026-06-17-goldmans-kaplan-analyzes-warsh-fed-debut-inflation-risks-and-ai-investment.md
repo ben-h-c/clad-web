@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Goldman’s Kaplan Analyzes Warsh Fed Debut, Inflation Risks and AI Investment"
 summary: "Bloomberg interview with Goldman Sachs Vice Chair Robert Kaplan (former Dallas Fed president) on expectations for incoming Fed Chair Kevin Warsh’s first policy meeting and communication approach. Segments cover Warsh’s likely hawkish-to-neutral stance, reduced forward guidance, inflation persistence amid tariffs and energy shocks, and the dual effects of the AI-driven capex boom.\nKaplan draws on his Fed experience for sourcing; references current CPI prints, oil price movements, and aggregate capex figures. Discussion emphasizes structural inflation pressures from infrastructure spending alongside potential disinflation from AI adoption and productivity gains."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T14:34:12Z
 sourceUrl: "https://www.youtube.com/watch?v=JkJOKuJVpoM"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

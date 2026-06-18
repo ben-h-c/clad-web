@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Video scrutinizes Musk's AI pivot amid prediction failures and power consolidation"
 summary: "The broadcast examines Elon Musk's history of ambitious but often unmet predictions across Tesla autonomy, space, and other ventures before focusing on his AI efforts via xAI. It details corporate consolidations integrating X, xAI, and SpaceX under Musk's control alongside his public statements on AI surpassing humanity. Segments cover Grok's image generation controversies, political activities on X, comparisons to other AI labs, and the OpenAI lawsuit history. Sourcing draws from Wikipedia timelines, Dwarkesh Patel interview excerpts, CCDH research, court records, and news reports on mergers and lawsuits."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-16T18:01:15Z
 sourceUrl: "https://www.youtube.com/watch?v=4SBE39oAKcI"
 sourceTitle: "Absolutely Agentic"
 section: "Politics"

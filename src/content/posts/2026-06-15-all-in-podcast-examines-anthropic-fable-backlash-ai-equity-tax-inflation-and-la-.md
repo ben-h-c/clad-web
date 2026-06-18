@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "All-In Podcast Examines Anthropic Fable Backlash, AI Equity Tax, Inflation and LA Election"
 summary: "The episode opens with discussion of Anthropic's June 9, 2026 release of Claude Fable 5, a Mythos-class model with guardrails that prompted developer backlash over prompt storage, undisclosed downgrades for research queries and privacy. Hosts debate censorship risks, enterprise implications and links to Dario Amodei's regulatory advocacy. Segments then cover Bernie Sanders' June 1 op-ed proposing a 50% equity transfer into a sovereign wealth fund for major AI firms, May 2026 CPI at 4.2% YoY and PPI at 6.5% YoY, and LA mayoral primary results where late mail-in ballots shifted Spencer Pratt behind Nithya Raman."
-publishedAt: 2026-06-13
+publishedAt: 2026-06-13T05:10:15Z
 sourceUrl: "https://www.youtube.com/watch?v=gH4FTjDm9FQ"
 sourceTitle: "All-In Podcast"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Pence interview stresses traditional conservatism, strong Israel support amid Iran talks"
 summary: "The Hill interview with former Vice President Mike Pence promotes his book 'What Conservatives Believe' and discusses the state of the Republican Party. Pence contrasts traditional conservatism with both progressive Democrats and populist elements on issues like foreign policy, taxes, and social values. Segments cover 2028 prospects, midterms, and current events including Iran negotiations and US-Israel tensions. The sourcing relies on Pence as the sole named guest with direct quotes from Trump; no additional experts or data graphics are referenced. The throughline is Pence positioning himself as a defender of enduring principles ahead of future elections."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:00:06Z
 sourceUrl: "https://www.youtube.com/watch?v=AEwKDk1SJUc"
 sourceTitle: "The Hill"
 section: "Politics"

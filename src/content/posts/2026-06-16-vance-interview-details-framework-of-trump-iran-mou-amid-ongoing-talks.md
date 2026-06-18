@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Vance Interview Details Framework of Trump-Iran MOU Amid Ongoing Talks"
 summary: "Forbes Breaking News aired an interview with Vice President JD Vance discussing the Trump administration's Iran memorandum of understanding. Vance described the short general MOU as establishing a framework where Iran receives economic benefits only upon delivering verifiable commitments, primarily on the nuclear program, with expectations around halting terrorist funding and regional instability addressed in follow-on talks."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T04:05:12Z
 sourceUrl: "https://www.youtube.com/watch?v=ttaFgSkL_Hg"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

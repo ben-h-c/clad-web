@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Arkansas woman's fatal fetal diagnosis leads to out-of-state abortion and lawsuit"
 summary: "The segment profiles Chelsea Stovall (Stowall in transcript), a Fayetteville, Arkansas mother of two, who in 2022 received a diagnosis of severe congenital diaphragmatic hernia at roughly 19 weeks. After Roe v. Wade was overturned and Arkansas's near-total ban took effect, she traveled to Illinois for care because the procedure was unavailable in-state even for nonviable pregnancies. Stovall describes her evangelical upbringing, prior opposition to abortion, the medical details, travel logistics, emotional aftermath, and her subsequent involvement in a lawsuit challenging the ban. The piece opens with polling context on shifting national views since Dobbs."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T22:58:49Z
 sourceUrl: "https://www.youtube.com/watch?v=MkRSbPSuQMA"
 sourceTitle: "PBS NewsHour"
 section: "Politics"

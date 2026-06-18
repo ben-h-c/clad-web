@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox segment contrasts foreign World Cup fans' enthusiasm with liberal attitudes"
 summary: "Jesse Watters and guest Sage Steele discuss foreigners at the 2026 World Cup expressing delight over everyday American experiences like Walmart and large portions. They contrast this with perceived liberal unhappiness and protests, arguing true patriotism transcends the White House occupant. Segments reference recent sports successes including the Knicks' NBA title, national anthems at events, and the UFC fights on the White House lawn. Steele emphasizes sports as a unifier and urges ignoring critics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T06:45:15Z
 sourceUrl: "https://www.youtube.com/watch?v=s8rWuBQPfQ4"
 sourceTitle: "Fox News"
 section: "Politics"

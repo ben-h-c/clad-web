@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC News spotlights PSYONIC bionic hand and ABB Robotics partnership"
 summary: "The segment profiles PSYONIC's Ability Hand bionic prosthetic, highlighting its durability improvements over earlier models and use by amputee Dale Demasi. It covers the company's shift toward applying the technology in robotics via a new partnership with ABB Robotics.\nCEO Aadeel Akhtar discusses model advancements and the business model of using robotics revenue to subsidize prosthetic access. The piece includes a demonstration of the hand performing precise tasks like drilling."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T11:42:59Z
 sourceUrl: "https://www.youtube.com/watch?v=AChTwVWgO7g"
 sourceTitle: "NBC News"
 section: "Politics"

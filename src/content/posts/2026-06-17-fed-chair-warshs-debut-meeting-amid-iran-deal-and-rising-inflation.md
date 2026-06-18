@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fed Chair Warsh's debut meeting amid Iran deal and rising inflation"
 summary: "The segment discusses Kevin Warsh's first FOMC meeting as Fed Chair, three weeks into the role. It covers expectations for a rate hold despite surging inflation linked to the Iran conflict, potential shifts in policy language, and forward guidance. Guest Joachim Clement of Panmure Liberum analyzes supply-driven inflation, the dot plot outlook, communications challenges, and market reactions.\nThe broadcast relies on the guest expert for analysis alongside references to recent FOMC history and official statements. It notes inflation at a three-year high and an emerging US-Iran peace deal."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T11:33:01Z
 sourceUrl: "https://www.youtube.com/watch?v=1bRHwRJV4Yk"
 sourceTitle: "Reuters"
 section: "Politics"

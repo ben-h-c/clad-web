@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Oil Falls Below $80 Amid US-Iran Deal, Hormuz Reopening"
 summary: "Bloomberg segment discusses WTI crude falling below $80 for the first time in over three months, driven by optimism over a US-Iran ceasefire deal and potential full reopening of the Strait of Hormuz by Friday. Analysts cover implications for supply, prices, and related markets including natural gas and gasoline.\nThe discussion features market commentator Mike and host Kaylee, referencing pre-war prices from late February, current gas at $4.04/gallon, low SPR levels, US net exporter status, and China's large inventories. It includes forward-looking views on prices heading lower through year-end and driving season."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:28:59Z
 sourceUrl: "https://www.youtube.com/watch?v=A-cqte0Mmkg"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

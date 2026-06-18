@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "AP interview: Huang on AI export controls, govt stakes, Trump ties"
 summary: "The segment summarizes an AP sit-down with Nvidia CEO Jensen Huang. It covers his comments on recent US export controls applied to Anthropic's latest AI models, government considerations of equity stakes in AI firms like Anthropic and OpenAI, and his discussions with President Trump centered on US reindustrialization and manufacturing jobs. The report notes the absence of manufacturing job gains to date while highlighting AI's potential productivity benefits."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:15:30Z
 sourceUrl: "https://www.youtube.com/watch?v=3BCo8H7WKMo"
 sourceTitle: "Associated Press"
 section: "Politics"

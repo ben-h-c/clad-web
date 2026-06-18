@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Newsom DOJ probe: Political boon or legitimate scrutiny?"
 summary: "The segment covers Gov. Gavin Newsom's June 15, 2026 social media video accusing President Trump of directing a DOJ investigation into him and his wife Jennifer Siebel Newsom over potential 2028 candidacy. It includes Newsom's statements defending his family and criticizes the probe as a vendetta. CBS California correspondent Julie Watts analyzes the timing, links it to behested payments to nonprofits, references the chief of staff's guilty plea in a related case, and discusses Newsom's popularity in California."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:28:42Z
 sourceUrl: "https://www.youtube.com/watch?v=499mJYpfZ1M"
 sourceTitle: "CBS News"
 section: "Politics"

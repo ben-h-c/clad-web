@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "England World Cup opener vs Croatia draws fans to Dallas amid heat and high ticket prices"
 summary: "The segment covers England's preparations for their 2026 FIFA World Cup Group L opener against Croatia at AT&T Stadium in Dallas. It highlights the hot Texas weather, air-conditioned venue, Harry Kane's form and milestone chase, fan arrivals and ticket costs, and new manager Thomas Tuchel's comments on team expectations.\nIt draws on on-site reporting, direct quotes from Kane and Tuchel, vox pops with England supporters, and references to prior tournament results under Gareth Southgate. Graphics and stadium visuals support the preview of the June 17 match."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T07:43:33Z
 sourceUrl: "https://www.youtube.com/watch?v=4SnzSE_VCIU"
 sourceTitle: "Sky News"
 section: "Politics"

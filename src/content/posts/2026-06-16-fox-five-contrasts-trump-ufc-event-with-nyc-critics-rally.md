@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox 'Five' contrasts Trump UFC event with NYC critics' rally"
 summary: "The segment opens with a split-screen of President Trump hosting UFC fights on the White House South Lawn on June 14 and a counter-rally in New York featuring critics, celebrities, and breathing exercises. Hosts play clips of rally speakers expressing opposition to Trump and claims of government silencing artists, then transition to commentary mocking the attendees. The discussion covers the UFC spectacle, references to an Iran deal, border security, crime trends, and America 250 celebrations, while contrasting the events as joyful patriotism versus bitterness. Sourcing relies on video clips from the events, host anecdotes, and panel opinions with no outside guests or data graphics shown."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T00:45:02Z
 sourceUrl: "https://www.youtube.com/watch?v=9xxqid4ds2w"
 sourceTitle: "Fox News"
 section: "Politics"

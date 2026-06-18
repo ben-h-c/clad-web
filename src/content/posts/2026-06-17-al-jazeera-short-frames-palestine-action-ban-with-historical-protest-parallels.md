@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Al Jazeera short frames Palestine Action ban with historical protest parallels"
 summary: "The short discusses the UK government's proscription of Palestine Action as a terrorist organization under the Terrorism Act 2000, equating supporters with those of ISIS or Al-Qaeda. It describes the group's direct actions against companies linked to Israeli weapons manufacturing and its stated goal of ending participation in what it calls genocide in Gaza. The piece compares the group to Extinction Rebellion, the ANC under Mandela, and suffragettes, noting historical rebranding of such movements. It references the Court of Appeal upholding the ban and quotes Lady Chief Justice Baroness Carr rejecting suffragette comparisons."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T06:08:02Z
 sourceUrl: "https://www.youtube.com/watch?v=pwLBG3juuZA"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

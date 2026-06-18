@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Covers US-Iran Draft Deal, Housing Bill, and Political Panel"
 summary: "The broadcast opened with developments from the G7 summit on a US-Iran interim peace deal framework, including a draft MOU providing Iran financial incentives such as access to a $300 billion fund and oil export waivers, tied to compliance and Strait of Hormuz reopening. Segments covered a congressional housing bill agreement, Jay Clayton’s DNI nomination, Fed Chair Kevin Warsh, SPACEx stock performance, and AI export controls on Anthropic."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:32:16Z
 sourceUrl: "https://www.youtube.com/watch?v=ANDegDSNt1o"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

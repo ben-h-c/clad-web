@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Vance Defends Trump Iran Deal Framework Amid GOP Criticism"
 summary: "The segment features Vice President JD Vance responding on CNN to Republican and conservative critics of President Trump's Iran peace deal framework. Vance argues the agreement is action-based rather than trust-based, highlights unprecedented high-level communication, and notes benefits accrue only with compliance."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:20:28Z
 sourceUrl: "https://www.youtube.com/watch?v=WI5RghBUwe0"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

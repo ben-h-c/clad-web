@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Watters segment hails Trump Iran deal at G-7 amid ongoing talks"
 summary: "The segment covers President Trump's arrival at the G-7 summit in France after announcing a preliminary US-Iran agreement to end recent hostilities, reopen the Strait of Hormuz, and address Iran's nuclear program. It details electronic signing via DocuSign, planned formal signing in Switzerland, performance-based sanctions relief, uranium stockpile destruction or removal, and lifting of a US naval blockade. The second paragraph notes sourcing from Trump administration statements and officials like JD Vance, references to Project Freedom shipping operations, oil price drops, and Democratic criticism contrasted with positive economic indicators."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:30:06Z
 sourceUrl: "https://www.youtube.com/watch?v=ntKC7k8XYxI"
 sourceTitle: "Fox News"
 section: "Politics"

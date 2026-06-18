@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Pence: Full Iran Nuclear, Missile Dismantling Needed or Let US Forces Finish Job"
 summary: "C-SPAN clip features former Vice President Mike Pence commenting on U.S. military actions against Iran under President Trump and a potential peace agreement. Pence credits Trump for historic direct strikes on the leading state sponsor of terrorism, notes earned latitude for negotiations, but expresses distrust of Iran and conditions for any deal."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:31:08Z
 sourceUrl: "https://www.youtube.com/watch?v=TNBZkkvdKPE"
 sourceTitle: "C-SPAN"
 section: "Politics"

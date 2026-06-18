@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "WaPo report details $600M White House ballroom cost, half from taxpayers"
 summary: "CBS News segment reports on a Washington Post investigation finding that the White House ballroom and East Wing project, originally estimated at $200 million, has risen to $600 million per March 2026 Clark Construction documents. Half the cost ($300 million) is projected to come from taxpayer funds via the Secret Service and White House Military Office, contradicting President Trump's repeated statements that no taxpayer money would be used. The segment features an interview with WaPo reporter Sarah Blaskey explaining the internal status reports from collaborative contractor-White House meetings."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:25:32Z
 sourceUrl: "https://www.youtube.com/watch?v=IaT_h3bMUEA"
 sourceTitle: "CBS News"
 section: "Politics"

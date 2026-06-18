@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Cerebras IPO Pops 68% as AI Firms Eye Mega Listings"
 summary: "The episode analyzes the rebounding IPO market with focus on AI-related debuts. It highlights Cerebras' May 2026 IPO performance, upcoming plans for OpenAI, Anthropic and SpaceX, projected banker fees, and long-term IPO performance statistics. The host provides context on pricing mechanics, oversubscription, lockup periods and investor caution. Sourcing relies on public data, historical studies from Baird and IPOX, SEC filings referenced, and general market analysis with promotional segments for Bet-David Consulting."
-publishedAt: 2026-06-13
+publishedAt: 2026-06-13T13:00:17Z
 sourceUrl: "https://www.youtube.com/watch?v=Mh3aaxlPGk4"
 sourceTitle: "Bet-David Consulting"
 section: "Politics"

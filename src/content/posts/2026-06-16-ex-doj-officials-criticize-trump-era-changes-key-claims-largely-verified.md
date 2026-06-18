@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Ex-DOJ officials criticize Trump-era changes; key claims largely verified"
 summary: "The segment features interviews with four former DOJ officials who describe politicization, mass resignations or firings, immigration judge replacements, and memos directing attorneys to act as the president's lawyers. It includes law student reluctance to apply and a DOJ spokesperson response defending the changes as correcting prior weaponization.\nAli Rogin reports on anecdotal law school feedback about reputation concerns and poor filings; the piece frames the shifts as eroding institutional neutrality and long-term talent attraction."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:42:56Z
 sourceUrl: "https://www.youtube.com/watch?v=pmJQBCZZTbE"
 sourceTitle: "PBS NewsHour"
 section: "Politics"

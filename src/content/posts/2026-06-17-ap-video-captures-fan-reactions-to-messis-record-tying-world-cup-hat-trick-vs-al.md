@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "AP video captures fan reactions to Messi's record-tying World Cup hat trick vs Algeria"
 summary: "The segment features street interviews with Argentina and Algeria supporters reacting to Argentina's 3-0 opening-match victory over Algeria in the 2026 FIFA World Cup. Fans praise Messi's performance and discuss traveling to see him play.\nThe video relies on on-the-ground interviews with named supporters, intercut with game footage references, and highlights positive cross-fan interactions despite the result."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T14:45:36Z
 sourceUrl: "https://www.youtube.com/watch?v=GgH8YFWo8YE"
 sourceTitle: "Associated Press"
 section: "Politics"

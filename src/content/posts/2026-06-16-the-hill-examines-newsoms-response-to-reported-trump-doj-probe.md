@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "The Hill examines Newsom's response to reported Trump DOJ probe"
 summary: "The segment discusses a reported Trump-era DOJ investigation into Gov. Gavin Newsom and his wife Jennifer Siebel Newsom, which Newsom announced and framed as politically motivated in a recent video. Panelists note the probe may have roots predating Trump's second term and analyze whether Newsom's aggressive response helps or hurts his potential 2028 presidential bid.\nNewsom's public video is described as resembling a campaign ad, highlighting his history of confronting Trump. Guests reference ongoing questions about evidence and compare potential fallout to past controversies like Clinton emails, while noting Democratic appetite for a fighter."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:00:30Z
 sourceUrl: "https://www.youtube.com/watch?v=a_Y-KkazjWk"
 sourceTitle: "The Hill"
 section: "Politics"

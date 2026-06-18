@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Torsten Slok on AI, Data Centers, and US Growth Tailwinds"
 summary: "Bloomberg Odd Lots features Apollo chief economist Torsten Slok presenting live charts on AI-driven US growth. Segments cover data center counts and construction, multiple growth engines including data centers/energy, early AI productivity, industrial renaissance via Chips Act and home-shoring, defense spending, and the One Big Beautiful Bill tax cuts. Discussion contrasts US tailwinds with Europe and examines implications for GDP forecasts, inflation, Fed policy, and 60/40 portfolios. Sourcing relies on Slok's Apollo charts, consensus forecasts, and references to CBO and legislation."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T08:02:15Z
 sourceUrl: "https://www.youtube.com/watch?v=tv5lA7-XZ_w"
 sourceTitle: "Bloomberg Podcasts"
 section: "Politics"

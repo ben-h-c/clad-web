@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Collins Wins Georgia GOP Senate Nomination to Face Ossoff"
 summary: "The segment reports on the Georgia Republican primary runoff for U.S. Senate, announcing Mike Collins as the nominee who will face Democratic incumbent Jon Ossoff in November. It details Collins's performance against Derek Dooley, notes Trump endorsement, references earlier primary results including Buddy Carter's share, and touches briefly on the ongoing governor's race. Sourcing relies on on-air analyst commentary with vote percentages and maps referenced; no named guests beyond the anchor-analyst exchange."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:02:11Z
 sourceUrl: "https://www.youtube.com/watch?v=Z4zzde8s3ds"
 sourceTitle: "MS NOW"
 section: "Politics"

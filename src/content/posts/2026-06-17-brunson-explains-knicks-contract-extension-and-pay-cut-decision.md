@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Brunson Explains Knicks Contract Extension and Pay Cut Decision"
 summary: "The segment features The View hosts interviewing New York Knicks guard Jalen Brunson about his decision to sign a contract extension for less than the maximum possible amount. Brunson explains that securing the deal immediately allowed him to play without future contract uncertainties and helped build a contending roster. He notes his belief that the sacrifice would lead to positive outcomes."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T19:50:53Z
 sourceUrl: "https://www.youtube.com/watch?v=j1wYxwFC9RI"
 sourceTitle: "The View"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters analyzes Warsh's debut Fed meeting amid Iran deal and SpaceX rally"
 summary: "The segment covers expectations for Kevin Warsh's first FOMC meeting as Fed chair on June 17, 2026, where no policy change is anticipated but the dot plot and communication style will be watched closely. It also discusses falling oil prices near three-month lows following a US-Iran deal and SpaceX briefly surpassing Microsoft in market value after its recent IPO."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T09:49:59Z
 sourceUrl: "https://www.youtube.com/watch?v=onPMWGA5ewI"
 sourceTitle: "Reuters"
 section: "Politics"

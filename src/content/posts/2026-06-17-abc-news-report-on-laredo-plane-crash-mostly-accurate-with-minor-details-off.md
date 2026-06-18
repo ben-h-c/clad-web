@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News report on Laredo plane crash mostly accurate with minor details off"
 summary: "ABC News segment covers a private/business jet crash on a Laredo, Texas highway late Tuesday night. The plane carried six people, experienced issues after departing Mexico, resulted in one fatality and injuries to others; bystanders assisted in rescues amid fire. NTSB investigation noted.\nThe report relies on police statements and eyewitness video; no named experts or extensive graphics beyond scene footage. Focus remains on immediate facts and rescue efforts."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T10:47:57Z
 sourceUrl: "https://www.youtube.com/watch?v=tanelUCfMZ4"
 sourceTitle: "ABC News"
 section: "Politics"

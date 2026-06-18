@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Covers US-Iran Hormuz Deal, Market Rally and AI Controls"
 summary: "The broadcast centered on the June 15 announcement of a US-Iran interim deal/MOU to reopen the Strait of Hormuz, with signing slated for June 19 in Switzerland and 60 days of follow-on nuclear talks. Segments covered market reactions including lower oil prices, rising equities and bonds, the Anthropic AI model access restrictions ordered by the Trump administration, central bank outlooks ahead of Fed, ECB and BoJ decisions, and the G7 summit in France. Sourcing relied on Bloomberg correspondents, named strategists from Invesco and UBS, and geopolitical experts; graphics referenced futures, yields and sector moves."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T10:30:53Z
 sourceUrl: "https://www.youtube.com/watch?v=HADJFOWcVyM"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

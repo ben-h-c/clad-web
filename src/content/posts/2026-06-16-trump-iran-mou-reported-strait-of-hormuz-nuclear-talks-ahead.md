@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump-Iran MOU reported; Strait of Hormuz, nuclear talks ahead"
 summary: "The broadcast covers President Trump's reported signing of a memorandum of understanding with Iran extending a ceasefire and partially reopening the Strait of Hormuz, with formal signing expected Friday in Geneva. Segments address remaining nuclear negotiations, economic relief, and reactions from Iran, Israel, and experts. It also reports a US strike on a Venezuelan cartel leader, Social Security funding warnings with projections to 2032, and a Virginia neighborhood considering selling homes to data center developers for millions each. Sourcing includes White House officials, on-the-ground reporters, former Defense Secretary Mark Esper, former Social Security Commissioner Martin O'Malley, and local interviews. Guests provide analysis on deal depth, nuclear commitments, and policy fixes."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T08:00:13Z
 sourceUrl: "https://www.youtube.com/watch?v=mss6CvvcaaI"
 sourceTitle: "The Hill"
 section: "Politics"

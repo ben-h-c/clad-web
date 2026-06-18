@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Tesla Buying Guide Notes Q2 Deals and Speculative Future Models"
 summary: "The video advises viewers on whether to buy a Tesla now or wait for potential deals and new models. It covers end-of-quarter incentives, referral and loyalty discounts, inventory shopping, lease perks, and model-specific recommendations for the Model 3, Model Y, and Cybertruck."
-publishedAt: 2026-06-13
+publishedAt: 2026-06-13T18:00:06Z
 sourceUrl: "https://www.youtube.com/watch?v=lAZjZlW2vcc"
 sourceTitle: "Robert Rosenfeld"
 section: "Politics"

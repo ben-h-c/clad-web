@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Suggests Syria Better Suited Than Israel to Combat Hezbollah"
 summary: "The Bloomberg News clip shows President Trump at the G7 summit criticizing Israel's prolonged campaign against Hezbollah in Lebanon. He suggests Syria under President Ahmed al-Sharaa would handle the group more effectively and urges greater Israeli responsibility to avoid derailing a US-Iran deal."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:00:32Z
 sourceUrl: "https://www.youtube.com/watch?v=vJGDSxZGdkI"
 sourceTitle: "Bloomberg News"
 section: "Politics"

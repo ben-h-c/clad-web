@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "De Niro criticizes Trump at First Amendment concert"
 summary: "C-SPAN aired Robert De Niro's speech at the June 14, 2026 'Rise Up, Sing Out: A Concert for the First Amendment' in New York, hosted by Jane Fonda's revived Committee for the First Amendment. De Niro expressed inability to love the U.S. under current leadership, comparing it to an abusive relationship and citing wars, healthcare policy, alleged militia actions, family separations, and personal attacks on Donald Trump as reasons.\n\nThe segment featured De Niro's remarks as part of a star-studded variety show and protest event with other celebrities; C-SPAN provided straight recording of the public remarks without additional analysis or guests."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:16:21Z
 sourceUrl: "https://www.youtube.com/watch?v=cIyoGz9Zv1c"
 sourceTitle: "C-SPAN"
 section: "Politics"

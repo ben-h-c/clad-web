@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Kornacki analyzes Georgia, Alabama GOP Senate runoffs on election night"
 summary: "NBC News segment features Steve Kornacki at the big board analyzing two Republican Senate primary runoffs. In Georgia, it covers the contest between Rep. Mike Collins (Trump-endorsed) and former football coach Derek Dooley to face Democrat Jon Ossoff. In Alabama, it examines Rep. Barry Moore (Trump-endorsed, primary leader) vs. Jared Hudson (grassroots insurgent). Kornacki discusses early voting results, the expected pro-Trump tilt of election-day votes, and key geographic voting areas like Huntsville."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T00:00:09Z
 sourceUrl: "https://www.youtube.com/watch?v=Tg9ZtUbORXU"
 sourceTitle: "NBC News"
 section: "Politics"

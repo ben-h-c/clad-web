@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC accurately projects Jackson victory in Georgia GOP governor primary"
 summary: "NBC News projects Rick Jackson's win in the Republican runoff primary for Georgia governor against Lt. Gov. Burt Jones. Jackson, a self-funding businessman who entered late, advances to face Democrat Keisha Lance Bottoms in November. The segment details Jones's alignment with Trump post-2020 and contrasts it with other Georgia Republican leaders who resisted Trump's election challenges."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:47:52Z
 sourceUrl: "https://www.youtube.com/watch?v=5rANDe6WUVM"
 sourceTitle: "NBC News"
 section: "Politics"

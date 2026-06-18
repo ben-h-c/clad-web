@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "G7 panel questions substance of Trump Iran MOU amid conflicting claims"
 summary: "MS NOW panel with Gen. Mark Hertling, David French, Pablo Torre, and Peter Goodman discusses Trump's announcement of a US-Iran agreement to end recent conflict. They analyze it as a non-substantive memorandum of understanding rather than a binding deal, highlight conflicting US and Iranian statements on the Strait of Hormuz, and question long-term viability and economic impacts. Segments cover Trump's G7 presentation, comments on Hezbollah and Lebanon, and broader concerns about congressional oversight and public support for the war."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:54:41Z
 sourceUrl: "https://www.youtube.com/watch?v=J4d_h2Rw7V8"
 sourceTitle: "MS NOW"
 section: "Politics"

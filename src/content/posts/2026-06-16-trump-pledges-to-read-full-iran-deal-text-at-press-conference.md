@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump pledges to read full Iran deal text at press conference"
 summary: "The short clip from The Hill shows President Trump stating he will likely hold a press conference to read the new Iran deal document word for word to ensure accurate coverage. He contrasts it favorably with the Obama-era JCPOA, describing the prior agreement as the worst deal and a path to a nuclear weapon while calling his own a barrier to one.\n\nThe segment consists solely of Trump's remarks with no additional narration, guests, or on-screen graphics referenced in the provided transcript. It aligns with recent reporting around the June 2026 G7 summit on a preliminary U.S.-Iran memorandum of understanding focused on ceasefire extension and Strait of Hormuz access."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:24:11Z
 sourceUrl: "https://www.youtube.com/watch?v=fEHV8qyNhHY"
 sourceTitle: "The Hill"
 section: "Politics"

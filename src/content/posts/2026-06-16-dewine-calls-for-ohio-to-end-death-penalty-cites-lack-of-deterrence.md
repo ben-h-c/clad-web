@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "DeWine calls for Ohio to end death penalty, cites lack of deterrence"
 summary: "The segment features Ohio Gov. Mike DeWine announcing at a June 16, 2026 news conference that the state should abolish the death penalty. He states he no longer views it as a deterrent to murder and that the moral justification for it has vanished. DeWine suggests the legislature act or refer the matter to voters."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:46:30Z
 sourceUrl: "https://www.youtube.com/watch?v=sladf0FVU9Y"
 sourceTitle: "Associated Press"
 section: "Politics"

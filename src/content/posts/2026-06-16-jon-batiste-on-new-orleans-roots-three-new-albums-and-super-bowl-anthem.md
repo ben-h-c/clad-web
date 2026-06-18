@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Jon Batiste on New Orleans Roots, Three New Albums, and Super Bowl Anthem"
 summary: "ABC News interview with Jon Batiste covers his upbringing in a New Orleans musical family, dual rural and urban experiences, early influences from video game music, and move to Juilliard. It explores themes of music as spiritual practice, New Orleans as 'soul of America,' family military and activism legacy including a White House visit, his 2025 Super Bowl national anthem performance, Late Show tenure, and a Devil Wears Prada 2 cameo. Batiste discusses three upcoming 2026 piano albums: Black Mozart and two Thelonious Monk projects. Sourcing relies on direct interview with Batiste at Power Station Studios, referencing his personal anecdotes and album announcements."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:43:59Z
 sourceUrl: "https://www.youtube.com/watch?v=6RH6gqCuA40"
 sourceTitle: "ABC News"
 section: "Politics"

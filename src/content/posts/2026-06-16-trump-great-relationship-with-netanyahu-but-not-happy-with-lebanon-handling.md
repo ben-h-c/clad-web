@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump: 'Great Relationship' With Netanyahu But 'Not Happy' With Lebanon Handling"
 summary: "Forbes Breaking News aired a clip from President Trump's Tuesday press conference at the G7 summit in Évian, France. A reporter asked if Trump was frustrated with Israeli Prime Minister Benjamin Netanyahu; Trump replied that he has a great relationship but is unhappy with Israel's handling of Lebanon and Hezbollah, calling a recent Beirut attack 'vicious' and 'too much' and saying Israel should finish the job faster.\nThe segment covers Trump's defense of his past actions terminating the Iran nuclear deal and conducting strikes, his contrast with the Obama administration, and his assertion that without U.S. involvement under his leadership Israel would not exist. It references recent Israeli strikes in Lebanon amid U.S.-Iran negotiations and ends with Trump fielding further questions."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:35:22Z
 sourceUrl: "https://www.youtube.com/watch?v=i4vv4V-DUMs"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

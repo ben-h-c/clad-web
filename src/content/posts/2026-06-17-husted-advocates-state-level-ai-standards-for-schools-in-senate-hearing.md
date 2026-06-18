@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Husted Advocates State-Level AI Standards for Schools in Senate Hearing"
 summary: "The segment covers a Senate HELP Subcommittee hearing where Sen. Jon Husted (R-OH) discusses his prior experience using AI in Ohio state government and advocates for state-level standards on AI use in K-12 classrooms. Witnesses address parental concerns, transparency, data protection, human oversight, and the value of statewide guardrails."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:30:05Z
 sourceUrl: "https://www.youtube.com/watch?v=cWriizdDh1I"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

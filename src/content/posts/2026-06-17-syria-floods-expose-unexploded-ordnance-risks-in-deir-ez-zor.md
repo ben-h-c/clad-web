@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Syria floods expose unexploded ordnance risks in Deir ez-Zor"
 summary: "The segment reports on flooding along the Euphrates River in Syria's Deir ez-Zor region in late May 2026, which displaced families and shifted unexploded ordnance (UXO) from years of conflict. It highlights risks to farmers, shepherds, and children returning to affected lands, and features comments from demining volunteers and UN references.\nIt draws on UN agency data for contamination levels and casualty patterns, includes on-the-ground accounts from locals, and notes ongoing threats in the desert areas from ISIL remnants and wartime explosives."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T11:55:02Z
 sourceUrl: "https://www.youtube.com/watch?v=n3wVryH4YEE"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

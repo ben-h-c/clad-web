@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Rep. Hernández Questions USFS on Proposed El Yunque Recreation Fees"
 summary: "The segment shows Resident Commissioner Pablo José Hernández questioning USFS Chief Schultz during a congressional hearing on a proposal to introduce recreation fees at El Portal del Yunque and La Mina areas of El Yunque National Forest. Hernández emphasizes that access is currently free and argues the new charges would burden Puerto Rican families facing economic challenges. Schultz confirms the proposal creates fees where none existed for those sites and notes the goal of improving trail maintenance and management. Hernández attributes the need for fees to Trump administration budget reductions for the Forest Service and contrasts it with other federal spending priorities."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:45:29Z
 sourceUrl: "https://www.youtube.com/watch?v=Rier3hnfwCQ"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

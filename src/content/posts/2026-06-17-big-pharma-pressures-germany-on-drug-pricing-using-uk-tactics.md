@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Big Pharma pressures Germany on drug pricing using UK tactics"
 summary: "The segment examines how pharmaceutical companies are responding to proposed German legislation aimed at curbing healthcare spending on medicines by threatening to scale back investments and launches. It highlights Pfizer's letter to the Chancellor, AstraZeneca's potential launch delays, and Eli Lilly halving a major investment, framing these as part of a broader strategy first used successfully in the UK.\nThe report draws on statements from company CEOs and references a Reuters correspondent's update, situating the German developments within ongoing US tariff pressures under President Trump that have prompted pharma deals to avoid tariffs in exchange for pricing concessions elsewhere."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T12:19:12Z
 sourceUrl: "https://www.youtube.com/watch?v=_Qzg7rVdrjA"
 sourceTitle: "Reuters"
 section: "Politics"

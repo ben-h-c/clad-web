@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Judge Dismisses xAI Trade Secrets Lawsuit Against OpenAI"
 summary: "The segment reports a federal judge's dismissal of xAI's trade secrets lawsuit against OpenAI. It details the ruling that xAI failed to show OpenAI induced or knew about alleged disclosures by a former engineer named Lee, notes OpenAI's denials, and states xAI is pursuing a separate suit against the individual. It frames the outcome as Musk's second recent legal loss against OpenAI, referencing a prior jury verdict on the nonprofit-to-for-profit shift. The broadcast relies on court ruling summaries, company statements, and prior case context without on-camera guests or graphics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:19:06Z
 sourceUrl: "https://www.youtube.com/watch?v=bE2OgwqZ13c"
 sourceTitle: "NTD"
 section: "Politics"

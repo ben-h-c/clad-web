@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Murray Questions OMB Nominee on Grant Rule and Social Security in Confirmation Hearing"
 summary: "The clip shows Sen. Patty Murray (D-WA) questioning Hal Duncan, Trump nominee for Deputy OMB Director, during a Senate Budget Committee confirmation hearing. Murray raises concerns over a proposed OMB rule on federal grants allowing termination for alignment with administration priorities and 'anti-American values,' potential for political favoritism, and the administration's lack of Social Security solvency proposals despite updated trust fund depletion projections. Duncan commits to following the law, notes the rule is in proposed status with comment period closing July 13, 2026, references prior administrations' use of pocket rescissions, and states the president's commitment to protecting Social Security and Medicare."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:00:36Z
 sourceUrl: "https://www.youtube.com/watch?v=HtBNTSxXXDw"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

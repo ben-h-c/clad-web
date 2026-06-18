@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Garden of Heroes project draws lawsuit over approvals and land-use laws"
 summary: "ABC News segment examines a new federal lawsuit challenging President Trump's proposed National Garden of American Heroes, a plan for 250 life-size statues in West Potomac Park. It details project scope, $40 million in funding via the National Endowment for the Humanities, and claims of non-compliance with federal laws including the Commemorative Works Act, NEPA, and the 1897 park-establishing statute. The report includes responses from the administration and expert analysis from law professor James Sample on executive versus congressional authority. Segments reference prior Trump DC projects like a White House ballroom and Reflecting Pool work as part of a broader pattern."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:37:16Z
 sourceUrl: "https://www.youtube.com/watch?v=muMesGebQXo"
 sourceTitle: "ABC News"
 section: "Politics"

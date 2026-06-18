@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Cape Verde fans celebrate 0-0 World Cup draw with Spain"
 summary: "Reuters clip shows Cape Verde fans reacting with pride and celebration immediately after their national team's 0-0 draw against Spain. Fans describe the result as huge for their country on its World Cup debut and praise the team's performance and defensive effort. The segment features on-the-ground interviews and crowd scenes with cheering and laughter. Sourcing consists of unnamed fan testimonials and ambient audio from the match venue area. No experts, officials, or graphics are included; the focus remains on spontaneous supporter emotion following the Group H opener in Atlanta on June 15, 2026."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T03:11:12Z
 sourceUrl: "https://www.youtube.com/watch?v=1cwsAq-fCDo"
 sourceTitle: "Reuters"
 section: "Politics"

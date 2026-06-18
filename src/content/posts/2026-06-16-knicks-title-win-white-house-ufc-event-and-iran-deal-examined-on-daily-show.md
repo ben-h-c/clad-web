@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Knicks Title Win, White House UFC Event, and Iran Deal Examined on Daily Show"
 summary: "The Precap podcast recaps the New York Knicks' recent NBA championship win and the resulting citywide celebrations, including fan superstitions and personal viewing stories. It then covers host Jordan Ker's attendance at the UFC Freedom 250 event on the White House lawn, contrasting the communal vibes with critiques of corporate sponsorships and spectacle. Other segments touch on foreign visitors' experiences in America, JD Vance's book tour, music recommendations, and preview upcoming G7 coverage."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:00:25Z
 sourceUrl: "https://www.youtube.com/watch?v=HzI5o6mwAI0"
 sourceTitle: "The Daily Show"
 section: "Politics"

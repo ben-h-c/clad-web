@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Greystones initiative delays smartphones for preteens amid anxiety concerns"
 summary: "CBS News reports on Greystones, Ireland, where principal Rachel Harper launched the 'It Takes a Village' initiative after noting rising anxiety in students post-COVID. The voluntary community code delays smartphones until middle school, supported by parent pledges, phone-free school policies, and alternatives like youth cafes and pet projects. Interviews feature kids preferring in-person play, Harper citing a poll of 800 respondents where 95% of teachers observed increased anxiety, and parent Alex Dobs on reduced peer pressure. The segment notes better focus and sleep but acknowledges ongoing worries like AI."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:35:06Z
 sourceUrl: "https://www.youtube.com/watch?v=U8h9Qbxl_ng"
 sourceTitle: "CBS News"
 section: "Politics"

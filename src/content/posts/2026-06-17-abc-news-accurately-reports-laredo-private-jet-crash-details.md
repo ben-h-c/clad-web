@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News accurately reports Laredo private jet crash details"
 summary: "The segment covers a private jet crash on Loop 20 highway in Laredo, Texas, shortly after 10 p.m. on June 16, 2026. The mid-size jet reportedly experienced issues after departing Cabo, Mexico, struck the roadway, and caught fire; six aboard with one fatality and others hospitalized, while vehicle occupants survived. Bystanders assisted responders, and five officers were treated for smoke inhalation. NTSB and federal investigators are en route.\nThe report relies on Laredo police statements, eyewitness video, and on-scene reporting with no named expert guests beyond officials."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T10:30:05Z
 sourceUrl: "https://www.youtube.com/watch?v=MgcVsNp21wY"
 sourceTitle: "ABC News"
 section: "Politics"

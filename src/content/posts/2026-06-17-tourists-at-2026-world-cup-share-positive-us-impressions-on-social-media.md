@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Tourists at 2026 World Cup share positive U.S. impressions on social media"
 summary: "The segment highlights international World Cup visitors posting viral reactions to American experiences such as ranch dressing, Costco, baby back ribs, Florida beaches, Texas line dancing, Louisiana scenery and Boston hospitality toward Scottish fans. It notes a sense of joy and appreciation amid the tournament's arrival with hundreds of thousands of foreign attendees.\nThe piece draws from social media clips and international press, featuring everyday American interactions rather than named experts or official data. It contrasts these lighthearted moments with typical coverage of political turmoil and division."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T19:45:32Z
 sourceUrl: "https://www.youtube.com/watch?v=W70JNDCcOdw"
 sourceTitle: "MS NOW"
 section: "Politics"

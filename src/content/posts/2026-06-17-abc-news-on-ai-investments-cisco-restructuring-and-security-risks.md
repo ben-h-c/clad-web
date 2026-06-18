@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News on AI Investments, Cisco Restructuring, and Security Risks"
 summary: "ABC News segment discusses how AI advancements are driving investments across tech, energy, and materials sectors including nuclear power and rare earth minerals. It features an interview with Cisco's President and Chief Product Officer on AI's evolution toward autonomous agents and robotics, cybersecurity threats, and the company's recent financial performance and workforce changes."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T21:47:18Z
 sourceUrl: "https://www.youtube.com/watch?v=KZKYZJ9ndTs"
 sourceTitle: "ABC News"
 section: "Politics"

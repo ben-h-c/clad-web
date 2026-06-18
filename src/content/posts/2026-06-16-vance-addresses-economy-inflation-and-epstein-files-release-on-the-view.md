@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Vance Addresses Economy, Inflation, and Epstein Files Release on The View"
 summary: "The segment featured JD Vance discussing the economy, inflation trends, job growth, and the Trump administration's handling of Jeffrey Epstein files. Hosts Alyssa Farah Griffin, Joy Behar, Ana Navarro, and Sunny Hostin questioned Vance on voter concerns over costs, White House spending priorities, and transparency around Epstein documents. Vance defended progress on the border, energy prices, manufacturing investment, and full release of files, while pushing back on claims of insufficient action or political pressure on the president.\nVance cited primary data points on oil and gas prices tied to a recent Iran deal; hosts referenced media reports on internal administration dynamics. The exchange covered inherited economic conditions from the prior administration and specific Epstein transparency actions under the 2025 Epstein Files Transparency Act."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:57:12Z
 sourceUrl: "https://www.youtube.com/watch?v=wSqOfXq6614"
 sourceTitle: "The View"
 section: "Politics"

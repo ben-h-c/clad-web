@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "USA Today covers viral pan-fried Krispy Kreme donut hack"
 summary: "The short USA Today clip demonstrates a pan-frying method for Krispy Kreme donuts, showing the donut heating in a pan until one side caramelizes, followed by a taste test rated 10/10. Segments focus on the reheating process and positive sensory feedback. Sourcing appears to draw from the ongoing social media trend without named experts or additional graphics; the throughline is showcasing the popular 'crispy' hack."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:00:40Z
 sourceUrl: "https://www.youtube.com/watch?v=egMAmP43wfE"
 sourceTitle: "USA TODAY"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters profiles Baxter brothers' shared Brexit disillusion a decade on"
 summary: "The Reuters segment profiles Nottingham-based brothers Nigel Baxter (commercial vehicles business, Leave voter) and Ian Baxter (logistics firm, Remain voter) ten years after the 2016 referendum. Nigel regrets missed opportunities for tax cuts and investment promotion; Ian feels voters were sold an unachievable vision and notes increased trade frictions with the EU. A YouGov poll cited shows 57% now believe the UK was wrong to leave. Ian states there were no catastrophic outcomes but trade is harder. The brothers maintained their relationship despite earlier divisions."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:36:43Z
 sourceUrl: "https://www.youtube.com/watch?v=fBld4HiEb9U"
 sourceTitle: "Reuters"
 section: "Politics"

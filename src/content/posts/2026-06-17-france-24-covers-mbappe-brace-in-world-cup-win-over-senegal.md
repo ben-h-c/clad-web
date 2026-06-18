@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "France 24 covers Mbappé brace in World Cup win over Senegal"
 summary: "The segment recaps France's 3-1 opening World Cup win against Senegal in group L. Kylian Mbappé scored twice to become France's all-time leading goalscorer with 58 goals. It includes journalist discussion and broader sports news summary.\nThe report draws on match footage and standard France 24 sports desk presentation without named expert guests beyond channel journalists."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T05:43:11Z
 sourceUrl: "https://www.youtube.com/watch?v=MZMfzhX269s"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

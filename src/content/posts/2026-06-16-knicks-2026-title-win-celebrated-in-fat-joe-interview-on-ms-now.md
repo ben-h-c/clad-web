@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Knicks 2026 Title Win Celebrated in Fat Joe Interview on MS NOW"
 summary: "The segment covers the New York Knicks' 2026 NBA championship victory after 53 years, focusing on fan celebrations, a massive parade planned for later in the week, and longtime superfan Fat Joe. It features archival footage of Joe at games, his emotional on-camera interview with Ari Melber, and reflections on the team's resilience and city unity.\n\nSourcing relies on on-site reporting, direct interview with Fat Joe, player and fan clips, and references to team history. The throughline emphasizes New Yorkers' long wait and the championship as a unifying moment."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:54:12Z
 sourceUrl: "https://www.youtube.com/watch?v=K4LyTBhu2aA"
 sourceTitle: "MS NOW"
 section: "Politics"

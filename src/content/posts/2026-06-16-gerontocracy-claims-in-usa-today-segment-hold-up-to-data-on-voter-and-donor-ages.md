@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Gerontocracy claims in USA TODAY segment hold up to data on voter and donor ages"
 summary: "The USA TODAY segment examines how older Americans dominate political power beyond elected officials, focusing on voters, donors, and wealth. It references a book arguing the U.S. functions as a gerontocracy due to skewed participation.\nThe discussion cites median voter ages in the 50s nationally and higher in primaries and non-presidential races, plus average donor ages of 60-70. It draws on voting patterns and campaign finance data without naming specific guests or showing graphics in the provided transcript."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T17:37:23Z
 sourceUrl: "https://www.youtube.com/watch?v=SSUzRs0KdmE"
 sourceTitle: "USA TODAY"
 section: "Politics"

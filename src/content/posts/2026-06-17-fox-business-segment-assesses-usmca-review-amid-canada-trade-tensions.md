@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox Business segment assesses USMCA review amid Canada trade tensions"
 summary: "The segment discusses the approaching July 2026 USMCA joint review and renegotiation deadline. Hosts highlight Canada's prioritization of tariff relief, U.S. Trade Representative dissatisfaction with Canadian conduct, and retaliatory tariffs slowing progress. Guest Stephen Moore argues Canada cannot win a trade war due to high tariffs on U.S. dairy, agriculture, and timber, notes Canada's slow growth or technical recession, and stresses U.S. economic leverage while preferring to maintain North American integration."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T08:00:34Z
 sourceUrl: "https://www.youtube.com/watch?v=y4UjT7kZie4"
 sourceTitle: "Fox Business"
 section: "Politics"

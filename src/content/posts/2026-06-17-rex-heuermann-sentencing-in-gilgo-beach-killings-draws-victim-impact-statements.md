@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Rex Heuermann Sentencing in Gilgo Beach Killings Draws Victim Impact Statements"
 summary: "ABC News segment covers the June 17, 2026 sentencing of Rex Heuermann after his April guilty plea to seven murders and admission to an eighth in the Gilgo Beach serial killings. It includes prosecutor remarks, victim family statements, details on his arrest via DNA, prison conditions, and expected life sentence without parole."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T10:55:08Z
 sourceUrl: "https://www.youtube.com/watch?v=-mnv4XqxcRE"
 sourceTitle: "ABC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Michael Jackson Accusers Robson, Safechuck Get 2028 Civil Trial Date"
 summary: "The segment reports that a California judge set a February 14, 2028 trial date for the civil lawsuit by Wade Robson and James Safechuck against MJJ Productions and MJJ Ventures. The men allege Jackson sexually abused them as children and that company employees enabled and concealed it. Robson testified under oath in Jackson's 2005 criminal trial that no abuse occurred; Safechuck denied abuse to authorities at the time. Both later reversed positions in lawsuits and the 2019 documentary Leaving Neverland. Guest Brian Oxman, Jackson's former defense attorney, asserts the claims are motivated by money and questions the timing of the reversals."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T10:59:54Z
 sourceUrl: "https://www.youtube.com/watch?v=kwDCaFiPk1M"
 sourceTitle: "NewsNation"
 section: "Politics"

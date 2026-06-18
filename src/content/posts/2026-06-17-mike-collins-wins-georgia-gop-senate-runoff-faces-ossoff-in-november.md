@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Mike Collins wins Georgia GOP Senate runoff, faces Ossoff in November"
 summary: "The broadcast covers Republican Rep. Mike Collins' victory speech after winning the Georgia GOP Senate primary runoff against Derek Dooley. Collins thanks family, supporters, and pledges to defeat Democratic Sen. Jon Ossoff in November. He highlights his background as a trucking business owner, legislative record including the TRAN Act and Laken Riley Act, and contrasts his record with Ossoff's votes on spending, taxes, and social issues."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:29:15Z
 sourceUrl: "https://www.youtube.com/watch?v=m9vj2HUEtzw"
 sourceTitle: "The Hill"
 section: "Politics"

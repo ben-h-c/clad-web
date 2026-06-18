@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox Business segment raises alarms on unreleased Trump-Iran deal and potential payments"
 summary: "The segment covers President Trump's announcement of a US-Iran memorandum of understanding during the G7 summit, including a second-stage process ahead of planned signing in Switzerland, Iranian commitments on nuclear weapons and Strait of Hormuz access, and US insistence on verified compliance before sanctions relief. Trump states it is a fair deal without US investment. Former State Department advisor Christian Whiton assesses the deal skeptically, citing concerns over potential billions in funds to Iran from Qatar or Gulf states, lack of public details, Netanyahu's comments that he has not seen the full text, and implications for Israel-Hezbollah dynamics. The broadcast also briefly touches on Ukraine-Russia stalemate and possible negotiations."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:30:33Z
 sourceUrl: "https://www.youtube.com/watch?v=JcKocOTxdlY"
 sourceTitle: "Fox Business"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Sen. Murphy criticizes Trump Iran deal as 'epic disaster'"
 summary: "The clip shows Sen. Chris Murphy (D-CT) addressing the Senate on costs of the recent US-Iran conflict and a newly announced preliminary peace agreement. He highlights higher gas and diesel prices, farm bankruptcies, damage to US reputation, and argues the deal fails to meet Trump's objectives while providing sanctions relief to Iran for reopening the Strait of Hormuz."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:15:33Z
 sourceUrl: "https://www.youtube.com/watch?v=OZd6WiCiMDg"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

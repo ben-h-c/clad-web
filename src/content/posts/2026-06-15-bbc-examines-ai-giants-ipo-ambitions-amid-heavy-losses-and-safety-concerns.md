@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "BBC examines AI giants' IPO ambitions amid heavy losses and safety concerns"
 summary: "The segment discusses three major AI-related companies—Anthropic, OpenAI, and SpaceX (including xAI)—preparing for large IPOs targeting roughly $4 trillion combined value. It covers their cash burn, safety concerns raised by Anthropic's Jack Clark, valuation challenges, retail investor exposure via pensions, and Europe's lag behind U.S. tech dominance.\nExperts Adrian Cox (Deutsche Bank), Richard Coffin (Plain Bagel), and Madhumita Murgia (FT) discuss balance-sheet opacity, speculative elements, capital market limits, shifting public sentiment, data-center backlash, and whether companies can balance safety rhetoric with profit motives."
-publishedAt: 2026-06-13
+publishedAt: 2026-06-13T09:30:07Z
 sourceUrl: "https://www.youtube.com/watch?v=sQq07QVTOk0"
 sourceTitle: "BBC News"
 section: "Politics"

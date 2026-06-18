@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "WSJ Fan Interviews Capture Varied World Cup 2026 Spending in NY/NJ"
 summary: "The short WSJ video features on-the-ground interviews with fans attending a 2026 FIFA World Cup match in the New York/New Jersey area. Fans from Morocco, Brazil, Canada, and locals share rough estimates of total trip costs including tickets, flights, and lodging, ranging from a few hundred dollars to $70,000 for a group hospitality package.\nThe segment relies on direct quotes from attendees without narration, experts, or graphics; it captures spontaneous responses about individual or group expenditures during the tournament's early stages."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:48:27Z
 sourceUrl: "https://www.youtube.com/watch?v=8GAe2_T27dw"
 sourceTitle: "The Wall Street Journal"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox Business examines Warsh's Fed reform push at first FOMC meeting"
 summary: "The segment discusses the June 2026 FOMC meeting, Kevin Warsh's first as Fed Chair, and tensions between rate policy preferences from Trump and markets amid jobs and inflation data. Panelists focus on Warsh's potential to reform the Fed by shrinking its role, cutting communications like forward guidance, and questioning the dual mandate. They also address US debt servicing costs and incentives for fiscal restraint. Sourcing relies on panel commentary from David, Brian, Dagen, and Gerri with no external guests or data graphics referenced."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T04:00:30Z
 sourceUrl: "https://www.youtube.com/watch?v=nQokhJW5kAs"
 sourceTitle: "Fox Business"
 section: "Politics"

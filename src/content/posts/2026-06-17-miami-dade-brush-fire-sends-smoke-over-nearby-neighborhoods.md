@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Miami-Dade Brush Fire Sends Smoke Over Nearby Neighborhoods"
 summary: "The Reuters segment shows footage of a brush fire near Miami with thick smoke visible over residential areas. Residents in the transcript describe the scale of the smoke column, its density, and relief as conditions calmed, while noting proximity concerns for communities like San Moritz. \nThe report relies on on-scene eyewitness statements and visual footage rather than official briefings or data graphics. No named experts or spokespeople appear; the focus is on local observations of the ongoing event near Doral in west Miami-Dade County."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T06:28:33Z
 sourceUrl: "https://www.youtube.com/watch?v=PK4BZlwi9KI"
 sourceTitle: "Reuters"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox Business segment urges calm on emerging US-Iran MOU amid speculation"
 summary: "The segment discusses an emerging US-Iran memorandum of understanding under the Trump administration, with comments from VP JD Vance on compliance and negotiations. Retired Lt. Gen. Keith Kellogg advises viewers to 'relax' and await details, citing Reagan's 'trust but verify' and Iran's past uranium enrichment levels near weapons-grade. Concerns raised include potential ceding of Strait of Hormuz control and impacts on Hezbollah in Lebanon. Kellogg contrasts with failed past deals like the 2015 JCPOA and North Korea framework."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T16:45:13Z
 sourceUrl: "https://www.youtube.com/watch?v=UzUYvwGhMBI"
 sourceTitle: "Fox Business"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Georgia Senate Runoff Tests Trump Endorsement Power Amid 2028 Buzz"
 summary: "The POLITICO Playbook podcast discusses the June 16, 2026, Republican primary runoff in Georgia's Senate race between Rep. Mike Collins and Derek Dooley. Hosts cover Trump's endorsement of Collins, Gov. Brian Kemp's support for Dooley, and the implications for Sen. Jon Ossoff's reelection and 2028 prospects. Segments also address Gov. Gavin Newsom's video accusing the Trump DOJ of a politically motivated investigation and VP J.D. Vance's new book release and appearance on The View."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T11:00:25Z
 sourceUrl: "https://www.youtube.com/watch?v=7czSw4b7Yt4"
 sourceTitle: "POLITICO"
 section: "Politics"

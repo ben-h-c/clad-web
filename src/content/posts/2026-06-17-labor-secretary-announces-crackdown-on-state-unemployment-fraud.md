@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Labor Secretary announces crackdown on state unemployment fraud"
 summary: "Fox Business interview with Acting Labor Secretary Keith Sonderling, who announces aggressive new steps against unemployment insurance fraud. He details plans to withhold administrative funding from non-compliant states and highlights improper payments in states like New York and California.\nSonderling references his role on the Vice President's fraud task force, cites pandemic-era losses, and discusses recent G7 labor meetings. Sourcing is primarily the Secretary himself with references to DOL Inspector General actions and state-specific figures."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T11:30:16Z
 sourceUrl: "https://www.youtube.com/watch?v=S-TYccqy-Yw"
 sourceTitle: "Fox Business"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "G7 Summit in Évian Shows Eased US-Allies Tensions Post-Iran Conflict"
 summary: "The AP segment covers the final day of the 2026 G7 summit in Évian, France, focusing on discussions of trade with China and AI regulation. It highlights the surprisingly smooth atmosphere following the US-Israel military campaign against Iran that began in February 2026.\nThe report notes prior frictions over lack of consultation and economic impacts, but describes improved dynamics aided by a tentative US-Iran deal and gestures like a soccer jersey gift from German Chancellor Friedrich Merz. It also covers Ukraine President Zelenskyy's address and a perceived mood shift toward negotiated settlements, emphasizing the value of direct talks with unpredictable US leadership."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T13:56:24Z
 sourceUrl: "https://www.youtube.com/watch?v=6BdeN628X5c"
 sourceTitle: "Associated Press"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS report details U.S. monitoring of new Chinese structure at Scarborough Shoal"
 summary: "The segment covers U.S. intelligence monitoring of Chinese activity at Scarborough Shoal, including installation of a Beijing-described 'scientific structure' that has drawn Philippine protests. It notes China's control of the shoal since a 2012 standoff and its 2025 establishment of a nature reserve there.\n\nCBS national security producer James LaPorta explains China's incremental presence playbook, outlines U.S.-Philippine responses (intelligence, joint patrols, diplomacy), then briefly shifts to separate Pentagon planning on securing Iranian highly enriched uranium amid potential U.S.-Iran deal talks."
-publishedAt: 2026-06-13
+publishedAt: 2026-06-13T00:24:38Z
 sourceUrl: "https://www.youtube.com/watch?v=cbzYA8g9DFg"
 sourceTitle: "CBS News"
 section: "Politics"

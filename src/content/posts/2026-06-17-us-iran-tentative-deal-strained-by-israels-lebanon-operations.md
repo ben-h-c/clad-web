@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "US-Iran tentative deal strained by Israel's Lebanon operations"
 summary: "The broadcast examines a tentative US-Iran agreement to end recent Middle East fighting, with expectations of a formal signing soon. It covers Iranian insistence on Israeli withdrawal from southern Lebanon, Netanyahu's refusal citing security needs, and President Trump's public criticism of Israel's Lebanon operations during G7 remarks.\nThe segment features analysis from foreign policy expert Gideon Rose, former diplomat Barbara Leaf, and Israeli academic Yossi Melman. It draws on direct quotes from Trump, Netanyahu, and Iranian officials, alongside discussion of the deal's limited scope excluding Hezbollah and missiles."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:30:47Z
 sourceUrl: "https://www.youtube.com/watch?v=aQ6hs0MMAfM"
 sourceTitle: "DW News"
 section: "Politics"

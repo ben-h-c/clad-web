@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Merkley Questions Trump Budget Nominee on Deficit Projections, Ocean Program Cuts"
 summary: "The segment shows Sen. Jeff Merkley (D-OR) questioning Trump administration nominee Mr. Duncan during a Senate Budget Committee hearing on the president's FY2027 budget. Topics include historical pocket rescissions, the requirement for deficit and debt projections in budget submissions, the planned reduction of the Ocean Observatories Initiative, and potential partisan influences in grant awards.\nMerkley cites specific statutes and prior testimony by OMB Director Russell Vought; Duncan responds on legal compliance and midsession reviews while deferring on the ocean program. The exchange highlights tensions over executive adherence to congressional funding directives."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:00:09Z
 sourceUrl: "https://www.youtube.com/watch?v=UDuhl2QcMYs"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

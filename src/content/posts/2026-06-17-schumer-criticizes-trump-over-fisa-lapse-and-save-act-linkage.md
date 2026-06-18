@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Schumer criticizes Trump over FISA lapse and SAVE Act linkage"
 summary: "Senate Minority Leader Chuck Schumer delivered remarks blaming President Trump for the recent lapse of FISA Section 702 authorities. He accused Trump of blocking reauthorization, withdrawing a nominee, and conditioning renewal on passage of the SAVE Act. Schumer described the SAVE Act as extreme anti-voting legislation unrelated to surveillance. The segment is a partisan floor speech from C-SPAN coverage. Sourcing is Schumer's statements with no opposing guests or data presented."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T16:57:15Z
 sourceUrl: "https://www.youtube.com/watch?v=DNQjzITQOK0"
 sourceTitle: "C-SPAN"
 section: "Politics"

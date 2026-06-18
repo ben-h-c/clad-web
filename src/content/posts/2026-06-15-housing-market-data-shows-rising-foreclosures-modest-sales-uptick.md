@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Housing Market Data Shows Rising Foreclosures, Modest Sales Uptick"
 summary: "The video reviews recent U.S. housing data while walking in Tiburon, California. It covers Q1 2026 foreclosure filings from ATTOM data showing increases, May 2026 existing-home sales from NAR, price-tier sales patterns, median price dynamics, Lawrence Yun's long-term forecast, and reasons for market trends.\nIt draws primarily from ATTOM foreclosure reports, NAR sales data, HousingWire, and comments from NAR's Lawrence Yun. The presenter stresses seasonality, affordability pressures, and opportunities for patient buyers rather than FOMO."
-publishedAt: 2026-06-13
+publishedAt: 2026-06-13T20:09:19Z
 sourceUrl: "https://www.youtube.com/watch?v=Ng6YGKWzY8Q"
 sourceTitle: "Michael Bordenaro"
 section: "Politics"

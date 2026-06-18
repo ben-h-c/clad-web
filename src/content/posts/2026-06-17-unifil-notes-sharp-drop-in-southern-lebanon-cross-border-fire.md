@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "UNIFIL notes sharp drop in southern Lebanon cross-border fire"
 summary: "The segment discusses recent UNIFIL observations of cross-border projectiles in southern Lebanon, noting 106 trajectories in one period with 103 attributed to the IDF. It highlights a significant reduction in daily trajectories from 705 to 174 and calls for continued de-escalation toward zero incidents. The discussion also touches on an announced agreement or memorandum with positive early effects on the situation in Lebanon.\nThe broadcast relies on UNIFIL data and spokesperson comments, referencing counts of projectiles and trajectories attributed to sides. It includes analyst or correspondent input on the path forward and expectations around a memorandum of understanding involving Lebanon."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:22:51Z
 sourceUrl: "https://www.youtube.com/watch?v=1l_QROFQWug"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

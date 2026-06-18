@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Thune discusses appropriations standoffs and housing bill progress"
 summary: "The segment features Senate Majority Leader John Thune responding to questions on the likelihood of additional continuing resolutions (CRs) for FY2026 funding and progress on a housing affordability bill. Thune describes Democratic resistance to regular appropriations order, including lack of agreement on top-line numbers and poison-pill amendments, and states Democrats favor shutdowns for political gain. He expresses optimism that a bipartisan housing bill will advance via motion to proceed, with minor tweaks, to increase supply and affordability."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:15:38Z
 sourceUrl: "https://www.youtube.com/watch?v=DhR1Xnv6zDU"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

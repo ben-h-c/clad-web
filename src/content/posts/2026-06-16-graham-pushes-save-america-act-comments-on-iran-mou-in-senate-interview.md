@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Graham Pushes SAVE America Act, Comments on Iran MOU in Senate Interview"
 summary: "The Forbes Breaking News segment featured Sen. Lindsey Graham (R-SC) responding to questions about advancing the SAVE America Act, which Trump tasked him with passing. Graham discussed needing votes to overcome the filibuster, using reconciliation for portions of the bill, and holding weekly votes to highlight Republican-Democrat differences. He then addressed a recent US-Iran memorandum of understanding, expressing conditional support while voicing skepticism about Iran and calling for no uranium enrichment in a final nuclear agreement. Graham confirmed Congress should review any nuclear components per existing law and noted reconciliation limits on the full voting bill. The clip drew on Graham's statements and references to administration descriptions and Iranian media reports."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:45:24Z
 sourceUrl: "https://www.youtube.com/watch?v=0wISZQu6Vvk"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Jokes 'I'm the Boss' Upon Late Arrival at G7 Meeting"
 summary: "DW News aired a brief clip from the 2026 G7 summit in Évian-les-Bains, France, showing President Trump arriving late to a leaders' meeting. He jokingly declares 'Well, hello. I'm the boss' to laughter from attendees before greeting colleagues. The segment highlights the informal moment during formal proceedings.\nThe report relies on direct video footage of the exchange involving Trump and host Emmanuel Macron, with no additional guests or extensive analysis provided in the short broadcast."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T10:26:51Z
 sourceUrl: "https://www.youtube.com/watch?v=_zd6u2XVeOA"
 sourceTitle: "DW News"
 section: "Politics"

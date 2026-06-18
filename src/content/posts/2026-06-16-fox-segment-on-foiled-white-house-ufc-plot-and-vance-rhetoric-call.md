@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox segment on foiled White House UFC plot and Vance rhetoric call"
 summary: "Fox Business segment covered the FBI's disruption of an alleged terror plot targeting Sunday's UFC Freedom 250 event at the White House, involving drones with explosives and snipers. Hosts discussed 23 communicators, a 19-year-old Ohio suspect using graduation money, and broader political violence including Charlie Kirk's 2025 assassination and the Minnesota lawmaker killings. JD Vance appeared urging leaders to lower rhetoric, stating more violence and rhetoric comes from the left."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:00:36Z
 sourceUrl: "https://www.youtube.com/watch?v=8tmfe1BvgJ4"
 sourceTitle: "Fox Business"
 section: "Politics"

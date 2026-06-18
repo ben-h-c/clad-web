@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Elon Musk Reaches $1 Trillion Net Worth After SpaceX IPO"
 summary: "The video is titled 'BREAKING: Elon Musk Becomes the World's First Trillionaire' with SpaceX hashtags. It features a short audio clip of Elon Musk discussing earthly problems and the excitement of the future that SpaceX aims to deliver.\nThe sourcing is limited to the Musk quote itself. No guests, graphics, or additional reporting appear; the piece functions as a brief motivational clip paired with a sensational headline."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T14:30:22Z
 sourceUrl: "https://www.youtube.com/watch?v=BloQqoUINHM"
 sourceTitle: "primelines!"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Starmer warns against Labour leadership challenge amid Burnham speculation"
 summary: "The segment features Prime Minister Keir Starmer responding to questions about a potential Labour leadership challenge linked to Greater Manchester Mayor Andy Burnham. Starmer states he opposes any challenge as harmful to the country but would fight one if it arises, avoids hypotheticals on ministerial resignations, and emphasizes the privilege of his role despite frustrations. Burnham is positioned to potentially enter Parliament via the Makerfield by-election on 18 June 2026, making him eligible to contest the leadership."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T07:58:10Z
 sourceUrl: "https://www.youtube.com/watch?v=vstbZU5buvM"
 sourceTitle: "BBC News"
 section: "Politics"

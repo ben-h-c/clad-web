@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Emir of Qatar Praises Trump on Iran Deal, Highlights US Trade Ties at G7"
 summary: "The segment shows remarks by the Emir of Qatar thanking President Trump for leadership on a recent Middle East deal involving Iran, noting ongoing work and potential for regional progress. It covers bilateral ties, referencing a historic Doha visit and projected trade reaching $1.2 trillion.\nTrump responds by highlighting Qatar's massive planned investments in the US exceeding prior records, citing figures approaching 19 trillion dollars cumulatively and praising the relationship rekindled during the prior visit."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:30:28Z
 sourceUrl: "https://www.youtube.com/watch?v=f5Q25SwJ35o"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

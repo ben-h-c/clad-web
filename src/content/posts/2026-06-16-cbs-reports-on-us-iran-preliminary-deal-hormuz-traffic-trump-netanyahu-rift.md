@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS Reports on U.S.-Iran Preliminary Deal, Hormuz Traffic, Trump-Netanyahu Rift"
 summary: "CBS News segment covers resumption of limited vessel traffic in the Strait of Hormuz ahead of a Friday signing for a U.S.-Iran memorandum ending recent fighting. It includes President Trump’s G7 remarks on a 60-day nuclear negotiation window and his public criticism of Israeli Prime Minister Netanyahu over prolonged operations in Lebanon against Hezbollah. Correspondent Nancy Cordis reports from Geneva; expert Will Todman analyzes differences from the 2015 JCPOA and prospects for a quick comprehensive deal."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:31:35Z
 sourceUrl: "https://www.youtube.com/watch?v=xX0EWTm3ciw"
 sourceTitle: "CBS News"
 section: "Politics"

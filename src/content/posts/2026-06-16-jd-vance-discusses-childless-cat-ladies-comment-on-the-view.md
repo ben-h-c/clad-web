@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "JD Vance Discusses 'Childless Cat Ladies' Comment on The View"
 summary: "The segment featured Vice President JD Vance promoting his new memoir 'Communion' on The View. Joy Behar questioned him about his apology in the book for the 2021 'childless cat ladies' remark aimed at Democrats, which Vance called his 'most bone-headed comment.' He discussed personal growth, the need for grace as a 'bad Catholic,' and a broader cultural shift toward being anti-family and anti-child. The panel then presented him with a onesie for his expected fourth child."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T17:16:03Z
 sourceUrl: "https://www.youtube.com/watch?v=lZSAop2-UH8"
 sourceTitle: "The View"
 section: "Politics"

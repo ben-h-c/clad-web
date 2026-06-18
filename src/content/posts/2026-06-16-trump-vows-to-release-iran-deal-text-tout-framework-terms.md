@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Vows to Release Iran Deal Text, Tout Framework Terms"
 summary: "C-SPAN clip captures President Trump discussing a recently reached US-Iran memorandum of understanding following recent hostilities. He addresses a second 60-day negotiation phase, promises to release and publicly read the full text soon, and highlights key provisions like permanent toll-free access through the Strait of Hormuz and assurances Iran will not obtain a nuclear weapon.\nTrump contrasts the agreement favorably with the Obama-era JCPOA, denies any US financial obligations or payments, and references the success of a prior naval blockade. The segment draws directly from Trump's remarks at an event, with no additional guests or graphics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:09:51Z
 sourceUrl: "https://www.youtube.com/watch?v=EZUi3f5Ge5o"
 sourceTitle: "C-SPAN"
 section: "Politics"

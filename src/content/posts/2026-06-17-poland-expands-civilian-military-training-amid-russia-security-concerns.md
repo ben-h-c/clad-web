@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Poland Expands Civilian Military Training Amid Russia Security Concerns"
 summary: "The segment covers a voluntary one-day army training course for Polish civilians, including families, focused on survival skills, orientation, shelter, and emergency response. It highlights participant motivations tied to perceived Russian threats and features interviews with attendees and a military coordinator. The broadcast references a government security booklet distributed to households and a September drone incursion that prompted siren alerts. Sourcing draws from on-site footage, named participants like Maria and Beata, and Second Lieutenant Jacek Pleskot; it notes the program's launch in November and high demand with waiting lists."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T10:41:55Z
 sourceUrl: "https://www.youtube.com/watch?v=7OgrpImawjo"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

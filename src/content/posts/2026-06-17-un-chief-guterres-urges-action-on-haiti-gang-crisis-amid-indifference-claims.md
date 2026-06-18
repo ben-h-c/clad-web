@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "UN Chief Guterres Urges Action on Haiti Gang Crisis Amid Indifference Claims"
 summary: "The Al Jazeera English segment features UN Secretary-General António Guterres speaking during a June 2026 visit to Haiti. He attributes the crisis primarily to global indifference, noting gangs terrorizing the population and weakened institutions while linking lack of international engagement directly to ongoing insecurity.\n\nThe clip draws from Guterres' press conference remarks and aligns with UN News coverage of his visit. No additional guests or graphics are referenced in the provided transcript; sourcing centers on the UN chief's direct statements."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T06:02:10Z
 sourceUrl: "https://www.youtube.com/watch?v=_PtQ_FYjdyw"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

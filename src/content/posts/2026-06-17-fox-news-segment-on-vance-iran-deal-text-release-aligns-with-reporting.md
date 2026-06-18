@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News segment on Vance, Iran deal text release aligns with reporting"
 summary: "The segment covers President Trump at the G7 summit in France discussing a US-Iran memorandum of understanding to end conflict. It includes Vice President Vance explaining the delay in releasing the full text due to diplomatic procedures with Qatar and Pakistan, with release expected soon and formal signing Friday. Details emerge on oil sales, a 60-day negotiation period on nuclear issues, and related regional diplomacy involving Egypt."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T11:30:31Z
 sourceUrl: "https://www.youtube.com/watch?v=OV98qouIsfc"
 sourceTitle: "Fox News"
 section: "Politics"

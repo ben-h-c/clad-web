@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Thune Seeks Details on Trump-Iran MOU Amid Limited Public Information"
 summary: "The clip shows Senate Majority Leader John Thune responding to questions about a Trump administration memorandum of understanding with Iran. Thune states that lawmakers hope for more details, notes the administration's bold actions to address Iran's threat, and emphasizes the need to reopen shipping lanes and end Iran's nuclear program.\nThe segment draws from Thune's remarks to reporters on June 15, 2026, following Trump's announcement of the MOU. It features direct quotes without additional guests or graphics, focusing on Thune's call for forthcoming information and his overall support for the direction of policy."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:21:15Z
 sourceUrl: "https://www.youtube.com/watch?v=nXnBCb8jTvA"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

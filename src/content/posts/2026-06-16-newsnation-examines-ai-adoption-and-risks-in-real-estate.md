@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NewsNation examines AI adoption and risks in real estate"
 summary: "The segment explores AI's growing role in real estate, noting that brokerage leaders report 97% of agents now use it, up from 80% two years prior. It covers benefits including faster marketing, lead responses, smarter buyer searches, market analysis, and time freed for client work, plus leveling effects for smaller agents. Risks highlighted include factual errors on property details, privacy concerns with sensitive data, algorithmic bias or manipulation, liability issues, job impacts, and enhanced fraud potential. An anecdote from Ryan Serhant about a near-derailed $50M deal due to AI advice illustrates limitations. Viewer questions address oversight, human expertise, and broader implications."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:33:37Z
 sourceUrl: "https://www.youtube.com/watch?v=20T-hU9UhbY"
 sourceTitle: "NewsNation"
 section: "Politics"

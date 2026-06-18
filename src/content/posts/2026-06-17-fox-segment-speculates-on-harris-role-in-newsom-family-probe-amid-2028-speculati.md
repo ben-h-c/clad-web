@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox segment speculates on Harris role in Newsom family probe amid 2028 speculation"
 summary: "The segment discusses a recent investigation into California Gov. Gavin Newsom and his wife, speculating that rival Kamala Harris may have a hand in it as they eye 2028 Democratic presidential bids. Hosts Jesse Watters and Benny Johnson engage in extended commentary on Democratic Party dysfunction, Hillary Clinton's potential return, JD Vance's media appearances, and cultural topics like UFC events."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T07:30:07Z
 sourceUrl: "https://www.youtube.com/watch?v=RhSVYVTwyKg"
 sourceTitle: "Fox News"
 section: "Politics"

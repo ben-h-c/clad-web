@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS segment analyzes U.S.-Iran ceasefire MOU with CSIS expert"
 summary: "The CBS News segment discusses a U.S.-Iran memorandum of understanding for extending a ceasefire, including a planned 60-day truce, reopening of the Strait of Hormuz, and return to nuclear negotiations. It notes uncertainties over Iran's nuclear program and Israel's operations in Lebanon. Anchor Elizabeth brings in Mona Yacoubian, director and senior adviser of the Middle East program at CSIS, for analysis. Yacoubian confirms the reported elements of the brief MOU but emphasizes that full details remain undisclosed. The discussion addresses Israel's exclusion from the talks and potential enforcement challenges involving Hezbollah."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:12:03Z
 sourceUrl: "https://www.youtube.com/watch?v=SRjUjkCSbZ0"
 sourceTitle: "CBS News"
 section: "Politics"

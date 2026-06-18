@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "The View Discusses Giants Players' Bible Verses on Pride Caps"
 summary: "The segment covers the San Francisco Giants' Pride Night where players could opt for rainbow caps. Three pitchers instead wrote Bible verses from Genesis on the caps. MLB warned them against defacing uniforms per standard rules. Panel discusses Republican figures like Josh Hawley and JD Vance criticizing the league. Hosts stress that players had the choice not to wear the Pride caps and argue against claims of anti-Christian bias.\nThe discussion references the specific Bible verse about the rainbow covenant, compares to other uniform controversies, and notes no fines were issued, only verbal warnings. Sourcing is the hosts' commentary with no outside guests or cited documents beyond general references to MLB statements."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:00:11Z
 sourceUrl: "https://www.youtube.com/watch?v=By3d21IL28I"
 sourceTitle: "The View"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC News report on Wilmington, Del., hospital shooting holds up to verification"
 summary: "The NBC News segment covers breaking news of a shooting at Wilmington Hospital in Delaware. It reports two people shot around 3:30 p.m., the hospital placed on lockdown, a large police response including people exiting with hands raised, and an expected police update at 7:30 p.m. Reporter Johnny Archer from NBC10 Philadelphia provides on-scene details from the Wilmington campus.\nThe coverage relies on Wilmington Police statements, live chopper footage, and visual confirmation of the police perimeter and evacuations. No named guests or experts appear; it focuses on official police information and real-time visuals from the scene."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:44:29Z
 sourceUrl: "https://www.youtube.com/watch?v=Y8_fJdqqai4"
 sourceTitle: "NBC News"
 section: "Politics"

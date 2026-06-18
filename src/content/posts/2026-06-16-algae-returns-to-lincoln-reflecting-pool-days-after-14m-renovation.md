@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Algae returns to Lincoln reflecting pool days after $14M renovation"
 summary: "The segment covers visitor disappointment with green algae in the Lincoln Memorial Reflecting Pool shortly after its recent renovation and reopening. It shows footage and quotes describing the water as 'puke green,' calls the project a waste amid other national issues, and notes historical algae problems plus Interior Department use of nanobubbler technology to address it."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:55:56Z
 sourceUrl: "https://www.youtube.com/watch?v=k4bi55466LU"
 sourceTitle: "MS NOW"
 section: "Politics"

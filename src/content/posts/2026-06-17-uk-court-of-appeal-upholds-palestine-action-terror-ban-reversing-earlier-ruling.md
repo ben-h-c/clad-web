@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "UK Court of Appeal upholds Palestine Action terror ban, reversing earlier ruling"
 summary: "The broadcast covers recent UK court decisions against Palestine Action activists and the group itself. It details convictions and sentencing for a factory raid, the upheld proscription ban, mass arrests, and protests.\nThe segment draws on court judgments, statements from human rights lawyers and critics, and notes on public demonstrations outside courts. It highlights the reversal of a High Court decision by the Court of Appeal."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T11:30:04Z
 sourceUrl: "https://www.youtube.com/watch?v=E1_aRW9XgaA"
 sourceTitle: "Guardian News"
 section: "Politics"

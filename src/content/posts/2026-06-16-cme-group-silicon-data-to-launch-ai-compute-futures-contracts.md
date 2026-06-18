@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CME Group, Silicon Data to Launch AI Compute Futures Contracts"
 summary: "The CNBC segment examines a proposed futures market for AI computing power, highlighting GPU rental price volatility and hedging needs. It covers Silicon Data's partnership with CME Group to develop contracts based on GPU price indices, pending regulatory approval, and interviews CEO Carmen Li on market mechanics.\nThe report explains spot market dynamics, large vs. small buyer differences, standardization challenges for benchmarks like H100, CFTC oversight, and the role of speculators. It draws on Silicon Data's real-time pricing data and compares the concept to oil futures while noting uncertainties in adoption."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:00:39Z
 sourceUrl: "https://www.youtube.com/watch?v=e-gcm9bL1Vk"
 sourceTitle: "CNBC"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters Paris fans feed covers France 3-1 Senegal World Cup opener"
 summary: "The Reuters live stream shows fans gathered in Paris watching France face Senegal in their 2026 World Cup Group I opener. Commentary and visuals track the first half (0-0), French possession struggles, Senegalese threats, and second-half developments including goals. Ads and fan reactions intersperse throughout.\nThe feed mixes pitch-side analysis with Paris supporter scenes; named players include Mbappé, Hernandez, Jackson, and Saliba. It follows standard live sports format with no named guests beyond on-site reporting."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:22:19Z
 sourceUrl: "https://www.youtube.com/watch?v=WZfQ--mLhUs"
 sourceTitle: "Reuters"
 section: "Politics"

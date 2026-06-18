@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "AP video shows fisherman releasing nine-foot great white shark off Nantucket"
 summary: "The brief clip captures audio and footage of a fisherman and companions identifying, unhooking, and releasing a great white shark in shallow water near Nantucket. Voices confirm it as a 'white shark' or 'great white' while the hook is removed and the animal is guided back out. The Associated Press video documents the June 2026 incident involving angler Elliot Sudal. Sudal posted similar footage to social media, and AP produced both a video and written article on the event. Sourcing relies on the primary video and on-the-record identification by the fisherman."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T02:15:22Z
 sourceUrl: "https://www.youtube.com/watch?v=hWh8KEcOxbU"
 sourceTitle: "Associated Press"
 section: "Politics"

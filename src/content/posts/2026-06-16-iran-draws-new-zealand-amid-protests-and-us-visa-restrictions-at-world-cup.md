@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Iran Draws New Zealand Amid Protests and US Visa Restrictions at World Cup"
 summary: "CBS News segment covers Iran's 2-2 draw with New Zealand in their 2026 World Cup opener at SoFi Stadium in Los Angeles. It highlights protests outside and inside the venue against the Iranian regime, including signs and t-shirts honoring those killed. The report notes the team's base in Tijuana, Mexico, and complaints from the captain and coach about being ordered to leave the US immediately after the match."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:51:40Z
 sourceUrl: "https://www.youtube.com/watch?v=7VM_3aOJ2-g"
 sourceTitle: "CBS News"
 section: "Politics"

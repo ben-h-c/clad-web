@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "TSB report: Titan submersible lacked oversight, echoes prior findings"
 summary: "The segment reports on Canada's Transportation Safety Board final report into the 2023 Titan submersible implosion that killed five people. It summarizes key technical findings on the vessel's carbon-fiber hull, cylindrical design, inadequate monitoring, accumulated damage, and OceanGate's company culture and safety management failures. The report issues six recommendations focused on regulatory oversight for submersibles in Canadian waters."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T15:37:57Z
 sourceUrl: "https://www.youtube.com/watch?v=ZDXQekq30nw"
 sourceTitle: "CBC News"
 section: "Politics"

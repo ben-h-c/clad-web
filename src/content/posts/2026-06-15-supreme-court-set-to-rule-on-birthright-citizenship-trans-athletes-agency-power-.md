@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Supreme Court set to rule on birthright citizenship, trans athletes, agency power in June"
 summary: "FOX 32 Chicago segment previews major Supreme Court decisions expected in late June 2026. Host discusses big-ticket cases with UIC Law professor Steven Schwinn, including birthright citizenship challenge, presidential control over independent agencies, transgender participation in sports, tariffs, and Second Amendment issues. Segment notes roughly 20 decisions outstanding and release schedule for final Thursdays in June.\nSchwinn, a frequent local commentator, provides analysis on case stakes, court signals from oral arguments, and difficulty of predictions given cross-party alignments. No graphics or additional guests; interview dominates the clip."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T15:41:37Z
 sourceUrl: "https://www.youtube.com/watch?v=S0z2R9BxTnQ"
 sourceTitle: "FOX 32 Chicago"
 section: "Politics"

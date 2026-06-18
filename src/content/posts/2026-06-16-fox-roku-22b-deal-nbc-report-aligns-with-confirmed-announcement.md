@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox-Roku $22B deal: NBC report aligns with confirmed announcement"
 summary: "NBC News segment reports Fox Corporation's announced $22 billion acquisition of Roku in a cash-and-stock deal, highlighting access to over 100 million households and ad-platform scale. It discusses strategic fit with Fox's Tubi service, focus on free ad-supported streaming, competition with YouTube, and low expected regulatory hurdles given Fox's position.\nThe report features analyst Natalie Jarvey explaining the move as a bet on FAST services amid streaming wars, referencing recent media consolidation like the Warner Bros.-Paramount deal and Fox's post-Disney strategy under Lachlan Murdoch."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:39:06Z
 sourceUrl: "https://www.youtube.com/watch?v=Ll5dfua30bo"
 sourceTitle: "NBC News"
 section: "Politics"

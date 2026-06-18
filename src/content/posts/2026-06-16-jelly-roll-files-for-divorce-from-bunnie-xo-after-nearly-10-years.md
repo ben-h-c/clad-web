@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Jelly Roll Files for Divorce from Bunnie XO After Nearly 10 Years"
 summary: "The segment reports that Jelly Roll filed for divorce from Bunnie XO after nearly 10 years of marriage. It references court documents showing the filing occurred in May, notes past relationship turbulence including admitted infidelity and prior breakups, and states that neither party has issued an official statement."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:48:15Z
 sourceUrl: "https://www.youtube.com/watch?v=CMt2LQGQUsY"
 sourceTitle: "ABC News"
 section: "Politics"

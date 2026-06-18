@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Africa CDC Director Warns Ebola Outbreak in DRC, Uganda Risks Escalation"
 summary: "DW News interview with Africa CDC Director-General Dr. Jean Kaseya (transcript spells Casaya) on the Bundibugyo Ebola outbreak declared four weeks prior. Kaseya notes higher case and death counts than prior outbreaks at the same stage, stresses urban setting and security challenges, and calls for accelerated contact tracing, testing capacity, and community engagement to address mistrust. He references $910 million in pledges and warns of rising costs to $1-4 billion without swift disbursement."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T11:55:47Z
 sourceUrl: "https://www.youtube.com/watch?v=fFsre4yd9KE"
 sourceTitle: "DW News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Sky News examines OnlyFans business model, growth and future challenges"
 summary: "Sky News reports on OnlyFans as a multi-billion-dollar platform founded in 2016, its pandemic-driven growth, revenue model and creator experiences. Segments cover top earners' success alongside challenges like competition, platform discovery limits and shifting regulations. It details the 2026 death of majority owner Leo Radvinsky and a subsequent minority stake sale to Architect Capital. Sourcing includes named creators Bonnie Lockett and others for interviews, public financial filings referenced via graphics, and statements from OnlyFans; expert commentary on investment and creator finance access."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T16:00:15Z
 sourceUrl: "https://www.youtube.com/watch?v=WOL6GHwBWFs"
 sourceTitle: "Sky News"
 section: "Politics"

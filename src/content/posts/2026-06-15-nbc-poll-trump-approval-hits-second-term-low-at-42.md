@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC Poll: Trump Approval Hits Second-Term Low at 42%"
 summary: "The segment featured Kristen Welker discussing a new NBC News poll on the TODAY show. It highlighted President Trump's job approval at 42% approve and 57% disapprove among registered voters, down from 44% in March, marking a second-term low. Welker connected the numbers to an unpopular war, poor economic handling and recent inflation data. The discussion also noted Trump's 80th birthday, a UFC event on the White House South Lawn for the America 250 celebration, and upcoming Meet the Press guests including Hakeem Jeffries."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T12:43:39Z
 sourceUrl: "https://www.youtube.com/watch?v=J4rK0QuqxV8"
 sourceTitle: "TODAY"
 section: "Politics"

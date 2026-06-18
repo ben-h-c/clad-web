@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Warns of Renewed Strikes on Iran Over MOU Compliance"
 summary: "The segment features President Trump discussing a memorandum of understanding with Iran amid ceasefire talks following recent conflict. He claims toughness on Iran, threatens resumed bombing if terms are not honored, contrasts it favorably with the Obama-era deal, and references Strait of Hormuz access plus a strong clause barring Iranian nuclear weapons.\nThe clip draws from Trump's public remarks, with NBC providing the verbatim quote in context of recent diplomatic developments. No named guests or extensive graphics are detailed in available coverage; the throughline is Trump's characterization of the emerging agreement as a durable barrier to Iranian nuclear capability."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T16:59:12Z
 sourceUrl: "https://www.youtube.com/watch?v=j58wDmPuz0Y"
 sourceTitle: "NBC News"
 section: "Politics"

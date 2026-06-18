@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reflecting Pool Algae Returns Days After Trump Renovation"
 summary: "The NPR segment reports that the Lincoln Memorial Reflecting Pool on the National Mall, recently renovated and declared finished by President Trump, has developed green algae blooms shortly after refilling. Workers are cleaning it ahead of July 4th events. A Florida visitor interviewed by the Associated Press comments that keeping the pool blue is an impossible task due to chemical and environmental costs."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:00:37Z
 sourceUrl: "https://www.youtube.com/watch?v=2wiXFABof1w"
 sourceTitle: "NPR"
 section: "Politics"

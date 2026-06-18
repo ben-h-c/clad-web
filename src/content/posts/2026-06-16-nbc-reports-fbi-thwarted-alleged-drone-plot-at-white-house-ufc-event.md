@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC Reports FBI Thwarted Alleged Drone Plot at White House UFC Event"
 summary: "The segment delivers breaking news that the FBI disrupted an alleged drone attack plot targeting the UFC Freedom 250 event held on the White House South Lawn. It notes the event drew more than 4,000 attendees, including President Trump on his 80th birthday, Vice President JD Vance, and several cabinet members, and quotes a senior law enforcement official describing the plot as 'quite serious.'\nThe report relies on statements from the FBI via NBC News and an unnamed senior official. No on-air guests or additional graphics are referenced in the provided transcript; the throughline is the successful prevention of the threat to the high-profile gathering."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:02:11Z
 sourceUrl: "https://www.youtube.com/watch?v=hxhym5LsoJQ"
 sourceTitle: "NBC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Rep. Summer Lee Questions NLRB Nominees on Agency Independence and Trump Policies"
 summary: "The clip shows Rep. Summer Lee (D-PA) during a June 2026 House subcommittee hearing questioning NLRB Chairman Scott Murphy and General Counsel nominee on threats to the agency's independence. She criticizes Trump administration actions including removal of member Gwynne Wilcox, Executive Order 14215, and alleged impacts on workers' rights to unionize."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T07:30:39Z
 sourceUrl: "https://www.youtube.com/watch?v=gvY3VXie_i0"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

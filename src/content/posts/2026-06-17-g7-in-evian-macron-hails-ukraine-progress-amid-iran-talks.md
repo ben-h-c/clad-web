@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "G7 in Evian: Macron hails Ukraine progress amid Iran talks"
 summary: "The FRANCE 24 segment covers the conclusion of the G7 summit in Evian, France, where President Macron held a press conference praising progress on Ukraine support and a memorandum on Iran. Experts discuss joint statements on bolstering Ukrainian defenses and sanctions rather than a single communique. The broadcast addresses Trump's participation and shift toward backing Ukraine's territorial integrity, alongside talks on Lebanon and Hezbollah disarmament amid ongoing Israeli strikes."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T15:55:50Z
 sourceUrl: "https://www.youtube.com/watch?v=4qW__WkyETg"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

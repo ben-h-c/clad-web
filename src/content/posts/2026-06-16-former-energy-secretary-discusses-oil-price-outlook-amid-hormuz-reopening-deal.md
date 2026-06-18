@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Former Energy Secretary Discusses Oil Price Outlook Amid Hormuz Reopening Deal"
 summary: "Fox Business segment features host Larry Kudlow interviewing former Energy Secretary Dan Brouillette on falling oil prices tied to partial reopening of the Strait of Hormuz and an imminent US-Iran ceasefire deal. They discuss Brent crude near $79, ships sneaking through, demand reductions, Saudi pipelines, and the potential for further sharp declines with full enforcement. Brouillette addresses why Chevron CEO Mike Wirth appears pessimistic, citing low storage, infrastructure damage, and lingering risk premiums, while agreeing US output can rise to 14-15 million barrels per day with pipeline and refining expansions."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T03:00:06Z
 sourceUrl: "https://www.youtube.com/watch?v=AG5cXKG9Fao"
 sourceTitle: "Fox Business"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump delays Clayton DNI hearing, links FISA renewal to SAVE Act"
 summary: "The segment covers President Trump's decision to delay Senate confirmation hearings for Jay Clayton as DNI nominee, tying it to passage of the SAVE America Act voter ID bill and conditioning FISA Section 702 renewal on the same. It reports Bill Pulte serving as acting DNI amid the delay and features reactions from lawmakers on both sides expressing frustration over national security risks and election law changes ahead of midterms. Guests Jason Johnson and Molly Jung Fast, along with clips of Sens. Collins and others, criticize the moves as loyalty-driven power plays. Sourcing draws from Trump's Truth Social posts, congressional statements, and on-air analysts with partisan commentary."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:31:00Z
 sourceUrl: "https://www.youtube.com/watch?v=N4Ex7KjPzjA"
 sourceTitle: "MS NOW"
 section: "Politics"

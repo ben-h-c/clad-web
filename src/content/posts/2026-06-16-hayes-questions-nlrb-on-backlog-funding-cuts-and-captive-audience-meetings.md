@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Hayes Questions NLRB on Backlog, Funding Cuts, and Captive Audience Meetings"
 summary: "The clip shows Rep. Jahana Hayes (D-CT) questioning NLRB officials during a House hearing on agency operations. She highlights a backlog exceeding 3,500 cases, regional office staffing below 75% of needs, and a proposed Trump administration $14 million (3%) FY27 funding cut. Hayes references the NLRB's 2024 Amazon captive-audience ruling and Connecticut's 2022 law banning mandatory meetings on political or religious topics, upheld by a federal court. Officials confirm insufficient current staffing to clear the backlog and acknowledge instances of employer conduct exceeding free speech under the NLRA. The second part covers sourcing from named NLRB witnesses (Ms. Casey, Mr. Murphy) and Hayes' closing emphasis on worker choice free from intimidation."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T10:00:17Z
 sourceUrl: "https://www.youtube.com/watch?v=9uc_6ZmCT9A"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

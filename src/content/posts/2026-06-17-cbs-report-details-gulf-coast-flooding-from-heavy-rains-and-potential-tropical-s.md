@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS report details Gulf Coast flooding from heavy rains and potential tropical system"
 summary: "The segment covers severe flooding from heavy rainfall across Texas, Louisiana, and Mississippi on Tuesday, June 16, 2026, with live reporting from Galveston. It shows inundated streets, stranded vehicles, waist-high water in DeRidder, LA, and concerns in areas like Tomball and Houston, TX. Officials urge caution amid ongoing rain and winds from a potential first tropical storm of the season.\nThe broadcast relies on correspondent video, resident interviews, and statements from city officials. It references the unnamed system and notes preparation for additional rain moving eastward, with no expert guests beyond the on-scene reporter."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T13:46:18Z
 sourceUrl: "https://www.youtube.com/watch?v=sgxLH8N6eCM"
 sourceTitle: "CBS News"
 section: "Politics"

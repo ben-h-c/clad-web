@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Interview Assesses US-Iran Interim Deal and Domestic Fallout"
 summary: "The segment featured a Democratic congresswoman reacting to the emerging US-Iran interim deal ending months of conflict and reopening the Strait of Hormuz. Discussion covered unresolved nuclear issues, Israel's Lebanon operations, gas price impacts, and Europe's role in cleanup. It then shifted to FISA 702 extension failures, the acting DNI appointment of Bill Pulte before Jay Clayton's nomination, ties to the Save America Act voting bill, and potential future reconciliation vehicles including gambling loss deductions and ICE funding. Sourcing relied on the congresswoman's statements and references to House actions and presidential announcements."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:02:11Z
 sourceUrl: "https://www.youtube.com/watch?v=yBq8SOUXe9w"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

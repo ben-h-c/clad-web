@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "O'Donnell segment spotlights NYT excerpts on Trump WH internal debates"
 summary: "The June 15, 2026, broadcast centered on excerpts from Maggie Haberman and Jonathan Swan's forthcoming book 'Regime Change,' including White House debates over suspending habeas corpus, invoking the Insurrection Act amid Minnesota protests, and handling Epstein files. It also addressed Trump's announced Iran deal and featured interviews with Sen. Raphael Warnock, Lt. Gen. Mark Hertling, and Rep. Robert Garcia. Sourcing drew primarily from New York Times articles, Axios reporting on Situation Room audio suspicions, and on-air guests; the segment framed the material as evidence of extreme internal proposals."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T05:08:55Z
 sourceUrl: "https://www.youtube.com/watch?v=DENBq1mypg0"
 sourceTitle: "MS NOW"
 section: "Politics"

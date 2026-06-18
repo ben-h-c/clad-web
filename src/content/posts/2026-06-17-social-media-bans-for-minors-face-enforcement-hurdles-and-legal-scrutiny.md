@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Social Media Bans for Minors Face Enforcement Hurdles and Legal Scrutiny"
 summary: "USA Today interview with Cato Institute senior fellow David Inserra examines global efforts to restrict social media for minors under 16. Segments cover Australia's implemented ban, Britain's proposed measures including curfews and chatbot limits, state-level US actions, Supreme Court signals, recent jury verdicts against Meta, and alternatives like education and parental controls.\n\nThe discussion relies on the guest's analysis drawing from policy developments, polling, and court outcomes. It highlights enforcement difficulties, privacy implications, and First Amendment concerns while advocating parental and educational approaches over blanket restrictions."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T09:00:18Z
 sourceUrl: "https://www.youtube.com/watch?v=DynJZuWXD2c"
 sourceTitle: "USA TODAY"
 section: "Politics"

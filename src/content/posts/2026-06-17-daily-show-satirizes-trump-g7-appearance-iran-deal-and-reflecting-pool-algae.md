@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Daily Show Satirizes Trump G7 Appearance, Iran Deal and Reflecting Pool Algae"
 summary: "The segment covers President Trump's attendance at the G7 summit in Evian, France, highlighting gifts, an electronically signed preliminary peace deal with Iran, and his decision to skip the formal signing for a dinner at Versailles. It then shifts to the green algae bloom in the newly renovated National Mall reflecting pool in Washington, DC, and right-wing commentary suggesting sabotage.\nThe piece uses news clips of Trump, Macron, the UAE president and conservative radio host Grant Stinchfield, along with narration and on-screen graphics referencing the autopen and pool cleaning efforts. It ties the stories through ongoing Trump coverage and skepticism toward official explanations."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:03:11Z
 sourceUrl: "https://www.youtube.com/watch?v=ICRtJp3AN1Q"
 sourceTitle: "The Daily Show"
 section: "Politics"

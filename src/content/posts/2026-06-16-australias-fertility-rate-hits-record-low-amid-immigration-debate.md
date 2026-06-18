@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Australia's Fertility Rate Hits Record Low Amid Immigration Debate"
 summary: "Bloomberg segment reports Australia's total fertility rate reaching a record low of 1.48 births per woman in 2024 per Australian Bureau of Statistics data, down sharply from prior peaks and below the 2.1 replacement level. It notes Prime Minister Albanese's stance against cutting migrant intake while One Nation gains in polls, then interviews University of Melbourne economist Roger Wilkins on limited policy options, short-term effects of past baby bonuses, labor market shifts toward aged care, and potential technology solutions."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T06:38:45Z
 sourceUrl: "https://www.youtube.com/watch?v=rUJoHY00x-U"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC reports Trump Iran deal at G7, Hormuz reopening, oil price drop"
 summary: "The segment covers President Trump at the G7 summit in France announcing a memorandum of understanding with Iran to end the war, reopen the Strait of Hormuz for oil tankers, and set a framework for nuclear talks. It includes quotes from Trump on the signed deal and partial opening, Macron on the nuclear issue, details on a Friday signing ceremony in Switzerland with VP Vance, disputed service fees, plummeting oil prices around $80/barrel, and no immediate sanctions relief. It also touches on Lebanon tensions with Hezbollah and upcoming meetings with UAE, Egypt, and Qatar leaders.\nThe report relies on Trump statements, senior US officials, Iranian comments, and correspondent Gabe from Geneva; the full agreement text remains unreleased, described as a page and a half."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:17:41Z
 sourceUrl: "https://www.youtube.com/watch?v=dZmNJX3xCm4"
 sourceTitle: "NBC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Podcast scrutinizes Trump-Iran MOU terms and Georgia GOP runoffs"
 summary: "The POLITICO Playbook podcast recaps a US-Iran memorandum of understanding ending recent hostilities, reopening the Strait of Hormuz, lifting some sanctions, and launching 60-day nuclear talks. It also covers Georgia Republican primary runoffs where Trump-backed Mike Collins won the Senate nomination but Rick Jackson defeated the Trump-endorsed candidate for governor. Additional segments discuss the new Fed chair's debut and DNI nominee Jay Clayton's hearing."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T11:00:23Z
 sourceUrl: "https://www.youtube.com/watch?v=zSxaYThADOA"
 sourceTitle: "POLITICO"
 section: "Politics"

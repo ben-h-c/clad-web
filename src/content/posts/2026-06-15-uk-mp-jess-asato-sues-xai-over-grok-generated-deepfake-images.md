@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "UK MP Jess Asato sues xAI over Grok-generated deepfake images"
 summary: "The broadcast is an interview with Labour MP Jess Asato discussing her civil lawsuit against xAI over non-consensual AI-generated images of her created via Grok, including bikini edits and a video depicting assault. She describes becoming a target after criticizing nudification tools, the distress caused, her decision to pursue the case publicly under privacy and data protection law, and broader victim support."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T12:00:06Z
 sourceUrl: "https://www.youtube.com/watch?v=5fXkSyBKapc"
 sourceTitle: "A Different Bias"
 section: "Politics"

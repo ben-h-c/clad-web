@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Texas Tech QB Sorsby to Drop NCAA Suit, Enter NFL Supplemental Draft"
 summary: "The segment covers Texas Tech quarterback Brendan Sorsby’s reversal in his NCAA eligibility battle. After admitting to thousands of sports bets including on his own team, he received a temporary injunction allowing play but now plans to withdraw the lawsuit and enter the NFL supplemental draft by the June 22 deadline, ending his college career at Texas Tech.\nSourcing draws on statements from the Texas Tech Board of Regents chair, Sorsby’s attorney, and references to Big 12 legal action and Texas AG Ken Paxton’s involvement. The report notes the case’s broader implications for future eligibility disputes."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T12:14:45Z
 sourceUrl: "https://www.youtube.com/watch?v=14Bke2XZ8zs"
 sourceTitle: "NewsNation"
 section: "Politics"

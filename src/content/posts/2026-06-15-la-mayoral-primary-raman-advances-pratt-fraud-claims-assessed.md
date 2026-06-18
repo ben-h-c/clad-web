@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "LA Mayoral Primary: Raman Advances, Pratt Fraud Claims Assessed"
 summary: "The segment covers the 2026 Los Angeles mayoral primary results, where incumbent Karen Bass and Councilmember Nithya Raman advanced to the November runoff after Raman overtook Spencer Pratt in late ballot counts. It plays clips of Pratt's social media tirade alleging issues and links similar statements from President Trump and Rick Grinnell to broader election denial patterns.\nThe broadcast explains California's automatic mail ballot system and emphasizes the transparency of the LA County counting process through live streams and observers. It then interviews Raman, who dismisses fraud claims, addresses voter frustrations, and discusses local issues like housing and homelessness."
-publishedAt: 2026-06-13
+publishedAt: 2026-06-13T18:58:10Z
 sourceUrl: "https://www.youtube.com/watch?v=cvYJYap2uEc"
 sourceTitle: "MS NOW"
 section: "Politics"

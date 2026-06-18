@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "BBC interviews British yacht couple disputing Russian account of Channel warning shots"
 summary: "BBC News interviews Jane and Alan Kel (or Kelvey) aboard their UK-registered yacht Bright Future after it encountered Russian frigate Admiral Grigorovich in the English Channel. The segment covers their account of sailing from Lymington to Cherbourg, seeing the motionless warship, responding to horn blasts by changing course, and then hearing warning shots fired into the air; they deny any prior radio contact, flares, or being on a collision course. They reported the incident to Solent Coast Guard, received follow-up from French authorities and HMS Tyne, and continued their holiday. The report includes the Russian Ministry of Defense statement claiming the yacht approached dangerously close, ignored communications and flares, prompting shots at 150 meters."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:59:26Z
 sourceUrl: "https://www.youtube.com/watch?v=63tCF3ZncvE"
 sourceTitle: "BBC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX IPO Rally, Cursor Deal, and U.S.-Iran Framework Dominate Bloomberg Businessweek Daily"
 summary: "The June 16, 2026 broadcast covered SpaceX's third day of post-IPO trading (up ~10% that day, ~60% cumulative, overtaking Amazon's market cap and approaching Microsoft's), its $60 billion all-stock acquisition of AI coding startup Cursor, and a U.S.-Iran memorandum framework offering Iran immediate oil export waivers, naval blockade lift, and access to a $300 billion development fund ahead of June 19 signing and 60-day talks. Segments also addressed the first FOMC meeting under new Fed Chair Kevin Warsh, GPU-backed debt financialization risks, and a closed-end fund (Power Law/Parallel Capital) for retail exposure to private tech firms like OpenAI and Databricks."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:17:31Z
 sourceUrl: "https://www.youtube.com/watch?v=nCSII5fCHsw"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

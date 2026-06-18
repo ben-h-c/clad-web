@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC News accurately reports Aisha Wahab's advance in CA-14 special election"
 summary: "The segment covers the June 2026 special primary election in California's 14th Congressional District to replace Eric Swalwell. NBC projects state Sen. Aisha Wahab advancing to a fall runoff after no candidate secured a majority.\nSwalwell resigned earlier in 2026 amid sexual misconduct allegations and had also exited the California governor's race. The report relies on election projections and background facts without named guests or additional segments."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T11:43:59Z
 sourceUrl: "https://www.youtube.com/watch?v=sHzwQrKU3lQ"
 sourceTitle: "NBC News"
 section: "Politics"

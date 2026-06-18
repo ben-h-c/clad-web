@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Reports Trump Hormuz Vow, G7 Skepticism, BoJ Hike"
 summary: "The broadcast covers market reactions to a reported U.S.-Iran interim deal on reopening the Strait of Hormuz, European allies' skepticism at the G7, and the Bank of Japan's 25bp rate hike to its highest level since 1995. Segments address oil flows, Fed preview with Kevin Warsh, China data showing weak retail sales, Ukraine diplomacy, and Israel-Iran dynamics.\nIt draws on on-air correspondents from G7 and Tokyo, market data, and statements from officials including JD Vance and Trump; throughlines include relief-rally fatigue and uncertainty over deal implementation."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T06:53:44Z
 sourceUrl: "https://www.youtube.com/watch?v=Y-yt9mk8u-M"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

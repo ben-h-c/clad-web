@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "DOJ Sues Virginia Over Immigration Enforcement Laws Citing Supremacy Clause"
 summary: "The broadcast discusses a DOJ lawsuit against Virginia Governor Abigail Spanberger and Attorney General Jay Jones over two new state laws restricting federal immigration officers' face coverings and limiting cooperation agreements with local law enforcement. It draws parallels to pre-Civil War nullification efforts by Democrats. Segments cover increased assaults on ICE agents per DHS data, incidents in Minnesota, rhetoric from figures like Tim Walz, and broader Democratic resistance to Trump-era deportations. Sourcing draws from a Daily Signal opinion piece by Tyler O'Neil, DHS reports, and references to court cases like the Ninth Circuit California ruling."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-16T04:41:05Z
 sourceUrl: "https://www.youtube.com/watch?v=3bDlYnOZ5nA"
 sourceTitle: "Virginia Insider | News & Opinion"
 section: "Politics"

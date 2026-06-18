@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Schiff criticizes Clayton DNI nomination and Newsom DOJ probe"
 summary: "MS NOW segment features Sen. Adam Schiff discussing Jay Clayton's nomination as DNI and a new DOJ investigation into Gov. Gavin Newsom and his wife. Schiff questions Clayton's qualifications and independence, linking him to the Eric Adams case and prior comments on California elections. The broadcast covers the DNI's post-9/11 role in coordinating intelligence and Schiff's view that the Newsom probe reflects bad faith."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:23:51Z
 sourceUrl: "https://www.youtube.com/watch?v=--oi02MDlm8"
 sourceTitle: "MS NOW"
 section: "Politics"

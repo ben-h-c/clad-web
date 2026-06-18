@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Kaine Pushes War Powers Resolution Amid Iran Ceasefire Talks"
 summary: "Forbes Breaking News aired Sen. Tim Kaine's June 2026 Senate floor remarks supporting a War Powers Resolution sponsored by a colleague. Kaine argued the conflict that began February 28 is unauthorized, unwise and costly, citing troop deaths, billions in spending and higher gas prices.\n\nHe highlighted the timing after a announced ceasefire and potential deal, urging Congress to require approval before any resumption of hostilities. The segment relies on Kaine's direct remarks with references to prior resolutions and the Iran Nuclear Agreement Review Act he co-authored."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:27:56Z
 sourceUrl: "https://www.youtube.com/watch?v=v1MGhSqP9dA"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

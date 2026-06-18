@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Nike Turnaround Efforts Under New CEO Face Ongoing Challenges in China and Converse"
 summary: "The Bloomberg segment examines Nike's persistent struggles despite appointing Elliott Hill as CEO in 2024. It covers the prior focus under John Donahoe on direct-to-consumer sales that alienated retailers, allowing competitors like On and Hoka to gain running market share. Under Hill, the company is rebuilding wholesale ties with North American gains in running but continued declines in China and at Converse. The report notes the upcoming 2026 World Cup in North America as a key test and highlights a design flaw in Nike's released jerseys involving shoulder puckering."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T00:00:07Z
 sourceUrl: "https://www.youtube.com/watch?v=llspQoPX2rQ"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

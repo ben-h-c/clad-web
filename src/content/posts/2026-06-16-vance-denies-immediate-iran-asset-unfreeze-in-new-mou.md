@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Vance Denies Immediate Iran Asset Unfreeze in New MOU"
 summary: "The segment features Vice President JD Vance interviewed by Jake Tapper on CNN, addressing questions about a recently signed US-Iran memorandum of understanding. Vance denies reports of immediate unfreezing of billions in Iranian assets or sanctions relief, clarifies that benefits are contingent on compliance with obligations over a 60-day period, and discusses the Strait of Hormuz, Iran's military and economic position, and two pathways forward for Tehran."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T12:00:23Z
 sourceUrl: "https://www.youtube.com/watch?v=X8Tmq7WfaYo"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

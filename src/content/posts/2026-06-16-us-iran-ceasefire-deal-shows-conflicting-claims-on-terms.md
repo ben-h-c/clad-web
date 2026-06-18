@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "US, Iran Ceasefire Deal Shows Conflicting Claims on Terms"
 summary: "The segment covers President Trump's G7 meeting in France where he promotes a new US-Iran ceasefire deal signed digitally. It details agreements on lifting the US naval blockade and reopening the Strait of Hormuz, while noting disagreements over tolls and the nuclear program to be addressed in 60-day talks.\nVice President Vance's comments on Gulf Arab support, destroying enriched uranium with Iran, and conditional sanctions relief are included, alongside Iran's prior nuclear commitments under the 2015 JCPOA and Israeli objections to the deal's scope."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T10:00:03Z
 sourceUrl: "https://www.youtube.com/watch?v=b0XxRP2vFfU"
 sourceTitle: "ABC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "MSF Reports Persistent Gaps in DRC Ebola Response"
 summary: "The NBC News clip features an MSF field worker describing conditions during the ongoing Ebola outbreak in eastern DRC's Ituri province. The speaker details overwhelming caseloads, late-stage patient arrivals, household-level transmission, community deaths exceeding confirmed cases, and comparisons to the scale of the West Africa epidemic and prior DRC outbreaks.\n\nThe segment relays firsthand observations from an MSF team member on the ground for three weeks, emphasizing gaps in surveillance and response capacity one month after the May 15, 2026 declaration. It draws on MSF's direct operational experience without additional named experts or official graphics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:03:40Z
 sourceUrl: "https://www.youtube.com/watch?v=MOpFn-BUwP0"
 sourceTitle: "NBC News"
 section: "Politics"

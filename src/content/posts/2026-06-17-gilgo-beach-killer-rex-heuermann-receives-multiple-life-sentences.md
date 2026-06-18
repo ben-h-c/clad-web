@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Gilgo Beach Killer Rex Heuermann Receives Multiple Life Sentences"
 summary: "The segment covers the June 17, 2026 sentencing of Rex Heuermann in the Gilgo Beach serial killings case. Heuermann, a former architect, was sentenced to multiple life terms without parole after pleading guilty to seven murders and admitting to an eighth. It includes details on his crimes spanning 1993-2010, victim impact statements from families, and comments on his lack of emotion or remorse from Sheriff Errol Toulon.\nThe report relies on court proceedings, family statements, and an interview reference with the Suffolk County sheriff overseeing detention. It notes Heuermann's stoic demeanor throughout the process and his upcoming transfer from jail."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T17:43:05Z
 sourceUrl: "https://www.youtube.com/watch?v=EpFLve9quwo"
 sourceTitle: "NBC News"
 section: "Politics"

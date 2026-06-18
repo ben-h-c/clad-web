@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Florida Couple Retains Custody of Baby in IVF Embryo Mix-Up"
 summary: "ABC News reported on a Florida couple, Steven Mills and Tiffany Score, who gave birth to a girl via IVF at an Orlando-area clinic only to discover she was not biologically theirs. The segment detailed their recent mutual custody agreement granting them permanent custody of the six-month-old, with biological parents' identities kept confidential. It covered the couple's lawsuit against the clinic, plans to test their remaining embryo, and their intent to maintain a relationship with the biological parents. Legal contributor Bernarda Vilona provided analysis on the quick settlement and potential clinic liability for malpractice and emotional distress."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:57:40Z
 sourceUrl: "https://www.youtube.com/watch?v=hJua2S0bBrI"
 sourceTitle: "ABC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBC explains 'mortgage prison' risks for Canadian homeowners facing renewals"
 summary: "The segment explains how some Canadian homeowners, especially in Toronto, face higher renewal payments from pandemic-era low-rate mortgages while falling home prices limit refinancing or amortization extensions, creating a 'mortgage prison' trap. It uses pandemic rate examples, a $400k mortgage illustration, and Bank of Canada statistics on refinancing trends and LTV ratios.\nIt draws on the Bank of Canada's latest Financial Stability Report for key figures like 70% of refinancers extending terms by six years on average, 9% of Toronto borrowers at risk in 2027, and forecasts of payment increases for 5-year terms expiring soon; notes low overall defaults and that most households adapt."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T20:43:32Z
 sourceUrl: "https://www.youtube.com/watch?v=1kGxZJwjt1A"
 sourceTitle: "CBC News"
 section: "Politics"

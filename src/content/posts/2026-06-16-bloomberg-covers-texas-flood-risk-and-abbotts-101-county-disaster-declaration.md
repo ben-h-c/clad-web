@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Covers Texas Flood Risk and Abbott's 101-County Disaster Declaration"
 summary: "Bloomberg News segment reports heavy rain and flash flood threats across Texas and the Gulf Coast over several days. It notes forecasters monitoring a developing system with roughly 50% odds of becoming a tropical storm and states that Governor Greg Abbott issued a disaster declaration covering 101 counties, explicitly naming the Houston and Austin areas."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:00:14Z
 sourceUrl: "https://www.youtube.com/watch?v=4uo9Sybydgo"
 sourceTitle: "Bloomberg News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Knicks celebrate 2026 title on Tonight Show with Fallon shoe retirement"
 summary: "The segment shows the 2026 NBA champion New York Knicks appearing on The Tonight Show Starring Jimmy Fallon. Fallon recounts how Knicks player Josh Hart untied his shoe during a playoff game, turning it into a running good-luck charm for the team's run. The team signs the shoe, Hart adds the final signature, and they raise it into the Studio 6B rafters in a lighthearted ceremony.\nThe broadcast draws from the live Tonight Show episode with Fallon as host and Knicks players as guests. It relies on on-stage visuals, player participation, and Fallon's firsthand account rather than external experts or graphics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:02:52Z
 sourceUrl: "https://www.youtube.com/watch?v=dgFUu_W8lGQ"
 sourceTitle: "NBC News"
 section: "Politics"

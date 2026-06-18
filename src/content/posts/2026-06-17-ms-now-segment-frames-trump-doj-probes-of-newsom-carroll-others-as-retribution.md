@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "MS NOW segment frames Trump DOJ probes of Newsom, Carroll, others as retribution"
 summary: "Segment opens with Gavin Newsom's public statement accusing the Trump DOJ of targeting him and his wife Jennifer Siebel Newsom over tax filings and nonprofits tied to her work, part of a broader 'hit list' of critics. It expands to reports of probes into E. Jean Carroll for alleged perjury, John Brennan and Jim Comey over the 2016 Russia assessment, and mentions of others like Cassidy Hutchinson and ActBlue. Guests include NYT reporter Glenn Thrush, NYU professor Melissa Murray, former pardon attorney Liz Oyer, and Sen. Adam Schiff, all discussing timelines coinciding with Todd Blanche's role at DOJ and alleged political motivations."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T00:00:50Z
 sourceUrl: "https://www.youtube.com/watch?v=pL7MYJA81g8"
 sourceTitle: "MS NOW"
 section: "Politics"

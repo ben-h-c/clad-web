@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Praises Modi as Tough Negotiator Amid US-India Trade Talks"
 summary: "Bloomberg clip features President Trump discussing proximity to a US-India trade deal, describing PM Modi as a tough negotiator who appears gentle. He recalls the 2019 Howdy Modi event in Houston and his India visit with large crowds at a stadium. Trump also addresses the Quad grouping and India's potential role in West Asia while affirming strong bilateral ties.\nThe segment relies on Trump's direct quotes without additional guests or graphics referenced in the transcript. It emphasizes positive personal anecdotes and past joint events as throughlines."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T16:48:09Z
 sourceUrl: "https://www.youtube.com/watch?v=9n5zr9B8G0A"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

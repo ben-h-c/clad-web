@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg MLIV Discusses Fed Outlook and Iran MOU Market Impact"
 summary: "The segment features market commentary on expectations for Federal Reserve Chair Kevin Warsh's first policy meeting, with views that he may sound less hawkish than priced. It also covers the upcoming signing of a US-Iran memorandum of understanding (MOU), noting that disappointing details have weighed on oil prices but the deal is not fully priced in for positive supply effects if signed. Analysts discuss potential market reactions including lower front-end yields, softer dollar, and support for risk assets if the Fed is dovish or the MOU proceeds."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T07:47:56Z
 sourceUrl: "https://www.youtube.com/watch?v=nu-p_9yPKZE"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

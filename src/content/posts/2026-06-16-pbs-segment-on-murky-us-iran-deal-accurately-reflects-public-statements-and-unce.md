@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "PBS segment on murky U.S.-Iran deal accurately reflects public statements and uncertainties"
 summary: "The segment covers President Trump at the G7 summit promoting a framework deal with Iran to extend a ceasefire, reopen the Strait of Hormuz, and begin nuclear talks, while noting the absence of a public text and ongoing disputes including Iran's demand for Israeli withdrawal from Lebanon. It includes comments from Trump, Iranian officials, and Vice President JD Vance on funding and next steps, plus brief mentions of Ukraine-Russia discussions. Sourcing draws from on-camera Trump remarks, Swiss confirmations, Iranian statements, and Vance interviews; no major guests appear beyond correspondent reporting."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:17:52Z
 sourceUrl: "https://www.youtube.com/watch?v=zHXq--O2Wa0"
 sourceTitle: "PBS NewsHour"
 section: "Politics"

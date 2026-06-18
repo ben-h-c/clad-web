@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NewsX World mixes verified headlines with Gaza strike context gaps"
 summary: "The broadcast opens with a rapid roundup of headlines including US-Iran peace talks, Iranian drones, Israeli actions in Lebanon and Gaza, a US strike on a Venezuelan gang leader, Ukrainian attacks in Russia, a Seoul pride parade, and other stories. It then features an extended live interview with Israeli security expert Yosi Kapawasa on mediation efforts and a reported drone strike near Bureij refugee camp, followed by a Kennedy Center legal update and brief sports notes.\nThe sourcing relies on named experts, official statements, and agency reports; the Gaza segment uses Palestinian local authorities for casualty details and the Israeli expert for operational context."
-publishedAt: 2026-06-13
+publishedAt: 2026-06-13T09:50:04Z
 sourceUrl: "https://www.youtube.com/watch?v=z0CNKUxNT6E"
 sourceTitle: "NewsX World"
 section: "Politics"

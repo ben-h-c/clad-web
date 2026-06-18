@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "FBI Director Patel announces foiled plot targeting White House UFC event"
 summary: "The segment discusses the UFC Freedom 250 event at the White House on Sunday, which occurred without incident. Hosts report that FBI Director Kash Patel announced on X that the FBI and partners thwarted planned attacks via a multi-state operation, with multiple individuals in custody after learning of the threat on June 10.\n\nReporting references alleged details such as explosive drones and a gunman. The discussion focuses on security concerns for 250th anniversary events, praises inter-agency coordination, and expresses relief and thanks to the FBI, DOJ, and state partners. No guests appear; it is a host-driven reaction segment."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:00:38Z
 sourceUrl: "https://www.youtube.com/watch?v=AYwQMdFRsI8"
 sourceTitle: "The Hill"
 section: "Politics"

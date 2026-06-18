@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Strait of Hormuz reopening amid US-Iran deal; long-term energy shifts analyzed"
 summary: "The segment covers President Trump's announcement that the Strait of Hormuz will reopen fully in the coming days under a tentative US-Iran agreement following recent conflict and blockade. It notes that roughly 20% of global oil transits the waterway and features analysis from Tim McDonald on why energy markets and security strategies may not revert to pre-crisis norms. McDonald discusses choke point vulnerabilities, diversification efforts by importers, Gulf exporters' pipeline investments, and accelerated electrification trends. The discussion highlights uncertainty around full traffic resumption and companies' long-term risk calculations. Sourcing draws on the guest's expertise and references recent events without additional named sources or data graphics."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T17:54:51Z
 sourceUrl: "https://www.youtube.com/watch?v=epcLYSQsAZM"
 sourceTitle: "CBS News"
 section: "Politics"

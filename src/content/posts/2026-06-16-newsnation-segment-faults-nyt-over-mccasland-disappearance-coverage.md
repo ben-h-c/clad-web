@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NewsNation segment faults NYT over McCasland disappearance coverage"
 summary: "The segment features Ross Coulthart criticizing a June 2, 2026 New York Times column for dismissing speculation that retired Air Force Maj. Gen. William Neil McCasland's February 27, 2026 disappearance from Albuquerque was suspicious or linked to harm. Coulthart asserts the case is a grave national security crisis tied to McCasland's knowledge of classified programs, cites unnamed government sources, and raises possibilities of suicide, foul play, or abduction by foreign adversaries. The clip references broader allegations of threats against people connected to sensitive topics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:00:09Z
 sourceUrl: "https://www.youtube.com/watch?v=P6iGPFg4ZO0"
 sourceTitle: "NewsNation"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Asia Trade Covers Record SpaceX IPO and Iran Deal Optimism"
 summary: "The June 12, 2026 Asia Trade segment focused on SpaceX's record $75 billion IPO priced at $135 per share, valuing the company at $1.77 trillion with trading debut that day, alongside President Trump's announcements on a potential US-Iran deal that eased tensions and sent oil prices lower. Segments covered Asian market setups, expert analysis on IPO demand and governance, commodity moves, and side topics including the FIFA World Cup and ECB policy."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:51:28Z
 sourceUrl: "https://www.youtube.com/watch?v=8BJG9Ywxf84"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "IEA forecasts 2027 oil surplus following Hormuz recovery"
 summary: "The Reuters segment reports on the IEA's latest monthly oil market report, released June 17, 2026. It covers the expected shift to a significant global oil supply surplus in 2027 following gradual recovery from the Strait of Hormuz closure amid the recent Iran conflict.\nThe report details blocked Middle East output exceeding 14 million barrels per day, forecasts an 8 mb/d supply surge versus 2 mb/d demand growth in 2027, notes downside risks from demining and transit issues, and highlights potential for inventory rebuilding alongside risks of historic lows beforehand. Sourcing centers on the IEA report with references to the recent US-Iran interim agreement."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T15:32:29Z
 sourceUrl: "https://www.youtube.com/watch?v=OrjhklS1ta0"
 sourceTitle: "Reuters"
 section: "Politics"

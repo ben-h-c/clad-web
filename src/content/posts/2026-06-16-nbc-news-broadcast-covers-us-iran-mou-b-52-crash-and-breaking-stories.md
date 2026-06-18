@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC News Broadcast Covers US-Iran MoU, B-52 Crash, and Breaking Stories"
 summary: "The June 15 broadcast led with President Trump's announcement of a US-Iran memorandum of understanding to end hostilities, open the Strait of Hormuz, and set up nuclear talks, followed by a full interview with Vice President JD Vance. It covered a fatal B-52 crash at Edwards Air Force Base killing eight, a helicopter collision in Rio killing singer Oliver Tree and five others, Gulf Coast flooding, a study on GLP-1 medications and reduced exercise, a $3 million Super Mario Bros. sale, and Gavin Newsom's claims of a DOJ probe into him and his wife."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:30:51Z
 sourceUrl: "https://www.youtube.com/watch?v=HkEnDDLKkHU"
 sourceTitle: "NBC News"
 section: "Politics"

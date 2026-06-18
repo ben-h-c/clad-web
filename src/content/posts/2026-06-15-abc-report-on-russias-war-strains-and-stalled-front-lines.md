@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC report on Russia's war strains and stalled front lines"
 summary: "ABC News segment marks the Ukraine war surpassing World War I in duration and examines impacts inside Russia through on-the-ground reporting in Moscow. It covers drone strikes on Russian territory, stalled advances, economic pressures, censorship, and limited public dissent. The report draws on street interviews with anonymous Russians, statements from British intelligence and US Secretary of State Marco Rubio, and references to the Yabloko party and Kremlin responses. A second section addresses failed diplomacy, including President Trump's efforts and recent Zelenskyy-Putin meeting developments."
-publishedAt: 2026-06-12
+publishedAt: 2026-06-12T03:15:22Z
 sourceUrl: "https://www.youtube.com/watch?v=LBDPMQloU8E"
 sourceTitle: "ABC News"
 section: "Politics"

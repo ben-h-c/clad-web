@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Newsom Alleges Trump DOJ Probe of Him and Wife Over Taxes"
 summary: "The segment covers California Gov. Gavin Newsom's public statements accusing President Trump of directing the DOJ to investigate him and his wife Jennifer Siebel Newsom as political retribution tied to a potential 2028 presidential run. It details claims of agents contacting family, friends, and former employees, focuses on a probe into the wife's taxes, includes Newsom's fundraising email, and notes Acting AG Todd Blanche and the DOJ declining comment.\n\nABC News relies on unnamed sources familiar with the matter for specifics on the wife's tax examination; references long-running Trump-Newsom tensions including immigration enforcement clashes; the governor's office provides the main on-record perspective."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:10:26Z
 sourceUrl: "https://www.youtube.com/watch?v=Dz61ypTySlk"
 sourceTitle: "ABC News"
 section: "Politics"

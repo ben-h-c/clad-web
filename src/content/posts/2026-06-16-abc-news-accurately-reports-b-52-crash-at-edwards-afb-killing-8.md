@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News accurately reports B-52 crash at Edwards AFB killing 8"
 summary: "The segment reports the Air Force confirmation that a B-52 Stratofortress crashed shortly after takeoff from Edwards Air Force Base in California on June 15, 2026, killing all eight people aboard during a radar modernization test mission. It includes details on the mixed crew of military personnel, government civilians, and contractors, including two Boeing employees, with an investigation underway."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T09:19:25Z
 sourceUrl: "https://www.youtube.com/watch?v=JJYVQL2H_YE"
 sourceTitle: "ABC News"
 section: "Politics"

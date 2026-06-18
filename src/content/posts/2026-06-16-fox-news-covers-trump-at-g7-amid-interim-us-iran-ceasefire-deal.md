@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News covers Trump at G7 amid interim US-Iran ceasefire deal"
 summary: "The segment reports live from the G7 summit in eastern France near the Swiss border, showing the class photo and interactions among leaders including Trump with Canadian PM Mark Carney and others. It covers Trump's meetings with G7 leaders, Ukrainian President Zelenskyy on the Russia-Ukraine war, and bilaterals with the Emir of Qatar and UAE president, while highlighting the recent weekend Iran ceasefire agreement mediated with Qatari and Pakistani involvement."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:45:28Z
 sourceUrl: "https://www.youtube.com/watch?v=-PY5FIBNEDk"
 sourceTitle: "Fox News"
 section: "Politics"

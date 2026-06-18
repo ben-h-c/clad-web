@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Starship Flight 13 Prep, Isar Spectrum Qualification, Vandenberg SLC-9 Update"
 summary: "The broadcast covers SpaceX Starship progress toward Flight 13, including Ship 40's imminent static-fire testing after cryo campaign and road-closure notices, Booster 20 inspections, and a potential July launch per Gwynne Shotwell. It also discusses fixes for Flight 12 issues and remaining milestones like wet dress rehearsal."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T12:02:09Z
 sourceUrl: "https://www.youtube.com/watch?v=HqmIhnjNkoo"
 sourceTitle: "GREAT SPACEX"
 section: "Politics"

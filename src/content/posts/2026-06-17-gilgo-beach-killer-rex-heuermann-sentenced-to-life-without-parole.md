@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Gilgo Beach Killer Rex Heuermann Sentenced to Life Without Parole"
 summary: "ABC News segment covers the emotional June 17, 2026 sentencing hearing for Rex Heuermann in the Gilgo Beach serial killings. Heuermann, who pleaded guilty to seven murders and admitted an eighth, received multiple life sentences without parole after families delivered victim impact statements calling him a coward and ogre. The judge scolded him, asked if he was sorry, and imposed the sentences as families applauded."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T21:44:28Z
 sourceUrl: "https://www.youtube.com/watch?v=Zr9GvSWtx78"
 sourceTitle: "ABC News"
 section: "Politics"

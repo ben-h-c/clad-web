@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Netanyahu Reaffirms Troop Presence in Region After US-Iran Deal"
 summary: "The broadcast covers Israeli Prime Minister Benjamin Netanyahu's press conference remarks vowing that Israeli forces will remain in security zones in Gaza, Lebanon, and Syria for as long as necessary, despite a new US-Iran memorandum of understanding aimed at reducing regional hostilities. It includes statements from Defense Minister Israel Katz and direct clips or paraphrases of Netanyahu emphasizing border security and preventing Iranian nuclear weapons.\nThe segment features analysis from two guests: Glenn Grant, former advisor to Ukraine's defense minister, and Shruti Das Gupta, research fellow at SPMRF. They discuss strains in US-Israel relations, Israel's exclusion from negotiations, and potential future divergences, while the broadcast notes the timing just hours after Trump's announcement."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-16T08:30:08Z
 sourceUrl: "https://www.youtube.com/watch?v=b_NevbTTiGI"
 sourceTitle: "NewsX World"
 section: "Politics"

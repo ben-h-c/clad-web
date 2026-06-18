@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "FIFA Adapts NFL Stadiums with Natural Grass Pitches for 2026 World Cup"
 summary: "The WSJ segment examines the engineering challenges of installing natural grass pitches in 16 stadiums across the US, Canada, and Mexico for the 2026 World Cup's 104 matches. It highlights FIFA's mandate for natural grass, the difficulties with NFL venues' smaller fields and indoor environments, and the use of Bermuda grass in warm-climate sites including Guadalajara, Monterrey, Kansas City, San Francisco, Miami, and New York/New Jersey.\nThe report details sod transportation via refrigerated trucks, infrastructure preparations such as raising Dallas's pitch, and research ensuring consistent playing surfaces for athletes and ball behavior. It features quotes from pitch management and turf experts on maintaining living grass in non-native conditions."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T17:34:02Z
 sourceUrl: "https://www.youtube.com/watch?v=SyYhZysSer8"
 sourceTitle: "The Wall Street Journal"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "West Kelowna Wildfire Held After Evacuations; Chief Stresses Ongoing Risk and Preparation"
 summary: "The segment covers a fast-moving wildfire near Kalamoir Regional Park in West Kelowna that prompted tactical evacuations of neighborhoods including Casa Loma and Lakeview Heights. Residents were ordered out yesterday amid hot, windy conditions but allowed to return after the fire was held; the interview with Fire Chief Jason Brolund provides updates on current cooler weather and emphasizes community preparedness.\n\nSourcing centers on the live interview with the named West Kelowna fire chief, supplemented by reporter context on weather shifts and damage. No other guests or graphics are featured; the throughline is the need for residents to treat wildfire risk as ongoing rather than solvable solely by responders."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T13:52:20Z
 sourceUrl: "https://www.youtube.com/watch?v=9GLymuCcwI8"
 sourceTitle: "CBC News"
 section: "Politics"

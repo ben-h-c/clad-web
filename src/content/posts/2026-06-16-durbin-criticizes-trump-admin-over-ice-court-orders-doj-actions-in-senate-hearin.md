@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Durbin Criticizes Trump Admin Over ICE Court Orders, DOJ Actions in Senate Hearing"
 summary: "The Forbes Breaking News clip covers remarks by Sen. Dick Durbin (D-IL) during a Senate Judiciary Committee hearing on judicial nominees. Durbin discusses the blue slip rule, criticizes $70 billion in deportation funding, references a purported $1.8 million slush fund tied to Jan. 6, and accuses the administration of DOJ weaponization and ignoring court orders.\nDurbin highlights the firing of AG Pam Bondi, Acting AG Todd Blanche's role, indictments of James Comey and the Southern Poverty Law Center, and a Minnesota judge's finding on ICE violating nearly 100 court orders. The segment draws from Durbin's prepared statement with no additional guests or graphics referenced beyond the hearing context."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:57:47Z
 sourceUrl: "https://www.youtube.com/watch?v=N0lMmPHgvjE"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

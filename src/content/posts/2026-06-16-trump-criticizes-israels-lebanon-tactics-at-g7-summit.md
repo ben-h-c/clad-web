@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Criticizes Israel's Lebanon Tactics at G7 Summit"
 summary: "BBC News segment reports President Trump's public criticism of Israel's military operations against Hezbollah in Lebanon during G7 summit remarks in France. It highlights his comments on disproportionate strikes, including an apartment building in Beirut, his frustration with Prime Minister Netanyahu amid Iran deal efforts, and suggestion that Syria could handle the fight instead.\nThe report draws from Trump's on-record statements to press, references Israel's justification as response to Hezbollah attacks, and notes the unusual nature of invoking Syrian intervention given Lebanon's history and demographics. Sourcing includes direct quotes and correspondent analysis."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:11:30Z
 sourceUrl: "https://www.youtube.com/watch?v=8-Yj0eOJLQg"
 sourceTitle: "BBC News"
 section: "Politics"

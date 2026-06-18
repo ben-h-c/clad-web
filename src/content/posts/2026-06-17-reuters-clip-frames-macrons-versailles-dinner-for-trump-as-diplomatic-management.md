@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters clip frames Macron's Versailles dinner for Trump as diplomatic 'management'"
 summary: "The segment features an expert discussing French President Macron hosting U.S. President Trump for a dinner at the Palace of Versailles following the G7 summit. The dinner marks the 250th anniversary of U.S. independence and is presented as a gesture to build rapport. Historical parallels are drawn to 1778 when Benjamin Franklin was received at Versailles and the 1919 Treaty of Versailles signing."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T11:56:22Z
 sourceUrl: "https://www.youtube.com/watch?v=XpRjVOytnWU"
 sourceTitle: "Reuters"
 section: "Politics"

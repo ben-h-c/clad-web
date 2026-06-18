@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Cites Oil Reserve Depletion in Defending Iran Deal at G7"
 summary: "The segment shows President Trump at the G7 summit responding to a question on selling an Iran agreement to the public. He discusses media bias against him, claims of destroying 159 Iranian ships, and warns that continued bombing would halt shipping through the Strait of Hormuz, costing hundreds of millions daily while depleting oil reserves in about four weeks."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T22:45:01Z
 sourceUrl: "https://www.youtube.com/watch?v=exwtmAi7G04"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

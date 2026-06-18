@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Thune Says Iran Military Objectives Met, Seeks Deal Details"
 summary: "The clip shows a reporter questioning Sen. John Thune about briefings on the recent US-Iran peace memorandum and whether Trump administration war objectives have been met. Thune states he has not been briefed, requests details, and asserts that nuclear capabilities have been diminished, the Iranian navy largely destroyed, and air defenses and missile facilities damaged, reducing Iran's terror capacity. He notes the deal's success now hinges on Iranian participation in a stable Middle East."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:00:37Z
 sourceUrl: "https://www.youtube.com/watch?v=uVER-Mj2bQU"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

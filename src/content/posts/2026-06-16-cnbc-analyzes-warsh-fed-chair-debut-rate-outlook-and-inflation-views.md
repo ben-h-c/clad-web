@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CNBC analyzes Warsh Fed chair debut, rate outlook and inflation views"
 summary: "The segment covers Kevin Warsh's recent swearing-in as Fed Chair at the White House and previews his first FOMC meeting. It discusses limited near-term rate cuts, potential communication shifts away from heavy forward guidance, the dual mandate, recent jobs data, and inflation above 4%. Analysts contrast Warsh's preference for trimmed-mean inflation measures with traditional core PCE, note internal dissension risks with Powell, and highlight possible market volatility from less pre-commitment. Sourcing draws on Warsh's confirmation hearing remarks, recent CPI data, and expert commentary on Fed strategy."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:00:27Z
 sourceUrl: "https://www.youtube.com/watch?v=2DhHPjy-5sc"
 sourceTitle: "CNBC"
 section: "Politics"

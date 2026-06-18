@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "BBC report on US-Iran 14-point MOU holds up against official details"
 summary: "The segment details a 14-point US-Iran memorandum of understanding to end hostilities for at least 60 days, reopen the Strait of Hormuz toll-free, lift sanctions, and commit Iran to forgo nuclear weapons. It covers Trump's promotion of the deal at the G7 summit in France and notes the absence of provisions on ballistic missiles or Hezbollah. Israeli concerns over Lebanon ceasefire terms and concessions are also reported.\n\nReporting draws on unnamed US officials, direct Trump quotes from the G7, and on-the-ground correspondents in Washington and Jerusalem; graphics and live reactions from Israeli officials and citizens are included."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T22:49:00Z
 sourceUrl: "https://www.youtube.com/watch?v=dnxss0fn9m4"
 sourceTitle: "BBC News"
 section: "Politics"

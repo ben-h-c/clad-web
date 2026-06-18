@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "California Weighs One-Time 5% Billionaire Wealth Tax for Healthcare"
 summary: "Bloomberg segment examines a proposed California ballot initiative for a one-time 5% tax on net worth above $1 billion for residents as of January 1, 2026. It would raise revenue estimated in the tens of billions to offset federal healthcare cuts from the 2025 'One Big Beautiful Bill' and protect Medi-Cal and related programs. The measure is backed by the SEIU-UHW healthcare workers union and targets illiquid assets including stocks, real estate, and art. Democrats are notably divided, with Governor Newsom and others opposing it over fears of wealthy residents leaving the state, while some progressives support it. Other labor groups seek to broaden fund allocation beyond healthcare."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T12:45:26Z
 sourceUrl: "https://www.youtube.com/watch?v=E0gbRxT8-Qo"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

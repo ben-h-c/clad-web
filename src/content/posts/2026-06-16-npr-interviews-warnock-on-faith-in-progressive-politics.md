@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NPR Interviews Warnock on Faith in Progressive Politics"
 summary: "The segment features Michel Martin interviewing Georgia Sen. Raphael Warnock about his new book 'The Crooked Places Made Straight: Reflections on the Moral Meaning of America,' released June 16, 2026. Warnock argues progressives should reclaim faith language in politics, contrasts it with conservative Christian approaches, and describes his faith as a bridge requiring humility rather than a weapon."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:00:22Z
 sourceUrl: "https://www.youtube.com/watch?v=Bmn9vT1PcGY"
 sourceTitle: "NPR"
 section: "Politics"

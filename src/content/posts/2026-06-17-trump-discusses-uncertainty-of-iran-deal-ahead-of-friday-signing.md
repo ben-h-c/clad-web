@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Discusses Uncertainty of Iran Deal Ahead of Friday Signing"
 summary: "The clip shows President Trump responding to questions about a pending Iran agreement. He emphasizes deal unpredictability while expressing confidence it will be signed Friday, referencing past US actions against Iran including Soleimani's killing, JCPOA withdrawal, and recent military measures. He describes the current document as a detailed memorandum of understanding and notes Iran's readiness amid leadership losses and effective blockades."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T15:41:27Z
 sourceUrl: "https://www.youtube.com/watch?v=mK14b7gu6G0"
 sourceTitle: "C-SPAN"
 section: "Politics"

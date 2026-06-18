@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Discusses Iran Deal Impact on Oil, BOJ, and Yield Curves"
 summary: "The 3-minute Bloomberg segment features market discussion on the Bank of Japan deputy governor's press conference amid expectations of a hawkish tone to support the yen. It covers the recently announced US-Iran framework deal set for signing Friday, its effect on lowering oil prices while noting persistent elevation and supply concerns, and implications for central bank policy and yield curve steepening. The conversation then turns to weak Chinese consumer data reflected in poor Hong Kong stock performance versus global gains, highlighting contrasting wealth effects in the US and China."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T07:19:34Z
 sourceUrl: "https://www.youtube.com/watch?v=uJmzs1fDECk"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

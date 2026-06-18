@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "FBI Thwarts Alleged Drone Plot Targeting White House UFC Event"
 summary: "The broadcast reports federal arrests of multiple individuals accused of discussing a drone-and-gunman attack on the UFC event held on the White House South Lawn. FBI Director Kash Patel confirmed the multi-state operation that became aware of the threat on June 10; charges were expected to be unsealed the same day. Vice President JD Vance commented on the incident during a Fox appearance, and analyst Andrew McCabe discussed intent versus capability and how the investigation began from a parental tip."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:43:04Z
 sourceUrl: "https://www.youtube.com/watch?v=n7kiY5JuSbA"
 sourceTitle: "CNN"
 section: "Politics"

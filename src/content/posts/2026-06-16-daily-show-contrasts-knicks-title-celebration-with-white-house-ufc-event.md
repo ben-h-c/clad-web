@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Daily Show contrasts Knicks title celebration with White House UFC event"
 summary: "The segment opens with a satirical fake news bit about an Iran deal before pivoting to the New York Knicks' 94-90 Game 5 win over the Spurs, clinching their first NBA title in 53 years. Stewart celebrates street festivities across Manhattan with footage of crowds, costumes, and local workers, while dismissing media focus on isolated violence.\nThe show contrasts this with criticism of a UFC event hosted at the White House on Paramount+, portraying it as a tasteless spectacle. It includes jokes about media hypocrisy, defends urban community spirit, and ends with a broader commentary on American divisions. Sourcing draws from on-scene video, news clips, and comedic exaggeration with no named guests beyond the monologue format."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T03:02:11Z
 sourceUrl: "https://www.youtube.com/watch?v=ZsAQ_B7zVJI"
 sourceTitle: "The Daily Show"
 section: "Politics"

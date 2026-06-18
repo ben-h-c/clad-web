@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Panini World Cup Stickers See Record US Demand Ahead of 2026 Tournament"
 summary: "The NPR segment reports on the surge in popularity of Panini FIFA World Cup sticker albums in the United States. It notes the decades-old tradition in Europe and Latin America, blind packs of seven stickers, albums requiring nearly 1,000 pieces, and record demand this cycle."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T13:00:29Z
 sourceUrl: "https://www.youtube.com/watch?v=advzSzw445U"
 sourceTitle: "NPR"
 section: "Politics"

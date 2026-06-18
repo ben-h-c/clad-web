@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Congressional Hearing Examines USFS Permit Cancellations, Land Backlogs, and Roadless Rule"
 summary: "The segment shows Rep. Pete Stauber questioning USFS Chief Tom Schultz during a congressional hearing. Topics include record permit cancellations and no-shows in the Boundary Waters Canoe Area Wilderness affecting access and future quotas, stalled administrative land transfers in Minnesota national forests, agency reorganization efforts to reduce directives and overhead, and benefits of repealing the roadless rule for management and fire response.\nChief Schultz responds by committing to outreach on permits, noting needs for congressional direction on land exchanges, highlighting deregulation from extensive handbooks, and explaining how roadless repeal enables targeted access using existing roads without widespread new construction."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T10:30:22Z
 sourceUrl: "https://www.youtube.com/watch?v=J7eFkllO6F0"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

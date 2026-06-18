@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump-Endorsed Barry Moore Wins Alabama Senate GOP Runoff"
 summary: "The segment reports NBC's decision desk calling the Republican primary runoff for Alabama's open U.S. Senate seat in favor of Rep. Barry Moore. It notes Trump's early endorsement of Moore proved decisive against challenger Jared Hudson, positioning Moore as the heavy favorite for the general election. The seat is open because incumbent Sen. Tommy Tuberville is running for governor instead."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:13:26Z
 sourceUrl: "https://www.youtube.com/watch?v=QTmldpAS5CM"
 sourceTitle: "NBC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Former Georgian President Zurabishvili Receives Freedom House Award, Criticizes Russia Influence"
 summary: "CBS News interviews former Georgian President Salome Zourabishvili in Washington after she receives the 2026 Mark Palmer Prize from Freedom House. The segment covers her advocacy for EU/NATO integration, fallout with the ruling Georgian Dream party over Russia ties post-2022 Ukraine invasion, and her view that Georgia has shifted far from democracy.\nThe interview notes 2024 election condemnations by the European Parliament and Ukraine's recognition of her as legitimate leader. Zourabishvili discusses hybrid Russian tactics including propaganda and proxies, and the regional context amid other conflicts. Sourcing draws from her public remarks, Freedom House event, and international statements."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:47:45Z
 sourceUrl: "https://www.youtube.com/watch?v=NI2Yx3KXNB0"
 sourceTitle: "CBS News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "The Hill segment on US-Iran deal highlights Vance role amid uncertainties"
 summary: "The segment discusses a preliminary US-Iran memorandum of understanding announced June 15, 2026, scheduled for formal signing Friday in Switzerland. It covers reopening the Strait of Hormuz, a 60-day negotiation window on Iran's nuclear program, potential release of frozen assets, and Iran's demand for Israeli withdrawal from southern Lebanon, which Israel rejects. Host and guest Nile Gardiner analyze opacity, past Obama-era parallels, bipartisan political risks, and internal Trump administration divisions. Vance is portrayed as the public face promoting the deal despite his prior skepticism. The discussion draws on Reuters reporting and public statements without new primary documents or graphics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:30:11Z
 sourceUrl: "https://www.youtube.com/watch?v=0XcnhP1TRZk"
 sourceTitle: "The Hill"
 section: "Politics"

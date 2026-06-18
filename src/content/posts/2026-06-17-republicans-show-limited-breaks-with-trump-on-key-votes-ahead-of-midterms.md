@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Republicans Show Limited Breaks With Trump on Key Votes Ahead of Midterms"
 summary: "The segment reports growing but limited Republican defections in Congress on issues including Iran war powers resolutions, Ukraine aid, and Haitian immigrant protections. It covers Senate confirmation concerns over acting DNI nominee Bill Pulte and passage of a $70 billion ICE/CBP funding bill after internal GOP disputes over unrelated provisions.\nThe report draws on Senate parliamentary rulings, quotes from lawmakers, and references to narrow majorities. It highlights retiring or primary-losing senators like Thom Tillis, Bill Cassidy, and John Cornyn as potential sources of independence, while concluding that broader Trump control remains intact."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T17:00:31Z
 sourceUrl: "https://www.youtube.com/watch?v=T2bzV0FmcjI"
 sourceTitle: "Guardian News"
 section: "Politics"

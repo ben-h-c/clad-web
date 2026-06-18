@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News covers deaths of two college students in Santa Cruz surf"
 summary: "The segment reports on two college students, identified in the broadcast as Mahal Saran and Harshita Na, who were swept into the ocean and died near Santa Cruz, California, amid rough surf and rip currents. It includes rescue details from lifeguards, mentions of over 500 rescues in Newport Beach, and the separate drowning of 5-year-old Amada Mia Brown in Laguna Beach the prior week. Officials issue ongoing coastal hazard warnings urging beachgoers to stay near lifeguard stands or out of the water.\nThe report draws from on-scene authorities, family statements, and lifeguard accounts, referencing specific locations like Panther Beach and airlift operations, with a throughline on dangerous high surf conditions affecting multiple California coastal areas."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T00:05:56Z
 sourceUrl: "https://www.youtube.com/watch?v=dwlIrCJp7zY"
 sourceTitle: "ABC News"
 section: "Politics"

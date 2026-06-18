@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "VivaTech 2026: AWS VP on AI shopping tools and business integration"
 summary: "The segment is an interview at VivaTech 2026 with Julia White, AWS Vice President and Chief Marketing Officer. It covers Amazon's new personalized AI shopping assistant (Alexa for Shopping), how AI augments rather than replaces human roles in marketing and storytelling, and the need to rethink business processes when integrating AI rather than bolting it onto existing workflows. White also addresses emerging job categories in AI-driven marketing and responds to questions on women in Silicon Valley leadership and Europe's tech ecosystem.\nWhite references Jeff Bezos' recent VivaTech appearance emphasizing AI-driven labor shortages over job losses. The discussion draws on her experience at Amazon and AWS, with the host noting the event's scale of over 14,000 exhibitors."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T20:51:36Z
 sourceUrl: "https://www.youtube.com/watch?v=7L6UASreC9w"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

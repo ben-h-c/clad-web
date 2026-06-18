@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Forbes interview analyzes tentative Trump-Iran deal, Hormuz reopening, next steps"
 summary: "The segment features a retired Rear Admiral discussing a tentative US-Iran memorandum of understanding expected to be signed Friday, risks from Iran or Hezbollah disrupting it via Israel, congressional role, and oil market impacts from Strait of Hormuz reopening. It covers mine-clearing operations, shipping routes, and alternative oil flows from Saudi Arabia and UAE. The interview references oil futures tumbling on Sunday night news and ongoing US Navy efforts. Sourcing is the admiral's expertise plus market observations; no additional named guests or primary documents shown."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T05:20:00Z
 sourceUrl: "https://www.youtube.com/watch?v=WWp63KCIjgE"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

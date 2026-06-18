@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Hot mic at G7 captures Carney-Trump exchange on Canada-China EV deal"
 summary: "Global News segment reports a hot mic moment at the G7 summit in France where Prime Minister Mark Carney discusses Canada's limited Chinese EV import deal with President Trump. It covers related trade talks involving Minister Dominic LeBlanc and Trump's comments on NAFTA. Carney's outreach to other leaders and G7 alignment on AI regulation are also noted."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:30:17Z
 sourceUrl: "https://www.youtube.com/watch?v=weuqlcYI5Gg"
 sourceTitle: "Global News"
 section: "Politics"

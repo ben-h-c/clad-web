@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Supreme Court rulings on execution method, venue, and private rights of action analyzed"
 summary: "The episode of Unprecedented discusses three recent Supreme Court actions from June 11, 2026: a shadow-docket order in Lovelace v. Lee blocking Alabama's use of nitrogen hypoxia for an execution; FS Credit Opportunities Corp. v. Saba Capital on private rights of action under the 1940 Investment Company Act; and Abouammo v. United States on proper venue for falsifying documents to obstruct an investigation. Hosts Michael Popac and guest Lisa Graves analyze implications for death-penalty methods, private enforcement of securities laws, and criminal prosecutions. They connect the venue ruling to ongoing Trump-era investigations, including efforts involving Judge Aileen Cannon in Florida. The second segment covers sourcing and guests. Popac and Graves, a SCOTUS expert and author, draw on case records and constitutional text; discussion emphasizes policy concerns over execution cruelty, racial disparities in capital punishment, and risks of politicized venue selection."
-publishedAt: 2026-06-13
+publishedAt: 2026-06-13T13:30:03Z
 sourceUrl: "https://www.youtube.com/watch?v=aRNvKT9RA7s"
 sourceTitle: "Legal AF"
 section: "Politics"

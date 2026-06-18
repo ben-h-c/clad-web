@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Jon Stewart Critiques 'Do Your Own Research' Slogan as Path to Certainty"
 summary: "The segment features Jon Stewart responding to the common retort of 'do your own research' leveled at critics of certain narratives. He argues the phrase promotes certainty rather than genuine skepticism, using RFK Jr. as a leading example of the mindset. Stewart contrasts disproven claims with the lack of evidence for counter-narratives and concludes that certainty undermines civilization. The clip mixes analysis with a brief comedic aside about RFK Jr.'s clothing and demeanor. Sourcing is Stewart's monologue drawing on cultural observation rather than named experts, data, or primary documents."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:58:03Z
 sourceUrl: "https://www.youtube.com/watch?v=4OEluie4oVE"
 sourceTitle: "The Daily Show"
 section: "Politics"

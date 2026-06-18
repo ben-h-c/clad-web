@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Noem on NovaRed Role, Shield of Americas, China Mineral and Cartel Threats"
 summary: "Fox Business interview with Kristi Noem covers her advisory role at NovaRed Mining for AI-driven critical mineral exploration and her position as Special Envoy for the Shield of the Americas initiative. Segments address US dependence on foreign refining, partnerships with Canada and Mexico, cartel and migration issues across the hemisphere, and Noem's reflections on her DHS tenure and transition. Noem asserts Chinese coordination of migration and drug trade as part of a long-term strategy against the US. Sourcing is primarily Noem's statements with host prompts referencing administration initiatives; no external experts or data graphics are presented in the transcript."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T12:30:27Z
 sourceUrl: "https://www.youtube.com/watch?v=u3-LEFi_fZg"
 sourceTitle: "Fox Business"
 section: "Politics"

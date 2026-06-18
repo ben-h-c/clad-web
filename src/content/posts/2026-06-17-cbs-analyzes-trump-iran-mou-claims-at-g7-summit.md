@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS analyzes Trump Iran MOU claims at G7 summit"
 summary: "CBS News segment recapped President Trump's G7 news conference focusing on a US-Iran memorandum of understanding. Correspondents discussed the MOU's preliminary nature, VP Vance's role in the upcoming signing, unresolved nuclear and Hormuz details, and Trump's claims versus enforcement realities. Segments also covered related diplomacy with China, Russia, and criticism of Israel."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T17:44:31Z
 sourceUrl: "https://www.youtube.com/watch?v=jg11AL-hTl4"
 sourceTitle: "CBS News"
 section: "Politics"

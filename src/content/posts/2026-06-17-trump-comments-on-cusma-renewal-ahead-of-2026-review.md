@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Comments on CUSMA Renewal Ahead of 2026 Review"
 summary: "The CBC News segment features President Donald Trump speaking to reporters about the Canada-United States-Mexico Agreement (CUSMA/USMCA) ahead of its scheduled July 1, 2026 joint review. Trump states he would rather leave the deal unsigned or terminated, prefers operating without an agreement, yet remains open to signing one if it benefits the U.S."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T21:45:09Z
 sourceUrl: "https://www.youtube.com/watch?v=YuN3S6qSu7o"
 sourceTitle: "CBC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Blumenthal Criticizes Trump Admin DACA Policies in Senate Speech"
 summary: "The segment features Sen. Richard Blumenthal (D-CT) delivering Senate floor remarks on the 14th anniversary of DACA, criticizing Trump administration actions. He highlights a lawsuit over an alleged deportation without due process, slow-walked renewals, a BIA ruling, university investigations, and personal stories of affected recipients like Jose."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:45:25Z
 sourceUrl: "https://www.youtube.com/watch?v=gefbU2yLANQ"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

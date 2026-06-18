@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Raskin letter alleges Patel directed $1M+ in FBI bonus payments to loyalists"
 summary: "The segment reports on a letter from House Judiciary Ranking Member Jamie Raskin to FBI Director Kash Patel alleging over $1 million in unsanctioned bonus payments to agents on Patel's 'Director’s Advisory Team' (called the 'payback squad') and security detail. Payments allegedly reached $8,000 every two weeks, totaling nearly $40,000 for some, possibly circumventing federal pay caps and linked to loyalty or silencing witnesses to Patel's alleged drinking and misconduct.\n\nRaskin demands documents by late June; the letter references Atlantic reporting on drinking allegations that Patel has denied and sued over. Guests Ken Delanian (MS NOW) and former FBI official Michael Feinberg discuss the claims, purges of agents, and historical precedent. The FBI has not commented."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:10:12Z
 sourceUrl: "https://www.youtube.com/watch?v=M5Ap6Ai3ZUg"
 sourceTitle: "MS NOW"
 section: "Politics"

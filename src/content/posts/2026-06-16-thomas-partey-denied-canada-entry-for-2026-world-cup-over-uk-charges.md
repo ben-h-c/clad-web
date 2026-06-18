@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Thomas Partey denied Canada entry for 2026 World Cup over UK charges"
 summary: "The segment reports that Ghana midfielder Thomas Partey was denied a Canadian visa and thus cannot play in Ghana's 2026 World Cup opener against Panama in Toronto. It details the UK sexual offense charges he faces, his unsuccessful Federal Court appeal, and the applicable Canadian immigration rules.\nGhanaian officials including the foreign minister reportedly intervened on his behalf. The report notes Partey's US visa for other group games and potential future Canadian matches. Sourcing draws on court documents, FIFA statements, and on-camera legal commentary."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:48:38Z
 sourceUrl: "https://www.youtube.com/watch?v=7HkbM4xPmqE"
 sourceTitle: "Global News"
 section: "Politics"

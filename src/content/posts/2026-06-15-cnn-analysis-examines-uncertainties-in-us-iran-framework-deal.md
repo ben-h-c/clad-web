@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CNN analysis examines uncertainties in US-Iran framework deal"
 summary: "The segment discusses a US-Iran framework agreement or memorandum of understanding to end recent fighting, reopen the Strait of Hormuz, and address related issues, with a signing expected Friday. Analysts highlight unresolved tactical, operational, and strategic hurdles including mines, Israel-Hezbollah tensions, and Iran's nuclear stockpile. It covers President Trump's comments on the deal, a G7 meeting, European involvement, and potential effects on Russia. Guests include retired Admiral James Stavridis and commentator Sabrina Singh. Sourcing relies on named experts, quotes from US officials like Mike Waltz, Iranian statements, and references to a New York Times interview with Trump."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T12:40:24Z
 sourceUrl: "https://www.youtube.com/watch?v=kdoZsNcb7qk"
 sourceTitle: "CNN"
 section: "Politics"

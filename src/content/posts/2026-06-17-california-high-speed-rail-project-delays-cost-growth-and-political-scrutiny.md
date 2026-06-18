@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "California High-Speed Rail Project: Delays, Cost Growth, and Political Scrutiny"
 summary: "Fox Business panel discusses California's high-speed rail project, highlighting missed 2020 deadline, ballooning costs from $33 billion, ongoing construction into the 2030s, and comparisons to more efficient international projects. Panelists, including one who voted for the 2008 measure, express frustration over delays, overruns, and perceived government dysfunction, with jokes about shutting it down or turning it into a museum path."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T05:00:29Z
 sourceUrl: "https://www.youtube.com/watch?v=Au_BCBYRLHk"
 sourceTitle: "Fox Business"
 section: "Politics"

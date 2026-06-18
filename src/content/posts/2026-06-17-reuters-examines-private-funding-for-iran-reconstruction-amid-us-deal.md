@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters examines private funding for Iran reconstruction amid US deal"
 summary: "The segment discusses a $300 billion private investment fund outlined in the US-Iran framework agreement to support reconstruction of war-damaged infrastructure such as refineries and airports. It notes commitments from companies in multiple regions, contrasts this with rejected Iranian demands for US reparations, and highlights Iran's economic challenges including projected contraction, high inflation, job losses, and limited prior FDI due to sanctions.\nThe report draws on unnamed sources close to the deal, references statements by Vice President JD Vance on sanctions relief tied to nuclear compliance, and emphasizes Iran's oil and gas resources as incentives for investors once sanctions are lifted under conditions including non-interference in the Strait of Hormuz."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T11:36:01Z
 sourceUrl: "https://www.youtube.com/watch?v=RQIAFCL2twY"
 sourceTitle: "Reuters"
 section: "Politics"

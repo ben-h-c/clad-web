@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC Podcast Details Foiled Drone Plot, Ed Dept Shifts, Ivermectin Surge"
 summary: "The Start Here podcast covers three main stories on June 17, 2026: federal arrests in an alleged drone-and-sniper plot targeting a UFC event at the White House; the Department of Education shifting special education oversight to HHS and civil rights enforcement to DOJ under Secretary Linda McMahon; and rising off-label ivermectin prescriptions for cancer following celebrity endorsements. Segments include interviews with ABC reporters at DOJ and education beats, plus expert commentary on medical risks. Sourcing draws from unsealed court complaints, official statements by Secret Service and FBI, and studies on prescription trends."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T11:37:38Z
 sourceUrl: "https://www.youtube.com/watch?v=RdwKIG9hcrw"
 sourceTitle: "ABC News"
 section: "Politics"

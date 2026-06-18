@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Asia Trade analyzes Iran deal impact on oil, markets, Fed"
 summary: "The Asia Trade broadcast covers Asian market setup amid an emerging US-Iran preliminary peace deal, with details from a Bloomberg-sourced draft memorandum on financial incentives, immediate oil sales rights and Strait of Hormuz reopening. Segments address oil price declines below $80, equity rotations out of tech, upcoming Fed decision under new chair Kevin Warsh, BOJ and RBA policy outcomes, and SpaceX's surge past Amazon with its Cursor acquisition. Sourcing includes on-air Bloomberg journalists, economists and market strategists; throughline is market implications of geopolitical de-escalation and central bank communications."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T06:56:36Z
 sourceUrl: "https://www.youtube.com/watch?v=c_mWg81KM8s"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

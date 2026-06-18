@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "G7 leaders hold economy session at 2026 Evian summit"
 summary: "The broadcast shows G7 leaders including Trump, Macron and Modi, along with guests like Lula, participating in a working session on promoting balanced economic growth at the Evian summit in France. Informal side conversations and greetings dominate the audio alongside references to economic records and voting systems. Sourcing consists of on-site video from the Associated Press with no named analysts or graphics; participants include heads of state from G7 nations and partners such as India and Brazil."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T09:18:33Z
 sourceUrl: "https://www.youtube.com/watch?v=6sRJN2TaWkg"
 sourceTitle: "Associated Press"
 section: "Politics"

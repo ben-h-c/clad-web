@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump at G7: No Greenland Talks, Ukraine 'Holding Own,' Europe to Pay for Aid"
 summary: "The Forbes clip captures a brief exchange with President Trump at the June 2026 G7 summit in Evian, France. A reporter asks about Greenland discussions; Trump denies any talk but says he should discuss it. Questions then turn to Ukraine's battlefield position, additional US aid, and reimposing Russian oil sanctions.\nTrump states Ukraine is 'doing pretty well' and 'holding their own' with US equipment supplied via Europe and NATO payments, contrasting this with Biden-era aid. He signals possible return of sanctions now that oil prices are low."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T20:55:36Z
 sourceUrl: "https://www.youtube.com/watch?v=rNBnBymK1tc"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

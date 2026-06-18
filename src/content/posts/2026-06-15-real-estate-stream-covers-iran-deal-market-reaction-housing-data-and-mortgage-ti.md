@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Real Estate Stream Covers Iran Deal Market Reaction Housing Data and Mortgage Tips"
 summary: "The live stream from Real Estate Mindset discusses recent market movements tied to a reported US-Iran peace deal including oil prices stock gains and falling yields. Segments cover CPI inflation data existing home sales inventory prices and mortgage rate pricing sheets with examples of amortization and buyer calculations.\nThe host intersperses news clips data graphics and personal commentary on credit building hyper-local home analysis and open records requests alleging appraisal district errors. Guests and viewers are acknowledged while promoting advocacy materials and forms."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T14:34:47Z
 sourceUrl: "https://www.youtube.com/watch?v=fE4OEfpUIOk"
 sourceTitle: "Real Estate Mindset"
 section: "Politics"

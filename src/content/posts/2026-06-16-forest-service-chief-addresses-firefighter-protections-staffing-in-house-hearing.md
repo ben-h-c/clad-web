@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Forest Service Chief Addresses Firefighter Protections, Staffing in House Hearing"
 summary: "The segment shows Rep. Maxine Dexter (D-OR) questioning Forest Service Chief Tom Schultz during a House Natural Resources Committee budget hearing. She follows up on prior discussion of respiratory protection, asks about N95 masks and other health measures, and raises concerns over MREs, PFAS in gear, staffing cuts, research station moves in Oregon, and political advisers with ties to Under Secretary Boren.\nChief Schultz confirms N95 availability and ongoing work with OSHA/DOI on respirators, notes voluntary deferred resignations of about 6,500 staff returning levels to 2017-2018, clarifies Portland office closure without forced Fort Collins relocations or RIFs, and identifies three political advisers with some Boren connections while defending their roles."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T11:15:35Z
 sourceUrl: "https://www.youtube.com/watch?v=vuCT6ABGRFE"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

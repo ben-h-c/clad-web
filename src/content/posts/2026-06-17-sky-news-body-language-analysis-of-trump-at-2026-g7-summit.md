@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Sky News body language analysis of Trump at 2026 G7 summit"
 summary: "Sky News Europe correspondent analyzes footage from the G7 summit in Évian-les-Bains, France, focusing on interactions between Donald Trump and other leaders including Macron, Merz, Meloni, Costa, Starmer, and guests like Zelenskyy. Segments cover arrivals, bilateral meetings, a gift exchange, and the family photo. The piece highlights specific moments of body language such as handshakes, positioning, and Trump's thumbs-up gesture. Sourcing relies on video footage from the summit with descriptive narration and interpretive commentary; no named external experts or data graphics are used beyond the clips themselves."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T07:32:12Z
 sourceUrl: "https://www.youtube.com/watch?v=DF0x55eXTow"
 sourceTitle: "Sky News"
 section: "Politics"

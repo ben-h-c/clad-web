@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fed Chair Warsh's Debut Meeting Amid Iran MOU, Housing Data"
 summary: "Schwab Network segment covers Bitcoin price action, the impending U.S.-Iran memorandum of understanding with a Friday signing expected to lift the Strait of Hormuz blockade and lower oil prices, and the first FOMC meeting under new Fed Chair Kevin Warsh. It discusses dissenters, Warsh's views on a smaller balance sheet and lower rates, housing starts and permits data, and global central bank moves.\nSources include live market commentary, housing data releases, and references to G7 and Trump statements. No named guests beyond anchors; throughline is macro setup favoring lower rates amid easing oil and geopolitical headlines."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:30:12Z
 sourceUrl: "https://www.youtube.com/watch?v=8Poe_STX9Hw"
 sourceTitle: "Schwab Network"
 section: "Politics"

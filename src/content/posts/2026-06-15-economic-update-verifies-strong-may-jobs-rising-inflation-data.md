@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Economic Update Verifies Strong May Jobs, Rising Inflation Data"
 summary: "The June 13, 2026 broadcast reviews May labor data, inflation readings and consumer metrics before discussing Fed implications and SpaceX's recent IPO. Segments cover ADP and BLS payrolls with revisions, unemployment details, JOLTS openings, PPI/CPI/PCE inflation, personal income/savings, consumer sentiment surveys, ISM reports, existing home sales and GDP estimates. It closes with personal investment advice and IPO lock-up mechanics.\nSourcing relies on named government releases (BLS, ADP, BEA, NAR, Michigan survey) and official dates; no anonymous sources or graphics referenced beyond data points. The throughline is that solid job gains alongside above-target inflation may limit near-term Fed rate cuts."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T02:26:07Z
 sourceUrl: "https://www.youtube.com/watch?v=rJ9AlcC7AJc"
 sourceTitle: "Financial Freedom 101"
 section: "Politics"

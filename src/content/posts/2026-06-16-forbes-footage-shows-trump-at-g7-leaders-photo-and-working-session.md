@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Forbes Footage Shows Trump at G7 Leaders Photo and Working Session"
 summary: "The video consists of live audio and visuals from the G7 summit in Évian-les-Bains, France, showing President Trump greeting leaders, posing for the official group photo, and transitioning to a working session. Background chatter includes photo instructions and brief pleasantries. The clip ends with an announcement of a new session on partnerships.\nThe sourcing is direct footage from the event site. No named experts, graphics, or additional analysis appear; the throughline is straightforward documentation of Trump's participation alongside other G7 leaders and guests."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:27:26Z
 sourceUrl: "https://www.youtube.com/watch?v=Vd_HeBcQ2y0"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

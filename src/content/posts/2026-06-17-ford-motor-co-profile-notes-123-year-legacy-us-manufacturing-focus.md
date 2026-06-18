@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Ford Motor Co. Profile Notes 123-Year Legacy, U.S. Manufacturing Focus"
 summary: "The segment marks Ford Motor Company's 123rd anniversary on June 16 with a visit to a Michigan plant. It covers the company's founding by Henry Ford, current scale, multi-generational workforce and family board representation. Alexandra Ford English discusses values, competition and potential defense manufacturing support.\nThe interview features the Ford heir responding to questions on adaptability, future products including a midsize EV pickup, and the company's history of stepping up for national needs. Sourcing relies on the on-site interview and plant visuals with no additional experts or data graphics referenced."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:00:34Z
 sourceUrl: "https://www.youtube.com/watch?v=jUEkZtr8OQs"
 sourceTitle: "NewsNation"
 section: "Politics"

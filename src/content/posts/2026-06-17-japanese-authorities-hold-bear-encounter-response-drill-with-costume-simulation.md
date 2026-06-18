@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Japanese Authorities Hold Bear Encounter Response Drill With Costume Simulation"
 summary: "The Reuters video shows a training exercise in Japan where a participant in a bear costume simulates an encounter, allowing responders to practice scaring off or approaching the animal. Comments from the costumed individual highlight practical challenges like limited visibility and heat while affirming the drill's value amid rising bear activity.\nThe segment relies on on-scene footage and participant remarks rather than named experts or statistics. It ties into broader reports of increased bear sightings and attacks prompting such simulations in prefectures like Tochigi."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T13:37:00Z
 sourceUrl: "https://www.youtube.com/watch?v=XgQkgWpiyZE"
 sourceTitle: "Reuters"
 section: "Politics"

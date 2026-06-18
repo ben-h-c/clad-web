@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NewsNation clip features unverified 1980s ship UFO account"
 summary: "The segment is a brief interview with a man describing a 1980s maritime encounter while aged 16 aboard a ship. He recounts sighting a distant disc-like star object, sensing it emitted scanning beams, experiencing a psychic connection, and hearing the captain's tannoy announcement: 'This is your captain speaking. What you have just seen you have not.' Crew discussion was limited due to the rough environment, with no formal orders issued beyond the cryptic message."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:30:05Z
 sourceUrl: "https://www.youtube.com/watch?v=EGCT1XxVuE0"
 sourceTitle: "NewsNation"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Congressional Hearing Examines USFS Fire Readiness and Montana State Partnerships"
 summary: "The segment shows Rep. Troy Downing (R-MT) questioning US Forest Service Chief Tom Schultz during a House Natural Resources Committee hearing. Topics include Montana's drought and low snowpack risks for the 2026 fire season, USFS staffing and readiness measures, the president's FY2027 budget proposal, and a new 20-year shared stewardship agreement with Montana."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:00:26Z
 sourceUrl: "https://www.youtube.com/watch?v=9KfzL8shE5k"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

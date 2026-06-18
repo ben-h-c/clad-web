@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Thune Withholds Judgment on WaPo Report of $600M Ballroom Costs"
 summary: "The Forbes Breaking News clip shows a reporter questioning Senate Majority Leader John Thune about a Washington Post report estimating the White House ballroom project at $600 million, with taxpayers potentially responsible for half amid affordability concerns for constituents. Thune responds that he has not seen the White House reply, withholds judgment, and notes security requirements for White House projects that may necessitate public funds beyond privately raised money."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:43:31Z
 sourceUrl: "https://www.youtube.com/watch?v=bsunXOVec3w"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "The Hill's Data Nerds break down Georgia runoffs and 2026 primary results"
 summary: "The broadcast covers June 16, 2026 primary runoffs and other contests in Georgia, Alabama, Oklahoma, and DC mayoral race. Segments focus on Georgia GOP Senate runoff where Mike Collins defeated Derek Dooley and the governor runoff where Rick Jackson defeated Burt Jones, with discussion of implications for November generals against Jon Ossoff and Keisha Lance Bottoms.\nPanelists including Nicholas Anastasio, Mike Madrid, Jessica Taylor, and others provide analysis drawing on DDHQ calls, endorsements from Trump and Kemp, turnout dynamics, and national environment. Guests offer commentary on candidate records, spending, and 2028 implications."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:05:28Z
 sourceUrl: "https://www.youtube.com/watch?v=H7oJPLlNYJM"
 sourceTitle: "The Hill"
 section: "Politics"

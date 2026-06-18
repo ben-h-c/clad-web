@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Zelenskiy claims G7 unanimity that Russia must negotiate to end war"
 summary: "The Reuters video clip features Ukrainian President Volodymyr Zelenskiy speaking in an interview during the G7 summit in France on June 16, 2026. He asserts unanimous agreement among G7 and EU leaders that Russia is losing the war, suffering heavy casualties, and must negotiate a deal immediately. Zelenskiy also links falling oil prices to a recent Trump-Iran agreement and describes Russia losing battlefield initiative on most fronts while retaining large troop numbers.\nThe segment consists of Zelenskiy's direct remarks without additional narration, analysis, or counterpoints. It references the ongoing G7 discussions on sanctions, battlefield developments, and peace efforts, with Zelenskiy participating via video link from the summit."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:39:05Z
 sourceUrl: "https://www.youtube.com/watch?v=EjYdS3Z5YLc"
 sourceTitle: "Reuters"
 section: "Politics"

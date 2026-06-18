@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NewsNation Covers Alleged Drone-Sniper Plot at White House UFC Event"
 summary: "The segment details the alleged plot by a group of up to 20 people to attack the UFC event at the White House using explosive-laden drones followed by snipers targeting fleeing high-value individuals including politicians. It covers the June 10 tip from Tyson Proper's mother leading to five arrests, recovered planning materials from encrypted chats, and statements from the FBI and Secret Service that the event was never in imminent danger but the investigation continues.\nThe report relies on federal court documents, FBI statements, and Secret Service comments, naming arrested individuals from multiple states and noting ongoing efforts to identify additional suspects."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T12:23:39Z
 sourceUrl: "https://www.youtube.com/watch?v=xj4TiOPkfOI"
 sourceTitle: "NewsNation"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Israeli Archaeologists Find Intact 1,700-Year-Old Marble Busts in Binyamina"
 summary: "The Reuters segment covers the June 2026 announcement of two remarkably preserved marble protomes (busts showing head and upper torso) uncovered during a salvage excavation near Binyamina in northern Israel. The artifacts, approximately 1,700 years old and dating to the late Roman period, were found face-down in the collection pit of a disused Roman-Byzantine winepress as part of infrastructure work for a high-speed rail project.\nResearchers from the Israel Antiquities Authority describe one bust bearing a Greek inscription of the name Lycurgus, noting its stern, wrinkled features consistent with a statesman or lawgiver linked to Spartan traditions; the second shows a serene, wise expression possibly suggesting a philosopher. The pieces are highlighted for their rarity and excellent preservation."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T10:10:30Z
 sourceUrl: "https://www.youtube.com/watch?v=TW50tlt-Ejs"
 sourceTitle: "Reuters"
 section: "Politics"

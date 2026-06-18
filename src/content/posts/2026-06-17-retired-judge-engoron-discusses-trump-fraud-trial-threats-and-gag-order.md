@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Retired Judge Engoron Discusses Trump Fraud Trial, Threats, and Gag Order"
 summary: "CBS News interviewed retired New York judge Arthur Engoron about presiding over Donald Trump's 2023-2024 civil fraud trial. Segments covered his career reflections, Trump's criticisms, personal threats including a bomb threat, a gag order on comments about his clerk, and his approach to courtroom management versus written rulings.\nEngoron described allowing broad testimony while issuing focused opinions, noted the appeals court vacated the penalty but upheld the fraud liability, and addressed ongoing public recognition and criticism. Sourcing relies on Engoron's direct statements with limited external verification in the segment."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T13:33:09Z
 sourceUrl: "https://www.youtube.com/watch?v=MVxa2WEnvV4"
 sourceTitle: "CBS News"
 section: "Politics"

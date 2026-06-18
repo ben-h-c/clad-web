@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Claims Iran Deal Signed as Details and Israeli Concerns Persist"
 summary: "The Reuters segment covers President Trump's Monday announcement from France that a preliminary US-Iran memorandum of understanding to end the war has been signed, with a formal ceremony planned for Geneva later in the week. It details the deal's provisions for reopening the Strait of Hormuz, extending a ceasefire by 60 days, and deferring talks on Iran's nuclear program.\nThe report includes Trump's quotes on sanctions relief being conditional on Iranian behavior, notes sharp drops in oil prices, potential sanctions relief and asset access, remaining questions on uranium stockpiles, and continued Israel-Hezbollah tensions. It draws on statements from US and Iranian officials plus a senior Israeli source."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T05:10:49Z
 sourceUrl: "https://www.youtube.com/watch?v=uh6xw2aB0_Y"
 sourceTitle: "Reuters"
 section: "Politics"

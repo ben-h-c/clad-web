@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Ridglan Farms Beagle Facility Closes, Remaining Dogs Head to Rescues"
 summary: "ABC News reports on the permanent closure of Ridglan Farms, a long-running Wisconsin beagle breeding facility supplying research labs. Hundreds of beagles are being transferred to rescues, with the final wave of 475 dogs heading to Big Dog Ranch Rescue in Florida and partner groups; 325 are moving this week and 150 in August.\nThe segment outlines a timeline of regulatory violations from 2024 inspections, a 2025 special prosecutor appointment, an October 2025 licensing surrender deal, activist break-ins and protests in March and April 2026, and the facility's response denying mistreatment while calling for an end to harassment."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T10:30:37Z
 sourceUrl: "https://www.youtube.com/watch?v=2Gy7oyd0dWs"
 sourceTitle: "ABC News"
 section: "Politics"

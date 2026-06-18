@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Report Examines Draft US-Iran MOU on Sanctions Relief and Ceasefire"
 summary: "The segment analyzes a draft memorandum of understanding between the US and Iran, expected to be signed June 19, that would provide Iran immediate access to oil markets via lifted waivers, eventual sanctions relief, access to frozen assets, and a $300 billion development fund. In exchange, Iran commits not to pursue nuclear weapons, with further details deferred to 60 days of negotiations. It contrasts the framework with the Obama-era JCPOA, noting Trump's push for permanent enrichment limits rather than time-bound ones. The discussion covers Iran's leverage via the Strait of Hormuz, Trump's ability to resume strikes, and complications involving Israel and Lebanon, where the US deal does not bind Israeli actions against Hezbollah."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:28:55Z
 sourceUrl: "https://www.youtube.com/watch?v=ePKH1JVDNzA"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

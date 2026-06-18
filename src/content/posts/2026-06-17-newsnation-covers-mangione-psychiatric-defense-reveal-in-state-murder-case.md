@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NewsNation Covers Mangione Psychiatric Defense Reveal in State Murder Case"
 summary: "The segment reports on Luigi Mangione's appearance at a brief New York state court hearing for the murder of UnitedHealthcare CEO Brian Thompson. It details a delay from the prior day due to a prosecutorial clerical error and reveals that the defense plans to pursue a psychiatric defense of extreme emotional disturbance. The judge indicated plans to unseal minutes from a prior closed hearing, and prosecutors pushed for a firm trial date around September 8 while arguing the defense has delayed proceedings."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T15:33:33Z
 sourceUrl: "https://www.youtube.com/watch?v=OgHLGAlpgjI"
 sourceTitle: "NewsNation"
 section: "Politics"

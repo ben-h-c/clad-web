@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Kansas City Prepares for 2026 World Cup as Smallest Host City"
 summary: "The segment highlights Kansas City's role as host for six 2026 FIFA World Cup matches at Arrowhead Stadium, emphasizing its status as the smallest host market and ongoing efforts to leverage the event for visibility. It covers stadium upgrades, local business excitement including at Joe's Barbecue, and multi-agency security measures.\nInterviews with local stakeholders and visuals of preparations underscore infrastructure readiness and community buzz ahead of high-profile games featuring teams like Argentina."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:18:44Z
 sourceUrl: "https://www.youtube.com/watch?v=K2pY1chFH40"
 sourceTitle: "NBC News"
 section: "Politics"

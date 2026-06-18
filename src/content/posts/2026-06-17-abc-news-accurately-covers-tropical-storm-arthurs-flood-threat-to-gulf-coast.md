@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News accurately covers Tropical Storm Arthur's flood threat to Gulf Coast"
 summary: "The segment opens with Tropical Storm Arthur, the first named storm of the 2026 season, making landfall along the Texas coast with 45 mph winds, up to 4 feet of storm surge, and up to 20 inches of rain expected. It highlights life-threatening flash flooding risks from Texas to Louisiana and Georgia, including a fatality in Magnolia, Texas. The report shifts to concurrent severe weather in the Midwest with tornado watches and warnings across multiple states, damaging winds, and flooding, plus potential impacts extending to the Northeast."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:56:18Z
 sourceUrl: "https://www.youtube.com/watch?v=b-K3L3gxLOM"
 sourceTitle: "ABC News"
 section: "Politics"

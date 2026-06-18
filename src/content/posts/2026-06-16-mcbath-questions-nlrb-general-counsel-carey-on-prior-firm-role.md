@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "McBath Questions NLRB General Counsel Carey on Prior Firm Role"
 summary: "The clip shows Rep. Lucy McBath (D-GA) questioning NLRB General Counsel Crystal Carey during a House hearing. McBath asks about Carey's nearly eight years as a partner at Morgan Lewis, whether the firm represents only management, and potential bias in unfair labor practice decisions. Carey confirms the background and denies bias. McBath then raises broader points on Trump-era pay-to-play concerns, case contacts, pension protections, and tax policy."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T03:00:20Z
 sourceUrl: "https://www.youtube.com/watch?v=WSENt-3CkFs"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

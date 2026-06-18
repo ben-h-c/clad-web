@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "The View critiques Kash Patel over UFC plot announcement and past disclosures"
 summary: "The segment discusses FBI Director Kash Patel's social media post announcing the foiling of an alleged terror plot targeting a UFC event at the White House. Hosts criticize the timing as premature, referencing Secret Service Deputy Director Matthew Quinn's comments on maintaining investigation integrity. They highlight previous instances of Patel announcing developments before confirmations or arrests in cases involving Charlie Kirk's shooting, an ICE facility incident, and a Brown University shooting. The discussion shifts to a letter from Rep. Jamie Raskin probing alleged misuse of FBI funds for bonuses to loyalists, estimated at over $1 million."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:00:30Z
 sourceUrl: "https://www.youtube.com/watch?v=0kGCtwyf3cs"
 sourceTitle: "The View"
 section: "Politics"

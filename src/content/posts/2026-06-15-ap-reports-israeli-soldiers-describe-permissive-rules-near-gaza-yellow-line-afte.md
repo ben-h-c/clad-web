@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "AP reports Israeli soldiers describe permissive rules near Gaza yellow line after October 2025 ceasefire"
 summary: "The segment examines what the October 2025 Gaza ceasefire looks like on the ground according to Israeli soldiers stationed along the yellow line. It highlights testimonies of troops targeting Palestinians who approach or cross the demarcation, unclear markings, celebratory reactions to strikes, and permissive rules of engagement that reportedly include shooting anyone crossing the line. The second paragraph covers sourcing from an Associated Press investigation published May 30, 2026, plus accounts gathered by the whistleblower group Breaking the Silence, with soldiers speaking anonymously."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T21:38:05Z
 sourceUrl: "https://www.youtube.com/watch?v=zz2OoBRajfo"
 sourceTitle: "Al Mayadeen English"
 section: "Politics"

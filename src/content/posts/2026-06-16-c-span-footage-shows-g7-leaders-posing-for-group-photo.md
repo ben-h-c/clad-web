@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "C-SPAN Footage Shows G7 Leaders Posing for Group Photo"
 summary: "The clip captures audio from a G7 summit group photo session, including leaders greeting each other, posing directions from photographers, and brief exchanges. Segments feature casual remarks such as references to a 'famous couple' and a translator.\nThe broadcast is raw C-SPAN footage with no narration, graphics, or named experts; it serves as direct documentation of the event's photo op."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:30:01Z
 sourceUrl: "https://www.youtube.com/watch?v=XSXvoOGTVdU"
 sourceTitle: "C-SPAN"
 section: "Politics"

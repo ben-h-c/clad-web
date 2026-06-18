@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News segment questions US-Iran MOU details and omissions"
 summary: "The segment discusses a recently announced US-Iran memorandum of understanding as a framework to extend a ceasefire for 60 days, reopen the Strait of Hormuz, lift the US naval blockade, and begin nuclear negotiations. It covers Iran's economic situation, lack of immediate limits on proxies like Hezbollah, and potential impacts on Israel and Lebanon. Guest expert Ahmed highlights concerns over the unseen text, uranium stockpile handling, and no mention of plutonium or penalties for proxy financing. Netanyahu's stance on remaining in Lebanon is noted. Sourcing draws from unnamed signals in outlets like Bloomberg and Reuters, plus statements from Trump, Vance, and Netanyahu."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:45:21Z
 sourceUrl: "https://www.youtube.com/watch?v=Q1DoesO-V8w"
 sourceTitle: "Fox News"
 section: "Politics"

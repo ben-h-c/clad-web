@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Schumer Pushes Senate Amendment to Block $1.8B DOJ Anti-Weaponization Fund"
 summary: "The clip shows Senate Minority Leader Chuck Schumer previewing a vote on an amendment to permanently ban a roughly $1.8 billion 'Anti-Weaponization Fund' created by the DOJ as part of a settlement in President Trump's IRS lawsuit over leaked tax returns. Schumer labels it a 'MAGA slush fund' and 'sweetheart deal' enabling tax issues for Trump and family, attacks Republicans for not blocking it, and references Todd Blanche's assurances."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:08:10Z
 sourceUrl: "https://www.youtube.com/watch?v=TM0XhyeaaSY"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

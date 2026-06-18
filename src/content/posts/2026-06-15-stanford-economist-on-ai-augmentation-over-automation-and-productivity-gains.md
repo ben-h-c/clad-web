@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Stanford Economist on AI Augmentation Over Automation and Productivity Gains"
 summary: "The video is a long-form interview with Stanford economist Erik Brynjolfsson, director of the Stanford Digital Economy Lab. It covers AI's transformative potential, the 'Turing Trap' of focusing on human-task replacement, job displacement versus creation, productivity measurement challenges, and policy ideas like flexicurity and universal compute access.\nBrynjolfsson draws on his own studies and papers, references historical examples like the Industrial Revolution, and discusses metrics such as consumer surplus and GDP-B. The conversation emphasizes augmentation, complementarity between humans and AI, and avoiding wealth concentration while noting measurement issues in official statistics."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T21:00:35Z
 sourceUrl: "https://www.youtube.com/watch?v=TW0oaz_CF3E"
 sourceTitle: "This Is The World"
 section: "Politics"

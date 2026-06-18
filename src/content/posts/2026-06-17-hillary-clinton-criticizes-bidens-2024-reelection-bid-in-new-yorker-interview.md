@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Hillary Clinton criticizes Biden's 2024 reelection bid in New Yorker interview"
 summary: "The segment covers Hillary Clinton's recent interview comments blasting Joe Biden's decision to seek reelection in 2024. Clinton stated Biden made a 'terrible mistake' for himself, his legacy, and the country by not stepping aside after signaling he would pass the torch, potentially allowing a competitive primary that could have produced a stronger nominee against Trump.\nHosts discuss the remarks, with one noting widespread prior reporting of Biden's one-term intentions and criticizing party hierarchy for prioritizing power. The other highlights internal dynamics, including past primary issues and the rushed Harris nomination. The clip ends by transitioning to unrelated Epstein reporting."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T15:45:35Z
 sourceUrl: "https://www.youtube.com/watch?v=5kZIvlT-TTI"
 sourceTitle: "The Hill"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "UK under-16 social media ban announcement draws US panel support"
 summary: "The segment discusses British Prime Minister Keir Starmer's announcement of a ban on social media access for children under 16, citing harms like addiction, displaced play and sleep, and mental health impacts. It references industry pushback from Snapchat and YouTube about driving users to less safe platforms.\nThe discussion praises Jonathan Haidt's book 'The Anxious Generation,' notes Australia's earlier policy, criticizes the US Embassy's input favoring tech firms, and highlights state-level efforts in Florida and elsewhere while advocating similar US measures with parental, school, and platform involvement."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T17:42:38Z
 sourceUrl: "https://www.youtube.com/watch?v=gzDACI-2hMc"
 sourceTitle: "The View"
 section: "Politics"

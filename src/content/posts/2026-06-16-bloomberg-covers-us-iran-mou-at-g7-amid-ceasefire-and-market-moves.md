@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Covers US-Iran MOU at G7 Amid Ceasefire and Market Moves"
 summary: "The segment focuses on President Trump's G7 meetings in France and the upcoming signing of a US-Iran memorandum of understanding, including a 60-day ceasefire extension, Strait of Hormuz reopening, and later nuclear talks. It covers market reactions with oil prices falling and the Dow hitting records, plus SpaceX stock gains. Guests include Bloomberg's Tyler Kendall reporting from the summit, former Israeli ambassador Michael Oren, a Republican-Democratic panel, and Rep. Jennifer McClellan. Sourcing draws on Trump's statements, ally diplomats, and congressional perspectives."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:10:03Z
 sourceUrl: "https://www.youtube.com/watch?v=v38LY7Dnb9w"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Herero and Nama Genocide: Video Accurately Details 1904-1908 Atrocities and Nazi Links"
 summary: "The broadcast narrates the 1904-1908 German colonial genocide against the Herero and Nama peoples in Namibia, covering the Herero uprising, von Trotha's extermination order, pursuit into the Omaheke Desert, concentration camps including Shark Island, medical experiments by Eugen Fischer, and the Nama rebellion led by Hendrik Witbooi. It details population losses, forced labor, skull shipments to Berlin, and long-term consequences for survivors.\nThe segment draws on historical records such as von Trotha's orders, survivor accounts, German reports, and post-war recognitions. It references named figures like Samuel Maharero, Witbooi, and Fischer, plus the 2021 German apology and aid package, while noting community dissatisfaction with the process."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T00:49:38Z
 sourceUrl: "https://www.youtube.com/watch?v=PKuycLzY7c4"
 sourceTitle: "TerraVox"
 section: "Politics"

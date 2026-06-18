@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "House Democrats probe Maxwell prison transfer and treatment amid Blanche AG scrutiny"
 summary: "The segment covers House Oversight and Judiciary Committee staff visiting Ghislaine Maxwell at FPC Bryan in Texas to investigate her August 2025 transfer from Florida and alleged preferential treatment. It features Democratic Rep. James Walkinshaw questioning the timing after her July 2025 interview with then-Deputy AG Todd Blanche and criticizing Blanche's handling of Epstein document releases.\nWalkinshaw links the issues to Blanche's AG nomination, survivor meetings with the committee, and references a NYT report on Epstein's 2019 death. Sourcing includes the congressman, prior Pam Bondi statements, and media reports; no administration officials or BOP representatives appear."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:03:37Z
 sourceUrl: "https://www.youtube.com/watch?v=fx8yAwZdhp0"
 sourceTitle: "MS NOW"
 section: "Politics"

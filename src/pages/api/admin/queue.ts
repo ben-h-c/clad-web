@@ -80,12 +80,15 @@ export const POST: APIRoute = async ({ request }) => {
     }
   }
 
-  // Date the post by the source video's real publish date (captured by the
+  // Date the post by the source video's real publish date+time (captured by the
   // scanner), not the moment it's approved — so trends/archive reflect when the
-  // news actually happened. Fall back to today if the date is missing/malformed.
-  const srcDate = (draft.source?.publishedAt ?? "").slice(0, 10);
-  const publishedAt = /^\d{4}-\d{2}-\d{2}$/.test(srcDate) ? srcDate : "";
-  const when = publishedAt ? new Date(`${publishedAt}T00:00:00Z`) : new Date();
+  // news actually happened AND same-day posts order chronologically (the Recent
+  // strip relies on the full timestamp). Fall back to now if missing/malformed.
+  const srcRaw = (draft.source?.publishedAt ?? "").trim();
+  const parsed = srcRaw ? new Date(srcRaw) : null;
+  const valid = parsed && !Number.isNaN(parsed.getTime());
+  const when = valid ? parsed! : new Date();
+  const publishedAt = valid ? when.toISOString() : "";
 
   const slug = datedSlug(draft.report.headline, when);
   const thumbnail = await resolveThumbnail({

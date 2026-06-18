@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Obama Shares Favorite Letters Exhibit Ahead of Presidential Center Opening"
 summary: "The broadcast previews the Obama Presidential Center grand opening with an exclusive interview clip of former President Obama describing his favorite exhibit: a display of representative letters he received nightly from the public during his presidency, accompanied by a video vignette. Obama notes the emotional impact and recommends visitors view it after the Oval Office replica. The segment promotes upcoming MSNOW coverage of the June 18-19, 2026 events. It closes with anchors contrasting Obama’s described sense of responsibility with the current administration and discussing the enduring Obama coalition ahead of midterms."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T15:44:12Z
 sourceUrl: "https://www.youtube.com/watch?v=jS0AMmkT7sE"
 sourceTitle: "MS NOW"
 section: "Politics"

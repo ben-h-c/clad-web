@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Scottish Fans Strain Boston Beer Supplies During 2026 World Cup"
 summary: "NBC Boston segment examines the influx of Scottish soccer supporters, known as the Tartan Army, into Boston for their 2026 FIFA World Cup matches. It highlights bars running low on beer, including an emergency delivery at the Sam Adams Downtown Taproom and shortages of Tennent's lager at venues like White Bull Tavern and The Dubliner. Fans and owners describe high demand, record sales, and lively but positive atmospheres with kilts and partying. The piece notes distributors temporarily running short after extra orders. Sourcing relies on direct quotes from bar staff, fans, and Boston Beer Company statements about sales volumes and keg counts."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:10:36Z
 sourceUrl: "https://www.youtube.com/watch?v=eurBAClEWS4"
 sourceTitle: "NBC News"
 section: "Politics"

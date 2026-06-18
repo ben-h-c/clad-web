@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX IPO Draws Scrutiny Over Valuation, AI Ambitions, and Retail Access"
 summary: "The video analyzes the June 2026 SpaceX IPO (ticker SPCX), which priced at $135 per share and raised about $75 billion, marking the largest IPO on record and propelling Elon Musk to trillionaire status. It covers SpaceX's acquisition of xAI, integration of Grok and X platform, Starlink's profitability offsetting AI losses, and the company's unconventional prospectus featuring ambitious space and AI plans. The segment also discusses upcoming Anthropic and OpenAI IPOs, record retail investor allocations, index inclusion concerns, and broader AI bubble risks amid high valuations and capital needs."
-publishedAt: 2026-06-12
+publishedAt: 2026-06-12T16:00:13Z
 sourceUrl: "https://www.youtube.com/watch?v=jNAAG3Ma5K8"
 sourceTitle: "The Plain Bagel"
 section: "Politics"

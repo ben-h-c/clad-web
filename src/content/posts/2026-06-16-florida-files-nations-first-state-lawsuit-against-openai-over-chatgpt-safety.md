@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Florida Files Nation's First State Lawsuit Against OpenAI Over ChatGPT Safety"
 summary: "Segment discusses lawsuits by Florida AG James Uthmeier against OpenAI (first state-led action, filed ~June 1, 2026) and TikTok for alleged child safety violations. Guest Mark Lanier, attorney in social media cases including Arkansas Roblox litigation, comments on platform safeguards, parental responsibility, and expectations for more states to act. OpenAI and TikTok responses on safety features are read on air."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:00:03Z
 sourceUrl: "https://www.youtube.com/watch?v=GUE6sEjizB4"
 sourceTitle: "Fox Business"
 section: "Politics"

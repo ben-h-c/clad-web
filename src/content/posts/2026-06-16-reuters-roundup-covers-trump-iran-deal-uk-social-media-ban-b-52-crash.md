@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters roundup covers Trump-Iran deal, UK social media ban, B-52 crash"
 summary: "The June 16, 2026 Reuters World News broadcast is a 10-minute global headline roundup. Segments cover the Trump administration's announcement of a preliminary US-Iran agreement to end hostilities, market reactions, Republican criticism, Israeli positions, gas prices, Zelensky at the G7 in France, World Cup matches and new FIFA hydration breaks, the UK social media restrictions for under-16s, Gavin Newsom's accusations, a B-52 crash, and Fox's acquisition of Roku."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T09:31:10Z
 sourceUrl: "https://www.youtube.com/watch?v=cLf3VtvVvo4"
 sourceTitle: "Reuters"
 section: "Politics"

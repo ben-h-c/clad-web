@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Rutte: NATO backs Ukraine strikes, notes improved Kosovo security, praises Trump peace efforts"
 summary: "Forbes Breaking News aired a press conference clip featuring NATO Secretary General Mark Rutte responding to questions on Ukraine's deep strikes into Russia, NATO support for Kyiv, KFOR adjustments in Kosovo, potential EU-Russia dialogue, and the battlefield/negotiating dynamics involving the US under President Trump. Segments covered Rutte's references to the recent G7 statement and historical context of the invasion.\nRutte cited the G7's backing for Ukraine's defensive needs, described KFOR troop reductions from approximately 4,700 to 3,000-3,500 amid improved conditions, noted EU-led discussions on Russia contacts, and highlighted slowed Russian advances alongside high Russian casualties while praising US mediation efforts."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:35:33Z
 sourceUrl: "https://www.youtube.com/watch?v=gRjiBQ6zz6c"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

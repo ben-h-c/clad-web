@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Hearing Questions USFS Timber Supply, Mill Infrastructure, and NEPA Delays"
 summary: "The segment from a congressional subcommittee hearing features Rep. Tom Tiffany questioning USFS Chief Schultz on barriers to active forest management, specifically the decline in wood processing infrastructure and the need for reliable timber supplies to spur new mills. Discussion covers historical sawmill closures in Western states, current and planned increases in timber outputs, hazardous fuels treatment acreage trends with regional context, and efforts to streamline NEPA processes.\nChief Schultz responds with data on recent treatment acres, timber volume increases tied to congressional direction, and USDA-wide NEPA regulatory consolidation for faster reviews. The exchange highlights alignment between Forest Service plans and recent legislative mandates."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T08:30:36Z
 sourceUrl: "https://www.youtube.com/watch?v=mwS44Bjr0o0"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

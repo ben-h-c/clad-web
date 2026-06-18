@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Warsh Describes First Fed Meeting as 'Good Family Fight' on Single Rate Proposal"
 summary: "PBS NewsHour clip shows a question to new Fed Chair Kevin Warsh on whether the committee discussed a rate cut at his first FOMC meeting. Warsh replies that only one proposal was on the table, discussion was limited, the group was unanimous, and they had a 'good family fight' over it. The segment captures Warsh explaining the process without prejudging future meetings. Warsh, confirmed earlier in 2026, has used the 'family fight' phrase in his confirmation hearing to describe preferred robust internal debate."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T19:48:13Z
 sourceUrl: "https://www.youtube.com/watch?v=7Be4f-AKZJw"
 sourceTitle: "PBS NewsHour"
 section: "Politics"

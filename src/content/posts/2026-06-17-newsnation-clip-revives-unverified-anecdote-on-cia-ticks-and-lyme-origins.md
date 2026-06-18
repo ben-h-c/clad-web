@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NewsNation clip revives unverified anecdote on CIA ticks and Lyme origins"
 summary: "The segment features a reporter recounting an overheard story from a retired CIA operative at a family party who claimed he dropped boxes of infected ticks on Cuba during the Cold War. It links the anecdote to Operation Mongoose, Colonel Lansdale, and a separate interview with Willy Burgdorfer conducted by documentarian Tim Gray suggesting a bioweapons connection to Lyme disease near Lyme, Connecticut.\nThe piece relies on the reporter's personal recollection and references to Burgdorfer's alleged statements, without presenting documents, official records, or opposing scientific views."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T22:30:29Z
 sourceUrl: "https://www.youtube.com/watch?v=n7IoQJLUfgI"
 sourceTitle: "NewsNation"
 section: "Politics"

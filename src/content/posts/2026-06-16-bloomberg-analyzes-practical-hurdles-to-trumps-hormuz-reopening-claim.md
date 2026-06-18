@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Analyzes Practical Hurdles to Trump's Hormuz Reopening Claim"
 summary: "The segment discusses President Trump's statement at the G7 that the Strait of Hormuz will be fully open by Friday following the expected signing of a US-Iran framework deal to end the war. Analysts examine current partial transit, shipping backups due to mine risks and commercial caution, the narrow southern route, and timelines for mine clearance involving possible European help. They also address the US naval blockade, limited near-term force drawdowns given fixed bases, and the strain on US munitions and resources from the conflict's strikes."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:02:58Z
 sourceUrl: "https://www.youtube.com/watch?v=le7AAsXdyrs"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

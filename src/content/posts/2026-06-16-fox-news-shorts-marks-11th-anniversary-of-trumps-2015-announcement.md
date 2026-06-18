@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News Shorts Marks 11th Anniversary of Trump's 2015 Announcement"
 summary: "The Fox News short replays Donald Trump's June 16, 2015 announcement speech at Trump Tower, including the line about officially running for president and making the country great again, accompanied by audience cheering. It marks the 11-year anniversary with minimal narration. The segment relies on original archival footage of the event rather than new reporting, guests, or graphics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:30:31Z
 sourceUrl: "https://www.youtube.com/watch?v=xX6ST9_duwQ"
 sourceTitle: "Fox News"
 section: "Politics"

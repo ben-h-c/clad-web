@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Iran FM links Lebanon to US-Iran MoU; Israel response rights noted"
 summary: "The Fox News short reports new comments from Iran's Foreign Minister Abbas Araghchi in Tehran, stating that any Israeli military attack on Lebanon or continued occupation of Lebanese territory would violate the Iran-US memorandum of understanding. The segment notes Israeli Prime Minister Benjamin Netanyahu's indication that operations against Hezbollah will continue and US officials' statements permitting Israeli responses to attacks on civilians. It highlights Iran's effort to connect the Lebanon situation to the broader US agreement as a potential major issue.\nThe sourcing draws from Araghchi's televised remarks aired on Iranian state media, references Netanyahu's public comments, and unnamed US officials. The piece runs under two minutes and focuses on the immediate implications for the interim deal ahead of its planned signing."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:00:25Z
 sourceUrl: "https://www.youtube.com/watch?v=btDXcS7xpLM"
 sourceTitle: "Fox News"
 section: "Politics"

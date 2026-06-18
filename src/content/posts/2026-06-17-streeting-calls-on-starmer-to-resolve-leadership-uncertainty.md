@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Streeting Calls on Starmer to Resolve Leadership Uncertainty"
 summary: "The short BBC News clip features former Health Secretary Wes Streeting speaking on Newsnight following the Makerfield by-election. Streeting urges Prime Minister Keir Starmer to decide his own future over the weekend rather than forcing others to trigger a contest, while stating he would be prepared to do so if uncertainty persists. He references potential involvement from figures like Andy Burnham. The segment captures Streeting's preference for Starmer stepping aside voluntarily amid ongoing party tensions."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T11:31:10Z
 sourceUrl: "https://www.youtube.com/watch?v=_R7D4HS3T0c"
 sourceTitle: "BBC News"
 section: "Politics"

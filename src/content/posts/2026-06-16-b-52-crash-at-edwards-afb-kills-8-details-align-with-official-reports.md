@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "B-52 crash at Edwards AFB kills 8; details align with official reports"
 summary: "CBS News segment reports a B-52 Stratofortress crashed shortly after takeoff at Edwards Air Force Base on June 15, killing all eight crew members (military personnel and civilians, including two Boeing employees). The plane was on a routine test mission; authorities described the crash as unsurvivable. Reporter Carter Evans provides details on the location, timing, visible aftermath, and B-52 background. Doug Berkeley of the Mitchell Institute comments on the aircraft's value and risks. The segment notes prior B-52 missions over Iran, a nearly $50 billion upgrade program, and plans to keep the fleet in service into the 2050s."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:18:53Z
 sourceUrl: "https://www.youtube.com/watch?v=wpsTT5nkwtY"
 sourceTitle: "CBS News"
 section: "Politics"

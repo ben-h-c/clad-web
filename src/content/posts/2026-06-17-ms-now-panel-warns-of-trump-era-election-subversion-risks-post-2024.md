@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "MS NOW panel warns of Trump-era election subversion risks post-2024"
 summary: "The segment opens with a clip of Obama’s 2012 win and Trump’s early Twitter denials, then pivots to current concerns under the second Trump term. Panelists including Mona Charen discuss a through-line of election denial, recent actions by Tulsi Gabbard and Bill Pulte on 2020 probes, and potential future interference including ICE disruption or Speaker Mike Johnson refusing to seat members."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T19:47:21Z
 sourceUrl: "https://www.youtube.com/watch?v=iACVkeTO65c"
 sourceTitle: "MS NOW"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters: US holds off adding DeepSeek, over 100 Chinese firms to Entity List"
 summary: "The segment reports that DeepSeek and more than 100 other Chinese firms, including CXMT, have been held off the US Commerce Department's Entity List despite prior interagency approval. It details past US accusations against DeepSeek regarding military ties and chip acquisition, plus recent claims from Anthropic and OpenAI about model extraction. No Entity List additions have occurred since October, the longest gap in over a decade, amid Trump administration efforts to ease China tensions."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T04:50:55Z
 sourceUrl: "https://www.youtube.com/watch?v=60Yibxsj5Vg"
 sourceTitle: "Reuters"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Virginia Gov. Spanberger recounts path from Moms Demand Action to signing gun safety bills"
 summary: "C-SPAN clip shows Virginia Governor Abigail Spanberger speaking at a gun violence prevention event. She describes her early involvement with Moms Demand Action as a CIA officer and federal agent, her transition into politics, and specific constituent tragedies including the deaths of Marquia and Lucia Bremer.\nSpanberger highlights her congressional role in the Bipartisan Safer Communities Act and Virginia's recent enactment of more than 20 data-driven gun safety laws as governor. The segment features her emotional delivery and thanks to advocates and legislators."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:56:08Z
 sourceUrl: "https://www.youtube.com/watch?v=tE5m2NL52To"
 sourceTitle: "C-SPAN"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Ruiz Questions Sierra Club on Health Effects of Clean Air Act Rollbacks"
 summary: "The segment shows Rep. Raul Ruiz (D-CA) describing severe air pollution in Imperial and Coachella Valleys using American Lung Association data, asthma hospitalization statistics, and diesel exposure risks. He questions Sierra Club representative Ms. Garcia on the public health consequences of proposed legislation including the Choice in Automobile Retail Sales Act and State Emissions Authority Act that would affect California's vehicle emission waiver authority under the Clean Air Act."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:15:30Z
 sourceUrl: "https://www.youtube.com/watch?v=Gw3gYwJvdPI"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

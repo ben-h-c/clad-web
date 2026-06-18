@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "PBS NewsHour covers education shifts, DC pool algae, wildfires, Ebola, and markets"
 summary: "The segment recaps multiple headlines: Trump administration moves on civil rights enforcement and special education oversight from the Department of Education to the Justice Department and HHS respectively, with quotes from Secretary Linda McMahon and critics. It covers algae treatment at the renovated DC reflecting pool using hydrogen peroxide, a Greater Los Angeles wildfire over 2,000 acres at 25% containment, a Russian warship incident with a UK yacht, an Ebola outbreak in DRC with over 830 cases, G7 jersey gift to Trump, Williams sisters at Wimbledon, Pizza Hut sale, and mixed stock market close."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:29:59Z
 sourceUrl: "https://www.youtube.com/watch?v=jKiK3vtxmtY"
 sourceTitle: "PBS NewsHour"
 section: "Politics"

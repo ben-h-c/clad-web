@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Horsford Outlines Principles for Crypto Tax Parity in House Hearing"
 summary: "Forbes Breaking News clip shows Rep. Steven Horsford (D-NV) speaking during a June 9, 2026, House Ways and Means Committee hearing on digital asset taxation. He outlines three principles for legislation: parity with traditional financial instruments, avoiding new tax loopholes, and ensuring rules reflect economic reality, while questioning witnesses on validation rewards and charitable deductions.\nHorsford references his work with Rep. Max Miller on the PARITY Act discussion draft, notes an accepted amendment, and stresses the need for clarity to prevent regulatory or court-driven outcomes. Witnesses confirm aspects of current law and liquidity concerns."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T07:30:39Z
 sourceUrl: "https://www.youtube.com/watch?v=9XovajJZoFI"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

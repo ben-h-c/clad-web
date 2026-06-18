@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News segment on thwarted White House UFC plot and political violence"
 summary: "The segment covers the FBI's disruption of an alleged plot to attack the June 14, 2026, UFC Freedom 250 event on the White House South Lawn using drones with explosives and snipers. It includes President Trump's unconcerned reaction, an interview with JD Vance confirming the plot was not advanced, and panel discussion on security and broader political violence. Vance and co-hosts credit the FBI and Kash Patel, criticize left-wing rhetoric, reference Charlie Kirk's assassination and Luigi Mangione, and advocate for FISA renewal. Sourcing relies on official statements, Vance, and the hosts; no independent experts or counter-perspectives appear."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:15:03Z
 sourceUrl: "https://www.youtube.com/watch?v=UPVU0BhAoo4"
 sourceTitle: "Fox News"
 section: "Politics"

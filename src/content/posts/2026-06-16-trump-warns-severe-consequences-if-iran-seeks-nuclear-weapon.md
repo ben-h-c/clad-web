@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Warns Severe Consequences if Iran Seeks Nuclear Weapon"
 summary: "The Reuters clip captures President Trump speaking at the G7 summit in France on June 16, 2026, about an interim U.S.-Iran accord. He states that Iran will never acquire a nuclear weapon under the deal, warns of 'all hell will rain down' and 'ultimate consequences' if it does, and ties this to his decision to engage in the agreement. The segment consists solely of Trump's remarks to reporters with no additional narration or analysis."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:58:10Z
 sourceUrl: "https://www.youtube.com/watch?v=61Pf-zdfc-8"
 sourceTitle: "Reuters"
 section: "Politics"

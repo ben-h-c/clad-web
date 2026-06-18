@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Democrats outline affordability focus amid internal debate on priorities"
 summary: "The segment features host Batya interviewing Neera Tanden of the Center for American Progress on House Democrats' plans if they regain the majority. Discussion centers on Hakeem Jeffries' announced working groups targeting food, housing, energy, healthcare and caregiving costs, with internal party debate over whether affordability or issues like voting rights should lead as HR1. Tanden outlines concrete policy ideas including addressing hospital concentration, AI-driven utility costs, and expanding premium tax credits. The conversation also touches on bipartisan opportunities, voter ID, school choice, Democratic leadership, and character versus policy debates."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:30:25Z
 sourceUrl: "https://www.youtube.com/watch?v=B3jCr-ANZJc"
 sourceTitle: "NewsNation"
 section: "Politics"

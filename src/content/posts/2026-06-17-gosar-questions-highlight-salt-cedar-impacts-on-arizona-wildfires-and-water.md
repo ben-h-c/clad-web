@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Gosar Questions Highlight Salt Cedar Impacts on Arizona Wildfires and Water"
 summary: "The segment features Rep. Paul Gosar questioning Forest Service officials during a congressional hearing on recent Arizona wildfires and forest health. Gosar highlights salt cedar as a key invasive species driving water loss and intense fires, asks about restoration benefits, interagency coordination on checkerboard lands, insurance implications, and status of his LASSO Act request.\n\nThe exchange includes affirmative responses from Chief Assuault on treatment efficacy and ongoing collaborations like the Four Forest Restoration Initiative. Sourcing draws from named agency officials and references specific 2025-2026 fires; no graphics or additional guests appear in the clip."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T07:45:32Z
 sourceUrl: "https://www.youtube.com/watch?v=8gPep-rNEjA"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

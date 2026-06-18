@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "WWII Death Railway Station Resurfaces in Thailand Reservoir"
 summary: "The AP segment reports that maintenance at the Vajiralongkorn Dam has lowered reservoir levels, revealing remnants of the Tai station on the WWII-era Death Railway in western Thailand after more than 40 years underwater. It covers the station's role as a major stop on the line built under Japanese occupation and notes researchers surveying artifacts while comparing archived aerial images to locate POW camps.\nThe piece includes a brief on-site quote from a visitor and highlights the time pressure before the wet season and dam work completion in August potentially resubmerges the site. Sourcing relies on visuals of the exposed tracks and infrastructure plus narration; no named experts or graphics beyond location footage are featured."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T04:00:25Z
 sourceUrl: "https://www.youtube.com/watch?v=5jwZ__VaQIk"
 sourceTitle: "Associated Press"
 section: "Politics"

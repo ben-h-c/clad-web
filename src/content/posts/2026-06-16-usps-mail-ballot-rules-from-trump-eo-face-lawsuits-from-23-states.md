@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "USPS mail ballot rules from Trump EO face lawsuits from 23 states"
 summary: "The segment features former House Oversight Republican spokesperson Kurt Bardella discussing a new Substack piece warning that a Trump executive order empowers the U.S. Postal Service to control mail-in voting for the November midterms. Bardella claims the order requires states to submit voter roll data or face non-delivery of ballots and election materials, with penalties for postal workers, and asserts the Postal Service lacks the technology and manpower to implement it. He notes 23 states are suing to block the order as unconstitutional. The host frames it against Trump's history of criticizing mail-in voting and raises the possibility of widespread disenfranchisement. The piece is presented as part of Morning Joe on MS NOW."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:11:44Z
 sourceUrl: "https://www.youtube.com/watch?v=he89xvf2j34"
 sourceTitle: "MS NOW"
 section: "Politics"

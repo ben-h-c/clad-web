@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Ties Iran Deal to Plummeting Oil Prices, Calls Affordability Crisis a Democratic Invention"
 summary: "The USA TODAY clip shows President Trump responding to questions on an Iran agreement's impact on energy prices and commenting on Vice President Vance's media appearance. He describes oil prices plummeting, gasoline heading lower, U.S. strikes preventing an Iranian nuclear weapon, stock market resilience, and attributes the 'affordability crisis' to Democrats who allegedly created high prices he inherited and is now fixing."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T17:57:46Z
 sourceUrl: "https://www.youtube.com/watch?v=E7Q3MXl31iU"
 sourceTitle: "USA TODAY"
 section: "Politics"

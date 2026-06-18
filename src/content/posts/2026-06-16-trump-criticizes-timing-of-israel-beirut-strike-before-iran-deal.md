@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump criticizes timing of Israel Beirut strike before Iran deal"
 summary: "The short video shows President Trump speaking at the G7 summit, criticizing Israel's recent strike in Beirut against Hezbollah targets. He states the attack occurred about two hours before signing a US-Iran agreement, calls Israel's campaign against Hezbollah overly prolonged with excessive civilian harm, and suggests Syria could handle the group more effectively.\nThe segment uses direct audio from Trump with minimal narration or graphics. It draws from his on-the-record comments to reporters, consistent with multiple outlets reporting the same remarks on June 16, 2026."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T12:00:11Z
 sourceUrl: "https://www.youtube.com/watch?v=oDoJivgzU_4"
 sourceTitle: "Fox News"
 section: "Politics"

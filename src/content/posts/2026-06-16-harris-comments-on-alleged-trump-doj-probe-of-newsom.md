@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Harris Comments on Alleged Trump DOJ Probe of Newsom"
 summary: "C-SPAN clip features Kamala Harris responding to questions about her prior predictions and current events involving the Trump administration. She discusses an alleged DOJ investigation into California Governor Gavin Newsom and his wife, affirms her earlier forecasts, and criticizes the administration's character while referencing 2024 election turnout."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:37:34Z
 sourceUrl: "https://www.youtube.com/watch?v=-oO8CaDFl3E"
 sourceTitle: "C-SPAN"
 section: "Politics"

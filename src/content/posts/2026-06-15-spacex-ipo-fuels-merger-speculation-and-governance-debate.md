@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX IPO Fuels Merger Speculation and Governance Debate"
 summary: "Bloomberg segment features investor Ross Gerber discussing his personal SpaceX holdings stemming from an early Twitter/X investment, recent IPO performance, and views on a potential Tesla merger. It includes commentary on Musk's leadership style, succession planning at SpaceX, and client investment advice. The broadcast references Gwynne Shotwell's recent remarks and contrasts Gerber's perspective with governance expert Nell Minow. Sourcing draws from on-air guests, the S-1 filing, and public market data from the IPO debut."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T12:35:46Z
 sourceUrl: "https://www.youtube.com/watch?v=1fuRISMfDac"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Markets Rally on US-Iran Ceasefire MoU; SpaceX, Roku Deals Highlighted"
 summary: "Bloomberg Closing Bell segment analyzes end-of-day market gains attributed to news of a US-Iran interim agreement extending a ceasefire, reopening the Strait of Hormuz, and setting a 60-day nuclear negotiation window. Hosts discuss sector performances, individual stock movers including SpaceX's second-day gains after its record IPO, NVIDIA's debt issuance, and Western Digital's upgrade, alongside losers like Pfizer and Roku amid the Fox acquisition announcement."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T21:12:15Z
 sourceUrl: "https://www.youtube.com/watch?v=Beda_DPZg6s"
 sourceTitle: "Bloomberg Podcasts"
 section: "Politics"

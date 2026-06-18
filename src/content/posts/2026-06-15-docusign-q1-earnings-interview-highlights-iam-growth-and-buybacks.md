@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "DocuSign Q1 Earnings Interview Highlights IAM Growth and Buybacks"
 summary: "Schwab Network interview with DocuSign CFO Blake Grayson on the company's Q1 results. Grayson highlights 9% revenue growth, $289 million free cash flow enabling a record $318 million buyback, and IAM platform adoption reaching 12.6% of ARR with 40,000 customers. Discussion covers productivity gains, enterprise examples, AI as an enabler leveraging 200 million agreements, headcount efficiency, and reiterated full-year guidance for accelerating ARR growth."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T13:30:32Z
 sourceUrl: "https://www.youtube.com/watch?v=7_iKR3NSLpE"
 sourceTitle: "Schwab Network"
 section: "Politics"

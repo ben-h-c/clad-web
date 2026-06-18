@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "MLB warns Giants pitchers over Bible verses on Pride Night caps"
 summary: "The segment covered three San Francisco Giants pitchers who wrote Bible verses, including Genesis 9:12-16 referencing the rainbow covenant, on their Pride Night caps featuring rainbow logos. MLB issued a verbal warning citing uniform regulations prohibiting any writing on apparel. Player Landen Roupp defended the action as protected expression. Lawmakers including Sen. Josh Hawley and Florida's AG responded critically, and VP Vance commented. The Giants organization later apologized for causing pain to the LGBTQ+ community while affirming inclusion. MLB clarified the warning was routine and content-neutral, comparing it to past warnings for family messages."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:11:00Z
 sourceUrl: "https://www.youtube.com/watch?v=uLzMjVt5HKo"
 sourceTitle: "NBC News"
 section: "Politics"

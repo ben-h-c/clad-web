@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS News clip features veteran pleading for ICE to release wife with prior deportation order"
 summary: "The short CBS News video shows an interview with retired U.S. Army and Texas National Guard veteran Wilmer Trujillo. He expresses heartbreak over his wife Arelys Barahona-Martinez being detained by ICE during a check-in appointment in Dallas and facing deportation to Honduras.\nTrujillo, who served about 20 years including overseas deployments, states the situation is harder than his military service and urges officials to release her so the couple can proceed legally. The clip is sourced directly from the on-camera interview with no additional graphics or experts shown."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T03:22:28Z
 sourceUrl: "https://www.youtube.com/watch?v=NHN-HZQcWHo"
 sourceTitle: "CBS News"
 section: "Politics"

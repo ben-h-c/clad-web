@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump elaborates on Iran ballistic missiles comment amid MOU talks"
 summary: "Forbes Breaking News clip shows a reporter asking President Trump to clarify his earlier comment on Iran ballistic missiles during a press conference. Trump responds that ballistic missiles differ from nuclear weapons and that proportional possession by Iran would be fair if Saudi Arabia, Qatar, and others have them. He is then asked about an MOU committing Iran not to pursue nuclear weapons or resolve enrichment issues; Trump calls it positive but far less important than preventing nuclear arms due to verification challenges."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:40:36Z
 sourceUrl: "https://www.youtube.com/watch?v=62EZTtFTQDI"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

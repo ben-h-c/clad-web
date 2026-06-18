@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News reports FBI thwarted alleged drone-sniper plot at White House UFC event"
 summary: "The segment opens with an FBI alert on disrupting an alleged terror plot against the June 14, 2026, UFC Freedom 250 event on the White House South Lawn. Officials describe a network of nearly two dozen suspects, at least five in custody, using explosive-packed drones to cause evacuation into sniper fire, followed by a gate-storming wave. The threat was identified June 10, involving multiple states and 12 FBI field offices; one suspect allegedly targeted elites and AIPAC donors. Guest Jonathan Turley calls it a cautionary tale on border security. The broadcast then shifts to Luigi Mangione's upcoming New York court status hearing and trial, discussing defense strategies like extreme emotional disturbance."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T11:30:06Z
 sourceUrl: "https://www.youtube.com/watch?v=JCLN9psHjxY"
 sourceTitle: "Fox News"
 section: "Politics"

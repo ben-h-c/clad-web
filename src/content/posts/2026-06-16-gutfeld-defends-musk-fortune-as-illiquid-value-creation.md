@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Gutfeld Defends Musk Fortune as Illiquid Value Creation"
 summary: "The Fox News segment features Greg Gutfeld arguing that critics misunderstand Elon Musk's wealth as liquid hoarding rather than capital tied to companies creating jobs and innovation. Guests including comedians and Morgan Ortagus discuss wealth creation, free markets, and Democratic envy.\nThe discussion references Musk's SpaceX stake, lack of personal home ownership, politician net worths, and lists Musk accomplishments like job creation and free speech on X. Sourcing relies on Gutfeld's narration and panel commentary without external experts or data visuals."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T03:00:28Z
 sourceUrl: "https://www.youtube.com/watch?v=bXKA_eyqcC4"
 sourceTitle: "Fox News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "MS NOW analysis faults Trump Iran MOU as weaker than JCPOA"
 summary: "The segment features editor Michael Weiss and reporter David Rode discussing leaked versions of a US-Iran memorandum of understanding (MOU) to end recent hostilities. They compare it unfavorably to the Obama-era JCPOA, noting it fails to address Iran's missile program or proxy support while providing sanctions relief and tying Lebanon ceasefire terms. White House talking points are critiqued, Trump's rhetoric is questioned, and concerns over Israeli autonomy and renewed conflict are raised. Sourcing draws from leaked MOU versions reported by WSJ and Bloomberg, plus guest analysis."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T15:55:14Z
 sourceUrl: "https://www.youtube.com/watch?v=hTj8RnFKD6c"
 sourceTitle: "MS NOW"
 section: "Politics"

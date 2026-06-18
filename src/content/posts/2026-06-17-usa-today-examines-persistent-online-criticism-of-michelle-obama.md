@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "USA TODAY examines persistent online criticism of Michelle Obama"
 summary: "The segment discusses ongoing negative remarks toward Michelle Obama nearly a decade after she left the White House, highlighting a recent UFC Freedom 250 event where fighter Josh Hokit shouted 'Michelle Obama is a man!' during a post-fight interview. It presents this as part of a pattern of abusive comments. The provided transcript features commentary on loving the country while noting the need for more work, criticizing the dehumanization of people through caricatures, and questioning the mindset of those who create and share such images, referencing former presidents and immigrants."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:01:01Z
 sourceUrl: "https://www.youtube.com/watch?v=pzxGKlosGMg"
 sourceTitle: "USA TODAY"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News segment spotlights DC renovations and crime drop under Trump"
 summary: "The segment features correspondent Johnny interviewing visitors and locals in DC about visible improvements including a freshly painted and cleaned Lincoln Memorial Reflecting Pool, active fountains at Union Station, and reduced visible disorder. It ties changes to President Trump's 'Make DC Safe and Beautiful' efforts ahead of America's 250th anniversary, with light-hearted exchanges and praise for crime reductions linked to U.S. Attorney Jeanine Pirro.\nStreet interviews dominate, showing mostly favorable reactions mixed with comedic partisan jabs; no named experts or opposing officials appear. Graphics and narration emphasize Trump-era action versus prior neglect."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T06:00:38Z
 sourceUrl: "https://www.youtube.com/watch?v=XNd88MIaEiI"
 sourceTitle: "Fox News"
 section: "Politics"

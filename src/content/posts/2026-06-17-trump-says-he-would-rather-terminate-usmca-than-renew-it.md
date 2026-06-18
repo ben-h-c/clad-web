@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump says he would rather terminate USMCA than renew it"
 summary: "The clip shows President Trump responding to questions about the USMCA review, stating he is not a fan of the agreement and would prefer termination over renewal. He notes that his main motivation for the original deal was exiting NAFTA, which he called the worst trade agreement ever. Trump adds he might sign a new deal but believes the U.S. does better without any agreement.\nThe segment is sourced directly from Trump's on-camera remarks at the White House, presented without narration or additional guests. It aligns with contemporaneous Reuters reporting on the same statements amid the scheduled 2026 USMCA joint review."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T21:46:00Z
 sourceUrl: "https://www.youtube.com/watch?v=JxOVByrr4mw"
 sourceTitle: "Reuters"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Expert Panel Assesses Trump-Xi Beijing Summit Outcomes and Regional Implications"
 summary: "The webinar featured three panelists—Robert Ross of Boston College, Yu Jun of Peking University, and Jay Chu of Kong University—discussing the recent Trump-Xi summit in Beijing. Segments covered summit outcomes including new trade and investment commissions, Boeing aircraft purchases, agricultural deals, and framing of relations as 'strategic stability' with managed competition. The second half addressed Taiwan restraint signals, Iran and Ukraine cooperation limits, North Korea nuances, and implications for South Korea's diplomacy amid perceived US retrenchment. Sourcing relied on White House fact sheets, Chinese statements, Fox and NBC interviews, and open media; no live graphics or additional guests."
-publishedAt: 2026-06-12
+publishedAt: 2026-06-12T08:05:00Z
 sourceUrl: "https://www.youtube.com/watch?v=AirmTeqNZSg"
 sourceTitle: "East Asia Institute"
 section: "Politics"

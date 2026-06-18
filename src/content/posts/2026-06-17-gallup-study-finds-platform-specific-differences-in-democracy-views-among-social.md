@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Gallup Study Finds Platform-Specific Differences in Democracy Views Among Social Media Users"
 summary: "CBS News segment discusses a Gallup study, in partnership with the Kettering Foundation, examining how regular users of different social media platforms vary in views on shared commitment to democracy, national and local identity, and citizens' power to effect change. Senior researcher Dr. Alan Mai Essay describes positive associations for Snapchat and X users, no clear link for Instagram, and more skeptical views among Reddit users. The interview is brief, with the guest outlining platform-specific patterns after controlling for other factors."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:26:23Z
 sourceUrl: "https://www.youtube.com/watch?v=oF7-uY0jIt0"
 sourceTitle: "CBS News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Sen. Kelly criticizes Trump DNI moves, FISA lapse, tentative Iran deal"
 summary: "The segment features Sen. Mark Kelly (D-AZ) discussing Trump's delay of Jay Clayton's DNI confirmation hearing to prioritize other nominees and attach the SAVE Act. Kelly links this to a FISA Section 702 lapse impacting intelligence collection. He criticizes acting DNI Bill Pulte as unqualified. Kelly also blasts a tentative 14-point Iran deal as capitulation that could empower Tehran. Additional topics include Georgia redistricting, gerrymandering solutions via the John Lewis Act, and SAVE Act voting barriers."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T14:33:23Z
 sourceUrl: "https://www.youtube.com/watch?v=R56zmRyRveU"
 sourceTitle: "MS NOW"
 section: "Politics"

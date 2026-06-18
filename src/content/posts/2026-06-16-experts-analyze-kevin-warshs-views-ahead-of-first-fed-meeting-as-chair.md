@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Experts analyze Kevin Warsh's views ahead of first Fed meeting as chair"
 summary: "The Reuters segment introduces Kevin Warsh as the new Federal Reserve Chair and features experts discussing his potential impact on monetary policy and communication. Segments cover his influence on the FOMC, expectations for shifts in policy stance, and questions around his views on inflation and the dot plot.\nExperts highlight Warsh's skepticism toward certain Fed tools like the dot plot and speculate on his press conference style and openness. The broadcast relies on unnamed or generalized expert commentary without specific named guests or graphics referenced in the transcript."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:26:52Z
 sourceUrl: "https://www.youtube.com/watch?v=0dLB3xeue6Q"
 sourceTitle: "Reuters"
 section: "Politics"

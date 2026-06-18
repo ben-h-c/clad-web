@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC segment highlights international fans sampling U.S. foods and celebrations at 2026 World Cup"
 summary: "The NBC News segment covers international soccer fans at the 2026 World Cup enjoying American foods and joining street celebrations. It features fans trying Chick-fil-A, Buc-ee's, Cheesecake Factory, and Kansas City barbecue, alongside scenes of Cape Verde supporters in Boston after a draw with Spain, Ecuadorians in Philadelphia, and Scottish fans in Providence and Boston.\n\nSourcing relies on on-the-ground video clips and fan interviews with no named experts or data graphics referenced. The piece emphasizes positive cultural exchange and unbridled joy during matches and festivities."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T14:45:08Z
 sourceUrl: "https://www.youtube.com/watch?v=vS-zDDzl4Is"
 sourceTitle: "NBC News"
 section: "Politics"

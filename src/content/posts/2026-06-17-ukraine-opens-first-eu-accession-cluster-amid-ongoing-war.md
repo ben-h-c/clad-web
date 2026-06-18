@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Ukraine Opens First EU Accession Cluster Amid Ongoing War"
 summary: "The broadcast discusses Ukraine formally opening EU accession negotiations on the fundamentals cluster in mid-June 2026. It covers the application timeline since 2022, required reforms including anti-corruption measures, Hungary's changed stance after April 2026 elections, and potential security implications. Guests from Kyiv, Brussels, and Moscow debate risks of integrating a wartime country, Russian objections, associate membership proposals, and the role of US and European support. Sourcing draws on on-the-ground reporting, official statements, and expert analysis from three perspectives."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T17:45:34Z
 sourceUrl: "https://www.youtube.com/watch?v=uYgroEj5m00"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

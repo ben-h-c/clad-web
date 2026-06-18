@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Iran at World Cup 2026: security concerns, protests, and US-Iran deal context"
 summary: "The segment covers Iran's national team opening World Cup 2026 match against New Zealand at SoFi Stadium in Los Angeles, amid ongoing regional conflict and recent US-Iran negotiations. It highlights the large Iranian diaspora in Southern California, protests against the regime, the team's base camp in Tijuana due to visa denials, and security concerns tied to the recent FISA Section 702 lapse.\n\nIt includes comments from local demonstrators, references to FBI security assessments, and warnings from DHS Secretary Markwayne Mullin about elevated threats and individuals who entered via the border. The report notes the team's focus on football despite logistical hurdles and the context of a new US-Iran agreement."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:00:00Z
 sourceUrl: "https://www.youtube.com/watch?v=CgADtztxioo"
 sourceTitle: "The Hill"
 section: "Politics"

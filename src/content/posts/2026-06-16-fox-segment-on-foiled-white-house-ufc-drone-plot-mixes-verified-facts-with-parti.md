@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox segment on foiled White House UFC drone plot mixes verified facts with partisan framing"
 summary: "The segment details the FBI's disruption of an alleged plot targeting the June 2026 White House UFC Freedom 250 event with explosive drones and snipers. Five suspects from multiple states were arrested after 23 individuals discussed plans in Signal chats. The discussion covers anti-government motives, antisemitic elements blaming Jews/Israel/AIPAC, and connections to far-left rhetoric on redistribution and billionaires. Guests including Kayleigh McEnany, Emily Compagno, and Paul Mauro highlight the plot's chilling nature, FBI/Secret Service work, and the 19-year-old suspect who allegedly spent graduation money on weapons."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:45:12Z
 sourceUrl: "https://www.youtube.com/watch?v=IJcf6NZttII"
 sourceTitle: "Fox News"
 section: "Politics"

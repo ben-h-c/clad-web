@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Rep. Maloy Questions Forest Service Chief on State Cooperation, Fuels Work in Utah"
 summary: "The segment shows Rep. Celeste Maloy (R-UT) questioning Forest Service Chief Tom Schultz during a House hearing. She praises the agency's Salt Lake City headquarters move and state-based model, credits personnel for local problem-solving in Garfield County, highlights Utah's severe drought and wildfire risks, and inquires about hazardous fuels treatments and shared stewardship agreements. Maloy also asks how Congress can ease Good Neighbor Authority use, including for road construction via FOFA, and addresses delays from new USDA grant terms."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T09:45:16Z
 sourceUrl: "https://www.youtube.com/watch?v=3FBa2Rr8CR4"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

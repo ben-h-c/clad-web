@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "G7 Explainer: Members, History, Russia Exclusion, and Achievements"
 summary: "The video explains the G7's origins as the Group of Seven major economies meeting since 1975, its expansion to G8 with Russia's 1998 inclusion, and reversion to G7 after Russia's 2014 exclusion over Crimea. It covers annual summits, guest invitations, non-binding declarations, and examples of impact like support for the Global Fund and Paris Agreement. It also contrasts views of the meetings as photo opportunities versus meaningful diplomacy. Sourcing relies on general historical narrative and references to specific past summits without named experts or on-screen data graphics."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:34:39Z
 sourceUrl: "https://www.youtube.com/watch?v=_hRqRmt966M"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

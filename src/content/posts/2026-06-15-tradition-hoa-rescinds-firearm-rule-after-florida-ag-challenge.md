@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Tradition HOA rescinds firearm rule after Florida AG challenge"
 summary: "CBS 12 News reports that the Tradition Community Association in western Port St. Lucie permanently repealed its firearms policy banning open and concealed carry in common areas. The change followed weeks of resident backlash and pressure from Florida Attorney General James Uthmeier, who called the rule unenforceable under state law. The segment includes on-site reporting, resident reactions favoring the repeal, and the AG's announcement on X. The HOA had sent a May letter notifying residents of the ban. Uthmeier stated the reversal protects lawful concealed carry."
-publishedAt: 2026-06-12
+publishedAt: 2026-06-12T03:43:29Z
 sourceUrl: "https://www.youtube.com/watch?v=V0WvPOubqCI"
 sourceTitle: "CBS 12 News - WPEC"
 section: "Politics"

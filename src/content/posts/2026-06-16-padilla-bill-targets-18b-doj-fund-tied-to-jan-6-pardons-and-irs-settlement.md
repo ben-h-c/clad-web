@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Padilla Bill Targets $1.8B DOJ Fund Tied to Jan. 6 Pardons and IRS Settlement"
 summary: "The segment features Sen. Alex Padilla (D-CA) introducing and advocating for S.3582, the No Rewards for January 6 Rioters Act, on the Senate floor. He details Trump’s January 2025 pardons for Jan. 6 defendants, a May 2026 DOJ settlement creating a roughly $1.8 billion Anti-Weaponization Fund via the Judgment Fund, and related IRS protections in the Trump v. IRS case.\nPadilla notes bipartisan criticism, Acting AG Todd Blanche’s testimony that the fund is dead, and Republican objections to his and Schumer’s bills. He argues legislation is still needed to block alternative payouts and permanent IRS immunity. Sourcing relies on Padilla’s statements, prior congressional testimony, and court filings referenced in the speech."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:06:40Z
 sourceUrl: "https://www.youtube.com/watch?v=wA8PTPdD3hY"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Pallone Questions Witness on Fuel Price Impacts Amid Iran Conflict"
 summary: "The segment shows Rep. Frank Pallone questioning witness Ms. Garcia during a House Energy and Commerce Committee hearing on energy-related bills. Pallone asks about the effects of higher fuel prices and how clean vehicle standards could reduce costs for Americans. Garcia links gasoline and diesel price surges since February to President Trump's Iran conflict, citing national averages exceeding $4.26/gallon for gas and $5.41 for diesel, along with broader economic impacts on goods, transportation, and household expenses. She criticizes rollbacks of CAFE and clean vehicle standards and highlights savings from EVs and plug-in hybrids."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T08:45:22Z
 sourceUrl: "https://www.youtube.com/watch?v=46FUzP90U-0"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

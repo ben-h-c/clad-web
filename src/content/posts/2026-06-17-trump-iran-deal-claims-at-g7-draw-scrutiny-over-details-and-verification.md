@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Iran deal claims at G7 draw scrutiny over details and verification"
 summary: "NBC News broadcast covers President Trump's extended press conference at the G7 summit in France on the final day, focusing on a preliminary US-Iran memorandum of understanding to end conflict, prevent nuclear weapons development, lift sanctions, and reopen the Strait of Hormuz. Segments include Trump's remarks on compliance mechanisms, past actions like Soleimani, economic impacts, and other topics such as Ukraine and AI. The broadcast incorporates analysis from correspondents citing senior US officials who read portions of the 14-point MOU, noting immediate sanctions relief provisions and 60-day timelines."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T17:35:19Z
 sourceUrl: "https://www.youtube.com/watch?v=lTAEHPfJ_fo"
 sourceTitle: "NBC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Wilmington hospital shooting leaves one dead, suspect at large"
 summary: "The segment covers a shooting at Wilmington Hospital in Delaware on June 16, 2026. Police responded to reports of gunfire, located two victims with one fatality, and confirmed an active manhunt for the outstanding suspect while the building was cleared and lockdown lifted.\nPolice officials detail reviewing surveillance footage to determine the suspect's exit and note that victim identities and the second victim's condition are withheld pending family notification."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:33:43Z
 sourceUrl: "https://www.youtube.com/watch?v=VMFqjVqgxMQ"
 sourceTitle: "Reuters"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Sen. Johnson on Iran deal: Keep regime ‘in a box,’ verify any MOU"
 summary: "Bloomberg interviewed Sen. Ron Johnson on the emerging US-Iran MOU after US/Israel strikes degraded Iranian nuclear, missile, and naval assets. Johnson expressed skepticism about trusting the regime, supported keeping it “in a box,” and said any sanctions relief must be verifiable. He addressed a possible 60-day timeline for further nuclear talks, energy-market relief, and the separate push to reauthorize Section 702 amid a foiled plot against a White House UFC event."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:46:27Z
 sourceUrl: "https://www.youtube.com/watch?v=r4mpe0UcUzk"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

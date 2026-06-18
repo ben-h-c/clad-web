@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Texas Tech QB Sorsby enters NFL supplemental draft amid gambling scandal"
 summary: "The NewsNation segment covers Texas Tech quarterback Brendan Sorsby's decision to enter the NFL supplemental draft following a gambling scandal and ongoing legal disputes with the NCAA over his eligibility. It details his admission of placing thousands of sports bets totaling around $90,000, including some on his former team at Indiana, the resulting ineligibility ruling, a temporary court injunction, and Texas Tech Board of Regents Chairman Cody Campbell's statement that Sorsby would not play in the fall due to the June 22 supplemental draft deadline.\nThe report notes Sorsby's attorney framing the case as a misunderstanding with no integrity-compromising bets and references the complicated legal back-and-forth that the draft entry would moot. Sourcing relies on public statements, X posts, and prior reporting rather than new on-air guests or original documents."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:15:52Z
 sourceUrl: "https://www.youtube.com/watch?v=a1CREIiui6g"
 sourceTitle: "NewsNation"
 section: "Politics"

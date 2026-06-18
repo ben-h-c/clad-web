@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX IPO Debuts Strongly; Shotwell Addresses Tesla Merger Speculation"
 summary: "The broadcast analyzes SpaceX's June 12, 2026 Nasdaq debut priced at $135 per share with a $75 billion raise. It highlights strong first-day performance closing nearly 20% higher, high retail demand exceeding allocations, and favorable small-investor allocation patterns reported anecdotally from social media. The segment features clips from a CNBC interview with SpaceX President Gwynne Shotwell responding to Tesla merger rumors and praising Elon Musk.\nSourcing draws from CNBC clips, the host's X poll on allocations, and personal commentary; no named experts or official data releases beyond market reports. The throughline celebrates retail participation and downplays volatility risks."
-publishedAt: 2026-06-13
+publishedAt: 2026-06-13T02:00:33Z
 sourceUrl: "https://www.youtube.com/watch?v=FVTKZx2Xivs"
 sourceTitle: "Solving The Money Problem"
 section: "Politics"

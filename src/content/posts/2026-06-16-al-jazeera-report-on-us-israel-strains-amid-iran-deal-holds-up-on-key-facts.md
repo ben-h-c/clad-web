@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Al Jazeera report on US-Israel strains amid Iran deal holds up on key facts"
 summary: "The segment traces US-Israel relations from 1948 through the 1973 war to a strategic partnership, then focuses on 2026 developments. It covers Trump's Iran deal that sidelines Netanyahu's goals of regime change and proxy dismantling, bipartisan congressional strains, Democrats rejecting AIPAC donations, Bernie Sanders advocating to end military aid, Thomas Massie losing reelection over war opposition, and Tom Cotton proposing expanded intelligence sharing. The US provides $3.8 billion in annual military aid. Reporter Rosiland Jordan from Washington notes the deal exposes growing strains."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:28:58Z
 sourceUrl: "https://www.youtube.com/watch?v=M6eunqiS0o4"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

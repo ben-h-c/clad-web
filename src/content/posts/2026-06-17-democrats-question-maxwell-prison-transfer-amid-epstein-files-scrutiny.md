@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Democrats question Maxwell prison transfer amid Epstein files scrutiny"
 summary: "The segment discusses pressure on acting Attorney General Todd Blanche over Ghislaine Maxwell's transfer to a minimum-security Texas prison camp. Congressional Democratic staff toured the facility, describing it as low-security and noting Maxwell as the only convicted sex offender there. It questions who authorized the move and links it to Epstein documents release. The broadcast also covers Vice President Vance's comments on Epstein transparency and accuses the administration of a cover-up."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:43:14Z
 sourceUrl: "https://www.youtube.com/watch?v=O7pq371SVYw"
 sourceTitle: "MS NOW"
 section: "Politics"

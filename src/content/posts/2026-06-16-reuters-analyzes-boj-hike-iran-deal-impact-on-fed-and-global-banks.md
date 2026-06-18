@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters analyzes BoJ hike, Iran deal impact on Fed and global banks"
 summary: "The segment discusses the Bank of Japan's decision to raise rates to 1%, attributing it to energy shocks from the Iran conflict, and quotes Deputy Governor Shinichi Uchida on broadening inflation. It covers market expectations for further tightening and reactions to the recent US-Iran peace deal.\nChris Turner of ING provides analysis on second-round inflation effects for other central banks, the Fed's upcoming meeting under new Chair Kevin Warsh, and Bank of England rate prospects. Sourcing relies on the expert guest, policy statements, and market data references."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T12:02:58Z
 sourceUrl: "https://www.youtube.com/watch?v=PTZft9quqD0"
 sourceTitle: "Reuters"
 section: "Politics"

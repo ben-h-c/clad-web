@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC report on Tycen Proper's arrest in White House UFC plot aligns with court docs"
 summary: "NBC News segment covers the FBI's announcement of the arrest of 19-year-old Tycen Proper (transcript spellings vary) in Ohio on federal charges tied to an alleged plot against a White House UFC event. It details the mother's police call over firearm purchases and online contacts, the quick discovery of rifles, ammunition, and ballistic gear at the home, and the uncovering of a Signal-coordinated group of about 19 people via phone search. The report outlines the group's 'Vanguard of the Old' name, anti-government and anti-Israel views, grievances over Epstein files and data centers, and accelerationist leanings.\nThe broadcast draws from the criminal complaint and court documents, references the FBI investigation and voluntary interview, and notes communications beginning on TikTok in March 2026 before moving to encrypted apps."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:12:07Z
 sourceUrl: "https://www.youtube.com/watch?v=cSa4DS291-8"
 sourceTitle: "NBC News"
 section: "Politics"

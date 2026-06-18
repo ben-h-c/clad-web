@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Closing Bell: Tech Weakness Ends S&P Rally Amid Oil Drop, Fed Watch"
 summary: "Bloomberg anchors Romaine Bostick, Katie Granville, and Carol Massar recap the trading day two minutes before the close. The S&P 500, Nasdaq, and Russell finished lower after a three-day rally, while the Dow rose to a record high on strength in financials and materials. Tech dragged indices lower; oil prices fell sharply on Middle East developments and an upcoming Fed decision. Segments covered individual movers including SpaceX post-IPO, Western Digital, Seagate, Moderna, Southwest Airlines, Lionsgate, exchange operators, Snap, and Tractor Supply."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:28:27Z
 sourceUrl: "https://www.youtube.com/watch?v=jGU-2T4h8WY"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

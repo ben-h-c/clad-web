@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "PBS NewsHour Wrap accurately covers Arthur flooding, Heuermann sentence, Georgia maps"
 summary: "The segment opens with Tropical Storm Arthur as the season's first named storm, detailing flash flood risks, rescues, and two deaths along the Gulf Coast from Texas to Georgia. It covers Midwest storms, Georgia GOP lawmakers rejecting a special session on 2028 redistricting maps despite Gov. Kemp's push, Rex Heuermann's life sentence for eight Gilgo Beach murders, a Texas jet crash, NATO's Mark Rutte on alliance readiness amid US shifts, market declines after Fed comments, and World Cup results including Portugal's 1-1 draw with DR Congo and records for Ronaldo and Messi."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T22:44:32Z
 sourceUrl: "https://www.youtube.com/watch?v=NYwpX_Q1uto"
 sourceTitle: "PBS NewsHour"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Diddy Combs Prison Release Date Updated to February 2028"
 summary: "The segment discusses the updated projected release date for Sean 'Diddy' Combs from federal prison, now February 23, 2028, down from an original May 2028 projection. Criminal defense attorney Bernardo Villalona explains factors behind the adjustment including prior time served, RDAP program participation, and good conduct credits. It covers post-release supervision requirements such as five years of federal probation with regular testing and reporting. The broadcast sources the date from Federal Bureau of Prisons records and details the 50-month sentence for two counts of transportation to engage in prostitution. Villalona notes possible further reductions before 2027."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:00:17Z
 sourceUrl: "https://www.youtube.com/watch?v=7GvXyo_Tfs8"
 sourceTitle: "ABC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Westerman Questions USFS Chief on Timber Harvest, Imports, and Markets"
 summary: "The segment is a congressional hearing exchange where Rep. Bruce Westerman questions US Forest Service Chief Randy Schultz on federal forest management. Topics include the agency's 193 million acres, historical timber sales decline after the spotted owl listing, rising wildfire trends, US wood import dependence, and strategies to boost domestic production and markets.\nSchultz responds with data on harvest volumes, import shifts from Canada, underutilized processing capacity, log export rules, national forests' small share of supply, and the priority of improving wood markets via recent US Endowment efforts. The clip runs as a straightforward Q&A without additional guests or graphics referenced."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:30:10Z
 sourceUrl: "https://www.youtube.com/watch?v=H2IHVmSgePM"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

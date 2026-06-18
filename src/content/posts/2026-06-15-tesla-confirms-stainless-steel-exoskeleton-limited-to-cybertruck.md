@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Tesla Confirms Stainless Steel Exoskeleton Limited to Cybertruck"
 summary: "The video analyzes Tesla's Q4 2024 shareholder update stating that the stainless steel exoskeleton will not appear on future vehicles. It explores implications for a potential Cybertruck-derived SUV, noting the polarizing nature of the current design and the possibility of a more conventional exterior. It references angular scale models visible in the Master Plan Part 4 video and discusses Cybertruck production capacity constraints. The segment concludes that a wider-market SUV version could be advantageous while acknowledging open questions on timeline and final design."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T17:51:55Z
 sourceUrl: "https://www.youtube.com/watch?v=cLD02uBJNds"
 sourceTitle: "Peak Tesla"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Nancy Grace Roman Space Telescope: $4.3B mission set for Aug. 30 launch"
 summary: "NBC News segment features reporter Denise Chow's access to the Nancy Grace Roman Space Telescope in a clean room at Goddard. It details the $4.3 billion infrared observatory's wide-field survey capabilities compared to Hubble and JWST, clean-room protocols, and timeline: launch August 30, three months to L2 orbit, first images later in 2026. The five-year mission will capture panoramas of hundreds of millions of stars and billions of galaxies."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:29:21Z
 sourceUrl: "https://www.youtube.com/watch?v=lBAuc057pVA"
 sourceTitle: "NBC News"
 section: "Politics"

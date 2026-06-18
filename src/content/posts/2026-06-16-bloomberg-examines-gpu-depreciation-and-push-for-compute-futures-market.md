@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Examines GPU Depreciation and Push for Compute Futures Market"
 summary: "The segment discusses efforts to create a futures market for GPU compute power, potentially larger than oil, featuring an interview with Carmen Li of Silicon Data and Compute Exchange. It covers GPU lifespan, resale depreciation data triggered by Michael Burry's tweet on hyperscaler accounting, comparisons to older GPUs like L40S, and challenges in standardizing compute for derivatives trading.\nThe sourcing centers on Li's company data and indices, with references to partnerships involving ICE, Ornn, and CME. The throughline is the rapid growth and volatility in AI infrastructure markets driving new financial products."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T05:30:04Z
 sourceUrl: "https://www.youtube.com/watch?v=4sIDwybIsQo"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

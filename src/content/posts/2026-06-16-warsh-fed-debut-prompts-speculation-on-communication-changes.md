@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Warsh Fed Debut Prompts Speculation on Communication Changes"
 summary: "Bloomberg segment features Apollo's Torsten Slok analyzing expectations for new Fed Chair Kevin Warsh's first FOMC meeting. Discussion centers on potential simplification of Fed statements, reduced forward guidance, the future of the dot plot and SEP, balance sheet policy, and building consensus among FOMC members. Slok addresses market implications of geopolitical easing from an Iran deal and persistent inflation pressures amid a strong economy. Sourcing relies on Slok's expertise, references to former governor Betsy Duke, and standard economic indicators; no graphics or additional guests appear."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:09:24Z
 sourceUrl: "https://www.youtube.com/watch?v=YPHSeySBv3g"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

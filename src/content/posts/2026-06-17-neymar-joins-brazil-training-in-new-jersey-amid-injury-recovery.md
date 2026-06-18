@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Neymar joins Brazil training in New Jersey amid injury recovery"
 summary: "The segment covers Brazil's first open training session in Morristown, New Jersey, during 2026 World Cup preparations. Neymar is shown stepping onto the pitch with the ball and wearing boots for the first time with teammates, generating optimism about his fitness.\nIt references Brazil's recent draw against Morocco and discusses Neymar's potential availability for upcoming group-stage matches against Haiti and Scotland."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T16:46:46Z
 sourceUrl: "https://www.youtube.com/watch?v=mFYINM6rSk8"
 sourceTitle: "Reuters"
 section: "Politics"

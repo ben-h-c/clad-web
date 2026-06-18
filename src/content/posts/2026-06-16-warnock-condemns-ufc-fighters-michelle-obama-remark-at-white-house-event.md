@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Warnock condemns UFC fighter's Michelle Obama remark at White House event"
 summary: "The segment features Sen. Raphael Warnock discussing his new book and responding to a UFC fighter's post-match comment at the June 14, 2026, UFC Freedom 250 event on the White House South Lawn. Warnock describes the remark as a vicious, bigoted attack on Michelle Obama, criticizes President Trump's presence and praise for performers without condemnation, and ties it to historical prejudice against Black women and a supposed moral contraction under the administration.\n\nWarnock, interviewed on MS NOW, draws personal connections to women in his life and calls for condemnation of hate. The segment promotes his book as offering moral guidance and ends with the host displaying its cover. No other guests or opposing perspectives appear."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T03:26:46Z
 sourceUrl: "https://www.youtube.com/watch?v=jT0HbRqeWl8"
 sourceTitle: "MS NOW"
 section: "Politics"

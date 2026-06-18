@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Amodei urges safety standards, government role in AI oversight"
 summary: "The GMA segment features an interview with Anthropic CEO Dario Amodei discussing his warnings about AI dangers and the need for safety standards. Amodei addresses the company's responsibility, government's role in regulation, student skepticism shown in recent commencement speeches, and specific risks including cyberattacks, biological misuse, and loss of control. The piece notes Amodei's view that AI can be more beneficial than harmful if developed with proper guardrails.\nIt draws directly from Amodei's recent public essay and policy proposals, includes his on-camera responses, and references broader context like company valuation and campus reactions without additional expert guests or graphics."
-publishedAt: 2026-06-11
+publishedAt: 2026-06-11T16:20:34Z
 sourceUrl: "https://www.youtube.com/watch?v=QaM6aHgu09M"
 sourceTitle: "Good Morning America"
 section: "Politics"

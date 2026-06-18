@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Schiff Criticizes Trump's Iran War Deal and Costs"
 summary: "The segment features Sen. Adam Schiff delivering a Senate floor speech criticizing President Trump's handling of the ongoing US-Iran conflict and a tentative agreement to reopen the Strait of Hormuz. Schiff argues the war lacks congressional authorization, rests on shifting justifications, and imposes heavy economic burdens on Americans while potentially benefiting Iran through future deals. He calls for invoking the War Powers Act to end hostilities. The speech references a preliminary deal allowing later nuclear talks within 60 days, higher gas and consumer prices, service member losses, and parallel US actions in Venezuela and near Cuba. Sourcing is limited to Schiff's statements with no opposing guests or data graphics shown."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:51:16Z
 sourceUrl: "https://www.youtube.com/watch?v=akErrcKnXOI"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NPR Reports B-52 Crash at Edwards AFB Killing Eight"
 summary: "The NPR segment reports that eight people died when a B-52 bomber crashed shortly after takeoff during a routine test mission at Edwards Air Force Base in California. It describes first responders determining the crash was unsurvivable, notes the crew included both military and civilians, and provides background on the aircraft's long service history including in recent conflicts. Officials withheld personnel details pending next-of-kin notification and said the investigation into the cause could take weeks or months."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:00:35Z
 sourceUrl: "https://www.youtube.com/watch?v=_zkU0U_gMd4"
 sourceTitle: "NPR"
 section: "Politics"

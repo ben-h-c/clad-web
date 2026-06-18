@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Swisher Calls Tech a 'Billionaire Boys' Club,' Critiques AI Policy Influences"
 summary: "C-SPAN segment features Kara Swisher responding to a question about the absence of women among prominent tech leaders discussed in prior interviews. She describes the sector as a 'billionaire boys' club,' mostly white men, and argues homogeneity produces poor outcomes, citing a Barry Diller comment on Hollywood. Swisher then addresses a delayed Trump AI executive order, attributing the change to influence from Zuckerberg, David Sacks, and others concerned about regulation and China competition, while noting Scott Bessent's financial sector worries and Anthropic's Mythos model."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:52:37Z
 sourceUrl: "https://www.youtube.com/watch?v=OrP814YJvRE"
 sourceTitle: "C-SPAN"
 section: "Politics"

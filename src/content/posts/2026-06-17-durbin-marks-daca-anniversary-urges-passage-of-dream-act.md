@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Durbin Marks DACA Anniversary, Urges Passage of DREAM Act"
 summary: "Sen. Dick Durbin delivered floor remarks marking the 14th anniversary of DACA, recounting its origins via a 2010 letter he co-signed with Sen. Richard Lugar to President Obama. He described Dreamers' backgrounds, DACA's work authorization and renewal process, recipient contributions including taxes and $16 billion in annual economic impact, and shared the story of recipient Diana Perez. Durbin criticized current renewal processing delays and detentions under the Trump administration, noted court interventions, and called for Congress to pass the DREAM Act for a citizenship pathway.\nThe segment is a straight recording of the Senate speech with no additional guests, graphics, or reporter narration referenced in the transcript. It draws on Durbin's personal involvement and constituent cases from Illinois."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T05:00:20Z
 sourceUrl: "https://www.youtube.com/watch?v=lthUx874M6A"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Warren Highlights Bipartisan 21st Century ROAD to Housing Act on Senate Floor"
 summary: "The Forbes Breaking News clip shows Sen. Elizabeth Warren delivering a Senate floor speech supporting the 21st Century ROAD to Housing Act. She outlines its goals of increasing housing supply, lowering costs, and restricting large institutional investors from buying single-family homes.\n\nWarren details over 45 provisions including streamlined permitting, incentives for local building, manufactured housing reforms, rural housing improvements, CDBG enhancements, disaster recovery funding, and fines on noncompliant corporate landlords reinvested in housing assistance. She credits bipartisan partners Sen. Tim Scott, Rep. Maxine Waters, and Rep. French Hill, plus input from all Banking Committee members."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:56:05Z
 sourceUrl: "https://www.youtube.com/watch?v=o1XUz0Wzerc"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "B-52 Crash at Edwards AFB Killed 8 on Routine Test Flight"
 summary: "ABC News reported on the June 15, 2026, crash of a U.S. Air Force B-52 Stratofortress at Edwards Air Force Base in California’s Mojave Desert. The segment described the aircraft as conducting a routine test mission, impacting the runway shortly after takeoff, producing a large fireball, and killing all eight people aboard—a mix of military personnel, government civilians, and contractors including two Boeing employees. It noted the ongoing investigation, next-of-kin notifications, the aircraft’s role in the nuclear triad, long range, modernization history, limited fleet size, and mention of prior operational use."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:30:21Z
 sourceUrl: "https://www.youtube.com/watch?v=s2JvIsmgbv0"
 sourceTitle: "ABC News"
 section: "Politics"

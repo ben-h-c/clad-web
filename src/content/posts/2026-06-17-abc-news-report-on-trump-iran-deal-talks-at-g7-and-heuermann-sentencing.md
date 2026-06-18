@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News report on Trump Iran deal talks at G7 and Heuermann sentencing"
 summary: "ABC News segment recaps President Trump at the G7 summit in France discussing a tentative Iran nuclear deal with world leaders issuing a joint statement. It covers the 60-day negotiation window, potential economic impacts, and VP signing plans. The broadcast also reports Rex Heuermann's sentencing for the Gilgo Beach murders along with shorter items on a Texas plane crash, Washington wildfire, and other stories."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:55:50Z
 sourceUrl: "https://www.youtube.com/watch?v=XryTbsi_-Gk"
 sourceTitle: "ABC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "DW News covers Laredo, Texas highway plane crash"
 summary: "The DW News segment reports on a small business jet that crashed on a highway in Laredo, Texas, late on June 16, 2026. The brief clip includes audio of an emergency call noting loss of communication with the aircraft and efforts to rescue those on board. Five of six people survived with one fatality reported; bystanders assisted first responders at the scene.\nThe sourcing draws from on-scene audio, police statements, and eyewitness accounts typical of breaking news coverage of the incident."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T17:32:51Z
 sourceUrl: "https://www.youtube.com/watch?v=B00qZGLwUaY"
 sourceTitle: "DW News"
 section: "Politics"

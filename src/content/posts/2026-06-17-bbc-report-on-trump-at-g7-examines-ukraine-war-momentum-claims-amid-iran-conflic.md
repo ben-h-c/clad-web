@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "BBC report on Trump at G7 examines Ukraine war momentum claims amid Iran conflict"
 summary: "The segment covers world leaders at the G7 in France discussing the Ukraine-Russia war, with Zelensky welcomed and Trump meeting him. It highlights Trump's comments that Russia should make a deal, a hot mic exchange, and claims the tide is turning for Ukraine due to drone successes. Correspondents discuss battlefield lines, casualty figures, EU accession prospects, and how the war in Iran has strained US support for Ukraine. Russian perspectives note ongoing attrition and public fatigue."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T19:45:20Z
 sourceUrl: "https://www.youtube.com/watch?v=W0z55lKz4WA"
 sourceTitle: "BBC News"
 section: "Politics"

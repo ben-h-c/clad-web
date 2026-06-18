@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "AI self-improvement advances but full recursive loop remains ahead"
 summary: "The video examines early signs of AI systems contributing to their own development, including agentic code modification and research automation. It highlights statements from xAI and Anthropic leaders on timelines for recursive self-improvement and describes Anthropic's new institute monitoring for early signals.\nIt covers projects like Andrej Karpathy's AutoResearch and Meta's HyperAgents, plus METR evaluations of models such as GPT-5.1-Codex-Max and forecasts for AI automating most AI R&D by the early 2030s. Sourcing draws on named experts, public tweets, company announcements, and METR reports."
-publishedAt: 2026-06-13
+publishedAt: 2026-06-13T15:00:24Z
 sourceUrl: "https://www.youtube.com/watch?v=QADKN3hantI"
 sourceTitle: "Sabine Hossenfelder"
 section: "Politics"

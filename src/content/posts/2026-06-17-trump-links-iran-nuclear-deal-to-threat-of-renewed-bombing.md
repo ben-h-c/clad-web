@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump links Iran nuclear deal to threat of renewed bombing"
 summary: "C-SPAN clip captures President Trump responding to questions on an Iran nuclear deal during a June 2026 press event. He asserts any agreement must permanently block Iran's nuclear weapon or face US bombing, referencing recent US strikes on Iran. He contrasts his approach with a hypothetical weak president and pivots to claims about restored US global respect, criticizing the Afghanistan withdrawal."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T17:52:08Z
 sourceUrl: "https://www.youtube.com/watch?v=w5TFhEcwrfk"
 sourceTitle: "C-SPAN"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters Spotlights Viral Duck Merlin as Unofficial Mexico World Cup Mascot"
 summary: "The Reuters segment features Merlin, a two-year-old duck in Mexico City wearing a national team jersey, presented as an unofficial viral mascot during the 2026 FIFA World Cup. The owner, identifying as Merlin's mom, expresses surprise and delight at the attention while noting respect for official symbols.\n\nThe piece draws on street footage and owner commentary; it aligns with widespread media coverage following Mexico's tournament-opening victory over South Africa. No named experts or additional guests appear beyond the owner."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T19:58:34Z
 sourceUrl: "https://www.youtube.com/watch?v=r8JzdBqiRCY"
 sourceTitle: "Reuters"
 section: "Politics"

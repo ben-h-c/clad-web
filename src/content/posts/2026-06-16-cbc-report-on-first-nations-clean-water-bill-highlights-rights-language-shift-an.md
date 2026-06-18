@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBC report on First Nations clean water bill highlights rights language shift and funding"
 summary: "The segment covers the tabling of Bill C-37 on clean drinking water for First Nations communities, noting nearly 40 active long-term advisories with provincial breakdowns. It features an interview with Indigenous Services Minister Mandy Gull-Masty defending the bill's 'progressive realization' language, minimum standards, trilateral agreements, and $4.6 billion in funding over five years. A follow-up interview with AFN National Chief Sydney Woodhouse Nepanak criticizes the omission of explicit human rights language, weak source water protection, and provincial vetoes while welcoming funding and other elements."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:24:11Z
 sourceUrl: "https://www.youtube.com/watch?v=-BOxCb1Bp80"
 sourceTitle: "CBC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Anduril CEO discusses US-China deterrence, manufacturing scale, and economic warfare at FF Global 2026"
 summary: "Bloomberg editor-in-chief John Micklethwait interviews Anduril Industries co-founder and CEO Brian Schimpf live at FF Global 2026. Segments cover Anduril's origins and valuation, US-China military balance including Taiwan scenarios and lessons from Ukraine and the recent Iran conflict, production volumes and shipbuilding gaps, European/NATO defense reforms, Anduril's Ohio Arsenal-1 facility, plans for subterranean systems, IPO considerations, and shifts toward economic targets in warfare."
-publishedAt: 2026-06-12
+publishedAt: 2026-06-12T11:16:27Z
 sourceUrl: "https://www.youtube.com/watch?v=phJLzt6NogM"
 sourceTitle: "Founders Forum"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Klobuchar Defends DACA Recipients, Highlights Contributions and Processing Delays"
 summary: "The segment features Sen. Amy Klobuchar's floor speech supporting DACA, praising recipients in Minnesota for military service, healthcare, education, and business roles. It details individual stories, claims nearly 4,000 Minnesota recipients, and cites $150 billion economic contribution and $40 billion in taxes since 2012. Klobuchar criticizes Trump administration delays in renewals, references a 2018 bipartisan bill, a December 2024 Trump quote, and the arrest of Jorge Cordoba Hernandez. She warns of workforce losses if DACA ends and urges expedited processing."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:15:05Z
 sourceUrl: "https://www.youtube.com/watch?v=mtpEt38qVHI"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

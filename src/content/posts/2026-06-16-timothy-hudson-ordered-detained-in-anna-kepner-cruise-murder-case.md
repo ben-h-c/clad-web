@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Timothy Hudson ordered detained in Anna Kepner cruise murder case"
 summary: "NewsNation segment covers the surrender of 16-year-old Timothy Hudson to U.S. Marshals after a federal judge revoked his pretrial release in the murder of his stepsister Anna Kepner. Hudson is accused of killing the 18-year-old aboard the Carnival Horizon in November 2025; her body was found under a bed in their shared cabin. The judge cited the strength of the forcible rape evidence, lack of remorse, and danger to the community. Reporter Bridgette Matter details logistics: transfer to Citrus County Jail for juvenile housing, then Miami-Dade by July 10, plus ongoing mental health evaluation. Hudson was previously Baker Acted and initially released under monitoring before adult charges shifted the case."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T04:19:45Z
 sourceUrl: "https://www.youtube.com/watch?v=6qWLY_OT6lA"
 sourceTitle: "NewsNation"
 section: "Politics"

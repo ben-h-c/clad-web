@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Nominates Jay Clayton for DNI After Pulte Acting Role Draws Pushback"
 summary: "The segment covers President Trump's nomination of Jay Clayton, current SDNY U.S. Attorney and former SEC chair, as Director of National Intelligence following bipartisan criticism of acting DNI Bill Pulte. It includes Trump defending Pulte's short-term role and praising Clayton's credentials, notes the Senate Intelligence Committee's upcoming confirmation hearing, and discusses Clayton's recent comments on California voting procedures. Guests Eugene Robinson and David Rohde analyze the DNI role's potential use for election-related investigations.\nThe broadcast draws from Trump's public statements, clips of Clayton's CNBC interview, and commentary from the two guests; no primary documents or opposing experts are featured beyond the president's remarks."
-publishedAt: 2026-06-12
+publishedAt: 2026-06-12T17:03:29Z
 sourceUrl: "https://www.youtube.com/watch?v=vK6m3pY5g6U"
 sourceTitle: "MS NOW"
 section: "Politics"

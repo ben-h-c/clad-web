@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "G7 Summit Focuses on China Trade, Supply Chains Amid US-Iran Deal"
 summary: "The broadcast covers President Trump's announcement of a preliminary US-Iran peace deal reopening the Strait of Hormuz, his attendance at the G7 summit in France, and allied discussions on Chinese exports and supply chains. Segments address US actions barring certain Chinese goods from federal procurement, Japan's PM forging Europe-Indo-Pacific ties, Taiwan's informant website, and reactivation of a US submarine support unit in Australia.\n\nReporting draws on Trump administration statements, Fox News clips, NTD correspondents, expert guests like Captain James Finel, and references to EU trade data. Throughlines highlight coordination against Chinese economic and military influence alongside the Iran developments."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:00:06Z
 sourceUrl: "https://www.youtube.com/watch?v=Dpe2R29wFZU"
 sourceTitle: "China in Focus - NTD"
 section: "Politics"

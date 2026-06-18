@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Axios Reports Internal Doubts on Trump-Iran Deal Among Top Officials"
 summary: "The segment covers a breaking Axios report on skepticism within the Trump administration toward a newly signed US-Iran memorandum of understanding. It details CIA Director John Ratcliffe's intelligence-based doubts about Iran's nuclear concessions, echoed by Secretary of State Marco Rubio and Defense Secretary Pete Hegseth, while noting advocates like Vice President JD Vance. Critics including Mark Levin and Erick Erickson publicly demand the full text and question potential sanctions relief or reconstruction funds. The broadcast discusses conflicting claims on the Strait of Hormuz reopening and the 60-day timeline for further negotiations. It draws from the Axios scoop, anonymous administration sources, public social media posts by critics, and comments from JD Vance and guests."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T12:54:50Z
 sourceUrl: "https://www.youtube.com/watch?v=lGwi-7KoPbk"
 sourceTitle: "CNN"
 section: "Politics"

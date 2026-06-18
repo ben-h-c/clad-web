@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Sen. Padilla Discusses NYT Habeas Corpus Report, Voter Claims, and Trump Admin"
 summary: "The segment features Sen. Alex Padilla reacting to a New York Times report on the Trump White House debating suspension of habeas corpus for undocumented immigrants in April 2025. It covers administration claims of noncitizen voting, immigration enforcement tactics, potential election interference, Republican oversight lapses, living costs, and the recent US-Iran conflict. Padilla advocates sharing threats to voters, pursuing affordability and accountability if Democrats regain power, and questions on impeachment."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T18:46:41Z
 sourceUrl: "https://www.youtube.com/watch?v=SCezvV2h-HQ"
 sourceTitle: "MS NOW"
 section: "Politics"

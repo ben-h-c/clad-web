@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox segment on Trump Iran deal and Europe support aligns with recent developments"
 summary: "The segment discusses European reactions to a recently announced US-Iran framework peace deal aimed at ending months of conflict and reopening the Strait of Hormuz. Guests highlight private European air defense support in the Gulf, public enthusiasm for US military actions against Iran, and the need for international cooperation to ensure free passage. Oil prices at $77 per barrel are cited as evidence of market confidence. The discussion shifts to Ukraine, playing a Trump clip on monthly casualties and exploring prospects for a ceasefire, with praise for Ukrainian drone capabilities and battlefield performance."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:30:34Z
 sourceUrl: "https://www.youtube.com/watch?v=NFCTp5uiAFU"
 sourceTitle: "Fox Business"
 section: "Politics"

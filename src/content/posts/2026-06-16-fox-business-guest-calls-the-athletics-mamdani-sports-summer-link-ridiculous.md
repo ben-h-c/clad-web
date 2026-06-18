@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox Business Guest Calls The Athletic's Mamdani Sports Summer Link Ridiculous"
 summary: "The segment discusses the New York Knicks winning the 2026 NBA title, their first since 1973, and Arsenal claiming the Premier League title after 22 years. It criticizes The Athletic for linking both victories to NYC Mayor Zohran Mamdani's fandom in a post about his 'sports summer.'\nGuest Devine states Mamdani has zero connection to the outcomes, calls the attribution ridiculous, notes The Athletic's ownership by The New York Times, and labels it a left-wing publication injecting politics into sports coverage."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T00:00:21Z
 sourceUrl: "https://www.youtube.com/watch?v=Ffi5BjDZd2w"
 sourceTitle: "Fox Business"
 section: "Politics"

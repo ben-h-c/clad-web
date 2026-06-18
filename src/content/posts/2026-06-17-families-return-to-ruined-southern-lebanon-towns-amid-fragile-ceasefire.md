@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Families return to ruined southern Lebanon towns amid fragile ceasefire"
 summary: "The segment reports on displaced families returning to destroyed villages and towns in southern Lebanon following a recent fragile ceasefire tied to a US-Iran agreement. It shows scenes of cars loaded with belongings, rubble-filled areas, and interviews with residents cleaning up amid widespread damage. Residents express defiance, stating their return constitutes a victory despite destruction and Israeli troop presence. The report notes Israeli forces remain in areas like near Kaounin village close to Tibnin and links ongoing tensions to Hezbollah and Iran demands for full Israeli withdrawal as part of broader deals."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T06:22:27Z
 sourceUrl: "https://www.youtube.com/watch?v=7Qv12Q_u9V4"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

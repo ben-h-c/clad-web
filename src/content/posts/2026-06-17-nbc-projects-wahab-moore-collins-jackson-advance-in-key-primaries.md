@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC projects Wahab, Moore, Collins, Jackson advance in key primaries"
 summary: "NBC News reported live projections from June 16, 2026 primaries and runoffs. In California's 14th district special election to replace Eric Swalwell, state Sen. Aisha Wahab led and advanced to a runoff. In Alabama's Senate runoff, Rep. Barry Moore won the GOP nomination and Everett West won the Democratic side. In Georgia, Rep. Mike Collins won the GOP Senate runoff and Rick Jackson won the GOP governor runoff."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T10:56:44Z
 sourceUrl: "https://www.youtube.com/watch?v=AiC34Lasw04"
 sourceTitle: "NBC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Kirby Estate Flags Display Returns for 2026 World Cup"
 summary: "Sky News reports on the Kirby Estate in Bermondsey, south London, where residents have erected hundreds of England flags ahead of the 2026 World Cup. Interviewee Chris Dowse, a longtime organizer, discusses the three-day setup process, door-to-door permissions, and plans for communal viewing.\nThe segment highlights the estate's inclusive approach with flags from other participating nations including Scotland, Colombia, and France, plus murals of local players. It notes the tradition dating back over a decade and the community's optimistic support for the England team."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T11:30:27Z
 sourceUrl: "https://www.youtube.com/watch?v=dsw554Oi1bs"
 sourceTitle: "Sky News"
 section: "Politics"

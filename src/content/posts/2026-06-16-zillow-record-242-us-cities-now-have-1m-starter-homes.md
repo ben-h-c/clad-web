@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Zillow: Record 242 U.S. cities now have $1M+ starter homes"
 summary: "The segment reports Zillow findings that a record 242 U.S. cities now have starter homes (lowest third of local values) valued at $1 million or more, up from 80 in 2020. California leads with 105 such cities, followed by New York and New Jersey; Texas, South Carolina, and Wyoming have also gained entries. National typical starter home value is cited near $200,000 versus much higher figures in coastal and Northeast markets."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:35:52Z
 sourceUrl: "https://www.youtube.com/watch?v=5wRkSLychAo"
 sourceTitle: "CBS News"
 section: "Politics"

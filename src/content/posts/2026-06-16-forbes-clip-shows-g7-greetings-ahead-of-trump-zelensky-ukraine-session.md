@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Forbes clip shows G7 greetings ahead of Trump-Zelensky Ukraine session"
 summary: "The Forbes Breaking News video captures audio and visual footage of world leaders, including President Trump and Ukrainian President Zelensky, exchanging greetings and small talk as they gather for a working session at the G7 summit in Évian-les-Bains, France. Segments focus on arrivals and pre-meeting interactions among G7 participants and invited guests. The clip relies on live event footage rather than named commentators, expert analysis, or on-screen graphics; no extended discussion or policy details are audible in the transcript."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:45:25Z
 sourceUrl: "https://www.youtube.com/watch?v=5OupIViJuoY"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

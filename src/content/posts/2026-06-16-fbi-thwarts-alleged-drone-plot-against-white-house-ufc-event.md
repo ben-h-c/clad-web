@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "FBI thwarts alleged drone plot against White House UFC event"
 summary: "The segment reports breaking news that the FBI disrupted an alleged plot targeting the UFC Freedom 250 event on the White House South Lawn. It describes a multi-phase scheme using explosive drones to trigger evacuation followed by secondary attacks, with five people in custody and at least 23 others identified via social media."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T12:18:25Z
 sourceUrl: "https://www.youtube.com/watch?v=ipRTiPxyBWc"
 sourceTitle: "ABC News"
 section: "Politics"

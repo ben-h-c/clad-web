@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC segment features widow's claims in Edwards AFB B-52 crash"
 summary: "NBC News aired comments from Lauren Smith, widow of DoD engineer Jeremy Smith, one of eight killed in the June 15 B-52 crash at Edwards Air Force Base near Los Angeles. She described her last message to him and alleged the test flight had been repeatedly delayed and the aircraft may not have been ready. The segment noted the Air Force's refusal to comment on the active investigation and confirmed details on the eight victims (mix of military, civilians, and contractors, including two Boeing employees). Smith also spoke about her husband recently returning from paternity leave and leaving behind two young children."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T05:04:01Z
 sourceUrl: "https://www.youtube.com/watch?v=adZ3zi0NdPA"
 sourceTitle: "NBC News"
 section: "Politics"

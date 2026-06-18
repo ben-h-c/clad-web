@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "FBI foils alleged drone-sniper plot targeting White House UFC event"
 summary: "The segment opens with discussion of a U.S.-Iran deal involving the Strait of Hormuz and uranium exports, featuring Sen. Rand Paul. It then shifts to breaking news on the FBI arresting five people in a multi-state operation foiling a plot against the UFC Freedom 250 event held June 14 on the White House South Lawn. The alleged plan involved explosive-laden drones striking nearby buildings to cause panic, snipers targeting fleeing crowds, and a follow-on breach of the White House. Paul, not briefed on details, praises the operation and notes protections for large events. The broadcast references an event with close to 100,000 attendees and credits rapid FBI action."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:30:19Z
 sourceUrl: "https://www.youtube.com/watch?v=k66iM_WlMzw"
 sourceTitle: "Fox Business"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters market report: Dow records high as S&P, Nasdaq slip; SpaceX rises post-IPO"
 summary: "The segment covered Tuesday's mixed U.S. equity close, with the Dow Jones Industrial Average rising nearly two-thirds of a percent to a second consecutive record high while the S&P 500 and Nasdaq declined. It highlighted SpaceX shares gaining nearly 5 percent after its recent IPO amid heavy retail buying that briefly pushed its valuation above Amazon and Microsoft.\n\nAmol Dhargalkar of Chatham Financial commented on valuation risks for high-growth AI and tech names given uncertain interest rates. Additional moves included Olin shares falling after its all-stock acquisition of Huntsman and Yum Brands rising on its Pizza Hut sale agreement. The report referenced the upcoming Federal Reserve policy decision."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:16:34Z
 sourceUrl: "https://www.youtube.com/watch?v=aRjEB6Ry6ec"
 sourceTitle: "Reuters"
 section: "Politics"

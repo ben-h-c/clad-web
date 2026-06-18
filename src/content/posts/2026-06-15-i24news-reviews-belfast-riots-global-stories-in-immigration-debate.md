@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "i24NEWS Reviews Belfast Riots, Global Stories in Immigration Debate"
 summary: "The broadcast opens with Belfast anti-immigrant riots after a Sudanese asylum seeker's stabbing, Albanian protests over a Kushner-linked resort, UK tanker interception, US strike on Venezuelan gang leader, Kennedy Center disputes, and Pride events. It features a panel debate on whether unrest stems from failed policy or lawless anger, plus later segments on Congo clashes, SpaceX IPO, UFC at White House, Knicks championship, Somaliland ties, and Ebola concerns."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T20:35:27Z
 sourceUrl: "https://www.youtube.com/watch?v=JAPoVntiuYw"
 sourceTitle: "i24NEWS English"
 section: "Politics"

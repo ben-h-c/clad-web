@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "BBC report on Thomas Partey Canada visa denial aligns with facts"
 summary: "The segment reports that Thomas Partey has been refused entry to Canada for Ghana's World Cup opener against Panama. He was denied after failing to disclose pending UK criminal charges when applying. Partey faces seven rape charges and one sexual assault charge from four women dating 2020-2022; he has pleaded not guilty with trial scheduled for next year. Ghana's appeal for temporary entry was rejected by Canadian authorities, who noted that major events do not override immigration rules."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T16:58:28Z
 sourceUrl: "https://www.youtube.com/watch?v=fiU6-AWF7Kw"
 sourceTitle: "BBC News"
 section: "Politics"

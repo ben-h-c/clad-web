@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News discusses preliminary Trump-Iran deal at G-7 amid ongoing 2026 conflict"
 summary: "The segment covers President Trump's meetings at the G-7 summit in France, focusing on a preliminary agreement with Iran to end recent hostilities from Operation Epic Fury. Hosts and correspondent Peter Doocy discuss sanctions relief, Iranian oil sales resuming, potential reconstruction funds, and nuclear assurances. Guests analyze the deal's terms, unknowns around inspections, and shifts in focus toward Ukraine. The broadcast notes the deal's preliminary nature ahead of a planned signing and addresses domestic economic pressures like gas prices."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T12:15:12Z
 sourceUrl: "https://www.youtube.com/watch?v=Lmb7XJtPgi8"
 sourceTitle: "Fox News"
 section: "Politics"

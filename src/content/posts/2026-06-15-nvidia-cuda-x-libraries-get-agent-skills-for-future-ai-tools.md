@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NVIDIA CUDA-X Libraries Get Agent Skills for Future AI Tools"
 summary: "The clip presents a statement, likely from NVIDIA leadership, describing how today's AI agents use tools simply while tomorrow's will be sophisticated. It highlights CUDA-X libraries solving major problems and now including 'skills' or manuals that agents can learn to use directly.\nThe segment emphasizes the future popularity and capability boost for agents accessing these libraries. Sourcing is the speaker's direct claims referencing prior visuals of the libraries, consistent with NVIDIA's recent enterprise AI agent toolkit release."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T15:31:00Z
 sourceUrl: "https://www.youtube.com/watch?v=KTDCNBmlHIs"
 sourceTitle: "MacroScope"
 section: "Politics"

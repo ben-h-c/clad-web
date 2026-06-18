@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "PBS NewsHour analyzes Warsh's debut FOMC meeting and signals"
 summary: "The segment covers the Fed's first meeting under new Chair Kevin Warsh, holding rates at 3.5-3.75% with unanimous FOMC support and updated projections showing some officials expecting a hike by year-end. It includes Warsh's press conference remarks rejecting a trade-off between inflation and employment, Trump's response, and analysis of inflation remaining above the 2% target. Guest David Wessel from Brookings discusses Warsh's confident but cautious communication style, shorter policy statement, planned task forces on key issues, and efforts to maintain Fed independence amid political pressure."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T22:56:46Z
 sourceUrl: "https://www.youtube.com/watch?v=iMQhUATjAOk"
 sourceTitle: "PBS NewsHour"
 section: "Politics"

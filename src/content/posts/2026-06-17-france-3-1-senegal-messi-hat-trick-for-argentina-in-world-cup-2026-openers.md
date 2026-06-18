@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "France 3-1 Senegal, Messi hat-trick for Argentina in World Cup 2026 openers"
 summary: "The FRANCE 24 segment recaps opening World Cup 2026 matches from June 16, focusing on France's 3-1 win over Senegal and Argentina's 3-0 victory against Algeria. It includes post-match reactions from managers and players, plus previews for upcoming fixtures like Portugal vs DRC and England vs Croatia.\nAnalysts Ruben Slater and studio hosts discuss tactics, player performances, and records broken. Sourcing draws on pitchside reports, manager quotes from Deschamps and Koulibaly, Messi comments, and match highlights; mentions Norway's 4-1 win over Iraq and Austria's result."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T14:37:51Z
 sourceUrl: "https://www.youtube.com/watch?v=a3AqCB46id8"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

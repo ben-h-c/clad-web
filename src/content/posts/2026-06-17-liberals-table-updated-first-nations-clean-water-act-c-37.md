@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Liberals table updated First Nations Clean Water Act C-37"
 summary: "Global News reports on the tabling of Bill C-37, the First Nations Clean Water Act, by the Liberal government on June 16, 2026. Segments cover the bill's goals to address long-term drinking water advisories, $4.6 billion in new funding, and reactions from chiefs noting missing elements from the prior co-developed version. The report includes details on current advisories, specific communities like Neskantaga and Pikangikum, and upcoming AFN review. Sourcing draws from ministerial statements, chief quotes, official advisory counts, and parliamentary context on the previous bill's fate after prorogation."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T03:00:15Z
 sourceUrl: "https://www.youtube.com/watch?v=Y41Db7EIIeY"
 sourceTitle: "Global News"
 section: "Politics"

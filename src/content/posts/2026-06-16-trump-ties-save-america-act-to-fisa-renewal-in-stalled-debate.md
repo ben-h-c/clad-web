@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Ties SAVE America Act to FISA Renewal in Stalled Debate"
 summary: "The segment features The Hill senior staff writer Alexander Bolton discussing President Trump's recent Truth Social posts demanding that the SAVE America Act be attached to any reauthorization of FISA Section 702. It covers the political impasse, including Democratic objections tied to the Bill Pulte acting DNI nomination and longstanding opposition to the SAVE Act. Bolton analyzes the implications for the lapsed surveillance authority, its intelligence value for issues like fentanyl interdiction, and potential long-term political fallout ahead of midterms."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T00:00:39Z
 sourceUrl: "https://www.youtube.com/watch?v=DR9Mh2QZ39g"
 sourceTitle: "The Hill"
 section: "Politics"

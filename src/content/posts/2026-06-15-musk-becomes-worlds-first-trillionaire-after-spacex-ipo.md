@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Musk Becomes World's First Trillionaire After SpaceX IPO"
 summary: "The short celebrates Elon Musk reportedly crossing $1 trillion in net worth, attributing it to SpaceX and Tesla successes. It recounts his early struggles, multiple failures, and rise to revolutionize electric cars, space travel, and AI.\nThe piece relies on general reporting without naming specific sources or guests. It poses a rhetorical question to viewers about breaking the record."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T14:00:11Z
 sourceUrl: "https://www.youtube.com/watch?v=CujogXaza8I"
 sourceTitle: "VaultXLegacy "
 section: "Politics"

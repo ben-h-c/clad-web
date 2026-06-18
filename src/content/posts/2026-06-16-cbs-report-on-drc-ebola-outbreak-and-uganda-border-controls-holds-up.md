@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS report on DRC Ebola outbreak and Uganda border controls holds up"
 summary: "The CBS News segment, filed from Uganda by correspondent Ramy Oencio, covers the ongoing Ebola outbreak centered in eastern DRC's Ituri Province. It reports surging confirmed cases exceeding 800 after one month, WHO concerns over geographic spread and community transmission, a border incident involving security forces and a victim's body, and Uganda's screening measures including QR-code declarations and a closed but porous 500-mile border. Uganda's Director of Public Health is quoted on the difficulty of controlling movement, noting all Ugandan cases are imported and no new local cases for 11 days."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:36:38Z
 sourceUrl: "https://www.youtube.com/watch?v=NbovomnbNSk"
 sourceTitle: "CBS News"
 section: "Politics"

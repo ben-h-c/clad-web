@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Vance Defends New US-Iran MOU on Hannity, Stresses No Taxpayer Funds"
 summary: "The segment is a live Hannity interview with Vice President JD Vance discussing a newly announced US-Iran memorandum of understanding to end conflict, reopen the Strait of Hormuz, and set terms for potential sanctions relief and nuclear limits. Vance addresses rumors of US or Qatari payments to Iran, verification processes, and contrasts the deal with the prior JCPOA.\nVance serves as the sole on-air source; the broadcast references an MOU signed electronically with a formal Geneva ceremony planned for Friday, Trump administration positions, and media criticism of leaks. It promotes the deal's optionality for the US while noting Iranian statements sometimes contradict it."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T02:15:06Z
 sourceUrl: "https://www.youtube.com/watch?v=BPvNLTG9xUo"
 sourceTitle: "Fox News"
 section: "Politics"

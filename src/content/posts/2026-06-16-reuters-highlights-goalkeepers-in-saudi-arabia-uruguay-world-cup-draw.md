@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters Highlights Goalkeepers in Saudi Arabia-Uruguay World Cup Draw"
 summary: "The Reuters video features a reporter in Miami covering the Saudi Arabia vs Uruguay World Cup match. The segment emphasizes goalkeepers' standout performances, particularly saves that drew fan cheers, rather than goals scored. The match was a 1-1 Group H draw on June 15 at Miami Stadium. The report notes the focus on defensive plays amid a sport typically centered on scoring. Sourcing is direct from the venue with no named experts or additional guests beyond the reporter's observations."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:46:22Z
 sourceUrl: "https://www.youtube.com/watch?v=ysnmF02f1Ig"
 sourceTitle: "Reuters"
 section: "Politics"

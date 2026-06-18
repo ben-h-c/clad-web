@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "DHS flags elevated World Cup threats amid Iran match protests in LA"
 summary: "The segment covers heightened security for the 2026 World Cup, focusing on the Iran vs. New Zealand match at SoFi Stadium (temporarily renamed LA Stadium) in Los Angeles. It reports protests by Iranian Americans calling for an end to the Iranian regime, DHS Secretary Markwayne Mullin's assessment of the terror threat level as the highest ever, concerns over FISA lapse and border issues, and Iranian team logistics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T00:59:05Z
 sourceUrl: "https://www.youtube.com/watch?v=T6of_JcwkfU"
 sourceTitle: "NewsNation"
 section: "Politics"

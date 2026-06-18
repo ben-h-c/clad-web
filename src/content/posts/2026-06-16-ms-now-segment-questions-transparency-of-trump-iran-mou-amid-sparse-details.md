@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "MS NOW segment questions transparency of Trump-Iran MOU amid sparse details"
 summary: "The segment focused on President Trump's announcement of a tentative U.S.-Iran memorandum of understanding to end recent hostilities, reopen the Strait of Hormuz, and set up future nuclear talks. Hosts and guests repeatedly challenged the lack of public details on the agreement and criticized Trump and JD Vance for describing post-conflict Iranian figures as 'rational.'\nIt featured analysis from Atlantic staff writer Jonathan O'Meara and Washington Post columnist David Ignatius. Discussion emphasized skepticism about the deal's durability, potential $300 billion reconstruction elements, and historical Iranian grievances."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T11:59:40Z
 sourceUrl: "https://www.youtube.com/watch?v=OhLBImfHwbU"
 sourceTitle: "MS NOW"
 section: "Politics"

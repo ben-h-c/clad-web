@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NPR Reports Fatal Skydiving Plane Crash in Butler, Missouri"
 summary: "The segment reports a June 14 crash near Butler Memorial Airport in Bates County, Missouri, killing all 12 aboard a skydiving flight operated by Skydive Kansas City. The single-engine turboprop plane went down shortly after takeoff; the Missouri State Highway Patrol confirmed fatalities, and the Bates County sheriff noted family members present with support from clergy and volunteers. FAA and NTSB investigations were underway with no indication of criminal activity.\nThe report draws from official statements by the Highway Patrol, sheriff, and the skydiving company, plus member station KCUR reporting. It is a concise 60-second update typical of NPR News Now, focused on confirmed facts without speculation or named victims."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T16:15:23Z
 sourceUrl: "https://www.youtube.com/watch?v=xlbGDSjzz4c"
 sourceTitle: "NPR"
 section: "Politics"

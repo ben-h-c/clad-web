@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg segment assesses slow return of Hormuz oil flows post-ceasefire"
 summary: "The segment features Jeff Currie of Abaxx Markets discussing the timeline for oil tanker flows through the Strait of Hormuz to normalize following the recent US-Iran ceasefire agreement. Currie states that full resumption to pre-crisis levels will take months and likely not occur until the end of the year even if the Friday ceasefire holds. He references a potential flush of 60 million barrels currently trapped in the Gulf and notes ongoing challenges in convincing ship owners to transit due to persistent risks. The second paragraph covers sourcing: the comments draw on shipping data patterns, inventory estimates, and Currie's market expertise without citing specific reports or graphics on air. Throughline is uncertainty around the durability of the interim deal and its impact on global oil supply recovery."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:00:37Z
 sourceUrl: "https://www.youtube.com/watch?v=9nbf6CLi5GI"
 sourceTitle: "Bloomberg News"
 section: "Politics"

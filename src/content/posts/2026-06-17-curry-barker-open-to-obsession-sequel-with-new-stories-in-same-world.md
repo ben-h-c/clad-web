@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Curry Barker Open to 'Obsession' Sequel with New Stories in Same World"
 summary: "The AP segment features director Curry Barker discussing the possibility of an 'Obsession' sequel. He explains that a follow-up would not require retelling the same story, as new narratives could stem from the 'One Wish Willow' inciting incident with themes like greed or obsession.\nBarker expresses excitement about expanding the world without the pressure of a traditional sequel. The piece draws from direct quotes in recent interviews amid the film's strong box office performance."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:45:27Z
 sourceUrl: "https://www.youtube.com/watch?v=Fnb1nFu_vpg"
 sourceTitle: "Associated Press"
 section: "Politics"

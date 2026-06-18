@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NTSB Investigates Fatal Skydiving Plane Crash in Butler, Missouri"
 summary: "The ABC News segment reports that the NTSB has launched an investigation into a plane crash near Butler Memorial Airport in Missouri that killed all 12 people aboard shortly after takeoff on a skydiving flight operated by Skydive Kansas City. Reporter Matt Rivers describes the scene at the small airport, notes the pilot was experienced, and shares community impact details including an interview with a restaurant owner who knew the pilot as a Vietnam veteran. Victim names remain unreleased pending family notifications. The broadcast covers the early stages of the federal probe with no criminal activity suspected."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:16:30Z
 sourceUrl: "https://www.youtube.com/watch?v=PM_9IlQhrxk"
 sourceTitle: "ABC News"
 section: "Politics"

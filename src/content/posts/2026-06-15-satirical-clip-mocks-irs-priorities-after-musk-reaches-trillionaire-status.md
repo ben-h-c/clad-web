@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Satirical Clip Mocks IRS Priorities After Musk Reaches Trillionaire Status"
 summary: "The short YouTube video from Alleviate Tax presents a POV skit contrasting an IRS decision not to audit Elon Musk, recently reported as the world's first trillionaire via SpaceX IPO, with aggressive enforcement against a middle-class worker. Segments feature voiceover narration portraying Musk positively and the average citizen as targeted harshly. Sourcing consists of the video's own satirical script and hashtags referencing Musk, SpaceX, IRS, and taxes. No guests or external data appear; the piece runs as quick comedy tied to recent wealth headlines."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T17:26:03Z
 sourceUrl: "https://www.youtube.com/watch?v=gIDy0Js2P6M"
 sourceTitle: "Alleviate Tax"
 section: "Politics"

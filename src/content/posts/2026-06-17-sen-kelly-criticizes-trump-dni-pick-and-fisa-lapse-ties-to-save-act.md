@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Sen. Kelly Criticizes Trump DNI Pick and FISA Lapse, Ties to SAVE Act"
 summary: "The clip features Sen. Mark Kelly (D-AZ) explaining the implications of FISA Section 702's recent expiration for intelligence gathering against foreign threats. He criticizes President Trump's appointment of Bill Pulte as acting Director of National Intelligence as unqualified and links the impasse to insertion of the SAVE Act, warning of disenfranchisement for Arizona tribal voters lacking standard ID documents."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:45:36Z
 sourceUrl: "https://www.youtube.com/watch?v=ntROMJeLs0c"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

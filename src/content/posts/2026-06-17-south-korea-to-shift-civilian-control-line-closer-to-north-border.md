@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "South Korea to shift civilian control line closer to North border"
 summary: "The broadcast reports South Korea's plan to move the Civilian Control Line northward, narrowing the restricted zone near the border with North Korea. Defense Minister Ahn Gyu-back announced the shift averages about 6 km (3.7 miles) from the Military Demarcation Line, responding to resident requests and improved security conditions.\nThe current line extends up to 10 km (6.2 miles) south of the MDL established after the Korean War. Roughly 20,000 residents live or work in the affected area and require military authorization to enter. The move occurs under President Lee Jae-myung's administration amid ongoing tensions with Pyongyang."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T08:45:10Z
 sourceUrl: "https://www.youtube.com/watch?v=hsYyBI42Qg0"
 sourceTitle: "Reuters"
 section: "Politics"

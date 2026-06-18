@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Senate Hurdles on FISA Renewal and SAVE America Act Examined"
 summary: "The Fox Business segment features host Maria Bartiromo interviewing Rep. Chip Roy (R-TX) on Senate delays for FISA Section 702 extension and attachment of the SAVE America Act. It covers Trump's demand to link the two, Sen. John Thune's comments on vote thresholds, multiple House passages of the voting bill, and related reconciliation efforts including defense funding. Roy discusses using reconciliation rules or forcing a talking filibuster. The second paragraph notes sourcing from Roy and references to Thune statements, prior House actions, and polling claims, with throughlines on Trump's legislative priorities amid tight timelines before recess."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T11:30:06Z
 sourceUrl: "https://www.youtube.com/watch?v=z2U9vsqZgQo"
 sourceTitle: "Fox Business"
 section: "Politics"

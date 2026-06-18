@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bombas and Sesame Workshop CEOs Discuss Partnership and Missions"
 summary: "The segment features an interview between Sesame Workshop CEO Sherrie Westin and Bombas CEO Jason LaRose discussing their companies' partnership on character socks, shared focus on homelessness, and broader missions. They cover origins, donation models, challenges in nonprofit and for-profit leadership, and specific initiatives like military families and international programs.\nWestin and LaRose describe revenue sources, customer research, risk-taking, and personal leadership philosophies, with references to licensed products, the Lily muppet, and employee culture. The conversation is conversational and positive, highlighting synergy between the organizations."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:00:28Z
 sourceUrl: "https://www.youtube.com/watch?v=_2P_jlHQgGI"
 sourceTitle: "CNN"
 section: "Politics"

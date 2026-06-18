@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Iranian Americans protest Iran's 2026 World Cup opener in Los Angeles"
 summary: "The short AP clip shows Iranian American demonstrators gathered outside Los Angeles Stadium (SoFi Stadium area) ahead of Iran's opening 2026 World Cup match against New Zealand on June 15. Protesters describe the national team as a regime showpiece, reference killings of people and athletes, wave the pre-revolutionary lion-and-sun flag, and note that their voices have been sidelined amid recent developments.\n\nThe segment relies on on-the-ground protester interviews and ambient footage without named experts, graphics, or counter-perspectives from fans or officials. It captures the core tension between anti-regime demonstrators and supporters attending the match in the largest Iranian diaspora community outside Iran."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T11:15:20Z
 sourceUrl: "https://www.youtube.com/watch?v=oVlTNqC5gHo"
 sourceTitle: "Associated Press"
 section: "Politics"

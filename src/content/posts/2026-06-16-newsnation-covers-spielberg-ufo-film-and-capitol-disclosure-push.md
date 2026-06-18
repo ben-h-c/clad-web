@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NewsNation Covers Spielberg UFO Film and Capitol Disclosure Push"
 summary: "The segment discusses Steven Spielberg's new film 'Disclosure Day,' released June 12, 2026, and screenwriter David Koepp's research into UAP congressional testimony. It also covers Ron James' documentary 'Accidental Truth: Next – Beyond UFO Disclosure' and an upcoming Capitol Hill press event on June 9, 2026. Guests include Koepp, James, and journalist Ross Coulthart, who discuss whistleblowers like David Grusch and calls for declassification under President Trump. The broadcast features interviews, references to Pentagon UAP releases, and clips from the Capitol event with lawmakers such as Reps. Luna, Burlison, and Burchett."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:00:30Z
 sourceUrl: "https://www.youtube.com/watch?v=fs2RzrSI_kE"
 sourceTitle: "NewsNation"
 section: "Politics"

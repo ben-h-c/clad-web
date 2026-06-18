@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX IPO buzz, AI stocks and Fed under Warsh in Fox Business segment"
 summary: "The segment features Chief Market Strategist Phil Blancato discussing SpaceX's potential 2026 IPO amid high private valuations and limited float, AI productivity impacts, Micron and memory stock gains, Hyatt travel demand, and the upcoming FOMC meeting under new Chair Kevin Warsh. Blancato advises taking profits on big winners while remaining bullish on AI-related names and diversification beyond concentrated indexes."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:00:34Z
 sourceUrl: "https://www.youtube.com/watch?v=3fufm6yJ09k"
 sourceTitle: "Fox Business"
 section: "Politics"

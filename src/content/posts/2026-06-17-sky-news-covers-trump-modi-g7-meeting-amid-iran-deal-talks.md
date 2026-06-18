@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Sky News covers Trump-Modi G7 meeting amid Iran deal talks"
 summary: "The segment features remarks from President Trump and PM Modi at their bilateral meeting during the G7 Summit in France, covering US-India trade deals, defense ties, Quad, and regional issues. Modi praises Trump's West Asia peace efforts and stresses Strait of Hormuz navigation. Trump discusses an Iran MoU, Ukraine talks, and other topics. Sky News anchors and correspondent then analyze the Iran deal's status, lack of published details, and mixed messaging."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T14:32:54Z
 sourceUrl: "https://www.youtube.com/watch?v=1rywuKymkEo"
 sourceTitle: "Sky News"
 section: "Politics"

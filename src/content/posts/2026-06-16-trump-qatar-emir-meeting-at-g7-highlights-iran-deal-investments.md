@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump-Qatar Emir meeting at G7 highlights Iran deal, investments"
 summary: "The segment covers a bilateral press availability at the G7 summit in Evian-les-Bains, France, between President Trump and Qatar's Emir Sheikh Tamim bin Hamad Al Thani. They discuss a tentative US-Iran peace deal, Qatari investments in the US, US economic resurgence in manufacturing and AI, and Ukraine-Russia negotiations. The Emir praises the relationship and US leadership. Trump details past actions on Iran including JCPOA withdrawal and B-2 strikes, ongoing factory reshoring, and casualty figures in Ukraine. Sourcing is direct from the participants with no additional experts or graphics referenced beyond the live remarks."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T10:47:42Z
 sourceUrl: "https://www.youtube.com/watch?v=r_sZV4Rd3gg"
 sourceTitle: "Fox Business"
 section: "Politics"

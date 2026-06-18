@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Joy Behar Reflects on JD Vance's The View Appearance"
 summary: "The clip features Joy Behar discussing her recent Europe trip and reacting to JD Vance's full-hour appearance as guest on The View earlier that day. Behar and executive producer Brian Teta analyze Vance's demeanor, answers on topics like Epstein files, ICE budgets, and faith, and speculate on his presidential ambitions. The second half shifts to lighter topics including Behar's travel stories, dating trends, dreams, and a celebrity-animal game.\nBehar and Teta reference the live interview with all co-hosts present, Secret Service presence, audience reactions, and specific exchanges; no external guests appear beyond the hosts' conversation."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:09:57Z
 sourceUrl: "https://www.youtube.com/watch?v=wu7u5nQfrrc"
 sourceTitle: "The View"
 section: "Politics"

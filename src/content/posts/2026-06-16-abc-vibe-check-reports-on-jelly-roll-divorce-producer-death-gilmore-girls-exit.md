@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC Vibe Check Reports on Jelly Roll Divorce, Producer Death, Gilmore Girls Exit"
 summary: "The segment opens with Jelly Roll filing for divorce from Bunnie XO after nearly 10 years. It then covers the death of Love Island USA executive producer James Barker during filming in Fiji and Netflix removing Gilmore Girls after 12 years on the platform.\nRoxy Diaz reports the stories to Gio, referencing court documents, network statements, and Netflix's X post. A clip of Jamie Lee Curtis and Mariska Hargitay debating the pronunciation of 'Los Angeles' closes the segment. The pieces rely on public records, official announcements, and a viral interview clip."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:34:27Z
 sourceUrl: "https://www.youtube.com/watch?v=60ahfYNc0Wk"
 sourceTitle: "ABC News"
 section: "Politics"

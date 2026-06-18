@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Tuberville Opens Senate Hearing on AI's Role in K-12 Education"
 summary: "The video presents Sen. Tommy Tuberville's opening remarks at the Senate HELP Subcommittee hearing titled 'The Future of K-12 Education in the Age of Artificial Intelligence' held June 16, 2026. Tuberville, drawing on his background as a teacher and coach, discusses AI's integration into education, highlighting opportunities like personalized learning and challenges such as privacy, accuracy, critical thinking, and rural access. He references a recent bipartisan letter to the GAO requesting an investigation into AI's effects on K-12 education, noting the agency's positive response. Witnesses were expected to testify on balancing innovation with student protections."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T04:00:07Z
 sourceUrl: "https://www.youtube.com/watch?v=UiHDGdidDZg"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Gamers Nexus Covers Nvidia Spark Concerns, Memory Makers' $1T Valuations at Computex"
 summary: "The episode recaps Computex coverage from Taipei, highlighting Nvidia RTX Spark announcements and partner concerns over ecosystem control, memory manufacturers Samsung, Micron, and SK Hynix reaching $1 trillion market caps amid AI demand, open-source alternatives to Bambu Lab software, and Intel's keynote on AI agents and new Xeon/ARC processors. It includes booth visits to Silverstone, Thermaltake, and Arctic showcasing cases, coolers, and accessories. Sourcing draws from on-site interviews with CEOs, engineers, and AIB partners, plus references to Tom's Hardware reporting and industry tweets; graphics and product demos supplement the discussion."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T00:48:01Z
 sourceUrl: "https://www.youtube.com/watch?v=cpP6Y3Guego"
 sourceTitle: "Gamers Nexus"
 section: "Politics"

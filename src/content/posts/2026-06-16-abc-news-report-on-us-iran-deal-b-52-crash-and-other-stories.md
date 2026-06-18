@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News report on US-Iran deal, B-52 crash and other stories"
 summary: "The broadcast covered the US-Iran memorandum of understanding for a 60-day ceasefire extension, Strait of Hormuz reopening and further nuclear talks; a fatal B-52 crash at Edwards AFB with eight deaths; Jack Schlossberg's congressional run; teen recruitment into contract killings via gaming platforms; plus flooding, Newsom investigation and lighter segments. Sourcing included on-site reporters in Geneva and Jerusalem, interviews with Obama, a Republican congresswoman and victims' families, plus official statements and Europol references."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T03:55:14Z
 sourceUrl: "https://www.youtube.com/watch?v=dB4HkzQpSfM"
 sourceTitle: "ABC News"
 section: "Politics"

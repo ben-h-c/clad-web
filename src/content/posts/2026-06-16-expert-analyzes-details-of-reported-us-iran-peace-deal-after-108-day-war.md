@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Expert Analyzes Details of Reported US-Iran Peace Deal After 108-Day War"
 summary: "Forbes Breaking News segment features CFR senior fellow Stephen Cook discussing a reported US-Iran memorandum of understanding after 108 days of conflict under Operation Epic Fury. Trump announced the deal on Truth Social, with a formal signing expected Friday; details include a 60-day period lifting blockades on the Strait of Hormuz, technical committees for nuclear talks, and an Iranian oil export sanctions waiver. Cook notes Iranian indications of possible future levies on shipping and highlights resumption of nuclear talks from a pre-war baseline. The discussion covers Netanyahu distancing Israel, lack of provisions on proxies or missiles, potential oil price impacts, and roles of Gulf allies. Sourcing draws from public statements, Iranian indications, and expert synthesis amid speculation and disinformation."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:11:19Z
 sourceUrl: "https://www.youtube.com/watch?v=oQ1Au1K9B-U"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

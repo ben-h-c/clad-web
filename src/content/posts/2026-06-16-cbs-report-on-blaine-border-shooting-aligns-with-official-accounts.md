@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS report on Blaine border shooting aligns with official accounts"
 summary: "CBS News aired a brief breaking-news segment on a shooting incident in Blaine, Washington, near the Canadian border. It reported that U.S. Border Patrol agents engaged a subject, resulting in the subject being injured and hospitalized, with no agents harmed. The FBI is investigating; a firearm was recovered. The segment included a resident witness account of hearing multiple gunshots around 5:30 a.m. and rapid police response. Officials described it as an isolated incident with no ongoing threat to the public."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:19:28Z
 sourceUrl: "https://www.youtube.com/watch?v=dJ9zL1JbRJc"
 sourceTitle: "CBS News"
 section: "Politics"

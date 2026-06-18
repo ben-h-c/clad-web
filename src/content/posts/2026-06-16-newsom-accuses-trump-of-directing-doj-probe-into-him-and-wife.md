@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Newsom accuses Trump of directing DOJ probe into him and wife"
 summary: "The Reuters clip shows California Gov. Gavin Newsom delivering a video statement accusing President Trump of placing him and his wife Jennifer Siebel Newsom on a political 'hit list' by directing the DOJ to investigate them. Newsom claims federal agents have been interviewing friends and former employees in a fishing expedition, that Trump previously called for his arrest, and that operatives recently contacted his home targeting his wife. He denies wrongdoing, points to alleged corruption in the White House, and challenges Trump to pursue him directly. The segment consists entirely of Newsom's remarks with no additional reporting, interviews, or on-screen graphics referenced."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:23:09Z
 sourceUrl: "https://www.youtube.com/watch?v=Uprly2GtS9k"
 sourceTitle: "Reuters"
 section: "Politics"

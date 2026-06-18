@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump says Iran should have ballistic missiles if Gulf states do"
 summary: "The clip shows President Trump responding to a reporter in Paris on June 17 2026. He states it is unfair for Iran to lack ballistic missiles if Saudi Arabia, Qatar and others possess them, distinguishing conventional missiles from nuclear weapons and suggesting proportional allowances.\n\nThe segment uses direct audio of Trump's remarks with minimal additional narration or graphics. No guests or experts appear; sourcing is the president's on-camera comments."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T23:43:46Z
 sourceUrl: "https://www.youtube.com/watch?v=BXWSsM71kOI"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

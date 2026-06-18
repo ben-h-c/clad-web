@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBC reports on Cultus Lake waterpark electrical incident injuring 12 students"
 summary: "The segment covers an electrical incident at Cultus Lake Waterpark near Chilliwack, BC, during a school field trip from Minnekhada Middle School. Twelve grade 6 and 7 students were hospitalized with serious injuries after contact with a structure at the base of the Zero to 60 ride; two were airlifted. The park has closed pending investigation.\nThe broadcast draws from a news conference, RCMP comments, parent reactions, and park statements. Technical Safety BC leads the probe, with RCMP noting it does not appear criminal. Details on exact cause and full injury extent remain limited."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T00:41:31Z
 sourceUrl: "https://www.youtube.com/watch?v=jPMETW4Y3_o"
 sourceTitle: "CBC News"
 section: "Politics"

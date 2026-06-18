@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "MS NOW segment frames White House UFC event as Trump family grift"
 summary: "The segment analyzed the June 14, 2026 UFC Freedom 250 event on the White House South Lawn, marking America's 250th anniversary and Trump's 80th birthday. It argued the real beneficiaries were Trump, his family, allies like Dana White and David Ellison, and companies such as TKO and Paramount+, while taxpayers and viewers lost out. Guests and reporters highlighted financial ties including stock purchases, a crypto sponsorship, a State Department partnership, a media merger approval, and pardons for fraudsters. Sourcing drew from financial disclosures, White House responses, and named experts; the throughline was systemic pay-to-play enabled by proximity to the president."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T17:54:43Z
 sourceUrl: "https://www.youtube.com/watch?v=BipfxlL3qZU"
 sourceTitle: "MS NOW"
 section: "Politics"

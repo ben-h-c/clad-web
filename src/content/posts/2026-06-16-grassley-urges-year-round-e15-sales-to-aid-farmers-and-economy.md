@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Grassley Urges Year-Round E15 Sales to Aid Farmers and Economy"
 summary: "Senator Chuck Grassley delivers floor remarks advocating permanent year-round nationwide sales of E15 ethanol blend. He highlights challenges in the grain farming sector, including low prices, and positions E15 expansion as a marketplace solution to increase corn demand and support rural jobs. Grassley details projected economic gains, environmental and national security advantages, and the need to attach the measure to must-pass legislation amid limited Senate session time and shutdown risks. The segment consists of Grassley's speech with minimal additional commentary or guests."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:47:54Z
 sourceUrl: "https://www.youtube.com/watch?v=yUii5U_mADA"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

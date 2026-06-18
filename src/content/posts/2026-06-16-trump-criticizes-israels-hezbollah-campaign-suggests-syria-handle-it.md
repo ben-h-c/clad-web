@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump criticizes Israel's Hezbollah campaign, suggests Syria handle it"
 summary: "C-SPAN aired President Trump's comments to reporters at the G7 summit criticizing Israel's prolonged campaign against Hezbollah in Lebanon for causing excessive civilian deaths and suggesting Syria under its current leader could handle the group more effectively. He expressed frustration with a recent Beirut strike's timing and scale, reaffirmed his strong personal relationship with Netanyahu while urging greater responsibility, and noted Lebanon's past prosperity versus current challenges with Hezbollah. The segment also covered Trump's view that U.S. support under his leadership was essential for Israel's survival and that the Lebanon fighting risks the broader Iran deal."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T17:53:34Z
 sourceUrl: "https://www.youtube.com/watch?v=DoHxu4zSl3c"
 sourceTitle: "C-SPAN"
 section: "Politics"

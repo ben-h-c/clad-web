@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Autoline Daily Covers Tesla Cybercab Specs, EV Forecasts, Ford Nautilus Exemption"
 summary: "The episode recaps automotive industry developments including GM's potential munitions partnership, lingering effects from the Iran conflict on auto supplies, new Tesla Cybercab technical details from EPA filings, lowered BloombergNEF EV sales projections, Ford's request for a Lincoln Nautilus import exemption, a BMW dealer AI pricing error, Alpine's new EV SUV, and Nissan's accelerated development timelines. Segments draw on reports from the Wall Street Journal, Reuters, and Bloomberg alongside official EPA certification documents. Named sources and data references provide the backbone, with commentary on regulatory timelines and industry adaptation."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-16T15:52:22Z
 sourceUrl: "https://www.youtube.com/watch?v=W3QL0SErdlM"
 sourceTitle: "Autoline Network"
 section: "Politics"

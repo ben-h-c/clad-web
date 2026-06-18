@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bitcoin Analyst Forecasts Deeper Correction, Cautions on Altcoins Amid Macro Volatility"
 summary: "The interview with macro trader Jason Pizzino covers recent market moves since their prior discussion, including S&P 500 volatility, Bitcoin's pullback below February lows to around 59-63k, and macro shifts like hotter inflation, higher yields, and real estate stalling. It references the US-Iran conflict, Trump peace efforts, Israel-Lebanon actions, SpaceX IPO timing, and Knicks playoff success. Pizzino compares the current environment to late-stage dot-com bubble dynamics and an 18-year cycle, projecting possible Bitcoin ranges of 43-58k conservatively or 32-43k in a worse case. He advises patience, heavier cash positions over the next 6-18 months, and avoiding altcoins while watching for sentiment and liquidity signals. The guest discusses MicroStrategy's chart mirroring prior cycles and downplays its beta potential."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T21:37:42Z
 sourceUrl: "https://www.youtube.com/watch?v=2Q7Dmfqv5fY"
 sourceTitle: "Altcoin Daily"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Comments on Iran Access to $300B Gulf-Backed Reconstruction Fund"
 summary: "The Reuters clip features President Trump clarifying that Iran could access a reconstruction fund tied to a US-Iran framework agreement only if it complies with terms. He stresses the US is not contributing funds, distinguishes unfreezing Iranian assets from new US payments, and notes extensive damage to Iran requiring years to rebuild."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T19:48:47Z
 sourceUrl: "https://www.youtube.com/watch?v=HvPiV8BXrhc"
 sourceTitle: "Reuters"
 section: "Politics"

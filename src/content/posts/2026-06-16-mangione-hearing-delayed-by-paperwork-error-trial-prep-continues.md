@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Mangione hearing delayed by paperwork error; trial prep continues"
 summary: "NewsNation reported that Luigi Mangione’s state court hearing was postponed after prosecutors failed to file the required transport paperwork from his Brooklyn federal detention center. The segment noted nine New York felony charges including second-degree murder and discussed the September state trial timeline. Legal analyst Richard Steen addressed jury questionnaires, evidentiary rulings on backpack contents, and complications from parallel federal charges. The broadcast referenced a prior sealed hearing excluding press and public. Supporters outside the courthouse were shown as a recurring feature of proceedings."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:30:05Z
 sourceUrl: "https://www.youtube.com/watch?v=Odmw-7O5pdQ"
 sourceTitle: "NewsNation"
 section: "Politics"

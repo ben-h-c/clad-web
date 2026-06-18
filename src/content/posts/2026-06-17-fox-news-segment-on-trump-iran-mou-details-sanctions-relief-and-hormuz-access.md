@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News segment on Trump-Iran MoU details sanctions relief and Hormuz access"
 summary: "The segment covers a new US-Iran memorandum of understanding announced during the G7 summit in France. Key elements include phased sanctions relief and up to $300 billion in regional financing if Iran meets nuclear obligations such as downblending uranium enrichment, with the Strait of Hormuz opened toll-free for 60 days. President Trump states no US funds are involved and compliance will be enforced by threat of resumed strikes. Peter Doocy reports from the G7; guests Masih Alinejad and David Asman offer commentary, with Alinejad criticizing the deal as falling short of unconditional surrender."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T20:45:14Z
 sourceUrl: "https://www.youtube.com/watch?v=mQpNnjYvXcQ"
 sourceTitle: "Fox News"
 section: "Politics"

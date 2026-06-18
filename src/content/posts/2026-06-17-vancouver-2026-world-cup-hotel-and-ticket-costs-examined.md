@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Vancouver 2026 World Cup Hotel and Ticket Costs Examined"
 summary: "The segment reports on high accommodation costs for the 2026 FIFA World Cup in Vancouver, with hotel rooms reaching up to $1000 per night on match days. It details FIFA's initial large bookings followed by major cancellations and discusses broader affordability challenges for residents seeking tickets.\nInterviews include a hotel industry commentator on greed, a local mother on family ticket costs equaling overseas trips, and references to Vancouver's high cost of living. The report frames the issue around access and inclusivity for locals versus visitor pricing."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T08:16:23Z
 sourceUrl: "https://www.youtube.com/watch?v=8cSaMwcmRpo"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

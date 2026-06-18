@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Chinese Migrant Encounters at US Borders Surged, Security Risks Debated"
 summary: "The segment features an interview discussing Chinese nationals entering the US illegally via southern and northern borders in coordinated operations. The guest describes facilitation through Latin American countries acting like travel agencies, providing documents and routing migrants northward, predominantly young Chinese men, allegedly to conduct surveillance for the CCP.\n\nSourcing relies on the guest's testimonies and unnamed country contacts; no graphics or additional experts shown. The discussion highlights a perceived effort to infiltrate and alter the US."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:00:21Z
 sourceUrl: "https://www.youtube.com/watch?v=Kuyb1s9Rqbk"
 sourceTitle: "Fox Business"
 section: "Politics"

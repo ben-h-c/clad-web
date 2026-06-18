@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Iran World Cup Team Ordered Out of US After Opener Amid War Context"
 summary: "The segment covers fallout from US-Iran tensions affecting Iran's 2026 World Cup participation, focusing on the team's quick departure from the US after a draw with New Zealand in California. It discusses pressures from sanctions and war, limited player comments on the conflict, historical uniqueness of the situation, diaspora protests, and heightened security for teams and fans.\nThe report relies on commentary from The Hill's media reporter Dominic Mastrangelo, referencing team statements, visa processes, and comparisons to other security cases like a Somali referee. It highlights the team's focus on competition despite external noise."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:30:02Z
 sourceUrl: "https://www.youtube.com/watch?v=HZ_SnOa2sm0"
 sourceTitle: "The Hill"
 section: "Politics"

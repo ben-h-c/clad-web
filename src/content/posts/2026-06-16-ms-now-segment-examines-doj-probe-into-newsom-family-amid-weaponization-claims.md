@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "MS NOW segment examines DOJ probe into Newsom family amid weaponization claims"
 summary: "The segment discussed federal investigations into California Gov. Gavin Newsom, his staff, and wife Jennifer Siebel Newsom, focusing on tax fraud allegations tied to her nonprofits. Guests including former CIA Director John Brennan, reporter Carol Leonnig, and law professor James Sample analyzed the probes' origins in early 2025, Eastern District of California involvement with Main Justice's Public Integrity Section, and Newsom's FOIA request for DOJ communications since January 2025. The discussion centered on skepticism about DOJ legitimacy under Trump, with Brennan arguing the department's reputation undermines case credibility and presumption of innocence has flipped. Sourcing relied on anonymous 'reliable' sources, Newsom statements, and guest commentary without on-air primary documents or opposing administration perspectives."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:32:34Z
 sourceUrl: "https://www.youtube.com/watch?v=dnEeB56kT_E"
 sourceTitle: "MS NOW"
 section: "Politics"

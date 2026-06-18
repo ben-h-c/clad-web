@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Criticizes Israel’s Lebanon Campaign at G7, Suggests Syria Role"
 summary: "Bloomberg News aired a clip of President Trump speaking on the sidelines of the G7 summit in Evian, France, on June 16, 2026. He criticized Israel’s prolonged operations against Hezbollah in Lebanon, called for faster results with fewer civilian casualties, suggested Syria could handle the group more effectively, and stated that without the US and specifically without him there would be no Israel. Trump also noted his past relationship with Netanyahu while urging greater responsibility regarding Lebanon and warned that the conflict risks harming Iran negotiations.\n\nThe segment drew directly from Trump’s press remarks during a bilateral meeting with Qatar’s emir. It referenced ongoing strikes, including a recent Beirut attack, and tied the comments to parallel US-Iran deal talks. No additional experts or graphics were featured beyond the primary audio."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:00:36Z
 sourceUrl: "https://www.youtube.com/watch?v=aW6pmny4o98"
 sourceTitle: "Bloomberg News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "AP reports Vietnam police bust cat theft ring, rescue over 400 cats"
 summary: "The broadcast covers a police operation in Ho Chi Minh City that dismantled a cat theft ring supplying the meat trade. Officers arrested nine suspects, seized around 400 live cats from 45 cages plus about 80 dead cats on ice, and recovered additional animals at other sites. More than 40 cats were reunited with owners while others died from conditions during captivity. The segment notes that cat and dog meat consumption is legal in Vietnam with permit requirements for vendors. It cites Humane World for Animals on the scale of pet thefts feeding the trade."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T12:50:09Z
 sourceUrl: "https://www.youtube.com/watch?v=SYWYI7-kRSU"
 sourceTitle: "Associated Press"
 section: "Politics"

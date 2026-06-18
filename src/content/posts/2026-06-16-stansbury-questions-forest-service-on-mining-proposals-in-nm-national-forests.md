@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Stansbury Questions Forest Service on Mining Proposals in NM National Forests"
 summary: "The clip shows Rep. Melanie Stansbury (D-NM) questioning Forest Service leadership during a House Natural Resources Committee hearing. She highlights proposals to allow uranium mining in Cibola National Forest and other mining in areas near Santa Fe such as the Upper Pecos watershed, urging protection of culturally significant sites for tribal and Hispano communities."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T02:30:10Z
 sourceUrl: "https://www.youtube.com/watch?v=HUL6125tMYk"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

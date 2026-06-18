@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "MS NOW Panel Discusses Blanche Nomination, Patel UFC Post, Newsom Probe"
 summary: "The segment covered Republican senators' concerns over Todd Blanche's AG nomination tied to the $1.8 billion anti-weaponization fund, Kash Patel's X post on UFC event arrests, and Gavin Newsom's FOIA request amid a reported DOJ probe into his wife Jennifer Siebel Newsom's taxes and nonprofits. Panelists discussed potential political angles in confirmations and investigations. Guests referenced reporting from Punchbowl, Laura Weiss, and anonymous sources on the Newsom case and Patel announcement timing."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:51:14Z
 sourceUrl: "https://www.youtube.com/watch?v=XeYzWOYQc8g"
 sourceTitle: "MS NOW"
 section: "Politics"

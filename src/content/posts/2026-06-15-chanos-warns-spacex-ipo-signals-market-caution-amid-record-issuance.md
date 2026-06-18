@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Chanos Warns SpaceX IPO Signals Market Caution Amid Record Issuance"
 summary: "Bloomberg segment features short-seller James Chanos discussing SpaceX's June 2026 IPO as a cautionary signal of massive equity supply meeting demand. He compares the environment to prior bubbles, highlights a pivot toward AI infrastructure leasing post-xAI merger, questions 90-110x revenue valuation, and praises Starlink while noting losses elsewhere.\nChanos cites the company's S-1 prospectus TAM breakdown, references a recent New York Times piece, and contrasts with Tesla multiples. Anchors Tom Keene and Scarlet Fu probe his views on Elon premium, merger implications, and short-selling viability; segment ends with market context questions."
-publishedAt: 2026-06-12
+publishedAt: 2026-06-12T17:32:04Z
 sourceUrl: "https://www.youtube.com/watch?v=LoLdN9Q9hwU"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Yum Brands Sells Pizza Hut to LongRange Capital for $2.7 Billion"
 summary: "Bloomberg segment discusses Yum! Brands' announcement to sell Pizza Hut for $2.7 billion total. LongRange Capital acquires the ex-China operations for approximately $1.5 billion while Yum China takes the mainland China business for about $1.2 billion. Guests analyze Pizza Hut's U.S. decline due to competition from Domino's and Papa John's, oversized sit-down footprints, rising takeout focus, and franchisee underinvestment. They question LongRange's turnaround credentials given its holdings in 24 Hour Fitness, funeral services, synthetic diamonds, and a European ski resort. Remaining Yum! portfolio of KFC and Taco Bell is positioned as stronger growth drivers."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:23:09Z
 sourceUrl: "https://www.youtube.com/watch?v=fdEOzuUDh60"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

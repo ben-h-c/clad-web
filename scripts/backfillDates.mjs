@@ -45,8 +45,8 @@ for (let i = 0; i < ids.length; i += 50) {
   }
   const d = await r.json();
   for (const it of d.items || []) {
-    const pa = it.snippet?.publishedAt;
-    if (pa) dateById.set(it.id, pa.slice(0, 10));
+    const pa = it.snippet?.publishedAt; // full ISO datetime
+    if (pa) dateById.set(it.id, pa);
   }
   process.stdout.write(`fetched ${Math.min(i + 50, ids.length)}/${ids.length}\r`);
 }

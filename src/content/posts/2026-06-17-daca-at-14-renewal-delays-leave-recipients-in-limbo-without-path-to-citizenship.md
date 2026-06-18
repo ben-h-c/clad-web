@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "DACA at 14: Renewal Delays Leave Recipients in Limbo Without Path to Citizenship"
 summary: "The NPR segment marks DACA's 14th anniversary and highlights recent increases in renewal processing times, which now often exceed prior quick turnarounds and can surpass six months in some cases. It recounts the program's 2012 launch under President Obama as temporary relief for eligible childhood arrivals, features PhD recipient Madena Guzman discussing work authorization and limited job prospects, and notes the roughly 500,000 current participants, many now aged 31-44, who must renew every two years or risk losing protections."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T21:00:23Z
 sourceUrl: "https://www.youtube.com/watch?v=8L02hGpubZY"
 sourceTitle: "NPR"
 section: "Politics"

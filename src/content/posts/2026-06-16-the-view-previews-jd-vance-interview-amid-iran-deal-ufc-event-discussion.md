@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "The View previews JD Vance interview amid Iran deal, UFC event discussion"
 summary: "The segment is a Monday June 15, 2026, preview discussion on The View between co-host Alyssa Farah Griffin and Brian about the day's show highlights including Jaylen Brunson interview and dog adoption. It shifts to previewing tomorrow's live JD Vance appearance and reviews recent events like the Iran agreement and White House UFC fights.\nGriffin draws on her prior government experience for Iran analysis, references Vance's books, and raises audience questions on the economy; the show is positioned as an opinion format with tough but personality-focused questions."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T19:41:41Z
 sourceUrl: "https://www.youtube.com/watch?v=Zh73awaI1iQ"
 sourceTitle: "The View"
 section: "Politics"

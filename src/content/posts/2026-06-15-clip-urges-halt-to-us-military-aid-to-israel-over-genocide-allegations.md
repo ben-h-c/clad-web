@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Clip Urges Halt to US Military Aid to Israel Over Genocide Allegations"
 summary: "The short clip features a speaker, likely a political candidate, responding to a question on US weapons and funding for Israel. They oppose continued aid, label Israeli actions genocide, argue US tax dollars enable civilian deaths, and call for redirecting funds to domestic needs like housing and food security. Music underscores the emotional delivery. Sourcing is the speaker's statements alone with no on-screen experts, data graphics, or opposing views referenced."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T12:44:28Z
 sourceUrl: "https://www.youtube.com/watch?v=9ZKDLS6eZXM"
 sourceTitle: "Breezy Politics"
 section: "Politics"

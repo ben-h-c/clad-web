@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Schumer Criticizes Trump Child Care Policies in Partisan Senate Speech"
 summary: "The segment features Senate Minority Leader Chuck Schumer, joined by Senators Murray and Warren, releasing a report on Trump's broken promises regarding affordable child care. Schumer quotes Trump's April 2026 remarks shifting daycare responsibility to states and criticizes policies including a funding freeze, removal of cost caps, and increased expenses for families. He contrasts this with prior Democratic investments and accuses Trump of prioritizing other spending over families. The broadcast consists of Schumer's floor speech with no additional guests or independent analysis shown. Sourcing is limited to the senators' statements and implied report; graphics or data visuals are not referenced in the transcript."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:30:00Z
 sourceUrl: "https://www.youtube.com/watch?v=Unsway-ICOE"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

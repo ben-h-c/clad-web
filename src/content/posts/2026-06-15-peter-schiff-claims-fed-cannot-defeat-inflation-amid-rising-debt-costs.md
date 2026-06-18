@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Peter Schiff Claims Fed Cannot Defeat Inflation Amid Rising Debt Costs"
 summary: "The segment features economist Peter Schiff analyzing recent hot US inflation readings. He argues these signal the Fed has permanently lost control over inflation due to massive federal debt, as higher rates would explode interest costs and deficits."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T18:01:46Z
 sourceUrl: "https://www.youtube.com/watch?v=RfFcKEYn9DY"
 sourceTitle: "Peter Schiff"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "C-SPAN Clip Captures Trump Chair Swap Joke at G7 Lunch"
 summary: "The short C-SPAN clip shows President Trump at a G7 working lunch with technology executives, joking about having the lowest chair at the table. Canadian Prime Minister Mark Carney offers to swap seats, prompting laughter and light banter including a quip referencing the UN. The exchange lasts under a minute and appears informal and humorous.\nThe clip relies on raw video footage without narration, graphics, or named guests beyond the visible participants like Trump, Carney, and OpenAI CEO Sam Altman. It captures an unscripted moment during broader G7 discussions on economic and security issues."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T15:39:22Z
 sourceUrl: "https://www.youtube.com/watch?v=0OEJjKwhDFg"
 sourceTitle: "C-SPAN"
 section: "Politics"

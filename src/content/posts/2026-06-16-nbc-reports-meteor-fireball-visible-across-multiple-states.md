@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC Reports Meteor Fireball Visible Across Multiple States"
 summary: "The short NBC News segment shows video of a bright fireball streaking across the sky and states it was seen over homes and highways in Arkansas, Missouri, Tennessee, and additional states. It attributes details to NASA, noting the object traveled at 56,000 mph, was brighter than Venus, and disintegrated.\n\nThe clip relies on public video footage and direct NASA statements via the American Meteor Society database. No guests appear; the report is concise and centers on the June 14-15, 2026 event captured by NASA cameras."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T12:39:15Z
 sourceUrl: "https://www.youtube.com/watch?v=MtXduAQ_xd0"
 sourceTitle: "NBC News"
 section: "Politics"

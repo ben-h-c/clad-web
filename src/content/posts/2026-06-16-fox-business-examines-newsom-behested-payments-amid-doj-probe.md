@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox Business examines Newsom behested payments amid DOJ probe"
 summary: "The segment features California Post opinion editor Joel Pollak discussing Governor Gavin Newsom directing millions in behested payments to a nonprofit founded by his wife Jennifer Siebel Newsom, raising conflict-of-interest issues with donors having state business. It references an IRS/DOJ probe initiated after Trump directed an investigation and a separate probe of Newsom's former chief of staff involving Xavier Becerra campaign funds that began under the Biden administration."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T17:15:04Z
 sourceUrl: "https://www.youtube.com/watch?v=5ffeiG82Z5Y"
 sourceTitle: "Fox Business"
 section: "Politics"

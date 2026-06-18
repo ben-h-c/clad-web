@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Urges Russia-Ukraine Deal, Cites Heavy Casualties and Past Calls"
 summary: "C-SPAN clip shows President Trump speaking to reporters about Ukraine. He states Russia should make a deal, notes heavy losses on both sides averaging 25,000-35,000 soldiers monthly, references a recent call with Putin and meetings with Zelenskyy, and contrasts current policy with past US aid. Trump mentions having settled eight wars previously and says the focus is shifting from Iran. He stresses the human cost and US role limited to weapons sales. The segment is a direct recording without additional narration or guests."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:29:57Z
 sourceUrl: "https://www.youtube.com/watch?v=zkZL3eg-dA8"
 sourceTitle: "C-SPAN"
 section: "Politics"

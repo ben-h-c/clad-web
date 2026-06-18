@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Italian Families Sue Meta and TikTok Over Alleged Harms to Minors"
 summary: "The Reuters segment covers Italian parents, including the mother of a 12-year-old girl who died by suicide, joining a collective lawsuit against Meta and TikTok. It features testimony about algorithms pushing dark, self-harm-related content via secret accounts and rapid mental health decline. The report notes the case seeks stricter age limits and safeguards as Italy's first such collective action.\n\nSourcing draws from direct interviews with affected parents and lawyers, plus statements from Meta and TikTok spokespeople denying harm claims. It references the Milan court proceedings and broader European regulatory context on digital platforms."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T07:21:08Z
 sourceUrl: "https://www.youtube.com/watch?v=7IITQelF54U"
 sourceTitle: "Reuters"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "US-Iran Deal Talks: Uncertainties Persist Ahead of Expected Signing"
 summary: "The Bloomberg segment covered ongoing US-Iran negotiations for a preliminary agreement to end hostilities, reopen the Strait of Hormuz, and address nuclear issues in follow-on talks. Reporters discussed potential signing in Switzerland, possible asset releases or sanctions relief, and comparisons to the prior JCPOA.\n\nSourcing drew from Axios reporting, Trump statements, G7 context in Evian, and commentary on administration figures including JD Vance and Marco Rubio. The discussion emphasized unknowns around exact terms, verification, and timelines while noting both sides' positive framing."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:14:12Z
 sourceUrl: "https://www.youtube.com/watch?v=fMBI5JqYPWs"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

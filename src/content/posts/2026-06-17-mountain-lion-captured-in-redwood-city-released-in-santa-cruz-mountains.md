@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Mountain Lion Captured in Redwood City Released in Santa Cruz Mountains"
 summary: "The brief segment reports on a young female mountain lion that entered a yard in a California neighborhood and was safely captured for relocation. Officials used a drone to track and tranquilize the animal before fitting it with a GPS collar. It will be released in the Santa Cruz Mountains as part of ongoing research.\nThe report relies on statements from California Department of Fish and Wildlife spokespeople and references the UC Santa Cruz Puma Project for collar data collection. No guests or additional segments are featured."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T10:57:32Z
 sourceUrl: "https://www.youtube.com/watch?v=Rv2nImFg1LY"
 sourceTitle: "NBC News"
 section: "Politics"

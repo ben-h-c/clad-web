@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox Business Interview with Sen. Lankford on Trump-Iran Framework Deal"
 summary: "The segment features Sen. James Lankford discussing a tentative US-Iran framework deal to end recent conflict, reopen the Strait of Hormuz, prevent nuclear weapons, and apply economic pressure. It covers performance-based terms, verification challenges via IAEA, and skepticism of the Iranian regime, while briefly addressing FISA reauthorization. Lankford contrasts the deal with the Obama-era JCPOA and highlights recent US-Israeli strikes. Sourcing relies on the senator’s statements and references to IAEA actions and public economic data. The discussion emphasizes verification needs and long-term terrorism concerns over immediate details of the unsigned agreement."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T10:00:05Z
 sourceUrl: "https://www.youtube.com/watch?v=FyH3A47KZUE"
 sourceTitle: "Fox Business"
 section: "Politics"

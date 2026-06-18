@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News covers Fed rate hold amid rising May inflation and new chair's debut"
 summary: "ABC News reported stocks closing lower after the Federal Reserve kept its benchmark rate unchanged at its June meeting. The segment highlighted the May CPI report showing 4.2% annual inflation, the highest in three years, and noted this was the first decision under new Chair Kevin Warsh."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T21:47:30Z
 sourceUrl: "https://www.youtube.com/watch?v=MV0w-rNc4LM"
 sourceTitle: "ABC News"
 section: "Politics"

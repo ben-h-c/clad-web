@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Algae appears in Reflecting Pool days after $14M renovation"
 summary: "The clip reports visible algae in the Lincoln Memorial Reflecting Pool shortly after completion of a major renovation project. The speaker notes the pool appears greener than previously observed due to the algae growth.\nThe segment references the $14 million repair effort completed in early June 2026. Sourcing draws from on-site observation and aligns with statements from National Park Service and Interior Department officials explaining the algae as residual from construction downtime."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:01:10Z
 sourceUrl: "https://www.youtube.com/watch?v=nkx7DUzxySk"
 sourceTitle: "Washington Post"
 section: "Politics"

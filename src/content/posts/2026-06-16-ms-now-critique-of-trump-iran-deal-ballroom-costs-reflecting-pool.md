@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "MS NOW critique of Trump Iran deal, ballroom costs, reflecting pool"
 summary: "The segment criticizes Trump over the outcome of the recent Iran conflict, taxpayer costs for a White House ballroom, algae in the renovated Lincoln Memorial Reflecting Pool, and comments by JD Vance on inflation. It cites Washington Post reporting on ballroom costs exceeding private funding claims, notes recurring algae issues, and questions the war's results as a costly stalemate without regime change. Guests and clips, including John Stewart and Michelle Goldberg, reinforce the negative assessment of the deal and administration priorities."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:45:22Z
 sourceUrl: "https://www.youtube.com/watch?v=QmhEGiJGnrY"
 sourceTitle: "MS NOW"
 section: "Politics"

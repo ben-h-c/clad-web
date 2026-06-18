@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Examines US-Iran Interim Deal and Market Impacts"
 summary: "The broadcast covers emerging details of a US-Iran interim memorandum of understanding, including financial incentives for Iran such as oil export resumption and potential sanctions relief, alongside reactions in oil prices and bonds ahead of the Fed's first meeting under new Chair Kevin Warsh. Segments also address SpaceX's post-IPO stock surge, Asian markets, Sudan's distancing from Iran, US-Namibia minerals ties, Trump's Lebanon comments, and G7 Ukraine discussions."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T09:11:01Z
 sourceUrl: "https://www.youtube.com/watch?v=qR3kr9jZhrc"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

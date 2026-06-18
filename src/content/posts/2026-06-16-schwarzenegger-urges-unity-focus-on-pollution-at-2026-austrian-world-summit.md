@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Schwarzenegger Urges Unity, Focus on Pollution at 2026 Austrian World Summit"
 summary: "The segment aired on MS NOW (MSNBC) during coverage of the Austrian World Summit's 10th anniversary on June 16, 2026, in Vienna. Arnold Schwarzenegger, the host, discussed shifting terminology from 'climate change' to 'pollution,' cited annual death tolls, and promoted the theme 'We Are Unstoppable' by urging local and state-level action over reliance on federal leadership.\nThe interview included Schwarzenegger's personal story on inclusion drawn from his immigrant experience and references to California and other states' renewable energy goals. It featured brief mentions of Kamala Harris's attendance and current US administration skepticism, with the host raising topics around democracy and Gavin Newsom."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T12:05:46Z
 sourceUrl: "https://www.youtube.com/watch?v=gEyys35uz-Y"
 sourceTitle: "MS NOW"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ASML CEO Discusses AI Sovereignty, China Exports, Musk Terafab and India Fab"
 summary: "Bloomberg interview with ASML CEO addresses US export controls on Anthropic AI models and European sovereignty concerns. Segments cover Europe's position in the AI race, government intervention models, strong ongoing AI infrastructure demand tied to IPOs, data centers in space, Musk's Terafab project, compliance with China export rules on DUV tools, and the new ASML-Tata partnership for India's semiconductor fab."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T15:49:41Z
 sourceUrl: "https://www.youtube.com/watch?v=ktEsOBgToWY"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Newsom claims Trump-directed DOJ probe targets him and wife"
 summary: "The segment features California Gov. Gavin Newsom's June 15, 2026 video statement accusing President Trump of directing the DOJ to investigate him and his wife Jennifer Siebel Newsom. Newsom links the probe to his potential 2028 presidential bid, alleges grand jury abuse and document fishing expeditions, and counters by pointing to alleged corruption in the White House. He also appeals to leave his family out of the matter.\nThe sourcing relies on Newsom's own on-camera and social media statements plus anonymous law enforcement sources confirming multiple investigations tied to his wife's finances and former staff; no on-record DOJ comment or Trump administration response is presented."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:01:00Z
 sourceUrl: "https://www.youtube.com/watch?v=cxovRbxu1DQ"
 sourceTitle: "USA TODAY"
 section: "Politics"

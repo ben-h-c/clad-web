@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Tesla owner tests FSD operation during infotainment reboot"
 summary: "The video shows a Tesla driver experiencing a connectivity glitch while using Full Self-Driving (Supervised). The host holds both steering wheel scroll buttons to initiate a reboot, during which the screen goes black and displays the Tesla logo before restarting. FSD remains active throughout, with the vehicle continuing to accelerate, brake, and navigate a stop sign without driver intervention. Navigation and basic driving functions persist as the system reboots. The connectivity issue is not resolved by the reboot."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T21:00:20Z
 sourceUrl: "https://www.youtube.com/watch?v=pNxGUKCI_0c"
 sourceTitle: "Teslamonial WI"
 section: "Politics"

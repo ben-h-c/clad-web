@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Big 12 Files Federal Suit Over Texas Tech QB Sorsby Betting Eligibility"
 summary: "The segment discusses the ongoing legal battle over Texas Tech quarterback Brendan Sorsby's eligibility after he admitted to placing thousands of sports bets, including dozens on his own team at Indiana. It covers a local court injunction allowing him to play despite NCAA ineligibility, Texas AG Ken Paxton's threats against the Big 12, and the conference's new federal lawsuit seeking to enforce its own rules and potentially sanction Texas Tech."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T03:24:49Z
 sourceUrl: "https://www.youtube.com/watch?v=LiiZoVRaEhI"
 sourceTitle: "ABC News"
 section: "Politics"

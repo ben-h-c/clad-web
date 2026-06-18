@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Clip Shows Trump-Macron Handshake at 2026 G7 Summit"
 summary: "The short Bloomberg News video captures U.S. President Donald Trump and French President Emmanuel Macron shaking hands on the sidelines of the G7 summit in Evian, France. Media personnel direct the leaders for photographs amid light chatter before they move on. The clip aligns with live coverage of bilateral meetings at the June 15-16, 2026, summit."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:00:23Z
 sourceUrl: "https://www.youtube.com/watch?v=Ex-i6RuPGVQ"
 sourceTitle: "Bloomberg News"
 section: "Politics"

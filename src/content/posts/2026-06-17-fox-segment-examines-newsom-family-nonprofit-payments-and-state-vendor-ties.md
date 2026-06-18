@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox segment examines Newsom family nonprofit payments and state vendor ties"
 summary: "The segment discusses alleged financial conflicts involving California First Partner Jennifer Siebel Newsom's nonprofit The Representation Project and her production company. It covers payments to her and the company totaling over $3.7 million, donations from state vendors like PG&E and Kaiser Permanente that also hold government contracts, and a federal probe into possible tax and influence issues.\nGuest legal analyst Gregg Jarrett analyzes the story citing IRS filings and reporting from the Sacramento Bee and LA Times. It ties into broader claims of pay-to-play by state vendors donating to Newsom campaigns and receiving billions in payments per OpenTheBooks data, while questioning use of state resources in response to investigations."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T03:00:16Z
 sourceUrl: "https://www.youtube.com/watch?v=A3BSXhifEOc"
 sourceTitle: "Fox Business"
 section: "Politics"

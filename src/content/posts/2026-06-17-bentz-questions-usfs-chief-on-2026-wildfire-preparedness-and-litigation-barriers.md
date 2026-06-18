@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bentz Questions USFS Chief on 2026 Wildfire Preparedness and Litigation Barriers"
 summary: "The segment covers a House committee exchange where Rep. Cliff Bentz (R-OR) questions U.S. Forest Service Chief Tom Schultz on 2026 fire season readiness and barriers to forest thinning. Bentz asks if the agency is prepared, probes litigation under NEPA and the Endangered Species Act, seeks data on lawsuits blocking projects, and highlights overgrown forest conditions. Schultz confirms preparedness via increased hiring, acknowledges litigation sources, and agrees forest health issues are significant. Bentz offers a National Interagency Fire Center report for the record."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:30:30Z
 sourceUrl: "https://www.youtube.com/watch?v=NHewGkqrPtA"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox segment examines US-Iran deal terms, inspection doubts, and Lebanon tensions"
 summary: "The segment discusses a potential US-Iran agreement to end recent conflict, focusing on nuclear inspections and a sticking point over Israeli forces in Lebanon. Iranian Foreign Minister demands Israeli withdrawal; Israel rejects it. JD Vance states IAEA and US inspectors will verify and help destroy enriched uranium stockpiles as a core deal element, with details expected Friday. Retired Gen. Jack Keane argues past IAEA manipulations require robust US-led 'anywhere anytime' inspections, calls the regime untrustworthy despite pressure from strikes and sanctions, and suggests in hindsight the April ceasefire should have been avoided to maintain maximum pressure including operations to secure the Strait of Hormuz."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T00:00:06Z
 sourceUrl: "https://www.youtube.com/watch?v=sukncU5cABA"
 sourceTitle: "Fox News"
 section: "Politics"

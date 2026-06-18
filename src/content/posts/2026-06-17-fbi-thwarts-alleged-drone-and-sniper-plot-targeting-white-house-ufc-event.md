@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "FBI Thwarts Alleged Drone and Sniper Plot Targeting White House UFC Event"
 summary: "The segment reports the FBI's disruption of an alleged plot to attack the UFC event on the White House lawn days before it occurred. It details the use of explosive-laden drones and ground snipers, arrests including a 19-year-old in Ohio, involvement of a Signal chat group, recovered weapons and ammunition, and charges of attempted murder and conspiracy. Motives cited include Christian extremism, antisemitism, and anti-government grievances tied to Epstein files.\nThe report draws on FBI statements, court documents, and expert commentary on drone threats at public events, with quotes from officials highlighting early interdiction."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:45:34Z
 sourceUrl: "https://www.youtube.com/watch?v=QEqqOQHXWIA"
 sourceTitle: "Global News"
 section: "Politics"

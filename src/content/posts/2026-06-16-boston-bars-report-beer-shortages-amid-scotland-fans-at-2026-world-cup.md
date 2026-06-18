@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Boston bars report beer shortages amid Scotland fans at 2026 World Cup"
 summary: "NBC News segment covers Scottish football fans (Tartan Army) arriving in Boston ahead of their 2026 World Cup matches, with reports of bars and stores running out of popular beers including Sam Adams Boston Lager and Tennent’s. Bar staff and fans describe unprecedented demand, emergency restocks, and a lively atmosphere.\nThe piece features on-site interviews at Sam Adams, White Bull Tavern, and The Dubliner, noting record sales and positive local reactions to the fans’ energy and spending. It ties into Scotland’s opening matches in the Boston area."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:37:49Z
 sourceUrl: "https://www.youtube.com/watch?v=bl4RsPZXOyc"
 sourceTitle: "NBC News"
 section: "Politics"

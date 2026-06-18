@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Global National report on tentative US-Iran deal scrutinized for details and context"
 summary: "The broadcast covers lingering questions over a preliminary US-Iran agreement to end conflict, reopen the Strait of Hormuz toll-free for 60 days, and defer nuclear and sanctions issues. It includes G7 summit updates with comments from Trump, Vance, and Canadian PM Mark Carney, plus segments on Canadian bail and sentencing reforms, Toronto gun-for-hire shootings, First Nations clean water legislation, a foiled attack on a White House UFC event, and lighter stories."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:00:07Z
 sourceUrl: "https://www.youtube.com/watch?v=jnjqZnU92nc"
 sourceTitle: "Global News"
 section: "Politics"

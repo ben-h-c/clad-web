@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Florida Bans Rescue Pets from Texas, New Mexico Over Screwworm"
 summary: "The segment reports Florida's emergency rule banning rescue and shelter dogs and cats from states with confirmed New World screwworm cases, primarily Texas and New Mexico. It details expanded requirements for other animals from high-risk counties, including veterinary inspections and treatment. The report notes 12 total U.S. cases confirmed by USDA (11 in Texas livestock and pets, one dog in New Mexico) and similar restrictions in North Carolina, Pennsylvania, and Idaho. Sourcing draws from Florida Department of Agriculture and Consumer Services statements and USDA announcements. The broadcast frames the measures as an aggressive response to prevent spread into Florida livestock and pets."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T17:08:45Z
 sourceUrl: "https://www.youtube.com/watch?v=6zrKqgrR9ZE"
 sourceTitle: "NewsNation"
 section: "Politics"

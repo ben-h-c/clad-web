@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "EU Opens First Ukraine Accession Cluster; Reforms, Costs, and Geopolitics Loom"
 summary: "The segment reports that the EU has opened the first cluster of accession negotiations with Ukraine, a symbolic step after candidate status since 2022. It outlines the lengthy negotiation process, Zelenskyy's push for faster membership as security against Russia, and Ukraine's banking and insurance reforms. It highlights the $588 billion reconstruction needs and potential EU budget strains from Ukraine's large agricultural sector. The report also covers European concerns about being sidelined in Ukraine talks involving the US under Trump, with Macron calling for Europe to have a seat at the table if it pays the costs."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T11:14:53Z
 sourceUrl: "https://www.youtube.com/watch?v=WO1VcBhg6qw"
 sourceTitle: "Reuters"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Urges Russia-Ukraine Deal at G7, Cites Heavy Losses"
 summary: "Bloomberg Television aired remarks by President Trump at the G7 summit in France on June 16, 2026. Trump discussed a recent meeting with Ukrainian President Zelenskyy, plans for another, a Sunday call with Putin, and urged Russia to make a deal amid heavy losses on both sides. He referenced shifting focus from an Iran agreement and criticized past U.S. weapons policy toward Ukraine. Segments covered casualty figures and Trump's self-described record settling conflicts. Sourcing relied on Trump's direct statements to reporters with no named experts or additional data presented."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:09:53Z
 sourceUrl: "https://www.youtube.com/watch?v=tIrfmVLa2o4"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

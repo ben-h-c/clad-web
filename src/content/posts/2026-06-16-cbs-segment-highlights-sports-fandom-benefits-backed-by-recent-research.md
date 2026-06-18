@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS segment highlights sports fandom benefits backed by recent research"
 summary: "The segment discusses the New York Knicks' 2026 NBA championship win after 53 years and its unifying effect on the city. CBS News contributor Arthur Brooks promotes his Free Press column arguing that sports fandom fosters belonging, happiness, and cross-partisan connection.\nBrooks references Aristotle on shared love, cites Harvard's Todd Rogers on reduced polarization, and claims fans vote more, engage civically, have more friends, and are happier. He suggests using sports for family reconnection and the upcoming World Cup for national unity. Sourcing includes Brooks as expert and on-screen reference to his column; the interview follows reports of celebratory incidents."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:36:40Z
 sourceUrl: "https://www.youtube.com/watch?v=jqE1WrgY8PY"
 sourceTitle: "CBS News"
 section: "Politics"

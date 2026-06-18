@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Corey Feldman Hospitalized After In-Flight Medical Emergency"
 summary: "The segment reports that actor Corey Feldman, 54, experienced a medical emergency on a flight from Chicago to Los Angeles and was met by paramedics upon landing at LAX on June 15. His publicist confirmed he was hospitalized overnight awaiting MRI results. It notes his recent appearance at a Stand by Me 40th anniversary event in Chicago with Jerry O'Connell and Wil Wheaton, plus photos from Midwest travels.\nThe report draws from publicist statements to USA Today, cross-referenced with initial TMZ reporting. It references the Chicago Theatre event the day prior and focuses on the timeline of the incident and immediate aftermath."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T03:00:27Z
 sourceUrl: "https://www.youtube.com/watch?v=rQTaaw8Vbws"
 sourceTitle: "USA TODAY"
 section: "Politics"

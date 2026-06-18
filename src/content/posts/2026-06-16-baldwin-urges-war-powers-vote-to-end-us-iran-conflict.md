@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Baldwin Urges War Powers Vote to End US-Iran Conflict"
 summary: "The segment covers Sen. Tammy Baldwin's Senate floor speech supporting a War Powers Resolution to end US military involvement in Iran. Baldwin criticizes President Trump for initiating the conflict without congressional approval, questions recent claims of a deal, and cites costs in lives and dollars while urging colleagues to heed constituents. The speech references the war's start over 100 days prior, a reported agreement limited to further talks, and specific figures on casualties and expenses. Sourcing is Baldwin's direct remarks with no additional guests or graphics shown in the transcript."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:00:33Z
 sourceUrl: "https://www.youtube.com/watch?v=RzTboRX5pt8"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

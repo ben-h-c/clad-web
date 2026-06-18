@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Washington Post clip shows reactions to court-ordered removal of Trump's name from Kennedy Center"
 summary: "The Washington Post video reports on the removal of President Donald Trump's name from the Kennedy Center facade following a federal court order. Segments feature street interviews with Washingtonians expressing approval that the name came down, criticizing the addition as illegal or petty, and looking forward to future programming.\n\nThe piece draws on on-site eyewitness reactions and references the court ruling; no named experts, board members, or administration officials appear. It aligns with contemporaneous coverage of the June 2026 removal after a May judicial decision."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T21:01:00Z
 sourceUrl: "https://www.youtube.com/watch?v=muBRWpdYr_c"
 sourceTitle: "Washington Post"
 section: "Politics"

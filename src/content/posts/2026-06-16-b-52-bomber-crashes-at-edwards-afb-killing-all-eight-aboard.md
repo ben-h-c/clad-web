@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "B-52 Bomber Crashes at Edwards AFB, Killing All Eight Aboard"
 summary: "Fox News segment reports a B-52 Stratofortress crashed shortly after takeoff at Edwards Air Force Base in California on June 15, 2026, bursting into flames. Officials describe the incident as unsurvivable with all eight aboard killed; an investigation is underway. Guests include Rep. Lance Gooden and Lt. Col. Gaub discussing possible causes such as mechanical failure or fuel issues. The report notes B-52s date to the 1960s but remain in service through upgrades and rigorous maintenance. It concludes by acknowledging mourning among military personnel, civilians, and contractors."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T12:15:21Z
 sourceUrl: "https://www.youtube.com/watch?v=DHo8uywDrow"
 sourceTitle: "Fox News"
 section: "Politics"

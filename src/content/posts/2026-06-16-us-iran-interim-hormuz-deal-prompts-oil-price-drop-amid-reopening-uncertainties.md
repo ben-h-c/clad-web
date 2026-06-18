@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "US-Iran Interim Hormuz Deal Prompts Oil Price Drop Amid Reopening Uncertainties"
 summary: "The Bloomberg segment reports that the US and Iran announced an interim agreement to reopen the Strait of Hormuz, causing Brent crude to fall below $85 a barrel from wartime highs above $125. It notes the deal remains unsigned for several days, leaving ship owners seeking details on fees, delays, safety, and lingering mine threats. A backlog of vessels is expected to take weeks to clear even if traffic resumes.\nThe report highlights that full reopening would increase global oil supply and ease energy crisis fears. Sourcing draws on market data and unnamed trade group comments; no named experts or officials appear. The throughline stresses near-term uncertainties despite the preliminary accord."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T19:00:29Z
 sourceUrl: "https://www.youtube.com/watch?v=QEjxLIaJzG8"
 sourceTitle: "Bloomberg News"
 section: "Politics"

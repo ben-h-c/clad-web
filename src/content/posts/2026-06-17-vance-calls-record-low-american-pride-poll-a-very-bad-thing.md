@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Vance Calls Record-Low American Pride Poll a 'Very Bad Thing'"
 summary: "The segment on Gutfeld! discussed a recent poll showing American pride at or near record lows ahead of the country's 250th anniversary. JD Vance and panelists reacted to findings of 56% overall extremely or very proud to be American, with 90% of Republicans vs. much lower Democratic figures, plus commentary on the American dream being harder to obtain for many Democrats.\nVance argued it reflects a lack of gratitude among some Democrats for the country itself rather than policy disagreements. Panelists attributed smirking at patriotism to attention-seeking or cultural messaging in media and films, contrasting it with stronger pride in heartland areas and among older Americans."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T04:30:16Z
 sourceUrl: "https://www.youtube.com/watch?v=QJne9ixVxBk"
 sourceTitle: "Fox News"
 section: "Politics"

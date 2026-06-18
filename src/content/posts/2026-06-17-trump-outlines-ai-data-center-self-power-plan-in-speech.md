@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Outlines AI Data Center Self-Power Plan in Speech"
 summary: "The segment features President Trump discussing recent meetings on the economy and AI. He highlights U.S. leadership in AI over China, describes allowing data centers to build dedicated power plants as his idea, notes advanced plant designs by tech firms, and explains how excess electricity would feed into the grid to help states like California avoid shortages."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T19:45:21Z
 sourceUrl: "https://www.youtube.com/watch?v=aUxWgRQOdtA"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

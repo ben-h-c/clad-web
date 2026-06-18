@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Newsom Accuses Trump DOJ of Tax Investigation Targeting Him and Wife"
 summary: "The ABC News segment reports California Gov. Gavin Newsom's public statements accusing President Trump of directing the Justice Department to investigate him and his wife Jennifer Siebel Newsom. Newsom claims federal agents are questioning family, friends, and former employees without evidence of a crime, attributing it to his potential 2028 presidential run and criticism of Trump. The report notes sources indicating the probe examines the wife's taxes, Newsom's response demanding family be left out, and Acting AG Todd Blanch declining comment on Capitol Hill."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:51:37Z
 sourceUrl: "https://www.youtube.com/watch?v=ElaZpFDXzK8"
 sourceTitle: "ABC News"
 section: "Politics"

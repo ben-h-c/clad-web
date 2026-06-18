@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Padilla Defends DACA on 14th Anniversary, Cites Stats and Renewal Delays"
 summary: "Sen. Alex Padilla (D-CA) spoke on the Senate floor marking the June 15, 2012, creation of DACA. He highlighted the program's origins under Obama as temporary relief, noted that recipients have fulfilled requirements, and argued Congress has failed to provide permanence via the DREAM Act. Padilla cited current enrollment figures, average age and residency, employment rates, economic contributions, family statistics, and three illustrative stories from California recipients facing USCIS renewal backlogs. He accused the Trump administration of undermining the program through processing delays amid broader deportation efforts."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:27:29Z
 sourceUrl: "https://www.youtube.com/watch?v=36dkjPxCix0"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

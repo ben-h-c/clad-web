@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Obama Foundation CEO previews presidential center opening and exhibit narrative"
 summary: "Bloomberg Television segment features Obama Foundation CEO discussing the Obama Presidential Center's public opening on June 19, 2026. The CEO highlights the timing with the US 250th anniversary, the museum's narrative arc from the Declaration of Independence through various civil rights and social movements to Obama's presidency, and themes of hope, progress, and democratic debate.\n\nThe sourcing is direct from the foundation CEO (likely Valerie Jarrett). No opposing voices or external experts appear; the segment aligns with official foundation materials on programming and exhibit design. The throughline is promotional messaging around unity and civic inspiration ahead of the June opening events."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:01:33Z
 sourceUrl: "https://www.youtube.com/watch?v=cCEIYZQs1Gs"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

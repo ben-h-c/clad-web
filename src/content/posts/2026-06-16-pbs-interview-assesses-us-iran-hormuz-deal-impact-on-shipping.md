@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "PBS interview assesses US-Iran Hormuz deal impact on shipping"
 summary: "The segment features host discussion with maritime security expert Ian Raby on a US-Iran framework deal to reopen the Strait of Hormuz amid recent conflict. Topics include ship traffic levels, deal uncertainty as an MOU, potential fees or tolls, mine clearance timelines, and long-term trade recovery. Raby stresses the need for certainty before shipping resumes and notes risks to freedom of navigation precedents. Sourcing draws from Trump's public statements, unnamed industry contacts, and the expert's professional assessment during the June 2026 developments."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:28:14Z
 sourceUrl: "https://www.youtube.com/watch?v=CjKBgdHoRm4"
 sourceTitle: "PBS NewsHour"
 section: "Politics"

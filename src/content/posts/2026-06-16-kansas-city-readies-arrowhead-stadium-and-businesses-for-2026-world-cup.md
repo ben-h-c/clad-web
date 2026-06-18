@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Kansas City readies Arrowhead Stadium and businesses for 2026 World Cup"
 summary: "The NBC News segment covers Kansas City's preparations as host for six 2026 FIFA World Cup matches at GEHA Field at Arrowhead Stadium, renamed Kansas City Stadium. It details field conversions including seat removal for FIFA pitch width, new Bermuda grass, upgraded lighting, and business ramp-ups at venues like Joe's Barbecue and Charlie Hustle apparel."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:25:09Z
 sourceUrl: "https://www.youtube.com/watch?v=nKPuT20n5YU"
 sourceTitle: "NBC News"
 section: "Politics"

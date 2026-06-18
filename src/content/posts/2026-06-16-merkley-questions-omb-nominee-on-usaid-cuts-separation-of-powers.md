@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Merkley Questions OMB Nominee on USAID Cuts, Separation of Powers"
 summary: "The clip shows Sen. Jeff Merkley questioning Hal Duncan, nominee for OMB Deputy Director, during a Senate Budget Committee hearing. Merkley criticizes Duncan's experience, accuses the administration of constitutional violations on war powers, tariffs, and spending, and highlights the dismantling of USAID.\nMerkley cites public health school estimates of roughly 500,000 child deaths from halted malaria, HIV/AIDS, TB, nutrition, and dysentery programs after USAID functions were largely transferred to the State Department with major reductions. He questions whether Duncan will defend congressional appropriations and separation of powers."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:15:03Z
 sourceUrl: "https://www.youtube.com/watch?v=E9Srvm8rqhE"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

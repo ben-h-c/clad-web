@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Spaceflight Now delivers accurate live coverage of Starlink 17-54 Falcon 9 launch"
 summary: "Spaceflight Now provided live commentary for the Starlink 17-54 mission, covering the final 30 minutes of countdown, propellant loading, strongback operations, weather and the successful liftoff of Falcon 9 B1093 from SLC-4E at Vandenberg. Segments included detailed rocket specifications, booster flight history, trajectory, drone-ship landing and post-launch mission statistics.\nThe broadcast relied on real-time SpaceX webcast audio, pad cameras, official timelines and pre-produced graphics; no external guests appeared. The 70th SpaceX orbital launch of 2026 was highlighted alongside cumulative Falcon 9 and industry landing records."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T16:02:25Z
 sourceUrl: "https://www.youtube.com/watch?v=3vAySaHTtuo"
 sourceTitle: "Spaceflight Now"
 section: "Politics"

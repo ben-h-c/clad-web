@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Durbin Cites Rising Inflation and Costs in Critique of Trump Policies"
 summary: "Sen. Dick Durbin delivered remarks on the Senate floor criticizing President Trump's handling of inflation and household costs. He referenced recent BLS data showing inflation at a three-year high, cited an NBC poll on presidential approval, and highlighted a Joint Economic Committee report on increased spending by Illinois households on housing, groceries, and gasoline. Durbin also referenced Trump's quoted remark on inflation and Democratic amendments addressing affordability and other issues."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T15:54:53Z
 sourceUrl: "https://www.youtube.com/watch?v=EqamStcn50s"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

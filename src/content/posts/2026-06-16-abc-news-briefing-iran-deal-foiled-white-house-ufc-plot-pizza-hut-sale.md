@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News Briefing: Iran Deal, Foiled White House UFC Plot, Pizza Hut Sale"
 summary: "ABC News segment covers President Trump announcing a US-Iran preliminary agreement at the G7 summit, with terms unclear and further negotiations ahead. It details an FBI-disrupted plot using explosive drones and snipers targeting the White House UFC event, naming suspect Tyson Proper and anti-government motives. Additional stories include Texas floods, California wildfires, an Indonesia earthquake, a B-52 crash at Edwards AFB killing eight, Pizza Hut's $1.5 billion sale to LongRange Capital, and lighter items on movies, tennis, and Knicks memorabilia."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:45:40Z
 sourceUrl: "https://www.youtube.com/watch?v=mAa4f9kEzQY"
 sourceTitle: "ABC News"
 section: "Politics"

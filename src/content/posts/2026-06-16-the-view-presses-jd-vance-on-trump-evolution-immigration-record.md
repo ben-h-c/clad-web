@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "The View presses JD Vance on Trump evolution, immigration record"
 summary: "The segment features JD Vance discussing his 2016 criticisms of Trump, including the 'America's Hitler' remark, and his shift to supporting him as VP. He attributes the change to humility after policy predictions on wages and manufacturing proved incorrect. Hosts challenge him on Christian moral consistency regarding Trump rhetoric and current immigration enforcement."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:22:01Z
 sourceUrl: "https://www.youtube.com/watch?v=CEDAm8mDiMc"
 sourceTitle: "The View"
 section: "Politics"

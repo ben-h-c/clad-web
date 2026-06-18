@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News reports on South flash floods, 17M under watch"
 summary: "The segment covers deadly flash flooding across the South, highlighting a fatality in Texas, inundated streets in Houston, an overflowing pool in Austin, and road flooding in D'Iberville, Mississippi. It notes 17 million people under flood watch and mentions Texas Gov. Abbott issuing a disaster declaration for coastal communities amid forecasts of additional heavy rain.\nThe report relies on on-scene video, official statements from authorities, and National Weather Service alerts. No named experts or interviews beyond officials; emphasis on immediate impacts and the moving storm system."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:05:52Z
 sourceUrl: "https://www.youtube.com/watch?v=Xah0pvYortI"
 sourceTitle: "ABC News"
 section: "Politics"

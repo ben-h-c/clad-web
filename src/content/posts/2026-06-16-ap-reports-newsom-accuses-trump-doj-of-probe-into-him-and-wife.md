@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "AP reports Newsom accuses Trump DOJ of probe into him and wife"
 summary: "The broadcast covers California Gov. Gavin Newsom's Monday video statement accusing the Trump Justice Department of investigating him and his wife Jennifer Siebel Newsom. He claims agents have questioned associates and sought records to manufacture a case, tied to his potential presidential run. A person familiar with the matter confirms multiple federal probes, including one into the wife's taxes. The segment notes unclear full details and places it in a broader pattern of DOJ actions against Trump critics. Sourcing relies on Newsom's public post, his office statements, and one anonymous knowledgeable source; no on-camera experts or primary documents are shown."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:00:16Z
 sourceUrl: "https://www.youtube.com/watch?v=iNxLD49JR9E"
 sourceTitle: "Associated Press"
 section: "Politics"

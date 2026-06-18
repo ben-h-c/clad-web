@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Iran World Cup team coach says squad ordered to leave US after opener"
 summary: "Bloomberg News clip reports Iranian World Cup coach Amir Ghalenoei stating that the team was ordered to leave the US immediately after its 2-2 draw with New Zealand in Los Angeles on June 15, 2026. The squad was told to board a flight to Tijuana, Mexico, rather than stay overnight in the Los Angeles area as planned. The team had been training in Tijuana and commuting for matches due to prior logistical arrangements.\n\nThe report relies on the coach's post-match comments and references the match outcome. No named US officials or additional sources are quoted in the clip."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:00:12Z
 sourceUrl: "https://www.youtube.com/watch?v=QLXHUYyKpZc"
 sourceTitle: "Bloomberg News"
 section: "Politics"

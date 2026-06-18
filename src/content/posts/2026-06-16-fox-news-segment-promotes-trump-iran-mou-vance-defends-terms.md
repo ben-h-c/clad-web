@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News segment promotes Trump-Iran MOU, Vance defends terms"
 summary: "The segment features Vice President JD Vance joining 'The Five' to discuss a new US-Iran memorandum of understanding announced during the G7 summit. Vance outlines the agreement's core elements—no Iranian nuclear weapon, open Strait of Hormuz, conditional benefits for behavioral changes—and explains a delayed public release tied to mediation and a Friday signing. Panelists contrast it favorably with the JCPOA, highlight prior military strikes' effects on Iranian capabilities, and note economic upside.\nVance's new book 'Communion' is teased but not discussed in depth. Sourcing is primarily Vance and administration-aligned commentary with references to WSJ and Axios reporting on leaks; no opposing experts or detailed primary documents are presented."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:30:06Z
 sourceUrl: "https://www.youtube.com/watch?v=_ZiStHPEoNs"
 sourceTitle: "Fox News"
 section: "Politics"

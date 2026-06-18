@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Warns Iran MoU Not Final, Threatens to Resume Strikes"
 summary: "The Reuters clip shows President Trump speaking to reporters at the G7 summit in France, responding to a question on whether the agreement with Iran is final. He states it is only a memorandum of understanding and warns that unsatisfactory terms or Iranian misbehavior would lead to resumed U.S. military action including bombing.\nThe segment uses direct audio of Trump's remarks with no additional narration or graphics; it is part of ongoing coverage of U.S.-Iran negotiations following recent ceasefire developments."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T16:52:25Z
 sourceUrl: "https://www.youtube.com/watch?v=8tojE6icQS4"
 sourceTitle: "Reuters"
 section: "Politics"

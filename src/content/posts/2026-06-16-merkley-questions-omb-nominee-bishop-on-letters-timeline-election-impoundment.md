@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Merkley Questions OMB Nominee Bishop on Letters, Timeline, Election, Impoundment"
 summary: "The Forbes clip shows Sen. Jeff Merkley (D-OR) questioning Trump nominee Dan Bishop during a Senate hearing on his OMB role. Merkley critiques Bishop's prior non-responses to letters as legislative liaison, probes the exact timeline of his acting duties, asks if he believes the 2020 election was rigged, and presses on commitments to the Impoundment Control Act and separation of powers regarding cancellation of authorized programs.\nBishop notes Biden's certification as winner without directly answering the rigging question, references prior discussions on deliberative materials, commits to constitutional compliance and the Impoundment Control Act, and mentions historical presidential impoundment authority. The segment ends with Merkley yielding time."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:44:48Z
 sourceUrl: "https://www.youtube.com/watch?v=lI7Rrb8cY5c"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

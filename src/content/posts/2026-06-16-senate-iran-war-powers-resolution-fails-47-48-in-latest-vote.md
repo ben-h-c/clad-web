@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Senate Iran War Powers Resolution Fails 47-48 in Latest Vote"
 summary: "The clip captures the Senate clerk announcing the result of a motion on an Iran War Powers Resolution: 47 yeas and 48 nays, so the motion fails. It then recognizes the senator from Florida. The segment is part of ongoing coverage of repeated Democratic-led attempts to pass measures directing the president to end U.S. military involvement in hostilities with Iran without congressional authorization."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:19:20Z
 sourceUrl: "https://www.youtube.com/watch?v=E0n4yxFdqxw"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

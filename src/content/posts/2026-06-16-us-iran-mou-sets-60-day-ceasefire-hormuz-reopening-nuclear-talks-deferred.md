@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "US-Iran MoU Sets 60-Day Ceasefire, Hormuz Reopening; Nuclear Talks Deferred"
 summary: "The segment covers a US-Iran memorandum of understanding for a 60-day ceasefire extension, reopening of the Strait of Hormuz, lifting of the US naval blockade, and performance-based release of frozen assets. It notes discussion of a $300 billion reconstruction fund with unclear allied contributions and states that nuclear issues remain for later technical talks. President Trump is shown commenting from France alongside Macron, with the formal signing planned for Friday in Geneva attended by VP Vance, Witkoff and Kushner. The report emphasizes no nuclear progress in the current agreement. Sourcing draws from senior US officials on a Monday call, Trump's remarks and expected signatories."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T00:30:06Z
 sourceUrl: "https://www.youtube.com/watch?v=YP2qtA9CUHs"
 sourceTitle: "The Hill"
 section: "Politics"

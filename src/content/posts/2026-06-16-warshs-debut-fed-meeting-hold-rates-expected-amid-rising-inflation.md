@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Warsh's debut Fed meeting: Hold rates expected amid rising inflation"
 summary: "CBS News segment previews Kevin Warsh's first FOMC meeting as Fed Chair, expected to hold interest rates steady following a strong jobs report and rising inflation data. Correspondent Kelly O'Grady discusses projections, potential neutral language shift, and President Trump's push for lower rates to ease borrowing and debt servicing. Segment also covers new Vanguard data showing 6% of 401(k) participants taking hardship withdrawals in 2025, up from prior year. Discussion links personal finance pressures to broader rate uncertainty, noting benefits for asset owners versus challenges for homebuyers. Sourcing relies on correspondent analysis, Vanguard report, and general economic indicators without named external guests."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:05:58Z
 sourceUrl: "https://www.youtube.com/watch?v=Htuey-O0n8w"
 sourceTitle: "CBS News"
 section: "Politics"

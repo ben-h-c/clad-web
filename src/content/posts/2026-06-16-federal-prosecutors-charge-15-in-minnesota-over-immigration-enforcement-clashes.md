@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Federal prosecutors charge 15 in Minnesota over immigration enforcement clashes"
 summary: "The segment covers a June 2026 press conference by U.S. Attorney Daniel Rosen and HSI Special Agent Michael McCarthy announcing an indictment against 15 defendants linked to Direct Action Minnesota and Antifa-affiliated groups. Charges include conspiracy to impede federal officers, assault, stalking, and property destruction tied to actions on Jan. 23 and March 1, 2026, during Operation Metro Surge at the Whipple building and related sites. It details alleged tactics like blockades, shields, and surveillance, plus arrests of 12 defendants.\nThe second part describes sourcing from the indictment, social media posts, and video clips of defendant Kyle Wagner. It notes ongoing investigations, distinctions between protest and crime, and addresses reporter questions on prior dropped cases, injuries, and Antifa definitions."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:29:40Z
 sourceUrl: "https://www.youtube.com/watch?v=eR9oh52EONc"
 sourceTitle: "Associated Press"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Protests Mark Iran's 2-2 Draw vs New Zealand at 2026 World Cup"
 summary: "The segment covers Iran's Group G opener against New Zealand at SoFi Stadium in Inglewood, California, which ended 2-2. It describes protests outside the venue by Iranian Americans opposed to the regime, booing during the national anthem, and fans inside displaying symbols of dissent while cheering the players. CBS correspondent Nicole Valdez reports from the area on the atmosphere separating team support from regime opposition."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:39:59Z
 sourceUrl: "https://www.youtube.com/watch?v=2A5HW5kVW1c"
 sourceTitle: "CBS News"
 section: "Politics"

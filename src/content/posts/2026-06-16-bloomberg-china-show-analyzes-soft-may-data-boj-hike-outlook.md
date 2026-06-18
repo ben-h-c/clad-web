@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg China Show analyzes soft May data, BOJ hike outlook"
 summary: "The China Show covered the opening of Greater China markets amid expectations for weak May activity data, including a first post-Covid retail sales contraction. Segments addressed the Bank of Japan’s anticipated rate hike to 1%, the highest since 1995, alongside RBA and geopolitical updates on the US-Iran MOU for Hormuz reopening. Analysts discussed industrial production strength from AI exports versus consumer weakness and fixed-asset investment declines. The program featured an exclusive interview with Jardine Matheson CEO Lincoln Pan on the firm’s shift to an investment company model, dividend growth, buybacks, and M&A strategy. Sourcing drew from Bloomberg economists, J.P. Morgan strategists, and live Beijing data briefings, with real-time market reaction and graphics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T06:38:23Z
 sourceUrl: "https://www.youtube.com/watch?v=tsPM9RtsANo"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

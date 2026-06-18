@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS Reports on Historic White House UFC Event"
 summary: "The CBS News segment covers President Trump's hosting of the first professional UFC event on the White House South Lawn on June 14, 2026, marking his 80th birthday and America's 250th anniversary celebrations. It describes the transformed grounds, attendance by officials and military personnel, the octagon under a canopy called 'the claw,' flyovers, and key fight outcomes including Justin Gaethje's lightweight title win."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T14:28:43Z
 sourceUrl: "https://www.youtube.com/watch?v=xie6g0rgvZ0"
 sourceTitle: "CBS News"
 section: "Politics"

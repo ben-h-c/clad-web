@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "DW News examines Bundibugyo Ebola outbreak in DRC amid conflict and response challenges"
 summary: "DW News reports on the ongoing Ebola outbreak in eastern DRC caused by the Bundibugyo virus species. Segments cover rising cases and deaths, challenges from armed conflict and community mistrust, on-ground reporting from Goma journalist Alcatanti Jaffa, and expert analysis from Professor Eileen Marty on response difficulties and vaccine prospects.\nThe broadcast draws on interviews with a local journalist and infectious disease expert who has advised WHO; references official figures, Red Cross statements, and Africa CDC warnings. It highlights the 17th DRC Ebola outbreak, low contact tracing rates, and risks of further spread due to insecurity and infrastructure."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:35:28Z
 sourceUrl: "https://www.youtube.com/watch?v=4PIZygHpglI"
 sourceTitle: "DW News"
 section: "Politics"

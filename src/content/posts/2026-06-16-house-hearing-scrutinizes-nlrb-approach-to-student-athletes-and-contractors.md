@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "House Hearing Scrutinizes NLRB Approach to Student Athletes and Contractors"
 summary: "The segment shows Rep. Burgess Owens questioning NLRB witnesses Ms. Carey and Ms. Murphy during a House subcommittee hearing. Topics include alleged Biden-era NLRB efforts to reclassify independent contractors, blocking of decertification petitions, the Atlanta Opera decision, and classification of college athletes as employees under the NLRA.\nWitnesses describe prioritizing blocking charge cases, note ongoing tension with DC Circuit precedent on contractors, and explain the NLRB's limited jurisdiction over private institutions only, suggesting possible congressional action for uniformity on athlete compensation."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:09:13Z
 sourceUrl: "https://www.youtube.com/watch?v=oa2S81Ljm40"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

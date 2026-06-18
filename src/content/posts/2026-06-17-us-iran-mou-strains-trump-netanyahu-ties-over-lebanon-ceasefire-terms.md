@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "US-Iran MOU strains Trump-Netanyahu ties over Lebanon ceasefire terms"
 summary: "The segment discusses a preliminary US-Iran memorandum of understanding aimed at ending hostilities, including in Lebanon, and its impact on US-Israel relations. Correspondent Noga Tanopolski analyzes how the deal sidelines Israeli concerns, focuses on Lebanon rather than the Strait of Hormuz, and prompts ongoing low-level violence and Iranian warnings. It covers reduced but persistent insecurity along the Israel-Lebanon border and Israel's non-participation stance."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:52:18Z
 sourceUrl: "https://www.youtube.com/watch?v=1DcmFvD5wwc"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

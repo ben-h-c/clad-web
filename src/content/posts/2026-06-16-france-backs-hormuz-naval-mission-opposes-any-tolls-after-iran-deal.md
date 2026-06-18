@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "France Backs Hormuz Naval Mission, Opposes Any Tolls After Iran Deal"
 summary: "Bloomberg interviews a French official (Pascal) at the G7 summit on France's readiness to lead a multinational naval mission with the UK to secure the Strait of Hormuz once a US-Iran ceasefire agreement takes effect. The discussion covers opposition to Iranian tolls or fees, deployment timelines involving minesweeping and escorts, frozen assets, and Iran's nuclear program. It also touches on tech export controls for Anthropic models and potential US tariffs on French wine over digital services taxes."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:15:08Z
 sourceUrl: "https://www.youtube.com/watch?v=oEaIBtcHAe4"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

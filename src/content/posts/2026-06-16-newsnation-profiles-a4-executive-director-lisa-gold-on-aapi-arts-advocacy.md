@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NewsNation profiles A4 executive director Lisa Gold on AAPI arts advocacy"
 summary: "The segment features Lisa Gold, executive director of the Asian American Arts Alliance (A4), sharing her personal story and role advocating for greater opportunities for AAPI artists. It covers her background, transition into the position after the prior director stepped down, and emphasis on representation in the arts. The second paragraph notes sourcing from the subject herself via interview, with the organization's website and prior NEA coverage confirming her tenure since 2018 and A4's mission."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:04:47Z
 sourceUrl: "https://www.youtube.com/watch?v=l2u0agM72g0"
 sourceTitle: "NewsNation"
 section: "Politics"

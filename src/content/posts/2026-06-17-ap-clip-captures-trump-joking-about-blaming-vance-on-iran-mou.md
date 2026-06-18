@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "AP clip captures Trump joking about blaming Vance on Iran MOU"
 summary: "The short AP clip shows President Trump at the G7 summit responding to a question about staying for the Iran MOU signing ceremony. He notes it is a memorandum of understanding rather than a full document he needs to sign and jokes that sending Vice President JD Vance allows him to take credit if successful or assign blame if it fails. The exchange matches reporting from the June 17, 2026 G7 press availability in France."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T19:46:15Z
 sourceUrl: "https://www.youtube.com/watch?v=Vk4L_OKwhTA"
 sourceTitle: "Associated Press"
 section: "Politics"

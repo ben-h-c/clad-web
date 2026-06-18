@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Graham: Trump trustworthy on Iran, but Tehran not after decades of deceit"
 summary: "The clip shows Sen. Lindsey Graham responding to a question on whether Trump and Iran can reach a good deal to end conflict. Graham affirms trust in Trump, expresses doubt about Iran given 47 years of deceit, and credits Trump-era actions for weakening Iran militarily and economically. He references Operations Epic Fury and Midnight Hammer, advocates putting Iran in a box to enable regional peace including Saudi Arabia joining the Abraham Accords, and hopes for a diplomatic solution contingent on Iran's choices."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:15:33Z
 sourceUrl: "https://www.youtube.com/watch?v=E56P1iKOhD8"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

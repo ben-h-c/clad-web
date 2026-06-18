@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NBC News spotlights ShellBank, WWF's sea turtle DNA database for fighting illegal trade"
 summary: "The segment introduces ShellBank, described as the world's first comprehensive marine turtle DNA database developed by WWF researchers Dr. Christine Madden Hof and Dr. Michael Jensen. It covers standard threats to sea turtles (habitat loss, bycatch, illegal trade) and highlights how DNA from shells, meat, or eggs can trace origins to specific nesting beaches to aid enforcement. Experts including Dr. Greta Frankham discuss its use for identifying at-risk populations and disrupting trafficking; the report notes WWF's Buyer Beware campaign and international collaboration.\nThe piece relies on on-camera interviews with named WWF scientists, references the project's genesis from hawksbill research in Australia, and states the database held about 2,000 records with 38 countries interested at the time of reporting. It emphasizes cross-border cooperation for conservation outcomes."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:28:25Z
 sourceUrl: "https://www.youtube.com/watch?v=ZOtI4mAd5pA"
 sourceTitle: "NBC News"
 section: "Politics"

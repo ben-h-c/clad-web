@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "AP Streams Live Footage of Anti-Regime Protest Near LA World Cup Venue"
 summary: "The Associated Press live stream captured a demonstration by Iranian Americans outside or near SoFi Stadium in the Los Angeles area ahead of Iran's 2026 World Cup match against New Zealand. Protesters chanted against the Islamic Republic, referred to the regime as terrorists, waved pre-revolutionary Lion and Sun flags, and included calls for President Trump to 'finish the job' along with 'no more' and 'no deal with them.'\nThe broadcast relied on raw live footage and ambient audio from the scene without on-camera reporters, expert guests, or extensive graphics; it documented the event as part of broader Iranian diaspora opposition to the Tehran government during the tournament."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T04:43:00Z
 sourceUrl: "https://www.youtube.com/watch?v=ZinZvnZBMtA"
 sourceTitle: "Associated Press"
 section: "Politics"

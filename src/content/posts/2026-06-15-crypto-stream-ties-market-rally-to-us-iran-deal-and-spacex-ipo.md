@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Crypto Stream Ties Market Rally to US-Iran Deal and SpaceX IPO"
 summary: "The stream covers a green crypto and stock market day with Bitcoin near $66,000, altcoins up 8-9%, and broader indices rising. Segments focus on drivers including a prospective US-Iran peace deal ending conflict and reopening the Strait of Hormuz, falling oil prices, the recent SpaceX IPO, ETF flows, MicroStrategy purchases, and technical analysis signaling bullish momentum. Sourcing relies on live market data, recent news on the deal and IPO, Standard Chartered commentary, and the host's chart observations; no named guests appear."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T14:34:45Z
 sourceUrl: "https://www.youtube.com/watch?v=Vvl2mmgR5Sk"
 sourceTitle: "CryptosRUs"
 section: "Politics"

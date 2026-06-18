@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Kenya fishers use data for sustainable octopus management ahead of ocean conference"
 summary: "The segment profiles small-scale fishers on Kenya's coast using Beach Management Units (BMUs) to digitally record catches and inform management plans, particularly temporary octopus closures. It highlights data-driven decisions leading to larger, higher-value catches and reduced destructive practices like spear gun use. The report notes 12 BMUs collecting data four days a week and support from the Coastal and Marine Resource Development organization.\n\nIt connects the initiative to broader pressures from overfishing, climate change, and pollution, while previewing Kenya's hosting of the 11th Our Ocean Conference in Mombasa starting June 16. Sourcing draws on on-site interviews with fishers, a BMU member, and the organization's executive director, plus conference context."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:46:32Z
 sourceUrl: "https://www.youtube.com/watch?v=dxEwmaKDvtM"
 sourceTitle: "Reuters"
 section: "Politics"

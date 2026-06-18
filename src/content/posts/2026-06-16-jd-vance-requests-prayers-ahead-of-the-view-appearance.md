@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "JD Vance Requests Prayers Ahead of The View Appearance"
 summary: "The brief Fox News segment shows Vice President JD Vance responding to a question about his upcoming appearance on ABC's The View. He notes that he and President Trump aim to take their message everywhere and requests prayers ahead of the interview. The clip highlights the appearance scheduled for June 16, 2026. Vance is set to discuss his new book Communion: Finding My Way Back to Faith along with political topics. The segment relies on Vance's direct comments without additional guests or extensive graphics."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T03:30:35Z
 sourceUrl: "https://www.youtube.com/watch?v=rlRXqE09WcQ"
 sourceTitle: "Fox News"
 section: "Politics"

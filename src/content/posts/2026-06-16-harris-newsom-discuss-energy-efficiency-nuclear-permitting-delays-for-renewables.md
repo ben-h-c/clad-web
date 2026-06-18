@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Harris, Newsom Discuss Energy Efficiency, Nuclear, Permitting Delays for Renewables and AI"
 summary: "The segment features Gavin Newsom and Kamala Harris discussing AI data center energy demands, California grid efficiency improvements, the need for nuclear alongside renewables, and reforms to speed permitting processes. Newsom cites historical peak demand reductions from efficiency and contrasts nuclear safety with fossil fuel pollution deaths. Harris agrees on accelerating permitting to build projects faster and deliver results for the public. The discussion references the Inflation Reduction Act, California laws, and international examples like Austria."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:00:19Z
 sourceUrl: "https://www.youtube.com/watch?v=TcZ-feuZPLY"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

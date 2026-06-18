@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "NewsNation segment examines 'I didn't know' claims in Epstein ties, focuses on Gates"
 summary: "The NewsNation segment discusses the 'I didn't know' defense used by associates of Jeffrey Epstein. It features a legal analyst critiquing Bill Gates' explanation of his meetings with Epstein as a 'grave error in judgment' rather than a minor mistake, noting Epstein's 2008 conviction status at the time of their 2011 meetings.\n\nGates testified voluntarily in a closed-door House Oversight Committee interview the prior week, stating he hoped to aid victims' justice efforts. He has not faced charges. The segment relies on Gates' public statements and committee context with no additional guests or graphics referenced."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:30:03Z
 sourceUrl: "https://www.youtube.com/watch?v=EE8Rct2WnHg"
 sourceTitle: "NewsNation"
 section: "Politics"

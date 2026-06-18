@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "RFK Jr. quarantine order for hantavirus-exposed passenger draws scrutiny"
 summary: "The segment covers Angela Perryman, a passenger from the MV Hondius cruise ship exposed to Andes hantavirus, who has been held for five weeks at the University of Nebraska Medical Center quarantine facility. She describes her initial voluntary quarantine turning mandatory and a medical reviewer's recommendation for release to Florida that was overruled by HHS Secretary Robert F. Kennedy Jr. Perryman and a legal commentator criticize the decision as an rights violation; an HHS statement defends continued quarantine citing inadequate home monitoring from Florida."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T04:15:34Z
 sourceUrl: "https://www.youtube.com/watch?v=hEWgj_P5rp0"
 sourceTitle: "Associated Press"
 section: "Politics"

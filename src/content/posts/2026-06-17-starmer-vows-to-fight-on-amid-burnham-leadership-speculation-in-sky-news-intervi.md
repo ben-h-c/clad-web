@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Starmer vows to fight on amid Burnham leadership speculation in Sky News interview"
 summary: "Sky News interview with Prime Minister Keir Starmer responding to speculation about an Andy Burnham leadership challenge tied to an upcoming Makerfield by-election. Starmer defends his record on the economy, NHS, migration and EU relations while rejecting any intention to step aside.\nThe segment features direct questioning on leadership intentions, comparisons to past PMs, family support and future plans. Sourcing is the live interview itself with no additional guests or graphics referenced beyond Starmer's statements."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T07:53:02Z
 sourceUrl: "https://www.youtube.com/watch?v=BFMSGe8ZIKk"
 sourceTitle: "Sky News"
 section: "Politics"

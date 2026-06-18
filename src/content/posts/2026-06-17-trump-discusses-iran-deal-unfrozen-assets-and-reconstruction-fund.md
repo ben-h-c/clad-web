@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Discusses Iran Deal, Unfrozen Assets and Reconstruction Fund"
 summary: "President Trump addresses reporters on the recently reached US-Iran peace agreement ending months of conflict. He clarifies that the US will not directly fund Iran but will unfreeze assets and allow oil exports if Iran complies with terms, referencing a potential $300 billion reconstruction fund drawn from Iran's own money."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T17:53:25Z
 sourceUrl: "https://www.youtube.com/watch?v=AXDD0BUN0sU"
 sourceTitle: "C-SPAN"
 section: "Politics"

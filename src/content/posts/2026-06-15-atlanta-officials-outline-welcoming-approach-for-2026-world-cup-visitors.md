@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Atlanta Officials Outline Welcoming Approach for 2026 World Cup Visitors"
 summary: "The segment features Atlanta city officials, likely including the mayor or staff from the Office of International and Immigrant Affairs, discussing preparations to host international visitors for upcoming matches. They highlight Atlanta's airport infrastructure, relationships with federal and state partners, and efforts to guide diplomats through visa processes while committing to abide by U.S. immigration laws.\nThe discussion centers on making the city welcoming for fans from participating countries without aggressive enforcement tactics, referencing direct communication with diplomats ahead of the first group-stage fixtures. No named experts or opposing viewpoints appear; sourcing is primarily city statements and implied coordination with customs and border officials."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T16:49:24Z
 sourceUrl: "https://www.youtube.com/watch?v=p6kX7C8wq3M"
 sourceTitle: "AP Archive"
 section: "Politics"

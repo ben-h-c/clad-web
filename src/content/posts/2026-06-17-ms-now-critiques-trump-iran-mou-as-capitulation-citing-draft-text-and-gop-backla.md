@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "MS NOW critiques Trump Iran MOU as capitulation citing draft text and GOP backlash"
 summary: "The segment analyzes a recently signed US-Iran memorandum of understanding (MOU) intended to end recent hostilities, reopen the Strait of Hormuz, and set up 60 days of further negotiations. It plays clips of Trump defending the deal as a 'wall' to Iran's nuclear program and denying a $300 billion reconstruction fund, then contrasts those statements with purported MOU text on reconstruction financing, sanctions termination, nuclear status quo, and access to frozen assets. The broadcast highlights backlash from figures including Nikki Haley, Mike Pence, and the New York Post, plus commentary from guests describing it as a surrender that weakens US standing."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T20:45:27Z
 sourceUrl: "https://www.youtube.com/watch?v=0pIjQBI9Zzk"
 sourceTitle: "MS NOW"
 section: "Politics"

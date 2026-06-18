@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Pollan and Hayes explore consciousness, plants, and AI in philosophical interview"
 summary: "The segment is an extended interview between host Chris Hayes and author Michael Pollan discussing Pollan's 2026 book A World Appears on consciousness. Topics include continuity from Pollan's prior work on food and psychedelics, plant sentience and neurobiology experiments, the hard problem of consciousness, evolutionary and embodied theories versus computational functionalism, and implications for AI, ethics, and human self-understanding.\nPollan draws on interviews with researchers like Stefano Mancuso; Hayes references David Chalmers and Anil Seth. The conversation frames consciousness as potentially extending to plants and animals while questioning whether silicon-based AI can achieve it without embodiment or biological drives."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:00:18Z
 sourceUrl: "https://www.youtube.com/watch?v=Xgd_bQ4Mscg"
 sourceTitle: "MS NOW"
 section: "Politics"

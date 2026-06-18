@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters clip shows Egyptian fans upbeat after 1-1 World Cup draw with Belgium"
 summary: "The Reuters video features Egyptian fans reacting positively to their team's performance in the opening match of the 2026 FIFA World Cup against Belgium. Fans note a strong first half, wasted scoring chances, and a respectable overall showing while expressing hope that upcoming group games will be easier. The segment includes cheering and ambient crowd noise from what appears to be a viewing area or fan gathering. Sourcing consists of on-the-ground vox pops with unnamed supporters; no experts, officials, or graphics are referenced. The throughline is post-match optimism despite the draw."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T09:40:11Z
 sourceUrl: "https://www.youtube.com/watch?v=byb1WPm9VlE"
 sourceTitle: "Reuters"
 section: "Politics"

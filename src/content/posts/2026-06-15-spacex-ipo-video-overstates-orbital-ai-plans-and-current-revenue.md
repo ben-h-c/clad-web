@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX IPO Video Overstates Orbital AI Plans and Current Revenue"
 summary: "The video claims SpaceX earns more from AI than rockets and is building orbital data centers using Starship to solve Earth's power and cooling limits for AI. It positions these satellites as a trillion-dollar monopoly funding a Mars city, tied directly to the company's IPO. Segments focus on the technical concept of space-based compute with solar power and radiative cooling, plus Starship's role in deployment."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T19:37:20Z
 sourceUrl: "https://www.youtube.com/watch?v=UkAIuT2PxnA"
 sourceTitle: "Story Moments"
 section: "Politics"

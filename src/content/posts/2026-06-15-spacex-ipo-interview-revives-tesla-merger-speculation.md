@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX IPO Interview Revives Tesla Merger Speculation"
 summary: "The video analyzes a June 12, 2026 CNBC interview with SpaceX President and COO Gwynne Shotwell conducted by Morgan Brennan on the day of SpaceX's Nasdaq IPO. Segments focus on her response to Tesla merger rumors, Starship progress, AI satellite plans, natural gas infrastructure, and potential AI company acquisitions. Guest Larry Goldberg of LumaSenti joins to discuss merger likelihood in 2027 and executive team strengths.\nThe broadcast draws from the public CNBC interview footage, analyst notes such as Dan Ives of Wedbush, and Goldberg's prior commentary. It highlights synergies between the companies while speculating on governance and operational integration."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T13:30:26Z
 sourceUrl: "https://www.youtube.com/watch?v=hxP7gvkOsN8"
 sourceTitle: "Brighter with Herbert"
 section: "Politics"

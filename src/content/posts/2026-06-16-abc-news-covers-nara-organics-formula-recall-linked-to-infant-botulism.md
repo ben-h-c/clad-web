@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News Covers Nara Organics Formula Recall Linked to Infant Botulism"
 summary: "The segment reports a voluntary recall by Nara Organics of all its Whole Milk Organic Infant Formula due to potential Clostridium botulinum contamination. It notes three infants hospitalized across California, Pennsylvania, and Washington after consuming the product sold at Target. Dr. Sharon Nochman of Stony Brook Children's Hospital explains subtle early symptoms such as irritability, constipation, and poor feeding, urging parents to contact their pediatrician promptly. She details the use of botulism immunoglobulin (BIG) treatment and the weeks-to-months recovery timeline for affected infants.\nThe report relies on CDC outbreak data and a single named pediatric infectious disease specialist; no additional guests or on-screen graphics are referenced in the transcript."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T18:46:03Z
 sourceUrl: "https://www.youtube.com/watch?v=byA55s2sb94"
 sourceTitle: "ABC News"
 section: "Politics"

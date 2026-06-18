@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Whitehouse criticizes Blanche AG nomination over slush fund, Epstein files"
 summary: "MS NOW segment features Sen. Sheldon Whitehouse (D-RI) discussing Trump's nomination of acting AG Todd Blanche for permanent Attorney General. Whitehouse criticizes Blanche's role in a proposed $1.8B anti-weaponization fund, handling of Epstein files, and alleged political investigations.\nThe interview covers potential GOP concerns from senators like Cassidy and Tillis, Blanche's meetings on the Hill, and references to cases involving Newsom, Comey, and others. It contrasts Blanche with Jay Clayton for DNI and notes Whitehouse's Judiciary Committee role."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:32:57Z
 sourceUrl: "https://www.youtube.com/watch?v=mqauDsbVCfY"
 sourceTitle: "MS NOW"
 section: "Politics"

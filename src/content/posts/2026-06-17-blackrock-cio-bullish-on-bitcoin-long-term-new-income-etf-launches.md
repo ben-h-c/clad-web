@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "BlackRock CIO Bullish on Bitcoin Long-Term; New Income ETF Launches"
 summary: "The video discusses BlackRock CIO Rick Rieder's recent comments that Bitcoin is likely to go considerably higher long-term despite short-term choppiness and reduced exposure. It covers the launch of BlackRock's new Bitcoin premium income ETF using covered calls, market impact from Japan's rate hike, SpaceX's high valuation and trading activity, Ripple's stake in Flutterwave, tokenized equities on Solana, and Grayscale's views on decentralized AI via Bittensor (TAO)."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-16T20:20:21Z
 sourceUrl: "https://www.youtube.com/watch?v=at3WIe_ugrI"
 sourceTitle: "Altcoin Daily"
 section: "Politics"

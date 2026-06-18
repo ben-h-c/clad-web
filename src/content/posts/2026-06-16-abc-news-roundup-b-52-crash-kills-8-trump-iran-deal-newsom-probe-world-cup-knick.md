@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC News Roundup: B-52 Crash Kills 8, Trump-Iran Deal, Newsom Probe, World Cup, Knicks Parade"
 summary: "The segment opens with the B-52 bomber crash at Edwards Air Force Base that killed all eight aboard during a radar test mission and moves to President Trump at the G7 touting a US-Iran ceasefire agreement whose text remains unreleased. It covers conflicting US and Iranian accounts on the deal terms, including port access and 60-day nuclear talks, plus Iranian claims regarding Lebanon. Additional segments address Gavin Newsom's accusations of a politically motivated DOJ investigation, Luigi Mangione's upcoming hearing in the UnitedHealthcare CEO murder case, Diddy's revised prison release date, Brendan Sssby's departure from Texas Tech amid gambling issues, Iran's 2-2 World Cup draw with New Zealand, and lighter items including the America 250 time capsule, a viral Cape Verde goalkeeper, and the New York Knicks championship parade."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T10:21:02Z
 sourceUrl: "https://www.youtube.com/watch?v=Rdqv306_Gls"
 sourceTitle: "ABC News"
 section: "Politics"

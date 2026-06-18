@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Richardson, Texas residents protest Amazon Prime Air drone flights over homes"
 summary: "The segment covers protests in Richardson, Texas over Amazon Prime Air drone deliveries residents describe as a 'drone highway.' A local homeowner complains about audible noise inside homes; the report notes city leaders approved operations last year but some residents say they lacked prior notice. An Amazon spokesperson states the company raised flight altitudes and adjusted paths to lessen residential impacts. Segments focus on noise, privacy, and safety issues with regular overflights near homes and a school. Sourcing includes resident quotes, city approval details, and an official Amazon statement; no on-camera experts or graphics beyond the basic report."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T12:54:20Z
 sourceUrl: "https://www.youtube.com/watch?v=W7AqGsbvwWQ"
 sourceTitle: "NBC News"
 section: "Politics"

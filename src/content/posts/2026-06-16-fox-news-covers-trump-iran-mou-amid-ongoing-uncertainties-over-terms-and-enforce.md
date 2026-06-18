@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News covers Trump-Iran MOU amid ongoing uncertainties over terms and enforcement"
 summary: "The segment reported on a US-Iran memorandum of understanding signed electronically, with a formal ceremony planned for Friday in Switzerland, aimed at extending a ceasefire, reopening the Strait of Hormuz, and starting 60-day nuclear negotiations. It covered Israeli strikes in Lebanon, Netanyahu's vow to maintain security zones, Gulf and Pakistani reactions, and panel debate on whether the framework improves on the JCPOA. Sourcing included Fox correspondents, White House officials, Vice President Vance, Iranian state media, and analysts; graphics and quotes referenced but deal text not shown. Throughline: uncertainty over details and compliance."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T03:45:16Z
 sourceUrl: "https://www.youtube.com/watch?v=lrzWmOBZyeA"
 sourceTitle: "Fox News"
 section: "Politics"

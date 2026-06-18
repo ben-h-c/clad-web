@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ICE Agent Struck by Peruvian Suspect's Vehicle in New Jersey Arrest"
 summary: "The Fox News short reports an ICE officer struck by a vehicle during an arrest attempt in New Jersey on June 15. Officials describe the suspect as a Peruvian national who fled and hit the agent, prompting the agent to fire at the vehicle; the suspect remains at large with the officer's injuries unknown. The clip notes the location is roughly 85 miles from Delaney Hall in Newark, site of recent protests over detention conditions, and states the investigation is ongoing.\nIt draws from law enforcement statements and references the separate protest activity at the ICE facility without additional sourcing or on-camera guests."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:30:35Z
 sourceUrl: "https://www.youtube.com/watch?v=KW7c3KuD8DI"
 sourceTitle: "Fox News"
 section: "Politics"

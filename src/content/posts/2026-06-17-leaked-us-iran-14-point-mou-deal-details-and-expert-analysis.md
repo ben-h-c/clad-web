@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Leaked US-Iran 14-Point MoU: Deal Details and Expert Analysis"
 summary: "DW News reports on a leaked 14-point memorandum of understanding between the US and Iran ahead of a planned June 19 signing. Segments cover the draft's key provisions including ceasefire, sanctions relief, a $300 billion reconstruction fund, and Iran's nuclear pledge, alongside Trump's warnings. The broadcast features analysis from Middle East expert Megan Sutcliffe on leverage trade-offs, nuclear sequencing, regional power dynamics, fund financing, agreement fragility regarding Israel and Lebanon, and risks of renewed conflict."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T16:50:56Z
 sourceUrl: "https://www.youtube.com/watch?v=skr1OH3SDvE"
 sourceTitle: "DW News"
 section: "Politics"

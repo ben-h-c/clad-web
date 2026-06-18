@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Sen. Kennedy praises Trump Iran MOU as major setback for Tehran"
 summary: "The segment features Sen. John Kennedy reacting to a US-Iran memorandum of understanding to end recent hostilities. Kennedy describes the short conceptual document, notes the Strait of Hormuz blockade lift and falling oil prices, and asserts major damage to Iran's nuclear and military capabilities from prior US actions.\nKennedy stresses Iran is significantly weakened, calls the regime untrustworthy, and argues the world is safer regardless of full deal compliance. The interview is hosted by Will on Fox News, drawing from administration statements and public developments."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T01:30:29Z
 sourceUrl: "https://www.youtube.com/watch?v=9q8i2HIHm3c"
 sourceTitle: "Fox News"
 section: "Politics"

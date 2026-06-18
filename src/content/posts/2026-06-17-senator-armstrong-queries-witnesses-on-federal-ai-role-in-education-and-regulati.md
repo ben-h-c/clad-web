@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Senator Armstrong Queries Witnesses on Federal AI Role in Education and Regulation"
 summary: "The segment features Senator Alan Armstrong in a Senate committee listening session on AI. He questions witnesses including entrepreneur Mr. Jones, Ms. Smote, and Secretary Martin on specific federal actions for AI oversight, research, safety standards, and support for AI integration in schools.\nWitnesses highlight burdens of varying state regulations on small businesses, advocate faster policy review cycles, full funding for Title II and IV professional development, protection of E-Rate connectivity funds, expanded FCC cybersecurity resources, and federal research plus voluntary best practices frameworks for educators."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T03:30:17Z
 sourceUrl: "https://www.youtube.com/watch?v=KoqKtOQ1udg"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

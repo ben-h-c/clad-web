@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump and Kemp Back Rivals in Georgia GOP Senate Runoff"
 summary: "The segment covers multiple state primaries and runoffs on June 16, 2026, including Georgia's Republican Senate runoff between Rep. Mike Collins and Derek Dooley, and the governor's race between Rick Jackson and Lt. Gov. Burt Jones. It notes the winners will face Democrats Jon Ossoff and Keisha Lance Bottoms, respectively, and discusses Alabama's Senate runoff between Rep. Barry Moore and Jared Hudson. CBS political director Finn Gomez provides analysis on endorsements and political dynamics. Sourcing relies on live expert commentary, references to Trump social media posts, prior election results, and campaign finance figures."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:37:50Z
 sourceUrl: "https://www.youtube.com/watch?v=8b7HJ1Z92hg"
 sourceTitle: "CBS News"
 section: "Politics"

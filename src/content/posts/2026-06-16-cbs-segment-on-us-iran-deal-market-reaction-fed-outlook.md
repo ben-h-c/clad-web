@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS segment on US-Iran deal, market reaction, Fed outlook"
 summary: "The segment opens with live NYSE footage noting the Dow's rise tied to Monday's US-Iran deal news ending the war. Guest Laura Senakola of Barron's discusses slower pass-through of lower oil futures to pump prices (2-3 weeks) and normalization if the deal holds. It then covers incoming Fed Chair Kevin Walsh's first meeting, potential rate cuts later in the year if oil falls, the 60-day negotiation period, and labor-market signals including AI effects on unemployment."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T21:20:51Z
 sourceUrl: "https://www.youtube.com/watch?v=ChXIloZ_HsM"
 sourceTitle: "CBS News"
 section: "Politics"

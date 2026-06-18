@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "PBS NewsHour Reports on Trump-Iran Ceasefire Deal, G7, and Domestic Stories"
 summary: "The episode opened with President Trump at the G7 summit in France promoting an initial U.S.-Iran memorandum on extending a ceasefire and reopening the Strait of Hormuz. Segments covered Israeli public and official reactions to the deal, a White House UFC event for Trump's birthday, the removal of Trump's name from the Kennedy Center, and other headlines including probes into Gavin Newsom, a B-52 crash, Ukraine attacks, an Ebola outbreak, a UK social media ban, FOX's purchase of Roku, and stock market gains.\nThe second half featured an interview with dermatologist Dr. Rachel Nazarian on a newly approved sunscreen ingredient and a discussion with Princeton Professor Eddie Glaude Jr. on race and American anniversaries, plus coverage of the New York Knicks' NBA title win. Sourcing relied on on-the-record statements from officials like Trump, Netanyahu, Vance, and experts; graphics and correspondent reports were used throughout."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T23:51:27Z
 sourceUrl: "https://www.youtube.com/watch?v=HcSS5vz1PQ8"
 sourceTitle: "PBS NewsHour"
 section: "Politics"

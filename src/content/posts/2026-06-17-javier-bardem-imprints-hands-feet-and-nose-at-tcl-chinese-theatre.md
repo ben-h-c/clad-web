@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Javier Bardem Imprints Hands, Feet and Nose at TCL Chinese Theatre"
 summary: "The Reuters clip covers Spanish actor Javier Bardem participating in a hand, foot and nose imprint ceremony at the TCL Chinese Theatre forecourt in Hollywood on June 16, 2026. Bardem jokes about imprinting his prominent nose, calling it a trademark feature of his face after the hands and feet. A voiceover praises his grounded, generous and politically committed approach to acting and life.\nThe segment uses direct audio from Bardem at the event alongside brief narration. It aligns with standard Reuters style for celebrity honors, relying on on-site footage without additional guests or graphics."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T04:25:19Z
 sourceUrl: "https://www.youtube.com/watch?v=uDblvRH1l_g"
 sourceTitle: "Reuters"
 section: "Politics"

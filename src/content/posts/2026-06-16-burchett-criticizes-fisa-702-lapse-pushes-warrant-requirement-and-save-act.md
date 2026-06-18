@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Burchett criticizes FISA 702 lapse, pushes warrant requirement and SAVE Act"
 summary: "Fox Business segment covered the recent lapse of FISA Section 702 authority after the House rejected a short-term extension. Senator Lankford and host discussed national security risks, while interviewing Rep. Tim Burchett, who voted against the extension alongside some Democrats. Burchett argued for warrants, criticized past abuses, linked renewal to the SAVE America Act, and addressed Social Security and Medicare solvency issues. The segment referenced Trump's Truth Social posts tying FISA to voting reforms."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T09:00:16Z
 sourceUrl: "https://www.youtube.com/watch?v=LGR9Yfh802U"
 sourceTitle: "Fox Business"
 section: "Politics"

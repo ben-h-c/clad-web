@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Interview with DOJ's Essayli on California voter fraud probes and audit lawsuit"
 summary: "KCRA 3 interviewed First Assistant U.S. Attorney Bill Essayli about federal election fraud investigations in California. He discussed a recent guilty plea in a case involving payments to homeless individuals for fraudulent registrations, multiple ongoing probes expected to yield charges, and litigation seeking a statewide voter roll audit under federal law.\nEssayli cited issues with mail voting, ballot harvesting, lack of ID requirements, and non-citizen registrations. He referenced a Skid Row video and criticized state resistance to the audit, which is pending before the Ninth Circuit. The segment sourced primarily from Essayli's public statements and prior DOJ announcements."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T15:25:56Z
 sourceUrl: "https://www.youtube.com/watch?v=rW1gCAwDKYQ"
 sourceTitle: "KCRA 3"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Gen. Keane analyzes Trump-Iran framework deal on Fox News"
 summary: "The segment covers President Trump's G7 announcement of a signed initial US-Iran agreement to end recent conflict, partially reopen the Strait of Hormuz immediately with full opening by Friday, clear mines, and ensure Iran has no nuclear weapon under strong verification. Gen. Jack Keane reacts, noting Trump's prior actions, Iran's attacks on the strait, US bases, allies, and Hezbollah's actions against Israel during a recent ceasefire, plus ongoing domestic repression."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T10:30:08Z
 sourceUrl: "https://www.youtube.com/watch?v=_cquMJSQyDQ"
 sourceTitle: "Fox News"
 section: "Politics"

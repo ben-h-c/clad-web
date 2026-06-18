@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters video accurately covers Messi World Cup hat-trick vs Algeria"
 summary: "The Reuters clip features fan reactions and commentary celebrating Lionel Messi's hat-trick in Argentina's 2026 World Cup opening match. It highlights Messi's three goals in a victory, references his age and World Cup experience, and includes brief mentions of other players' contributions. Sourcing relies on on-site fan interviews and announcer narration without named experts or extensive graphics."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T08:25:22Z
 sourceUrl: "https://www.youtube.com/watch?v=Q3jNIqckGP8"
 sourceTitle: "Reuters"
 section: "Politics"

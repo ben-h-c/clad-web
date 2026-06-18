@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "G7 Allies Question Trump Iran Deal Timeline; Markets Pause"
 summary: "The broadcast covers European G7 skepticism toward President Trump's Iran MOU and promised Strait of Hormuz reopening by Friday, alongside Israeli opposition straining ties with Netanyahu. It reports the Bank of Japan raising its benchmark rate to 1% (highest since 1995), disappointing China retail sales data, and market reactions including sideways U.S. futures and lower oil prices.\nSourcing draws on Bloomberg correspondents in Jerusalem and Europe, a Long Island University professor, Bank of Singapore analyst, Ninety One natural resources head, Georgetown University Qatar professor, and official announcements like the BOJ decision and RBA rate hold. Segments blend live reports, expert interviews, and market checks."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T08:14:29Z
 sourceUrl: "https://www.youtube.com/watch?v=-duJPH_mE-s"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Carney details G7 talks on trade, energy, Iran at France summit"
 summary: "The broadcast shows Canadian Prime Minister Mark Carney addressing reporters at the G7 summit in Évian-les-Bains, France, on June 16-17, 2026. He fields questions on bilateral discussions with U.S. President Trump, the Canada-China EV import quota agreement, potential energy exports to Europe, progress on a Canada-India trade deal, and geopolitical issues including Iran and Ukraine."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T06:40:22Z
 sourceUrl: "https://www.youtube.com/watch?v=RTtg8lF6lWc"
 sourceTitle: "Associated Press"
 section: "Politics"

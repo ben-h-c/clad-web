@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Massie cites Jordan op-ed in FISA 702 extension debate"
 summary: "The segment shows Rep. Thomas Massie (R-KY) opposing a clean 21-day extension of Section 702 authorities on the House floor. He reads from a Washington Post op-ed by Judiciary Chairman Jim Jordan (R-OH) from the prior year calling for a warrant requirement and references past statements tying opposition to warrantless surveillance to abuses during the Trump campaign. Other members debate the short-term extension amid stalled negotiations, with Democrats pushing for reforms and Republicans citing national security needs including border and event security. Speakers reference prior one-week and 45-day extensions and Tulsi Gabbard's role."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T18:09:22Z
 sourceUrl: "https://www.youtube.com/watch?v=icjuj-RULf0"
 sourceTitle: "Hook Global"
 section: "Politics"

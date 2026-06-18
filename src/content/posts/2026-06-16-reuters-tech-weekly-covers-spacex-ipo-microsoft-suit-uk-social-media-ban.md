@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters Tech Weekly covers SpaceX IPO, Microsoft suit, UK social media ban"
 summary: "The segment recaps four tech stories: SpaceX's record $75 billion IPO pricing at $135 per share for a $1.77 trillion valuation; a shareholder class-action suit against Microsoft alleging nondisclosure of Azure slowdowns and AI spending; UK Prime Minister Keir Starmer's announcement of a social media ban for under-16s effective by spring 2027; and Ford seeking Commerce Department approval to continue selling China-built Lincoln Nautilus SUVs amid a ban on Chinese-developed vehicle software."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:02:09Z
 sourceUrl: "https://www.youtube.com/watch?v=qRCgmAJ08EU"
 sourceTitle: "Reuters"
 section: "Politics"

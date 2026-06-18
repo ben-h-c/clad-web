@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Defends Handling of Iranian School Strike Investigation"
 summary: "The USA Today segment features a clip of President Trump responding to a question about accountability for a school strike in Iran that killed over 100 children on the war's first day. Trump states the incident is under investigation, asserts no one acted intentionally, calls it a mistake in a nasty war, and redirects attention to Iranian-inflicted casualties while naming Defense Secretary Pete Hegseth.\nThe broadcast draws from press conference footage with Trump speaking aboard Air Force One or similar setting. It references an ongoing military probe without additional expert commentary or graphics in the provided clip."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:52:25Z
 sourceUrl: "https://www.youtube.com/watch?v=lAhZiMqT0q8"
 sourceTitle: "USA TODAY"
 section: "Politics"

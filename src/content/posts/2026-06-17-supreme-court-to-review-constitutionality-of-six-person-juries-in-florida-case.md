@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Supreme Court to Review Constitutionality of Six-Person Juries in Florida Case"
 summary: "The broadcast covers the Supreme Court's recent grant of certiorari in Kian v. Florida, a challenge to Florida's use of six-person juries in non-capital criminal cases. It details the petitioner's background, conviction on chiropractic licensing felonies, reliance on overruling Williams v. Florida (1970), and invocation of Ramos v. Louisiana (2020) for originalist interpretation of the Sixth Amendment. The segment also discusses potential effects on other states and criminal convictions.\nThe sourcing relies on public court records and prior Supreme Court opinions with no named guests or experts; graphics or documents are not referenced beyond case names. It promotes a legal defense service and solicits viewer comments on the likely outcome."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T00:00:01Z
 sourceUrl: "https://www.youtube.com/watch?v=RktxzdnsuGY"
 sourceTitle: "Armed Scholar"
 section: "Politics"

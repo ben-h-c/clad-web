@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Kew 2026 report: AI, digitization aid plant and fungi extinction tracking"
 summary: "The segment covers the Royal Botanic Gardens, Kew's State of the World's Plants and Fungi 2026 report, highlighting underestimated extinction risks for plants and fungi due to data gaps. It discusses how AI analysis of digitized herbarium specimens reveals shifts in flowering times and how mass digitization accelerates species identification and conservation planning.\n\nExecutive Director of Science Alexander Antonelli is quoted on the benefits of digital access. The report states roughly 30,000 species are threatened, with low assessment rates (18% of plants, 0.6% of fungi) and millions of species still unknown. Kew has now digitized 7.4 million specimens as an open resource."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:01:57Z
 sourceUrl: "https://www.youtube.com/watch?v=t-fYgo3ZjxY"
 sourceTitle: "Reuters"
 section: "Politics"

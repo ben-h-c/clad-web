@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Algae Returns to Lincoln Memorial Reflecting Pool After Renovation"
 summary: "The segment covers the Lincoln Memorial reflecting pool turning green due to algae shortly after a major renovation. The Department of the Interior is using ozone technology and hydrogen peroxide treatments with no reported environmental harm.\nIt references the Trump administration's $14 million repainting project aimed at a brighter blue hue. Sourcing relies on a DOI statement to NBC News; no on-camera guests or additional experts appear in the provided transcript."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T19:15:22Z
 sourceUrl: "https://www.youtube.com/watch?v=Goj0YGXeDso"
 sourceTitle: "NBC News"
 section: "Politics"

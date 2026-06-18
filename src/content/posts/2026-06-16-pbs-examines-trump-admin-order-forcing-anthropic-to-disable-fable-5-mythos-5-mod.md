@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "PBS examines Trump admin order forcing Anthropic to disable Fable 5, Mythos 5 models"
 summary: "PBS NewsHour segment reports that the Trump administration directed Anthropic to suspend access to its newest models, Fable 5 and Mythos 5, over national security concerns about bypassed guardrails. Amazon CEO Andy Jassy flagged cybersecurity risks, leading to export restrictions that forced the company to cut off all users. The report includes an interview with WSJ tech policy reporter Amrith Ram Kumar discussing the unprecedented action, prior Anthropic-Pentagon tensions, industry open letter backlash, and implications for future AI governance. It covers the administration's new executive order increasing national security review of frontier models and concerns about losing ground to China."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T23:02:16Z
 sourceUrl: "https://www.youtube.com/watch?v=gVRlGg8WbXc"
 sourceTitle: "PBS NewsHour"
 section: "Politics"

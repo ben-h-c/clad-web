@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox Business segment on US-Iran deal and falling gas prices"
 summary: "The segment discusses a recently announced US-Iran agreement to end hostilities and reopen the Strait of Hormuz, linking it to falling oil and gas prices. Senator Roger Marshall (R-KS) comments on expected consumer relief, positions Republicans as the party of prosperity and security, and contrasts this with Democratic priorities. It references prior oil price peaks during the Iran conflict and US oil production strength. The host notes Politico reporting that Democrats are shifting away from affordability issues toward voting rights and anti-corruption for the midterms. Sourcing is limited to the GOP senator and host commentary, with no additional guests or data graphics shown in the transcript."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T02:00:38Z
 sourceUrl: "https://www.youtube.com/watch?v=l5BFg3VSe5c"
 sourceTitle: "Fox Business"
 section: "Politics"

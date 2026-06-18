@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Bloomberg Brief Examines Fed Debut, Iran MOU, G7 AI Talks"
 summary: "Bloomberg Brief opened with global market updates ahead of the first FOMC decision under new Fed Chair Kevin Warsh. Segments covered details of a US-Iran memorandum of understanding providing financial relief and Strait of Hormuz reopening, plus the final day of the G7 summit in France featuring AI executive discussions. Interviews included Bloomberg reporters on the Iran deal and G7, plus market strategists on Fed policy expectations. Stock movers such as Lionsgate, La-Z-Boy, and BMW were highlighted alongside oil price and yield movements."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T11:46:16Z
 sourceUrl: "https://www.youtube.com/watch?v=wz08lh916Lw"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

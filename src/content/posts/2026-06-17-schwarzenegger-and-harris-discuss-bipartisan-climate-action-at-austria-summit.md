@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Schwarzenegger and Harris Discuss Bipartisan Climate Action at Austria Summit"
 summary: "The Forbes Breaking News segment features clips from a fireside chat at the 2026 Austrian World Summit in Vienna. Arnold Schwarzenegger and former Vice President Kamala Harris discuss climate cooperation, Schwarzenegger's decade-long initiative, and the need for cross-party efforts involving Democrats, Republicans, and others.\nHarris highlights her environmental work as California Attorney General and argues clean energy is now more affordable for consumers. Schwarzenegger stresses unity across political lines to address pollution and the planet's future."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T08:00:31Z
 sourceUrl: "https://www.youtube.com/watch?v=TWjhrjYi-1g"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Neguse Criticizes Proposed Cuts to USFS State, Private, Tribal Forestry Programs"
 summary: "The segment shows Rep. Joe Neguse (D-CO) questioning USFS Chief during a House hearing on hazardous fuels reduction comparisons between 2024 and 2025, pine beetle task force collaboration in Colorado, proposed elimination of the State, Private, and Tribal Forestry program, and potential management shifts at Maroon Bells Scenic Area. The chief acknowledges the fuels drop, commits to state partnerships, notes House budget mark would maintain ~91% funding, and describes ongoing site management collaborations with states, tribes, and others. The second paragraph covers sourcing via direct hearing testimony and graphics-free format with no additional experts or data visuals shown."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T07:45:01Z
 sourceUrl: "https://www.youtube.com/watch?v=mdvdcY9h2gQ"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

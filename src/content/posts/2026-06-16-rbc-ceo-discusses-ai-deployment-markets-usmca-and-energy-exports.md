@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "RBC CEO Discusses AI Deployment, Markets, USMCA, and Energy Exports"
 summary: "Bloomberg Television interviewed RBC CEO Dave McKay on market conditions, SpaceX's IPO where RBC handled Canadian distribution, AI-driven capital demand, and bank strategy. Segments covered risk appetite in tech and traditional sectors, USMCA negotiations, Canadian diversification efforts including energy and agriculture exports, and RBC's equity investments in quantum and protein tech.\nMcKay detailed custom AI tools for macro, markets, and consumer insights; RBC's Nvidia-powered tech stack and own data centers; shifts from back-office to revenue-focused AI; demographic-driven efficiency needs; and positive US growth versus Canada's mild technical recession. Sourcing relies on the CEO's direct statements with references to internal data, partnerships, and public trade figures."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:58:22Z
 sourceUrl: "https://www.youtube.com/watch?v=H2nsutW3leE"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

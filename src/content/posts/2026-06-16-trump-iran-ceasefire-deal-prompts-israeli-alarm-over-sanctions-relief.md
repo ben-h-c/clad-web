@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Iran Ceasefire Deal Prompts Israeli Alarm Over Sanctions Relief"
 summary: "The segment discusses President Trump's announcement of a preliminary US-Iran agreement to extend a ceasefire by 60 days and negotiate Iran's nuclear program, with full details expected soon. Hosts analyze reported Israeli unhappiness, citing a Wall Street Journal report on concerns over financial relief without uranium handover commitments, and debate implications for Hezbollah, sanctions, and regional influence."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T16:00:11Z
 sourceUrl: "https://www.youtube.com/watch?v=6SMGky8PwFI"
 sourceTitle: "The Hill"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Hageman Pushes Repeal of Roadless Rule Citing Wildfire Risks"
 summary: "The Forbes Breaking News segment covers Rep. Harriet Hageman's questioning during a House Federal Lands Committee hearing on the state of federal forests and 2026 wildfire outlook. Hageman criticizes the 2001 Roadless Rule as locking up 58.5 million acres, including 3.2 million in Wyoming, and links it to increased wildfire hazards; Forest Service Chief Tom Schultz agrees it raises catastrophic fire risk and conflicts with multiple-use mandates."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T22:30:04Z
 sourceUrl: "https://www.youtube.com/watch?v=1A-OzcGWUT0"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

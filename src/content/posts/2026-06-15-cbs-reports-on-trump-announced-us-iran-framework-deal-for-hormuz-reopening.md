@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS reports on Trump-announced U.S.-Iran framework deal for Hormuz reopening"
 summary: "The CBS segment covers President Trump's announcement of a U.S.-Iran agreement to end months of conflict via a framework deal. It details Iran reopening the Strait of Hormuz, U.S. easing economic pressure and extending the April ceasefire, plus a 60-day window for harder talks on nuclear issues, sanctions, and proxy groups. The report notes Israeli strikes in Lebanon as highlighting fragility and questions direct negotiations with Iran's new supreme leader."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T01:34:59Z
 sourceUrl: "https://www.youtube.com/watch?v=mhgtenWF-KI"
 sourceTitle: "CBS News"
 section: "Politics"

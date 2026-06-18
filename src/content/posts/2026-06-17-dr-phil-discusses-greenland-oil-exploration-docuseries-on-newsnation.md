@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Dr. Phil Discusses Greenland Oil Exploration Docuseries on NewsNation"
 summary: "The segment features Dr. Phil McGraw discussing his upcoming six-part docuseries 'Arctic Wildcatters' on Greenland Energy Company's planned onshore oil exploration in the Jameson Land Basin. He highlights the excitement of the project alongside its dangers and extreme logistics, including bringing in all supplies and living quarters via ships from Canada. The interview notes that heavy equipment is permitted but full base camp and port approvals are still pending."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T04:15:27Z
 sourceUrl: "https://www.youtube.com/watch?v=KjuK7U-2K3M"
 sourceTitle: "NewsNation"
 section: "Politics"

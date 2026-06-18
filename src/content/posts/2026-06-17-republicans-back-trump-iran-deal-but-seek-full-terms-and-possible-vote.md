@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Republicans Back Trump Iran Deal but Seek Full Terms and Possible Vote"
 summary: "The segment covers President Trump's announcement of a preliminary US-Iran agreement to end conflict and fully reopen the Strait of Hormuz by Friday. No full text has been released; Trump indicated he might send details to Congress despite initially not considering it. Scripps congressional correspondent reports Republican senators largely back Trump but lack details beyond press reports and conference calls, expressing hope for limits on Iranian nuclear weapons, missiles, and funding to groups like Hamas."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-16T22:35:54Z
 sourceUrl: "https://www.youtube.com/watch?v=2gcUg6LOcvM"
 sourceTitle: "Scripps News"
 section: "Politics"

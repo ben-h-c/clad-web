@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Cabo Verde Holds Spain to 0-0 Draw in World Cup Debut"
 summary: "The segment recaps day five of the 2026 World Cup, highlighting Cabo Verde's 0-0 draw against favored Spain in the debutants' first match. It praises Cabo Verde's coach Bubista and goalkeeper for a standout defensive performance.\n\nThe broadcast then previews day six, focusing on France versus Senegal. Sourcing is from on-air analysts; no graphics or external clips are referenced in the transcript."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:11:50Z
 sourceUrl: "https://www.youtube.com/watch?v=Q7fuqDtdF7Q"
 sourceTitle: "CBS News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Senate Postpones Jay Clayton DNI Hearing After Trump Directive"
 summary: "CBS News reports the Senate Intelligence Committee postponed Jay Clayton's confirmation hearing for Director of National Intelligence after President Trump directed him not to appear. The segment includes analysis from congressional reporter Torian Small on Capitol Hill discussing Trump's strategy linking the nomination to passage of the Save America Act and other priorities, and the impact on FISA renewal.\nThe report notes acting DNI Bill Pulte will remain in place, highlights bipartisan concerns over FISA lapse, and outlines next steps involving potential negotiations and vote thresholds. Sourcing draws from Trump's Truth Social post, committee chair Tom Cotton's statements, and on-the-ground Democratic and Republican reactions."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:43:55Z
 sourceUrl: "https://www.youtube.com/watch?v=ukNuhauhJnA"
 sourceTitle: "CBS News"
 section: "Politics"

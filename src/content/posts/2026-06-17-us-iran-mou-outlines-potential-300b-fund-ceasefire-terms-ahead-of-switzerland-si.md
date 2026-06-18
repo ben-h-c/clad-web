@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "US-Iran MOU Outlines Potential $300B Fund, Ceasefire Terms Ahead of Switzerland Signing"
 summary: "The broadcast covers a proposed US-Iran agreement set for signing in Switzerland, centered on a $300 billion reconstruction or investment fund for Iran tied to reparations and economic relief. It details ceasefire provisions reopening the Strait of Hormuz, halting Israel-Hezbollah hostilities, Iranian nuclear commitments, sanctions relief, and asset unfreezing. Trump clips emphasize the deal is a non-final MOU with potential to revert to conflict, requiring a UN resolution for approval."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T18:47:26Z
 sourceUrl: "https://www.youtube.com/watch?v=RF4KBpZ6oL0"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC World News Tonight covers B-52 crash, Iran deal, Knicks title, multiple tragedies"
 summary: "The June 15, 2026 broadcast led with a B-52 bomber crash at Edwards Air Force Base killing eight on a test flight, followed by President Trump's announcement of a signed deal with Iran at the G7 summit. Segments covered life-threatening floods in the South, the New York Knicks' first NBA title in 53 years, a skydiving plane crash in Missouri, two helicopters colliding in Brazil, and other incidents including a bungee jump death and airboat capsizing.\nThe show mixed official statements, on-scene reporting, and graphics; guests were limited to correspondents and meteorologists, with a closing personal segment on ABC anchor Bill Ritter's Alzheimer's diagnosis and public support."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T02:00:23Z
 sourceUrl: "https://www.youtube.com/watch?v=w6EAd-_6D-0"
 sourceTitle: "ABC News"
 section: "Politics"

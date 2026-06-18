@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "SpaceX exercises $60B Cursor option post-IPO"
 summary: "Bloomberg segment analyzes SpaceX's post-IPO confirmation of its $60 billion acquisition of AI coding startup Cursor. Guests discuss the April-announced option structure, timing around the IPO to avoid prospectus delays, and an all-stock deal using SpaceX shares valued at a high multiple."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:42:58Z
 sourceUrl: "https://www.youtube.com/watch?v=BGt5im0Q9-Y"
 sourceTitle: "Bloomberg Television"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "LAPD Fatally Shoots Dog Responding to Screaming Report in Canoga Park"
 summary: "CBS News short features chaotic audio from the scene of a dog shooting in a Canoga Park apartment building. Residents are heard screaming the dog's name (Jeremiah/Jameson), expressing grief and anger at police while referencing a Knicks championship celebration that prompted the 911 call for a 'screaming woman.'\nThe clip shows raw bystander footage and reactions; sourcing relies on on-scene audio and social media video with no named on-camera experts or graphics beyond the title description."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T03:21:56Z
 sourceUrl: "https://www.youtube.com/watch?v=0-nAtrvB5gQ"
 sourceTitle: "CBS News"
 section: "Politics"

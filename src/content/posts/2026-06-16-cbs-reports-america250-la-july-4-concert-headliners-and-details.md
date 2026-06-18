@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS reports America250 LA July 4 concert headliners and details"
 summary: "CBS News segment announces headliners Chris Stapleton, The Smashing Pumpkins, and host Queen Latifah for the America250 flagship concert in Los Angeles on July 4, 2026. Tickets priced at $17.76 go on sale that day, with proceeds benefiting the Giving 4th charity initiative. Interview with commission chair Rosie Rios covers the bipartisan congressional commission established in 2016, its focus on values-based programming, service, and reaching all Americans. Rios reflects on the 1976 bicentennial and her personal background. The segment notes the event's emphasis on unity and opportunity."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T15:00:29Z
 sourceUrl: "https://www.youtube.com/watch?v=SmYRAdZIqkA"
 sourceTitle: "CBS News"
 section: "Politics"

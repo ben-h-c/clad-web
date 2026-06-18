@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Court Orders Removal of Trump Name from Kennedy Center Facade"
 summary: "The broadcast covers workers removing President Trump's name from the Kennedy Center facade following a federal court order. It includes commentary calling the prior addition a vanity project that bypassed Congress and was therefore unlawful. The segment ends with a call to subscribe to the NewsX channel."
-publishedAt: 2026-06-13
+publishedAt: 2026-06-13T11:00:31Z
 sourceUrl: "https://www.youtube.com/watch?v=ttlxSFphAgM"
 sourceTitle: "NewsX Live"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump discusses Iran deal, G7 talks, and economy at summit"
 summary: "The segment covers President Trump's bilateral meeting and press availability at the G7 summit in Évian, France, focusing on a recent agreement with Iran to prevent nuclear weapons, reopen the Strait of Hormuz, and end the recent conflict. It includes remarks on expanding the Abraham Accords, comparisons to the JCPOA, plans to release the deal text, and economic updates.\nTrump also addresses the UFC event on the White House lawn, a planned dinner at Versailles with Macron, sanctions on Russia, and enriched uranium disposal. The broadcast draws from Trump's direct comments alongside a Middle Eastern leader, with questions from reporters."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T14:03:17Z
 sourceUrl: "https://www.youtube.com/watch?v=XVyrYJYqJg4"
 sourceTitle: "Fox News"
 section: "Politics"

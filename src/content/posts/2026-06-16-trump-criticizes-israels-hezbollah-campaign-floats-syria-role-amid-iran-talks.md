@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump criticizes Israel’s Hezbollah campaign, floats Syria role amid Iran talks"
 summary: "The AP clip shows President Trump speaking to reporters at the G7 summit in France on June 16, 2026. He expresses frustration with Israel’s prolonged operations against Hezbollah in Lebanon, criticizes civilian casualties and destruction of apartment buildings, and suggests Syria could handle the group more effectively. Trump ties the issue to an impending US-Iran agreement, noting the US is not investing new funds but retains rights under the deal.\nThe segment relies on direct audio of Trump’s unscripted remarks, with standard AP packaging and no additional guests or graphics beyond the video itself."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T13:45:13Z
 sourceUrl: "https://www.youtube.com/watch?v=akuwV5Bm6qU"
 sourceTitle: "Associated Press"
 section: "Politics"

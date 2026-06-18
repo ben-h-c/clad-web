@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Meet the Press Covers Iran Deal Progress, Midterm Polls and Economic Data"
 summary: "The episode opened with updates on a potential U.S.-Iran agreement to end conflict, reopen the Strait of Hormuz and address Iran's nuclear program. Steve Kornacki presented NBC News poll data showing Trump's 42% approval rating, a five-point Democratic lead on the generic ballot and declining national pride at 56%. Interviews followed with Hakeem Jeffries, James Lankford and Raphael Warnock on the deal, midterms, Maine's Graham Platner primary win and voting rights. The panel discussed polls, candidate controversies and White House strategy."
-publishedAt: 2026-06-14
+publishedAt: 2026-06-14T18:10:12Z
 sourceUrl: "https://www.youtube.com/watch?v=alkWVq5aYw0"
 sourceTitle: "NBC News"
 section: "Politics"

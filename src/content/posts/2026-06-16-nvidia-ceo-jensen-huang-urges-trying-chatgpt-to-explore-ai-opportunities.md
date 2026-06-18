@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Nvidia CEO Jensen Huang urges trying ChatGPT to explore AI opportunities"
 summary: "The short AP video clip shows Nvidia CEO Jensen Huang advising those worried about AI to open ChatGPT and explore its capabilities for personal benefit. He references an Uber driver's concerns and explains how prior technologies like mobile, cloud, and the internet enabled new services and jobs such as ride-hailing.\nHuang frames the next wave of AI as similarly creating fresh opportunities, drawing on the historical example of Uber's complex backend systems that would not exist without recent computing advances."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T20:45:05Z
 sourceUrl: "https://www.youtube.com/watch?v=r78r14q6KoA"
 sourceTitle: "Associated Press"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox Business segment questions Iran deal trustworthiness amid nuclear and Strait talks"
 summary: "The segment features Rep. Rich McCormick discussing a reported $300 billion Iran reconstruction fund from an anonymous source via NYT, White House conditions tying any funds to reopening the Strait of Hormuz and surrendering nuclear material, and skepticism toward the Iranian regime's compliance. It references an Axios report on doubts from CIA Director Ratcliffe, Secretary Rubio, and Secretary Hegseth about Iran's nuclear commitments. McCormick highlights past Iranian deceptions, calls for inspections and accountability, and expresses hope for regime change while noting alignment with Trump administration 'trust but verify' approach."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T02:00:34Z
 sourceUrl: "https://www.youtube.com/watch?v=tNaPMrzruBo"
 sourceTitle: "Fox Business"
 section: "Politics"

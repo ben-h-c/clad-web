@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Allen Control Systems Bullfrog Raises $200M at $2.2B Valuation for Counter-Drone Systems"
 summary: "The segment discusses the rising drone threat and features Allen Control Systems CEO discussing their Bullfrog robotic weapon station. It covers AI-powered counter-drone capabilities, integration with existing weapons like machine guns, production scaling plans, and recent military evaluations.\nThe interview highlights $200 million in new funding at a $2.2 billion valuation, deployments with Army and Navy branches, 100% success rates in recent tests, and semi-autonomous operation with human oversight aligned to rules of engagement."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T13:30:08Z
 sourceUrl: "https://www.youtube.com/watch?v=gNsHwtgB6As"
 sourceTitle: "Fox Business"
 section: "Politics"

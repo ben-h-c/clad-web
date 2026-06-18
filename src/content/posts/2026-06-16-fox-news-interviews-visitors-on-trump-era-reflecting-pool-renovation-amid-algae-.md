@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Fox News interviews visitors on Trump-era Reflecting Pool renovation amid algae cleanup"
 summary: "The short Fox News segment shows a reporter at the Lincoln Memorial Reflecting Pool discussing its recent renovation. It highlights the new American flag blue coating, ongoing cleaning by pool workers, and street interviews with visitors offering opinions ranging from criticism (including 'FDT') to praise for the appearance."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T04:30:11Z
 sourceUrl: "https://www.youtube.com/watch?v=xnkE1lkPHqE"
 sourceTitle: "Fox News"
 section: "Politics"

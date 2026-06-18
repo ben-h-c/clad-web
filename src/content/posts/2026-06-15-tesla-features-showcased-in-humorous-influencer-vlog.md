@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Tesla Features Showcased in Humorous Influencer Vlog"
 summary: "The video follows UK influencer Jodie Dyer receiving a Tesla for a week as part of a gifted promotion. She films a light-hearted day including a graveyard visit for a ghost-hunting joke, demonstrations of the power trunk, weather screen, parking assist, a McDonald's stop, Supercharging with Netflix, and karaoke."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T17:00:40Z
 sourceUrl: "https://www.youtube.com/watch?v=0rcc4v6GCy0"
 sourceTitle: "Jodie Dyer"
 section: "Politics"

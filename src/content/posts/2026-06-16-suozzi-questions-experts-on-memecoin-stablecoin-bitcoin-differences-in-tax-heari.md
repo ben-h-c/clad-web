@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Suozzi Questions Experts on Memecoin, Stablecoin, Bitcoin Differences in Tax Hearing"
 summary: "The segment shows Rep. Tom Suozzi (D-NY), a Ways and Means Committee member, questioning cryptocurrency experts during a hearing on tax policy. He seeks simple distinctions among memecoins, stablecoins, and Bitcoin, plus views on their economic value, use cases, risks like illicit activity, and broader benefits such as speed and efficiency."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T08:15:15Z
 sourceUrl: "https://www.youtube.com/watch?v=3cTxcrq14H0"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

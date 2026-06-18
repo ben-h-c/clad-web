@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Schweikert Urges De Minimis Exemptions for Crypto Tax Compliance in Hearing"
 summary: "The clip shows Rep. David Schweikert (R-AZ) at a House Ways and Means Oversight Subcommittee hearing discussing de minimis tax exemptions for small digital asset transactions. He questions witnesses on stablecoins, network fees, and parity with traditional finance rules, drawing analogies to foreign currency transactions.\nWitnesses endorse exemptions to avoid compliance burdens and data overload for low-value items like gas fees under $10. Schweikert stresses designing rules to minimize noise without tax revenue loss and reduce consumer costs. The segment ends with him yielding back."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T02:15:06Z
 sourceUrl: "https://www.youtube.com/watch?v=-I0Aq7eHKB8"
 sourceTitle: "Forbes Breaking News"
 section: "Politics"

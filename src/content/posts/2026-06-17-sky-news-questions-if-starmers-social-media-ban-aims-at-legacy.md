@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Sky News Questions if Starmer's Social Media Ban Aims at Legacy"
 summary: "The Sky News segment discusses Prime Minister Keir Starmer's recent announcement of a ban on social media access for children under 16. Panelists and guests speculate that the timing, coinciding with reported leadership challenges within the Labour Party, suggests an effort to build a lasting legacy. The discussion references prior internal conversations about using legacy framing to advance the policy."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T05:54:37Z
 sourceUrl: "https://www.youtube.com/watch?v=Dr-h0jZhMKc"
 sourceTitle: "Sky News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Reuters analyzes BOJ rate hike, Nvidia bonds, SpaceX post-IPO rally"
 summary: "The June 16, 2026 episode of Reuters Morning Bid covers the Bank of Japan's widely expected 25 basis point rate hike to 1%, the highest level since 1995, amid elevated inflation and yen weakness. It also discusses Nvidia's first corporate bond issuance in five years, sized at around $25 billion to establish a debt benchmark rather than fund operations, and SpaceX's post-IPO stock rally following its record $75 billion offering at a $1.77 trillion valuation. Additional commentary addresses persistent yen shorts per CFTC data and broader tech bullishness. The segment draws on Reuters reporting, CFTC positioning data, CDS levels, and analyst notes such as from Goldman Sachs."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T11:29:59Z
 sourceUrl: "https://www.youtube.com/watch?v=tMlKD41S5DE"
 sourceTitle: "Reuters"
 section: "Politics"

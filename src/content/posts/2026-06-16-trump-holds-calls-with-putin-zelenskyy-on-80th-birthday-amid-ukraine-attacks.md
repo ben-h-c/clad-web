@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Trump Holds Calls with Putin, Zelenskyy on 80th Birthday Amid Ukraine Attacks"
 summary: "CBS News reports on separate phone calls between President Trump, Vladimir Putin, and Volodymyr Zelenskyy on Trump's 80th birthday, as the Russia-Ukraine war continues. The segment covers Putin's call lasting under an hour, discussions on ending the conflict, a major Russian drone and missile attack on Kyiv that damaged a historic monastery, and upcoming G7 talks.\nThe report relies on Russian media and aides for call details, notes the White House had not confirmed specifics, references Ukrainian reports on the strikes, and mentions expected envoy travel. It ties the diplomacy to the G7 summit in France."
-publishedAt: 2026-06-15
+publishedAt: 2026-06-15T17:38:16Z
 sourceUrl: "https://www.youtube.com/watch?v=ltN80ZD3zpI"
 sourceTitle: "CBS News"
 section: "Politics"

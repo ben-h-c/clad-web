@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "CBS Takeout Reviews Iran MoU, Newsom Probe, Trump Trades"
 summary: "The broadcast covers the recently signed U.S.-Iran memorandum of understanding on a ceasefire extension and Strait of Hormuz reopening, noting sparse details and conflicting statements on sanctions relief. Segments also address Gavin Newsom's announcement of a federal investigation into him and his wife, President Trump's high-volume stock trading per financial disclosures, the Jay Clayton DNI nomination, Mitch McConnell's hospitalization, an Alaska Senate ballot issue, and a White House UFC event.\nThe program relies on CBS reporting, named experts Aaron David Miller and Aaron MacLean, correspondent Nancy Cordes from the G7, and clips from Trump, Vance, and Newsom. It repeatedly stresses the absence of the deal text and evolving claims."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T01:24:22Z
 sourceUrl: "https://www.youtube.com/watch?v=a6hQO2oUY2A"
 sourceTitle: "CBS News"
 section: "Politics"

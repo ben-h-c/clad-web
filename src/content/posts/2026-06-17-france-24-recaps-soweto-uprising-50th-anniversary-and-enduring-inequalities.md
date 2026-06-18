@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "France 24 Recaps Soweto Uprising 50th Anniversary and Enduring Inequalities"
 summary: "The FRANCE 24 segment marks the 50th anniversary of the June 16, 1976 Soweto uprising. It recounts how students led by Seth Mazibuko protested the imposition of Afrikaans in Black schools, the police response that killed dozens, and the iconic photograph of Hector Pieterson. It includes survivor interviews at the Hector Pieterson Museum and notes that June 16 is now Youth Day in South Africa.\nThe report closes by contrasting the end of apartheid with persistent challenges, citing South Africa's status as the world's most unequal country, high unemployment, and daily murder rate. Sourcing draws on archival footage, named participants, and the well-known Sam Nzima photograph."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T15:52:58Z
 sourceUrl: "https://www.youtube.com/watch?v=EmEv007U5h8"
 sourceTitle: "FRANCE 24 English"
 section: "Politics"

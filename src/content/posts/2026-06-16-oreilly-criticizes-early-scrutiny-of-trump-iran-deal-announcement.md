@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "O'Reilly criticizes early scrutiny of Trump Iran deal announcement"
 summary: "The segment features Bill O'Reilly on NewsNation's On Balance arguing that critics cannot fairly judge the Trump administration's Iran agreement announcement without full facts. He specifically calls out Chris Cuomo for pressing for details within 48 hours, warning that this gives opponents time to undermine the deal. The discussion centers on the timing and process of evaluating the preliminary U.S.-Iran memorandum of understanding.\nO'Reilly speaks as the primary voice with no other guests or on-screen experts shown in the clip. The segment relies on his commentary referencing recent announcements rather than primary documents, graphics, or named administration sources. It ties into ongoing coverage of the June 2026 ceasefire framework talks."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T03:15:22Z
 sourceUrl: "https://www.youtube.com/watch?v=VABBUkgEU6o"
 sourceTitle: "NewsNation"
 section: "Politics"

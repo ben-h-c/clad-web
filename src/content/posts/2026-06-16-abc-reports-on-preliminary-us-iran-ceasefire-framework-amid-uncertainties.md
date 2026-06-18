@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "ABC reports on preliminary US-Iran ceasefire framework amid uncertainties"
 summary: "The segment covers President Trump at the G7 summit announcing a signed deal with Iran to end hostilities, reopen the Strait of Hormuz, and lift the US blockade. It details that nuclear issues are deferred to 60-day talks, notes conflicting accounts on terms, Iran's potential navigation fees, and possible sanctions relief or frozen funds release. The report includes Obama's prior comments questioning improvements over the 2015 deal. It also briefly covers Trump's 80th birthday UFC event on the White House South Lawn. Sourcing relies on Trump's statements, a senior administration official, Iranian foreign ministry remarks, and ABC's Robin Roberts interview with Obama; the full text remains unreleased."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T00:43:00Z
 sourceUrl: "https://www.youtube.com/watch?v=HK8d0tz_gbA"
 sourceTitle: "ABC News"
 section: "Politics"

@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Al Jazeera Podcast Assesses US-Iran Deal Risks from Israel"
 summary: "The episode discusses a preliminary US-Iran memorandum of understanding reached after over 100 days of conflict. It covers reopening the Strait of Hormuz, partially lifting the US naval blockade, and deferring nuclear issues to further talks, with a formal signing planned in Geneva. Correspondent reports from Tehran on market reactions, public sentiment ranging from cautious hope to hardliner opposition, and Lebanon's ongoing role in the conflict. Netanyahu's statements on staying in Lebanon and Trump's calls for responsibility are noted alongside Israel's potential to disrupt the agreement through actions like strikes on Beirut."
-publishedAt: 2026-06-17
+publishedAt: 2026-06-17T13:48:48Z
 sourceUrl: "https://www.youtube.com/watch?v=9ES5j8z-cUw"
 sourceTitle: "Al Jazeera English"
 section: "Politics"

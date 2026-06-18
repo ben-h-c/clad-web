@@ -2,7 +2,7 @@
 type: "broadcast"
 headline: "Vance on Iran deal: Ball in Tehran's court after US strikes"
 summary: "The segment features Vice President JD Vance in a Fox News interview with Sean Hannity discussing US policy toward Iran following Operation Epic Fury military strikes in February 2026. Vance outlines conditions for a potential deal, including Iran halting terrorism funding and nuclear development in exchange for economic benefits, and states the US benefits regardless of Iran's choices."
-publishedAt: 2026-06-16
+publishedAt: 2026-06-16T02:30:17Z
 sourceUrl: "https://www.youtube.com/watch?v=cBUSryTErBg"
 sourceTitle: "Fox News"
 section: "Politics"
