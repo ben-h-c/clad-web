@@ -24,6 +24,8 @@ const STRIPE_API = (path: string) => path.startsWith("/api/stripe/");
 const PUBLIC_API = (path: string) =>
   path === "/api/flag" ||
   path.startsWith("/api/auth/") ||
+  // Server-side site search — public; grades are nulled inside for free users.
+  path === "/api/search" ||
   path === "/api/posts.json" ||
   path.startsWith("/api/posts/") ||
   // iOS push-token (un)registration. Anonymous devices may opt into

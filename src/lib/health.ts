@@ -77,6 +77,38 @@ export async function healthReport(env: any): Promise<HealthRow[]> {
       status: "ok",
       detail: `${published.length} published${ageD !== null ? `, last ${ageD}d ago` : ""}`,
     });
+
+    // Content scale — early warning before posts strain the build / Worker
+    // bundle (all post content is bundled at build time). Comfortable to
+    // ~2,500; plan an architecture change (offload bodies / move to D1) by
+    // ~4,000. Thresholds are deliberately conservative.
+    const n = published.length;
+    let approxBytes = 0;
+    for (const p of posts) {
+      const d: any = p.data;
+      approxBytes +=
+        (d.headline?.length || 0) +
+        (d.summary?.length || 0) +
+        (d.assessment?.length || 0) +
+        (d.gradeRationale?.length || 0) +
+        (d.leanRationale?.length || 0) +
+        (d.topics?.join(" ").length || 0) +
+        (d.notableConcerns?.join(" ").length || 0) +
+        (d.keyMoments?.map((m: any) => `${m.claim}${m.note}`).join(" ").length || 0);
+    }
+    const mb = (approxBytes / 1_048_576).toFixed(1);
+    const scaleStatus: HealthRow["status"] = n >= 4000 ? "bad" : n >= 2500 ? "warn" : "ok";
+    const advice =
+      scaleStatus === "bad"
+        ? " — near the bundled-content ceiling; offload bodies or move to D1"
+        : scaleStatus === "warn"
+          ? " — approaching scale limits; plan to offload bodies / move to D1"
+          : "";
+    rows.push({
+      label: "Content scale",
+      status: scaleStatus,
+      detail: `${n} posts, ~${mb} MB bundled text (ceiling ~3,000–5,000)${advice}`,
+    });
   } catch {
     rows.push({ label: "Content", status: "bad", detail: "could not read content" });
   }

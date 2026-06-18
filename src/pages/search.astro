@@ -1,11 +1,22 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 import { getAccess } from "~/lib/access";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
 
 const fullAccess = (await getAccess(Astro.request.headers)).fullAccess;
+
+// Facets only — outlet list + top topics for the filter UI. The full post
+// records are NOT shipped to the browser; results come from /api/search.
+const posts = await getCollection("posts", (p) => !p.data.draft);
+const outlets = [...new Set(posts.map((p) => p.data.sourceTitle).filter((s): s is string => !!s))].sort(
+  (a, b) => a.localeCompare(b)
+);
+const topicFreq = new Map<string, number>();
+for (const p of posts) for (const t of p.data.topics ?? []) topicFreq.set(t, (topicFreq.get(t) ?? 0) + 1);
+const topTopics = [...topicFreq.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12).map(([t]) => t);
 ---
 <BaseLayout
   title="Search — Clad"
@@ -29,7 +40,10 @@ const fullAccess = (await getAccess(Astro.request.headers)).fullAccess;
     <div class="search-filters">
       <label class="search-filter">
         <span>Outlet</span>
-        <select id="f-outlet"><option value="">All outlets</option></select>
+        <select id="f-outlet">
+          <option value="">All outlets</option>
+          {outlets.map((o) => <option value={o}>{o}</option>)}
+        </select>
       </label>
       {fullAccess && (
         <label class="search-filter">
@@ -66,7 +80,11 @@ const fullAccess = (await getAccess(Astro.request.headers)).fullAccess;
       <button type="button" id="f-clear" class="search-filter__clear">Clear</button>
     </div>
 
-    <div id="topic-chips" class="topic-chips"></div>
+    <div id="topic-chips" class="topic-chips">
+      {topTopics.map((t) => (
+        <button type="button" class="topic-chip" data-topic={t}>{t}</button>
+      ))}
+    </div>
     <p id="search-count" class="dateline"></p>
     <div id="search-results" class="feed-list"></div>
   </section>
@@ -76,47 +94,27 @@ const fullAccess = (await getAccess(Astro.request.headers)).fullAccess;
     const input = $("search-input");
     const resultsEl = $("search-results");
     const countEl = $("search-count");
-    const chipsEl = $("topic-chips");
     const fOutlet = $("f-outlet");
     const fGrade = $("f-grade");
     const fBias = $("f-bias");
     const fFrom = $("f-from");
     const fTo = $("f-to");
-    let records = [];
 
     const LEAN = (s) =>
-      s === null ? "" : Math.abs(s) < 5 ? "Centered" : `${Math.abs(s)}% ${s > 0 ? "Right" : "Left"}`;
+      s === null || s === undefined ? "" : Math.abs(s) < 5 ? "Centered" : `${Math.abs(s)}% ${s > 0 ? "Right" : "Left"}`;
     const shortDate = (iso) =>
       new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
     const esc = (s) =>
       String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-    function tokens(q) {
-      return q.toLowerCase().split(/\s+/).filter((t) => t.length > 1);
-    }
-
-    function scoreRecord(r, ts) {
-      let score = 0;
-      const hl = r.headline.toLowerCase();
-      const tp = r.topics.join(" ").toLowerCase();
-      for (const t of ts) {
-        if (hl.includes(t)) score += 3;
-        else if (tp.includes(t)) score += 2;
-        else if (r.text.includes(t)) score += 1;
-        else return 0; // every term must match somewhere
-      }
-      return score;
-    }
-
-    function render(list) {
+    function render(list, total) {
       countEl.textContent = list.length
-        ? `${list.length} result${list.length === 1 ? "" : "s"}`
+        ? `${total} result${total === 1 ? "" : "s"}${total > list.length ? ` (showing ${list.length})` : ""}`
         : "No matches.";
       resultsEl.innerHTML = list
         .map((r) => {
           const lean = LEAN(r.leanScore);
-          const gradeBadge = r.grade
-            ? `<span class="search-result__grade">${esc(r.grade)}</span>` : "";
+          const gradeBadge = r.grade ? `<span class="search-result__grade">${esc(r.grade)}</span>` : "";
           const thumb = r.thumbnail
             ? `<div class="search-result__thumb"><img src="${esc(r.thumbnail)}" alt="" loading="lazy" width="160" height="90"></div>` : "";
           return `<a class="search-result" href="/posts/${esc(r.id)}/">
@@ -131,77 +129,29 @@ const fullAccess = (await getAccess(Astro.request.headers)).fullAccess;
         .join("");
     }
 
-    function passesFilters(r) {
-      if (fOutlet && fOutlet.value && r.channel !== fOutlet.value) return false;
-      if (fGrade && fGrade.value) {
-        if (!r.grade || r.grade.charAt(0).toUpperCase() !== fGrade.value) return false;
+    let seq = 0;
+    async function run() {
+      const params = new URLSearchParams();
+      if (input.value.trim()) params.set("q", input.value.trim());
+      if (fOutlet && fOutlet.value) params.set("outlet", fOutlet.value);
+      if (fGrade && fGrade.value) params.set("grade", fGrade.value);
+      if (fBias && fBias.value) params.set("bias", fBias.value);
+      if (fFrom && fFrom.value) params.set("from", fFrom.value);
+      if (fTo && fTo.value) params.set("to", fTo.value);
+      const mine = ++seq;
+      countEl.textContent = "Searching…";
+      try {
+        const res = await fetch("/api/search?" + params.toString());
+        const data = await res.json();
+        if (mine !== seq) return; // a newer query superseded this one
+        render(data.results || [], data.total || 0);
+      } catch {
+        if (mine === seq) countEl.textContent = "Search failed. Try again.";
       }
-      if (fBias && fBias.value) {
-        if (r.leanScore === null || r.leanScore === undefined) return false;
-        const dir = r.leanScore <= -8 ? "left" : r.leanScore >= 8 ? "right" : "center";
-        if (dir !== fBias.value) return false;
-      }
-      if (fFrom && fFrom.value && new Date(r.date) < new Date(fFrom.value)) return false;
-      if (fTo && fTo.value) {
-        const end = new Date(fTo.value);
-        end.setHours(23, 59, 59, 999);
-        if (new Date(r.date) > end) return false;
-      }
-      return true;
     }
 
-    function anyFilter() {
-      return (fOutlet && fOutlet.value) || (fGrade && fGrade.value) || (fBias && fBias.value) ||
-        (fFrom && fFrom.value) || (fTo && fTo.value);
-    }
-
-    function run() {
-      const q = input.value;
-      const ts = tokens(q);
-      let list;
-      if (ts.length === 0) {
-        list = records.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
-      } else {
-        list = records
-          .map((r) => ({ r, s: scoreRecord(r, ts) }))
-          .filter((x) => x.s > 0)
-          .sort((a, b) => b.s - a.s || new Date(b.r.date) - new Date(a.r.date))
-          .map((x) => x.r);
-      }
-      list = list.filter(passesFilters);
-      const total = list.length;
-      render(list.slice(0, 200));
-      countEl.textContent = total
-        ? `${total} result${total === 1 ? "" : "s"}${ts.length === 0 && !anyFilter() ? " (showing newest)" : ""}`
-        : "No matches.";
-    }
-
-    function buildOutlets() {
-      const set = new Set();
-      for (const r of records) if (r.channel) set.add(r.channel);
-      [...set].sort((a, b) => a.localeCompare(b)).forEach((c) => {
-        const o = document.createElement("option");
-        o.value = c;
-        o.textContent = c;
-        fOutlet.appendChild(o);
-      });
-    }
-
-    function buildChips() {
-      const freq = new Map();
-      for (const r of records) for (const t of r.topics) freq.set(t, (freq.get(t) || 0) + 1);
-      const top = [...freq.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12);
-      chipsEl.innerHTML = top
-        .map(([t]) => `<button type="button" class="topic-chip" data-topic="${esc(t)}">${esc(t)}</button>`)
-        .join("");
-      chipsEl.querySelectorAll(".topic-chip").forEach((b) => {
-        b.addEventListener("click", () => {
-          input.value = b.getAttribute("data-topic");
-          run();
-          syncUrl(input.value);
-        });
-      });
-    }
+    let t;
+    const debouncedRun = () => { clearTimeout(t); t = setTimeout(run, 220); };
 
     function syncUrl(q) {
       const u = new URL(location.href);
@@ -209,24 +159,23 @@ const fullAccess = (await getAccess(Astro.request.headers)).fullAccess;
       history.replaceState(null, "", u);
     }
 
-    input.addEventListener("input", () => { run(); syncUrl(input.value); });
+    input.addEventListener("input", () => { debouncedRun(); syncUrl(input.value); });
     [fOutlet, fGrade, fBias, fFrom, fTo].forEach((el) => el && el.addEventListener("change", run));
+    document.querySelectorAll(".topic-chip").forEach((b) => {
+      b.addEventListener("click", () => {
+        input.value = b.getAttribute("data-topic");
+        syncUrl(input.value);
+        run();
+      });
+    });
     const clearBtn = $("f-clear");
     if (clearBtn) clearBtn.addEventListener("click", () => {
       [fOutlet, fGrade, fBias, fFrom, fTo].forEach((el) => { if (el) el.value = ""; });
       run();
     });
 
-    fetch("/search-index.json")
-      .then((r) => r.json())
-      .then((data) => {
-        records = Array.isArray(data) ? data : [];
-        buildChips();
-        buildOutlets();
-        const q = new URL(location.href).searchParams.get("q") || "";
-        if (q) input.value = q;
-        run();
-      })
-      .catch(() => { countEl.textContent = "Search index failed to load."; });
+    const q0 = new URL(location.href).searchParams.get("q") || "";
+    if (q0) input.value = q0;
+    run();
   </script>
 </BaseLayout>
