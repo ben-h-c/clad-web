@@ -14,6 +14,10 @@ async function sendEmail(to: string, subject: string, html: string): Promise<voi
   });
 }
 
+// TEMP: email this address whenever a new account is created. Remove the
+// `databaseHooks` block below (and this constant) to turn the notifications off.
+const NEW_USER_NOTIFY = env.ADMIN_NOTIFY_EMAIL || "benjaminharriscody@yahoo.com";
+
 let cached: ReturnType<typeof betterAuth> | null = null;
 
 // The CladFacts iOS app's bundle id — the audience of native Sign in with
@@ -113,6 +117,33 @@ export function getAuth() {
         }
       : undefined,
     socialProviders,
+    // TEMP: notify the operator on every new signup (email + social). Remove
+    // this whole `databaseHooks` block to stop. Failures never block signup.
+    databaseHooks: {
+      user: {
+        create: {
+          after: async (user: any) => {
+            try {
+              const when = new Date().toISOString().replace("T", " ").slice(0, 16) + " UTC";
+              await sendEmail(
+                NEW_USER_NOTIFY,
+                `New CladFacts signup: ${user?.email ?? "(unknown)"}`,
+                `<p><strong>New account created</strong></p>` +
+                  `<ul>` +
+                  `<li>Name: ${user?.name || "—"}</li>` +
+                  `<li>Email: ${user?.email || "—"}</li>` +
+                  `<li>Verified: ${user?.emailVerified ? "yes" : "no"}</li>` +
+                  `<li>When: ${when}</li>` +
+                  `</ul>` +
+                  `<p><a href="${SITE}/admin/users/">View in admin</a></p>`
+              );
+            } catch {
+              /* never block signup on a notification failure */
+            }
+          },
+        },
+      },
+    },
   });
   return cached;
 }
