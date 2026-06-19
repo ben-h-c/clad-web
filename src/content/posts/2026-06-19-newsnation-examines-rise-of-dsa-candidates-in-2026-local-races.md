@@ -1,0 +1,60 @@
+---
+type: "broadcast"
+headline: "NewsNation examines rise of DSA candidates in 2026 local races"
+summary: "The segment discusses the Democratic Socialists of America gaining traction in local elections, highlighting Janeese Lewis George's likely win in the DC Democratic mayoral primary as the organization's latest success following Zohran Mamdani's 2025 NYC victory. It notes DSA membership growth tied to Bernie Sanders and recent wins, plus candidates in Seattle, Los Angeles, and elsewhere. Correspondent Lisa Hernandez reports from New York on nationwide ballot presence and a recent rally. Sourcing relies on on-air reporting, campaign statements, and election results with references to DSA self-reported figures and specific races."
+publishedAt: 2026-06-19T11:33:47.000Z
+sourceUrl: "https://www.youtube.com/watch?v=oJ_HC2AshKM"
+sourceTitle: "NewsNation"
+section: "Politics"
+letterGrade: "B+"
+factualityScore: 82
+politicalLean: "center"
+leanScore: 5
+leanRationale: "Neutral presentation focused on electoral trends and organization growth without partisan framing or selective sourcing"
+gradeRationale: "B+: core facts on DSA growth, Mamdani win, Lewis George primary, and other candidates verified by primary sources, but transcript mangles candidate names and slightly exaggerates scale of 'wave'"
+topics:
+  - "Democratic Socialists of America"
+  - "2026 mayoral elections"
+  - "Bernie Sanders"
+assessment: "The broadcast accurately captures a documented uptick in DSA-affiliated or self-identified candidates winning primaries in major cities, supported by membership data and election outcomes. Minor factual slips include repeated name errors for the DC candidate and imprecise phrasing around timelines. Framing presents the trend as noteworthy expansion without overstating national dominance or omitting that most wins remain at the local level. Viewers miss deeper context on DSA's internal debates, retention issues after earlier peaks, and the nonpartisan or Democratic-primary nature of most races. Overall balanced but could benefit from more primary-source election data."
+notableConcerns:
+  - "Candidate name mispronunciations and spelling variations in transcript"
+keyMoments:
+  - claim: "DSA membership has grown more than 100,000 over the past decade"
+    verdict: "verified"
+    note: "DSA reports over 100,000 members in 2026, up from roughly 6,000 in 2015 per Wikipedia and organizational statements"
+  - claim: "Zohran Mamdani elected New York City mayor last year"
+    verdict: "verified"
+    note: "Won November 2025 election and took office in 2026, confirmed by multiple news outlets including BBC and Wikipedia"
+  - claim: "Janeese Lewis George (called Janice/Denise Lewis) won DC mayoral primary as Democratic Socialist"
+    verdict: "verified"
+    note: "Lewis George, who identifies as democratic socialist, won the June 2026 Democratic primary per Washington Post and her campaign site"
+  - claim: "Nithya Raman won LA mayoral primary to challenge Karen Bass"
+    verdict: "verified"
+    note: "Advanced to November 2026 runoff after June primary, per Ballotpedia and local reporting"
+  - claim: "Katie Wilson, democratic socialist, running for Seattle mayor"
+    verdict: "verified"
+    note: "Elected Seattle mayor in 2025 after describing herself as democratic socialist, per Ballotpedia and Jacobin"
+videoId: "oJ_HC2AshKM"
+videoTitle: "What's behind the Democratic Socialist wave?"
+thumbnail: "https://img.youtube.com/vi/oJ_HC2AshKM/maxresdefault.jpg"
+citations:
+  - title: "Democratic Socialists of America"
+    url: "https://www.dsausa.org/"
+  - title: "Democratic Socialists of America - Wikipedia"
+    url: "https://en.wikipedia.org/wiki/Democratic_Socialists_of_America"
+  - title: "Zohran Mamdani wins New York City mayoral election | BBC News"
+    url: "https://www.youtube.com/watch?v=VljPiFfmjUc"
+  - title: "2025 New York City mayoral election - Wikipedia"
+    url: "https://en.wikipedia.org/wiki/2025_New_York_City_mayoral_election"
+  - title: "The rise of Janeese Lewis George, who could be DC's first democratic socialist mayor - Washington Post"
+    url: "https://www.washingtonpost.com/dc-md-va/2026/05/31/rise-janeese-lewis-george-who-could-be-dcs-first-democratic-socialist-mayor/"
+  - title: "Janeese Lewis George - Wikipedia"
+    url: "https://en.wikipedia.org/wiki/Janeese_Lewis_George"
+  - title: "Mayoral election in Los Angeles, California (2026) - Ballotpedia"
+    url: "https://ballotpedia.org/Mayoral_election_in_Los_Angeles,_California_(2026)"
+  - title: "Katie Wilson (Washington) - Ballotpedia"
+    url: "https://ballotpedia.org/Katie_Wilson_(Washington)"
+---
+
+
