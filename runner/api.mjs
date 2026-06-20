@@ -3,9 +3,15 @@
 const BASE = process.env.WORKER_BASE_URL || "http://localhost:8787";
 const TOKEN = process.env.AGENT_TOKEN || "";
 
+// Bound every Worker call. These run at the top of each runner tick
+// (getConfig, getUrlQueue, …); an unbounded fetch against an unreachable or
+// stalled Worker would block the whole tick loop indefinitely.
+const TIMEOUT_MS = 30_000;
+
 async function call(path, init = {}) {
   const res = await fetch(BASE + path, {
     ...init,
+    signal: AbortSignal.timeout(TIMEOUT_MS),
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${TOKEN}`,

@@ -92,7 +92,7 @@ export async function runYoutubeScanner(agent) {
     });
     let res;
     try {
-      res = await fetch(`${YT_PLAYLIST}?${params}`);
+      res = await fetch(`${YT_PLAYLIST}?${params}`, { signal: AbortSignal.timeout(20_000) });
     } catch {
       continue;
     }

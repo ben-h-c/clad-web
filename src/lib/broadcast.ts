@@ -133,6 +133,13 @@ Return ONLY the JSON object, no markdown fence and no commentary.`;
 // documents for web_search).
 const SEARCH_MODEL = "grok-4.3";
 
+// Hard ceiling on a single xAI call. web_search + grok-4.3 is slow (it fans out
+// several searches), so this is generous — but it MUST be bounded: with no
+// timeout a hung request blocks forever, and because the runner awaits this
+// call at the top of every tick (processUrlQueue), one hang freezes the entire
+// agent loop until the process is restarted. See runner/index.mjs.
+const XAI_TIMEOUT_MS = 180_000;
+
 // Added when a transcript IS supplied: still require web search so the report
 // reflects current facts, not just the transcript or the model's stale prior
 // knowledge (the #1 source of inaccurate drafts).
@@ -305,27 +312,42 @@ export async function reviseBroadcastReport(
 }
 
 async function callResponsesWithSearch(apiKey: string, system: string, user: string): Promise<string> {
-  const res = await fetch("https://api.x.ai/v1/responses", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
-    body: JSON.stringify({
-      model: SEARCH_MODEL,
-      input: [
-        { role: "system", content: system },
-        { role: "user", content: user },
-      ],
-      // Cap sources per search — web_search bills per source consumed.
-      tools: [{ type: "web_search", max_search_results: 6 }],
-      text: {
-        format: {
-          type: "json_schema",
-          name: "broadcast_report",
-          schema: REPORT_SCHEMA,
-          strict: true,
+  // Bound the call so a hung/stalled connection can't block the runner tick
+  // indefinitely — callers catch the throw and skip/drop that item.
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), XAI_TIMEOUT_MS);
+  let res: Response;
+  try {
+    res = await fetch("https://api.x.ai/v1/responses", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+      signal: ctrl.signal,
+      body: JSON.stringify({
+        model: SEARCH_MODEL,
+        input: [
+          { role: "system", content: system },
+          { role: "user", content: user },
+        ],
+        // Cap sources per search — web_search bills per source consumed.
+        tools: [{ type: "web_search", max_search_results: 6 }],
+        text: {
+          format: {
+            type: "json_schema",
+            name: "broadcast_report",
+            schema: REPORT_SCHEMA,
+            strict: true,
+          },
         },
-      },
-    }),
-  });
+      }),
+    });
+  } catch (e: any) {
+    if (e?.name === "AbortError") {
+      throw new Error(`xAI request timed out after ${XAI_TIMEOUT_MS / 1000}s`);
+    }
+    throw e;
+  } finally {
+    clearTimeout(timer);
+  }
   if (!res.ok) throw new Error(`xAI ${res.status}: ${(await res.text().catch(() => "")).slice(0, 400)}`);
   const data: any = await res.json();
   const text = extractResponsesText(data);
