@@ -1,0 +1,61 @@
+---
+type: "broadcast"
+headline: "Bill Maher Calls for Shared Patriotism at America's 250th"
+summary: "The segment is Bill Maher's New Rule monologue urging Americans to enthusiastically celebrate the upcoming 250th anniversary of independence on July 4, 2026, without letting partisan feelings about President Trump dominate. Maher argues the country belongs to everyone, not one side or the president, and highlights institutional checks that have constrained executive power. He contrasts 1976 conditions with today to show progress and criticizes both parties for inconsistent patriotism. Sourcing is Maher's own commentary with references to court rulings, congressional actions, and historical statistics; no guests appear."
+publishedAt: 2026-06-20T03:00:05.000Z
+sourceUrl: "https://www.youtube.com/watch?v=OqXNmO-6c3k"
+sourceTitle: "Real Time with Bill Maher"
+section: "Politics"
+letterGrade: "B+"
+factualityScore: 78
+politicalLean: "center"
+leanScore: -18
+leanRationale: "Critiques Trump as wannabe authoritarian and references 'slowmoving coup' while urging Democrats to reclaim patriotism; balances with praise for checks and balances and American progress."
+gradeRationale: "Graded B+: historical comparisons and recent court checks on Trump administration are well-supported; some framing of 'authoritarianism' and budget outcomes lacks nuance or sourcing."
+topics:
+  - "Patriotism"
+  - "Fourth of July"
+  - "Trump administration"
+  - "American history"
+assessment: "The monologue holds up well on verifiable historical data and documented limits on Trump’s second-term agenda, including Supreme Court tariff rulings and Kennedy Center decisions. It provides useful context on enduring checks and balances amid polarization but underplays ongoing legal and policy disputes by framing outcomes as near-total restraint. Selective emphasis on past economic woes versus present prosperity risks glossing over current challenges; the call for unity is substantive yet delivered through Maher’s signature irreverence. Viewers miss broader debate on how celebrations are being organized or contested in 2026."
+notableConcerns:
+  - "Occasional hyperbolic language on authoritarian risks without quantifying specific threats"
+keyMoments:
+  - claim: "America's 250th anniversary falls on July 4, 2026"
+    verdict: "verified"
+    note: "Confirmed by America250.org and official Semiquincentennial planning."
+  - claim: "Supreme Court checked Trump on tariffs; court ordered his name off Kennedy Center"
+    verdict: "verified"
+    note: "Multiple 2026 rulings struck down major tariffs and halted Kennedy Center name/closure plans."
+  - claim: "1976 inflation around 6%, mortgage rates nearly 9%, misery index existed"
+    verdict: "verified"
+    note: "BLS and mortgage data align closely; misery index popularized in 1970s."
+  - claim: "Women needed husband's signature for credit cards until recently; few women in Congress or on Supreme Court in 1976"
+    verdict: "verified"
+    note: "Equal Credit Opportunity Act passed 1974, strengthened 1976; congressional and SCOTUS records confirm low representation."
+  - claim: "Trump did not concede 2020 but left office; Congress largely blocked his desired budget cuts"
+    verdict: "verified"
+    note: "Documented 2020 events and congressional resistance to second-term proposals."
+videoId: "OqXNmO-6c3k"
+videoTitle: "New Rule: America Is Ours | Real Time with Bill Maher (HBO)"
+thumbnail: "https://img.youtube.com/vi/OqXNmO-6c3k/maxresdefault.jpg"
+citations:
+  - title: "America250 Official Site"
+    url: "https://america250.org/"
+  - title: "United States Semiquincentennial - Wikipedia"
+    url: "https://en.wikipedia.org/wiki/United_States_Semiquincentennial"
+  - title: "Trump decries 'rigged' court system after Kennedy Center, tariff rulings - The Hill"
+    url: "https://thehill.com/homenews/administration/5902534-donald-trump-criticism-court-system-kennedy-center-tariff-rulings/"
+  - title: "Tariffs ruling is major blow to Trump's second-term agenda - BBC"
+    url: "https://www.bbc.com/news/articles/cx2jqgdn719o"
+  - title: "Mortgage Rate History: 1970s To 2026 - Bankrate"
+    url: "https://www.bankrate.com/mortgages/historical-mortgage-rates/"
+  - title: "On the Basis of Sex: Equal Credit Opportunities - National Archives"
+    url: "https://prologue.blogs.archives.gov/2023/03/22/on-the-basis-of-sex-equal-credit-opportunities/"
+  - title: "The Great Inflation - Federal Reserve History"
+    url: "https://www.federalreservehistory.org/essays/great-inflation"
+  - title: "What is the Misery Index? - Synovus"
+    url: "https://www.synovus.com/personal/resource-center/financial-newsletters/2020/june/misery-index"
+---
+
+
