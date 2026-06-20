@@ -70,6 +70,28 @@ npx wrangler secret put XAI_API_KEY     # repeat for each secret
 npm run deploy                          # astro build + wrangler deploy
 ```
 
+## Agent runner (cloud)
+
+Automated publishing is driven by the `runner/` agents (YouTube outlet scan,
+URL intake, curators, …). The runner is a long-running Node loop that ticks
+every 60s, calls Grok, and submits drafts to the approval queue.
+
+It runs as an **always-on cloud container** — nothing depends on a local
+machine being awake:
+
+1. On Railway / Render / Fly (any Docker host), create a **worker/background
+   service** from this repo, Dockerfile = `runner/Dockerfile`, build context =
+   repo root. The image runs `runner/index.mjs` and restarts on exit.
+2. Set env vars in the platform (not a `.env` file): `WORKER_BASE_URL`,
+   `AGENT_TOKEN`, `XAI_API_KEY`, `YOUTUBE_API_KEY`, `TRANSCRIPT_API_URL`,
+   `TRANSCRIPT_API_KEY` (see `runner/.env.example`).
+
+Transcripts come from a **hosted transcript API** (`TRANSCRIPT_API_URL`), not
+`yt-dlp` — so there's no native binary and no need for a residential IP. Video
+metadata (channel/title) uses the official YouTube Data API (`videos.list`, 1
+quota unit). To run it locally instead, `cd runner && npm install && npm start`
+with a `runner/.env`.
+
 ## Editorial standards
 
 - Verdicts key off documents, statutes, primary data, and named sources.

@@ -7,8 +7,9 @@ import { getUrlQueue, removeUrls, submitDraft } from "./api.mjs";
 const MAX_PER_TICK = 5;
 
 // Process editor-supplied YouTube URLs (from the admin "Add URLs" page) into
-// drafts. Uses yt-dlp for transcripts + web-grounded Grok — NO YouTube Data API
-// search, so it bypasses the search-quota limit entirely. Runs every runner tick.
+// drafts. Uses the hosted transcript API + web-grounded Grok — NO YouTube Data
+// API search, so it bypasses the search-quota limit entirely (metadata uses the
+// cheap 1-unit videos.list call). Runs every runner tick.
 export async function processUrlQueue(log = () => {}) {
   const xaiKey = process.env.XAI_API_KEY;
   if (!xaiKey) return;

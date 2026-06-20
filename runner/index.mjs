@@ -1,9 +1,11 @@
 /**
  * Agent runner. Ticks every 60s (or once with --once): fetches the agent
  * registry from the Worker, runs each enabled+due agent, and reports status.
- * Runs on the Mac (residential IP) under PM2.
+ * Runs as an always-on cloud container (see runner/Dockerfile) — no Mac, no
+ * residential IP. Transcripts come from a hosted API, not yt-dlp.
  *
- * Env (runner/.env): WORKER_BASE_URL, AGENT_TOKEN, XAI_API_KEY, YOUTUBE_API_KEY
+ * Env: WORKER_BASE_URL, AGENT_TOKEN, XAI_API_KEY, YOUTUBE_API_KEY,
+ * TRANSCRIPT_API_URL, TRANSCRIPT_API_KEY (see runner/.env.example).
  * Run with Node 22 (imports a .ts lib via built-in type stripping).
  */
 import { getConfig, reportStatus } from "./api.mjs";

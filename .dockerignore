@@ -1,0 +1,9 @@
+**/node_modules
+**/.env
+**/.dev.vars
+**/*.log
+dist
+.astro
+.wrangler
+.git
+.DS_Store
