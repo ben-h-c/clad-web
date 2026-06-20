@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "og": "node scripts/genOgImages.mjs",
+    "shots": "node scripts/captureOnboarding.mjs",
     "build": "astro build",
     "preview": "astro build && wrangler dev",
     "deploy": "astro build && wrangler deploy",

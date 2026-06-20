@@ -92,6 +92,24 @@ metadata (channel/title) uses the official YouTube Data API (`videos.list`, 1
 quota unit). To run it locally instead, `cd runner && npm install && npm start`
 with a `runner/.env`.
 
+## Onboarding tour
+
+The first-visit intro (`src/components/OnboardingTour.astro`, opened from the
+"How it works" footer link) shows real screenshots of the site inside a browser
+frame. Regenerate them after notable UI changes:
+
+```bash
+npm i -D playwright            # dev-only; intentionally NOT in package.json
+npx playwright install chromium
+npm run shots                  # → public/onboarding/*.png
+# capture premium views (grades, charts) with a logged-in session:
+SHOT_COOKIE="better-auth.session_token=…" npm run shots
+```
+
+The tour degrades to a neutral skeleton if an image is missing, so it's safe to
+ship before the captures land. First-visit auto-open is gated behind `AUTO_OPEN`
+in the component — flip it on once the screenshots are in.
+
 ## Editorial standards
 
 - Verdicts key off documents, statutes, primary data, and named sources.

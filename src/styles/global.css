@@ -802,6 +802,107 @@ p {
 }
 .tour__step.play .mk-logo { animation: tourPop 0.55s 0.1s ease both; }
 
+/* Screenshot steps — a browser-framed capture of the live site. */
+.tour__art--shot {
+  height: auto;
+  padding: 0;
+  border: none;
+  background: none;
+  margin-bottom: 1.2rem;
+}
+.shot {
+  width: 100%;
+  border: 1px solid var(--rule);
+  border-radius: 7px;
+  overflow: hidden;
+  background: var(--paper);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+.tour__step.play .shot { animation: tourArt 0.5s 0.05s ease both; }
+.shot__chrome {
+  display: flex;
+  align-items: center;
+  gap: 0.34rem;
+  padding: 0.42rem 0.6rem;
+  background: linear-gradient(180deg, #f4f0e7, #e8e1d3);
+  border-bottom: 1px solid var(--rule);
+}
+.shot__chrome > span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #c9c0ae;
+}
+.shot__chrome > span:nth-child(1) { background: #e0726a; }
+.shot__chrome > span:nth-child(2) { background: #e6c15a; }
+.shot__chrome > span:nth-child(3) { background: #7bbf72; }
+.shot__url {
+  margin-left: 0.5rem;
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--muted-ink);
+}
+.shot__frame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  /* Shown only until the screenshot loads (or if it's missing entirely) — a
+     neutral shimmer instead of a broken-image icon. */
+  background: linear-gradient(110deg, rgba(0, 0, 0, 0.045) 30%, rgba(0, 0, 0, 0.09) 50%, rgba(0, 0, 0, 0.045) 70%);
+  background-size: 220% 100%;
+  animation: shotSkeleton 1.5s linear infinite;
+}
+.shot__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.tour__step.play .shot__img { animation: shotKen 9s ease-out both; }
+.shot__cap {
+  position: absolute;
+  left: 0.6rem;
+  bottom: 0.6rem;
+  background: rgba(20, 16, 10, 0.82);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.28rem 0.55rem;
+  border-radius: 3px;
+}
+.tour__step.play .shot__cap { animation: tourUp 0.5s 0.5s ease both; }
+
+/* Auto-advance dwell indicator (a slim fill that runs, then advances). */
+.tour__timer { height: 2px; background: transparent; }
+.tour__timer[hidden] { display: none; }
+.tour__timerbar {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--tour-accent);
+  opacity: 0.55;
+}
+.tour__timer.is-timing .tour__timerbar {
+  animation: tourTimer var(--tour-dur, 7s) linear forwards;
+}
+.tour__timer.is-paused .tour__timerbar { animation-play-state: paused; }
+
+@keyframes shotKen {
+  from { transform: scale(1.07) translateY(-1.5%); }
+  to { transform: scale(1) translateY(0); }
+}
+@keyframes shotSkeleton {
+  from { background-position: 120% 0; }
+  to { background-position: -120% 0; }
+}
+@keyframes tourTimer { from { width: 0; } to { width: 100%; } }
+
 @keyframes tourFade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes tourIn {
   from { opacity: 0; transform: translateY(18px) scale(0.97); }
@@ -842,7 +943,9 @@ p {
 @media (prefers-reduced-motion: reduce) {
   .tour__backdrop,
   .tour__dialog,
-  .tour__step.play * { animation: none !important; }
+  .tour__step.play *,
+  .shot__frame,
+  .tour__timer .tour__timerbar { animation: none !important; }
   .tour__bar { transition: none; }
 }
 
