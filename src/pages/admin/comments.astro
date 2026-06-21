@@ -1,14 +1,16 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import AdminNav from "~/components/AdminNav.astro";
-import { listRecentComments } from "~/lib/user-data";
+import { listRecentComments, searchComments } from "~/lib/user-data";
 
 export const prerender = false;
+
+const q = (Astro.url.searchParams.get("q") ?? "").trim().slice(0, 200);
 
 let comments = [] as Awaited<ReturnType<typeof listRecentComments>>;
 let error = "";
 try {
-  comments = await listRecentComments(300);
+  comments = q ? await searchComments(q, 300) : await listRecentComments(300);
 } catch (e: any) {
   error = e?.message ?? "Could not load comments.";
 }
@@ -24,15 +26,30 @@ const fmt = (iso: string) => {
   <section class="admin">
     <AdminNav current="comments" />
     <h2 class="admin__title">Reader Comments</h2>
+    <form class="admc-search" method="get" role="search">
+      <input
+        type="search"
+        name="q"
+        value={q}
+        placeholder="Search comment, author, or post slug…"
+        aria-label="Search comments"
+      />
+      <button type="submit">Search</button>
+      {q && <a class="admc-search__clear" href="/admin/comments/">Clear</a>}
+    </form>
     <p class="dateline">
-      Reactions posted by Premium members ({comments.length} shown). Remove anything
-      abusive or off-topic — deletion is immediate and cannot be undone.
+      {q
+        ? `${comments.length} match${comments.length === 1 ? "" : "es"} for “${q}”.`
+        : `Reactions posted by Premium members (${comments.length} shown).`}{" "}
+      Remove anything abusive or off-topic — deletion is immediate and cannot be undone.
     </p>
 
     {error && <p class="dateline" style="color:rgb(150,30,20)">{error}</p>}
 
     {comments.length === 0 ? (
-      <p class="dateline" style="margin-top:2rem">No comments yet.</p>
+      <p class="dateline" style="margin-top:2rem">
+        {q ? `No comments match “${q}”.` : "No comments yet."}
+      </p>
     ) : (
       <ul class="admc">
         {comments.map((c) => (
@@ -79,6 +96,10 @@ const fmt = (iso: string) => {
   </script>
 
   <style>
+    .admc-search { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1rem 0 0.3rem; }
+    .admc-search input[type="search"] { flex: 1 1 18rem; min-width: 12rem; font: inherit; font-size: 0.95rem; padding: 0.5rem 0.7rem; border: 1px solid var(--rule); background: var(--paper); }
+    .admc-search button { font: inherit; font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.5rem 1rem; border: none; background: rgb(150,30,20); color: #fff; cursor: pointer; }
+    .admc-search__clear { font-size: 0.85rem; }
     .admc { list-style: none; padding: 0; margin: 1.5rem 0 0; }
     .admc__item { padding: 0.9rem 0; border-bottom: 1px solid var(--rule); }
     .admc__meta { font-size: 0.85rem; color: var(--muted, #6b6256); }

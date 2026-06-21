@@ -266,3 +266,21 @@ export async function listRecentComments(limit = 200): Promise<AdminComment[]> {
     .all<AdminComment>();
   return res.results ?? [];
 }
+
+/** Editor moderation search: match the query against the comment body, author
+ *  name, or post slug (case-insensitive substring). Empty query falls back to
+ *  the recent list. */
+export async function searchComments(query: string, limit = 300): Promise<AdminComment[]> {
+  const q = query.trim();
+  if (!q) return listRecentComments(limit);
+  // Escape LIKE wildcards so user input is treated literally.
+  const like = "%" + q.replace(/[\\%_]/g, (c) => "\\" + c) + "%";
+  const res = await env.DB.prepare(
+    "SELECT id, postSlug, userId, authorName, body, gradeVote, leanVote, createdAt, updatedAt " +
+      "FROM comment WHERE body LIKE ? ESCAPE '\\' OR authorName LIKE ? ESCAPE '\\' " +
+      "OR postSlug LIKE ? ESCAPE '\\' ORDER BY updatedAt DESC LIMIT ?"
+  )
+    .bind(like, like, like, Math.max(1, Math.min(1000, limit)))
+    .all<AdminComment>();
+  return res.results ?? [];
+}
