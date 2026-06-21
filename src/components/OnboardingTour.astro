@@ -131,7 +131,9 @@
 
 <script is:inline>
   (() => {
-    const KEY = "clad_tour_v1";
+    // Bump this version to re-show the tour to everyone once (existing users
+    // see the new flow on their next visit; afterward only brand-new users do).
+    const KEY = "clad_tour_v2";
     const tour = document.getElementById("tour");
     if (!tour) return;
     const steps = Array.from(tour.querySelectorAll(".tour__step"));
