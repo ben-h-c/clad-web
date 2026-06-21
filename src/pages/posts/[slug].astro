@@ -305,6 +305,51 @@ const newsLd = {
       </section>
     )}
 
+    {isBroadcast && access.fullAccess && (
+      <section class="reactions" data-slug={post.id} data-can-comment={access.tier === "paid" ? "1" : "0"}>
+        <h2 class="small-caps reactions__title">Reader Reactions</h2>
+        <p class="reactions__tally" id="rx-tally" hidden></p>
+
+        {access.tier === "paid" ? (
+          <form class="rx-form" id="rx-form" onsubmit="return false">
+            <p class="small-caps rx-form__label">Your reaction</p>
+            <div class="rx-votes">
+              <fieldset class="rx-vote">
+                <legend>The grade</legend>
+                <label><input type="radio" name="gradeVote" value="agree" /> Agree</label>
+                <label><input type="radio" name="gradeVote" value="disagree" /> Disagree</label>
+                <label><input type="radio" name="gradeVote" value="" checked /> No opinion</label>
+              </fieldset>
+              <fieldset class="rx-vote">
+                <legend>The political lean</legend>
+                <label><input type="radio" name="leanVote" value="agree" /> Agree</label>
+                <label><input type="radio" name="leanVote" value="disagree" /> Disagree</label>
+                <label><input type="radio" name="leanVote" value="" checked /> No opinion</label>
+              </fieldset>
+            </div>
+            <textarea
+              class="rx-form__body"
+              rows="3"
+              maxlength="2000"
+              placeholder="Add your take on the grade or the lean — cite specifics if you can."
+            ></textarea>
+            <div class="rx-form__actions">
+              <button type="button" class="rx-form__submit">Post reaction</button>
+              <button type="button" class="rx-form__delete" hidden>Delete</button>
+              <span class="rx-form__status" role="status"></span>
+            </div>
+          </form>
+        ) : (
+          <p class="rx-upsell">
+            Commenting is a <a href="/upgrade/">Premium</a> feature. Your free trial lets
+            you read every reaction — upgrade to add yours.
+          </p>
+        )}
+
+        <ol class="reactions__list" id="rx-list"></ol>
+      </section>
+    )}
+
     <Disclaimer />
   </article>
 
@@ -405,4 +450,179 @@ const newsLd = {
       });
     })();
   </script>
+
+  <script is:inline>
+    (() => {
+      const root = document.querySelector(".reactions");
+      if (!root) return;
+      const slug = root.getAttribute("data-slug");
+      const tallyEl = root.querySelector("#rx-tally");
+      const listEl = root.querySelector("#rx-list");
+      const form = root.querySelector("#rx-form");
+      const ENDPOINT = "/api/comments";
+      const qs = "?slug=" + encodeURIComponent(slug);
+
+      const esc = (s) =>
+        String(s).replace(/[&<>"]/g, (c) =>
+          ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])
+        );
+      const cap = (v) => v.charAt(0).toUpperCase() + v.slice(1);
+      const pct = (a, b) => (a + b > 0 ? Math.round((a / (a + b)) * 100) : null);
+
+      const renderTally = (t) => {
+        if (!t || !t.total) { tallyEl.hidden = true; return; }
+        const g = pct(t.gradeAgree, t.gradeDisagree);
+        const l = pct(t.leanAgree, t.leanDisagree);
+        const parts = [];
+        if (g != null) parts.push("<strong>" + g + "%</strong> agree with the grade");
+        if (l != null) parts.push("<strong>" + l + "%</strong> agree with the lean");
+        const lede = parts.length ? parts.join(" · ") : "No grade or lean votes yet";
+        tallyEl.innerHTML =
+          lede + ' <span class="reactions__count">(' + t.total +
+          " reader" + (t.total === 1 ? "" : "s") + ")</span>";
+        tallyEl.hidden = false;
+      };
+
+      const badge = (label, v) =>
+        v ? '<span class="rx-badge rx-badge--' + v + '">' + label + ": " + cap(v) + "</span>" : "";
+
+      const renderList = (comments) => {
+        if (!comments || !comments.length) {
+          listEl.innerHTML = '<li class="reactions__empty">No reactions yet.</li>';
+          return;
+        }
+        listEl.innerHTML = comments
+          .map(
+            (c) =>
+              '<li class="rx' + (c.mine ? " rx--mine" : "") + '">' +
+              '<div class="rx__head"><span class="rx__author">' + esc(c.authorName) + "</span>" +
+              badge("Grade", c.gradeVote) + badge("Lean", c.leanVote) + "</div>" +
+              (c.body ? '<p class="rx__body">' + esc(c.body) + "</p>" : "") +
+              "</li>"
+          )
+          .join("");
+      };
+
+      // ---- form wiring (premium only; absent for trial) ----
+      let prefill = () => {};
+      if (form) {
+        const submit = form.querySelector(".rx-form__submit");
+        const del = form.querySelector(".rx-form__delete");
+        const status = form.querySelector(".rx-form__status");
+        const bodyEl = form.querySelector(".rx-form__body");
+        const getVote = (name) =>
+          (form.querySelector('input[name="' + name + '"]:checked') || {}).value || null;
+        const setVote = (name, val) => {
+          const el = form.querySelector('input[name="' + name + '"][value="' + (val || "") + '"]');
+          if (el) el.checked = true;
+        };
+
+        prefill = (m) => {
+          bodyEl.value = (m && m.body) || "";
+          setVote("gradeVote", m && m.gradeVote);
+          setVote("leanVote", m && m.leanVote);
+          del.hidden = !m;
+        };
+
+        const refresh = async () => {
+          const data = await fetch(ENDPOINT + qs, { headers: { Accept: "application/json" } })
+            .then((r) => (r.ok ? r.json() : null))
+            .catch(() => null);
+          if (!data) return;
+          renderTally(data.tally);
+          renderList(data.comments);
+        };
+
+        submit.addEventListener("click", async () => {
+          const body = bodyEl.value.trim();
+          const gradeVote = getVote("gradeVote");
+          const leanVote = getVote("leanVote");
+          if (body.length < 1 && !gradeVote && !leanVote) {
+            status.textContent = "Add a comment or pick a stance.";
+            return;
+          }
+          submit.disabled = true;
+          status.textContent = "Saving…";
+          try {
+            const res = await fetch(ENDPOINT, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ slug, body, gradeVote, leanVote }),
+            });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok) throw new Error(data.error || "Could not post");
+            status.textContent = "Posted.";
+            del.hidden = false;
+            await refresh();
+          } catch (err) {
+            status.textContent = String(err.message || err);
+          } finally {
+            submit.disabled = false;
+          }
+        });
+
+        del.addEventListener("click", async () => {
+          del.disabled = true;
+          status.textContent = "Removing…";
+          try {
+            const res = await fetch(ENDPOINT + qs, { method: "DELETE" });
+            if (!res.ok) throw new Error();
+            bodyEl.value = "";
+            setVote("gradeVote", null);
+            setVote("leanVote", null);
+            del.hidden = true;
+            status.textContent = "Removed.";
+            await refresh();
+          } catch {
+            status.textContent = "Could not remove.";
+          } finally {
+            del.disabled = false;
+          }
+        });
+      }
+
+      // ---- initial load ----
+      fetch(ENDPOINT + qs, { headers: { Accept: "application/json" } })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((data) => {
+          if (!data) return;
+          renderTally(data.tally);
+          renderList(data.comments);
+          if (data.mine) prefill(data.mine);
+        })
+        .catch(() => {});
+    })();
+  </script>
+
+  <style is:global>
+    /* Global (not scoped): the comment list is injected via innerHTML, so
+       Astro's scoped-style attribute would not reach those elements. */
+    .reactions { margin: 2.5rem 0 0; padding-top: 1.5rem; border-top: 2px solid var(--ink, #1a1a1a); }
+    .reactions__title { display: block; margin-bottom: 0.4rem; }
+    .reactions__tally { font-size: 1rem; margin: 0.2rem 0 1.2rem; }
+    .reactions__count { color: var(--muted, #6b6256); font-size: 0.85em; }
+    .rx-form { border: 1px solid var(--rule); padding: 1rem 1.1rem; margin-bottom: 1.5rem; background: rgba(0,0,0,0.015); }
+    .rx-form__label { display: block; margin: 0 0 0.7rem; }
+    .rx-votes { display: flex; flex-wrap: wrap; gap: 1rem 1.6rem; margin-bottom: 0.8rem; }
+    .rx-vote { border: none; margin: 0; padding: 0; }
+    .rx-vote legend { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted, #6b6256); padding: 0; margin-bottom: 0.3rem; }
+    .rx-vote label { display: inline-flex; align-items: center; gap: 0.25rem; margin-right: 0.8rem; font-size: 0.9rem; cursor: pointer; }
+    .rx-form__body { width: 100%; box-sizing: border-box; font: inherit; font-size: 0.95rem; padding: 0.6rem; border: 1px solid var(--rule); resize: vertical; background: var(--paper); }
+    .rx-form__actions { display: flex; align-items: center; gap: 0.8rem; margin-top: 0.7rem; }
+    .rx-form__submit { font: inherit; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.5rem 1.1rem; border: none; background: rgb(150,30,20); color: #fff; cursor: pointer; }
+    .rx-form__submit:disabled { opacity: 0.6; cursor: default; }
+    .rx-form__delete { font: inherit; font-size: 0.8rem; background: none; border: none; color: var(--muted, #6b6256); text-decoration: underline; cursor: pointer; }
+    .rx-form__status { font-size: 0.85rem; color: var(--muted, #6b6256); }
+    .rx-upsell { font-size: 0.95rem; padding: 0.8rem 1rem; border: 1px dashed var(--rule); margin-bottom: 1.5rem; }
+    .reactions__list { list-style: none; padding: 0; margin: 0; }
+    .reactions__empty { color: var(--muted, #6b6256); font-style: italic; }
+    .rx { padding: 0.9rem 0; border-bottom: 1px solid var(--rule); }
+    .rx--mine { background: rgba(150,30,20,0.04); margin: 0 -0.6rem; padding: 0.9rem 0.6rem; }
+    .rx__head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 0.3rem; }
+    .rx__author { font-weight: 700; font-size: 0.95rem; }
+    .rx-badge { font-size: 0.68rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.12rem 0.45rem; border: 1px solid; border-radius: 2px; }
+    .rx-badge--agree { color: rgb(30,90,40); border-color: rgb(30,90,40); }
+    .rx-badge--disagree { color: rgb(150,30,20); border-color: rgb(150,30,20); }
+    .rx__body { margin: 0.2rem 0 0; font-size: 0.95rem; line-height: 1.5; white-space: pre-wrap; }
+  </style>
 </BaseLayout>

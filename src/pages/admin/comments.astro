@@ -1,0 +1,89 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import AdminNav from "~/components/AdminNav.astro";
+import { listRecentComments } from "~/lib/user-data";
+
+export const prerender = false;
+
+let comments = [] as Awaited<ReturnType<typeof listRecentComments>>;
+let error = "";
+try {
+  comments = await listRecentComments(300);
+} catch (e: any) {
+  error = e?.message ?? "Could not load comments.";
+}
+const fmt = (iso: string) => {
+  try {
+    return new Date(iso).toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" });
+  } catch {
+    return iso;
+  }
+};
+---
+<BaseLayout title="Clad — Reader Comments">
+  <section class="admin">
+    <AdminNav current="comments" />
+    <h2 class="admin__title">Reader Comments</h2>
+    <p class="dateline">
+      Reactions posted by Premium members ({comments.length} shown). Remove anything
+      abusive or off-topic — deletion is immediate and cannot be undone.
+    </p>
+
+    {error && <p class="dateline" style="color:rgb(150,30,20)">{error}</p>}
+
+    {comments.length === 0 ? (
+      <p class="dateline" style="margin-top:2rem">No comments yet.</p>
+    ) : (
+      <ul class="admc">
+        {comments.map((c) => (
+          <li class="admc__item" data-id={c.id}>
+            <div class="admc__meta">
+              <strong>{c.authorName || "Reader"}</strong>
+              {" · "}
+              <a href={`/posts/${c.postSlug}/`} target="_blank" rel="noopener noreferrer">{c.postSlug}</a>
+              {" · "}{fmt(c.updatedAt)}
+              {c.gradeVote && <span class="admc__vote"> · grade: {c.gradeVote}</span>}
+              {c.leanVote && <span class="admc__vote"> · lean: {c.leanVote}</span>}
+            </div>
+            {c.body && <p class="admc__body">{c.body}</p>}
+            <button type="button" class="admc__del" data-id={c.id}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+
+  <script is:inline>
+    (() => {
+      document.querySelectorAll(".admc__del").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          if (!confirm("Delete this comment permanently?")) return;
+          const id = btn.getAttribute("data-id");
+          btn.disabled = true;
+          try {
+            const res = await fetch("/api/admin/comments", {
+              method: "DELETE",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ id }),
+            });
+            if (!res.ok) throw new Error();
+            const li = btn.closest(".admc__item");
+            if (li) li.remove();
+          } catch {
+            btn.disabled = false;
+            alert("Could not delete. Try again.");
+          }
+        });
+      });
+    })();
+  </script>
+
+  <style>
+    .admc { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+    .admc__item { padding: 0.9rem 0; border-bottom: 1px solid var(--rule); }
+    .admc__meta { font-size: 0.85rem; color: var(--muted, #6b6256); }
+    .admc__body { margin: 0.4rem 0; font-size: 0.95rem; white-space: pre-wrap; }
+    .admc__del { font: inherit; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: rgb(150,30,20); background: none; border: 1px solid rgb(150,30,20); padding: 0.25rem 0.7rem; cursor: pointer; }
+    .admc__del:disabled { opacity: 0.5; cursor: default; }
+  </style>
+</BaseLayout>

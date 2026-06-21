@@ -11,6 +11,12 @@ const AGENT_API = (path: string) => path.startsWith("/api/agent/");
 // basic-auth gate but are NOT public — the routes return 401 without a session.
 const USER_API = (path: string) => path.startsWith("/api/me/");
 
+// Reader reactions: GET lists comments (full-access readers), POST/DELETE
+// require a premium session — all enforced inside src/pages/api/comments.ts,
+// so it bypasses the editor basic-auth gate. The /api/admin/comments
+// moderation route is intentionally NOT here, so it stays behind basic-auth.
+const COMMENTS_API = (path: string) => path === "/api/comments";
+
 // Stripe endpoints: checkout/portal check the session inside; the webhook is
 // verified by Stripe's signature. Neither sits behind the editor basic-auth gate.
 const STRIPE_API = (path: string) => path.startsWith("/api/stripe/");
@@ -47,6 +53,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   if (path === "/sitemap.xml/") return context.redirect("/sitemap.xml", 301);
   if (AGENT_API(path)) return next();
   if (USER_API(path)) return next();
+  if (COMMENTS_API(path)) return next();
   if (STRIPE_API(path)) return next();
   if (PUBLIC_API(path)) return next();
   if (!PROTECTED(path)) return next();

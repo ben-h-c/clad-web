@@ -135,3 +135,134 @@ export async function addAlert(userId: string, topic: string): Promise<Alert | n
 export async function removeAlert(userId: string, id: string): Promise<void> {
   await env.DB.prepare("DELETE FROM topic_alert WHERE userId = ? AND id = ?").bind(userId, id).run();
 }
+
+// --- Reader reactions (comments + agree/disagree on grade & lean) ----------
+export type Vote = "agree" | "disagree";
+
+export interface PostComment {
+  id: string;
+  userId: string;
+  authorName: string;
+  body: string;
+  gradeVote: Vote | null;
+  leanVote: Vote | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CommentTally {
+  total: number;
+  gradeAgree: number;
+  gradeDisagree: number;
+  leanAgree: number;
+  leanDisagree: number;
+}
+
+/** Coerce arbitrary input into a valid vote ("agree" | "disagree") or null. */
+export function sanitizeVote(input: unknown): Vote | null {
+  return input === "agree" || input === "disagree" ? input : null;
+}
+
+/** Display name shown publicly on a reaction: first name + last initial. */
+export function publicName(name: string): string {
+  const parts = (name || "").trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "Reader";
+  if (parts.length === 1) return parts[0];
+  return `${parts[0]} ${parts[parts.length - 1][0].toUpperCase()}.`;
+}
+
+export async function listCommentsForPost(postSlug: string): Promise<PostComment[]> {
+  const res = await env.DB.prepare(
+    "SELECT id, userId, authorName, body, gradeVote, leanVote, createdAt, updatedAt " +
+      "FROM comment WHERE postSlug = ? ORDER BY updatedAt DESC"
+  )
+    .bind(postSlug)
+    .all<PostComment>();
+  return res.results ?? [];
+}
+
+export async function getCommentTally(postSlug: string): Promise<CommentTally> {
+  const row = await env.DB.prepare(
+    "SELECT COUNT(*) AS total, " +
+      "SUM(CASE WHEN gradeVote = 'agree' THEN 1 ELSE 0 END) AS gradeAgree, " +
+      "SUM(CASE WHEN gradeVote = 'disagree' THEN 1 ELSE 0 END) AS gradeDisagree, " +
+      "SUM(CASE WHEN leanVote = 'agree' THEN 1 ELSE 0 END) AS leanAgree, " +
+      "SUM(CASE WHEN leanVote = 'disagree' THEN 1 ELSE 0 END) AS leanDisagree " +
+      "FROM comment WHERE postSlug = ?"
+  )
+    .bind(postSlug)
+    .first<{ total: number; gradeAgree: number; gradeDisagree: number; leanAgree: number; leanDisagree: number }>();
+  return {
+    total: row?.total ?? 0,
+    gradeAgree: row?.gradeAgree ?? 0,
+    gradeDisagree: row?.gradeDisagree ?? 0,
+    leanAgree: row?.leanAgree ?? 0,
+    leanDisagree: row?.leanDisagree ?? 0,
+  };
+}
+
+export async function getUserComment(userId: string, postSlug: string): Promise<PostComment | null> {
+  const row = await env.DB.prepare(
+    "SELECT id, userId, authorName, body, gradeVote, leanVote, createdAt, updatedAt " +
+      "FROM comment WHERE userId = ? AND postSlug = ?"
+  )
+    .bind(userId, postSlug)
+    .first<PostComment>();
+  return row ?? null;
+}
+
+/** Insert or update the user's single reaction for a post. */
+export async function upsertComment(
+  userId: string,
+  authorName: string,
+  postSlug: string,
+  body: string,
+  gradeVote: Vote | null,
+  leanVote: Vote | null
+): Promise<void> {
+  const now = new Date().toISOString();
+  await env.DB.prepare(
+    "INSERT INTO comment (id, postSlug, userId, authorName, body, gradeVote, leanVote, createdAt, updatedAt) " +
+      "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) " +
+      "ON CONFLICT(userId, postSlug) DO UPDATE SET " +
+      "authorName = excluded.authorName, body = excluded.body, " +
+      "gradeVote = excluded.gradeVote, leanVote = excluded.leanVote, updatedAt = excluded.updatedAt"
+  )
+    .bind(
+      crypto.randomUUID(),
+      postSlug,
+      userId,
+      authorName.slice(0, 120),
+      body.slice(0, 2000),
+      gradeVote,
+      leanVote,
+      now,
+      now
+    )
+    .run();
+}
+
+/** A user removing their own reaction. */
+export async function deleteOwnComment(userId: string, postSlug: string): Promise<void> {
+  await env.DB.prepare("DELETE FROM comment WHERE userId = ? AND postSlug = ?")
+    .bind(userId, postSlug)
+    .run();
+}
+
+/** Editor moderation: remove any reaction by id. */
+export async function deleteCommentById(id: string): Promise<void> {
+  await env.DB.prepare("DELETE FROM comment WHERE id = ?").bind(id).run();
+}
+
+export interface AdminComment extends PostComment {
+  postSlug: string;
+}
+export async function listRecentComments(limit = 200): Promise<AdminComment[]> {
+  const res = await env.DB.prepare(
+    "SELECT id, postSlug, userId, authorName, body, gradeVote, leanVote, createdAt, updatedAt " +
+      "FROM comment ORDER BY updatedAt DESC LIMIT ?"
+  )
+    .bind(Math.max(1, Math.min(1000, limit)))
+    .all<AdminComment>();
+  return res.results ?? [];
+}
