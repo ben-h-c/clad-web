@@ -75,6 +75,24 @@ export async function createPortalSession(customerId: string, origin: string): P
   return data.url as string;
 }
 
+/**
+ * Cancel a Stripe subscription immediately. Best-effort: used when a user
+ * deletes their account, so we stop future charges before removing their rows.
+ * A 404 (already gone) is treated as success. No-op if Stripe isn't configured
+ * or there's no subscription id (e.g. the user is on an Apple IAP or comp plan).
+ */
+export async function cancelSubscription(subscriptionId: string | null | undefined): Promise<void> {
+  if (!env.STRIPE_SECRET_KEY || !subscriptionId) return;
+  const res = await fetch(`${API}/subscriptions/${encodeURIComponent(subscriptionId)}`, {
+    method: "DELETE",
+    headers: { Authorization: `Bearer ${env.STRIPE_SECRET_KEY}` },
+  });
+  if (!res.ok && res.status !== 404) {
+    const data = await res.json().catch(() => ({}));
+    throw new Error((data as any)?.error?.message || `Stripe cancel ${res.status}`);
+  }
+}
+
 // --- D1 subscription state -------------------------------------------------
 export async function upsertSubscription(row: {
   userId: string;

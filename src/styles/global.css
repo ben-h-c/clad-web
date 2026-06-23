@@ -4525,3 +4525,19 @@ html.clad-app .js-app-purchase { display: inline-block; }
 /* App-only blocks: hidden on the web, shown only inside the iOS app. */
 .clad-app-only { display: none; }
 html.clad-app .clad-app-only { display: block; }
+
+/* Subscription disclosure at the point of purchase (App Store Guideline
+   3.1.2(c)): title, length, price + Terms/Privacy links shown with the web
+   purchase buttons. Marked data-app-hide so it's hidden inside the iOS app,
+   where the native StoreKit paywall presents the same disclosure. */
+.plans__legal,
+.paywall__legal {
+  margin: 1rem auto 0;
+  max-width: 40rem;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--muted, #6b6256);
+}
+.paywall__legal { text-align: center; }
+.plans__legal a,
+.paywall__legal a { color: inherit; text-decoration: underline; }

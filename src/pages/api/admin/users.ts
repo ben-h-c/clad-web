@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
+import { deleteUserAndData } from "~/lib/user-data";
 
 export const prerender = false;
 
@@ -38,15 +39,10 @@ export const POST: APIRoute = async ({ request }) => {
   if (action !== "delete") return json({ error: "Unknown action" }, 400);
 
   try {
-    await env.DB.batch([
-      env.DB.prepare("DELETE FROM session WHERE userId = ?").bind(id),
-      env.DB.prepare("DELETE FROM account WHERE userId = ?").bind(id),
-      env.DB.prepare("DELETE FROM topic_alert WHERE userId = ?").bind(id),
-      env.DB.prepare("DELETE FROM favorite WHERE userId = ?").bind(id),
-      env.DB.prepare("DELETE FROM subscription WHERE userId = ?").bind(id),
-      env.DB.prepare("DELETE FROM user_preferences WHERE userId = ?").bind(id),
-      env.DB.prepare("DELETE FROM user WHERE id = ?").bind(id),
-    ]);
+    // Shared with the self-serve /api/me/delete-account route so both paths
+    // remove every referencing row (comments, Apple IAP, push tokens, etc.)
+    // and best-effort cancel any active Stripe subscription.
+    await deleteUserAndData(id);
     return json({ ok: true }, 200);
   } catch (e: any) {
     return json({ error: e?.message ?? "Delete failed" }, 502);

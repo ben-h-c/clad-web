@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getAuth } from "~/lib/auth-server";
-import { getPrefs, listFavorites, listAlerts } from "~/lib/user-data";
+import { getPrefs, listFavorites, listAlerts, userHasPassword } from "~/lib/user-data";
 import { TOPIC_LABELS } from "~/lib/topics";
 import { getAccess, PRICE } from "~/lib/access";
 
@@ -18,10 +18,11 @@ const trialDaysLeft =
     ? Math.max(1, Math.ceil((access.trialEndsAt - Date.now()) / 86_400_000))
     : null;
 
-const [prefs, favorites, alerts] = await Promise.all([
+const [prefs, favorites, alerts, hasPassword] = await Promise.all([
   getPrefs(user.id),
   listFavorites(user.id),
   listAlerts(user.id),
+  userHasPassword(user.id),
 ]);
 const alertTopics = new Set(alerts.map((a) => a.topic.toLowerCase()));
 const suggestions = TOPIC_LABELS.filter((t) => !alertTopics.has(t.toLowerCase()));
@@ -201,6 +202,45 @@ const planLabel = access.tier === "paid" ? "Premium" : access.tier === "trial" ?
       <button type="button" id="logout-btn" class="auth-submit secondary">Sign out</button>
       <span id="logout-status" class="auth-status"></span>
     </div>
+
+    <section class="account-card account-danger" id="delete-section">
+      <div class="account-card__head">
+        <h3 class="account-card__title">Delete account</h3>
+      </div>
+      <p class="account-card__desc">
+        Permanently delete your CladFacts account and everything tied to it —
+        your profile, saved articles, followed topics, email preferences,
+        comments, and subscription records. <strong>This can't be undone.</strong>
+      </p>
+      <p class="account-card__desc account-danger__note">
+        Subscribed through the <strong>iOS app</strong>? Apple-billed
+        subscriptions can't be cancelled here — also cancel in
+        <strong>iOS Settings → your Apple Account → Subscriptions</strong> to
+        stop future charges.
+      </p>
+      <details class="del-acct">
+        <summary class="del-acct__summary">Delete my account…</summary>
+        <div class="del-acct__body">
+          {hasPassword ? (
+            <label class="del-acct__label">
+              Confirm your password to continue
+              <input type="password" id="del-password" autocomplete="current-password" />
+            </label>
+          ) : (
+            <label class="del-acct__label">
+              Type your email (<strong>{user.email}</strong>) to confirm
+              <input type="email" id="del-confirm-email" autocomplete="off" inputmode="email" />
+            </label>
+          )}
+          <div class="account-actions">
+            <button type="button" id="del-acct-btn" class="auth-submit del-acct__btn">
+              Permanently delete account
+            </button>
+            <span id="del-acct-status" class="auth-status" role="status"></span>
+          </div>
+        </div>
+      </details>
+    </section>
   </article>
 
   <script is:inline>
@@ -365,6 +405,50 @@ const planLabel = access.tier === "paid" ? "Premium" : access.tier === "trial" ?
         } catch {}
         window.location.href = "/";
       });
+
+      // --- Delete account ---
+      const delBtn = document.getElementById("del-acct-btn");
+      if (delBtn) delBtn.addEventListener("click", async () => {
+        const status = document.getElementById("del-acct-status");
+        const pwEl = document.getElementById("del-password");
+        const emEl = document.getElementById("del-confirm-email");
+        const payload = pwEl
+          ? { password: pwEl.value }
+          : { confirmEmail: emEl ? emEl.value : "" };
+        if (!window.confirm("Permanently delete your account? This cannot be undone.")) return;
+        delBtn.disabled = true;
+        setStatus(status, "info", "Deleting…");
+        try {
+          const res = await fetch("/api/me/delete-account", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok) throw new Error(data.error || "Could not delete account.");
+          window.location.href = data.redirect || "/";
+        } catch (err) {
+          setStatus(status, "error", String(err.message || err));
+          delBtn.disabled = false;
+        }
+      });
     })();
   </script>
+
+  <style>
+    .account-danger { border: 1px solid rgba(150, 30, 20, 0.45); }
+    .account-danger .account-card__title { color: rgb(150, 30, 20); }
+    .account-danger__note { font-size: 0.9rem; }
+    .del-acct { margin-top: 0.4rem; }
+    .del-acct__summary { cursor: pointer; color: rgb(150, 30, 20); font-weight: 600; }
+    .del-acct__body { margin-top: 1rem; }
+    .del-acct__label { display: block; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.9rem; }
+    .del-acct__label input {
+      display: block; width: 100%; max-width: 22rem; margin-top: 0.35rem;
+      font: inherit; padding: 0.5rem 0.6rem; border: 1px solid var(--rule);
+      background: var(--paper); box-sizing: border-box;
+    }
+    .del-acct__btn { background: rgb(150, 30, 20); border-color: rgb(150, 30, 20); }
+    .del-acct__btn:hover { background: rgb(120, 24, 16); }
+  </style>
 </BaseLayout>

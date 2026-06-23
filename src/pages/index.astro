@@ -183,6 +183,11 @@ const mostRight = [...leaned]
             {!access.signedIn && <a class="auth-submit secondary" href="/register/">Start free week</a>}
           </div>
           <button type="button" class="auth-submit js-app-purchase">Go Premium</button>
+          <p class="paywall__legal" data-app-hide>
+            CladFacts Premium — auto-renewing subscription, {PRICE.monthly}/mo or
+            {" "}{PRICE.annual}/yr until cancelled.
+            {" "}<a href="/terms/">Terms of Use</a> · <a href="/privacy/">Privacy Policy</a>
+          </p>
         </section>
       ) : (
         <>
