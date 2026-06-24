@@ -1,0 +1,24 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "no-store");
+---
+<BaseLayout title="Account deleted — Clad" description="Your CladFacts account has been deleted." noindex={true}>
+  <article class="static-page">
+    <h2 class="static-page__title">Your account has been deleted</h2>
+    <p>
+      Your CladFacts account and all associated data have been permanently
+      removed. We're sorry to see you go — thanks for reading.
+    </p>
+    <p>
+      If you subscribed through the <strong>iOS app</strong>, remember to cancel
+      the subscription in <strong>iOS Settings → your Apple Account →
+      Subscriptions</strong> to stop any future charges — Apple-billed
+      subscriptions can't be cancelled on our end.
+    </p>
+    <p style="margin-top:1.5rem">
+      <a class="auth-submit" href="/">Back to the front page</a>
+    </p>
+  </article>
+</BaseLayout>

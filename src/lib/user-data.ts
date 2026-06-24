@@ -1,5 +1,6 @@
 import { env } from "cloudflare:workers";
 import { getAuth } from "./auth-server";
+import { cancelSubscription } from "./stripe";
 
 export interface UserPrefs {
   newsletter: boolean;
@@ -283,4 +284,62 @@ export async function searchComments(query: string, limit = 300): Promise<AdminC
     .bind(like, like, like, Math.max(1, Math.min(1000, limit)))
     .all<AdminComment>();
   return res.results ?? [];
+}
+
+// --- Account deletion ------------------------------------------------------
+/** True if the user has an email/password credential (vs. social-only). Drives
+ *  whether account deletion re-auths with a password or an email confirmation. */
+export async function userHasPassword(userId: string): Promise<boolean> {
+  const row = await env.DB.prepare(
+    "SELECT 1 AS x FROM account WHERE userId = ? AND providerId = 'credential' AND password IS NOT NULL LIMIT 1"
+  )
+    .bind(userId)
+    .first();
+  return !!row;
+}
+
+/**
+ * Permanently delete a user and every row that references them, across all
+ * tables. Best-effort cancels an active Stripe subscription first; Apple IAP
+ * subscriptions are managed by Apple and cannot be cancelled server-side (the
+ * user must cancel in iOS Settings). Used by both the self-serve delete route
+ * and the admin delete, so the two stay consistent and complete.
+ */
+export async function deleteUserAndData(userId: string): Promise<void> {
+  const u = await env.DB.prepare("SELECT email FROM user WHERE id = ?")
+    .bind(userId)
+    .first<{ email: string }>();
+  const sub = await env.DB.prepare(
+    "SELECT stripeSubscriptionId, status FROM subscription WHERE userId = ?"
+  )
+    .bind(userId)
+    .first<{ stripeSubscriptionId: string | null; status: string }>();
+  if (sub?.stripeSubscriptionId && sub.status !== "canceled") {
+    try {
+      await cancelSubscription(sub.stripeSubscriptionId);
+    } catch {
+      /* best-effort: still delete local data even if Stripe cancel fails */
+    }
+  }
+
+  const byUser = (sql: string) => env.DB.prepare(sql).bind(userId);
+  const stmts = [
+    byUser("DELETE FROM session WHERE userId = ?"),
+    byUser("DELETE FROM account WHERE userId = ?"),
+    byUser("DELETE FROM user_preferences WHERE userId = ?"),
+    byUser("DELETE FROM topic_alert WHERE userId = ?"),
+    byUser("DELETE FROM favorite WHERE userId = ?"),
+    byUser("DELETE FROM subscription WHERE userId = ?"),
+    byUser("DELETE FROM digest_send WHERE userId = ?"),
+    byUser("DELETE FROM newsletter_send WHERE userId = ?"),
+    byUser("DELETE FROM apple_subscription WHERE userId = ?"),
+    byUser("DELETE FROM push_token WHERE userId = ?"),
+    byUser("DELETE FROM comment WHERE userId = ?"),
+  ];
+  // verification rows are keyed by email (identifier), not userId.
+  if (u?.email) {
+    stmts.push(env.DB.prepare("DELETE FROM verification WHERE identifier = ?").bind(u.email));
+  }
+  stmts.push(env.DB.prepare("DELETE FROM user WHERE id = ?").bind(userId));
+  await env.DB.batch(stmts);
 }

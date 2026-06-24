@@ -68,6 +68,15 @@ const daysLeft =
           </div>
         </div>
 
+        <p class="plans__legal" data-app-hide>
+          <strong>CladFacts Premium</strong> is an auto-renewing subscription —
+          {" "}{PRICE.monthly}/month or {PRICE.annual}/year ({PRICE.annualPerMonth}/mo
+          billed annually). It renews automatically until you cancel, and you can
+          cancel anytime. By subscribing you agree to our
+          {" "}<a href="/terms/">Terms of Use</a> and
+          {" "}<a href="/privacy/">Privacy Policy</a>.
+        </p>
+
         {!access.signedIn && (
           <p class="upgrade__note">
             New here? <a href="/register/">Create a free account</a> — your first
