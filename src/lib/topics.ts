@@ -162,9 +162,14 @@ export function aggregateTopics(posts: CollectionEntry<"posts">[]): TopicAgg[] {
     // Representative image: newest article in the topic that has a thumbnail.
     const byNew = [...g.posts].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
     const thumbnail = byNew.find((p) => p.data.thumbnail)?.data.thumbnail ?? null;
-    // Freshness-weighted popularity so active topics rank up and stale ones fade.
-    const ageDays = (now - latest) / 86_400_000;
-    const score = g.posts.length * Math.exp(-ageDays / 14);
+    // Trending popularity: each article contributes by its OWN recency, so
+    // topics with active, recent coverage rank up while a large-but-stale
+    // backlog fades — total article count no longer dominates the order.
+    // Sum of per-article freshness decay (14-day time constant).
+    const score = g.posts.reduce(
+      (s, p) => s + Math.exp(-((now - p.data.publishedAt.valueOf()) / 86_400_000) / 14),
+      0
+    );
     out.push({
       display: g.display,
       slug: g.slug,
