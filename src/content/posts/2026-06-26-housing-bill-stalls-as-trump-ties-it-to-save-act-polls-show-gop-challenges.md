@@ -1,0 +1,60 @@
+---
+type: "broadcast"
+headline: "Housing bill stalls as Trump ties it to SAVE Act; polls show GOP challenges"
+summary: "The segment discusses a bipartisan housing affordability bill (21st Century ROAD to Housing Act) that passed Congress with large majorities but faces delay as Trump links its signing to passage of the SAVE America Act voter ID bill. Guests Burgess Everett, Max Rose, and Rick Wilson analyze House dynamics involving Rep. Anna Paulina Luna's procedural blockade, Trump's social media pressure on Republicans, and the bill potentially becoming law without his signature. They also review Trump's low approval ratings and Democratic leads on the generic ballot. Sourcing includes on-air references to recent polls (ARG, RCP) and Axios reporting; the broadcast aired amid Trump's appearance at the Faith and Freedom Coalition conference."
+publishedAt: 2026-06-26T19:41:42.000Z
+sourceUrl: "https://www.youtube.com/watch?v=t12foV8K_3A"
+sourceTitle: "MS NOW"
+section: "Politics"
+letterGrade: "B-"
+factualityScore: 78
+politicalLean: "left"
+leanScore: -68
+leanRationale: "Relies exclusively on Democratic and anti-Trump voices (Rose, Wilson); frames impasse as Trump ego/radicalism while emphasizing declining polls and GOP vulnerability without counter-perspectives"
+gradeRationale: "Core facts on bill passage margins, Trump's cancellation of signing ceremony, Luna's blockade, ARG poll (30% approval), and generic ballot lead are accurate and timely; interpretive claims on Trump's motivations and heavy one-sided guest selection reduce balance"
+topics:
+  - "Housing bill"
+  - "SAVE America Act"
+  - "Trump approval"
+  - "2026 midterms"
+assessment: "The report accurately captures the legislative standoff and polling data but presents a uniformly critical view of Trump and House Republicans, attributing motives like ego or anti-affordability bias without exploring administration priorities on voter integrity or bill details. Viewers miss context on the housing bill's specific provisions, Republican arguments for linking measures, or polling margins of error/trends. The guest lineup amplifies partisan framing typical of the network, with limited pushback on claims of Republican weakness or Democratic momentum heading into midterms."
+notableConcerns:
+  - "Exclusive reliance on left-leaning or anti-Trump analysts"
+  - "Opinion presented as analysis on Trump's personal motivations"
+keyMoments:
+  - claim: "Housing bill will likely become law even without Trump's signature within 10 days"
+    verdict: "verified"
+    note: "Confirmed by multiple outlets; bill passed with veto-proof margins (House 358-32, Senate 85-5)"
+  - claim: "Trump canceled signing to pressure Senate on SAVE America Act"
+    verdict: "verified"
+    note: "Trump posted canceling ceremony until SAVE Act passes; Luna leading House pressure tactics"
+  - claim: "Trump approval at 30% per recent ARG poll, down sharply"
+    verdict: "verified"
+    note: "ARG June 16-20 poll: 30% approve, 66% disapprove; aligns with reported decline"
+  - claim: "Democrats lead generic congressional ballot 48-43 (RCP average)"
+    verdict: "verified"
+    note: "RCP average shows Democratic lead of ~5 points as of late June 2026"
+  - claim: "Trump dislikes housing bill because not center of attention or to keep housing scarce for the rich"
+    verdict: "unsupported"
+    note: "Speculative opinion from guests; no primary evidence cited for personal motives"
+videoId: "t12foV8K_3A"
+videoTitle: "Why didn't Trump like the housing bill? 'He wasn't the center of attention': Max Rose"
+thumbnail: "https://img.youtube.com/vi/t12foV8K_3A/maxresdefault.jpg"
+citations:
+  - title: "What Are the Paths Forward for the Housing Bill After Trump Refused to Sign It?"
+    url: "https://www.nytimes.com/2026/06/25/us/politics/trump-housing-bill-scenarios.html"
+  - title: "Trump scraps housing bill signing to pressure Senate GOP on SAVE Act"
+    url: "https://www.pbs.org/newshour/show/trump-scraps-housing-bill-signing-to-pressure-senate-gop-on-save-act"
+  - title: "Trump cancels signing of landmark bill aimed at lowering housing costs"
+    url: "https://www.bbc.com/news/articles/cn4dwz5vz5lo"
+  - title: "Trump Job Approvals and the National Economy"
+    url: "https://americanresearchgroup.com/economy/"
+  - title: "Who's ahead on the generic congressional ballot?"
+    url: "https://www.natesilver.net/p/generic-ballot-average-2026-nate-silver-bulletin-congress-polls"
+  - title: "Anna Paulina Luna has paralyzed the House, and fellow Republicans are mystified"
+    url: "https://www.politico.com/news/2026/06/25/anna-paulina-luna-save-america-house-00976560"
+  - title: "Watch live: Trump to headline Faith & Freedom Coalition conference"
+    url: "https://thehill.com/video-clips/5942036-watch-live-donald-trump-washington-hilton-faith-and-freedom-coalition-conference/amp/"
+---
+
+
