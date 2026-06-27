@@ -4541,3 +4541,84 @@ html.clad-app .clad-app-only { display: block; }
 .paywall__legal { text-align: center; }
 .plans__legal a,
 .paywall__legal a { color: inherit; text-decoration: underline; }
+
+/* --- iOS app promotion (footer badge + homepage promo) -------------------
+   Both carry data-app-hide, so the existing `.clad-app [data-app-hide]` rule
+   hides them inside the CladFacts app (no point promoting it in-app). */
+
+/* Footer "Download on the App Store" badge — a clean, on-brand lockup that
+   mirrors Apple's badge layout in the site's ink/paper palette. */
+.appstore-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.4rem auto 0.2rem;
+  padding: 0.4rem 0.9rem;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 7px;
+  font-style: normal;
+  text-decoration: none;
+  line-height: 1.05;
+  transition: opacity 0.15s ease;
+}
+.appstore-badge:hover { opacity: 0.85; }
+.appstore-badge__logo { width: 1.35rem; height: 1.35rem; flex: none; }
+.appstore-badge__text { display: flex; flex-direction: column; text-align: left; }
+.appstore-badge__small {
+  font-size: 0.6rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.appstore-badge__big {
+  font-family: var(--display, Georgia, "Times New Roman", serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* Homepage "Now on iOS" promo — slim, paper-toned, dismissible. */
+.app-promo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  padding: 0.5rem 0.85rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.85rem;
+}
+.app-promo[hidden] { display: none; }
+.app-promo__msg { margin: 0; flex: 1 1 16rem; color: var(--ink); }
+.app-promo__kicker {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.72rem;
+  color: var(--red-ink);
+  margin-right: 0.4rem;
+}
+.app-promo__cta {
+  flex: none;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--paper);
+  background: var(--ink);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.app-promo__cta:hover { opacity: 0.85; }
+.app-promo__close {
+  flex: none;
+  border: none;
+  background: none;
+  color: var(--muted-ink);
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0 0.2rem;
+  cursor: pointer;
+}
+.app-promo__close:hover { color: var(--ink); }
