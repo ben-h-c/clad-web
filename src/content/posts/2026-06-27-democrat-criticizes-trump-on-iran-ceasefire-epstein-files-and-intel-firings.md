@@ -1,0 +1,60 @@
+---
+type: "broadcast"
+headline: "Democrat criticizes Trump on Iran ceasefire, Epstein files and intel firings"
+summary: "The segment features an interview with Illinois Democratic Congressman Rajakrishnamoorthy on recent US-Iran tit-for-tat strikes testing a fragile ceasefire, Iran's leverage in the Strait of Hormuz, Pentagon war costs and a blocked War Powers Resolution. It shifts to House Oversight subpoenas for Leon Black over Epstein NDAs and payments, criticism of acting AG Todd Blanche on file redactions, and concerns over acting DNI Bill Pulte's staff firings stalling FISA 702 reauthorization."
+publishedAt: 2026-06-27T22:16:37.000Z
+sourceUrl: "https://www.youtube.com/watch?v=qinUmDGKs0k"
+sourceTitle: "MS NOW"
+section: "Politics"
+letterGrade: "C+"
+factualityScore: 65
+politicalLean: "left"
+leanScore: -72
+leanRationale: "Sole Democratic guest, host agreement, loaded language ('wholly owned subsidiary', 'cover-up', 'fake ceasefire') and calls for Democratic takeover of Congress and White House indicate strong left tilt"
+gradeRationale: "Graded C+: core events on Iran strikes, Leon Black subpoena, Blanche Epstein role, Pulte DNI appointment and FISA stall match recent reporting, but heavy partisan framing, selective emphasis and opinion presented as fact reduce overall quality"
+topics:
+  - "Iran ceasefire"
+  - "Epstein files"
+  - "FISA 702"
+  - "Pentagon budget"
+assessment: "The broadcast accurately describes unfolding events around the Iran ceasefire and Epstein-related congressional actions but presents them through a uniformly critical Democratic lens without counterbalancing perspectives or context on administration rationales. Claims of a 'fake ceasefire' and systemic Republican subservience rely on opinion rather than evidence. Viewers miss details on bipartisan elements of prior FISA debates or the specific legal basis for DOJ redactions protecting victims. Sourcing is limited to the guest and graphics; no opposing experts appear."
+notableConcerns:
+  - "One-sided sourcing with only Democratic guest and sympathetic framing"
+  - "Partisan characterizations presented without qualifiers or counter-evidence"
+keyMoments:
+  - claim: "Tit-for-tat US-Iran attacks across the Gulf threaten the interim ceasefire and give Iran leverage via the Strait of Hormuz"
+    verdict: "verified"
+    note: "Recent reporting confirms US strikes on Iranian targets after alleged ceasefire violations involving drone attacks on shipping in the Strait of Hormuz"
+  - claim: "Pentagon requested $80 billion supplemental for war costs atop $1.5 trillion budget"
+    verdict: "verified"
+    note: "Administration FY2027 request totals $1.5 trillion; supplemental costs for operations including Iran have been referenced in coverage"
+  - claim: "House Oversight subpoenaed Leon Black for NDAs and deposition on Epstein-related payments and allegations"
+    verdict: "verified"
+    note: "Committee issued subpoenas after Black declined to answer questions on NDAs during interview; deposition set for July 16"
+  - claim: "Acting AG Todd Blanche is architecting a cover-up via improper redactions in Epstein files"
+    verdict: "missing context"
+    note: "Blanche oversees file review and faces lawsuits/criticism over redactions; DOJ cites victim protection and FOIA process; partisan interpretation"
+  - claim: "Bill Pulte as acting DNI with RNC ties is stalling FISA 702 reauthorization and making the country less safe"
+    verdict: "missing context"
+    note: "Pulte appointed acting DNI; Democrats blocked short-term extensions citing concerns over his background; reauthorization stalled amid broader negotiations"
+videoId: "qinUmDGKs0k"
+videoTitle: "Could the Iran ceasefire collapse? Dem Rep. weighs in on fragile agreement"
+thumbnail: "https://img.youtube.com/vi/qinUmDGKs0k/maxresdefault.jpg"
+citations:
+  - title: "U.S. strikes Iran after Trump accuses Tehran of ceasefire violation in Strait of Hormuz"
+    url: "https://www.cnbc.com/2026/06/26/us-strikes-iran-strait-of-hormuz-ceasefire.html"
+  - title: "US military says it struck multiple targets in Iran as ceasefire is strained by 2nd day of attacks"
+    url: "https://www.politico.com/news/2026/06/27/us-military-says-it-struck-multiple-targets-in-iran-as-ceasefire-is-strained-by-2nd-day-of-attacks-00979183"
+  - title: "Congressional Panel Investigating Epstein Subpoenas Leon Black in Unusual Escalation"
+    url: "https://www.nytimes.com/2026/06/26/business/leon-black-jeffrey-epstein-hearing.html"
+  - title: "Todd Blanche 'conceded' violating law on Epstein files, court rules"
+    url: "https://www.politico.com/news/2026/06/25/todd-blanche-conceded-epstein-files-00977481"
+  - title: "New acting intel czar Bill Pulte starts trimming staff as Trump urged"
+    url: "https://www.washingtonpost.com/national-security/2026/06/25/new-acting-intel-czar-bill-pulte-starts-trimming-staff-trump-urged/"
+  - title: "Foreign surveillance program set to expire after Democrats object to Pulte"
+    url: "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-congress-fisa-doj-ufc-2026-primary-elections-dhs-live-updates-rcna349535"
+  - title: "$1.5 Trillion Budget Request Prioritizes Service Members, Modernization"
+    url: "https://www.war.gov/News/News-Stories/Article/Article/4465551/15-trillion-budget-request-prioritizes-service-members-modernization/"
+---
+
+
