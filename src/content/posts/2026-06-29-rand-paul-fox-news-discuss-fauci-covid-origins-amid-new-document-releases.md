@@ -1,0 +1,60 @@
+---
+type: "broadcast"
+headline: "Rand Paul, Fox News discuss Fauci, COVID origins amid new document releases"
+summary: "Fox News segment features Maria Bartiromo interviewing Sen. Rand Paul on Fauci's alleged funding of gain-of-function research at Wuhan, efforts to shape a wet-market narrative, and Biden's preemptive pardon. Paul cites new files from Tulsi Gabbard, CIA analyst votes, and a 2018 DARPA proposal as evidence of a cover-up. The discussion covers Paul's subpoena for Fauci testimony and questions about the pardon’s validity.\nPaul and the host rely on recent declassified documents, Senate hearing testimony, and Paul's investigations; no opposing experts or administration officials are included. The throughline is that Fauci directed risky research and suppressed the lab-leak hypothesis."
+publishedAt: 2026-06-29T03:00:16.000Z
+sourceUrl: "https://www.youtube.com/watch?v=r_sCz_RQgj0"
+sourceTitle: "Fox News"
+section: "Politics"
+letterGrade: "C-"
+factualityScore: 55
+politicalLean: "right"
+leanScore: 72
+leanRationale: "Strong right tilt via selective emphasis on allegations from Gabbard documents and Paul, omission of analyses finding the releases do not prove key accusations, and framing of all actions as deliberate conspiracy."
+gradeRationale: "C-: Core events like Biden's 2025 Fauci pardon, recent Rand Paul subpoena, DEFUSE proposal, and whistleblower testimony on CIA assessments are verified, but strong claims of Fauci 'coercing' intelligence votes, funding research that 'sparked COVID,' and proven cover-up lack substantiation from primary documents and face counter-reporting."
+topics:
+  - "COVID origins"
+  - "Anthony Fauci"
+  - "gain-of-function research"
+  - "lab leak theory"
+assessment: "The broadcast accurately reports verifiable events such as the January 2025 Biden pardon, Gabbard's June 2026 document release, and Paul's recent subpoena, but presents unproven allegations as established fact without sufficient caveats. Missing context includes disputes over the definition of gain-of-function research, analyses concluding Gabbard's documents fall short of proving Fauci lied or sparked the pandemic, and the existence of multiple intelligence assessments rather than a single coerced 6-1 vote. The segment omits counter-evidence and expert disagreement on origins, creating a one-sided narrative that could skew viewer perception toward confirmed conspiracy. Framing emphasizes 'cover-up' and 'just desserts' while downplaying ongoing scientific debate and legal limits of the pardon challenge."
+notableConcerns:
+  - "Relies heavily on partisan interpretations of recently released documents without noting critiques from outlets like CNN and Lawfare that the files do not substantiate headline claims."
+  - "Presents allegations from whistleblower testimony and Paul’s statements as conclusive without balancing views or noting lack of definitive proof on causation or coercion."
+keyMoments:
+  - claim: "Fauci funded gain-of-function research at Wuhan Institute via EcoHealth despite 2021 testimony denying it."
+    verdict: "disputed"
+    note: "Grant to EcoHealth occurred; whether it meets 'gain-of-function' definition under the paused framework remains contested in congressional records and scientific reviews."
+  - claim: "Gabbard files show Fauci shielded from whistleblower complaint alleging perjury to Congress."
+    verdict: "missing context"
+    note: "Gabbard released documents in June 2026 referencing a complaint over research classification; independent reporting finds they do not prove shielding or perjury."
+  - claim: "CIA analysts voted 6-1 for lab origin; Fauci influenced reversal via money or pressure."
+    verdict: "unsupported"
+    note: "Whistleblower testimony in May 2026 Senate hearings alleges influence and incentives; no public evidence confirms a specific 6-1 vote reversal tied directly to Fauci payments."
+  - claim: "Biden issued preemptive pardon for Fauci hours before leaving office in 2025."
+    verdict: "verified"
+    note: "Confirmed by DOJ records and contemporaneous reporting; pardon covers 2014 onward related to NIAID and COVID roles."
+  - claim: "2018 DARPA DEFUSE proposal sought to create coronavirus similar to COVID-19."
+    verdict: "verified"
+    note: "Proposal documents released and analyzed by Intercept and congressional committees; DARPA rejected it; similarities noted but not identical virus created."
+videoId: "r_sCz_RQgj0"
+videoTitle: "Rand Paul EXPOSES Fauci's alleged role in COVID origins"
+thumbnail: "https://img.youtube.com/vi/r_sCz_RQgj0/maxresdefault.jpg"
+citations:
+  - title: "Biden pardons Fauci, Milley and members of Jan. 6 panel"
+    url: "https://www.npr.org/2025/01/20/nx-s1-5268258/biden-pardons-fauci-milley-and-members-of-jan-6-panel"
+  - title: "Pardons Granted by President Joseph Biden (2021-2025)"
+    url: "https://www.justice.gov/pardon/pardons-granted-president-joseph-biden-2021-2025"
+  - title: "Rand Paul issues subpoena for Anthony Fauci"
+    url: "https://thehill.com/policy/healthcare/5936032-rand-paul-subpoena-anthony-fauci-covid-19/"
+  - title: "Tulsi Gabbard's Fauci Files Don't Prove What She Says They Prove"
+    url: "https://www.lawfaremedia.org/article/tulsi-gabbard-s-fauci-files-don-t-prove-what-she-says-they-prove"
+  - title: "Why the Covid-19 documents Gabbard released don’t prove her claims about Fauci"
+    url: "https://www.cnn.com/2026/06/23/politics/covid-19-gabbard-fauci-claims"
+  - title: "Leaked Grant Proposal Details High-Risk Coronavirus Research"
+    url: "https://theintercept.com/2021/09/23/coronavirus-research-grant-darpa/"
+  - title: "Wenstrup Reveals New Allegations that Dr. Fauci Potentially Influenced CIA COVID-19 Origins Investigation"
+    url: "https://oversight.house.gov/release/wenstrup-reveals-new-allegations-that-dr-fauci-potentially-influenced-cia-covid-19-origins-investigation/"
+---
+
+
