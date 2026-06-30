@@ -1,0 +1,60 @@
+---
+type: "broadcast"
+headline: "Trump criticizes SCOTUS mail ballot ruling, pushes SAVE Act"
+summary: "Bloomberg Television aired President Trump's reaction to the Supreme Court's June 29, 2026, 5-4 decision in Watson v. RNC upholding state laws that count mail-in ballots postmarked by Election Day but received shortly after. Trump called the ruling surprising and harmful to election integrity while stressing the importance of the SAVE Act for requiring citizenship proof, photo voter ID, and restricting mail ballots.\nThe segment featured Trump's direct comments on the ruling and legislation, with no additional guests or graphics referenced in the transcript. It focused on his view that mail-in voting enables fraud and that only the U.S. uses this system."
+publishedAt: 2026-06-30T19:50:42.000Z
+sourceUrl: "https://www.youtube.com/watch?v=A8bqn6WGw6o"
+sourceTitle: "Bloomberg Television"
+section: "Politics"
+letterGrade: "C-"
+factualityScore: 45
+politicalLean: "right"
+leanScore: 82
+leanRationale: "Strong right lean through emphasis on 'illegal' voting, framing the ruling as detrimental to 'honest elections,' and equating opposition to SAVE Act with cheating, without counter-evidence or balanced sourcing."
+gradeRationale: "Graded C-: accurately describes the June 29, 2026 SCOTUS ruling and SAVE Act provisions but makes unsupported claims of widespread illegal voting, asserts the U.S. is the only country using mail ballots, and omits key context on fraud evidence and bill status."
+topics:
+  - "Supreme Court"
+  - "mail-in voting"
+  - "SAVE Act"
+  - "elections"
+assessment: "The broadcast accurately captures Trump's immediate reaction and the ruling's core holding but provides no independent verification or context on the decision's legal reasoning, its impact on 18+ states, or evidence (or lack thereof) of fraud from late-arriving ballots. The claim that the U.S. is the sole country using mail-in voting is false, as multiple nations including Australia, Canada, the UK, and Germany permit it. The SAVE Act description is broadly correct but omits that the bill has passed the House yet remains stalled in the Senate and does not fully ban mail voting. Viewers miss primary court documents, data on actual fraud rates, and international comparisons that contradict the 'only country' assertion."
+notableConcerns:
+  - "Unsupported assertion that mail-in ballots enable widespread illegal voting"
+  - "False claim that the U.S. is the only country using mail-in ballots"
+  - "Omission of SAVE Act legislative status and limits on mail voting"
+keyMoments:
+  - claim: "SCOTUS ruling allows more time to vote illegally and is detrimental to honest elections"
+    verdict: "missing context"
+    note: "Ruling upheld Mississippi's law counting postmarked-by-Election-Day ballots received up to 5 days later; no evidence presented of increased fraud."
+  - claim: "SAVE Act requires citizenship proof, photo voter ID, and limits mail-in ballots except for military, disabled, ill, or away voters"
+    verdict: "verified"
+    note: "Matches core provisions of the bill as described in congressional text and reporting."
+  - claim: "U.S. is the only country in the world that does this type of mail-in ballot; others tried it and found it dishonest"
+    verdict: "unsupported"
+    note: "Dozens of countries, including Australia, Canada, UK, and Germany, use postal/mail-in voting."
+  - claim: "Opposition to SAVE Act means supporting cheating in elections"
+    verdict: "unsupported"
+    note: "Partisan assertion without evidence linking opponents to fraud intent."
+videoId: "A8bqn6WGw6o"
+videoTitle: "Trump Reacts to Supreme Court Ruling Allowing Mail In Ballots"
+thumbnail: "https://img.youtube.com/vi/A8bqn6WGw6o/maxresdefault.jpg"
+citations:
+  - title: "Justices uphold state law allowing for late-arriving mail-in ballots"
+    url: "https://www.scotusblog.com/2026/06/justices-uphold-state-law-allowing-for-late-arriving-mail-in-ballots/"
+  - title: "24-1260 Watson v. Republican National Committee"
+    url: "https://www.supremecourt.gov/opinions/25pdf/24-1260_g3cn.pdf"
+  - title: "Supreme Court upholds grace periods for mail-in ballots"
+    url: "https://www.npr.org/2026/06/29/nx-s1-5815312/supreme-court-mail-ballot-grace-period-ruling"
+  - title: "Trump pushes for SAVE America Act after Supreme Court ruling"
+    url: "https://thehill.com/homenews/administration/5945634-trump-supreme-court-mail-ballots-ruling/"
+  - title: "Text - H.R.22 - SAVE Act"
+    url: "https://www.congress.gov/bill/119th-congress/house-bill/22/text"
+  - title: "Chart: U.S. Is Not the “Only Country” To Have Mail-in Ballots"
+    url: "https://www.statista.com/chart/36065/countries-that-offer-in-country-postal-voting/"
+  - title: "Fact-checking Trump's claim the U.S. is the 'only country' that uses mail-in voting"
+    url: "https://www.pbs.org/newshour/politics/fact-checking-trumps-claim-the-u-s-is-the-only-country-that-uses-mail-in-voting"
+  - title: "Global in-country postal voting data"
+    url: "https://www.idea.int/data-tools/tools/special-voting-arrangements/postal-in-country"
+---
+
+
