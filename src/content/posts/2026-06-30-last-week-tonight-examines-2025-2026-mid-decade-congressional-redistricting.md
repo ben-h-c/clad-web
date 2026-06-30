@@ -1,0 +1,61 @@
+---
+type: "broadcast"
+headline: "Last Week Tonight examines 2025-2026 mid-decade congressional redistricting"
+summary: "The segment covers ongoing mid-decade redistricting battles ahead of the 2026 midterms, detailing Republican-led map changes in Texas, Missouri, Louisiana, and Tennessee that aim to increase GOP House seats, alongside California's Prop 50 as a Democratic counter. It notes protests in Tennessee, Supreme Court involvement, and an overall projected Republican net gain of 3-12 seats given their narrow prior majority.\nThe sourcing draws from legislative actions, protest footage, and aggregated predictions; no named outside experts appear, relying instead on narration, clips, and satirical commentary to connect the events."
+publishedAt: 2026-06-30T16:00:33.000Z
+sourceUrl: "https://www.youtube.com/watch?v=kiboO5WsapE"
+sourceTitle: "LastWeekTonight"
+section: "Politics"
+letterGrade: "B+"
+factualityScore: 85
+politicalLean: "left"
+leanScore: -65
+leanRationale: "Framing emphasizes Republican-led maps as aggressive power grabs with loaded terms like 'Jim Crow 2.0,' highlights Democratic protests and countermeasures, while downplaying similar Democratic tactics or legal defenses of maps."
+gradeRationale: "Graded B+: core factual claims on state maps, seat counts, and processes verified by primary legislative and court records; minor issues include optimistic partisan gain projections and limited counter-analysis on implementation challenges or voter shifts."
+topics:
+  - "redistricting"
+  - "congressional maps"
+  - "2026 midterms"
+assessment: "The broadcast accurately reports enacted maps and procedural steps but presents them through a consistently critical lens on Republican efforts, omitting fuller context on court stays, varying projected gains, or Democratic redistricting precedents. Viewer perception may be skewed toward viewing these as uniquely partisan overreaches rather than routine mid-decade maneuvers in a polarized environment. Claims about seat impacts hold up directionally but rest on estimates that some analyses have since revised downward in Texas. The comedic format prioritizes engagement over balanced sourcing or discussion of non-racial factors in map-drawing."
+notableConcerns:
+  - "Heavy reliance on Democratic-framed protest rhetoric without equivalent counter-perspectives"
+  - "Projected seat gains presented as more certain than contemporaneous analyses indicated"
+keyMoments:
+  - claim: "Texas Republicans hold 25 of 38 seats; new map ups their potential to 30"
+    verdict: "verified"
+    note: "Enacted August 2025 map signed by Gov. Abbott targets five Democratic seats per legislative records and reporting."
+  - claim: "California Prop 50 redraws districts to cost Republicans five seats"
+    verdict: "verified"
+    note: "Voter-approved measure enables legislatively drawn maps projected to deliver Democrats up to five additional seats."
+  - claim: "Missouri Senate passed Trump-backed map to help Republicans add one House seat"
+    verdict: "verified"
+    note: "Signed September 2025; targets District 5 held by Democrat Emanuel Cleaver."
+  - claim: "Louisiana map expected to remove at least one Democrat-leaning district"
+    verdict: "verified"
+    note: "Enacted May 2026; eliminates one majority-Black district, shifting toward one additional Republican seat."
+  - claim: "Tennessee breaking up the state's only Democratic House seat amid protests calling it Jim Crow 2.0"
+    verdict: "verified"
+    note: "May 2026 map splits Memphis-based District 9; protests occurred, though legal challenges center on racial gerrymandering claims."
+videoId: "kiboO5WsapE"
+videoTitle: "Redistricting #lastweektonight"
+thumbnail: "https://img.youtube.com/vi/kiboO5WsapE/maxresdefault.jpg"
+citations:
+  - title: "Redistricting in Texas ahead of the 2026 elections"
+    url: "https://ballotpedia.org/Redistricting_in_Texas_ahead_of_the_2026_elections"
+  - title: "Redistricting ahead of the 2026 elections"
+    url: "https://ballotpedia.org/Redistricting_ahead_of_the_2026_elections"
+  - title: "Proposition 50"
+    url: "https://lao.ca.gov/BallotAnalysis/Proposition?number=50&year=2025"
+  - title: "Redistricting in Missouri ahead of the 2026 elections"
+    url: "https://ballotpedia.org/Redistricting_in_Missouri_ahead_of_the_2026_elections"
+  - title: "Louisiana passes new congressional map, dismantling one majority-Black district"
+    url: "https://www.nbcnews.com/politics/2026-election/louisiana-passes-new-congressional-map-dismantling-one-majority-black-rcna347575"
+  - title: "Tennessee redistricting splits only Democratic seat"
+    url: "https://tennesseelookout.com/2026/05/18/whos-running-in-tennessees-new-2026-u-s-congress-races/"
+  - title: "Where the redistricting fight stands heading into the midterms"
+    url: "https://www.nbcnews.com/politics/2026-election/house-redistricting-gop-democrats-2026-midterm-elections-rcna348110"
+  - title: "2025–2026 United States redistricting"
+    url: "https://en.wikipedia.org/wiki/2025%E2%80%932026_United_States_redistricting"
+---
+
+
