@@ -49,6 +49,10 @@ export function setDiscover(sections) {
   return call("/api/agent/discover", { method: "POST", body: JSON.stringify({ sections }) });
 }
 
+export function setGoodNews(sections) {
+  return call("/api/agent/goodnews", { method: "POST", body: JSON.stringify({ sections }) });
+}
+
 export function prune(ids, dryRun) {
   return call("/api/agent/prune", { method: "POST", body: JSON.stringify({ ids, dryRun }) });
 }

@@ -39,6 +39,11 @@ export interface AgentConfig {
   // quip-writer
   quipCount?: number; // how many new quips to generate per run
   maxQuipPool?: number; // cap the rolling pool size
+  // discover-curator / good-news-curator
+  maxSections?: number; // max collections to publish per run
+  poolSize?: number; // how many recent posts to consider
+  // youtube-scanner (good-news surfacing)
+  goodNewsSlots?: number; // per-run draft slots reserved for positive/uplifting headlines
 }
 
 export interface AgentLastRun {
@@ -193,6 +198,14 @@ export const DEFAULT_REGISTRY: Registry = {
       enabled: true,
       cron: "0 11 * * *", // daily, 11:00 UTC
       config: { maxSections: 6, poolSize: 80 },
+    },
+    {
+      id: "good-news-curator",
+      kind: "good-news-curator",
+      name: "Good News Curator",
+      enabled: true,
+      cron: "30 11 * * *", // daily, 11:30 UTC (just after the Discover run)
+      config: { maxSections: 6, poolSize: 120 },
     },
     {
       id: "dead-video-pruner",
@@ -417,6 +430,36 @@ export async function getDiscover(kv: KVNamespace): Promise<DiscoverSection[]> {
 
 export async function setDiscover(kv: KVNamespace, sections: DiscoverSection[]): Promise<void> {
   await kv.put(DISCOVER_KEY, JSON.stringify(sections.slice(0, 8)));
+}
+
+const GOODNEWS_KEY = "goodnews:sections";
+
+// Good News = themed collections of positive, uplifting, and otherwise
+// interesting (non-grim) fact-checked reports. Same shape as Discover so the
+// page renders identically; the curator fills it from the lighter side of the
+// news instead of offbeat throughlines.
+export type GoodNewsSection = DiscoverSection;
+
+export async function getGoodNews(kv: KVNamespace): Promise<GoodNewsSection[]> {
+  const raw = await kv.get(GOODNEWS_KEY);
+  if (!raw) return [];
+  try {
+    const v = JSON.parse(raw);
+    if (!Array.isArray(v)) return [];
+    return v
+      .filter((s) => s && typeof s.title === "string" && Array.isArray(s.ids))
+      .map((s) => ({
+        title: String(s.title),
+        blurb: typeof s.blurb === "string" ? s.blurb : "",
+        ids: s.ids.map(String),
+      }));
+  } catch {
+    return [];
+  }
+}
+
+export async function setGoodNews(kv: KVNamespace, sections: GoodNewsSection[]): Promise<void> {
+  await kv.put(GOODNEWS_KEY, JSON.stringify(sections.slice(0, 8)));
 }
 
 const BREAKING_KEY = "breaking:featured";
