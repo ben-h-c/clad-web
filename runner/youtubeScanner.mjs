@@ -2,6 +2,21 @@ import { generateBroadcastReport } from "../src/lib/broadcast.ts";
 import { validateCitations } from "../src/lib/citations.ts";
 import { fetchTranscript } from "./transcript.mjs";
 import { getKnown, submitDraft } from "./api.mjs";
+import { heuristicLighthearted } from "./newsroom.mjs";
+
+// Positive / uplifting / "could be good news" signal. A headline qualifies for
+// the Good News bucket when it reads as a bright spot AND isn't heavy-politics
+// or tragedy (the latter two are excluded by heuristicLighthearted, which is
+// already tuned for the Front Page's "cool stories" feed). Kept here, title-
+// driven, so the scanner stays self-contained; the Good News Curator does the
+// real grouping later from the published, classifier-screened reports.
+const GOOD_NEWS =
+  /\b(?:breakthrough|discover\w*|cure\w*|rescue\w*|saved|survivors?|record(?:-breaking)?|milestone|historic|first ever|first-ever|wins?|won|victor\w*|champion\w*|triumph\w*|celebrat\w*|reunit\w*|restor\w*|recover\w*|comeback|heartwarming|uplifting|kindness|generou\w*|donat\w*|charity|award\w*|honou?red|achievement|thriv\w*|revive\w*|soars?|lands?|landing|launch\w*|unveil\w*|debut\w*|hope\w*|inspir\w*|miracle\w*)\b/i;
+
+function looksLikeGoodNews(title) {
+  if (!title) return false;
+  return heuristicLighthearted({ headline: title, topics: [] }) && GOOD_NEWS.test(title);
+}
 
 // Pull each outlet's latest uploads via its uploads playlist — 1 quota unit per
 // call, vs 100 per keyword search. (Topic-driven discovery is now handled
@@ -78,6 +93,10 @@ export async function runYoutubeScanner(agent) {
   const withinHours = c.publishedWithinHours || 48;
   const cutoff = Date.now() - withinHours * 3600_000;
   const perChannel = c.perChannel || 4; // newest uploads to pull from each outlet
+  // Per-run draft slots reserved for positive/uplifting "good news" headlines so
+  // they get surfaced for the Good News page instead of being crowded out by the
+  // newest breaking (usually political) stories. 0 disables the reservation.
+  const goodNewsSlots = c.goodNewsSlots ?? 1;
 
   // 1) Collect recent uploads from every outlet's uploads playlist (UC… -> UU…).
   const candidates = [];
@@ -112,6 +131,7 @@ export async function runYoutubeScanner(agent) {
         title: s.title || "",
         channel: s.videoOwnerChannelTitle || s.channelTitle || "",
         publishedAt,
+        goodNews: looksLikeGoodNews(s.title || ""),
       });
     }
   }
@@ -139,9 +159,18 @@ export async function runYoutubeScanner(agent) {
   let submitted = 0;
   let skipped = candidates.length - fresh.length;
   let noTranscript = 0;
+  let goodNewsDrafted = 0;
 
-  // 4) Transcript-required: draft the newest fresh headlines up to the limit.
-  for (const v of fresh) {
+  // 4) Drafting order: reserve the first `goodNewsSlots` attempts for positive /
+  // uplifting headlines (newest-first), then fall back to pure recency. Both
+  // lists stay newest-first, and dedup keeps anything from being attempted
+  // twice — so good news gets a foot in the door without starving the headlines.
+  const goodFirst = goodNewsSlots > 0 ? fresh.filter((v) => v.goodNews).slice(0, goodNewsSlots) : [];
+  const goodIds = new Set(goodFirst.map((v) => v.videoId));
+  const order = [...goodFirst, ...fresh.filter((v) => !goodIds.has(v.videoId))];
+
+  // Transcript-required: draft headlines up to the limit, good news prioritized.
+  for (const v of order) {
     if (submitted >= limit) break;
     const sourceUrl = `https://www.youtube.com/watch?v=${v.videoId}`;
     const transcript = await fetchTranscript(v.videoId);
@@ -174,13 +203,16 @@ export async function runYoutubeScanner(agent) {
         publishedAt: v.publishedAt,
       },
     });
-    if (out.ok) submitted++;
-    else skipped++;
+    if (out.ok) {
+      submitted++;
+      if (v.goodNews) goodNewsDrafted++;
+    } else skipped++;
   }
 
+  const goodNewsFresh = fresh.filter((v) => v.goodNews).length;
   return {
     ok: true,
-    message: `${candidates.length} recent outlet headlines, ${submitted} drafted, ${skipped} skipped (${noTranscript} no transcript)`,
+    message: `${candidates.length} recent outlet headlines, ${submitted} drafted (${goodNewsDrafted} good news of ${goodNewsFresh} candidates), ${skipped} skipped (${noTranscript} no transcript)`,
     submitted,
     skipped,
   };
