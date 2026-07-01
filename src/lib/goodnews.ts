@@ -3,13 +3,18 @@
  * Grok-curated collections the Good News Curator writes to KV, but the curator
  * runs on the Mac runner. So the page never depends on it: when KV is empty
  * (curator hasn't run, or the runner is down), this builds a solid page of its
- * own from the published content collection — the same "lighthearted" heuristic
- * the runner's newsroom classifier falls back to (positive / uplifting /
- * interesting, never politics or tragedy), bucketed into simple themed sections.
+ * own from the published content collection, bucketed into simple themed
+ * sections.
  *
- * The regexes here are a deliberate copy of runner/newsroom.mjs's heuristic —
- * that module imports the runner's HTTP client and can't be pulled into the
- * Worker bundle, so the two are kept in sync by hand.
+ * The bar is deliberately high: a story qualifies only if it carries a genuine
+ * POSITIVE/exciting signal AND clears every downbeat gate (politics, tragedy,
+ * plain-negative business/legal/sports news, and dry panel/opinion segments).
+ * "Not obviously bad" is not enough — the page should read as actively good
+ * news, so neutral or merely-not-tragic items are excluded on purpose.
+ *
+ * HEAVY_POLITICS/TRAGEDY are copied from runner/newsroom.mjs's heuristic (that
+ * module can't be pulled into the Worker bundle); the other gates are specific
+ * to this page. Kept in sync by hand.
  */
 import type { CollectionEntry } from "astro:content";
 import type { GoodNewsSection } from "~/lib/agents";
@@ -21,14 +26,38 @@ const HEAVY_POLITICS =
 const TRAGEDY =
   /\b(?:crash\w*|dead|dies|died|death\w*|deadly|fatal\w*|kill\w*|homicide|shoot\w*|gunman|gunmen|massacre|stabbing|stabbed|wildfire\w*|flood\w*|hurricane\w*|tornado\w*|earthquake\w*|tsunami|disaster\w*|catastroph\w*|victim\w*|tragedy|tragic|collaps\w*|explos\w*|bomb\w*|injur\w*|wound\w*|casualt\w*|outbreak\w*|pandemic|epidemic|overdose\w*|missing|manhunt|abduct\w*|kidnap\w*|assault\w*)\b/i;
 
+// Additional political / civic terms the newsroom list misses but that keep
+// slipping onto the Good News page (ministers, pay disputes, guilty pleas,
+// classified-docs sagas, royals-as-politics, etc.).
+const POLITICS_EXTRA =
+  /\b(?:minister\w*|secretary|\bmp\b|\bmps\b|commissioner|councill?or|guilty|plea\w*|classified|espionage|treason|scandal|corruption|bribery|whistleblow\w*|fauci|covid|lockdown\w*|vaccine mandate|monarch\w*|royal\w*|\bking\b|\bqueen\b|prince\w*|princess|duke|duchess|harry|meghan|epstein|verdict|acquit\w*|sentenc\w*|prosecut\w*|testif\w*|testimony|nominee|confirmation|referendum|coalition|resign\w*|ousted|impeachment|devolution|downing|no\.? ?10|number 10|navy|naval|warship\w*|air force|\barmy\b|combat|militi\w*)\b/i;
+// Plain-negative, non-tragedy downbeat news — market slumps, layoffs, recalls,
+// bans, feuds, criticism, climate/heat and housing stress. Not "tragedy", but
+// definitely not good news.
+const NEGATIVE =
+  /\b(?:selloff|sell-off|tumbl\w*|plung\w*|plummet\w*|slump\w*|sink\w*|slid\w*|slip\w*|\bfell\b|\bfalls?\b|drop\w*|declin\w*|downturn|down\b|cuts?\b|layoff\w*|job cuts|fire[ds]\b|fired|recall\w*|\bsued\b|\bsues\b|ban\b|bans\b|banned|suspend\w*|suspension|fine[ds]?\b|penalt\w*|warn\w*|delay\w*|shortage\w*|hike\w*|slash\w*|slam\w*|blast\w*|mock\w*|criticiz\w*|criticis\w*|controvers\w*|backlash|feud\w*|dispute\w*|tension\w*|crisis|woes|struggl\w*|fears?|concern\w*|risks?|threat\w*|loss\w*|\bmiss\w*|weak\w*|slowdown|halt\w*|scrap\w*|boycott\w*|strike\w*|outage\w*|breach\w*|hack\w*|scam\w*|fraud\w*|bankrupt\w*|default\w*|downgrad\w*|glut|heat ?wave\w*|heat-related|scorching|sweltering|drought\w*|famine|foreclosur\w*|evict\w*|affordability)\b/i;
+// Dry panel / opinion / recap / fact-check-meta formats — commentary about
+// coverage, not an exciting event.
+const COMMENTARY =
+  /\b(?:discuss\w*|interview\w*|panel\w*|roundtable|op-?ed|opinion\w*|analy[sz]\w*|outlook|weighs? in|reacts?|reaction|breaks? down|explain\w*|debate\w*|commentar\w*|preview\w*|recap\w*|slams?|weigh\w* in|sit[s]? down|examin\w*|holds? up|accurate\w*|inaccurate\w*|misleading|fact-?check\w*|debunk\w*)\b/i;
+// Genuine positive / exciting signal — at least one is required to qualify.
+const POSITIVE =
+  /\b(?:breakthrough\w*|discover\w*|milestone\w*|record\w*|first-ever|first ever|historic\w*|unveil\w*|debut\w*|launch\w*|reveal\w*|introduc\w*|premiere\w*|wins?|\bwon\b|victor\w*|champion\w*|title\w*|gold\b|medal\w*|triumph\w*|comeback\w*|celebrat\w*|reunit\w*|rescue\w*|saved|restor\w*|reviv\w*|soar\w*|surg\w*|boom\w*|boost\w*|thriv\w*|achievement\w*|award\w*|honou?r\w*|prize\w*|inspir\w*|heartwarming|uplifting|kindness|generou\w*|donat\w*|charit\w*|miracle\w*|hope\w*|wonder\w*|stunning|remarkable|success\w*|landmark|groundbreaking|pioneer\w*|innovat\w*|mission\w*|rover\w*|telescope\w*|spacewalk\w*|\bcure\w*|lifesaving|recover\w*|rebound\w*|hits? record|reaches?|breaks? record|new (?:record|species|era|era of|home|era)|feat\b)\b/i;
+
 function blob(p: Post): string {
   return `${(p.data.topics ?? []).join(" ")} ${p.data.headline ?? ""} ${p.data.section ?? ""}`;
 }
 
-/** Positive / uplifting / interesting, never political or tragic. */
+/**
+ * Actively good news: carries a positive/exciting signal and clears every
+ * downbeat gate. Deliberately strict — "not tragic" alone does not qualify.
+ */
 export function isPositive(p: Post): boolean {
   const b = blob(p);
-  return !HEAVY_POLITICS.test(b) && !TRAGEDY.test(b);
+  if (HEAVY_POLITICS.test(b) || POLITICS_EXTRA.test(b)) return false;
+  if (TRAGEDY.test(b) || NEGATIVE.test(b)) return false;
+  if (COMMENTARY.test(b)) return false;
+  return POSITIVE.test(b);
 }
 
 // Themed buckets, in priority order. A positive post lands in the first bucket

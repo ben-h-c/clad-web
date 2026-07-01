@@ -12,10 +12,19 @@ import { heuristicLighthearted } from "./newsroom.mjs";
 // real grouping later from the published, classifier-screened reports.
 const GOOD_NEWS =
   /\b(?:breakthrough|discover\w*|cure\w*|rescue\w*|saved|survivors?|record(?:-breaking)?|milestone|historic|first ever|first-ever|wins?|won|victor\w*|champion\w*|triumph\w*|celebrat\w*|reunit\w*|restor\w*|recover\w*|comeback|heartwarming|uplifting|kindness|generou\w*|donat\w*|charity|award\w*|honou?red|achievement|thriv\w*|revive\w*|soars?|lands?|landing|launch\w*|unveil\w*|debut\w*|hope\w*|inspir\w*|miracle\w*)\b/i;
+// Downbeat / not-actually-good signals that slip past the tragedy filter —
+// market slumps, layoffs, bans, criticism, climate stress. Excluded even when a
+// positive word is present, to match the /good-news page's stricter gate.
+const GOOD_NEWS_NEGATIVE =
+  /\b(?:selloff|sell-off|tumbl\w*|plung\w*|slump\w*|layoff\w*|job cuts|recall\w*|lawsuit\w*|guilty|\bban\b|bans\b|banned|suspend\w*|penalt\w*|warn\w*|shortage\w*|hike\w*|slash\w*|slam\w*|criticiz\w*|criticis\w*|controvers\w*|backlash|feud\w*|scandal|probe|resign\w*|boycott\w*|strike\w*|breach\w*|hack\w*|fraud\w*|bankrupt\w*|heat ?wave\w*|drought\w*|foreclosur\w*)\b/i;
 
 function looksLikeGoodNews(title) {
   if (!title) return false;
-  return heuristicLighthearted({ headline: title, topics: [] }) && GOOD_NEWS.test(title);
+  return (
+    heuristicLighthearted({ headline: title, topics: [] }) &&
+    GOOD_NEWS.test(title) &&
+    !GOOD_NEWS_NEGATIVE.test(title)
+  );
 }
 
 // Pull each outlet's latest uploads via its uploads playlist — 1 quota unit per
