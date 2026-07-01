@@ -163,6 +163,28 @@ const mostRight = [...leaned]
       <Ticker data={ticker} />
       <HeroStrip posts={heroPosts} title="Front Page" locked={locked} />
       <HeroStrip posts={recent} title="Recent" locked={locked} />
+      <script is:inline>
+        (() => {
+          // Mobile only: the hero cards (Breaking / Front Page / Recent) show a
+          // tiny thumbnail; tapping it expands the image to full size instead of
+          // opening the article. Tapping the headline/text still navigates.
+          // Capture phase so we intercept before the card's <a> link fires.
+          const mq = window.matchMedia("(max-width: 600px)");
+          document.addEventListener(
+            "click",
+            (e) => {
+              if (!mq.matches) return; // desktop: thumbnail behaves as a normal link
+              const thumb = e.target.closest(".hero .report-card__thumb");
+              if (!thumb) return;
+              e.preventDefault();
+              e.stopPropagation();
+              const card = thumb.closest(".report-card");
+              if (card) card.classList.toggle("is-thumb-open");
+            },
+            true
+          );
+        })();
+      </script>
       <section class="feed">
         <div class="feed__head">
           <h2 class="feed__title">Topics</h2>
