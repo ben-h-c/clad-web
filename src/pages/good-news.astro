@@ -4,6 +4,7 @@ import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ReportCard from "~/components/ReportCard.astro";
 import { getGoodNews } from "~/lib/agents";
+import { buildGoodNewsSections } from "~/lib/goodnews";
 import { getAccess } from "~/lib/access";
 
 export const prerender = false;
@@ -13,8 +14,12 @@ Astro.response.headers.set("Cache-Control", "private, no-store");
 const access = await getAccess(Astro.request.headers);
 if (!access.fullAccess) return Astro.redirect("/upgrade/");
 
-const sections = await getGoodNews(env.AGENTS);
 const all = await getCollection("posts", (p) => !p.data.draft);
+// Prefer the Grok-curated collections the runner writes to KV; if they're not
+// there yet (curator hasn't run / runner is down), build a themed page from the
+// published posts directly so /good-news is never empty.
+const curated = await getGoodNews(env.AGENTS);
+const sections = curated.length > 0 ? curated : buildGoodNewsSections(all);
 const byId = new Map(all.map((p) => [p.id, p]));
 const resolved = sections
   .map((s) => ({ ...s, posts: s.ids.map((id) => byId.get(id)).filter((p) => p !== undefined) }))
