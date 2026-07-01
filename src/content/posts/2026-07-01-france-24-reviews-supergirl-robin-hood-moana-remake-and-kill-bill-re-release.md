@@ -1,0 +1,60 @@
+---
+type: "broadcast"
+headline: "France 24 reviews Supergirl, Robin Hood, Moana remake and Kill Bill re-release"
+summary: "The segment features critic Ben Crawl discussing four summer 2026 releases on Arts 24. Supergirl stars Milly Alcock in a space adventure with Lobo (Jason Momoa); The Death of Robin Hood offers Hugh Jackman in a dark, elegiac take directed by Michael Sarnoski; Disney's live-action Moana (Vaiana in Europe) reunites Dwayne Johnson as Maui; and Kill Bill: The Whole Bloody Affair presents Tarantino's original 4.5-hour cut.\nCrawl draws on trailers, director comments and prior Superman footage. Sourcing relies on studio clips, actor quotes and the critic's analysis; the discussion ties films to nostalgia, family viewing and 'AC cinema' escapism."
+publishedAt: 2026-07-01T15:50:04.000Z
+sourceUrl: "https://www.youtube.com/watch?v=oYexcPpvjA0"
+sourceTitle: "FRANCE 24 English"
+section: "Politics"
+letterGrade: "A-"
+factualityScore: 90
+politicalLean: "center"
+leanScore: 0
+leanRationale: "Neutral entertainment segment with no discernible political framing, guest selection or loaded language; focuses on film criticism and release timing."
+gradeRationale: "Graded A-: core factual claims on casts, directors, plots, release dates and DCU context verified by primary sources and studio announcements; minor deductions for light sourcing on name-change details and post-release box-office context omitted."
+topics:
+  - "Supergirl"
+  - "Robin Hood"
+  - "Moana"
+  - "Kill Bill"
+assessment: "The broadcast accurately sets up the films with verified details on talent, creative teams and premises. Viewer perception may be skewed by the critic's emphasis on derivative elements in Supergirl and the commercial nature of remakes without counterbalancing box-office or audience data available at airtime. Missing broader industry context includes Supergirl's reported underperformance and the rapid remake cycle driven by Disney's anniversary slate. Kill Bill coverage correctly notes the Weinstein-free restoration. Overall, it provides reliable preview information balanced by subjective critique."
+notableConcerns: []
+keyMoments:
+  - claim: "Supergirl is the second film in DC's rebooted universe, with Milly Alcock reprising her role from the prior Superman movie."
+    verdict: "verified"
+    note: "Confirmed by IMDb, Wikipedia and DC/Warner Bros. announcements; Supergirl released June 26, 2026 after 2025 Superman."
+  - claim: "Supergirl plot involves space travel, space pirates and an orphan's vengeance quest, with Jason Momoa as Lobo."
+    verdict: "verified"
+    note: "Matches official synopsis, cast lists and trailers citing Ana Nogueira script and Craig Gillespie direction."
+  - claim: "The Death of Robin Hood is a darker, realistic take with Hugh Jackman as an aging outlaw, directed by Michael Sarnoski."
+    verdict: "verified"
+    note: "A24 production details and director/writer credits align with 2026 release announcements."
+  - claim: "Disney's Moana live-action remake stars Dwayne Johnson as Maui and releases under Vaiana title in Europe due to trademark issues."
+    verdict: "verified"
+    note: "IMDb, Disney and Wikipedia list July 10, 2026 release; Johnson producing and reprising role."
+  - claim: "Kill Bill: The Whole Bloody Affair is Tarantino's original 4.5-hour cut now receiving a re-release."
+    verdict: "verified"
+    note: "Lionsgate and Wikipedia confirm 2025-2026 theatrical and home-media releases of the combined cut."
+videoId: "oYexcPpvjA0"
+videoTitle: "Robin Hood, Supergirl, The Rock: The superheroes are back in cinema • FRANCE 24 English"
+thumbnail: "https://img.youtube.com/vi/oYexcPpvjA0/hqdefault.jpg"
+citations:
+  - title: "Supergirl (2026 film)"
+    url: "https://en.wikipedia.org/wiki/Supergirl_(2026_film)"
+  - title: "Supergirl (2026) - IMDb"
+    url: "https://www.imdb.com/title/tt8814476/"
+  - title: "The Death of Robin Hood - Wikipedia"
+    url: "https://en.wikipedia.org/wiki/The_Death_of_Robin_Hood"
+  - title: "Moana (2026 film) - Wikipedia"
+    url: "https://en.wikipedia.org/wiki/Moana_(2026_film)"
+  - title: "Moana (2026) - IMDb"
+    url: "https://www.imdb.com/title/tt27419466/"
+  - title: "Kill Bill: The Whole Bloody Affair - Wikipedia"
+    url: "https://en.wikipedia.org/wiki/Kill_Bill:_The_Whole_Bloody_Affair"
+  - title: "Supergirl Official Teaser Trailer - DC"
+    url: "https://www.youtube.com/watch?v=YqdAEdkHrwo"
+  - title: "Moana Final Trailer - Disney"
+    url: "https://www.youtube.com/watch?v=EEz5xbzYPKI"
+---
+
+
