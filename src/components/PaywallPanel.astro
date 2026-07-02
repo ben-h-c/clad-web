@@ -12,10 +12,10 @@ const { signedIn } = Astro.props;
   <p class="paywall__lede">
     Letter grades, political-lean ratings, the By-the-Numbers charts, the
     Best &amp; Worst Graded boards, and the News Trends dashboard are part
-    of Premium.{signedIn ? "" : ` Your first ${TRIAL_DAYS} days are free.`}
+    of Premium.{signedIn ? "" : ` Your first ${TRIAL_DAYS} days are free — no card required.`}
   </p>
   <div class="paywall__cta">
-    <a class="auth-submit" href="/upgrade/">See plans — {PRICE.monthly}/mo</a>
+    <a class="auth-submit" href="/upgrade/">See plans — {PRICE.monthly}/mo or {PRICE.annual}/yr</a>
     {!signedIn && <a class="auth-submit secondary" href="/register/">Start free week</a>}
   </div>
   <button type="button" class="auth-submit js-app-purchase">Go Premium</button>

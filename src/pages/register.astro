@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getAuth, enabledSocialProviders } from "~/lib/auth-server";
+import { TRIAL_DAYS } from "~/lib/access";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
@@ -11,10 +12,10 @@ if (session?.user) return Astro.redirect("/account/");
 const PROVIDER_LABELS: Record<string, string> = { google: "Google", apple: "Apple", twitter: "X" };
 const providers = enabledSocialProviders();
 ---
-<BaseLayout title="Create account — Clad" description="Create a free CladFacts account to save preferences and set topic alerts." noindex={true}>
+<BaseLayout title="Create account — Clad" description="Create a free CladFacts account — 7 days of full access, no card required." noindex={true}>
   <article class="static-page auth-page" id="register-article">
     <h2 class="static-page__title">Create your account</h2>
-    <p class="dateline">Save preferences and set up custom topic alerts.</p>
+    <p class="dateline">Your first {TRIAL_DAYS} days are full access — every grade and political-lean rating, no card required. Plus saved reports and custom topic alerts.</p>
 
     {providers.length > 0 && (
       <div class="auth-social">

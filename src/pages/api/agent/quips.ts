@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { checkAgentToken, tokenUnauthorized } from "~/lib/agentAuth";
-import { getQuips, setQuips } from "~/lib/agents";
+import { filterQuips, getQuips, setQuips } from "~/lib/agents";
 
 export const prerender = false;
 
@@ -26,7 +26,7 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ error: "Invalid JSON body" }, 400);
   }
   const quips: string[] = Array.isArray(payload?.quips)
-    ? payload.quips.map((q: unknown) => String(q ?? "").trim()).filter(Boolean).slice(0, 300)
+    ? filterQuips(payload.quips.map((q: unknown) => String(q ?? "").trim()).filter(Boolean)).slice(0, 300)
     : [];
   await setQuips(env.AGENTS, quips);
   return json({ ok: true, count: quips.length }, 200);

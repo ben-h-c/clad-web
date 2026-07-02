@@ -10,8 +10,10 @@ type Item =
 interface Props {
   items: Item[];
   locked?: boolean;
+  /** Post id unlocked as today's free sample for restricted readers. */
+  unlockedId?: string | null;
 }
-const { items, locked = false } = Astro.props;
+const { items, locked = false, unlockedId = null } = Astro.props;
 ---
 {items.length > 0 && (
   <section class="hero hero--breaking">
@@ -26,7 +28,7 @@ const { items, locked = false } = Astro.props;
             {it.kind === "group" ? (
               <BreakingGroupCard slug={it.slug} title={it.title} topic={it.topic} members={it.members} locked={locked} />
             ) : (
-              <ReportCard post={it.post} locked={locked} />
+              <ReportCard post={it.post} locked={locked && it.post.id !== unlockedId} sample={locked && it.post.id === unlockedId} />
             )}
           </div>
         ))}

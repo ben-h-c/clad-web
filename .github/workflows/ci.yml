@@ -19,3 +19,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      # Dummy secret so Better Auth boots headless in wrangler dev (local-mode
+      # miniflare, no Cloudflare credentials); real secrets never enter CI.
+      - run: echo "BETTER_AUTH_SECRET=$(node -e 'console.log("ci".repeat(32))')" > .dev.vars
+      # Anonymous-leak + empty-body guard: spawns wrangler dev against the
+      # build above and asserts Premium data never reaches anonymous responses.
+      - run: node scripts/checkAnonLeak.mjs

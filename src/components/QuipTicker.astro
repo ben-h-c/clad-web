@@ -17,7 +17,10 @@ const FALLBACK = [
   "Hot take: log off and go outside for a bit.",
 ];
 // Cap the pool so the home page doesn't ship an unbounded (2x-looped) list.
-const quips = (data?.quips && data.quips.length ? data.quips : FALLBACK).slice(0, 30);
+// If the (already-filtered) pool runs thin, top up with FALLBACK so the
+// marquee stays dense.
+const base = data?.quips?.length ? data.quips : [];
+const quips = (base.length >= 8 ? base : [...base, ...FALLBACK]).slice(0, 30);
 // Repeat so the marquee loops seamlessly (animation shifts by 50%).
 const loop = [...quips, ...quips];
 ---

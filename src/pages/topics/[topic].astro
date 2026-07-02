@@ -7,6 +7,7 @@ import PoliticalLean from "~/components/PoliticalLean.astro";
 import ShareBar from "~/components/ShareBar.astro";
 import { aggregateTopics } from "~/lib/topics";
 import { getAccess } from "~/lib/access";
+import { sampleUnlockedId } from "~/lib/sample";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
@@ -21,6 +22,9 @@ if (!topic) return new Response(null, { status: 404 });
 const posts = topic.posts.sort(
   (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
 );
+
+// Report of the Day — today's sample card renders unlocked for restricted readers.
+const sampleId = locked ? sampleUnlockedId(all) : null;
 
 const shareUrl = new URL(`/topics/${topic.slug}/`, Astro.site ?? "https://cladfacts.com").href;
 const leanLbl =
@@ -71,7 +75,9 @@ const ogDescription = [
     <div class="rule rule--double" aria-hidden="true" style="margin:1.25rem 0"></div>
 
     <div class="feed-list">
-      {posts.map((p) => <ReportCard post={p} variant="bar" locked={locked} />)}
+      {posts.map((p) => (
+        <ReportCard post={p} variant="bar" locked={locked && p.id !== sampleId} sample={locked && p.id === sampleId} />
+      ))}
     </div>
   </section>
 </BaseLayout>

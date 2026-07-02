@@ -2,6 +2,7 @@ import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { checkAgentToken, tokenUnauthorized } from "~/lib/agentAuth";
 import {
+  getGoodNews,
   publishedPostsContent,
   setComplianceReport,
   type ComplianceFinding,
@@ -21,13 +22,20 @@ const SITE_DISCLAIMER =
   "may contain errors; every report links to its original source. Corrections are issued " +
   "as new posts, never silent edits.";
 
-// GET — full post content for the auditor to review.
+// GET — full post content for the auditor to review, plus the live Good News
+// collections (ids resolved to headlines) so curation integrity is auditable.
 export const GET: APIRoute = async ({ request }) => {
   if (!checkAgentToken(request.headers.get("authorization"), env.AGENT_TOKEN)) {
     return tokenUnauthorized();
   }
   const posts = await publishedPostsContent();
-  return json({ disclaimer: SITE_DISCLAIMER, posts }, 200);
+  const headlineById = new Map(posts.map((p) => [p.id, p.headline]));
+  const goodNews = (await getGoodNews(env.AGENTS)).map((s) => ({
+    title: s.title,
+    blurb: s.blurb,
+    items: s.ids.map((id) => ({ id, headline: headlineById.get(id) ?? "" })),
+  }));
+  return json({ disclaimer: SITE_DISCLAIMER, posts, goodNews }, 200);
 };
 
 // POST — store the auditor's report.

@@ -56,7 +56,10 @@ third-party analytics, no ads, and no cross-site trackers.
   **APNs** (iOS push).
 - **`runner/`** — the Mac-side agent runner (PM2). **`scripts/`** —
   build-time helpers (`scripts/topicsAgg.mjs` topic aggregation for OG
-  images; `scripts/backfillDates.mjs` one-off post re-dating).
+  images; `scripts/backfillDates.mjs` one-off post re-dating;
+  `scripts/purgeCache.mjs` post-deploy Cloudflare cache purge;
+  `scripts/checkAnonLeak.mjs` CI anonymous-leak guard, also runnable as
+  `npm run check:leak`).
 
 ## Local development
 
@@ -84,9 +87,23 @@ adapter's Workerd) and `wrangler dev` read it automatically.
 1. The repo lives at `github.com/ben-h-c/clad-web`.
 2. In Cloudflare dashboard: **Workers & Pages → Create → Import a repository**
    (Workers Builds).
-3. Build command: `npm run build`. Deploy command: `npx wrangler deploy`.
+3. Build command: `npm run build`. Deploy command:
+   `npx wrangler deploy && node scripts/purgeCache.mjs --soft`.
    Cloudflare detects the generated `dist/server/wrangler.json` and uses it.
-4. Add secrets (under Settings → Variables and Secrets → **Secret**):
+   The chained purge clears the zone edge cache after every deploy — mainly
+   the on-demand OG images (`src/pages/og/[slug].png.ts`, 7-day `s-maxage`)
+   and any dashboard Cache Rules; repo-set `Cache-Control` is already
+   conservative (SSR pages are `no-store`/`private`; static-info pages get a
+   300s browser-only `max-age`). `--soft` makes a missing purge credential a
+   logged skip instead of a failed deploy. If a dashboard "cache everything"
+   HTML rule ever exists, shorten its Edge TTL in the dashboard — that TTL
+   is not repo-controllable.
+4. Add build-environment variables for the purge (Settings → Variables and
+   Secrets):
+   - `CLOUDFLARE_ZONE_ID` — the cladfacts.com zone id.
+   - `CLOUDFLARE_API_TOKEN` — a token with only **Zone → Cache Purge** on
+     that zone. Least privilege: do **not** reuse the account deploy token.
+5. Add secrets (under Settings → Variables and Secrets → **Secret**):
    - `XAI_API_KEY`
    - `ADMIN_USER`
    - `ADMIN_PASSWORD`
@@ -96,9 +113,9 @@ adapter's Workerd) and `wrangler dev` read it automatically.
    - `GITHUB_REPO` — `ben-h-c/clad-web`
    - `GITHUB_BRANCH` — usually `main`
    - plus the optional per-feature secrets above.
-5. Bindings: the D1 database (`clad-users`; apply the schema files in `db/`)
+6. Bindings: the D1 database (`clad-users`; apply the schema files in `db/`)
    and the `AGENTS` KV namespace must exist — `wrangler.jsonc` pins their IDs.
-6. Custom domains: `cladfacts.com` and `www.cladfacts.com` (the `routes` in
+7. Custom domains: `cladfacts.com` and `www.cladfacts.com` (the `routes` in
    `wrangler.jsonc`).
 
 Every push to the configured branch triggers a build. Approving a draft (or
@@ -108,8 +125,21 @@ loop close.
 Alternative one-shot deploy from your laptop:
 ```bash
 npx wrangler secret put XAI_API_KEY     # repeat for each secret
-npm run deploy                          # astro build + wrangler deploy
+npm run deploy                          # astro build + wrangler deploy + cache purge
 ```
+Laptop deploys run the purge in hard-fail mode: `CLOUDFLARE_ZONE_ID` and
+`CLOUDFLARE_API_TOKEN` must be in your shell environment or the deploy
+errors visibly.
+
+**Why no cron purge:** there is nothing repo-cached for a scheduled purge to
+clear — every HTML page is `prerender = false` SSR served `no-store`/`private`
+(or 300s browser-only), and the only long-TTL assets (OG images) are re-purged
+by the post-deploy step above. The Astro 6 Cloudflare adapter also no longer
+supports a custom worker entry, so a `scheduled` handler would mean patching
+the generated `dist/server/entry.mjs` after every build. If a dashboard
+cache-everything rule is ever added, revisit with a tiny standalone cron
+Worker (its own wrangler config) that POSTs `purge_cache` — do not graft
+crons onto the generated `dist/server/wrangler.json`.
 
 ## Editorial standards
 
@@ -141,7 +171,11 @@ npm run deploy                          # astro build + wrangler deploy
   (20 req/min; over-limit requests get a 429 with `Retry-After`).
 - Grades are gated server-side: letter grade, factuality score, lean, and
   rationale never render into anonymous HTML or JSON. Each route checks
-  `getAccess()`; nothing is hidden client-side.
+  `getAccess()`; nothing is hidden client-side. CI enforces this on every
+  build: `scripts/checkAnonLeak.mjs` fetches the key routes with no cookies
+  and fails the build if graded markup (or a blank page) reaches an
+  anonymous response — only subtrees explicitly marked
+  `data-sample-unlocked` are exempt.
 - `/admin` and `/api/*` sit behind basic-auth via `src/middleware.ts`, with
   deliberate carve-outs: `/api/agent/*` authenticates with the agent bearer
   token; `/api/auth/*` is the Better Auth surface; `/api/me/*`,

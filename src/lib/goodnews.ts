@@ -67,7 +67,10 @@ const BUCKETS: { title: string; blurb: string; re: RegExp }[] = [
   {
     title: "Liftoff",
     blurb: "Rockets, launches, and the latest from space.",
-    re: /\b(?:space|spacex|falcon|starlink|starship|nasa|rocket\w*|launch\w*|satellite\w*|orbit\w*|mars|moon|lunar|astronaut\w*|cosmic|telescope|galaxy|asteroid)\b/i,
+    // Deliberately no bare "launch"/"satellite" terms: product/ETF/gadget
+    // "launches" must not land in the space bucket. Launch coverage comes via
+    // space-specific compounds only.
+    re: /\b(?:space|spacex|falcon|starlink|starship|nasa|rocket\w*|orbit\w*|mars|moon|lunar|astronaut\w*|cosmic|telescope|galaxy|asteroid|rocket launch\w*|space launch\w*|satellite launch\w*|launch pad)\b/i,
   },
   {
     title: "Bright Ideas",

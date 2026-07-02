@@ -23,10 +23,23 @@ export interface Access {
   trialEndsAt: number | null; // ms epoch, when known
 }
 
+const ANON: Access = { tier: "anon", fullAccess: false, signedIn: false, trialEndsAt: null };
+
 export async function getAccess(headers: Headers): Promise<Access> {
+  try {
+    return await resolveAccess(headers);
+  } catch (err) {
+    // Fail closed: any auth/DB error (e.g. a misconfigured BETTER_AUTH_SECRET)
+    // degrades to anonymous access instead of a 500 on every page.
+    console.error("getAccess failed, degrading to anon:", err);
+    return { ...ANON };
+  }
+}
+
+async function resolveAccess(headers: Headers): Promise<Access> {
   const user = await getSessionUser(headers);
   if (!user) {
-    return { tier: "anon", fullAccess: false, signedIn: false, trialEndsAt: null };
+    return { ...ANON };
   }
 
   const now = Date.now();
@@ -80,3 +93,8 @@ export const PRICE = {
   annual: "$29.99",
   annualPerMonth: "$2.49",
 } as const;
+
+export function offerLine(signedIn: boolean): string {
+  const base = `${PRICE.monthly}/mo or ${PRICE.annual}/yr (${PRICE.annualPerMonth}/mo)`;
+  return signedIn ? base : `${base} · ${TRIAL_DAYS}-day free trial, no card required`;
+}

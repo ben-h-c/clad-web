@@ -93,3 +93,13 @@ or false one.
 ## 13. Accessibility (ADA)
 - Best-practice only / low legal priority: note obvious gaps (e.g., images
   missing alt text) but do not over-weight.
+
+## 14. Curation integrity — collection fit
+- Good News (and any Discover-style curated collection): every item must
+  plainly match its collection's stated title and blurb. Flag collections
+  containing off-theme items (e.g. a Bitcoin-ETF or smart-glasses story in a
+  space/rockets collection).
+- Flag any non-positive item — somber, divisive, tragic, or grim — appearing
+  on the Good News page at all.
+- Severity: **low**/**medium** — reader-trust and editorial-integrity hygiene
+  rather than direct legal exposure.

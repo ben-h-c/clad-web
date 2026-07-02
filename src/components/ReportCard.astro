@@ -10,8 +10,11 @@ interface Props {
   variant?: "card" | "bar";
   /** Hide grade + political-lean (free/anonymous readers). */
   locked?: boolean;
+  /** Today's free sample — render fully unlocked with a badge + leak-checker marker. */
+  sample?: boolean;
 }
-const { post, variant = "card", locked = false } = Astro.props;
+const { post, variant = "card", locked = false, sample = false } = Astro.props;
+const showLocked = locked && !sample;
 const d = post.data;
 const isBroadcast = d.type === "broadcast";
 const source = d.sourceTitle ?? (() => {
@@ -35,9 +38,12 @@ const leanScore = typeof d.leanScore === "number"
 
 // Card text: explain WHY it was graded (fall back to summary for legacy posts).
 // Locked readers never see the grade rationale — always the neutral summary.
-const blurb = (!locked && isBroadcast && d.gradeRationale) ? d.gradeRationale : d.summary;
+const blurb = (!showLocked && isBroadcast && d.gradeRationale) ? d.gradeRationale : d.summary;
 ---
-<article class={`report-card report-card--${variant}`}>
+<article
+  class={`report-card report-card--${variant}`}
+  data-sample-unlocked={sample ? "true" : undefined}
+>
   <a class="report-card__link" href={`/posts/${post.id}/`}>
     {d.thumbnail && (
       <div class="report-card__thumb">
@@ -53,7 +59,8 @@ const blurb = (!locked && isBroadcast && d.gradeRationale) ? d.gradeRationale : 
       </div>
     )}
     <div class="report-card__body">
-      {locked ? (
+      {sample && <span class="sample-badge small-caps">Today's free sample</span>}
+      {showLocked ? (
         <div class="scoreband scoreband--locked" aria-hidden="true">
           <span class="grade-lock">🔒 Grade &amp; lean — Premium</span>
         </div>

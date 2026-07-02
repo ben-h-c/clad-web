@@ -69,7 +69,7 @@ export interface TrendsReport {
 
 const WEEK_MS = 7 * 86_400_000;
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const LEAN_THRESHOLD = 8; // |lean| below this counts as center
+export const LEAN_THRESHOLD = 8; // |lean| below this counts as center
 const SKEW_THRESHOLD = 25; // |avg lean| at/above this flags a skewed week
 
 function weekStartUTC(d: Date): number {

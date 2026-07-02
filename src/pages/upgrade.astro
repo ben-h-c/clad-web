@@ -14,15 +14,15 @@ const daysLeft =
     ? Math.max(1, Math.ceil((access.trialEndsAt - Date.now()) / 86_400_000))
     : null;
 ---
-<BaseLayout title="Go Premium — Clad" description="Unlock every grade, political-lean rating, and the full CladFacts archive.">
+<BaseLayout title="Go Premium — Clad" description="Unlock every letter grade, factuality score, and political-lean rating, plus the News Trends analytics.">
   <article class="static-page upgrade">
     <p class="small-caps upgrade__eyebrow">CladFacts Premium</p>
     <h2 class="static-page__title">See the grade behind every story</h2>
     <p class="upgrade__lede">
-      Free readers get the front page. <strong>Premium</strong> unlocks every
-      letter grade and political-lean rating, full articles, the News Trends
-      dashboard, topic pages, search, and the ability to flag coverage you
-      dispute.
+      Every report is free to read. <strong>Premium</strong> unlocks the
+      verdict layer — every letter grade, factuality score, and political-lean
+      rating, the full News Trends analytics, grade &amp; bias search filters,
+      and the ability to flag grades you dispute.
     </p>
 
     {canceled && <p class="auth-status">Checkout canceled — no charge was made.</p>}
@@ -43,10 +43,11 @@ const daysLeft =
         )}
 
         <ul class="upgrade__perks">
-          <li>Every letter grade &amp; political-lean rating</li>
-          <li>Full article reports &amp; sources</li>
-          <li>News Trends, topics &amp; search</li>
-          <li>Flag grades or bias you disagree with</li>
+          <li>Every letter grade, factuality score &amp; grade rationale</li>
+          <li>Political-lean rating on every report, topic &amp; network</li>
+          <li>News Trends analytics, By-the-Numbers charts &amp; Best/Worst Graded boards</li>
+          <li>Grade &amp; political-bias search filters</li>
+          <li>Flag grades or lean ratings you dispute — and post reactions</li>
         </ul>
 
         <div class="plans">

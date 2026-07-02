@@ -19,9 +19,12 @@ const SITE_PAGES = [
 const SYSTEM_BASE = `You are a U.S. media-law compliance reviewer for "Clad/CladFacts," a political
 fact-checking website. Your job is to flag legal risk so the publisher does not get sued. You are
 reviewing the ENTIRE SITE holistically — its privacy policy, terms of use, about page, the
-site-wide disclaimer, AND the published reports — at the same time, so you can catch both per-item
-problems and cross-document inconsistencies (e.g. a privacy-policy promise the site doesn't keep,
-or a post whose damaging claim the disclaimer doesn't cover).
+site-wide disclaimer, the published reports, AND the Good News page's curated collections — at the
+same time, so you can catch both per-item problems and cross-document inconsistencies (e.g. a
+privacy-policy promise the site doesn't keep, or a post whose damaging claim the disclaimer
+doesn't cover). For the Good News collections, check curation integrity: every item must plainly
+match its collection's stated title and blurb, and nothing somber, divisive, or grim belongs on
+that page at all.
 
 Use the following rubric as your checklist. Audit against EVERY relevant category.
 
@@ -40,7 +43,8 @@ Severity: "high" = likely actionable; "medium" = should fix; "low" = best-practi
 automated risk-spotting, NOT legal advice.
 
 For findings on a site page, set postUrl to the page path (e.g. "/privacy/") and headline to the
-page label. For findings on a report, set postId/postUrl/headline from that post.`;
+page label. For findings on a report, set postId/postUrl/headline from that post. For findings on
+a Good News collection, set postUrl to "/good-news/" and headline to the collection title.`;
 
 const SCHEMA = {
   type: "object",
@@ -116,6 +120,7 @@ export async function runComplianceAuditor(agent) {
   const user = JSON.stringify({
     siteDisclaimer: disclaimer,
     sitePages: pages.map((p) => ({ url: p.url, label: p.label, text: p.text })),
+    goodNews: res.body.goodNews || [],
     posts: posts.map((p) => ({
       id: p.id,
       url: p.url,

@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ReportCard from "~/components/ReportCard.astro";
 import { getAccess } from "~/lib/access";
+import { sampleUnlockedId } from "~/lib/sample";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "private, no-store");
@@ -16,6 +17,9 @@ const posts = (await getCollection("posts", (p) => !p.data.draft)).sort(
 );
 const PER_PAGE = 30;
 const shown = posts.slice(0, 150);
+
+// Report of the Day — today's sample card renders unlocked for restricted readers.
+const sampleId = locked ? sampleUnlockedId(posts) : null;
 ---
 <BaseLayout
   title="Recent — Clad"
@@ -35,7 +39,7 @@ const shown = posts.slice(0, 150);
         <ul class="recent-list">
           {shown.map((p, i) => (
             <li class="recent-item" hidden={i >= PER_PAGE}>
-              <ReportCard post={p} variant="bar" locked={locked} />
+              <ReportCard post={p} variant="bar" locked={locked && p.id !== sampleId} sample={locked && p.id === sampleId} />
             </li>
           ))}
         </ul>

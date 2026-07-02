@@ -15,6 +15,7 @@ import { getFrontpage, getBreaking, getTicker, getQuips } from "~/lib/agents";
 import { aggregateTopics, gradeToGpa, leanScoreOf } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
+import { sampleUnlockedId } from "~/lib/sample";
 import { APP_STORE_URL } from "~/lib/app-store";
 
 // SSR so the hero reflects the curator's live KV-stored selection without a
@@ -76,6 +77,9 @@ const quips = await getQuips(env.AGENTS);
 // but grades + political-lean are Premium — hidden everywhere via `locked`, and
 // the grade-only analytics sections are replaced with an upgrade panel.
 const locked = !access.fullAccess;
+// Report of the Day — one card renders fully unlocked (with a sample badge)
+// for restricted readers; same pick site-wide per NY day.
+const sampleId = locked ? sampleUnlockedId(all) : null;
 
 const topics = aggregateTopics(all);
 const TOPICS_PER_PAGE = 20;
@@ -167,10 +171,10 @@ const mostRight = [...leaned]
           </a>
         </aside>
       )}
-      <BreakingStrip items={breaking} locked={locked} />
+      <BreakingStrip items={breaking} locked={locked} unlockedId={sampleId} />
       <Ticker data={ticker} />
-      <HeroStrip posts={heroPosts} title="Front Page" locked={locked} />
-      <HeroStrip posts={recent} title="Recent" locked={locked} />
+      <HeroStrip posts={heroPosts} title="Front Page" locked={locked} unlockedId={sampleId} />
+      <HeroStrip posts={recent} title="Recent" locked={locked} unlockedId={sampleId} />
       <section class="feed">
         <div class="feed__head">
           <h2 class="feed__title">Topics</h2>
