@@ -18,6 +18,7 @@ import { getAccess, offerLine } from "~/lib/access";
 import { sampleUnlockedId } from "~/lib/sample";
 import { metaDescription } from "~/lib/seo";
 import { splitCitations } from "~/lib/citations";
+import { slugify } from "~/lib/slug";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
@@ -207,6 +208,12 @@ const sentiment = isBroadcast && !locked ? (await getSentiments(env.AGENTS))[pos
           {d.sourceTitle ?? sourceHost}
         </a>
       </span>
+      {d.sourceTitle && (
+        <>
+          <span>·</span>
+          <span><a href={`/outlets/${slugify(d.sourceTitle.trim())}/`}>All {d.sourceTitle} reports</a></span>
+        </>
+      )}
     </div>
 
     <div class="post__actions">

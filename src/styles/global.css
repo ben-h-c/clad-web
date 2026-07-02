@@ -4579,6 +4579,71 @@ button.small {
   white-space: nowrap;
 }
 .report__locked { margin: 0.5rem 0 1.25rem; }
+/* Outlet profile pages (/outlets/…) */
+.outlet-vol {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  margin: 1rem 0 0.5rem;
+  max-width: 30rem;
+}
+.outlet-vol__col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  min-width: 0;
+}
+.outlet-vol__count { font-size: 0.68rem; color: var(--muted-ink); min-height: 1em; }
+.outlet-vol__bar {
+  display: block;
+  width: 100%;
+  max-width: 2.2rem;
+  background: var(--ink);
+  opacity: 0.85;
+  border-radius: 1px 1px 0 0;
+}
+.outlet-vol__label { font-size: 0.62rem; color: var(--muted-ink); white-space: nowrap; }
+.ntable__outlet { text-decoration: none; border-bottom: 1px dotted var(--rule); }
+.ntable__outlet:hover { border-bottom-style: solid; }
+
+/* Free coverage-lean split (counts only) on breaking clusters */
+.lean-split { margin: 0.6rem 0 0.2rem; max-width: 26rem; }
+.lean-split__bar {
+  display: flex;
+  height: 0.55rem;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.lean-split__seg--left { background: #4a6fa5; }
+.lean-split__seg--center { background: var(--muted-ink); opacity: 0.55; }
+.lean-split__seg--right { background: #a54a3f; }
+.lean-split__caption {
+  font-size: 0.72rem;
+  color: var(--muted-ink);
+  margin: 0.3rem 0 0;
+  letter-spacing: 0.03em;
+}
+.lean-split--compact { margin: 0 0 0 auto; width: 4.5rem; flex: none; }
+.lean-split--compact .lean-split__bar { height: 0.45rem; }
+
+/* Sources outside the established-network allow-list (src/lib/networks.ts) */
+.indie-badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted-ink);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.08rem 0.35rem;
+  margin-left: 0.45rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
 .grade-lock-panel {
   background: var(--accent-soft);
   border-left: 3px solid var(--accent);

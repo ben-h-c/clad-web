@@ -2,6 +2,7 @@ import { getCollection } from "astro:content";
 import { env } from "cloudflare:workers";
 import { aggregateTopics } from "~/lib/topics";
 import { getBreaking } from "~/lib/agents";
+import { slugify } from "~/lib/slug";
 
 export const prerender = false;
 
@@ -40,6 +41,15 @@ export async function GET() {
   }
   for (const t of topics) {
     entries.push(url(`/topics/${t.slug}/`, undefined, "0.6"));
+  }
+  // Outlet profiles — one per distinct source channel (see /outlets/[outlet]).
+  const outlets = new Set<string>();
+  for (const p of posts) {
+    const s = slugify((p.data.sourceTitle ?? "").trim());
+    if (s) outlets.add(s);
+  }
+  for (const o of outlets) {
+    entries.push(url(`/outlets/${o}/`, undefined, "0.5"));
   }
   // Active breaking-story clusters. Ephemeral (they 404 once the story ages
   // out), but while live they're the topical hubs crawlers should find first.

@@ -6,6 +6,7 @@ import PaywallPanel from "~/components/PaywallPanel.astro";
 import { buildTrends, leanLabel, leanColor, sentimentColor, sentimentLabel } from "~/lib/trends";
 import { getSentiments } from "~/lib/agents";
 import { gpaToGrade } from "~/lib/topics";
+import { slugify } from "~/lib/slug";
 import { getAccess } from "~/lib/access";
 
 export const prerender = false;
@@ -290,7 +291,7 @@ const sentiTxt = (v: number) => (v > 0 ? `+${v}` : v < 0 ? `−${-v}` : "0");
                 <tbody>
                   {networks.map((n) => (
                     <tr>
-                      <td>{n.name}</td>
+                      <td><a class="ntable__outlet" href={`/outlets/${slugify(n.name)}/`}>{n.name}</a></td>
                       <td class="num">{n.count}</td>
                       {!locked && <td class="num">{n.avgGrade ?? "—"}</td>}
                       {!locked && (

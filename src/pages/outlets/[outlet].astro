@@ -1,0 +1,121 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import ReportCard from "~/components/ReportCard.astro";
+import PaywallPanel from "~/components/PaywallPanel.astro";
+import LetterGrade from "~/components/LetterGrade.astro";
+import PoliticalLean from "~/components/PoliticalLean.astro";
+import { slugify } from "~/lib/slug";
+import { gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
+import { isNewsOutlet } from "~/lib/networks";
+import { getAccess } from "~/lib/access";
+import { metaDescription } from "~/lib/seo";
+
+/**
+ * Outlet profile — every Clad report for one source channel.
+ * Public: volume history + the latest reports (grades locked per tier).
+ * Premium: the outlet's average grade and average lean over time.
+ * Linked from the Trends "Outlets at a glance" table; in the sitemap.
+ */
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "private, no-store");
+
+const access = await getAccess(Astro.request.headers);
+const locked = !access.fullAccess;
+
+const param = Astro.params.outlet ?? "";
+const all = (await getCollection("posts", (p) => !p.data.draft)).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+const posts = all.filter(
+  (p) => slugify((p.data.sourceTitle ?? "").trim()) === param
+);
+if (posts.length === 0) return new Response("Not found", { status: 404 });
+
+const name = (posts[0]!.data.sourceTitle ?? "").trim();
+const established = isNewsOutlet(name);
+
+// Weekly volume, last 8 ISO-ish weeks (UTC Monday buckets, newest last).
+const WEEK_MS = 7 * 86_400_000;
+function weekStart(d: Date): number {
+  const dt = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+  const day = dt.getUTCDay();
+  dt.setUTCDate(dt.getUTCDate() + (day === 0 ? -6 : 1 - day));
+  return dt.getTime();
+}
+const nowWeek = weekStart(new Date());
+const WEEKS = 8;
+const weekly = new Array(WEEKS).fill(0);
+for (const p of posts) {
+  const idx = WEEKS - 1 - Math.floor((nowWeek - weekStart(p.data.publishedAt)) / WEEK_MS);
+  if (idx >= 0 && idx < WEEKS) weekly[idx]++;
+}
+const maxWeekly = Math.max(1, ...weekly);
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const weekLabel = (i: number) => {
+  const start = new Date(nowWeek - (WEEKS - 1 - i) * WEEK_MS);
+  return `${MONTHS[start.getUTCMonth()]} ${start.getUTCDate()}`;
+};
+
+// Premium aggregates.
+const gpas = posts.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n != null);
+const leans = posts.map((p) => leanScoreOf(p.data)).filter((n): n is number => n != null);
+const avgGrade = gpas.length ? gpaToGrade(gpas.reduce((a, b) => a + b, 0) / gpas.length) : null;
+const avgLean = leans.length ? Math.round(leans.reduce((a, b) => a + b, 0) / leans.length) : null;
+
+const latest = posts.slice(0, 12);
+const desc = metaDescription(
+  `Every Clad report on ${name}: ${posts.length} fact-checked broadcast reports, graded for accuracy and rated for political lean.`
+);
+---
+<BaseLayout title={`${name} — Outlet profile — Clad`} description={desc}>
+  <section class="topic-page outlet-page">
+    <p class="small-caps" style="color:var(--muted-ink)">
+      Outlet profile{established ? "" : " · Independent channel"}
+    </p>
+    <h2 class="topic-page__title">{name}</h2>
+    <p class="dateline">
+      {posts.length} graded {posts.length === 1 ? "report" : "reports"} on Clad.
+      Volume is public; the outlet's average grade and lean are Premium.
+    </p>
+
+    <div class="outlet-vol" role="img" aria-label={`Reports per week, last ${WEEKS} weeks: ${weekly.join(", ")}`}>
+      {weekly.map((c, i) => (
+        <div class="outlet-vol__col" aria-hidden="true">
+          <span class="outlet-vol__count">{c || ""}</span>
+          <span class="outlet-vol__bar" style={`height:${Math.max(4, Math.round((c / maxWeekly) * 64))}px`}></span>
+          <span class="outlet-vol__label">{weekLabel(i)}</span>
+        </div>
+      ))}
+    </div>
+
+    {locked ? (
+      <p class="grade-lock-panel" style="margin:0.9rem 0">
+        <span aria-hidden="true">🔒</span> {name}'s <strong>average grade</strong> and
+        <strong> average political lean</strong> across all {posts.length} reports are
+        <a href="/upgrade/"> Premium</a>.
+      </p>
+    ) : (
+      <div class="topic-page__agg">
+        {avgGrade && (
+          <div class="scoreband__grade">
+            <LetterGrade grade={avgGrade} size="card" />
+            <span class="scoreband__cap small-caps">Avg grade</span>
+          </div>
+        )}
+        {avgLean !== null && (
+          <div class="scoreband__bias"><PoliticalLean score={avgLean} /></div>
+        )}
+      </div>
+    )}
+
+    <div class="rule rule--double" aria-hidden="true" style="margin:1.25rem 0"></div>
+
+    <h3 class="small-caps" style="margin-bottom:0.75rem">Latest reports</h3>
+    <div class="feed-list">
+      {latest.map((p) => <ReportCard post={p} variant="bar" locked={locked} />)}
+    </div>
+
+    {locked && <PaywallPanel signedIn={access.signedIn} />}
+  </section>
+</BaseLayout>
