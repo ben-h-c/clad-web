@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ReportCard from "~/components/ReportCard.astro";
+import PaywallPanel from "~/components/PaywallPanel.astro";
 import { getGoodNews } from "~/lib/agents";
 import { buildGoodNewsSections } from "~/lib/goodnews";
 import { getAccess } from "~/lib/access";
@@ -10,9 +11,10 @@ import { getAccess } from "~/lib/access";
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "private, no-store");
 
-// Good News is a Premium perk — restricted readers get the upgrade wall.
+// Good News is a Premium perk — restricted readers get a teaser (first
+// sections, grades/lean hidden) with an upgrade panel instead of a redirect.
 const access = await getAccess(Astro.request.headers);
-if (!access.fullAccess) return Astro.redirect("/upgrade/");
+const locked = !access.fullAccess;
 
 const all = await getCollection("posts", (p) => !p.data.draft);
 // Prefer the Grok-curated collections the runner writes to KV; if they're not
@@ -24,6 +26,9 @@ const byId = new Map(all.map((p) => [p.id, p]));
 const resolved = sections
   .map((s) => ({ ...s, posts: s.ids.map((id) => byId.get(id)).filter((p) => p !== undefined) }))
   .filter((s) => s.posts.length >= 2);
+const visible = locked
+  ? resolved.slice(0, 2).map((s) => ({ ...s, posts: s.posts.slice(0, 4) }))
+  : resolved;
 ---
 <BaseLayout
   title="Good News — Clad"
@@ -42,21 +47,23 @@ const resolved = sections
       </p>
     </header>
 
-    {resolved.length === 0 ? (
+    {visible.length === 0 ? (
       <p class="dateline" style="margin-top:2rem">
         New collections are being curated — check back shortly.
       </p>
     ) : (
-      resolved.map((s) => (
+      visible.map((s) => (
         <section class="discover-sec">
           <h3 class="discover-sec__title">{s.title}</h3>
           {s.blurb && <p class="discover-sec__blurb">{s.blurb}</p>}
           <div class="rule rule--double" aria-hidden="true"></div>
           <div class="feed-list">
-            {s.posts.map((p) => <ReportCard post={p!} variant="bar" />)}
+            {s.posts.map((p) => <ReportCard post={p!} variant="bar" locked={locked} />)}
           </div>
         </section>
       ))
     )}
+
+    {locked && <PaywallPanel signedIn={access.signedIn} />}
   </section>
 </BaseLayout>

@@ -9,7 +9,7 @@ import ShareBar from "~/components/ShareBar.astro";
 import { getBreaking } from "~/lib/agents";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
-import { getAccess } from "~/lib/access";
+import { getAccess, PRICE, TRIAL_DAYS } from "~/lib/access";
 
 // Ephemeral: a breaking-news group exists only while the story is active. SSR so
 // it reflects the live KV selection; 404 once the group ages out of the feed.
@@ -57,8 +57,8 @@ const shareUrl = new URL(`/breaking/${slug}/`, Astro.site ?? "https://cladfacts.
 
     {locked ? (
       <p class="grade-lock-panel" style="margin:0.75rem 0">
-        🔒 Average grade &amp; political-lean for this story are
-        <a href="/upgrade/"> Premium</a>.
+        <span aria-hidden="true">🔒</span> Average grade &amp; political-lean for this story are
+        <a href="/upgrade/"> Premium — {PRICE.monthly}/mo after a {TRIAL_DAYS}-day free trial</a>.
       </p>
     ) : (
       <div class="topic-page__agg">
@@ -84,7 +84,7 @@ const shareUrl = new URL(`/breaking/${slug}/`, Astro.site ?? "https://cladfacts.
     <div class="rule rule--double" aria-hidden="true" style="margin:1.25rem 0"></div>
 
     <div class="feed-list">
-      {members.map((p) => <ReportCard post={p!} variant="bar" />)}
+      {members.map((p) => <ReportCard post={p!} variant="bar" locked={locked} />)}
     </div>
   </section>
 </BaseLayout>

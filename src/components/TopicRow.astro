@@ -38,5 +38,10 @@ const lean = locked ? null : leanLabel(topic.avgLean);
   {!locked && topic.avgGrade && (
     <span class="topic-row__grade"><LetterGrade grade={topic.avgGrade} size="card" /></span>
   )}
-  {locked && <span class="topic-row__grade grade-lock" aria-label="Premium">🔒</span>}
+  {locked && (
+    <span class="topic-row__grade grade-lock">
+      <span aria-hidden="true">🔒</span>
+      <span class="visually-hidden">Grade available with Premium</span>
+    </span>
+  )}
 </a>

@@ -16,6 +16,8 @@ interface Props {
   noindex?: boolean;
   /** Extra JSON-LD object(s) to emit in <head> (e.g. NewsArticle). */
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  /** Mount the onboarding tour on this page (home only). */
+  tour?: boolean;
 }
 
 const {
@@ -27,12 +29,19 @@ const {
   ogType = "website",
   noindex = false,
   jsonLd,
+  tour = false,
 } = Astro.props;
 
 const site = Astro.site ?? new URL("https://cladfacts.com");
-const canonical = new URL(Astro.url.pathname, site).href;
+// Canonical URLs always carry a trailing slash (except file-like paths), so
+// /foo and /foo/ never compete in search indexes.
+const path = Astro.url.pathname;
+const normalizedPath =
+  /\.[a-z0-9]+$/i.test(path) || path === "/" || path.endsWith("/") ? path : path + "/";
+const canonical = new URL(normalizedPath, site).href;
+const metaDescription = description.replace(/\s+/g, " ").trim();
 const shareTitle = ogTitle ?? title;
-const shareDescription = ogDescription ?? description;
+const shareDescription = (ogDescription ?? description).replace(/\s+/g, " ").trim();
 // Resolve the share image to an absolute URL (relative paths -> site origin).
 // Pages without their own image fall back to a branded card so link previews
 // (X/Twitter, etc.) always show a large image.
@@ -83,15 +92,24 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
         });
       }
     </script>
+    <!-- Apply the saved theme before first paint so dark mode doesn't flash. -->
+    <script is:inline>
+      try {
+        var t = localStorage.getItem("clad_theme");
+        if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+      } catch {}
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light" />
-    <meta name="theme-color" content="#f5edd9" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5edd9" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181612" />
     <meta name="google-site-verification" content="OYUpYStZyOvXegnN47Cnf17Ay6-ZtZSQtGrTjwBW5Zs" />
-    <meta name="description" content={description} />
+    <meta name="description" content={metaDescription} />
     {noindex && <meta name="robots" content="noindex,follow" />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="alternate" type="application/rss+xml" title="CladFacts — latest reports" href="/rss.xml" />
     <link rel="preconnect" href="https://img.youtube.com" />
     <link rel="preconnect" href="https://i.ytimg.com" />
     <title>{title}</title>
@@ -122,9 +140,10 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
     <slot name="head" />
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <div class="shell">
       <Masthead />
-      <main>
+      <main id="main">
         <slot />
       </main>
       <footer class="colophon">
@@ -132,7 +151,7 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
           Clad — AI-assisted reporting; every verdict is hand-reviewed.
           <a href="/about/">About</a>
           ·
-          <a href="#" id="how-it-works">How it works</a>
+          <a href="/how-it-works/">How it works</a>
           ·
           <a href="/privacy/">Privacy</a>
           ·
@@ -165,6 +184,6 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
         <p>© {new Date().getFullYear()} CladFacts LLC. All rights reserved.</p>
       </footer>
     </div>
-    <OnboardingTour />
+    {tour && <OnboardingTour />}
   </body>
 </html>

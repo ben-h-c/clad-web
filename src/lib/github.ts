@@ -1,7 +1,7 @@
 /**
- * Commit a single file to GitHub via the Contents API. Cloudflare Pages
- * is watching the repo, so a successful commit triggers an auto-deploy
- * and the post appears within ~30 seconds.
+ * Commit a single file to GitHub via the Contents API. Cloudflare Workers
+ * Builds is watching the repo, so a successful commit triggers an
+ * auto-deploy and the post appears within ~30 seconds.
  *
  * Uses a fine-grained PAT with "Contents: Read and write" on this repo
  * (and nothing else). Stored as the GITHUB_TOKEN secret.

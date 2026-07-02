@@ -23,7 +23,7 @@ const loop = quotes.length > 0 ? [...quotes, ...quotes] : [];
             <span class="ticker__sym">{q.label}</span>
             <span class="ticker__price">{fmt(q.price)}</span>
             <span class={`ticker__chg ${q.changePct >= 0 ? "is-up" : "is-down"}`}>
-              {q.changePct >= 0 ? "▲" : "▼"} {pct(q.changePct)}
+              <span aria-hidden="true">{q.changePct >= 0 ? "▲" : "▼"}</span> {pct(q.changePct)}
             </span>
           </span>
         ))}

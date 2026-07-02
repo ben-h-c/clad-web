@@ -48,8 +48,8 @@ const hqFallback = byNew.find((p) => p.data.videoId)?.data.videoId;
     )}
     <div class="report-card__body">
       {locked ? (
-        <div class="scoreband scoreband--locked">
-          <span class="grade-lock" aria-label="Premium">🔒 Grade &amp; lean — Premium</span>
+        <div class="scoreband scoreband--locked" aria-hidden="true">
+          <span class="grade-lock">🔒 Grade &amp; lean — Premium</span>
         </div>
       ) : avgGrade ? (
         <div class="scoreband">

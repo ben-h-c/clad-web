@@ -46,8 +46,10 @@ const { posts, title = "Front Page", variant, locked = false } = Astro.props;
         right.hidden = strip.scrollLeft >= max - 2;
       };
       const step = () => Math.max(240, strip.clientWidth * 0.8);
-      left.addEventListener("click", () => strip.scrollBy({ left: -step(), behavior: "smooth" }));
-      right.addEventListener("click", () => strip.scrollBy({ left: step(), behavior: "smooth" }));
+      const behavior = () =>
+        matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+      left.addEventListener("click", () => strip.scrollBy({ left: -step(), behavior: behavior() }));
+      right.addEventListener("click", () => strip.scrollBy({ left: step(), behavior: behavior() }));
       strip.addEventListener("scroll", update, { passive: true });
       updaters.push(update);
       update();

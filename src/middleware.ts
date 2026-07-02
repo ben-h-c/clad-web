@@ -48,9 +48,25 @@ const PROTECTED = (path: string) =>
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const path = context.url.pathname;
-  // The sitemap endpoint lives at /sitemap.xml; some clients (Search Console)
+  const method = context.request.method;
+  // Trailing-slash policy (trailingSlash: "always"): 301 bare page URLs to
+  // their canonical slash form so every page has one indexable URL. /api/* is
+  // exempt to keep the JSON contract byte-stable for the iOS app; the
+  // file-extension test exempts real files (/sitemap.xml, /rss.xml,
+  // /og/*.png, /favicon.svg, /google*.html).
+  if (
+    (method === "GET" || method === "HEAD") &&
+    path !== "/" &&
+    !path.endsWith("/") &&
+    !path.startsWith("/api/") &&
+    !/\.[a-z0-9]+$/i.test(path)
+  ) {
+    return context.redirect(path + "/" + context.url.search, 301);
+  }
+  // The XML endpoints live at extension paths; some clients (Search Console)
   // request the trailing-slash form, which would 404 — redirect it.
   if (path === "/sitemap.xml/") return context.redirect("/sitemap.xml", 301);
+  if (path === "/rss.xml/") return context.redirect("/rss.xml", 301);
   if (AGENT_API(path)) return next();
   if (USER_API(path)) return next();
   if (COMMENTS_API(path)) return next();

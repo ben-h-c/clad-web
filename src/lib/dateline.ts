@@ -1,13 +1,19 @@
 /**
  * "Tuesday, May 30, 1926" — the classic broadsheet dateline.
  * Ported from Clad/UI/NewspaperTheme.swift's NewspaperDate.dateline.
+ *
+ * All date math is anchored to Eastern time (the newsroom's clock) so the
+ * dateline, issue number, and volume agree regardless of server timezone.
  */
+const TZ = "America/New_York";
+
 export function dateline(date: Date): string {
   return date.toLocaleDateString("en-US", {
     weekday: "long",
     month: "long",
     day: "numeric",
     year: "numeric",
+    timeZone: TZ,
   });
 }
 
@@ -17,12 +23,32 @@ export function shortDate(date: Date): string {
     month: "short",
     day: "numeric",
     year: "numeric",
+    timeZone: TZ,
   });
+}
+
+/** Calendar date parts (year/month/day) in Eastern time. */
+export function nyDateParts(date: Date = new Date()): { y: number; m: number; d: number } {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: TZ,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  })
+    .format(date)
+    .split("-");
+  return { y: Number(parts[0]), m: Number(parts[1]), d: Number(parts[2]) };
+}
+
+/** Issue number: days since Jan 1, 2026, keyed to the Eastern calendar day. */
+export function issueNumber(date: Date = new Date()): number {
+  const { y, m, d } = nyDateParts(date);
+  return Math.floor((Date.UTC(y, m - 1, d) - Date.UTC(2026, 0, 1)) / 86_400_000);
 }
 
 /** Roman numeral volume — purely decorative, computed from year. */
 export function volume(date: Date = new Date()): string {
-  const v = date.getFullYear() - 2025;
+  const v = nyDateParts(date).y - 2025;
   return toRoman(v);
 }
 

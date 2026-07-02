@@ -2,6 +2,7 @@
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import { getAccess } from "~/lib/access";
+import { searchPosts } from "~/lib/search";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
@@ -9,7 +10,8 @@ Astro.response.headers.set("Cache-Control", "no-store");
 const fullAccess = (await getAccess(Astro.request.headers)).fullAccess;
 
 // Facets only — outlet list + top topics for the filter UI. The full post
-// records are NOT shipped to the browser; results come from /api/search.
+// records are NOT shipped to the browser; results come from the server
+// (rendered below, refreshed via /api/search as you type).
 const posts = await getCollection("posts", (p) => !p.data.draft);
 const outlets = [...new Set(posts.map((p) => p.data.sourceTitle).filter((s): s is string => !!s))].sort(
   (a, b) => a.localeCompare(b)
@@ -17,6 +19,30 @@ const outlets = [...new Set(posts.map((p) => p.data.sourceTitle).filter((s): s i
 const topicFreq = new Map<string, number>();
 for (const p of posts) for (const t of p.data.topics ?? []) topicFreq.set(t, (topicFreq.get(t) ?? 0) + 1);
 const topTopics = [...topicFreq.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12).map(([t]) => t);
+
+// Server-rendered results for the URL's query params — the page works with no
+// JS (real GET form); the inline script upgrades it to live search.
+const sp = Astro.url.searchParams;
+const qParam = sp.get("q") || "";
+const outletParam = sp.get("outlet") || "";
+const gradeParam = sp.get("grade") || "";
+const biasParam = sp.get("bias") || "";
+const fromParam = sp.get("from") || "";
+const toParam = sp.get("to") || "";
+
+const { total, results } = searchPosts(
+  posts,
+  { q: qParam, outlet: outletParam, grade: gradeParam, bias: biasParam, from: fromParam, to: toParam },
+  !fullAccess
+);
+
+const leanText = (s: number | null) =>
+  s === null ? "" : Math.abs(s) < 5 ? "Centered" : `${Math.abs(s)}% ${s > 0 ? "Right" : "Left"}`;
+const shortDate = (iso: string) =>
+  new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+const countText = results.length
+  ? `${total} result${total === 1 ? "" : "s"}${total > results.length ? ` (showing ${results.length})` : ""}`
+  : "No matches.";
 ---
 <BaseLayout
   title="Search — Clad"
@@ -27,70 +53,90 @@ const topTopics = [...topicFreq.entries()].sort((a, b) => b[1] - a[1]).slice(0, 
     <h2 class="search-page__title">Search</h2>
     <p class="dateline">Search reports by topic, headline, or network — then filter by outlet, date{fullAccess ? ", grade, and political bias" : ""}.</p>
 
-    <form id="search-form" role="search" onsubmit="return false">
+    <form id="search-form" role="search" method="get" action="/search/">
       <input
         id="search-input"
+        name="q"
         type="search"
+        value={qParam}
         placeholder="e.g. Iran, Trump, inflation, CBS…"
         autocomplete="off"
         autofocus
       />
-    </form>
 
-    <div class="search-filters">
-      <label class="search-filter">
-        <span>Outlet</span>
-        <select id="f-outlet">
-          <option value="">All outlets</option>
-          {outlets.map((o) => <option value={o}>{o}</option>)}
-        </select>
-      </label>
-      {fullAccess && (
+      <div class="search-filters">
         <label class="search-filter">
-          <span>Grade</span>
-          <select id="f-grade">
-            <option value="">Any grade</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="D">D</option>
-            <option value="F">F</option>
+          <span>Outlet</span>
+          <select id="f-outlet" name="outlet">
+            <option value="">All outlets</option>
+            {outlets.map((o) => <option value={o} selected={o === outletParam}>{o}</option>)}
           </select>
         </label>
-      )}
-      {fullAccess && (
+        {fullAccess && (
+          <label class="search-filter">
+            <span>Grade</span>
+            <select id="f-grade" name="grade">
+              <option value="">Any grade</option>
+              {["A", "B", "C", "D", "F"].map((g) => (
+                <option value={g} selected={g === gradeParam.toUpperCase()}>{g}</option>
+              ))}
+            </select>
+          </label>
+        )}
+        {fullAccess && (
+          <label class="search-filter">
+            <span>Political bias</span>
+            <select id="f-bias" name="bias">
+              <option value="">Any lean</option>
+              <option value="left" selected={biasParam === "left"}>Leans left</option>
+              <option value="center" selected={biasParam === "center"}>Centered</option>
+              <option value="right" selected={biasParam === "right"}>Leans right</option>
+            </select>
+          </label>
+        )}
         <label class="search-filter">
-          <span>Political bias</span>
-          <select id="f-bias">
-            <option value="">Any lean</option>
-            <option value="left">Leans left</option>
-            <option value="center">Centered</option>
-            <option value="right">Leans right</option>
-          </select>
+          <span>From</span>
+          <input type="date" id="f-from" name="from" value={fromParam} />
         </label>
-      )}
-      <label class="search-filter">
-        <span>From</span>
-        <input type="date" id="f-from" />
-      </label>
-      <label class="search-filter">
-        <span>To</span>
-        <input type="date" id="f-to" />
-      </label>
-      <button type="button" id="f-clear" class="search-filter__clear">Clear</button>
-    </div>
+        <label class="search-filter">
+          <span>To</span>
+          <input type="date" id="f-to" name="to" value={toParam} />
+        </label>
+        <button type="submit" class="auth-submit">Search</button>
+        <button type="button" id="f-clear" class="search-filter__clear">Clear</button>
+      </div>
+    </form>
 
     <div id="topic-chips" class="topic-chips">
       {topTopics.map((t) => (
         <button type="button" class="topic-chip" data-topic={t}>{t}</button>
       ))}
     </div>
-    <p id="search-count" class="dateline"></p>
-    <div id="search-results" class="feed-list"></div>
+    <p id="search-count" class="dateline">{countText}</p>
+    <div id="search-results" class="feed-list" data-ssr="1">
+      {results.map((r) => (
+        <a class="search-result" href={`/posts/${r.id}/`}>
+          {r.thumbnail && (
+            <div class="search-result__thumb">
+              <img src={r.thumbnail} alt="" loading="lazy" width="160" height="90" />
+            </div>
+          )}
+          <div class="search-result__body">
+            <div class="search-result__head">
+              {r.grade && <span class="search-result__grade">{r.grade}</span>}
+              <span class="search-result__hl">{r.headline}</span>
+            </div>
+            <p class="search-result__meta">{shortDate(r.date)}{r.channel ? ` · ${r.channel}` : ""}{leanText(r.leanScore) ? ` · ${leanText(r.leanScore)}` : ""}</p>
+            <p class="search-result__blurb">{r.blurb || ""}</p>
+          </div>
+        </a>
+      ))}
+    </div>
   </section>
 
   <script is:inline>
     const $ = (id) => document.getElementById(id);
+    const form = $("search-form");
     const input = $("search-input");
     const resultsEl = $("search-results");
     const countEl = $("search-count");
@@ -159,6 +205,8 @@ const topTopics = [...topicFreq.entries()].sort((a, b) => b[1] - a[1]).slice(0, 
       history.replaceState(null, "", u);
     }
 
+    // With JS, the GET form becomes a live search — no full-page reload.
+    form.addEventListener("submit", (e) => { e.preventDefault(); syncUrl(input.value.trim()); run(); });
     input.addEventListener("input", () => { debouncedRun(); syncUrl(input.value); });
     [fOutlet, fGrade, fBias, fFrom, fTo].forEach((el) => el && el.addEventListener("change", run));
     document.querySelectorAll(".topic-chip").forEach((b) => {
@@ -174,8 +222,7 @@ const topTopics = [...topicFreq.entries()].sort((a, b) => b[1] - a[1]).slice(0, 
       run();
     });
 
-    const q0 = new URL(location.href).searchParams.get("q") || "";
-    if (q0) input.value = q0;
-    run();
+    // Results for the current URL were server-rendered — skip the initial fetch.
+    if (!resultsEl.hasAttribute("data-ssr")) run();
   </script>
 </BaseLayout>

@@ -10,7 +10,9 @@ import Disclaimer from "~/components/Disclaimer.astro";
 import ShareBar from "~/components/ShareBar.astro";
 import { dateline, shortDate } from "~/lib/dateline";
 import { embedUrl } from "~/lib/youtube";
-import { getAccess } from "~/lib/access";
+import { getAccess, PRICE, TRIAL_DAYS } from "~/lib/access";
+import { metaDescription } from "~/lib/seo";
+import { splitCitations } from "~/lib/citations";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
@@ -68,44 +70,107 @@ const ogImage = `/og/${post.id}.png`;
 // Restricted readers (incl. crawlers) get a grade-free description so the
 // grade/lean stays Premium; full-access requests keep the rich snippet.
 const ogDescription = locked
-  ? d.summary.slice(0, 200)
+  ? metaDescription(d.summary)
   : isBroadcast
-    ? `${ogParts.join(" · ")} · Factuality ${d.factualityScore}/100. ${d.summary}`.slice(0, 200)
-    : `${ogParts.join(" · ")}. ${d.summary}`.slice(0, 200);
+    ? metaDescription(`${ogParts.join(" · ")} · Factuality ${d.factualityScore}/100. ${d.summary}`)
+    : metaDescription(`${ogParts.join(" · ")}. ${d.summary}`);
 
 // NewsArticle structured data (grade-free — body text is public; grade is gated).
 const published = d.publishedAt.toISOString();
+const modified = successors.length
+  ? successors[successors.length - 1]!.data.publishedAt.toISOString()
+  : published;
+const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
 const newsLd = {
   "@context": "https://schema.org",
   "@type": "NewsArticle",
   headline: d.headline,
-  description: d.summary,
+  description: metaDescription(d.summary, 300),
   image: [new URL(ogImage, Astro.site ?? "https://cladfacts.com").href],
   datePublished: published,
-  dateModified: published,
+  dateModified: modified,
   mainEntityOfPage: { "@type": "WebPage", "@id": shareUrl },
   author: { "@type": "Organization", name: "CladFacts" },
   publisher: {
-    "@type": "Organization",
+    "@type": "NewsMediaOrganization",
     name: "CladFacts",
+    legalName: "CladFacts LLC",
     logo: { "@type": "ImageObject", url: new URL("/favicon.svg", Astro.site ?? "https://cladfacts.com").href },
   },
 };
+
+// ClaimReview structured data. keyMoments (claim/verdict/note) are already
+// public page content, so nothing gated is exposed here — never add
+// letterGrade/factualityScore/lean values or rationales to any LD block.
+const claimAuthor = {
+  "@type": "Organization",
+  name: "CladFacts",
+  legalName: "CladFacts LLC",
+  url: origin,
+};
+const claimAppearance = {
+  "@type": "CreativeWork",
+  url: d.sourceUrl,
+  name: d.sourceTitle ?? sourceHost,
+};
+const KEY_MOMENT_RATINGS: Record<string, number> = {
+  verified: 5, "missing context": 3, disputed: 2, unsupported: 1,
+};
+const VERDICT_RATINGS: Record<string, number> = {
+  true: 5, "mostly-true": 4, mixed: 3, "mostly-false": 2, false: 1,
+};
+const claimLds = isBroadcast
+  ? d.keyMoments.map((m) => ({
+      "@context": "https://schema.org",
+      "@type": "ClaimReview",
+      url: shareUrl,
+      claimReviewed: m.claim,
+      datePublished: published,
+      author: claimAuthor,
+      itemReviewed: { "@type": "Claim", appearance: claimAppearance },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: KEY_MOMENT_RATINGS[m.verdict],
+        bestRating: 5,
+        worstRating: 1,
+        alternateName: m.verdict,
+      },
+    }))
+  : d.verdict
+    ? [{
+        "@context": "https://schema.org",
+        "@type": "ClaimReview",
+        url: shareUrl,
+        claimReviewed: d.headline,
+        datePublished: published,
+        author: claimAuthor,
+        itemReviewed: { "@type": "Claim", appearance: claimAppearance },
+        reviewRating: {
+          "@type": "Rating",
+          ...(d.verdict !== "unverified" ? { ratingValue: VERDICT_RATINGS[d.verdict] } : {}),
+          bestRating: 5,
+          worstRating: 1,
+          alternateName: VERDICT_LABELS[d.verdict],
+        },
+      }]
+    : [];
+
+const { sources, background } = splitCitations(d.citations);
 ---
 <BaseLayout
   title={`${d.headline} — Clad`}
-  description={d.summary}
+  description={metaDescription(d.summary)}
   ogTitle={ogTitle}
   ogDescription={ogDescription}
   ogImage={ogImage}
   ogType="article"
-  jsonLd={newsLd}
+  jsonLd={[newsLd, ...claimLds]}
 >
   <meta slot="head" property="article:published_time" content={published} />
   <article class="post">
     <div class="post__kicker">
       {locked ? (
-        <span class="grade-lock" aria-label="Premium">🔒 Grade — Premium</span>
+        <span class="grade-lock" aria-label="Premium"><span aria-hidden="true">🔒</span> Grade — Premium</span>
       ) : isBroadcast ? (
         <LetterGrade grade={d.letterGrade!} />
       ) : (
@@ -179,10 +244,10 @@ const newsLd = {
         {locked ? (
           <div class="report__locked">
             <p class="grade-lock-panel">
-              🔒 The <strong>letter grade</strong>, factuality score, and
+              <span aria-hidden="true">🔒</span> The <strong>letter grade</strong>, factuality score, and
               <strong> political-lean</strong> rating for this report are part of
-              <a href="/upgrade/"> CladFacts Premium</a>. The full report below is
-              free to read.
+              <a href="/upgrade/"> CladFacts Premium — {PRICE.monthly}/mo{access.signedIn ? "" : ` after a ${TRIAL_DAYS}-day free trial`}</a>.
+              The full report below is free to read.
             </p>
           </div>
         ) : (
@@ -292,11 +357,23 @@ const newsLd = {
       </div>
     )}
 
-    {d.citations.length > 0 && (
+    {sources.length > 0 && (
       <section class="sources">
         <h2>Sources Consulted</h2>
         <ol>
-          {d.citations.map((c) => (
+          {sources.map((c) => (
+            <li>
+              <a href={c.url} rel="noopener noreferrer" target="_blank">{c.title}</a>
+            </li>
+          ))}
+        </ol>
+      </section>
+    )}
+    {background.length > 0 && (
+      <section class="sources sources--background">
+        <h2>Background</h2>
+        <ol>
+          {background.map((c) => (
             <li>
               <a href={c.url} rel="noopener noreferrer" target="_blank">{c.title}</a>
             </li>
@@ -597,32 +674,32 @@ const newsLd = {
   <style is:global>
     /* Global (not scoped): the comment list is injected via innerHTML, so
        Astro's scoped-style attribute would not reach those elements. */
-    .reactions { margin: 2.5rem 0 0; padding-top: 1.5rem; border-top: 2px solid var(--ink, #1a1a1a); }
+    .reactions { margin: 2.5rem 0 0; padding-top: 1.5rem; border-top: 2px solid var(--ink); }
     .reactions__title { display: block; margin-bottom: 0.4rem; }
     .reactions__tally { font-size: 1rem; margin: 0.2rem 0 1.2rem; }
-    .reactions__count { color: var(--muted, #6b6256); font-size: 0.85em; }
+    .reactions__count { color: var(--muted-ink); font-size: 0.85em; }
     .rx-form { border: 1px solid var(--rule); padding: 1rem 1.1rem; margin-bottom: 1.5rem; background: rgba(0,0,0,0.015); }
     .rx-form__label { display: block; margin: 0 0 0.7rem; }
     .rx-votes { display: flex; flex-wrap: wrap; gap: 1rem 1.6rem; margin-bottom: 0.8rem; }
     .rx-vote { border: none; margin: 0; padding: 0; }
-    .rx-vote legend { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted, #6b6256); padding: 0; margin-bottom: 0.3rem; }
+    .rx-vote legend { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-ink); padding: 0; margin-bottom: 0.3rem; }
     .rx-vote label { display: inline-flex; align-items: center; gap: 0.25rem; margin-right: 0.8rem; font-size: 0.9rem; cursor: pointer; }
     .rx-form__body { width: 100%; box-sizing: border-box; font: inherit; font-size: 0.95rem; padding: 0.6rem; border: 1px solid var(--rule); resize: vertical; background: var(--paper); }
     .rx-form__actions { display: flex; align-items: center; gap: 0.8rem; margin-top: 0.7rem; }
-    .rx-form__submit { font: inherit; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.5rem 1.1rem; border: none; background: rgb(150,30,20); color: #fff; cursor: pointer; }
+    .rx-form__submit { font: inherit; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.5rem 1.1rem; border: none; background: var(--accent, rgb(150, 30, 20)); color: #fff; cursor: pointer; }
     .rx-form__submit:disabled { opacity: 0.6; cursor: default; }
-    .rx-form__delete { font: inherit; font-size: 0.8rem; background: none; border: none; color: var(--muted, #6b6256); text-decoration: underline; cursor: pointer; }
-    .rx-form__status { font-size: 0.85rem; color: var(--muted, #6b6256); }
+    .rx-form__delete { font: inherit; font-size: 0.8rem; background: none; border: none; color: var(--muted-ink); text-decoration: underline; cursor: pointer; }
+    .rx-form__status { font-size: 0.85rem; color: var(--muted-ink); }
     .rx-upsell { font-size: 0.95rem; padding: 0.8rem 1rem; border: 1px dashed var(--rule); margin-bottom: 1.5rem; }
     .reactions__list { list-style: none; padding: 0; margin: 0; }
-    .reactions__empty { color: var(--muted, #6b6256); font-style: italic; }
+    .reactions__empty { color: var(--muted-ink); font-style: italic; }
     .rx { padding: 0.9rem 0; border-bottom: 1px solid var(--rule); }
-    .rx--mine { background: rgba(150,30,20,0.04); margin: 0 -0.6rem; padding: 0.9rem 0.6rem; }
+    .rx--mine { background: var(--accent-soft, rgba(150,30,20,0.04)); margin: 0 -0.6rem; padding: 0.9rem 0.6rem; }
     .rx__head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 0.3rem; }
     .rx__author { font-weight: 700; font-size: 0.95rem; }
     .rx-badge { font-size: 0.68rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.12rem 0.45rem; border: 1px solid; border-radius: 2px; }
     .rx-badge--agree { color: rgb(30,90,40); border-color: rgb(30,90,40); }
-    .rx-badge--disagree { color: rgb(150,30,20); border-color: rgb(150,30,20); }
+    .rx-badge--disagree { color: var(--accent, rgb(150, 30, 20)); border-color: var(--accent, rgb(150, 30, 20)); }
     .rx__body { margin: 0.2rem 0 0; font-size: 0.95rem; line-height: 1.5; white-space: pre-wrap; }
   </style>
 </BaseLayout>

@@ -3,6 +3,9 @@ import { getAccess } from "~/lib/access";
 
 export const prerender = false;
 
+// Public latest-reports contract for the iOS app and Home-Screen widget
+// (privacy policy §13); /rss.xml complements it for crawler/third-party
+// consumption. Response shape must stay byte-compatible.
 // Lightweight feed for the iOS reader (and any future client).
 // No body — clients fetch /api/posts/[slug].json for the full article.
 // Broadcast premium fields (letterGrade, factualityScore, political lean,

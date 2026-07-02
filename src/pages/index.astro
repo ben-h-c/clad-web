@@ -9,11 +9,12 @@ import GradeBoard from "~/components/GradeBoard.astro";
 import HomeCharts from "~/components/HomeCharts.astro";
 import Ticker from "~/components/Ticker.astro";
 import QuipTicker from "~/components/QuipTicker.astro";
+import PaywallPanel from "~/components/PaywallPanel.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
 import { getFrontpage, getBreaking, getTicker, getQuips } from "~/lib/agents";
 import { aggregateTopics, gradeToGpa, leanScoreOf } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
-import { getAccess, PRICE, TRIAL_DAYS } from "~/lib/access";
+import { getAccess } from "~/lib/access";
 import { APP_STORE_URL } from "~/lib/app-store";
 
 // SSR so the hero reflects the curator's live KV-stored selection without a
@@ -37,10 +38,7 @@ if (heroPosts.length === 0) {
   const flagged = all.filter((p) => p.data.featured);
   heroPosts = flagged.length > 0 ? flagged : all.slice(0, 8);
 }
-heroPosts = heroPosts.slice(0, 50);
-
-// Recent = the newest reports overall (any type/outlet), newest first.
-const recent = all.slice(0, 30);
+heroPosts = heroPosts.slice(0, 24);
 
 // Breaking News = the curator's impact-ordered selection: single outlet posts,
 // or temporary same-story groups (shown as a topic shell with aggregated grade
@@ -61,7 +59,15 @@ const breaking = breakingItems
     return null;
   })
   .filter((x): x is NonNullable<typeof x> => x !== null)
-  .slice(0, 50);
+  .slice(0, 24);
+
+// Recent = the newest reports overall (any type/outlet), newest first —
+// excluding anything already shown in the hero or breaking strips.
+const shown = new Set([
+  ...heroPosts.map((p) => p.id),
+  ...breaking.flatMap((b) => (b.kind === "post" ? [b.post.id] : b.members.map((m) => m.id))),
+]);
+const recent = all.filter((p) => !shown.has(p.id)).slice(0, 30);
 
 const ticker = await getTicker(env.AGENTS);
 const quips = await getQuips(env.AGENTS);
@@ -115,7 +121,9 @@ const mostRight = [...leaned]
 <BaseLayout
   title="Clad — Grading Content & Exposing Bias"
   description="Fact-checked political broadcasts, graded for accuracy and called out for bias, edited like a 1920s broadsheet."
+  tour
 >
+  <h1 class="visually-hidden">Clad — fact-checked news, graded for accuracy and bias</h1>
   <QuipTicker data={quips} />
   {all.length === 0 ? (
     <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
@@ -197,25 +205,7 @@ const mostRight = [...leaned]
         })();
       </script>
       {locked ? (
-        <section class="paywall">
-          <p class="small-caps paywall__eyebrow">CladFacts Premium</p>
-          <h2 class="paywall__title">Grades, bias charts &amp; the full picture</h2>
-          <p class="paywall__lede">
-            Letter grades, political-lean ratings, the By-the-Numbers charts, the
-            Best &amp; Worst Graded boards, and the News Trends dashboard are part
-            of Premium.{access.signedIn ? "" : ` Your first ${TRIAL_DAYS} days are free.`}
-          </p>
-          <div class="paywall__cta">
-            <a class="auth-submit" href="/upgrade/">See plans — {PRICE.monthly}/mo</a>
-            {!access.signedIn && <a class="auth-submit secondary" href="/register/">Start free week</a>}
-          </div>
-          <button type="button" class="auth-submit js-app-purchase">Go Premium</button>
-          <p class="paywall__legal" data-app-hide>
-            CladFacts Premium — auto-renewing subscription, {PRICE.monthly}/mo or
-            {" "}{PRICE.annual}/yr until cancelled.
-            {" "}<a href="/terms/">Terms of Use</a> · <a href="/privacy/">Privacy Policy</a>
-          </p>
-        </section>
+        <PaywallPanel signedIn={access.signedIn} />
       ) : (
         <>
           <HomeCharts posts={all} topics={topics} />

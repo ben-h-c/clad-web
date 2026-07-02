@@ -32,7 +32,7 @@ export default defineConfig({
   adapter: cloudflare(),
   integrations: [clearContentCache],
   site: "https://cladfacts.com",
-  trailingSlash: "ignore",
+  trailingSlash: "always",
   build: {
     format: "directory",
   },

@@ -1,8 +1,9 @@
 ---
 // First-visit onboarding overlay. Auto-opens once per visitor (localStorage),
-// and can be re-opened anytime via the "How it works" footer link. Each step
-// shows a real screenshot of the matching screen (public/tour/*.png), captured
-// at iPhone width, so the demo previews the actual app.
+// and can be re-opened anytime via a ?tour=1 query (the "How it works" page
+// links back here with it). Each step shows a real screenshot of the matching
+// screen (public/tour/*.png), captured at iPhone width, so the demo previews
+// the actual app.
 ---
 <div class="tour" id="tour" hidden aria-hidden="true">
   <div class="tour__backdrop" data-tour-skip></div>
@@ -14,7 +15,7 @@
       <!-- 1 — The feed -->
       <section class="tour__step" data-step="0">
         <div class="tour__art tour__art--shot">
-          <img class="tour__shot" src="/tour/1-feed.png" width="393" height="852"
+          <img class="tour__shot" src="/tour/1-feed.png" width="393" height="852" loading="lazy" decoding="async"
                alt="CladFacts home feed: report cards each showing a letter grade and a political-lean rating" />
         </div>
         <p class="tour__kicker">The feed</p>
@@ -201,20 +202,15 @@
       else if (e.key === "ArrowLeft" && i > 0) back.click();
     });
 
-    // Re-open from the footer link, anywhere.
-    document.getElementById("how-it-works")?.addEventListener("click", (e) => {
-      e.preventDefault();
-      open();
-    });
-
     // First-visit auto-open is enabled. Set AUTO_OPEN = false to disable it
-    // (the "How it works" footer link still opens the tour manually either way).
+    // (a ?tour=1 query still opens the tour manually either way).
     const AUTO_OPEN = true;
     // Auto-open on first visit — but not on admin/auth utility pages.
     const path = location.pathname;
     const suppressed = /^\/(admin|login|register|account|verified)(\/|$)/.test(path);
     let seen = true;
     try { seen = !!localStorage.getItem(KEY); } catch {}
-    if (AUTO_OPEN && !seen && !suppressed) open();
+    if (new URLSearchParams(location.search).has("tour")) open();
+    else if (AUTO_OPEN && !seen && !suppressed) open();
   })();
 </script>

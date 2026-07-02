@@ -1,0 +1,57 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { shortDate } from "~/lib/dateline";
+
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "public, max-age=300");
+
+const all = await getCollection("posts", (p) => !p.data.draft);
+const corrections = all
+  .filter((p) => !!p.data.correctionOf)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+  .map((p) => ({
+    post: p,
+    original: all.find((q) => q.id === p.data.correctionOf) ?? null,
+  }));
+---
+<BaseLayout
+  title="Corrections — Clad"
+  description="Clad's public corrections log. When a report needs correcting, the correction is published as a new report that links the original — never a silent edit."
+>
+  <article class="static-page">
+    <h2 class="static-page__title">Corrections</h2>
+
+    <p>
+      When a Clad report needs correcting, the correction is published as a new
+      report that links the one it corrects — never a silent edit. Every
+      correction is logged here, newest first. See
+      <a href="/how-it-works/">how Clad works</a> for the full methodology.
+    </p>
+
+    {corrections.length === 0 ? (
+      <p class="static-page__note">
+        No corrections yet. When a report needs correcting, the correction is
+        published as a new report and logged here — never a silent edit.
+      </p>
+    ) : (
+      <ul class="archive-list">
+        {corrections.map(({ post, original }) => (
+          <li>
+            <span class="archive-date">{shortDate(post.data.publishedAt)}</span>
+            <span>
+              <a href={`/posts/${post.id}/`}>{post.data.headline}</a>
+              {original && (
+                <>
+                  {" — "}Corrects:{" "}
+                  <a href={`/posts/${original.id}/`}>{original.data.headline}</a>{" "}
+                  ({shortDate(original.data.publishedAt)})
+                </>
+              )}
+            </span>
+          </li>
+        ))}
+      </ul>
+    )}
+  </article>
+</BaseLayout>

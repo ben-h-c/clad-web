@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import PaywallPanel from "~/components/PaywallPanel.astro";
 import { buildTrends, leanLabel, leanColor } from "~/lib/trends";
 import { gpaToGrade } from "~/lib/topics";
 import { getAccess } from "~/lib/access";
@@ -8,8 +9,11 @@ import { getAccess } from "~/lib/access";
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
 
+// Free/anonymous readers get the volume story (weekly counts, themes); the
+// grade + political-lean analytics stay Premium and are replaced by an
+// upgrade panel — never a bodyless redirect.
 const access = await getAccess(Astro.request.headers);
-if (!access.fullAccess) return Astro.redirect("/upgrade/");
+const locked = !access.fullAccess;
 
 const posts = await getCollection("posts", (p) => !p.data.draft);
 const report = buildTrends(posts);
@@ -75,14 +79,20 @@ const arrow = (d: string) => (d === "up" ? "▲" : d === "down" ? "▼" : "—")
     ) : (
       <>
         <div class="trends__legend" aria-hidden="true">
-          <span class="lg"><i style="background:#3b6ea5"></i> Left</span>
-          <span class="lg"><i style="background:#9a9a9a"></i> Center</span>
-          <span class="lg"><i style="background:#b23b2e"></i> Right</span>
+          {!locked && (
+            <>
+              <span class="lg"><i style="background:#3b6ea5"></i> Left</span>
+              <span class="lg"><i style="background:#9a9a9a"></i> Center</span>
+              <span class="lg"><i style="background:#b23b2e"></i> Right</span>
+            </>
+          )}
           <span class="lg"><i class="lg__heavy"></i> Heavy news week</span>
         </div>
 
         <figure class="trendchart" role="img"
-          aria-label={`Weekly coverage volume and political lean from ${weeks[0]!.label} to ${weeks[weeks.length - 1]!.label}.`}>
+          aria-label={locked
+            ? `Weekly coverage volume from ${weeks[0]!.label} to ${weeks[weeks.length - 1]!.label}.`
+            : `Weekly coverage volume and political lean from ${weeks[0]!.label} to ${weeks[weeks.length - 1]!.label}.`}>
           <div class="trendchart__plot" style={`--h:${CHART_H}px`}>
             {weeks.map((w) => {
               const known = w.left + w.center + w.right;
@@ -94,11 +104,19 @@ const arrow = (d: string) => (d === "up" ? "▲" : d === "down" ? "▼" : "—")
                   <span class="tc-count">{w.count || ""}</span>
                   <div class="tc-track" style={`height:${CHART_H}px`}>
                     <div class="tc-stack" style={`height:${barH}px`}
-                      title={`${w.label} · ${w.count} ${w.count === 1 ? "report" : "reports"} — ${w.left} left · ${w.center} center · ${w.right} right`}>
-                      {w.right > 0 && <span class="seg seg--r" style={`flex:${w.right}`}></span>}
-                      {w.center > 0 && <span class="seg seg--c" style={`flex:${w.center}`}></span>}
-                      {w.left > 0 && <span class="seg seg--l" style={`flex:${w.left}`}></span>}
-                      {none > 0 && <span class="seg seg--none" style={`flex:${none}`}></span>}
+                      title={locked
+                        ? `${w.label} · ${w.count} ${w.count === 1 ? "report" : "reports"}`
+                        : `${w.label} · ${w.count} ${w.count === 1 ? "report" : "reports"} — ${w.left} left · ${w.center} center · ${w.right} right`}>
+                      {locked ? (
+                        <span class="seg seg--none" style="flex:1"></span>
+                      ) : (
+                        <>
+                          {w.right > 0 && <span class="seg seg--r" style={`flex:${w.right}`}></span>}
+                          {w.center > 0 && <span class="seg seg--c" style={`flex:${w.center}`}></span>}
+                          {w.left > 0 && <span class="seg seg--l" style={`flex:${w.left}`}></span>}
+                          {none > 0 && <span class="seg seg--none" style={`flex:${none}`}></span>}
+                        </>
+                      )}
                     </div>
                   </div>
                   <div class="tc-label">{w.label}</div>
@@ -107,21 +125,29 @@ const arrow = (d: string) => (d === "up" ? "▲" : d === "down" ? "▼" : "—")
             })}
           </div>
           <figcaption class="trendchart__cap">
-            Bar height = number of reports that week. Each bar is split by how
-            many leaned <span class="ink-l">left</span>,
-            <span class="ink-c">center</span>, or
-            <span class="ink-r">right</span>.
+            {locked ? (
+              <>Bar height = number of reports that week.</>
+            ) : (
+              <>
+                Bar height = number of reports that week. Each bar is split by how
+                many leaned <span class="ink-l">left</span>,
+                <span class="ink-c">center</span>, or
+                <span class="ink-r">right</span>.
+              </>
+            )}
           </figcaption>
         </figure>
 
         {busiest && (
           <p class="trends__takeaway">
             Busiest week so far: <strong>{busiest.label}</strong> with
-            {" "}{busiest.count} reports{busiest.avgGrade ? `, averaging a ${busiest.avgGrade}` : ""}.
+            {" "}{busiest.count} reports{!locked && busiest.avgGrade ? `, averaging a ${busiest.avgGrade}` : ""}.
           </p>
         )}
 
-        {hasQuality && (
+        {locked && <PaywallPanel signedIn={access.signedIn} />}
+
+        {!locked && hasQuality && (
           <section class="trendmod">
             <h2 class="trends__sub">Coverage quality over time</h2>
             <p class="trendmod__lede">Average grade of each week's coverage — is the news getting more or less factual?</p>
@@ -151,7 +177,7 @@ const arrow = (d: string) => (d === "up" ? "▲" : d === "down" ? "▼" : "—")
           </section>
         )}
 
-        {hasLean && (
+        {!locked && hasLean && (
           <section class="trendmod">
             <h2 class="trends__sub">Political lean drift</h2>
             <p class="trendmod__lede">The net tilt of each week's coverage — above the line leans right, below leans left.</p>
@@ -203,15 +229,19 @@ const arrow = (d: string) => (d === "up" ? "▲" : d === "down" ? "▼" : "—")
         {networks.length > 0 && (
           <section class="trendmod">
             <h2 class="trends__sub">Outlets at a glance</h2>
-            <p class="trendmod__lede">Each outlet's volume, average grade, and average lean — with last week's direction.</p>
+            <p class="trendmod__lede">
+              {locked
+                ? "Each outlet's volume — with last week's direction. Average grade and lean are Premium."
+                : "Each outlet's volume, average grade, and average lean — with last week's direction."}
+            </p>
             <div class="ntable__wrap">
               <table class="ntable">
                 <thead>
                   <tr>
                     <th>Outlet</th>
                     <th class="num">Reports</th>
-                    <th class="num">Avg grade</th>
-                    <th>Avg lean</th>
+                    {!locked && <th class="num">Avg grade</th>}
+                    {!locked && <th>Avg lean</th>}
                     <th class="num">Trend</th>
                   </tr>
                 </thead>
@@ -220,13 +250,15 @@ const arrow = (d: string) => (d === "up" ? "▲" : d === "down" ? "▼" : "—")
                     <tr>
                       <td>{n.name}</td>
                       <td class="num">{n.count}</td>
-                      <td class="num">{n.avgGrade ?? "—"}</td>
-                      <td>
-                        <span class="leanmini" title={leanLabel(n.avgLean)}>
-                          <i class="leanmini__mark" style={`left:${50 + (n.avgLean ?? 0) / 2}%;background:${leanColor(n.avgLean)}`}></i>
-                        </span>
-                        <span class="leanmini__txt">{n.avgLean == null ? "—" : leanTxt(n.avgLean)}</span>
-                      </td>
+                      {!locked && <td class="num">{n.avgGrade ?? "—"}</td>}
+                      {!locked && (
+                        <td>
+                          <span class="leanmini" title={leanLabel(n.avgLean)}>
+                            <i class="leanmini__mark" style={`left:${50 + (n.avgLean ?? 0) / 2}%;background:${leanColor(n.avgLean)}`}></i>
+                          </span>
+                          <span class="leanmini__txt">{n.avgLean == null ? "—" : leanTxt(n.avgLean)}</span>
+                        </td>
+                      )}
                       <td class={`num dir dir--${n.dir}`} title={`${n.prev} → ${n.last} last week`}>{arrow(n.dir)}</td>
                     </tr>
                   ))}
@@ -247,21 +279,25 @@ const arrow = (d: string) => (d === "up" ? "▲" : d === "down" ? "▼" : "—")
                   <span class="callout__week">{w.label}</span>
                   <span class="callout__badges">
                     {w.heavy && <span class="badge badge--heavy">Heavy · {w.count} reports</span>}
-                    {w.skewed && (
+                    {!locked && w.skewed && (
                       <span class={`badge badge--${w.leanDir}`}>Leaned {leanLabel(w.avgLean)}</span>
                     )}
-                    {w.avgGrade && <span class="badge badge--grade">{gradeText(w.avgGrade)}</span>}
+                    {!locked && w.avgGrade && <span class="badge badge--grade">{gradeText(w.avgGrade)}</span>}
                   </span>
                 </div>
 
-                <div class="callout__split" aria-hidden="true">
-                  <span class="split split--l" style={`flex:${w.left || 0.001}`}>{w.left || ""}</span>
-                  <span class="split split--c" style={`flex:${w.center || 0.001}`}>{w.center || ""}</span>
-                  <span class="split split--r" style={`flex:${w.right || 0.001}`}>{w.right || ""}</span>
-                </div>
-                <p class="callout__splitcap">
-                  {w.left} left · {w.center} center · {w.right} right
-                </p>
+                {!locked && (
+                  <>
+                    <div class="callout__split" aria-hidden="true">
+                      <span class="split split--l" style={`flex:${w.left || 0.001}`}>{w.left || ""}</span>
+                      <span class="split split--c" style={`flex:${w.center || 0.001}`}>{w.center || ""}</span>
+                      <span class="split split--r" style={`flex:${w.right || 0.001}`}>{w.right || ""}</span>
+                    </div>
+                    <p class="callout__splitcap">
+                      {w.left} left · {w.center} center · {w.right} right
+                    </p>
+                  </>
+                )}
 
                 {w.themes.length > 0 && (
                   <p class="callout__themes">
@@ -277,7 +313,7 @@ const arrow = (d: string) => (d === "up" ? "▲" : d === "down" ? "▼" : "—")
                     {w.headlines.map((h) => (
                       <li>
                         <a href={`/posts/${h.slug}/`}>{h.headline}</a>
-                        {h.grade && <span class="callout__grade">{h.grade}</span>}
+                        {!locked && h.grade && <span class="callout__grade">{h.grade}</span>}
                       </li>
                     ))}
                   </ul>
