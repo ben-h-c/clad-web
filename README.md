@@ -112,6 +112,8 @@ adapter's Workerd) and `wrangler dev` read it automatically.
      this repo only. No other scopes.
    - `GITHUB_REPO` — `ben-h-c/clad-web`
    - `GITHUB_BRANCH` — usually `main`
+   - `CLOUDFLARE_ZONE_ID` — the cladfacts.com zone (for the post-deploy purge)
+   - `CLOUDFLARE_API_TOKEN` — API token scoped to **Zone → Cache Purge** only
    - plus the optional per-feature secrets above.
 6. Bindings: the D1 database (`clad-users`; apply the schema files in `db/`)
    and the `AGENTS` KV namespace must exist — `wrangler.jsonc` pins their IDs.
@@ -122,10 +124,27 @@ Every push to the configured branch triggers a build. Approving a draft (or
 publishing by hand) produces such a push, which is what makes the auto-deploy
 loop close.
 
+**Purge on deploy.** Edge-cached pages keep serving old HTML after a deploy
+until the zone cache is purged (this bit us on 2026-07-01: gated grades kept
+leaking to logged-out readers for pages cached pre-fix). Set the Workers
+Builds **deploy command** to:
+
+```
+npx wrangler deploy && node scripts/purgeCache.mjs --soft && node scripts/smoke-anon.mjs
+```
+
+`scripts/purgeCache.mjs` purges the zone (needs the two `CLOUDFLARE_*`
+secrets above; `--soft` skips instead of failing when they're unset) and
+`scripts/smoke-anon.mjs` then verifies, as a logged-out reader on canonical
+URLs, that no gated value leaks, the masthead shows today's Eastern date,
+and the funnel pages serve real content. CI also runs the smoke daily
+against production (`.github/workflows/ci.yml`, `smoke-prod`).
+
 Alternative one-shot deploy from your laptop:
 ```bash
 npx wrangler secret put XAI_API_KEY     # repeat for each secret
 npm run deploy                          # astro build + wrangler deploy + cache purge
+npm run smoke                           # optional: anonymous smoke vs production
 ```
 Laptop deploys run the purge in hard-fail mode: `CLOUDFLARE_ZONE_ID` and
 `CLOUDFLARE_API_TOKEN` must be in your shell environment or the deploy

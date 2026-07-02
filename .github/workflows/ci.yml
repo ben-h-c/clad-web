@@ -7,9 +7,13 @@ on:
       - 'src/content/posts/**'
       - 'public/og/**'
   pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 11 * * *' # daily anonymous prod smoke, 11:00 UTC (~7 AM ET)
 
 jobs:
   build:
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     # Backstop for the wrangler-dev leak check — a hung step must fail fast,
     # not hold a runner for hours (the script also carries its own watchdog).
@@ -28,3 +32,19 @@ jobs:
       # Anonymous-leak + empty-body guard: spawns wrangler dev against the
       # build above and asserts Premium data never reaches anonymous responses.
       - run: node scripts/checkAnonLeak.mjs
+
+  # Anonymous production smoke test: no Premium value may reach logged-out
+  # HTML on canonical (uncached-query-free) URLs, mastheads must show today's
+  # ET date, no dead footer links. Deploys happen via Workers Builds, so this
+  # is the independent check that the *edge* is serving the fixed HTML — the
+  # exact regression observed on 2026-07-01.
+  smoke-prod:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/smoke-anon.mjs --base https://cladfacts.com
