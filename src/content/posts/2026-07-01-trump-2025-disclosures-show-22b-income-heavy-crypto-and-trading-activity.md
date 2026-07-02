@@ -1,0 +1,60 @@
+---
+type: "broadcast"
+headline: "Trump 2025 disclosures show $2.2B income, heavy crypto and trading activity"
+summary: "The segment reports on President Trump's 2025 financial disclosure showing over $2.2 billion in income, primarily from crypto ventures like World Liberty Financial and meme coins, plus extensive stock trading. It highlights a Qatari Boeing 747 gifted for Air Force One use, a UAE-linked $500 million crypto investment, and examples like Dell stock purchases preceding a large Pentagon contract. The host contrasts this with Trump's 2017 pledges to avoid conflicts and notes criticism from some conservative voices.\nThe reporting draws on the official disclosure filing, news reports from major outlets, and public statements. It includes visuals of the plane and charts on losses versus gains, with the host arguing the scale exceeds prior norms and raises emoluments concerns, while noting some activities may be legal for the president."
+publishedAt: 2026-07-01T23:52:56.000Z
+sourceUrl: "https://www.youtube.com/watch?v=6s5s4n__vuQ"
+sourceTitle: "MS NOW"
+section: "Politics"
+letterGrade: "C+"
+factualityScore: 82
+politicalLean: "left"
+leanScore: -72
+leanRationale: "One-sided emphasis on corruption framing, 'busted,' 'looting,' and 'grifty' language with selective conservative quotes; relies on critical interpretation of disclosures without balancing legal allowances or counter-evidence."
+gradeRationale: "Core figures on income, crypto deals, stock trades, and Qatar gift match primary disclosures and reporting from NYT, WSJ, and FT; several interpretive claims on 'self-dealing' and illegality lack full context on presidential exemptions and lack direct evidence of illegality."
+topics:
+  - "Trump finances"
+  - "presidential conflicts"
+  - "crypto ventures"
+  - "foreign gifts"
+assessment: "The broadcast accurately conveys the scale of reported income and specific transactions from the disclosure but frames them uniformly as self-dealing and corruption without sufficient context on presidential financial reporting rules or the absence of proven illegality. It omits broader discussion of how prior presidents handled business interests or the competitive nature of some contracts. Viewer perception is skewed by loaded terms and emphasis on foreign ties while downplaying that disclosures themselves provide the transparency cited. Some stock-trading volume claims align with analyses but timing inferences on insider knowledge remain unproven. Overall, it prioritizes narrative over balanced examination of legal boundaries and economic context."
+notableConcerns:
+  - "Heavy use of interpretive language ('self-dealing,' 'looting') without corresponding legal findings"
+  - "Limited sourcing beyond the disclosure and critical outlets; selective conservative criticism highlighted"
+keyMoments:
+  - claim: "$2.2 billion earned in 2025 alone, mostly from crypto and new ventures tied to presidency"
+    verdict: "verified"
+    note: "NYT and multiple outlets confirm at least $2.2B total with ~$1.4B from crypto per 2025 disclosure filed in 2026."
+  - claim: "Qatar gifted $400M plane used as Air Force One with plans for post-office retention"
+    verdict: "verified"
+    note: "BBC, CNN, and Guardian report the gift, its use, and ethical concerns over gift limits."
+  - claim: "UAE-linked firm invested $500M for 49% of Trump crypto venture pre-inauguration"
+    verdict: "verified"
+    note: "WSJ and ABC reporting on Sheikh Tahnoon deal and subsequent UAE chip access."
+  - claim: "Over 20,000 stock trades in 2025, far exceeding prior presidents"
+    verdict: "verified"
+    note: "Financial Times analysis of disclosure shows 22,000+ transactions vs. hundreds previously."
+  - claim: "Dell received ~$10B Pentagon contract after Trump stock purchase and endorsement"
+    verdict: "verified"
+    note: "Euronews and CNBC confirm $9.7B contract timing after public comments and reported trades."
+videoId: "6s5s4n__vuQ"
+videoTitle: "Trump BUSTED for self-dealing as MAGA says ENOUGH! Ari reports the receipts"
+thumbnail: "https://img.youtube.com/vi/6s5s4n__vuQ/maxresdefault.jpg"
+citations:
+  - title: "Trump Pulled In at Least $2 Billion After Returning to the White House"
+    url: "https://www.nytimes.com/2026/06/30/us/politics/trump-financial-disclosure-crypto-windfall.html"
+  - title: "Trump unveils Qatari luxury jet for Air Force One fleet"
+    url: "https://www.bbc.com/news/articles/cn8kz80n157o"
+  - title: "'Spy Sheikh' Bought Secret Stake in Trump Company"
+    url: "https://www.wsj.com/politics/policy/spy-sheikh-secret-stake-trump-crypto-tahnoon-ea4d97e8"
+  - title: "Donald Trump declared making more than 22,000 stock transactions in 2025"
+    url: "https://www.ft.com/content/9067f454-a2f3-43da-bb0e-7f3015ce3bf5"
+  - title: "Dell lands $9.7bn Pentagon contract just weeks after Trump endorsement"
+    url: "https://www.euronews.com/business/2026/05/28/dell-lands-97bn-pentagon-contract-just-weeks-after-trump-said-go-out-and-buy"
+  - title: "Trump defends Qatari-gifted Air Force One"
+    url: "https://www.politico.com/news/2026/07/01/trump-defends-new-air-force-one-00983716"
+  - title: "Trump's wealth grew on a scale without modern presidential precedent"
+    url: "https://www.washingtonpost.com/politics/2026/07/01/trumps-wealth-grew-scale-without-modern-presidential-precedent/"
+---
+
+
