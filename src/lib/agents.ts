@@ -83,6 +83,7 @@ export interface PendingDraft {
     publishedAt?: string;
   };
   report: BroadcastReport;
+  nearDuplicates?: NearDuplicate[];
 }
 
 const REGISTRY_KEY = "agents:registry";
@@ -1042,4 +1043,88 @@ export async function findDuplicateStory(
     }
   }
   return null;
+}
+
+/* ---------- cross-network near-duplicate detection ----------
+ * findDuplicateStory only blocks the SAME network re-running a story. The gap:
+ * near-identical coverage of one event from DIFFERENT networks published close
+ * together reads as duplicate coverage (and, when the lean scores diverge, as
+ * inconsistent grading). We surface these as warnings — never hard rejections —
+ * so the editor decides. Lower threshold than SAME_STORY_THRESHOLD because the
+ * goal is "flag for a human", not "block". */
+
+export const NEAR_DUP_THRESHOLD = 0.35;
+const NEAR_DUP_WINDOW_MS = 48 * 60 * 60 * 1000;
+
+export interface NearDuplicate {
+  id: string; // post id (slug) or pending draftId
+  headline: string;
+  channel: string | null;
+  leanScore: number | null;
+  publishedAt: string;
+  overlap: number;
+  pending?: boolean; // true when the match is a queued draft, not a live post
+}
+
+/**
+ * Find published posts and pending drafts (any channel) covering the same
+ * story within a 48h window around the candidate's publish time. Returns
+ * matches sorted by overlap, best first.
+ */
+export async function findNearDuplicates(
+  kv: KVNamespace,
+  cand: { texts: string[]; publishedAt?: string; excludeDraftId?: string }
+): Promise<NearDuplicate[]> {
+  const anchorDate = cand.publishedAt ? new Date(cand.publishedAt) : new Date();
+  const anchor = Number.isNaN(anchorDate.getTime()) ? Date.now() : anchorDate.getTime();
+  const inWindow = (iso: string): boolean => {
+    const t = new Date(iso).getTime();
+    return !Number.isNaN(t) && Math.abs(anchor - t) <= NEAR_DUP_WINDOW_MS;
+  };
+
+  const out: NearDuplicate[] = [];
+  const posts = await publishedPostsMeta();
+  for (const p of posts) {
+    if (!inWindow(p.publishedAt)) continue;
+    const overlap = sameStory(cand.texts, [p.videoTitle ?? "", p.headline]);
+    if (overlap >= NEAR_DUP_THRESHOLD) {
+      out.push({
+        id: p.id,
+        headline: p.headline,
+        channel: p.sourceTitle,
+        leanScore: p.leanScore,
+        publishedAt: p.publishedAt,
+        overlap,
+      });
+    }
+  }
+  const drafts = await listDrafts(kv);
+  for (const d of drafts) {
+    if (cand.excludeDraftId && d.draftId === cand.excludeDraftId) continue;
+    const when = d.source.publishedAt ?? d.createdAt;
+    if (!inWindow(when)) continue;
+    const overlap = sameStory(cand.texts, [d.source.videoTitle ?? "", d.report.headline]);
+    if (overlap >= NEAR_DUP_THRESHOLD) {
+      out.push({
+        id: d.draftId,
+        headline: d.report.headline,
+        channel: d.source.channel ?? null,
+        leanScore: typeof d.report.leanScore === "number" ? d.report.leanScore : null,
+        publishedAt: when,
+        overlap,
+        pending: true,
+      });
+    }
+  }
+  out.sort((a, b) => b.overlap - a.overlap);
+  return out;
+}
+
+/** Max−min of the non-null lean scores across a cluster (0 if fewer than two). */
+export function leanSpread(cands: { leanScore: number | null }[]): number {
+  const scores = cands
+    .map((c) => c.leanScore)
+    .filter((s): s is number => typeof s === "number");
+  if (scores.length < 2) return 0;
+  return Math.max(...scores) - Math.min(...scores);
 }

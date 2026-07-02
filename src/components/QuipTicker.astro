@@ -16,7 +16,8 @@ const FALLBACK = [
   "Nobody is thinking about you as much as you fear. Refreshing, right?",
   "Hot take: log off and go outside for a bit.",
 ];
-const quips = (data?.quips && data.quips.length ? data.quips : FALLBACK);
+// Cap the pool so the home page doesn't ship an unbounded (2x-looped) list.
+const quips = (data?.quips && data.quips.length ? data.quips : FALLBACK).slice(0, 30);
 // Repeat so the marquee loops seamlessly (animation shifts by 50%).
 const loop = [...quips, ...quips];
 ---

@@ -54,8 +54,8 @@ const blurb = (!locked && isBroadcast && d.gradeRationale) ? d.gradeRationale : 
     )}
     <div class="report-card__body">
       {locked ? (
-        <div class="scoreband scoreband--locked">
-          <span class="grade-lock" aria-label="Premium">🔒 Grade &amp; lean — Premium</span>
+        <div class="scoreband scoreband--locked" aria-hidden="true">
+          <span class="grade-lock">🔒 Grade &amp; lean — Premium</span>
         </div>
       ) : isBroadcast && d.letterGrade ? (
         <div class="scoreband">
@@ -78,7 +78,7 @@ const blurb = (!locked && isBroadcast && d.gradeRationale) ? d.gradeRationale : 
     </div>
   </a>
   <p class="report-card__source">
-    {isBroadcast ? "▶ " : ""}Source:{" "}
+    {isBroadcast && <span aria-hidden="true">▶ </span>}Source:{" "}
     <a href={d.sourceUrl} rel="noopener noreferrer" target="_blank">{source}</a>
   </p>
 </article>

@@ -1,13 +1,13 @@
 ---
 import { getCollection } from "astro:content";
-import { dateline, volume } from "~/lib/dateline";
+import { dateline, volume, issueNumber } from "~/lib/dateline";
 
 interface Props {
   date?: Date;
 }
 const { date = new Date() } = Astro.props;
 const vol = volume(date);
-const issue = Math.floor((Date.now() - Date.UTC(2026, 0, 1)) / 86_400_000);
+const issue = issueNumber(date);
 
 let count = 0;
 try {
@@ -33,16 +33,18 @@ const homeHref = isAdmin ? "/admin/" : "/";
         </svg>
         <span class="masthead__menu-label small-caps">Menu</span>
       </summary>
-      <ul class="masthead__menu-list">
-        <li><a href="/">Home</a></li>
-        <li><a href="/discover/">Discover</a></li>
-        <li><a href="/good-news/">Good News</a></li>
-        <li><a href="/trends/">News Trends</a></li>
-        <li><a href="/search/">Search</a></li>
-        <li><a href="/about/">About Clad</a></li>
-        <li><a href="/about/#contact">Contact</a></li>
-        <li><a id="menu-account" href="/login/">Sign in</a></li>
-      </ul>
+      <nav aria-label="Site">
+        <ul class="masthead__menu-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/discover/">Discover</a></li>
+          <li><a href="/good-news/">Good News</a></li>
+          <li><a href="/trends/">News Trends</a></li>
+          <li><a href="/search/">Search</a></li>
+          <li><a href="/about/">About Clad</a></li>
+          <li><a href="/about/#contact">Contact</a></li>
+          <li><a id="menu-account" href="/login/">Sign in</a></li>
+        </ul>
+      </nav>
     </details>
   )}
   {!isAdmin && (
@@ -54,9 +56,12 @@ const homeHref = isAdmin ? "/admin/" : "/";
     </a>
   )}
   {!isAdmin && (
+    <button type="button" class="masthead__theme" id="theme-toggle" aria-label="Toggle dark mode">◐</button>
+  )}
+  {!isAdmin && (
     <a class="masthead__account small-caps" id="masthead-account" href="/login/">Sign in</a>
   )}
-  <h1 class="masthead__title"><a href={homeHref} style="color:inherit;text-decoration:none">Clad</a></h1>
+  <p class="masthead__title"><a href={homeHref} style="color:inherit;text-decoration:none">Clad</a></p>
   <p class="masthead__tagline small-caps">Grading Content &amp; Exposing Bias</p>
   <div class="rule rule--double" aria-hidden="true"></div>
   <div class="masthead__meta">
@@ -70,6 +75,19 @@ const homeHref = isAdmin ? "/admin/" : "/";
       const menu = document.querySelector(".masthead__menu");
       if (menu && menu.open && !menu.contains(e.target)) menu.open = false;
     });
+    // Manual light/dark toggle; persists across visits and overrides the OS.
+    const themeBtn = document.getElementById("theme-toggle");
+    if (themeBtn) {
+      themeBtn.addEventListener("click", () => {
+        const root = document.documentElement;
+        const effective =
+          root.dataset.theme ||
+          (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        const next = effective === "dark" ? "light" : "dark";
+        root.dataset.theme = next;
+        try { localStorage.setItem("clad_theme", next); } catch {}
+      });
+    }
     // Reflect signed-in state (static pages can't know it server-side).
     fetch("/api/auth/get-session", { headers: { accept: "application/json" } })
       .then((r) => (r.ok ? r.json() : null))

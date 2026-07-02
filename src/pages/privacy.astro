@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 
-export const prerender = true;
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "public, max-age=300");
 const updated = "June 16, 2026";
 ---
 <BaseLayout

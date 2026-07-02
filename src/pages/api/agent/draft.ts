@@ -5,7 +5,9 @@ import {
   draftId,
   existingVideoIds,
   findDuplicateStory,
+  findNearDuplicates,
   getDraft,
+  leanSpread,
   markSeen,
   putDraft,
   type PendingDraft,
@@ -88,6 +90,26 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ ok: false, reason: "duplicate-story", detail: dup }, 409);
   }
 
+  // Cross-network near-dup check: same story from ANY channel within 48h.
+  // Never rejects — stored on the draft so the queue can warn the editor.
+  const nearDups = await findNearDuplicates(env.AGENTS, {
+    texts: [videoTitle, report.headline],
+    publishedAt: p?.source?.publishedAt ? String(p.source.publishedAt) : undefined,
+    excludeDraftId: id,
+  });
+  if (nearDups.length > 0) {
+    console.warn(
+      JSON.stringify({
+        evt: "near-dup-cluster",
+        videoId,
+        channel,
+        matches: nearDups.map((m) => ({ id: m.id, lean: m.leanScore })),
+        candidateLean: report.leanScore,
+        leanSpread: leanSpread([...nearDups, { leanScore: report.leanScore }]),
+      })
+    );
+  }
+
   const draft: PendingDraft = {
     draftId: id,
     agentId,
@@ -101,6 +123,7 @@ export const POST: APIRoute = async ({ request }) => {
       publishedAt: p?.source?.publishedAt ? String(p.source.publishedAt) : undefined,
     },
     report,
+    nearDuplicates: nearDups.length > 0 ? nearDups : undefined,
   };
 
   await putDraft(env.AGENTS, draft);

@@ -3,8 +3,9 @@ import { env } from "cloudflare:workers";
 import { commitFile } from "~/lib/github";
 import { datedSlug } from "~/lib/slug";
 import { emitPost, type Frontmatter, type KeyMoment } from "~/lib/yaml";
-import { extractVideoId } from "~/lib/youtube";
+import { extractVideoId, thumbnailUrl } from "~/lib/youtube";
 import { leanBucket } from "~/lib/broadcast";
+import { existingVideoIds, findNearDuplicates } from "~/lib/agents";
 import { validateCitations } from "~/lib/citations";
 import { resolveThumbnail } from "~/lib/thumbnail";
 import { sendBreakingPush, apnsConfigured } from "~/lib/push";
@@ -116,6 +117,30 @@ export const POST: APIRoute = async ({ request }) => {
     if (!Number.isFinite(factualityScore) || factualityScore < 0 || factualityScore > 100)
       return json({ error: "Factuality score must be 0–100" }, 400);
     if (assessment.length < 8) return json({ error: "Assessment too short" }, 400);
+
+    // Dedup backstop (manual publishes previously had none): block an exact
+    // videoId repost or near-duplicate coverage within 48h unless force:true.
+    if (!Boolean(p.force)) {
+      if ((await existingVideoIds()).has(videoId)) {
+        return json(
+          { duplicate: true, error: "This video has already been published. Resubmit with force:true to publish anyway." },
+          409
+        );
+      }
+      const near = await findNearDuplicates(env.AGENTS, {
+        texts: [videoTitle ?? "", headline],
+      });
+      if (near.length > 0) {
+        const top = near[0]!;
+        return json(
+          {
+            duplicate: true,
+            error: `Near-duplicate coverage in the last 48h: ${top.headline} (${top.channel ?? "unknown channel"}). Resubmit with force:true to publish anyway.`,
+          },
+          409
+        );
+      }
+    }
 
     const thumbnail = await resolveThumbnail({ videoId, title: headline, slug, xaiKey: env.XAI_API_KEY, github });
 

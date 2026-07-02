@@ -102,7 +102,7 @@ IMPORTANT: use the FULL granularity of the grade. If it's a C-minus, return "C-"
 
 KNOWLEDGE-CUTOFF GUARDRAIL: Do NOT declare that a real company, product, AI model, person, law, or event "does not exist" or is "fabricated" merely because it is unfamiliar to you or postdates your training. New models and products (including those from Anthropic, OpenAI, Google, and others) are released constantly. If a broadcast references something you cannot confirm, treat its existence as plausible and assess the SOURCE's specific claims about it (numbers, quotes, framing) rather than calling the subject itself fake. Only mark something as false/unsupported when there is a concrete, articulable reason — not just absence from your own knowledge.
 
-\`headline\`: a concise, restrained newspaper headline summarizing the report. No clickbait, no exclamation, no political adjectives applied to people.
+\`headline\`: a concise, restrained newspaper headline summarizing the report. No clickbait, no exclamation, no political adjectives applied to people. Do NOT state the verdict or grade in the headline (no "holds up", "accurate", "false", "misleading", "checks out") — describe what the broadcast covered; the grade communicates the verdict.
 
 \`grade_rationale\`: one or two sentences explaining WHY the broadcast earned its letter grade — name the specific failings or strengths (e.g. "Graded C-: several load-bearing claims were unsupported and key statistics lacked context", or "Graded A-: claims were well-sourced to primary data with minor framing concerns"). This is what the reader sees first, so make it concrete, not generic.
 
@@ -120,7 +120,7 @@ KNOWLEDGE-CUTOFF GUARDRAIL: Do NOT declare that a real company, product, AI mode
 
 \`notable_concerns\`: 1 to 3 standout issues an attentive viewer should know about. Return an empty array if there were none.
 
-\`citations\`: find AS MANY credible, relevant sources as you reasonably can (aim for at least 4-8) — primary sources, official statistics, statutes/filings, named experts, and reputable outlets that corroborate, contradict, or add missing context to the claims. Each must have a real title and a working URL the reader can open. Prefer primary and high-credibility sources; avoid partisan blogs unless they are the subject. More good sources = more credibility for the report. Return an empty array only if you genuinely found none.
+\`citations\`: find AS MANY credible, relevant sources as you reasonably can (aim for at least 4-8) — primary sources, official statistics, statutes/filings, named experts, and reputable outlets that corroborate, contradict, or add missing context to the claims. Each must have a real title and a working URL the reader can open. Prefer primary and high-credibility sources; avoid partisan blogs unless they are the subject. More good sources = more credibility for the report. Return an empty array only if you genuinely found none. Do not cite Wikipedia or other tertiary encyclopedias as sources; if used for background it will be listed separately — prefer the primary sources Wikipedia itself cites.
 
 Tone: restrained broadsheet, not tabloid. No emoji, no exclamation marks. Adjectives describe evidence ("documented", "unsubstantiated"), not people. Verdicts key off documents, statutes, primary data, and named sources. Where evidence is genuinely thin, prefer "missing context" or "unsupported" over guessing.
 

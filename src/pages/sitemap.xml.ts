@@ -24,6 +24,8 @@ export async function GET() {
     url("/", undefined, "1.0"),
     url("/trends/", undefined, "0.7"),
     url("/about/", undefined, "0.4"),
+    url("/how-it-works/", undefined, "0.5"),
+    url("/corrections/", undefined, "0.5"),
     url("/privacy/", undefined, "0.2"),
     url("/terms/", undefined, "0.2"),
     url("/upgrade/", undefined, "0.4"),

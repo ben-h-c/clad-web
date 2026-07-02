@@ -10,6 +10,36 @@ export interface Citation {
   url: string;
 }
 
+/* Tertiary encyclopedias (Wikipedia et al.) are fine as background reading but
+ * must not be presented as the SOURCES a fact-check rests on. Hostname-suffix
+ * matches so subdomains (en.wikipedia.org, upload.wikimedia.org) count. */
+export const TERTIARY_HOSTS: RegExp[] = [
+  /(^|\.)wikipedia\.org$/i,
+  /(^|\.)wikimedia\.org$/i,
+  /(^|\.)wiktionary\.org$/i,
+  /(^|\.)britannica\.com$/i,
+  /(^|\.)wikidata\.org$/i,
+];
+
+export function isTertiarySource(url: string): boolean {
+  try {
+    const host = new URL(url).hostname;
+    return TERTIARY_HOSTS.some((re) => re.test(host));
+  } catch {
+    return false;
+  }
+}
+
+/** Split citations into primary sources vs tertiary background reading. */
+export function splitCitations(cites: Citation[]): { sources: Citation[]; background: Citation[] } {
+  const sources: Citation[] = [];
+  const background: Citation[] = [];
+  for (const c of cites ?? []) {
+    (isTertiarySource(c?.url ?? "") ? background : sources).push(c);
+  }
+  return { sources, background };
+}
+
 const UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 " +
   "(KHTML, like Gecko) Chrome/124.0 Safari/537.36";

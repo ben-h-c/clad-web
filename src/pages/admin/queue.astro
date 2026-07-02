@@ -4,12 +4,32 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import AdminNav from "~/components/AdminNav.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
-import { listDrafts } from "~/lib/agents";
+import { findNearDuplicates, leanSpread, listDrafts, type NearDuplicate } from "~/lib/agents";
+import { isTertiarySource } from "~/lib/citations";
+import { lintHeadline } from "~/lib/headlineLint";
 import { embedUrl } from "~/lib/youtube";
 
 export const prerender = false;
 
 const drafts = await listDrafts(env.AGENTS);
+
+// Per-draft editorial QA: cross-network near-duplicate cluster (stored on the
+// draft at submit time, else computed fresh) and headline verdict-phrase lint.
+const nearDupsById = new Map<string, NearDuplicate[]>();
+const spreadById = new Map<string, number>();
+const lintById = new Map<string, string[]>();
+for (const d of drafts) {
+  const dups =
+    d.nearDuplicates ??
+    (await findNearDuplicates(env.AGENTS, {
+      texts: [d.source.videoTitle ?? "", d.report.headline],
+      publishedAt: d.source.publishedAt,
+      excludeDraftId: d.draftId,
+    }));
+  nearDupsById.set(d.draftId, dups);
+  spreadById.set(d.draftId, leanSpread([...dups, { leanScore: d.report.leanScore }]));
+  lintById.set(d.draftId, lintHeadline(d.report.headline));
+}
 ---
 <BaseLayout title="Clad — Pending Queue">
   <section class="admin">
@@ -33,12 +53,39 @@ const drafts = await listDrafts(env.AGENTS);
               </span>
               <h3 class="queue-item__headline">{d.report.headline}</h3>
             </div>
+            {(lintById.get(d.draftId) ?? []).length > 0 && (
+              <div class="notice notice--error" data-headline-lint>
+                <span class="small-caps">Style:</span> headline states the verdict
+                ({(lintById.get(d.draftId) ?? []).map((w) => `“${w}”`).join(", ")}) —
+                headlines should be descriptive; the grade carries the verdict.
+              </div>
+            )}
             <p class="dateline">
               {d.source.channel ?? "Unknown channel"} ·{" "}
               Factuality {d.report.factualityScore}/100 ·{" "}
               {d.source.transcriptUsed ? "transcript" : "web research only"} ·{" "}
               <a href={d.sourceUrl} target="_blank" rel="noopener noreferrer">source video</a>
             </p>
+            {(nearDupsById.get(d.draftId) ?? []).length > 0 && (
+              <div class="notice notice--error">
+                <span class="small-caps">Near-duplicate coverage in the last 48h:</span>
+                <ul style="margin:.4rem 0 0;padding-left:1.25rem">
+                  {(nearDupsById.get(d.draftId) ?? []).map((m) => (
+                    <li>
+                      {m.pending ? (
+                        <span>{m.headline} (pending draft)</span>
+                      ) : (
+                        <a href={`/posts/${m.id}/`} target="_blank" rel="noopener noreferrer">{m.headline}</a>
+                      )}
+                      {" "}— {m.channel ?? "unknown channel"}{m.leanScore != null ? `, lean ${m.leanScore}%` : ""}
+                    </li>
+                  ))}
+                </ul>
+                {(spreadById.get(d.draftId) ?? 0) >= 20 && (
+                  <p style="margin:.4rem 0 0">Lean spread across cluster: {spreadById.get(d.draftId)} pts</p>
+                )}
+              </div>
+            )}
 
             {d.report.gradeRationale && (
               <p class="grade-rationale"><span class="small-caps">Why this grade:</span> {d.report.gradeRationale}</p>
@@ -81,7 +128,10 @@ const drafts = await listDrafts(env.AGENTS);
                 <summary class="small-caps">{d.report.citations.length} citations</summary>
                 <ol>
                   {d.report.citations.map((c) => (
-                    <li><a href={c.url} target="_blank" rel="noopener noreferrer">{c.title}</a></li>
+                    <li>
+                      <a href={c.url} target="_blank" rel="noopener noreferrer">{c.title}</a>
+                      {isTertiarySource(c.url) && <span class="small-caps"> · background</span>}
+                    </li>
                   ))}
                 </ol>
               </details>
@@ -152,7 +202,15 @@ const drafts = await listDrafts(env.AGENTS);
           item.querySelectorAll("button").forEach((b) => (b.disabled = false));
         }
       };
-      item.querySelector(".q-approve").addEventListener("click", () => send("approve"));
+      item.querySelector(".q-approve").addEventListener("click", () => {
+        if (
+          item.querySelector("[data-headline-lint]") &&
+          !confirm("The headline appears to state the verdict — headlines should be descriptive. Approve anyway?")
+        ) {
+          return;
+        }
+        send("approve");
+      });
       item.querySelector(".q-reject").addEventListener("click", () => send("reject"));
 
       item.querySelector(".q-revise-btn").addEventListener("click", async () => {

@@ -4,7 +4,16 @@ import { commitFile } from "~/lib/github";
 import { datedSlug } from "~/lib/slug";
 import { emitPost } from "~/lib/yaml";
 import { buildBroadcastFrontmatter } from "~/lib/postBuild";
-import { deleteDraft, findDuplicateStory, getDraft, listDrafts, markSeen, putDraft } from "~/lib/agents";
+import {
+  deleteDraft,
+  findDuplicateStory,
+  findNearDuplicates,
+  getDraft,
+  leanSpread,
+  listDrafts,
+  markSeen,
+  putDraft,
+} from "~/lib/agents";
 import { resolveThumbnail } from "~/lib/thumbnail";
 import { reviseBroadcastReport } from "~/lib/broadcast";
 
@@ -70,6 +79,12 @@ export const POST: APIRoute = async ({ request }) => {
   // Backstop: block approving a story this network has already published
   // (something may have gone live since the draft was created). Override with
   // {force:true} if the editor is sure it's a distinct story.
+  const near = await findNearDuplicates(env.AGENTS, {
+    texts: [draft.source.videoTitle ?? "", draft.report.headline],
+    publishedAt: draft.source.publishedAt,
+    excludeDraftId: draft.draftId,
+  });
+  const spread = leanSpread([...near, { leanScore: draft.report.leanScore }]);
   if (!p?.force) {
     const dup = await findDuplicateStory(env.AGENTS, {
       channel: draft.source.channel ?? "",
@@ -78,6 +93,29 @@ export const POST: APIRoute = async ({ request }) => {
     if (dup) {
       return json({ error: `Looks like a duplicate — ${dup}. Re-approve to publish anyway.`, duplicate: true }, 409);
     }
+    if (near.length > 0) {
+      const top = near[0]!;
+      const leanTxt = top.leanScore != null ? `lean ${top.leanScore}%` : "lean n/a";
+      return json(
+        {
+          duplicate: true,
+          error: `Near-duplicate coverage in the last 48h: ${top.headline} (${top.channel ?? "unknown channel"}, ${leanTxt}) — lean spread ${spread} pts. Re-approve to publish anyway.`,
+        },
+        409
+      );
+    }
+  } else if (near.length > 0) {
+    console.warn(
+      JSON.stringify({
+        evt: "near-dup-cluster",
+        videoId: draft.videoId,
+        channel: draft.source.channel ?? "",
+        matches: near.map((m) => ({ id: m.id, lean: m.leanScore })),
+        candidateLean: draft.report.leanScore,
+        leanSpread: spread,
+        forced: true,
+      })
+    );
   }
 
   // Date the post by the source video's real publish date+time (captured by the
