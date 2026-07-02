@@ -25,6 +25,20 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const POSTS_DIR = path.join(ROOT, "src", "content", "posts");
 const PORT = 8788;
 
+// Nothing here may hang a CI runner: every fetch carries a timeout, and a
+// global watchdog hard-exits if the whole run exceeds its budget.
+const FETCH_TIMEOUT_MS = 90_000;
+const WATCHDOG_MS = 12 * 60_000;
+const watchdog = setTimeout(() => {
+  console.error(`watchdog: run exceeded ${WATCHDOG_MS / 60_000} minutes — aborting`);
+  process.exit(2);
+}, WATCHDOG_MS);
+watchdog.unref?.();
+
+function timedFetch(url, opts = {}, ms = FETCH_TIMEOUT_MS) {
+  return fetch(url, { ...opts, signal: AbortSignal.timeout(ms) });
+}
+
 // ---------------------------------------------------------------------------
 // Find the latest published broadcast post (its grade data drives the
 // post-specific assertions).
@@ -53,30 +67,39 @@ let base = process.env.BASE_URL?.replace(/\/$/, "");
 let server = null;
 
 async function startServer() {
+  // detached → own process group, so teardown can kill wrangler AND the
+  // workerd children npx spawns (an orphaned child holds CI steps open).
   server = spawn("npx", ["wrangler", "dev", "--port", String(PORT)], {
     cwd: ROOT,
     stdio: ["ignore", "pipe", "pipe"],
+    detached: true,
   });
-  server.stdout.on("data", () => {});
-  server.stderr.on("data", () => {});
-  const deadline = Date.now() + 120_000;
+  let lastOutput = "";
+  server.stdout.on("data", (d) => { lastOutput = String(d).slice(-500); });
+  server.stderr.on("data", (d) => { lastOutput = String(d).slice(-500); });
+  const deadline = Date.now() + 180_000;
   while (Date.now() < deadline) {
     if (server.exitCode !== null) {
-      throw new Error(`wrangler dev exited early (code ${server.exitCode})`);
+      throw new Error(`wrangler dev exited early (code ${server.exitCode}); last output: ${lastOutput}`);
     }
     try {
-      const res = await fetch(`http://127.0.0.1:${PORT}/`);
+      const res = await timedFetch(`http://127.0.0.1:${PORT}/`, {}, 15_000);
       if (res.status === 200) return `http://127.0.0.1:${PORT}`;
     } catch {
       // not up yet
     }
     await new Promise((r) => setTimeout(r, 1000));
   }
-  throw new Error("wrangler dev did not become ready within 120s");
+  throw new Error(`wrangler dev did not become ready within 180s; last output: ${lastOutput}`);
 }
 
 function stopServer() {
-  if (server && server.exitCode === null) server.kill("SIGTERM");
+  if (!server || server.exitCode !== null) return;
+  try {
+    process.kill(-server.pid, "SIGTERM"); // whole process group
+  } catch {
+    server.kill("SIGTERM");
+  }
 }
 process.on("exit", stopServer);
 process.on("SIGINT", () => process.exit(130));
@@ -132,7 +155,14 @@ function fail(route, msg) {
 }
 
 async function checkHtml(route, { minBytes = 2048, post = null } = {}) {
-  const res = await fetch(base + route, { redirect: "manual" });
+  const started = Date.now();
+  let res;
+  try {
+    res = await timedFetch(base + route, { redirect: "manual" });
+  } catch (err) {
+    fail(route, `fetch failed/timed out after ${Date.now() - started}ms: ${err?.message ?? err}`);
+    return;
+  }
   if (res.status !== 200) {
     fail(route, `expected 200, got ${res.status}`);
     return;
@@ -160,11 +190,20 @@ async function checkHtml(route, { minBytes = 2048, post = null } = {}) {
       fail(route, "anonymous leak: gradeRationale text present in HTML");
     }
   }
-  if (failures.every((f) => !f.startsWith(`${route}:`))) console.log(`PASS ${route}`);
+  if (failures.every((f) => !f.startsWith(`${route}:`))) {
+    console.log(`PASS ${route} (${Date.now() - started}ms)`);
+  }
 }
 
 async function checkPostJson(route) {
-  const res = await fetch(base + route);
+  const started = Date.now();
+  let res;
+  try {
+    res = await timedFetch(base + route);
+  } catch (err) {
+    fail(route, `fetch failed/timed out after ${Date.now() - started}ms: ${err?.message ?? err}`);
+    return;
+  }
   if (res.status !== 200) {
     fail(route, `expected 200, got ${res.status}`);
     return;
@@ -180,7 +219,9 @@ async function checkPostJson(route) {
     if (body[field] !== null) fail(route, `anonymous leak: ${field} is ${JSON.stringify(body[field])}, expected null`);
   }
   if (body.locked !== true) fail(route, `expected locked:true, got ${JSON.stringify(body.locked)}`);
-  if (failures.every((f) => !f.startsWith(`${route}:`))) console.log(`PASS ${route}`);
+  if (failures.every((f) => !f.startsWith(`${route}:`))) {
+    console.log(`PASS ${route} (${Date.now() - started}ms)`);
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -191,7 +232,7 @@ try {
   console.log(`checking anonymous responses against ${base}`);
   console.log(`test posts: ${testPosts.map((p) => p.slug).join(", ")}`);
 
-  const home = await fetch(base + "/");
+  const home = await timedFetch(base + "/");
   const homeHtml = home.status === 200 ? await home.text() : "";
 
   await checkHtml("/");

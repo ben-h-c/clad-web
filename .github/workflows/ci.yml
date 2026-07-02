@@ -11,6 +11,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Backstop for the wrangler-dev leak check — a hung step must fail fast,
+    # not hold a runner for hours (the script also carries its own watchdog).
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
