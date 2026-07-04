@@ -12,6 +12,7 @@ import QuipTicker from "~/components/QuipTicker.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
 import NewsletterSignup from "~/components/NewsletterSignup.astro";
+import ReportCard from "~/components/ReportCard.astro";
 import { getFrontpage, getBreaking, getTicker, getQuips, getSentiments } from "~/lib/agents";
 import { aggregateTopics, gradeToGpa, leanScoreOf } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
@@ -175,6 +176,16 @@ const mostRight = [...leaned]
             {access.signedIn ? "Upgrade" : "Create free account"}
           </a>
         </aside>
+      )}
+      {locked && sampleId && byId.has(sampleId) && (
+        <section class="free-card" aria-labelledby="free-card-title">
+          <div class="feed__head">
+            <h2 class="feed__title" id="free-card-title">Today's Free Report Card</h2>
+            <span class="free-card__note">One full grade, free every day — this is what Premium looks like.</span>
+          </div>
+          <div class="rule rule--double" aria-hidden="true"></div>
+          <ReportCard post={byId.get(sampleId)!} sample />
+        </section>
       )}
       <BreakingStrip items={breaking} locked={locked} unlockedId={sampleId} />
       <Ticker data={ticker} />
