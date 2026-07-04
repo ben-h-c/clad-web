@@ -46,6 +46,35 @@ const PROTECTED = (path: string) =>
   path.startsWith("/admin/") ||
   path.startsWith("/api/");
 
+// Pages whose HTML must never be shared through a cache even for anonymous
+// visitors (auth flows, per-user surfaces, editor utilities).
+const UNCACHEABLE_PAGE = (path: string) =>
+  path.startsWith("/account/") ||
+  path.startsWith("/login/") ||
+  path.startsWith("/register/") ||
+  path.startsWith("/verified/") ||
+  path.startsWith("/goodbye/") ||
+  path.startsWith("/recent/");
+
+/**
+ * Cache policy for HTML pages. Anonymous GETs are shared-cacheable for five
+ * minutes (stale-while-revalidate covers the gap between publishes) so the
+ * edge can serve fast, fresh pages; the deploy pipeline purges the zone so
+ * nothing outlives a release. Any request carrying a session cookie — or any
+ * response that sets one — stays private: page HTML varies by tier
+ * (grades/lean render for full-access readers) and must never be stored in a
+ * shared cache.
+ */
+function applyCachePolicy(context: { request: Request }, path: string, response: Response) {
+  const hasSession = (context.request.headers.get("cookie") ?? "").includes("session_token");
+  if (hasSession || response.headers.has("set-cookie") || UNCACHEABLE_PAGE(path)) {
+    response.headers.set("Cache-Control", "private, no-store");
+  } else {
+    response.headers.set("Cache-Control", "public, s-maxage=300, stale-while-revalidate=600");
+  }
+  return response;
+}
+
 export const onRequest = defineMiddleware(async (context, next) => {
   const path = context.url.pathname;
   const method = context.request.method;
@@ -72,7 +101,13 @@ export const onRequest = defineMiddleware(async (context, next) => {
   if (COMMENTS_API(path)) return next();
   if (STRIPE_API(path)) return next();
   if (PUBLIC_API(path)) return next();
-  if (!PROTECTED(path)) return next();
+  if (!PROTECTED(path)) {
+    // HTML pages only: API routes and file-like paths set their own headers.
+    if ((method === "GET" || method === "HEAD") && !/\.[a-z0-9]+$/i.test(path)) {
+      return applyCachePolicy(context, path, await next());
+    }
+    return next();
+  }
 
   if (!env.ADMIN_USER || !env.ADMIN_PASSWORD) {
     return new Response(
