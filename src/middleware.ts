@@ -96,6 +96,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   // request the trailing-slash form, which would 404 — redirect it.
   if (path === "/sitemap.xml/") return context.redirect("/sitemap.xml", 301);
   if (path === "/rss.xml/") return context.redirect("/rss.xml", 301);
+  if (path === "/news-sitemap.xml/") return context.redirect("/news-sitemap.xml", 301);
   if (AGENT_API(path)) return next();
   if (USER_API(path)) return next();
   if (COMMENTS_API(path)) return next();

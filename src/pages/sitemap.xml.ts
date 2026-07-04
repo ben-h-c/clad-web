@@ -1,5 +1,7 @@
 import { getCollection } from "astro:content";
+import { env } from "cloudflare:workers";
 import { aggregateTopics } from "~/lib/topics";
+import { getBreaking } from "~/lib/agents";
 
 export const prerender = false;
 
@@ -38,6 +40,16 @@ export async function GET() {
   }
   for (const t of topics) {
     entries.push(url(`/topics/${t.slug}/`, undefined, "0.6"));
+  }
+  // Active breaking-story clusters. Ephemeral (they 404 once the story ages
+  // out), but while live they're the topical hubs crawlers should find first.
+  try {
+    const breaking = await getBreaking(env.AGENTS);
+    for (const it of breaking) {
+      if (it.type === "group" && it.slug) entries.push(url(`/breaking/${it.slug}/`, undefined, "0.7"));
+    }
+  } catch {
+    /* KV unavailable (local dev) — sitemap still valid without clusters */
   }
 
   const xml =
