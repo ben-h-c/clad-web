@@ -4,12 +4,14 @@ import { getCollection } from "astro:content";
 import { checkAgentToken, tokenUnauthorized } from "~/lib/agentAuth";
 import { buildNewsletter } from "~/lib/newsletter";
 import { sendEmail, emailConfigured } from "~/lib/email";
+import { confirmedSubscribers } from "~/lib/subscribers";
 import { TRIAL_DAYS } from "~/lib/access";
 
 export const prerender = false;
 
 const DAY = 86_400_000;
 const MAX_SEND_PER_RUN = 200;
+const SITE = "https://cladfacts.com";
 
 interface Row {
   userId: string;
@@ -98,7 +100,41 @@ export const POST: APIRoute = async ({ request }) => {
     }
   }
 
-  return json({ ok: true, candidates: rows.length, due, sent, failed, dryRun });
+  // Standalone subscribers (public /api/subscribe signups, no account). They
+  // get the grade-free edition with a tokened one-click unsubscribe link in
+  // place of the account-preferences footer. Send cadence rides the weekly
+  // agent trigger itself, capped by the same per-run budget.
+  let standaloneSent = 0,
+    standaloneFailed = 0;
+  if (freeForm) {
+    const subs = await confirmedSubscribers(MAX_SEND_PER_RUN);
+    for (const s of subs) {
+      if (sent + standaloneSent >= MAX_SEND_PER_RUN) break;
+      if (dryRun) {
+        standaloneSent++;
+        continue;
+      }
+      const unsub = `${SITE}/api/subscribe?u=${s.token}`;
+      const html = freeForm.html.replace(
+        /You're receiving the CladFacts weekly newsletter\.[\s\S]*?<\/a>\./,
+        `You're receiving the CladFacts weekly newsletter. <a href="${unsub}" style="color:inherit">Unsubscribe</a>.`
+      );
+      const ok = await sendEmail(s.email, freeForm.subject, html);
+      if (ok) standaloneSent++;
+      else standaloneFailed++;
+    }
+  }
+
+  return json({
+    ok: true,
+    candidates: rows.length,
+    due,
+    sent,
+    failed,
+    standaloneSent,
+    standaloneFailed,
+    dryRun,
+  });
 };
 
 function json(body: unknown, status = 200): Response {

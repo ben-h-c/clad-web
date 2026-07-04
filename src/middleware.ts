@@ -39,7 +39,10 @@ const PUBLIC_API = (path: string) =>
   path.startsWith("/api/push/") ||
   // iOS in-app purchase: /api/iap/apple reads the session cookie itself;
   // /api/iap/apple/notifications is Apple's server webhook (no session).
-  path.startsWith("/api/iap/");
+  path.startsWith("/api/iap/") ||
+  // Public newsletter signup + confirm/unsubscribe links. Rate-limited and
+  // double-opt-in inside the route.
+  path === "/api/subscribe";
 
 const PROTECTED = (path: string) =>
   path === "/admin" ||

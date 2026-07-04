@@ -10,6 +10,7 @@ import PoliticalLean from "~/components/PoliticalLean.astro";
 import SocialSentiment from "~/components/SocialSentiment.astro";
 import { getSentiments } from "~/lib/agents";
 import Disclaimer from "~/components/Disclaimer.astro";
+import NewsletterSignup from "~/components/NewsletterSignup.astro";
 import ShareBar from "~/components/ShareBar.astro";
 import { dateline, shortDate } from "~/lib/dateline";
 import { embedUrl } from "~/lib/youtube";
@@ -455,6 +456,7 @@ const sentiment = isBroadcast && !locked ? (await getSentiments(env.AGENTS))[pos
       </section>
     )}
 
+    <NewsletterSignup compact />
     <Disclaimer />
   </article>
 

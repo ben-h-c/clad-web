@@ -11,6 +11,7 @@ import Ticker from "~/components/Ticker.astro";
 import QuipTicker from "~/components/QuipTicker.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
+import NewsletterSignup from "~/components/NewsletterSignup.astro";
 import { getFrontpage, getBreaking, getTicker, getQuips, getSentiments } from "~/lib/agents";
 import { aggregateTopics, gradeToGpa, leanScoreOf } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
@@ -231,5 +232,6 @@ const mostRight = [...leaned]
       )}
     </>
   )}
+  <NewsletterSignup />
   <Disclaimer />
 </BaseLayout>

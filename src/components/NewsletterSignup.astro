@@ -1,0 +1,104 @@
+---
+/**
+ * Public email capture — no account needed. Posts to /api/subscribe, which
+ * double-opt-ins via Resend. Renders server-side (form works as plain HTML
+ * for crawlers; the inline script upgrades it to fetch()).
+ */
+interface Props {
+  /** Compact variant for post footers. */
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+<aside class:list={["nl-signup", { "nl-signup--compact": compact }]} aria-label="Newsletter signup">
+  <p class="nl-signup__pitch">
+    <strong>The week's grades, in your inbox.</strong>
+    {!compact && <span> The free CladFacts weekly review — top stories, best &amp; worst coverage, every Sunday.</span>}
+  </p>
+  <form class="nl-signup__form" method="post" action="/api/subscribe">
+    <label class="visually-hidden" for={compact ? "nl-email-c" : "nl-email"}>Email address</label>
+    <input
+      id={compact ? "nl-email-c" : "nl-email"}
+      class="nl-signup__input"
+      type="email"
+      name="email"
+      required
+      autocomplete="email"
+      placeholder="you@example.com"
+    />
+    <button class="nl-signup__btn" type="submit">Sign up free</button>
+  </form>
+  <p class="nl-signup__status" role="status" aria-live="polite"></p>
+</aside>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>(".nl-signup__form").forEach((form) => {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const box = form.closest(".nl-signup")!;
+      const status = box.querySelector<HTMLElement>(".nl-signup__status")!;
+      const btn = form.querySelector<HTMLButtonElement>(".nl-signup__btn")!;
+      const email = (form.querySelector<HTMLInputElement>('input[name="email"]')?.value ?? "").trim();
+      btn.disabled = true;
+      status.textContent = "Signing you up…";
+      try {
+        const res = await fetch("/api/subscribe", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.error || "Could not sign you up.");
+        form.hidden = true;
+        status.textContent = data.message || "Check your inbox to confirm.";
+      } catch (err) {
+        status.textContent = String((err as Error).message || err);
+        btn.disabled = false;
+      }
+    });
+  });
+</script>
+
+<style>
+  .nl-signup {
+    border: 1px solid var(--rule);
+    border-top: 2px solid var(--ink);
+    background: rgba(0, 0, 0, 0.015);
+    padding: 1rem 1.2rem;
+    margin: 2rem 0;
+  }
+  .nl-signup--compact { margin: 1.5rem 0 0; }
+  .nl-signup__pitch { margin: 0 0 0.6rem; line-height: 1.45; }
+  .nl-signup__form { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .nl-signup__input {
+    flex: 1 1 14rem;
+    font: inherit;
+    font-size: 0.95rem;
+    padding: 0.5rem 0.7rem;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .nl-signup__btn {
+    font: inherit;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.5rem 1.1rem;
+    border: none;
+    background: var(--accent, rgb(150, 30, 20));
+    color: #fff;
+    cursor: pointer;
+  }
+  .nl-signup__btn:disabled { opacity: 0.6; cursor: default; }
+  .nl-signup__status { margin: 0.5rem 0 0; font-size: 0.9rem; color: var(--muted-ink); }
+  .nl-signup__status:empty { display: none; }
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+</style>
