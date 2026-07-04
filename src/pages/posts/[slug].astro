@@ -317,36 +317,48 @@ const topicPageSlugs = new Set(aggregateTopics(all).map((t) => t.slug));
               </p>
             )}
 
-            {access.fullAccess && (
-              <details class="flag" data-post-id={post.id}>
-                <summary class="flag__summary">Disagree with this grade or political lean?</summary>
-                <div class="flag__body">
-                  <p class="flag__intro">
-                    Tell us why. Your note is reprocessed through the same grading
-                    logic; if the output is still off the report is removed, and if
-                    it holds up it stays.
-                  </p>
-                  <fieldset class="flag__aspect">
-                    <legend class="small-caps">What do you disagree with?</legend>
-                    <label><input type="radio" name="aspect" value="grade" checked /> The grade</label>
-                    <label><input type="radio" name="aspect" value="lean" /> The political lean</label>
-                    <label><input type="radio" name="aspect" value="both" /> Both</label>
-                  </fieldset>
-                  <textarea
-                    class="flag__comment"
-                    rows="4"
-                    maxlength="2000"
-                    placeholder="Explain what you think is wrong and why — cite specifics if you can."
-                  ></textarea>
-                  <div class="flag__actions">
-                    <button type="button" class="flag__submit">Submit for review</button>
-                  </div>
-                  <div class="flag__status" role="status"></div>
-                </div>
-              </details>
-            )}
           </>
         )}
+
+        {/* Flagging is every reader's right (About / How It Works promise it),
+            not a Premium perk — any signed-in account can dispute a grade or
+            lean; signed-out readers get a sign-in prompt. */}
+        <details class="flag" data-post-id={post.id}>
+          <summary class="flag__summary">Disagree with this grade or political lean?</summary>
+          <div class="flag__body">
+            {access.signedIn ? (
+              <>
+                <p class="flag__intro">
+                  Tell us why. Your note is reprocessed through the same grading
+                  logic; if the output is still off the report is removed, and if
+                  it holds up it stays.
+                </p>
+                <fieldset class="flag__aspect">
+                  <legend class="small-caps">What do you disagree with?</legend>
+                  <label><input type="radio" name="aspect" value="grade" checked /> The grade</label>
+                  <label><input type="radio" name="aspect" value="lean" /> The political lean</label>
+                  <label><input type="radio" name="aspect" value="both" /> Both</label>
+                </fieldset>
+                <textarea
+                  class="flag__comment"
+                  rows="4"
+                  maxlength="2000"
+                  placeholder="Explain what you think is wrong and why — cite specifics if you can."
+                ></textarea>
+                <div class="flag__actions">
+                  <button type="button" class="flag__submit">Submit for review</button>
+                </div>
+                <div class="flag__status" role="status"></div>
+              </>
+            ) : (
+              <p class="flag__intro">
+                Flagging is open to every reader with a free account.
+                {" "}<a href={`/login/?next=/posts/${post.id}/`}>Sign in</a> or
+                {" "}<a href="/register/">create one</a> to dispute this report.
+              </p>
+            )}
+          </div>
+        </details>
 
         {d.videoId && (
           <div class="video-embed">

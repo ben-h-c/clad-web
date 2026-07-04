@@ -12,20 +12,10 @@ if (session?.user) return Astro.redirect("/account/");
 const PROVIDER_LABELS: Record<string, string> = { google: "Google", apple: "Apple", twitter: "X" };
 const providers = enabledSocialProviders();
 ---
-<<<<<<< HEAD
 <BaseLayout title="Create account — Clad" description="Create a free CladFacts account — 7 days of full access, no card required." noindex={true}>
   <article class="static-page auth-page" id="register-article">
     <h2 class="static-page__title">Create your account</h2>
     <p class="dateline">Your first {TRIAL_DAYS} days are full access — every grade and political-lean rating, no card required. Plus saved reports and custom topic alerts.</p>
-=======
-<BaseLayout title="Create account — Clad" description="Create a free CladFacts account — your first week is full access, no card required." noindex={true}>
-  <article class="static-page auth-page" id="register-article">
-    <h2 class="static-page__title">Create your account</h2>
-    <p class="dateline">
-      Your first <strong>{TRIAL_DAYS} days are full access</strong> — every letter grade,
-      factuality score, and political-lean rating. No card required.
-    </p>
->>>>>>> b10755a (P1-3 (item 11): password reset flow + trial pitch on register)
 
     {providers.length > 0 && (
       <div class="auth-social">

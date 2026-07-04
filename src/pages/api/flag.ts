@@ -8,12 +8,13 @@ export const prerender = false;
 
 const ASPECTS: FlagAspect[] = ["grade", "lean", "both"];
 
-// Readers with full access (trial/paid) can dispute a post's grade and/or
-// political lean. Rate-limited per IP; stored for the editor to review.
+// Any signed-in reader can dispute a post's grade and/or political lean —
+// About and How It Works promise flagging as every reader's right, so it is
+// never tier-gated. Sign-in + the per-IP rate limit keep it spam-resistant.
 export const POST: APIRoute = async ({ request, clientAddress }) => {
   const access = await getAccess(request.headers);
-  if (!access.fullAccess) {
-    return json({ error: "Flagging is a Premium feature.", upgrade: true }, 403);
+  if (!access.signedIn) {
+    return json({ error: "Sign in (free) to flag a report.", signIn: true }, 401);
   }
 
   const ip =
