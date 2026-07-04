@@ -104,6 +104,9 @@ const newsLd = {
   datePublished: published,
   dateModified: modified,
   mainEntityOfPage: { "@type": "WebPage", "@id": shareUrl },
+  // The report text is free for everyone (only grade/lean are Premium), so
+  // this page never triggers paywalled-content treatment in Search.
+  isAccessibleForFree: true,
   author: { "@type": "Organization", name: "CladFacts" },
   publisher: {
     "@type": "NewsMediaOrganization",
