@@ -1,0 +1,68 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { nyDateParts, shortDate } from "~/lib/dateline";
+
+export const prerender = false;
+
+// One month of reports (Eastern calendar), newest first, as a light link
+// list — a month can hold >1,000 reports, so no card rendering here.
+const year = Number(Astro.params.year);
+const month = Number(Astro.params.month);
+if (!Number.isInteger(year) || !Number.isInteger(month) || month < 1 || month > 12) {
+  return new Response(null, { status: 404 });
+}
+
+const all = await getCollection("posts", (p) => !p.data.draft);
+const posts = all
+  .filter((p) => {
+    const { y, m } = nyDateParts(p.data.publishedAt);
+    return y === year && m === month;
+  })
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+if (posts.length === 0) return new Response(null, { status: 404 });
+
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+const label = `${MONTHS[month - 1]} ${year}`;
+
+// Prev/next month links (only where posts exist).
+const monthKeys = new Set(
+  all.map((p) => {
+    const { y, m } = nyDateParts(p.data.publishedAt);
+    return `${y}-${m}`;
+  })
+);
+const prev = month === 1 ? { y: year - 1, m: 12 } : { y: year, m: month - 1 };
+const next = month === 12 ? { y: year + 1, m: 1 } : { y: year, m: month + 1 };
+const hasPrev = monthKeys.has(`${prev.y}-${prev.m}`);
+const hasNext = monthKeys.has(`${next.y}-${next.m}`);
+const monthUrl = (d: { y: number; m: number }) => `/archive/${d.y}/${String(d.m).padStart(2, "0")}/`;
+---
+<BaseLayout
+  title={`${label} archive — Clad`}
+  description={`All ${posts.length} fact-checked CladFacts reports from ${label}.`}
+>
+  <section class="topic-page">
+    <p class="small-caps" style="color:var(--muted-ink)"><a href="/archive/">Archive</a></p>
+    <h2 class="topic-page__title">{label}</h2>
+    <p class="dateline">{posts.length.toLocaleString("en-US")} reports.</p>
+    <div class="rule rule--double" aria-hidden="true"></div>
+    <ol class="archive-list">
+      {posts.map((p) => (
+        <li class="archive-list__item">
+          <a href={`/posts/${p.id}/`}>{p.data.headline}</a>
+          <span class="archive-list__meta">
+            {p.data.sourceTitle ? `${p.data.sourceTitle} · ` : ""}{shortDate(p.data.publishedAt)}
+          </span>
+        </li>
+      ))}
+    </ol>
+    <nav class="archive-nav" aria-label="Archive months">
+      {hasPrev && <a href={monthUrl(prev)}>← {MONTHS[prev.m - 1]} {prev.y}</a>}
+      {hasNext && <a href={monthUrl(next)} style="margin-left:auto">{MONTHS[next.m - 1]} {next.y} →</a>}
+    </nav>
+  </section>
+</BaseLayout>

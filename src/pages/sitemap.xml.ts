@@ -26,8 +26,9 @@ export async function GET() {
   const entries: string[] = [
     url("/", undefined, "1.0"),
     url("/trends/", undefined, "0.7"),
-    url("/discover/", undefined, "0.5"),
-    url("/good-news/", undefined, "0.5"),
+    url("/discover/", undefined, "0.6"),
+    url("/good-news/", undefined, "0.6"),
+    url("/archive/", undefined, "0.5"),
     url("/about/", undefined, "0.4"),
     url("/how-it-works/", undefined, "0.5"),
     url("/corrections/", undefined, "0.5"),
@@ -41,6 +42,20 @@ export async function GET() {
   }
   for (const t of topics) {
     entries.push(url(`/topics/${t.slug}/`, undefined, "0.6"));
+  }
+  // Archive months (Eastern calendar, same clock as the masthead).
+  {
+    const seen = new Set<string>();
+    for (const p of posts) {
+      const dt = new Intl.DateTimeFormat("en-CA", {
+        timeZone: "America/New_York",
+        year: "numeric",
+        month: "2-digit",
+      }).format(p.data.publishedAt);
+      const [y, m] = dt.split("-");
+      seen.add(`${y}/${m}`);
+    }
+    for (const ym of seen) entries.push(url(`/archive/${ym}/`, undefined, "0.4"));
   }
   // Outlet profiles — one per distinct source channel (see /outlets/[outlet]).
   const outlets = new Set<string>();
