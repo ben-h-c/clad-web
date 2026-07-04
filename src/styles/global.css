@@ -4899,3 +4899,7 @@ html.clad-app .clad-app-only { display: block; }
 /* Home: "Today's Free Report Card" feature (Report of the Day) */
 .free-card { margin: 1.6rem 0 0.4rem; }
 .free-card__note { font-size: 0.85rem; color: var(--muted-ink); }
+
+/* Topic chips are links when a topic page exists — keep the chip look. */
+a.topic-tag { color: inherit; text-decoration: none; }
+a.topic-tag:hover { border-color: var(--ink); text-decoration: underline; }

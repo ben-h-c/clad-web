@@ -19,6 +19,7 @@ import { sampleUnlockedId } from "~/lib/sample";
 import { metaDescription } from "~/lib/seo";
 import { splitCitations } from "~/lib/citations";
 import { slugify } from "~/lib/slug";
+import { aggregateTopics, canonicalTopic, topicSlug } from "~/lib/topics";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
@@ -173,6 +174,10 @@ const { sources, background } = splitCitations(d.citations);
 // Social-media sentiment (scanner-scored, KV-backed). Premium-gated like the
 // grade/lean, so restricted readers never even trigger the KV read.
 const sentiment = isBroadcast && !locked ? (await getSentiments(env.AGENTS))[post.id] ?? null : null;
+
+// Topic chips link to their aggregated topic page when one exists (the
+// aggregator clusters near-duplicate tags, so not every raw tag has a page).
+const topicPageSlugs = new Set(aggregateTopics(all).map((t) => t.slug));
 ---
 <BaseLayout
   title={`${d.headline} — Clad`}
@@ -357,7 +362,14 @@ const sentiment = isBroadcast && !locked ? (await getSentiments(env.AGENTS))[pos
           <div class="topics">
             <h2 class="small-caps">Topics in This Edition</h2>
             <div class="topics__tags">
-              {d.topics.map((t) => <span class="topic-tag">{t}</span>)}
+              {d.topics.map((t) => {
+                const ts = topicSlug(canonicalTopic(t));
+                return topicPageSlugs.has(ts) ? (
+                  <a class="topic-tag" href={`/topics/${ts}/`}>{t}</a>
+                ) : (
+                  <span class="topic-tag">{t}</span>
+                );
+              })}
             </div>
           </div>
         )}
