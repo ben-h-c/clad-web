@@ -11,7 +11,15 @@ import { embedUrl } from "~/lib/youtube";
 
 export const prerender = false;
 
-const drafts = await listDrafts(env.AGENTS);
+const allDrafts = await listDrafts(env.AGENTS);
+
+// Render a bounded page of the queue (newest first). Rendering every pending
+// draft stops scaling once approvals lag: each fresh near-dup computation
+// scans the posts collection, and an unbounded page of embedded videos +
+// full report bodies is unusable anyway. The 2026-07-06 backlog (160 drafts)
+// 503'd this page outright.
+const QUEUE_PAGE_SIZE = 40;
+const drafts = allDrafts.slice(0, QUEUE_PAGE_SIZE);
 
 // Per-draft editorial QA: cross-network near-duplicate cluster (stored on the
 // draft at submit time, else computed fresh) and headline verdict-phrase lint.
@@ -25,6 +33,7 @@ for (const d of drafts) {
       texts: [d.source.videoTitle ?? "", d.report.headline],
       publishedAt: d.source.publishedAt,
       excludeDraftId: d.draftId,
+      preloadedDrafts: allDrafts,
     }));
   nearDupsById.set(d.draftId, dups);
   spreadById.set(d.draftId, leanSpread([...dups, { leanScore: d.report.leanScore }]));
@@ -39,6 +48,13 @@ for (const d of drafts) {
       Reports drafted by agents. Review each, then approve (publishes live) or
       reject (discards). Nothing here is public until you approve it.
     </p>
+
+    {allDrafts.length > drafts.length && (
+      <p class="dateline" style="margin-top:0.5rem">
+        <strong>{allDrafts.length.toLocaleString("en-US")} drafts pending</strong> — showing the
+        newest {drafts.length}. Approve or reject these and reload for the next batch.
+      </p>
+    )}
 
     {drafts.length === 0 ? (
       <p class="dateline" style="margin-top:2rem">The queue is empty.</p>

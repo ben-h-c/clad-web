@@ -32,7 +32,13 @@ export default defineConfig({
   adapter: cloudflare(),
   integrations: [clearContentCache],
   site: "https://cladfacts.com",
-  trailingSlash: "always",
+  // MUST stay "ignore". With "always", Astro itself 301/308-redirects
+  // extensionless API routes (/api/auth/sign-in/email → …/email/) before
+  // middleware can exempt them, and Better Auth's internal router 404s the
+  // slash form — which broke every sign-in (web + iOS) and Stripe webhook
+  // delivery. The canonical trailing-slash policy for HTML pages is enforced
+  // by the middleware 301 normalizer (src/middleware.ts), which skips /api/*.
+  trailingSlash: "ignore",
   build: {
     format: "directory",
   },
