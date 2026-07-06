@@ -23,6 +23,8 @@ export async function GET() {
   const entries: string[] = [
     url("/", undefined, "1.0"),
     url("/trends/", undefined, "0.7"),
+    url("/discover/", undefined, "0.5"),
+    url("/good-news/", undefined, "0.5"),
     url("/about/", undefined, "0.4"),
     url("/how-it-works/", undefined, "0.5"),
     url("/corrections/", undefined, "0.5"),

@@ -7,8 +7,10 @@ interface Props {
   title?: string;
   variant?: string;
   locked?: boolean;
+  /** Post id unlocked as today's free sample for restricted readers. */
+  unlockedId?: string | null;
 }
-const { posts, title = "Front Page", variant, locked = false } = Astro.props;
+const { posts, title = "Front Page", variant, locked = false, unlockedId = null } = Astro.props;
 ---
 {posts.length > 0 && (
   <section class={`hero${variant ? ` hero--${variant}` : ""}`}>
@@ -20,7 +22,7 @@ const { posts, title = "Front Page", variant, locked = false } = Astro.props;
       <div class="hero-strip" aria-label={`${title} reports`}>
         {posts.map((p) => (
           <div class="hero-strip__item">
-            <ReportCard post={p} locked={locked} />
+            <ReportCard post={p} locked={locked && p.id !== unlockedId} sample={locked && p.id === unlockedId} />
           </div>
         ))}
       </div>

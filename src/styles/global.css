@@ -4474,6 +4474,17 @@ button.small {
   white-space: nowrap;
 }
 .scoreband--locked { display: flex; align-items: center; min-height: 1.7rem; margin-bottom: 0.4rem; }
+/* "Today's free sample" pill — marks the daily unlocked Report of the Day */
+.sample-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.1rem 0.45rem;
+  margin-bottom: 0.35rem;
+  border-radius: 2px;
+  white-space: nowrap;
+}
 .report__locked { margin: 0.5rem 0 1.25rem; }
 .grade-lock-panel {
   background: var(--accent-soft);

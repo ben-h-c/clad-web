@@ -25,6 +25,7 @@ Rules:
   - "blurb": one short sentence (max ~120 chars) naming what makes these a bright spot.
   - "items": 2-6 report indices that share that upbeat throughline.
 - Each report appears in AT MOST one collection. Use ONLY the provided indices.
+- Every item MUST plainly match the collection's stated title and blurb — a reader scanning the title should never be surprised by an item. If a report does not clearly fit any collection theme, leave it OUT; never pad a collection to reach the minimum.
 - Keep it genuinely positive. If a report is actually somber, divisive, or grim, leave it out rather than forcing it in.
 
 Return ONLY JSON: { "sections": [ { "title": string, "blurb": string, "items": [number] } ] }`;
@@ -58,6 +59,75 @@ function extractText(data) {
     }
   }
   return "";
+}
+
+// Second-pass collection-fit check. A cheap non-reasoning call (like the quip
+// writer's model) looks at each proposed collection's title + blurb + member
+// headlines and returns only the indices that plainly match the stated theme.
+const VERIFY_MODEL = "grok-4.20-0309-non-reasoning";
+
+const VERIFY_SYSTEM = `You are a strict quality checker for CladFacts's "Good News" page. Below are proposed collections, each with a stated title, a blurb, and its member reports (index + headline). For each collection, keep ONLY the reports that plainly match the collection's stated title and blurb — a reader scanning the title should never be surprised by an item. Drop anything off-theme, only loosely related, or not genuinely positive. It is fine (and expected) to drop items; do not keep a bad fit to preserve collection size.
+
+Return ONLY JSON: { "sections": [ { "index": number, "keep": [number] } ] } — one entry per collection, where "index" is the collection number shown below and "keep" lists the report indices to retain.`;
+
+const VERIFY_SCHEMA = {
+  type: "object",
+  properties: {
+    sections: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          index: { type: "integer" },
+          keep: { type: "array", items: { type: "integer" } },
+        },
+        required: ["index", "keep"],
+        additionalProperties: false,
+      },
+    },
+  },
+  required: ["sections"],
+  additionalProperties: false,
+};
+
+/**
+ * Returns a Map of collection index -> Set of kept report indices. Throws on
+ * any API/parse failure — the caller falls back to the unverified sections so
+ * the page never stalls on this pass.
+ */
+async function verifySections(xaiKey, proposed, pool) {
+  const user = proposed
+    .map((s, si) => {
+      const items = (s?.items || [])
+        .map((idx) => {
+          const p = pool[Number(idx)];
+          return p ? `  ${idx}. ${p.headline}` : null;
+        })
+        .filter(Boolean)
+        .join("\n");
+      return `Collection ${si}: "${String(s?.title || "").trim()}" — ${String(s?.blurb || "").trim()}\n${items}`;
+    })
+    .join("\n\n");
+
+  const r = await fetch(XAI_RESPONSES, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${xaiKey}` },
+    body: JSON.stringify({
+      model: VERIFY_MODEL,
+      input: [
+        { role: "system", content: VERIFY_SYSTEM },
+        { role: "user", content: user },
+      ],
+      text: { format: { type: "json_schema", name: "goodnews_verify", schema: VERIFY_SCHEMA, strict: true } },
+    }),
+  });
+  if (!r.ok) throw new Error(`xAI ${r.status}`);
+  const parsed = JSON.parse(extractText(await r.json()));
+  const keep = new Map();
+  for (const s of parsed?.sections || []) {
+    keep.set(Number(s?.index), new Set((s?.keep || []).map(Number)));
+  }
+  return keep;
 }
 
 export async function runGoodNewsCurator(agent) {
@@ -124,14 +194,27 @@ export async function runGoodNewsCurator(agent) {
     return { ok: false, message: "xAI returned no valid JSON" };
   }
 
+  // Second pass: verify every item plainly fits its collection's stated theme.
+  // On any failure fall back to the unverified sections — the page must not
+  // stall because the checker call broke.
+  let keepBySection = null;
+  try {
+    keepBySection = await verifySections(xaiKey, parsed?.sections || [], pool);
+  } catch {
+    keepBySection = null;
+  }
+
   const used = new Set();
   const sections = [];
-  for (const s of parsed?.sections || []) {
+  for (const [si, s] of (parsed?.sections || []).entries()) {
     const title = String(s?.title || "").trim().slice(0, 60);
     if (!title) continue;
+    const keep = keepBySection?.get(si);
     const ids = [];
     for (const idx of s?.items || []) {
-      const p = pool[Number(idx)];
+      const n = Number(idx);
+      if (keep && !keep.has(n)) continue;
+      const p = pool[n];
       if (p && !used.has(p.id)) {
         used.add(p.id);
         ids.push(p.id);

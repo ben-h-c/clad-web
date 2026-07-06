@@ -10,7 +10,8 @@ import Disclaimer from "~/components/Disclaimer.astro";
 import ShareBar from "~/components/ShareBar.astro";
 import { dateline, shortDate } from "~/lib/dateline";
 import { embedUrl } from "~/lib/youtube";
-import { getAccess, PRICE, TRIAL_DAYS } from "~/lib/access";
+import { getAccess, offerLine } from "~/lib/access";
+import { sampleUnlockedId } from "~/lib/sample";
 import { metaDescription } from "~/lib/seo";
 import { splitCitations } from "~/lib/citations";
 
@@ -19,11 +20,15 @@ Astro.response.headers.set("Cache-Control", "no-store");
 
 // Article text is open (SEO); grade, lean, factuality + flagging are Premium.
 const access = await getAccess(Astro.request.headers);
-const locked = !access.fullAccess;
 
 const all = await getCollection("posts", (p) => !p.data.draft);
 const post = all.find((p) => p.id === Astro.params.slug);
 if (!post) return new Response(null, { status: 404 });
+// Report of the Day — today's sample renders fully unlocked for restricted
+// readers (badge + data-sample-unlocked marker); everything else stays gated.
+const sampleId = sampleUnlockedId(all);
+const isSample = post.id === sampleId;
+const locked = !access.fullAccess && !isSample;
 const original = post.data.correctionOf
   ? all.find((q) => q.id === post.data.correctionOf) ?? null
   : null;
@@ -69,7 +74,10 @@ const ogTitle = d.headline;
 const ogImage = `/og/${post.id}.png`;
 // Restricted readers (incl. crawlers) get a grade-free description so the
 // grade/lean stays Premium; full-access requests keep the rich snippet.
-const ogDescription = locked
+// Keyed to fullAccess (not `locked`) so even the daily sample post keeps its
+// grade out of <head> — the sample unlock lives only inside the marked
+// data-sample-unlocked subtree.
+const ogDescription = !access.fullAccess
   ? metaDescription(d.summary)
   : isBroadcast
     ? metaDescription(`${ogParts.join(" · ")} · Factuality ${d.factualityScore}/100. ${d.summary}`)
@@ -167,7 +175,7 @@ const { sources, background } = splitCitations(d.citations);
   jsonLd={[newsLd, ...claimLds]}
 >
   <meta slot="head" property="article:published_time" content={published} />
-  <article class="post">
+  <article class="post" data-sample-unlocked={isSample && !access.fullAccess ? "true" : undefined}>
     <div class="post__kicker">
       {locked ? (
         <span class="grade-lock" aria-label="Premium"><span aria-hidden="true">🔒</span> Grade — Premium</span>
@@ -175,6 +183,9 @@ const { sources, background } = splitCitations(d.citations);
         <LetterGrade grade={d.letterGrade!} />
       ) : (
         <Verdict verdict={d.verdict!} />
+      )}
+      {isSample && !access.fullAccess && (
+        <span class="sample-badge small-caps" style="margin-left:.75rem">Today's free sample</span>
       )}
       {d.kicker && <span class="small-caps" style="margin-left:.75rem">{d.kicker}</span>}
     </div>
@@ -246,7 +257,7 @@ const { sources, background } = splitCitations(d.citations);
             <p class="grade-lock-panel">
               <span aria-hidden="true">🔒</span> The <strong>letter grade</strong>, factuality score, and
               <strong> political-lean</strong> rating for this report are part of
-              <a href="/upgrade/"> CladFacts Premium — {PRICE.monthly}/mo{access.signedIn ? "" : ` after a ${TRIAL_DAYS}-day free trial`}</a>.
+              <a href="/upgrade/"> CladFacts Premium — {offerLine(access.signedIn)}</a>.
               The full report below is free to read.
             </p>
           </div>
@@ -275,32 +286,34 @@ const { sources, background } = splitCitations(d.citations);
               </p>
             )}
 
-            <details class="flag" data-post-id={post.id}>
-              <summary class="flag__summary">Disagree with this grade or political lean?</summary>
-              <div class="flag__body">
-                <p class="flag__intro">
-                  Tell us why. Your note is reprocessed through the same grading
-                  logic; if the output is still off the report is removed, and if
-                  it holds up it stays.
-                </p>
-                <fieldset class="flag__aspect">
-                  <legend class="small-caps">What do you disagree with?</legend>
-                  <label><input type="radio" name="aspect" value="grade" checked /> The grade</label>
-                  <label><input type="radio" name="aspect" value="lean" /> The political lean</label>
-                  <label><input type="radio" name="aspect" value="both" /> Both</label>
-                </fieldset>
-                <textarea
-                  class="flag__comment"
-                  rows="4"
-                  maxlength="2000"
-                  placeholder="Explain what you think is wrong and why — cite specifics if you can."
-                ></textarea>
-                <div class="flag__actions">
-                  <button type="button" class="flag__submit">Submit for review</button>
+            {access.fullAccess && (
+              <details class="flag" data-post-id={post.id}>
+                <summary class="flag__summary">Disagree with this grade or political lean?</summary>
+                <div class="flag__body">
+                  <p class="flag__intro">
+                    Tell us why. Your note is reprocessed through the same grading
+                    logic; if the output is still off the report is removed, and if
+                    it holds up it stays.
+                  </p>
+                  <fieldset class="flag__aspect">
+                    <legend class="small-caps">What do you disagree with?</legend>
+                    <label><input type="radio" name="aspect" value="grade" checked /> The grade</label>
+                    <label><input type="radio" name="aspect" value="lean" /> The political lean</label>
+                    <label><input type="radio" name="aspect" value="both" /> Both</label>
+                  </fieldset>
+                  <textarea
+                    class="flag__comment"
+                    rows="4"
+                    maxlength="2000"
+                    placeholder="Explain what you think is wrong and why — cite specifics if you can."
+                  ></textarea>
+                  <div class="flag__actions">
+                    <button type="button" class="flag__submit">Submit for review</button>
+                  </div>
+                  <div class="flag__status" role="status"></div>
                 </div>
-                <div class="flag__status" role="status"></div>
-              </div>
-            </details>
+              </details>
+            )}
           </>
         )}
 

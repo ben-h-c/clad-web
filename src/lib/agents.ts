@@ -625,6 +625,25 @@ export async function setSearchCategories(kv: KVNamespace, list: SearchCategory[
 
 const QUIPS_KEY = "quips:list";
 
+// Tone guard: a fact-checking site's fun ticker must never disparage facts,
+// fact-checking, or expertise. Filtering here (the single choke-point both the
+// home page and the agent GET read through) also self-heals the KV pool — the
+// quip-writer merges via the same GET, so banned legacy entries drop out on
+// its next run.
+const BANNED_QUIP_PATTERNS: RegExp[] = [
+  /facts?\s+are\s+slipper/i,
+  /experts?\s+(are|were)\s+(just\s+)?guess/i,
+  /age\s+like\s+milk/i,
+  /reality\s+slaps?/i,
+  /doomscrolling\s+is\s+just\s+anxiety/i,
+  /facts?\s+(are|is)\s+\w*\s*(negotiable|optional|overrated)/i,
+  /truth\s+is\s+(overrated|negotiable)/i,
+];
+
+export function filterQuips(quips: string[]): string[] {
+  return quips.filter((q) => !BANNED_QUIP_PATTERNS.some((re) => re.test(q)));
+}
+
 export interface QuipData {
   updatedAt: string;
   quips: string[];
@@ -635,14 +654,15 @@ export async function getQuips(kv: KVNamespace): Promise<QuipData | null> {
   if (!raw) return null;
   try {
     const v = JSON.parse(raw);
-    return v && Array.isArray(v.quips) ? (v as QuipData) : null;
+    if (!v || !Array.isArray(v.quips)) return null;
+    return { ...v, quips: filterQuips(v.quips.map((q: unknown) => String(q ?? ""))) } as QuipData;
   } catch {
     return null;
   }
 }
 
 export async function setQuips(kv: KVNamespace, quips: string[]): Promise<void> {
-  const data: QuipData = { updatedAt: new Date().toISOString(), quips };
+  const data: QuipData = { updatedAt: new Date().toISOString(), quips: filterQuips(quips) };
   await kv.put(QUIPS_KEY, JSON.stringify(data));
 }
 

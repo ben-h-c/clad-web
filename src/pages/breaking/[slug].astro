@@ -8,8 +8,10 @@ import PoliticalLean from "~/components/PoliticalLean.astro";
 import ShareBar from "~/components/ShareBar.astro";
 import { getBreaking } from "~/lib/agents";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
+import { LEAN_THRESHOLD } from "~/lib/trends";
 import { isNewsOutlet } from "~/lib/networks";
-import { getAccess, PRICE, TRIAL_DAYS } from "~/lib/access";
+import { getAccess, offerLine } from "~/lib/access";
+import { sampleUnlockedId } from "~/lib/sample";
 
 // Ephemeral: a breaking-news group exists only while the story is active. SSR so
 // it reflects the live KV selection; 404 once the group ages out of the feed.
@@ -42,6 +44,16 @@ const leans = members.map((p) => leanScoreOf(p!.data)).filter((n): n is number =
 const avgGrade = gpas.length ? gpaToGrade(gpas.reduce((a, b) => a + b, 0) / gpas.length) : null;
 const avgLean = leans.length ? Math.round(leans.reduce((a, b) => a + b, 0) / leans.length) : null;
 
+// Coverage balance: bucket member leans with the site-wide ±LEAN_THRESHOLD
+// convention (Premium-gated, same policy as avgLean above).
+const left = leans.filter((l) => l <= -LEAN_THRESHOLD).length;
+const right = leans.filter((l) => l >= LEAN_THRESHOLD).length;
+const center = leans.length - left - right;
+const unknown = members.length - leans.length;
+
+// Report of the Day — today's sample card renders unlocked for restricted readers.
+const sampleId = locked ? sampleUnlockedId(all) : null;
+
 const shareUrl = new URL(`/breaking/${slug}/`, Astro.site ?? "https://cladfacts.com").href;
 ---
 <BaseLayout
@@ -58,20 +70,34 @@ const shareUrl = new URL(`/breaking/${slug}/`, Astro.site ?? "https://cladfacts.
     {locked ? (
       <p class="grade-lock-panel" style="margin:0.75rem 0">
         <span aria-hidden="true">🔒</span> Average grade &amp; political-lean for this story are
-        <a href="/upgrade/"> Premium — {PRICE.monthly}/mo after a {TRIAL_DAYS}-day free trial</a>.
+        <a href="/upgrade/"> Premium — {offerLine(access.signedIn)}</a>.
       </p>
     ) : (
-      <div class="topic-page__agg">
-        {avgGrade && (
-          <div class="scoreband__grade">
-            <LetterGrade grade={avgGrade} size="card" />
-            <span class="scoreband__cap small-caps">Avg grade</span>
-          </div>
+      <>
+        <div class="topic-page__agg">
+          {avgGrade && (
+            <div class="scoreband__grade">
+              <LetterGrade grade={avgGrade} size="card" />
+              <span class="scoreband__cap small-caps">Avg grade</span>
+            </div>
+          )}
+          {avgLean !== null && (
+            <div class="scoreband__bias"><PoliticalLean score={avgLean} /></div>
+          )}
+        </div>
+        {leans.length > 0 && (
+          <>
+            <div class="callout__split" aria-hidden="true" style="max-width:22rem">
+              <span class="split split--l" style={`flex:${left || 0.001}`}>{left || ""}</span>
+              <span class="split split--c" style={`flex:${center || 0.001}`}>{center || ""}</span>
+              <span class="split split--r" style={`flex:${right || 0.001}`}>{right || ""}</span>
+            </div>
+            <p class="callout__splitcap">
+              Coverage balance: {left} left · {center} center · {right} right{unknown > 0 ? ` · ${unknown} unrated` : ""}
+            </p>
+          </>
         )}
-        {avgLean !== null && (
-          <div class="scoreband__bias"><PoliticalLean score={avgLean} /></div>
-        )}
-      </div>
+      </>
     )}
 
     <p class="dateline">
@@ -84,7 +110,9 @@ const shareUrl = new URL(`/breaking/${slug}/`, Astro.site ?? "https://cladfacts.
     <div class="rule rule--double" aria-hidden="true" style="margin:1.25rem 0"></div>
 
     <div class="feed-list">
-      {members.map((p) => <ReportCard post={p!} variant="bar" locked={locked} />)}
+      {members.map((p) => (
+        <ReportCard post={p!} variant="bar" locked={locked && p!.id !== sampleId} sample={locked && p!.id === sampleId} />
+      ))}
     </div>
   </section>
 </BaseLayout>

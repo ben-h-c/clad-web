@@ -11,6 +11,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Backstop for the wrangler-dev leak check — a hung step must fail fast,
+    # not hold a runner for hours (the script also carries its own watchdog).
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -19,3 +22,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      # Dummy secret so Better Auth boots headless in wrangler dev (local-mode
+      # miniflare, no Cloudflare credentials); real secrets never enter CI.
+      - run: echo "BETTER_AUTH_SECRET=$(node -e 'console.log("ci".repeat(32))')" > .dev.vars
+      # Anonymous-leak + empty-body guard: spawns wrangler dev against the
+      # build above and asserts Premium data never reaches anonymous responses.
+      - run: node scripts/checkAnonLeak.mjs

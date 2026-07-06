@@ -6,6 +6,7 @@ import ReportCard from "~/components/ReportCard.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
 import { getDiscover } from "~/lib/agents";
 import { getAccess } from "~/lib/access";
+import { sampleUnlockedId } from "~/lib/sample";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "private, no-store");
@@ -24,11 +25,13 @@ const resolved = sections
 const visible = locked
   ? resolved.slice(0, 2).map((s) => ({ ...s, posts: s.posts.slice(0, 4) }))
   : resolved;
+
+// Report of the Day — today's sample card renders unlocked for restricted readers.
+const sampleId = locked ? sampleUnlockedId(all) : null;
 ---
 <BaseLayout
   title="Discover — Clad"
   description="Serendipitous collections of fact-checked coverage — offbeat angles you wouldn't ordinarily see grouped."
-  noindex={true}
 >
   <section class="discover">
     <header class="discover__head">
@@ -52,7 +55,9 @@ const visible = locked
           {s.blurb && <p class="discover-sec__blurb">{s.blurb}</p>}
           <div class="rule rule--double" aria-hidden="true"></div>
           <div class="feed-list">
-            {s.posts.map((p) => <ReportCard post={p!} variant="bar" locked={locked} />)}
+            {s.posts.map((p) => (
+              <ReportCard post={p!} variant="bar" locked={locked && p!.id !== sampleId} sample={locked && p!.id === sampleId} />
+            ))}
           </div>
         </section>
       ))
