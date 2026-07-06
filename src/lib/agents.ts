@@ -307,9 +307,11 @@ export function draftId(agentId: string, videoId: string): string {
 
 export async function listDrafts(kv: KVNamespace): Promise<PendingDraft[]> {
   const list = await kv.list({ prefix: DRAFT_PREFIX });
+  // Parallel gets: with a large backlog (the queue reached 160 pending drafts
+  // on 2026-07-06) sequential reads alone took seconds of wall time.
+  const raws = await Promise.all(list.keys.map((key) => kv.get(key.name)));
   const drafts: PendingDraft[] = [];
-  for (const key of list.keys) {
-    const raw = await kv.get(key.name);
+  for (const raw of raws) {
     if (raw) {
       try {
         drafts.push(JSON.parse(raw) as PendingDraft);
@@ -1073,7 +1075,15 @@ export interface NearDuplicate {
  */
 export async function findNearDuplicates(
   kv: KVNamespace,
-  cand: { texts: string[]; publishedAt?: string; excludeDraftId?: string }
+  cand: {
+    texts: string[];
+    publishedAt?: string;
+    excludeDraftId?: string;
+    /** Pass an already-loaded draft list when calling in a loop — otherwise
+     *  every call re-reads the whole draft queue from KV, which is O(n²)
+     *  subrequests and 503s the Worker once the queue backlog is large. */
+    preloadedDrafts?: PendingDraft[];
+  }
 ): Promise<NearDuplicate[]> {
   const anchorDate = cand.publishedAt ? new Date(cand.publishedAt) : new Date();
   const anchor = Number.isNaN(anchorDate.getTime()) ? Date.now() : anchorDate.getTime();
@@ -1098,7 +1108,7 @@ export async function findNearDuplicates(
       });
     }
   }
-  const drafts = await listDrafts(kv);
+  const drafts = cand.preloadedDrafts ?? (await listDrafts(kv));
   for (const d of drafts) {
     if (cand.excludeDraftId && d.draftId === cand.excludeDraftId) continue;
     const when = d.source.publishedAt ?? d.createdAt;
