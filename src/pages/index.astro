@@ -11,7 +11,7 @@ import Ticker from "~/components/Ticker.astro";
 import QuipTicker from "~/components/QuipTicker.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
-import { getFrontpage, getBreaking, getTicker, getQuips } from "~/lib/agents";
+import { getFrontpage, getBreaking, getTicker, getQuips, getSentiments } from "~/lib/agents";
 import { aggregateTopics, gradeToGpa, leanScoreOf } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
@@ -81,7 +81,11 @@ const locked = !access.fullAccess;
 // for restricted readers; same pick site-wide per NY day.
 const sampleId = locked ? sampleUnlockedId(all) : null;
 
-const topics = aggregateTopics(all);
+// Social-media sentiment (KV, scanner-scored) — Premium; the read is skipped
+// for restricted readers so the reception analytics never reach their HTML.
+const sentiments = locked ? {} : await getSentiments(env.AGENTS);
+
+const topics = aggregateTopics(all, sentiments);
 const TOPICS_PER_PAGE = 20;
 
 // Best & worst graded. Rank only graded (broadcast) posts; recency breaks ties.
@@ -212,7 +216,7 @@ const mostRight = [...leaned]
         <PaywallPanel signedIn={access.signedIn} />
       ) : (
         <>
-          <HomeCharts posts={all} topics={topics} />
+          <HomeCharts posts={all} topics={topics} sentiments={sentiments} />
           {topGraded.length > 0 && <GradeBoard top={topGraded} bottom={bottomGraded} />}
           {mostLeft.length > 0 && (
             <GradeBoard

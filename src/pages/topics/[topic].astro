@@ -19,7 +19,10 @@ const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
 
 const all = await getCollection("posts", (p) => !p.data.draft);
-const topic = aggregateTopics(all).find((t) => t.slug === Astro.params.topic);
+// Social-media sentiment (KV, scanner-scored) — Premium like grade/lean; the
+// read is skipped for restricted readers so the value never reaches their HTML.
+const sentiments = locked ? {} : await getSentiments(env.AGENTS);
+const topic = aggregateTopics(all, sentiments).find((t) => t.slug === Astro.params.topic);
 if (!topic) return new Response(null, { status: 404 });
 
 const posts = topic.posts.sort(
@@ -28,20 +31,6 @@ const posts = topic.posts.sort(
 
 // Report of the Day — today's sample card renders unlocked for restricted readers.
 const sampleId = locked ? sampleUnlockedId(all) : null;
-
-// Average social-media sentiment across the topic's scanned reports.
-// Premium-gated like the aggregate grade/lean; the KV read is skipped for
-// restricted readers so the value never reaches their HTML.
-let avgSentiment: number | null = null;
-if (!locked) {
-  const sentiments = await getSentiments(env.AGENTS);
-  const scores = topic.posts
-    .map((p) => sentiments[p.id]?.score)
-    .filter((s): s is number => typeof s === "number");
-  avgSentiment = scores.length
-    ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length)
-    : null;
-}
 
 const shareUrl = new URL(`/topics/${topic.slug}/`, Astro.site ?? "https://cladfacts.com").href;
 const leanLbl =
@@ -84,8 +73,8 @@ const ogDescription = [
         {topic.avgLean !== null && (
           <div class="scoreband__bias"><PoliticalLean score={topic.avgLean} /></div>
         )}
-        {avgSentiment !== null && (
-          <div class="scoreband__bias"><SocialSentiment score={avgSentiment} /></div>
+        {topic.avgSentiment !== null && (
+          <div class="scoreband__bias"><SocialSentiment score={topic.avgSentiment} /></div>
         )}
       </div>
     )}

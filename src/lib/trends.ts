@@ -6,6 +6,7 @@
  * Trends page can call them out.
  */
 import type { CollectionEntry } from "astro:content";
+import type { SentimentMap } from "./agents";
 import { canonicalTopic, gradeToGpa, gpaToGrade, leanScoreOf } from "./topics";
 
 export interface WeekHeadline {
@@ -26,6 +27,9 @@ export interface WeekStat {
   right: number;
   avgGpa: number | null;
   avgGrade: string | null;
+  // Average social-media sentiment of the week's scanned posts (null when
+  // none were scanned or the caller didn't pass the sentiment map).
+  avgSentiment: number | null;
   good: number; // A/B grades
   mid: number; // C grades
   poor: number; // D/F grades
@@ -50,6 +54,7 @@ export interface NetworkStat {
   avgGpa: number | null;
   avgGrade: string | null;
   avgLean: number | null;
+  avgSentiment: number | null;
   weekly: number[];
   last: number;
   prev: number;
@@ -97,7 +102,10 @@ function quantile(sorted: number[], q: number): number {
   return sorted[lo]! + (sorted[hi]! - sorted[lo]!) * (pos - lo);
 }
 
-export function buildTrends(posts: CollectionEntry<"posts">[]): TrendsReport {
+export function buildTrends(
+  posts: CollectionEntry<"posts">[],
+  sentiments: SentimentMap = {}
+): TrendsReport {
   const live = posts.filter((p) => !p.data.draft);
   if (live.length === 0) {
     return { weeks: [], callouts: [], topics: [], networks: [], maxCount: 0, totalPosts: 0, weekSpan: 0, busiest: null };
@@ -119,8 +127,14 @@ export function buildTrends(posts: CollectionEntry<"posts">[]): TrendsReport {
     const group = byWeek.get(t) ?? [];
     const leans = group.map((p) => leanScoreOf(p.data)).filter((n): n is number => n != null);
     const gpas = group.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n != null);
+    const sentis = group
+      .map((p) => sentiments[p.id]?.score)
+      .filter((n): n is number => typeof n === "number");
     const avgLean = leans.length ? Math.round(leans.reduce((a, b) => a + b, 0) / leans.length) : null;
     const avgGpa = gpas.length ? gpas.reduce((a, b) => a + b, 0) / gpas.length : null;
+    const avgSentiment = sentis.length
+      ? Math.round(sentis.reduce((a, b) => a + b, 0) / sentis.length)
+      : null;
 
     let left = 0,
       center = 0,
@@ -192,6 +206,7 @@ export function buildTrends(posts: CollectionEntry<"posts">[]): TrendsReport {
       right,
       avgGpa,
       avgGrade: avgGpa == null ? null : gpaToGrade(avgGpa),
+      avgSentiment,
       good,
       mid,
       poor,
@@ -231,7 +246,7 @@ export function buildTrends(posts: CollectionEntry<"posts">[]): TrendsReport {
   // Network leaderboard — by source outlet.
   const netAgg = new Map<
     string,
-    { count: number; gpas: number[]; leans: number[]; weekly: number[] }
+    { count: number; gpas: number[]; leans: number[]; sentis: number[]; weekly: number[] }
   >();
 
   weeks.forEach((w, wi) => {
@@ -242,7 +257,7 @@ export function buildTrends(posts: CollectionEntry<"posts">[]): TrendsReport {
         topicWeekly.get(theme)![wi]++;
       }
       const name = (p.data.sourceTitle ?? "").trim() || "Unknown";
-      if (!netAgg.has(name)) netAgg.set(name, { count: 0, gpas: [], leans: [], weekly: new Array(W).fill(0) });
+      if (!netAgg.has(name)) netAgg.set(name, { count: 0, gpas: [], leans: [], sentis: [], weekly: new Array(W).fill(0) });
       const n = netAgg.get(name)!;
       n.count++;
       n.weekly[wi]++;
@@ -250,6 +265,8 @@ export function buildTrends(posts: CollectionEntry<"posts">[]): TrendsReport {
       if (g != null) n.gpas.push(g);
       const l = leanScoreOf(p.data);
       if (l != null) n.leans.push(l);
+      const s = sentiments[p.id]?.score;
+      if (typeof s === "number") n.sentis.push(s);
     }
   });
 
@@ -274,6 +291,9 @@ export function buildTrends(posts: CollectionEntry<"posts">[]): TrendsReport {
         avgGpa,
         avgGrade: avgGpa == null ? null : gpaToGrade(avgGpa),
         avgLean: n.leans.length ? Math.round(n.leans.reduce((a, b) => a + b, 0) / n.leans.length) : null,
+        avgSentiment: n.sentis.length
+          ? Math.round(n.sentis.reduce((a, b) => a + b, 0) / n.sentis.length)
+          : null,
         weekly: n.weekly,
         last,
         prev,
@@ -310,4 +330,25 @@ export function leanLabel(avg: number | null): string {
   if (avg <= -LEAN_THRESHOLD) return `${Math.abs(avg)}% Left`;
   if (avg >= LEAN_THRESHOLD) return `${avg}% Right`;
   return "Balanced";
+}
+
+// |sentiment| below this reads as a mixed/divided reaction (matches the
+// "Mixed" cutoff in SocialSentiment.astro).
+export const SENTIMENT_THRESHOLD = 10;
+
+/** Dot/cell color for social reception (green = positive, red = negative). */
+export function sentimentColor(avg: number | null): string {
+  if (avg == null) return "rgba(150,150,150,0.35)";
+  const mag = Math.min(100, Math.abs(avg));
+  const alpha = (0.35 + 0.6 * (mag / 100)).toFixed(2);
+  if (avg >= SENTIMENT_THRESHOLD) return `rgba(46,125,79,${alpha})`;
+  if (avg <= -SENTIMENT_THRESHOLD) return `rgba(178,59,46,${alpha})`;
+  return `rgba(140,140,140,${alpha})`;
+}
+
+export function sentimentLabel(avg: number | null): string {
+  if (avg == null) return "No reception data";
+  if (avg >= SENTIMENT_THRESHOLD) return `${avg}% Positive`;
+  if (avg <= -SENTIMENT_THRESHOLD) return `${Math.abs(avg)}% Negative`;
+  return "Mixed";
 }

@@ -1,9 +1,11 @@
 /**
  * Topic aggregation for the home-page dashboard. Articles are grouped by the
  * topics Grok tags them with; each group gets an aggregate letter grade
- * (mean GPA) and an average political-lean score.
+ * (mean GPA), an average political-lean score, and — when the caller passes
+ * the KV sentiment map — an average social-media sentiment.
  */
 import type { CollectionEntry } from "astro:content";
+import type { SentimentMap } from "./agents";
 
 const GPA: Record<string, number> = {
   "A+": 12, A: 11, "A-": 10, "B+": 9, B: 8, "B-": 7,
@@ -43,6 +45,9 @@ export interface TopicAgg {
   count: number;
   avgGrade: string | null;
   avgLean: number | null;
+  // Average social-media sentiment across scanned posts; null when no post in
+  // the group has been scanned (or the caller didn't pass the sentiment map).
+  avgSentiment: number | null;
   leanSpread: [number, number] | null;
   latest: number;
   thumbnail: string | null;
@@ -106,7 +111,10 @@ export function canonicalTopic(t: string): string {
   return bucketize(t) ?? t.trim();
 }
 
-export function aggregateTopics(posts: CollectionEntry<"posts">[]): TopicAgg[] {
+export function aggregateTopics(
+  posts: CollectionEntry<"posts">[],
+  sentiments: SentimentMap = {}
+): TopicAgg[] {
   // 1) group articles by exact topic string
   const byTopic = new Map<string, CollectionEntry<"posts">[]>();
   for (const p of posts) {
@@ -158,6 +166,9 @@ export function aggregateTopics(posts: CollectionEntry<"posts">[]): TopicAgg[] {
   for (const g of map.values()) {
     const gpas = g.posts.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n != null);
     const leans = g.posts.map((p) => leanScoreOf(p.data)).filter((n): n is number => n != null);
+    const sentis = g.posts
+      .map((p) => sentiments[p.id]?.score)
+      .filter((n): n is number => typeof n === "number");
     const latest = Math.max(...g.posts.map((p) => p.data.publishedAt.valueOf()));
     // Representative image: newest article in the topic that has a thumbnail.
     const byNew = [...g.posts].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
@@ -176,6 +187,7 @@ export function aggregateTopics(posts: CollectionEntry<"posts">[]): TopicAgg[] {
       count: g.posts.length,
       avgGrade: gpas.length ? gpaToGrade(gpas.reduce((a, b) => a + b, 0) / gpas.length) : null,
       avgLean: leans.length ? Math.round(leans.reduce((a, b) => a + b, 0) / leans.length) : null,
+      avgSentiment: sentis.length ? Math.round(sentis.reduce((a, b) => a + b, 0) / sentis.length) : null,
       leanSpread: leans.length ? [Math.min(...leans), Math.max(...leans)] : null,
       latest,
       thumbnail,

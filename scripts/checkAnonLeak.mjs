@@ -149,6 +149,7 @@ const LEAK_PATTERNS = [
   [/\d+<[^>]*>\/100|Factuality score/, "factuality-score markup (FactualityBar.astro)"],
   [/class="senti\b|class="senti |Social Sentiment</, "social-sentiment markup (SocialSentiment.astro)"],
   [/class="senti-rationale/, "social-reaction summary markup (posts/[slug].astro)"],
+  [/Social reception/i, "social-reception analytics markup (trends.astro/HomeCharts.astro)"],
 ];
 
 const failures = [];

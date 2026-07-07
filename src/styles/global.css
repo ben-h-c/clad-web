@@ -3812,6 +3812,13 @@ button.small {
 .bias-bar.is-right {
   background: rgb(150, 40, 30);
 }
+/* Social reception bars: green = positive crowd, red = negative crowd. */
+.bias-bar.is-pos {
+  background: rgb(46, 125, 79);
+}
+.bias-bar.is-neg {
+  background: rgb(150, 40, 30);
+}
 .grade-track {
   height: 0.85rem;
   background: var(--tint-2);
@@ -3868,7 +3875,7 @@ button.small {
 }
 .issue-row {
   display: grid;
-  grid-template-columns: 1fr auto 6rem 2.5rem;
+  grid-template-columns: 1fr auto 6rem 6rem 2.5rem;
   align-items: center;
   gap: 0.75rem;
   padding: 0.4rem 0;
@@ -3902,6 +3909,20 @@ button.small {
   color: rgb(150, 40, 30);
 }
 .issue-row__lean.is-center {
+  color: var(--muted-ink);
+}
+.issue-row__senti {
+  text-align: right;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+.issue-row__senti.is-pos {
+  color: rgb(46, 125, 79);
+}
+.issue-row__senti.is-neg {
+  color: rgb(150, 40, 30);
+}
+.issue-row__senti.is-center {
   color: var(--muted-ink);
 }
 .issue-row__grade {
@@ -4384,6 +4405,7 @@ button.small {
 .tline__path { fill: none; stroke-width: 2.5; }
 .tline__path--grade { stroke: #2e7d4f; }
 .tline__path--lean { stroke: var(--accent); }
+.tline__path--senti { stroke: #6b4fa0; }
 .tline__dot { fill: #2e7d4f; stroke: var(--paper); stroke-width: 1.5; }
 .tline__dot--grade { fill: #2e7d4f; }
 
