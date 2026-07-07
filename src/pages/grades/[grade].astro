@@ -1,0 +1,134 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import ReportCard from "~/components/ReportCard.astro";
+import { getAccess } from "~/lib/access";
+import { sampleUnlockedId } from "~/lib/sample";
+import { metaDescription } from "~/lib/seo";
+
+/**
+ * Per-grade archive — every report that earned one letter grade, an evergreen
+ * companion to the rubric on /how-it-works/ (PolitiFact/Snopes-style rating
+ * archives). Anonymous gating rule: listing posts under a grade heading would
+ * disclose each post's grade, so the LISTING is account-gated; anonymous
+ * readers get the rubric meaning for this grade plus the daily sample when it
+ * happens to match. The pages themselves are indexable and sitemapped.
+ */
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "private, no-store");
+
+// URL slug ↔ letter grade. Order here drives prev/next links.
+const GRADES: { slug: string; grade: string }[] = [
+  { slug: "a-plus", grade: "A+" },
+  { slug: "a", grade: "A" },
+  { slug: "a-minus", grade: "A-" },
+  { slug: "b-plus", grade: "B+" },
+  { slug: "b", grade: "B" },
+  { slug: "b-minus", grade: "B-" },
+  { slug: "c-plus", grade: "C+" },
+  { slug: "c", grade: "C" },
+  { slug: "c-minus", grade: "C-" },
+  { slug: "d-plus", grade: "D+" },
+  { slug: "d", grade: "D" },
+  { slug: "d-minus", grade: "D-" },
+  { slug: "f", grade: "F" },
+];
+
+// What each band means — mirrors the grading rubric in src/lib/broadcast.ts
+// and the methodology page; the plus/minus shading is described per page.
+const BAND_MEANING: Record<string, string> = {
+  A: "high accuracy: claims were well-sourced, coverage was balanced, and any issues were minimal",
+  B: "mostly accurate coverage with a few minor concerns an attentive viewer should know about",
+  C: "a mix of accurate and problematic claims — noticeable patterns like one-sided sourcing or missing context",
+  D: "significant factual issues, heavy partisan framing, or major claims presented without sources",
+  F: "pervasive misinformation or propaganda-level distortion of the story being covered",
+};
+
+const entry = GRADES.find((g) => g.slug === Astro.params.grade);
+if (!entry) return new Response(null, { status: 404 });
+const { slug, grade } = entry;
+const band = grade[0]!;
+const shade = grade.includes("+")
+  ? "the strongest reports in the band"
+  : grade.includes("-")
+    ? "the weakest reports in the band"
+    : "squarely in the middle of the band";
+
+const access = await getAccess(Astro.request.headers);
+const locked = !access.fullAccess;
+
+const all = (await getCollection("posts", (p) => !p.data.draft)).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+const matching = all.filter((p) => p.data.letterGrade === grade);
+
+// The daily sample is the one sanctioned anonymous unlock — show it here only
+// when it genuinely carries this grade (inside its marked subtree).
+const sampleId = locked ? sampleUnlockedId(all) : null;
+const samplePost = sampleId ? matching.find((p) => p.id === sampleId) ?? null : null;
+
+const idx = GRADES.findIndex((g) => g.slug === slug);
+const prev = idx > 0 ? GRADES[idx - 1] : null;
+const next = idx < GRADES.length - 1 ? GRADES[idx + 1] : null;
+
+const desc = metaDescription(
+  `Every news broadcast Clad graded ${grade}: ${grade}-rated reports mean ${BAND_MEANING[band]}. Browse the full ${grade} archive of fact-checked, bias-rated coverage.`
+);
+---
+<BaseLayout title={`Reports graded ${grade} — Clad`} description={desc}>
+  <section class="topic-page grade-page">
+    <p class="small-caps" style="color:var(--muted-ink)">Grade archive</p>
+    <h2 class="topic-page__title">Graded {grade}</h2>
+    <p class="dateline">
+      A <strong>{grade}</strong> on Clad means {BAND_MEANING[band]}{band === "F" ? "" : ` — ${shade}`}.
+      The full rubric lives on the <a href="/how-it-works/#rubric">methodology page</a>.
+    </p>
+
+    <p class="dateline" style="margin-top:0.5rem">
+      Browse other grades:
+      {GRADES.map((g, i) => (
+        <>
+          {i > 0 ? " · " : " "}
+          {g.slug === slug ? <strong>{g.grade}</strong> : <a href={`/grades/${g.slug}/`}>{g.grade}</a>}
+        </>
+      ))}
+    </p>
+
+    <div class="rule rule--double" aria-hidden="true" style="margin:1.25rem 0"></div>
+
+    {locked ? (
+      <>
+        <p class="grade-lock-panel">
+          <span aria-hidden="true">🔒</span> The list of reports graded {grade} unlocks with a
+          <a href="/register/"> free CladFacts account</a> — no card required. (Which stories
+          earned which grade is part of the scoreboard.)
+        </p>
+        {samplePost && (
+          <>
+            <h3 class="small-caps" style="margin:1.25rem 0 0.75rem">Today's free sample — graded {grade}</h3>
+            <div class="feed-list">
+              <ReportCard post={samplePost} variant="bar" sample />
+            </div>
+          </>
+        )}
+      </>
+    ) : matching.length === 0 ? (
+      <p class="dateline">No reports have earned a {grade} yet{prev || next ? " — try a neighboring grade" : ""}.</p>
+    ) : (
+      <>
+        <p class="dateline" style="margin-bottom:0.75rem">
+          {matching.length} {matching.length === 1 ? "report" : "reports"}, newest first.
+        </p>
+        <div class="feed-list">
+          {matching.map((p) => <ReportCard post={p} variant="bar" />)}
+        </div>
+      </>
+    )}
+
+    <p class="dateline" style="margin-top:1.5rem">
+      {prev && <a href={`/grades/${prev.slug}/`}>← Graded {prev.grade}</a>}
+      {prev && next && " · "}
+      {next && <a href={`/grades/${next.slug}/`}>Graded {next.grade} →</a>}
+    </p>
+  </section>
+</BaseLayout>

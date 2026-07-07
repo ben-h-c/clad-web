@@ -250,6 +250,11 @@ try {
   // has no curated collections — low floor tolerates empty-KV dev/CI runs.
   await checkHtml("/discover/", { minBytes: 800 });
   await checkHtml("/good-news/", { minBytes: 800 });
+  await checkHtml("/newsletter/", { minBytes: 800 });
+  // Grade archives: the listing is account-gated, so the anonymous page must
+  // carry rubric copy but no gated markup (beyond a matching daily sample).
+  await checkHtml("/grades/b/", { minBytes: 800 });
+  await checkHtml("/grades/f/", { minBytes: 800 });
   await checkHtml("/trends/");
   await checkHtml("/rss.xml", { minBytes: 1024 });
   await checkHtml("/search/?q=test", { minBytes: 1024 });

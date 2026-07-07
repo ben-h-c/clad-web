@@ -658,6 +658,13 @@ const BANNED_QUIP_PATTERNS: RegExp[] = [
   /doomscrolling\s+is\s+just\s+anxiety/i,
   /facts?\s+(are|is)\s+\w*\s*(negotiable|optional|overrated)/i,
   /truth\s+is\s+(overrated|negotiable)/i,
+  // Never mock the news, the feed, or the product's own value (2026-07-06
+  // review: the ticker was undermining the credibility brand it sits on).
+  /reality\s+is\s+overrated/i,
+  /news\s+is\s+\d+%\s+noise/i,
+  /neither\s+is\s+th(e|is)\s+ticker/i,
+  /none\s+of\s+this\s+(really\s+)?matters/i,
+  /you\s+will\s+not\s+remember\s+this\s+headline/i,
 ];
 
 export function filterQuips(quips: string[]): string[] {

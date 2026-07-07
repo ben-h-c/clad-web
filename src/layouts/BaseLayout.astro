@@ -109,8 +109,9 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
         images are 1200×630 and grade-free for restricted readers. */}
     <meta name="robots" content={noindex ? "noindex,follow" : "max-image-preview:large"} />
     {/* iOS Safari smart app banner — the native install prompt for the
-        CladFacts app (same listing as the footer badge). */}
-    <meta name="apple-itunes-app" content="app-id=6781372681" />
+        CladFacts app (same listing as the footer badge). app-argument deep
+        links the app to the page being viewed. */}
+    <meta name="apple-itunes-app" content={`app-id=6781372681, app-argument=${Astro.url.href}`} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
@@ -159,6 +160,8 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
           <a href="/how-it-works/">How it works</a>
           ·
           <a href="/archive/">Archive</a>
+          ·
+          <a href="/newsletter/">Newsletter</a>
           ·
           <a href="/rss.xml">RSS</a>
           ·

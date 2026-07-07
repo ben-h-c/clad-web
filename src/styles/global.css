@@ -2548,6 +2548,21 @@ p {
   color: var(--muted-ink);
 }
 
+/* "Share this grade card" nudge under the scorecard */
+.share-nudge {
+  font-size: 0.85rem;
+  color: var(--muted-ink);
+  margin: 0.25rem 0 0.9rem;
+}
+
+/* Outlet-page editorial prose */
+.outlet-page__prose {
+  max-width: 42rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0.9rem 0 0.4rem;
+}
+
 .factuality__head {
   display: flex;
   justify-content: space-between;
@@ -2597,6 +2612,60 @@ p {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+/* Click-to-load YouTube facade — no third-party requests until tapped */
+.video-facade__btn {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-facade__thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+.video-facade__play {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  font-size: 1.5rem;
+  padding-left: 5px;
+  transition: background 0.15s ease;
+}
+.video-facade__btn:hover .video-facade__play,
+.video-facade__btn:focus-visible .video-facade__play {
+  background: var(--accent, rgb(150, 30, 20));
+}
+.video-facade__label {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.6rem;
+  z-index: 1;
+  color: #fff;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.25rem 0.6rem;
 }
 
 .topics {
@@ -4065,12 +4134,16 @@ button.small {
   font-style: normal;
   font-size: 0.7rem;
 }
+/* Single-copy marquee: enter from the right edge, exit fully left, repeat.
+   (The old version duplicated the whole quip list in the DOM to loop
+   seamlessly — cheap for the animation, expensive for crawlers and screen
+   readers. One copy + a lead-in gap is the right trade.) */
 @keyframes quips-scroll {
   from {
-    transform: translateX(0);
+    transform: translateX(100vw);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
 @media (prefers-reduced-motion: reduce) {

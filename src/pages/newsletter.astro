@@ -1,0 +1,46 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import NewsletterSignup from "~/components/NewsletterSignup.astro";
+
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "no-store");
+---
+<BaseLayout
+  title="The CladFacts Weekly — free newsletter"
+  description="The week's grades, in your inbox. Top stories, the best and worst coverage of the week, and what moved — fact-checked and graded, every Sunday. Free."
+>
+  <article class="static-page newsletter-page">
+    <p class="small-caps upgrade__eyebrow">Free · Every Sunday</p>
+    <h2 class="static-page__title">The week's grades, in your inbox</h2>
+    <p class="upgrade__lede">
+      One email a week, no account needed: the stories that defined the week,
+      which outlets covered them best and worst, and what our grading desk saw
+      that the coverage didn't say. Written from the same reports published on
+      this site — restrained, sourced, and never clickbait.
+    </p>
+
+    <NewsletterSignup />
+
+    <h3 class="static-page__sub">What's in a typical issue</h3>
+    <ul class="upgrade__perks">
+      <li>The week's top fact-checked stories, with links to the full report cards</li>
+      <li>Best &amp; worst coverage of the week</li>
+      <li>What moved in the News Trends — volume, lean, and reception shifts</li>
+    </ul>
+
+    <h3 class="static-page__sub">How signup works</h3>
+    <p>
+      Enter your email and we send a confirmation link — you're only subscribed
+      after you click it (double opt-in). Every issue carries a one-click
+      unsubscribe. We never sell or share your address, and there are no ads or
+      trackers in the email — the same promise as the
+      <a href="/privacy/">privacy policy</a> makes for the site.
+    </p>
+
+    <p class="static-page__note">
+      Want more than the weekly? A <a href="/register/">free CladFacts account</a>
+      unlocks every grade, political-lean rating, and sentiment score on the
+      site itself — and can add a daily digest on the topics you follow.
+    </p>
+  </article>
+</BaseLayout>

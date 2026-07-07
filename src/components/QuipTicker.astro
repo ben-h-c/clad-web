@@ -7,29 +7,30 @@ interface Props {
 const { data } = Astro.props;
 
 // Fallback so the strip is never empty before the quip-writer first runs.
+// Tone guard: light and human, never mocking the news, facts, or the product
+// itself (see BANNED_QUIP_PATTERNS in src/lib/agents.ts).
 const FALLBACK = [
-  "Go touch some grass, none of this really matters to you.",
-  "You will not remember this headline in a week.",
-  "Breaking: you are doing great, actually.",
-  "The algorithm is not your friend. Neither is the ticker above this one.",
   "Drink some water. The news will still be here.",
+  "Breaking: you are doing great, actually.",
+  "Reminder: primary sources beat hot takes.",
+  "Stretch. Blink. Carry on.",
   "Nobody is thinking about you as much as you fear. Refreshing, right?",
-  "Hot take: log off and go outside for a bit.",
+  "Read the correction. It's usually the most honest sentence in the paper.",
+  "Hot take: a walk outside pairs well with a well-sourced story.",
 ];
-// Cap the pool so the home page doesn't ship an unbounded (2x-looped) list.
-// If the (already-filtered) pool runs thin, top up with FALLBACK so the
-// marquee stays dense.
+// Cap hard: a handful of quips, rendered ONCE — this strip is decoration, not
+// content, and must never be the first meaningful text crawlers/readers hit.
 const base = data?.quips?.length ? data.quips : [];
-const quips = (base.length >= 8 ? base : [...base, ...FALLBACK]).slice(0, 30);
-// Repeat so the marquee loops seamlessly (animation shifts by 50%).
-const loop = [...quips, ...quips];
+const quips = (base.length >= 8 ? base : [...base, ...FALLBACK]).slice(0, 10);
 ---
-<section class="quips" aria-label="For fun">
+<!-- Decorative marquee: one DOM copy, aria-hidden; CSS drives the loop and
+     prefers-reduced-motion pauses it (see .quips rules in global.css). -->
+<section class="quips" aria-hidden="true">
   <div class="quips__viewport">
     <div class="quips__track" style={`--n:${quips.length}`}>
-      {loop.map((q, i) => (
-        <span class="quips__item" aria-hidden={i >= quips.length ? "true" : undefined}>
-          <span class="quips__star" aria-hidden="true">✦</span>
+      {quips.map((q) => (
+        <span class="quips__item">
+          <span class="quips__star">✦</span>
           {q}
         </span>
       ))}

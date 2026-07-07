@@ -1,20 +1,24 @@
 ---
 import { getCollection } from "astro:content";
+import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ReportCard from "~/components/ReportCard.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
+import SocialSentiment from "~/components/SocialSentiment.astro";
 import { slugify } from "~/lib/slug";
-import { gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
+import { canonicalTopic, gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
+import { getSentiments } from "~/lib/agents";
 import { metaDescription } from "~/lib/seo";
 
 /**
- * Outlet profile — every Clad report for one source channel.
- * Public: volume history + the latest reports (grades locked per tier).
- * Premium: the outlet's average grade and average lean over time.
+ * Outlet profile — every Clad report for one source channel, built as an
+ * evergreen landing page for "[outlet] fact check / accuracy / bias" queries.
+ * Public: editorial prose, volume history, latest reports (scores teased).
+ * Free account: the outlet's average grade, lean, and social sentiment.
  * Linked from the Trends "Outlets at a glance" table; in the sitemap.
  */
 export const prerender = false;
@@ -57,18 +61,43 @@ const weekLabel = (i: number) => {
   return `${MONTHS[start.getUTCMonth()]} ${start.getUTCDate()}`;
 };
 
-// Premium aggregates.
+// Account-gated aggregates (hybrid model: free with any signed-in account).
 const gpas = posts.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n != null);
 const leans = posts.map((p) => leanScoreOf(p.data)).filter((n): n is number => n != null);
 const avgGrade = gpas.length ? gpaToGrade(gpas.reduce((a, b) => a + b, 0) / gpas.length) : null;
 const avgLean = leans.length ? Math.round(leans.reduce((a, b) => a + b, 0) / leans.length) : null;
+const sentiments = locked ? {} : await getSentiments(env.AGENTS);
+const sentis = posts.map((p) => sentiments[p.id]?.score).filter((n): n is number => typeof n === "number");
+const avgSentiment = sentis.length ? Math.round(sentis.reduce((a, b) => a + b, 0) / sentis.length) : null;
+
+// Evergreen editorial prose from PUBLIC data only (counts, dates, topics —
+// never gated scores): what Clad has observed about this outlet's coverage.
+const oldest = posts[posts.length - 1]!.data.publishedAt;
+const sinceLabel = `${MONTHS[oldest.getUTCMonth()]} ${oldest.getUTCFullYear()}`;
+const topicCount = new Map<string, number>();
+for (const p of posts) {
+  const seen = new Set<string>();
+  for (const raw of p.data.topics ?? []) {
+    const t = canonicalTopic(raw);
+    if (!t || seen.has(t)) continue;
+    seen.add(t);
+    topicCount.set(t, (topicCount.get(t) ?? 0) + 1);
+  }
+}
+const topTopics = [...topicCount.entries()]
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+  .slice(0, 3)
+  .map(([t]) => t);
+const recentWeekly = weekly.slice(-4).reduce((a, b) => a + b, 0);
+const cadence =
+  recentWeekly >= 8 ? "several times a week" : recentWeekly >= 3 ? "most weeks" : "as notable segments air";
 
 const latest = posts.slice(0, 12);
 const desc = metaDescription(
-  `Every Clad report on ${name}: ${posts.length} fact-checked broadcast reports, graded for accuracy and rated for political lean.`
+  `${name} fact check: is ${name} accurate and how does it lean? Clad has graded ${posts.length} ${name} broadcast ${posts.length === 1 ? "segment" : "segments"} for factual accuracy, political bias, and social-media reception.`
 );
 ---
-<BaseLayout title={`${name} — Outlet profile — Clad`} description={desc}>
+<BaseLayout title={`${name} fact check — accuracy & bias — Clad`} description={desc}>
   <section class="topic-page outlet-page">
     <p class="small-caps" style="color:var(--muted-ink)">
       Outlet profile{established ? "" : " · Independent channel"}
@@ -76,7 +105,20 @@ const desc = metaDescription(
     <h2 class="topic-page__title">{name}</h2>
     <p class="dateline">
       {posts.length} graded {posts.length === 1 ? "report" : "reports"} on Clad.
-      Volume is public; the outlet's average grade and lean are Premium.
+      Volume is public; the outlet's average grade, lean &amp; social sentiment
+      unlock with a free account.
+    </p>
+
+    <p class="outlet-page__prose">
+      Clad has been grading {name} {posts.length === 1 ? "coverage" : "segments"} since {sinceLabel} —
+      {posts.length} {posts.length === 1 ? "report" : "reports"} so far, published {cadence}.
+      {topTopics.length > 0 && (
+        <>Its most-covered {topTopics.length === 1 ? "subject" : "subjects"} on Clad: {topTopics.join(", ")}. </>
+      )}
+      Every report checks the segment's load-bearing claims against primary
+      sources, then scores the coverage for factual accuracy, political lean,
+      and how the public received it — so you can see how {name}'s reporting
+      holds up story by story, not just take its word for it.
     </p>
 
     <div class="outlet-vol" role="img" aria-label={`Reports per week, last ${WEEKS} weeks: ${weekly.join(", ")}`}>
@@ -91,9 +133,10 @@ const desc = metaDescription(
 
     {locked ? (
       <p class="grade-lock-panel" style="margin:0.9rem 0">
-        <span aria-hidden="true">🔒</span> {name}'s <strong>average grade</strong> and
-        <strong> average political lean</strong> across all {posts.length} reports are
-        <a href="/upgrade/"> Premium</a>.
+        <span aria-hidden="true">🔒</span> {name}'s <strong>average grade</strong>,
+        <strong> average political lean</strong> &amp; <strong>social sentiment</strong> across
+        all {posts.length} reports unlock with a
+        <a href="/register/"> free CladFacts account</a> — no card required.
       </p>
     ) : (
       <div class="topic-page__agg">
@@ -105,6 +148,9 @@ const desc = metaDescription(
         )}
         {avgLean !== null && (
           <div class="scoreband__bias"><PoliticalLean score={avgLean} /></div>
+        )}
+        {avgSentiment !== null && (
+          <div class="scoreband__bias"><SocialSentiment score={avgSentiment} /></div>
         )}
       </div>
     )}
