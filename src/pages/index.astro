@@ -168,13 +168,10 @@ const mostRight = [...leaned]
       {locked && (
         <aside class="paywall-banner">
           <span>
-            {access.signedIn
-              ? "Your free week has ended — grades & political-lean ratings are hidden."
-              : "Free preview — grades & political-lean ratings are Premium. Create a free account for a 7-day free trial of full access."}
+            Reading as a guest — every grade, political-lean rating &amp; sentiment
+            score unlocks with a free account. No card, no clock.
           </span>
-          <a class="paywall-banner__cta" href={access.signedIn ? "/upgrade/" : "/register/"}>
-            {access.signedIn ? "Upgrade" : "Create free account"}
-          </a>
+          <a class="paywall-banner__cta" href="/register/">Create free account</a>
         </aside>
       )}
       {locked && sampleId && byId.has(sampleId) && (

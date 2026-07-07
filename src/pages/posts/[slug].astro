@@ -14,7 +14,7 @@ import NewsletterSignup from "~/components/NewsletterSignup.astro";
 import ShareBar from "~/components/ShareBar.astro";
 import { dateline, shortDate } from "~/lib/dateline";
 import { embedUrl } from "~/lib/youtube";
-import { getAccess, offerLine } from "~/lib/access";
+import { getAccess } from "~/lib/access";
 import { sampleUnlockedId } from "~/lib/sample";
 import { metaDescription } from "~/lib/seo";
 import { splitCitations } from "~/lib/citations";
@@ -283,8 +283,9 @@ const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id)
           <div class="report__locked">
             <p class="grade-lock-panel">
               <span aria-hidden="true">🔒</span> The <strong>letter grade</strong>, factuality score,
-              <strong> political-lean</strong> rating, and <strong>social-media sentiment</strong> for this report are part of
-              <a href="/upgrade/"> CladFacts Premium — {offerLine(access.signedIn)}</a>.
+              <strong> political-lean</strong> rating, and <strong>social-media sentiment</strong> for this report unlock with a
+              <a href="/register/"> free CladFacts account</a> — no card, no trial clock.
+              Already have one? <a href={`/login/?next=/posts/${post.id}/`}>Sign in</a>.
               The full report below is free to read.
             </p>
           </div>
@@ -486,8 +487,8 @@ const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id)
           </form>
         ) : (
           <p class="rx-upsell">
-            Commenting is a <a href="/upgrade/">Premium</a> feature. Your free trial lets
-            you read every reaction — upgrade to add yours.
+            Posting a reaction is a <a href="/upgrade/">Premium</a> perk — free accounts
+            can read every reaction; go Premium to add yours (and support the newsroom).
           </p>
         )}
 

@@ -4,7 +4,6 @@ import { getCollection } from "astro:content";
 import { checkAgentToken, tokenUnauthorized } from "~/lib/agentAuth";
 import { buildDigest } from "~/lib/digest";
 import { sendEmail, emailConfigured } from "~/lib/email";
-import { TRIAL_DAYS } from "~/lib/access";
 
 export const prerender = false;
 
@@ -22,13 +21,10 @@ interface Row {
   subEnd: string | null;
 }
 
-function showGradesFor(row: Row, now: number): boolean {
-  const paid =
-    (row.subStatus === "active" || row.subStatus === "trialing") &&
-    (!row.subEnd || new Date(row.subEnd).getTime() > now);
-  if (paid) return true;
-  const created = row.createdAt ? new Date(row.createdAt).getTime() : now;
-  return now < created + TRIAL_DAYS * DAY; // still in free trial
+// Hybrid access model: every signed-in account has the full scoreboard, and
+// digests only go to account holders — so grades always render in the email.
+function showGradesFor(_row: Row, _now: number): boolean {
+  return true;
 }
 
 function isDue(cadence: string, lastSentAt: string | null, now: number): boolean {

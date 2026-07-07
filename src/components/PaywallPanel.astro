@@ -1,5 +1,5 @@
 ---
-import { PRICE, TRIAL_DAYS } from "~/lib/access";
+import { PRICE } from "~/lib/access";
 
 interface Props {
   signedIn: boolean;
@@ -7,20 +7,24 @@ interface Props {
 const { signedIn } = Astro.props;
 ---
 <section class="paywall">
-  <p class="small-caps paywall__eyebrow">CladFacts Premium</p>
-  <h2 class="paywall__title">Grades, bias charts &amp; the full picture</h2>
+  <p class="small-caps paywall__eyebrow">Free with a CladFacts account</p>
+  <h2 class="paywall__title">See every grade — free</h2>
   <p class="paywall__lede">
-    Letter grades, political-lean ratings, the By-the-Numbers charts, the
-    Best &amp; Worst Graded boards, and the News Trends dashboard are part
-    of Premium.{signedIn ? "" : ` Your first ${TRIAL_DAYS} days are free — no card required.`}
+    Letter grades, political-lean ratings, social sentiment, the By-the-Numbers
+    charts, the Best &amp; Worst Graded boards, and the News Trends dashboard
+    unlock with a free account. No card, no trial clock.
   </p>
   <div class="paywall__cta">
-    <a class="auth-submit" href="/upgrade/">See plans — {PRICE.monthly}/mo or {PRICE.annual}/yr</a>
-    {!signedIn && <a class="auth-submit secondary" href="/register/">Start free week</a>}
+    {signedIn ? (
+      <a class="auth-submit" href="/login/">Sign in to unlock</a>
+    ) : (
+      <a class="auth-submit" href="/register/">Create free account</a>
+    )}
+    <a class="auth-submit secondary" href="/upgrade/">Support Clad — Premium from {PRICE.monthly}/mo</a>
   </div>
   <button type="button" class="auth-submit js-app-purchase">Go Premium</button>
   <p class="paywall__legal" data-app-hide>
-    CladFacts Premium — auto-renewing subscription, {PRICE.monthly}/mo or
+    CladFacts Premium — auto-renewing supporter subscription, {PRICE.monthly}/mo or
     {" "}{PRICE.annual}/yr until cancelled.
     {" "}<a href="/terms/">Terms of Use</a> · <a href="/privacy/">Privacy Policy</a>
   </p>

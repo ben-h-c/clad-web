@@ -1,29 +1,32 @@
 /**
- * Subscription access tiers.
+ * Access tiers — the growth-phase "hybrid" model (owner decision 2026-07-07):
+ * a registration wall, not a pay wall.
  *
- *  - paid  : an active (or Stripe-trialing) subscription → full access.
- *  - trial : within TRIAL_DAYS of account creation → full access.
- *  - free  : signed in, trial expired, no subscription → restricted
- *            (homepage only; grades + political lean hidden; can't flag posts).
- *  - anon  : not signed in → treated the same as free.
+ *  - paid : an active (or Stripe-trialing) subscription → full access, plus
+ *           Premium extras (posting Reader Reactions). The supporter tier.
+ *  - free : any signed-in account → FULL ACCESS to every grade, factuality
+ *           score, political-lean rating, sentiment score, chart, and search
+ *           filter. No trial clock, no card.
+ *  - anon : not signed in → article text is free; the scoreboard is teased
+ *           (plus the daily data-sample-unlocked sample). Creating a free
+ *           account is the unlock.
  *
- * "Full access" is the single gate the rest of the app checks.
+ * "Full access" is the single gate the rest of the app checks. If/when the
+ * model is re-metered, this file is the choke point — see
+ * docs/daily-review.md ("Constraints") before changing it.
  */
 import { env } from "cloudflare:workers";
 import { getSessionUser } from "./user-data";
 
-export const TRIAL_DAYS = 7;
-
-export type Tier = "paid" | "trial" | "free" | "anon";
+export type Tier = "paid" | "free" | "anon";
 
 export interface Access {
   tier: Tier;
   fullAccess: boolean;
   signedIn: boolean;
-  trialEndsAt: number | null; // ms epoch, when known
 }
 
-const ANON: Access = { tier: "anon", fullAccess: false, signedIn: false, trialEndsAt: null };
+const ANON: Access = { tier: "anon", fullAccess: false, signedIn: false };
 
 export async function getAccess(headers: Headers): Promise<Access> {
   try {
@@ -69,16 +72,13 @@ async function resolveAccess(headers: Headers): Promise<Access> {
     new Date(apple.expiresAt).getTime() > now;
 
   if (stripeActive || appleActive) {
-    return { tier: "paid", fullAccess: true, signedIn: true, trialEndsAt: null };
+    return { tier: "paid", fullAccess: true, signedIn: true };
   }
 
-  const created = user.createdAt ? new Date(user.createdAt).getTime() : now;
-  const trialEndsAt = created + TRIAL_DAYS * 86_400_000;
-  if (now < trialEndsAt) {
-    return { tier: "trial", fullAccess: true, signedIn: true, trialEndsAt };
-  }
-
-  return { tier: "free", fullAccess: false, signedIn: true, trialEndsAt };
+  // Every account gets the full scoreboard — the wall is registration, not
+  // payment. Premium remains the supporter tier (reactions posting + keeping
+  // the newsroom running).
+  return { tier: "free", fullAccess: true, signedIn: true };
 }
 
 /** Stripe is "configured" once its secret key is set. Price IDs now live in
@@ -93,8 +93,3 @@ export const PRICE = {
   annual: "$29.99",
   annualPerMonth: "$2.49",
 } as const;
-
-export function offerLine(signedIn: boolean): string {
-  const base = `${PRICE.monthly}/mo or ${PRICE.annual}/yr (${PRICE.annualPerMonth}/mo)`;
-  return signedIn ? base : `${base} · ${TRIAL_DAYS}-day free trial, no card required`;
-}

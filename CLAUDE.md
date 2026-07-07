@@ -23,9 +23,13 @@ tone, no clickbait, no slang-chasing.
 
 ## Hard rules
 
-- **Premium gating**: letter grade, factuality score, political lean,
-  rationales, and social sentiment must never reach anonymous/free HTML or
-  JSON (the daily `data-sample-unlocked` sample is the one carve-out).
+- **Access model (hybrid, owner decision 2026-07-07)**: the wall is
+  registration, not payment. Any signed-in account gets the full scoreboard;
+  Premium is the supporter tier (funds the newsroom; posting Reader
+  Reactions). `src/lib/access.ts` is the single choke point.
+- **Anonymous gating**: letter grade, factuality score, political lean,
+  rationales, and social sentiment must never reach anonymous HTML or JSON
+  (the daily `data-sample-unlocked` sample is the one carve-out).
   `node scripts/checkAnonLeak.mjs` must pass; CI runs it on every push.
 - `/api/posts.json` is a byte-compatible contract for the iOS app — additive
   fields only.
