@@ -2,17 +2,13 @@
 interface Props {
   url: string;
   title: string;
-  /** Shareable grade-card image (the OG PNG) — enables the TikTok flow and a
-   *  "Grade card" download for posting to stories/videos. */
-  image?: string;
 }
-const { url, title, image } = Astro.props;
+const { url, title } = Astro.props;
 
 const enc = encodeURIComponent;
 const xHref = `https://twitter.com/intent/tweet?text=${enc(title)}&url=${enc(url)}`;
 const fbHref = `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`;
 const smsHref = `sms:?&body=${enc(`${title} ${url}`)}`;
-const bskyHref = `https://bsky.app/intent/compose?text=${enc(`${title} ${url}`)}`;
 const redditHref = `https://www.reddit.com/submit?url=${enc(url)}&title=${enc(title)}`;
 const mailHref = `mailto:?subject=${enc(title)}&body=${enc(`${title}\n\n${url}`)}`;
 ---
@@ -51,13 +47,6 @@ const mailHref = `mailto:?subject=${enc(title)}&body=${enc(`${title}\n\n${url}`)
     <span>Facebook</span>
   </a>
 
-  <a class="sharebar__btn" href={bskyHref} target="_blank" rel="noopener" aria-label="Share on Bluesky">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"></path>
-    </svg>
-    <span>Bluesky</span>
-  </a>
-
   <a class="sharebar__btn" href={redditHref} target="_blank" rel="noopener" aria-label="Share on Reddit">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <ellipse cx="12" cy="14.5" rx="8.5" ry="5.5"></ellipse>
@@ -78,17 +67,6 @@ const mailHref = `mailto:?subject=${enc(title)}&body=${enc(`${title}\n\n${url}`)
     </svg>
     <span class="sharebar__tiktok-label">TikTok</span>
   </button>
-
-  {image && (
-    <a class="sharebar__btn" href={image} download aria-label="Download the grade card image — ready to post on TikTok or stories">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-        <circle cx="8.5" cy="8.5" r="1.5"></circle>
-        <path d="m21 15-5-5L5 21"></path>
-      </svg>
-      <span>Grade card</span>
-    </a>
-  )}
 
   <a class="sharebar__btn" href={mailHref} aria-label="Share by email">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -120,10 +98,9 @@ const mailHref = `mailto:?subject=${enc(title)}&body=${enc(`${title}\n\n${url}`)
       });
     }
 
-    // TikTok has no link-share intent like X/Facebook/Bluesky — the working
-    // flow is: put a ready-made caption on the clipboard, then open TikTok's
-    // creation surface (the app takes over on phones). Paired with the
-    // downloadable grade card, that's everything needed to post.
+    // TikTok has no link-share intent like X/Facebook — the working flow is:
+    // put a ready-made caption on the clipboard, then open TikTok's creation
+    // surface (the app takes over on phones).
     const tiktok = bar.querySelector(".sharebar__tiktok");
     if (tiktok) {
       tiktok.addEventListener("click", async () => {

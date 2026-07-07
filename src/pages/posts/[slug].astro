@@ -232,7 +232,7 @@ const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id)
     </div>
 
     <div class="post__actions">
-      <ShareBar url={shareUrl} title={`${d.headline} — Clad`} image={ogImage} />
+      <ShareBar url={shareUrl} title={`${d.headline} — Clad`} />
       <button
         type="button"
         class="save-btn"
@@ -324,11 +324,6 @@ const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id)
                 <span class="small-caps">Social reaction:</span> {sentiment.summary}
               </p>
             )}
-            <p class="share-nudge">
-              <a href={ogImage} download>Share this grade card</a> — save the image,
-              post it anywhere, tag <strong>cladfacts.com</strong>.
-            </p>
-
           </>
         )}
 
