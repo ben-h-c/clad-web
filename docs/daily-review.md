@@ -73,7 +73,11 @@ on.
   accounts is an owner decision — propose, don't implement.
 - Anonymous gating is inviolable: grades/factuality/lean/rationales/sentiment
   never reach anonymous HTML/JSON outside the marked daily
-  sample. `node scripts/checkAnonLeak.mjs` must pass.
+  sample. `node scripts/checkAnonLeak.mjs` must pass. One sanctioned
+  carve-out (owner decision 2026-07-07): the `/grades/{letter}/` archives
+  publicly disclose grade *membership* via the page heading as an SEO asset —
+  the cards on those pages still render locked for guests. Do not re-gate the
+  listings.
 - `/api/posts.json` stays byte-compatible for the iOS app (additive only).
 - The newspaper look is the brand, not a legacy to strip away. Youth-focused
   ≠ dumbed down: the 1920s-broadsheet-meets-report-card aesthetic is

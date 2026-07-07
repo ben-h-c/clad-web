@@ -9,10 +9,14 @@ import { metaDescription } from "~/lib/seo";
 /**
  * Per-grade archive — every report that earned one letter grade, an evergreen
  * companion to the rubric on /how-it-works/ (PolitiFact/Snopes-style rating
- * archives). Anonymous gating rule: listing posts under a grade heading would
- * disclose each post's grade, so the LISTING is account-gated; anonymous
- * readers get the rubric meaning for this grade plus the daily sample when it
- * happens to match. The pages themselves are indexable and sitemapped.
+ * archives). Indexable and sitemapped.
+ *
+ * Gating carve-out (owner decision 2026-07-07): the LISTING is public — which
+ * stories earned this grade is deliberately disclosed to anonymous readers as
+ * an SEO asset, like PolitiFact's rating archives. The cards themselves still
+ * render the locked variant for guests (no grade/lean/sentiment markup), so
+ * scoreboard VALUES stay account-gated and checkAnonLeak still holds; the
+ * page heading is the one sanctioned grade signal.
  */
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "private, no-store");
@@ -62,10 +66,9 @@ const all = (await getCollection("posts", (p) => !p.data.draft)).sort(
 );
 const matching = all.filter((p) => p.data.letterGrade === grade);
 
-// The daily sample is the one sanctioned anonymous unlock — show it here only
-// when it genuinely carries this grade (inside its marked subtree).
+// The daily sample renders fully unlocked (marked subtree) when it carries
+// this grade; every other card stays in its locked variant for guests.
 const sampleId = locked ? sampleUnlockedId(all) : null;
-const samplePost = sampleId ? matching.find((p) => p.id === sampleId) ?? null : null;
 
 const idx = GRADES.findIndex((g) => g.slug === slug);
 const prev = idx > 0 ? GRADES[idx - 1] : null;
@@ -96,31 +99,20 @@ const desc = metaDescription(
 
     <div class="rule rule--double" aria-hidden="true" style="margin:1.25rem 0"></div>
 
-    {locked ? (
-      <>
-        <p class="grade-lock-panel">
-          <span aria-hidden="true">🔒</span> The list of reports graded {grade} unlocks with a
-          <a href="/register/"> free CladFacts account</a> — no card required. (Which stories
-          earned which grade is part of the scoreboard.)
-        </p>
-        {samplePost && (
-          <>
-            <h3 class="small-caps" style="margin:1.25rem 0 0.75rem">Today's free sample — graded {grade}</h3>
-            <div class="feed-list">
-              <ReportCard post={samplePost} variant="bar" sample />
-            </div>
-          </>
-        )}
-      </>
-    ) : matching.length === 0 ? (
+    {matching.length === 0 ? (
       <p class="dateline">No reports have earned a {grade} yet{prev || next ? " — try a neighboring grade" : ""}.</p>
     ) : (
       <>
         <p class="dateline" style="margin-bottom:0.75rem">
           {matching.length} {matching.length === 1 ? "report" : "reports"}, newest first.
+          {locked && (
+            <> Full scorecards unlock with a <a href="/register/">free CladFacts account</a>.</>
+          )}
         </p>
         <div class="feed-list">
-          {matching.map((p) => <ReportCard post={p} variant="bar" />)}
+          {matching.map((p) => (
+            <ReportCard post={p} variant="bar" locked={locked && p.id !== sampleId} sample={locked && p.id === sampleId} />
+          ))}
         </div>
       </>
     )}
