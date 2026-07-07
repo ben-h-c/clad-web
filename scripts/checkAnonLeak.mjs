@@ -251,8 +251,9 @@ try {
   await checkHtml("/discover/", { minBytes: 800 });
   await checkHtml("/good-news/", { minBytes: 800 });
   await checkHtml("/newsletter/", { minBytes: 800 });
-  // Grade archives: the listing is account-gated, so the anonymous page must
-  // carry rubric copy but no gated markup (beyond a matching daily sample).
+  // Grade archives: the listing is public (sanctioned owner carve-out — the
+  // page heading discloses grade membership), but the cards must stay in the
+  // locked variant: no grade/lean/sentiment markup beyond the daily sample.
   await checkHtml("/grades/b/", { minBytes: 800 });
   await checkHtml("/grades/f/", { minBytes: 800 });
   await checkHtml("/trends/");
