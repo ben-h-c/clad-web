@@ -184,13 +184,13 @@ const mostRight = [...leaned]
           <ReportCard post={byId.get(sampleId)!} sample />
         </section>
       )}
+      {/* Decorative fun strip above the main rows; aria-hidden inside the
+          component, so screen readers skip straight to the day's content. */}
+      <QuipTicker data={quips} />
       <BreakingStrip items={breaking} locked={locked} unlockedId={sampleId} />
       <Ticker data={ticker} />
       <HeroStrip posts={heroPosts} title="Front Page" locked={locked} unlockedId={sampleId} />
       <HeroStrip posts={recent} title="Recent" locked={locked} unlockedId={sampleId} />
-      {/* Decorative fun strip — deliberately BELOW the day's lead content so
-          it is never the first body text for crawlers or screen readers. */}
-      <QuipTicker data={quips} />
       <section class="feed">
         <div class="feed__head">
           <h2 class="feed__title">Topics</h2>
