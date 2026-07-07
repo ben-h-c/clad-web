@@ -1,0 +1,48 @@
+# Cloud runner for the Social Sentiment Scanner. This agent only calls the
+# xAI API and the site's own /api/agent/* endpoints (no YouTube, no yt-dlp,
+# no residential-IP scraping), so it can run from Actions instead of the Mac
+# runner — the site keeps getting fresh sentiment even when the Mac is off.
+#
+# Requires two repository secrets (Settings → Secrets and variables → Actions):
+#   AGENT_TOKEN  — same bearer token the Mac runner uses (runner/.env)
+#   XAI_API_KEY  — xAI API key
+# Until they're set, runs exit green with a "skipping" notice.
+#
+# Safe alongside the Mac runner: both respect the registry's cron/lastRun via
+# isDue(), so a scan that one host performs shows as not-due on the other.
+name: Sentiment Scanner
+
+on:
+  schedule:
+    # Just after the agent's registry cron (20 */2 * * *) so a due scan is
+    # picked up promptly. Actions cron is best-effort; a late start only
+    # delays the scan, never doubles it.
+    - cron: "25 */2 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: sentiment-scanner
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install runner dependencies
+        working-directory: runner
+        run: npm ci
+      - name: Run sentiment scanner
+        working-directory: runner
+        env:
+          WORKER_BASE_URL: https://cladfacts.com
+          AGENT_TOKEN: ${{ secrets.AGENT_TOKEN }}
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+        run: node sentimentOnce.mjs
