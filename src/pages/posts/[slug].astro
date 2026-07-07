@@ -24,7 +24,7 @@ import { aggregateTopics, canonicalTopic, topicSlug } from "~/lib/topics";
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
 
-// Article text is open (SEO); grade, lean, factuality + flagging are Premium.
+// Article text is open (SEO); the scoreboard unlocks with any account.
 const access = await getAccess(Astro.request.headers);
 
 const all = await getCollection("posts", (p) => !p.data.draft);
@@ -104,10 +104,11 @@ const newsLd = {
   datePublished: published,
   dateModified: modified,
   mainEntityOfPage: { "@type": "WebPage", "@id": shareUrl },
-  // The report text is free for everyone (only grade/lean are Premium), so
+  // The report text is free for everyone (only the scoreboard is gated), so
   // this page never triggers paywalled-content treatment in Search.
   isAccessibleForFree: true,
-  author: { "@type": "Organization", name: "CladFacts" },
+  // Named editor for E-E-A-T; author.url resolves to the bio on /about/.
+  author: { "@type": "Person", name: "Ben", jobTitle: "Editor", url: `${origin}/about/#editor` },
   publisher: {
     "@type": "NewsMediaOrganization",
     name: "CladFacts",
@@ -226,6 +227,8 @@ const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id)
           <span><a href={`/outlets/${slugify(d.sourceTitle.trim())}/`}>All {d.sourceTitle} reports</a></span>
         </>
       )}
+      <span>·</span>
+      <span>Reviewed &amp; approved by <a href="/about/#editor">Ben, Editor</a></span>
     </div>
 
     <div class="post__actions">
@@ -321,6 +324,10 @@ const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id)
                 <span class="small-caps">Social reaction:</span> {sentiment.summary}
               </p>
             )}
+            <p class="share-nudge">
+              <a href={ogImage} download>Share this grade card</a> — save the image,
+              post it anywhere, tag <strong>cladfacts.com</strong>.
+            </p>
 
           </>
         )}
@@ -366,15 +373,25 @@ const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id)
         </details>
 
         {d.videoId && (
-          <div class="video-embed">
-            <iframe
-              src={embedUrl(d.videoId)}
-              title={`Source video: ${d.headline}`}
-              loading="lazy"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              referrerpolicy="strict-origin-when-cross-origin"
-            ></iframe>
+          <div
+            class="video-embed video-facade"
+            data-embed={embedUrl(d.videoId)}
+            data-title={`Source video: ${d.headline}`}
+          >
+            {/* Click-to-load facade: no YouTube requests (or cookies) until the
+                reader opts in — cheaper LCP and consistent with the privacy
+                policy's YouTube-cookie caveat. */}
+            <button type="button" class="video-facade__btn" aria-label={`Play source video: ${d.headline}`}>
+              <img
+                class="video-facade__thumb"
+                src={`https://img.youtube.com/vi/${d.videoId}/hqdefault.jpg`}
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="video-facade__play" aria-hidden="true">▶</span>
+              <span class="video-facade__label">Play source video</span>
+            </button>
           </div>
         )}
 
@@ -499,6 +516,24 @@ const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id)
     <NewsletterSignup compact />
     <Disclaimer />
   </article>
+
+  <script is:inline>
+    (() => {
+      const box = document.querySelector(".video-facade");
+      if (!box) return;
+      const btn = box.querySelector(".video-facade__btn");
+      btn.addEventListener("click", () => {
+        const iframe = document.createElement("iframe");
+        const embed = box.getAttribute("data-embed") || "";
+        iframe.src = embed + (embed.includes("?") ? "&" : "?") + "autoplay=1";
+        iframe.title = box.getAttribute("data-title") || "Source video";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        iframe.referrerPolicy = "strict-origin-when-cross-origin";
+        box.replaceChildren(iframe);
+      });
+    })();
+  </script>
 
   <script is:inline>
     (() => {

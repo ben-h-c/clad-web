@@ -29,7 +29,7 @@ Astro.response.headers.set("Cache-Control", "public, max-age=300");
       watch what we watched and judge for yourself.
     </p>
 
-    <h3 class="static-page__sub">The grade</h3>
+    <h3 class="static-page__sub" id="rubric">The grade</h3>
     <p>Each broadcast report carries three measurements:</p>
     <ul>
       <li>
@@ -41,7 +41,14 @@ Astro.response.headers.set("Cache-Control", "public, max-age=300");
         factual issues, heavy partisan framing, or major unsourced claims; F
         means pervasive misinformation or propaganda-level distortion. Every
         grade is published with a one-line rationale naming the specific
-        strengths or failings that earned it.
+        strengths or failings that earned it. Browse the archive by grade:
+        {" "}<a href="/grades/a-plus/">A+</a>, <a href="/grades/a/">A</a>,
+        {" "}<a href="/grades/a-minus/">A−</a>, <a href="/grades/b-plus/">B+</a>,
+        {" "}<a href="/grades/b/">B</a>, <a href="/grades/b-minus/">B−</a>,
+        {" "}<a href="/grades/c-plus/">C+</a>, <a href="/grades/c/">C</a>,
+        {" "}<a href="/grades/c-minus/">C−</a>, <a href="/grades/d-plus/">D+</a>,
+        {" "}<a href="/grades/d/">D</a>, <a href="/grades/d-minus/">D−</a>,
+        {" "}or <a href="/grades/f/">F</a>.
       </li>
       <li>
         <strong>Factuality score (0–100).</strong> Places the segment on a
@@ -60,7 +67,7 @@ Astro.response.headers.set("Cache-Control", "public, max-age=300");
       </li>
     </ul>
 
-    <h3 class="static-page__sub">Key Moments — claim by claim</h3>
+    <h3 class="static-page__sub" id="key-moments">Key Moments — claim by claim</h3>
     <p>
       Each report isolates three to five of the segment's most load-bearing
       claims and labels each one <strong>verified</strong>,
@@ -68,6 +75,14 @@ Astro.response.headers.set("Cache-Control", "public, max-age=300");
       <strong>unsupported</strong>, with a one-sentence note giving the source,
       context, or reasoning behind the verdict. Where evidence is genuinely
       thin, we prefer "missing context" or "unsupported" over guessing.
+    </p>
+    <p>
+      Each labeled claim is also published as machine-readable
+      <code>ClaimReview</code> markup so fact-check aggregators can ingest it.
+      The four labels map onto ClaimReview's 1–5 rating scale as:
+      verified = 5, missing context = 3, disputed = 2, unsupported = 1
+      (no label maps to 4; "unverified" single-claim posts carry the label
+      without a numeric rating).
     </p>
 
     <h3 class="static-page__sub">What the AI does, and what the human does</h3>

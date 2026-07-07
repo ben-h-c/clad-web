@@ -75,9 +75,9 @@ const recent = all.filter((p) => !shown.has(p.id)).slice(0, 30);
 const ticker = await getTicker(env.AGENTS);
 const quips = await getQuips(env.AGENTS);
 
-// Free/anonymous readers see all the pages and article text (great for SEO),
-// but grades + political-lean are Premium — hidden everywhere via `locked`, and
-// the grade-only analytics sections are replaced with an upgrade panel.
+// Anonymous readers see all the pages and article text (great for SEO), but
+// the scoreboard unlocks with an account — hidden everywhere via `locked`,
+// and the graded analytics sections are replaced with a register panel.
 const locked = !access.fullAccess;
 // Report of the Day — one card renders fully unlocked (with a sample badge)
 // for restricted readers; same pick site-wide per NY day.
@@ -134,7 +134,6 @@ const mostRight = [...leaned]
   tour
 >
   <h1 class="visually-hidden">Clad — fact-checked news, graded for accuracy and bias</h1>
-  <QuipTicker data={quips} />
   {all.length === 0 ? (
     <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
   ) : (
@@ -170,6 +169,7 @@ const mostRight = [...leaned]
           <span>
             Reading as a guest — every grade, political-lean rating &amp; sentiment
             score unlocks with a free account. No card, no clock.
+            Prefer email first? <a href="/newsletter/">Get the free weekly</a>.
           </span>
           <a class="paywall-banner__cta" href="/register/">Create free account</a>
         </aside>
@@ -178,7 +178,7 @@ const mostRight = [...leaned]
         <section class="free-card" aria-labelledby="free-card-title">
           <div class="feed__head">
             <h2 class="feed__title" id="free-card-title">Today's Free Report Card</h2>
-            <span class="free-card__note">One full grade, free every day — this is what Premium looks like.</span>
+            <span class="free-card__note">One full grade, free every day — a free account unlocks this on every report.</span>
           </div>
           <div class="rule rule--double" aria-hidden="true"></div>
           <ReportCard post={byId.get(sampleId)!} sample />
@@ -188,6 +188,9 @@ const mostRight = [...leaned]
       <Ticker data={ticker} />
       <HeroStrip posts={heroPosts} title="Front Page" locked={locked} unlockedId={sampleId} />
       <HeroStrip posts={recent} title="Recent" locked={locked} unlockedId={sampleId} />
+      {/* Decorative fun strip — deliberately BELOW the day's lead content so
+          it is never the first body text for crawlers or screen readers. */}
+      <QuipTicker data={quips} />
       <section class="feed">
         <div class="feed__head">
           <h2 class="feed__title">Topics</h2>

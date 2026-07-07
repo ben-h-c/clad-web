@@ -84,7 +84,7 @@ function markup(card: Card, thumb: string | null): string {
   <div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;">
     <div style="display:flex;align-items:center;justify-content:space-between;padding:0 44px;height:70px;border-bottom:4px solid ${INK};">
       <div style="display:flex;font-size:40px;font-weight:700;letter-spacing:8px;">CLAD</div>
-      <div style="display:flex;font-size:20px;color:${MUTED};letter-spacing:2px;">GRADING CONTENT & EXPOSING BIAS</div>
+      <div style="display:flex;font-size:20px;color:${MUTED};letter-spacing:2px;">CLADFACTS.COM · GRADING CONTENT & EXPOSING BIAS</div>
     </div>
     <div style="display:flex;width:1200px;height:286px;border-bottom:1px solid ${INK};">${thumbBlock}</div>
     <div style="display:flex;flex-direction:column;flex:1;padding:26px 44px;justify-content:space-between;">

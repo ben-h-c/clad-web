@@ -7,12 +7,17 @@ export const prerender = false;
 export const POST: APIRoute = async ({ request }) => {
   if (!env.XAI_API_KEY) return json({ error: "XAI_API_KEY not configured" }, 503);
 
-  // Single shared key — one editor, one bucket. The basic-auth gate already
-  // limits who can hit this; the rate limit is a backstop for a leaked
-  // credential and stops the xAI bill from running away.
+  // Two buckets: a per-IP token bucket (one abusive client can't monopolize
+  // the endpoint) AND the shared global key (hard cap on total xAI spend —
+  // the stronger backstop for a leaked credential, since per-IP limits are
+  // evaded by rotating addresses). Either failing → 429.
   if (env.FACTCHECK_LIMITER) {
-    const { success } = await env.FACTCHECK_LIMITER.limit({ key: "factcheck" });
-    if (!success) {
+    const ip = request.headers.get("CF-Connecting-IP") ?? "unknown";
+    const perIp = await env.FACTCHECK_LIMITER.limit({ key: `factcheck:${ip}` });
+    const global = perIp.success
+      ? await env.FACTCHECK_LIMITER.limit({ key: "factcheck" })
+      : perIp;
+    if (!perIp.success || !global.success) {
       return new Response(
         JSON.stringify({ error: "Rate limit exceeded. Try again in a minute." }),
         {

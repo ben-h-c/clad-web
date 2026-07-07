@@ -29,6 +29,7 @@ export async function GET() {
     url("/discover/", undefined, "0.6"),
     url("/good-news/", undefined, "0.6"),
     url("/archive/", undefined, "0.5"),
+    url("/newsletter/", undefined, "0.5"),
     url("/about/", undefined, "0.4"),
     url("/how-it-works/", undefined, "0.5"),
     url("/corrections/", undefined, "0.5"),
@@ -42,6 +43,10 @@ export async function GET() {
   }
   for (const t of topics) {
     entries.push(url(`/topics/${t.slug}/`, undefined, "0.6"));
+  }
+  // Per-grade archives (see src/pages/grades/[grade].astro).
+  for (const g of ["a-plus", "a", "a-minus", "b-plus", "b", "b-minus", "c-plus", "c", "c-minus", "d-plus", "d", "d-minus", "f"]) {
+    entries.push(url(`/grades/${g}/`, undefined, "0.5"));
   }
   // Archive months (Eastern calendar, same clock as the masthead).
   {
