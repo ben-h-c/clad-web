@@ -773,7 +773,8 @@ export async function mergeClassifications(
 
 /* ---------- social-media sentiment (scanner-scored, shown on articles/topics) ----------
  * The social-sentiment scanner samples public reaction to each published story
- * (X, Reddit, YouTube comments, …) via Grok search and stores a per-post score
+ * on social platforms only (X, Facebook, Instagram, Reddit, …) via Grok search
+ * and stores a per-post score
  * here. One blob keyed by post id, same lifecycle as the newsroom
  * classifications: the runner merges fresh scans in and prunes entries for
  * posts that no longer exist. Living data — reaction shifts, so entries are
