@@ -1,8 +1,10 @@
 /**
  * Social Sentiment Scanner. For each recently-published report it samples the
- * public's reaction to the story across social media (X, Reddit, YouTube
- * comments, forums) via Grok's search tools and scores it on a signed
- * -100..+100 axis, independent of the report's own grade and political lean.
+ * public's reaction to the story on social media platforms only (X, Facebook,
+ * Instagram, Threads, TikTok, Bluesky, Reddit, YouTube comments, Truth Social)
+ * via Grok's search tools and scores it on a signed -100..+100 axis,
+ * independent of the report's own grade and political lean. News coverage,
+ * blogs, and forums are never sentiment sources.
  * Results are stored in KV (one blob keyed by post id — see
  * src/lib/agents.ts) and rendered on article and topic pages. Sentiment is
  * living data: posts are re-scanned while the story is hot, then left alone.
@@ -16,6 +18,27 @@ const MODEL = "grok-4.3";
 
 const VOLUMES = ["minimal", "low", "moderate", "high", "viral"];
 
+// Only reactions from these platforms count as social sentiment. Anything else
+// the model reports (news sites, blogs, forums) is dropped before storage.
+const PLATFORM_ALIASES = new Map([
+  ["x", "X"],
+  ["twitter", "X"],
+  ["x (twitter)", "X"],
+  ["x (formerly twitter)", "X"],
+  ["facebook", "Facebook"],
+  ["fb", "Facebook"],
+  ["instagram", "Instagram"],
+  ["threads", "Threads"],
+  ["tiktok", "TikTok"],
+  ["bluesky", "Bluesky"],
+  ["bsky", "Bluesky"],
+  ["reddit", "Reddit"],
+  ["youtube", "YouTube"],
+  ["youtube comments", "YouTube"],
+  ["truth social", "Truth Social"],
+  ["mastodon", "Mastodon"],
+]);
+
 const SCHEMA = {
   type: "object",
   properties: {
@@ -28,7 +51,9 @@ const SCHEMA = {
   additionalProperties: false,
 };
 
-const SYSTEM = `You are the social-media desk of "Clad," a fact-checking publication. Your job is to measure how the PUBLIC is reacting to a news story on social media — X, Reddit, YouTube comments, forums — NOT to judge the story yourself. Use search to sample real, current reactions to the story (and to this specific broadcast of it where discussion exists) before answering.
+const SYSTEM = `You are the social-media desk of "Clad," a fact-checking publication. Your job is to measure how the PUBLIC is reacting to a news story on social media platforms ONLY — X, Facebook, Instagram, Threads, TikTok, Bluesky, Reddit, YouTube comments, Truth Social — NOT to judge the story yourself. Use search to sample real, current reactions to the story (and to this specific broadcast of it where discussion exists) before answering.
+
+Only posts and comments written by the public on those platforms are sentiment sources. News articles, editorials, op-eds, blogs, forums, and comment sections on news sites are NOT: they may help you locate the story, but the score, summary, volume, and platforms must be built exclusively from social-platform reactions. If search surfaces only news coverage and no social-platform reactions, treat it as no reactions found.
 
 Return a single JSON object:
 {
@@ -44,7 +69,7 @@ Return a single JSON object:
 
 "volume": how much discussion you actually found. "minimal" = you found almost none; "viral" = it is dominating feeds. If discussion is too sparse to characterize, use "minimal", set sentiment_score to 0, and say so plainly in the summary.
 
-"platforms": the platforms you actually sampled reactions from (e.g. "X", "Reddit", "YouTube"). Empty array only if you found no reactions at all.
+"platforms": the social platforms you actually sampled reactions from (e.g. "X", "Facebook", "Reddit"). Only platforms from the list above may appear. Empty array only if you found no reactions at all.
 
 Do not fabricate reactions, quotes, or volume. Base everything on what search actually returned. Return ONLY the JSON object.`;
 
@@ -94,7 +119,7 @@ async function scanPost(xaiKey, p) {
     p.topics?.length ? `Topics: ${p.topics.join(", ")}` : "",
     `Published: ${Number.isNaN(published.getTime()) ? p.publishedAt : published.toUTCString()}`,
     "",
-    "Sample the current social-media reaction to this story and score it.",
+    "Sample the current reaction to this story on social media platforms only and score it.",
   ]
     .filter((l) => l !== "")
     .join("\n");
@@ -124,10 +149,13 @@ async function scanPost(xaiKey, p) {
     score,
     summary: String(parsed?.summary || "").trim().slice(0, 500),
     volume: VOLUMES.includes(parsed?.volume) ? parsed.volume : "low",
-    platforms: (Array.isArray(parsed?.platforms) ? parsed.platforms : [])
-      .map((s) => String(s || "").trim())
-      .filter(Boolean)
-      .slice(0, 6),
+    platforms: [
+      ...new Set(
+        (Array.isArray(parsed?.platforms) ? parsed.platforms : [])
+          .map((s) => PLATFORM_ALIASES.get(String(s || "").trim().toLowerCase()))
+          .filter(Boolean)
+      ),
+    ].slice(0, 6),
     at: new Date().toISOString(),
   };
 }
