@@ -2548,13 +2548,6 @@ p {
   color: var(--muted-ink);
 }
 
-/* "Share this grade card" nudge under the scorecard */
-.share-nudge {
-  font-size: 0.85rem;
-  color: var(--muted-ink);
-  margin: 0.25rem 0 0.9rem;
-}
-
 /* Outlet-page editorial prose */
 .outlet-page__prose {
   max-width: 42rem;
