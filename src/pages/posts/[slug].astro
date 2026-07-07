@@ -229,7 +229,7 @@ const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id)
     </div>
 
     <div class="post__actions">
-      <ShareBar url={shareUrl} title={`${d.headline} — Clad`} />
+      <ShareBar url={shareUrl} title={`${d.headline} — Clad`} image={ogImage} />
       <button
         type="button"
         class="save-btn"

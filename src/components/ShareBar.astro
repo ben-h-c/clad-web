@@ -2,8 +2,11 @@
 interface Props {
   url: string;
   title: string;
+  /** Shareable grade-card image (the OG PNG) — enables the TikTok flow and a
+   *  "Grade card" download for posting to stories/videos. */
+  image?: string;
 }
-const { url, title } = Astro.props;
+const { url, title, image } = Astro.props;
 
 const enc = encodeURIComponent;
 const xHref = `https://twitter.com/intent/tweet?text=${enc(title)}&url=${enc(url)}`;
@@ -69,6 +72,24 @@ const mailHref = `mailto:?subject=${enc(title)}&body=${enc(`${title}\n\n${url}`)
     <span>Reddit</span>
   </a>
 
+  <button type="button" class="sharebar__btn sharebar__tiktok" aria-label="Share on TikTok — copies a ready-made caption and opens TikTok">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path>
+    </svg>
+    <span class="sharebar__tiktok-label">TikTok</span>
+  </button>
+
+  {image && (
+    <a class="sharebar__btn" href={image} download aria-label="Download the grade card image — ready to post on TikTok or stories">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+        <path d="m21 15-5-5L5 21"></path>
+      </svg>
+      <span>Grade card</span>
+    </a>
+  )}
+
   <a class="sharebar__btn" href={mailHref} aria-label="Share by email">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect x="2" y="4" width="20" height="16" rx="2"></rect>
@@ -96,6 +117,27 @@ const mailHref = `mailto:?subject=${enc(title)}&body=${enc(`${title}\n\n${url}`)
       native.hidden = false;
       native.addEventListener("click", () => {
         navigator.share({ title, url }).catch(() => {});
+      });
+    }
+
+    // TikTok has no link-share intent like X/Facebook/Bluesky — the working
+    // flow is: put a ready-made caption on the clipboard, then open TikTok's
+    // creation surface (the app takes over on phones). Paired with the
+    // downloadable grade card, that's everything needed to post.
+    const tiktok = bar.querySelector(".sharebar__tiktok");
+    if (tiktok) {
+      tiktok.addEventListener("click", async () => {
+        const label = tiktok.querySelector(".sharebar__tiktok-label");
+        try {
+          await navigator.clipboard.writeText(`${title} ${url}`);
+          if (label) {
+            label.textContent = "Caption copied!";
+            setTimeout(() => (label.textContent = "TikTok"), 2200);
+          }
+        } catch {
+          // Clipboard denied — still open TikTok; the reader can copy manually.
+        }
+        window.open("https://www.tiktok.com/upload", "_blank", "noopener");
       });
     }
 
