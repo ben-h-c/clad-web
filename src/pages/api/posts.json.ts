@@ -1,5 +1,7 @@
 import { getCollection } from "astro:content";
+import { env } from "cloudflare:workers";
 import { getAccess } from "~/lib/access";
+import { getSentiments, type SentimentMap } from "~/lib/agents";
 
 export const prerender = false;
 
@@ -23,6 +25,10 @@ export async function GET({ request, url }: { request: Request; url: URL }) {
   const all = (await getCollection("posts", (p) => !p.data.draft)).sort(
     (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
   );
+
+  // Social-media sentiment (KV, scanner-scored) — premium-gated like the grade,
+  // so the KV read is skipped entirely for restricted readers.
+  const sentiments: SentimentMap = locked ? {} : await getSentiments(env.AGENTS);
 
   const filtered = all.filter((p) => {
     if (sectionParam && p.data.section !== sectionParam) return false;
@@ -58,6 +64,7 @@ export async function GET({ request, url }: { request: Request; url: URL }) {
       factualityScore: isBroadcast && !locked ? (d.factualityScore ?? null) : null,
       politicalLean: isBroadcast && !locked ? (d.politicalLean ?? null) : null,
       leanScore: isBroadcast && !locked ? (d.leanScore ?? null) : null,
+      socialSentiment: isBroadcast && !locked ? (sentiments[p.id]?.score ?? null) : null,
       topics: d.topics ?? [],
       videoId: d.videoId ?? null,
       thumbnail: d.thumbnail ?? null,

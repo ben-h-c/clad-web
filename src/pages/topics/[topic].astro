@@ -1,10 +1,13 @@
 ---
 import { getCollection } from "astro:content";
+import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ReportCard from "~/components/ReportCard.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
+import SocialSentiment from "~/components/SocialSentiment.astro";
 import ShareBar from "~/components/ShareBar.astro";
+import { getSentiments } from "~/lib/agents";
 import { aggregateTopics } from "~/lib/topics";
 import { getAccess } from "~/lib/access";
 import { sampleUnlockedId } from "~/lib/sample";
@@ -25,6 +28,20 @@ const posts = topic.posts.sort(
 
 // Report of the Day — today's sample card renders unlocked for restricted readers.
 const sampleId = locked ? sampleUnlockedId(all) : null;
+
+// Average social-media sentiment across the topic's scanned reports.
+// Premium-gated like the aggregate grade/lean; the KV read is skipped for
+// restricted readers so the value never reaches their HTML.
+let avgSentiment: number | null = null;
+if (!locked) {
+  const sentiments = await getSentiments(env.AGENTS);
+  const scores = topic.posts
+    .map((p) => sentiments[p.id]?.score)
+    .filter((s): s is number => typeof s === "number");
+  avgSentiment = scores.length
+    ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length)
+    : null;
+}
 
 const shareUrl = new URL(`/topics/${topic.slug}/`, Astro.site ?? "https://cladfacts.com").href;
 const leanLbl =
@@ -53,7 +70,7 @@ const ogDescription = [
 
     {locked ? (
       <p class="grade-lock-panel" style="margin:0.75rem 0">
-        <span aria-hidden="true">🔒</span> Average grade &amp; political-lean for this topic are
+        <span aria-hidden="true">🔒</span> Average grade, political-lean &amp; social sentiment for this topic are
         <a href="/upgrade/"> Premium</a>.
       </p>
     ) : (
@@ -66,6 +83,9 @@ const ogDescription = [
         )}
         {topic.avgLean !== null && (
           <div class="scoreband__bias"><PoliticalLean score={topic.avgLean} /></div>
+        )}
+        {avgSentiment !== null && (
+          <div class="scoreband__bias"><SocialSentiment score={avgSentiment} /></div>
         )}
       </div>
     )}

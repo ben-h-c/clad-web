@@ -2460,7 +2460,75 @@ p {
   transform: translate(-50%, -50%);
 }
 
+/* Social sentiment — same anatomy as the lean chip, negative→positive axis */
+
+.senti__label {
+  color: var(--muted-ink);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.senti__value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.senti--header .senti__value {
+  font-size: 1.35rem;
+}
+
+.senti__volume {
+  font-size: 0.8rem;
+  color: var(--muted-ink);
+  margin-left: 0.35rem;
+}
+
+.senti__scale {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+  max-width: 16rem;
+}
+
+.senti__scale-end {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.7rem;
+  color: var(--muted-ink);
+}
+
+.senti__track {
+  position: relative;
+  flex: 1;
+  height: 2px;
+  background: var(--rule);
+}
+
+.senti__center {
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  width: 1px;
+  height: 8px;
+  background: var(--muted-ink);
+  transform: translateX(-50%);
+}
+
+.senti__marker {
+  position: absolute;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  background: var(--ink);
+  border: 1px solid var(--paper);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .lean-rationale,
+.senti-rationale,
 .grade-rationale {
   font-size: 0.95rem;
   font-style: italic;
@@ -2474,6 +2542,7 @@ p {
 }
 
 .lean-rationale .small-caps,
+.senti-rationale .small-caps,
 .grade-rationale .small-caps {
   font-style: normal;
   color: var(--muted-ink);
@@ -3473,6 +3542,7 @@ button.small {
   .scoreband__bias,
   .factuality,
   .lean,
+  .senti,
   .report__metrics > * {
     min-width: 0;
   }
@@ -3482,7 +3552,8 @@ button.small {
   .scoreband__bias {
     padding-left: 0.6rem;
   }
-  .lean__scale {
+  .lean__scale,
+  .senti__scale {
     max-width: 100%;
   }
   /* Long source URLs / citations wrap instead of overflowing. */

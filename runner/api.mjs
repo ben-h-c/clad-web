@@ -119,3 +119,14 @@ export function putClassifications(updates, keepIds) {
     body: JSON.stringify({ updates, keepIds }),
   });
 }
+
+export function getSentiments() {
+  return call("/api/agent/sentiment", { method: "GET" });
+}
+
+export function putSentiments(updates, keepIds) {
+  return call("/api/agent/sentiment", {
+    method: "POST",
+    body: JSON.stringify({ updates, keepIds }),
+  });
+}

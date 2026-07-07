@@ -1,11 +1,14 @@
 ---
 import { getCollection, render } from "astro:content";
+import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import Verdict from "~/components/Verdict.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
 import FactualityBar from "~/components/FactualityBar.astro";
 import KeyMoments from "~/components/KeyMoments.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
+import SocialSentiment from "~/components/SocialSentiment.astro";
+import { getSentiments } from "~/lib/agents";
 import Disclaimer from "~/components/Disclaimer.astro";
 import ShareBar from "~/components/ShareBar.astro";
 import { dateline, shortDate } from "~/lib/dateline";
@@ -164,6 +167,10 @@ const claimLds = isBroadcast
     : [];
 
 const { sources, background } = splitCitations(d.citations);
+
+// Social-media sentiment (scanner-scored, KV-backed). Premium-gated like the
+// grade/lean, so restricted readers never even trigger the KV read.
+const sentiment = isBroadcast && !locked ? (await getSentiments(env.AGENTS))[post.id] ?? null : null;
 ---
 <BaseLayout
   title={`${d.headline} — Clad`}
@@ -255,8 +262,8 @@ const { sources, background } = splitCitations(d.citations);
         {locked ? (
           <div class="report__locked">
             <p class="grade-lock-panel">
-              <span aria-hidden="true">🔒</span> The <strong>letter grade</strong>, factuality score, and
-              <strong> political-lean</strong> rating for this report are part of
+              <span aria-hidden="true">🔒</span> The <strong>letter grade</strong>, factuality score,
+              <strong> political-lean</strong> rating, and <strong>social-media sentiment</strong> for this report are part of
               <a href="/upgrade/"> CladFacts Premium — {offerLine(access.signedIn)}</a>.
               The full report below is free to read.
             </p>
@@ -273,6 +280,9 @@ const { sources, background } = splitCitations(d.citations);
                 {(d.leanScore != null || d.politicalLean) && (
                   <PoliticalLean score={d.leanScore} lean={d.politicalLean} size="header" />
                 )}
+                {sentiment && (
+                  <SocialSentiment score={sentiment.score} volume={sentiment.volume} size="header" />
+                )}
               </div>
             </div>
             {d.gradeRationale && (
@@ -283,6 +293,11 @@ const { sources, background } = splitCitations(d.citations);
             {d.leanRationale && (
               <p class="lean-rationale">
                 <span class="small-caps">Why this lean:</span> {d.leanRationale}
+              </p>
+            )}
+            {sentiment?.summary && (
+              <p class="senti-rationale">
+                <span class="small-caps">Social reaction:</span> {sentiment.summary}
               </p>
             )}
 

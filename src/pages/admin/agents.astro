@@ -44,6 +44,7 @@ function runLabel(lastRun: (typeof registry.agents)[number]["lastRun"]) {
               {a.config.order && ` · order: ${a.config.order}`}
               {a.config.maxFeatured != null && ` · ${a.config.maxFeatured} featured`}
               {a.config.maxPostsToAudit != null && ` · audits ${a.config.maxPostsToAudit} posts`}
+              {a.config.maxScansPerRun != null && ` · scans ${a.config.maxScansPerRun} posts`}
             </p>
 
             <div class="field" style="max-width:18rem">
