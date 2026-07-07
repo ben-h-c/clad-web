@@ -10,6 +10,7 @@ import PoliticalLean from "~/components/PoliticalLean.astro";
 import SocialSentiment from "~/components/SocialSentiment.astro";
 import { getSentiments } from "~/lib/agents";
 import Disclaimer from "~/components/Disclaimer.astro";
+import NewsletterSignup from "~/components/NewsletterSignup.astro";
 import ShareBar from "~/components/ShareBar.astro";
 import { dateline, shortDate } from "~/lib/dateline";
 import { embedUrl } from "~/lib/youtube";
@@ -17,6 +18,8 @@ import { getAccess, offerLine } from "~/lib/access";
 import { sampleUnlockedId } from "~/lib/sample";
 import { metaDescription } from "~/lib/seo";
 import { splitCitations } from "~/lib/citations";
+import { slugify } from "~/lib/slug";
+import { aggregateTopics, canonicalTopic, topicSlug } from "~/lib/topics";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
@@ -101,6 +104,9 @@ const newsLd = {
   datePublished: published,
   dateModified: modified,
   mainEntityOfPage: { "@type": "WebPage", "@id": shareUrl },
+  // The report text is free for everyone (only grade/lean are Premium), so
+  // this page never triggers paywalled-content treatment in Search.
+  isAccessibleForFree: true,
   author: { "@type": "Organization", name: "CladFacts" },
   publisher: {
     "@type": "NewsMediaOrganization",
@@ -171,6 +177,14 @@ const { sources, background } = splitCitations(d.citations);
 // Social-media sentiment (scanner-scored, KV-backed). Premium-gated like the
 // grade/lean, so restricted readers never even trigger the KV read.
 const sentiment = isBroadcast && !locked ? (await getSentiments(env.AGENTS))[post.id] ?? null : null;
+
+// Topic chips link to their aggregated topic page when one exists. The
+// aggregator clusters near-duplicate tags by similarity, so raw tags rarely
+// slug-match directly — the primary (first) chip therefore falls back to the
+// cluster this post was actually assigned to.
+const topicAggs = aggregateTopics(all);
+const topicPageSlugs = new Set(topicAggs.map((t) => t.slug));
+const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id))?.slug ?? null;
 ---
 <BaseLayout
   title={`${d.headline} — Clad`}
@@ -206,6 +220,12 @@ const sentiment = isBroadcast && !locked ? (await getSentiments(env.AGENTS))[pos
           {d.sourceTitle ?? sourceHost}
         </a>
       </span>
+      {d.sourceTitle && (
+        <>
+          <span>·</span>
+          <span><a href={`/outlets/${slugify(d.sourceTitle.trim())}/`}>All {d.sourceTitle} reports</a></span>
+        </>
+      )}
     </div>
 
     <div class="post__actions">
@@ -301,36 +321,48 @@ const sentiment = isBroadcast && !locked ? (await getSentiments(env.AGENTS))[pos
               </p>
             )}
 
-            {access.fullAccess && (
-              <details class="flag" data-post-id={post.id}>
-                <summary class="flag__summary">Disagree with this grade or political lean?</summary>
-                <div class="flag__body">
-                  <p class="flag__intro">
-                    Tell us why. Your note is reprocessed through the same grading
-                    logic; if the output is still off the report is removed, and if
-                    it holds up it stays.
-                  </p>
-                  <fieldset class="flag__aspect">
-                    <legend class="small-caps">What do you disagree with?</legend>
-                    <label><input type="radio" name="aspect" value="grade" checked /> The grade</label>
-                    <label><input type="radio" name="aspect" value="lean" /> The political lean</label>
-                    <label><input type="radio" name="aspect" value="both" /> Both</label>
-                  </fieldset>
-                  <textarea
-                    class="flag__comment"
-                    rows="4"
-                    maxlength="2000"
-                    placeholder="Explain what you think is wrong and why — cite specifics if you can."
-                  ></textarea>
-                  <div class="flag__actions">
-                    <button type="button" class="flag__submit">Submit for review</button>
-                  </div>
-                  <div class="flag__status" role="status"></div>
-                </div>
-              </details>
-            )}
           </>
         )}
+
+        {/* Flagging is every reader's right (About / How It Works promise it),
+            not a Premium perk — any signed-in account can dispute a grade or
+            lean; signed-out readers get a sign-in prompt. */}
+        <details class="flag" data-post-id={post.id}>
+          <summary class="flag__summary">Disagree with this grade or political lean?</summary>
+          <div class="flag__body">
+            {access.signedIn ? (
+              <>
+                <p class="flag__intro">
+                  Tell us why. Your note is reprocessed through the same grading
+                  logic; if the output is still off the report is removed, and if
+                  it holds up it stays.
+                </p>
+                <fieldset class="flag__aspect">
+                  <legend class="small-caps">What do you disagree with?</legend>
+                  <label><input type="radio" name="aspect" value="grade" checked /> The grade</label>
+                  <label><input type="radio" name="aspect" value="lean" /> The political lean</label>
+                  <label><input type="radio" name="aspect" value="both" /> Both</label>
+                </fieldset>
+                <textarea
+                  class="flag__comment"
+                  rows="4"
+                  maxlength="2000"
+                  placeholder="Explain what you think is wrong and why — cite specifics if you can."
+                ></textarea>
+                <div class="flag__actions">
+                  <button type="button" class="flag__submit">Submit for review</button>
+                </div>
+                <div class="flag__status" role="status"></div>
+              </>
+            ) : (
+              <p class="flag__intro">
+                Flagging is open to every reader with a free account.
+                {" "}<a href={`/login/?next=/posts/${post.id}/`}>Sign in</a> or
+                {" "}<a href="/register/">create one</a> to dispute this report.
+              </p>
+            )}
+          </div>
+        </details>
 
         {d.videoId && (
           <div class="video-embed">
@@ -349,7 +381,15 @@ const sentiment = isBroadcast && !locked ? (await getSentiments(env.AGENTS))[pos
           <div class="topics">
             <h2 class="small-caps">Topics in This Edition</h2>
             <div class="topics__tags">
-              {d.topics.map((t) => <span class="topic-tag">{t}</span>)}
+              {d.topics.map((t, i) => {
+                const direct = topicSlug(canonicalTopic(t));
+                const ts = topicPageSlugs.has(direct) ? direct : i === 0 ? ownTopicSlug : null;
+                return ts ? (
+                  <a class="topic-tag" href={`/topics/${ts}/`}>{t}</a>
+                ) : (
+                  <span class="topic-tag">{t}</span>
+                );
+              })}
             </div>
           </div>
         )}
@@ -455,6 +495,7 @@ const sentiment = isBroadcast && !locked ? (await getSentiments(env.AGENTS))[pos
       </section>
     )}
 
+    <NewsletterSignup compact />
     <Disclaimer />
   </article>
 

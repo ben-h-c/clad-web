@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { nyDateParts } from "~/lib/dateline";
+
+export const prerender = false;
+
+// Month-by-month archive index (Eastern calendar, matching the masthead).
+// Every post is reachable by date browsing — a stable crawl path for the
+// long tail that KV-curated strips and topic clusters don't provide.
+const all = await getCollection("posts", (p) => !p.data.draft);
+
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+const byMonth = new Map<string, number>();
+for (const p of all) {
+  const { y, m } = nyDateParts(p.data.publishedAt);
+  const key = `${y}-${String(m).padStart(2, "0")}`;
+  byMonth.set(key, (byMonth.get(key) ?? 0) + 1);
+}
+const months = [...byMonth.entries()]
+  .sort((a, b) => (a[0] < b[0] ? 1 : -1))
+  .map(([key, count]) => {
+    const [y, m] = key.split("-").map(Number);
+    return { y, m: m!, count, label: `${MONTHS[m! - 1]} ${y}` };
+  });
+---
+<BaseLayout
+  title="Archive — Clad"
+  description="Every fact-checked CladFacts report, month by month."
+>
+  <section class="topic-page">
+    <p class="small-caps" style="color:var(--muted-ink)">The Record</p>
+    <h2 class="topic-page__title">Archive</h2>
+    <p class="dateline">{all.length.toLocaleString("en-US")} reports, month by month.</p>
+    <div class="rule rule--double" aria-hidden="true"></div>
+    <ul class="archive-months">
+      {months.map((mo) => (
+        <li class="archive-months__item">
+          <a href={`/archive/${mo.y}/${String(mo.m).padStart(2, "0")}/`}>{mo.label}</a>
+          <span class="archive-months__count">{mo.count.toLocaleString("en-US")} reports</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

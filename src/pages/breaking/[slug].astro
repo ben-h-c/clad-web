@@ -55,10 +55,17 @@ const unknown = members.length - leans.length;
 const sampleId = locked ? sampleUnlockedId(all) : null;
 
 const shareUrl = new URL(`/breaking/${slug}/`, Astro.site ?? "https://cladfacts.com").href;
+
+// This is a topic hub, so it's titled by TOPIC — using the newest member's
+// headline here mislabels the page and wastes its shot at "[topic] fact
+// check" queries. group.title (latest headline) stays as on-page context.
+const hubName = group.topic ?? group.title;
+const pageTitle = `${hubName} — developing story, ${members.length} graded report${members.length === 1 ? "" : "s"} — Clad`;
 ---
 <BaseLayout
-  title={`${group.title} — Breaking — Clad`}
-  description={`Developing story: ${members.length} reports on ${group.title}, graded and checked for bias.`}
+  title={pageTitle}
+  ogTitle={pageTitle}
+  description={`Developing story: ${members.length} fact-checked reports on ${hubName}, graded for accuracy and political lean.`}
   ogType="website"
 >
   <section class="topic-page">

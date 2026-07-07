@@ -105,7 +105,12 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181612" />
     <meta name="google-site-verification" content="OYUpYStZyOvXegnN47Cnf17Ay6-ZtZSQtGrTjwBW5Zs" />
     <meta name="description" content={metaDescription} />
-    {noindex && <meta name="robots" content="noindex,follow" />}
+    {/* Large image previews in Google Discover/Top Stories; per-post OG
+        images are 1200×630 and grade-free for restricted readers. */}
+    <meta name="robots" content={noindex ? "noindex,follow" : "max-image-preview:large"} />
+    {/* iOS Safari smart app banner — the native install prompt for the
+        CladFacts app (same listing as the footer badge). */}
+    <meta name="apple-itunes-app" content="app-id=6781372681" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
@@ -152,6 +157,10 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
           <a href="/about/">About</a>
           ·
           <a href="/how-it-works/">How it works</a>
+          ·
+          <a href="/archive/">Archive</a>
+          ·
+          <a href="/rss.xml">RSS</a>
           ·
           <a href="/privacy/">Privacy</a>
           ·

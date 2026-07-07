@@ -9,3 +9,4 @@ Disallow: /verified
 Disallow: /search
 
 Sitemap: https://cladfacts.com/sitemap.xml
+Sitemap: https://cladfacts.com/news-sitemap.xml
