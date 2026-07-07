@@ -1,5 +1,7 @@
 import { getCollection } from "astro:content";
+import { env } from "cloudflare:workers";
 import { getAccess } from "~/lib/access";
+import { getSentiments } from "~/lib/agents";
 
 export const prerender = false;
 
@@ -21,6 +23,11 @@ export async function GET({ request, params }: { request: Request; params: { slu
 
   const d = post.data;
   const isBroadcast = d.type === "broadcast";
+
+  // Social-media sentiment (KV, scanner-scored) — premium-gated like the grade,
+  // so the KV read is skipped entirely for restricted readers.
+  const sentiment =
+    isBroadcast && !locked ? (await getSentiments(env.AGENTS))[post.id] ?? null : null;
   const sourceHost = (() => {
     try { return new URL(d.sourceUrl).hostname.replace(/^www\./, ""); } catch { return ""; }
   })();
@@ -64,6 +71,9 @@ export async function GET({ request, params }: { request: Request; params: { slu
     leanScore: isBroadcast && !locked ? (d.leanScore ?? null) : null,
     leanRationale: isBroadcast && !locked ? (d.leanRationale ?? null) : null,
     gradeRationale: isBroadcast && !locked ? (d.gradeRationale ?? null) : null,
+    socialSentiment: sentiment?.score ?? null,
+    sentimentSummary: sentiment?.summary ?? null,
+    sentimentVolume: sentiment?.volume ?? null,
     assessment: isBroadcast ? (d.assessment ?? null) : null,
     notableConcerns: isBroadcast ? (d.notableConcerns ?? []) : [],
     keyMoments: isBroadcast ? (d.keyMoments ?? []) : [],

@@ -1,10 +1,13 @@
 ---
 import { getCollection } from "astro:content";
+import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ReportCard from "~/components/ReportCard.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
+import SocialSentiment from "~/components/SocialSentiment.astro";
 import ShareBar from "~/components/ShareBar.astro";
+import { getSentiments } from "~/lib/agents";
 import { aggregateTopics } from "~/lib/topics";
 import { getAccess } from "~/lib/access";
 import { sampleUnlockedId } from "~/lib/sample";
@@ -16,7 +19,10 @@ const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
 
 const all = await getCollection("posts", (p) => !p.data.draft);
-const topic = aggregateTopics(all).find((t) => t.slug === Astro.params.topic);
+// Social-media sentiment (KV, scanner-scored) — Premium like grade/lean; the
+// read is skipped for restricted readers so the value never reaches their HTML.
+const sentiments = locked ? {} : await getSentiments(env.AGENTS);
+const topic = aggregateTopics(all, sentiments).find((t) => t.slug === Astro.params.topic);
 if (!topic) return new Response(null, { status: 404 });
 
 const posts = topic.posts.sort(
@@ -53,7 +59,7 @@ const ogDescription = [
 
     {locked ? (
       <p class="grade-lock-panel" style="margin:0.75rem 0">
-        <span aria-hidden="true">🔒</span> Average grade &amp; political-lean for this topic are
+        <span aria-hidden="true">🔒</span> Average grade, political-lean &amp; social sentiment for this topic are
         <a href="/upgrade/"> Premium</a>.
       </p>
     ) : (
@@ -66,6 +72,9 @@ const ogDescription = [
         )}
         {topic.avgLean !== null && (
           <div class="scoreband__bias"><PoliticalLean score={topic.avgLean} /></div>
+        )}
+        {topic.avgSentiment !== null && (
+          <div class="scoreband__bias"><SocialSentiment score={topic.avgSentiment} /></div>
         )}
       </div>
     )}

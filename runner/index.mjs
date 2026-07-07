@@ -18,6 +18,7 @@ import { runNewsletterSender } from "./newsletterSender.mjs";
 import { runDiscoverCurator } from "./discoverCurator.mjs";
 import { runGoodNewsCurator } from "./goodNewsCurator.mjs";
 import { runDeadVideoPruner } from "./deadVideoPruner.mjs";
+import { runSentimentScanner } from "./sentimentScanner.mjs";
 import { processUrlQueue } from "./urlIntake.mjs";
 import { updateTicker } from "./ticker.mjs";
 
@@ -36,6 +37,7 @@ const KINDS = {
   "discover-curator": runDiscoverCurator,
   "good-news-curator": runGoodNewsCurator,
   "dead-video-pruner": runDeadVideoPruner,
+  "social-sentiment-scanner": runSentimentScanner,
 };
 
 function log(...args) {

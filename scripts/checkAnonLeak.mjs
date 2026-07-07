@@ -147,6 +147,9 @@ const LEAK_PATTERNS = [
   [/\b\d+% (Left|Right)-leaning/, "lean percentage text (PoliticalLean.astro)"],
   [/aria-label="Political lean"|Centered</, "political-lean chip markup (PoliticalLean.astro)"],
   [/\d+<[^>]*>\/100|Factuality score/, "factuality-score markup (FactualityBar.astro)"],
+  [/class="senti\b|class="senti |Social Sentiment</, "social-sentiment markup (SocialSentiment.astro)"],
+  [/class="senti-rationale/, "social-reaction summary markup (posts/[slug].astro)"],
+  [/Social reception/i, "social-reception analytics markup (trends.astro/HomeCharts.astro)"],
 ];
 
 const failures = [];
@@ -215,7 +218,7 @@ async function checkPostJson(route) {
     fail(route, "response is not valid JSON");
     return;
   }
-  for (const field of ["letterGrade", "factualityScore", "leanScore", "gradeRationale"]) {
+  for (const field of ["letterGrade", "factualityScore", "leanScore", "gradeRationale", "socialSentiment", "sentimentSummary"]) {
     if (body[field] !== null) fail(route, `anonymous leak: ${field} is ${JSON.stringify(body[field])}, expected null`);
   }
   if (body.locked !== true) fail(route, `expected locked:true, got ${JSON.stringify(body.locked)}`);

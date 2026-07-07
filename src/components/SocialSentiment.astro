@@ -1,0 +1,40 @@
+---
+interface Props {
+  // Signed -100 (overwhelmingly negative) .. +100 (overwhelmingly positive).
+  score: number;
+  // Discussion volume from the scanner; omitted for topic-level averages.
+  volume?: string;
+  size?: "badge" | "header";
+}
+const { score, volume, size = "badge" } = Astro.props;
+
+const s = Math.max(-100, Math.min(100, Math.round(score)));
+const mag = Math.abs(s);
+
+const label = mag < 10 ? "Mixed" : `${mag}% ${s > 0 ? "Positive" : "Negative"}`;
+
+// marker position on a 0..100 track (negative → positive)
+const pos = (s + 100) / 2;
+
+const VOLUME_LABELS: Record<string, string> = {
+  minimal: "minimal chatter",
+  low: "low volume",
+  moderate: "moderate volume",
+  high: "high volume",
+  viral: "viral",
+};
+const volumeLabel = volume ? VOLUME_LABELS[volume] ?? null : null;
+---
+<div class={`senti senti--${size}`}>
+  <span class="small-caps senti__label">Social Sentiment</span>
+  <span class="senti__value">{label}</span>
+  {volumeLabel && <span class="senti__volume">({volumeLabel})</span>}
+  <div class="senti__scale" aria-hidden="true">
+    <span class="senti__scale-end">−</span>
+    <div class="senti__track">
+      <span class="senti__center"></span>
+      <span class="senti__marker" style={`left:${pos}%`}></span>
+    </div>
+    <span class="senti__scale-end">+</span>
+  </div>
+</div>

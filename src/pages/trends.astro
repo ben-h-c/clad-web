@@ -1,8 +1,10 @@
 ---
 import { getCollection } from "astro:content";
+import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
-import { buildTrends, leanLabel, leanColor } from "~/lib/trends";
+import { buildTrends, leanLabel, leanColor, sentimentColor, sentimentLabel } from "~/lib/trends";
+import { getSentiments } from "~/lib/agents";
 import { gpaToGrade } from "~/lib/topics";
 import { getAccess } from "~/lib/access";
 
@@ -16,7 +18,11 @@ const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
 
 const posts = await getCollection("posts", (p) => !p.data.draft);
-const report = buildTrends(posts);
+// Social-media sentiment (KV, scanner-scored) — Premium like grade/lean, so
+// the KV read is skipped for restricted readers and the sentiment analytics
+// simply don't exist in their report.
+const sentiments = locked ? {} : await getSentiments(env.AGENTS);
+const report = buildTrends(posts, sentiments);
 const { weeks, callouts, topics, networks, maxCount, totalPosts, weekSpan, busiest } = report;
 
 const CHART_H = 170; // px
@@ -57,6 +63,16 @@ const lean = series(leanVals, -maxAbs, maxAbs);
 const zeroY = VH - PAD - ((0 - -maxAbs) / (2 * maxAbs || 1)) * (VH - 2 * PAD);
 const leanTxt = (v: number) => (v > 0 ? `${v}R` : v < 0 ? `${-v}L` : "0");
 const arrow = (d: string) => (d === "up" ? "▲" : d === "down" ? "▼" : "—");
+
+// Social reception drift: net sentiment per week, symmetric around 0 (same
+// geometry as the lean-drift chart).
+const sentiVals = weeks.map((w) => w.avgSentiment);
+const sentiKnown = sentiVals.filter((v): v is number => v != null);
+const hasSenti = sentiKnown.length > 0;
+const sentiAbs = Math.max(20, ...sentiKnown.map((v) => Math.abs(v)));
+const senti = series(sentiVals, -sentiAbs, sentiAbs);
+const sentiZeroY = VH - PAD - ((0 - -sentiAbs) / (2 * sentiAbs || 1)) * (VH - 2 * PAD);
+const sentiTxt = (v: number) => (v > 0 ? `+${v}` : v < 0 ? `−${-v}` : "0");
 ---
 <BaseLayout
   title="News Trends — Clad"
@@ -202,6 +218,31 @@ const arrow = (d: string) => (d === "up" ? "▲" : d === "down" ? "▼" : "—")
           </section>
         )}
 
+        {!locked && hasSenti && (
+          <section class="trendmod">
+            <h2 class="trends__sub">Social reception drift</h2>
+            <p class="trendmod__lede">How the public received each week's stories on social media — above the line ran positive, below ran negative.</p>
+            <figure class="tline" role="img" aria-label="Net social-media reception over time.">
+              <svg viewBox={`0 0 ${VW} ${VH}`} preserveAspectRatio="xMidYMid meet">
+                <line class="tline__zero" x1={PAD} x2={VW - PAD} y1={sentiZeroY} y2={sentiZeroY} />
+                <text class="tline__ylab" x={PAD - 8} y={sentiZeroY + 4} text-anchor="end">0</text>
+                <text class="tline__ylab" x={VW - PAD + 6} y={PAD + 4} text-anchor="start">+</text>
+                <text class="tline__ylab" x={VW - PAD + 6} y={VH - PAD + 4} text-anchor="start">−</text>
+                <path class="tline__path tline__path--senti" d={senti.path} />
+                {senti.pts.map((p) => (
+                  <>
+                    <circle class="tline__dot" cx={p.x} cy={p.y} r="5" style={`fill:${sentimentColor(p.v)}`} />
+                    <text class="tline__val" x={p.x} y={p.y - 11} text-anchor="middle">{sentiTxt(p.v)}</text>
+                  </>
+                ))}
+                {weeks.map((w, i) => (
+                  <text class="tline__xlab" x={xFor(i, weeks.length)} y={VH - 10} text-anchor="middle">{w.label}</text>
+                ))}
+              </svg>
+            </figure>
+          </section>
+        )}
+
         {topics.length > 0 && (
           <section class="trendmod">
             <h2 class="trends__sub">What the news focused on</h2>
@@ -231,8 +272,8 @@ const arrow = (d: string) => (d === "up" ? "▲" : d === "down" ? "▼" : "—")
             <h2 class="trends__sub">Outlets at a glance</h2>
             <p class="trendmod__lede">
               {locked
-                ? "Each outlet's volume — with last week's direction. Average grade and lean are Premium."
-                : "Each outlet's volume, average grade, and average lean — with last week's direction."}
+                ? "Each outlet's volume — with last week's direction. Average grade, lean, and crowd reaction are Premium."
+                : "Each outlet's volume, average grade, average lean, and how its stories were received on social media — with last week's direction."}
             </p>
             <div class="ntable__wrap">
               <table class="ntable">
@@ -242,6 +283,7 @@ const arrow = (d: string) => (d === "up" ? "▲" : d === "down" ? "▼" : "—")
                     <th class="num">Reports</th>
                     {!locked && <th class="num">Avg grade</th>}
                     {!locked && <th>Avg lean</th>}
+                    {!locked && <th>Reception</th>}
                     <th class="num">Trend</th>
                   </tr>
                 </thead>
@@ -257,6 +299,14 @@ const arrow = (d: string) => (d === "up" ? "▲" : d === "down" ? "▼" : "—")
                             <i class="leanmini__mark" style={`left:${50 + (n.avgLean ?? 0) / 2}%;background:${leanColor(n.avgLean)}`}></i>
                           </span>
                           <span class="leanmini__txt">{n.avgLean == null ? "—" : leanTxt(n.avgLean)}</span>
+                        </td>
+                      )}
+                      {!locked && (
+                        <td>
+                          <span class="leanmini" title={sentimentLabel(n.avgSentiment)}>
+                            <i class="leanmini__mark" style={`left:${50 + (n.avgSentiment ?? 0) / 2}%;background:${sentimentColor(n.avgSentiment)}`}></i>
+                          </span>
+                          <span class="leanmini__txt">{n.avgSentiment == null ? "—" : sentiTxt(n.avgSentiment)}</span>
                         </td>
                       )}
                       <td class={`num dir dir--${n.dir}`} title={`${n.prev} → ${n.last} last week`}>{arrow(n.dir)}</td>

@@ -44,6 +44,11 @@ export interface AgentConfig {
   poolSize?: number; // how many recent posts to consider
   // youtube-scanner (good-news surfacing)
   goodNewsSlots?: number; // per-run draft slots reserved for positive/uplifting headlines
+  // social-sentiment-scanner
+  maxScansPerRun?: number; // posts scanned per run (each is one search-grounded Grok call)
+  scanWindowDays?: number; // only posts published within this window get scanned
+  refreshHours?: number; // re-scan a post once its sentiment is older than this
+  refreshWindowHours?: number; // …but only while the post itself is younger than this
 }
 
 export interface AgentLastRun {
@@ -207,6 +212,19 @@ export const DEFAULT_REGISTRY: Registry = {
       enabled: true,
       cron: "30 11 * * *", // daily, 11:30 UTC (just after the Discover run)
       config: { maxSections: 6, poolSize: 120 },
+    },
+    {
+      id: "social-sentiment-scanner",
+      kind: "social-sentiment-scanner",
+      name: "Social Sentiment Scanner",
+      enabled: true,
+      cron: "20 */2 * * *", // every 2 hours — social reaction moves fast, then settles
+      config: {
+        maxScansPerRun: 10,
+        scanWindowDays: 10,
+        refreshHours: 24,
+        refreshWindowHours: 72,
+      },
     },
     {
       id: "dead-video-pruner",
@@ -743,6 +761,58 @@ export async function mergeClassifications(
     for (const id of Object.keys(merged)) if (!keep.has(id)) delete merged[id];
   }
   await kv.put(CLASSIFY_KEY, JSON.stringify(merged));
+  return merged;
+}
+
+/* ---------- social-media sentiment (scanner-scored, shown on articles/topics) ----------
+ * The social-sentiment scanner samples public reaction to each published story
+ * (X, Reddit, YouTube comments, …) via Grok search and stores a per-post score
+ * here. One blob keyed by post id, same lifecycle as the newsroom
+ * classifications: the runner merges fresh scans in and prunes entries for
+ * posts that no longer exist. Living data — reaction shifts, so entries are
+ * re-scanned while a story is hot — which is why it lives in KV rather than
+ * the post's frontmatter. */
+
+const SENTIMENT_KEY = "social:sentiments";
+
+export const SENTIMENT_VOLUMES = ["minimal", "low", "moderate", "high", "viral"] as const;
+
+export interface SocialSentiment {
+  // Signed reaction axis: -100 = overwhelmingly negative/hostile, 0 = mixed or
+  // evenly divided, +100 = overwhelmingly positive/celebratory.
+  score: number;
+  summary: string; // one or two sentences on the prevailing reaction
+  volume: (typeof SENTIMENT_VOLUMES)[number]; // how much discussion there is
+  platforms: string[]; // where reaction was sampled, e.g. ["X", "Reddit"]
+  at: string; // ISO timestamp scanned
+}
+
+export type SentimentMap = Record<string, SocialSentiment>;
+
+export async function getSentiments(kv: KVNamespace): Promise<SentimentMap> {
+  const raw = await kv.get(SENTIMENT_KEY);
+  if (!raw) return {};
+  try {
+    const v = JSON.parse(raw);
+    return v && typeof v === "object" ? (v as SentimentMap) : {};
+  } catch {
+    return {};
+  }
+}
+
+/** Merge new sentiments in and prune any not in `keepIds` (current posts). */
+export async function mergeSentiments(
+  kv: KVNamespace,
+  updates: SentimentMap,
+  keepIds?: string[]
+): Promise<SentimentMap> {
+  const cur = await getSentiments(kv);
+  const merged: SentimentMap = { ...cur, ...updates };
+  if (keepIds && keepIds.length) {
+    const keep = new Set(keepIds);
+    for (const id of Object.keys(merged)) if (!keep.has(id)) delete merged[id];
+  }
+  await kv.put(SENTIMENT_KEY, JSON.stringify(merged));
   return merged;
 }
 
