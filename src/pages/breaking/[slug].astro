@@ -10,7 +10,7 @@ import { getBreaking } from "~/lib/agents";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
 import { LEAN_THRESHOLD } from "~/lib/trends";
 import { isNewsOutlet } from "~/lib/networks";
-import { getAccess, offerLine } from "~/lib/access";
+import { getAccess } from "~/lib/access";
 import { sampleUnlockedId } from "~/lib/sample";
 
 // Ephemeral: a breaking-news group exists only while the story is active. SSR so
@@ -76,8 +76,8 @@ const pageTitle = `${hubName} — developing story, ${members.length} graded rep
 
     {locked ? (
       <p class="grade-lock-panel" style="margin:0.75rem 0">
-        <span aria-hidden="true">🔒</span> Average grade &amp; political-lean for this story are
-        <a href="/upgrade/"> Premium — {offerLine(access.signedIn)}</a>.
+        <span aria-hidden="true">🔒</span> Average grade &amp; political-lean for this story unlock with a
+        <a href="/register/"> free CladFacts account</a> — no card required.
       </p>
     ) : (
       <>

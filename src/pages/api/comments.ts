@@ -31,8 +31,8 @@ function publicComment(c: PostComment, mineId: string | null) {
   };
 }
 
-// GET /api/comments?slug=<postId> — list reactions + tally. Trial + premium
-// only (full access); anon and expired-free readers get 403.
+// GET /api/comments?slug=<postId> — list reactions + tally. Any signed-in
+// account (full access under the hybrid model); anonymous readers get 403.
 export const GET: APIRoute = async ({ request }) => {
   const access = await getAccess(request.headers);
   if (!access.fullAccess) {

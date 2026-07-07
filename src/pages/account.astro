@@ -13,10 +13,6 @@ if (!session?.user) return Astro.redirect("/login/");
 const user = session.user;
 
 const access = await getAccess(Astro.request.headers);
-const trialDaysLeft =
-  access.tier === "trial" && access.trialEndsAt
-    ? Math.max(1, Math.ceil((access.trialEndsAt - Date.now()) / 86_400_000))
-    : null;
 
 const [prefs, favorites, alerts, hasPassword] = await Promise.all([
   getPrefs(user.id),
@@ -27,7 +23,7 @@ const [prefs, favorites, alerts, hasPassword] = await Promise.all([
 const alertTopics = new Set(alerts.map((a) => a.topic.toLowerCase()));
 const suggestions = TOPIC_LABELS.filter((t) => !alertTopics.has(t.toLowerCase()));
 const firstName = (user.name || "").trim().split(/\s+/)[0] || "there";
-const planLabel = access.tier === "paid" ? "Premium" : access.tier === "trial" ? "Free trial" : "Free";
+const planLabel = access.tier === "paid" ? "Premium" : "Free";
 ---
 <BaseLayout title="Your account — Clad" description="Manage your CladFacts membership, email preferences, topic alerts, and saved articles." noindex={true}>
   <article class="static-page account">
@@ -49,8 +45,8 @@ const planLabel = access.tier === "paid" ? "Premium" : access.tier === "trial" ?
           <h3 class="account-card__title">Go Premium</h3>
         </div>
         <p class="account-card__desc">
-          Unlock every letter grade and political-lean rating, the News Trends
-          dashboard, topics, and search — across the app, web, and your widget.
+          Support independent fact-checking and post your take in Reader
+          Reactions — across the app, web, and your widget.
         </p>
         <div class="account-actions">
           <button type="button" class="auth-submit js-app-purchase">Go Premium</button>
@@ -63,8 +59,6 @@ const planLabel = access.tier === "paid" ? "Premium" : access.tier === "trial" ?
         <h3 class="account-card__title">Membership</h3>
         {access.tier === "paid" ? (
           <span class="plan-badge plan-badge--paid">Premium</span>
-        ) : access.tier === "trial" ? (
-          <span class="plan-badge plan-badge--trial">Trial · {trialDaysLeft} {trialDaysLeft === 1 ? "day" : "days"} left</span>
         ) : (
           <span class="plan-badge plan-badge--free">Free</span>
         )}
@@ -81,25 +75,16 @@ const planLabel = access.tier === "paid" ? "Premium" : access.tier === "trial" ?
             <span id="portal-status" class="auth-status"></span>
           </div>
         </>
-      ) : access.tier === "trial" ? (
-        <>
-          <p class="account-card__desc">
-            Your free week unlocks <strong>everything</strong> — grades, political-lean ratings,
-            Trends, and search. It ends in <strong>{trialDaysLeft} {trialDaysLeft === 1 ? "day" : "days"}</strong>;
-            subscribe now so nothing locks.
-          </p>
-          <div class="account-actions">
-            <a class="auth-submit" href="/upgrade/">Go Premium — {PRICE.monthly}/mo</a>
-          </div>
-        </>
       ) : (
         <>
           <p class="account-card__desc">
-            On the free plan, <strong>grades and political-lean ratings are hidden</strong> and the
-            Trends dashboard, search, and flagging are locked. Upgrade to unlock the full picture.
+            Your free account is <strong>full access</strong> — every letter grade,
+            political-lean rating, sentiment score, the News Trends dashboard, search,
+            and flagging. Premium is how readers keep Clad independent, and it adds
+            posting in Reader Reactions.
           </p>
           <div class="account-actions">
-            <a class="auth-submit" href="/upgrade/">See plans — from {PRICE.monthly}/mo</a>
+            <a class="auth-submit" href="/upgrade/">Support Clad — from {PRICE.monthly}/mo</a>
           </div>
         </>
       )}

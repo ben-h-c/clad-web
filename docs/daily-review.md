@@ -65,8 +65,14 @@ on.
 
 ## Constraints (re-read every time)
 
-- Premium gating is inviolable: grades/factuality/lean/rationales/sentiment
-  never reach anonymous or free-tier HTML/JSON outside the marked daily
+- **Access model (owner decision, 2026-07-07)**: hybrid — a registration
+  wall, not a pay wall. Anonymous readers get article text plus the daily
+  sample; any free account gets the full scoreboard (grades, factuality,
+  lean, sentiment, Trends, charts, search filters); Premium is the supporter
+  tier (funds the newsroom; posting Reader Reactions). Re-metering free
+  accounts is an owner decision — propose, don't implement.
+- Anonymous gating is inviolable: grades/factuality/lean/rationales/sentiment
+  never reach anonymous HTML/JSON outside the marked daily
   sample. `node scripts/checkAnonLeak.mjs` must pass.
 - `/api/posts.json` stays byte-compatible for the iOS app (additive only).
 - The newspaper look is the brand, not a legacy to strip away. Youth-focused

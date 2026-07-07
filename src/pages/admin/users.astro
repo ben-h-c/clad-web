@@ -52,12 +52,10 @@ function stamp(iso: string): string {
     return iso;
   }
 }
-const TRIAL_MS = 7 * 86_400_000;
-function planLabel(id: string, createdAt: string): { text: string; paid: boolean } {
+function planLabel(id: string): { text: string; paid: boolean } {
   const status = subByUser.get(id);
   if (status === "active" || status === "trialing") return { text: "Premium", paid: true };
-  const created = new Date(createdAt).getTime();
-  if (!Number.isNaN(created) && Date.now() < created + TRIAL_MS) return { text: "Trial", paid: false };
+  // Hybrid access model: no trial tier — every account is full-access Free.
   return { text: "Free", paid: false };
 }
 ---
@@ -83,7 +81,7 @@ function planLabel(id: string, createdAt: string): { text: string; paid: boolean
       </div>
       <ul class="user-rows">
         {users.map((u) => {
-          const plan = planLabel(u.id, u.createdAt);
+          const plan = planLabel(u.id);
           const search = `${u.name ?? ""} ${u.email} ${methods(u.id)} ${plan.text}`.toLowerCase();
           return (
           <li class="user-row" data-id={u.id} data-search={search}>

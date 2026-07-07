@@ -5,7 +5,6 @@ import { checkAgentToken, tokenUnauthorized } from "~/lib/agentAuth";
 import { buildNewsletter } from "~/lib/newsletter";
 import { sendEmail, emailConfigured } from "~/lib/email";
 import { confirmedSubscribers } from "~/lib/subscribers";
-import { TRIAL_DAYS } from "~/lib/access";
 
 export const prerender = false;
 
@@ -23,14 +22,9 @@ interface Row {
   subEnd: string | null;
 }
 
-function isSubscriber(row: Row, now: number): boolean {
-  const paid =
-    (row.subStatus === "active" || row.subStatus === "trialing") &&
-    (!row.subEnd || new Date(row.subEnd).getTime() > now);
-  if (paid) return true;
-  const created = row.createdAt ? new Date(row.createdAt).getTime() : now;
-  return now < created + TRIAL_DAYS * DAY;
-}
+// Hybrid access model: every signed-in account has the full scoreboard, so
+// account holders always get the graded edition. Standalone /api/subscribe
+// signups (no account) are anonymous-equivalent and keep the grade-free one.
 
 export const POST: APIRoute = async ({ request }) => {
   if (!checkAgentToken(request.headers.get("authorization"), env.AGENT_TOKEN)) {
@@ -80,7 +74,7 @@ export const POST: APIRoute = async ({ request }) => {
     due++;
     if (sent >= MAX_SEND_PER_RUN) break;
 
-    const form = isSubscriber(row, now) ? subForm : freeForm;
+    const form = subForm;
     if (!form) continue;
     if (dryRun) {
       sent++;

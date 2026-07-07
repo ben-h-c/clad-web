@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
-import { PRICE, TRIAL_DAYS } from "~/lib/access";
+import { PRICE } from "~/lib/access";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "public, max-age=300");
@@ -126,10 +126,12 @@ Astro.response.headers.set("Cache-Control", "public, max-age=300");
     <h3 class="static-page__sub">What's free and what's Premium</h3>
     <p>
       The full report — summary, editorial assessment, key moments, and sources
-      — is free to read. The letter grade, factuality score, and political-lean
-      rating are part of <a href="/upgrade/">CladFacts Premium</a>
-      ({PRICE.monthly}/mo or {PRICE.annual}/yr, with a {TRIAL_DAYS}-day free
-      trial).
+      — is free to read by anyone. The scoreboard — letter grade, factuality
+      score, political-lean rating, and social sentiment — is free with a
+      <a href="/register/">free account</a> (no card required).
+      <a href="/upgrade/">CladFacts Premium</a> ({PRICE.monthly}/mo or
+      {PRICE.annual}/yr) is the supporter tier that funds the newsroom and lets
+      you post in Reader Reactions.
     </p>
 
     <p>

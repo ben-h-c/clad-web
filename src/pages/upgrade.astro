@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
-import { getAccess, stripeConfigured, PRICE, TRIAL_DAYS } from "~/lib/access";
+import { getAccess, stripeConfigured, PRICE } from "~/lib/access";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
@@ -8,22 +8,17 @@ Astro.response.headers.set("Cache-Control", "no-store");
 const access = await getAccess(Astro.request.headers);
 const live = stripeConfigured();
 const canceled = Astro.url.searchParams.get("canceled") === "1";
-
-const daysLeft =
-  access.tier === "trial" && access.trialEndsAt
-    ? Math.max(1, Math.ceil((access.trialEndsAt - Date.now()) / 86_400_000))
-    : null;
 ---
-<BaseLayout title="Go Premium — Clad" description="Unlock every letter grade, factuality score, and political-lean rating, plus the News Trends analytics.">
+<BaseLayout title="Go Premium — Clad" description="Support independent fact-checking. Every grade is free with an account — Premium keeps the newsroom running and adds member perks.">
   <article class="static-page upgrade">
     <p class="small-caps upgrade__eyebrow">CladFacts Premium</p>
-    <h2 class="static-page__title">See the grade behind every story</h2>
+    <h2 class="static-page__title">Keep the grades coming</h2>
     <p class="upgrade__lede">
-      Every report — summary, editorial assessment, key moments, and sources —
-      is free to read. <strong>Premium</strong> unlocks the scoreboard: the
-      letter grade, factuality score, political-lean rating, and social-media
-      sentiment on every report, plus the News Trends analytics and grade &amp;
-      bias search filters.
+      Every report is free to read, and every letter grade, factuality score,
+      political-lean rating, and social-sentiment score is free with a
+      <a href="/register/">free account</a>. <strong>Premium</strong> is how
+      readers keep Clad independent — it funds the newsroom and adds member
+      perks on top.
     </p>
 
     {canceled && <p class="auth-status">Checkout canceled — no charge was made.</p>}
@@ -36,19 +31,9 @@ const daysLeft =
       </div>
     ) : (
       <>
-        {access.tier === "trial" && (
-          <p class="upgrade__trial">
-            You're on your <strong>free week</strong> — {daysLeft} {daysLeft === 1 ? "day" : "days"} left of full access.
-            Subscribe now so nothing locks when it ends.
-          </p>
-        )}
-
         <ul class="upgrade__perks">
-          <li>Every letter grade, factuality score &amp; grade rationale</li>
-          <li>Political-lean rating &amp; social-media sentiment on every report, topic &amp; network</li>
-          <li>News Trends analytics, By-the-Numbers charts &amp; Best/Worst Graded boards</li>
-          <li>Grade &amp; political-bias search filters</li>
           <li>Post your take in Reader Reactions on every report</li>
+          <li>Keep independent fact-checking running — Premium is what funds the newsroom</li>
         </ul>
 
         <div class="plans">
@@ -81,8 +66,8 @@ const daysLeft =
 
         {!access.signedIn && (
           <p class="upgrade__note">
-            New here? <a href="/register/">Create a free account</a> — your first
-            {" "}{TRIAL_DAYS} days are full access, no card required.
+            New here? <a href="/register/">Create a free account</a> first — it
+            unlocks every grade, lean rating, and chart on its own, no card required.
           </p>
         )}
         <div id="checkout-status" class="auth-status" role="status"></div>

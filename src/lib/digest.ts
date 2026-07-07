@@ -1,8 +1,9 @@
 /**
  * News-digest composition. Picks recent fact-checks for a reader — leading with
  * coverage on the topics they follow, then filling with the period's newest —
- * and renders an email. Subscribers (paid/trial) see grades + political lean;
- * free readers get headlines with an upgrade nudge.
+ * and renders an email. Every account holder sees grades + political lean
+ * (hybrid access model — digests only go to accounts, and accounts have full
+ * access); `showGrades:false` is kept for any future metered rendering.
  */
 import type { CollectionEntry } from "astro:content";
 import { canonicalTopic, leanScoreOf } from "./topics";
