@@ -47,7 +47,7 @@ async function resolveAccess(headers: Headers): Promise<Access> {
 
   const now = Date.now();
 
-  // Premium unlocks from EITHER rail: Stripe (web) or Apple IAP (iOS app).
+  // The paid (supporter) tier comes from EITHER rail: Stripe (web) or Apple IAP (iOS app).
   const sub = await env.DB.prepare(
     "SELECT status, currentPeriodEnd FROM subscription WHERE userId = ?"
   )

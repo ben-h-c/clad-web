@@ -39,11 +39,15 @@ const leanLbl =
     : Math.abs(topic.avgLean) < 5
       ? "Centered"
       : `${Math.abs(topic.avgLean)}% ${topic.avgLean > 0 ? "Right" : "Left"}-leaning`;
-const ogDescription = [
-  `${topic.count} fact-checked ${topic.count === 1 ? "report" : "reports"} on ${topic.display}`,
-  topic.avgGrade ? `avg grade ${topic.avgGrade}` : null,
-  leanLbl,
-].filter(Boolean).join(" · ");
+const countLabel = `${topic.count} fact-checked ${topic.count === 1 ? "report" : "reports"} on ${topic.display}`;
+// Restricted readers (incl. crawlers) get a grade-free description so the
+// topic's avg grade/lean values stay account-gated even in <head> — keyed to
+// fullAccess, same pattern as posts/[slug].astro.
+const ogDescription = !access.fullAccess
+  ? `${countLabel} — every report graded for accuracy and political lean`
+  : [countLabel, topic.avgGrade ? `avg grade ${topic.avgGrade}` : null, leanLbl]
+      .filter(Boolean)
+      .join(" · ");
 ---
 <BaseLayout
   title={`${topic.display} — Clad`}

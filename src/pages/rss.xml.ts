@@ -6,9 +6,9 @@ import { metaDescription } from "~/lib/seo";
 export const prerender = false;
 
 // Public feed for crawlers, readers, and third-party consumers. The feed is
-// anonymous, and grades are CladFacts Premium — letterGrade, factualityScore,
-// politicalLean, leanScore, and gradeRationale must NEVER appear here. Items
-// carry only headline/summary/date/link/categories.
+// anonymous, and grades unlock with a free account — letterGrade,
+// factualityScore, politicalLean, leanScore, and gradeRationale must NEVER
+// appear here. Items carry only headline/summary/date/link/categories.
 export async function GET(context: APIContext) {
   const posts = (await getCollection("posts", (p) => !p.data.draft))
     .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())

@@ -42,7 +42,7 @@ const sampleId = locked ? sampleUnlockedId(all) : null;
   <section class="discover">
     <header class="discover__head">
       <p class="small-caps discover__eyebrow">From the desk</p>
-      <h2 class="discover__title">Good News</h2>
+      <h1 class="discover__title">Good News</h1>
       <p class="discover__lede">
         The brighter side of the desk — fact-checked stories that are positive,
         uplifting, or just genuinely interesting. Breakthroughs, comebacks,
@@ -58,7 +58,7 @@ const sampleId = locked ? sampleUnlockedId(all) : null;
     ) : (
       visible.map((s) => (
         <section class="discover-sec">
-          <h3 class="discover-sec__title">{s.title}</h3>
+          <h2 class="discover-sec__title">{s.title}</h2>
           {s.blurb && <p class="discover-sec__blurb">{s.blurb}</p>}
           <div class="rule rule--double" aria-hidden="true"></div>
           <div class="feed-list">

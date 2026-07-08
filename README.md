@@ -9,7 +9,7 @@ Each broadcast report grades a news segment: a letter grade (A+–F), a
 published rationale. Legacy claim posts carry a verdict on a fixed scale
 (Verified True, Mostly True, Mixed, Mostly False, False, Unverified —
 `src/components/Verdict.astro`). The report text is free to read; grades,
-scores, and lean are part of CladFacts Premium.
+scores, and lean unlock with a free account.
 
 Companion to the CladFacts iOS app, which consumes `/api/posts.json` and
 shares the grade vocabulary — an A− here means what it means in the app.
@@ -32,10 +32,13 @@ shares the grade vocabulary — an A− here means what it means in the app.
    seconds and the post appears on the homepage.
 
 Reader accounts exist (Better Auth on D1; email + password plus Google,
-Apple, and X sign-in). Grades sit behind CladFacts Premium — $2.99/mo or
-$29.99/yr with a 7-day trial; Stripe on the web, Apple in-app purchase in the
-app (tiers `paid`/`trial`/`free`/`anon` in `src/lib/access.ts`). There are no
-third-party analytics, no ads, and no cross-site trackers.
+Apple, and X sign-in). Access is a registration wall, not a paywall: a free
+account unlocks every letter grade, factuality score, lean rating, sentiment,
+trends, and search filter. CladFacts Premium — $2.99/mo or $29.99/yr — is a
+supporter tier whose concrete perk is posting Reader Reactions; Stripe on the
+web, Apple in-app purchase in the app (tiers `paid`/`free`/`anon` in
+`src/lib/access.ts`). There are no third-party analytics, no ads, and no
+cross-site trackers.
 
 ## Stack
 
@@ -58,8 +61,9 @@ third-party analytics, no ads, and no cross-site trackers.
   build-time helpers (`scripts/topicsAgg.mjs` topic aggregation for OG
   images; `scripts/backfillDates.mjs` one-off post re-dating;
   `scripts/purgeCache.mjs` post-deploy Cloudflare cache purge;
-  `scripts/checkAnonLeak.mjs` CI anonymous-leak guard, also runnable as
-  `npm run check:leak`).
+  `scripts/smoke-anon.mjs` post-deploy anonymous smoke, also runnable as
+  `npm run smoke`; `scripts/checkAnonLeak.mjs` CI anonymous-leak guard,
+  also runnable as `npm run check:leak`).
 
 ## Local development
 
@@ -87,17 +91,21 @@ adapter's Workerd) and `wrangler dev` read it automatically.
 1. The repo lives at `github.com/ben-h-c/clad-web`.
 2. In Cloudflare dashboard: **Workers & Pages → Create → Import a repository**
    (Workers Builds).
-3. Build command: `npm run build`. Deploy command:
-   `npx wrangler deploy && node scripts/purgeCache.mjs --soft`.
+3. Build command: `npm run build`. Deploy command: `npm run deploy`.
    Cloudflare detects the generated `dist/server/wrangler.json` and uses it.
-   The chained purge clears the zone edge cache after every deploy — mainly
-   the on-demand OG images (`src/pages/og/[slug].png.ts`, 7-day `s-maxage`)
-   and any dashboard Cache Rules; repo-set `Cache-Control` is already
-   conservative (SSR pages are `no-store`/`private`; static-info pages get a
-   300s browser-only `max-age`). `--soft` makes a missing purge credential a
-   logged skip instead of a failed deploy. If a dashboard "cache everything"
-   HTML rule ever exists, shorten its Edge TTL in the dashboard — that TTL
-   is not repo-controllable.
+   The script chains `astro build`, `wrangler deploy`, the zone cache purge
+   (`scripts/purgeCache.mjs`), and the anonymous smoke
+   (`scripts/smoke-anon.mjs`) — so agent-publish auto-deploys purge and
+   verify too. (In Workers Builds the extra `astro build` duplicates the
+   build step; harmless, and it guarantees a fresh `dist/`.) The purge
+   matters because anonymous HTML is edge-cached — `public, s-maxage=300`,
+   60s for `/upgrade/` and `/how-it-works/` — and the on-demand OG images
+   (`src/pages/og/[slug].png.ts`) carry a 7-day `s-maxage`. The purge runs
+   hard-fail: `CLOUDFLARE_ZONE_ID` and `CLOUDFLARE_API_TOKEN` must be set
+   in the build environment (step 4), or set `PURGE_OPTIONAL=1` to make a
+   missing credential a logged skip instead of a failed deploy. If a
+   dashboard "cache everything" HTML rule ever exists, shorten its Edge TTL
+   in the dashboard — that TTL is not repo-controllable.
 4. Add build-environment variables for the purge (Settings → Variables and
    Secrets):
    - `CLOUDFLARE_ZONE_ID` — the cladfacts.com zone id.
@@ -130,30 +138,34 @@ leaking to logged-out readers for pages cached pre-fix). Set the Workers
 Builds **deploy command** to:
 
 ```
-npx wrangler deploy && node scripts/purgeCache.mjs --soft && node scripts/smoke-anon.mjs
+npm run deploy
 ```
 
-`scripts/purgeCache.mjs` purges the zone (needs the two `CLOUDFLARE_*`
-secrets above; `--soft` skips instead of failing when they're unset) and
-`scripts/smoke-anon.mjs` then verifies, as a logged-out reader on canonical
-URLs, that no gated value leaks, the masthead shows today's Eastern date,
-and the funnel pages serve real content. CI also runs the smoke daily
-against production (`.github/workflows/ci.yml`, `smoke-prod`).
+That runs `scripts/purgeCache.mjs`, which purges the zone (needs the two
+`CLOUDFLARE_*` secrets above; `PURGE_OPTIONAL=1` skips instead of failing
+when they're unset), then `scripts/smoke-anon.mjs`, which verifies, as a
+logged-out reader on canonical URLs, that no gated value leaks, the masthead
+shows today's Eastern date, and the funnel pages serve real content. CI also
+runs the smoke daily against production (`.github/workflows/ci.yml`,
+`smoke-prod`).
 
 Alternative one-shot deploy from your laptop:
 ```bash
 npx wrangler secret put XAI_API_KEY     # repeat for each secret
-npm run deploy                          # astro build + wrangler deploy + cache purge
-npm run smoke                           # optional: anonymous smoke vs production
+npm run deploy                          # astro build + wrangler deploy + cache purge + anon smoke
 ```
 Laptop deploys run the purge in hard-fail mode: `CLOUDFLARE_ZONE_ID` and
 `CLOUDFLARE_API_TOKEN` must be in your shell environment or the deploy
 errors visibly.
 
-**Why no cron purge:** there is nothing repo-cached for a scheduled purge to
-clear — every HTML page is `prerender = false` SSR served `no-store`/`private`
-(or 300s browser-only), and the only long-TTL assets (OG images) are re-purged
-by the post-deploy step above. The Astro 6 Cloudflare adapter also no longer
+**Why no cron purge:** stale edge HTML self-heals fast enough without one.
+Anonymous HTML is shared-cached (`public, s-maxage=300,
+stale-while-revalidate=600`; 60s `s-maxage` for the copy-critical
+`/upgrade/` and `/how-it-works/` pages — `src/middleware.ts`), signed-in
+HTML is `private, no-store`, and the post-deploy purge above clears the
+zone — including the long-TTL OG images — on every release. Between
+deploys the worst case is ~5 minutes of stale anonymous HTML, which a cron
+could not meaningfully beat. The Astro 6 Cloudflare adapter also no longer
 supports a custom worker entry, so a `scheduled` handler would mean patching
 the generated `dist/server/entry.mjs` after every build. If a dashboard
 cache-everything rule is ever added, revisit with a tiny standalone cron
