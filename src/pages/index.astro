@@ -70,7 +70,7 @@ const shown = new Set([
   ...heroPosts.map((p) => p.id),
   ...breaking.flatMap((b) => (b.kind === "post" ? [b.post.id] : b.members.map((m) => m.id))),
 ]);
-const recent = all.filter((p) => !shown.has(p.id)).slice(0, 30);
+let recent = all.filter((p) => !shown.has(p.id)).slice(0, 30);
 
 const ticker = await getTicker(env.AGENTS);
 const quips = await getQuips(env.AGENTS);
@@ -82,6 +82,13 @@ const locked = !access.fullAccess;
 // Report of the Day — one card renders fully unlocked (with a sample badge)
 // for restricted readers; same pick site-wide per NY day.
 const sampleId = locked ? sampleUnlockedId(all) : null;
+// The free-card section showcases the sample in full, so keep the same post
+// out of the hero/recent strips: anonymous HTML carries exactly one real
+// scoreband (the sanctioned daily sample) — smoke-anon counts on it.
+if (sampleId) {
+  heroPosts = heroPosts.filter((p) => p.id !== sampleId);
+  recent = recent.filter((p) => p.id !== sampleId);
+}
 
 // Social-media sentiment (KV, scanner-scored) — Premium; the read is skipped
 // for restricted readers so the reception analytics never reach their HTML.

@@ -73,8 +73,11 @@ function checkGated(name, html, { allowOne = false } = {}) {
   for (const [re, what] of GATED_PATTERNS) {
     const matches = html.match(new RegExp(re.source, re.flags + "g")) ?? [];
     // The daily-unlock post legitimately renders one real scoreband on pages
-    // that include it; allow a single LetterGrade occurrence there.
-    const limit = allowOne && re.source.includes("letter-grade") ? 1 : 0;
+    // that include it — and the sample card renders fully unlocked by design
+    // (ReportCard `sample`), which includes its "Graded X:" rationale line.
+    // Allow a single occurrence of each on sanctioned pages.
+    const sanctioned = re.source.includes("letter-grade") || re.source.includes("Graded");
+    const limit = allowOne && sanctioned ? 1 : 0;
     if (matches.length > limit) {
       fail(`${name}: gated content leaked — ${what} (${matches.length}×)`);
     }
