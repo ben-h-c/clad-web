@@ -152,8 +152,8 @@ export function buildNewsletter(opts: { posts: Post[]; showGrades: boolean; max?
     sections.push(
       section(
         "Grades, swings &amp; bias",
-        `<p style="font:14px Georgia,serif;color:#333;line-height:1.5;margin:0 0 10px">The week's best- and worst-graded coverage and the most politically biased reports are part of <strong>CladFacts Premium</strong>.</p>
-         <a href="${SITE}/upgrade/" style="display:inline-block;background:${ACCENT};color:#fff;font:600 14px Georgia,serif;text-decoration:none;padding:9px 18px">Unlock this week's grades →</a>`
+        `<p style="font:14px Georgia,serif;color:#333;line-height:1.5;margin:0 0 10px">The week's best- and worst-graded coverage and the most politically biased reports unlock with a <strong>free CladFacts account</strong> — no card, no trial clock.</p>
+         <a href="${SITE}/register/" style="display:inline-block;background:${ACCENT};color:#fff;font:600 14px Georgia,serif;text-decoration:none;padding:9px 18px">Unlock this week's grades — free →</a>`
       )
     );
   }
@@ -167,6 +167,7 @@ export function buildNewsletter(opts: { posts: Post[]; showGrades: boolean; max?
     ${sections.join("")}
     <tr><td style="padding:18px 26px 22px;text-align:center">
       <a href="${SITE}/" style="display:inline-block;background:${INK};color:#fff;font:600 14px Georgia,serif;text-decoration:none;padding:9px 18px">Read CladFacts →</a>
+      <div style="padding-top:10px"><a href="${SITE}/week/" style="font:14px Georgia,serif;color:${INK}">This week, wrapped on the site: The Week in Grades →</a></div>
     </td></tr>
     <tr><td style="padding:14px 26px;border-top:1px solid #e6ddcb;font:12px Georgia,serif;color:${MUTED};text-align:center">
       You're receiving the CladFacts weekly newsletter.

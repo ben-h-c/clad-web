@@ -1,0 +1,189 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { nyDateParts } from "~/lib/dateline";
+
+export const prerender = false;
+
+// The Morning Quiz: five claims from recent reports; the reader calls the
+// verdict, then sees Clad's ruling with the editor's note and a link to the
+// receipts. Claim verdicts + notes are FREE report-body content — nothing
+// gated renders here. Questions are deterministic per Eastern day so every
+// reader (and every cache) gets the same daily quiz.
+const pad = (n: number) => String(n).padStart(2, "0");
+const { y, m, d } = nyDateParts(new Date());
+const today = `${y}-${pad(m)}-${pad(d)}`;
+const yesterdayParts = nyDateParts(new Date(Date.now() - 24 * 60 * 60 * 1000));
+const yesterday = `${yesterdayParts.y}-${pad(yesterdayParts.m)}-${pad(yesterdayParts.d)}`;
+
+// FNV-1a — tiny, stable, good enough to shuffle a daily quiz.
+function fnv(s: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+const broadcasts = (await getCollection("posts", (p) => !p.data.draft))
+  .filter((p) => p.data.type === "broadcast" && p.data.keyMoments.length > 0)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const cutoff = Date.now() - 48 * 60 * 60 * 1000;
+const recent = broadcasts.filter((p) => p.data.publishedAt.valueOf() >= cutoff);
+const pool = recent.length >= 5 ? recent : broadcasts.slice(0, 10);
+
+const questions = [...pool]
+  .sort((a, b) => fnv(today + a.id) - fnv(today + b.id))
+  .slice(0, 5)
+  .map((p, i) => {
+    const km = p.data.keyMoments[fnv(today + p.id + "km") % p.data.keyMoments.length]!;
+    return { n: i + 1, claim: km.claim, verdict: km.verdict, note: km.note, slug: p.id, source: p.data.sourceTitle ?? "a news broadcast" };
+  });
+
+const VERDICTS = ["verified", "disputed", "missing context", "unsupported"] as const;
+const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
+---
+<BaseLayout
+  title="The Morning Quiz — Clad"
+  description="Five claims from this week's news broadcasts — can you spot the spin? A new quiz every day, with Clad's verdict and sources for every claim."
+  ogTitle="The Morning Quiz — can you spot the spin?"
+  ogImage={`/og/quiz/${today}.png`}
+>
+  <section class="topic-page quiz" data-today={today} data-yesterday={yesterday}>
+    <p class="small-caps" style="color:var(--muted-ink)">Daily · five claims · new at midnight Eastern</p>
+    <h1 class="topic-page__title">The Morning Quiz</h1>
+    <p class="dateline">
+      Five claims Clad checked recently. Call each one — <em>verified</em>, <em>disputed</em>,
+      <em>missing context</em>, or <em>unsupported</em> — then compare your read with the report's.
+    </p>
+    <div class="rule rule--double" aria-hidden="true"></div>
+
+    {questions.length < 5 ? (
+      <p class="dateline">Not enough fresh reports for a quiz today — come back tomorrow.</p>
+    ) : (
+      <>
+        <ol class="quiz__list">
+          {questions.map((q) => (
+            <li class="quiz-q" data-answer={q.verdict}>
+              <p class="quiz-q__kicker small-caps">Claim {q.n} of 5 · aired on {q.source}</p>
+              <blockquote class="quiz-q__claim">{q.claim}</blockquote>
+              <div class="quiz-q__opts" role="group" aria-label={`Your verdict on claim ${q.n}`}>
+                {VERDICTS.map((v) => (
+                  <button type="button" class="quiz-q__opt" data-verdict={v} hidden>{label(v)}</button>
+                ))}
+              </div>
+              <details class="quiz-q__reveal">
+                <summary class="small-caps">Reveal Clad's verdict</summary>
+                <div class={`km ${q.verdict === "verified" ? "km--verified" : q.verdict === "disputed" ? "km--disputed" : q.verdict.includes("context") ? "km--context" : "km--unsupported"}`} style="margin-top:0.6rem">
+                  <span class="km__verdict small-caps">{q.verdict}</span>
+                  <p class="km__note">{q.note}</p>
+                  <p class="km__note"><a href={`/posts/${q.slug}/`}>Read the full report →</a></p>
+                </div>
+              </details>
+            </li>
+          ))}
+        </ol>
+
+        <div class="quiz__result" id="quiz-result" hidden>
+          <div class="rule rule--double" aria-hidden="true"></div>
+          <p class="quiz__score">You called <strong id="quiz-score">0</strong> of 5 the way the report did.</p>
+          <p class="quiz__streak small-caps" id="quiz-streak"></p>
+          <div class="quiz__cta">
+            <button type="button" class="quiz__share" id="quiz-share">Share your score</button>
+            <a href="/register/">Free account unlocks every grade →</a>
+          </div>
+        </div>
+        <noscript>
+          <p class="dateline">Reveal each verdict above — every claim links to the full, sourced report.</p>
+        </noscript>
+      </>
+    )}
+  </section>
+
+  <style>
+    .quiz__list { list-style: none; padding: 0; margin: 1.4rem 0; }
+    .quiz-q { border-bottom: 1px solid var(--rule); padding: 1.1rem 0 1.3rem; }
+    .quiz-q__kicker { color: var(--muted-ink); }
+    .quiz-q__claim { margin: 0.5rem 0 0.8rem; padding-left: 0.9rem; border-left: 3px solid var(--ink); font-size: 1.12rem; line-height: 1.45; font-style: italic; }
+    .quiz-q__opts { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.7rem; }
+    .quiz-q__opt { font: inherit; font-size: 0.88rem; padding: 0.35rem 0.8rem; background: transparent; border: 1px solid var(--ink); color: var(--ink); cursor: pointer; }
+    .quiz-q__opt:hover { background: var(--ink); color: var(--paper, #f5edd9); }
+    .quiz-q__opt[data-picked] { outline: 2px solid var(--ink); }
+    .quiz-q__opt[disabled] { opacity: 0.55; cursor: default; }
+    .quiz-q__opt.is-right { background: var(--ink); color: var(--paper, #f5edd9); opacity: 1; }
+    .quiz-q__reveal summary { cursor: pointer; color: var(--muted-ink); }
+    .quiz-q__ruling { margin: 0.6rem 0 0.3rem; line-height: 1.5; }
+    .quiz__score { font-size: 1.25rem; margin: 0.9rem 0 0.3rem; }
+    .quiz__streak { color: var(--muted-ink); }
+    .quiz__cta { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 0.8rem; }
+    .quiz__share { font: inherit; font-size: 0.9rem; padding: 0.4rem 0.9rem; background: transparent; border: 1px solid var(--ink); color: var(--ink); cursor: pointer; }
+  </style>
+
+  <script is:inline>
+    (() => {
+      const quiz = document.querySelector(".quiz");
+      const qs = [...document.querySelectorAll(".quiz-q")];
+      if (!quiz || qs.length === 0) return;
+      const result = document.getElementById("quiz-result");
+      let answered = 0;
+      let score = 0;
+
+      const finish = () => {
+        document.getElementById("quiz-score").textContent = String(score);
+        // Streak lives only in this browser: consecutive Eastern-date plays.
+        const today = quiz.getAttribute("data-today");
+        const yesterday = quiz.getAttribute("data-yesterday");
+        let streak = 1, best = score;
+        try {
+          const last = localStorage.getItem("clad_quiz_last_date");
+          streak = Number(localStorage.getItem("clad_quiz_streak") || "0");
+          best = Number(localStorage.getItem("clad_quiz_best") || "0");
+          if (last !== today) streak = last === yesterday ? streak + 1 : 1;
+          best = Math.max(best, score);
+          localStorage.setItem("clad_quiz_last_date", today);
+          localStorage.setItem("clad_quiz_streak", String(streak));
+          localStorage.setItem("clad_quiz_best", String(best));
+        } catch {}
+        const parts = [];
+        if (streak > 1) parts.push(`${streak}-day streak`);
+        if (best > 0) parts.push(`best score ${best}/5`);
+        document.getElementById("quiz-streak").textContent = parts.join(" · ");
+        result.hidden = false;
+        const share = document.getElementById("quiz-share");
+        share.addEventListener("click", async () => {
+          const text = `I called ${score}/5 on today's CladFacts Morning Quiz — can you spot the spin? https://cladfacts.com/quiz/`;
+          try {
+            if (navigator.share) await navigator.share({ text });
+            else {
+              await navigator.clipboard.writeText(text);
+              share.textContent = "Copied!";
+              setTimeout(() => (share.textContent = "Share your score"), 1800);
+            }
+          } catch {}
+        });
+      };
+
+      for (const q of qs) {
+        const answer = q.getAttribute("data-answer");
+        const opts = [...q.querySelectorAll(".quiz-q__opt")];
+        const reveal = q.querySelector(".quiz-q__reveal");
+        for (const b of opts) {
+          b.hidden = false;
+          b.addEventListener("click", () => {
+            if (q.hasAttribute("data-done")) return;
+            q.setAttribute("data-done", "1");
+            b.setAttribute("data-picked", "1");
+            if (b.getAttribute("data-verdict") === answer) score++;
+            for (const o of opts) {
+              o.disabled = true;
+              if (o.getAttribute("data-verdict") === answer) o.classList.add("is-right");
+            }
+            reveal.open = true;
+            if (++answered === qs.length) finish();
+          });
+        }
+      }
+    })();
+  </script>
+</BaseLayout>

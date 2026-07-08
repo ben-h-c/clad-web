@@ -1,0 +1,13 @@
+---
+import { getCollection } from "astro:content";
+import { weekStartUTC } from "~/lib/trends";
+
+export const prerender = false;
+
+// /week/ → the latest week that has reports. The newsletter and home page
+// link here so they never have to compute the Monday stamp themselves.
+const all = await getCollection("posts", (p) => !p.data.draft);
+if (all.length === 0) return new Response(null, { status: 404 });
+const latest = Math.max(...all.map((p) => weekStartUTC(p.data.publishedAt)));
+return Astro.redirect(`/week/${new Date(latest).toISOString().slice(0, 10)}/`, 302);
+---

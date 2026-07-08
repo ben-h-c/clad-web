@@ -1,0 +1,172 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import GradeBoard from "~/components/GradeBoard.astro";
+import PaywallPanel from "~/components/PaywallPanel.astro";
+import { getAccess } from "~/lib/access";
+import { canonicalTopic, gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
+import { LEAN_THRESHOLD, labelWeek, weekStartUTC } from "~/lib/trends";
+
+export const prerender = false;
+
+// "The Week in Grades" — the Sunday newsletter's signature sections as a
+// permanent, linkable page, so email and web share one artifact. Weeks are
+// Monday-start UTC (the same bucketing as lib/trends); the stamp is the
+// Monday (YYYY-MM-DD) and off-Monday stamps redirect to the canonical one.
+// Gating matches the rest of the site: grade/lean values render only for
+// full-access readers; claim verdicts are free report-body content.
+
+const WEEK_MS = 7 * 86_400_000;
+const iso = (ms: number) => new Date(ms).toISOString().slice(0, 10);
+
+const { stamp } = Astro.params;
+if (!stamp || !/^\d{4}-\d{2}-\d{2}$/.test(stamp)) return new Response(null, { status: 404 });
+const parsed = new Date(`${stamp}T00:00:00Z`);
+if (Number.isNaN(parsed.valueOf())) return new Response(null, { status: 404 });
+const start = weekStartUTC(parsed);
+if (iso(start) !== stamp) return Astro.redirect(`/week/${iso(start)}/`, 301);
+const end = start + WEEK_MS;
+
+const all = (await getCollection("posts", (p) => !p.data.draft))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const week = all.filter((p) => {
+  const t = p.data.publishedAt.valueOf();
+  return t >= start && t < end;
+});
+if (week.length === 0) return new Response(null, { status: 404 });
+
+const starts = [...new Set(all.map((p) => weekStartUTC(p.data.publishedAt)))].sort((a, b) => a - b);
+const prevStart = [...starts].reverse().find((s) => s < start);
+const nextStart = starts.find((s) => s > start);
+
+const access = await getAccess(Astro.request.headers);
+const locked = !access.fullAccess;
+
+// The week in numbers.
+const gpas = week.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n != null);
+const leans = week.map((p) => leanScoreOf(p.data)).filter((n): n is number => n != null);
+const avgGrade = gpas.length ? gpaToGrade(gpas.reduce((a, b) => a + b, 0) / gpas.length) : null;
+let left = 0, center = 0, right = 0;
+for (const l of leans) (l <= -LEAN_THRESHOLD ? left++ : l >= LEAN_THRESHOLD ? right++ : center++);
+
+// Best & worst graded — the newsletter's signature boards.
+const graded = week.filter((p) => gradeToGpa(p.data.letterGrade) != null);
+const best = [...graded]
+  .sort((a, b) => gradeToGpa(b.data.letterGrade)! - gradeToGpa(a.data.letterGrade)!)
+  .slice(0, 3);
+const bestIds = new Set(best.map((p) => p.id));
+const worst = [...graded]
+  .filter((p) => !bestIds.has(p.id))
+  .sort((a, b) => gradeToGpa(a.data.letterGrade)! - gradeToGpa(b.data.letterGrade)!)
+  .slice(0, 3);
+
+// Most disputed claims: posts ranked by how many claims Clad tagged
+// "disputed", then their disputed claims in that order.
+const disputedClaims = [...week]
+  .map((p) => ({ p, claims: (p.data.keyMoments ?? []).filter((m) => m.verdict === "disputed") }))
+  .filter((x) => x.claims.length > 0)
+  .sort((a, b) => b.claims.length - a.claims.length)
+  .flatMap((x) => x.claims.map((m) => ({ claim: m.claim, note: m.note, slug: x.p.id })))
+  .slice(0, 5);
+
+// Blindspots: topics covered 3+ times where at least 70% of the week's
+// coverage leaned the same way — "if you only watched one network…".
+const byTopic = new Map<string, { topic: string; n: number; left: number; right: number }>();
+for (const p of week) {
+  const l = leanScoreOf(p.data);
+  for (const t of p.data.topics) {
+    const key = canonicalTopic(t);
+    const s = byTopic.get(key) ?? { topic: key, n: 0, left: 0, right: 0 };
+    s.n++;
+    if (l != null && l <= -LEAN_THRESHOLD) s.left++;
+    if (l != null && l >= LEAN_THRESHOLD) s.right++;
+    byTopic.set(key, s);
+  }
+}
+const blindspots = [...byTopic.values()]
+  .filter((s) => s.n >= 3 && (s.left / s.n >= 0.7 || s.right / s.n >= 0.7))
+  .sort((a, b) => b.n - a.n)
+  .slice(0, 3)
+  .map((s) => ({ ...s, dir: s.left > s.right ? "the left" : "the right" }));
+
+const label = labelWeek(start);
+const year = new Date(start).getUTCFullYear();
+---
+<BaseLayout
+  title={`The Week in Grades — ${label}, ${year} — Clad`}
+  description={`Clad's week in review for ${label}, ${year}: the best- and worst-graded news coverage, the week's most disputed claims, and where coverage skewed to one side.`}
+>
+  <section class="topic-page week">
+    <p class="small-caps" style="color:var(--muted-ink)">The Record · weekly wrap-up</p>
+    <h1 class="topic-page__title">The Week in Grades</h1>
+    <p class="dateline">
+      {label}, {year} · {week.length} {week.length === 1 ? "report" : "reports"} fact-checked{!locked && avgGrade ? `, averaging a ${avgGrade}` : ""}
+    </p>
+    <div class="rule rule--double" aria-hidden="true"></div>
+
+    <p>
+      Every week Clad wraps up what its fact-checks found: the best- and
+      worst-graded coverage, the claims most disputed by the evidence, and the
+      stories that were covered heavily from one side. This is the same review
+      the <a href="/newsletter/">Sunday newsletter</a> carries — kept here for
+      the record.
+    </p>
+
+    {!locked && leans.length > 0 && (
+      <p>
+        Of the {leans.length} lean-scored reports this week, <strong>{left}</strong> leaned left,
+        <strong> {center}</strong> read centered, and <strong>{right}</strong> leaned right.
+      </p>
+    )}
+
+    {!locked && (best.length > 0 || worst.length > 0) && (
+      <GradeBoard
+        top={best}
+        bottom={worst}
+        title="Top of the Class, Bottom of the Barrel"
+        topLabel="Best graded this week"
+        bottomLabel="Worst graded this week"
+      />
+    )}
+    {locked && <PaywallPanel signedIn={access.signedIn} />}
+
+    {disputedClaims.length > 0 && (
+      <section class="week__mod">
+        <h2 class="feed__title">Most disputed claims</h2>
+        <div class="rule rule--double" aria-hidden="true"></div>
+        {disputedClaims.map((c) => (
+          <div class="km km--disputed">
+            <a class="km__verdict small-caps" href="/learn/#claim-tags" title='What "disputed" means — read the explainer'>disputed</a>
+            <p class="km__claim">{c.claim}</p>
+            <p class="km__note">{c.note} <a href={`/posts/${c.slug}/`}>Read the full report →</a></p>
+          </div>
+        ))}
+      </section>
+    )}
+
+    {!locked && blindspots.length > 0 && (
+      <section class="week__mod">
+        <h2 class="feed__title">Blindspots</h2>
+        <div class="rule rule--double" aria-hidden="true"></div>
+        {blindspots.map((b) => (
+          <p>
+            <strong>{b.topic}</strong> drew {b.n} reports this week, and the coverage leaned
+            heavily toward {b.dir} — if you only watched one network, you likely got one side.
+          </p>
+        ))}
+      </section>
+    )}
+
+    <nav class="week__nav" aria-label="Other weeks">
+      {prevStart != null && <a href={`/week/${iso(prevStart)}/`}>← Week of {labelWeek(prevStart)}</a>}
+      {nextStart != null && <a href={`/week/${iso(nextStart)}/`}>Week of {labelWeek(nextStart)} →</a>}
+    </nav>
+  </section>
+
+  <style>
+    .week__mod { margin-top: 2rem; }
+    .week__mod .km { margin: 1rem 0; }
+    .week__nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2.4rem; padding-top: 0.9rem; border-top: 1px solid var(--rule); }
+    .week__nav a { font-size: 0.92rem; }
+  </style>
+</BaseLayout>

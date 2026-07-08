@@ -84,7 +84,7 @@ export function buildDigest(opts: {
           scoreLine = `<div style="font:600 13px Georgia,serif;color:${INK};margin:2px 0 4px">${bits.join(" &nbsp;·&nbsp; ")}</div>`;
         }
       } else {
-        scoreLine = `<div style="font:13px Georgia,serif;color:${ACCENT};margin:2px 0 4px"><a href="${SITE}/upgrade/" style="color:${ACCENT};text-decoration:none">🔒 Unlock the grade &amp; lean →</a></div>`;
+        scoreLine = `<div style="font:13px Georgia,serif;color:${ACCENT};margin:2px 0 4px"><a href="${SITE}/register/" style="color:${ACCENT};text-decoration:none">🔒 Unlock the grade &amp; lean — free account →</a></div>`;
       }
       const blurb = esc((d.summary || "").slice(0, 160));
       const thumb = thumbUrl(d);

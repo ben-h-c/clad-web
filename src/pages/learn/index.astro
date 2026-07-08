@@ -1,0 +1,117 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+
+export const prerender = false;
+
+// "New to the news?" — evergreen explainers for readers (the charter targets
+// 16–24, including first-time voters). Worked examples are pulled live from
+// recent reports so the links never go stale. Educational copy only: no
+// per-post grade/lean values render here.
+const all = (await getCollection("posts", (p) => !p.data.draft))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const broadcasts = all.filter((p) => p.data.type === "broadcast");
+
+const byVerdict = (v: string, n: number) =>
+  broadcasts.filter((p) => p.data.keyMoments.some((m) => m.verdict === v)).slice(0, n);
+const wellSourced = broadcasts.filter((p) => p.data.citations.length >= 4).slice(0, 3);
+const recent = broadcasts.slice(0, 3);
+const links = (posts: typeof all) => posts.map((p) => ({ href: `/posts/${p.id}/`, label: p.data.headline }));
+
+const sections = [
+  {
+    id: "grades",
+    title: "How Clad grades a broadcast",
+    body: [
+      "Every report starts with what was actually said on air. The load-bearing claims in a segment are checked against primary sources — the bill text, the transcript, the agency data, the original study — and each claim gets a tag: verified, disputed, missing context, or unsupported.",
+      "The letter grade (A+ to F) scores the broadcast's factual accuracy as a whole: how well its claims held up, whether corrections were made on air, and whether the framing matched the evidence. It is a grade for the coverage, not for the people or the politics being covered.",
+      "Every grade is reviewed and approved by the editor before it publishes, and any reader with an account can dispute one — the report is re-run through the same grading logic, and if it doesn't hold up, it comes down.",
+    ],
+    examples: links(recent),
+  },
+  {
+    id: "lean",
+    title: "How to read a political-lean score",
+    body: [
+      "Lean is measured on a -100 to +100 axis: negative numbers lean left, positive numbers lean right, and anything within a few points of zero reads as \"Centered.\" The score reflects cues in the coverage itself — whose voices got airtime, what language framed the story, which counter-evidence was left out.",
+      "Lean is not a verdict on accuracy. A broadcast can lean hard in one direction and still be factually careful, and a \"Centered\" segment can still get its facts wrong. That is why Clad scores them separately — read both numbers, not just one.",
+    ],
+    examples: links(broadcasts.slice(3, 6)),
+  },
+  {
+    id: "claim-tags",
+    title: 'What "missing context" means (and the other claim tags)',
+    body: [
+      "Verified means the claim matched primary sources. Disputed means credible sources contradict it. Unsupported means no good evidence could be found either way. Missing context is the subtle one: the claim is technically true, but leaves out something that would change how you understand it — a base rate, a time frame, who funded the study, what happened next.",
+      "Missing context is how most spin actually works. Very little broadcast news is flatly false; a lot of it is selectively true.",
+    ],
+    examples: links(byVerdict("missing context", 3)),
+  },
+  {
+    id: "sources",
+    title: "Why every report cites its sources",
+    body: [
+      "Every Clad report lists the sources behind its verdicts — typically four to seven, favoring primary documents over other outlets' coverage. The sources are numbered in the report so you can check any claim yourself.",
+      "That is the habit worth building: don't take Clad's word for it either. Click a source. If a claim matters to you, read what it actually rests on. A fact-checker that asks for blind trust has missed its own point.",
+    ],
+    examples: links(wellSourced),
+  },
+  {
+    id: "spot-the-spin",
+    title: "How to spot spin in a broadcast",
+    body: [
+      "A few patterns cover most of it. Loaded language: \"slammed,\" \"gutted,\" \"caved\" tell you how to feel before you know what happened. Selective statistics: a real number with the base rate, time frame, or comparison stripped away. One-sided sourcing: every quoted expert agrees with the segment's framing. The missing \"compared to what\": costs without benefits, risks without baselines. And urgency: rushed certainty about stories that are still developing.",
+      "None of these mean a claim is false — they mean slow down and check. The daily quiz is practice for exactly this reflex.",
+    ],
+    examples: links(byVerdict("disputed", 3)),
+  },
+  {
+    id: "first-vote",
+    title: "A first-time voter's guide to reading political news",
+    body: [
+      "Three habits beat any single source of truth. First, read the claim, not the headline — headlines are written to travel, and they shed nuance on the way. Second, notice who is speaking: campaign surrogates, anonymous officials, and independent analysts are different kinds of evidence. Third, when a story moves you strongly, that is precisely when to check a second source — outrage is the easiest thing to manufacture.",
+      "Clad won't tell you what to think about a policy or a candidate — that is not its job. It grades whether the coverage you're watching told you the truth. What you do with the truth is yours.",
+    ],
+    examples: links(byVerdict("verified", 3)),
+  },
+];
+---
+<BaseLayout
+  title="New to the news? — Clad"
+  description="Six short explainers on how Clad grades news for accuracy and bias — and how to read political news with receipts: claim tags, lean scores, sourcing, and spotting spin."
+>
+  <section class="static-page">
+    <p class="small-caps" style="color:var(--muted-ink)">Learn</p>
+    <h1 class="static-page__title">New to the news?</h1>
+    <p>
+      Clad grades news coverage for factual accuracy and political lean, with sources you can check.
+      These short explainers cover how the grading works and — more usefully — how to read any
+      political news like someone who checks receipts. When you're ready to practice, there's
+      <a href="/quiz/">a new quiz every morning</a>.
+    </p>
+    <div class="rule rule--double" aria-hidden="true"></div>
+
+    {sections.map((s) => (
+      <section id={s.id}>
+        <h2 class="static-page__sub">{s.title}</h2>
+        {s.body.map((para) => <p>{para}</p>)}
+        {s.examples.length > 0 && (
+          <>
+            <p class="static-page__note small-caps">Worked examples</p>
+            <ul>
+              {s.examples.map((e) => (
+                <li><a href={e.href}>{e.label}</a></li>
+              ))}
+            </ul>
+          </>
+        )}
+      </section>
+    ))}
+
+    <div class="rule rule--double" aria-hidden="true"></div>
+    <p>
+      Deeper detail lives in <a href="/how-it-works/">How it works</a>. A
+      <a href="/register/"> free account</a> unlocks every grade and lean rating — no card, no trial clock.
+    </p>
+  </section>
+</BaseLayout>

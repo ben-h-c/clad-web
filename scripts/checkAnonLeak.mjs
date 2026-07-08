@@ -306,6 +306,15 @@ try {
   if (topics.length === 0) fail("/topics/*", "no topic links found on home — topic-page head checks did not run");
   for (const route of topics) await checkHtml(route);
   await checkHtml("/trends/");
+  // The Week in Grades: aggregate grades/leans gate exactly like /trends/.
+  // /week/ 302s to the latest stamped week (checkHtml treats redirects as
+  // failures by design), so resolve the redirect and scan the target page.
+  const wk = await timedFetch(base + "/week/", { redirect: "manual" });
+  const wkLoc = wk.headers.get("location");
+  // Lean by design for anonymous readers (grades/blindspots lock), so guard
+  // against blank, not against small — same bar as the other section pages.
+  if (wk.status >= 300 && wk.status < 400 && wkLoc) await checkHtml(new URL(wkLoc, base).pathname, { minBytes: 800 });
+  else fail("/week/", `expected a redirect to the latest week, got ${wk.status}`);
   await checkHtml("/rss.xml", { minBytes: 1024 });
   await checkHtml("/search/?q=test", { minBytes: 1024 });
   // Auth pages are intentionally lean; guard against blank, not against small.
