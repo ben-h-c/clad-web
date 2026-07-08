@@ -1,0 +1,116 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import ReportCard from "~/components/ReportCard.astro";
+import PaywallPanel from "~/components/PaywallPanel.astro";
+import { getAccess } from "~/lib/access";
+import { leanScoreOf } from "~/lib/topics";
+import { LEAN_THRESHOLD } from "~/lib/trends";
+import { sampleUnlockedId } from "~/lib/sample";
+
+export const prerender = false;
+
+// "Check your bias" — read the same news cycle from the left, the center,
+// and the right. Lane membership discloses each report's lean direction,
+// which is gated — so the lanes render only for full-access readers.
+// Anonymous readers get the method copy, the sanctioned daily sample, and
+// the register panel (a free account unlocks everything anyway).
+const access = await getAccess(Astro.request.headers);
+const locked = !access.fullAccess;
+
+const all = (await getCollection("posts", (p) => !p.data.draft))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+// Lanes draw from the last two weeks of coverage, anchored to the newest
+// post so a publishing pause never empties the page.
+const FRESH_MS = 14 * 86_400_000;
+const newest = all[0]?.data.publishedAt.valueOf() ?? 0;
+const fresh = all.filter((p) => p.data.publishedAt.valueOf() >= newest - FRESH_MS);
+
+const lanes = locked
+  ? []
+  : (() => {
+      const left: typeof all = [], center: typeof all = [], right: typeof all = [];
+      for (const p of fresh) {
+        const l = leanScoreOf(p.data);
+        if (l == null) continue;
+        (l <= -LEAN_THRESHOLD ? left : l >= LEAN_THRESHOLD ? right : center).push(p);
+      }
+      return [
+        { key: "left", title: "Leaning left", blurb: "Coverage whose framing, sourcing, or emphasis leaned left in the last two weeks.", posts: left.slice(0, 6) },
+        { key: "center", title: "Reading centered", blurb: "Coverage with no discernible slant — the control group for your gut reactions.", posts: center.slice(0, 6) },
+        { key: "right", title: "Leaning right", blurb: "Coverage whose framing, sourcing, or emphasis leaned right in the last two weeks.", posts: right.slice(0, 6) },
+      ].filter((s) => s.posts.length > 0);
+    })();
+
+// Report of the Day — today's sample card renders unlocked for restricted readers.
+const sampleId = locked ? sampleUnlockedId(all) : null;
+const samplePost = sampleId ? all.find((p) => p.id === sampleId) : null;
+---
+<BaseLayout
+  title="Check your bias — Clad"
+  description="Read the same news cycle from the left, the center, and the right. Clad scores every broadcast's political lean separately from its accuracy — compare your gut to the receipts."
+>
+  <section class="discover bias">
+    <header class="discover__head">
+      <p class="small-caps discover__eyebrow">The mirror test</p>
+      <h1 class="discover__title">Check your bias</h1>
+      <p class="discover__lede">
+        Everyone has a lens — the fix isn't pretending otherwise, it's reading
+        the same story through more than one. Clad scores every broadcast's
+        <a href="/learn/#lean">political lean</a> separately from its accuracy,
+        so you can deliberately read across the spectrum instead of inside
+        your feed.
+      </p>
+    </header>
+
+    <section class="discover-sec">
+      <h2 class="discover-sec__title">How to use this page</h2>
+      <div class="rule rule--double" aria-hidden="true"></div>
+      <p>
+        Pick a story below that appears in more than one lane, read a report
+        from each side, and notice which framing felt "obviously right" before
+        you checked a single source — that feeling is the bias worth knowing
+        about. Lean is not a verdict on accuracy: a leaning report can be
+        factually careful, and a centered one can get things wrong, which is
+        why every report also carries its own accuracy grade and receipts.
+        When you want a scored version of this exercise,
+        <a href="/quiz/">the Morning Quiz</a> runs every day.
+      </p>
+    </section>
+
+    {!locked &&
+      lanes.map((s) => (
+        <section class="discover-sec">
+          <h2 class="discover-sec__title">{s.title}</h2>
+          <p class="discover-sec__blurb">{s.blurb}</p>
+          <div class="rule rule--double" aria-hidden="true"></div>
+          <div class="feed-list">
+            {s.posts.map((p) => (
+              <ReportCard post={p} variant="bar" />
+            ))}
+          </div>
+        </section>
+      ))}
+
+    {locked && (
+      <section class="discover-sec">
+        <h2 class="discover-sec__title">The lanes unlock free</h2>
+        <p class="discover-sec__blurb">
+          Signed-in readers see the last two weeks of coverage sorted into
+          left, centered, and right lanes — a free account unlocks the sorting
+          along with every grade and lean rating. Here's today's free sample
+          with its full scoreboard:
+        </p>
+        <div class="rule rule--double" aria-hidden="true"></div>
+        {samplePost && (
+          <div class="feed-list">
+            <ReportCard post={samplePost} variant="bar" sample />
+          </div>
+        )}
+      </section>
+    )}
+
+    {locked && <PaywallPanel signedIn={access.signedIn} />}
+  </section>
+</BaseLayout>

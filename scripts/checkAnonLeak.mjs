@@ -290,6 +290,9 @@ try {
   // /discover/ and /good-news/ render a small placeholder when the local KV
   // has no curated collections — low floor tolerates empty-KV dev/CI runs.
   await checkHtml("/discover/", { minBytes: 800 });
+  // Lean-lane hub: lane membership would disclose per-post lean direction,
+  // so anonymous responses must carry no lanes and no lean values at all.
+  await checkHtml("/bias/", { minBytes: 800 });
   await checkHtml("/good-news/", { minBytes: 800 });
   await checkHtml("/newsletter/", { minBytes: 800 });
   // Grade archives: the listing is public (sanctioned owner carve-out — the
