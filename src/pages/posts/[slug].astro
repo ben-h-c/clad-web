@@ -262,6 +262,18 @@ const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id)
       </button>
     </div>
 
+    {isBroadcast && (
+      <details class="embed-grade">
+        <summary class="small-caps">Embed this grade</summary>
+        <p class="embed-grade__hint">
+          Paste this on your site or blog — the badge links readers to the full report
+          (grade values stay in the image, same policy as our share cards).
+        </p>
+        <img src={`/embed/${post.id}.svg`} width="320" height="112" alt={`CladFacts grade badge for: ${d.headline}`} loading="lazy" />
+        <textarea class="embed-grade__code" rows="3" readonly onclick="this.select()">{`<a href="${shareUrl}"><img src="${new URL(`/embed/${post.id}.svg`, Astro.site ?? "https://cladfacts.com").href}" width="320" height="112" alt="CladFacts grade for this report"></a>`}</textarea>
+      </details>
+    )}
+
     {original && (
       <div class="correction-banner" role="note">
         <span class="correction-banner__label">Correction</span>

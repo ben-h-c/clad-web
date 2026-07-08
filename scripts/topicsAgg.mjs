@@ -37,9 +37,21 @@ export function topicSlug(t) {
 const TOPIC_STOP = new Set(
   "the a an of and or to in on for at by with news update updates the".split(" ")
 );
+// Mirror of singularize/topicTokens in src/lib/topics.ts — keep in sync.
+function singularize(w) {
+  if (/(?:ss|us|is)$/.test(w)) return w;
+  if (/(?:sh|ch|x|z|s)es$/.test(w) && w.length >= 6) return w.slice(0, -2);
+  if (w.endsWith("s") && w.length >= 5) return w.slice(0, -1);
+  return w;
+}
 function topicTokens(t) {
   return new Set(
-    t.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter((w) => w.length >= 2 && !TOPIC_STOP.has(w))
+    t
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, " ")
+      .split(/\s+/)
+      .filter((w) => w.length >= 2 && !TOPIC_STOP.has(w))
+      .map(singularize)
   );
 }
 function topicSim(a, b) {

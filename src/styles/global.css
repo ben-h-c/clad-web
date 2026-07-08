@@ -4978,4 +4978,41 @@ a.topic-tag:hover { border-color: var(--ink); text-decoration: underline; }
 .archive-list__item { padding: 0.45rem 0; border-bottom: 1px solid var(--rule); line-height: 1.4; }
 .archive-list__item a { color: inherit; }
 .archive-list__meta { display: block; color: var(--muted-ink); font-size: 0.82rem; }
-.archive-nav { display: flex; gap: 1rem; margin: 1.4rem 0 0; }
+.archive-nav { display: flex; gap: 1rem; margin: 1.4rem 0 0; align-items: baseline; }
+
+/* Reading progress on posts: a hairline of ink along the very top. */
+.read-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 40;
+  pointer-events: none;
+}
+.read-progress__bar {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--ink);
+}
+@media (prefers-reduced-motion: reduce) {
+  .read-progress { display: none; }
+}
+
+/* "Embed this grade" snippet under the post share bar */
+.embed-grade { margin: 0.6rem 0 0.2rem; font-size: 0.9rem; }
+.embed-grade > summary { cursor: pointer; color: var(--muted-ink); }
+.embed-grade__hint { color: var(--muted-ink); font-size: 0.85rem; margin: 0.5rem 0; }
+.embed-grade__code {
+  display: block;
+  width: 100%;
+  max-width: 34rem;
+  margin-top: 0.5rem;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 0.78rem;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--rule);
+  padding: 0.5rem;
+}

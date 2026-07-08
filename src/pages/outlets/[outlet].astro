@@ -92,17 +92,30 @@ const recentWeekly = weekly.slice(-4).reduce((a, b) => a + b, 0);
 const cadence =
   recentWeekly >= 8 ? "several times a week" : recentWeekly >= 3 ? "most weeks" : "as notable segments air";
 
-const latest = posts.slice(0, 12);
+// Every report stays reachable: page 1 keeps the light 12-card profile view,
+// deeper pages walk the full archive. Canonical stays on the bare path.
+const PER_PAGE = 50;
+const pageCount = Math.max(1, Math.ceil(Math.max(0, posts.length - 12) / PER_PAGE) + 1);
+const page = Number(Astro.url.searchParams.get("page") ?? "1");
+if (!Number.isInteger(page) || page < 1 || page > pageCount) {
+  return new Response(null, { status: 404 });
+}
+const latest = page === 1 ? posts.slice(0, 12) : posts.slice(12 + (page - 2) * PER_PAGE, 12 + (page - 1) * PER_PAGE);
+const pageUrl = (n: number) => `/outlets/${Astro.params.outlet}/${n === 1 ? "" : `?page=${n}`}`;
 const desc = metaDescription(
   `${name} fact check: is ${name} accurate and how does it lean? Clad has graded ${posts.length} ${name} broadcast ${posts.length === 1 ? "segment" : "segments"} for factual accuracy, political bias, and social-media reception.`
 );
 ---
 <BaseLayout title={`${name} fact check — accuracy & bias — Clad`} description={desc}>
+  <Fragment slot="head">
+    {page > 1 && <link rel="prev" href={pageUrl(page - 1)} />}
+    {page < pageCount && <link rel="next" href={pageUrl(page + 1)} />}
+  </Fragment>
   <section class="topic-page outlet-page">
     <p class="small-caps" style="color:var(--muted-ink)">
       Outlet profile{established ? "" : " · Independent channel"}
     </p>
-    <h2 class="topic-page__title">{name}</h2>
+    <h1 class="topic-page__title">{name}</h1>
     <p class="dateline">
       {posts.length} graded {posts.length === 1 ? "report" : "reports"} on Clad.
       Volume is public; the outlet's average grade, lean &amp; social sentiment
@@ -157,10 +170,17 @@ const desc = metaDescription(
 
     <div class="rule rule--double" aria-hidden="true" style="margin:1.25rem 0"></div>
 
-    <h3 class="small-caps" style="margin-bottom:0.75rem">Latest reports</h3>
+    <h2 class="small-caps" style="margin-bottom:0.75rem">{page === 1 ? "Latest reports" : "Reports"}</h2>
     <div class="feed-list">
       {latest.map((p) => <ReportCard post={p} variant="bar" locked={locked} />)}
     </div>
+    {pageCount > 1 && (
+      <nav class="archive-nav" aria-label="Outlet report pages">
+        {page > 1 && <a href={pageUrl(page - 1)}>← Newer</a>}
+        <span class="small-caps" style="color:var(--muted-ink)">Page {page} of {pageCount}</span>
+        {page < pageCount && <a href={pageUrl(page + 1)} style="margin-left:auto">Older →</a>}
+      </nav>
+    )}
 
     {locked && <PaywallPanel signedIn={access.signedIn} />}
   </section>
