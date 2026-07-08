@@ -4,6 +4,7 @@
  * shape and prompt mirror the iOS app's BroadcastReview so the website reads
  * as a continuation of the same publication.
  */
+import { canonicalTopic, topicSlug } from "~/lib/topics";
 
 export const LETTER_GRADES = [
   "A+", "A", "A-",
@@ -368,7 +369,20 @@ export function normalizeBroadcast(p: any): BroadcastReport {
   }
   leanScore = Math.max(-100, Math.min(100, Math.round(leanScore)));
 
-  const topics = toStringArray(p?.topics).slice(0, 4);
+  // Fold proposed tags into their canonical buckets at intake so drafts reuse
+  // existing topic names ("Venezuela earthquakes" and "Venezuela earthquake"
+  // shouldn't mint two taxonomy entries); slug-level dedupe drops variants
+  // that only differ in phrasing.
+  const seenTopicSlugs = new Set<string>();
+  const topics = toStringArray(p?.topics)
+    .map((t) => canonicalTopic(t))
+    .filter((t) => {
+      const s = topicSlug(t);
+      if (!s || seenTopicSlugs.has(s)) return false;
+      seenTopicSlugs.add(s);
+      return true;
+    })
+    .slice(0, 4);
   const notableConcerns = toStringArray(p?.notable_concerns).slice(0, 3);
 
   const keyMoments: BroadcastKeyMoment[] = Array.isArray(p?.key_moments)

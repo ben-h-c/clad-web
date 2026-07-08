@@ -77,14 +77,14 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 export const LEAN_THRESHOLD = 8; // |lean| below this counts as center
 const SKEW_THRESHOLD = 25; // |avg lean| at/above this flags a skewed week
 
-function weekStartUTC(d: Date): number {
+export function weekStartUTC(d: Date): number {
   const dt = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
   const day = dt.getUTCDay(); // 0 Sun … 6 Sat
   dt.setUTCDate(dt.getUTCDate() + (day === 0 ? -6 : 1 - day));
   return dt.getTime();
 }
 
-function labelWeek(startMs: number): string {
+export function labelWeek(startMs: number): string {
   const a = new Date(startMs);
   const b = new Date(startMs + 6 * 86_400_000);
   const sameMonth = a.getUTCMonth() === b.getUTCMonth();

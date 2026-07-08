@@ -57,9 +57,24 @@ export interface TopicAgg {
 const TOPIC_STOP = new Set(
   "the a an of and or to in on for at by with news update updates the".split(" ")
 );
+// Conservative singularizer so "Venezuela earthquake" and "Venezuela
+// earthquakes" tokenize identically. Only strips a plain plural when the
+// stem stays ≥4 chars, and never touches -ss/-us/-is endings (congress,
+// virus, crisis) — under-merging beats folding unrelated topics together.
+function singularize(w: string): string {
+  if (/(?:ss|us|is)$/.test(w)) return w;
+  if (/(?:sh|ch|x|z|s)es$/.test(w) && w.length >= 6) return w.slice(0, -2);
+  if (w.endsWith("s") && w.length >= 5) return w.slice(0, -1);
+  return w;
+}
 function topicTokens(t: string): Set<string> {
   return new Set(
-    t.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter((w) => w.length >= 2 && !TOPIC_STOP.has(w))
+    t
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, " ")
+      .split(/\s+/)
+      .filter((w) => w.length >= 2 && !TOPIC_STOP.has(w))
+      .map(singularize)
   );
 }
 // Similarity: 1 if one token set fully contains the other (e.g. "ufc" ⊂

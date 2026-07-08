@@ -25,9 +25,21 @@ const sentiments = locked ? {} : await getSentiments(env.AGENTS);
 const topic = aggregateTopics(all, sentiments).find((t) => t.slug === Astro.params.topic);
 if (!topic) return new Response(null, { status: 404 });
 
-const posts = topic.posts.sort(
+const sorted = topic.posts.sort(
   (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
 );
+
+// Big topics stream hundreds of full cards in one document — paginate so the
+// heaviest pages stay light (INP/LCP). Canonical stays on the bare path
+// (BaseLayout ignores the query string), so pages never compete in search.
+const PER_PAGE = 50;
+const pageCount = Math.max(1, Math.ceil(sorted.length / PER_PAGE));
+const page = Number(Astro.url.searchParams.get("page") ?? "1");
+if (!Number.isInteger(page) || page < 1 || page > pageCount) {
+  return new Response(null, { status: 404 });
+}
+const posts = sorted.slice((page - 1) * PER_PAGE, page * PER_PAGE);
+const pageUrl = (n: number) => `/topics/${topic.slug}/${n === 1 ? "" : `?page=${n}`}`;
 
 // Report of the Day — today's sample card renders unlocked for restricted readers.
 const sampleId = locked ? sampleUnlockedId(all) : null;
@@ -39,11 +51,15 @@ const leanLbl =
     : Math.abs(topic.avgLean) < 5
       ? "Centered"
       : `${Math.abs(topic.avgLean)}% ${topic.avgLean > 0 ? "Right" : "Left"}-leaning`;
-const ogDescription = [
-  `${topic.count} fact-checked ${topic.count === 1 ? "report" : "reports"} on ${topic.display}`,
-  topic.avgGrade ? `avg grade ${topic.avgGrade}` : null,
-  leanLbl,
-].filter(Boolean).join(" · ");
+const countLabel = `${topic.count} fact-checked ${topic.count === 1 ? "report" : "reports"} on ${topic.display}`;
+// Restricted readers (incl. crawlers) get a grade-free description so the
+// topic's avg grade/lean values stay account-gated even in <head> — keyed to
+// fullAccess, same pattern as posts/[slug].astro.
+const ogDescription = !access.fullAccess
+  ? `${countLabel} — every report graded for accuracy and political lean`
+  : [countLabel, topic.avgGrade ? `avg grade ${topic.avgGrade}` : null, leanLbl]
+      .filter(Boolean)
+      .join(" · ");
 ---
 <BaseLayout
   title={`${topic.display} — Clad`}
@@ -53,9 +69,13 @@ const ogDescription = [
   ogImage={`/og/topic-${topic.slug}.png`}
   ogType="website"
 >
+  <Fragment slot="head">
+    {page > 1 && <link rel="prev" href={pageUrl(page - 1)} />}
+    {page < pageCount && <link rel="next" href={pageUrl(page + 1)} />}
+  </Fragment>
   <section class="topic-page">
     <p class="small-caps" style="color:var(--muted-ink)">Topic · {topic.count} {topic.count === 1 ? "report" : "reports"}</p>
-    <h2 class="topic-page__title">{topic.display}</h2>
+    <h1 class="topic-page__title">{topic.display}</h1>
 
     {locked ? (
       <p class="grade-lock-panel" style="margin:0.75rem 0">
@@ -88,5 +108,12 @@ const ogDescription = [
         <ReportCard post={p} variant="bar" locked={locked && p.id !== sampleId} sample={locked && p.id === sampleId} />
       ))}
     </div>
+    {pageCount > 1 && (
+      <nav class="archive-nav" aria-label="Topic pages">
+        {page > 1 && <a href={pageUrl(page - 1)}>← Newer</a>}
+        <span class="small-caps" style="color:var(--muted-ink)">Page {page} of {pageCount}</span>
+        {page < pageCount && <a href={pageUrl(page + 1)} style="margin-left:auto">Older →</a>}
+      </nav>
+    )}
   </section>
 </BaseLayout>

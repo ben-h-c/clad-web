@@ -14,13 +14,23 @@ if (!Number.isInteger(year) || !Number.isInteger(month) || month < 1 || month > 
 }
 
 const all = await getCollection("posts", (p) => !p.data.draft);
-const posts = all
+const monthPosts = all
   .filter((p) => {
     const { y, m } = nyDateParts(p.data.publishedAt);
     return y === year && m === month;
   })
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
-if (posts.length === 0) return new Response(null, { status: 404 });
+if (monthPosts.length === 0) return new Response(null, { status: 404 });
+
+// A month can hold >1,000 reports; even as a light link list that outgrows a
+// sane document. Paginate; canonical stays on the bare path (query ignored).
+const PER_PAGE = 250;
+const pageCount = Math.max(1, Math.ceil(monthPosts.length / PER_PAGE));
+const page = Number(Astro.url.searchParams.get("page") ?? "1");
+if (!Number.isInteger(page) || page < 1 || page > pageCount) {
+  return new Response(null, { status: 404 });
+}
+const posts = monthPosts.slice((page - 1) * PER_PAGE, page * PER_PAGE);
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -40,15 +50,22 @@ const next = month === 12 ? { y: year + 1, m: 1 } : { y: year, m: month + 1 };
 const hasPrev = monthKeys.has(`${prev.y}-${prev.m}`);
 const hasNext = monthKeys.has(`${next.y}-${next.m}`);
 const monthUrl = (d: { y: number; m: number }) => `/archive/${d.y}/${String(d.m).padStart(2, "0")}/`;
+const pageUrl = (n: number) => `${monthUrl({ y: year, m: month })}${n === 1 ? "" : `?page=${n}`}`;
 ---
 <BaseLayout
   title={`${label} archive — Clad`}
   description={`All ${posts.length} fact-checked CladFacts reports from ${label}.`}
 >
+  <Fragment slot="head">
+    {page > 1 && <link rel="prev" href={pageUrl(page - 1)} />}
+    {page < pageCount && <link rel="next" href={pageUrl(page + 1)} />}
+  </Fragment>
   <section class="topic-page">
     <p class="small-caps" style="color:var(--muted-ink)"><a href="/archive/">Archive</a></p>
-    <h2 class="topic-page__title">{label}</h2>
-    <p class="dateline">{posts.length.toLocaleString("en-US")} reports.</p>
+    <h1 class="topic-page__title">{label}</h1>
+    <p class="dateline">
+      {monthPosts.length.toLocaleString("en-US")} reports.{pageCount > 1 ? ` Page ${page} of ${pageCount}.` : ""}
+    </p>
     <div class="rule rule--double" aria-hidden="true"></div>
     <ol class="archive-list">
       {posts.map((p) => (
@@ -60,6 +77,13 @@ const monthUrl = (d: { y: number; m: number }) => `/archive/${d.y}/${String(d.m)
         </li>
       ))}
     </ol>
+    {pageCount > 1 && (
+      <nav class="archive-nav" aria-label="Month pages">
+        {page > 1 && <a href={pageUrl(page - 1)}>← Newer</a>}
+        <span class="small-caps" style="color:var(--muted-ink)">Page {page} of {pageCount}</span>
+        {page < pageCount && <a href={pageUrl(page + 1)} style="margin-left:auto">Older →</a>}
+      </nav>
+    )}
     <nav class="archive-nav" aria-label="Archive months">
       {hasPrev && <a href={monthUrl(prev)}>← {MONTHS[prev.m - 1]} {prev.y}</a>}
       {hasNext && <a href={monthUrl(next)} style="margin-left:auto">{MONTHS[next.m - 1]} {next.y} →</a>}

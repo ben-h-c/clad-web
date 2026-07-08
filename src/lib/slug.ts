@@ -1,3 +1,5 @@
+import { nyDateParts } from "~/lib/dateline";
+
 export function slugify(input: string): string {
   let s = input
     .toLowerCase()
@@ -17,9 +19,10 @@ export function slugify(input: string): string {
   return s.replace(/-+$/, "");
 }
 
+// Slug dates use the newsroom's Eastern clock (same as the dateline) so the
+// URL prefix matches the displayed publish date. Existing slugs are permalinks
+// — this affects future posts only.
 export function datedSlug(headline: string, when: Date = new Date()): string {
-  const y = when.getUTCFullYear();
-  const m = String(when.getUTCMonth() + 1).padStart(2, "0");
-  const d = String(when.getUTCDate()).padStart(2, "0");
-  return `${y}-${m}-${d}-${slugify(headline)}`;
+  const { y, m, d } = nyDateParts(when);
+  return `${y}-${String(m).padStart(2, "0")}-${String(d).padStart(2, "0")}-${slugify(headline)}`;
 }

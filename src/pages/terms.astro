@@ -3,7 +3,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "public, max-age=300");
-const updated = "June 16, 2026";
+const updated = "July 7, 2026";
 const STATE = "Georgia";
 const VENUE = "Forsyth County, Georgia";
 ---
@@ -12,7 +12,7 @@ const VENUE = "Forsyth County, Georgia";
   description="The terms governing use of CladFacts (cladfacts.com): accounts, paid subscriptions, editorial commentary, acceptable use, disclaimers, and dispute resolution."
 >
   <article class="static-page legal">
-    <h2 class="static-page__title">Terms of Use</h2>
+    <h1 class="static-page__title">Terms of Use</h1>
     <p class="dateline">Last updated: {updated}</p>
 
     <p>
@@ -71,9 +71,11 @@ const VENUE = "Forsyth County, Georgia";
 
     <h3 class="static-page__sub">4. Subscriptions, billing, and cancellation</h3>
     <p>
-      We offer free access to parts of the Services and paid "Premium" plans that
-      unlock additional features (such as letter grades, political-lean ratings, and
-      certain pages). The following terms apply to paid plans:
+      Report text can be read without an account. Creating a free account unlocks
+      the full ratings features (including letter grades, factuality scores, and
+      political-lean ratings) at no charge. We also offer paid "Premium" plans — a
+      supporter tier that unlocks additional features (such as posting Reader
+      Reactions). The following terms apply to paid plans:
     </p>
     <ul>
       <li>
@@ -82,11 +84,11 @@ const VENUE = "Forsyth County, Georgia";
         of any applicable taxes, which may be added.
       </li>
       <li>
-        <strong>Free trial.</strong> New accounts may receive a free trial period of
-        full access. Unless you cancel before the trial ends, access converts to a
-        paid subscription and your payment method is charged at the then-current
-        price. We may limit eligibility for, or modify or discontinue, trials at any
-        time.
+        <strong>Trials.</strong> We do not currently offer free trials of Premium —
+        a free account already includes grades and ratings. If we offer a
+        promotional trial in the future, its terms will be disclosed at sign-up
+        and, unless you cancel before the trial ends, it converts to a paid
+        subscription charged at the then-current price.
       </li>
       <li>
         <strong>Automatic renewal.</strong> Subscriptions <strong>renew

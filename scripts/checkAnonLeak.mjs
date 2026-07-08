@@ -1,8 +1,11 @@
 /**
  * Anonymous-leak + empty-body guard. Fetches key routes with NO cookies and
  * asserts (a) pages render a real body (regression guard against blank SSR
- * pages) and (b) none of the Premium-gated markup — letter grade, factuality
- * score, political lean, rationales — reaches anonymous HTML or JSON.
+ * pages), (b) none of the Premium-gated markup — letter grade, factuality
+ * score, political lean, rationales — reaches anonymous HTML or JSON, and
+ * (c) no gated VALUES reach the <head> either — meta description, og: and
+ * twitter: tags, <title>, or JSON-LD blocks (the P0-3 leak class: crawlers
+ * and unfurl cards read head metadata, so it is gated like the body).
  *
  * Subtrees marked data-sample-unlocked are stripped before asserting: that
  * attribute is the one sanctioned "free sample" carve-out (at most one
@@ -133,6 +136,26 @@ function stripSampleUnlocked(html) {
   }
 }
 
+/** Text a crawler reads without the body: <title>, the content attribute of
+ *  meta description / og: / twitter: tags, and JSON-LD script bodies
+ *  (emitted in <head>, but matched document-wide to be safe). */
+function headMetaText(html) {
+  const parts = [];
+  const head = /<head[\s\S]*?<\/head>/i.exec(html)?.[0] ?? "";
+  const title = /<title[^>]*>([\s\S]*?)<\/title>/i.exec(head);
+  if (title) parts.push(title[1]);
+  for (const tag of head.match(/<meta\s[^>]*>/gi) ?? []) {
+    const name = /\b(?:name|property)="([^"]*)"/i.exec(tag)?.[1] ?? "";
+    if (name !== "description" && !name.startsWith("og:") && !name.startsWith("twitter:")) continue;
+    const content = /\bcontent="([^"]*)"/i.exec(tag)?.[1];
+    if (content) parts.push(content);
+  }
+  const ldRe = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
+  let m;
+  while ((m = ldRe.exec(html))) parts.push(m[1]);
+  return parts.join("\n");
+}
+
 /** Visible-text byte length, tags and script/style bodies stripped. */
 function textBytes(html) {
   const text = html
@@ -150,6 +173,18 @@ const LEAK_PATTERNS = [
   [/class="senti\b|class="senti |Social Sentiment</, "social-sentiment markup (SocialSentiment.astro)"],
   [/class="senti-rationale/, "social-reaction summary markup (posts/[slug].astro)"],
   [/Social reception/i, "social-reception analytics markup (trends.astro/HomeCharts.astro)"],
+];
+
+// Head metadata is held to the same gate as the body, but with VALUE-form
+// patterns only: free marketing copy ("graded for accuracy", "every grade")
+// and the sanctioned /grades/{letter}/ identity copy ("Reports graded B") must
+// keep passing, so these match the gated numbers/labels, not the word "grade".
+const HEAD_LEAK_PATTERNS = [
+  [/\bavg(?:erage)? grade\b/i, "aggregate avg-grade text (topics/outlets/breaking head metadata)"],
+  [/\bGrade: [A-F](?:[+-]|\b)/, "letter-grade value (posts ogDescription)"],
+  [/\bFactuality (?:score )?\d+\s*\/\s*100/i, "factuality score"],
+  [/\b\d+% (Left|Right)-leaning/, "lean percentage"],
+  [/·\s*Centered\b/, "aggregate lean label (Centered)"],
 ];
 
 const failures = [];
@@ -181,6 +216,12 @@ async function checkHtml(route, { minBytes = 2048, post = null } = {}) {
   }
   for (const [re, what] of LEAK_PATTERNS) {
     if (re.test(html)) fail(route, `anonymous leak: ${what} matched ${re}`);
+  }
+  // Head scan runs on the RAW response: the daily-sample carve-out is a body
+  // subtree only — even the sample post's head metadata must stay grade-free.
+  const headText = headMetaText(raw);
+  for (const [re, what] of HEAD_LEAK_PATTERNS) {
+    if (re.test(headText)) fail(route, `anonymous head leak: ${what} matched ${re}`);
   }
   if (post?.gradeRationale) {
     const snippet = String(post.gradeRationale).slice(0, 60);
@@ -256,7 +297,24 @@ try {
   // locked variant: no grade/lean/sentiment markup beyond the daily sample.
   await checkHtml("/grades/b/", { minBytes: 800 });
   await checkHtml("/grades/f/", { minBytes: 800 });
+  // Topic hubs: aggregate avg grade/lean must stay out of anonymous head
+  // metadata (the live P0-3 leak, 2026-07-07). Slugs are content-derived
+  // (aggregateTopics clusters tags), so scrape them from home the way the
+  // breaking routes are; unlike breaking they come from repo posts, not KV,
+  // so finding none means the check itself is broken — fail loudly.
+  const topics = [...new Set(homeHtml.match(/\/topics\/[a-z0-9-]+\//g) ?? [])].slice(0, 2);
+  if (topics.length === 0) fail("/topics/*", "no topic links found on home — topic-page head checks did not run");
+  for (const route of topics) await checkHtml(route);
   await checkHtml("/trends/");
+  // The Week in Grades: aggregate grades/leans gate exactly like /trends/.
+  // /week/ 302s to the latest stamped week (checkHtml treats redirects as
+  // failures by design), so resolve the redirect and scan the target page.
+  const wk = await timedFetch(base + "/week/", { redirect: "manual" });
+  const wkLoc = wk.headers.get("location");
+  // Lean by design for anonymous readers (grades/blindspots lock), so guard
+  // against blank, not against small — same bar as the other section pages.
+  if (wk.status >= 300 && wk.status < 400 && wkLoc) await checkHtml(new URL(wkLoc, base).pathname, { minBytes: 800 });
+  else fail("/week/", `expected a redirect to the latest week, got ${wk.status}`);
   await checkHtml("/rss.xml", { minBytes: 1024 });
   await checkHtml("/search/?q=test", { minBytes: 1024 });
   // Auth pages are intentionally lean; guard against blank, not against small.

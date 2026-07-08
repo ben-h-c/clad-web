@@ -1,0 +1,50 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+
+export const prerender = false;
+
+// Landing page for students and young readers: the receipts-first pitch.
+// Copy-only — no gated values, no invented programs or statistics.
+---
+<BaseLayout
+  title="Clad for students — fact-checked news with receipts"
+  description="Every grade comes with sources you can check. Free accounts unlock every accuracy grade and bias rating — built for readers who want receipts, not vibes."
+>
+  <section class="static-page">
+    <p class="small-caps" style="color:var(--muted-ink)">For students</p>
+    <h1 class="static-page__title">News with receipts</h1>
+    <p>
+      You've been told your whole life not to trust everything you read. Fair. Clad is built for
+      exactly that instinct: every news broadcast we review gets its load-bearing claims checked
+      against primary sources, and every verdict lists the receipts — so you don't have to take
+      our word for it either.
+    </p>
+
+    <h2 class="static-page__sub">What you get, free</h2>
+    <p>
+      A free account unlocks the full scoreboard on every report: the accuracy grade (A+ to F),
+      the political-lean rating, factuality scores, and the trends dashboards. No card, no trial
+      clock, no "first month free" tricks — the grades are free because grades you have to pay
+      to see are just another paywall opinion.
+    </p>
+    <ul>
+      <li><strong><a href="/learn/">Learn the method</a></strong> — six short explainers: how grading works, how to read a lean score, how spin actually operates.</li>
+      <li><strong><a href="/quiz/">The Morning Quiz</a></strong> — five real claims from this week's news, every day. Call the verdicts, build a streak, check the receipts.</li>
+      <li><strong><a href="/newsletter/">The weekly newsletter</a></strong> — the week's best and worst coverage, one email, Sunday.</li>
+      <li><strong><a href="/search/">Search everything</a></strong> — writing a paper? Every report cites 4–7 primary sources you can chase down.</li>
+    </ul>
+
+    <h2 class="static-page__sub">Why trust this?</h2>
+    <p>
+      Don't — check it. That's the design. Reports are AI-drafted, human-edited, and every claim
+      verdict links to the sources behind it. If you think a grade is wrong, any account can
+      dispute it and the report gets re-examined; if it doesn't hold up, it comes down. The
+      <a href="/corrections/">corrections log</a> is public, and so is
+      <a href="/about/#funding"> who pays for all of this</a> (subscribers — no ads, no sponsors).
+    </p>
+
+    <p style="margin-top:1.6rem">
+      <a href="/register/"><strong>Create a free account →</strong></a>
+    </p>
+  </section>
+</BaseLayout>

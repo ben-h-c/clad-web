@@ -22,7 +22,7 @@ function verdictClass(v: string): string {
   <div class="key-moments__list">
     {moments.map((m) => (
       <div class={`km ${verdictClass(m.verdict)}`}>
-        <span class="km__verdict small-caps">{m.verdict}</span>
+        <a class="km__verdict small-caps" href="/learn/#claim-tags" title={`What "${m.verdict}" means — read the explainer`}>{m.verdict}</a>
         <p class="km__claim">{m.claim}</p>
         {m.note && <p class="km__note">{m.note}</p>}
       </div>

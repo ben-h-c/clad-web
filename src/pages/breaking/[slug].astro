@@ -45,7 +45,7 @@ const avgGrade = gpas.length ? gpaToGrade(gpas.reduce((a, b) => a + b, 0) / gpas
 const avgLean = leans.length ? Math.round(leans.reduce((a, b) => a + b, 0) / leans.length) : null;
 
 // Coverage balance: bucket member leans with the site-wide ±LEAN_THRESHOLD
-// convention (Premium-gated, same policy as avgLean above).
+// convention (account-gated, same policy as avgLean above).
 const left = leans.filter((l) => l <= -LEAN_THRESHOLD).length;
 const right = leans.filter((l) => l >= LEAN_THRESHOLD).length;
 const center = leans.length - left - right;
@@ -72,7 +72,7 @@ const pageTitle = `${hubName} — developing story, ${members.length} graded rep
     <p class="small-caps" style="color:var(--muted-ink)">
       {group.topic ? `${group.topic} · ` : ""}Developing story · {members.length} reports
     </p>
-    <h2 class="topic-page__title">{group.title}</h2>
+    <h1 class="topic-page__title">{group.title}</h1>
 
     {locked ? (
       <p class="grade-lock-panel" style="margin:0.75rem 0">

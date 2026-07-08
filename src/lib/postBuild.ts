@@ -16,7 +16,7 @@ export interface BuildOptions {
   draft?: boolean;
   kicker?: string;
   correctionOf?: string;
-  publishedAt?: string; // ISO date; defaults to today (UTC)
+  publishedAt?: string; // ISO datetime; defaults to now
   thumbnail?: string; // resolved working thumbnail; falls back to the YouTube still
 }
 
@@ -29,7 +29,9 @@ export function buildBroadcastFrontmatter(
     headline: report.headline,
     kicker: opts.kicker,
     summary: report.summary,
-    publishedAt: opts.publishedAt ?? new Date().toISOString().slice(0, 10),
+    // Full timestamp (not a bare date): a date-only value parses as UTC
+    // midnight, which the Eastern dateline renders as the previous day.
+    publishedAt: opts.publishedAt ?? new Date().toISOString(),
     sourceUrl: opts.sourceUrl,
     sourceTitle: opts.sourceTitle,
     section: "Politics",

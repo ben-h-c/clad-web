@@ -30,7 +30,8 @@ const STRIPE_API = (path: string) => path.startsWith("/api/stripe/");
 const PUBLIC_API = (path: string) =>
   path === "/api/flag" ||
   path.startsWith("/api/auth/") ||
-  // Server-side site search — public; grades are nulled inside for free users.
+  // Server-side site search — public; the route nulls grades/lean for
+  // anonymous requests (any signed-in account gets full access).
   path === "/api/search" ||
   path === "/api/posts.json" ||
   path.startsWith("/api/posts/") ||
@@ -59,11 +60,20 @@ const UNCACHEABLE_PAGE = (path: string) =>
   path.startsWith("/goodbye/") ||
   path.startsWith("/recent/");
 
+// Copy-critical marketing pages: pricing and tier copy must not sit in the
+// shared cache for five minutes after a wording change, so they get a 60s TTL.
+const LOW_TTL_PAGE = (path: string) =>
+  path === "/upgrade" ||
+  path === "/upgrade/" ||
+  path === "/how-it-works" ||
+  path === "/how-it-works/";
+
 /**
  * Cache policy for HTML pages. Anonymous GETs are shared-cacheable for five
- * minutes (stale-while-revalidate covers the gap between publishes) so the
- * edge can serve fast, fresh pages; the deploy pipeline purges the zone so
- * nothing outlives a release. Any request carrying a session cookie — or any
+ * minutes (one minute for copy-critical marketing pages;
+ * stale-while-revalidate covers the gap between publishes) so the edge can
+ * serve fast, fresh pages; the deploy pipeline purges the zone so nothing
+ * outlives a release. Any request carrying a session cookie — or any
  * response that sets one — stays private: page HTML varies by tier
  * (grades/lean render for full-access readers) and must never be stored in a
  * shared cache.
@@ -72,6 +82,8 @@ function applyCachePolicy(context: { request: Request }, path: string, response:
   const hasSession = (context.request.headers.get("cookie") ?? "").includes("session_token");
   if (hasSession || response.headers.has("set-cookie") || UNCACHEABLE_PAGE(path)) {
     response.headers.set("Cache-Control", "private, no-store");
+  } else if (LOW_TTL_PAGE(path)) {
+    response.headers.set("Cache-Control", "public, s-maxage=60, stale-while-revalidate=600");
   } else {
     response.headers.set("Cache-Control", "public, s-maxage=300, stale-while-revalidate=600");
   }
