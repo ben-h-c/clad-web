@@ -92,24 +92,25 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
         });
       }
     </script>
-    <!-- Apply the saved theme before first paint so dark mode doesn't flash.
-         No saved choice → the Evening Edition: dark after 7pm local, light by
-         day. A manual toggle (Masthead) always wins once made. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f5edd9" />
+    <!-- Light is the default for everyone. We apply a saved theme before first
+         paint only so a returning reader who chose dark doesn't flash light.
+         Dark mode is opt-in via the Masthead toggle (persisted as clad_theme);
+         we intentionally do NOT auto-switch to dark from the OS or time of day. -->
     <script is:inline>
       try {
         var t = localStorage.getItem("clad_theme");
         if (t === "dark" || t === "light") {
           document.documentElement.dataset.theme = t;
-        } else {
-          var h = new Date().getHours();
-          if (h >= 19 || h < 6) document.documentElement.dataset.theme = "dark";
+        }
+        if (t === "dark") {
+          var tc = document.querySelector('meta[name="theme-color"]');
+          if (tc) tc.setAttribute("content", "#181612");
         }
       } catch {}
     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5edd9" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181612" />
     <meta name="google-site-verification" content="OYUpYStZyOvXegnN47Cnf17Ay6-ZtZSQtGrTjwBW5Zs" />
     <meta name="description" content={metaDescription} />
     {/* Large image previews in Google Discover/Top Stories; per-post OG
