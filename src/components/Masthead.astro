@@ -56,7 +56,7 @@ const homeHref = isAdmin ? "/admin/" : "/";
     </a>
   )}
   {!isAdmin && (
-    <button type="button" class="masthead__theme" id="theme-toggle" aria-label="Evening Edition — toggle light or dark reading" title="Evening Edition — toggle light or dark reading">◐</button>
+    <button type="button" class="masthead__theme" id="theme-toggle" aria-label="Toggle light or dark reading" title="Toggle light or dark reading">◐</button>
   )}
   {!isAdmin && (
     <a class="masthead__account small-caps" id="masthead-account" href="/login/">Sign in</a>
@@ -75,17 +75,17 @@ const homeHref = isAdmin ? "/admin/" : "/";
       const menu = document.querySelector(".masthead__menu");
       if (menu && menu.open && !menu.contains(e.target)) menu.open = false;
     });
-    // Manual light/dark toggle; persists across visits and overrides the OS.
+    // Manual light/dark toggle; persists across visits. Light is the default,
+    // so an unset theme counts as light (we do not follow the OS preference).
     const themeBtn = document.getElementById("theme-toggle");
     if (themeBtn) {
       themeBtn.addEventListener("click", () => {
         const root = document.documentElement;
-        const effective =
-          root.dataset.theme ||
-          (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-        const next = effective === "dark" ? "light" : "dark";
+        const next = root.dataset.theme === "dark" ? "light" : "dark";
         root.dataset.theme = next;
         try { localStorage.setItem("clad_theme", next); } catch {}
+        const tc = document.querySelector('meta[name="theme-color"]');
+        if (tc) tc.setAttribute("content", next === "dark" ? "#181612" : "#f5edd9");
       });
     }
     // Reflect signed-in state (static pages can't know it server-side).

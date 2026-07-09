@@ -5,6 +5,10 @@
  */
 
 :root {
+  /* Light is the default reading theme for everyone. color-scheme: light keeps
+     native controls/scrollbars light even on an OS set to dark — dark mode is
+     opt-in only (see the data-theme="dark" block below and the Masthead toggle). */
+  color-scheme: light;
   --paper: rgb(245, 237, 217);
   --ink: rgb(26, 20, 13);
   --muted-ink: rgb(110, 94, 77);
@@ -26,10 +30,10 @@
   --gutter: 1.25rem;
 }
 
-/* Dark palette. Two entry points: an explicit data-theme="dark" (manual toggle,
-   persisted in localStorage as clad_theme) and the OS preference when no manual
-   choice was made. The two blocks below MUST stay in sync — CSS can't share a
-   declaration list between an attribute selector and a media query. */
+/* Dark palette — applied ONLY when the reader has explicitly opted in via the
+   Masthead toggle (persisted in localStorage as clad_theme, reflected as
+   data-theme="dark"). Light is the default for everyone; we intentionally do
+   NOT auto-apply dark from the OS preference or time of day. */
 :root[data-theme="dark"] {
   --paper: rgb(24, 22, 18);
   --ink: rgb(232, 224, 205);
@@ -43,22 +47,6 @@
   --tint-3: rgba(245, 237, 217, 0.16);
   --shadow: rgba(0, 0, 0, 0.6);
   color-scheme: dark;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: rgb(24, 22, 18);
-    --ink: rgb(232, 224, 205);
-    --muted-ink: rgb(158, 145, 125);
-    --rule: rgb(200, 190, 168);
-    --red-ink: rgb(214, 92, 78);
-    --accent: rgb(206, 84, 66);
-    --accent-soft: rgba(206, 84, 66, 0.12);
-    --tint-1: rgba(245, 237, 217, 0.05);
-    --tint-2: rgba(245, 237, 217, 0.09);
-    --tint-3: rgba(245, 237, 217, 0.16);
-    --shadow: rgba(0, 0, 0, 0.6);
-    color-scheme: dark;
-  }
 }
 
 * {
