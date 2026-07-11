@@ -8,7 +8,7 @@
  *    generate an editorial illustration from the headline with xAI's image model,
  *    commit it into the repo under public/, and return its static path.
  */
-import { commitBinaryFile } from "~/lib/github";
+import { commitBinaryFile } from "./github.ts";
 
 const XAI_IMAGE_ENDPOINT = "https://api.x.ai/v1/images/generations";
 const XAI_IMAGE_MODEL = "grok-imagine-image";

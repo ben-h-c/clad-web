@@ -16,7 +16,7 @@
  * docs/daily-review.md ("Constraints") before changing it.
  */
 import { env } from "cloudflare:workers";
-import { getSessionUser } from "./user-data";
+import { getSessionUser } from "./user-data.ts";
 
 export type Tier = "paid" | "free" | "anon";
 

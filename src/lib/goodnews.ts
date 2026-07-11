@@ -17,7 +17,7 @@
  * to this page. Kept in sync by hand.
  */
 import type { CollectionEntry } from "astro:content";
-import type { GoodNewsSection } from "~/lib/agents";
+import type { GoodNewsSection } from "./agents.ts";
 
 type Post = CollectionEntry<"posts">;
 

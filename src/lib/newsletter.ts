@@ -6,7 +6,7 @@
  * stories plus an upgrade nudge in place of the graded sections.
  */
 import type { CollectionEntry } from "astro:content";
-import { gradeToGpa, gpaToGrade, leanScoreOf } from "./topics";
+import { gradeToGpa, gpaToGrade, leanScoreOf } from "./topics.ts";
 
 const SITE = "https://cladfacts.com";
 const INK = "#1a140d";

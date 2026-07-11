@@ -5,7 +5,7 @@
  * the KV sentiment map — an average social-media sentiment.
  */
 import type { CollectionEntry } from "astro:content";
-import type { SentimentMap } from "./agents";
+import type { SentimentMap } from "./agents.ts";
 
 const GPA: Record<string, number> = {
   "A+": 12, A: 11, "A-": 10, "B+": 9, B: 8, "B-": 7,

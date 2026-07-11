@@ -3,9 +3,9 @@
  * publish endpoint and the agent approve path so a hand-published post and an
  * agent-approved post are byte-identical in shape.
  */
-import type { BroadcastReport } from "~/lib/broadcast";
-import type { Frontmatter } from "~/lib/yaml";
-import { thumbnailUrl } from "~/lib/youtube";
+import type { BroadcastReport } from "./broadcast.ts";
+import type { Frontmatter } from "./yaml.ts";
+import { thumbnailUrl } from "./youtube.ts";
 
 export interface BuildOptions {
   sourceUrl: string;

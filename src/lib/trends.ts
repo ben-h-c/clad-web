@@ -6,8 +6,8 @@
  * Trends page can call them out.
  */
 import type { CollectionEntry } from "astro:content";
-import type { SentimentMap } from "./agents";
-import { canonicalTopic, gradeToGpa, gpaToGrade, leanScoreOf } from "./topics";
+import type { SentimentMap } from "./agents.ts";
+import { canonicalTopic, gradeToGpa, gpaToGrade, leanScoreOf } from "./topics.ts";
 
 export interface WeekHeadline {
   slug: string;

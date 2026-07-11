@@ -3,7 +3,7 @@
  * (fetchVisitorStats) — returns null until Cloudflare Web Analytics is wired.
  */
 import { getCollection } from "astro:content";
-import { listDrafts, getRegistry } from "~/lib/agents";
+import { listDrafts, getRegistry } from "./agents.ts";
 
 export interface ContentStats {
   total: number;

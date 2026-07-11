@@ -1,6 +1,6 @@
 import { env } from "cloudflare:workers";
-import { getAuth } from "./auth-server";
-import { cancelSubscription } from "./stripe";
+import { getAuth } from "./auth-server.ts";
+import { cancelSubscription } from "./stripe.ts";
 
 export interface UserPrefs {
   newsletter: boolean;

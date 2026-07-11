@@ -9,7 +9,7 @@
  * article/card subtree MUST carry data-sample-unlocked="true" so the
  * anonymous-leak checker can strip it before asserting.
  */
-import { nyDateParts } from "./dateline";
+import { nyDateParts } from "./dateline.ts";
 
 /** Newest N graded broadcasts rotate through the daily sample slot. */
 const POOL_SIZE = 14;
