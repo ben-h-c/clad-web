@@ -213,7 +213,7 @@ const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id)
   <article class="post" data-sample-unlocked={isSample && !access.fullAccess ? "true" : undefined}>
     <div class="post__kicker">
       {locked ? (
-        <span class="grade-lock" aria-label="Premium"><span aria-hidden="true">🔒</span> Grade — Premium</span>
+        <span class="grade-lock" aria-label="Locked — the grade unlocks with a free account"><span aria-hidden="true">🔒</span> Grade — free with account</span>
       ) : isBroadcast ? (
         <LetterGrade grade={d.letterGrade!} />
       ) : (

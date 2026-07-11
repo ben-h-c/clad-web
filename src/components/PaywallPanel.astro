@@ -15,13 +15,12 @@ const { signedIn } = Astro.props;
     unlock with a free account. No card, no trial clock.
   </p>
   <div class="paywall__cta">
-    {signedIn ? (
-      <a class="auth-submit" href="/login/">Sign in to unlock</a>
-    ) : (
-      <a class="auth-submit" href="/register/">Create free account</a>
-    )}
+    <a class="auth-submit" href="/register/">Create free account</a>
     <a class="auth-submit secondary" href="/upgrade/">Support Clad — Premium from {PRICE.monthly}/mo</a>
   </div>
+  {!signedIn && (
+    <p class="paywall__signin">Already have an account? <a href="/login/">Sign in</a>.</p>
+  )}
   <button type="button" class="auth-submit js-app-purchase">Go Premium</button>
   <p class="paywall__legal" data-app-hide>
     CladFacts Premium — auto-renewing supporter subscription, {PRICE.monthly}/mo or

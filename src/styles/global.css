@@ -4548,6 +4548,8 @@ button.small {
 }
 .paywall__lede { max-width: 38rem; margin: 0 auto 1rem; color: var(--ink); line-height: 1.5; }
 .paywall__cta { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
+.paywall__signin { margin: 0.6rem 0 0; font-size: 0.92rem; color: var(--muted-ink); }
+.paywall__signin a { color: inherit; text-decoration: underline; }
 
 .preview-feed__tag { color: var(--muted-ink); }
 .preview-list { list-style: none; margin: 0.5rem 0 0; padding: 0; }

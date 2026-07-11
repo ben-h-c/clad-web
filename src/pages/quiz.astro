@@ -152,7 +152,8 @@ const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
         result.hidden = false;
         const share = document.getElementById("quiz-share");
         share.addEventListener("click", async () => {
-          const text = `I called ${score}/5 on today's CladFacts Morning Quiz — can you spot the spin? https://cladfacts.com/quiz/`;
+          const streakBit = streak > 1 ? ` (${streak}-day streak)` : "";
+          const text = `I called ${score}/5 on today's CladFacts Morning Quiz${streakBit} — can you spot the spin? https://cladfacts.com/quiz/`;
           try {
             if (navigator.share) await navigator.share({ text });
             else {

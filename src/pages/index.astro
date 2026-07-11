@@ -18,7 +18,7 @@ import { aggregateTopics, gradeToGpa, leanScoreOf } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
 import { sampleUnlockedId } from "~/lib/sample";
-import { APP_STORE_URL } from "~/lib/app-store";
+import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 
 // SSR so the hero reflects the curator's live KV-stored selection without a
 // rebuild. Per-user (grades hidden for restricted readers), so never shared-cache.
@@ -145,32 +145,36 @@ const mostRight = [...leaned]
     <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
   ) : (
     <>
-      <aside class="app-promo" id="app-promo" data-app-hide hidden>
-        <p class="app-promo__msg">
-          <span class="app-promo__kicker">Now on iOS</span>
-          Read the front page on your phone — every grade, political-lean rating, and
-          breaking-news alert in the CladFacts app.
-        </p>
-        <a class="app-promo__cta" href={APP_STORE_URL} target="_blank" rel="noopener">Get the app →</a>
-        <button type="button" class="app-promo__close" id="app-promo-close" aria-label="Dismiss app promotion">×</button>
-      </aside>
-      <script is:inline>
-        (() => {
-          const el = document.getElementById("app-promo");
-          if (!el) return;
-          const KEY = "clad_app_promo_dismissed";
-          let dismissed = false;
-          try { dismissed = !!localStorage.getItem(KEY); } catch {}
-          // Reveal only for visitors who haven't dismissed it (avoids a flash for
-          // those who have). Inside the iOS app it stays hidden via data-app-hide.
-          if (!dismissed) el.hidden = false;
-          const close = document.getElementById("app-promo-close");
-          if (close) close.addEventListener("click", () => {
-            el.hidden = true;
-            try { localStorage.setItem(KEY, "1"); } catch {}
-          });
-        })();
-      </script>
+      {APP_STORE_LIVE && (
+        <>
+          <aside class="app-promo" id="app-promo" data-app-hide hidden>
+            <p class="app-promo__msg">
+              <span class="app-promo__kicker">Now on iOS</span>
+              Read the front page on your phone — every grade, political-lean rating, and
+              breaking-news alert in the CladFacts app.
+            </p>
+            <a class="app-promo__cta" href={APP_STORE_URL} target="_blank" rel="noopener">Get the app →</a>
+            <button type="button" class="app-promo__close" id="app-promo-close" aria-label="Dismiss app promotion">×</button>
+          </aside>
+          <script is:inline>
+            (() => {
+              const el = document.getElementById("app-promo");
+              if (!el) return;
+              const KEY = "clad_app_promo_dismissed";
+              let dismissed = false;
+              try { dismissed = !!localStorage.getItem(KEY); } catch {}
+              // Reveal only for visitors who haven't dismissed it (avoids a flash for
+              // those who have). Inside the iOS app it stays hidden via data-app-hide.
+              if (!dismissed) el.hidden = false;
+              const close = document.getElementById("app-promo-close");
+              if (close) close.addEventListener("click", () => {
+                el.hidden = true;
+                try { localStorage.setItem(KEY, "1"); } catch {}
+              });
+            })();
+          </script>
+        </>
+      )}
       {locked && (
         <aside class="paywall-banner">
           <span>

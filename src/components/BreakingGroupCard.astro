@@ -36,7 +36,7 @@ const hqFallback = byNew.find((p) => p.data.videoId)?.data.videoId;
       <div class="report-card__thumb">
         <img
           src={thumb}
-          alt=""
+          alt={`Video still: ${title}`}
           width="320"
           height="180"
           loading="lazy"
@@ -49,7 +49,7 @@ const hqFallback = byNew.find((p) => p.data.videoId)?.data.videoId;
     <div class="report-card__body">
       {locked ? (
         <div class="scoreband scoreband--locked" aria-hidden="true">
-          <span class="grade-lock">🔒 Grade &amp; lean — Premium</span>
+          <span class="grade-lock">🔒 Grade &amp; lean — free with account</span>
         </div>
       ) : avgGrade ? (
         <div class="scoreband">

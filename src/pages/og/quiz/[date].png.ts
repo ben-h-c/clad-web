@@ -29,23 +29,29 @@ function loadFonts(origin: string) {
   return fontsPromise;
 }
 
+// satori (workers-og) requires an explicit display:flex on EVERY div with
+// more than one child node, and treats text + <br/> + text as multiple
+// children — the previous markup threw at render time and shipped a 0-byte
+// PNG (found during the 2026-07-11 review verification). Same all-flex
+// convention as og/story/[slug].png.ts.
 function markup(dateLabel: string): string {
   return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:56px 72px;border:14px solid ${INK}">
     <div style="display:flex;flex-direction:column;align-items:center;width:100%">
-      <div style="font-size:24px;letter-spacing:10px;color:${MUTED}">FACT-CHECKING THE NEWS</div>
-      <div style="font-size:76px;font-weight:700;letter-spacing:6px;margin-top:6px">CLAD</div>
-      <div style="width:100%;height:3px;background:${INK};margin:18px 0 10px"></div>
-      <div style="font-size:22px;letter-spacing:4px;color:${MUTED}">${dateLabel.toUpperCase()}</div>
+      <div style="display:flex;font-size:24px;letter-spacing:10px;color:${MUTED}">FACT-CHECKING THE NEWS</div>
+      <div style="display:flex;font-size:76px;font-weight:700;letter-spacing:6px;margin-top:6px">CLAD</div>
+      <div style="display:flex;width:100%;height:3px;background:${INK};margin:18px 0 10px"></div>
+      <div style="display:flex;font-size:22px;letter-spacing:4px;color:${MUTED}">${dateLabel.toUpperCase()}</div>
     </div>
     <div style="display:flex;flex-direction:column;align-items:center;margin-top:52px">
-      <div style="font-size:66px;font-weight:700;text-align:center;line-height:1.1">The Morning Quiz</div>
-      <div style="font-size:32px;color:${INK};margin-top:26px;text-align:center;line-height:1.35">Five claims from this week's news.<br/>Can you spot the spin?</div>
+      <div style="display:flex;font-size:66px;font-weight:700;text-align:center;line-height:1.1">The Morning Quiz</div>
+      <div style="display:flex;font-size:32px;margin-top:26px;line-height:1.35">Five claims from this week's news.</div>
+      <div style="display:flex;font-size:32px;line-height:1.35">Can you spot the spin?</div>
       <div style="display:flex;gap:18px;margin-top:34px">
         <div style="display:flex;border:2px solid ${INK};padding:8px 20px;font-size:22px;letter-spacing:2px">VERIFIED</div>
         <div style="display:flex;border:2px solid ${RED};color:${RED};padding:8px 20px;font-size:22px;letter-spacing:2px">DISPUTED</div>
         <div style="display:flex;border:2px solid ${MUTED};color:${MUTED};padding:8px 20px;font-size:22px;letter-spacing:2px">MISSING CONTEXT</div>
       </div>
-      <div style="font-size:26px;color:${MUTED};margin-top:38px;letter-spacing:2px">cladfacts.com/quiz — new at midnight Eastern</div>
+      <div style="display:flex;font-size:26px;color:${MUTED};margin-top:38px;letter-spacing:2px">cladfacts.com/quiz — new at midnight Eastern</div>
     </div>
   </div>`;
 }
