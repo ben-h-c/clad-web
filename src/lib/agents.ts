@@ -8,7 +8,7 @@
  * reaches it only through the /api/agent/* HTTP endpoints.
  */
 import { getCollection } from "astro:content";
-import type { BroadcastReport } from "~/lib/broadcast";
+import type { BroadcastReport } from "./broadcast.ts";
 
 export interface AgentConfig {
   // youtube-scanner

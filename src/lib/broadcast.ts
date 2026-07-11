@@ -4,7 +4,7 @@
  * shape and prompt mirror the iOS app's BroadcastReview so the website reads
  * as a continuation of the same publication.
  */
-import { canonicalTopic, topicSlug } from "~/lib/topics";
+import { canonicalTopic, topicSlug } from "./topics.ts";
 
 export const LETTER_GRADES = [
   "A+", "A", "A-",

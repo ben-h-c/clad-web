@@ -6,7 +6,7 @@
  * access); `showGrades:false` is kept for any future metered rendering.
  */
 import type { CollectionEntry } from "astro:content";
-import { canonicalTopic, leanScoreOf } from "./topics";
+import { canonicalTopic, leanScoreOf } from "./topics.ts";
 
 const SITE = "https://cladfacts.com";
 const INK = "#1a140d";

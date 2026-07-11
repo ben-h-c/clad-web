@@ -3,7 +3,7 @@
  * queue + content state. "What's broken at a glance."
  */
 import { getCollection } from "astro:content";
-import { getRegistry, listDrafts } from "~/lib/agents";
+import { getRegistry, listDrafts } from "./agents.ts";
 
 export interface HealthRow {
   label: string;

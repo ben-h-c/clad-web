@@ -1,4 +1,4 @@
-import { nyDateParts } from "~/lib/dateline";
+import { nyDateParts } from "./dateline.ts";
 
 export function slugify(input: string): string {
   let s = input

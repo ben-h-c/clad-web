@@ -50,12 +50,36 @@ const fail = (msg) => {
 };
 const ok = (msg) => console.log(`  ✓ ${msg}`);
 
-async function get(path) {
+// A browser-like UA: Cloudflare's bot heuristics challenge obvious automation
+// UAs from datacenter IPs (the daily 11:00 UTC GitHub runner ate 403s four
+// mornings straight, 2026-07-08..11). This script tests tier gating, not bot
+// management, so it presents as the anonymous reader it simulates. The
+// "clad-smoke" token stays at the tail for log identification (and a WAF
+// skip rule, should one ever be wanted).
+const UA =
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 clad-smoke";
+
+async function get(path, attempt = 1) {
   const res = await fetch(BASE + path, {
     redirect: "follow",
-    headers: { "User-Agent": "clad-smoke/1.0 (+post-deploy anonymous check)" },
+    headers: {
+      "User-Agent": UA,
+      Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9",
+    },
   });
   const text = await res.text();
+  // A Cloudflare bot challenge is not an application response — back off and
+  // retry before letting it fail an assertion (cf-mitigated is authoritative;
+  // the body sniff covers older challenge variants).
+  const challenged =
+    res.headers.get("cf-mitigated") === "challenge" ||
+    (res.status === 403 && /challenge|just a moment/i.test(text));
+  if (challenged && attempt < 3) {
+    console.log(`  (cloudflare challenged ${path} — retrying, attempt ${attempt}/2)`);
+    await new Promise((r) => setTimeout(r, attempt * 3000));
+    return get(path, attempt + 1);
+  }
   return { status: res.status, text };
 }
 
