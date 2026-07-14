@@ -3,6 +3,7 @@ import { generateBroadcastReport } from "../src/lib/broadcast.ts";
 import { validateCitations } from "../src/lib/citations.ts";
 import { fetchTranscript, fetchVideoMeta } from "./transcript.mjs";
 import { getUrlQueue, removeUrls, submitDraft } from "./api.mjs";
+import { isVideoDraftable } from "./youtubeVideoStatus.mjs";
 
 const MAX_PER_TICK = 5;
 
@@ -28,6 +29,14 @@ export async function processUrlQueue(log = () => {}) {
       continue;
     }
     const sourceUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+    // Track C: skip dead / non-public videos before Grok.
+    const live = await isVideoDraftable(videoId);
+    if (!live.ok) {
+      log(`url-intake skip dead video ${videoId}: ${live.reason || "unavailable"}`);
+      done.push(url);
+      continue;
+    }
 
     // Transcript required: if the video has no captions, skip it entirely —
     // do NOT fall back to Grok web-search (drop it from the queue).

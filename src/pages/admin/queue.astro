@@ -6,6 +6,7 @@ import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
 import { findNearDuplicates, leanSpread, listDrafts, type NearDuplicate } from "~/lib/agents";
 import { isTertiarySource } from "~/lib/citations";
+import { eventTypeLabel, type EventType } from "~/lib/draftQuality";
 import { lintHeadline } from "~/lib/headlineLint";
 import { embedUrl } from "~/lib/youtube";
 
@@ -13,13 +14,24 @@ export const prerender = false;
 
 const allDrafts = await listDrafts(env.AGENTS);
 
-// Render a bounded page of the queue (newest first). Rendering every pending
-// draft stops scaling once approvals lag: each fresh near-dup computation
-// scans the posts collection, and an unbounded page of embedded videos +
-// full report bodies is unusable anyway. The 2026-07-06 backlog (160 drafts)
-// 503'd this page outright.
+// Track C: priority / quality score first, then newest — debate nights and
+// clean drafts surface above thin or style-flagged ones.
+const sortedDrafts = [...allDrafts].sort((a, b) => {
+  const pa = a.quality?.priority ? 1 : 0;
+  const pb = b.quality?.priority ? 1 : 0;
+  if (pb !== pa) return pb - pa;
+  const sa = a.quality?.score ?? 50;
+  const sb = b.quality?.score ?? 50;
+  if (sb !== sa) return sb - sa;
+  return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+});
+
+// Render a bounded page of the queue. Rendering every pending draft stops
+// scaling once approvals lag: each fresh near-dup computation scans the posts
+// collection, and an unbounded page of embedded videos + full report bodies is
+// unusable anyway. The 2026-07-06 backlog (160 drafts) 503'd this page outright.
 const QUEUE_PAGE_SIZE = 40;
-const drafts = allDrafts.slice(0, QUEUE_PAGE_SIZE);
+const drafts = sortedDrafts.slice(0, QUEUE_PAGE_SIZE);
 
 // Per-draft editorial QA: cross-network near-duplicate cluster (stored on the
 // draft at submit time, else computed fresh) and headline verdict-phrase lint.
@@ -74,11 +86,37 @@ for (const d of drafts) {
               </span>
               <h3 class="queue-item__headline">{d.report.headline}</h3>
             </div>
+            <p class="queue-qa dateline">
+              {d.quality?.priority && <span class="qa-pill qa-pill--priority">Priority</span>}
+              {d.quality?.eventType && d.quality.eventType !== "other" && (
+                <span class="qa-pill">{eventTypeLabel(d.quality.eventType as EventType)}</span>
+              )}
+              {d.quality != null && (
+                <span class="qa-pill qa-pill--score" title="Draft quality score">
+                  QA {d.quality.score}
+                </span>
+              )}
+              {(d.quality?.politicians?.length ?? 0) > 0 && (
+                <span class="qa-pill">
+                  {d.quality!.politicians.map((p) => p.name).join(" · ")}
+                </span>
+              )}
+            </p>
             {(lintById.get(d.draftId) ?? []).length > 0 && (
               <div class="notice notice--error" data-headline-lint>
                 <span class="small-caps">Style:</span> headline states the verdict
                 ({(lintById.get(d.draftId) ?? []).map((w) => `“${w}”`).join(", ")}) —
                 headlines should be descriptive; the grade carries the verdict.
+              </div>
+            )}
+            {(d.quality?.warnings?.length ?? 0) > 0 && (
+              <div class="notice notice--warn">
+                <span class="small-caps">QA:</span>
+                <ul style="margin:.35rem 0 0;padding-left:1.25rem">
+                  {d.quality!.warnings.map((w) => (
+                    <li>{w}</li>
+                  ))}
+                </ul>
               </div>
             )}
             <p class="dateline">
@@ -181,6 +219,28 @@ for (const d of drafts) {
       </>
     )}
   </section>
+
+  <style is:global>
+    .queue-qa { display: flex; flex-wrap: wrap; gap: 0.35rem 0.5rem; margin: 0.35rem 0 0.5rem; }
+    .qa-pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.45rem;
+      border: 1px solid var(--ink, #1a140d);
+      background: transparent;
+    }
+    .qa-pill--priority {
+      background: var(--ink, #1a140d);
+      color: var(--paper, #f5edd9);
+    }
+    .qa-pill--score { opacity: 0.85; }
+    .notice--warn {
+      border-color: #8a6a1f;
+      background: color-mix(in srgb, #8a6a1f 12%, transparent);
+    }
+  </style>
 
   <script is:inline>
     // Controllers for each rendered draft, so the "Submit all" button can drive

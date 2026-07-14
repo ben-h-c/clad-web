@@ -13,12 +13,14 @@ import {
   type PendingDraft,
 } from "~/lib/agents";
 import { normalizeBroadcast } from "~/lib/broadcast";
+import { applyEventTopics, assessDraftQuality } from "~/lib/draftQuality";
 import { extractVideoId } from "~/lib/youtube";
 
 export const prerender = false;
 
 // The runner submits a generated report here. We dedupe (already published or
-// already pending), re-normalize defensively, and store as a pending draft.
+// already pending), re-normalize defensively, run quality gates, and store as
+// a pending draft (or 400 on hard quality failures).
 export const POST: APIRoute = async ({ request }) => {
   if (!checkAgentToken(request.headers.get("authorization"), env.AGENT_TOKEN)) {
     return tokenUnauthorized();
@@ -110,6 +112,24 @@ export const POST: APIRoute = async ({ request }) => {
     );
   }
 
+  const quality = assessDraftQuality(report, { videoTitle, channel });
+  if (quality.errors.length > 0) {
+    // Mark seen so a broken thin draft doesn't burn quota every hour.
+    await markSeen(env.AGENTS, videoId);
+    return json(
+      {
+        ok: false,
+        reason: "quality-gate",
+        errors: quality.errors,
+        warnings: quality.warnings,
+      },
+      400
+    );
+  }
+
+  // Debate / town-hall topic enrichment for SEO + politician surfaces.
+  applyEventTopics(report, quality.eventType);
+
   const draft: PendingDraft = {
     draftId: id,
     agentId,
@@ -124,11 +144,23 @@ export const POST: APIRoute = async ({ request }) => {
     },
     report,
     nearDuplicates: nearDups.length > 0 ? nearDups : undefined,
+    quality: {
+      score: quality.score,
+      warnings: quality.warnings,
+      eventType: quality.eventType,
+      politicians: quality.politicians,
+      headlineLint: quality.headlineLint,
+      priority: quality.priority,
+    },
   };
 
   await putDraft(env.AGENTS, draft);
   await markSeen(env.AGENTS, videoId);
-  return json({ ok: true, draftId: id }, 200);
+  return json({
+    ok: true,
+    draftId: id,
+    quality: { score: quality.score, eventType: quality.eventType, priority: quality.priority },
+  }, 200);
 };
 
 function json(body: unknown, status: number): Response {

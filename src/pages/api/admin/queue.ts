@@ -16,6 +16,7 @@ import {
 } from "~/lib/agents";
 import { resolveThumbnail } from "~/lib/thumbnail";
 import { reviseBroadcastReport } from "~/lib/broadcast";
+import { applyEventTopics, assessDraftQuality } from "~/lib/draftQuality";
 
 export const prerender = false;
 
@@ -57,9 +58,22 @@ export const POST: APIRoute = async ({ request }) => {
         videoTitle: draft.source.videoTitle,
         channel: draft.source.channel,
       });
+      const q = assessDraftQuality(revised, {
+        videoTitle: draft.source.videoTitle,
+        channel: draft.source.channel,
+      });
+      applyEventTopics(revised, q.eventType);
       draft.report = revised;
+      draft.quality = {
+        score: q.score,
+        warnings: q.warnings,
+        eventType: q.eventType,
+        politicians: q.politicians,
+        headlineLint: q.headlineLint,
+        priority: q.priority,
+      };
       await putDraft(env.AGENTS, draft);
-      return json({ ok: true, headline: revised.headline }, 200);
+      return json({ ok: true, headline: revised.headline, quality: draft.quality }, 200);
     } catch (err: any) {
       return json({ error: err?.message ?? "Revision failed" }, 502);
     }
@@ -147,6 +161,12 @@ export const POST: APIRoute = async ({ request }) => {
     publishedAt: publishedAt || undefined,
     thumbnail: thumbnail || undefined,
   });
+  // Prefer tags captured at draft time (includes debate-time matches) when present.
+  if (draft.quality?.politicians?.length) {
+    const bySlug = new Map((fm.politicians ?? []).map((x) => [x.slug, x]));
+    for (const t of draft.quality.politicians) bySlug.set(t.slug, t);
+    fm.politicians = [...bySlug.values()];
+  }
 
   const path = `src/content/posts/${slug}.md`;
   const fileBody = emitPost(fm, "");

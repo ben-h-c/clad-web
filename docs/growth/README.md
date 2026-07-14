@@ -17,6 +17,7 @@ digest, peaking around the 2026 midterms (Nov 3).
 | Agent politician tags | `postBuild` + `publish` | `tagPoliticiansFromText` → FM `politicians[]` |
 | Launch kit | `docs/launch/` | Day-of checklist + social templates |
 | Press page | `/press/` | Public boilerplate + links |
+| Pipeline QA (Track C) | `src/lib/draftQuality.ts`, runner video check | Quality gates, event types, queue sort |
 | This playbook | `docs/growth/` | Operating notes |
 
 ## Already existed (do not duplicate)

@@ -15,6 +15,12 @@ export const VERDICT_PHRASES: RegExp[] = [
   /\bmostly (true|false)\b/i,
   /\bunfounded\b/i,
   /\bchecks out\b/i,
+  // Track C — extra verdict-in-headline patterns that slipped past the original set.
+  /\b(disproved|refuted|debunked)\b/i,
+  /\b(untrue|not true|not accurate)\b/i,
+  /\b(verified true|proven false)\b/i,
+  /\bgrades?\s+[A-F][+-]?\b/i,
+  /\bfactuality\s+\d+\b/i,
 ];
 
 /** Returns the matched verdict phrases (empty array = headline is clean). */

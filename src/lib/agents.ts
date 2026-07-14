@@ -89,6 +89,15 @@ export interface PendingDraft {
   };
   report: BroadcastReport;
   nearDuplicates?: NearDuplicate[];
+  /** Track C — editorial QA snapshot at submit time. */
+  quality?: {
+    score: number;
+    warnings: string[];
+    eventType: string;
+    politicians: { name: string; slug: string }[];
+    headlineLint: string[];
+    priority: boolean;
+  };
 }
 
 const REGISTRY_KEY = "agents:registry";

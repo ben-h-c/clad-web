@@ -3,6 +3,7 @@ import { validateCitations } from "../src/lib/citations.ts";
 import { fetchTranscript } from "./transcript.mjs";
 import { getKnown, submitDraft } from "./api.mjs";
 import { heuristicLighthearted } from "./newsroom.mjs";
+import { checkVideosPublic } from "./youtubeVideoStatus.mjs";
 
 // Positive / uplifting / "could be good news" signal. A headline qualifies for
 // the Good News bucket when it reads as a bright spot AND isn't heavy-politics
@@ -168,6 +169,8 @@ export async function runYoutubeScanner(agent) {
   let submitted = 0;
   let skipped = candidates.length - fresh.length;
   let noTranscript = 0;
+  let deadVideo = 0;
+  let qualityRejected = 0;
   let goodNewsDrafted = 0;
 
   // 4) Drafting order: reserve the first `goodNewsSlots` attempts for positive /
@@ -178,9 +181,18 @@ export async function runYoutubeScanner(agent) {
   const goodIds = new Set(goodFirst.map((v) => v.videoId));
   const order = [...goodFirst, ...fresh.filter((v) => !goodIds.has(v.videoId))];
 
+  // Track C: batch-check embeddability before burning Grok on dead videos.
+  const statusById = await checkVideosPublic(order.map((v) => v.videoId));
+
   // Transcript-required: draft headlines up to the limit, good news prioritized.
   for (const v of order) {
     if (submitted >= limit) break;
+    const live = statusById.get(v.videoId);
+    if (live && live.ok === false) {
+      deadVideo++;
+      skipped++;
+      continue;
+    }
     const sourceUrl = `https://www.youtube.com/watch?v=${v.videoId}`;
     const transcript = await fetchTranscript(v.videoId);
     if (!transcript) {
@@ -215,13 +227,16 @@ export async function runYoutubeScanner(agent) {
     if (out.ok) {
       submitted++;
       if (v.goodNews) goodNewsDrafted++;
-    } else skipped++;
+    } else {
+      skipped++;
+      if (out.body?.reason === "quality-gate") qualityRejected++;
+    }
   }
 
   const goodNewsFresh = fresh.filter((v) => v.goodNews).length;
   return {
     ok: true,
-    message: `${candidates.length} recent outlet headlines, ${submitted} drafted (${goodNewsDrafted} good news of ${goodNewsFresh} candidates), ${skipped} skipped (${noTranscript} no transcript)`,
+    message: `${candidates.length} recent outlet headlines, ${submitted} drafted (${goodNewsDrafted} good news of ${goodNewsFresh} candidates), ${skipped} skipped (${noTranscript} no transcript, ${deadVideo} dead video, ${qualityRejected} quality-gate)`,
     submitted,
     skipped,
   };
