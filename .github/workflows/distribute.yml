@@ -2,11 +2,15 @@
 # OG card is live, then run scripts/announce.mjs (Bluesky when secrets exist;
 # always prints paste-ready X/Threads text in the job log).
 #
-# Secrets (optional — missing BSKY_* = dry print only, exit 0):
+# Manual test: Actions → Distribute → Run workflow
+#   post: path under src/content/posts/
+#   dry_run: true (default) only checks secrets + prints text; false posts live
+#
+# Secrets:
 #   SITE_URL            default https://cladfacts.com
 #   BSKY_HANDLE
 #   BSKY_APP_PASSWORD   Bluesky *app* password
-#   ANNOUNCE_DRY_RUN    set to "1" to force dry-run even with secrets
+#   ANNOUNCE_DRY_RUN    set to "1" to force print-only even with secrets
 name: Distribute
 
 on:
@@ -14,6 +18,17 @@ on:
     branches: [main]
     paths:
       - "src/content/posts/**"
+  workflow_dispatch:
+    inputs:
+      post:
+        description: "Post path to announce (e.g. src/content/posts/2026-07-14-example.md)"
+        required: true
+        type: string
+      dry_run:
+        description: "Dry run (print only; do not post to Bluesky)"
+        required: true
+        type: boolean
+        default: true
 
 jobs:
   announce:
@@ -31,8 +46,16 @@ jobs:
       - name: List changed posts
         id: diff
         run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            files="${{ inputs.post }}"
+            echo "files<<EOF" >> "$GITHUB_OUTPUT"
+            echo "$files" >> "$GITHUB_OUTPUT"
+            echo "EOF" >> "$GITHUB_OUTPUT"
+            echo "count=1" >> "$GITHUB_OUTPUT"
+            echo "Manual announce: $files"
+            exit 0
+          fi
           files=$(git diff --name-only HEAD~1 HEAD -- 'src/content/posts/**' | grep '\.md$' || true)
-          # Multiline → space-separated for the announce argv
           echo "files<<EOF" >> "$GITHUB_OUTPUT"
           echo "$files" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
@@ -42,8 +65,24 @@ jobs:
           printf '%s\n' "$files"
 
       - name: Wait for Workers deploy (OG must be live)
-        if: steps.diff.outputs.count != '0'
+        if: steps.diff.outputs.count != '0' && github.event_name != 'workflow_dispatch'
         run: sleep 90
+
+      - name: Check Bluesky secrets (names only)
+        env:
+          BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
+        run: |
+          if [ -n "${BSKY_HANDLE:-}" ]; then
+            echo "BSKY_HANDLE: set (${#BSKY_HANDLE} chars)"
+          else
+            echo "BSKY_HANDLE: MISSING"
+          fi
+          if [ -n "${BSKY_APP_PASSWORD:-}" ]; then
+            echo "BSKY_APP_PASSWORD: set (${#BSKY_APP_PASSWORD} chars)"
+          else
+            echo "BSKY_APP_PASSWORD: MISSING"
+          fi
 
       - name: Announce
         if: steps.diff.outputs.count != '0'
@@ -54,17 +93,31 @@ jobs:
           DRY_RUN: ${{ secrets.ANNOUNCE_DRY_RUN }}
         run: |
           set -euo pipefail
-          # Default SITE_URL when secret unset (GHA cannot || inside secrets.).
           export SITE_URL="${SITE_URL:-https://cladfacts.com}"
           files="${{ steps.diff.outputs.files }}"
           if [ -z "${files// }" ]; then
             echo "No markdown posts in this push."
             exit 0
           fi
-          # Force dry-run when no Bluesky secrets (still validates parse + print).
+
+          # Manual dry_run input wins for workflow_dispatch.
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ "${{ inputs.dry_run }}" = "true" ]; then
+              export DRY_RUN=1
+              echo "workflow_dispatch: dry_run=true"
+            else
+              unset DRY_RUN || true
+              export DRY_RUN=0
+              echo "workflow_dispatch: LIVE post to Bluesky"
+            fi
+          fi
+
           if [ -z "${BSKY_HANDLE:-}" ] || [ -z "${BSKY_APP_PASSWORD:-}" ]; then
             export DRY_RUN=1
             echo "BSKY secrets missing — dry-run print only."
+          else
+            echo "BSKY secrets present."
           fi
+
           # shellcheck disable=SC2086
           node scripts/announce.mjs $files
