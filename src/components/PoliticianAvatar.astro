@@ -1,0 +1,84 @@
+---
+import { photoForSlug, monogram } from "~/lib/politicianPhotos";
+
+interface Props {
+  slug: string;
+  name: string;
+  size?: "sm" | "md" | "lg" | "xl";
+  /** Decorative when name is adjacent; otherwise set to person name. */
+  decorative?: boolean;
+}
+const { slug, name, size = "md", decorative = true } = Astro.props;
+const photo = photoForSlug(slug);
+const mono = monogram(name);
+---
+<div class={`pol-avatar pol-avatar--${size}`} aria-hidden={decorative ? "true" : undefined}>
+  <span class="pol-avatar__mono">{mono}</span>
+  {photo && (
+    <img
+      class="pol-avatar__img"
+      src={photo}
+      alt={decorative ? "" : name}
+      width="240"
+      height="240"
+      loading="lazy"
+      decoding="async"
+      referrerpolicy="no-referrer"
+      onerror="this.remove()"
+    />
+  )}
+</div>
+
+<style>
+  .pol-avatar {
+    position: relative;
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 2px solid var(--ink, #1a140d);
+    background: color-mix(in srgb, var(--ink, #1a140d) 12%, var(--paper, #f5edd9));
+    isolation: isolate;
+  }
+  .pol-avatar--sm {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-width: 1.5px;
+  }
+  .pol-avatar--md {
+    width: 4.25rem;
+    height: 4.25rem;
+  }
+  .pol-avatar--lg {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+  .pol-avatar--xl {
+    width: 9rem;
+    height: 9rem;
+    border-width: 3px;
+  }
+  .pol-avatar__mono {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display, Georgia, serif);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--ink, #1a140d);
+    opacity: 0.55;
+    z-index: 0;
+  }
+  .pol-avatar--sm .pol-avatar__mono { font-size: 0.72rem; }
+  .pol-avatar--md .pol-avatar__mono { font-size: 1.15rem; }
+  .pol-avatar--lg .pol-avatar__mono { font-size: 1.6rem; }
+  .pol-avatar--xl .pol-avatar__mono { font-size: 2.1rem; }
+  .pol-avatar__img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+</style>

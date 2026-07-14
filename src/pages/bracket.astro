@@ -2,11 +2,15 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getAccess } from "~/lib/access";
+import LetterGrade from "~/components/LetterGrade.astro";
+import PoliticalLean from "~/components/PoliticalLean.astro";
+import PoliticianAvatar from "~/components/PoliticianAvatar.astro";
 import {
   buildRaceBoard,
   maskRaceLeaders,
   statusLabel,
   type RaceCardLive,
+  type RaceSideLive,
 } from "~/lib/bracket";
 import { RACE_BOARD_VERIFIED_ASOF } from "~/lib/races";
 
@@ -31,6 +35,15 @@ function party(p?: string) {
 
 function sideClass(card: RaceCardLive, slug: string) {
   return card.leaderSlug === slug ? "race-side race-side--lead" : "race-side";
+}
+
+function sideLabel(side: RaceSideLive, defSide: RaceCardLive["def"]["a"]) {
+  const bits = [
+    side.name + party(side.party),
+    defSide.incumbent ? "Inc." : "",
+    defSide.field ? "Field" : "",
+  ].filter(Boolean);
+  return bits.join(" · ");
 }
 
 const jsonLd = {
@@ -132,45 +145,67 @@ const jsonLd = {
               </header>
               <div class="race-card__sides">
                 <div class={sideClass(card, card.a.slug)}>
-                  {card.a.href ? (
-                    <a href={card.a.href}>
-                      {card.a.name}{party(card.a.party)}
-                      {card.def.a.incumbent ? " · Inc." : ""}
-                      {card.def.a.field ? " · Field" : ""}
-                    </a>
-                  ) : (
-                    <span>
-                      {card.a.name}{party(card.a.party)}
-                      {card.def.a.incumbent ? " · Inc." : ""}
-                      {card.def.a.field ? " · Field" : ""}
-                    </span>
+                  <div class="race-side__top">
+                    <PoliticianAvatar slug={card.a.slug} name={card.a.name} size="md" />
+                    <div class="race-side__who">
+                      {card.a.href ? (
+                        <a href={card.a.href}>{sideLabel(card.a, card.def.a)}</a>
+                      ) : (
+                        <span class="race-side__name">{sideLabel(card.a, card.def.a)}</span>
+                      )}
+                      <span class="race-side__meta">
+                        {card.a.reports} report{card.a.reports === 1 ? "" : "s"}
+                        {reveal && card.a.avgFactuality != null ? ` · ${card.a.avgFactuality}/100` : ""}
+                      </span>
+                    </div>
+                  </div>
+                  {reveal && (card.a.avgGrade || card.a.avgLean != null) && (
+                    <div class="scoreband race-side__scores">
+                      {card.a.avgGrade && (
+                        <div class="scoreband__grade">
+                          <LetterGrade grade={card.a.avgGrade} size="card" />
+                          <span class="scoreband__cap small-caps">Avg</span>
+                        </div>
+                      )}
+                      {card.a.avgLean != null && (
+                        <div class="scoreband__bias">
+                          <PoliticalLean score={card.a.avgLean} />
+                        </div>
+                      )}
+                    </div>
                   )}
-                  <span class="race-side__meta">
-                    {card.a.reports} reports
-                    {reveal && card.a.avgGrade ? ` · avg ${card.a.avgGrade}` : ""}
-                    {reveal && card.a.avgFactuality != null ? ` · ${card.a.avgFactuality}/100` : ""}
-                  </span>
                 </div>
                 <div class="race-card__vs" aria-hidden="true">vs</div>
                 <div class={sideClass(card, card.b.slug)}>
-                  {card.b.href ? (
-                    <a href={card.b.href}>
-                      {card.b.name}{party(card.b.party)}
-                      {card.def.b.incumbent ? " · Inc." : ""}
-                      {card.def.b.field ? " · Field" : ""}
-                    </a>
-                  ) : (
-                    <span>
-                      {card.b.name}{party(card.b.party)}
-                      {card.def.b.incumbent ? " · Inc." : ""}
-                      {card.def.b.field ? " · Field" : ""}
-                    </span>
+                  <div class="race-side__top">
+                    <PoliticianAvatar slug={card.b.slug} name={card.b.name} size="md" />
+                    <div class="race-side__who">
+                      {card.b.href ? (
+                        <a href={card.b.href}>{sideLabel(card.b, card.def.b)}</a>
+                      ) : (
+                        <span class="race-side__name">{sideLabel(card.b, card.def.b)}</span>
+                      )}
+                      <span class="race-side__meta">
+                        {card.b.reports} report{card.b.reports === 1 ? "" : "s"}
+                        {reveal && card.b.avgFactuality != null ? ` · ${card.b.avgFactuality}/100` : ""}
+                      </span>
+                    </div>
+                  </div>
+                  {reveal && (card.b.avgGrade || card.b.avgLean != null) && (
+                    <div class="scoreband race-side__scores">
+                      {card.b.avgGrade && (
+                        <div class="scoreband__grade">
+                          <LetterGrade grade={card.b.avgGrade} size="card" />
+                          <span class="scoreband__cap small-caps">Avg</span>
+                        </div>
+                      )}
+                      {card.b.avgLean != null && (
+                        <div class="scoreband__bias">
+                          <PoliticalLean score={card.b.avgLean} />
+                        </div>
+                      )}
+                    </div>
                   )}
-                  <span class="race-side__meta">
-                    {card.b.reports} reports
-                    {reveal && card.b.avgGrade ? ` · avg ${card.b.avgGrade}` : ""}
-                    {reveal && card.b.avgFactuality != null ? ` · ${card.b.avgFactuality}/100` : ""}
-                  </span>
                 </div>
               </div>
               {reveal && card.leaderReason && (
@@ -340,24 +375,42 @@ const jsonLd = {
     .race-card__vs { text-align: center; }
   }
   .race-side {
-    padding: 0.4rem 0.45rem;
+    padding: 0.55rem 0.55rem;
   }
   .race-side--lead {
-    outline: 1px solid var(--ink, #1a140d);
+    outline: 2px solid var(--ink, #1a140d);
     background: color-mix(in srgb, var(--ink, #1a140d) 7%, transparent);
   }
-  .race-side a {
+  .race-side__top {
+    display: flex;
+    gap: 0.65rem;
+    align-items: flex-start;
+  }
+  .race-side__who { min-width: 0; flex: 1; }
+  .race-side a,
+  .race-side__name {
     font-family: var(--serif, Georgia, serif);
     font-weight: 700;
     color: inherit;
     text-decoration: none;
+    display: block;
+    line-height: 1.2;
   }
   .race-side a:hover { text-decoration: underline; }
   .race-side__meta {
     display: block;
     font-size: 0.82rem;
     opacity: 0.78;
-    margin-top: 0.2rem;
+    margin-top: 0.25rem;
+  }
+  .race-side__scores {
+    margin: 0.55rem 0 0;
+    padding-top: 0.45rem;
+    border-top: 1px solid var(--rule, #cfc3ad);
+  }
+  .race-side__scores.scoreband {
+    margin-bottom: 0;
+    gap: 0.5rem 0.75rem;
   }
   .race-card__vs {
     font-size: 0.7rem;

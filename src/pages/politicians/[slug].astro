@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
+import PoliticianAvatar from "~/components/PoliticianAvatar.astro";
 import { getAccess } from "~/lib/access";
 import { findPolitician } from "~/lib/politicians";
 import { shortDate } from "~/lib/dateline";
@@ -56,23 +57,28 @@ const jsonLd = {
   jsonLd={jsonLd}
 >
   <article class="static-page politician">
-    <p class="small-caps upgrade__eyebrow">
-      Politician report card{pol.race ? ` · ${pol.race}` : ""}
-      {pol.bucket ? ` · ${pol.bucket}` : ""}
-    </p>
-    <h1 class="static-page__title">{pol.name}</h1>
-    <p class="upgrade__lede">
-      {pol.appearances.length} graded report{pol.appearances.length === 1 ? "" : "s"}
-      on CladFacts.
-      {locked ? (
-        <>
-          {" "}Sign in free to see average grade, factuality, and lean —
-          <a href="/register/">create an account</a>.
-        </>
-      ) : (
-        <> Averages below are computed from every report listed.</>
-      )}
-    </p>
+    <header class="pol-hero">
+      <PoliticianAvatar slug={pol.slug} name={pol.name} size="xl" decorative={false} />
+      <div class="pol-hero__text">
+        <p class="small-caps upgrade__eyebrow">
+          Politician report card{pol.race ? ` · ${pol.race}` : ""}
+          {pol.bucket ? ` · ${pol.bucket}` : ""}
+        </p>
+        <h1 class="static-page__title pol-hero__name">{pol.name}</h1>
+        <p class="upgrade__lede pol-hero__lede">
+          {pol.appearances.length} graded report{pol.appearances.length === 1 ? "" : "s"}
+          on CladFacts.
+          {locked ? (
+            <>
+              {" "}Sign in free to see average grade, factuality, and lean —
+              <a href="/register/">create an account</a>.
+            </>
+          ) : (
+            <> Averages below are computed from every report listed.</>
+          )}
+        </p>
+      </div>
+    </header>
 
     <div class="pol-share" aria-label="Share this report card">
       <span class="pol-share__label small-caps">Share</span>
@@ -93,27 +99,31 @@ const jsonLd = {
     </div>
     <p class="pol-share__status" id="pol-copy-status" role="status" hidden></p>
 
-    {!locked && (pol.avgGrade || pol.avgFactuality != null || pol.avgLean != null) && (
-      <div class="politician-scoreband" aria-label="Aggregate grades">
+    {locked ? (
+      <div class="scoreband scoreband--locked pol-scoreband" aria-hidden="true">
+        <span class="grade-lock">🔒 Average grade &amp; political lean — free with any account</span>
+      </div>
+    ) : (pol.avgGrade || pol.avgFactuality != null || pol.avgLean != null) ? (
+      <div class="scoreband pol-scoreband" aria-label="Aggregate grades">
         {pol.avgGrade && (
-          <div class="politician-scoreband__cell">
-            <LetterGrade grade={pol.avgGrade} size="card" />
-            <span class="small-caps">Avg grade</span>
-          </div>
-        )}
-        {pol.avgFactuality != null && (
-          <div class="politician-scoreband__cell">
-            <span class="politician-scoreband__num">{pol.avgFactuality}</span>
-            <span class="small-caps">Avg factuality</span>
+          <div class="scoreband__grade">
+            <LetterGrade grade={pol.avgGrade} size="hero" />
+            <span class="scoreband__cap small-caps">Avg grade</span>
           </div>
         )}
         {pol.avgLean != null && (
-          <div class="politician-scoreband__cell">
-            <PoliticalLean score={pol.avgLean} />
+          <div class="scoreband__bias">
+            <PoliticalLean score={pol.avgLean} size="header" />
+          </div>
+        )}
+        {pol.avgFactuality != null && (
+          <div class="pol-fact-pill">
+            <span class="pol-fact-pill__num">{pol.avgFactuality}</span>
+            <span class="small-caps">Avg factuality / 100</span>
           </div>
         )}
       </div>
-    )}
+    ) : null}
 
     {locked && (
       <p class="paywall-banner" style="margin: 1rem 0">
@@ -126,28 +136,39 @@ const jsonLd = {
     <ol class="politician-list" reversed>
       {pol.appearances.map((a) => (
         <li class="politician-list__item">
-          <a href={`/posts/${a.id}/`}>{a.headline}</a>
-          <span class="politician-list__meta">
-            {shortDate(a.publishedAt)}
-            {a.sourceTitle ? ` · ${a.sourceTitle}` : ""}
-            {!locked && a.letterGrade && (
-              <> · Grade <strong>{a.letterGrade}</strong></>
-            )}
-            {!locked && a.factualityScore != null && (
-              <> · {a.factualityScore}/100</>
-            )}
-          </span>
+          <div class="politician-list__main">
+            <a href={`/posts/${a.id}/`}>{a.headline}</a>
+            <span class="politician-list__meta">
+              {shortDate(a.publishedAt)}
+              {a.sourceTitle ? ` · ${a.sourceTitle}` : ""}
+              {!locked && a.factualityScore != null && (
+                <> · {a.factualityScore}/100</>
+              )}
+            </span>
+          </div>
+          {!locked && a.letterGrade && (
+            <div class="politician-list__grade">
+              <LetterGrade grade={a.letterGrade} size="badge" />
+            </div>
+          )}
+          {!locked && a.leanScore != null && (
+            <div class="politician-list__lean" title="Political lean of this report">
+              <PoliticalLean score={a.leanScore} />
+            </div>
+          )}
         </li>
       ))}
     </ol>
 
     <p class="static-page__note">
-      Verdicts are researched with AI assistance and reviewed by an editor.
+      Portrait via Wikimedia Commons when available. Verdicts are researched with AI assistance and reviewed by an editor.
       <a href="/how-it-works/">How grading works</a>
       ·
       <a href="/corrections/">Corrections</a>
       ·
       <a href="/politicians/">All politician cards</a>
+      ·
+      <a href="/bracket/">Race board</a>
     </p>
   </article>
 </BaseLayout>
@@ -176,6 +197,20 @@ const jsonLd = {
 </script>
 
 <style>
+  .pol-hero {
+    display: flex;
+    gap: 1.25rem 1.5rem;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+  }
+  .pol-hero__text { min-width: 0; flex: 1; }
+  .pol-hero__name { margin-top: 0.15rem; }
+  .pol-hero__lede { margin-bottom: 0; }
+  @media (max-width: 520px) {
+    .pol-hero { flex-direction: column; align-items: center; text-align: center; }
+    .pol-hero__text { width: 100%; }
+  }
+
   .pol-share {
     display: flex;
     flex-wrap: wrap;
@@ -209,34 +244,41 @@ const jsonLd = {
     opacity: 0.85;
     margin: -0.5rem 0 1rem;
   }
-  .politician-scoreband {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem 2rem;
-    margin: 1.25rem 0 1.75rem;
-    padding: 1rem 1.25rem;
+
+  .pol-scoreband {
+    margin: 0.5rem 0 1.5rem;
+    padding: 1rem 1.15rem;
     border: 3px double var(--ink, #1a140d);
-    background: var(--paper-deep, transparent);
+    background: color-mix(in srgb, var(--ink, #1a140d) 4%, transparent);
   }
-  .politician-scoreband__cell {
+  .pol-fact-pill {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.35rem;
+    gap: 0.25rem;
+    margin-left: auto;
   }
-  .politician-scoreband__num {
+  .pol-fact-pill__num {
     font-family: var(--serif, Georgia, serif);
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: 700;
     line-height: 1;
   }
+
   .politician-list {
+    list-style: none;
     margin: 0.5rem 0 0;
-    padding-left: 1.25rem;
+    padding: 0;
   }
   .politician-list__item {
-    margin: 0.75rem 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(7rem, 11rem);
+    gap: 0.65rem 1rem;
+    align-items: center;
+    margin: 0;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--rule, #cfc3ad);
   }
+  .politician-list__main { min-width: 0; }
   .politician-list__item a {
     font-family: var(--serif, Georgia, serif);
     font-weight: 600;
@@ -247,5 +289,28 @@ const jsonLd = {
     font-size: 0.9rem;
     opacity: 0.8;
     margin-top: 0.15rem;
+  }
+  .politician-list__grade {
+    justify-self: end;
+  }
+  .politician-list__lean {
+    min-width: 0;
+  }
+  .politician-list__lean :global(.lean__label) {
+    font-size: 0.62rem;
+  }
+  .politician-list__lean :global(.lean__value) {
+    font-size: 0.88rem;
+  }
+  @media (max-width: 720px) {
+    .politician-list__item {
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas:
+        "main grade"
+        "lean lean";
+    }
+    .politician-list__main { grid-area: main; }
+    .politician-list__grade { grid-area: grade; }
+    .politician-list__lean { grid-area: lean; }
   }
 </style>

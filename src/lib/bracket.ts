@@ -244,6 +244,7 @@ export interface RaceSideLive {
   reports: number;
   avgGrade: string | null;
   avgFactuality: number | null;
+  avgLean: number | null;
   href: string | null;
 }
 
@@ -281,7 +282,11 @@ function sideLive(
     reports: p?.appearances.length ?? 0,
     avgGrade: p?.avgGrade ?? null,
     avgFactuality: p?.avgFactuality ?? null,
-    href: p && p.appearances.length > 0 ? `/politicians/${side.slug}/` : null,
+    avgLean: p?.avgLean ?? null,
+    // Link to profile whenever we have a real person slug (photo + card), even before reports.
+    href: side.slug.includes("-field") || side.slug.endsWith("-field")
+      ? null
+      : `/politicians/${side.slug}/`,
   };
 }
 

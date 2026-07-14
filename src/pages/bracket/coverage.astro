@@ -1,8 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import LetterGrade from "~/components/LetterGrade.astro";
+import PoliticalLean from "~/components/PoliticalLean.astro";
+import PoliticianAvatar from "~/components/PoliticianAvatar.astro";
 import { getAccess } from "~/lib/access";
 import { buildCoverageBracket, roundLabel, type BracketMatchup } from "~/lib/bracket";
+import type { PoliticianAgg } from "~/lib/politicians";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "private, no-store");
@@ -25,8 +29,20 @@ const byRound = {
 
 function slotLine(m: BracketMatchup, side: "a" | "b") {
   const s = m[side];
-  const p = s.politician;
-  if (!p) return { seed: "—", name: "TBD", href: null as string | null, meta: "", lead: false };
+  const p = s.politician as PoliticianAgg | null;
+  if (!p) {
+    return {
+      seed: "—",
+      name: "TBD",
+      slug: "",
+      href: null as string | null,
+      meta: "",
+      lead: false,
+      avgGrade: null as string | null,
+      avgLean: null as number | null,
+      pol: null as PoliticianAgg | null,
+    };
+  }
   const lead = m.leaderSlug === p.slug;
   const meta = reveal
     ? `${p.appearances.length} reports` + (p.avgFactuality != null ? ` · ${p.avgFactuality}/100` : "")
@@ -34,9 +50,13 @@ function slotLine(m: BracketMatchup, side: "a" | "b") {
   return {
     seed: s.seed ? String(s.seed) : "—",
     name: p.name,
+    slug: p.slug,
     href: `/politicians/${p.slug}/`,
     meta,
     lead,
+    avgGrade: p.avgGrade,
+    avgLean: p.avgLean,
+    pol: p,
   };
 }
 ---
@@ -70,12 +90,27 @@ function slotLine(m: BracketMatchup, side: "a" | "b") {
 
     {reveal && board.champion && (
       <div class="bracket-champ">
-        <span class="small-caps">Coverage champion (live)</span>
-        <a href={`/politicians/${board.champion.slug}/`}>{board.champion.name}</a>
-        <span class="bracket-champ__meta">
-          {board.champion.appearances.length} reports
-          {board.champion.avgGrade ? ` · avg ${board.champion.avgGrade}` : ""}
-        </span>
+        <PoliticianAvatar slug={board.champion.slug} name={board.champion.name} size="md" />
+        <div class="bracket-champ__body">
+          <span class="small-caps">Coverage champion (live)</span>
+          <a href={`/politicians/${board.champion.slug}/`}>{board.champion.name}</a>
+          <span class="bracket-champ__meta">
+            {board.champion.appearances.length} reports
+          </span>
+          <div class="scoreband bracket-champ__scores">
+            {board.champion.avgGrade && (
+              <div class="scoreband__grade">
+                <LetterGrade grade={board.champion.avgGrade} size="card" />
+                <span class="scoreband__cap small-caps">Avg grade</span>
+              </div>
+            )}
+            {board.champion.avgLean != null && (
+              <div class="scoreband__bias">
+                <PoliticalLean score={board.champion.avgLean} />
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     )}
 
@@ -96,14 +131,50 @@ function slotLine(m: BracketMatchup, side: "a" | "b") {
                       <p class="bracket-match__region small-caps">{m.region}</p>
                       <div class:list={["bracket-slot", { "bracket-slot--lead": a.lead }]}>
                         <span class="bracket-slot__seed">{a.seed}</span>
-                        {a.href ? <a class="bracket-slot__name" href={a.href}>{a.name}</a> : <span class="bracket-slot__name">{a.name}</span>}
-                        <span class="bracket-slot__meta">{a.meta}</span>
+                        {a.slug ? <PoliticianAvatar slug={a.slug} name={a.name} size="sm" /> : <span class="bracket-slot__ph" />}
+                        <div class="bracket-slot__main">
+                          {a.href ? <a class="bracket-slot__name" href={a.href}>{a.name}</a> : <span class="bracket-slot__name">{a.name}</span>}
+                          <span class="bracket-slot__meta">{a.meta}</span>
+                          {reveal && (a.avgGrade || a.avgLean != null) && (
+                            <div class="scoreband bracket-slot__scores">
+                              {a.avgGrade && (
+                                <div class="scoreband__grade">
+                                  <LetterGrade grade={a.avgGrade} size="badge" />
+                                  <span class="scoreband__cap small-caps">Avg</span>
+                                </div>
+                              )}
+                              {a.avgLean != null && (
+                                <div class="scoreband__bias">
+                                  <PoliticalLean score={a.avgLean} />
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
                       </div>
                       <div class="bracket-slot__vs">vs</div>
                       <div class:list={["bracket-slot", { "bracket-slot--lead": b.lead }]}>
                         <span class="bracket-slot__seed">{b.seed}</span>
-                        {b.href ? <a class="bracket-slot__name" href={b.href}>{b.name}</a> : <span class="bracket-slot__name">{b.name}</span>}
-                        <span class="bracket-slot__meta">{b.meta}</span>
+                        {b.slug ? <PoliticianAvatar slug={b.slug} name={b.name} size="sm" /> : <span class="bracket-slot__ph" />}
+                        <div class="bracket-slot__main">
+                          {b.href ? <a class="bracket-slot__name" href={b.href}>{b.name}</a> : <span class="bracket-slot__name">{b.name}</span>}
+                          <span class="bracket-slot__meta">{b.meta}</span>
+                          {reveal && (b.avgGrade || b.avgLean != null) && (
+                            <div class="scoreband bracket-slot__scores">
+                              {b.avgGrade && (
+                                <div class="scoreband__grade">
+                                  <LetterGrade grade={b.avgGrade} size="badge" />
+                                  <span class="scoreband__cap small-caps">Avg</span>
+                                </div>
+                              )}
+                              {b.avgLean != null && (
+                                <div class="scoreband__bias">
+                                  <PoliticalLean score={b.avgLean} />
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
                       </div>
                       {reveal && m.leaderReason && <p class="bracket-match__why">{m.leaderReason}</p>}
                     </li>
@@ -138,17 +209,30 @@ function slotLine(m: BracketMatchup, side: "a" | "b") {
   .bracket-champ {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem 1rem;
-    align-items: baseline;
+    gap: 0.85rem 1.1rem;
+    align-items: flex-start;
     margin: 1rem 0;
     padding: 0.9rem 1.1rem;
     border: 3px double var(--ink, #1a140d);
+    background: color-mix(in srgb, var(--ink, #1a140d) 4%, transparent);
+  }
+  .bracket-champ__body {
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
   }
   .bracket-champ a {
     font-family: var(--serif, Georgia, serif);
     font-size: 1.35rem;
     font-weight: 700;
     color: inherit;
+    text-decoration: none;
+  }
+  .bracket-champ a:hover { text-decoration: underline; }
+  .bracket-champ__scores {
+    margin: 0.45rem 0 0;
   }
   .bracket-champ__meta { opacity: 0.8; font-size: 0.92rem; }
   .bracket-board {
@@ -188,29 +272,42 @@ function slotLine(m: BracketMatchup, side: "a" | "b") {
   }
   .bracket-slot {
     display: grid;
-    grid-template-columns: 1.6rem 1fr;
-    grid-template-rows: auto auto;
-    column-gap: 0.4rem;
-    padding: 0.25rem 0.2rem;
+    grid-template-columns: 1.5rem auto minmax(0, 1fr);
+    column-gap: 0.45rem;
+    align-items: start;
+    padding: 0.35rem 0.25rem;
   }
   .bracket-slot--lead {
     background: color-mix(in srgb, var(--ink, #1a140d) 8%, transparent);
-    outline: 1px solid var(--ink, #1a140d);
+    outline: 1.5px solid var(--ink, #1a140d);
   }
   .bracket-slot__seed {
-    grid-row: 1 / span 2;
     font-weight: 700;
     opacity: 0.55;
     font-size: 0.85rem;
+    padding-top: 0.35rem;
   }
+  .bracket-slot__ph {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px dashed var(--rule, #cfc3ad);
+  }
+  .bracket-slot__main { min-width: 0; }
   .bracket-slot__name {
     font-family: var(--serif, Georgia, serif);
     font-weight: 700;
     color: inherit;
     text-decoration: none;
     font-size: 0.98rem;
+    display: block;
+    line-height: 1.2;
   }
-  .bracket-slot__meta { font-size: 0.78rem; opacity: 0.75; }
+  .bracket-slot__meta { font-size: 0.78rem; opacity: 0.75; display: block; margin-top: 0.15rem; }
+  .bracket-slot__scores {
+    margin: 0.35rem 0 0;
+    gap: 0.35rem 0.55rem;
+  }
+  .bracket-slot__scores.scoreband { margin-bottom: 0; }
   .bracket-slot__vs {
     text-align: center;
     font-size: 0.7rem;
