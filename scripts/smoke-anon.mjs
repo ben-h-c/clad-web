@@ -98,9 +98,14 @@ function checkGated(name, html, { allowOne = false } = {}) {
     const matches = html.match(new RegExp(re.source, re.flags + "g")) ?? [];
     // The daily-unlock post legitimately renders one real scoreband on pages
     // that include it — and the sample card renders fully unlocked by design
-    // (ReportCard `sample`), which includes its "Graded X:" rationale line.
-    // Allow a single occurrence of each on sanctioned pages.
-    const sanctioned = re.source.includes("letter-grade") || re.source.includes("Graded");
+    // (ReportCard `sample`): LetterGrade, PoliticalLean ("% Left/Right-leaning"),
+    // and its "Graded X:" rationale line. Allow a single occurrence of each of
+    // those on sanctioned pages. Factuality and meta-description patterns are
+    // never part of the free-card markup, so they stay hard-zero.
+    const sanctioned =
+      re.source.includes("letter-grade") ||
+      re.source.includes("Graded") ||
+      re.source.includes("Left|Right");
     const limit = allowOne && sanctioned ? 1 : 0;
     if (matches.length > limit) {
       fail(`${name}: gated content leaked — ${what} (${matches.length}×)`);
