@@ -1,50 +1,196 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import { CAMPUS_SHARE_LINES, GRADE_BANDS, LEARN_PAGES } from "~/lib/campus";
+import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 
 export const prerender = false;
+Astro.response.headers.set("Cache-Control", "public, max-age=300");
 
-// Landing page for students and young readers: the receipts-first pitch.
-// Copy-only — no gated values, no invented programs or statistics.
+const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
+const packText = CAMPUS_SHARE_LINES.map((l) => `• ${l}`).join("\n");
 ---
 <BaseLayout
   title="Clad for students — fact-checked news with receipts"
-  description="Every grade comes with sources you can check. Free accounts unlock every accuracy grade and bias rating — built for readers who want receipts, not vibes."
+  description="Built for high-school and college readers: letter grades on TV news, sources you can open, a daily quiz, and shareable explainers. Free account unlocks every grade."
+  ogTitle="Clad for students — news with receipts"
+  ogDescription="Grades, lean scores, claim tags — plain language for first-time news readers. Free account unlocks the scoreboard."
+  ogImage={`${origin}/og/learn/grades.png`}
 >
-  <section class="static-page">
-    <p class="small-caps" style="color:var(--muted-ink)">For students</p>
+  <article class="static-page campus-hub">
+    <p class="small-caps upgrade__eyebrow">For students · ages ~16–24</p>
     <h1 class="static-page__title">News with receipts</h1>
-    <p>
-      You've been told your whole life not to trust everything you read. Fair. Clad is built for
-      exactly that instinct: every news broadcast we review gets its load-bearing claims checked
-      against primary sources, and every verdict lists the receipts — so you don't have to take
-      our word for it either.
+    <p class="upgrade__lede">
+      You've been told not to trust everything online. Fair. Clad grades the
+      <em>coverage</em> — letter grade, factuality, political lean — and lists
+      the sources so you can check us too. No slang act. No outrage machine.
+      Just a clearer read on what you watched.
     </p>
 
-    <h2 class="static-page__sub">What you get, free</h2>
-    <p>
-      A free account unlocks the full scoreboard on every report: the accuracy grade (A+ to F),
-      the political-lean rating, factuality scores, and the trends dashboards. No card, no trial
-      clock, no "first month free" tricks — the grades are free because grades you have to pay
-      to see are just another paywall opinion.
+    <p class="campus-cta-row">
+      <a class="auth-submit" href="/register/">Create free account</a>
+      <a class="auth-submit secondary" href="/quiz/">Morning quiz</a>
+      {APP_STORE_LIVE && (
+        <a class="auth-submit secondary" href={APP_STORE_URL} target="_blank" rel="noopener">Get the iOS app</a>
+      )}
     </p>
-    <ul>
-      <li><strong><a href="/learn/">Learn the method</a></strong> — six short explainers: how grading works, how to read a lean score, how spin actually operates.</li>
-      <li><strong><a href="/quiz/">The Morning Quiz</a></strong> — five real claims from this week's news, every day. Call the verdicts, build a streak, check the receipts.</li>
-      <li><strong><a href="/newsletter/">The weekly newsletter</a></strong> — the week's best and worst coverage, one email, Sunday.</li>
-      <li><strong><a href="/search/">Search everything</a></strong> — writing a paper? Every report cites 4–7 primary sources you can chase down.</li>
+
+    <h2 class="static-page__sub">Grades in five seconds</h2>
+    <p>
+      The letter is the hook. Tap any band for the full explainer —
+      <a href="/learn/grades/">What does a C− mean?</a>
+    </p>
+    <div class="campus-grades" role="list">
+      {GRADE_BANDS.map((g) => (
+        <a class="campus-grades__card" href="/learn/grades/" role="listitem">
+          <span class="campus-grades__letter">{g.grade}</span>
+          <span class="campus-grades__title">{g.title}</span>
+          <span class="campus-grades__plain">{g.plain}</span>
+        </a>
+      ))}
+    </div>
+
+    <h2 class="static-page__sub">Explainers worth saving</h2>
+    <ul class="campus-learn">
+      {LEARN_PAGES.map((p) => (
+        <li>
+          <a href={`/learn/${p.slug}/`}><strong>{p.title}</strong></a>
+          <span> — {p.kicker}</span>
+        </li>
+      ))}
     </ul>
+
+    <h2 class="static-page__sub">What free gets you</h2>
+    <ul>
+      <li><strong>Full scoreboard</strong> — letter grade, lean, factuality, charts. No card.</li>
+      <li><strong><a href="/quiz/">Morning quiz</a></strong> — five real claims, practice spotting spin.</li>
+      <li><strong><a href="/newsletter/">Sunday newsletter</a></strong> — best and worst coverage of the week.</li>
+      <li><strong><a href="/search/">Search</a></strong> — for papers: every report cites sources you can chase.</li>
+      <li><strong><a href="/politicians/">Politician cards</a></strong> + <a href="/bracket/">midterm bracket</a> — how coverage of the trail is grading.</li>
+    </ul>
+
+    <h2 class="static-page__sub">Share kit (Discord · group chat · stories)</h2>
+    <p>
+      Copy a line, paste where your people actually are. Links unfurl with a
+      card image — no need to screenshot the whole site.
+    </p>
+    <pre class="campus-pack" id="campus-pack">{packText}</pre>
+    <button type="button" class="learn-share__btn" id="campus-copy-pack">Copy all lines</button>
+    <p class="learn-share__status" id="campus-copy-status" role="status" hidden></p>
 
     <h2 class="static-page__sub">Why trust this?</h2>
     <p>
-      Don't — check it. That's the design. Reports are AI-drafted, human-edited, and every claim
-      verdict links to the sources behind it. If you think a grade is wrong, any account can
-      dispute it and the report gets re-examined; if it doesn't hold up, it comes down. The
-      <a href="/corrections/">corrections log</a> is public, and so is
-      <a href="/about/#funding"> who pays for all of this</a> (subscribers — no ads, no sponsors).
+      Don't — check it. AI-drafted, human-edited, sources listed. Free accounts
+      can flag a grade; the <a href="/corrections/">corrections log</a> is public.
+      <a href="/about/#funding">Who funds Clad</a>: subscribers, not ads.
     </p>
 
-    <p style="margin-top:1.6rem">
-      <a href="/register/"><strong>Create a free account →</strong></a>
+    <p class="static-page__note">
+      Deeper method: <a href="/how-it-works/">How it works</a>.
+      Full learn index: <a href="/learn/">New to the news?</a>
     </p>
-  </section>
+  </article>
 </BaseLayout>
+
+<script is:inline>
+  (() => {
+    const btn = document.getElementById("campus-copy-pack");
+    const pack = document.getElementById("campus-pack");
+    const status = document.getElementById("campus-copy-status");
+    if (!btn || !pack) return;
+    btn.addEventListener("click", async () => {
+      const text = pack.textContent || "";
+      try {
+        await navigator.clipboard.writeText(text);
+        if (status) {
+          status.hidden = false;
+          status.textContent = "Copied the whole pack.";
+        }
+      } catch {
+        if (status) {
+          status.hidden = false;
+          status.textContent = "Select the box and copy manually.";
+        }
+      }
+    });
+  })();
+</script>
+
+<style>
+  .campus-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1.25rem 0 1.75rem;
+  }
+  .campus-cta-row .auth-submit {
+    text-decoration: none;
+    display: inline-block;
+  }
+  .campus-grades {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+    gap: 0.65rem;
+    margin: 1rem 0 1.75rem;
+  }
+  .campus-grades__card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.75rem 0.8rem;
+    border: 1px solid var(--ink, #1a140d);
+    color: inherit;
+    text-decoration: none;
+    min-height: 7.5rem;
+  }
+  .campus-grades__card:hover {
+    background: color-mix(in srgb, var(--ink, #1a140d) 6%, transparent);
+  }
+  .campus-grades__letter {
+    font-family: var(--serif, Georgia, serif);
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+  .campus-grades__title {
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .campus-grades__plain {
+    font-size: 0.85rem;
+    line-height: 1.35;
+    opacity: 0.9;
+  }
+  .campus-learn {
+    padding-left: 1.2rem;
+  }
+  .campus-learn li { margin: 0.45rem 0; }
+  .campus-pack {
+    white-space: pre-wrap;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--ink, #1a140d);
+    background: color-mix(in srgb, var(--ink, #1a140d) 4%, transparent);
+    overflow-x: auto;
+  }
+  .learn-share__btn {
+    appearance: none;
+    font: inherit;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid var(--ink, #1a140d);
+    background: var(--ink, #1a140d);
+    color: var(--paper, #f5edd9);
+    cursor: pointer;
+    margin-top: 0.6rem;
+  }
+  .learn-share__status {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin: 0.4rem 0 0;
+  }
+</style>

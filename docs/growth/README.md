@@ -18,6 +18,7 @@ digest, peaking around the 2026 midterms (Nov 3).
 | Launch kit | `docs/launch/` | Day-of checklist + social templates |
 | Press page | `/press/` | Public boilerplate + links |
 | Pipeline QA (Track C) | `src/lib/draftQuality.ts`, runner video check | Quality gates, event types, queue sort |
+| Campus / 16–24 (Track D) | `/students/`, `/learn/*`, `src/lib/campus.ts` | Explainers, grade key, share pack |
 | This playbook | `docs/growth/` | Operating notes |
 
 ## Already existed (do not duplicate)
