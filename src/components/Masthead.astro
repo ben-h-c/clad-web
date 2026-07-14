@@ -35,16 +35,66 @@ const homeHref = isAdmin ? "/admin/" : "/";
       </summary>
       <nav aria-label="Site">
         <ul class="masthead__menu-list">
-          <li><a href="/">Home</a></li>
-          <li><a href="/discover/">Discover</a></li>
-          <li><a href="/good-news/">Good News</a></li>
-          <li><a href="/trends/">News Trends</a></li>
-          <li><a href="/quiz/">Morning Quiz</a></li>
-          <li><a href="/week/">Week in Grades</a></li>
-          <li><a href="/search/">Search</a></li>
-          <li><a href="/about/">About Clad</a></li>
-          <li><a href="/about/#contact">Contact</a></li>
-          <li><a id="menu-account" href="/login/">Sign in</a></li>
+          <li>
+            <details class="masthead__submenu">
+              <summary>Read</summary>
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/discover/">Discover</a></li>
+                <li><a href="/good-news/">Good News</a></li>
+                <li><a href="/trends/">News Trends</a></li>
+                <li><a href="/recent/">Latest reports</a></li>
+                <li><a href="/search/">Search</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details class="masthead__submenu">
+              <summary>Midterms 2026</summary>
+              <ul>
+                <li><a href="/bracket/">Race board</a></li>
+                <li><a href="/bracket/coverage/">Coverage tournament</a></li>
+                <li><a href="/politicians/">Politicians</a></li>
+                <li><a href="/bracket/card/">Share card image</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details class="masthead__submenu">
+              <summary>Play &amp; grades</summary>
+              <ul>
+                <li><a href="/quiz/">Morning Quiz</a></li>
+                <li><a href="/week/">Week in Grades</a></li>
+                <li><a href="/bias/">Check your bias</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details class="masthead__submenu">
+              <summary>Learn</summary>
+              <ul>
+                <li><a href="/learn/">New to the news?</a></li>
+                <li><a href="/learn/first-vote/">First-time voter</a></li>
+                <li><a href="/students/">Students</a></li>
+                <li><a href="/how-it-works/">How it works</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details class="masthead__submenu">
+              <summary>More</summary>
+              <ul>
+                <li><a href="/newsletter/">Newsletter</a></li>
+                <li><a href="/press/">Press</a></li>
+                <li><a href="/archive/">Archive</a></li>
+                <li><a href="/about/">About Clad</a></li>
+                <li><a href="/about/#contact">Contact</a></li>
+              </ul>
+            </details>
+          </li>
+          <li class="masthead__menu-account">
+            <a id="menu-account" href="/login/">Sign in</a>
+          </li>
         </ul>
       </nav>
     </details>
@@ -76,6 +126,15 @@ const homeHref = isAdmin ? "/admin/" : "/";
     document.addEventListener("click", (e) => {
       const menu = document.querySelector(".masthead__menu");
       if (menu && menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    // Only one submenu open at a time (accordion).
+    document.querySelectorAll(".masthead__submenu").forEach((sub) => {
+      sub.addEventListener("toggle", () => {
+        if (!sub.open) return;
+        document.querySelectorAll(".masthead__submenu").forEach((other) => {
+          if (other !== sub) other.open = false;
+        });
+      });
     });
     // Manual light/dark toggle; persists across visits. Light is the default,
     // so an unset theme counts as light (we do not follow the OS preference).
