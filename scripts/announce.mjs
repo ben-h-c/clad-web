@@ -25,6 +25,12 @@ import { basename } from "node:path";
 const SITE = (process.env.SITE_URL || "https://cladfacts.com").replace(/\/$/, "");
 const DRY = process.env.DRY_RUN === "1" || process.env.DRY_RUN === "true";
 
+/** Trim secret values — trailing newlines from GitHub paste are a common auth fail. */
+function envTrim(name) {
+  const v = process.env[name];
+  return v == null ? "" : String(v).trim();
+}
+
 function strip(v) {
   return String(v ?? "")
     .replace(/^['"]|['"]$/g, "")
@@ -137,8 +143,10 @@ function buildText(fm, url) {
 }
 
 async function postToBluesky(text, url, imageBytes, alt) {
-  const handle = process.env.BSKY_HANDLE;
-  const password = process.env.BSKY_APP_PASSWORD;
+  // Identifier: handle without leading @, or the account email. App password only
+  // (Settings → Privacy and security → App Passwords) — not the account password.
+  let handle = envTrim("BSKY_HANDLE").replace(/^@/, "");
+  const password = envTrim("BSKY_APP_PASSWORD");
   if (!handle || !password) {
     throw new Error("BSKY_HANDLE and BSKY_APP_PASSWORD are required to post");
   }
@@ -150,7 +158,14 @@ async function postToBluesky(text, url, imageBytes, alt) {
       body: JSON.stringify({ identifier: handle, password }),
     })
   ).json();
-  if (!session.accessJwt) throw new Error("bsky auth failed: " + JSON.stringify(session));
+  if (!session.accessJwt) {
+    throw new Error(
+      "bsky auth failed: " +
+        JSON.stringify(session) +
+        " — check BSKY_HANDLE (no @; full handle like name.bsky.social or email) " +
+        "and BSKY_APP_PASSWORD (Bluesky *app* password, not login password)"
+    );
+  }
   const auth = { Authorization: `Bearer ${session.accessJwt}` };
 
   const blobRes = await (
@@ -230,7 +245,7 @@ for (const path of paths) {
       console.log("[dry run] skipping Bluesky · card", cardUrl);
       continue;
     }
-    if (!process.env.BSKY_HANDLE || !process.env.BSKY_APP_PASSWORD) {
+    if (!envTrim("BSKY_HANDLE") || !envTrim("BSKY_APP_PASSWORD")) {
       console.log("[skip] BSKY_* secrets not set — printed text only");
       continue;
     }
