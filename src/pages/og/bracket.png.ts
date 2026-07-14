@@ -40,9 +40,9 @@ function markup(lines: string[], n: number): string {
       <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED}">MIDTERMS 2026</div>
     </div>
     <div style="display:flex;width:100%;height:3px;background:${INK};margin:22px 0 28px"></div>
-    <div style="display:flex;font-size:22px;letter-spacing:4px;color:${MUTED}">BRACKET V2 · RACE BOARD</div>
-    <div style="display:flex;font-size:56px;font-weight:700;line-height:1.08;margin-top:12px">Coverage, not polls</div>
-    <div style="display:flex;font-size:28px;margin-top:20px;line-height:1.35">${n} fixed race matchups</div>
+    <div style="display:flex;font-size:22px;letter-spacing:4px;color:${MUTED}">CLASS II SENATE · MIDTERM GOVERNORS</div>
+    <div style="display:flex;font-size:52px;font-weight:700;line-height:1.08;margin-top:12px">On the 2026 ballot</div>
+    <div style="display:flex;font-size:28px;margin-top:20px;line-height:1.35">${n} races · coverage grades, not polls</div>
     <div style="display:flex;font-size:24px;color:${MUTED};margin-top:16px;line-height:1.4;max-width:1020px">${body}</div>
     <div style="display:flex;margin-top:auto;justify-content:space-between;align-items:flex-end;width:100%">
       <div style="display:flex;border:2px solid ${RED};color:${RED};padding:10px 22px;font-size:22px;letter-spacing:2px">WHOSE COVERAGE GRADES?</div>

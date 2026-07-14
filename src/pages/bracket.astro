@@ -2,7 +2,12 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getAccess } from "~/lib/access";
-import { buildRaceBoard, maskRaceLeaders, type RaceCardLive } from "~/lib/bracket";
+import {
+  buildRaceBoard,
+  maskRaceLeaders,
+  statusLabel,
+  type RaceCardLive,
+} from "~/lib/bracket";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "private, no-store");
@@ -16,6 +21,8 @@ const board = maskRaceLeaders(buildRaceBoard(all, reveal), reveal);
 const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
 const ogImage = `${origin}/og/bracket.png`;
 const pageUrl = `${origin}/bracket/`;
+
+const view = Astro.url.searchParams.get("view") === "region" ? "region" : "chamber";
 
 function party(p?: string) {
   return p ? ` (${p})` : "";
@@ -37,12 +44,12 @@ const jsonLd = {
   title={`${board.title} — CladFacts`}
   description={board.subtitle}
   ogTitle={board.title}
-  ogDescription="Fixed 2026 race matchups with live coverage grades — not polls. Whose side of the race is getting graded airtime?"
+  ogDescription="2026 midterm races that are actually on the calendar — Class II Senate and midterm governors — with live coverage grades, not polls."
   ogImage={ogImage}
   jsonLd={jsonLd}
 >
   <article class="static-page bracket-page">
-    <p class="small-caps upgrade__eyebrow">Midterms 2026 · Bracket v2</p>
+    <p class="small-caps upgrade__eyebrow">Midterms 2026 · Race board</p>
     <h1 class="static-page__title">{board.title}</h1>
     <p class="upgrade__lede">{board.subtitle}</p>
 
@@ -50,14 +57,26 @@ const jsonLd = {
       <a class="bracket-modes__on" href="/bracket/" aria-current="page">Race board</a>
       <a href="/bracket/coverage/">Coverage tournament</a>
       <a href="/politicians/">All politicians</a>
+      <a href="/learn/first-vote/">First-time voter guide</a>
     </nav>
+
+    <section class="civics" aria-label="How midterms work">
+      <h2 class="static-page__sub">How midterms work (short)</h2>
+      <ul class="civics__list">
+        <li>{board.civics.midterm}</li>
+        <li>{board.civics.senateClass}</li>
+        <li>{board.civics.vacancy}</li>
+        <li>{board.civics.house}</li>
+        <li>{board.civics.notPolls}</li>
+      </ul>
+    </section>
 
     {!reveal && (
       <p class="paywall-banner" style="margin: 1rem 0">
         <span>
           Guests see report counts (heat). Sign in free to see which side
-          <em>leads</em> each race card by coverage volume + average factuality —
-          not by polls.
+          <em>leads</em> each race by coverage volume + average factuality of that
+          coverage — not by polls.
         </span>
         <a class="paywall-banner__cta" href="/register/">Create free account</a>
       </p>
@@ -65,10 +84,11 @@ const jsonLd = {
 
     {board.hottest && board.hottest.heat > 0 && (
       <div class="bracket-champ" aria-label="Hottest race by coverage">
-        <span class="small-caps">Hottest race (by graded reports)</span>
+        <span class="small-caps">Hottest on-cycle race (by graded reports)</span>
         <strong>{board.hottest.def.office}</strong>
         <span class="bracket-champ__meta">
           {board.hottest.a.name} vs {board.hottest.b.name} · {board.hottest.heat} combined reports
+          {board.hottest.def.senateClass ? ` · Senate Class ${board.hottest.def.senateClass}` : ""}
         </span>
       </div>
     )}
@@ -79,31 +99,50 @@ const jsonLd = {
       </button>
       <a
         class="race-share__btn"
-        href={`https://bsky.app/intent/compose?text=${encodeURIComponent("Midterms 2026 race board on CladFacts — coverage grades, not polls.\n" + pageUrl)}`}
+        href={`https://bsky.app/intent/compose?text=${encodeURIComponent("2026 midterm race board on CladFacts — Class II Senate + governors, coverage grades not polls.\n" + pageUrl)}`}
         target="_blank"
         rel="noopener"
       >Share on Bluesky</a>
       <a class="race-share__btn race-share__btn--ghost" href={ogImage} target="_blank" rel="noopener">Card image</a>
+      <a class="race-share__btn race-share__btn--ghost" href={view === "region" ? "/bracket/" : "/bracket/?view=region"}>
+        {view === "region" ? "Group by chamber" : "Group by region"}
+      </a>
     </div>
     <p class="race-share__status" id="race-copy-status" hidden></p>
 
-    {board.byRegion.map((g) => (
+    {(view === "chamber" ? board.byChamber : board.byRegion.map((g) => ({
+      chamber: "senate" as const,
+      label: g.region,
+      cards: g.cards,
+    }))).map((g) => (
       <section class="race-region">
-        <h2 class="race-region__title">{g.region}</h2>
+        <h2 class="race-region__title">{g.label}</h2>
         <ul class="race-list">
           {g.cards.map((card) => (
-            <li class="race-card" data-tier={card.def.tier} data-id={card.def.id}>
+            <li class="race-card" data-tier={card.def.tier} data-chamber={card.def.chamber} data-id={card.def.id}>
               <header class="race-card__head">
                 <h3 class="race-card__office">{card.def.office}</h3>
                 <span class="race-card__tier small-caps">{card.def.tier}</span>
+                <span class="race-card__status small-caps">{statusLabel(card.def.status)}</span>
+                {card.def.senateClass && (
+                  <span class="race-card__class small-caps">Class {card.def.senateClass}</span>
+                )}
                 <span class="race-card__heat">{card.heat} reports</span>
               </header>
               <div class="race-card__sides">
                 <div class={sideClass(card, card.a.slug)}>
                   {card.a.href ? (
-                    <a href={card.a.href}>{card.a.name}{party(card.a.party)}</a>
+                    <a href={card.a.href}>
+                      {card.a.name}{party(card.a.party)}
+                      {card.def.a.incumbent ? " · Inc." : ""}
+                      {card.def.a.field ? " · Field" : ""}
+                    </a>
                   ) : (
-                    <span>{card.a.name}{party(card.a.party)}</span>
+                    <span>
+                      {card.a.name}{party(card.a.party)}
+                      {card.def.a.incumbent ? " · Inc." : ""}
+                      {card.def.a.field ? " · Field" : ""}
+                    </span>
                   )}
                   <span class="race-side__meta">
                     {card.a.reports} reports
@@ -114,9 +153,17 @@ const jsonLd = {
                 <div class="race-card__vs" aria-hidden="true">vs</div>
                 <div class={sideClass(card, card.b.slug)}>
                   {card.b.href ? (
-                    <a href={card.b.href}>{card.b.name}{party(card.b.party)}</a>
+                    <a href={card.b.href}>
+                      {card.b.name}{party(card.b.party)}
+                      {card.def.b.incumbent ? " · Inc." : ""}
+                      {card.def.b.field ? " · Field" : ""}
+                    </a>
                   ) : (
-                    <span>{card.b.name}{party(card.b.party)}</span>
+                    <span>
+                      {card.b.name}{party(card.b.party)}
+                      {card.def.b.incumbent ? " · Inc." : ""}
+                      {card.def.b.field ? " · Field" : ""}
+                    </span>
                   )}
                   <span class="race-side__meta">
                     {card.b.reports} reports
@@ -139,17 +186,20 @@ const jsonLd = {
       </section>
     ))}
 
-    <h2 class="static-page__sub">How to read this</h2>
+    <h2 class="static-page__sub">How to read this board</h2>
     <ul class="upgrade__perks">
-      <li><strong>Not a poll.</strong> Cards track graded <em>coverage</em> of each side, not voter intention.</li>
-      <li><strong>Heat</strong> = combined report count mentioning either side.</li>
-      <li><strong>Coverage lead</strong> (signed-in) = more reports, then higher average factuality of that coverage.</li>
-      <li><strong>Editorial list</strong> — matchups update as fields lock; notes call out fluid races.</li>
+      <li><strong>On-cycle only.</strong> Senate cards are Class II (2026). Class I seats (next 2030 — e.g. Slotkin, Cruz, Baldwin) and Class III (next 2028 — e.g. Warnock, Bennet, Fetterman) are not marquee cards here.</li>
+      <li><strong>Open seats</strong> mark retirements (Peters, Smith, Shaheen, Durbin) or term-limited governors — not “incumbent vs field.”</li>
+      <li><strong>Special</strong> marks a mid-term vacancy under the 17th Amendment + state law (South Carolina after Graham’s death).</li>
+      <li><strong>Heat</strong> = combined graded reports mentioning either side (public).</li>
+      <li><strong>Coverage lead</strong> (signed-in) = more reports, then higher average factuality of that coverage — not a vote forecast.</li>
+      <li><strong>Field</strong> means the nominee is not locked in our data; we show the best coverage stand-in and note it.</li>
+      <li><strong>House:</strong> all 435 seats every midterm — national control still shows up in the <a href="/bracket/coverage/">coverage tournament</a>.</li>
     </ul>
 
     <p class="static-page__note">
-      Also try the live <a href="/bracket/coverage/">coverage tournament</a> (top people by volume).
-      People index: <a href="/politicians/">/politicians/</a>.
+      People-level tournament (volume seeding): <a href="/bracket/coverage/">coverage tournament</a>.
+      Civics explainers: <a href="/learn/first-vote/">first-time voter guide</a>.
     </p>
   </article>
 </BaseLayout>
@@ -184,6 +234,21 @@ const jsonLd = {
     font-weight: 700;
     text-decoration: none;
     border-bottom: 2px solid var(--ink, #1a140d);
+  }
+  .civics {
+    margin: 0 0 1.5rem;
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--ink, #1a140d);
+    background: color-mix(in srgb, var(--ink, #1a140d) 4%, transparent);
+  }
+  .civics__list {
+    margin: 0.5rem 0 0;
+    padding-left: 1.2rem;
+  }
+  .civics__list li {
+    margin: 0.45rem 0;
+    line-height: 1.45;
+    font-size: 0.95rem;
   }
   .bracket-champ {
     display: flex;
@@ -222,7 +287,7 @@ const jsonLd = {
   .race-region { margin: 1.75rem 0; }
   .race-region__title {
     font-size: 0.9rem;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     margin: 0 0 0.75rem;
     padding-bottom: 0.35rem;
@@ -246,16 +311,21 @@ const jsonLd = {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    gap: 0.35rem 0.75rem;
+    gap: 0.35rem 0.65rem;
     margin-bottom: 0.65rem;
   }
   .race-card__office {
     font-family: var(--serif, Georgia, serif);
-    font-size: 1.15rem;
+    font-size: 1.12rem;
     font-weight: 700;
     margin: 0;
   }
-  .race-card__tier { opacity: 0.65; font-size: 0.75rem; }
+  .race-card__tier,
+  .race-card__status,
+  .race-card__class {
+    opacity: 0.65;
+    font-size: 0.72rem;
+  }
   .race-card__heat { margin-left: auto; font-size: 0.85rem; opacity: 0.8; }
   .race-card__sides {
     display: grid;

@@ -7,7 +7,15 @@
  */
 import type { CollectionEntry } from "astro:content";
 import { buildPoliticianIndex, type PoliticianAgg } from "./politicians.ts";
-import { RACE_MATCHUPS, racesByRegion, type RaceDef, type RaceRegion } from "./races.ts";
+import {
+  CIVICS_BLURBS,
+  RACE_MATCHUPS,
+  racesByChamber,
+  racesByRegion,
+  type RaceChamber,
+  type RaceDef,
+  type RaceRegion,
+} from "./races.ts";
 import { gradeToGpa } from "./topics.ts";
 
 export type BracketRoundId = "r16" | "qf" | "sf" | "final";
@@ -256,7 +264,9 @@ export interface RaceBoard {
   generatedAt: string;
   cards: RaceCardLive[];
   byRegion: { region: RaceRegion; cards: RaceCardLive[] }[];
+  byChamber: { chamber: RaceChamber; label: string; cards: RaceCardLive[] }[];
   hottest: RaceCardLive | null;
+  civics: typeof CIVICS_BLURBS;
 }
 
 function sideLive(
@@ -326,28 +336,55 @@ export function buildRaceBoard(
       .sort((x, y) => y.heat - x.heat),
   }));
 
+  const byChamber = racesByChamber().map(({ chamber, label, races }) => ({
+    chamber,
+    label,
+    cards: races
+      .map((def) => cards.find((c) => c.def.id === def.id)!)
+      .filter(Boolean)
+      .sort((x, y) => y.heat - x.heat || x.def.office.localeCompare(y.def.office)),
+  }));
+
   const hottest = cards.find((c) => c.heat > 0) ?? null;
 
   return {
     title: "Midterms 2026 Race Board",
     subtitle:
-      "Fixed race matchups with live CladFacts coverage stats. Not a poll — each card asks whose side of the race is getting more graded airtime, and how that coverage holds up.",
+      "Constitutionally on-cycle races for 2026 — Class II Senate seats and midterm governors — with live CladFacts coverage stats. Not a poll: each card asks whose side is getting graded airtime, and how that coverage holds up.",
     generatedAt: new Date().toISOString(),
     cards,
     byRegion,
-    hottest: revealScores ? hottest : hottest, // heat (volume) is public; leader still gated via leaderSlug null when !reveal
+    byChamber,
+    hottest,
+    civics: CIVICS_BLURBS,
   };
 }
 
 /** Guests: clear leaders so UI only shows heat/counts. */
 export function maskRaceLeaders(board: RaceBoard, reveal: boolean): RaceBoard {
   if (reveal) return board;
+  const clear = (c: RaceCardLive): RaceCardLive => ({
+    ...c,
+    leaderSlug: null,
+    leaderReason: null,
+  });
   return {
     ...board,
-    cards: board.cards.map((c) => ({ ...c, leaderSlug: null, leaderReason: null })),
-    byRegion: board.byRegion.map((g) => ({
-      ...g,
-      cards: g.cards.map((c) => ({ ...c, leaderSlug: null, leaderReason: null })),
-    })),
+    cards: board.cards.map(clear),
+    byRegion: board.byRegion.map((g) => ({ ...g, cards: g.cards.map(clear) })),
+    byChamber: board.byChamber.map((g) => ({ ...g, cards: g.cards.map(clear) })),
   };
+}
+
+export function statusLabel(status: RaceDef["status"]): string {
+  switch (status) {
+    case "incumbent-vs-field":
+      return "Incumbent · field open";
+    case "open-seat":
+      return "Open seat";
+    case "general-projected":
+      return "Projected general";
+    case "special":
+      return "Vacancy · special calendar";
+  }
 }
