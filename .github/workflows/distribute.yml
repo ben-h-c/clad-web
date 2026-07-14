@@ -1,0 +1,70 @@
+# When a post lands in src/content/posts/, wait for Cloudflare deploy so the
+# OG card is live, then run scripts/announce.mjs (Bluesky when secrets exist;
+# always prints paste-ready X/Threads text in the job log).
+#
+# Secrets (optional — missing BSKY_* = dry print only, exit 0):
+#   SITE_URL            default https://cladfacts.com
+#   BSKY_HANDLE
+#   BSKY_APP_PASSWORD   Bluesky *app* password
+#   ANNOUNCE_DRY_RUN    set to "1" to force dry-run even with secrets
+name: Distribute
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/content/posts/**"
+
+jobs:
+  announce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: List changed posts
+        id: diff
+        run: |
+          files=$(git diff --name-only HEAD~1 HEAD -- 'src/content/posts/**' | grep '\.md$' || true)
+          # Multiline → space-separated for the announce argv
+          echo "files<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$files" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+          count=$(printf '%s\n' "$files" | grep -c . || true)
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "Changed posts ($count):"
+          printf '%s\n' "$files"
+
+      - name: Wait for Workers deploy (OG must be live)
+        if: steps.diff.outputs.count != '0'
+        run: sleep 90
+
+      - name: Announce
+        if: steps.diff.outputs.count != '0'
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
+          BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
+          DRY_RUN: ${{ secrets.ANNOUNCE_DRY_RUN }}
+        run: |
+          set -euo pipefail
+          # Default SITE_URL when secret unset (GHA cannot || inside secrets.).
+          export SITE_URL="${SITE_URL:-https://cladfacts.com}"
+          files="${{ steps.diff.outputs.files }}"
+          if [ -z "${files// }" ]; then
+            echo "No markdown posts in this push."
+            exit 0
+          fi
+          # Force dry-run when no Bluesky secrets (still validates parse + print).
+          if [ -z "${BSKY_HANDLE:-}" ] || [ -z "${BSKY_APP_PASSWORD:-}" ]; then
+            export DRY_RUN=1
+            echo "BSKY secrets missing — dry-run print only."
+          fi
+          # shellcheck disable=SC2086
+          node scripts/announce.mjs $files

@@ -1,0 +1,30 @@
+# CladFacts
+
+> Independent newspaper-format fact-checks of news broadcasts. Letter grades,
+> factuality scores, and political-lean ratings — AI-assisted research,
+> human-reviewed before publish.
+
+Site: https://cladfacts.com
+App: https://apps.apple.com/app/id6781372681
+
+## Key pages
+
+- /how-it-works/ (methodology; /methodology/ redirects here)
+- /about/
+- /corrections/
+- /bias/
+- /politicians/ (candidate & officeholder report cards)
+- /trends/
+- /week/ (week in grades)
+- /rss.xml
+- /api/posts.json (public feed; grades null for anonymous consumers)
+
+## Access
+
+- Anonymous: article text + daily free sample report card
+- Free account: full scoreboard (grades, lean, charts, search filters)
+- Premium: optional supporter tier (funds the newsroom; Reader Reactions)
+
+## Contact
+
+support@cladfacts.com

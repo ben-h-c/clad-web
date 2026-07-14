@@ -100,6 +100,20 @@ const posts = defineCollection({
       videoId: z.string().optional(),
       videoTitle: z.string().optional(),
       thumbnail: z.string().optional(),
+
+      // Optional people tags for /politicians/[slug] report cards (growth /
+      // midterm SEO). When absent, the index still matches a curated seed list
+      // against headline/topics/summary. Additive only — never required.
+      politicians: z
+        .array(
+          z.object({
+            name: z.string().min(2),
+            slug: z.string().min(2),
+            letterGrade: z.enum(LETTER_GRADES).optional(),
+            factualityScore: z.number().int().min(0).max(100).optional(),
+          })
+        )
+        .optional(),
     })
     .superRefine((d, ctx) => {
       if (d.type === "verdict" && !d.verdict) {

@@ -1,0 +1,120 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getAccess } from "~/lib/access";
+import { buildPoliticianIndex } from "~/lib/politicians";
+
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "private, no-store");
+
+const access = await getAccess(Astro.request.headers);
+const locked = !access.fullAccess;
+
+const all = await getCollection("posts", (p) => !p.data.draft);
+const politicians = buildPoliticianIndex(all);
+
+const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Politician fact-check report cards — CladFacts",
+  url: `${origin}/politicians/`,
+  description:
+    "How candidates and officeholders grade on CladFacts: every report that covers them, claim by claim.",
+  isPartOf: { "@type": "WebSite", name: "CladFacts", url: origin },
+};
+---
+<BaseLayout
+  title="Politician report cards — CladFacts"
+  description="Fact-check grade history for candidates and officeholders: every CladFacts report that covers them, with letter grades and lean when you're signed in."
+  jsonLd={jsonLd}
+>
+  <article class="static-page">
+    <p class="small-caps upgrade__eyebrow">Midterms · Report cards</p>
+    <h1 class="static-page__title">Politician report cards</h1>
+    <p class="upgrade__lede">
+      Every time a candidate or officeholder shows up in a broadcast we grade,
+      they land here. Open a name for the full list of reports.
+      {locked ? (
+        <>
+          {" "}Average grades unlock with a
+          <a href="/register/">free account</a>.
+        </>
+      ) : (
+        <> Average grades and lean ratings below are live for your account.</>
+      )}
+    </p>
+
+    {politicians.length === 0 ? (
+      <p class="dateline">No politician pages yet — check back after the next graded debate.</p>
+    ) : (
+      <ul class="politician-index">
+        {politicians.map((p) => (
+          <li class="politician-index__row">
+            <a class="politician-index__name" href={`/politicians/${p.slug}/`}>{p.name}</a>
+            {p.race && <span class="politician-index__race">{p.race}</span>}
+            <span class="politician-index__meta">
+              {p.appearances.length} report{p.appearances.length === 1 ? "" : "s"}
+              {!locked && p.avgGrade && (
+                <> · avg grade <strong>{p.avgGrade}</strong></>
+              )}
+              {!locked && p.avgFactuality != null && (
+                <> · factuality {p.avgFactuality}/100</>
+              )}
+            </span>
+          </li>
+        ))}
+      </ul>
+    )}
+
+    <p class="static-page__note">
+      Pages update automatically when new reports publish. How we grade:
+      <a href="/how-it-works/">methodology</a>
+      ·
+      <a href="/corrections/">corrections</a>.
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .politician-index {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    border-top: 1px solid var(--rule, #cfc3ad);
+  }
+  .politician-index__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 0.5rem 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--rule, #cfc3ad);
+    align-items: baseline;
+  }
+  .politician-index__name {
+    font-family: var(--serif, Georgia, serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: inherit;
+    text-decoration: none;
+  }
+  .politician-index__name:hover { text-decoration: underline; }
+  .politician-index__race {
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+  .politician-index__meta {
+    font-size: 0.92rem;
+    opacity: 0.85;
+    text-align: right;
+  }
+  @media (max-width: 640px) {
+    .politician-index__row {
+      grid-template-columns: 1fr;
+      gap: 0.2rem;
+    }
+    .politician-index__meta { text-align: left; }
+  }
+</style>

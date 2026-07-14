@@ -1,0 +1,168 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import LetterGrade from "~/components/LetterGrade.astro";
+import PoliticalLean from "~/components/PoliticalLean.astro";
+import { getAccess } from "~/lib/access";
+import { findPolitician } from "~/lib/politicians";
+import { shortDate } from "~/lib/dateline";
+import { metaDescription } from "~/lib/seo";
+
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "private, no-store");
+
+const access = await getAccess(Astro.request.headers);
+const locked = !access.fullAccess;
+
+const slug = Astro.params.slug ?? "";
+const all = await getCollection("posts", (p) => !p.data.draft);
+const pol = findPolitician(all, slug);
+if (!pol) return new Response("Not found", { status: 404 });
+
+const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
+const publicDesc = metaDescription(
+  `Every ${pol.name} appearance CladFacts has graded: ${pol.appearances.length} report${pol.appearances.length === 1 ? "" : "s"}. Claim-by-claim verdicts with sources.`
+);
+const title = `${pol.name} — Fact-check report card | CladFacts`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  name: title,
+  url: `${origin}/politicians/${pol.slug}/`,
+  dateModified: new Date().toISOString(),
+  mainEntity: {
+    "@type": "Person",
+    name: pol.name,
+    description: publicDesc,
+  },
+  publisher: {
+    "@type": "NewsMediaOrganization",
+    name: "CladFacts",
+    url: origin,
+  },
+};
+---
+<BaseLayout
+  title={title}
+  description={publicDesc}
+  jsonLd={jsonLd}
+>
+  <article class="static-page politician">
+    <p class="small-caps upgrade__eyebrow">
+      Politician report card{pol.race ? ` · ${pol.race}` : ""}
+    </p>
+    <h1 class="static-page__title">{pol.name}</h1>
+    <p class="upgrade__lede">
+      {pol.appearances.length} graded report{pol.appearances.length === 1 ? "" : "s"}
+      on CladFacts.
+      {locked ? (
+        <>
+          {" "}Sign in free to see average grade, factuality, and lean —
+          <a href="/register/">create an account</a>.
+        </>
+      ) : (
+        <> Averages below are computed from every report listed.</>
+      )}
+    </p>
+
+    {!locked && (pol.avgGrade || pol.avgFactuality != null || pol.avgLean != null) && (
+      <div class="politician-scoreband" aria-label="Aggregate grades">
+        {pol.avgGrade && (
+          <div class="politician-scoreband__cell">
+            <LetterGrade grade={pol.avgGrade} size="card" />
+            <span class="small-caps">Avg grade</span>
+          </div>
+        )}
+        {pol.avgFactuality != null && (
+          <div class="politician-scoreband__cell">
+            <span class="politician-scoreband__num">{pol.avgFactuality}</span>
+            <span class="small-caps">Avg factuality</span>
+          </div>
+        )}
+        {pol.avgLean != null && (
+          <div class="politician-scoreband__cell">
+            <PoliticalLean score={pol.avgLean} />
+          </div>
+        )}
+      </div>
+    )}
+
+    {locked && (
+      <p class="paywall-banner" style="margin: 1rem 0">
+        <span>Averages locked for guests — free with any account.</span>
+        <a class="paywall-banner__cta" href="/register/">Create free account</a>
+      </p>
+    )}
+
+    <h2 class="static-page__sub">Graded appearances</h2>
+    <ol class="politician-list" reversed>
+      {pol.appearances.map((a) => (
+        <li class="politician-list__item">
+          <a href={`/posts/${a.id}/`}>{a.headline}</a>
+          <span class="politician-list__meta">
+            {shortDate(a.publishedAt)}
+            {a.sourceTitle ? ` · ${a.sourceTitle}` : ""}
+            {!locked && a.letterGrade && (
+              <> · Grade <strong>{a.letterGrade}</strong></>
+            )}
+            {!locked && a.factualityScore != null && (
+              <> · {a.factualityScore}/100</>
+            )}
+          </span>
+        </li>
+      ))}
+    </ol>
+
+    <p class="static-page__note">
+      Verdicts are researched with AI assistance and reviewed by an editor.
+      <a href="/how-it-works/">How grading works</a>
+      ·
+      <a href="/corrections/">Corrections</a>
+      ·
+      <a href="/politicians/">All politician cards</a>
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .politician-scoreband {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+    margin: 1.25rem 0 1.75rem;
+    padding: 1rem 1.25rem;
+    border: 3px double var(--ink, #1a140d);
+    background: var(--paper-deep, transparent);
+  }
+  .politician-scoreband__cell {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+  .politician-scoreband__num {
+    font-family: var(--serif, Georgia, serif);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .politician-list {
+    margin: 0.5rem 0 0;
+    padding-left: 1.25rem;
+  }
+  .politician-list__item {
+    margin: 0.75rem 0;
+  }
+  .politician-list__item a {
+    font-family: var(--serif, Georgia, serif);
+    font-weight: 600;
+    color: inherit;
+  }
+  .politician-list__meta {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 0.15rem;
+  }
+</style>
