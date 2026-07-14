@@ -1,5 +1,5 @@
 ---
-import { photoForSlug, monogram } from "~/lib/politicianPhotos";
+import { photoSrc, monogram } from "~/lib/politicianPhotos";
 
 interface Props {
   slug: string;
@@ -9,7 +9,8 @@ interface Props {
   decorative?: boolean;
 }
 const { slug, name, size = "md", decorative = true } = Astro.props;
-const photo = photoForSlug(slug);
+// Same-origin proxy — direct Wikimedia thumbs broke when we rewrote sizes (HTTP 400).
+const photo = photoSrc(slug);
 const mono = monogram(name);
 ---
 <div class={`pol-avatar pol-avatar--${size}`} aria-hidden={decorative ? "true" : undefined}>
@@ -23,7 +24,6 @@ const mono = monogram(name);
       height="240"
       loading="lazy"
       decoding="async"
-      referrerpolicy="no-referrer"
       onerror="this.remove()"
     />
   )}
