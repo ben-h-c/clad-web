@@ -43,7 +43,9 @@ const PUBLIC_API = (path: string) =>
   path.startsWith("/api/iap/") ||
   // Public newsletter signup + confirm/unsubscribe links. Rate-limited and
   // double-opt-in inside the route.
-  path === "/api/subscribe";
+  path === "/api/subscribe" ||
+  // Same-origin Wikimedia portrait proxy for politician cards / race board.
+  path.startsWith("/api/politician-photo/");
 
 const PROTECTED = (path: string) =>
   path === "/admin" ||
