@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getAccess } from "~/lib/access";
-import { buildPoliticianIndex } from "~/lib/politicians";
+import { buildPoliticianIndex, groupPoliticiansByBucket } from "~/lib/politicians";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "private, no-store");
@@ -12,6 +12,8 @@ const locked = !access.fullAccess;
 
 const all = await getCollection("posts", (p) => !p.data.draft);
 const politicians = buildPoliticianIndex(all);
+const groups = groupPoliticiansByBucket(politicians);
+const totalReports = politicians.reduce((n, p) => n + p.appearances.length, 0);
 
 const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
 const jsonLd = {
@@ -22,19 +24,21 @@ const jsonLd = {
   description:
     "How candidates and officeholders grade on CladFacts: every report that covers them, claim by claim.",
   isPartOf: { "@type": "WebSite", name: "CladFacts", url: origin },
+  numberOfItems: politicians.length,
 };
 ---
 <BaseLayout
   title="Politician report cards — CladFacts"
-  description="Fact-check grade history for candidates and officeholders: every CladFacts report that covers them, with letter grades and lean when you're signed in."
+  description={`Fact-check grade history for ${politicians.length} candidates and officeholders — ${totalReports} graded reports. Free account unlocks average grades and lean.`}
+  ogImage={`${origin}/og/brand.png`}
   jsonLd={jsonLd}
 >
-  <article class="static-page">
+  <article class="static-page politicians-dir">
     <p class="small-caps upgrade__eyebrow">Midterms · Report cards</p>
     <h1 class="static-page__title">Politician report cards</h1>
     <p class="upgrade__lede">
       Every time a candidate or officeholder shows up in a broadcast we grade,
-      they land here. Open a name for the full list of reports.
+      they land here. {politicians.length} people · {totalReports} report links.
       {locked ? (
         <>
           {" "}Average grades unlock with a
@@ -48,72 +52,179 @@ const jsonLd = {
     {politicians.length === 0 ? (
       <p class="dateline">No politician pages yet — check back after the next graded debate.</p>
     ) : (
-      <ul class="politician-index">
-        {politicians.map((p) => (
-          <li class="politician-index__row">
-            <a class="politician-index__name" href={`/politicians/${p.slug}/`}>{p.name}</a>
-            {p.race && <span class="politician-index__race">{p.race}</span>}
-            <span class="politician-index__meta">
-              {p.appearances.length} report{p.appearances.length === 1 ? "" : "s"}
-              {!locked && p.avgGrade && (
-                <> · avg grade <strong>{p.avgGrade}</strong></>
-              )}
-              {!locked && p.avgFactuality != null && (
-                <> · factuality {p.avgFactuality}/100</>
-              )}
-            </span>
-          </li>
-        ))}
-      </ul>
+      <>
+        <div class="pol-toolbar">
+          <label class="pol-search">
+            <span class="visually-hidden">Search politicians</span>
+            <input
+              id="pol-q"
+              type="search"
+              placeholder="Search name or race…"
+              autocomplete="off"
+              enterkeyhint="search"
+            />
+          </label>
+          <p class="pol-count" id="pol-count" aria-live="polite">
+            Showing {politicians.length}
+          </p>
+        </div>
+
+        <div id="pol-groups">
+          {groups.map((g) => (
+            <section class="pol-group" data-bucket={g.bucket}>
+              <h2 class="pol-group__title">{g.bucket}</h2>
+              <ul class="politician-index">
+                {g.items.map((p) => (
+                  <li
+                    class="politician-index__row"
+                    data-name={p.name.toLowerCase()}
+                    data-race={(p.race ?? "").toLowerCase()}
+                    data-bucket={p.bucket.toLowerCase()}
+                  >
+                    <a class="politician-index__name" href={`/politicians/${p.slug}/`}>{p.name}</a>
+                    {p.race && <span class="politician-index__race">{p.race}</span>}
+                    <span class="politician-index__meta">
+                      {p.appearances.length} report{p.appearances.length === 1 ? "" : "s"}
+                      {!locked && p.avgGrade && (
+                        <> · avg <strong>{p.avgGrade}</strong></>
+                      )}
+                      {!locked && p.avgFactuality != null && (
+                        <> · {p.avgFactuality}/100</>
+                      )}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+        <p class="pol-empty" id="pol-empty" hidden>No matches — try another name or race.</p>
+      </>
     )}
 
     <p class="static-page__note">
-      Pages update automatically when new reports publish. How we grade:
-      <a href="/how-it-works/">methodology</a>
+      Pages update when new reports publish. Share any card from its page
+      (Open Graph image included).
+      <a href="/how-it-works/">Methodology</a>
       ·
-      <a href="/corrections/">corrections</a>.
+      <a href="/corrections/">Corrections</a>
+      ·
+      <a href="/week/">Week in grades</a>.
     </p>
   </article>
 </BaseLayout>
 
+<script is:inline>
+  (() => {
+    const input = document.getElementById("pol-q");
+    const countEl = document.getElementById("pol-count");
+    const empty = document.getElementById("pol-empty");
+    if (!input) return;
+    const rows = Array.from(document.querySelectorAll(".politician-index__row"));
+    const groups = Array.from(document.querySelectorAll(".pol-group"));
+    const total = rows.length;
+
+    const apply = () => {
+      const q = (input.value || "").trim().toLowerCase();
+      let shown = 0;
+      for (const row of rows) {
+        const hay = [
+          row.getAttribute("data-name") || "",
+          row.getAttribute("data-race") || "",
+          row.getAttribute("data-bucket") || "",
+        ].join(" ");
+        const ok = !q || hay.includes(q);
+        row.hidden = !ok;
+        if (ok) shown++;
+      }
+      for (const g of groups) {
+        const any = Array.from(g.querySelectorAll(".politician-index__row")).some((r) => !r.hidden);
+        g.hidden = !any;
+      }
+      if (countEl) countEl.textContent = q ? `Showing ${shown} of ${total}` : `Showing ${total}`;
+      if (empty) empty.hidden = shown > 0;
+    };
+    input.addEventListener("input", apply);
+  })();
+</script>
+
 <style>
+  .pol-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+    margin: 1.25rem 0 0.5rem;
+  }
+  .pol-search {
+    flex: 1 1 16rem;
+  }
+  .pol-search input {
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--ink, #1a140d);
+    background: var(--paper, #f5edd9);
+    font: inherit;
+    color: inherit;
+  }
+  .pol-count {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.75;
+  }
+  .pol-group {
+    margin-top: 1.75rem;
+  }
+  .pol-group__title {
+    font-family: var(--serif, Georgia, serif);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0 0 0.35rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 2px solid var(--ink, #1a140d);
+  }
   .politician-index {
     list-style: none;
-    margin: 1.5rem 0 0;
+    margin: 0;
     padding: 0;
-    border-top: 1px solid var(--rule, #cfc3ad);
   }
   .politician-index__row {
     display: grid;
     grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1.2fr);
     gap: 0.5rem 1rem;
-    padding: 0.85rem 0;
+    padding: 0.75rem 0;
     border-bottom: 1px solid var(--rule, #cfc3ad);
     align-items: baseline;
   }
   .politician-index__name {
     font-family: var(--serif, Georgia, serif);
-    font-size: 1.15rem;
+    font-size: 1.12rem;
     font-weight: 700;
     color: inherit;
     text-decoration: none;
   }
   .politician-index__name:hover { text-decoration: underline; }
   .politician-index__race {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     opacity: 0.75;
   }
   .politician-index__meta {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     opacity: 0.85;
     text-align: right;
+  }
+  .pol-empty {
+    margin-top: 1.5rem;
+    opacity: 0.8;
   }
   @media (max-width: 640px) {
     .politician-index__row {
       grid-template-columns: 1fr;
-      gap: 0.2rem;
+      gap: 0.15rem;
     }
     .politician-index__meta { text-align: left; }
   }

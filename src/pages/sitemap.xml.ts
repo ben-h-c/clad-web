@@ -2,6 +2,7 @@ import { getCollection } from "astro:content";
 import { env } from "cloudflare:workers";
 import { aggregateTopics } from "~/lib/topics";
 import { getBreaking } from "~/lib/agents";
+import { buildPoliticianIndex } from "~/lib/politicians";
 import { slugify } from "~/lib/slug";
 
 export const prerender = false;
@@ -33,6 +34,7 @@ export async function GET() {
     url("/about/", undefined, "0.4"),
     url("/how-it-works/", undefined, "0.5"),
     url("/corrections/", undefined, "0.5"),
+    url("/politicians/", undefined, "0.7"),
     url("/privacy/", undefined, "0.2"),
     url("/terms/", undefined, "0.2"),
     url("/upgrade/", undefined, "0.4"),
@@ -70,6 +72,11 @@ export async function GET() {
   }
   for (const o of outlets) {
     entries.push(url(`/outlets/${o}/`, undefined, "0.5"));
+  }
+  // Politician report cards — midterm SEO hubs (only people with ≥1 match).
+  for (const pol of buildPoliticianIndex(posts)) {
+    const last = pol.appearances[0]?.publishedAt.toISOString().slice(0, 10);
+    entries.push(url(`/politicians/${pol.slug}/`, last, "0.65"));
   }
   // Active breaking-story clusters. Ephemeral (they 404 once the story ages
   // out), but while live they're the topical hubs crawlers should find first.

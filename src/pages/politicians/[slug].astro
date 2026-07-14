@@ -20,16 +20,19 @@ const pol = findPolitician(all, slug);
 if (!pol) return new Response("Not found", { status: 404 });
 
 const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
+const pageUrl = `${origin}/politicians/${pol.slug}/`;
+const ogImage = `${origin}/og/politician/${pol.slug}.png`;
 const publicDesc = metaDescription(
-  `Every ${pol.name} appearance CladFacts has graded: ${pol.appearances.length} report${pol.appearances.length === 1 ? "" : "s"}. Claim-by-claim verdicts with sources.`
+  `Every ${pol.name} appearance CladFacts has graded: ${pol.appearances.length} report${pol.appearances.length === 1 ? "" : "s"}. Claim-by-claim verdicts with sources. Free account unlocks average grades.`
 );
 const title = `${pol.name} — Fact-check report card | CladFacts`;
+const shareText = `${pol.name} on CladFacts: ${pol.appearances.length} graded report${pol.appearances.length === 1 ? "" : "s"}. How the coverage held up.`;
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
   name: title,
-  url: `${origin}/politicians/${pol.slug}/`,
+  url: pageUrl,
   dateModified: new Date().toISOString(),
   mainEntity: {
     "@type": "Person",
@@ -46,11 +49,16 @@ const jsonLd = {
 <BaseLayout
   title={title}
   description={publicDesc}
+  ogTitle={`${pol.name} — CladFacts report card`}
+  ogDescription={publicDesc}
+  ogImage={ogImage}
+  ogType="article"
   jsonLd={jsonLd}
 >
   <article class="static-page politician">
     <p class="small-caps upgrade__eyebrow">
       Politician report card{pol.race ? ` · ${pol.race}` : ""}
+      {pol.bucket ? ` · ${pol.bucket}` : ""}
     </p>
     <h1 class="static-page__title">{pol.name}</h1>
     <p class="upgrade__lede">
@@ -65,6 +73,25 @@ const jsonLd = {
         <> Averages below are computed from every report listed.</>
       )}
     </p>
+
+    <div class="pol-share" aria-label="Share this report card">
+      <span class="pol-share__label small-caps">Share</span>
+      <a
+        class="pol-share__btn"
+        href={`https://bsky.app/intent/compose?text=${encodeURIComponent(shareText + "\n" + pageUrl)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >Bluesky</a>
+      <a
+        class="pol-share__btn"
+        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(pageUrl)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >X</a>
+      <button type="button" class="pol-share__btn" id="pol-copy" data-url={pageUrl}>Copy link</button>
+      <a class="pol-share__btn pol-share__btn--ghost" href={ogImage} target="_blank" rel="noopener">Preview card</a>
+    </div>
+    <p class="pol-share__status" id="pol-copy-status" role="status" hidden></p>
 
     {!locked && (pol.avgGrade || pol.avgFactuality != null || pol.avgLean != null) && (
       <div class="politician-scoreband" aria-label="Aggregate grades">
@@ -125,7 +152,63 @@ const jsonLd = {
   </article>
 </BaseLayout>
 
+<script is:inline>
+  (() => {
+    const btn = document.getElementById("pol-copy");
+    const status = document.getElementById("pol-copy-status");
+    if (!btn) return;
+    btn.addEventListener("click", async () => {
+      const url = btn.getAttribute("data-url") || location.href;
+      try {
+        await navigator.clipboard.writeText(url);
+        if (status) {
+          status.hidden = false;
+          status.textContent = "Link copied — paste anywhere; the share card unfurls with the report count.";
+        }
+      } catch {
+        if (status) {
+          status.hidden = false;
+          status.textContent = url;
+        }
+      }
+    });
+  })();
+</script>
+
 <style>
+  .pol-share {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.65rem;
+    margin: 1rem 0 1.25rem;
+  }
+  .pol-share__label {
+    margin-right: 0.25rem;
+    opacity: 0.7;
+  }
+  .pol-share__btn {
+    appearance: none;
+    font: inherit;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid var(--ink, #1a140d);
+    background: var(--ink, #1a140d);
+    color: var(--paper, #f5edd9);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .pol-share__btn--ghost {
+    background: transparent;
+    color: inherit;
+  }
+  .pol-share__status {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin: -0.5rem 0 1rem;
+  }
   .politician-scoreband {
     display: flex;
     flex-wrap: wrap;
