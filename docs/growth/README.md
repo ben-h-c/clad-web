@@ -13,7 +13,8 @@ digest, peaking around the 2026 midterms (Nov 3).
 | Distribute workflow | `.github/workflows/distribute.yml` | On post push; dry-runs without BSKY secrets |
 | Methodology URL | `/methodology/` → 301 → `/how-it-works/` | E-E-A-T / press checklist alias |
 | Politician pages | `/politicians/`, `/politicians/[slug]/` | Seeds + FM tags; search/groups; OG cards |
-| Coverage bracket | `/bracket/` | March Madness-style midterm field (live seeds) |
+| Race board (v2) | `/bracket/` | Fixed 2026 race matchups + live coverage heat |
+| Coverage tournament | `/bracket/coverage/` | Top people by volume, classic seeding |
 | Agent politician tags | `postBuild` + `publish` | `tagPoliticiansFromText` → FM `politicians[]` |
 | Launch kit | `docs/launch/` | Day-of checklist + social templates |
 | Press page | `/press/` | Public boilerplate + links |

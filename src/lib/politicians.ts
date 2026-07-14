@@ -62,6 +62,7 @@ export const POLITICIAN_SEEDS: PoliticianSeed[] = [
   { name: "John Fetterman", slug: "john-fetterman", race: "PA Senate", bucket: "Senate 2026", aliases: ["John Fetterman", "Fetterman"] },
   { name: "Jim Banks", slug: "jim-banks", race: "IN Senate", bucket: "Senate 2026", aliases: ["Jim Banks"] },
   { name: "Tim Sheehy", slug: "tim-sheehy", race: "MT Senate", bucket: "Senate 2026", aliases: ["Tim Sheehy", "Sheehy"] },
+  { name: "Jon Tester", slug: "jon-tester", race: "MT Senate", bucket: "Senate 2026", aliases: ["Jon Tester", "Tester"] },
   { name: "Jacky Rosen", slug: "jacky-rosen", race: "NV Senate", bucket: "Senate 2026", aliases: ["Jacky Rosen"] },
   { name: "Sam Brown", slug: "sam-brown", race: "NV Senate", bucket: "Senate 2026", aliases: ["Sam Brown"] },
   { name: "Peter Welch", slug: "peter-welch", race: "VT Senate", bucket: "Senate 2026", aliases: ["Peter Welch"] },

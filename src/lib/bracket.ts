@@ -1,13 +1,13 @@
 /**
- * Midterms 2026 "March Madness" coverage bracket.
+ * Midterms 2026 brackets.
  *
- * Seeds the 16 politicians with the most graded appearances, pairs classic
- * 1v16 / 8v9 / …, and advances the higher avg-factuality (then report count)
- * into later rounds. Guests see the field + counts; signed-in readers see
- * who "leads" each matchup by coverage grade.
+ * v1 — Coverage tournament: top people by graded volume, classic seeding.
+ * v2 — Race board: fixed editorial matchups (Senate/Gov) with live coverage
+ *      stats on each side. Not polls — whose coverage is grading better / denser.
  */
 import type { CollectionEntry } from "astro:content";
 import { buildPoliticianIndex, type PoliticianAgg } from "./politicians.ts";
+import { RACE_MATCHUPS, racesByRegion, type RaceDef, type RaceRegion } from "./races.ts";
 import { gradeToGpa } from "./topics.ts";
 
 export type BracketRoundId = "r16" | "qf" | "sf" | "final";
@@ -226,3 +226,128 @@ export function roundLabel(r: BracketRoundId): string {
 }
 
 export { ROUND_ORDER };
+
+// ── Bracket v2: fixed race matchups ─────────────────────────────────────
+
+export interface RaceSideLive {
+  slug: string;
+  name: string;
+  party?: string;
+  reports: number;
+  avgGrade: string | null;
+  avgFactuality: number | null;
+  href: string | null;
+}
+
+export interface RaceCardLive {
+  def: RaceDef;
+  a: RaceSideLive;
+  b: RaceSideLive;
+  /** Total graded reports mentioning either side. */
+  heat: number;
+  /** Leader slug when scores revealed; null for guests or ties with no data. */
+  leaderSlug: string | null;
+  leaderReason: string | null;
+}
+
+export interface RaceBoard {
+  title: string;
+  subtitle: string;
+  generatedAt: string;
+  cards: RaceCardLive[];
+  byRegion: { region: RaceRegion; cards: RaceCardLive[] }[];
+  hottest: RaceCardLive | null;
+}
+
+function sideLive(
+  side: RaceDef["a"],
+  bySlug: Map<string, PoliticianAgg>
+): RaceSideLive {
+  const p = bySlug.get(side.slug);
+  return {
+    slug: side.slug,
+    name: side.name,
+    party: side.party,
+    reports: p?.appearances.length ?? 0,
+    avgGrade: p?.avgGrade ?? null,
+    avgFactuality: p?.avgFactuality ?? null,
+    href: p && p.appearances.length > 0 ? `/politicians/${side.slug}/` : null,
+  };
+}
+
+function raceLeader(
+  a: RaceSideLive,
+  b: RaceSideLive,
+  reveal: boolean
+): { slug: string | null; reason: string | null } {
+  if (!reveal) return { slug: null, reason: null };
+  if (a.reports === 0 && b.reports === 0) return { slug: null, reason: "No graded coverage yet" };
+  // Score: volume first, then factuality of coverage about them.
+  const score = (s: RaceSideLive) => s.reports * 1000 + (s.avgFactuality ?? 50) * 10;
+  const sa = score(a);
+  const sb = score(b);
+  if (sa === sb) {
+    if (a.reports === b.reports) return { slug: null, reason: "Tied on coverage" };
+    const w = a.reports >= b.reports ? a : b;
+    return { slug: w.slug, reason: "More graded reports" };
+  }
+  const w = sa > sb ? a : b;
+  const fact = w.avgFactuality != null ? ` · avg factuality ${w.avgFactuality}` : "";
+  return { slug: w.slug, reason: `${w.reports} reports${fact}` };
+}
+
+/** Build the fixed-race board with live coverage stats. */
+export function buildRaceBoard(
+  posts: CollectionEntry<"posts">[],
+  revealScores: boolean
+): RaceBoard {
+  const index = buildPoliticianIndex(posts);
+  const bySlug = new Map(index.map((p) => [p.slug, p]));
+
+  const cards: RaceCardLive[] = RACE_MATCHUPS.map((def) => {
+    const a = sideLive(def.a, bySlug);
+    const b = sideLive(def.b, bySlug);
+    const { slug, reason } = raceLeader(a, b, revealScores);
+    return {
+      def,
+      a,
+      b,
+      heat: a.reports + b.reports,
+      leaderSlug: slug,
+      leaderReason: reason,
+    };
+  }).sort((x, y) => y.heat - x.heat || x.def.office.localeCompare(y.def.office));
+
+  const byRegion = racesByRegion().map(({ region, races }) => ({
+    region,
+    cards: races
+      .map((def) => cards.find((c) => c.def.id === def.id)!)
+      .filter(Boolean)
+      .sort((x, y) => y.heat - x.heat),
+  }));
+
+  const hottest = cards.find((c) => c.heat > 0) ?? null;
+
+  return {
+    title: "Midterms 2026 Race Board",
+    subtitle:
+      "Fixed race matchups with live CladFacts coverage stats. Not a poll — each card asks whose side of the race is getting more graded airtime, and how that coverage holds up.",
+    generatedAt: new Date().toISOString(),
+    cards,
+    byRegion,
+    hottest: revealScores ? hottest : hottest, // heat (volume) is public; leader still gated via leaderSlug null when !reveal
+  };
+}
+
+/** Guests: clear leaders so UI only shows heat/counts. */
+export function maskRaceLeaders(board: RaceBoard, reveal: boolean): RaceBoard {
+  if (reveal) return board;
+  return {
+    ...board,
+    cards: board.cards.map((c) => ({ ...c, leaderSlug: null, leaderReason: null })),
+    byRegion: board.byRegion.map((g) => ({
+      ...g,
+      cards: g.cards.map((c) => ({ ...c, leaderSlug: null, leaderReason: null })),
+    })),
+  };
+}
