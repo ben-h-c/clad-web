@@ -38,17 +38,26 @@ export interface PoliticianSeed {
  */
 export const POLITICIAN_SEEDS: PoliticianSeed[] = [
   // ── Senate 2026 (Class II) ───────────────────────────────────────────
-  // Official Class II map: terms expire Jan 2027 (last regular election 2020 / specials).
+  // Official Class II map: terms expire Jan 2027. Keep labels in sync with races.ts.
   { name: "Jon Ossoff", slug: "jon-ossoff", race: "GA Senate (Class II · 2026)", bucket: "Senate 2026", aliases: ["Jon Ossoff", "Ossoff"] },
-  { name: "Mike Collins", slug: "mike-collins", race: "GA Senate challenger", bucket: "Senate 2026", aliases: ["Mike Collins", "Rep. Collins"] },
-  { name: "Thom Tillis", slug: "thom-tillis", race: "NC Senate (Class II · 2026)", bucket: "Senate 2026", aliases: ["Thom Tillis", "Tillis"] },
-  { name: "Roy Cooper", slug: "roy-cooper", race: "NC Senate contender", bucket: "Senate 2026", aliases: ["Roy Cooper"] },
+  { name: "Mike Collins", slug: "mike-collins", race: "GA Senate nominee (R)", bucket: "Senate 2026", aliases: ["Mike Collins", "Rep. Collins"] },
+  { name: "Roy Cooper", slug: "roy-cooper", race: "NC Senate nominee (D)", bucket: "Senate 2026", aliases: ["Roy Cooper"] },
+  { name: "Michael Whatley", slug: "michael-whatley", race: "NC Senate nominee (R)", bucket: "Senate 2026", aliases: ["Michael Whatley", "Whatley"] },
+  { name: "Thom Tillis", slug: "thom-tillis", race: "NC Senate (retired · Class II)", bucket: "Other", aliases: ["Thom Tillis", "Tillis"] },
   { name: "Susan Collins", slug: "susan-collins", race: "ME Senate (Class II · 2026)", bucket: "Senate 2026", aliases: ["Susan Collins"] },
-  { name: "Graham Platner", slug: "graham-platner", race: "ME Senate contender", bucket: "Senate 2026", aliases: ["Graham Platner", "Platner"] },
-  { name: "John Cornyn", slug: "john-cornyn", race: "TX Senate (Class II · 2026)", bucket: "Senate 2026", aliases: ["John Cornyn", "Cornyn"] },
-  { name: "Colin Allred", slug: "colin-allred", race: "TX Senate contender", bucket: "Senate 2026", aliases: ["Colin Allred", "Allred"] },
+  // Platner withdrew July 2026 — keep for coverage matching only; not a 2026 nominee.
+  { name: "Graham Platner", slug: "graham-platner", race: "ME politics (withdrew 2026)", bucket: "Other", aliases: ["Graham Platner", "Platner"] },
+  { name: "Ken Paxton", slug: "ken-paxton", race: "TX Senate nominee (R)", bucket: "Senate 2026", aliases: ["Ken Paxton", "Attorney General Paxton"] },
+  { name: "James Talarico", slug: "james-talarico", race: "TX Senate nominee (D)", bucket: "Senate 2026", aliases: ["James Talarico", "Talarico"] },
+  { name: "John Cornyn", slug: "john-cornyn", race: "TX politics (lost 2026 primary)", bucket: "Other", aliases: ["John Cornyn", "Cornyn"] },
+  { name: "Colin Allred", slug: "colin-allred", race: "TX politics", bucket: "Other", aliases: ["Colin Allred", "Allred"] },
   { name: "Tina Smith", slug: "tina-smith", race: "MN Senate open (Class II · retiring)", bucket: "Senate 2026", aliases: ["Tina Smith", "Sen. Smith"] },
+  { name: "Peggy Flanagan", slug: "peggy-flanagan", race: "MN Senate contender", bucket: "Senate 2026", aliases: ["Peggy Flanagan", "Lt. Gov. Flanagan"] },
+  { name: "Angie Craig", slug: "angie-craig", race: "MN Senate contender", bucket: "Senate 2026", aliases: ["Angie Craig", "Rep. Craig"] },
   { name: "Jeanne Shaheen", slug: "jeanne-shaheen", race: "NH Senate open (Class II · retiring)", bucket: "Senate 2026", aliases: ["Jeanne Shaheen", "Shaheen"] },
+  { name: "Chris Pappas", slug: "chris-pappas", race: "NH Senate contender", bucket: "Senate 2026", aliases: ["Chris Pappas", "Rep. Pappas"] },
+  { name: "John Sununu", slug: "john-sununu", race: "NH Senate contender", bucket: "Senate 2026", aliases: ["John Sununu", "John E. Sununu", "Sen. Sununu"] },
+  { name: "Scott Brown", slug: "scott-brown", race: "NH Senate contender", bucket: "Senate 2026", aliases: ["Scott Brown"] },
   { name: "Steve Daines", slug: "steve-daines", race: "MT Senate (Class II · 2026)", bucket: "Senate 2026", aliases: ["Steve Daines", "Daines"] },
   { name: "John Hickenlooper", slug: "john-hickenlooper", race: "CO Senate (Class II · 2026)", bucket: "Senate 2026", aliases: ["John Hickenlooper", "Hickenlooper"] },
   { name: "Dick Durbin", slug: "dick-durbin", race: "IL Senate open (Class II · retiring)", bucket: "Senate 2026", aliases: ["Dick Durbin", "Durbin"] },
@@ -59,7 +68,8 @@ export const POLITICIAN_SEEDS: PoliticianSeed[] = [
   { name: "Pete Ricketts", slug: "pete-ricketts", race: "NE Senate (Class II · 2026)", bucket: "Senate 2026", aliases: ["Pete Ricketts", "Ricketts"] },
   { name: "Cory Booker", slug: "cory-booker", race: "NJ Senate (Class II · 2026)", bucket: "Senate 2026", aliases: ["Cory Booker"] },
   { name: "Lindsey Graham", slug: "lindsey-graham", race: "SC Senate vacancy (Class II · d. 2026)", bucket: "Senate 2026", aliases: ["Lindsey Graham"] },
-  { name: "Annie Andrews", slug: "annie-andrews", race: "SC Senate contender", bucket: "Senate 2026", aliases: ["Annie Andrews", "Dr. Annie Andrews"] },
+  { name: "Annie Andrews", slug: "annie-andrews", race: "SC Senate nominee (D)", bucket: "Senate 2026", aliases: ["Annie Andrews", "Dr. Annie Andrews"] },
+  { name: "Darline Graham Nordone", slug: "darline-graham-nordone", race: "SC Senate interim appointee", bucket: "Senate 2026", aliases: ["Darline Graham Nordone", "Graham Nordone"] },
 
   // Class I / III — not on 2026 Senate ballot (still covered in news)
   { name: "Raphael Warnock", slug: "raphael-warnock", race: "GA Senate (Class III · 2028)", bucket: "Congress", aliases: ["Raphael Warnock", "Warnock"] },
@@ -127,7 +137,6 @@ export const POLITICIAN_SEEDS: PoliticianSeed[] = [
   { name: "Robert F. Kennedy Jr.", slug: "rfk-jr", race: "HHS / national", bucket: "U.S. leadership", aliases: ["Robert F. Kennedy", "RFK Jr", "RFK Junior", "Kennedy Jr"] },
   { name: "Nikki Haley", slug: "nikki-haley", race: "National", bucket: "Other", aliases: ["Nikki Haley"] },
   { name: "Vivek Ramaswamy", slug: "vivek-ramaswamy", race: "National", bucket: "Other", aliases: ["Vivek Ramaswamy", "Ramaswamy"] },
-  { name: "Ken Paxton", slug: "ken-paxton", race: "TX Attorney General", bucket: "Other", aliases: ["Ken Paxton"] },
 
   // ── International (often in graded broadcasts) ───────────────────────
   { name: "Keir Starmer", slug: "keir-starmer", race: "UK PM", bucket: "International", aliases: ["Keir Starmer", "Starmer"] },

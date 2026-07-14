@@ -49,6 +49,11 @@ export interface AgentConfig {
   scanWindowDays?: number; // only posts published within this window get scanned
   refreshHours?: number; // re-scan a post once its sentiment is older than this
   refreshWindowHours?: number; // …but only while the post itself is younger than this
+  // race-board-auditor
+  maxRacesPerRun?: number; // how many race cards to web-audit per run
+  // dead-video-pruner
+  maxDeletePerRun?: number;
+  dryRun?: boolean;
 }
 
 export interface AgentLastRun {
@@ -242,6 +247,17 @@ export const DEFAULT_REGISTRY: Registry = {
       enabled: true,
       cron: "0 12 * * *", // daily, 12:00 UTC
       config: { maxDeletePerRun: 25, dryRun: false },
+    },
+    {
+      id: "race-board-auditor",
+      kind: "race-board-auditor",
+      name: "Race Board Auditor (2026 candidates)",
+      enabled: true,
+      // Every other day 15:00 UTC — candidate maps change around primaries/dropouts.
+      cron: "0 15 */2 * *",
+      config: {
+        maxRacesPerRun: 24,
+      },
     },
   ],
 };
@@ -987,6 +1003,46 @@ export async function removeComplianceFinding(
   report.findings = report.findings.filter((f) => f.id !== id);
   await setComplianceReport(kv, report);
   return report;
+}
+
+// ── Race board auditor (2026 midterms candidates) ──────────────────────
+const RACE_AUDIT_KEY = "races:audit";
+
+export type RaceAuditSeverity = "critical" | "stale" | "info";
+
+export interface RaceAuditFinding {
+  raceId: string;
+  office: string;
+  severity: RaceAuditSeverity;
+  /** Short machine-friendly tag e.g. withdrawn, wrong-nominee, open-seat */
+  issue: string;
+  detail: string;
+  /** Suggested side labels if a change is needed */
+  suggestedA?: string;
+  suggestedB?: string;
+  sources?: string[];
+}
+
+export interface RaceAuditReport {
+  generatedAt: string;
+  boardVerifiedAsOf: string;
+  racesAudited: number;
+  summary: string;
+  findings: RaceAuditFinding[];
+}
+
+export async function getRaceAuditReport(kv: KVNamespace): Promise<RaceAuditReport | null> {
+  const raw = await kv.get(RACE_AUDIT_KEY);
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw) as RaceAuditReport;
+  } catch {
+    return null;
+  }
+}
+
+export async function setRaceAuditReport(kv: KVNamespace, report: RaceAuditReport): Promise<void> {
+  await kv.put(RACE_AUDIT_KEY, JSON.stringify(report));
 }
 
 export interface PostContent {

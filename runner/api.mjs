@@ -73,6 +73,14 @@ export function putComplianceReport(report) {
   return call("/api/agent/compliance", { method: "POST", body: JSON.stringify(report) });
 }
 
+export function getRaceBoard() {
+  return call("/api/agent/races", { method: "GET" });
+}
+
+export function putRaceAuditReport(report) {
+  return call("/api/agent/races", { method: "POST", body: JSON.stringify(report) });
+}
+
 export function getCategories() {
   return call("/api/agent/categories", { method: "GET" });
 }

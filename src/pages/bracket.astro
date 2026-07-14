@@ -8,6 +8,7 @@ import {
   statusLabel,
   type RaceCardLive,
 } from "~/lib/bracket";
+import { RACE_BOARD_VERIFIED_ASOF } from "~/lib/races";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "private, no-store");
@@ -188,12 +189,13 @@ const jsonLd = {
 
     <h2 class="static-page__sub">How to read this board</h2>
     <ul class="upgrade__perks">
-      <li><strong>On-cycle only.</strong> Senate cards are Class II (2026). Class I seats (next 2030 — e.g. Slotkin, Cruz, Baldwin) and Class III (next 2028 — e.g. Warnock, Bennet, Fetterman) are not marquee cards here.</li>
-      <li><strong>Open seats</strong> mark retirements (Peters, Smith, Shaheen, Durbin) or term-limited governors — not “incumbent vs field.”</li>
+      <li><strong>Candidate map verified</strong> as of {RACE_BOARD_VERIFIED_ASOF}. A background agent re-checks dropouts and nominees with web search every other day; stale pairings get fixed in code.</li>
+      <li><strong>On-cycle only.</strong> Senate cards are Class II (2026). Class I (next 2030) and Class III (next 2028) are not marquee Senate cards here.</li>
+      <li><strong>Open seats</strong> mark retirements (Tillis, Peters, Smith, Shaheen, Durbin) or term-limited governors — not “incumbent vs field.”</li>
       <li><strong>Special</strong> marks a mid-term vacancy under the 17th Amendment + state law (South Carolina after Graham’s death).</li>
       <li><strong>Heat</strong> = combined graded reports mentioning either side (public).</li>
       <li><strong>Coverage lead</strong> (signed-in) = more reports, then higher average factuality of that coverage — not a vote forecast.</li>
-      <li><strong>Field</strong> means the nominee is not locked in our data; we show the best coverage stand-in and note it.</li>
+      <li><strong>Field</strong> means the nominee is not locked in our data; we show a coverage stand-in and note it. Withdrawn candidates (e.g. Platner in Maine) are not listed as active sides.</li>
       <li><strong>House:</strong> all 435 seats every midterm — national control still shows up in the <a href="/bracket/coverage/">coverage tournament</a>.</li>
     </ul>
 

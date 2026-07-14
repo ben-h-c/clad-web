@@ -20,8 +20,9 @@
  * - Not a claim that every pairing is locked on the general-election ballot.
  * - Coverage heat: how CladFacts has graded *broadcasts about* each side.
  *
- * Update `RACE_MATCHUPS` as primaries resolve. Prefer incumbent seat labels when
- * the challenger is still TBD.
+ * Keep `verifiedAsOf` current. The race-board-auditor agent (runner) web-searches
+ * each card periodically and stores findings in KV for the editor — apply those
+ * findings here by hand (or via PR) before changing live pairings.
  */
 
 export type RaceRegion = "South" | "Midwest" | "Northeast" | "West";
@@ -30,7 +31,7 @@ export type RaceTier = "marquee" | "watch" | "lean";
 export type RaceStatus =
   | "incumbent-vs-field" // incumbent seeking; other party not locked
   | "open-seat" // no incumbent on ballot (retirement, term limits, death after primary, etc.)
-  | "general-projected" // both sides named as leading contenders (still may face primaries)
+  | "general-projected" // both major-party nominees named (primaries done)
   | "special"; // vacancy / special calendar under state law + 17th Amendment
 
 export interface RaceSide {
@@ -39,8 +40,10 @@ export interface RaceSide {
   party?: "D" | "R" | "I" | "O";
   /** true when this person currently holds the seat being contested */
   incumbent?: boolean;
-  /** true when not yet the nominee — coverage proxy only */
+  /** true when not yet the party nominee — coverage proxy only */
   field?: boolean;
+  /** true when this person withdrew / lost and must not be treated as the nominee */
+  withdrawn?: boolean;
 }
 
 export interface RaceDef {
@@ -57,16 +60,17 @@ export interface RaceDef {
   a: RaceSide;
   b: RaceSide;
   note?: string;
+  /** ISO date (YYYY-MM-DD) of last human audit against news / Ballotpedia. */
+  verifiedAsOf?: string;
 }
+
+/** Bump when you complete a full human pass over the board. */
+export const RACE_BOARD_VERIFIED_ASOF = "2026-07-14";
 
 /**
  * 2026 Class II Senate focus + midterm governors.
- *
- * Corrected from earlier drafts that mislabeled:
- * - Georgia Class II = Ossoff (2026), not Warnock (Class III → 2028)
- * - Michigan Class II = Peters open seat; Slotkin is Class I (elected 2024 → 2030)
- * - Colorado Class II = Hickenlooper; Bennet is Class III (and lost the 2026 gov primary)
- * - Open seats: Peters, Smith, Shaheen, Durbin retirements; SC vacancy after Graham’s death
+ * Last full audit: 2026-07-14 (Platner out of ME; Tillis retired NC → Cooper/Whatley;
+ * Cornyn lost TX primary → Paxton/Talarico; SC vacancy after Graham’s death).
  */
 export const RACE_MATCHUPS: RaceDef[] = [
   // ── Class II Senate — marquee / competitive attention ────────────────
@@ -79,9 +83,10 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "marquee",
     status: "general-projected",
     state: "GA",
+    verifiedAsOf: "2026-07-14",
     a: { slug: "jon-ossoff", name: "Jon Ossoff", party: "D", incumbent: true },
-    b: { slug: "mike-collins", name: "Mike Collins", party: "R", field: true },
-    note: "Class II (Ossoff, last elected in the Jan 2021 runoff for the Perdue seat). Raphael Warnock holds Georgia’s Class III seat — next regular election 2028, not 2026. Collins advanced as the leading GOP challenger in 2026 coverage.",
+    b: { slug: "mike-collins", name: "Mike Collins", party: "R" },
+    note: "Class II. Ossoff (Dem primary unopposed May 2026). Collins won the June 16 GOP runoff vs Derek Dooley — both are general-election nominees. Warnock is Class III (2028).",
   },
   {
     id: "nc-senate",
@@ -90,11 +95,12 @@ export const RACE_MATCHUPS: RaceDef[] = [
     senateClass: 2,
     region: "South",
     tier: "marquee",
-    status: "incumbent-vs-field",
+    status: "general-projected",
     state: "NC",
-    a: { slug: "thom-tillis", name: "Thom Tillis", party: "R", incumbent: true },
-    b: { slug: "roy-cooper", name: "Roy Cooper", party: "D", field: true },
-    note: "Class II. Cooper is the highest-coverage Democratic name in our seeds for this race; treat as contender until the primary calendar settles.",
+    verifiedAsOf: "2026-07-14",
+    a: { slug: "roy-cooper", name: "Roy Cooper", party: "D" },
+    b: { slug: "michael-whatley", name: "Michael Whatley", party: "R" },
+    note: "Class II open seat — Thom Tillis retired (not seeking re-election). March 2026 primaries: Cooper (D) and Whatley (R, former RNC chair) are the nominees.",
   },
   {
     id: "mi-senate",
@@ -105,9 +111,10 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "marquee",
     status: "open-seat",
     state: "MI",
-    a: { slug: "haley-stevens", name: "Dem field (MI)", party: "D", field: true },
+    verifiedAsOf: "2026-07-14",
+    a: { slug: "haley-stevens", name: "Dem primary (Stevens / El-Sayed)", party: "D", field: true },
     b: { slug: "mike-rogers", name: "Mike Rogers", party: "R", field: true },
-    note: "Class II open seat — Gary Peters not seeking re-election. Dem primary (e.g. Haley Stevens / Abdul El-Sayed) still settling; Rogers is the main GOP coverage name (lost the 2024 Class I race to Slotkin). Elissa Slotkin is Class I (next 2030) — not on this ballot.",
+    note: "Class II open seat — Gary Peters not seeking re-election. Dem primary Aug 4, 2026: Haley Stevens vs Abdul El-Sayed (McMorrow suspended). Rogers is the main GOP coverage name. Elissa Slotkin is Class I (2030) — not on this ballot.",
   },
   {
     id: "me-senate",
@@ -118,9 +125,10 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "marquee",
     status: "incumbent-vs-field",
     state: "ME",
+    verifiedAsOf: "2026-07-14",
     a: { slug: "susan-collins", name: "Susan Collins", party: "R", incumbent: true },
-    b: { slug: "graham-platner", name: "Graham Platner", party: "D", field: true },
-    note: "Class II. Democratic challenger field may evolve — Platner is our current seeded Dem focal point for coverage.",
+    b: { slug: "me-dem-field", name: "Democratic nominee TBD (ME)", party: "D", field: true },
+    note: "Class II. Collins won the GOP primary unopposed. Graham Platner won the June Dem primary but withdrew July 2026 after assault allegations — Maine Democrats must name a replacement (party process; filing window around late July). Do not list Platner as the nominee.",
   },
   {
     id: "tx-senate",
@@ -128,12 +136,13 @@ export const RACE_MATCHUPS: RaceDef[] = [
     chamber: "senate",
     senateClass: 2,
     region: "South",
-    tier: "watch",
-    status: "incumbent-vs-field",
+    tier: "marquee",
+    status: "general-projected",
     state: "TX",
-    a: { slug: "john-cornyn", name: "John Cornyn", party: "R", incumbent: true },
-    b: { slug: "colin-allred", name: "Democratic field (TX)", party: "D", field: true },
-    note: "Class II is Cornyn’s seat. Ted Cruz is Class I (last elected 2024 → next regular election 2030) — not on the 2026 Senate ballot.",
+    verifiedAsOf: "2026-07-14",
+    a: { slug: "ken-paxton", name: "Ken Paxton", party: "R" },
+    b: { slug: "james-talarico", name: "James Talarico", party: "D" },
+    note: "Class II. Paxton defeated incumbent John Cornyn in the May 26, 2026 GOP runoff. Talarico won the March Dem primary (over Jasmine Crockett). Ted Cruz is Class I (2030) — not on this ballot.",
   },
   {
     id: "mn-senate",
@@ -144,9 +153,10 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "watch",
     status: "open-seat",
     state: "MN",
-    a: { slug: "tina-smith", name: "Tina Smith seat (open)", party: "D", field: true },
+    verifiedAsOf: "2026-07-14",
+    a: { slug: "peggy-flanagan", name: "Dem primary (Flanagan / Craig)", party: "D", field: true },
     b: { slug: "mn-gop-field", name: "GOP field (MN)", party: "R", field: true },
-    note: "Class II open seat — Tina Smith announced she will not seek re-election. Amy Klobuchar is Class I (2030).",
+    note: "Class II open seat — Tina Smith retiring. Dem primary Aug 11, 2026 (Lt. Gov. Peggy Flanagan, Rep. Angie Craig lead coverage). Amy Klobuchar is Class I (2030).",
   },
   {
     id: "nh-senate",
@@ -157,9 +167,10 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "watch",
     status: "open-seat",
     state: "NH",
-    a: { slug: "jeanne-shaheen", name: "Jeanne Shaheen seat (open)", party: "D", field: true },
-    b: { slug: "nh-gop-field", name: "GOP field (NH)", party: "R", field: true },
-    note: "Class II open seat — Jeanne Shaheen retiring. Competitive open-seat map; nominees TBD in our seeds.",
+    verifiedAsOf: "2026-07-14",
+    a: { slug: "chris-pappas", name: "Chris Pappas", party: "D", field: true },
+    b: { slug: "john-sununu", name: "GOP field (Sununu / Brown)", party: "R", field: true },
+    note: "Class II open seat — Jeanne Shaheen retiring. Primaries Sept 8, 2026. Coverage stand-ins: Rep. Chris Pappas (D); former Sen. John E. Sununu and Scott Brown lead GOP coverage. Update when nominees lock.",
   },
   {
     id: "mt-senate",
@@ -170,6 +181,7 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "watch",
     status: "incumbent-vs-field",
     state: "MT",
+    verifiedAsOf: "2026-07-14",
     a: { slug: "steve-daines", name: "Steve Daines", party: "R", incumbent: true },
     b: { slug: "mt-dem-field", name: "Democratic field (MT)", party: "D", field: true },
     note: "Class II is Daines. Jon Tester’s prior seat was Class I (2024 cycle) — not this race.",
@@ -183,6 +195,7 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "lean",
     status: "incumbent-vs-field",
     state: "NE",
+    verifiedAsOf: "2026-07-14",
     a: { slug: "pete-ricketts", name: "Pete Ricketts", party: "R", incumbent: true },
     b: { slug: "ne-dem-field", name: "Democratic field (NE)", party: "D", field: true },
     note: "Class II (Ricketts). Deb Fischer is Class I (next 2030).",
@@ -196,6 +209,7 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "lean",
     status: "incumbent-vs-field",
     state: "CO",
+    verifiedAsOf: "2026-07-14",
     a: { slug: "john-hickenlooper", name: "John Hickenlooper", party: "D", incumbent: true },
     b: { slug: "co-gop-field", name: "GOP field (CO)", party: "R", field: true },
     note: "Class II is Hickenlooper (elected 2020). Michael Bennet is Class III (next 2028); he lost the 2026 Colorado governor primary and remains in the Senate through that term.",
@@ -209,6 +223,7 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "lean",
     status: "incumbent-vs-field",
     state: "NJ",
+    verifiedAsOf: "2026-07-14",
     a: { slug: "cory-booker", name: "Cory Booker", party: "D", incumbent: true },
     b: { slug: "nj-gop-field", name: "GOP field (NJ)", party: "R", field: true },
     note: "Class II.",
@@ -222,9 +237,10 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "lean",
     status: "open-seat",
     state: "IL",
+    verifiedAsOf: "2026-07-14",
     a: { slug: "dick-durbin", name: "Dick Durbin seat (open)", party: "D", field: true },
     b: { slug: "il-gop-field", name: "GOP field (IL)", party: "R", field: true },
-    note: "Class II open seat — Dick Durbin not seeking re-election. Safe on paper for Democrats, still national coverage.",
+    note: "Class II open seat — Dick Durbin not seeking re-election. Safe on paper for Democrats; national coverage continues.",
   },
   {
     id: "sc-senate",
@@ -235,9 +251,10 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "watch",
     status: "special",
     state: "SC",
-    a: { slug: "sc-gop-field", name: "GOP nominee TBD (SC)", party: "R", field: true },
-    b: { slug: "annie-andrews", name: "Annie Andrews", party: "D", field: true },
-    note: "Class II vacancy after Sen. Lindsey Graham’s death (July 2026). 17th Amendment + S.C. law: governor may appoint an interim; state holds a special Republican primary for the Nov 2026 ballot. Democratic coverage focal point includes Dr. Annie Andrews — update when nominees lock.",
+    verifiedAsOf: "2026-07-14",
+    a: { slug: "sc-gop-field", name: "GOP special primary (SC)", party: "R", field: true },
+    b: { slug: "annie-andrews", name: "Annie Andrews", party: "D" },
+    note: "Class II vacancy after Sen. Lindsey Graham’s death (July 11, 2026). Gov. McMaster appointed Darline Graham Nordone interim. Special GOP primary Aug 11 (runoff Aug 25 if needed) for the Nov ballot. Annie Andrews is the Democratic nominee.",
   },
 
   // ── Midterm governors (state law; typically 4-year terms elected 2022 → 2026) ─
@@ -249,6 +266,7 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "marquee",
     status: "incumbent-vs-field",
     state: "AZ",
+    verifiedAsOf: "2026-07-14",
     a: { slug: "katie-hobbs", name: "Katie Hobbs", party: "D", incumbent: true },
     b: { slug: "kari-lake", name: "Kari Lake", party: "R", field: true },
     note: "No Arizona U.S. Senate seat is scheduled for 2026 (Kelly Class III → 2028; Gallego Class I → 2030).",
@@ -261,6 +279,7 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "marquee",
     status: "incumbent-vs-field",
     state: "PA",
+    verifiedAsOf: "2026-07-14",
     a: { slug: "josh-shapiro", name: "Josh Shapiro", party: "D", incumbent: true },
     b: { slug: "pa-gop-field", name: "GOP field (PA)", party: "R", field: true },
     note: "No Pennsylvania U.S. Senate race in 2026 (Fetterman Class III → 2028; the other seat is Class I → 2030).",
@@ -273,6 +292,7 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "watch",
     status: "incumbent-vs-field",
     state: "MI",
+    verifiedAsOf: "2026-07-14",
     a: { slug: "gretchen-whitmer", name: "Gretchen Whitmer", party: "D", incumbent: true },
     b: { slug: "mi-gop-gov-field", name: "GOP field (MI gov)", party: "R", field: true },
     note: "Separate from the open Class II Senate race above.",
@@ -285,6 +305,7 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "watch",
     status: "incumbent-vs-field",
     state: "WI",
+    verifiedAsOf: "2026-07-14",
     a: { slug: "tony-evers", name: "Tony Evers", party: "D", incumbent: true },
     b: { slug: "wi-gop-gov-field", name: "GOP field (WI gov)", party: "R", field: true },
     note: "No Wisconsin U.S. Senate race in 2026 (Baldwin Class I → 2030; Johnson Class III → 2028).",
@@ -297,9 +318,10 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "watch",
     status: "incumbent-vs-field",
     state: "GA",
+    verifiedAsOf: "2026-07-14",
     a: { slug: "brian-kemp", name: "Brian Kemp", party: "R", incumbent: true },
     b: { slug: "ga-dem-gov-field", name: "Democratic field (GA gov)", party: "D", field: true },
-    note: "Parallel to Class II Senate (Ossoff). Do not conflate the governor’s race with Warnock’s Class III Senate seat (2028).",
+    note: "Parallel to Class II Senate (Ossoff). Do not conflate with Warnock’s Class III seat (2028).",
   },
   {
     id: "nv-gov",
@@ -309,6 +331,7 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "watch",
     status: "incumbent-vs-field",
     state: "NV",
+    verifiedAsOf: "2026-07-14",
     a: { slug: "joe-lombardo", name: "Joe Lombardo", party: "R", incumbent: true },
     b: { slug: "nv-dem-gov-field", name: "Democratic field (NV gov)", party: "D", field: true },
     note: "Jacky Rosen is Class I (reelected 2024 → 2030) — not a 2026 Senate ballot.",
@@ -321,9 +344,10 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "watch",
     status: "open-seat",
     state: "FL",
+    verifiedAsOf: "2026-07-14",
     a: { slug: "ron-desantis", name: "Term-limited / open (FL)", party: "R", field: true },
     b: { slug: "fl-dem-gov-field", name: "Democratic field (FL gov)", party: "D", field: true },
-    note: "Florida’s 2026 governor’s race is open under state term limits after DeSantis’s second term — update sides when nominees emerge. DeSantis slug remains for coverage heat only.",
+    note: "Open under state term limits after DeSantis’s second term — update sides when nominees emerge. DeSantis slug remains for coverage heat only.",
   },
   {
     id: "co-gov",
@@ -333,9 +357,10 @@ export const RACE_MATCHUPS: RaceDef[] = [
     tier: "watch",
     status: "open-seat",
     state: "CO",
+    verifiedAsOf: "2026-07-14",
     a: { slug: "phil-weiser", name: "Phil Weiser", party: "D", field: true },
     b: { slug: "co-gop-gov-field", name: "GOP field (CO gov)", party: "R", field: true },
-    note: "Open after term limits on the incumbent governor’s chair. Dem primary: Phil Weiser defeated Sen. Michael Bennet (June 2026). Separate from Hickenlooper’s Class II Senate race.",
+    note: "Open after term limits. Dem primary: Phil Weiser defeated Sen. Michael Bennet (June 2026). Separate from Hickenlooper’s Class II Senate race.",
   },
 ];
 
@@ -375,6 +400,26 @@ export function racesByChamber(): { chamber: RaceChamber; label: string; races: 
     { chamber: "senate", label: "U.S. Senate — Class II (2026)", races: senate },
     { chamber: "governor", label: "Governors (state midterm cycle)", races: gov },
   ];
+}
+
+/** Snapshot for the race-board auditor agent (no coverage stats). */
+export function raceBoardSnapshot() {
+  return {
+    verifiedAsOf: RACE_BOARD_VERIFIED_ASOF,
+    races: RACE_MATCHUPS.map((r) => ({
+      id: r.id,
+      office: r.office,
+      chamber: r.chamber,
+      state: r.state,
+      status: r.status,
+      tier: r.tier,
+      senateClass: r.senateClass ?? null,
+      a: r.a,
+      b: r.b,
+      note: r.note ?? null,
+      verifiedAsOf: r.verifiedAsOf ?? null,
+    })),
+  };
 }
 
 function tierRank(t: RaceTier): number {

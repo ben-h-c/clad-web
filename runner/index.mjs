@@ -19,6 +19,7 @@ import { runDiscoverCurator } from "./discoverCurator.mjs";
 import { runGoodNewsCurator } from "./goodNewsCurator.mjs";
 import { runDeadVideoPruner } from "./deadVideoPruner.mjs";
 import { runSentimentScanner } from "./sentimentScanner.mjs";
+import { runRaceBoardAuditor } from "./raceBoardAuditor.mjs";
 import { processUrlQueue } from "./urlIntake.mjs";
 import { updateTicker } from "./ticker.mjs";
 
@@ -38,6 +39,7 @@ const KINDS = {
   "good-news-curator": runGoodNewsCurator,
   "dead-video-pruner": runDeadVideoPruner,
   "social-sentiment-scanner": runSentimentScanner,
+  "race-board-auditor": runRaceBoardAuditor,
 };
 
 function log(...args) {
