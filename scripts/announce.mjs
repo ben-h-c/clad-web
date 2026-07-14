@@ -142,6 +142,40 @@ function buildText(fm, url) {
   return text;
 }
 
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+/**
+ * Workers Builds often take longer than a fixed 90s sleep after an agent
+ * publish. Retry OG fetch so we don't fail the whole Distribute run (and spam
+ * GitHub failure emails) when the card is simply not live yet.
+ * Returns null if still unavailable — caller posts text-only.
+ */
+async function fetchOgPng(cardUrl, { attempts = 10, delayMs = 20000 } = {}) {
+  for (let i = 1; i <= attempts; i++) {
+    try {
+      const res = await fetch(cardUrl, {
+        headers: { Accept: "image/png,*/*", "User-Agent": "clad-announce/1.0" },
+        redirect: "follow",
+      });
+      if (res.ok) {
+        const buf = new Uint8Array(await res.arrayBuffer());
+        // PNG magic bytes — reject empty bodies / HTML error pages.
+        const isPng = buf.length > 500 && buf[0] === 0x89 && buf[1] === 0x50 && buf[2] === 0x4e && buf[3] === 0x47;
+        if (isPng) return buf;
+        console.log(`[og] attempt ${i}/${attempts}: ${res.status} but not a usable PNG (${buf.length} bytes)`);
+      } else {
+        console.log(`[og] attempt ${i}/${attempts}: HTTP ${res.status} ${cardUrl}`);
+      }
+    } catch (err) {
+      console.log(`[og] attempt ${i}/${attempts}: ${err?.message || err}`);
+    }
+    if (i < attempts) await sleep(delayMs);
+  }
+  return null;
+}
+
 async function postToBluesky(text, url, imageBytes, alt) {
   // Identifier: handle without leading @, or the account email. App password only
   // (Settings → Privacy and security → App Passwords) — not the account password.
@@ -168,15 +202,6 @@ async function postToBluesky(text, url, imageBytes, alt) {
   }
   const auth = { Authorization: `Bearer ${session.accessJwt}` };
 
-  const blobRes = await (
-    await fetch(`${pds}/com.atproto.repo.uploadBlob`, {
-      method: "POST",
-      headers: { ...auth, "Content-Type": "image/png" },
-      body: imageBytes,
-    })
-  ).json();
-  if (!blobRes.blob) throw new Error("bsky blob upload failed: " + JSON.stringify(blobRes));
-
   const enc = new TextEncoder();
   const idx = text.indexOf(url);
   const facets =
@@ -198,11 +223,27 @@ async function postToBluesky(text, url, imageBytes, alt) {
     facets,
     langs: ["en"],
     createdAt: new Date().toISOString(),
-    embed: {
-      $type: "app.bsky.embed.images",
-      images: [{ image: blobRes.blob, alt }],
-    },
   };
+
+  // Image is best-effort: missing OG after deploy must not fail announce.
+  if (imageBytes && imageBytes.length > 0) {
+    const blobRes = await (
+      await fetch(`${pds}/com.atproto.repo.uploadBlob`, {
+        method: "POST",
+        headers: { ...auth, "Content-Type": "image/png" },
+        body: imageBytes,
+      })
+    ).json();
+    if (blobRes.blob) {
+      record.embed = {
+        $type: "app.bsky.embed.images",
+        images: [{ image: blobRes.blob, alt: alt || "CladFacts report card" }],
+      };
+    } else {
+      console.log("[bsky] blob upload failed, posting text-only:", JSON.stringify(blobRes).slice(0, 200));
+    }
+  }
+
   const post = await (
     await fetch(`${pds}/com.atproto.repo.createRecord`, {
       method: "POST",
@@ -250,15 +291,18 @@ for (const path of paths) {
       continue;
     }
 
-    const res = await fetch(cardUrl);
-    if (!res.ok) throw new Error(`OG card fetch ${res.status} ${cardUrl}`);
-    const img = new Uint8Array(await res.arrayBuffer());
+    // Retry OG for deploy lag; post text-only if card never appears (still success).
+    const img = await fetchOgPng(cardUrl);
+    if (!img) {
+      console.log(`[og] giving up on card — posting text-only to Bluesky (${cardUrl})`);
+    }
     const uri = await postToBluesky(text, postUrl, img, alt);
-    console.log("bluesky ✓", uri);
+    console.log(img ? "bluesky ✓" : "bluesky ✓ (text-only)", uri);
   } catch (err) {
     failed++;
     console.error(`announce failed for ${path}:`, err?.message ?? err);
   }
 }
 
+// Only hard-fail on real errors (auth, etc.). Missing OG is handled above.
 if (failed) process.exit(1);

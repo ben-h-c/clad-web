@@ -2,15 +2,11 @@
 # OG card is live, then run scripts/announce.mjs (Bluesky when secrets exist;
 # always prints paste-ready X/Threads text in the job log).
 #
-# Manual test: Actions → Distribute → Run workflow
-#   post: path under src/content/posts/
-#   dry_run: true (default) only checks secrets + prints text; false posts live
+# Agent publishes often land many commits in a burst — concurrency queues them
+# so we don't stampede Bluesky or send a wall of failure emails on OG lag.
 #
-# Secrets:
-#   SITE_URL            default https://cladfacts.com
-#   BSKY_HANDLE
-#   BSKY_APP_PASSWORD   Bluesky *app* password
-#   ANNOUNCE_DRY_RUN    set to "1" to force print-only even with secrets
+# Manual test: Actions → Distribute → Run workflow
+# Secrets: SITE_URL, BSKY_HANDLE, BSKY_APP_PASSWORD, ANNOUNCE_DRY_RUN
 name: Distribute
 
 on:
@@ -30,10 +26,16 @@ on:
         type: boolean
         default: true
 
+# One announce at a time. New publishes wait their turn (do not cancel mid-flight).
+concurrency:
+  group: clad-distribute
+  cancel-in-progress: false
+
 jobs:
   announce:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # Retries inside announce.mjs can wait several minutes for OG after deploy.
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
         with:
@@ -64,9 +66,11 @@ jobs:
           echo "Changed posts ($count):"
           printf '%s\n' "$files"
 
-      - name: Wait for Workers deploy (OG must be live)
+      - name: Wait for Workers deploy (initial)
         if: steps.diff.outputs.count != '0' && github.event_name != 'workflow_dispatch'
-        run: sleep 90
+        run: |
+          # Base wait; announce.mjs also retries OG for several more minutes.
+          sleep 120
 
       - name: Check Bluesky secrets (names only)
         env:
@@ -100,7 +104,6 @@ jobs:
             exit 0
           fi
 
-          # Manual dry_run input wins for workflow_dispatch.
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             if [ "${{ inputs.dry_run }}" = "true" ]; then
               export DRY_RUN=1
