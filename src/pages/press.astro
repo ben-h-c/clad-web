@@ -1,0 +1,67 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "public, max-age=300");
+
+const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
+---
+<BaseLayout
+  title="Press — CladFacts"
+  description="Press kit for CladFacts: what we are, how grading works, app and web links, and contact for interviews."
+>
+  <article class="static-page">
+    <p class="small-caps upgrade__eyebrow">Media</p>
+    <h1 class="static-page__title">Press</h1>
+    <p class="upgrade__lede">
+      CladFacts is an independent fact-checking desk that grades news broadcasts
+      for accuracy and political lean — AI-assisted research, human-reviewed before
+      publish — on the web and iOS.
+    </p>
+
+    <h2 class="static-page__sub">Boilerplate</h2>
+    <p>
+      CladFacts (cladfacts.com) is a newspaper-format publication that fact-checks
+      TV news, debates, and pressers. Each report carries a letter grade, a
+      factuality score out of 100, a political-lean reading, and claim-by-claim
+      notes with sources. A free account unlocks the full scoreboard; CladFacts
+      Premium is an optional supporter tier. The editor is Ben Cody; the
+      publisher is CladFacts LLC.
+    </p>
+
+    <h2 class="static-page__sub">Links</h2>
+    <ul>
+      <li><a href="/">Home</a> — {origin}</li>
+      <li><a href="/how-it-works/">Methodology</a></li>
+      <li><a href="/about/">About &amp; editor</a></li>
+      <li><a href="/corrections/">Corrections policy</a></li>
+      <li><a href="/politicians/">Politician report cards</a></li>
+      <li><a href="/bracket/">Midterms coverage bracket</a></li>
+      <li><a href="/rss.xml">RSS</a></li>
+      <li>
+        <a href="https://apps.apple.com/app/id6781372681" rel="noopener" target="_blank">
+          iOS app (App Store)
+        </a>
+      </li>
+    </ul>
+
+    <h2 class="static-page__sub">Contact</h2>
+    <p>
+      Editorial / press: <a href="mailto:support@cladfacts.com">support@cladfacts.com</a>
+    </p>
+
+    <h2 class="static-page__sub">Fact sheet</h2>
+    <ul>
+      <li>Access: free registration wall for grades; Premium supports the newsroom</li>
+      <li>No third-party analytics or ads</li>
+      <li>Publish path: agent draft → human approval → git commit → Cloudflare deploy</li>
+      <li>Audience charter: high-school and college-aged first-time news readers</li>
+    </ul>
+
+    <p class="static-page__note">
+      Pitch angles and reporter lists live in the offline growth kit
+      (<code>press/press-kit.md</code>). This page is the public landing for
+      link-outs and App Review / partner due diligence.
+    </p>
+  </article>
+</BaseLayout>

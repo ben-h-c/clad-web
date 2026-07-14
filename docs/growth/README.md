@@ -12,8 +12,11 @@ digest, peaking around the 2026 midterms (Nov 3).
 | Announce script | `scripts/announce.mjs` | Real frontmatter (`letterGrade`, `factualityScore`, `keyMoments`) |
 | Distribute workflow | `.github/workflows/distribute.yml` | On post push; dry-runs without BSKY secrets |
 | Methodology URL | `/methodology/` → 301 → `/how-it-works/` | E-E-A-T / press checklist alias |
-| Politician pages | `/politicians/`, `/politicians/[slug]/` | Seed match + optional FM tags; aggregates gated |
-| Schema field | `politicians[]` on posts (optional) | For agent/editor tags later |
+| Politician pages | `/politicians/`, `/politicians/[slug]/` | Seeds + FM tags; search/groups; OG cards |
+| Coverage bracket | `/bracket/` | March Madness-style midterm field (live seeds) |
+| Agent politician tags | `postBuild` + `publish` | `tagPoliticiansFromText` → FM `politicians[]` |
+| Launch kit | `docs/launch/` | Day-of checklist + social templates |
+| Press page | `/press/` | Public boilerplate + links |
 | This playbook | `docs/growth/` | Operating notes |
 
 ## Already existed (do not duplicate)

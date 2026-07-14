@@ -42,6 +42,8 @@ export interface Frontmatter {
   videoId?: string;
   videoTitle?: string;
   thumbnail?: string;
+  /** People tagged for /politicians/[slug] (agent matcher + optional editor). */
+  politicians?: { name: string; slug: string }[];
 }
 
 export function emitPost(fm: Frontmatter, body: string): string {
@@ -75,6 +77,7 @@ export function emitPost(fm: Frontmatter, body: string): string {
     if (fm.videoId) lines.push(`videoId: ${q(fm.videoId)}`);
     if (fm.videoTitle) lines.push(`videoTitle: ${q(fm.videoTitle)}`);
     if (fm.thumbnail) lines.push(`thumbnail: ${q(fm.thumbnail)}`);
+    emitPoliticians(lines, fm.politicians ?? []);
   }
 
   if (fm.citations.length === 0) {
@@ -113,6 +116,18 @@ function emitKeyMoments(lines: string[], moments: KeyMoment[]): void {
     lines.push(`  - claim: ${q(m.claim)}`);
     lines.push(`    verdict: ${q(m.verdict)}`);
     lines.push(`    note: ${q(m.note)}`);
+  }
+}
+
+function emitPoliticians(lines: string[], people: { name: string; slug: string }[]): void {
+  const items = people
+    .map((p) => ({ name: p.name?.trim() ?? "", slug: p.slug?.trim() ?? "" }))
+    .filter((p) => p.name && p.slug);
+  if (items.length === 0) return; // omit key when empty — optional field
+  lines.push("politicians:");
+  for (const p of items) {
+    lines.push(`  - name: ${q(p.name)}`);
+    lines.push(`    slug: ${q(p.slug)}`);
   }
 }
 

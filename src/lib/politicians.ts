@@ -62,6 +62,14 @@ export const POLITICIAN_SEEDS: PoliticianSeed[] = [
   { name: "John Fetterman", slug: "john-fetterman", race: "PA Senate", bucket: "Senate 2026", aliases: ["John Fetterman", "Fetterman"] },
   { name: "Jim Banks", slug: "jim-banks", race: "IN Senate", bucket: "Senate 2026", aliases: ["Jim Banks"] },
   { name: "Tim Sheehy", slug: "tim-sheehy", race: "MT Senate", bucket: "Senate 2026", aliases: ["Tim Sheehy", "Sheehy"] },
+  { name: "Jacky Rosen", slug: "jacky-rosen", race: "NV Senate", bucket: "Senate 2026", aliases: ["Jacky Rosen"] },
+  { name: "Sam Brown", slug: "sam-brown", race: "NV Senate", bucket: "Senate 2026", aliases: ["Sam Brown"] },
+  { name: "Peter Welch", slug: "peter-welch", race: "VT Senate", bucket: "Senate 2026", aliases: ["Peter Welch"] },
+  { name: "John Curtis", slug: "john-curtis", race: "UT Senate", bucket: "Senate 2026", aliases: ["John Curtis"] },
+  { name: "Angela Alsobrooks", slug: "angela-alsobrooks", race: "MD Senate", bucket: "Senate 2026", aliases: ["Angela Alsobrooks", "Alsobrooks"] },
+  { name: "Larry Hogan", slug: "larry-hogan", race: "MD Senate", bucket: "Senate 2026", aliases: ["Larry Hogan"] },
+  { name: "Deb Fischer", slug: "deb-fischer", race: "NE Senate", bucket: "Senate 2026", aliases: ["Deb Fischer"] },
+  { name: "Pete Ricketts", slug: "pete-ricketts", race: "NE Senate", bucket: "Senate 2026", aliases: ["Pete Ricketts", "Ricketts"] },
 
   // ── Governors ────────────────────────────────────────────────────────
   { name: "Gavin Newsom", slug: "gavin-newsom", race: "CA Governor", bucket: "Governor", aliases: ["Gavin Newsom", "Newsom"] },
@@ -74,6 +82,10 @@ export const POLITICIAN_SEEDS: PoliticianSeed[] = [
   { name: "Ron DeSantis", slug: "ron-desantis", race: "FL Governor", bucket: "Governor", aliases: ["Ron DeSantis", "DeSantis"] },
   { name: "Glenn Youngkin", slug: "glenn-youngkin", race: "VA Governor", bucket: "Governor", aliases: ["Glenn Youngkin", "Youngkin"] },
   { name: "Andy Beshear", slug: "andy-beshear", race: "KY Governor", bucket: "Governor", aliases: ["Andy Beshear", "Beshear"] },
+  { name: "JB Pritzker", slug: "jb-pritzker", race: "IL Governor", bucket: "Governor", aliases: ["JB Pritzker", "J.B. Pritzker", "Pritzker"] },
+  { name: "Kathy Hochul", slug: "kathy-hochul", race: "NY Governor", bucket: "Governor", aliases: ["Kathy Hochul", "Hochul"] },
+  { name: "Wes Moore", slug: "wes-moore", race: "MD Governor", bucket: "Governor", aliases: ["Wes Moore"] },
+  { name: "Sarah Huckabee Sanders", slug: "sarah-huckabee-sanders", race: "AR Governor", bucket: "Governor", aliases: ["Sarah Huckabee Sanders", "Huckabee Sanders"] },
 
   // ── U.S. leadership ──────────────────────────────────────────────────
   { name: "Donald Trump", slug: "donald-trump", race: "President", bucket: "U.S. leadership", aliases: ["Donald Trump", "President Trump"] },
@@ -254,6 +266,45 @@ export function buildPoliticianIndex(posts: CollectionEntry<"posts">[]): Politic
 
 export function findPolitician(posts: CollectionEntry<"posts">[], slug: string): PoliticianAgg | null {
   return buildPoliticianIndex(posts).find((p) => p.slug === slug) ?? null;
+}
+
+/** Explicit FM tag shape written on publish / agent approve. */
+export interface PoliticianTag {
+  name: string;
+  slug: string;
+}
+
+/**
+ * Deterministic tagger for new drafts/publishes: match seed aliases against
+ * headline + summary + assessment + topics. Prefer this over asking the model
+ * so slugs stay canonical and stable.
+ */
+export function tagPoliticiansFromText(parts: {
+  headline?: string;
+  summary?: string;
+  assessment?: string;
+  topics?: string[];
+  keyMomentClaims?: string[];
+}): PoliticianTag[] {
+  const hay = [
+    parts.headline ?? "",
+    parts.summary ?? "",
+    parts.assessment ?? "",
+    ...(parts.topics ?? []),
+    ...(parts.keyMomentClaims ?? []),
+  ]
+    .join(" \n ")
+    .toLowerCase();
+  if (!hay.trim()) return [];
+  const out: PoliticianTag[] = [];
+  const seen = new Set<string>();
+  for (const seed of POLITICIAN_SEEDS) {
+    if (!seed.aliases.some((a) => matchesAlias(hay, a))) continue;
+    if (seen.has(seed.slug)) continue;
+    seen.add(seed.slug);
+    out.push({ name: seed.name, slug: seed.slug });
+  }
+  return out.slice(0, 8);
 }
 
 /** Group for the index page, stable bucket order. */

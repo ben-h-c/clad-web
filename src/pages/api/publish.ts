@@ -9,6 +9,7 @@ import { existingVideoIds, findNearDuplicates } from "~/lib/agents";
 import { validateCitations } from "~/lib/citations";
 import { resolveThumbnail } from "~/lib/thumbnail";
 import { sendBreakingPush, apnsConfigured } from "~/lib/push";
+import { tagPoliticiansFromText } from "~/lib/politicians";
 
 export const prerender = false;
 
@@ -144,6 +145,25 @@ export const POST: APIRoute = async ({ request }) => {
 
     const thumbnail = await resolveThumbnail({ videoId, title: headline, slug, xaiKey: env.XAI_API_KEY, github });
 
+    // Prefer editor-supplied tags; otherwise seed-match the report text so
+    // /politicians/ pages stay current without a second model call.
+    const politiciansFromBody = Array.isArray(p.politicians)
+      ? p.politicians
+          .map((x: any) => ({ name: str(x?.name), slug: str(x?.slug) }))
+          .filter((x: { name: string; slug: string }) => x.name && x.slug)
+          .slice(0, 8)
+      : [];
+    const politicians =
+      politiciansFromBody.length > 0
+        ? politiciansFromBody
+        : tagPoliticiansFromText({
+            headline,
+            summary,
+            assessment,
+            topics,
+            keyMomentClaims: keyMoments.map((m) => m.claim),
+          });
+
     fm = {
       type: "broadcast",
       headline,
@@ -170,6 +190,7 @@ export const POST: APIRoute = async ({ request }) => {
       videoTitle,
       thumbnail: thumbnail || thumbnailUrl(videoId),
       citations,
+      politicians: politicians.length ? politicians : undefined,
     };
     body = str(p.body); // optional extra notes/markdown under the report
   }

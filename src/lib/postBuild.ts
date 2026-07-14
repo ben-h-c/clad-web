@@ -5,6 +5,7 @@
  */
 import type { BroadcastReport } from "./broadcast.ts";
 import type { Frontmatter } from "./yaml.ts";
+import { tagPoliticiansFromText } from "./politicians.ts";
 import { thumbnailUrl } from "./youtube.ts";
 
 export interface BuildOptions {
@@ -24,6 +25,13 @@ export function buildBroadcastFrontmatter(
   report: BroadcastReport,
   opts: BuildOptions
 ): Frontmatter {
+  const politicians = tagPoliticiansFromText({
+    headline: report.headline,
+    summary: report.summary,
+    assessment: report.assessment,
+    topics: report.topics,
+    keyMomentClaims: report.keyMoments.map((m) => m.claim),
+  });
   return {
     type: "broadcast",
     headline: report.headline,
@@ -52,5 +60,6 @@ export function buildBroadcastFrontmatter(
     videoTitle: opts.videoTitle,
     thumbnail: opts.thumbnail || thumbnailUrl(opts.videoId),
     citations: report.citations,
+    politicians: politicians.length ? politicians : undefined,
   };
 }
