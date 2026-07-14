@@ -48,7 +48,7 @@ heroPosts = heroPosts.slice(0, 24);
 // + lean). Resolve each item; a group needs ≥2 resolvable members, else it
 // degrades to a single post.
 const breakingItems = await getBreaking(env.AGENTS);
-const breaking = breakingItems
+let breaking = breakingItems
   .map((it) => {
     if (it.type === "post") {
       const p = byId.get(it.id);
@@ -82,12 +82,24 @@ const locked = !access.fullAccess;
 // Report of the Day — one card renders fully unlocked (with a sample badge)
 // for restricted readers; same pick site-wide per NY day.
 const sampleId = locked ? sampleUnlockedId(all) : null;
-// The free-card section showcases the sample in full, so keep the same post
-// out of the hero/recent strips: anonymous HTML carries exactly one real
-// scoreband (the sanctioned daily sample) — smoke-anon counts on it.
+// The free-card section is the sole unlocked scoreband for guests. Keep that
+// post out of every strip (hero / recent / breaking) so anonymous HTML has
+// exactly one real LetterGrade — smoke-anon allows only one on /.
+// (2026-07: prod smoke failed 2× when the sample also appeared in Breaking
+// with unlockedId, re-rendering the sample badge.)
 if (sampleId) {
   heroPosts = heroPosts.filter((p) => p.id !== sampleId);
   recent = recent.filter((p) => p.id !== sampleId);
+  breaking = breaking
+    .map((it) => {
+      if (it.kind === "post") return it.post.id === sampleId ? null : it;
+      // Drop the sample member from a group; degrade to a single post or drop.
+      const members = it.members.filter((p) => p.id !== sampleId);
+      if (members.length >= 2) return { ...it, members };
+      if (members.length === 1) return { kind: "post" as const, post: members[0] };
+      return null;
+    })
+    .filter((x): x is NonNullable<typeof x> => x !== null);
 }
 
 // Social-media sentiment (KV, scanner-scored) — Premium; the read is skipped
@@ -198,10 +210,11 @@ const mostRight = [...leaned]
       {/* Decorative fun strip above the main rows; aria-hidden inside the
           component, so screen readers skip straight to the day's content. */}
       <QuipTicker data={quips} />
-      <BreakingStrip items={breaking} locked={locked} unlockedId={sampleId} />
+      {/* unlockedId omitted: free-card above is the only sanctioned sample. */}
+      <BreakingStrip items={breaking} locked={locked} />
       <Ticker data={ticker} />
-      <HeroStrip posts={heroPosts} title="Front Page" locked={locked} unlockedId={sampleId} />
-      <HeroStrip posts={recent} title="Recent" locked={locked} unlockedId={sampleId} />
+      <HeroStrip posts={heroPosts} title="Front Page" locked={locked} />
+      <HeroStrip posts={recent} title="Recent" locked={locked} />
       <section class="feed">
         <div class="feed__head">
           <h2 class="feed__title">Topics</h2>
