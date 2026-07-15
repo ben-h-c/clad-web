@@ -1,6 +1,7 @@
 ---
 import { dateline, volume, issueNumber } from "~/lib/dateline";
 import { publishedPostCount } from "~/lib/postCount";
+import { getSessionUser } from "~/lib/user-data";
 
 interface Props {
   date?: Date;
@@ -19,9 +20,27 @@ const count = await publishedPostCount();
 // bounce the editor out to the public site — AdminNav handles that on purpose).
 const isAdmin = Astro.url.pathname.startsWith("/admin");
 const homeHref = isAdmin ? "/admin/" : "/";
+
+// Resolve session on the server so signed-in users never flash/see "Sign in".
+let signedIn = false;
+let accountLabel = "Account";
+if (!isAdmin) {
+  try {
+    const user = await getSessionUser(Astro.request.headers);
+    if (user) {
+      signedIn = true;
+      accountLabel = (user.name || user.email || "Account").trim().slice(0, 28) || "Account";
+    }
+  } catch {
+    signedIn = false;
+  }
+}
+const accountHref = signedIn ? "/account/" : "/login/";
+const accountText = signedIn ? "Account" : "Sign in";
+const menuAccountText = signedIn ? accountLabel : "Sign in";
 ---
 
-<header class="masthead">
+<header class="masthead" data-signed-in={signedIn ? "1" : "0"}>
   {!isAdmin && (
     <details class="masthead__menu">
       <summary aria-label="Menu" title="Menu">
@@ -101,7 +120,7 @@ const homeHref = isAdmin ? "/admin/" : "/";
             </details>
           </li>
           <li class="masthead__menu-account">
-            <a id="menu-account" href="/login/">Sign in</a>
+            <a id="menu-account" href={accountHref}>{menuAccountText}</a>
           </li>
         </ul>
       </nav>
@@ -119,7 +138,7 @@ const homeHref = isAdmin ? "/admin/" : "/";
     <button type="button" class="masthead__theme" id="theme-toggle" aria-label="Toggle light or dark reading" title="Toggle light or dark reading">◐</button>
   )}
   {!isAdmin && (
-    <a class="masthead__account small-caps" id="masthead-account" href="/login/">Sign in</a>
+    <a class="masthead__account small-caps" id="masthead-account" href={accountHref}>{accountText}</a>
   )}
   <p class="masthead__title"><a href={homeHref} style="color:inherit;text-decoration:none">Clad</a></p>
   <p class="masthead__tagline small-caps">Grading Content &amp; Exposing Bias</p>
@@ -157,17 +176,21 @@ const homeHref = isAdmin ? "/admin/" : "/";
         if (tc) tc.setAttribute("content", next === "dark" ? "#181612" : "#f5edd9");
       });
     }
-    // Reflect signed-in state (static pages can't know it server-side).
-    fetch("/api/auth/get-session", { headers: { accept: "application/json" } })
-      .then((r) => (r.ok ? r.json() : null))
-      .then((d) => {
-        const user = d && d.user;
-        if (!user) return;
-        const acct = document.getElementById("masthead-account");
-        if (acct) { acct.textContent = "Account"; acct.href = "/account/"; }
-        const m = document.getElementById("menu-account");
-        if (m) { m.textContent = user.name || user.email || "Account"; m.href = "/account/"; }
-      })
-      .catch(() => {});
+    // Client backup only if SSR missed a session (cookie race / bfcache).
+    const root = document.querySelector(".masthead");
+    if (root && root.getAttribute("data-signed-in") !== "1") {
+      fetch("/api/auth/get-session", { headers: { accept: "application/json" }, credentials: "same-origin" })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((d) => {
+          const user = d && d.user;
+          if (!user) return;
+          const acct = document.getElementById("masthead-account");
+          if (acct) { acct.textContent = "Account"; acct.href = "/account/"; }
+          const m = document.getElementById("menu-account");
+          if (m) { m.textContent = user.name || user.email || "Account"; m.href = "/account/"; }
+          root.setAttribute("data-signed-in", "1");
+        })
+        .catch(() => {});
+    }
   </script>
 )}

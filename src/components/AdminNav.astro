@@ -37,8 +37,8 @@ const links = [
 ];
 const currentLabel = links.find((l) => l.key === current)?.label ?? "Console";
 ---
-<nav class="admin-nav">
-  <details>
+<nav class="admin-nav" aria-label="Admin console">
+  <details class="admin-nav__menu">
     <summary>☰ {currentLabel}</summary>
     <ul>
       {links.map((l) => (
@@ -54,3 +54,13 @@ const currentLabel = links.find((l) => l.key === current)?.label ?? "Console";
   </details>
   <a class="admin-nav__site" href="/" target="_blank" rel="noopener">View site ↗</a>
 </nav>
+<script is:inline>
+  (() => {
+    const nav = document.querySelector(".admin-nav");
+    if (!nav) return;
+    document.addEventListener("click", (e) => {
+      const menu = nav.querySelector("details");
+      if (menu && menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+  })();
+</script>

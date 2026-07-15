@@ -443,7 +443,9 @@ p {
 
 .shell > .masthead {
   position: relative;
-  z-index: 40;
+  z-index: 200;
+  /* Create an isolation context so open menus paint above #main reliably. */
+  isolation: isolate;
 }
 
 :root[data-theme="dark"] .shell::before {
@@ -1340,7 +1342,7 @@ html.clad-app body {
   top: 0;
   left: 0;
   text-align: left;
-  z-index: 50;
+  z-index: 300;
 }
 
 .masthead__menu > summary {
@@ -1355,6 +1357,8 @@ html.clad-app body {
   cursor: pointer;
   list-style: none;
   user-select: none;
+  position: relative;
+  z-index: 2;
 }
 
 .masthead__menu > summary::-webkit-details-marker {
@@ -1386,6 +1390,8 @@ html.clad-app body {
   background: var(--paper);
   border: 1px solid var(--rule);
   box-shadow: 3px 3px 0 var(--shadow);
+  /* Above search/theme/account chips and any main content under the sheet. */
+  z-index: 400;
 }
 
 .masthead__menu-list li {
@@ -3814,10 +3820,18 @@ button.small {
   margin-bottom: 1.25rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--rule);
+  /* Keep open console menu above page tables/forms (they often paint later). */
+  position: relative;
+  z-index: 500;
 }
 
 .admin-nav details {
   position: relative;
+  z-index: 1;
+}
+
+.admin-nav details[open] {
+  z-index: 2;
 }
 
 .admin-nav summary {
@@ -3833,6 +3847,8 @@ button.small {
   background: var(--ink);
   color: var(--paper);
   user-select: none;
+  position: relative;
+  z-index: 2;
 }
 
 .admin-nav summary::-webkit-details-marker {
@@ -3841,16 +3857,20 @@ button.small {
 
 .admin-nav ul {
   position: absolute;
-  z-index: 20;
+  z-index: 600;
   top: calc(100% + 2px);
   left: 0;
-  min-width: 14rem;
+  min-width: 15rem;
+  max-height: min(70vh, 28rem);
+  overflow-y: auto;
   margin: 0;
   padding: 0.3rem 0;
   list-style: none;
   background: var(--paper);
   border: 1px solid var(--rule);
   box-shadow: 3px 3px 0 var(--shadow);
+  /* Avoid being covered by sticky toolbars / tables with their own stacking. */
+  isolation: isolate;
 }
 
 .admin-nav li a,
@@ -6139,7 +6159,8 @@ html.clad-app .clad-app-only { display: block; }
   left: 0.75rem;
   right: 0.75rem;
   bottom: 0.75rem;
-  z-index: 35;
+  /* Below masthead/admin menus (200–600) so open dropdowns stay clickable. */
+  z-index: 30;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
