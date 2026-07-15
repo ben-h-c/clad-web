@@ -1,0 +1,417 @@
+---
+/**
+ * Anonymous community ballot dashboard.
+ * Counts locked ballots only — never exposes who voted for whom.
+ */
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { DEFAULT_ELECTION_ID, getElection } from "~/lib/elections";
+import { getCommunityVotes, type CommunityRaceTally } from "~/lib/picks";
+
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "public, max-age=30, s-maxage=60");
+
+const election = getElection(DEFAULT_ELECTION_ID)!;
+const summary = await getCommunityVotes(election.id);
+const races = summary?.races ?? [];
+const lockedBallots = summary?.lockedBallots ?? 0;
+const totalPicks = summary?.totalPicks ?? 0;
+
+const sort = Astro.url.searchParams.get("sort") || "votes";
+const chamber = Astro.url.searchParams.get("chamber") || "";
+
+function closeness(r: CommunityRaceTally) {
+  return Math.abs(r.aPct - 50);
+}
+
+let view = [...races];
+if (chamber === "senate" || chamber === "governor") {
+  view = view.filter((r) => r.chamber === chamber);
+}
+if (sort === "close") {
+  view.sort((a, b) => closeness(a) - closeness(b) || b.total - a.total);
+} else if (sort === "office") {
+  view.sort((a, b) => a.office.localeCompare(b.office));
+} else if (sort === "marquee") {
+  view.sort(
+    (a, b) =>
+      (a.tier === "marquee" ? 0 : a.tier === "watch" ? 1 : 2) -
+        (b.tier === "marquee" ? 0 : b.tier === "watch" ? 1 : 2) ||
+      b.total - a.total
+  );
+} else {
+  // votes (default)
+  view.sort((a, b) => b.total - a.total || closeness(a) - closeness(b));
+}
+
+const withVotes = races.filter((r) => r.total > 0);
+const closest = [...withVotes].sort((a, b) => closeness(a) - closeness(b))[0] ?? null;
+const mostVotes = [...withVotes].sort((a, b) => b.total - a.total)[0] ?? null;
+const blowout = [...withVotes].sort((a, b) => Math.abs(b.aPct - b.bPct) - Math.abs(a.aPct - a.bPct))[0] ?? null;
+
+const aLead = races.filter((r) => r.leader === "a").length;
+const bLead = races.filter((r) => r.leader === "b").length;
+const ties = races.filter((r) => r.leader === "tie").length;
+
+const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
+const pageUrl = `${origin}/bracket/votes/`;
+
+function sortHref(s: string) {
+  const u = new URL(Astro.url);
+  u.searchParams.set("sort", s);
+  return u.pathname + u.search;
+}
+function chamberHref(c: string | null) {
+  const u = new URL(Astro.url);
+  if (!c) u.searchParams.delete("chamber");
+  else u.searchParams.set("chamber", c);
+  return u.pathname + u.search;
+}
+function partyTag(p: string | null) {
+  return p ? ` (${p})` : "";
+}
+---
+<BaseLayout
+  title="Community ballots — Midterms 2026 — CladFacts"
+  description="Anonymous tallies of locked CladFacts midterms ballots — who the community picked in each race."
+  ogTitle="CladFacts community ballots"
+  ogDescription={`${lockedBallots} locked ballots · anonymous race-by-race tallies for 2026 midterms.`}
+  ogImage={`${origin}/og/bracket.png`}
+>
+  <article class="static-page votes-dash" data-page="votes-dashboard">
+    <p class="small-caps upgrade__eyebrow">Midterms 2026 · Community</p>
+    <h1 class="static-page__title">Community ballots</h1>
+    <p class="upgrade__lede">
+      How Clad readers locked their picks — race by race. Totals only; every ballot is
+      <strong>100% anonymous</strong> (we never show who picked whom).
+    </p>
+
+    <nav class="bracket-modes" aria-label="Midterms modes">
+      <a href="/bracket/">Ballot board</a>
+      <a class="bracket-modes__on" href="/bracket/votes/" aria-current="page">Community votes</a>
+      <a href="/elections/map/">Interactive map</a>
+      <a href="/politicians/">Politicians</a>
+    </nav>
+
+    <div class="votes-hero" aria-label="Summary">
+      <div class="votes-stat">
+        <span class="votes-stat__n">{lockedBallots.toLocaleString("en-US")}</span>
+        <span class="votes-stat__l small-caps">Locked ballots</span>
+      </div>
+      <div class="votes-stat">
+        <span class="votes-stat__n">{totalPicks.toLocaleString("en-US")}</span>
+        <span class="votes-stat__l small-caps">Race picks</span>
+      </div>
+      <div class="votes-stat">
+        <span class="votes-stat__n">{withVotes.length}/{races.length}</span>
+        <span class="votes-stat__l small-caps">Races with votes</span>
+      </div>
+      <div class="votes-stat">
+        <span class="votes-stat__n">{aLead}–{bLead}{ties ? ` · ${ties} tie` : ""}</span>
+        <span class="votes-stat__l small-caps">Side A lead · Side B lead</span>
+      </div>
+    </div>
+
+    {lockedBallots === 0 ? (
+      <p class="paywall-banner" style="margin: 1rem 0">
+        <span>
+          No locked ballots yet. Fill your picks on the ballot board, then
+          <strong> lock in</strong> to join the anonymous tally — and to share your sheet.
+        </span>
+        <a class="paywall-banner__cta" href="/bracket/">Go to ballot board</a>
+      </p>
+    ) : (
+      <>
+        <div class="votes-highlights">
+          {mostVotes && mostVotes.total > 0 && (
+            <a class="votes-hl" href={`/bracket/votes/${mostVotes.raceId}/`}>
+              <span class="small-caps votes-hl__k">Most picks</span>
+              <strong>{mostVotes.office}</strong>
+              <span class="votes-hl__m">{mostVotes.total} votes · {mostVotes.aPct}/{mostVotes.bPct}</span>
+            </a>
+          )}
+          {closest && closest.total >= 2 && (
+            <a class="votes-hl" href={`/bracket/votes/${closest.raceId}/`}>
+              <span class="small-caps votes-hl__k">Closest race</span>
+              <strong>{closest.office}</strong>
+              <span class="votes-hl__m">{closest.aPct}% – {closest.bPct}%</span>
+            </a>
+          )}
+          {blowout && blowout.total >= 2 && Math.abs(blowout.aPct - blowout.bPct) >= 20 && (
+            <a class="votes-hl" href={`/bracket/votes/${blowout.raceId}/`}>
+              <span class="small-caps votes-hl__k">Biggest lean</span>
+              <strong>{blowout.office}</strong>
+              <span class="votes-hl__m">
+                {(blowout.aPct >= blowout.bPct ? blowout.aName : blowout.bName)} leads
+              </span>
+            </a>
+          )}
+        </div>
+
+        <div class="votes-toolbar">
+          <div class="votes-toolbar__group" role="group" aria-label="Sort">
+            <span class="small-caps votes-toolbar__label">Sort</span>
+            {(
+              [
+                ["votes", "Most votes"],
+                ["close", "Closest"],
+                ["marquee", "Marquee"],
+                ["office", "A–Z"],
+              ] as const
+            ).map(([s, label]) => (
+              <a class:list={["ballot-chip", sort === s && "ballot-chip--on"]} href={sortHref(s)}>{label}</a>
+            ))}
+          </div>
+          <div class="votes-toolbar__group" role="group" aria-label="Filter">
+            <span class="small-caps votes-toolbar__label">Filter</span>
+            <a class:list={["ballot-chip", !chamber && "ballot-chip--on"]} href={chamberHref(null)}>All</a>
+            <a class:list={["ballot-chip", chamber === "senate" && "ballot-chip--on"]} href={chamberHref("senate")}>Senate</a>
+            <a class:list={["ballot-chip", chamber === "governor" && "ballot-chip--on"]} href={chamberHref("governor")}>Governors</a>
+          </div>
+        </div>
+
+        <ul class="votes-list" id="votes-list">
+          {view.map((r) => (
+            <li>
+              <a
+                class="votes-row"
+                href={`/bracket/votes/${r.raceId}/`}
+                data-race={r.raceId}
+                data-a={r.aPct}
+                data-b={r.bPct}
+                data-total={r.total}
+              >
+                <header class="votes-row__head">
+                  <span class="votes-row__office">{r.office}</span>
+                  <span class="votes-row__meta small-caps">
+                    {r.tier} · {r.state} · {r.total} {r.total === 1 ? "vote" : "votes"}
+                  </span>
+                  {r.winnerName && (
+                    <span class="votes-row__called small-caps">Called · {r.winnerName}</span>
+                  )}
+                </header>
+                <div class="votes-row__names">
+                  <span class:list={["votes-row__side", r.leader === "a" && "is-lead"]}>
+                    {r.aName}{partyTag(r.aParty)}
+                    <strong>{r.aPct}%</strong>
+                    <span class="votes-row__count">{r.aCount}</span>
+                  </span>
+                  <span class="votes-row__vs" aria-hidden="true">vs</span>
+                  <span class:list={["votes-row__side", r.leader === "b" && "is-lead"]}>
+                    {r.bName}{partyTag(r.bParty)}
+                    <strong>{r.bPct}%</strong>
+                    <span class="votes-row__count">{r.bCount}</span>
+                  </span>
+                </div>
+                <div
+                  class="votes-bar"
+                  role="img"
+                  aria-label={`${r.aName} ${r.aPct} percent, ${r.bName} ${r.bPct} percent`}
+                >
+                  <span class="votes-bar__a" style={`width:${r.total ? r.aPct : 50}%`}></span>
+                  <span class="votes-bar__b" style={`width:${r.total ? r.bPct : 50}%`}></span>
+                </div>
+                <span class="votes-row__more">Details →</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+
+    <p class="static-page__note">
+      Only <strong>locked</strong> ballots count here so draft picks cannot skew the board.
+      Your identity is never attached to a pick in this view.
+      {" "}
+      <a href="/bracket/">Fill or lock your ballot →</a>
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .votes-hero {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.65rem;
+    margin: 1rem 0 1.25rem;
+  }
+  @media (max-width: 720px) {
+    .votes-hero { grid-template-columns: 1fr 1fr; }
+  }
+  .votes-stat {
+    border: 1px solid var(--ink, #1a140d);
+    padding: 0.75rem 0.85rem;
+    text-align: center;
+  }
+  .votes-stat__n {
+    display: block;
+    font-family: var(--serif, Georgia, serif);
+    font-weight: 700;
+    font-size: 1.45rem;
+    line-height: 1.15;
+  }
+  .votes-stat__l {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.68rem;
+    opacity: 0.7;
+  }
+  .votes-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.55rem;
+    margin-bottom: 1.25rem;
+  }
+  @media (max-width: 720px) {
+    .votes-highlights { grid-template-columns: 1fr; }
+  }
+  .votes-hl {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.75rem 0.85rem;
+    border: 2px solid var(--ink, #1a140d);
+    text-decoration: none;
+    color: inherit;
+    background: color-mix(in srgb, var(--ink, #1a140d) 4%, transparent);
+  }
+  .votes-hl:hover { background: color-mix(in srgb, var(--ink, #1a140d) 8%, transparent); }
+  .votes-hl__k { opacity: 0.65; font-size: 0.68rem; }
+  .votes-hl__m { font-size: 0.88rem; opacity: 0.85; }
+  .votes-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .votes-toolbar__group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .votes-toolbar__label { margin-right: 0.2rem; opacity: 0.65; }
+  .ballot-chip {
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.28rem 0.55rem;
+    border: 1px solid var(--rule, #cfc3ad);
+    text-decoration: none;
+    color: inherit;
+  }
+  .ballot-chip--on {
+    border-color: var(--ink, #1a140d);
+    background: var(--ink, #1a140d);
+    color: var(--paper, #f5edd9);
+    font-weight: 700;
+  }
+  .votes-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.65rem;
+  }
+  .votes-row {
+    display: block;
+    border: 1px solid var(--ink, #1a140d);
+    padding: 0.85rem 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .votes-row:hover {
+    box-shadow: 0 4px 0 color-mix(in srgb, var(--ink, #1a140d) 12%, transparent);
+    transform: translateY(-1px);
+  }
+  .votes-row__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 0.65rem;
+    margin-bottom: 0.55rem;
+  }
+  .votes-row__office {
+    font-family: var(--serif, Georgia, serif);
+    font-weight: 700;
+    font-size: 1.08rem;
+  }
+  .votes-row__meta { opacity: 0.65; font-size: 0.72rem; }
+  .votes-row__called {
+    margin-left: auto;
+    color: #1b4332;
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+  .votes-row__names {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0.4rem;
+    align-items: start;
+    margin-bottom: 0.45rem;
+  }
+  @media (max-width: 560px) {
+    .votes-row__names { grid-template-columns: 1fr; }
+    .votes-row__vs { display: none; }
+  }
+  .votes-row__side {
+    font-size: 0.92rem;
+    line-height: 1.3;
+  }
+  .votes-row__side strong {
+    display: inline-block;
+    margin-left: 0.35rem;
+    font-size: 1.05rem;
+  }
+  .votes-row__count {
+    display: block;
+    font-size: 0.78rem;
+    opacity: 0.65;
+    margin-top: 0.1rem;
+  }
+  .votes-row__side.is-lead { font-weight: 700; }
+  .votes-row__vs {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.45;
+    padding-top: 0.2rem;
+  }
+  .votes-bar {
+    display: flex;
+    height: 0.65rem;
+    width: 100%;
+    border: 1px solid var(--ink, #1a140d);
+    overflow: hidden;
+    background: color-mix(in srgb, var(--ink, #1a140d) 6%, transparent);
+  }
+  .votes-bar__a {
+    background: color-mix(in srgb, #1a365d 75%, var(--ink, #1a140d));
+    min-width: 0;
+  }
+  .votes-bar__b {
+    background: color-mix(in srgb, #9b2226 70%, var(--ink, #1a140d));
+    min-width: 0;
+  }
+  .votes-row__more {
+    display: block;
+    margin-top: 0.45rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .bracket-modes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin: 0.75rem 0 1.25rem;
+    font-size: 0.95rem;
+  }
+  .bracket-modes a { color: inherit; }
+  .bracket-modes__on {
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid var(--ink, #1a140d);
+  }
+</style>

@@ -1,0 +1,261 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { DEFAULT_ELECTION_ID, getElection, raceById } from "~/lib/elections";
+import { getCommunityVotes, listResults } from "~/lib/picks";
+
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "public, max-age=30, s-maxage=60");
+
+const raceId = String(Astro.params.raceId ?? "").trim();
+const election = getElection(DEFAULT_ELECTION_ID)!;
+const race = raceById(election, raceId);
+if (!race) return Astro.redirect("/bracket/votes/");
+
+const summary = await getCommunityVotes(election.id);
+const tally = summary?.races.find((r) => r.raceId === raceId);
+const results = await listResults(election.id);
+const official = results.find((r) => r.raceId === raceId) ?? null;
+
+const aCount = tally?.aCount ?? 0;
+const bCount = tally?.bCount ?? 0;
+const total = tally?.total ?? 0;
+const aPct = tally?.aPct ?? 0;
+const bPct = tally?.bPct ?? 0;
+const lockedBallots = summary?.lockedBallots ?? 0;
+
+const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
+
+// Rank among all races by total votes
+const ranked = [...(summary?.races ?? [])].sort((a, b) => b.total - a.total);
+const rank = ranked.findIndex((r) => r.raceId === raceId) + 1;
+
+const peers = ranked.filter((r) => r.raceId !== raceId && r.chamber === race.chamber).slice(0, 4);
+---
+<BaseLayout
+  title={`${race.office} — community votes — CladFacts`}
+  description={`Anonymous CladFacts ballot tally for ${race.office}: ${race.a.name} vs ${race.b.name}.`}
+  ogTitle={`${race.office} community picks`}
+  ogDescription={total ? `${aPct}% ${race.a.name} · ${bPct}% ${race.b.name} · ${total} locked picks` : "No locked picks yet"}
+  ogImage={`${origin}/og/bracket.png`}
+>
+  <article class="static-page votes-detail">
+    <p class="small-caps upgrade__eyebrow">
+      <a href="/bracket/votes/">Community ballots</a> · {race.state} · {race.chamber}
+    </p>
+    <h1 class="static-page__title">{race.office}</h1>
+    <p class="upgrade__lede">
+      Anonymous locked-ballot tally. No names, accounts, or share links — only aggregate counts.
+    </p>
+
+    <div class="vd-summary">
+      <div class="vd-summary__stat">
+        <span class="vd-summary__n">{total}</span>
+        <span class="small-caps">Votes on this race</span>
+      </div>
+      <div class="vd-summary__stat">
+        <span class="vd-summary__n">{lockedBallots}</span>
+        <span class="small-caps">Locked ballots overall</span>
+      </div>
+      {rank > 0 && (
+        <div class="vd-summary__stat">
+          <span class="vd-summary__n">#{rank}</span>
+          <span class="small-caps">By pick volume</span>
+        </div>
+      )}
+    </div>
+
+    <div class="vd-matchup">
+      <div class:list={["vd-side", tally?.leader === "a" && "is-lead"]}>
+        <p class="vd-side__name">{race.a.name}{race.a.party ? ` (${race.a.party})` : ""}</p>
+        {race.a.incumbent && <p class="small-caps vd-side__tag">Incumbent</p>}
+        {race.a.field && <p class="small-caps vd-side__tag">Field / TBD</p>}
+        <p class="vd-side__pct">{aPct}%</p>
+        <p class="vd-side__count">{aCount} {aCount === 1 ? "pick" : "picks"}</p>
+        <div class="vd-meter" aria-hidden="true">
+          <span style={`width:${total ? aPct : 0}%`}></span>
+        </div>
+      </div>
+      <div class="vd-vs" aria-hidden="true">vs</div>
+      <div class:list={["vd-side", tally?.leader === "b" && "is-lead"]}>
+        <p class="vd-side__name">{race.b.name}{race.b.party ? ` (${race.b.party})` : ""}</p>
+        {race.b.incumbent && <p class="small-caps vd-side__tag">Incumbent</p>}
+        {race.b.field && <p class="small-caps vd-side__tag">Field / TBD</p>}
+        <p class="vd-side__pct">{bPct}%</p>
+        <p class="vd-side__count">{bCount} {bCount === 1 ? "pick" : "picks"}</p>
+        <div class="vd-meter" aria-hidden="true">
+          <span class="vd-meter__b" style={`width:${total ? bPct : 0}%`}></span>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="vd-split"
+      role="img"
+      aria-label={`${race.a.name} ${aPct} percent versus ${race.b.name} ${bPct} percent`}
+    >
+      <span class="vd-split__a" style={`width:${total ? aPct : 50}%`}></span>
+      <span class="vd-split__b" style={`width:${total ? bPct : 50}%`}></span>
+    </div>
+
+    {official && (official.winnerSide === "a" || official.winnerSide === "b") && (
+      <p class="vd-called">
+        Official call: <strong>{official.winnerName}</strong>
+        {total > 0 && (
+          <>
+            {" "}· Community was{" "}
+            {(official.winnerSide === "a" ? aPct : bPct) >= 50 ? "aligned" : "leaning the other way"}
+            {" "}({official.winnerSide === "a" ? aPct : bPct}% for the winner)
+          </>
+        )}
+      </p>
+    )}
+
+    {race.note && <p class="vd-note">{race.note}</p>}
+
+    {peers.length > 0 && (
+      <section class="vd-peers">
+        <h2 class="vd-peers__title">Other {race.chamber === "senate" ? "Senate" : "governor"} races</h2>
+        <ul class="vd-peers__list">
+          {peers.map((p) => (
+            <li>
+              <a href={`/bracket/votes/${p.raceId}/`}>
+                {p.office}
+                <span>{p.total ? `${p.aPct}–${p.bPct}` : "—"}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <p class="static-page__note">
+      <a href="/bracket/votes/">← All community races</a>
+      {" · "}
+      <a href="/bracket/">Your ballot board</a>
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .votes-detail a { color: inherit; }
+  .vd-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.55rem;
+    margin: 1rem 0 1.25rem;
+  }
+  @media (max-width: 560px) {
+    .vd-summary { grid-template-columns: 1fr; }
+  }
+  .vd-summary__stat {
+    border: 1px solid var(--ink, #1a140d);
+    padding: 0.7rem 0.8rem;
+    text-align: center;
+  }
+  .vd-summary__n {
+    display: block;
+    font-family: var(--serif, Georgia, serif);
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+  .vd-matchup {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0.75rem;
+    align-items: start;
+    margin: 1rem 0;
+  }
+  @media (max-width: 640px) {
+    .vd-matchup { grid-template-columns: 1fr; }
+    .vd-vs { display: none; }
+  }
+  .vd-side {
+    border: 1px solid var(--rule, #cfc3ad);
+    padding: 0.9rem 1rem;
+  }
+  .vd-side.is-lead {
+    border-color: var(--ink, #1a140d);
+    border-width: 2px;
+    background: color-mix(in srgb, var(--ink, #1a140d) 5%, transparent);
+  }
+  .vd-side__name {
+    font-family: var(--serif, Georgia, serif);
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin: 0;
+    line-height: 1.2;
+  }
+  .vd-side__tag { margin: 0.25rem 0 0; opacity: 0.65; font-size: 0.7rem; }
+  .vd-side__pct {
+    font-size: 2.4rem;
+    font-weight: 700;
+    font-family: var(--serif, Georgia, serif);
+    margin: 0.5rem 0 0;
+    line-height: 1;
+  }
+  .vd-side__count { margin: 0.25rem 0 0.55rem; opacity: 0.75; font-size: 0.9rem; }
+  .vd-meter {
+    height: 0.5rem;
+    background: color-mix(in srgb, var(--ink, #1a140d) 8%, transparent);
+    border: 1px solid var(--rule, #cfc3ad);
+  }
+  .vd-meter span {
+    display: block;
+    height: 100%;
+    background: color-mix(in srgb, #1a365d 75%, var(--ink, #1a140d));
+  }
+  .vd-meter__b {
+    background: color-mix(in srgb, #9b2226 70%, var(--ink, #1a140d)) !important;
+  }
+  .vd-vs {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.45;
+    padding-top: 1.5rem;
+  }
+  .vd-split {
+    display: flex;
+    height: 1.1rem;
+    border: 2px solid var(--ink, #1a140d);
+    margin: 0.5rem 0 1.25rem;
+    overflow: hidden;
+  }
+  .vd-split__a { background: color-mix(in srgb, #1a365d 75%, var(--ink, #1a140d)); }
+  .vd-split__b { background: color-mix(in srgb, #9b2226 70%, var(--ink, #1a140d)); }
+  .vd-called {
+    padding: 0.75rem 0.9rem;
+    border: 2px solid color-mix(in srgb, #2d6a4f 50%, var(--ink, #1a140d));
+    background: color-mix(in srgb, #2d6a4f 10%, transparent);
+    margin: 0 0 1rem;
+  }
+  .vd-note {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-style: italic;
+    margin: 0 0 1.25rem;
+  }
+  .vd-peers { margin: 1.5rem 0; }
+  .vd-peers__title {
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem;
+    border-bottom: 1px solid var(--ink, #1a140d);
+    padding-bottom: 0.3rem;
+  }
+  .vd-peers__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .vd-peers__list a {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px dotted var(--rule, #cfc3ad);
+    text-decoration: none;
+  }
+  .vd-peers__list a:hover { text-decoration: underline; }
+</style>

@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { ImageResponse } from "workers-og";
-import { getBallotByShareSlug } from "~/lib/picks";
+import { getPublicSharedBallot } from "~/lib/picks";
 import { getElection } from "~/lib/elections";
 
 export const prerender = false;
@@ -73,7 +73,7 @@ export const GET: APIRoute = async ({ params, request }) => {
   const shareSlug = String(params.shareSlug ?? "").trim();
   if (!shareSlug) return new Response("Not found", { status: 404 });
 
-  const ballot = await getBallotByShareSlug(shareSlug);
+  const ballot = await getPublicSharedBallot(shareSlug);
   if (!ballot) return new Response("Not found", { status: 404 });
   const election = getElection(ballot.electionId);
   if (!election) return new Response("Not found", { status: 404 });

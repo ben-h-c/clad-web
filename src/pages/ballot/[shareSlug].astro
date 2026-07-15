@@ -1,14 +1,15 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ShareBar from "~/components/ShareBar.astro";
-import { getBallotByShareSlug, listResults } from "~/lib/picks";
+import { getPublicSharedBallot, listResults } from "~/lib/picks";
 import { getElection } from "~/lib/elections";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "public, max-age=60, s-maxage=60");
 
 const shareSlug = String(Astro.params.shareSlug ?? "").trim();
-const ballot = shareSlug ? await getBallotByShareSlug(shareSlug) : null;
+// Only locked ballots are publicly shareable.
+const ballot = shareSlug ? await getPublicSharedBallot(shareSlug) : null;
 if (!ballot) {
   return Astro.redirect("/bracket/");
 }

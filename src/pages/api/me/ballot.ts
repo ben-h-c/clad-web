@@ -3,6 +3,7 @@ import {
   ensureBallot,
   getBallotForUser,
   lockBallot,
+  resetBallot,
   upsertPick,
 } from "~/lib/picks";
 import { DEFAULT_ELECTION_ID, getElection } from "~/lib/elections";
@@ -42,6 +43,17 @@ export const PUT: APIRoute = async ({ request }) => {
       return jsonResponse({ ok: true, ballot });
     } catch (e) {
       return jsonResponse({ error: e instanceof Error ? e.message : "lock failed" }, 400);
+    }
+  }
+
+  if (body.reset === true) {
+    try {
+      const ballot = await resetBallot(user.id, electionId);
+      return jsonResponse({ ok: true, ballot });
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : "reset failed";
+      const status = msg === "ballot locked" ? 403 : msg === "no ballot" ? 404 : 400;
+      return jsonResponse({ error: msg }, status);
     }
   }
 

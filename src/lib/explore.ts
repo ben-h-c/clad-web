@@ -25,7 +25,13 @@ const L = {
     href: "/bracket/",
     kicker: "Midterms",
     title: "Ballot board",
-    blurb: "Pick winners and share your sheet.",
+    blurb: "Pick winners, lock in, and share.",
+  },
+  votes: {
+    href: "/bracket/votes/",
+    kicker: "Community",
+    title: "Community votes",
+    blurb: "Anonymous tallies of locked ballots.",
   },
   map: {
     href: "/elections/map/",
@@ -117,7 +123,7 @@ export function exploreLinks(ctx: ExploreContext, opts?: { locked?: boolean }): 
         ? [L.register, L.quiz, L.ballot, L.bias]
         : [L.quiz, L.ballot, L.bias, L.trends];
     case "midterms":
-      return [L.ballot, L.map, L.politicians, L.quiz, L.learn];
+      return [L.ballot, L.votes, L.map, L.politicians, L.quiz];
     case "quiz":
       return [L.bias, L.ballot, L.trends, L.discover];
     case "account":
@@ -134,6 +140,7 @@ export function exploreLinks(ctx: ExploreContext, opts?: { locked?: boolean }): 
 /** Compact footer product links (label only). */
 export const FOOTER_PRODUCT_LINKS: { href: string; label: string }[] = [
   { href: "/bracket/", label: "Ballot" },
+  { href: "/bracket/votes/", label: "Votes" },
   { href: "/elections/map/", label: "Map" },
   { href: "/quiz/", label: "Quiz" },
   { href: "/discover/", label: "Discover" },

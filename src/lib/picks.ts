@@ -243,6 +243,7 @@ export async function upsertPick(
 export async function lockBallot(userId: string, electionId: string): Promise<UserBallot> {
   const ballot = await ensureBallot(userId, electionId);
   if (ballot.lockedAt) return ballot;
+  if (ballot.picks.length === 0) throw new Error("pick at least one race before locking");
   const now = new Date().toISOString();
   await env.DB.prepare(`UPDATE user_ballot SET lockedAt = ?, updatedAt = ? WHERE id = ?`)
     .bind(now, now, ballot.id)
@@ -250,6 +251,154 @@ export async function lockBallot(userId: string, electionId: string): Promise<Us
   const updated = await getBallotForUser(userId, electionId);
   if (!updated) throw new Error("ballot missing");
   return updated;
+}
+
+/** Clear all picks on an unlocked ballot. Locked ballots cannot be reset. */
+export async function resetBallot(userId: string, electionId: string): Promise<UserBallot> {
+  const ballot = await getBallotForUser(userId, electionId);
+  if (!ballot) throw new Error("no ballot");
+  if (ballot.lockedAt) throw new Error("ballot locked");
+  const now = new Date().toISOString();
+  await env.DB.prepare(`DELETE FROM user_pick WHERE ballotId = ?`).bind(ballot.id).run();
+  await env.DB.prepare(`UPDATE user_ballot SET updatedAt = ? WHERE id = ?`)
+    .bind(now, ballot.id)
+    .run();
+  const updated = await getBallotForUser(userId, electionId);
+  if (!updated) throw new Error("ballot missing");
+  return updated;
+}
+
+/** Public share payloads only for locked ballots (anonymous display name only). */
+export async function getPublicSharedBallot(shareSlug: string): Promise<UserBallot | null> {
+  const ballot = await getBallotByShareSlug(shareSlug);
+  if (!ballot || !ballot.lockedAt) return null;
+  return ballot;
+}
+
+// ── Anonymous community aggregates (locked ballots only) ─────────────────
+
+export interface CommunityRaceTally {
+  raceId: string;
+  office: string;
+  chamber: string;
+  state: string;
+  tier: string;
+  aName: string;
+  bName: string;
+  aParty: string | null;
+  bParty: string | null;
+  aCount: number;
+  bCount: number;
+  total: number;
+  aPct: number;
+  bPct: number;
+  leader: "a" | "b" | "tie" | "none";
+  winnerSide: PickSide | "other" | null;
+  winnerName: string | null;
+}
+
+export interface CommunityVotesSummary {
+  electionId: string;
+  title: string;
+  /** Locked ballots counted — never user identifiers. */
+  lockedBallots: number;
+  totalPicks: number;
+  races: CommunityRaceTally[];
+  generatedAt: string;
+}
+
+/**
+ * Aggregate locked-ballot picks only. Returns counts and percentages — never
+ * user ids, emails, or individual ballots.
+ */
+export async function getCommunityVotes(electionId: string): Promise<CommunityVotesSummary | null> {
+  const election = getElection(electionId);
+  if (!election) return null;
+
+  let lockedBallots = 0;
+  const sideCounts = new Map<string, { a: number; b: number }>();
+
+  try {
+    const locked = await env.DB.prepare(
+      `SELECT COUNT(*) as n FROM user_ballot WHERE electionId = ? AND lockedAt IS NOT NULL`
+    )
+      .bind(electionId)
+      .first<{ n: number }>();
+    lockedBallots = Number(locked?.n ?? 0);
+
+    const rows = await env.DB.prepare(
+      `SELECT up.raceId as raceId, up.side as side, COUNT(*) as n
+       FROM user_pick up
+       INNER JOIN user_ballot ub ON ub.id = up.ballotId
+       WHERE ub.electionId = ? AND ub.lockedAt IS NOT NULL
+       GROUP BY up.raceId, up.side`
+    )
+      .bind(electionId)
+      .all<{ raceId: string; side: string; n: number }>();
+
+    for (const r of rows.results ?? []) {
+      if (!sideCounts.has(r.raceId)) sideCounts.set(r.raceId, { a: 0, b: 0 });
+      const e = sideCounts.get(r.raceId)!;
+      if (r.side === "a") e.a += Number(r.n);
+      else if (r.side === "b") e.b += Number(r.n);
+    }
+  } catch {
+    // Tables missing pre-migrate
+  }
+
+  const results = await listResults(electionId);
+  const resultByRace = new Map(results.map((r) => [r.raceId, r]));
+
+  let totalPicks = 0;
+  const races: CommunityRaceTally[] = election.races.map((race) => {
+    const c = sideCounts.get(race.id) ?? { a: 0, b: 0 };
+    const total = c.a + c.b;
+    totalPicks += total;
+    const aPct = total ? Math.round((c.a / total) * 100) : 0;
+    const bPct = total ? 100 - aPct : 0;
+    let leader: CommunityRaceTally["leader"] = "none";
+    if (total > 0) {
+      if (c.a === c.b) leader = "tie";
+      else leader = c.a > c.b ? "a" : "b";
+    }
+    const res = resultByRace.get(race.id);
+    return {
+      raceId: race.id,
+      office: race.office,
+      chamber: race.chamber,
+      state: race.state,
+      tier: race.tier,
+      aName: race.a.name,
+      bName: race.b.name,
+      aParty: race.a.party ?? null,
+      bParty: race.b.party ?? null,
+      aCount: c.a,
+      bCount: c.b,
+      total,
+      aPct,
+      bPct,
+      leader,
+      winnerSide: res?.winnerSide ?? null,
+      winnerName: res?.winnerName ?? null,
+    };
+  });
+
+  // Dashboard default order: most votes first, then closest races, then office
+  races.sort(
+    (x, y) =>
+      y.total - x.total ||
+      Math.abs(x.aPct - 50) - Math.abs(y.aPct - 50) ||
+      x.office.localeCompare(y.office)
+  );
+
+  return {
+    electionId,
+    title: election.title,
+    lockedBallots,
+    totalPicks,
+    races,
+    generatedAt: new Date().toISOString(),
+  };
 }
 
 export async function upsertRaceResult(input: {

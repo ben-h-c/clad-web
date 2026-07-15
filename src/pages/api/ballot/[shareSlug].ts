@@ -1,18 +1,18 @@
 import type { APIRoute } from "astro";
-import { getBallotByShareSlug, listResults } from "~/lib/picks";
+import { getPublicSharedBallot, listResults } from "~/lib/picks";
 import { getElection } from "~/lib/elections";
 import { jsonResponse } from "~/lib/user-data";
 
 export const prerender = false;
 
 /**
- * Public ballot summary — names only, no coverage grades.
+ * Public ballot summary — locked ballots only; display name + picks, no PII keys.
  */
 export const GET: APIRoute = async ({ params }) => {
   const shareSlug = String(params.shareSlug ?? "").trim();
   if (!shareSlug || shareSlug.length > 32) return jsonResponse({ error: "not found" }, 404);
 
-  const ballot = await getBallotByShareSlug(shareSlug);
+  const ballot = await getPublicSharedBallot(shareSlug);
   if (!ballot) return jsonResponse({ error: "not found" }, 404);
 
   const election = getElection(ballot.electionId);

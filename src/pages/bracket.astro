@@ -63,7 +63,8 @@ const resultByRace = new Map(results.map((r) => [r.raceId, r]));
 
 const ballot = user ? await getBallotForUser(user.id, election.id) : null;
 const pickByRace = new Map((ballot?.picks ?? []).map((p) => [p.raceId, p.side]));
-const picksOpen = picksAreOpen(election) && !ballot?.lockedAt;
+const isLocked = !!ballot?.lockedAt;
+const picksOpen = picksAreOpen(election) && !isLocked;
 const score = ballot?.score ?? {
   picked: 0,
   total: election.races.length,
@@ -76,8 +77,15 @@ const score = ballot?.score ?? {
 const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
 const ogImage = `${origin}/og/bracket.png`;
 const pageUrl = `${origin}/bracket/`;
-const shareUrl = ballot ? `${origin}/ballot/${ballot.shareSlug}/` : null;
+// Share only after lock — public pages refuse unlocked ballots.
+const shareUrl =
+  ballot?.lockedAt && ballot.shareSlug
+    ? `${origin}/ballot/${ballot.shareSlug}/`
+    : null;
 const registerNext = encodeURIComponent("/bracket/");
+const canShare = isLocked && !!shareUrl;
+const canReset = signedIn && !isLocked && (score.picked > 0 || !!ballot);
+const canLock = signedIn && picksOpen && score.picked > 0 && !isLocked;
 
 function party(p?: string) {
   return p ? ` (${p})` : "";
@@ -114,7 +122,7 @@ const jsonLd = {
   title={`${board.title} — CladFacts`}
   description={board.subtitle}
   ogTitle="Fill your 2026 midterms ballot"
-  ogDescription="Pick winners for Class II Senate and midterm governors. Share your ballot. Track accuracy as races are called."
+  ogDescription="Pick winners for Class II Senate and midterm governors. Lock in to share and join the anonymous community tally."
   ogImage={ogImage}
   jsonLd={jsonLd}
 >
@@ -123,6 +131,7 @@ const jsonLd = {
     data-election={election.id}
     data-signed-in={signedIn ? "1" : "0"}
     data-picks-open={picksOpen ? "1" : "0"}
+    data-locked={isLocked ? "1" : "0"}
     data-share-url={shareUrl || ""}
   >
     <p class="small-caps upgrade__eyebrow">Midterms 2026 · Ballot board</p>
@@ -131,6 +140,7 @@ const jsonLd = {
 
     <nav class="bracket-modes" aria-label="Midterms modes">
       <a class="bracket-modes__on" href="/bracket/" aria-current="page">Ballot board</a>
+      <a href="/bracket/votes/">Community votes</a>
       <a href="/elections/map/">Interactive map</a>
       <a href="/bracket/coverage/">Coverage ranking</a>
       <a href="/politicians/">Politicians</a>
@@ -146,17 +156,28 @@ const jsonLd = {
             <span class="ballot-progress__muted"> ({score.called} called)</span>
           </span>
         )}
-        {!picksOpen && <span class="ballot-progress__locked"> · Picks locked</span>}
+        {isLocked && <span class="ballot-progress__locked"> · Locked in</span>}
       </div>
       <div class="ballot-progress__actions">
         {signedIn ? (
           <>
-            <button type="button" class="race-share__btn" id="ballot-share" hidden={!shareUrl && score.picked === 0}>
+            <button
+              type="button"
+              class="race-share__btn"
+              id="ballot-share"
+              hidden={!canShare}
+              title={canShare ? "Copy or share your locked ballot" : "Lock your ballot to share"}
+            >
               Share my ballot
             </button>
-            {picksOpen && score.picked > 0 && !ballot?.lockedAt && (
-              <button type="button" class="race-share__btn race-share__btn--ghost" id="ballot-lock">
+            {canLock && (
+              <button type="button" class="race-share__btn" id="ballot-lock">
                 Lock ballot
+              </button>
+            )}
+            {canReset && (
+              <button type="button" class="race-share__btn race-share__btn--ghost" id="ballot-reset">
+                Reset picks
               </button>
             )}
           </>
@@ -167,10 +188,24 @@ const jsonLd = {
     </div>
     <p class="race-share__status" id="ballot-status" hidden></p>
 
+    {signedIn && !isLocked && (
+      <p class="ballot-note" id="ballot-lock-note">
+        <strong>Lock to share.</strong> You can change picks until you lock in.
+        Sharing and the <a href="/bracket/votes/">anonymous community tally</a> only
+        include locked ballots — so draft picks stay private and can be reset anytime before lock.
+      </p>
+    )}
+    {signedIn && isLocked && (
+      <p class="ballot-note ballot-note--locked">
+        Your ballot is locked. You can <button type="button" class="auth-linklike" id="ballot-share-inline">share it</button>
+        {" "}and it counts in the <a href="/bracket/votes/">community votes</a> board. Picks can no longer be edited or reset.
+      </p>
+    )}
+
     {!signedIn && (
       <p class="paywall-banner" style="margin: 1rem 0">
         <span>
-          Browse every race free. Create a free account to pick winners, share your ballot like a March Madness sheet, and track how accurate you are as results come in.
+          Browse every race free. Create a free account to pick winners, lock in your sheet, share it, and track accuracy as results come in.
         </span>
         <a class="paywall-banner__cta" href={`/register/?next=${registerNext}`}>Create free account</a>
       </p>
@@ -333,10 +368,10 @@ const jsonLd = {
         <h2 class="explore-next__title" style="font-size:1.1rem">Around the midterms desk</h2>
       </div>
       <ul class="explore-next__grid">
+        <li><a class="explore-next__card" href="/bracket/votes/"><span class="explore-next__kicker small-caps">Community</span><span class="explore-next__name">Community votes</span><span class="explore-next__blurb">Anonymous locked tallies.</span></a></li>
         <li><a class="explore-next__card" href="/elections/map/"><span class="explore-next__kicker small-caps">Map</span><span class="explore-next__name">Election map</span><span class="explore-next__blurb">Coverage heat by state.</span></a></li>
         <li><a class="explore-next__card" href="/politicians/"><span class="explore-next__kicker small-caps">People</span><span class="explore-next__name">Politicians</span><span class="explore-next__blurb">Person-level grades.</span></a></li>
         <li><a class="explore-next__card" href="/quiz/"><span class="explore-next__kicker small-caps">Play</span><span class="explore-next__name">Morning quiz</span><span class="explore-next__blurb">Spot the spin daily.</span></a></li>
-        <li><a class="explore-next__card" href="/learn/first-vote/"><span class="explore-next__kicker small-caps">Learn</span><span class="explore-next__name">First-time voter</span><span class="explore-next__blurb">Civics without jargon.</span></a></li>
       </ul>
     </nav>
 
@@ -345,7 +380,8 @@ const jsonLd = {
         <li><strong>Independent races</strong> — unlike March Madness, winners don’t advance into each other. You pick each race’s winner.</li>
         <li><strong>Heat seed (#)</strong> ranks how much graded coverage Clad has on that race — popularity of the story, not a poll.</li>
         <li><strong>Soonest vote</strong> uses the next primary, special, or general date for that race.</li>
-        <li><strong>Your pick</strong> requires a free account. Share a public link; we score you as races are called.</li>
+        <li><strong>Your pick</strong> requires a free account. <strong>Lock</strong> when you&rsquo;re ready — only then can you share, and only locked ballots join the <a href="/bracket/votes/">anonymous community tally</a>.</li>
+        <li><strong>Reset picks</strong> clears your draft before lock. After lock, picks are final for scoring and sharing.</li>
         <li><strong>Coverage lead</strong> (signed-in) is editorial context about airtime quality — separate from your ballot.</li>
         <li>Candidate map verified as of {RACE_BOARD_VERIFIED_ASOF}.</li>
       </ul>
@@ -364,13 +400,16 @@ const jsonLd = {
     const root = document.querySelector(".ballot-board");
     if (!root) return;
     const signedIn = root.getAttribute("data-signed-in") === "1";
-    const picksOpen = root.getAttribute("data-picks-open") === "1";
+    let picksOpen = root.getAttribute("data-picks-open") === "1";
+    let locked = root.getAttribute("data-locked") === "1";
     const electionId = root.getAttribute("data-election") || "midterms-2026";
     const status = document.getElementById("ballot-status");
     const pickedLabel = document.getElementById("ballot-picked-label");
     const scoreLabel = document.getElementById("ballot-score-label");
     const shareBtn = document.getElementById("ballot-share");
+    const shareInline = document.getElementById("ballot-share-inline");
     const lockBtn = document.getElementById("ballot-lock");
+    const resetBtn = document.getElementById("ballot-reset");
     let shareUrl = root.getAttribute("data-share-url") || "";
 
     function setStatus(msg) {
@@ -388,13 +427,20 @@ const jsonLd = {
           " · Score " + s.correct + "–" + s.wrong +
           ' <span class="ballot-progress__muted">(' + s.called + " called)</span>";
       }
-      if (shareBtn) {
-        shareBtn.hidden = s.picked === 0 && !shareUrl;
-      }
-      if (ballot.shareSlug) {
+      locked = !!ballot.lockedAt;
+      picksOpen = !locked;
+      root.setAttribute("data-locked", locked ? "1" : "0");
+      root.setAttribute("data-picks-open", picksOpen ? "1" : "0");
+      if (ballot.lockedAt && ballot.shareSlug) {
         shareUrl = location.origin + "/ballot/" + ballot.shareSlug + "/";
         root.setAttribute("data-share-url", shareUrl);
+      } else {
+        shareUrl = "";
+        root.setAttribute("data-share-url", "");
       }
+      if (shareBtn) shareBtn.hidden = !locked || !shareUrl;
+      if (resetBtn) resetBtn.hidden = locked || s.picked === 0;
+      if (lockBtn) lockBtn.hidden = locked || s.picked === 0;
     }
 
     async function savePick(raceId, side, btn) {
@@ -402,7 +448,7 @@ const jsonLd = {
         location.href = "/register/?next=" + encodeURIComponent("/bracket/");
         return;
       }
-      if (!picksOpen) {
+      if (!picksOpen || locked) {
         setStatus("Picks are locked.");
         return;
       }
@@ -464,48 +510,35 @@ const jsonLd = {
       });
     }
 
-    if (shareBtn) {
-      shareBtn.addEventListener("click", async () => {
-        if (!shareUrl && signedIn) {
-          try {
-            const res = await fetch("/api/me/ballot", {
-              method: "PUT",
-              headers: { "Content-Type": "application/json" },
-              credentials: "same-origin",
-              body: JSON.stringify({ electionId, ensure: true }),
-            });
-            const data = await res.json();
-            if (data.ballot?.shareSlug) {
-              shareUrl = location.origin + "/ballot/" + data.ballot.shareSlug + "/";
-            }
-          } catch {}
+    async function doShare() {
+      if (!locked || !shareUrl) {
+        setStatus("Lock your ballot first — then you can share.");
+        return;
+      }
+      const text = "My locked 2026 midterms ballot on CladFacts — fill yours: " + shareUrl;
+      try {
+        if (navigator.share) {
+          await navigator.share({ title: "My Clad midterms ballot", text, url: shareUrl });
+        } else {
+          await navigator.clipboard.writeText(text);
+          setStatus("Share link copied.");
         }
-        if (!shareUrl) {
-          setStatus("Make at least one pick first.");
-          return;
-        }
-        const text = "My 2026 midterms ballot on CladFacts — fill yours: " + shareUrl;
+      } catch {
         try {
-          if (navigator.share) {
-            await navigator.share({ title: "My Clad midterms ballot", text, url: shareUrl });
-          } else {
-            await navigator.clipboard.writeText(text);
-            setStatus("Share link copied.");
-          }
+          await navigator.clipboard.writeText(shareUrl);
+          setStatus("Link copied.");
         } catch {
-          try {
-            await navigator.clipboard.writeText(shareUrl);
-            setStatus("Link copied.");
-          } catch {
-            setStatus(shareUrl);
-          }
+          setStatus(shareUrl);
         }
-      });
+      }
     }
+
+    if (shareBtn) shareBtn.addEventListener("click", doShare);
+    if (shareInline) shareInline.addEventListener("click", doShare);
 
     if (lockBtn) {
       lockBtn.addEventListener("click", async () => {
-        if (!confirm("Lock your ballot? You won’t be able to change picks after this.")) return;
+        if (!confirm("Lock your ballot? You won’t be able to change or reset picks after this — but you will be able to share, and your anonymous picks join the community tally.")) return;
         try {
           const res = await fetch("/api/me/ballot", {
             method: "PUT",
@@ -516,6 +549,28 @@ const jsonLd = {
           const data = await res.json();
           if (!res.ok) {
             setStatus(data.error || "Could not lock.");
+            return;
+          }
+          location.reload();
+        } catch {
+          setStatus("Network error.");
+        }
+      });
+    }
+
+    if (resetBtn) {
+      resetBtn.addEventListener("click", async () => {
+        if (!confirm("Clear all picks on this ballot? You can only do this before locking.")) return;
+        try {
+          const res = await fetch("/api/me/ballot", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            credentials: "same-origin",
+            body: JSON.stringify({ electionId, reset: true }),
+          });
+          const data = await res.json();
+          if (!res.ok) {
+            setStatus(data.error || "Could not reset.");
             return;
           }
           location.reload();
@@ -569,6 +624,29 @@ const jsonLd = {
   .ballot-progress__muted { opacity: 0.7; font-weight: 400; }
   .ballot-progress__locked { color: var(--accent-red, #941a1a); font-weight: 700; }
   .ballot-progress__actions { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .ballot-note {
+    margin: 0 0 1rem;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--rule, #cfc3ad);
+    font-size: 0.92rem;
+    line-height: 1.45;
+    background: color-mix(in srgb, var(--ink, #1a140d) 4%, transparent);
+  }
+  .ballot-note--locked {
+    border-color: var(--ink, #1a140d);
+  }
+  .ballot-note a { color: inherit; font-weight: 600; }
+  .auth-linklike {
+    appearance: none;
+    font: inherit;
+    font-weight: 600;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+  }
   .ballot-toolbar {
     display: flex;
     flex-direction: column;
