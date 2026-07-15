@@ -1,9 +1,9 @@
 /**
- * Midterms 2026 brackets.
+ * Midterms boards.
  *
- * v1 — Coverage tournament: top people by graded volume, classic seeding.
- * v2 — Race board: fixed editorial matchups (Senate/Gov) with live coverage
- *      stats on each side. Not polls — whose coverage is grading better / denser.
+ * v1 — Coverage ranking: top people by graded volume (legacy tournament math kept).
+ * v2 — Ballot Board: fixed editorial matchups with live coverage heat +
+ *      sort by popularity / how soon the next vote is. User picks live in D1.
  */
 import type { CollectionEntry } from "astro:content";
 import { buildPoliticianIndex, type PoliticianAgg } from "./politicians.ts";
@@ -15,7 +15,13 @@ import {
   type RaceChamber,
   type RaceDef,
   type RaceRegion,
+  type RaceTier,
 } from "./races.ts";
+import {
+  daysUntil,
+  hotSoonScore,
+  type RaceSortMode,
+} from "./elections/index.ts";
 import { gradeToGpa } from "./topics.ts";
 
 export type BracketRoundId = "r16" | "qf" | "sf" | "final";
@@ -254,6 +260,10 @@ export interface RaceCardLive {
   b: RaceSideLive;
   /** Total graded reports mentioning either side. */
   heat: number;
+  /** 1 = hottest coverage on the board (cosmetic “seed”). */
+  heatSeed: number;
+  /** Days until nextVoteDate (can be negative if past). */
+  daysToVote: number;
   /** Leader slug when scores revealed; null for guests or ties with no data. */
   leaderSlug: string | null;
   leaderReason: string | null;
@@ -263,11 +273,47 @@ export interface RaceBoard {
   title: string;
   subtitle: string;
   generatedAt: string;
+  sortMode: RaceSortMode;
   cards: RaceCardLive[];
   byRegion: { region: RaceRegion; cards: RaceCardLive[] }[];
   byChamber: { chamber: RaceChamber; label: string; cards: RaceCardLive[] }[];
   hottest: RaceCardLive | null;
   civics: typeof CIVICS_BLURBS;
+}
+
+function tierRank(t: RaceTier): number {
+  return t === "marquee" ? 0 : t === "watch" ? 1 : 2;
+}
+
+function sortCards(cards: RaceCardLive[], mode: RaceSortMode): RaceCardLive[] {
+  const list = [...cards];
+  switch (mode) {
+    case "soonest":
+      return list.sort(
+        (x, y) =>
+          x.daysToVote - y.daysToVote ||
+          y.heat - x.heat ||
+          x.def.office.localeCompare(y.def.office)
+      );
+    case "heat":
+      return list.sort(
+        (x, y) => y.heat - x.heat || x.def.office.localeCompare(y.def.office)
+      );
+    case "marquee":
+      return list.sort(
+        (x, y) =>
+          tierRank(x.def.tier) - tierRank(y.def.tier) ||
+          y.heat - x.heat ||
+          x.def.office.localeCompare(y.def.office)
+      );
+    case "hot-soon":
+    default:
+      return list.sort((x, y) => {
+        const sx = hotSoonScore(x.heat, x.def.nextVoteDate);
+        const sy = hotSoonScore(y.heat, y.def.nextVoteDate);
+        return sy - sx || y.heat - x.heat || x.def.office.localeCompare(y.def.office);
+      });
+  }
 }
 
 function sideLive(
@@ -311,52 +357,87 @@ function raceLeader(
   return { slug: w.slug, reason: `${w.reports} reports${fact}` };
 }
 
-/** Build the fixed-race board with live coverage stats. */
+export interface BuildRaceBoardOpts {
+  revealScores: boolean;
+  sortMode?: RaceSortMode;
+  /** When set, use these race defs (election template) instead of raw RACE_MATCHUPS. */
+  races?: RaceDef[];
+  title?: string;
+  subtitle?: string;
+}
+
+/** Build the fixed-race board with live coverage stats + sort modes. */
 export function buildRaceBoard(
   posts: CollectionEntry<"posts">[],
-  revealScores: boolean
+  revealScoresOrOpts: boolean | BuildRaceBoardOpts = true
 ): RaceBoard {
+  const opts: BuildRaceBoardOpts =
+    typeof revealScoresOrOpts === "boolean"
+      ? { revealScores: revealScoresOrOpts }
+      : revealScoresOrOpts;
+  const revealScores = opts.revealScores;
+  const sortMode: RaceSortMode = opts.sortMode ?? "hot-soon";
+  const raceDefs = opts.races ?? RACE_MATCHUPS;
+
   const index = buildPoliticianIndex(posts);
   const bySlug = new Map(index.map((p) => [p.slug, p]));
 
-  const cards: RaceCardLive[] = RACE_MATCHUPS.map((def) => {
+  const raw: Omit<RaceCardLive, "heatSeed">[] = raceDefs.map((def) => {
     const a = sideLive(def.a, bySlug);
     const b = sideLive(def.b, bySlug);
     const { slug, reason } = raceLeader(a, b, revealScores);
+    const heat = a.reports + b.reports;
     return {
       def,
       a,
       b,
-      heat: a.reports + b.reports,
+      heat,
+      daysToVote: daysUntil(def.nextVoteDate ?? def.generalDate ?? "2099-01-01"),
       leaderSlug: slug,
       leaderReason: reason,
     };
-  }).sort((x, y) => y.heat - x.heat || x.def.office.localeCompare(y.def.office));
+  });
+
+  // Heat seed: rank by coverage volume (1 = hottest).
+  const byHeat = [...raw].sort((x, y) => y.heat - x.heat || x.def.office.localeCompare(y.def.office));
+  const seedOf = new Map(byHeat.map((c, i) => [c.def.id, i + 1]));
+  const withSeed: RaceCardLive[] = raw.map((c) => ({
+    ...c,
+    heatSeed: seedOf.get(c.def.id) ?? raw.length,
+  }));
+
+  const cards = sortCards(withSeed, sortMode);
 
   const byRegion = racesByRegion().map(({ region, races }) => ({
     region,
-    cards: races
-      .map((def) => cards.find((c) => c.def.id === def.id)!)
-      .filter(Boolean)
-      .sort((x, y) => y.heat - x.heat),
+    cards: sortCards(
+      races
+        .map((def) => withSeed.find((c) => c.def.id === def.id)!)
+        .filter(Boolean),
+      sortMode
+    ),
   }));
 
   const byChamber = racesByChamber().map(({ chamber, label, races }) => ({
     chamber,
     label,
-    cards: races
-      .map((def) => cards.find((c) => c.def.id === def.id)!)
-      .filter(Boolean)
-      .sort((x, y) => y.heat - x.heat || x.def.office.localeCompare(y.def.office)),
+    cards: sortCards(
+      races
+        .map((def) => withSeed.find((c) => c.def.id === def.id)!)
+        .filter(Boolean),
+      sortMode
+    ),
   }));
 
-  const hottest = cards.find((c) => c.heat > 0) ?? null;
+  const hottest = [...withSeed].sort((a, b) => b.heat - a.heat).find((c) => c.heat > 0) ?? null;
 
   return {
-    title: "Midterms 2026 Race Board",
+    title: opts.title ?? "Midterms 2026 Ballot Board",
     subtitle:
-      "Constitutionally on-cycle races for 2026 — Class II Senate seats and midterm governors — with live CladFacts coverage stats. Not a poll: each card asks whose side is getting graded airtime, and how that coverage holds up.",
+      opts.subtitle ??
+      "Pick winners race-by-race. Cards sort by coverage heat and how soon people vote. Coverage grades are editorial context — not polls.",
     generatedAt: new Date().toISOString(),
+    sortMode,
     cards,
     byRegion,
     byChamber,
@@ -379,6 +460,17 @@ export function maskRaceLeaders(board: RaceBoard, reveal: boolean): RaceBoard {
     byRegion: board.byRegion.map((g) => ({ ...g, cards: g.cards.map(clear) })),
     byChamber: board.byChamber.map((g) => ({ ...g, cards: g.cards.map(clear) })),
   };
+}
+
+/** Human label for countdown chip. */
+export function voteCountdownLabel(days: number): string {
+  if (days < 0) return "Vote passed";
+  if (days === 0) return "Votes today";
+  if (days === 1) return "1 day to vote";
+  if (days < 14) return `${days} days to vote`;
+  if (days < 60) return `${days} days to vote`;
+  const weeks = Math.round(days / 7);
+  return weeks === 1 ? "1 week to vote" : `${weeks} weeks to vote`;
 }
 
 export function statusLabel(status: RaceDef["status"]): string {

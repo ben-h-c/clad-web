@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getAccess } from "~/lib/access";
+import { getSessionUser } from "~/lib/user-data";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
 import PoliticianAvatar from "~/components/PoliticianAvatar.astro";
@@ -10,34 +11,77 @@ import {
   buildRaceBoard,
   maskRaceLeaders,
   statusLabel,
+  voteCountdownLabel,
   type RaceCardLive,
   type RaceSideLive,
 } from "~/lib/bracket";
 import { RACE_BOARD_VERIFIED_ASOF } from "~/lib/races";
+import {
+  DEFAULT_ELECTION_ID,
+  getElection,
+  parseSortMode,
+  picksAreOpen,
+  type RaceSortMode,
+} from "~/lib/elections";
+import { getBallotForUser, listResults } from "~/lib/picks";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "private, no-store");
 
 const access = await getAccess(Astro.request.headers);
+const user = await getSessionUser(Astro.request.headers);
 const reveal = access.fullAccess;
+const signedIn = access.signedIn;
+
+const election = getElection(DEFAULT_ELECTION_ID)!;
+const sortMode: RaceSortMode = parseSortMode(Astro.url.searchParams.get("sort"));
+const chamberFilter = Astro.url.searchParams.get("chamber"); // senate | governor | null
+const stateFilter = (Astro.url.searchParams.get("state") || "").toUpperCase() || null;
+const marqueeOnly = Astro.url.searchParams.get("marquee") === "1";
 
 const all = await getCollection("posts", (p) => !p.data.draft);
-const board = maskRaceLeaders(buildRaceBoard(all, reveal), reveal);
+const board = maskRaceLeaders(
+  buildRaceBoard(all, {
+    revealScores: reveal,
+    sortMode,
+    races: election.races,
+    title: election.title,
+    subtitle: election.subtitle,
+  }),
+  reveal
+);
+
+let cards = board.cards;
+if (chamberFilter === "senate" || chamberFilter === "governor") {
+  cards = cards.filter((c) => c.def.chamber === chamberFilter);
+}
+if (stateFilter) cards = cards.filter((c) => c.def.state === stateFilter);
+if (marqueeOnly) cards = cards.filter((c) => c.def.tier === "marquee");
+
+const results = await listResults(election.id);
+const resultByRace = new Map(results.map((r) => [r.raceId, r]));
+
+const ballot = user ? await getBallotForUser(user.id, election.id) : null;
+const pickByRace = new Map((ballot?.picks ?? []).map((p) => [p.raceId, p.side]));
+const picksOpen = picksAreOpen(election) && !ballot?.lockedAt;
+const score = ballot?.score ?? {
+  picked: 0,
+  total: election.races.length,
+  called: results.filter((r) => r.winnerSide !== "other").length,
+  correct: 0,
+  wrong: 0,
+  pending: election.races.length,
+};
 
 const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
 const ogImage = `${origin}/og/bracket.png`;
 const pageUrl = `${origin}/bracket/`;
-
-const view = Astro.url.searchParams.get("view") === "region" ? "region" : "chamber";
+const shareUrl = ballot ? `${origin}/ballot/${ballot.shareSlug}/` : null;
+const registerNext = encodeURIComponent("/bracket/");
 
 function party(p?: string) {
   return p ? ` (${p})` : "";
 }
-
-function sideClass(card: RaceCardLive, slug: string) {
-  return card.leaderSlug === slug ? "race-side race-side--lead" : "race-side";
-}
-
 function sideLabel(side: RaceSideLive, defSide: RaceCardLive["def"]["a"]) {
   const bits = [
     side.name + party(side.party),
@@ -45,6 +89,17 @@ function sideLabel(side: RaceSideLive, defSide: RaceCardLive["def"]["a"]) {
     defSide.field ? "Field" : "",
   ].filter(Boolean);
   return bits.join(" · ");
+}
+function sortHref(mode: RaceSortMode) {
+  const u = new URL(Astro.url);
+  u.searchParams.set("sort", mode);
+  return u.pathname + u.search;
+}
+function filterHref(key: string, value: string | null) {
+  const u = new URL(Astro.url);
+  if (value == null || value === "") u.searchParams.delete(key);
+  else u.searchParams.set(key, value);
+  return u.pathname + u.search;
 }
 
 const jsonLd = {
@@ -58,204 +113,404 @@ const jsonLd = {
 <BaseLayout
   title={`${board.title} — CladFacts`}
   description={board.subtitle}
-  ogTitle={board.title}
-  ogDescription="2026 midterm races that are actually on the calendar — Class II Senate and midterm governors — with live coverage grades, not polls."
+  ogTitle="Fill your 2026 midterms ballot"
+  ogDescription="Pick winners for Class II Senate and midterm governors. Share your ballot. Track accuracy as races are called."
   ogImage={ogImage}
   jsonLd={jsonLd}
 >
-  <article class="static-page bracket-page">
-    <p class="small-caps upgrade__eyebrow">Midterms 2026 · Race board</p>
+  <article
+    class="static-page bracket-page ballot-board"
+    data-election={election.id}
+    data-signed-in={signedIn ? "1" : "0"}
+    data-picks-open={picksOpen ? "1" : "0"}
+    data-share-url={shareUrl || ""}
+  >
+    <p class="small-caps upgrade__eyebrow">Midterms 2026 · Ballot board</p>
     <h1 class="static-page__title">{board.title}</h1>
     <p class="upgrade__lede">{board.subtitle}</p>
 
-    <nav class="bracket-modes" aria-label="Bracket modes">
-      <a class="bracket-modes__on" href="/bracket/" aria-current="page">Race board</a>
+    <nav class="bracket-modes" aria-label="Midterms modes">
+      <a class="bracket-modes__on" href="/bracket/" aria-current="page">Ballot board</a>
       <a href="/elections/map/">Interactive map</a>
-      <a href="/bracket/coverage/">Coverage tournament</a>
-      <a href="/politicians/">All politicians</a>
-      <a href="/learn/first-vote/">First-time voter guide</a>
+      <a href="/bracket/coverage/">Coverage ranking</a>
+      <a href="/politicians/">Politicians</a>
+      <a href="/learn/first-vote/">First-time voter</a>
     </nav>
 
-    <CollapsibleSection title="How midterms work (short)" eyebrow="Civics">
-      <ul class="civics__list">
-        <li>{board.civics.midterm}</li>
-        <li>{board.civics.senateClass}</li>
-        <li>{board.civics.vacancy}</li>
-        <li>{board.civics.house}</li>
-        <li>{board.civics.notPolls}</li>
-      </ul>
-    </CollapsibleSection>
+    <div class="ballot-progress" id="ballot-progress" aria-live="polite">
+      <div class="ballot-progress__main">
+        <strong id="ballot-picked-label">{score.picked}/{score.total} picks</strong>
+        {score.called > 0 && (
+          <span id="ballot-score-label">
+            · Score {score.correct}–{score.wrong}
+            <span class="ballot-progress__muted"> ({score.called} called)</span>
+          </span>
+        )}
+        {!picksOpen && <span class="ballot-progress__locked"> · Picks locked</span>}
+      </div>
+      <div class="ballot-progress__actions">
+        {signedIn ? (
+          <>
+            <button type="button" class="race-share__btn" id="ballot-share" hidden={!shareUrl && score.picked === 0}>
+              Share my ballot
+            </button>
+            {picksOpen && score.picked > 0 && !ballot?.lockedAt && (
+              <button type="button" class="race-share__btn race-share__btn--ghost" id="ballot-lock">
+                Lock ballot
+              </button>
+            )}
+          </>
+        ) : (
+          <a class="race-share__btn" href={`/register/?next=${registerNext}`}>Sign up to pick winners</a>
+        )}
+      </div>
+    </div>
+    <p class="race-share__status" id="ballot-status" hidden></p>
 
-    {!reveal && (
+    {!signedIn && (
       <p class="paywall-banner" style="margin: 1rem 0">
         <span>
-          Guests see report counts (heat). Sign in free to see which side
-          <em>leads</em> each race by coverage volume + average factuality of that
-          coverage — not by polls.
+          Browse every race free. Create a free account to pick winners, share your ballot like a March Madness sheet, and track how accurate you are as results come in.
         </span>
-        <a class="paywall-banner__cta" href="/register/">Create free account</a>
+        <a class="paywall-banner__cta" href={`/register/?next=${registerNext}`}>Create free account</a>
       </p>
     )}
 
     {board.hottest && board.hottest.heat > 0 && (
       <div class="bracket-champ" aria-label="Hottest race by coverage">
-        <span class="small-caps">Hottest on-cycle race (by graded reports)</span>
+        <span class="small-caps">Hottest coverage right now</span>
         <strong>{board.hottest.def.office}</strong>
         <span class="bracket-champ__meta">
-          {board.hottest.a.name} vs {board.hottest.b.name} · {board.hottest.heat} combined reports
-          {board.hottest.def.senateClass ? ` · Senate Class ${board.hottest.def.senateClass}` : ""}
+          {board.hottest.a.name} vs {board.hottest.b.name} · {board.hottest.heat} reports · heat seed #{board.hottest.heatSeed}
         </span>
       </div>
     )}
 
-    <div class="race-share">
-      <button type="button" class="race-share__btn" id="race-copy" data-url={pageUrl}>
-        Copy link
-      </button>
-      <a
-        class="race-share__btn"
-        href={`https://bsky.app/intent/compose?text=${encodeURIComponent("2026 midterm race board on CladFacts — Class II Senate + governors, coverage grades not polls.\n" + pageUrl)}`}
-        target="_blank"
-        rel="noopener"
-      >Share on Bluesky</a>
-      <a class="race-share__btn race-share__btn--ghost" href={view === "region" ? "/bracket/" : "/bracket/?view=region"}>
-        {view === "region" ? "Group by chamber" : "Group by region"}
-      </a>
+    <div class="ballot-toolbar">
+      <div class="ballot-toolbar__group" role="group" aria-label="Sort races">
+        <span class="small-caps ballot-toolbar__label">Sort</span>
+        {(
+          [
+            ["hot-soon", "Hot + soon"],
+            ["soonest", "Soonest vote"],
+            ["heat", "Most coverage"],
+            ["marquee", "Marquee first"],
+          ] as const
+        ).map(([mode, label]) => (
+          <a
+            class:list={["ballot-chip", sortMode === mode && "ballot-chip--on"]}
+            href={sortHref(mode)}
+          >{label}</a>
+        ))}
+      </div>
+      <div class="ballot-toolbar__group" role="group" aria-label="Filter">
+        <span class="small-caps ballot-toolbar__label">Filter</span>
+        <a class:list={["ballot-chip", !chamberFilter && "ballot-chip--on"]} href={filterHref("chamber", null)}>All</a>
+        <a class:list={["ballot-chip", chamberFilter === "senate" && "ballot-chip--on"]} href={filterHref("chamber", "senate")}>Senate</a>
+        <a class:list={["ballot-chip", chamberFilter === "governor" && "ballot-chip--on"]} href={filterHref("chamber", "governor")}>Governors</a>
+        <a class:list={["ballot-chip", marqueeOnly && "ballot-chip--on"]} href={filterHref("marquee", marqueeOnly ? null : "1")}>Marquee only</a>
+      </div>
     </div>
-    <p class="race-share__status" id="race-copy-status" hidden></p>
 
-    {(view === "chamber" ? board.byChamber : board.byRegion.map((g) => ({
-      chamber: "senate" as const,
-      label: g.region,
-      cards: g.cards,
-    }))).map((g) => (
-      <section class="race-region">
-        <h2 class="race-region__title">{g.label}</h2>
-        <ul class="race-list">
-          {g.cards.map((card) => (
-            <li class="race-card" data-tier={card.def.tier} data-chamber={card.def.chamber} data-id={card.def.id}>
-              <header class="race-card__head">
-                <h3 class="race-card__office">{card.def.office}</h3>
-                <span class="race-card__tier small-caps">{card.def.tier}</span>
-                <span class="race-card__status small-caps">{statusLabel(card.def.status)}</span>
-                {card.def.senateClass && (
-                  <span class="race-card__class small-caps">Class {card.def.senateClass}</span>
-                )}
-                <span class="race-card__heat">{card.heat} reports</span>
-              </header>
-              <div class="race-card__sides">
-                <div class={sideClass(card, card.a.slug)}>
-                  <div class="race-side__top">
-                    <PoliticianAvatar slug={card.a.slug} name={card.a.name} size="md" />
-                    <div class="race-side__who">
-                      {card.a.href ? (
-                        <a href={card.a.href}>{sideLabel(card.a, card.def.a)}</a>
-                      ) : (
-                        <span class="race-side__name">{sideLabel(card.a, card.def.a)}</span>
-                      )}
-                      <span class="race-side__meta">
-                        {card.a.reports} report{card.a.reports === 1 ? "" : "s"}
-                        {reveal && card.a.avgFactuality != null ? ` · ${card.a.avgFactuality}/100` : ""}
-                      </span>
-                    </div>
-                  </div>
-                  {reveal && (card.a.avgGrade || card.a.avgLean != null) && (
-                    <div class="scoreband race-side__scores">
-                      {card.a.avgGrade && (
-                        <div class="scoreband__grade">
-                          <LetterGrade grade={card.a.avgGrade} size="card" />
-                          <span class="scoreband__cap small-caps">Avg</span>
-                        </div>
-                      )}
-                      {card.a.avgLean != null && (
-                        <div class="scoreband__bias">
-                          <PoliticalLean score={card.a.avgLean} />
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
-                <div class="race-card__vs" aria-hidden="true">vs</div>
-                <div class={sideClass(card, card.b.slug)}>
-                  <div class="race-side__top">
-                    <PoliticianAvatar slug={card.b.slug} name={card.b.name} size="md" />
-                    <div class="race-side__who">
-                      {card.b.href ? (
-                        <a href={card.b.href}>{sideLabel(card.b, card.def.b)}</a>
-                      ) : (
-                        <span class="race-side__name">{sideLabel(card.b, card.def.b)}</span>
-                      )}
-                      <span class="race-side__meta">
-                        {card.b.reports} report{card.b.reports === 1 ? "" : "s"}
-                        {reveal && card.b.avgFactuality != null ? ` · ${card.b.avgFactuality}/100` : ""}
-                      </span>
-                    </div>
-                  </div>
-                  {reveal && (card.b.avgGrade || card.b.avgLean != null) && (
-                    <div class="scoreband race-side__scores">
-                      {card.b.avgGrade && (
-                        <div class="scoreband__grade">
-                          <LetterGrade grade={card.b.avgGrade} size="card" />
-                          <span class="scoreband__cap small-caps">Avg</span>
-                        </div>
-                      )}
-                      {card.b.avgLean != null && (
-                        <div class="scoreband__bias">
-                          <PoliticalLean score={card.b.avgLean} />
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
-              {reveal && card.leaderReason && (
-                <p class="race-card__why">
-                  {card.leaderSlug
-                    ? `Coverage lead: ${card.leaderSlug === card.a.slug ? card.a.name : card.b.name} — ${card.leaderReason}`
-                    : card.leaderReason}
-                </p>
+    <ul class="race-list ballot-list">
+      {cards.map((card) => {
+        const pick = pickByRace.get(card.def.id) ?? null;
+        const result = resultByRace.get(card.def.id);
+        const called = result && (result.winnerSide === "a" || result.winnerSide === "b");
+        const outcome =
+          called && pick
+            ? pick === result!.winnerSide
+              ? "correct"
+              : "wrong"
+            : called
+              ? "open"
+              : "pending";
+        const canPick = signedIn && picksOpen && !called;
+        return (
+          <li
+            class="race-card"
+            data-tier={card.def.tier}
+            data-chamber={card.def.chamber}
+            data-id={card.def.id}
+            data-pick={pick || ""}
+            data-outcome={outcome}
+          >
+            <header class="race-card__head">
+              <span class="race-card__seed" title="Coverage heat seed (1 = most graded reports)">#{card.heatSeed}</span>
+              <h3 class="race-card__office">{card.def.office}</h3>
+              <span class="race-card__when small-caps">{voteCountdownLabel(card.daysToVote)}</span>
+              <span class="race-card__tier small-caps">{card.def.tier}</span>
+              <span class="race-card__status small-caps">{statusLabel(card.def.status)}</span>
+              <span class="race-card__heat">{card.heat} reports</span>
+              {called && (
+                <span class="race-card__called small-caps">
+                  Called · {result!.winnerName}
+                </span>
               )}
-              {card.def.note && <p class="race-card__note">{card.def.note}</p>}
-            </li>
-          ))}
-        </ul>
-      </section>
-    ))}
+              {pick && outcome === "correct" && <span class="race-card__result race-card__result--ok">Correct</span>}
+              {pick && outcome === "wrong" && <span class="race-card__result race-card__result--bad">Wrong</span>}
+            </header>
+            <div class="race-card__sides">
+              {(["a", "b"] as const).map((sideKey) => {
+                const side = card[sideKey];
+                const defSide = card.def[sideKey];
+                const isPick = pick === sideKey;
+                const isWinner = called && result!.winnerSide === sideKey;
+                const classes = [
+                  "race-side",
+                  canPick ? "race-side--pickable" : "",
+                  isPick ? "race-side--picked" : "",
+                  isWinner ? "race-side--winner" : "",
+                  reveal && card.leaderSlug === side.slug ? "race-side--lead" : "",
+                ]
+                  .filter(Boolean)
+                  .join(" ");
+                return (
+                  <button
+                    type="button"
+                    class={classes}
+                    data-race={card.def.id}
+                    data-side={sideKey}
+                    disabled={!canPick}
+                    aria-pressed={isPick ? "true" : "false"}
+                    aria-label={`Pick ${side.name} for ${card.def.office}`}
+                  >
+                    <div class="race-side__top">
+                      <PoliticianAvatar slug={side.slug} name={side.name} size="md" />
+                      <div class="race-side__who">
+                        <span class="race-side__name">{sideLabel(side, defSide)}</span>
+                        <span class="race-side__meta">
+                          {side.reports} report{side.reports === 1 ? "" : "s"}
+                          {reveal && side.avgFactuality != null ? ` · ${side.avgFactuality}/100` : ""}
+                          {isPick ? " · Your pick" : ""}
+                        </span>
+                        {side.href && (
+                          <a class="race-side__profile" href={side.href} onclick="event.stopPropagation()">Profile →</a>
+                        )}
+                      </div>
+                    </div>
+                    {reveal && (side.avgGrade || side.avgLean != null) && (
+                      <div class="scoreband race-side__scores">
+                        {side.avgGrade && (
+                          <div class="scoreband__grade">
+                            <LetterGrade grade={side.avgGrade} size="card" />
+                            <span class="scoreband__cap small-caps">Coverage avg</span>
+                          </div>
+                        )}
+                        {side.avgLean != null && (
+                          <div class="scoreband__bias">
+                            <PoliticalLean score={side.avgLean} />
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </button>
+                );
+              })}
+              <div class="race-card__vs" aria-hidden="true">vs</div>
+            </div>
+            {reveal && card.leaderReason && (
+              <p class="race-card__why">
+                Coverage context: {card.leaderSlug
+                  ? `${card.leaderSlug === card.a.slug ? card.a.name : card.b.name} — ${card.leaderReason}`
+                  : card.leaderReason}
+                {" "}(not your election pick)
+              </p>
+            )}
+            {card.def.note && <p class="race-card__note">{card.def.note}</p>}
+          </li>
+        );
+      })}
+    </ul>
 
-    <CollapsibleSection title="How to read this board" eyebrow="Guide">
+    {cards.length === 0 && (
+      <p class="dateline">No races match this filter.</p>
+    )}
+
+    <CollapsibleSection title="How this works" eyebrow="Guide">
       <ul class="upgrade__perks">
-        <li><strong>Candidate map verified</strong> as of {RACE_BOARD_VERIFIED_ASOF}. A background agent re-checks dropouts and nominees with web search every other day; stale pairings get fixed in code.</li>
-        <li><strong>On-cycle only.</strong> Senate cards are Class II (2026). Class I (next 2030) and Class III (next 2028) are not marquee Senate cards here.</li>
-        <li><strong>Open seats</strong> mark retirements (Tillis, Peters, Smith, Shaheen, Durbin) or term-limited governors — not “incumbent vs field.”</li>
-        <li><strong>Special</strong> marks a mid-term vacancy under the 17th Amendment + state law (South Carolina after Graham’s death).</li>
-        <li><strong>Heat</strong> = combined graded reports mentioning either side (public).</li>
-        <li><strong>Coverage lead</strong> (signed-in) = more reports, then higher average factuality of that coverage — not a vote forecast.</li>
-        <li><strong>Field</strong> means the nominee is not locked in our data; we show a coverage stand-in and note it. Withdrawn candidates (e.g. Platner in Maine) are not listed as active sides.</li>
-        <li><strong>House:</strong> all 435 seats every midterm — national control still shows up in the <a href="/bracket/coverage/">coverage tournament</a>.</li>
+        <li><strong>Independent races</strong> — unlike March Madness, winners don’t advance into each other. You pick each race’s winner.</li>
+        <li><strong>Heat seed (#)</strong> ranks how much graded coverage Clad has on that race — popularity of the story, not a poll.</li>
+        <li><strong>Soonest vote</strong> uses the next primary, special, or general date for that race.</li>
+        <li><strong>Your pick</strong> requires a free account. Share a public link; we score you as races are called.</li>
+        <li><strong>Coverage lead</strong> (signed-in) is editorial context about airtime quality — separate from your ballot.</li>
+        <li>Candidate map verified as of {RACE_BOARD_VERIFIED_ASOF}.</li>
       </ul>
     </CollapsibleSection>
 
     <p class="static-page__note">
-      People-level tournament (volume seeding): <a href="/bracket/coverage/">coverage tournament</a>.
-      Civics explainers: <a href="/learn/first-vote/">first-time voter guide</a>.
+      Coverage-only ranking: <a href="/bracket/coverage/">coverage ranking</a>.
+      Map: <a href="/elections/map/">election map</a>.
+      Civics: <a href="/learn/first-vote/">first-time voter guide</a>.
     </p>
   </article>
 </BaseLayout>
 
 <script is:inline>
   (() => {
-    const btn = document.getElementById("race-copy");
-    const status = document.getElementById("race-copy-status");
-    if (!btn) return;
-    btn.addEventListener("click", async () => {
-      const url = btn.getAttribute("data-url") || location.href;
-      try {
-        await navigator.clipboard.writeText(url);
-        if (status) { status.hidden = false; status.textContent = "Link copied."; }
-      } catch {
-        if (status) { status.hidden = false; status.textContent = url; }
+    const root = document.querySelector(".ballot-board");
+    if (!root) return;
+    const signedIn = root.getAttribute("data-signed-in") === "1";
+    const picksOpen = root.getAttribute("data-picks-open") === "1";
+    const electionId = root.getAttribute("data-election") || "midterms-2026";
+    const status = document.getElementById("ballot-status");
+    const pickedLabel = document.getElementById("ballot-picked-label");
+    const scoreLabel = document.getElementById("ballot-score-label");
+    const shareBtn = document.getElementById("ballot-share");
+    const lockBtn = document.getElementById("ballot-lock");
+    let shareUrl = root.getAttribute("data-share-url") || "";
+
+    function setStatus(msg) {
+      if (!status) return;
+      status.hidden = !msg;
+      status.textContent = msg || "";
+    }
+
+    function updateProgress(ballot) {
+      if (!ballot || !pickedLabel) return;
+      const s = ballot.score;
+      pickedLabel.textContent = s.picked + "/" + s.total + " picks";
+      if (scoreLabel && s.called > 0) {
+        scoreLabel.innerHTML =
+          " · Score " + s.correct + "–" + s.wrong +
+          ' <span class="ballot-progress__muted">(' + s.called + " called)</span>";
       }
+      if (shareBtn) {
+        shareBtn.hidden = s.picked === 0 && !shareUrl;
+      }
+      if (ballot.shareSlug) {
+        shareUrl = location.origin + "/ballot/" + ballot.shareSlug + "/";
+        root.setAttribute("data-share-url", shareUrl);
+      }
+    }
+
+    async function savePick(raceId, side, btn) {
+      if (!signedIn) {
+        location.href = "/register/?next=" + encodeURIComponent("/bracket/");
+        return;
+      }
+      if (!picksOpen) {
+        setStatus("Picks are locked.");
+        return;
+      }
+      btn.disabled = true;
+      try {
+        const res = await fetch("/api/me/ballot", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          credentials: "same-origin",
+          body: JSON.stringify({ electionId, raceId, side }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          setStatus(data.error || "Could not save pick.");
+          return;
+        }
+        const card = btn.closest(".race-card");
+        if (card) {
+          card.setAttribute("data-pick", side);
+          card.querySelectorAll(".race-side").forEach((el) => {
+            const s = el.getAttribute("data-side");
+            const on = s === side;
+            el.classList.toggle("race-side--picked", on);
+            el.setAttribute("aria-pressed", on ? "true" : "false");
+            const meta = el.querySelector(".race-side__meta");
+            if (meta) {
+              meta.textContent = meta.textContent.replace(/ · Your pick$/, "");
+              if (on) meta.textContent += " · Your pick";
+            }
+          });
+        }
+        updateProgress(data.ballot);
+        setStatus("Saved.");
+        setTimeout(() => setStatus(""), 1200);
+      } catch {
+        setStatus("Network error — try again.");
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    root.querySelectorAll(".race-side--pickable").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const raceId = btn.getAttribute("data-race");
+        const side = btn.getAttribute("data-side");
+        if (raceId && side) savePick(raceId, side, btn);
+      });
     });
+
+    // Guests: clicking disabled sides still nudges to register
+    if (!signedIn) {
+      root.querySelectorAll(".race-side[disabled]").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          location.href = "/register/?next=" + encodeURIComponent("/bracket/");
+        });
+        btn.removeAttribute("disabled");
+        btn.classList.add("race-side--pickable");
+      });
+    }
+
+    if (shareBtn) {
+      shareBtn.addEventListener("click", async () => {
+        if (!shareUrl && signedIn) {
+          try {
+            const res = await fetch("/api/me/ballot", {
+              method: "PUT",
+              headers: { "Content-Type": "application/json" },
+              credentials: "same-origin",
+              body: JSON.stringify({ electionId, ensure: true }),
+            });
+            const data = await res.json();
+            if (data.ballot?.shareSlug) {
+              shareUrl = location.origin + "/ballot/" + data.ballot.shareSlug + "/";
+            }
+          } catch {}
+        }
+        if (!shareUrl) {
+          setStatus("Make at least one pick first.");
+          return;
+        }
+        const text = "My 2026 midterms ballot on CladFacts — fill yours: " + shareUrl;
+        try {
+          if (navigator.share) {
+            await navigator.share({ title: "My Clad midterms ballot", text, url: shareUrl });
+          } else {
+            await navigator.clipboard.writeText(text);
+            setStatus("Share link copied.");
+          }
+        } catch {
+          try {
+            await navigator.clipboard.writeText(shareUrl);
+            setStatus("Link copied.");
+          } catch {
+            setStatus(shareUrl);
+          }
+        }
+      });
+    }
+
+    if (lockBtn) {
+      lockBtn.addEventListener("click", async () => {
+        if (!confirm("Lock your ballot? You won’t be able to change picks after this.")) return;
+        try {
+          const res = await fetch("/api/me/ballot", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            credentials: "same-origin",
+            body: JSON.stringify({ electionId, lock: true }),
+          });
+          const data = await res.json();
+          if (!res.ok) {
+            setStatus(data.error || "Could not lock.");
+            return;
+          }
+          location.reload();
+        } catch {
+          setStatus("Network error.");
+        }
+      });
+    }
   })();
 </script>
 
@@ -283,11 +538,54 @@ const jsonLd = {
     border: 3px double var(--ink, #1a140d);
   }
   .bracket-champ__meta { opacity: 0.8; font-size: 0.92rem; }
-  .race-share {
+  .ballot-progress {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem;
-    margin: 0 0 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1rem;
+    margin: 0.5rem 0 1rem;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--ink, #1a140d);
+    background: color-mix(in srgb, var(--ink, #1a140d) 4%, transparent);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    backdrop-filter: blur(6px);
+  }
+  .ballot-progress__muted { opacity: 0.7; font-weight: 400; }
+  .ballot-progress__locked { color: var(--accent-red, #941a1a); font-weight: 700; }
+  .ballot-progress__actions { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .ballot-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin: 0 0 1.25rem;
+  }
+  .ballot-toolbar__group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .ballot-toolbar__label {
+    margin-right: 0.25rem;
+    opacity: 0.65;
+  }
+  .ballot-chip {
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.28rem 0.55rem;
+    border: 1px solid var(--rule, #cfc3ad);
+    text-decoration: none;
+    color: inherit;
+  }
+  .ballot-chip--on {
+    border-color: var(--ink, #1a140d);
+    background: var(--ink, #1a140d);
+    color: var(--paper, #f5edd9);
+    font-weight: 700;
   }
   .race-share__btn {
     appearance: none;
@@ -306,16 +604,8 @@ const jsonLd = {
     background: transparent;
     color: inherit;
   }
-  .race-share__status { font-size: 0.9rem; opacity: 0.85; margin: -0.75rem 0 1rem; }
-  .race-region { margin: 1.75rem 0; }
-  .race-region__title {
-    font-size: 0.9rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin: 0 0 0.75rem;
-    padding-bottom: 0.35rem;
-    border-bottom: 2px solid var(--ink, #1a140d);
-  }
+  .race-share__btn[hidden] { display: none; }
+  .race-share__status { font-size: 0.9rem; opacity: 0.85; margin: -0.5rem 0 1rem; }
   .race-list {
     list-style: none;
     margin: 0;
@@ -327,8 +617,12 @@ const jsonLd = {
     border: 1px solid var(--ink, #1a140d);
     padding: 0.85rem 1rem;
   }
-  .race-card[data-tier="marquee"] {
-    border-width: 2px;
+  .race-card[data-tier="marquee"] { border-width: 2px; }
+  .race-card[data-outcome="correct"] {
+    border-color: color-mix(in srgb, #2d6a4f 55%, var(--ink, #1a140d));
+  }
+  .race-card[data-outcome="wrong"] {
+    border-color: color-mix(in srgb, #941a1a 55%, var(--ink, #1a140d));
   }
   .race-card__head {
     display: flex;
@@ -336,6 +630,11 @@ const jsonLd = {
     align-items: baseline;
     gap: 0.35rem 0.65rem;
     margin-bottom: 0.65rem;
+  }
+  .race-card__seed {
+    font-weight: 700;
+    font-size: 0.95rem;
+    min-width: 1.75rem;
   }
   .race-card__office {
     font-family: var(--serif, Georgia, serif);
@@ -345,49 +644,83 @@ const jsonLd = {
   }
   .race-card__tier,
   .race-card__status,
-  .race-card__class {
-    opacity: 0.65;
+  .race-card__when,
+  .race-card__called {
+    opacity: 0.7;
     font-size: 0.72rem;
   }
+  .race-card__when { opacity: 0.9; font-weight: 600; }
   .race-card__heat { margin-left: auto; font-size: 0.85rem; opacity: 0.8; }
+  .race-card__result {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0.1rem 0.4rem;
+  }
+  .race-card__result--ok { background: color-mix(in srgb, #2d6a4f 18%, transparent); color: #1b4332; }
+  .race-card__result--bad { background: color-mix(in srgb, #941a1a 15%, transparent); color: #941a1a; }
   .race-card__sides {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
-    align-items: start;
+    position: relative;
   }
   @media (max-width: 640px) {
     .race-card__sides { grid-template-columns: 1fr; }
-    .race-card__vs { text-align: center; }
+    .race-card__vs { display: none; }
   }
   .race-side {
-    padding: 0.55rem 0.55rem;
+    appearance: none;
+    font: inherit;
+    text-align: left;
+    color: inherit;
+    width: 100%;
+    padding: 0.55rem;
+    border: 1px solid var(--rule, #cfc3ad);
+    background: transparent;
+    cursor: default;
   }
-  .race-side--lead {
+  .race-side--pickable { cursor: pointer; }
+  .race-side--pickable:hover {
+    border-color: var(--ink, #1a140d);
+    background: color-mix(in srgb, var(--ink, #1a140d) 5%, transparent);
+  }
+  .race-side--picked {
     outline: 2px solid var(--ink, #1a140d);
-    background: color-mix(in srgb, var(--ink, #1a140d) 7%, transparent);
+    background: color-mix(in srgb, var(--ink, #1a140d) 9%, transparent);
   }
+  .race-side--winner {
+    box-shadow: inset 0 0 0 2px color-mix(in srgb, #2d6a4f 70%, transparent);
+  }
+  .race-side--lead:not(.race-side--picked) {
+    background: color-mix(in srgb, var(--ink, #1a140d) 4%, transparent);
+  }
+  .race-side:disabled { opacity: 0.95; }
   .race-side__top {
     display: flex;
     gap: 0.65rem;
     align-items: flex-start;
   }
   .race-side__who { min-width: 0; flex: 1; }
-  .race-side a,
   .race-side__name {
     font-family: var(--serif, Georgia, serif);
     font-weight: 700;
-    color: inherit;
-    text-decoration: none;
     display: block;
     line-height: 1.2;
   }
-  .race-side a:hover { text-decoration: underline; }
   .race-side__meta {
     display: block;
     font-size: 0.82rem;
     opacity: 0.78;
     margin-top: 0.25rem;
+  }
+  .race-side__profile {
+    display: inline-block;
+    margin-top: 0.3rem;
+    font-size: 0.78rem;
+    color: inherit;
+    opacity: 0.75;
   }
   .race-side__scores {
     margin: 0.55rem 0 0;
@@ -399,11 +732,17 @@ const jsonLd = {
     gap: 0.5rem 0.75rem;
   }
   .race-card__vs {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     font-size: 0.7rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     opacity: 0.45;
-    padding-top: 0.5rem;
+    background: var(--paper, #f5edd9);
+    padding: 0.15rem 0.35rem;
+    pointer-events: none;
   }
   .race-card__why {
     margin: 0.55rem 0 0;

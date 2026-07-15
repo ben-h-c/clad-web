@@ -41,14 +41,14 @@ export interface HomePromo {
  */
 export const HOME_PROMOS: HomePromo[] = [
   {
-    id: "midterms-2026",
+    id: "midterms-2026-ballot",
     kicker: "Midterms 2026",
-    title: "Coverage heat for the races that matter",
-    body: "Class II Senate, governors, and an interactive map — graded coverage, not polls.",
-    href: "/elections/map/",
-    cta: "Election map",
-    secondaryHref: "/bracket/",
-    secondaryCta: "Race board",
+    title: "Fill your midterms ballot",
+    body: "Pick winners race-by-race, share like March Madness, track your score as races are called.",
+    href: "/bracket/",
+    cta: "Ballot board",
+    secondaryHref: "/elections/map/",
+    secondaryCta: "Election map",
     variant: "midterms",
     priority: 100,
     enabled: true,

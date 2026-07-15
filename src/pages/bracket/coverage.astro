@@ -69,13 +69,16 @@ function slotLine(m: BracketMatchup, side: "a" | "b") {
   ogImage={ogImage}
 >
   <article class="static-page bracket-page">
-    <p class="small-caps upgrade__eyebrow">Midterms 2026 · Coverage tournament</p>
+    <p class="small-caps upgrade__eyebrow">Midterms 2026 · Coverage ranking</p>
     <h1 class="static-page__title">{board.title}</h1>
-    <p class="upgrade__lede">{board.subtitle}</p>
+    <p class="upgrade__lede">
+      Who gets the most graded airtime on CladFacts — a coverage popularity ranking, not an election bracket.
+      For real race matchups and winner picks, use the <a href="/bracket/">ballot board</a>.
+    </p>
 
     <nav class="bracket-modes" aria-label="Bracket modes">
-      <a href="/bracket/">Race board</a>
-      <a class="bracket-modes__on" href="/bracket/coverage/" aria-current="page">Coverage tournament</a>
+      <a href="/bracket/">Ballot board</a>
+      <a class="bracket-modes__on" href="/bracket/coverage/" aria-current="page">Coverage ranking</a>
       <a href="/politicians/">All politicians</a>
     </nav>
 

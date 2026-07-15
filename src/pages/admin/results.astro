@@ -1,0 +1,126 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import AdminNav from "~/components/AdminNav.astro";
+import { DEFAULT_ELECTION_ID, getElection } from "~/lib/elections";
+import { listResults } from "~/lib/picks";
+
+export const prerender = false;
+
+const election = getElection(DEFAULT_ELECTION_ID)!;
+const results = await listResults(election.id);
+const byRace = new Map(results.map((r) => [r.raceId, r]));
+---
+<BaseLayout title="Race results — Admin" noindex={true}>
+  <AdminNav current="results" />
+  <article class="static-page">
+    <h1 class="static-page__title">Race results · {election.id}</h1>
+    <p class="upgrade__lede">
+      Call races as winners become clear. User ballots score against these sides (a / b).
+    </p>
+
+    <table class="admin-results">
+      <thead>
+        <tr>
+          <th>Race</th>
+          <th>A</th>
+          <th>B</th>
+          <th>Called</th>
+          <th>Set</th>
+        </tr>
+      </thead>
+      <tbody>
+        {election.races.map((race) => {
+          const res = byRace.get(race.id);
+          return (
+            <tr data-race={race.id}>
+              <td>
+                <strong>{race.office}</strong>
+                <div class="admin-results__id">{race.id}</div>
+              </td>
+              <td>{race.a.name}</td>
+              <td>{race.b.name}</td>
+              <td class="admin-results__status">
+                {res
+                  ? `${res.winnerSide === "a" ? race.a.name : res.winnerSide === "b" ? race.b.name : "Other"} (${res.winnerSide})`
+                  : "—"}
+              </td>
+              <td class="admin-results__actions">
+                <button type="button" data-side="a">A wins</button>
+                <button type="button" data-side="b">B wins</button>
+                <button type="button" data-side="clear">Clear</button>
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+    <p id="admin-results-status" class="dateline" hidden></p>
+  </article>
+</BaseLayout>
+
+<script is:inline>
+  (() => {
+    const electionId = "midterms-2026";
+    const status = document.getElementById("admin-results-status");
+    function setStatus(m) {
+      if (!status) return;
+      status.hidden = !m;
+      status.textContent = m || "";
+    }
+    document.querySelectorAll(".admin-results__actions button").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const tr = btn.closest("tr");
+        const raceId = tr?.getAttribute("data-race");
+        const side = btn.getAttribute("data-side");
+        if (!raceId || !side) return;
+        try {
+          const body =
+            side === "clear"
+              ? { action: "clear", electionId, raceId }
+              : { action: "upsert", electionId, raceId, winnerSide: side, source: "editorial" };
+          const res = await fetch("/api/admin/results", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "same-origin",
+            body: JSON.stringify(body),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok) {
+            setStatus(data.error || "Failed");
+            return;
+          }
+          location.reload();
+        } catch {
+          setStatus("Network error");
+        }
+      });
+    });
+  })();
+</script>
+
+<style>
+  .admin-results {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  .admin-results th,
+  .admin-results td {
+    border-bottom: 1px solid var(--rule, #cfc3ad);
+    padding: 0.55rem 0.4rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  .admin-results__id { font-size: 0.75rem; opacity: 0.65; }
+  .admin-results__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  .admin-results__actions button {
+    font: inherit;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.4rem;
+    cursor: pointer;
+  }
+</style>

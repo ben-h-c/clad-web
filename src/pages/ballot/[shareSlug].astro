@@ -1,0 +1,170 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import ShareBar from "~/components/ShareBar.astro";
+import { getBallotByShareSlug, listResults } from "~/lib/picks";
+import { getElection } from "~/lib/elections";
+
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "public, max-age=60, s-maxage=60");
+
+const shareSlug = String(Astro.params.shareSlug ?? "").trim();
+const ballot = shareSlug ? await getBallotByShareSlug(shareSlug) : null;
+if (!ballot) {
+  return Astro.redirect("/bracket/");
+}
+const election = getElection(ballot.electionId);
+if (!election) {
+  return Astro.redirect("/bracket/");
+}
+
+const results = await listResults(ballot.electionId);
+const resultByRace = new Map(results.map((r) => [r.raceId, r]));
+const pickByRace = new Map(ballot.picks.map((p) => [p.raceId, p]));
+
+const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
+const pageUrl = `${origin}/ballot/${ballot.shareSlug}/`;
+const ogImage = `${origin}/og/ballot/${ballot.shareSlug}.png`;
+const displayName = ballot.displayName || "A Clad reader";
+const score = ballot.score;
+
+const rows = election.races.map((race) => {
+  const pick = pickByRace.get(race.id);
+  const result = resultByRace.get(race.id);
+  const pickedSide = pick?.side ?? null;
+  const pickName =
+    pickedSide === "a" ? race.a.name : pickedSide === "b" ? race.b.name : null;
+  let outcome: "correct" | "wrong" | "pending" | "open" = "pending";
+  if (result?.winnerSide === "a" || result?.winnerSide === "b") {
+    if (!pickedSide) outcome = "open";
+    else outcome = pickedSide === result.winnerSide ? "correct" : "wrong";
+  }
+  return {
+    race,
+    pickName,
+    pickedSide,
+    winnerName: result?.winnerName ?? null,
+    outcome,
+  };
+});
+---
+<BaseLayout
+  title={`${displayName}'s midterms ballot — CladFacts`}
+  description={`${displayName} picked ${score.picked} of ${score.total} races on the CladFacts 2026 ballot board.`}
+  ogTitle={`${displayName}'s 2026 midterms ballot`}
+  ogDescription={
+    score.called > 0
+      ? `${score.correct} correct · ${score.wrong} wrong · ${score.called} races called`
+      : `${score.picked}/${score.total} races picked — fill yours on CladFacts`
+  }
+  ogImage={ogImage}
+>
+  <article class="static-page public-ballot">
+    <p class="small-caps upgrade__eyebrow">Shared ballot · Midterms 2026</p>
+    <h1 class="static-page__title">{displayName}&rsquo;s ballot</h1>
+    <p class="upgrade__lede">
+      {score.picked} of {score.total} races picked
+      {score.called > 0 && (
+        <> · Score <strong>{score.correct}–{score.wrong}</strong> ({score.called} called)</>
+      )}
+      . Not polls — personal picks on CladFacts.
+    </p>
+
+    <ShareBar url={pageUrl} title={`${displayName}'s 2026 midterms ballot on CladFacts`} />
+
+    <p class="public-ballot__cta">
+      <a class="race-share__btn" href="/bracket/">Fill your own ballot →</a>
+      <a class="race-share__btn race-share__btn--ghost" href="/register/?next=/bracket/">Create free account</a>
+    </p>
+
+    <ul class="public-ballot__list">
+      {rows.map((row) => (
+        <li class={`public-ballot__row public-ballot__row--${row.outcome}`} data-outcome={row.outcome}>
+          <div class="public-ballot__office">{row.race.office}</div>
+          <div class="public-ballot__matchup">
+            <span class:list={["public-ballot__side", row.pickedSide === "a" && "is-pick"]}>
+              {row.race.a.name}{row.race.a.party ? ` (${row.race.a.party})` : ""}
+            </span>
+            <span class="public-ballot__vs">vs</span>
+            <span class:list={["public-ballot__side", row.pickedSide === "b" && "is-pick"]}>
+              {row.race.b.name}{row.race.b.party ? ` (${row.race.b.party})` : ""}
+            </span>
+          </div>
+          <div class="public-ballot__meta">
+            {row.pickName ? (
+              <span>Pick: <strong>{row.pickName}</strong></span>
+            ) : (
+              <span class="public-ballot__muted">No pick</span>
+            )}
+            {row.winnerName && (
+              <span> · Winner: <strong>{row.winnerName}</strong></span>
+            )}
+            {row.outcome === "correct" && <span class="public-ballot__tag public-ballot__tag--ok"> Correct</span>}
+            {row.outcome === "wrong" && <span class="public-ballot__tag public-ballot__tag--bad"> Wrong</span>}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </article>
+</BaseLayout>
+
+<style>
+  .public-ballot__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 1rem 0 1.5rem;
+  }
+  .race-share__btn {
+    appearance: none;
+    font: inherit;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.65rem;
+    border: 1px solid var(--ink, #1a140d);
+    background: var(--ink, #1a140d);
+    color: var(--paper, #f5edd9);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .race-share__btn--ghost {
+    background: transparent;
+    color: inherit;
+  }
+  .public-ballot__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.65rem;
+  }
+  .public-ballot__row {
+    border: 1px solid var(--ink, #1a140d);
+    padding: 0.75rem 0.9rem;
+  }
+  .public-ballot__row--correct {
+    border-color: color-mix(in srgb, #2d6a4f 50%, var(--ink, #1a140d));
+  }
+  .public-ballot__row--wrong {
+    border-color: color-mix(in srgb, #941a1a 50%, var(--ink, #1a140d));
+  }
+  .public-ballot__office {
+    font-family: var(--serif, Georgia, serif);
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+  .public-ballot__matchup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.55rem;
+    margin-top: 0.35rem;
+    font-size: 0.95rem;
+  }
+  .public-ballot__vs { opacity: 0.5; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.08em; align-self: center; }
+  .public-ballot__side.is-pick { font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+  .public-ballot__meta { margin-top: 0.4rem; font-size: 0.88rem; opacity: 0.9; }
+  .public-ballot__muted { opacity: 0.65; }
+  .public-ballot__tag { font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.72rem; }
+  .public-ballot__tag--ok { color: #1b4332; }
+  .public-ballot__tag--bad { color: #941a1a; }
+</style>
