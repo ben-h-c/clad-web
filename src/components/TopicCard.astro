@@ -1,4 +1,5 @@
 ---
+import { displayableThumb } from "~/lib/imagePolicy";
 import LetterGrade from "~/components/LetterGrade.astro";
 import type { TopicAgg } from "~/lib/topics";
 
@@ -14,12 +15,13 @@ function leanLabel(s: number | null): string | null {
 const lean = leanLabel(topic.avgLean);
 const contrast =
   topic.leanSpread && topic.leanSpread[1] - topic.leanSpread[0] >= 60;
+const thumb = displayableThumb(topic.thumbnail);
 ---
 <a class="topic-card" href={`/topics/${topic.slug}/`}>
-  {topic.thumbnail && (
+  {thumb && (
     <div class="topic-card__thumb">
       <img
-        src={topic.thumbnail}
+        src={thumb}
         alt={`Video: ${topic.display}`}
         loading="lazy"
         decoding="async"

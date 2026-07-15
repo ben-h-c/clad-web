@@ -25,6 +25,9 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # Image-licensing gate: every post thumbnail must be its own video's
+      # YouTube still or site-owned /generated/ art (docs/legal/image-claims.md).
+      - run: node scripts/checkImageLicense.mjs
       - run: npm run build
       # Dummy secret so Better Auth boots headless in wrangler dev (local-mode
       # miniflare, no Cloudflare credentials); real secrets never enter CI.

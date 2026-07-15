@@ -34,7 +34,6 @@ interface Card {
   lean: string | null;
   factuality: number | null;
   metaLine?: string;
-  thumbnail?: string | null;
 }
 
 function gradeColor(badge: string): string {
@@ -44,23 +43,7 @@ function gradeColor(badge: string): string {
   return RED;
 }
 
-async function thumbDataUri(thumbnail?: string | null): Promise<string | null> {
-  if (!thumbnail || !/^https?:\/\//.test(thumbnail)) return null;
-  try {
-    const r = await fetch(thumbnail, { signal: AbortSignal.timeout(5000) });
-    if (!r.ok) return null;
-    const buf = await r.arrayBuffer();
-    let bin = "";
-    const bytes = new Uint8Array(buf);
-    for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
-    const mime = thumbnail.endsWith(".png") ? "image/png" : "image/jpeg";
-    return `data:${mime};base64,${btoa(bin)}`;
-  } catch {
-    return null;
-  }
-}
-
-function markup(card: Card, thumb: string | null): string {
+function markup(card: Card): string {
   const color = gradeColor(card.badge);
   const meta =
     card.metaLine != null
@@ -68,9 +51,11 @@ function markup(card: Card, thumb: string | null): string {
       : [card.lean ? "POLITICAL LEAN" : null, card.factuality != null ? `FACTUALITY ${card.factuality}/100` : null]
           .filter(Boolean)
           .join("    ·    ");
-  const thumbBlock = thumb
-    ? `<img src="${thumb}" style="width:1200px;height:286px;object-fit:cover;" />`
-    : `<div style="display:flex;width:1200px;height:286px;background:${INK};"></div>`;
+  // Licensing: never bake third-party imagery into a PNG we serve from our
+  // own domain — broadcasters' video stills can contain licensed wire photos.
+  // Cards always use the ink band that was already the no-thumbnail fallback;
+  // see docs/legal/image-claims.md.
+  const thumbBlock = `<div style="display:flex;width:1200px;height:286px;background:${INK};"></div>`;
   const leanBlock = card.lean
     ? `<div style="display:flex;flex-direction:column;">
          <div style="display:flex;font-size:40px;font-weight:700;">${esc(card.lean)}</div>
@@ -157,12 +142,9 @@ export const GET: APIRoute = async ({ params, request, locals }) => {
   const card = await buildCard(slug);
   if (!card) return new Response("Not found", { status: 404 });
 
-  const [fonts, thumb] = await Promise.all([
-    loadFonts(new URL(request.url).origin),
-    thumbDataUri(card.thumbnail),
-  ]);
+  const fonts = await loadFonts(new URL(request.url).origin);
 
-  const img = new ImageResponse(markup(card, thumb), {
+  const img = new ImageResponse(markup(card), {
     width: 1200,
     height: 630,
     fonts: fonts as any,
@@ -194,7 +176,6 @@ async function buildCard(slug: string): Promise<Card | null> {
       lean: leanLabel(t.avgLean, undefined),
       factuality: null,
       metaLine: `TOPIC · ${t.count} ${t.count === 1 ? "REPORT" : "REPORTS"}`,
-      thumbnail: t.thumbnail ?? undefined,
     };
   }
 
@@ -208,6 +189,5 @@ async function buildCard(slug: string): Promise<Card | null> {
     badgeLabel: isBroadcast ? "ARTICLE GRADE" : "VERDICT",
     lean: isBroadcast ? leanLabel(leanScoreOf(d), d.politicalLean) : null,
     factuality: isBroadcast && typeof d.factualityScore === "number" ? d.factualityScore : null,
-    thumbnail: d.thumbnail,
   };
 }

@@ -46,6 +46,33 @@ or false one.
   transcripts, articles, or photos is not.
 - Embedded/served thumbnails and video: confirm use is commentary/criticism,
   not mere republication.
+- **Imagery licensing (live risk — see the incident log in
+  docs/legal/image-claims.md: in July 2026 a wire-service photo inside a
+  broadcaster's YouTube thumbnail, shown on a topic tile, drew a paid-license
+  demand).** The site's imagery
+  policy (docs/legal/image-claims.md, enforced by scripts/checkImageLicense.mjs
+  and src/lib/postBuild.ts) allows exactly two kinds of post art: the YouTube
+  CDN still of the post's OWN embedded video, hotlinked from img.youtube.com
+  (never copied to or served from cladfacts.com), or site-owned generated art
+  under /generated/. Every audit, verify and flag as **high**:
+  - any image on any page served FROM cladfacts.com (or composed into an
+    OG/share PNG we serve) whose underlying content is a third-party
+    photograph — rehosting forfeits the hotlink/server-test posture;
+  - any new surface, component, or agent that fetches, caches, proxies, or
+    inlines external images (other than the established politician-portrait
+    proxy, tracked separately below);
+  - any post artwork that is not the post's own video still or /generated/ art.
+  Video stills that plainly foreground recognizable wire-agency content
+  (sports-championship, red-carpet, or news-agency-style photography) merit a
+  **medium** advisory note naming the post, so the editor can preemptively swap
+  in generated art — automated rights-agency crawlers match pixels and send
+  demands regardless of the hotlink defense.
+- **Wikimedia portraits (politician cards):** the same-origin proxy
+  (/api/politician-photo/) serves Wikipedia lead images from our domain. Most
+  are CC-BY / CC-BY-SA — which require attribution and a license notice we do
+  not currently display — and some Wikipedia lead images are non-free. Flag as
+  **medium** until a visible credit/attribution treatment ships; flag as
+  **high** any non-Wikimedia source added to the portrait pipeline.
 
 ## 5. Trademark
 - Use of a brand/name that implies endorsement, sponsorship, or affiliation.

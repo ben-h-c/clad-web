@@ -3,6 +3,7 @@ import Verdict from "~/components/Verdict.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
 import { shortDate } from "~/lib/dateline";
+import { displayableThumb } from "~/lib/imagePolicy";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -24,7 +25,12 @@ const source = d.sourceTitle ?? (() => {
     return d.sourceUrl;
   }
 })();
-const hq = d.videoId
+const thumb = displayableThumb(d.thumbnail);
+// hqdefault onerror fallback applies only when the displayed image is itself a
+// YouTube still (maxres 404s for some videos). Owned /generated/ art must never
+// fall back to a video still — that's the imagery-policy escape hatch closing.
+const isYtStill = !!thumb && /^https:\/\/(img\.youtube\.com|i\.ytimg\.com)\//.test(thumb);
+const hq = d.videoId && isYtStill
   ? `https://img.youtube.com/vi/${d.videoId}/hqdefault.jpg`
   : null;
 
@@ -45,10 +51,10 @@ const blurb = (!showLocked && isBroadcast && d.gradeRationale) ? d.gradeRational
   data-sample-unlocked={sample ? "true" : undefined}
 >
   <a class="report-card__link" href={`/posts/${post.id}/`}>
-    {d.thumbnail && (
+    {thumb && (
       <div class="report-card__thumb">
         <img
-          src={d.thumbnail}
+          src={thumb}
           alt={`Video: ${d.headline}`}
           width="320"
           height="180"

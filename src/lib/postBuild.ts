@@ -6,7 +6,7 @@
 import type { BroadcastReport } from "./broadcast.ts";
 import type { Frontmatter } from "./yaml.ts";
 import { tagPoliticiansFromText } from "./politicians.ts";
-import { thumbnailUrl } from "./youtube.ts";
+import { isOwnedGeneratedImage, isOwnVideoStill, thumbnailUrl } from "./youtube.ts";
 
 export interface BuildOptions {
   sourceUrl: string;
@@ -25,6 +25,17 @@ export function buildBroadcastFrontmatter(
   report: BroadcastReport,
   opts: BuildOptions
 ): Frontmatter {
+  // Image-licensing gate (docs/legal/image-claims.md): only this video's own
+  // YouTube still or site-owned generated art may enter the frontmatter. Any
+  // other URL (a source page's og:image, a stock/wire photo, another video's
+  // still) silently falls back to the canonical YouTube still, so unlicensed
+  // press imagery can never be published — this is the single choke point
+  // shared by the manual publish path and the agent approve path.
+  const thumbnail =
+    opts.thumbnail &&
+    (isOwnVideoStill(opts.thumbnail, opts.videoId) || isOwnedGeneratedImage(opts.thumbnail))
+      ? opts.thumbnail
+      : thumbnailUrl(opts.videoId);
   const politicians = tagPoliticiansFromText({
     headline: report.headline,
     summary: report.summary,
@@ -58,7 +69,7 @@ export function buildBroadcastFrontmatter(
     keyMoments: report.keyMoments,
     videoId: opts.videoId,
     videoTitle: opts.videoTitle,
-    thumbnail: opts.thumbnail || thumbnailUrl(opts.videoId),
+    thumbnail,
     citations: report.citations,
     politicians: politicians.length ? politicians : undefined,
   };

@@ -1,4 +1,5 @@
 ---
+import { displayableThumb } from "~/lib/imagePolicy";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
@@ -27,8 +28,13 @@ const reasoning = locked
   : lead?.data.gradeRationale || lead?.data.summary || "";
 
 const byNew = [...members].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
-const thumb = byNew.find((p) => p.data.thumbnail)?.data.thumbnail ?? null;
-const hqFallback = byNew.find((p) => p.data.videoId)?.data.videoId;
+const thumb = displayableThumb(byNew.find((p) => p.data.thumbnail)?.data.thumbnail);
+// Only YouTube stills may fall back to a video still on error; owned
+// /generated/ art must never swap back to third-party imagery (imagePolicy).
+const hqFallback =
+  thumb && /^https:\/\/(img\.youtube\.com|i\.ytimg\.com)\//.test(thumb)
+    ? byNew.find((p) => p.data.videoId)?.data.videoId
+    : undefined;
 ---
 <article class="report-card report-card--card report-card--group">
   <a class="report-card__link" href={`/breaking/${slug}/`}>

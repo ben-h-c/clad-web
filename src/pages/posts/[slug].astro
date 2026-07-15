@@ -13,7 +13,7 @@ import Disclaimer from "~/components/Disclaimer.astro";
 import NewsletterSignup from "~/components/NewsletterSignup.astro";
 import ShareBar from "~/components/ShareBar.astro";
 import { dateline, shortDate } from "~/lib/dateline";
-import { embedUrl } from "~/lib/youtube";
+import { embedUrl, isOwnedGeneratedImage } from "~/lib/youtube";
 import { getAccess } from "~/lib/access";
 import { sampleUnlockedId } from "~/lib/sample";
 import { metaDescription } from "~/lib/seo";
@@ -402,11 +402,16 @@ const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id)
           >
             {/* Click-to-load facade: no YouTube requests (or cookies) until the
                 reader opts in — cheaper LCP and consistent with the privacy
-                policy's YouTube-cookie caveat. */}
+                policy's YouTube-cookie caveat. Poster honors the imagery policy:
+                a post remediated with owned /generated/ art (image-licensing
+                claim — docs/legal/image-claims.md) shows that art here too,
+                instead of resurfacing the video still being remediated. */}
             <button type="button" class="video-facade__btn" aria-label={`Play source video: ${d.headline}`}>
               <img
                 class="video-facade__thumb"
-                src={`https://img.youtube.com/vi/${d.videoId}/hqdefault.jpg`}
+                src={d.thumbnail && isOwnedGeneratedImage(d.thumbnail)
+                  ? d.thumbnail
+                  : `https://img.youtube.com/vi/${d.videoId}/hqdefault.jpg`}
                 alt=""
                 loading="lazy"
                 decoding="async"
