@@ -75,6 +75,9 @@ for (const d of drafts) {
         <div class="queue-bulk" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin:1rem 0">
           <button type="button" id="q-submit-all">Submit all ({drafts.length})</button>
           <span id="q-bulk-status" class="dateline"></span>
+          <span class="dateline" style="opacity:.8">
+            Publishes clean drafts; auto-rejects duplicates and style-flagged headlines so the queue clears.
+          </span>
         </div>
       <div class="queue">
         {drafts.map((d) => (
@@ -244,20 +247,41 @@ for (const d of drafts) {
 
   <script is:inline>
     // Controllers for each rendered draft, so the "Submit all" button can drive
-    // them without duplicating the per-item publish logic.
+    // them without duplicating the per-item publish / reject logic.
     const bulkItems = [];
     document.querySelectorAll(".queue-item").forEach((item) => {
       const id = item.getAttribute("data-draft-id");
       const status = item.querySelector(".q-status");
       const hasLint = !!item.querySelector("[data-headline-lint]");
-      const isPending = () => !!item.querySelector(".q-approve");
+      const isPending = () => !!item.querySelector(".q-approve") && document.body.contains(item);
       const setStatus = (kind, msg) => {
         status.innerHTML = msg
           ? `<div class="notice ${kind === "error" ? "notice--error" : ""}">${msg}</div>`
           : "";
       };
+      // Non-interactive reject for the bulk flow: discards the draft and removes
+      // the card. Returns true on success.
+      const rejectNoConfirm = async (reason) => {
+        item.querySelectorAll("button").forEach((b) => (b.disabled = true));
+        setStatus("info", reason ? `Rejecting — ${reason}` : "Discarding…");
+        try {
+          const res = await fetch("/api/admin/queue", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action: "reject", draftId: id }),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok) throw new Error(data.error || "Reject failed");
+          item.remove();
+          return true;
+        } catch (err) {
+          setStatus("error", String(err.message || err));
+          item.querySelectorAll("button").forEach((b) => (b.disabled = false));
+          return false;
+        }
+      };
       // Non-interactive approve for the bulk flow: publishes without prompting,
-      // and never forces past a duplicate (409) — the caller counts it skipped.
+      // and never forces past a duplicate (409) — bulk then auto-rejects those.
       // Returns "published" | "duplicate" | "error".
       const approveNoConfirm = async () => {
         item.querySelectorAll("button").forEach((b) => (b.disabled = true));
@@ -270,13 +294,12 @@ for (const d of drafts) {
               action: "approve",
               draftId: id,
               force: false,
-              featured: item.querySelector(".q-featured").checked,
+              featured: item.querySelector(".q-featured")?.checked,
             }),
           });
           const data = await res.json();
           if (res.status === 409 && data.duplicate) {
-            setStatus("error", "Skipped (possible duplicate).");
-            item.querySelectorAll("button").forEach((b) => (b.disabled = false));
+            setStatus("error", "Duplicate — rejecting…");
             return "duplicate";
           }
           if (!res.ok) throw new Error(data.error || "Failed");
@@ -289,8 +312,7 @@ for (const d of drafts) {
           return "error";
         }
       };
-      const markSkipped = (msg) => setStatus("error", msg);
-      bulkItems.push({ hasLint, isPending, approveNoConfirm, markSkipped });
+      bulkItems.push({ hasLint, isPending, approveNoConfirm, rejectNoConfirm });
       const send = async (action, force = false) => {
         item.querySelectorAll("button").forEach((b) => (b.disabled = true));
         setStatus("info", action === "approve" ? "Publishing…" : "Discarding…");
@@ -302,7 +324,7 @@ for (const d of drafts) {
               action,
               draftId: id,
               force,
-              featured: item.querySelector(".q-featured").checked,
+              featured: item.querySelector(".q-featured")?.checked,
             }),
           });
           const data = await res.json();
@@ -360,9 +382,10 @@ for (const d of drafts) {
       });
     });
 
-    // "Submit all": approve & publish every rendered draft, one at a time.
-    // Duplicates (409) and headline-style-flagged drafts are skipped and left
-    // for individual review, matching the caution of the single-item flow.
+    // "Submit all": publish clean drafts; auto-reject anything the bulk flow
+    // would not publish (headline style flags + API-flagged duplicates) so the
+    // queue does not leave leftovers to clear by hand. Transient API errors
+    // stay in the queue for retry.
     const bulkBtn = document.getElementById("q-submit-all");
     const bulkStatus = document.getElementById("q-bulk-status");
     if (bulkBtn) {
@@ -370,43 +393,58 @@ for (const d of drafts) {
         const pending = bulkItems.filter((i) => i.isPending());
         const total = pending.length;
         if (total === 0) {
-          bulkStatus.textContent = "Nothing left to publish.";
+          bulkStatus.textContent = "Nothing left to process.";
           return;
         }
         if (
           !confirm(
-            `Approve & publish ${total} draft(s)? Each one commits and goes live. ` +
-              `Possible duplicates and headline-flagged drafts are skipped for you to review individually.`,
+            `Process ${total} draft(s)?\n\n` +
+              `• Clean drafts → publish\n` +
+              `• Duplicates & style-flagged headlines → reject & remove\n` +
+              `• Transient failures stay for you to retry\n\n` +
+              `This cannot be undone for rejected drafts.`,
           )
         ) {
           return;
         }
         bulkBtn.disabled = true;
         let published = 0;
-        let dupSkipped = 0;
-        let lintSkipped = 0;
+        let rejected = 0;
         let failed = 0;
         let done = 0;
         const render = (prefix) => {
           bulkStatus.textContent =
             `${prefix} ${done}/${total} — ${published} published, ` +
-            `${dupSkipped} duplicate-skipped, ${lintSkipped} style-skipped, ${failed} failed.`;
+            `${rejected} rejected, ${failed} failed.`;
         };
-        render("Publishing…");
+        render("Processing…");
         for (const it of pending) {
-          if (it.hasLint) {
-            it.markSkipped("Skipped (headline states the verdict) — approve individually.");
-            lintSkipped += 1;
+          if (!it.isPending()) {
             done += 1;
-            render("Publishing…");
+            render("Processing…");
+            continue;
+          }
+          // Style-flagged headlines: bulk never publishes these — reject.
+          if (it.hasLint) {
+            const ok = await it.rejectNoConfirm("headline states the verdict");
+            if (ok) rejected += 1;
+            else failed += 1;
+            done += 1;
+            render("Processing…");
             continue;
           }
           const outcome = await it.approveNoConfirm();
-          if (outcome === "published") published += 1;
-          else if (outcome === "duplicate") dupSkipped += 1;
-          else failed += 1;
+          if (outcome === "published") {
+            published += 1;
+          } else if (outcome === "duplicate") {
+            const ok = await it.rejectNoConfirm("possible duplicate");
+            if (ok) rejected += 1;
+            else failed += 1;
+          } else {
+            failed += 1;
+          }
           done += 1;
-          render("Publishing…");
+          render("Processing…");
         }
         render("Done —");
         bulkBtn.disabled = false;
