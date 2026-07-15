@@ -28,12 +28,11 @@ const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
 
 const param = Astro.params.outlet ?? "";
-const all = (await getCollection("posts", (p) => !p.data.draft)).sort(
-  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
-);
-const posts = all.filter(
-  (p) => slugify((p.data.sourceTitle ?? "").trim()) === param
-);
+// Filter to this outlet first, then sort only the matching subset — sorting the
+// full ~2530-post collection just to keep one outlet's handful was wasteful.
+const posts = (await getCollection("posts", (p) => !p.data.draft))
+  .filter((p) => slugify((p.data.sourceTitle ?? "").trim()) === param)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 if (posts.length === 0) return new Response("Not found", { status: 404 });
 
 const name = (posts[0]!.data.sourceTitle ?? "").trim();

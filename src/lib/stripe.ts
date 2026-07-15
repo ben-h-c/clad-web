@@ -146,6 +146,14 @@ export async function verifyWebhook(payload: string, sigHeader: string | null): 
   const v1 = parts["v1"];
   if (!t || !v1) return false;
 
+  // Reject stale/replayed signatures. Stripe signs every delivery (and each
+  // retry) with a fresh timestamp and delivers within seconds, so a 300s
+  // tolerance — matching Stripe's official SDK default — never rejects
+  // legitimate traffic but stops a captured body+signature from being replayed
+  // indefinitely to re-drive subscription state.
+  const ts = parseInt(t, 10);
+  if (!Number.isFinite(ts) || Math.abs(Math.floor(Date.now() / 1000) - ts) > 300) return false;
+
   const key = await crypto.subtle.importKey(
     "raw",
     new TextEncoder().encode(secret),

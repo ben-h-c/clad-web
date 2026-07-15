@@ -8,6 +8,7 @@ import {
   findNearDuplicates,
   getDraft,
   leanSpread,
+  listDrafts,
   markSeen,
   putDraft,
   type PendingDraft,
@@ -81,11 +82,15 @@ export const POST: APIRoute = async ({ request }) => {
   // network is fine — channels are compared, so it won't match.)
   const channel = p?.source?.channel ? String(p.source.channel) : "";
   const videoTitle = p?.source?.videoTitle ? String(p.source.videoTitle) : "";
+  // Both dedup checks below scan the pending-draft queue; read it once here and
+  // share it, instead of each call issuing its own full KV draft-list read.
+  const pendingDrafts = await listDrafts(env.AGENTS);
   const dup = await findDuplicateStory(env.AGENTS, {
     channel,
     texts: [videoTitle, report.headline],
     includeDrafts: true,
     excludeDraftId: id,
+    preloadedDrafts: pendingDrafts,
   });
   if (dup) {
     await markSeen(env.AGENTS, videoId);
@@ -98,6 +103,7 @@ export const POST: APIRoute = async ({ request }) => {
     texts: [videoTitle, report.headline],
     publishedAt: p?.source?.publishedAt ? String(p.source.publishedAt) : undefined,
     excludeDraftId: id,
+    preloadedDrafts: pendingDrafts,
   });
   if (nearDups.length > 0) {
     console.warn(

@@ -1,6 +1,6 @@
 ---
-import { getCollection } from "astro:content";
 import { dateline, volume, issueNumber } from "~/lib/dateline";
+import { publishedPostCount } from "~/lib/postCount";
 
 interface Props {
   date?: Date;
@@ -9,12 +9,11 @@ const { date = new Date() } = Astro.props;
 const vol = volume(date);
 const issue = issueNumber(date);
 
-let count = 0;
-try {
-  count = (await getCollection("posts", (p) => !p.data.draft)).length;
-} catch {
-  count = 0;
-}
+// Masthead renders inside BaseLayout on essentially every page, purely to show
+// the edition's report count. The post collection is baked at build time and
+// immutable for the deploy, so publishedPostCount() memoizes the scan per
+// isolate instead of materializing all ~2530 posts on every render.
+const count = await publishedPostCount();
 
 // In the console, keep the masthead within /admin (the logo and nav shouldn't
 // bounce the editor out to the public site — AdminNav handles that on purpose).

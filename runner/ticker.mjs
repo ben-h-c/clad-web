@@ -37,7 +37,14 @@ async function fetchQuotes() {
   const url =
     "https://quote.cnbc.com/quote-html-webservice/quote.htm?" +
     `symbols=${encodeURIComponent(symbols)}&requestMethod=quick&output=json`;
-  const r = await fetch(url, { headers: { "User-Agent": UA, Accept: "application/json" } });
+  // updateTicker() runs at the top of every runner tick, before the agent loop,
+  // so a hung CNBC socket would freeze the whole runner for undici's ~300s
+  // default. Bound it; a timeout throws and is caught by updateTicker's existing
+  // try/catch ("keeping last"), identical to any other fetch failure.
+  const r = await fetch(url, {
+    headers: { "User-Agent": UA, Accept: "application/json" },
+    signal: AbortSignal.timeout(8000),
+  });
   if (!r.ok) throw new Error(`cnbc ${r.status}`);
   const d = await r.json();
   let rows = d?.QuickQuoteResult?.QuickQuote ?? [];

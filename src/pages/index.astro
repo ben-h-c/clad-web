@@ -63,23 +63,29 @@ const sentiments = locked ? {} : await getSentiments(env.AGENTS);
 const topics = aggregateTopics(all, sentiments);
 const TOPICS_ON_HOME = 8;
 
-// Best & worst — compact (3 each) for signed-in desk board.
-const graded = all.filter((p) => gradeToGpa(p.data.letterGrade) != null);
-const byGradeDesc = [...graded].sort(
-  (a, b) =>
-    gradeToGpa(b.data.letterGrade)! - gradeToGpa(a.data.letterGrade)! ||
-    b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
-);
-const topGraded = byGradeDesc.slice(0, 3);
-const topIds = new Set(topGraded.map((p) => p.id));
-const bottomGraded = [...graded]
-  .filter((p) => !topIds.has(p.id))
-  .sort(
+// Best & worst — compact (3 each) for the signed-in desk board (GradeBoard).
+// Only full-access readers see it, so skip the two full sorts over the graded
+// corpus for locked readers — the highest-traffic case that fills the edge cache.
+let topGraded: typeof all = [];
+let bottomGraded: typeof all = [];
+if (!locked) {
+  const graded = all.filter((p) => gradeToGpa(p.data.letterGrade) != null);
+  const byGradeDesc = [...graded].sort(
     (a, b) =>
-      gradeToGpa(a.data.letterGrade)! - gradeToGpa(b.data.letterGrade)! ||
+      gradeToGpa(b.data.letterGrade)! - gradeToGpa(a.data.letterGrade)! ||
       b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
-  )
-  .slice(0, 3);
+  );
+  topGraded = byGradeDesc.slice(0, 3);
+  const topIds = new Set(topGraded.map((p) => p.id));
+  bottomGraded = [...graded]
+    .filter((p) => !topIds.has(p.id))
+    .sort(
+      (a, b) =>
+        gradeToGpa(a.data.letterGrade)! - gradeToGpa(b.data.letterGrade)! ||
+        b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+    )
+    .slice(0, 3);
+}
 ---
 <BaseLayout
   title="Clad — Grading Content & Exposing Bias"

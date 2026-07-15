@@ -265,10 +265,15 @@ function buildControl(code: string): LayerForecast {
   });
 }
 
+// Built entirely from module-constant lookup tables — the output is identical
+// on every call, so memoize it per isolate instead of rebuilding all 51 states'
+// four layers on every /elections/map request.
+let _forecastCache: { byCode: Record<string, StateForecast>; asOf: string } | null = null;
 export function buildStateForecasts(): {
   byCode: Record<string, StateForecast>;
   asOf: string;
 } {
+  if (_forecastCache) return _forecastCache;
   const byCode: Record<string, StateForecast> = {};
   for (const code of US_STATE_CODES) {
     byCode[code] = {
@@ -280,7 +285,8 @@ export function buildStateForecasts(): {
       control: buildControl(code),
     };
   }
-  return { byCode, asOf: FORECAST_ASOF };
+  _forecastCache = { byCode, asOf: FORECAST_ASOF };
+  return _forecastCache;
 }
 
 export const LAYER_LABELS: Record<ForecastLayer, string> = {

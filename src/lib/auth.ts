@@ -23,15 +23,14 @@ export function checkBasicAuth(
 }
 
 function safeEqual(a: string, b: string): boolean {
-  if (a.length !== b.length) {
-    // Still walk b.length bytes to avoid leaking the length, then return false.
-    let acc = 1;
-    for (let i = 0; i < b.length; i++) acc |= b.charCodeAt(i);
-    return acc === 0;
-  }
-  let diff = 0;
-  for (let i = 0; i < a.length; i++) {
-    diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  // Fold the length difference into the accumulator rather than branching on it,
+  // so total comparison time doesn't depend on the expected value's length.
+  // Out-of-range charCodeAt is NaN; `| 0` coerces it to 0. Same observable
+  // result as before: true iff a and b are byte-identical.
+  let diff = a.length ^ b.length;
+  const n = a.length > b.length ? a.length : b.length;
+  for (let i = 0; i < n; i++) {
+    diff |= (a.charCodeAt(i) | 0) ^ (b.charCodeAt(i) | 0);
   }
   return diff === 0;
 }
