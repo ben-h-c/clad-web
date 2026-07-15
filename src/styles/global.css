@@ -1408,6 +1408,9 @@ html.clad-app body {
   font-size: 0.65rem;
   letter-spacing: 0.1em;
 }
+.masthead__popular-label--second {
+  margin-top: 0.65rem;
+}
 .masthead__popular-list {
   list-style: none;
   margin: 0;
