@@ -1,24 +1,30 @@
 /**
- * Midterm-oriented politician index for /politicians/*.
+ * Politician index for /politicians/*.
  *
- * Two sources of membership, merged:
- *  1. Optional post frontmatter `politicians: [{ name, slug, ... }]` (agent/editor).
- *  2. Curated seed list matched against headline + topics + summary (word-boundary
- *     aliases). Seed matching is conservative — no bare common surnames alone.
+ * Membership sources (merged):
+ *  1. Full officeholder roster (Congress, governors, SCOTUS, executive) —
+ *     `src/data/politicianRoster.ts`, generated from public data.
+ *  2. Optional post frontmatter `politicians: [{ name, slug }]` (agent/editor).
+ *  3. Alias match of seeds against headline + topics + summary.
  *
- * Aggregate grades/leans follow the hybrid access model: compute here, render
- * gated in the page (same pattern as /outlets/[outlet]/). OG share cards use
- * only public fields (name, race, report count) — no averages.
+ * Every roster seed gets a directory card even with zero graded appearances
+ * so the map of power is complete; grades fill in as coverage lands.
+ *
+ * Aggregate grades/leans are computed here and gated in the page (same hybrid
+ * access model as outlets). OG cards use public fields only.
  */
 import type { CollectionEntry } from "astro:content";
+import { ROSTER_SEEDS } from "../data/politicianRoster.ts";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "./topics.ts";
 
 /** Index / filter grouping for the politicians directory. */
 export type RaceBucket =
   | "Senate 2026"
+  | "Senate"
+  | "House"
   | "Governor"
-  | "U.S. leadership"
-  | "Congress"
+  | "Executive"
+  | "Supreme Court"
   | "International"
   | "Other";
 
@@ -32,128 +38,16 @@ export interface PoliticianSeed {
   aliases: string[];
 }
 
-/**
- * Fall 2026 focus + high-signal figures that already appear in graded coverage.
- * Expand when matchups firm up. Avoid bare common surnames (Brown, Smith, Scott).
- */
-export const POLITICIAN_SEEDS: PoliticianSeed[] = [
-  // ── Senate 2026 (Class II) ───────────────────────────────────────────
-  // Official Class II map: terms expire Jan 2027. Keep labels in sync with races.ts.
-  { name: "Jon Ossoff", slug: "jon-ossoff", race: "GA Senate (Class II · 2026)", bucket: "Senate 2026", aliases: ["Jon Ossoff", "Ossoff"] },
-  { name: "Mike Collins", slug: "mike-collins", race: "GA Senate nominee (R)", bucket: "Senate 2026", aliases: ["Mike Collins", "Rep. Collins"] },
-  { name: "Roy Cooper", slug: "roy-cooper", race: "NC Senate nominee (D)", bucket: "Senate 2026", aliases: ["Roy Cooper"] },
-  { name: "Michael Whatley", slug: "michael-whatley", race: "NC Senate nominee (R)", bucket: "Senate 2026", aliases: ["Michael Whatley", "Whatley"] },
-  { name: "Thom Tillis", slug: "thom-tillis", race: "NC Senate (retired · Class II)", bucket: "Other", aliases: ["Thom Tillis", "Tillis"] },
-  { name: "Susan Collins", slug: "susan-collins", race: "ME Senate (Class II · 2026)", bucket: "Senate 2026", aliases: ["Susan Collins"] },
-  // Platner withdrew July 2026 — keep for coverage matching only; not a 2026 nominee.
-  { name: "Graham Platner", slug: "graham-platner", race: "ME politics (withdrew 2026)", bucket: "Other", aliases: ["Graham Platner", "Platner"] },
-  { name: "Ken Paxton", slug: "ken-paxton", race: "TX Senate nominee (R)", bucket: "Senate 2026", aliases: ["Ken Paxton", "Attorney General Paxton"] },
-  { name: "James Talarico", slug: "james-talarico", race: "TX Senate nominee (D)", bucket: "Senate 2026", aliases: ["James Talarico", "Talarico"] },
-  { name: "John Cornyn", slug: "john-cornyn", race: "TX politics (lost 2026 primary)", bucket: "Other", aliases: ["John Cornyn", "Cornyn"] },
-  { name: "Colin Allred", slug: "colin-allred", race: "TX politics", bucket: "Other", aliases: ["Colin Allred", "Allred"] },
-  { name: "Tina Smith", slug: "tina-smith", race: "MN Senate open (Class II · retiring)", bucket: "Senate 2026", aliases: ["Tina Smith", "Sen. Smith"] },
-  { name: "Peggy Flanagan", slug: "peggy-flanagan", race: "MN Senate contender", bucket: "Senate 2026", aliases: ["Peggy Flanagan", "Lt. Gov. Flanagan"] },
-  { name: "Angie Craig", slug: "angie-craig", race: "MN Senate contender", bucket: "Senate 2026", aliases: ["Angie Craig", "Rep. Craig"] },
-  { name: "Jeanne Shaheen", slug: "jeanne-shaheen", race: "NH Senate open (Class II · retiring)", bucket: "Senate 2026", aliases: ["Jeanne Shaheen", "Shaheen"] },
-  { name: "Chris Pappas", slug: "chris-pappas", race: "NH Senate contender", bucket: "Senate 2026", aliases: ["Chris Pappas", "Rep. Pappas"] },
-  { name: "John Sununu", slug: "john-sununu", race: "NH Senate contender", bucket: "Senate 2026", aliases: ["John Sununu", "John E. Sununu", "Sen. Sununu"] },
-  { name: "Scott Brown", slug: "scott-brown", race: "NH Senate contender", bucket: "Senate 2026", aliases: ["Scott Brown"] },
-  { name: "Steve Daines", slug: "steve-daines", race: "MT Senate (Class II · 2026)", bucket: "Senate 2026", aliases: ["Steve Daines", "Daines"] },
-  { name: "John Hickenlooper", slug: "john-hickenlooper", race: "CO Senate (Class II · 2026)", bucket: "Senate 2026", aliases: ["John Hickenlooper", "Hickenlooper"] },
-  { name: "Dick Durbin", slug: "dick-durbin", race: "IL Senate open (Class II · retiring)", bucket: "Senate 2026", aliases: ["Dick Durbin", "Durbin"] },
-  { name: "Gary Peters", slug: "gary-peters", race: "MI Senate open (Class II · retiring)", bucket: "Senate 2026", aliases: ["Gary Peters", "Sen. Peters"] },
-  { name: "Haley Stevens", slug: "haley-stevens", race: "MI Senate contender", bucket: "Senate 2026", aliases: ["Haley Stevens", "Rep. Stevens"] },
-  { name: "Abdul El-Sayed", slug: "abdul-el-sayed", race: "MI Senate contender", bucket: "Senate 2026", aliases: ["Abdul El-Sayed", "El-Sayed", "Elsayed"] },
-  { name: "Mike Rogers", slug: "mike-rogers", race: "MI Senate contender", bucket: "Senate 2026", aliases: ["Mike Rogers"] },
-  { name: "Pete Ricketts", slug: "pete-ricketts", race: "NE Senate (Class II · 2026)", bucket: "Senate 2026", aliases: ["Pete Ricketts", "Ricketts"] },
-  { name: "Cory Booker", slug: "cory-booker", race: "NJ Senate (Class II · 2026)", bucket: "Senate 2026", aliases: ["Cory Booker"] },
-  { name: "Lindsey Graham", slug: "lindsey-graham", race: "SC Senate vacancy (Class II · d. 2026)", bucket: "Senate 2026", aliases: ["Lindsey Graham"] },
-  { name: "Annie Andrews", slug: "annie-andrews", race: "SC Senate nominee (D)", bucket: "Senate 2026", aliases: ["Annie Andrews", "Dr. Annie Andrews"] },
-  { name: "Darline Graham Nordone", slug: "darline-graham-nordone", race: "SC Senate interim appointee", bucket: "Senate 2026", aliases: ["Darline Graham Nordone", "Graham Nordone"] },
-
-  // Class I / III — not on 2026 Senate ballot (still covered in news)
-  { name: "Raphael Warnock", slug: "raphael-warnock", race: "GA Senate (Class III · 2028)", bucket: "Congress", aliases: ["Raphael Warnock", "Warnock"] },
-  { name: "Elissa Slotkin", slug: "elissa-slotkin", race: "MI Senate (Class I · 2030)", bucket: "Congress", aliases: ["Elissa Slotkin", "Slotkin"] },
-  { name: "Michael Bennet", slug: "michael-bennet", race: "CO Senate (Class III · 2028)", bucket: "Congress", aliases: ["Michael Bennet", "Sen. Bennet"] },
-  { name: "Ted Cruz", slug: "ted-cruz", race: "TX Senate (Class I · 2030)", bucket: "Congress", aliases: ["Ted Cruz"] },
-  { name: "Tammy Baldwin", slug: "tammy-baldwin", race: "WI Senate (Class I · 2030)", bucket: "Congress", aliases: ["Tammy Baldwin"] },
-  { name: "John Fetterman", slug: "john-fetterman", race: "PA Senate (Class III · 2028)", bucket: "Congress", aliases: ["John Fetterman", "Fetterman"] },
-  { name: "Bob Casey", slug: "bob-casey", race: "PA politics", bucket: "Other", aliases: ["Bob Casey", "Robert Casey"] },
-  { name: "Dave McCormick", slug: "dave-mccormick", race: "PA politics", bucket: "Other", aliases: ["Dave McCormick", "David McCormick", "McCormick"] },
-  { name: "Ruben Gallego", slug: "ruben-gallego", race: "AZ Senate (Class I · 2030)", bucket: "Congress", aliases: ["Ruben Gallego", "Gallego"] },
-  { name: "Mark Kelly", slug: "mark-kelly", race: "AZ Senate (Class III · 2028)", bucket: "Congress", aliases: ["Mark Kelly", "Sen. Kelly", "Senator Kelly"] },
-  { name: "Jacky Rosen", slug: "jacky-rosen", race: "NV Senate (Class I · 2030)", bucket: "Congress", aliases: ["Jacky Rosen"] },
-  { name: "Sherrod Brown", slug: "sherrod-brown", race: "OH politics", bucket: "Other", aliases: ["Sherrod Brown"] },
-  { name: "Jon Husted", slug: "jon-husted", race: "OH politics", bucket: "Other", aliases: ["Jon Husted", "Husted"] },
-  { name: "Bernie Moreno", slug: "bernie-moreno", race: "OH politics", bucket: "Other", aliases: ["Bernie Moreno"] },
-  { name: "Eric Hovde", slug: "eric-hovde", race: "WI politics", bucket: "Other", aliases: ["Eric Hovde", "Hovde"] },
-  { name: "Jon Tester", slug: "jon-tester", race: "MT politics", bucket: "Other", aliases: ["Jon Tester", "Tester"] },
-  { name: "Tim Sheehy", slug: "tim-sheehy", race: "MT politics", bucket: "Other", aliases: ["Tim Sheehy", "Sheehy"] },
-  { name: "Kari Lake", slug: "kari-lake", race: "AZ Governor contender", bucket: "Governor", aliases: ["Kari Lake"] },
-  { name: "Angela Alsobrooks", slug: "angela-alsobrooks", race: "MD Senate (Class I · 2030)", bucket: "Congress", aliases: ["Angela Alsobrooks", "Alsobrooks"] },
-  { name: "Larry Hogan", slug: "larry-hogan", race: "MD politics", bucket: "Other", aliases: ["Larry Hogan"] },
-  { name: "Deb Fischer", slug: "deb-fischer", race: "NE Senate (Class I · 2030)", bucket: "Congress", aliases: ["Deb Fischer"] },
-  { name: "Joe Lombardo", slug: "joe-lombardo", race: "NV Governor", bucket: "Governor", aliases: ["Joe Lombardo", "Governor Lombardo"] },
-  { name: "Sam Brown", slug: "sam-brown", race: "NV politics", bucket: "Other", aliases: ["Sam Brown"] },
-  { name: "Jim Banks", slug: "jim-banks", race: "IN politics", bucket: "Other", aliases: ["Jim Banks"] },
-  { name: "Phil Weiser", slug: "phil-weiser", race: "CO Governor contender", bucket: "Governor", aliases: ["Phil Weiser", "Weiser"] },
-
-  // ── Governors ────────────────────────────────────────────────────────
-  { name: "Gavin Newsom", slug: "gavin-newsom", race: "CA Governor", bucket: "Governor", aliases: ["Gavin Newsom", "Newsom"] },
-  { name: "Greg Abbott", slug: "greg-abbott", race: "TX Governor", bucket: "Governor", aliases: ["Greg Abbott", "Governor Abbott"] },
-  { name: "Brian Kemp", slug: "brian-kemp", race: "GA Governor", bucket: "Governor", aliases: ["Brian Kemp", "Governor Kemp"] },
-  { name: "Gretchen Whitmer", slug: "gretchen-whitmer", race: "MI Governor", bucket: "Governor", aliases: ["Gretchen Whitmer", "Whitmer"] },
-  { name: "Josh Shapiro", slug: "josh-shapiro", race: "PA Governor", bucket: "Governor", aliases: ["Josh Shapiro", "Shapiro"] },
-  { name: "Tony Evers", slug: "tony-evers", race: "WI Governor", bucket: "Governor", aliases: ["Tony Evers"] },
-  { name: "Katie Hobbs", slug: "katie-hobbs", race: "AZ Governor", bucket: "Governor", aliases: ["Katie Hobbs"] },
-  { name: "Ron DeSantis", slug: "ron-desantis", race: "FL Governor", bucket: "Governor", aliases: ["Ron DeSantis", "DeSantis"] },
-  { name: "Glenn Youngkin", slug: "glenn-youngkin", race: "VA Governor", bucket: "Governor", aliases: ["Glenn Youngkin", "Youngkin"] },
-  { name: "Andy Beshear", slug: "andy-beshear", race: "KY Governor", bucket: "Governor", aliases: ["Andy Beshear", "Beshear"] },
-  { name: "JB Pritzker", slug: "jb-pritzker", race: "IL Governor", bucket: "Governor", aliases: ["JB Pritzker", "J.B. Pritzker", "Pritzker"] },
-  { name: "Kathy Hochul", slug: "kathy-hochul", race: "NY Governor", bucket: "Governor", aliases: ["Kathy Hochul", "Hochul"] },
-  { name: "Wes Moore", slug: "wes-moore", race: "MD Governor", bucket: "Governor", aliases: ["Wes Moore"] },
-  { name: "Sarah Huckabee Sanders", slug: "sarah-huckabee-sanders", race: "AR Governor", bucket: "Governor", aliases: ["Sarah Huckabee Sanders", "Huckabee Sanders"] },
-
-  // ── U.S. leadership ──────────────────────────────────────────────────
-  { name: "Donald Trump", slug: "donald-trump", race: "President", bucket: "U.S. leadership", aliases: ["Donald Trump", "President Trump"] },
-  { name: "JD Vance", slug: "jd-vance", race: "Vice President", bucket: "U.S. leadership", aliases: ["JD Vance", "J.D. Vance", "Vice President Vance"] },
-  { name: "Kamala Harris", slug: "kamala-harris", race: "Former VP", bucket: "U.S. leadership", aliases: ["Kamala Harris"] },
-  { name: "Joe Biden", slug: "joe-biden", race: "Former President", bucket: "U.S. leadership", aliases: ["Joe Biden", "President Biden"] },
-  { name: "Barack Obama", slug: "barack-obama", race: "Former President", bucket: "U.S. leadership", aliases: ["Barack Obama", "President Obama", "Obama"] },
-  { name: "Mike Johnson", slug: "mike-johnson", race: "House Speaker", bucket: "U.S. leadership", aliases: ["Speaker Johnson", "Mike Johnson"] },
-  { name: "Hakeem Jeffries", slug: "hakeem-jeffries", race: "House Minority Leader", bucket: "U.S. leadership", aliases: ["Hakeem Jeffries", "Jeffries"] },
-  { name: "Chuck Schumer", slug: "chuck-schumer", race: "Senate Majority Leader", bucket: "U.S. leadership", aliases: ["Chuck Schumer", "Schumer"] },
-  { name: "Mitch McConnell", slug: "mitch-mcconnell", race: "Senate", bucket: "U.S. leadership", aliases: ["Mitch McConnell", "McConnell"] },
-
-  // ── Congress / high signal ───────────────────────────────────────────
-  { name: "Alexandria Ocasio-Cortez", slug: "aoc", race: "U.S. House", bucket: "Congress", aliases: ["Alexandria Ocasio-Cortez", "Ocasio-Cortez", "AOC"] },
-  { name: "Bernie Sanders", slug: "bernie-sanders", race: "U.S. Senate", bucket: "Congress", aliases: ["Bernie Sanders"] },
-  { name: "Elizabeth Warren", slug: "elizabeth-warren", race: "U.S. Senate", bucket: "Congress", aliases: ["Elizabeth Warren"] },
-  { name: "Marco Rubio", slug: "marco-rubio", race: "U.S. Senate / Cabinet", bucket: "Congress", aliases: ["Marco Rubio"] },
-  { name: "Tim Scott", slug: "tim-scott", race: "U.S. Senate", bucket: "Congress", aliases: ["Tim Scott"] },
-  { name: "Chris Murphy", slug: "chris-murphy", race: "U.S. Senate", bucket: "Congress", aliases: ["Chris Murphy"] },
-  { name: "Amy Klobuchar", slug: "amy-klobuchar", race: "MN Senate (Class I · 2030)", bucket: "Congress", aliases: ["Amy Klobuchar", "Klobuchar"] },
-  { name: "Zohran Mamdani", slug: "zohran-mamdani", race: "NYC Mayor race", bucket: "Other", aliases: ["Zohran Mamdani", "Mamdani"] },
-  { name: "Robert F. Kennedy Jr.", slug: "rfk-jr", race: "HHS / national", bucket: "U.S. leadership", aliases: ["Robert F. Kennedy", "RFK Jr", "RFK Junior", "Kennedy Jr"] },
-  { name: "Nikki Haley", slug: "nikki-haley", race: "National", bucket: "Other", aliases: ["Nikki Haley"] },
-  { name: "Vivek Ramaswamy", slug: "vivek-ramaswamy", race: "National", bucket: "Other", aliases: ["Vivek Ramaswamy", "Ramaswamy"] },
-
-  // ── International (often in graded broadcasts) ───────────────────────
-  { name: "Keir Starmer", slug: "keir-starmer", race: "UK PM", bucket: "International", aliases: ["Keir Starmer", "Starmer"] },
-  { name: "Nigel Farage", slug: "nigel-farage", race: "UK", bucket: "International", aliases: ["Nigel Farage", "Farage"] },
-  { name: "Benjamin Netanyahu", slug: "benjamin-netanyahu", race: "Israel PM", bucket: "International", aliases: ["Benjamin Netanyahu", "Netanyahu", "Bibi"] },
-  { name: "Volodymyr Zelenskyy", slug: "volodymyr-zelenskyy", race: "Ukraine President", bucket: "International", aliases: ["Volodymyr Zelenskyy", "Zelenskyy", "Zelensky"] },
-  { name: "Vladimir Putin", slug: "vladimir-putin", race: "Russia President", bucket: "International", aliases: ["Vladimir Putin", "Putin"] },
-  { name: "Xi Jinping", slug: "xi-jinping", race: "China President", bucket: "International", aliases: ["Xi Jinping"] },
-  { name: "Mark Carney", slug: "mark-carney", race: "Canada", bucket: "International", aliases: ["Mark Carney"] },
-  { name: "Justin Trudeau", slug: "justin-trudeau", race: "Canada", bucket: "International", aliases: ["Justin Trudeau", "Trudeau"] },
-];
+/** Full roster + contenders + international coverage figures. */
+export const POLITICIAN_SEEDS: PoliticianSeed[] = ROSTER_SEEDS as PoliticianSeed[];
 
 const BUCKET_ORDER: RaceBucket[] = [
+  "Executive",
   "Senate 2026",
+  "Senate",
+  "House",
   "Governor",
-  "U.S. leadership",
-  "Congress",
+  "Supreme Court",
   "International",
   "Other",
 ];
@@ -186,7 +80,7 @@ function escapeRe(s: string): string {
 function matchesAlias(haystack: string, alias: string): boolean {
   const a = alias.trim();
   if (!a) return false;
-  // Multi-word: substring match (case-insensitive haystack).
+  // Multi-word / hyphen / initial: substring match (case-insensitive haystack).
   if (/\s/.test(a) || a.includes("-") || a.includes(".")) {
     return haystack.includes(a.toLowerCase());
   }
@@ -213,6 +107,15 @@ function appearanceFrom(p: CollectionEntry<"posts">): PoliticianAppearance {
   };
 }
 
+function normalizeBucket(b?: string): RaceBucket {
+  if (!b) return "Other";
+  if ((BUCKET_ORDER as string[]).includes(b)) return b as RaceBucket;
+  // Legacy seeds / FM
+  if (b === "U.S. leadership") return "Executive";
+  if (b === "Congress") return "House";
+  return "Other";
+}
+
 const seedBySlug = new Map(POLITICIAN_SEEDS.map((s) => [s.slug, s]));
 
 /** Build the full politician index from a posts collection. */
@@ -230,17 +133,18 @@ export function buildPoliticianIndex(posts: CollectionEntry<"posts">[]): Politic
         name: name || seed?.name || slug,
         slug,
         race: race || seed?.race,
-        bucket: bucket || seed?.bucket || "Other",
+        bucket: normalizeBucket(bucket || seed?.bucket),
         posts: new Map(),
       };
       bySlug.set(slug, row);
     } else {
       if (race && !row.race) row.race = race;
-      if (bucket && row.bucket === "Other") row.bucket = bucket;
+      if (bucket && row.bucket === "Other") row.bucket = normalizeBucket(bucket);
     }
     return row;
   };
 
+  // Always materialize the full roster so cards exist before first coverage.
   for (const seed of POLITICIAN_SEEDS) {
     ensure(seed.slug, seed.name, seed.race, seed.bucket);
   }
@@ -264,7 +168,6 @@ export function buildPoliticianIndex(posts: CollectionEntry<"posts">[]): Politic
 
   const out: PoliticianAgg[] = [];
   for (const row of bySlug.values()) {
-    if (row.posts.size === 0) continue;
     const appearances = [...row.posts.values()]
       .map(appearanceFrom)
       .sort((a, b) => b.publishedAt.valueOf() - a.publishedAt.valueOf());
@@ -285,11 +188,29 @@ export function buildPoliticianIndex(posts: CollectionEntry<"posts">[]): Politic
     });
   }
 
-  return out.sort((a, b) => b.appearances.length - a.appearances.length || a.name.localeCompare(b.name));
+  // Covered first, then A–Z within the same count.
+  return out.sort(
+    (a, b) =>
+      b.appearances.length - a.appearances.length || a.name.localeCompare(b.name)
+  );
 }
 
 export function findPolitician(posts: CollectionEntry<"posts">[], slug: string): PoliticianAgg | null {
-  return buildPoliticianIndex(posts).find((p) => p.slug === slug) ?? null;
+  // Prefer full index (includes empty roster cards).
+  const fromIndex = buildPoliticianIndex(posts).find((p) => p.slug === slug);
+  if (fromIndex) return fromIndex;
+  const seed = seedBySlug.get(slug);
+  if (!seed) return null;
+  return {
+    name: seed.name,
+    slug: seed.slug,
+    race: seed.race,
+    bucket: normalizeBucket(seed.bucket),
+    appearances: [],
+    avgGrade: null,
+    avgFactuality: null,
+    avgLean: null,
+  };
 }
 
 /** Explicit FM tag shape written on publish / agent approve. */
@@ -335,12 +256,14 @@ export function tagPoliticiansFromText(parts: {
 export function groupPoliticiansByBucket(list: PoliticianAgg[]): { bucket: RaceBucket; items: PoliticianAgg[] }[] {
   const map = new Map<RaceBucket, PoliticianAgg[]>();
   for (const p of list) {
-    const b = p.bucket || "Other";
+    const b = normalizeBucket(p.bucket);
     if (!map.has(b)) map.set(b, []);
     map.get(b)!.push(p);
   }
   return BUCKET_ORDER.filter((b) => map.has(b)).map((bucket) => ({
     bucket,
-    items: map.get(bucket)!,
+    items: (map.get(bucket) ?? []).sort(
+      (a, b) => b.appearances.length - a.appearances.length || a.name.localeCompare(b.name)
+    ),
   }));
 }

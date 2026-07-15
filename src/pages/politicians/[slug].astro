@@ -66,15 +66,24 @@ const jsonLd = {
         </p>
         <h1 class="static-page__title pol-hero__name">{pol.name}</h1>
         <p class="upgrade__lede pol-hero__lede">
-          {pol.appearances.length} graded report{pol.appearances.length === 1 ? "" : "s"}
-          on CladFacts.
-          {locked ? (
+          {pol.appearances.length === 0 ? (
             <>
-              {" "}Sign in free to see average grade, factuality, and lean —
-              <a href="/register/">create an account</a>.
+              On the CladFacts roster — no graded broadcast coverage yet.
+              When {pol.name.split(" ").slice(-1)[0]} appears in a report we grade, it lands here.
             </>
           ) : (
-            <> Averages below are computed from every report listed.</>
+            <>
+              {pol.appearances.length} graded report{pol.appearances.length === 1 ? "" : "s"}
+              on CladFacts.
+              {locked ? (
+                <>
+                  {" "}Sign in free to see average grade, factuality, and lean —
+                  <a href="/register/">create an account</a>.
+                </>
+              ) : (
+                <> Averages below are computed from every report listed.</>
+              )}
+            </>
           )}
         </p>
       </div>
@@ -132,32 +141,42 @@ const jsonLd = {
     )}
 
     <h2 class="static-page__sub">Graded appearances</h2>
-    <ol class="politician-list" reversed>
-      {pol.appearances.map((a) => (
-        <li class="politician-list__item">
-          <div class="politician-list__main">
-            <a href={`/posts/${a.id}/`}>{a.headline}</a>
-            <span class="politician-list__meta">
-              {shortDate(a.publishedAt)}
-              {a.sourceTitle ? ` · ${a.sourceTitle}` : ""}
-              {!locked && a.factualityScore != null && (
-                <> · {a.factualityScore}/100</>
-              )}
-            </span>
-          </div>
-          {!locked && a.letterGrade && (
-            <div class="politician-list__grade">
-              <LetterGrade grade={a.letterGrade} size="badge" />
+    {pol.appearances.length === 0 ? (
+      <p class="dateline">
+        No graded reports yet. Browse the{" "}
+        <a href="/politicians/">full roster</a>
+        {" "}or the{" "}
+        <a href="/">front page</a>
+        {" "}for the latest coverage.
+      </p>
+    ) : (
+      <ol class="politician-list" reversed>
+        {pol.appearances.map((a) => (
+          <li class="politician-list__item">
+            <div class="politician-list__main">
+              <a href={`/posts/${a.id}/`}>{a.headline}</a>
+              <span class="politician-list__meta">
+                {shortDate(a.publishedAt)}
+                {a.sourceTitle ? ` · ${a.sourceTitle}` : ""}
+                {!locked && a.factualityScore != null && (
+                  <> · {a.factualityScore}/100</>
+                )}
+              </span>
             </div>
-          )}
-          {!locked && a.leanScore != null && (
-            <div class="politician-list__lean" title="Political lean of this report">
-              <PoliticalLean score={a.leanScore} />
-            </div>
-          )}
-        </li>
-      ))}
-    </ol>
+            {!locked && a.letterGrade && (
+              <div class="politician-list__grade">
+                <LetterGrade grade={a.letterGrade} size="badge" />
+              </div>
+            )}
+            {!locked && a.leanScore != null && (
+              <div class="politician-list__lean" title="Political lean of this report">
+                <PoliticalLean score={a.leanScore} />
+              </div>
+            )}
+          </li>
+        ))}
+      </ol>
+    )}
 
     <p class="static-page__note">
       Portrait via Wikimedia Commons when available. Verdicts are researched with AI assistance and reviewed by an editor.
