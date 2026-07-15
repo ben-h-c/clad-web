@@ -186,7 +186,8 @@ export function aggregateTopics(
   }
 
   const now = Date.now();
-  const out: (TopicAgg & { _score: number })[] = [];
+  const DAY = 86_400_000;
+  const out: (TopicAgg & { _score: number; _today: number })[] = [];
   for (const g of map.values()) {
     const gpas = g.posts.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n != null);
     const leans = g.posts.map((p) => leanScoreOf(p.data)).filter((n): n is number => n != null);
@@ -197,14 +198,25 @@ export function aggregateTopics(
     // Representative image: newest article in the topic that has a thumbnail.
     const byNew = [...g.posts].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
     const thumbnail = byNew.find((p) => p.data.thumbnail)?.data.thumbnail ?? null;
-    // Trending popularity: each article contributes by its OWN recency, so
-    // topics with active, recent coverage rank up while a large-but-stale
-    // backlog fades — total article count no longer dominates the order.
-    // Sum of per-article freshness decay (14-day time constant).
-    const score = g.posts.reduce(
-      (s, p) => s + Math.exp(-((now - p.data.publishedAt.valueOf()) / 86_400_000) / 14),
-      0
-    );
+
+    // Hot-today ranking — NOT raw article count.
+    // Each post contributes by how fresh it is (half-life ~2 days). Posts from
+    // the last 24h count double; anything older than ~3 weeks barely moves the
+    // needle, so a fat archive of stale stories cannot outrank today's news.
+    let score = 0;
+    let todayCount = 0;
+    for (const p of g.posts) {
+      const ageDays = (now - p.data.publishedAt.valueOf()) / DAY;
+      if (ageDays > 28) continue; // ignore ancient backlog for ordering
+      if (ageDays <= 1) todayCount += 1;
+      const halfLife = 2; // days
+      const decay = Math.pow(0.5, ageDays / halfLife);
+      const boost = ageDays <= 1 ? 2.25 : ageDays <= 3 ? 1.35 : 1;
+      score += decay * boost;
+    }
+    // Slight bump for multiple distinct pieces today (sustained interest).
+    if (todayCount >= 2) score *= 1 + Math.min(0.4, (todayCount - 1) * 0.12);
+
     out.push({
       display: g.display,
       slug: g.slug,
@@ -217,11 +229,19 @@ export function aggregateTopics(
       thumbnail,
       posts: g.posts,
       _score: score,
+      _today: todayCount,
     });
   }
-  out.sort((a, b) => b._score - a._score || b.count - a.count || b.latest - a.latest);
+  // Primary: hot score. Then more pieces today. Then newest activity. Count last.
+  out.sort(
+    (a, b) =>
+      b._score - a._score ||
+      b._today - a._today ||
+      b.latest - a.latest ||
+      b.count - a.count
+  );
   // A topic is for grouping MULTIPLE like articles — drop singletons.
-  return out.filter((t) => t.count >= 2).map(({ _score, ...t }) => t);
+  return out.filter((t) => t.count >= 2).map(({ _score, _today, ...t }) => t);
 }
 
 /**
