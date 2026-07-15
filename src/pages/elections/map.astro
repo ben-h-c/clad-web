@@ -1068,24 +1068,25 @@ const featured = [...map.states]
     margin-left: 0.25rem;
     padding: 0.05rem 0.35rem;
     font-size: 0.78rem;
-    font-weight: 800;
+    font-weight: 700;
     border: 1px solid;
     vertical-align: middle;
+    letter-spacing: 0.02em;
   }
   .emap-grade-pill--A, .emap-grade-pill--B {
-    background: #1f5c45;
-    color: #f4f7f2;
-    border-color: #174834;
+    background: var(--grade-good-wash);
+    color: var(--grade-good-ink);
+    border-color: var(--grade-good-rule);
   }
   .emap-grade-pill--C {
-    background: #c9a227;
-    color: #1a140d;
-    border-color: #9a7a12;
+    background: var(--grade-mid-wash);
+    color: var(--grade-mid-ink);
+    border-color: var(--grade-mid-rule);
   }
   .emap-grade-pill--D, .emap-grade-pill--F {
-    background: #941a1a;
-    color: #fff;
-    border-color: #6e1212;
+    background: var(--grade-bad-wash);
+    color: var(--grade-bad-ink);
+    border-color: var(--grade-bad-rule);
   }
   .emap-muted { opacity: 0.85; }
   .emap-panel__more { margin: 0.75rem 0 0; font-size: 0.9rem; }

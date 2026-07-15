@@ -26,6 +26,17 @@
   --grain-opacity: 0.045;
   --wear-opacity: 0.07;
 
+  /* Letter grades — muted editorial inks on paper wash (not traffic-light blocks) */
+  --grade-good-ink: rgb(48, 86, 64);
+  --grade-good-wash: color-mix(in srgb, rgb(70, 112, 84) 15%, var(--paper));
+  --grade-good-rule: color-mix(in srgb, rgb(48, 86, 64) 42%, var(--rule));
+  --grade-mid-ink: rgb(132, 86, 28);
+  --grade-mid-wash: color-mix(in srgb, rgb(176, 124, 42) 16%, var(--paper));
+  --grade-mid-rule: color-mix(in srgb, rgb(132, 86, 28) 40%, var(--rule));
+  --grade-bad-ink: rgb(138, 40, 34);
+  --grade-bad-wash: color-mix(in srgb, rgb(150, 36, 30) 13%, var(--paper));
+  --grade-bad-rule: color-mix(in srgb, rgb(138, 40, 34) 42%, var(--rule));
+
   --font-masthead: "Didot", "Bodoni 72", "Playfair Display", Georgia, serif;
   --font-display: "Bodoni 72", "Playfair Display", Georgia, serif;
   --font-serif: "Iowan Old Style", "Charter", "Source Serif Pro", Georgia, serif;
@@ -59,6 +70,16 @@
   --shadow: rgba(0, 0, 0, 0.65);
   --grain-opacity: 0.06;
   --wear-opacity: 0.1;
+
+  --grade-good-ink: rgb(148, 196, 164);
+  --grade-good-wash: color-mix(in srgb, rgb(72, 130, 96) 22%, var(--paper));
+  --grade-good-rule: color-mix(in srgb, rgb(148, 196, 164) 35%, var(--rule));
+  --grade-mid-ink: rgb(220, 178, 96);
+  --grade-mid-wash: color-mix(in srgb, rgb(180, 130, 50) 20%, var(--paper));
+  --grade-mid-rule: color-mix(in srgb, rgb(220, 178, 96) 32%, var(--rule));
+  --grade-bad-ink: rgb(228, 132, 118);
+  --grade-bad-wash: color-mix(in srgb, rgb(180, 70, 58) 20%, var(--paper));
+  --grade-bad-rule: color-mix(in srgb, rgb(228, 132, 118) 32%, var(--rule));
   color-scheme: dark;
 }
 
@@ -512,7 +533,7 @@ html.clad-app .shell::after {
   border-radius: 999px;
   color: var(--ink);
 }
-.account-pill--ok { border-color: #2e7d4f; color: #2e7d4f; }
+.account-pill--ok { border-color: var(--grade-good-ink); color: var(--grade-good-ink); }
 .account-pill--warn { border-color: #b23b2e; color: #b23b2e; }
 
 .account-card {
@@ -900,9 +921,9 @@ html.clad-app .shell::after {
   font-family: var(--font-display);
   font-size: 1.4rem;
   font-weight: 700;
-  color: #fff;
-  background: #2e7d4f;
-  border: 1px solid #2e7d4f;
+  color: var(--grade-good-ink);
+  background: var(--grade-good-wash);
+  border: 1px solid var(--grade-good-rule);
   padding: 0.05rem 0.45rem;
   margin-bottom: 0.45rem;
 }
@@ -931,7 +952,7 @@ html.clad-app .shell::after {
 }
 .mk-why .bad { color: var(--muted-ink); text-align: right; }
 .mk-why b { color: var(--tour-accent); font-size: 1rem; line-height: 1; }
-.mk-why .fix { color: #2e7d4f; font-weight: 600; text-align: left; }
+.mk-why .fix { color: var(--grade-good-ink); font-weight: 600; text-align: left; }
 .tour__step.play .mk-why__row { animation: tourUp 0.45s ease both; }
 .tour__step.play .mk-why__row:nth-child(1) { animation-delay: 0.24s; }
 .tour__step.play .mk-why__row:nth-child(2) { animation-delay: 0.36s; }
@@ -986,11 +1007,31 @@ html.clad-app .shell::after {
   border: 1px solid var(--rule);
   border-radius: 2px;
 }
-.mk-scale .a { background: #2e7d4f; color: #fff; border-color: #2e7d4f; }
-.mk-scale .b { background: #7fae5a; color: #fff; border-color: #7fae5a; }
-.mk-scale .c { background: #d9b24a; color: #3a2f00; border-color: #d9b24a; }
-.mk-scale .d { background: #d08a3e; color: #fff; border-color: #d08a3e; }
-.mk-scale .f { background: #b23b2e; color: #fff; border-color: #b23b2e; }
+.mk-scale .a {
+  background: var(--grade-good-wash);
+  color: var(--grade-good-ink);
+  border-color: var(--grade-good-rule);
+}
+.mk-scale .b {
+  background: color-mix(in srgb, var(--grade-good-wash) 70%, var(--grade-mid-wash));
+  color: color-mix(in srgb, var(--grade-good-ink) 75%, var(--grade-mid-ink));
+  border-color: color-mix(in srgb, var(--grade-good-rule) 70%, var(--grade-mid-rule));
+}
+.mk-scale .c {
+  background: var(--grade-mid-wash);
+  color: var(--grade-mid-ink);
+  border-color: var(--grade-mid-rule);
+}
+.mk-scale .d {
+  background: color-mix(in srgb, var(--grade-mid-wash) 45%, var(--grade-bad-wash));
+  color: color-mix(in srgb, var(--grade-mid-ink) 45%, var(--grade-bad-ink));
+  border-color: color-mix(in srgb, var(--grade-mid-rule) 45%, var(--grade-bad-rule));
+}
+.mk-scale .f {
+  background: var(--grade-bad-wash);
+  color: var(--grade-bad-ink);
+  border-color: var(--grade-bad-rule);
+}
 .tour__step.play .mk-scale .g { animation: tourPop 0.45s ease both; }
 .tour__step.play .mk-scale .g:nth-child(1) { animation-delay: 0.2s; }
 .tour__step.play .mk-scale .g:nth-child(2) { animation-delay: 0.29s; }
@@ -2034,9 +2075,11 @@ html.clad-app .shell::after {
 .search-result__grade {
   font-family: var(--font-display);
   font-weight: 700;
-  border: 1px solid var(--rule);
+  border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
   padding: 0 0.4rem;
   font-size: 0.9rem;
+  color: var(--ink);
+  background: var(--tint-1);
 }
 
 .search-result__hl {
@@ -2615,63 +2658,52 @@ html.clad-app .shell::after {
   font-style: italic;
 }
 
-/* Letter grade badge */
+/* Letter grade badge — stamp-like wash + ink, sits on cream paper */
 
 .letter-grade {
   display: inline-block;
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 1;
+  letter-spacing: 0.02em;
   border: 1px solid var(--rule);
+  /* Soft double-edge like a press stamp, not a flat app chip */
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--paper) 70%, transparent);
 }
 
 .letter-grade--badge {
   font-size: 0.95rem;
-  padding: 0.1rem 0.45rem;
+  padding: 0.12rem 0.42rem;
 }
 
 .letter-grade--card {
   font-size: 2rem;
-  padding: 0.25rem 0.75rem;
-  border-width: 2px;
+  padding: 0.22rem 0.7rem;
+  border-width: 1.5px;
 }
 
 .letter-grade--hero {
   font-size: clamp(3rem, 12vw, 4.5rem);
-  padding: 0.5rem 1rem;
-  border-width: 2px;
+  padding: 0.45rem 0.95rem;
+  border-width: 1.5px;
 }
 
 .grade--good {
-  background: #1f5c45;
-  color: #f4f7f2;
-  border-color: #174834;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  background: var(--grade-good-wash);
+  color: var(--grade-good-ink);
+  border-color: var(--grade-good-rule);
 }
 
 .grade--mid {
-  background: #c9a227;
-  color: #1a140d;
-  border-color: #9a7a12;
+  background: var(--grade-mid-wash);
+  color: var(--grade-mid-ink);
+  border-color: var(--grade-mid-rule);
 }
 
 .grade--bad {
-  background: var(--red-ink);
-  color: var(--paper);
-  border-color: color-mix(in srgb, var(--red-ink) 70%, #000);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-}
-
-html[data-theme="dark"] .grade--good {
-  background: #2f8f6a;
-  border-color: #246f52;
-  color: #0e1512;
-}
-
-html[data-theme="dark"] .grade--mid {
-  background: #e0b83a;
-  border-color: #c9a227;
-  color: #181612;
+  background: var(--grade-bad-wash);
+  color: var(--grade-bad-ink);
+  border-color: var(--grade-bad-rule);
 }
 
 /* Broadcast report */
@@ -4218,12 +4250,12 @@ button.small {
 .bias-bar.is-right {
   background: rgb(150, 40, 30);
 }
-/* Social reception bars: green = positive crowd, red = negative crowd. */
+/* Social reception bars: soft sage / brick, not neon. */
 .bias-bar.is-pos {
-  background: rgb(46, 125, 79);
+  background: var(--grade-good-ink);
 }
 .bias-bar.is-neg {
-  background: rgb(150, 40, 30);
+  background: var(--grade-bad-ink);
 }
 .grade-track {
   height: 0.85rem;
@@ -4234,13 +4266,16 @@ button.small {
   height: 100%;
 }
 .grade-bar.grade--good {
-  background: var(--ink);
+  background: var(--grade-good-ink);
+  opacity: 0.88;
 }
 .grade-bar.grade--mid {
-  background: var(--muted-ink);
+  background: var(--grade-mid-ink);
+  opacity: 0.88;
 }
 .grade-bar.grade--bad {
-  background: rgb(150, 40, 30);
+  background: var(--grade-bad-ink);
+  opacity: 0.88;
 }
 .split-bar {
   display: flex;
@@ -4323,10 +4358,10 @@ button.small {
   font-variant-numeric: tabular-nums;
 }
 .issue-row__senti.is-pos {
-  color: rgb(46, 125, 79);
+  color: var(--grade-good-ink);
 }
 .issue-row__senti.is-neg {
-  color: rgb(150, 40, 30);
+  color: var(--grade-bad-ink);
 }
 .issue-row__senti.is-center {
   color: var(--muted-ink);
@@ -4813,11 +4848,11 @@ button.small {
 .tline__xlab { fill: var(--muted-ink); font-size: 18px; }
 .tline__val { fill: var(--ink); font-size: 19px; font-weight: 700; font-family: var(--font-display); }
 .tline__path { fill: none; stroke-width: 2.5; }
-.tline__path--grade { stroke: #2e7d4f; }
+.tline__path--grade { stroke: var(--grade-good-ink); }
 .tline__path--lean { stroke: var(--accent); }
 .tline__path--senti { stroke: #6b4fa0; }
-.tline__dot { fill: #2e7d4f; stroke: var(--paper); stroke-width: 1.5; }
-.tline__dot--grade { fill: #2e7d4f; }
+.tline__dot { fill: var(--grade-good-ink); stroke: var(--paper); stroke-width: 1.5; }
+.tline__dot--grade { fill: var(--grade-good-ink); }
 
 /* topic momentum */
 .tmom { list-style: none; margin: 0; padding: 0; }
@@ -4845,7 +4880,7 @@ button.small {
 }
 .tmom__total { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted-ink); }
 .tmom__dir { text-align: center; font-size: 0.8rem; }
-.tmom__dir--up, .dir--up { color: #2e7d4f; }
+.tmom__dir--up, .dir--up { color: var(--grade-good-ink); }
 .tmom__dir--down, .dir--down { color: #b23b2e; }
 .tmom__dir--flat, .dir--flat { color: var(--muted-ink); }
 
