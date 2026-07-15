@@ -1,4 +1,5 @@
 ---
+import { displayableThumb } from "~/lib/imagePolicy";
 import LetterGrade from "~/components/LetterGrade.astro";
 import type { TopicAgg } from "~/lib/topics";
 
@@ -13,12 +14,13 @@ function leanLabel(s: number | null): string | null {
   return Math.abs(s) < 5 ? "Centered" : `${Math.abs(s)}% ${s > 0 ? "Right" : "Left"}`;
 }
 const lean = locked ? null : leanLabel(topic.avgLean);
+const thumb = displayableThumb(topic.thumbnail);
 ---
 <a class="topic-row" href={`/topics/${topic.slug}/`}>
-  {topic.thumbnail && (
+  {thumb && (
     <span class="topic-row__thumb">
       <img
-        src={topic.thumbnail}
+        src={thumb}
         alt=""
         loading="lazy"
         decoding="async"
