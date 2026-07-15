@@ -133,6 +133,7 @@ export function aggregateTopics(posts) {
   }
 
   const now = Date.now();
+  const HOUR = 3_600_000;
   const out = [];
   for (const g of map.values()) {
     const gpas = g.posts.map((p) => gradeToGpa(p.data.letterGrade)).filter((n) => n != null);
@@ -140,18 +141,27 @@ export function aggregateTopics(posts) {
     const latest = Math.max(...g.posts.map((p) => p.data.publishedAt.valueOf()));
     const byNew = [...g.posts].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
     const thumbnail = byNew.find((p) => p.data.thumbnail)?.data.thumbnail ?? null;
-    // Trending popularity: each article contributes by its OWN recency, so
-    // topics with active, recent coverage rank up while a large-but-stale
-    // backlog fades. Sum of per-article freshness decay (14-day time constant).
-    // Keep in sync with src/lib/topics.ts.
-    const score = g.posts.reduce(
-      (s, p) => s + Math.exp(-((now - p.data.publishedAt.valueOf()) / 86_400_000) / 14),
-      0
-    );
+    // Keep in sync with src/lib/topics.ts — strict today-first buckets.
+    // One post in the last 24h outranks any older volume.
+    let todayCount = 0;
+    let d3Count = 0;
+    let weekCount = 0;
+    for (const p of g.posts) {
+      const ageH = (now - p.data.publishedAt.valueOf()) / HOUR;
+      if (ageH <= 24) todayCount += 1;
+      else if (ageH <= 72) d3Count += 1;
+      else if (ageH <= 168) weekCount += 1;
+    }
+    const recentCount = todayCount + d3Count;
+    const hoursAgo = (now - latest) / HOUR;
+    const freshBoost = Math.max(0, 5 - hoursAgo / 12);
+    const score = todayCount * 1000 + d3Count * 20 + weekCount * 1 + freshBoost;
     out.push({
       display: g.display,
       slug: g.slug,
       count: g.posts.length,
+      todayCount,
+      recentCount,
       avgGrade: gpas.length ? gpaToGrade(gpas.reduce((a, b) => a + b, 0) / gpas.length) : null,
       avgLean: leans.length ? Math.round(leans.reduce((a, b) => a + b, 0) / leans.length) : null,
       thumbnail,
@@ -159,6 +169,13 @@ export function aggregateTopics(posts) {
       latest,
     });
   }
-  out.sort((a, b) => b._score - a._score || b.count - a.count || b.latest - a.latest);
+  out.sort(
+    (a, b) =>
+      b._score - a._score ||
+      b.todayCount - a.todayCount ||
+      b.recentCount - a.recentCount ||
+      b.latest - a.latest ||
+      b.count - a.count
+  );
   return out;
 }

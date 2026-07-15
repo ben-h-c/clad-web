@@ -34,7 +34,11 @@ const thumb = displayableThumb(topic.thumbnail);
   <div class="topic-card__top">
     {topic.avgGrade && <LetterGrade grade={topic.avgGrade} size="card" />}
     <span class="topic-card__count small-caps">
-      {topic.count} {topic.count === 1 ? "report" : "reports"}
+      {topic.todayCount > 0
+        ? `${topic.todayCount} today`
+        : topic.recentCount > 0
+          ? `${topic.recentCount} recent`
+          : `${topic.count} ${topic.count === 1 ? "report" : "reports"}`}
     </span>
   </div>
   <h3 class="topic-card__name">{topic.display}</h3>

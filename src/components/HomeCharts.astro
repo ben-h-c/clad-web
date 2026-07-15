@@ -182,7 +182,13 @@ const topIssues = topics.slice(0, 10);
           {topIssues.map((t) => (
             <li class="issue-row">
               <a class="issue-row__name" href={`/topics/${t.slug}/`}>{t.display}</a>
-              <span class="issue-row__count">{t.count} {t.count === 1 ? "report" : "reports"}</span>
+              <span class="issue-row__count">
+                {t.todayCount > 0
+                  ? `${t.todayCount} today`
+                  : t.recentCount > 0
+                    ? `${t.recentCount} recent`
+                    : `${t.count} ${t.count === 1 ? "report" : "reports"}`}
+              </span>
               <span class={`issue-row__lean ${t.avgLean === null ? "" : t.avgLean > 5 ? "is-right" : t.avgLean < -5 ? "is-left" : "is-center"}`}>
                 {leanLabel(t.avgLean)}
               </span>

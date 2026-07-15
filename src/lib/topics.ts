@@ -43,6 +43,10 @@ export interface TopicAgg {
   display: string;
   slug: string;
   count: number;
+  /** Posts published in the last 24 hours (drives home ranking). */
+  todayCount: number;
+  /** Posts published in the last 72 hours, including today. */
+  recentCount: number;
   avgGrade: string | null;
   avgLean: number | null;
   // Average social-media sentiment across scanned posts; null when no post in
@@ -186,8 +190,8 @@ export function aggregateTopics(
   }
 
   const now = Date.now();
-  const DAY = 86_400_000;
-  const out: (TopicAgg & { _score: number; _today: number })[] = [];
+  const HOUR = 3_600_000;
+  const out: (TopicAgg & { _score: number })[] = [];
   for (const g of map.values()) {
     const gpas = g.posts.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n != null);
     const leans = g.posts.map((p) => leanScoreOf(p.data)).filter((n): n is number => n != null);
@@ -199,28 +203,31 @@ export function aggregateTopics(
     const byNew = [...g.posts].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
     const thumbnail = byNew.find((p) => p.data.thumbnail)?.data.thumbnail ?? null;
 
-    // Hot-today ranking — NOT raw article count.
-    // Each post contributes by how fresh it is (half-life ~2 days). Posts from
-    // the last 24h count double; anything older than ~3 weeks barely moves the
-    // needle, so a fat archive of stale stories cannot outrank today's news.
-    let score = 0;
+    // Hot-today ranking — deliberately NOT total article count.
+    // Buckets are ordered so one post in the last 24h outranks any volume of
+    // older coverage: today×1000 >> last-72h×20 >> last-week×1. Lifetime
+    // backlog never enters the score. Freshness of the newest piece is only a
+    // small tie-break (0–5).
     let todayCount = 0;
+    let d3Count = 0; // 24–72h (exclusive of today)
+    let weekCount = 0; // 72h–7d
     for (const p of g.posts) {
-      const ageDays = (now - p.data.publishedAt.valueOf()) / DAY;
-      if (ageDays > 28) continue; // ignore ancient backlog for ordering
-      if (ageDays <= 1) todayCount += 1;
-      const halfLife = 2; // days
-      const decay = Math.pow(0.5, ageDays / halfLife);
-      const boost = ageDays <= 1 ? 2.25 : ageDays <= 3 ? 1.35 : 1;
-      score += decay * boost;
+      const ageH = (now - p.data.publishedAt.valueOf()) / HOUR;
+      if (ageH <= 24) todayCount += 1;
+      else if (ageH <= 72) d3Count += 1;
+      else if (ageH <= 168) weekCount += 1;
     }
-    // Slight bump for multiple distinct pieces today (sustained interest).
-    if (todayCount >= 2) score *= 1 + Math.min(0.4, (todayCount - 1) * 0.12);
+    const recentCount = todayCount + d3Count;
+    const hoursAgo = (now - latest) / HOUR;
+    const freshBoost = Math.max(0, 5 - hoursAgo / 12);
+    const score = todayCount * 1000 + d3Count * 20 + weekCount * 1 + freshBoost;
 
     out.push({
       display: g.display,
       slug: g.slug,
       count: g.posts.length,
+      todayCount,
+      recentCount,
       avgGrade: gpas.length ? gpaToGrade(gpas.reduce((a, b) => a + b, 0) / gpas.length) : null,
       avgLean: leans.length ? Math.round(leans.reduce((a, b) => a + b, 0) / leans.length) : null,
       avgSentiment: sentis.length ? Math.round(sentis.reduce((a, b) => a + b, 0) / sentis.length) : null,
@@ -229,19 +236,20 @@ export function aggregateTopics(
       thumbnail,
       posts: g.posts,
       _score: score,
-      _today: todayCount,
     });
   }
-  // Primary: hot score. Then more pieces today. Then newest activity. Count last.
+  // Primary: today-weighted score. Then raw today count, then newest activity.
+  // Lifetime article count is intentionally last (and rarely decisive).
   out.sort(
     (a, b) =>
       b._score - a._score ||
-      b._today - a._today ||
+      b.todayCount - a.todayCount ||
+      b.recentCount - a.recentCount ||
       b.latest - a.latest ||
       b.count - a.count
   );
   // A topic is for grouping MULTIPLE like articles — drop singletons.
-  return out.filter((t) => t.count >= 2).map(({ _score, _today, ...t }) => t);
+  return out.filter((t) => t.count >= 2).map(({ _score, ...t }) => t);
 }
 
 /**
