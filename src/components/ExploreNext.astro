@@ -1,0 +1,53 @@
+---
+/**
+ * Soft discovery rail — end-of-page “what next” cards.
+ * Not a popup: only appears where editors place it, after the main content.
+ */
+import { exploreLinks, type ExploreContext } from "~/lib/explore";
+import { registerHref } from "~/lib/safeNext";
+
+interface Props {
+  context?: ExploreContext;
+  title?: string;
+  eyebrow?: string;
+  /** When true, free-account CTA uses register with return path */
+  locked?: boolean;
+  /** Path for register ?next= (defaults to current path) */
+  returnTo?: string;
+  /** Hide if user already has full access and context is purely unlock-oriented */
+  compact?: boolean;
+}
+const {
+  context = "default",
+  title = "Explore more on Clad",
+  eyebrow = "Next",
+  locked = false,
+  returnTo,
+  compact = false,
+} = Astro.props;
+
+let links = exploreLinks(context, { locked });
+if (locked && returnTo) {
+  links = links.map((l) =>
+    l.href === "/register/" ? { ...l, href: registerHref(returnTo) } : l
+  );
+}
+const slice = compact ? links.slice(0, 3) : links.slice(0, 4);
+---
+<nav class:list={["explore-next", compact && "explore-next--compact"]} aria-labelledby="explore-next-title">
+  <div class="explore-next__head">
+    <p class="explore-next__eyebrow small-caps">{eyebrow}</p>
+    <h2 class="explore-next__title" id="explore-next-title">{title}</h2>
+  </div>
+  <ul class="explore-next__grid">
+    {slice.map((item) => (
+      <li>
+        <a class="explore-next__card" href={item.href}>
+          <span class="explore-next__kicker small-caps">{item.kicker}</span>
+          <span class="explore-next__name">{item.title}</span>
+          <span class="explore-next__blurb">{item.blurb}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>

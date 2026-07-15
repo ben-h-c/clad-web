@@ -134,7 +134,7 @@ const shareUrl = new URL(`/week/${iso(start)}/`, Astro.site ?? "https://cladfact
         bottomLabel="Worst graded this week"
       />
     )}
-    {locked && <PaywallPanel signedIn={access.signedIn} />}
+    {locked && <PaywallPanel signedIn={access.signedIn} returnTo={Astro.url.pathname} />}
 
     {disputedClaims.length > 0 && (
       <section class="week__mod">

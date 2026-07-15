@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import ExploreNext from "~/components/ExploreNext.astro";
 import { getCollection } from "astro:content";
 import { getAccess } from "~/lib/access";
 import { searchPosts } from "~/lib/search";
@@ -132,6 +133,14 @@ const countText = results.length
         </a>
       ))}
     </div>
+    {results.length === 0 && (
+      <p class="dateline" id="search-empty-hint">
+        No matches — try a topic chip above, or browse{" "}
+        <a href="/trends/">News Trends</a>, <a href="/discover/">Discover</a>, or the{" "}
+        <a href="/bracket/">ballot board</a>.
+      </p>
+    )}
+    <ExploreNext context="search" title="Looking for something else?" eyebrow="Explore" compact />
   </section>
 
   <script is:inline>

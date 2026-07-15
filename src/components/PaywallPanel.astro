@@ -1,10 +1,15 @@
 ---
 import { PRICE } from "~/lib/access";
+import { registerHref, loginHref } from "~/lib/safeNext";
 
 interface Props {
   signedIn: boolean;
+  /** Where to send the user after register/login (e.g. current path). */
+  returnTo?: string;
 }
-const { signedIn } = Astro.props;
+const { signedIn, returnTo } = Astro.props;
+const reg = returnTo ? registerHref(returnTo) : "/register/";
+const log = returnTo ? loginHref(returnTo) : "/login/";
 ---
 <section class="paywall">
   <p class="small-caps paywall__eyebrow">No card · no trial clock</p>
@@ -16,14 +21,14 @@ const { signedIn } = Astro.props;
   <ul class="paywall__perks">
     <li>Grades on every report</li>
     <li>Lean scores &amp; charts</li>
-    <li>Quiz + Sunday newsletter</li>
+    <li>Quiz · midterms ballot · newsletter</li>
   </ul>
   <div class="paywall__cta">
-    <a class="auth-submit" href="/register/">Create free account</a>
+    <a class="auth-submit" href={reg}>Create free account</a>
     <a class="auth-submit secondary" href="/upgrade/">Premium from {PRICE.monthly}/mo</a>
   </div>
   {!signedIn && (
-    <p class="paywall__signin">Already have an account? <a href="/login/">Sign in</a>.</p>
+    <p class="paywall__signin">Already have an account? <a href={log}>Sign in</a>.</p>
   )}
   <button type="button" class="auth-submit js-app-purchase">Go Premium</button>
   <p class="paywall__legal" data-app-hide>

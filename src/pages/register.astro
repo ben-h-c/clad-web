@@ -1,20 +1,26 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getAuth, enabledSocialProviders } from "~/lib/auth-server";
+import { safeNextPath } from "~/lib/safeNext";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
 
+const dest = safeNextPath(Astro.url.searchParams.get("next"), "/account/");
 const session = await getAuth().api.getSession({ headers: Astro.request.headers });
-if (session?.user) return Astro.redirect("/account/");
+if (session?.user) return Astro.redirect(dest);
 
 const PROVIDER_LABELS: Record<string, string> = { google: "Google", apple: "Apple", twitter: "X" };
 const providers = enabledSocialProviders();
+const loginHref = dest !== "/account/" ? `/login/?next=${encodeURIComponent(dest)}` : "/login/";
 ---
 <BaseLayout title="Create account — Clad" description="Create a free CladFacts account — every grade, political-lean rating, and sentiment score, no card required." noindex={true}>
-  <article class="static-page auth-page" id="register-article">
+  <article class="static-page auth-page" id="register-article" data-next={dest}>
     <h2 class="static-page__title">Create your account</h2>
     <p class="dateline">A free account is full access — every letter grade, factuality score, political-lean rating, and social-sentiment score. No card, no trial clock. Plus saved reports and custom topic alerts.</p>
+    {dest !== "/account/" && (
+      <p class="auth-return small-caps">After you verify, we&rsquo;ll send you back to finish what you started.</p>
+    )}
 
     {providers.length > 0 && (
       <div class="auth-social">
@@ -42,11 +48,22 @@ const providers = enabledSocialProviders();
       <div id="register-status" class="auth-status" role="status"></div>
     </form>
 
-    <p class="auth-alt">Already have an account? <a href="/login/">Sign in</a></p>
+    <p class="auth-alt">Already have an account? <a href={loginHref}>Sign in</a></p>
   </article>
 
   <script is:inline>
     const status = document.getElementById("register-status");
+    const articleEl = document.getElementById("register-article");
+    const nextDest = (articleEl && articleEl.getAttribute("data-next")) || "/account/";
+    const verifiedCallback =
+      nextDest && nextDest !== "/account/"
+        ? "/verified/?next=" + encodeURIComponent(nextDest)
+        : "/verified/";
+    const loginWithNext =
+      nextDest && nextDest !== "/account/"
+        ? "/login/?next=" + encodeURIComponent(nextDest)
+        : "/login/";
+    try { sessionStorage.setItem("clad_auth_next", nextDest); } catch {}
     const setErr = (m) => { status.className = "auth-status auth-status--error"; status.textContent = m; };
     document.getElementById("register-form").addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -90,7 +107,7 @@ const providers = enabledSocialProviders();
         const p3 = document.createElement("p");
         p3.className = "auth-alt";
         const signin = document.createElement("a");
-        signin.href = "/login/";
+        signin.href = loginWithNext;
         signin.textContent = "Sign in";
         p3.append("Already verified? ", signin);
         resend.addEventListener("click", async () => {
@@ -101,7 +118,7 @@ const providers = enabledSocialProviders();
             const r = await fetch("/api/auth/send-verification-email", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ email: addr, callbackURL: "/verified/" }),
+              body: JSON.stringify({ email: addr, callbackURL: verifiedCallback }),
             });
             if (!r.ok) throw new Error("Could not resend. Try again in a moment.");
             rstatus.textContent = "Sent — check your inbox (and spam).";
@@ -130,7 +147,7 @@ const providers = enabledSocialProviders();
           const res = await fetch("/api/auth/sign-in/social", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ provider, callbackURL: "/account/" }),
+            body: JSON.stringify({ provider, callbackURL: nextDest }),
           });
           const data = await res.json().catch(() => ({}));
           if (data.url) window.location.href = data.url;

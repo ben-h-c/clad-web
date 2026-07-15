@@ -181,6 +181,6 @@ const desc = metaDescription(
       </nav>
     )}
 
-    {locked && <PaywallPanel signedIn={access.signedIn} />}
+    {locked && <PaywallPanel signedIn={access.signedIn} returnTo={Astro.url.pathname} />}
   </section>
 </BaseLayout>

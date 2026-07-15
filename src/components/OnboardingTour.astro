@@ -73,8 +73,27 @@
         </p>
       </section>
 
-      <!-- 5 — Account -->
+      <!-- 5 — Midterms & play -->
       <section class="tour__step" data-step="4" hidden>
+        <div class="tour__art tour__art--shot">
+          <img class="tour__shot" src="/tour/1-feed.png" width="393" height="852" loading="lazy"
+               alt="CladFacts home with midterms and quiz entry points" />
+        </div>
+        <p class="tour__kicker">Midterms &amp; play</p>
+        <h2 class="tour__heading">More than the feed</h2>
+        <p class="tour__text">
+          Fill a <strong>2026 ballot board</strong> and share your picks, explore the
+          <strong>election map</strong>, take the daily <strong>morning quiz</strong>,
+          or check <strong>your bias</strong> against how outlets cover the news.
+        </p>
+        <div class="tour__cta">
+          <a class="auth-submit secondary" href="/bracket/" data-tour-skip>Ballot board</a>
+          <a class="auth-submit secondary" href="/quiz/" data-tour-skip>Morning quiz</a>
+        </div>
+      </section>
+
+      <!-- 6 — Account -->
+      <section class="tour__step" data-step="5" hidden>
         <div class="tour__art tour__art--shot">
           <img class="tour__shot" src="/tour/5-account.png" width="393" height="852" loading="lazy"
                alt="The create-account screen for a free CladFacts account" />
@@ -82,9 +101,8 @@
         <p class="tour__kicker">Make it yours</p>
         <h2 class="tour__heading">Create a free account</h2>
         <p class="tour__text">
-          Save reports, follow the topics you care about, and turn on alerts. A free
-          account is <strong>full access</strong> — every grade, lean, the bias
-          charts, and search — no card, no trial clock.
+          Save reports, follow topics, fill your midterms ballot, and unlock every
+          grade. A free account is <strong>full access</strong> — no card, no trial clock.
         </p>
         <div class="tour__cta">
           <a class="auth-submit" href="/register/" data-tour-skip>Create account</a>
@@ -134,7 +152,7 @@
   (() => {
     // Bump this version to re-show the tour to everyone once (existing users
     // see the new flow on their next visit; afterward only brand-new users do).
-    const KEY = "clad_tour_v2";
+    const KEY = "clad_tour_v3";
     const tour = document.getElementById("tour");
     if (!tour) return;
     const steps = Array.from(tour.querySelectorAll(".tour__step"));

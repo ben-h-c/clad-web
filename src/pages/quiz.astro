@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import ExploreNext from "~/components/ExploreNext.astro";
 import { nyDateParts } from "~/lib/dateline";
 
 export const prerender = false;
@@ -91,7 +92,7 @@ const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
           <p class="quiz__streak small-caps" id="quiz-streak"></p>
           <div class="quiz__cta">
             <button type="button" class="quiz__share" id="quiz-share">Share your score</button>
-            <a href="/register/">Free account unlocks every grade →</a>
+            <a href="/register/?next=%2Fquiz%2F">Free account unlocks every grade →</a>
           </div>
         </div>
         <noscript>
@@ -99,6 +100,7 @@ const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
         </noscript>
       </>
     )}
+    <ExploreNext context="quiz" title="After the quiz" eyebrow="Next" />
   </section>
 
   <style>

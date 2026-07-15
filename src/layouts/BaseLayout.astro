@@ -2,7 +2,9 @@
 import "~/styles/global.css";
 import Masthead from "~/components/Masthead.astro";
 import OnboardingTour from "~/components/OnboardingTour.astro";
+import SiteTips from "~/components/SiteTips.astro";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
+import { FOOTER_PRODUCT_LINKS } from "~/lib/explore";
 
 interface Props {
   title: string;
@@ -210,11 +212,23 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
         <slot />
       </main>
       <footer class="colophon">
+        <nav class="colophon__explore" aria-label="Explore Clad">
+          {FOOTER_PRODUCT_LINKS.map((l, i) => (
+            <>
+              {i > 0 && <span class="colophon__dot" aria-hidden="true">·</span>}
+              <a href={l.href}>{l.label}</a>
+            </>
+          ))}
+        </nav>
         <p>
           Clad — AI-assisted reporting; every verdict is hand-reviewed.
           <a href="/about/">About</a>
           ·
           <a href="/how-it-works/">How it works</a>
+          ·
+          <a href="/newsletter/">Newsletter</a>
+          ·
+          <a href="/register/">Free account</a>
           ·
           <a href="/privacy/">Privacy</a>
           ·
@@ -249,6 +263,7 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
         <p>© {new Date().getFullYear()} CladFacts LLC. All rights reserved.</p>
       </footer>
     </div>
+    {!path.startsWith("/admin") && <SiteTips />}
     {tour && <OnboardingTour />}
   </body>
 </html>

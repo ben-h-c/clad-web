@@ -1,14 +1,14 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getAuth, enabledSocialProviders } from "~/lib/auth-server";
+import { safeNextPath } from "~/lib/safeNext";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
 
-// Honor a same-origin ?next= so "Save" / gated actions can bounce readers back
-// to where they were (open-redirect-safe: must be a root-relative path).
-const nextParam = Astro.url.searchParams.get("next");
-const dest = nextParam && nextParam.startsWith("/") && !nextParam.startsWith("//") ? nextParam : "/account/";
+// Honor a same-origin ?next= so "Save" / gated actions can bounce readers back.
+const dest = safeNextPath(Astro.url.searchParams.get("next"), "/account/");
+const registerHref = dest !== "/account/" ? `/register/?next=${encodeURIComponent(dest)}` : "/register/";
 
 const session = await getAuth().api.getSession({ headers: Astro.request.headers });
 if (session?.user) return Astro.redirect(dest);
@@ -43,7 +43,7 @@ const providers = enabledSocialProviders();
     </form>
 
     <p class="auth-alt"><a href="/reset-password/">Forgot your password?</a></p>
-    <p class="auth-alt">New here? <a href="/register/">Create an account</a></p>
+    <p class="auth-alt">New here? <a href={registerHref}>Create an account</a></p>
   </article>
 
   <script is:inline>
@@ -51,6 +51,7 @@ const providers = enabledSocialProviders();
     const setErr = (m) => { status.className = "auth-status auth-status--error"; status.textContent = m; };
     const nextParam = new URLSearchParams(location.search).get("next");
     const dest = nextParam && nextParam.startsWith("/") && !nextParam.startsWith("//") ? nextParam : "/account/";
+    try { sessionStorage.setItem("clad_auth_next", dest); } catch {}
     document.getElementById("login-form").addEventListener("submit", async (e) => {
       e.preventDefault();
       const btn = e.target.querySelector(".auth-submit");

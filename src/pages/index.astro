@@ -139,25 +139,35 @@ if (!locked) {
       />
 
       <nav class="home-rails" aria-label="Explore Clad">
-        <a class="home-rails__card" href="/elections/map/">
-          <span class="home-rails__kicker small-caps">Midterms</span>
-          <span class="home-rails__title">Election map</span>
-          <span class="home-rails__blurb">Who&rsquo;s up in 2026 — and where coverage is loudest.</span>
-        </a>
         <a class="home-rails__card" href="/bracket/">
           <span class="home-rails__kicker small-caps">Midterms</span>
           <span class="home-rails__title">Ballot board</span>
           <span class="home-rails__blurb">Pick winners, share your sheet, track accuracy all season.</span>
+        </a>
+        <a class="home-rails__card" href="/elections/map/">
+          <span class="home-rails__kicker small-caps">Midterms</span>
+          <span class="home-rails__title">Election map</span>
+          <span class="home-rails__blurb">Who&rsquo;s up in 2026 — and where coverage is loudest.</span>
         </a>
         <a class="home-rails__card" href="/quiz/">
           <span class="home-rails__kicker small-caps">Play</span>
           <span class="home-rails__title">Morning quiz</span>
           <span class="home-rails__blurb">Five real claims. Can you spot the spin?</span>
         </a>
-        <a class="home-rails__card" href="/students/">
-          <span class="home-rails__kicker small-caps">Campus</span>
-          <span class="home-rails__title">For students</span>
-          <span class="home-rails__blurb">How to read grades — and share them.</span>
+        <a class="home-rails__card" href="/discover/">
+          <span class="home-rails__kicker small-caps">Read</span>
+          <span class="home-rails__title">Discover</span>
+          <span class="home-rails__blurb">Curated stories worth your time.</span>
+        </a>
+        <a class="home-rails__card" href="/bias/">
+          <span class="home-rails__kicker small-caps">You</span>
+          <span class="home-rails__title">Check your bias</span>
+          <span class="home-rails__blurb">See how the coverage you open leans.</span>
+        </a>
+        <a class="home-rails__card" href="/politicians/">
+          <span class="home-rails__kicker small-caps">People</span>
+          <span class="home-rails__title">Politicians</span>
+          <span class="home-rails__blurb">Report cards for the trail — grades, not polls.</span>
         </a>
       </nav>
 
@@ -182,7 +192,7 @@ if (!locked) {
       </section>
 
       {locked ? (
-        <PaywallPanel signedIn={access.signedIn} />
+        <PaywallPanel signedIn={access.signedIn} returnTo="/" />
       ) : (
         <>
           <HomeCharts posts={all} topics={topics} sentiments={sentiments} />
@@ -193,7 +203,9 @@ if (!locked) {
             {" · "}
             <a href="/bias/">Check your bias</a>
             {" · "}
-            <a href="/week/">Week in Grades</a>.
+            <a href="/week/">Week in Grades</a>
+            {" · "}
+            <a href="/good-news/">Good News</a>.
           </p>
         </>
       )}
@@ -206,9 +218,11 @@ if (!locked) {
         <ul class="more-clad__list">
           <li><a href="/week/"><strong>Week in Grades</strong></a> — best, worst, and what got ignored</li>
           <li><a href="/trends/"><strong>News Trends</strong></a> — is coverage getting better or worse?</li>
-          <li><a href="/politicians/"><strong>Politician cards</strong></a> — how the trail is covered</li>
+          <li><a href="/good-news/"><strong>Good News</strong></a> — solid reporting, lighter load</li>
+          <li><a href="/students/"><strong>For students</strong></a> — how to read grades and share them</li>
           <li><a href="/learn/"><strong>New to the news?</strong></a> — short explainers, no jargon</li>
           <li><a href="/how-it-works/"><strong>How Clad works</strong></a> — the method, start to finish</li>
+          <li><a href="/newsletter/"><strong>Newsletter</strong></a> — Sunday desk in your inbox</li>
         </ul>
       </section>
     </>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import ExploreNext from "~/components/ExploreNext.astro";
 import { getAuth } from "~/lib/auth-server";
 import { getPrefs, listFavorites, listAlerts, userHasPassword } from "~/lib/user-data";
 import { TOPIC_LABELS } from "~/lib/topics";
@@ -38,6 +39,13 @@ const planLabel = access.tier === "paid" ? "Premium" : "Free";
         <span class="account-pill">{planLabel}</span>
       </p>
     </header>
+
+    <ExploreNext
+      context="account"
+      title="Jump back in"
+      eyebrow="Explore"
+      compact
+    />
 
     {access.tier !== "paid" && (
       <section class="account-card clad-app-only">

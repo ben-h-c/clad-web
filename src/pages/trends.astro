@@ -163,7 +163,7 @@ const sentiTxt = (v: number) => (v > 0 ? `+${v}` : v < 0 ? `−${-v}` : "0");
           </p>
         )}
 
-        {locked && <PaywallPanel signedIn={access.signedIn} />}
+        {locked && <PaywallPanel signedIn={access.signedIn} returnTo="/trends/") />}
 
         {!locked && hasQuality && (
           <section class="trendmod">

@@ -12,6 +12,8 @@ import { getSentiments } from "~/lib/agents";
 import Disclaimer from "~/components/Disclaimer.astro";
 import NewsletterSignup from "~/components/NewsletterSignup.astro";
 import ShareBar from "~/components/ShareBar.astro";
+import ExploreNext from "~/components/ExploreNext.astro";
+import { registerHref } from "~/lib/safeNext";
 import { dateline, shortDate } from "~/lib/dateline";
 import { embedUrl, isOwnedGeneratedImage } from "~/lib/youtube";
 import { getAccess } from "~/lib/access";
@@ -314,7 +316,7 @@ const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id)
             <p class="grade-lock-panel">
               <span aria-hidden="true">🔒</span> The <strong>letter grade</strong>, factuality score,
               <strong> political-lean</strong> rating, and <strong>social-media sentiment</strong> for this report unlock with a
-              <a href="/register/"> free CladFacts account</a> — no card, no trial clock.
+              <a href={registerHref(`/posts/${post.id}/`)}> free CladFacts account</a> — no card, no trial clock.
               Already have one? <a href={`/login/?next=/posts/${post.id}/`}>Sign in</a>.
               The full report below is free to read.
             </p>
@@ -540,6 +542,13 @@ const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id)
       </section>
     )}
 
+    <ExploreNext
+      context="post"
+      locked={locked}
+      returnTo={`/posts/${post.id}/`}
+      title="Done with this report?"
+      eyebrow="Keep going"
+    />
     <NewsletterSignup compact />
     <Disclaimer />
   </article>

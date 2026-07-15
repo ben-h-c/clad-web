@@ -64,6 +64,6 @@ const sampleId = locked ? sampleUnlockedId(all) : null;
       ))
     )}
 
-    {locked && <PaywallPanel signedIn={access.signedIn} />}
+    {locked && <PaywallPanel signedIn={access.signedIn} returnTo="/discover/") />}
   </section>
 </BaseLayout>

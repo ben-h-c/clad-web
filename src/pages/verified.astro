@@ -1,16 +1,25 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import ExploreNext from "~/components/ExploreNext.astro";
 import { getAuth } from "~/lib/auth-server";
+import { safeNextPath } from "~/lib/safeNext";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
 
 const error = Astro.url.searchParams.get("error");
+const dest = safeNextPath(Astro.url.searchParams.get("next"), "/account/");
 const session = await getAuth().api.getSession({ headers: Astro.request.headers });
 const signedIn = !!session?.user;
+const primaryHref = signedIn ? dest : `/login/?next=${encodeURIComponent(dest)}`;
+const primaryLabel = signedIn
+  ? dest !== "/account/"
+    ? "Continue where you left off →"
+    : "Go to your account"
+  : "Sign in";
 ---
 <BaseLayout title={error ? "Verification problem — Clad" : "Email confirmed — Clad"} description="Email verification status." noindex={true}>
-  <article class="static-page auth-page" style="text-align:center">
+  <article class="static-page auth-page" style="text-align:center" id="verified-page" data-next={dest}>
     {error ? (
       <>
         <h2 class="static-page__title">Verification link problem</h2>
@@ -19,7 +28,7 @@ const signedIn = !!session?.user;
           can send you a fresh link.
         </p>
         <p class="account-actions" style="justify-content:center">
-          <a class="auth-submit" href="/login/">Go to sign in</a>
+          <a class="auth-submit" href={`/login/?next=${encodeURIComponent(dest)}`}>Go to sign in</a>
         </p>
       </>
     ) : (
@@ -27,13 +36,36 @@ const signedIn = !!session?.user;
         <h2 class="static-page__title">Email confirmed</h2>
         <p>Your CladFacts account is now verified. Welcome aboard.</p>
         <p class="account-actions" style="justify-content:center">
-          {signedIn ? (
-            <a class="auth-submit" href="/account/">Go to your account</a>
-          ) : (
-            <a class="auth-submit" href="/login/">Sign in</a>
-          )}
+          <a class="auth-submit" href={primaryHref}>{primaryLabel}</a>
         </p>
+        {signedIn && dest === "/account/" && (
+          <ExploreNext
+            context="account"
+            title="You’re in — try these next"
+            eyebrow="Welcome"
+            compact
+          />
+        )}
       </>
     )}
   </article>
+  <script is:inline>
+    (() => {
+      const page = document.getElementById("verified-page");
+      if (!page) return;
+      let dest = page.getAttribute("data-next") || "/account/";
+      try {
+        const stored = sessionStorage.getItem("clad_auth_next");
+        if (stored && stored.startsWith("/") && !stored.startsWith("//") && dest === "/account/") {
+          dest = stored;
+          const btn = page.querySelector(".auth-submit");
+          if (btn && btn.getAttribute("href")?.startsWith("/account")) {
+            btn.setAttribute("href", dest);
+            if (dest !== "/account/") btn.textContent = "Continue where you left off →";
+          }
+        }
+        sessionStorage.removeItem("clad_auth_next");
+      } catch {}
+    })();
+  </script>
 </BaseLayout>

@@ -111,6 +111,6 @@ const samplePost = sampleId ? all.find((p) => p.id === sampleId) : null;
       </section>
     )}
 
-    {locked && <PaywallPanel signedIn={access.signedIn} />}
+    {locked && <PaywallPanel signedIn={access.signedIn} returnTo="/bias/") />}
   </section>
 </BaseLayout>

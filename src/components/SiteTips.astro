@@ -1,0 +1,58 @@
+---
+/**
+ * One soft, dismissible tip bar for first-time visitors who skipped the tour.
+ * Appears once per tip id (localStorage). Never stacks with the tour modal.
+ * Mount site-wide from BaseLayout (non-admin).
+ */
+---
+<aside class="site-tip" id="site-tip" hidden data-tip-id="explore-midterms-quiz-v1">
+  <p class="site-tip__msg">
+    <span class="site-tip__kicker small-caps">Try this</span>
+    <span class="site-tip__text">
+      New here? Fill a <a href="/bracket/">midterms ballot</a>, take the
+      <a href="/quiz/">morning quiz</a>, or <a href="/register/">create a free account</a> to unlock grades.
+    </span>
+  </p>
+  <div class="site-tip__actions">
+    <a class="site-tip__cta" href="/bracket/">Ballot board</a>
+    <button type="button" class="site-tip__dismiss" id="site-tip-dismiss" aria-label="Dismiss tip">×</button>
+  </div>
+</aside>
+<script is:inline>
+  (() => {
+    const el = document.getElementById("site-tip");
+    if (!el) return;
+    const id = el.getAttribute("data-tip-id") || "site-tip";
+    const KEY = "clad_tip_" + id;
+    const path = location.pathname || "/";
+    // Don't compete with auth, admin, or first-paint tour on home.
+    if (/^\/(login|register|admin|verified|account|reset-password)/.test(path)) return;
+    try {
+      if (localStorage.getItem(KEY)) return;
+      // If tour is still pending on home, let the tour own first attention.
+      if (path === "/" && !localStorage.getItem("clad_tour_v3") && !localStorage.getItem("clad_tour_v2")) {
+        return;
+      }
+    } catch {
+      return;
+    }
+    // Delay so it doesn't flash over the first paint.
+    setTimeout(() => {
+      try {
+        if (localStorage.getItem(KEY)) return;
+      } catch {}
+      el.hidden = false;
+    }, 2200);
+
+    const dismiss = () => {
+      el.hidden = true;
+      try { localStorage.setItem(KEY, "1"); } catch {}
+    };
+    document.getElementById("site-tip-dismiss")?.addEventListener("click", dismiss);
+    el.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => {
+        try { localStorage.setItem(KEY, "1"); } catch {}
+      });
+    });
+  })();
+</script>
