@@ -151,25 +151,28 @@ const weekAvgLetter = !locked && weekAvgGpa != null ? gpaToGrade(weekAvgGpa) : n
         </>
       )}
 
-      {/* Value prop first — not a wall of carousels. */}
+      {/* Broadsheet lede — hook, not institutional mission copy. */}
       <section class="home-lede" aria-label="What Clad is">
-        <p class="home-lede__kicker small-caps">Independent fact-check desk</p>
-        <p class="home-lede__line">
-          We grade TV news for <strong>accuracy</strong> and <strong>bias</strong> —
-          letter grade, lean score, claim tags, sources you can open.
+        <p class="home-lede__kicker small-caps">
+          {locked ? "Grades free with any account" : "Your grades are on"}
         </p>
-        <ul class="home-pulse" aria-label="Desk at a glance">
-          <li><strong>{broadcastCount.toLocaleString()}</strong><span>graded reports</span></li>
-          <li><strong>{weekCount}</strong><span>this week</span></li>
-          <li><strong>{outletSet.size}</strong><span>outlets watched</span></li>
+        <h2 class="home-lede__headline">The coverage got a report card.</h2>
+        <p class="home-lede__deck">
+          Clad watches the broadcast, checks the claims, and scores the
+          <em> coverage</em> — accuracy, slant, sources. Not the people in it.
+        </p>
+        <ul class="home-pulse" aria-label="This edition">
+          <li><strong>{broadcastCount.toLocaleString()}</strong><span>report cards</span></li>
+          <li><strong>{weekCount}</strong><span>new this week</span></li>
+          <li><strong>{outletSet.size}</strong><span>outlets</span></li>
           {weekAvgLetter && (
-            <li><strong>{weekAvgLetter}</strong><span>avg this week</span></li>
+            <li><strong>{weekAvgLetter}</strong><span>week&rsquo;s average</span></li>
           )}
         </ul>
         {locked ? (
           <p class="home-lede__cta-row">
-            <a class="home-lede__cta" href="/register/">Unlock every grade — free</a>
-            <a class="home-lede__ghost" href="/learn/grades/">What do grades mean?</a>
+            <a class="home-lede__cta" href="/register/">See every grade free</a>
+            <a class="home-lede__ghost" href="/learn/grades/">A vs. F, plain English</a>
           </p>
         ) : (
           <p class="home-lede__cta-row">
@@ -180,12 +183,12 @@ const weekAvgLetter = !locked && weekAvgGpa != null ? gpaToGrade(weekAvgGpa) : n
         )}
       </section>
 
-      {/* Guest aha: one real grade before the feed noise. */}
+      {/* Guest aha: one real grade before the feed. */}
       {locked && sampleId && byId.has(sampleId) && (
         <section class="free-card" aria-labelledby="free-card-title">
           <div class="feed__head">
-            <h2 class="feed__title" id="free-card-title">Start here — today&rsquo;s free grade</h2>
-            <span class="free-card__note">One full report card, free every day. An account unlocks the rest.</span>
+            <h2 class="feed__title" id="free-card-title">Today&rsquo;s open report card</h2>
+            <span class="free-card__note">One full grade free each day — no account. The rest unlock when you sign up.</span>
           </div>
           <div class="rule rule--double" aria-hidden="true"></div>
           <ReportCard post={byId.get(sampleId)!} sample />
@@ -202,27 +205,26 @@ const weekAvgLetter = !locked && weekAvgGpa != null ? gpaToGrade(weekAvgGpa) : n
         moreLabel="Latest →"
       />
 
-      {/* Product discovery without another carousel of cards. */}
-      <nav class="desk-rails" aria-label="Explore Clad">
-        <a class="desk-rails__card" href="/elections/map/">
-          <span class="desk-rails__kicker small-caps">Midterms 2026</span>
-          <span class="desk-rails__title">Election map</span>
-          <span class="desk-rails__blurb">Class II Senate, governors, coverage heat — not polls.</span>
+      <nav class="home-rails" aria-label="Explore Clad">
+        <a class="home-rails__card" href="/elections/map/">
+          <span class="home-rails__kicker small-caps">Midterms</span>
+          <span class="home-rails__title">Election map</span>
+          <span class="home-rails__blurb">Who&rsquo;s up in 2026 — and where coverage is loudest.</span>
         </a>
-        <a class="desk-rails__card" href="/bracket/">
-          <span class="desk-rails__kicker small-caps">Midterms 2026</span>
-          <span class="desk-rails__title">Race board</span>
-          <span class="desk-rails__blurb">Who&rsquo;s on the ballot, with coverage grades.</span>
+        <a class="home-rails__card" href="/bracket/">
+          <span class="home-rails__kicker small-caps">Midterms</span>
+          <span class="home-rails__title">Race board</span>
+          <span class="home-rails__blurb">Ballot matchups with coverage grades, not polls.</span>
         </a>
-        <a class="desk-rails__card" href="/quiz/">
-          <span class="desk-rails__kicker small-caps">Daily</span>
-          <span class="desk-rails__title">Morning quiz</span>
-          <span class="desk-rails__blurb">Five real claims. Spot the spin in two minutes.</span>
+        <a class="home-rails__card" href="/quiz/">
+          <span class="home-rails__kicker small-caps">Play</span>
+          <span class="home-rails__title">Morning quiz</span>
+          <span class="home-rails__blurb">Five real claims. Can you spot the spin?</span>
         </a>
-        <a class="desk-rails__card" href="/students/">
-          <span class="desk-rails__kicker small-caps">Campus</span>
-          <span class="desk-rails__title">For students</span>
-          <span class="desk-rails__blurb">Grades, explainers, share kit — free account.</span>
+        <a class="home-rails__card" href="/students/">
+          <span class="home-rails__kicker small-caps">Campus</span>
+          <span class="home-rails__title">For students</span>
+          <span class="home-rails__blurb">How to read grades — and share them.</span>
         </a>
       </nav>
 
@@ -253,25 +255,27 @@ const weekAvgLetter = !locked && weekAvgGpa != null ? gpaToGrade(weekAvgGpa) : n
           <HomeCharts posts={all} topics={topics} sentiments={sentiments} />
           {topGraded.length > 0 && <GradeBoard top={topGraded} bottom={bottomGraded} />}
           <p class="home-more-analytics">
-            Lean extremes and week-over-week quality live on{" "}
+            Want the long view?{" "}
             <a href="/trends/">News Trends</a>
             {" · "}
-            <a href="/bias/">Check your bias</a>.
+            <a href="/bias/">Check your bias</a>
+            {" · "}
+            <a href="/week/">Week in Grades</a>.
           </p>
         </>
       )}
 
       <section class="more-clad" aria-labelledby="more-clad-title">
         <div class="feed__head">
-          <h2 class="feed__title" id="more-clad-title">More from Clad</h2>
+          <h2 class="feed__title" id="more-clad-title">Keep reading</h2>
         </div>
         <div class="rule rule--double" aria-hidden="true"></div>
         <ul class="more-clad__list">
-          <li><a href="/week/"><strong>Week in Grades</strong></a> — best, worst, and blind spots</li>
-          <li><a href="/trends/"><strong>News Trends</strong></a> — quality and lean over time</li>
-          <li><a href="/politicians/"><strong>Politician cards</strong></a> — coverage report cards for the trail</li>
-          <li><a href="/learn/"><strong>New to the news?</strong></a> — six short explainers</li>
-          <li><a href="/how-it-works/"><strong>How Clad works</strong></a> — full methodology</li>
+          <li><a href="/week/"><strong>Week in Grades</strong></a> — best, worst, and what got ignored</li>
+          <li><a href="/trends/"><strong>News Trends</strong></a> — is coverage getting better or worse?</li>
+          <li><a href="/politicians/"><strong>Politician cards</strong></a> — how the trail is covered</li>
+          <li><a href="/learn/"><strong>New to the news?</strong></a> — short explainers, no jargon</li>
+          <li><a href="/how-it-works/"><strong>How Clad works</strong></a> — the method, start to finish</li>
         </ul>
       </section>
     </>
