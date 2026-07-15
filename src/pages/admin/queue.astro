@@ -4,7 +4,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import AdminNav from "~/components/AdminNav.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
-import { findNearDuplicates, leanSpread, listDrafts, type NearDuplicate } from "~/lib/agents";
+import { findNearDuplicates, leanSpread, listDrafts, publishedPostsMeta, type NearDuplicate } from "~/lib/agents";
 import { isTertiarySource } from "~/lib/citations";
 import { eventTypeLabel, type EventType } from "~/lib/draftQuality";
 import { lintHeadline } from "~/lib/headlineLint";
@@ -38,6 +38,10 @@ const drafts = sortedDrafts.slice(0, QUEUE_PAGE_SIZE);
 const nearDupsById = new Map<string, NearDuplicate[]>();
 const spreadById = new Map<string, number>();
 const lintById = new Map<string, string[]>();
+// Preload the posts collection once for the whole loop — otherwise each fresh
+// near-dup computation re-materializes all ~2530 posts (the 160-draft backlog
+// that 503'd this page). Only needed if some draft lacks a stored result.
+const allPosts = drafts.some((d) => !d.nearDuplicates) ? await publishedPostsMeta() : [];
 for (const d of drafts) {
   const dups =
     d.nearDuplicates ??
@@ -46,6 +50,7 @@ for (const d of drafts) {
       publishedAt: d.source.publishedAt,
       excludeDraftId: d.draftId,
       preloadedDrafts: allDrafts,
+      preloadedPosts: allPosts,
     }));
   nearDupsById.set(d.draftId, dups);
   spreadById.set(d.draftId, leanSpread([...dups, { leanScore: d.report.leanScore }]));

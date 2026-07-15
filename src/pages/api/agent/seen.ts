@@ -1,7 +1,15 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { checkAgentToken, tokenUnauthorized } from "~/lib/agentAuth";
-import { existingVideoIds, isSeen, getDraft, draftId, findDuplicateStory } from "~/lib/agents";
+import {
+  existingVideoIds,
+  isSeen,
+  getDraft,
+  draftId,
+  findDuplicateStory,
+  publishedStories,
+  listDrafts,
+} from "~/lib/agents";
 
 export const prerender = false;
 
@@ -37,6 +45,12 @@ export const POST: APIRoute = async ({ request }) => {
       : [];
 
   const published = await existingVideoIds();
+  // The same-network story check below runs per candidate. Load its corpora
+  // once (only if any candidate can trigger it) instead of re-scanning the
+  // posts collection and re-reading the KV draft queue inside every iteration.
+  const needsDupCheck = candidates.some((c) => c.channel && c.title);
+  const pubStories = needsDupCheck ? await publishedStories() : [];
+  const draftList = needsDupCheck ? await listDrafts(env.AGENTS) : [];
   const known: string[] = [];
   for (const c of candidates) {
     if (published.has(c.videoId)) {
@@ -57,6 +71,8 @@ export const POST: APIRoute = async ({ request }) => {
         channel: c.channel,
         texts: [c.title],
         includeDrafts: true,
+        preloadedPublished: pubStories,
+        preloadedDrafts: draftList,
       });
       if (dup) known.push(c.videoId);
     }

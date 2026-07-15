@@ -21,7 +21,16 @@ const VERDICT_LABELS: Record<string, string> = {
 const esc = (s: unknown) =>
   String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
-export const GET: APIRoute = async ({ params }) => {
+export const GET: APIRoute = async ({ params, request, locals }) => {
+  // Dedupe repeat/query-varied hits in the Worker (same pattern as the /og/
+  // routes), so we don't re-scan the whole posts collection per request. The
+  // badge is content-addressed by path only, so drop the query from the key.
+  const cache = (caches as any).default as Cache;
+  const _u = new URL(request.url);
+  const cacheKey = new Request(_u.origin + _u.pathname);
+  const hit = await cache.match(cacheKey);
+  if (hit) return hit;
+
   const post = (await getCollection("posts", (p) => !p.data.draft)).find((p) => p.id === params.slug);
   if (!post) return new Response(null, { status: 404 });
   const d = post.data;
@@ -42,10 +51,13 @@ export const GET: APIRoute = async ({ params }) => {
   <text x="106" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="10" fill="${MUTED}">cladfacts.com — read the full report</text>
 </svg>`;
 
-  return new Response(svg, {
+  const resp = new Response(svg, {
     headers: {
       "Content-Type": "image/svg+xml; charset=utf-8",
       "Cache-Control": "public, max-age=86400, s-maxage=604800, immutable",
     },
   });
+  const cf = (locals as any)?.cfContext;
+  if (cf?.waitUntil) cf.waitUntil(cache.put(cacheKey, resp.clone()));
+  return resp;
 };

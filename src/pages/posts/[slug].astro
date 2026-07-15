@@ -19,7 +19,7 @@ import { sampleUnlockedId } from "~/lib/sample";
 import { metaDescription } from "~/lib/seo";
 import { splitCitations } from "~/lib/citations";
 import { slugify } from "~/lib/slug";
-import { aggregateTopics, canonicalTopic, topicSlug } from "~/lib/topics";
+import { aggregateTopicsCached, canonicalTopic, topicSlug } from "~/lib/topics";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
@@ -196,7 +196,7 @@ const sentiment = isBroadcast && !locked ? (await getSentiments(env.AGENTS))[pos
 // aggregator clusters near-duplicate tags by similarity, so raw tags rarely
 // slug-match directly — the primary (first) chip therefore falls back to the
 // cluster this post was actually assigned to.
-const topicAggs = aggregateTopics(all);
+const topicAggs = aggregateTopicsCached(all);
 const topicPageSlugs = new Set(topicAggs.map((t) => t.slug));
 const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id))?.slug ?? null;
 ---

@@ -27,8 +27,13 @@ function slugify(name) {
 }
 
 async function fetchText(url) {
+  // Bound the request so a stalled GitHub/Wikipedia socket can't hang this agent
+  // (and, via the sequential tick loop, every later agent) for undici's ~300s
+  // default. 30s is generous for the multi-MB congress YAML; a timeout throws
+  // and surfaces through the caller's existing try/catch as an ordinary failure.
   const res = await fetch(url, {
     headers: { "User-Agent": "CladFactsRosterSync/1.0 (+https://cladfacts.com)" },
+    signal: AbortSignal.timeout(30000),
   });
   if (!res.ok) throw new Error(`${url} → ${res.status}`);
   return res.text();

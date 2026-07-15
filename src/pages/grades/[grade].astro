@@ -61,10 +61,12 @@ const shade = grade.includes("+")
 const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
 
-const all = (await getCollection("posts", (p) => !p.data.draft)).sort(
-  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
-);
-const matching = all.filter((p) => p.data.letterGrade === grade);
+// sampleUnlockedId re-sorts its input internally, so `all` needn't be sorted;
+// sort only the matched band instead of the whole ~2530-post collection.
+const all = await getCollection("posts", (p) => !p.data.draft);
+const matching = all
+  .filter((p) => p.data.letterGrade === grade)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 
 // The daily sample renders fully unlocked (marked subtree) when it carries
 // this grade; every other card stays in its locked variant for guests.

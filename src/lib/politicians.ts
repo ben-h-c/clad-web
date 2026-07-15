@@ -207,6 +207,23 @@ export function buildPoliticianIndex(
     ensure(seed.slug, seed.name, { race: seed.race, bucket: seed.bucket, onRoster: true });
   }
 
+  // Precompute each seed's alias matchers once — they're invariant across posts.
+  // matchesAlias re-classifies each alias and recompiles its regex on every call,
+  // so doing it inside the posts×seeds loop repeats that work ~2530× per seed.
+  // The split below mirrors matchesAlias's exact rule (substring for aliases with
+  // whitespace/"-"/".", word-boundary regex otherwise), so results are identical.
+  const seedMatchers = seeds.map((seed) => {
+    const needles: string[] = [];
+    const regexes: RegExp[] = [];
+    for (const raw of seed.aliases) {
+      const a = raw.trim();
+      if (!a) continue;
+      if (/\s/.test(a) || a.includes("-") || a.includes(".")) needles.push(a.toLowerCase());
+      else regexes.push(new RegExp(`\\b${escapeRe(a)}\\b`, "i"));
+    }
+    return { seed, needles, regexes };
+  });
+
   for (const p of posts) {
     if (p.data.draft) continue;
     const blob = textBlob(p);
@@ -217,8 +234,8 @@ export function buildPoliticianIndex(
       ensure(slug, tag.name.trim() || slug).posts.set(p.id, p);
     }
 
-    for (const seed of seeds) {
-      if (seed.aliases.some((a) => matchesAlias(blob, a))) {
+    for (const { seed, needles, regexes } of seedMatchers) {
+      if (needles.some((n) => blob.includes(n)) || regexes.some((re) => re.test(blob))) {
         ensure(seed.slug, seed.name, {
           race: seed.race,
           bucket: seed.bucket,

@@ -122,8 +122,17 @@ function bucketize(topic: string): string | null {
   for (const [re, label] of TOPIC_BUCKETS) if (re.test(topic)) return label;
   return null;
 }
+// canonicalTopic is a pure function of its input string but is called densely
+// over the fixed (build-time) post corpus — once per topic per post inside
+// aggregateTopics and buildTrends. Memoize by input so the 21-regex bucketize
+// scan runs at most once per distinct topic string (bounded by the corpus).
+const _canonCache = new Map<string, string>();
 export function canonicalTopic(t: string): string {
-  return bucketize(t) ?? t.trim();
+  const hit = _canonCache.get(t);
+  if (hit !== undefined) return hit;
+  const v = bucketize(t) ?? t.trim();
+  _canonCache.set(t, v);
+  return v;
 }
 
 export function aggregateTopics(
@@ -213,4 +222,22 @@ export function aggregateTopics(
   out.sort((a, b) => b._score - a._score || b.count - a.count || b.latest - a.latest);
   // A topic is for grouping MULTIPLE like articles — drop singletons.
   return out.filter((t) => t.count >= 2).map(({ _score, ...t }) => t);
+}
+
+/**
+ * Sentiment-free aggregateTopics memoized per isolate. The post collection is
+ * baked at build time (immutable for the deploy), so the clustering result is
+ * stable; only the recency-decay ordering drifts with wall-clock time, which
+ * callers of this variant do not depend on (they use it for slug lookups /
+ * membership, not display order). Keyed on the collection size — every caller
+ * passes the full non-draft set, so length uniquely identifies the input.
+ * Use aggregateTopics(posts, sentiments) directly where sentiment or the
+ * live recency ordering matters (e.g. the home Topics section).
+ */
+let _aggCache: { key: number; val: TopicAgg[] } | null = null;
+export function aggregateTopicsCached(posts: CollectionEntry<"posts">[]): TopicAgg[] {
+  if (_aggCache && _aggCache.key === posts.length) return _aggCache.val;
+  const val = aggregateTopics(posts);
+  _aggCache = { key: posts.length, val };
+  return val;
 }

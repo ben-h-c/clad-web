@@ -1288,15 +1288,21 @@ export function normChannel(c: string | undefined): string {
   return (c || "").toLowerCase().replace(/\s+/g, " ").trim();
 }
 
+/** Best token-overlap between any pair of already-tokenized texts. Callers that
+ *  compare one fixed candidate against many others tokenize the candidate once
+ *  and reuse setsA, instead of re-tokenizing it on every comparison. */
+function sameStoryTokenized(setsA: Set<string>[], setsB: Set<string>[]): number {
+  let max = 0;
+  for (const A of setsA) for (const B of setsB) max = Math.max(max, jaccard(A, B));
+  return max;
+}
+
 /** Best token-overlap between any pair of texts from each side. */
 export function sameStory(textsA: string[], textsB: string[]): number {
-  let max = 0;
-  const setsB = textsB.filter(Boolean).map(storyTokens);
-  for (const ta of textsA.filter(Boolean)) {
-    const A = storyTokens(ta);
-    for (const B of setsB) max = Math.max(max, jaccard(A, B));
-  }
-  return max;
+  return sameStoryTokenized(
+    textsA.filter(Boolean).map(storyTokens),
+    textsB.filter(Boolean).map(storyTokens)
+  );
 }
 
 export interface StoryRef {
@@ -1313,8 +1319,12 @@ export async function publishedStories(): Promise<StoryRef[]> {
   }));
 }
 
-async function draftStories(kv: KVNamespace, excludeDraftId?: string): Promise<StoryRef[]> {
-  const drafts = await listDrafts(kv);
+async function draftStories(
+  kv: KVNamespace,
+  excludeDraftId?: string,
+  preloaded?: PendingDraft[]
+): Promise<StoryRef[]> {
+  const drafts = preloaded ?? (await listDrafts(kv));
   return drafts
     .filter((d) => d.draftId !== excludeDraftId)
     .map((d) => ({
@@ -1329,21 +1339,39 @@ async function draftStories(kv: KVNamespace, excludeDraftId?: string): Promise<S
  */
 export async function findDuplicateStory(
   kv: KVNamespace,
-  cand: { channel: string; texts: string[]; includeDrafts?: boolean; excludeDraftId?: string }
+  cand: {
+    channel: string;
+    texts: string[];
+    includeDrafts?: boolean;
+    excludeDraftId?: string;
+    /** Pass already-loaded published stories / drafts when calling in a loop —
+     *  otherwise every call re-scans the whole posts collection and re-reads the
+     *  KV draft queue, which is O(n·candidates) subrequests and 503s the Worker. */
+    preloadedPublished?: StoryRef[];
+    preloadedDrafts?: PendingDraft[];
+  }
 ): Promise<string | null> {
   const nc = normChannel(cand.channel);
   if (!nc) return null; // no channel → can't attribute to a network; skip this check
 
-  const pub = await publishedStories();
+  // Tokenize the candidate once; each existing story is compared against it.
+  const candSets = cand.texts.filter(Boolean).map(storyTokens);
+  const pub = cand.preloadedPublished ?? (await publishedStories());
   for (const s of pub) {
-    if (s.channel === nc && sameStory(cand.texts, s.texts) >= SAME_STORY_THRESHOLD) {
+    if (
+      s.channel === nc &&
+      sameStoryTokenized(candSets, s.texts.filter(Boolean).map(storyTokens)) >= SAME_STORY_THRESHOLD
+    ) {
       return "already published by this network";
     }
   }
   if (cand.includeDrafts) {
-    const drafts = await draftStories(kv, cand.excludeDraftId);
+    const drafts = await draftStories(kv, cand.excludeDraftId, cand.preloadedDrafts);
     for (const s of drafts) {
-      if (s.channel === nc && sameStory(cand.texts, s.texts) >= SAME_STORY_THRESHOLD) {
+      if (
+        s.channel === nc &&
+        sameStoryTokenized(candSets, s.texts.filter(Boolean).map(storyTokens)) >= SAME_STORY_THRESHOLD
+      ) {
         return "already pending from this network";
       }
     }
@@ -1387,6 +1415,10 @@ export async function findNearDuplicates(
      *  every call re-reads the whole draft queue from KV, which is O(n²)
      *  subrequests and 503s the Worker once the queue backlog is large. */
     preloadedDrafts?: PendingDraft[];
+    /** Same escape hatch for the posts side: pass an already-loaded posts-meta
+     *  list when calling in a loop, so the whole posts collection isn't
+     *  re-materialized on every call. */
+    preloadedPosts?: PostMeta[];
   }
 ): Promise<NearDuplicate[]> {
   const anchorDate = cand.publishedAt ? new Date(cand.publishedAt) : new Date();
@@ -1396,11 +1428,13 @@ export async function findNearDuplicates(
     return !Number.isNaN(t) && Math.abs(anchor - t) <= NEAR_DUP_WINDOW_MS;
   };
 
+  // Tokenize the candidate once; each in-window post/draft is compared to it.
+  const candSets = cand.texts.filter(Boolean).map(storyTokens);
   const out: NearDuplicate[] = [];
-  const posts = await publishedPostsMeta();
+  const posts = cand.preloadedPosts ?? (await publishedPostsMeta());
   for (const p of posts) {
     if (!inWindow(p.publishedAt)) continue;
-    const overlap = sameStory(cand.texts, [p.videoTitle ?? "", p.headline]);
+    const overlap = sameStoryTokenized(candSets, [p.videoTitle ?? "", p.headline].filter(Boolean).map(storyTokens));
     if (overlap >= NEAR_DUP_THRESHOLD) {
       out.push({
         id: p.id,
@@ -1417,7 +1451,7 @@ export async function findNearDuplicates(
     if (cand.excludeDraftId && d.draftId === cand.excludeDraftId) continue;
     const when = d.source.publishedAt ?? d.createdAt;
     if (!inWindow(when)) continue;
-    const overlap = sameStory(cand.texts, [d.source.videoTitle ?? "", d.report.headline]);
+    const overlap = sameStoryTokenized(candSets, [d.source.videoTitle ?? "", d.report.headline].filter(Boolean).map(storyTokens));
     if (overlap >= NEAR_DUP_THRESHOLD) {
       out.push({
         id: d.draftId,

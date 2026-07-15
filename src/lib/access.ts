@@ -47,12 +47,18 @@ async function resolveAccess(headers: Headers): Promise<Access> {
 
   const now = Date.now();
 
-  // The paid (supporter) tier comes from EITHER rail: Stripe (web) or Apple IAP (iOS app).
-  const sub = await env.DB.prepare(
-    "SELECT status, currentPeriodEnd FROM subscription WHERE userId = ?"
-  )
-    .bind(user.id)
-    .first<{ status: string; currentPeriodEnd: string | null }>();
+  // The paid (supporter) tier comes from EITHER rail: Stripe (web) or Apple IAP
+  // (iOS app). Both reads are independent (keyed only on user.id) and are always
+  // evaluated, so dispatch them concurrently to save a D1 round-trip on this
+  // hot, never-edge-cached signed-in path.
+  const [sub, apple] = await Promise.all([
+    env.DB.prepare("SELECT status, currentPeriodEnd FROM subscription WHERE userId = ?")
+      .bind(user.id)
+      .first<{ status: string; currentPeriodEnd: string | null }>(),
+    env.DB.prepare("SELECT status, expiresAt FROM apple_subscription WHERE userId = ?")
+      .bind(user.id)
+      .first<{ status: string; expiresAt: string | null }>(),
+  ]);
 
   const stripeActive =
     !!sub &&
@@ -60,11 +66,6 @@ async function resolveAccess(headers: Headers): Promise<Access> {
     (!sub.currentPeriodEnd || new Date(sub.currentPeriodEnd).getTime() > now);
 
   // Apple IAP entitlement: active subscription whose period hasn't lapsed.
-  const apple = await env.DB.prepare(
-    "SELECT status, expiresAt FROM apple_subscription WHERE userId = ?"
-  )
-    .bind(user.id)
-    .first<{ status: string; expiresAt: string | null }>();
   const appleActive =
     !!apple &&
     apple.status === "active" &&
