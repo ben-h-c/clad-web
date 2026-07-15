@@ -68,12 +68,23 @@ video still disappears from tiles site-wide in one release (owned `/generated/`
 art keeps rendering, and the embedded players themselves are unaffected —
 YouTube serves its own poster inside the iframe).
 
-## Known residual exposure
+## Wikimedia politician portraits
 
-- **Wikimedia politician portraits** are proxied same-origin
-  (`/api/politician-photo/`) without attribution. CC-BY/CC-BY-SA images
-  require attribution; a visible credit treatment (per-card or a credits page)
-  is the open follow-up. Non-free Wikipedia lead images are rare but possible.
+The same-origin portrait proxy (`/api/politician-photo/`) serves **Wikimedia
+Commons files only** — Commons hosts free-licensed media exclusively, while
+enwiki-local lead images can be non-free fair-use files. The Commons-only rule
+is enforced at every layer: the proxy's resolution paths, the KV photo-map
+write endpoint, the runner's portrait lookup, and the static map (checked in
+CI). Attribution — a license *condition* of CC-BY/CC-BY-SA works — is served
+at [/politicians/photo-credits/](https://cladfacts.com/politicians/photo-credits/)
+(TASL: author, source link, license), populated automatically from each file's
+Commons `extmetadata` record the first time its portrait is served, and linked
+from the politicians index and every politician page.
+
+Residual (accepted): past display of any pre-4.0-licensed image before credits
+shipped is not retroactively curable (CC ≤3.0 terminates on breach; CC 4.0 has
+a 30-day cure we now satisfy); realistic damages require the photographer to
+have registered the image, which ordinary Commons contributors rarely do.
 
 ## Incident log
 

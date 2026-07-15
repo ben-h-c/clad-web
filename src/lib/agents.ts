@@ -1216,6 +1216,60 @@ export async function mergePoliticianPhotos(
   return next;
 }
 
+/* ---------- politician photo credits (Wikimedia attribution) ----------
+ * TASL (Title/Author/Source/License) metadata for every portrait the proxy
+ * serves, surfaced on /politicians/photo-credits/ — attribution is a license
+ * CONDITION of the CC-BY/CC-BY-SA files Commons hosts (see
+ * docs/legal/image-claims.md). Populated lazily by the portrait proxy from the
+ * Commons imageinfo/extmetadata API the first time a portrait is served. */
+
+const POLITICIAN_CREDITS_KEY = "politicians:photo-credits";
+
+export interface PhotoCredit {
+  /** The upstream Commons URL this credit describes (staleness check). */
+  url: string;
+  file: string; // Commons file title, no "File:" prefix
+  filePage: string; // human file-description page (the TASL "source" link)
+  artist: string | null; // plain text, HTML stripped
+  license: string | null; // e.g. "CC BY-SA 4.0", "Public domain"
+  licenseUrl: string | null;
+  attributionRequired: boolean;
+  publicDomain: boolean;
+  fetchedAt: string;
+}
+
+export interface PoliticianPhotoCredits {
+  updatedAt: string;
+  bySlug: Record<string, PhotoCredit>;
+}
+
+export async function getPoliticianPhotoCredits(
+  kv: KVNamespace
+): Promise<PoliticianPhotoCredits | null> {
+  const raw = await kv.get(POLITICIAN_CREDITS_KEY);
+  if (!raw) return null;
+  try {
+    const data = JSON.parse(raw) as PoliticianPhotoCredits;
+    if (!data?.bySlug || typeof data.bySlug !== "object") return null;
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+export async function mergePoliticianPhotoCredit(
+  kv: KVNamespace,
+  slug: string,
+  credit: PhotoCredit
+): Promise<void> {
+  const prev = (await getPoliticianPhotoCredits(kv)) ?? { updatedAt: "", bySlug: {} };
+  const next: PoliticianPhotoCredits = {
+    updatedAt: new Date().toISOString(),
+    bySlug: { ...prev.bySlug, [slug]: credit },
+  };
+  await kv.put(POLITICIAN_CREDITS_KEY, JSON.stringify(next));
+}
+
 export async function getPoliticianScoutState(kv: KVNamespace): Promise<PoliticianScoutState> {
   const raw = await kv.get(POLITICIAN_SCOUT_KEY);
   if (!raw) return { cursor: 0, updatedAt: new Date(0).toISOString() };
