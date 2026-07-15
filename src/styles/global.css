@@ -90,11 +90,15 @@
 html {
   margin: 0;
   padding: 0;
-  /* Reading desk under the broadsheet */
+  /* Living desk — animated color field under the broadsheet */
   background-color: var(--desk);
   background-image:
-    radial-gradient(ellipse 120% 80% at 50% 0%, rgba(90, 72, 52, 0.45), transparent 55%),
-    linear-gradient(180deg, var(--desk-edge), var(--desk) 28%, var(--desk));
+    radial-gradient(ellipse 100% 70% at 20% 0%, rgba(210, 120, 70, 0.35), transparent 55%),
+    radial-gradient(ellipse 90% 60% at 90% 20%, rgba(70, 120, 180, 0.28), transparent 50%),
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(60, 140, 100, 0.22), transparent 50%),
+    linear-gradient(165deg, var(--desk-edge), var(--desk) 40%, color-mix(in srgb, var(--desk) 70%, #1a3040));
+  background-size: 200% 200%, 200% 200%, 180% 180%, 100% 100%;
+  animation: living-desk 28s ease-in-out infinite alternate;
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -113,6 +117,7 @@ body {
   max-width: 100%;
   overflow-x: hidden;
   position: relative;
+  isolation: isolate;
 }
 
 /* Global grain veil — very light film on the whole viewport.
@@ -122,7 +127,7 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
   opacity: var(--grain-opacity);
   background-image: var(--noise);
   background-repeat: repeat;
@@ -135,9 +140,165 @@ body::before {
   opacity: calc(var(--grain-opacity) * 1.15);
 }
 
+/* ---------- Living stage (behind the paper) ---------- */
+
+.living-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.living-bg__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(48px);
+  opacity: 0.55;
+  will-change: transform;
+  mix-blend-mode: screen;
+}
+.living-bg__orb--a {
+  width: min(52vw, 28rem);
+  height: min(52vw, 28rem);
+  left: -8%;
+  top: 8%;
+  background: radial-gradient(circle, rgba(255, 140, 70, 0.75), transparent 68%);
+  animation: living-orb-a 16s ease-in-out infinite alternate;
+}
+.living-bg__orb--b {
+  width: min(48vw, 26rem);
+  height: min(48vw, 26rem);
+  right: -6%;
+  top: 22%;
+  background: radial-gradient(circle, rgba(80, 160, 255, 0.7), transparent 68%);
+  animation: living-orb-b 19s ease-in-out infinite alternate;
+}
+.living-bg__orb--c {
+  width: min(56vw, 30rem);
+  height: min(56vw, 30rem);
+  left: 28%;
+  bottom: -12%;
+  background: radial-gradient(circle, rgba(90, 220, 140, 0.55), transparent 68%);
+  animation: living-orb-c 22s ease-in-out infinite alternate;
+}
+.living-bg__orb--d {
+  width: min(40vw, 20rem);
+  height: min(40vw, 20rem);
+  right: 18%;
+  bottom: 18%;
+  background: radial-gradient(circle, rgba(255, 90, 140, 0.5), transparent 68%);
+  animation: living-orb-d 14s ease-in-out infinite alternate;
+}
+
+.living-bg__spark {
+  position: absolute;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: #fff8e8;
+  box-shadow:
+    0 0 10px 3px rgba(255, 220, 120, 0.85),
+    0 0 22px 8px rgba(255, 160, 60, 0.35);
+  opacity: 0.85;
+  animation: living-spark 5.5s ease-in-out infinite;
+}
+.living-bg__spark--1 { left: 12%; top: 18%; animation-delay: 0s; }
+.living-bg__spark--2 { left: 78%; top: 28%; animation-delay: 1.1s; }
+.living-bg__spark--3 { left: 42%; top: 72%; animation-delay: 2.2s; }
+.living-bg__spark--4 { left: 88%; top: 62%; animation-delay: 0.6s; }
+.living-bg__spark--5 { left: 22%; top: 84%; animation-delay: 1.8s; }
+
+.living-bg__grid {
+  position: absolute;
+  inset: -20%;
+  background-image:
+    linear-gradient(rgba(255, 240, 210, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 240, 210, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  transform: perspective(600px) rotateX(58deg) translateY(-12%) scale(1.4);
+  transform-origin: center top;
+  animation: living-grid 24s linear infinite;
+  opacity: 0.55;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 75%);
+}
+
+@keyframes living-desk {
+  0% { background-position: 0% 20%, 100% 0%, 40% 100%, 0 0; }
+  100% { background-position: 80% 60%, 10% 80%, 70% 20%, 0 0; }
+}
+@keyframes living-orb-a {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(12vw, 18vh, 0) scale(1.25); }
+}
+@keyframes living-orb-b {
+  from { transform: translate3d(0, 0, 0) scale(1.05); }
+  to { transform: translate3d(-14vw, 12vh, 0) scale(1.3); }
+}
+@keyframes living-orb-c {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-10vw, -14vh, 0) scale(1.2); }
+}
+@keyframes living-orb-d {
+  from { transform: translate3d(0, 0, 0) scale(0.95); }
+  to { transform: translate3d(8vw, -10vh, 0) scale(1.35); }
+}
+@keyframes living-spark {
+  0%, 100% { transform: translateY(0) scale(0.7); opacity: 0.35; }
+  50% { transform: translateY(-18px) scale(1.35); opacity: 1; }
+}
+@keyframes living-grid {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 0 48px, 48px 0; }
+}
+@keyframes living-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes living-pop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+@keyframes living-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+:root[data-theme="dark"] .living-bg__orb {
+  opacity: 0.4;
+  mix-blend-mode: lighten;
+}
+:root[data-theme="dark"] .living-bg__grid {
+  opacity: 0.3;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    animation: none;
+    background-size: 100% 100%;
+  }
   body::before {
     opacity: 0.02;
+  }
+  .living-bg__orb,
+  .living-bg__spark,
+  .living-bg__grid,
+  .shell,
+  .paywall {
+    animation: none !important;
+  }
+  .living-bg__orb { opacity: 0.25; filter: blur(60px); }
+  .living-bg__spark { display: none; }
+  .report-card:hover,
+  .report-card:focus-within,
+  .topic-row:hover,
+  .search-result:hover,
+  .home-rails__card:hover,
+  .gradeboard__item:hover,
+  .fold:hover,
+  .auth-submit:hover,
+  .home-lede__cta:hover {
+    transform: none;
   }
 }
 
@@ -154,10 +315,12 @@ a {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
+  transition: color 0.15s ease, text-shadow 0.15s ease, transform 0.15s ease;
 }
 
 a:hover {
   color: var(--red-ink);
+  text-shadow: 0 0 12px color-mix(in srgb, var(--red-ink) 35%, transparent);
 }
 
 p {
@@ -201,18 +364,19 @@ p {
   outline: 2px solid var(--ink);
 }
 
-/* Layout shell — the broadsheet sheet on the desk */
+/* Layout shell — the broadsheet floating above the living stage */
 
 .shell {
   /* Full-width/fluid: fill the window with comfortable side gutters. Article
      body text stays readable via its own max-width (--measure); the home-page
      strips, tickers, topics, and grade board expand to use the space. */
   position: relative;
+  z-index: 3;
   max-width: none;
-  margin: 0.65rem auto 1.5rem;
+  margin: 0.85rem auto 1.75rem;
   padding: 1.75rem clamp(1.15rem, 3.5vw, 3.5rem) 3.25rem;
   background-color: var(--paper);
-  /* Soft paper fiber + faint age wash */
+  /* Soft paper fiber + faint age wash + subtle living shimmer edge */
   background-image:
     radial-gradient(ellipse 90% 55% at 12% 8%, rgba(255, 252, 240, 0.55), transparent 50%),
     radial-gradient(ellipse 70% 45% at 92% 96%, rgba(180, 150, 100, 0.12), transparent 55%),
@@ -224,12 +388,16 @@ p {
     0 0 0 1px color-mix(in srgb, var(--paper) 80%, var(--rule)),
     0 0 0 4px color-mix(in srgb, var(--rule) 75%, transparent),
     0 0 0 5px color-mix(in srgb, var(--paper) 40%, transparent),
-    0 10px 28px var(--shadow),
-    0 2px 6px color-mix(in srgb, var(--shadow) 50%, transparent);
+    0 18px 40px color-mix(in srgb, var(--shadow) 85%, transparent),
+    0 6px 14px color-mix(in srgb, var(--shadow) 55%, transparent),
+    0 0 60px rgba(255, 140, 60, 0.12),
+    0 0 90px rgba(80, 140, 255, 0.08);
   /* Soft corner wear — not rounded UI, just aged paper edge */
-  border-radius: 1px 2px 1px 2px;
+  border-radius: 2px 3px 2px 3px;
   /* Do NOT clip overflow — masthead dropdown must paint above #main and stay clickable. */
   overflow: visible;
+  transform-style: preserve-3d;
+  animation: living-float 7s ease-in-out infinite;
 }
 
 /* Sheet grain + edge foxing (wear). Stay under content; never capture clicks. */
@@ -295,9 +463,18 @@ html.clad-app .shell {
   border: 0;
   box-shadow: none;
   border-radius: 0;
+  animation: none;
 }
 html.clad-app .shell::after {
   box-shadow: inset 0 0 24px 1px color-mix(in srgb, var(--rule) 4%, transparent);
+}
+html.clad-app .living-bg {
+  display: none;
+}
+html.clad-app {
+  animation: none;
+  background-image:
+    linear-gradient(180deg, var(--desk-edge), var(--desk));
 }
 
 /* Masthead — nameplate */
@@ -409,14 +586,37 @@ html.clad-app .shell::after {
   border: 1px solid var(--rule);
   background: var(--ink);
   color: var(--paper);
+  border-radius: 3px;
+  box-shadow:
+    0 3px 0 color-mix(in srgb, var(--rule) 55%, #000),
+    0 8px 16px color-mix(in srgb, var(--shadow) 35%, transparent);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.auth-submit:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 5px 0 color-mix(in srgb, var(--rule) 55%, #000),
+    0 14px 24px color-mix(in srgb, var(--shadow) 45%, transparent),
+    0 0 20px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+.auth-submit:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--rule) 55%, #000),
+    0 4px 10px color-mix(in srgb, var(--shadow) 30%, transparent);
 }
 .auth-submit.secondary {
   background: transparent;
   color: var(--ink);
+  box-shadow:
+    0 3px 0 color-mix(in srgb, var(--rule) 25%, transparent),
+    0 6px 12px color-mix(in srgb, var(--shadow) 20%, transparent);
 }
 .auth-submit:disabled {
   opacity: 0.5;
   cursor: default;
+  transform: none;
+  box-shadow: none;
 }
 .auth-status {
   margin-top: 0.6rem;
@@ -1262,8 +1462,20 @@ html.clad-app .shell::after {
 
 .fold {
   margin: 0 0 1.15rem;
-  border: 1px solid color-mix(in srgb, var(--rule) 80%, transparent);
-  background: color-mix(in srgb, var(--ink) 3%, transparent);
+  border: 1px solid color-mix(in srgb, var(--rule) 75%, transparent);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--paper) 88%, #fff), var(--paper));
+  border-radius: 4px;
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 50%, transparent),
+    0 8px 18px color-mix(in srgb, var(--shadow) 30%, transparent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.fold:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 55%, transparent),
+    0 14px 28px color-mix(in srgb, var(--shadow) 42%, transparent);
 }
 
 .fold__summary {
@@ -1750,10 +1962,12 @@ html.clad-app .shell::after {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding: 0.5rem 0 1rem;
+  padding: 0.85rem 0.35rem 1.65rem;
   border-top: 2px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   scrollbar-width: thin;
+  perspective: 900px;
+  perspective-origin: 50% 40%;
 }
 
 /* Left/right scroll arrows: faint until hovered. */
@@ -1801,6 +2015,7 @@ html.clad-app .shell::after {
 .hero-strip__item {
   flex: 0 0 clamp(16rem, 72%, 22rem);
   scroll-snap-align: start;
+  transform-style: preserve-3d;
 }
 
 /* Card grid (categories, section pages) */
@@ -1811,12 +2026,42 @@ html.clad-app .shell::after {
   gap: 1.5rem 1.25rem;
 }
 
-/* Report card */
+/* Report card — pop-out 3D tile */
 
 .report-card {
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative;
+  padding: 0.65rem 0.65rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
+  background:
+    linear-gradient(165deg, color-mix(in srgb, var(--paper) 92%, #fff) 0%, var(--paper) 55%, var(--paper-deep) 100%);
+  border-radius: 4px;
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 55%, transparent),
+    0 10px 0 -2px color-mix(in srgb, var(--rule) 12%, transparent),
+    0 14px 28px color-mix(in srgb, var(--shadow) 55%, transparent),
+    0 4px 10px color-mix(in srgb, var(--shadow) 35%, transparent);
+  transform: translateZ(0) rotateX(0deg) rotateY(0deg);
+  transform-style: preserve-3d;
+  transition:
+    transform 0.22s cubic-bezier(0.2, 0.9, 0.25, 1),
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.report-card:hover,
+.report-card:focus-within {
+  transform: translateY(-10px) scale(1.03) rotateX(4deg) rotateY(-2deg);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--rule));
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 65%, transparent),
+    0 18px 0 -4px color-mix(in srgb, var(--rule) 10%, transparent),
+    0 28px 48px color-mix(in srgb, var(--shadow) 65%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--accent) 25%, transparent),
+    0 0 36px color-mix(in srgb, var(--accent) 18%, transparent);
+  z-index: 2;
 }
 
 .report-card__link {
@@ -1831,10 +2076,14 @@ html.clad-app .shell::after {
   position: relative;
   aspect-ratio: 16 / 9;
   border: 1px solid color-mix(in srgb, var(--rule) 80%, transparent);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--paper) 25%, transparent);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--paper) 25%, transparent),
+    0 8px 16px color-mix(in srgb, var(--shadow) 40%, transparent);
   overflow: hidden;
   background: var(--ink);
   margin-bottom: 0.6rem;
+  border-radius: 3px;
+  transform: translateZ(12px);
 }
 
 .report-card__thumb img {
@@ -1842,7 +2091,13 @@ html.clad-app .shell::after {
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: grayscale(0.28) contrast(1.04) sepia(0.08);
+  filter: grayscale(0.12) contrast(1.06) saturate(1.08) sepia(0.04);
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.report-card:hover .report-card__thumb img {
+  transform: scale(1.08);
+  filter: grayscale(0) contrast(1.08) saturate(1.15);
 }
 
 /* Prominent grade + bias scoreband on cards */
@@ -1858,7 +2113,11 @@ html.clad-app .shell::after {
     var(--tint-1);
   padding: 0.6rem 0.85rem;
   margin: 0.4rem 0 0.75rem;
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--paper) 55%, transparent);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--paper) 55%, transparent),
+    0 6px 14px color-mix(in srgb, var(--shadow) 25%, transparent);
+  border-radius: 3px;
+  transform: translateZ(8px);
 }
 
 .scoreband__grade {
@@ -1944,8 +2203,21 @@ html.clad-app .shell::after {
 }
 
 .report-card--bar {
+  border: none;
   border-top: 1px solid var(--rule);
+  border-radius: 0;
   padding: 1.25rem 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.report-card--bar:hover,
+.report-card--bar:focus-within {
+  transform: none;
+  border-color: transparent;
+  border-top-color: var(--rule);
+  box-shadow: none;
 }
 
 .report-card--bar:last-child {
@@ -2045,12 +2317,26 @@ html.clad-app .shell::after {
   align-items: flex-start;
   text-decoration: none;
   color: inherit;
-  border-top: 1px solid var(--rule);
-  padding: 1rem 0;
+  border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+  border-radius: 4px;
+  padding: 0.85rem 0.9rem;
+  margin: 0.55rem 0;
+  background: color-mix(in srgb, var(--paper) 80%, transparent);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 45%, transparent),
+    0 8px 18px color-mix(in srgb, var(--shadow) 28%, transparent);
+  transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.25, 1), box-shadow 0.2s ease;
 }
 
 .search-result:last-child {
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+}
+
+.search-result:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow:
+    0 16px 32px color-mix(in srgb, var(--shadow) 45%, transparent),
+    0 0 28px color-mix(in srgb, var(--accent) 14%, transparent);
 }
 
 .search-result__thumb {
@@ -2062,8 +2348,14 @@ html.clad-app .shell::after {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   border: 1px solid var(--rule);
+  border-radius: 3px;
   display: block;
-  filter: grayscale(0.25) contrast(1.02);
+  filter: grayscale(0.08) contrast(1.04) saturate(1.08);
+  box-shadow: 0 6px 12px color-mix(in srgb, var(--shadow) 35%, transparent);
+  transition: transform 0.3s ease;
+}
+.search-result:hover .search-result__thumb img {
+  transform: scale(1.06);
 }
 
 .search-result__head {
@@ -2133,13 +2425,28 @@ html.clad-app .shell::after {
   display: flex;
   align-items: center;
   gap: 0.9rem;
-  padding: 0.6rem 0.25rem;
-  border-top: 1px solid var(--rule);
+  padding: 0.7rem 0.7rem;
+  margin: 0.35rem 0;
+  border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--paper) 70%, transparent);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 45%, transparent),
+    0 6px 14px color-mix(in srgb, var(--shadow) 28%, transparent);
   text-decoration: none;
   color: inherit;
+  transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.25, 1), box-shadow 0.2s ease;
 }
 .topic-row-item:last-child .topic-row {
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+}
+.topic-row:hover {
+  transform: translateY(-5px) scale(1.015);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 55%, transparent),
+    0 16px 28px color-mix(in srgb, var(--shadow) 45%, transparent),
+    0 0 24px color-mix(in srgb, var(--accent) 12%, transparent);
+  z-index: 1;
 }
 
 .topic-row__thumb {
@@ -2149,13 +2456,19 @@ html.clad-app .shell::after {
   border: 1px solid var(--rule);
   background: var(--ink);
   overflow: hidden;
+  border-radius: 3px;
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--shadow) 35%, transparent);
 }
 .topic-row__thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: grayscale(0.25) contrast(1.02);
+  filter: grayscale(0.1) contrast(1.04) saturate(1.1);
+  transition: transform 0.3s ease;
+}
+.topic-row:hover .topic-row__thumb img {
+  transform: scale(1.1);
 }
 
 .topic-row__body {
@@ -2350,12 +2663,26 @@ html.clad-app .shell::after {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.4rem 0;
-  border-top: 1px solid var(--tint-3);
+  padding: 0.55rem 0.55rem;
+  margin: 0.35rem 0;
+  border: 1px solid color-mix(in srgb, var(--rule) 45%, transparent);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--paper) 75%, transparent);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 40%, transparent),
+    0 6px 14px color-mix(in srgb, var(--shadow) 25%, transparent);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .gradeboard__item:first-child {
-  border-top: none;
+  border-top: 1px solid color-mix(in srgb, var(--rule) 45%, transparent);
+}
+
+.gradeboard__item:hover {
+  transform: translateY(-4px) translateX(2px);
+  box-shadow:
+    0 12px 24px color-mix(in srgb, var(--shadow) 40%, transparent),
+    0 0 20px color-mix(in srgb, var(--accent) 12%, transparent);
 }
 
 .gradeboard__rank {
@@ -2658,7 +2985,7 @@ html.clad-app .shell::after {
   font-style: italic;
 }
 
-/* Letter grade badge — stamp-like wash + ink, sits on cream paper */
+/* Letter grade badge — chunky 3D stamp */
 
 .letter-grade {
   display: inline-block;
@@ -2667,8 +2994,24 @@ html.clad-app .shell::after {
   line-height: 1;
   letter-spacing: 0.02em;
   border: 1px solid var(--rule);
-  /* Soft double-edge like a press stamp, not a flat app chip */
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--paper) 70%, transparent);
+  border-radius: 3px;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--paper) 70%, transparent),
+    0 3px 0 color-mix(in srgb, var(--rule) 35%, transparent),
+    0 8px 16px color-mix(in srgb, var(--shadow) 30%, transparent);
+  transform: translateZ(16px);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.report-card:hover .letter-grade,
+.topic-row:hover .letter-grade,
+.gradeboard__item:hover .letter-grade {
+  transform: translateZ(20px) scale(1.08) rotate(-2deg);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--paper) 70%, transparent),
+    0 5px 0 color-mix(in srgb, var(--rule) 40%, transparent),
+    0 14px 22px color-mix(in srgb, var(--shadow) 40%, transparent),
+    0 0 20px color-mix(in srgb, var(--accent) 20%, transparent);
 }
 
 .letter-grade--badge {
@@ -4925,10 +5268,19 @@ button.small {
   margin: 1.5rem 0;
   padding: 1.6rem 1.4rem;
   border: 2px solid var(--ink);
+  border-radius: 6px;
   background:
     radial-gradient(120% 120% at 50% 0%, var(--accent-soft), transparent 60%),
-    var(--paper);
+    linear-gradient(165deg, color-mix(in srgb, var(--paper) 88%, #fff), var(--paper));
   text-align: center;
+  box-shadow:
+    0 2px 0 color-mix(in srgb, #fff 40%, transparent),
+    0 16px 0 -4px color-mix(in srgb, var(--rule) 12%, transparent),
+    0 28px 48px color-mix(in srgb, var(--shadow) 45%, transparent),
+    0 0 50px color-mix(in srgb, var(--accent) 12%, transparent);
+  transform: translateZ(0);
+  animation: living-float 8s ease-in-out infinite;
+  animation-delay: 0.6s;
 }
 .paywall__eyebrow { color: var(--accent); letter-spacing: 0.16em; margin: 0; }
 .paywall__title {
@@ -5364,8 +5716,15 @@ html.clad-app .clad-app-only { display: block; }
 
 .home-lede {
   margin: 0.65rem 0 0.15rem;
-  padding: 0.15rem 0 1rem;
-  border-bottom: 2px solid var(--rule);
+  padding: 0.85rem 0.95rem 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+  border-radius: 4px;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--paper) 80%, #fff) 0%, var(--paper) 55%, var(--paper-deep) 100%);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 50%, transparent),
+    0 12px 28px color-mix(in srgb, var(--shadow) 30%, transparent),
+    0 0 40px color-mix(in srgb, var(--accent) 8%, transparent);
 }
 .home-lede__kicker {
   margin: 0 0 0.4rem;
@@ -5431,12 +5790,24 @@ html.clad-app .clad-app-only { display: block; }
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 0.52rem 0.9rem;
+  padding: 0.55rem 0.95rem;
   border: 1px solid var(--ink);
   background: var(--ink);
   color: var(--paper);
+  border-radius: 3px;
+  box-shadow:
+    0 3px 0 color-mix(in srgb, var(--rule) 50%, #000),
+    0 10px 20px color-mix(in srgb, var(--shadow) 35%, transparent),
+    0 0 24px color-mix(in srgb, var(--accent) 20%, transparent);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-.home-lede__cta:hover { opacity: 0.9; }
+.home-lede__cta:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow:
+    0 6px 0 color-mix(in srgb, var(--rule) 50%, #000),
+    0 16px 28px color-mix(in srgb, var(--shadow) 45%, transparent),
+    0 0 36px color-mix(in srgb, var(--accent) 30%, transparent);
+}
 .home-lede__ghost {
   color: inherit;
   font-size: 0.92rem;
@@ -5447,22 +5818,35 @@ html.clad-app .clad-app-only { display: block; }
 .home-rails {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.65rem;
+  gap: 0.75rem;
   margin: 1.35rem 0 0.5rem;
+  perspective: 800px;
 }
 .home-rails__card {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  padding: 0.75rem 0.8rem;
-  border: 1px solid color-mix(in srgb, var(--rule) 80%, transparent);
-  background: transparent;
+  padding: 0.85rem 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--paper) 90%, #fff), var(--paper-deep));
   color: inherit;
   text-decoration: none;
   min-height: 6.5rem;
+  border-radius: 4px;
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 50%, transparent),
+    0 10px 0 -3px color-mix(in srgb, var(--rule) 10%, transparent),
+    0 14px 26px color-mix(in srgb, var(--shadow) 35%, transparent);
+  transform-style: preserve-3d;
+  transition: transform 0.22s cubic-bezier(0.2, 0.9, 0.25, 1), box-shadow 0.22s ease;
 }
 .home-rails__card:hover {
-  background: color-mix(in srgb, var(--ink) 5%, transparent);
+  transform: translateY(-10px) rotateX(6deg) rotateY(-3deg) scale(1.03);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 60%, transparent),
+    0 22px 40px color-mix(in srgb, var(--shadow) 50%, transparent),
+    0 0 32px color-mix(in srgb, var(--accent) 18%, transparent);
 }
 .home-rails__kicker {
   color: var(--muted-ink);

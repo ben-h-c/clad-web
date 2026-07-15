@@ -169,6 +169,19 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+    {/* Living stage behind the broadsheet — motion, color, depth (decorative). */}
+    <div class="living-bg" aria-hidden="true">
+      <span class="living-bg__orb living-bg__orb--a"></span>
+      <span class="living-bg__orb living-bg__orb--b"></span>
+      <span class="living-bg__orb living-bg__orb--c"></span>
+      <span class="living-bg__orb living-bg__orb--d"></span>
+      <span class="living-bg__spark living-bg__spark--1"></span>
+      <span class="living-bg__spark living-bg__spark--2"></span>
+      <span class="living-bg__spark living-bg__spark--3"></span>
+      <span class="living-bg__spark living-bg__spark--4"></span>
+      <span class="living-bg__spark living-bg__spark--5"></span>
+      <span class="living-bg__grid"></span>
+    </div>
     {Astro.url.pathname.startsWith("/posts/") && (
       <>
         <div class="read-progress" aria-hidden="true"><span class="read-progress__bar" id="read-progress-bar"></span></div>
