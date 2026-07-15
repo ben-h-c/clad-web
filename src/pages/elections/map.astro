@@ -145,60 +145,62 @@ const featured = [...map.states]
         </div>
       </div>
     </div>
-    <p class="emap-disclaimer" id="emap-disclaimer-party" hidden>
-      Party map is an editorial snapshot (as of {FORECAST_ASOF}) — solid/likely/lean/toss-up bands for glanceability.
-      It is <strong>not</strong> a CladFacts grade, poll average, or prediction market.
-    </p>
-
     <div class="emap-shell">
-      <div class="emap-map-wrap">
-        <div class="emap-legend" id="legend-coverage" aria-label="Coverage map legend">
-          <span class="emap-leg emap-leg--hot">Hot</span>
-          <span class="emap-leg emap-leg--marquee">Marquee</span>
-          <span class="emap-leg emap-leg--watch">Watch</span>
-          <span class="emap-leg emap-leg--lean">Board</span>
-          <span class="emap-leg emap-leg--senate">Senate</span>
-          <span class="emap-leg emap-leg--governor">Gov</span>
-          <span class="emap-leg emap-leg--quiet">House</span>
+      <div class="emap-map-col">
+        <div class="emap-map-wrap">
+          <div class="emap-legend" id="legend-coverage" aria-label="Coverage map legend">
+            <span class="emap-leg emap-leg--hot">Hot</span>
+            <span class="emap-leg emap-leg--marquee">Marquee</span>
+            <span class="emap-leg emap-leg--watch">Watch</span>
+            <span class="emap-leg emap-leg--lean">Board</span>
+            <span class="emap-leg emap-leg--senate">Senate</span>
+            <span class="emap-leg emap-leg--governor">Gov</span>
+            <span class="emap-leg emap-leg--quiet">House</span>
+          </div>
+
+          <p class="emap-hint small-caps" id="emap-hint">Tap or click a state · keyboard: Tab + Enter</p>
+
+          <svg
+            class="emap-svg"
+            viewBox={US_MAP_VIEWBOX}
+            role="img"
+            aria-labelledby="emap-title emap-desc"
+            id="emap-svg"
+          >
+            <title id="emap-title">United States midterms 2026 map</title>
+            <desc id="emap-desc">
+              Interactive map of U.S. states colored by Class II Senate races, governors, and CladFacts coverage heat.
+            </desc>
+            <g class="emap-states">
+              {map.states.map((s) => (
+                <path
+                  id={`st-${s.code}`}
+                  class={`emap-state emap-fill--${s.fill}`}
+                  d={US_STATE_PATHS[s.code]}
+                  data-code={s.code}
+                  data-fill={s.fill}
+                  data-heat={s.heat}
+                  tabindex="0"
+                  role="button"
+                  aria-label={`${s.name}: ${s.glance}`}
+                />
+              ))}
+            </g>
+          </svg>
+
+          <!-- Live hover / focus chip (desktop + tablet) -->
+          <div class="emap-float" id="emap-float" hidden>
+            <p class="emap-float__code small-caps" id="emap-float-code"></p>
+            <p class="emap-float__name" id="emap-float-name"></p>
+            <p class="emap-float__glance" id="emap-float-glance"></p>
+            <div class="emap-float__chips" id="emap-float-chips"></div>
+          </div>
         </div>
 
-        <p class="emap-hint small-caps" id="emap-hint">Tap or click a state · keyboard: Tab + Enter</p>
-
-        <svg
-          class="emap-svg"
-          viewBox={US_MAP_VIEWBOX}
-          role="img"
-          aria-labelledby="emap-title emap-desc"
-          id="emap-svg"
-        >
-          <title id="emap-title">United States midterms 2026 map</title>
-          <desc id="emap-desc">
-            Interactive map of U.S. states colored by Class II Senate races, governors, and CladFacts coverage heat.
-          </desc>
-          <g class="emap-states">
-            {map.states.map((s) => (
-              <path
-                id={`st-${s.code}`}
-                class={`emap-state emap-fill--${s.fill}`}
-                d={US_STATE_PATHS[s.code]}
-                data-code={s.code}
-                data-fill={s.fill}
-                data-heat={s.heat}
-                tabindex="0"
-                role="button"
-                aria-label={`${s.name}: ${s.glance}`}
-              />
-            ))}
-          </g>
-        </svg>
-
-        <!-- Live hover / focus chip (desktop + tablet) -->
-        <div class="emap-float" id="emap-float" hidden>
-          <p class="emap-float__code small-caps" id="emap-float-code"></p>
-          <p class="emap-float__name" id="emap-float-name"></p>
-          <p class="emap-float__glance" id="emap-float-glance"></p>
-          <div class="emap-float__chips" id="emap-float-chips"></div>
-        </div>
+        <p class="emap-disclaimer" id="emap-disclaimer-party" hidden>
+          Party map is an editorial snapshot (as of {FORECAST_ASOF}) — solid/likely/lean/toss-up bands for glanceability.
+          It is <strong>not</strong> a CladFacts grade, poll average, or prediction market.
+        </p>
       </div>
 
       <aside class="emap-panel" id="emap-panel" aria-live="polite">
@@ -681,6 +683,12 @@ const featured = [...map.states]
     .emap-panel { display: none; } /* mobile uses bottom sheet */
   }
 
+  .emap-map-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    min-width: 0;
+  }
   .emap-map-wrap {
     position: relative;
     border: 2px solid var(--ink, #1a140d);
@@ -805,8 +813,8 @@ const featured = [...map.states]
     color: var(--paper, #f5edd9);
   }
   .emap-disclaimer {
-    margin: 0 0 0.85rem;
-    font-size: 0.88rem;
+    margin: 0;
+    font-size: 0.85rem;
     line-height: 1.4;
     opacity: 0.88;
     padding: 0.55rem 0.7rem;
