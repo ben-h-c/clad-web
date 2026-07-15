@@ -4,6 +4,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getAccess } from "~/lib/access";
 import { buildRaceBoard, maskRaceLeaders, statusLabel } from "~/lib/bracket";
 import { buildElectionMap, type StateMapCell } from "~/lib/electionMap";
+import { buildStateForecasts, FORECAST_ASOF, LAYER_LABELS, RATING_LEGEND } from "~/lib/electionForecast";
 import { RACE_BOARD_VERIFIED_ASOF } from "~/lib/races";
 import { US_MAP_VIEWBOX, US_STATE_PATHS } from "~/lib/usMapPaths";
 
@@ -16,6 +17,7 @@ const reveal = access.fullAccess;
 const all = await getCollection("posts", (p) => !p.data.draft);
 const board = maskRaceLeaders(buildRaceBoard(all, reveal), reveal);
 const map = buildElectionMap(board.cards);
+const forecast = buildStateForecasts();
 
 const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
 const pageUrl = `${origin}/elections/map/`;
@@ -24,6 +26,8 @@ const pageUrl = `${origin}/elections/map/`;
 const clientPayload = {
   reveal,
   maxHeat: map.maxHeat,
+  forecastAsOf: forecast.asOf,
+  layerLabels: LAYER_LABELS,
   states: Object.fromEntries(
     map.states.map((s) => [
       s.code,
@@ -37,6 +41,7 @@ const clientPayload = {
         chips: s.chips,
         glance: s.glance,
         hasBoardCard: s.hasBoardCard,
+        forecast: forecast.byCode[s.code] ?? null,
         races: s.races.map((r) => ({
           id: r.id,
           office: r.office,
@@ -94,10 +99,10 @@ const featured = [...map.states]
       <p class="small-caps upgrade__eyebrow">Midterms 2026 · Interactive map</p>
       <h1 class="static-page__title">Election map</h1>
       <p class="upgrade__lede">
-        One glance at the midterm calendar: which states have a <strong>Class II Senate</strong> race,
-        a <strong>governor</strong> race, and where CladFacts coverage is heating up.
-        Tap a state for candidates, open seats, and grades
-        {reveal ? "." : " (sign in free to unlock average grades & lean)."}
+        Two views on one page: <strong>Coverage</strong> (ballot structure + CladFacts heat) and
+        <strong>Party &amp; outlook</strong> (who holds power now, flip risk, and who is favored in 2026).
+        Toggle Senate, governor, House, or state control. Tap a state to dig in
+        {reveal ? "." : " (sign in free for coverage grades & lean)."}
       </p>
 
       <nav class="emap-modes" aria-label="Election tools">
@@ -122,9 +127,32 @@ const featured = [...map.states]
       </p>
     )}
 
+    <div class="emap-toolbar" role="toolbar" aria-label="Map view controls">
+      <div class="emap-toolbar__group">
+        <span class="small-caps emap-toolbar__label">Map</span>
+        <div class="emap-seg" role="group" aria-label="Map type">
+          <button type="button" class="emap-seg__btn emap-seg__btn--on" data-mode="coverage" id="mode-coverage">Coverage</button>
+          <button type="button" class="emap-seg__btn" data-mode="party" id="mode-party">Party &amp; outlook</button>
+        </div>
+      </div>
+      <div class="emap-toolbar__group" id="layer-group" hidden>
+        <span class="small-caps emap-toolbar__label">Election</span>
+        <div class="emap-seg emap-seg--wrap" role="group" aria-label="Election layer">
+          <button type="button" class="emap-seg__btn emap-seg__btn--on" data-layer="senate">Senate</button>
+          <button type="button" class="emap-seg__btn" data-layer="governor">Governor</button>
+          <button type="button" class="emap-seg__btn" data-layer="house">House</button>
+          <button type="button" class="emap-seg__btn" data-layer="control">State control</button>
+        </div>
+      </div>
+    </div>
+    <p class="emap-disclaimer" id="emap-disclaimer-party" hidden>
+      Party map is an editorial snapshot (as of {FORECAST_ASOF}) — solid/likely/lean/toss-up bands for glanceability.
+      It is <strong>not</strong> a CladFacts grade, poll average, or prediction market.
+    </p>
+
     <div class="emap-shell">
       <div class="emap-map-wrap">
-        <div class="emap-legend" aria-label="Map legend">
+        <div class="emap-legend" id="legend-coverage" aria-label="Coverage map legend">
           <span class="emap-leg emap-leg--hot">Hot coverage</span>
           <span class="emap-leg emap-leg--marquee">Marquee</span>
           <span class="emap-leg emap-leg--watch">Watch</span>
@@ -132,6 +160,12 @@ const featured = [...map.states]
           <span class="emap-leg emap-leg--senate">Class II Senate</span>
           <span class="emap-leg emap-leg--governor">Governor</span>
           <span class="emap-leg emap-leg--quiet">House only</span>
+        </div>
+        <div class="emap-legend" id="legend-party" aria-label="Party outlook legend" hidden>
+          {RATING_LEGEND.map((r) => (
+            <span class={`emap-leg emap-party-leg--${r.css}`}>{r.label}</span>
+          ))}
+          <span class="emap-leg emap-leg--flip">Stripe = flip risk</span>
         </div>
 
         <p class="emap-hint small-caps" id="emap-hint">Tap or click a state · keyboard: Tab + Enter</p>
@@ -251,13 +285,13 @@ const featured = [...map.states]
       </ul>
     </section>
 
-    <h2 class="static-page__sub">How to read this map</h2>
+    <h2 class="static-page__sub">How to read these maps</h2>
     <ul class="upgrade__perks">
-      <li><strong>Not a poll.</strong> Colors reflect ballot structure and CladFacts coverage heat — not projected winners.</li>
+      <li><strong>Coverage map</strong> — ballot structure + CladFacts graded-report heat. Not a forecast of who wins.</li>
+      <li><strong>Party &amp; outlook map</strong> — who holds the seat/control now, Cook-style solid/likely/lean/toss-up bands for 2026, and flip-risk striping when the favored party differs from the holder. Editorial snapshot as of {FORECAST_ASOF}.</li>
+      <li><strong>Toggles</strong> — Senate (Class II), governor, House (state lean, not districts), or overall state-government control.</li>
       <li><strong>Class II Senate</strong> = one-third of the chamber up in 2026 (Art. I §3). Candidate map verified {RACE_BOARD_VERIFIED_ASOF}.</li>
-      <li><strong>Governor 2026</strong> = states electing a governor this cycle (most large states; VA/NJ/KY/MS/LA run on other calendars).</li>
-      <li><strong>House</strong> = all 435 seats every midterm, every state.</li>
-      <li><strong>Hot / marquee</strong> = denser graded broadcasts about the people in that race on CladFacts.</li>
+      <li><strong>House</strong> = all 435 seats every midterm; colors are statewide lean only.</li>
     </ul>
 
     <p class="static-page__note">
@@ -288,8 +322,14 @@ const featured = [...map.states]
     const sheet = document.getElementById("emap-sheet");
     const sheetBody = document.getElementById("emap-sheet-body");
     const backdrop = document.getElementById("emap-backdrop");
+    const layerGroup = document.getElementById("layer-group");
+    const legendCov = document.getElementById("legend-coverage");
+    const legendParty = document.getElementById("legend-party");
+    const discParty = document.getElementById("emap-disclaimer-party");
     let selected = null;
     let hover = null;
+    let mode = "coverage"; // coverage | party
+    let layer = "senate"; // senate | governor | house | control
 
     const isMobile = () => window.matchMedia("(max-width: 860px)").matches;
 
@@ -305,63 +345,161 @@ const featured = [...map.states]
       return p ? ` (${esc(p)})` : "";
     }
 
-    function detailHtml(st) {
-      const badges = st.chips.map((c) => `<span class="emap-chip">${esc(c)}</span>`).join("");
-      let races = "";
+    function partyWord(p) {
+      return p === "D" ? "Democratic" : p === "R" ? "Republican" : p === "S" ? "Split" : "—";
+    }
+
+    function ratingWord(r) {
+      const map = {
+        "solid-d": "Solid Dem", "likely-d": "Likely Dem", "lean-d": "Lean Dem",
+        tossup: "Toss-up", "lean-r": "Lean GOP", "likely-r": "Likely GOP",
+        "solid-r": "Solid GOP", "no-race": "No race",
+      };
+      return map[r] || r;
+    }
+
+    function layerForecast(st) {
+      if (!st.forecast) return null;
+      return st.forecast[layer] || null;
+    }
+
+    function partyGlance(st) {
+      const f = layerForecast(st);
+      if (!f) return st.glance;
+      const layerName = (DATA.layerLabels && DATA.layerLabels[layer]) || layer;
+      let g = layerName + ": " + f.label;
+      if (f.favored) g += " · Favored: " + f.favored;
+      if (f.flipRisk) g += " · Flip risk";
+      return g;
+    }
+
+    function partyChips(st) {
+      const f = layerForecast(st);
+      if (!f) return st.chips;
+      const chips = [ratingWord(f.rating), "Holds " + partyWord(f.current)];
+      if (f.flipRisk) chips.push("Flip risk");
+      if (f.favored) chips.push(f.favored.split(" ").slice(0, 4).join(" "));
+      return chips.slice(0, 5);
+    }
+
+    function applyColors() {
+      document.querySelectorAll(".emap-state").forEach((path) => {
+        const code = path.getAttribute("data-code");
+        const st = states[code];
+        if (!st) return;
+        [...path.classList].forEach((c) => {
+          if (c.startsWith("emap-fill--") || c.startsWith("emap-party--") || c === "emap-state--flip") {
+            path.classList.remove(c);
+          }
+        });
+        if (mode === "coverage") {
+          path.classList.add("emap-fill--" + st.fill);
+        } else {
+          const f = layerForecast(st);
+          const rating = f ? f.rating : "no-race";
+          path.classList.add("emap-party--" + rating);
+          if (f && f.flipRisk) path.classList.add("emap-state--flip");
+        }
+        path.setAttribute("aria-label", st.name + ": " + (mode === "coverage" ? st.glance : partyGlance(st)));
+      });
+      if (legendCov) legendCov.hidden = mode !== "coverage";
+      if (legendParty) legendParty.hidden = mode !== "party";
+      if (layerGroup) layerGroup.hidden = mode !== "party";
+      if (discParty) discParty.hidden = mode !== "party";
+      if (selected && states[selected]) paintDetail(states[selected]);
+    }
+
+    function setMode(next) {
+      mode = next;
+      document.querySelectorAll("[data-mode]").forEach((b) => {
+        b.classList.toggle("emap-seg__btn--on", b.getAttribute("data-mode") === mode);
+      });
+      applyColors();
+    }
+
+    function setLayer(next) {
+      layer = next;
+      document.querySelectorAll("[data-layer]").forEach((b) => {
+        b.classList.toggle("emap-seg__btn--on", b.getAttribute("data-layer") === layer);
+      });
+      applyColors();
+    }
+
+    function coverageRacesHtml(st) {
       if (!st.races.length) {
-        races = `<p class="emap-muted">No featured race card yet — still a full House slate${st.classII ? " plus Class II Senate" : ""}${st.governor2026 ? " and a governor race" : ""}.</p>
-          <p><a href="/bracket/">See national race board</a> · <a href="/politicians/">Politicians</a></p>`;
-      } else {
-        races = st.races
-          .map((r) => {
-            const aLead = r.leaderSlug && r.leaderSlug === r.aSlug;
-            const bLead = r.leaderSlug && r.leaderSlug === r.bSlug;
-            const aName = r.aHref
-              ? `<a href="${esc(r.aHref)}">${esc(r.aName)}${party(r.aParty)}</a>`
-              : `${esc(r.aName)}${party(r.aParty)}`;
-            const bName = r.bHref
-              ? `<a href="${esc(r.bHref)}">${esc(r.bName)}${party(r.bParty)}</a>`
-              : `${esc(r.bName)}${party(r.bParty)}`;
-            const aGrade = r.aGrade
-              ? `<span class="emap-grade-pill emap-grade-pill--${String(r.aGrade).charAt(0).toUpperCase()}">${esc(r.aGrade)}</span>`
-              : "";
-            const bGrade = r.bGrade
-              ? `<span class="emap-grade-pill emap-grade-pill--${String(r.bGrade).charAt(0).toUpperCase()}">${esc(r.bGrade)}</span>`
-              : "";
-            return `<article class="emap-race" data-tier="${esc(r.tier)}">
-              <header class="emap-race__head">
-                <h3>${esc(r.office)}</h3>
-                <span class="small-caps">${esc(r.tier)}</span>
-                <span class="small-caps">${esc(r.statusLabel)}</span>
-                <span class="emap-race__heat">${r.heat} reports</span>
-              </header>
-              <div class="emap-race__sides">
-                <div class="emap-race__side${aLead ? " emap-race__side--lead" : ""}">
-                  <div class="emap-race__who">${aName} ${aGrade}</div>
-                </div>
-                <div class="emap-race__vs">vs</div>
-                <div class="emap-race__side${bLead ? " emap-race__side--lead" : ""}">
-                  <div class="emap-race__who">${bName} ${bGrade}</div>
-                </div>
+        return `<p class="emap-muted">No featured race card yet — still a full House slate${st.classII ? " plus Class II Senate" : ""}${st.governor2026 ? " and a governor race" : ""}.</p>`;
+      }
+      return st.races
+        .map((r) => {
+          const aLead = r.leaderSlug && r.leaderSlug === r.aSlug;
+          const bLead = r.leaderSlug && r.leaderSlug === r.bSlug;
+          const aName = r.aHref
+            ? `<a href="${esc(r.aHref)}">${esc(r.aName)}${party(r.aParty)}</a>`
+            : `${esc(r.aName)}${party(r.aParty)}`;
+          const bName = r.bHref
+            ? `<a href="${esc(r.bHref)}">${esc(r.bName)}${party(r.bParty)}</a>`
+            : `${esc(r.bName)}${party(r.bParty)}`;
+          const aGrade = r.aGrade
+            ? `<span class="emap-grade-pill emap-grade-pill--${String(r.aGrade).charAt(0).toUpperCase()}">${esc(r.aGrade)}</span>`
+            : "";
+          const bGrade = r.bGrade
+            ? `<span class="emap-grade-pill emap-grade-pill--${String(r.bGrade).charAt(0).toUpperCase()}">${esc(r.bGrade)}</span>`
+            : "";
+          return `<article class="emap-race" data-tier="${esc(r.tier)}">
+            <header class="emap-race__head">
+              <h3>${esc(r.office)}</h3>
+              <span class="small-caps">${esc(r.tier)}</span>
+              <span class="small-caps">${esc(r.statusLabel)}</span>
+              <span class="emap-race__heat">${r.heat} reports</span>
+            </header>
+            <div class="emap-race__sides">
+              <div class="emap-race__side${aLead ? " emap-race__side--lead" : ""}">
+                <div class="emap-race__who">${aName} ${aGrade}</div>
               </div>
-              ${r.note ? `<p class="emap-race__note">${esc(r.note)}</p>` : ""}
-            </article>`;
-          })
-          .join("");
+              <div class="emap-race__vs">vs</div>
+              <div class="emap-race__side${bLead ? " emap-race__side--lead" : ""}">
+                <div class="emap-race__who">${bName} ${bGrade}</div>
+              </div>
+            </div>
+            ${r.note ? `<p class="emap-race__note">${esc(r.note)}</p>` : ""}
+          </article>`;
+        })
+        .join("");
+    }
+
+    function partyBlockHtml(st) {
+      const f = layerForecast(st);
+      if (!f) return "";
+      const layerName = (DATA.layerLabels && DATA.layerLabels[layer]) || layer;
+      return `<div class="emap-forecast">
+        <h3 class="emap-forecast__title">${esc(layerName)}</h3>
+        <dl class="emap-forecast__dl">
+          <div><dt>Currently holds</dt><dd class="emap-party-tag emap-party-tag--${esc(f.current)}">${esc(partyWord(f.current))}</dd></div>
+          <div><dt>2026 outlook</dt><dd><span class="emap-rating-pill emap-party--${esc(f.rating)}">${esc(ratingWord(f.rating))}</span></dd></div>
+          ${f.favored ? `<div><dt>Favored / matchup</dt><dd>${esc(f.favored)}</dd></div>` : ""}
+          <div><dt>Flip risk</dt><dd>${f.flipRisk ? "<strong>Yes</strong> — favored party differs from holder, or race is a toss-up" : "Low on this snapshot"}</dd></div>
+        </dl>
+        ${f.note ? `<p class="emap-race__note">${esc(f.note)}</p>` : ""}
+        <p class="emap-muted">Snapshot as of ${esc(DATA.forecastAsOf || "")}. Editorial bands for glanceability — not CladFacts grades or a poll.</p>
+      </div>`;
+    }
+
+    function detailHtml(st) {
+      const glance = mode === "party" ? partyGlance(st) : st.glance;
+      const chips = mode === "party" ? partyChips(st) : st.chips;
+      const badges = chips.map((c) => `<span class="emap-chip">${esc(c)}</span>`).join("");
+      let body = "";
+      if (mode === "party") {
+        body = partyBlockHtml(st) + '<h3 class="emap-forecast__sub">On our coverage board</h3>' + coverageRacesHtml(st);
+      } else {
+        body = coverageRacesHtml(st);
       }
       const links = `<p class="emap-panel__more">
         <a href="/bracket/">Race board</a> ·
         <a href="/politicians/">Politicians</a> ·
         <a href="/bracket/coverage/">Coverage tournament</a>
       </p>`;
-      return {
-        code: st.code,
-        name: st.name,
-        glance: st.glance,
-        badges,
-        races,
-        links,
-      };
+      return { code: st.code, name: st.name, glance, badges, body, links };
     }
 
     function paintDetail(st) {
@@ -370,7 +508,7 @@ const featured = [...map.states]
       document.getElementById("emap-detail-name").textContent = d.name;
       document.getElementById("emap-detail-glance").textContent = d.glance;
       document.getElementById("emap-detail-badges").innerHTML = d.badges;
-      document.getElementById("emap-detail-races").innerHTML = d.races;
+      document.getElementById("emap-detail-races").innerHTML = d.body;
       document.getElementById("emap-detail-links").innerHTML = d.links;
       panelEmpty.hidden = true;
       panelDetail.hidden = false;
@@ -381,7 +519,7 @@ const featured = [...map.states]
           <h2 class="emap-panel__title">${esc(d.name)}</h2>
           <p class="emap-panel__glance">${esc(d.glance)}</p>
           <div class="emap-panel__badges">${d.badges}</div>
-          <div class="emap-panel__races">${d.races}</div>
+          <div class="emap-panel__races">${d.body}</div>
           ${d.links}`;
         sheet.hidden = false;
         backdrop.hidden = false;
@@ -408,9 +546,7 @@ const featured = [...map.states]
       const path = document.getElementById("st-" + code);
       if (path) path.classList.add("emap-state--selected");
       paintDetail(st);
-      if (!fromHash) {
-        history.replaceState(null, "", "#" + code);
-      }
+      if (!fromHash) history.replaceState(null, "", "#" + code);
     }
 
     function showFloat(code, clientX, clientY) {
@@ -419,8 +555,9 @@ const featured = [...map.states]
       hover = code;
       floatCode.textContent = st.code;
       floatName.textContent = st.name;
-      floatGlance.textContent = st.glance;
-      floatChips.innerHTML = st.chips.map((c) => `<span class="emap-chip">${esc(c)}</span>`).join("");
+      floatGlance.textContent = mode === "party" ? partyGlance(st) : st.glance;
+      const chips = mode === "party" ? partyChips(st) : st.chips;
+      floatChips.innerHTML = chips.map((c) => `<span class="emap-chip">${esc(c)}</span>`).join("");
       floatEl.hidden = false;
       const wrap = floatEl.parentElement.getBoundingClientRect();
       const x = Math.min(wrap.width - 220, Math.max(8, clientX - wrap.left + 12));
@@ -433,7 +570,6 @@ const featured = [...map.states]
       if (floatEl) floatEl.hidden = true;
     }
 
-    // Map interactions
     if (svg) {
       svg.addEventListener("pointerover", (e) => {
         const t = e.target.closest(".emap-state");
@@ -468,12 +604,17 @@ const featured = [...map.states]
     document.querySelectorAll("[data-pick]").forEach((btn) => {
       btn.addEventListener("click", () => selectState(btn.getAttribute("data-pick")));
     });
+    document.querySelectorAll("[data-mode]").forEach((btn) => {
+      btn.addEventListener("click", () => setMode(btn.getAttribute("data-mode")));
+    });
+    document.querySelectorAll("[data-layer]").forEach((btn) => {
+      btn.addEventListener("click", () => setLayer(btn.getAttribute("data-layer")));
+    });
 
     document.getElementById("emap-close")?.addEventListener("click", clearDetail);
     document.getElementById("emap-sheet-close")?.addEventListener("click", clearDetail);
     backdrop?.addEventListener("click", clearDetail);
 
-    // Filters
     const list = document.getElementById("emap-list");
     document.querySelectorAll(".emap-filter").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -491,9 +632,19 @@ const featured = [...map.states]
       });
     });
 
-    // Deep link
-    const hash = (location.hash || "").replace(/^#/, "").toUpperCase();
-    if (hash && states[hash]) selectState(hash, { fromHash: true });
+    // URL: #party-senate-GA or #GA
+    const hash = (location.hash || "").replace(/^#/, "");
+    const parts = hash.split("-");
+    if (parts[0] === "party" && parts[1]) {
+      setMode("party");
+      if (["senate", "governor", "house", "control"].includes(parts[1])) setLayer(parts[1]);
+      const code = (parts[2] || "").toUpperCase();
+      if (code && states[code]) selectState(code, { fromHash: true });
+    } else {
+      applyColors();
+      const code = hash.toUpperCase();
+      if (code && states[code]) selectState(code, { fromHash: true });
+    }
   })();
 </script>
 
@@ -627,6 +778,144 @@ const featured = [...map.states]
   .emap-fill--senate { fill: #3b6ea5; }
   .emap-fill--governor { fill: #2f6b4f; }
   .emap-fill--quiet { fill: #d9d0bc; }
+
+  /* Party / outlook fills (classic blue–red spectrum) */
+  .emap-party--solid-d { fill: #0b3d91; }
+  .emap-party--likely-d { fill: #2a6fdb; }
+  .emap-party--lean-d { fill: #7aa7ef; }
+  .emap-party--tossup { fill: #9b8bb8; }
+  .emap-party--lean-r { fill: #e07a72; }
+  .emap-party--likely-r { fill: #c0392b; }
+  .emap-party--solid-r { fill: #8b1a14; }
+  .emap-party--no-race { fill: #d9d0bc; }
+
+  .emap-state--flip {
+    stroke: #1a140d;
+    stroke-width: 1.5;
+    stroke-dasharray: 4 2;
+  }
+
+  .emap-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem 1.25rem;
+    align-items: flex-end;
+    margin: 0 0 0.75rem;
+    padding: 0.75rem 0.85rem;
+    border: 1px solid var(--ink, #1a140d);
+    background: color-mix(in srgb, var(--ink, #1a140d) 4%, transparent);
+  }
+  .emap-toolbar__group { display: flex; flex-direction: column; gap: 0.35rem; }
+  .emap-toolbar__label { opacity: 0.7; font-size: 0.7rem; }
+  .emap-seg {
+    display: inline-flex;
+    flex-wrap: wrap;
+    border: 1px solid var(--ink, #1a140d);
+  }
+  .emap-seg--wrap { max-width: 100%; }
+  .emap-seg__btn {
+    appearance: none;
+    font: inherit;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.45rem 0.7rem;
+    border: 0;
+    border-right: 1px solid var(--ink, #1a140d);
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+  .emap-seg__btn:last-child { border-right: 0; }
+  .emap-seg__btn--on {
+    background: var(--ink, #1a140d);
+    color: var(--paper, #f5edd9);
+  }
+  .emap-disclaimer {
+    margin: 0 0 0.85rem;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    opacity: 0.88;
+    padding: 0.55rem 0.7rem;
+    border-left: 3px solid var(--ink, #1a140d);
+    background: color-mix(in srgb, var(--ink, #1a140d) 5%, transparent);
+  }
+
+  .emap-party-leg--solid-d { background: #0b3d91; color: #fff; border-color: #082c68; }
+  .emap-party-leg--likely-d { background: #2a6fdb; color: #fff; border-color: #1e56ad; }
+  .emap-party-leg--lean-d { background: #7aa7ef; color: #1a140d; border-color: #5a86cc; }
+  .emap-party-leg--tossup { background: #9b8bb8; color: #1a140d; border-color: #7a6c94; }
+  .emap-party-leg--lean-r { background: #e07a72; color: #1a140d; border-color: #b85a53; }
+  .emap-party-leg--likely-r { background: #c0392b; color: #fff; border-color: #96281e; }
+  .emap-party-leg--solid-r { background: #8b1a14; color: #fff; border-color: #64120e; }
+  .emap-party-leg--no-race { background: #d9d0bc; color: #1a140d; border-color: #b8ad96; }
+  .emap-leg--flip {
+    background: repeating-linear-gradient(135deg, #f5edd9, #f5edd9 4px, #1a140d 4px, #1a140d 6px);
+    color: #1a140d;
+  }
+
+  .emap-forecast {
+    border: 1px solid var(--ink, #1a140d);
+    padding: 0.7rem 0.75rem;
+    margin-bottom: 0.85rem;
+    background: color-mix(in srgb, var(--ink, #1a140d) 3%, transparent);
+  }
+  .emap-forecast__title {
+    margin: 0 0 0.5rem;
+    font-family: var(--serif, Georgia, serif);
+    font-size: 1.05rem;
+  }
+  .emap-forecast__sub {
+    margin: 0.85rem 0 0.45rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .emap-forecast__dl {
+    margin: 0;
+    display: grid;
+    gap: 0.45rem;
+  }
+  .emap-forecast__dl div {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: 0.4rem;
+    align-items: baseline;
+  }
+  .emap-forecast__dl dt {
+    margin: 0;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .emap-forecast__dl dd { margin: 0; font-weight: 600; }
+  .emap-party-tag {
+    display: inline-block;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.85rem;
+    border: 1px solid;
+  }
+  .emap-party-tag--D { background: #2a6fdb; color: #fff; border-color: #1e56ad; }
+  .emap-party-tag--R { background: #c0392b; color: #fff; border-color: #96281e; }
+  .emap-party-tag--S { background: #9b8bb8; color: #1a140d; border-color: #7a6c94; }
+  .emap-party-tag--N { background: #d9d0bc; color: #1a140d; border-color: #b8ad96; }
+  .emap-rating-pill {
+    display: inline-block;
+    padding: 0.15rem 0.45rem;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #fff;
+    border: 1px solid rgba(0,0,0,0.2);
+  }
+  .emap-rating-pill.emap-party--solid-d { background: #0b3d91; }
+  .emap-rating-pill.emap-party--likely-d { background: #2a6fdb; }
+  .emap-rating-pill.emap-party--lean-d { background: #7aa7ef; color: #1a140d; }
+  .emap-rating-pill.emap-party--tossup { background: #9b8bb8; color: #1a140d; }
+  .emap-rating-pill.emap-party--lean-r { background: #e07a72; color: #1a140d; }
+  .emap-rating-pill.emap-party--likely-r { background: #c0392b; }
+  .emap-rating-pill.emap-party--solid-r { background: #8b1a14; }
+  .emap-rating-pill.emap-party--no-race { background: #d9d0bc; color: #1a140d; }
 
   .emap-float {
     position: absolute;
