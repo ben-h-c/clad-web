@@ -16,6 +16,12 @@
  *  3. No template hardcodes an <img src="https://..."> pointing at a host
  *     outside the allowlist (YouTube CDN only). Dynamic thumbnails are covered
  *     by invariant 1; this catches literal one-off embeds.
+ *  4. Every URL in the static politician portrait map (src/lib/politicianPhotos.ts)
+ *     is hosted on Wikimedia COMMONS (upload.wikimedia.org/wikipedia/commons/…).
+ *     Commons hosts free-licensed media only; enwiki-local files
+ *     (/wikipedia/en/…) are routinely non-free fair-use images we may not
+ *     reuse. The proxy, the KV write endpoint, and the runner enforce the same
+ *     rule at runtime; this catches hand-added static entries.
  *
  * Run: node scripts/checkImageLicense.mjs
  */
@@ -105,6 +111,38 @@ for (const dir of TEMPLATE_DIRS) {
   }
 }
 
+// --- 4: static politician portrait map is Commons-only ----------------------
+const PHOTOS_LIB = path.join(ROOT, "src", "lib", "politicianPhotos.ts");
+let portraitCount = 0;
+{
+  const src = fs.readFileSync(PHOTOS_LIB, "utf8");
+  // Scan the POLITICIAN_PHOTOS literal: every quoted https URL value in it.
+  const mapMatch = src.match(/POLITICIAN_PHOTOS[^=]*=\s*{([\s\S]*?)^};/m);
+  if (!mapMatch) {
+    failures.push("politicianPhotos.ts: could not locate POLITICIAN_PHOTOS map (check parser)");
+  } else {
+    for (const m of mapMatch[1].matchAll(/"(https?:\/\/[^"]+)"/g)) {
+      portraitCount++;
+      let u;
+      try {
+        u = new URL(m[1]);
+      } catch {
+        failures.push(`politicianPhotos.ts: unparsable portrait URL ${m[1]}`);
+        continue;
+      }
+      if (
+        u.protocol !== "https:" ||
+        u.hostname !== "upload.wikimedia.org" ||
+        !u.pathname.startsWith("/wikipedia/commons/")
+      ) {
+        failures.push(
+          `politicianPhotos.ts: portrait not hosted on Wikimedia Commons (may be non-free): ${m[1]}`
+        );
+      }
+    }
+  }
+}
+
 if (failures.length) {
   console.error(`image-license check FAILED (${failures.length} issue${failures.length === 1 ? "" : "s"}):\n`);
   for (const f of failures) console.error("  ✗ " + f);
@@ -114,4 +152,6 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`image-license check passed: ${checked} thumbnails verified, no external image hosts outside allowlist.`);
+console.log(
+  `image-license check passed: ${checked} thumbnails verified, ${portraitCount} static portraits Commons-only, no external image hosts outside allowlist.`
+);

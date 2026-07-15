@@ -12,6 +12,7 @@ import {
   buildPoliticianIndex,
   resolvePoliticianSeeds,
 } from "~/lib/politicians";
+import { isCommonsMediaUrl } from "~/lib/politicianPhotos";
 
 export const prerender = false;
 
@@ -80,7 +81,10 @@ export const POST: APIRoute = async ({ request }) => {
   if (body.photos && typeof body.photos === "object") {
     const cleaned: Record<string, string> = {};
     for (const [k, v] of Object.entries(body.photos).slice(0, 200)) {
-      if (typeof v === "string" && /^https:\/\//i.test(v)) cleaned[k] = v.slice(0, 500);
+      // Licensing gate (docs/legal/image-claims.md): the portrait pipeline
+      // carries Wikimedia Commons files only — Commons hosts free-licensed
+      // media; enwiki-local lead images can be non-free fair-use files.
+      if (typeof v === "string" && v.length <= 500 && isCommonsMediaUrl(v)) cleaned[k] = v;
     }
     const map = await mergePoliticianPhotos(env.AGENTS, cleaned);
     photoCount = Object.keys(map.bySlug).length;

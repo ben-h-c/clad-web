@@ -68,11 +68,14 @@ or false one.
   in generated art — automated rights-agency crawlers match pixels and send
   demands regardless of the hotlink defense.
 - **Wikimedia portraits (politician cards):** the same-origin proxy
-  (/api/politician-photo/) serves Wikipedia lead images from our domain. Most
-  are CC-BY / CC-BY-SA — which require attribution and a license notice we do
-  not currently display — and some Wikipedia lead images are non-free. Flag as
-  **medium** until a visible credit/attribution treatment ships; flag as
-  **high** any non-Wikimedia source added to the portrait pipeline.
+  (/api/politician-photo/) serves Wikimedia COMMONS files only (free-licensed
+  by Commons policy), and TASL attribution (author/source/license) is served at
+  /politicians/photo-credits/, auto-populated from Commons extmetadata and
+  linked from the politicians index and every politician page. Every audit,
+  verify the credits page is reachable and populating (not all rows stuck on
+  "pending"), and flag as **high**: any non-Commons or non-Wikimedia source in
+  the portrait pipeline; the credits page missing, unlinked, or broken; or any
+  new surface serving third-party portraits without a credit path.
 
 ## 5. Trademark
 - Use of a brand/name that implies endorsement, sponsorship, or affiliation.

@@ -1,0 +1,175 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import PoliticianAvatar from "~/components/PoliticianAvatar.astro";
+import { env } from "cloudflare:workers";
+import { getPoliticianPhotoCredits, getPoliticianPhotoMap } from "~/lib/agents";
+import { resolvePoliticianSeeds } from "~/lib/politicians";
+import {
+  POLITICIAN_PHOTOS,
+  commonsFilePage,
+  isCommonsMediaUrl,
+} from "~/lib/politicianPhotos";
+
+export const prerender = false;
+
+/**
+ * TASL attribution (Title/Author/Source/License) for every politician portrait
+ * the site serves. All portraits come from Wikimedia Commons, which hosts
+ * free-licensed media only; most are Creative Commons licenses whose terms
+ * REQUIRE this credit, so this page is a license condition, not decoration —
+ * see docs/legal/image-claims.md. Author/license details are captured
+ * automatically the first time each portrait is served.
+ */
+
+const { seeds } = await resolvePoliticianSeeds(env.AGENTS);
+const nameBySlug = new Map(seeds.map((s) => [s.slug, s.name]));
+
+const credits = (await getPoliticianPhotoCredits(env.AGENTS))?.bySlug ?? {};
+const kvPhotos = (await getPoliticianPhotoMap(env.AGENTS))?.bySlug ?? {};
+
+// Every slug that can currently serve a portrait: static map ∪ live KV map.
+const slugs = new Set<string>([
+  ...Object.keys(POLITICIAN_PHOTOS),
+  ...Object.keys(kvPhotos).filter((s) => isCommonsMediaUrl(kvPhotos[s] ?? "")),
+]);
+
+const displayName = (slug: string): string =>
+  nameBySlug.get(slug) ??
+  slug
+    .split("-")
+    .map((w) => (w.length <= 2 ? w.toUpperCase() : w[0]!.toUpperCase() + w.slice(1)))
+    .join(" ");
+
+interface Row {
+  slug: string;
+  name: string;
+  sourceUrl: string | null; // Commons file-description page
+  artist: string | null;
+  license: string | null;
+  licenseUrl: string | null;
+  publicDomain: boolean;
+  pending: boolean; // attribution details not captured yet
+}
+
+const rows: Row[] = [...slugs]
+  .map((slug) => {
+    const credit = credits[slug] ?? null;
+    const url = POLITICIAN_PHOTOS[slug] ?? kvPhotos[slug] ?? null;
+    return {
+      slug,
+      name: displayName(slug),
+      sourceUrl: credit?.filePage ?? (url ? commonsFilePage(url) : null),
+      artist: credit?.artist ?? null,
+      license: credit?.license ?? null,
+      licenseUrl: credit?.licenseUrl ?? null,
+      publicDomain: credit?.publicDomain ?? false,
+      pending: !credit,
+    };
+  })
+  .sort((a, b) => a.name.localeCompare(b.name));
+
+const credited = rows.filter((r) => !r.pending).length;
+---
+<BaseLayout
+  title="Politician photo credits — CladFacts"
+  description="Attribution for the politician portraits on CladFacts: author, source, and license for every image, all from Wikimedia Commons."
+>
+  <article class="static-page">
+    <p class="small-caps upgrade__eyebrow">Politicians · attribution</p>
+    <h1 class="static-page__title">Photo credits</h1>
+    <p class="upgrade__lede">
+      Every portrait on the politician report cards comes from
+      <a href="https://commons.wikimedia.org/" rel="noopener noreferrer" target="_blank">Wikimedia Commons</a>,
+      which hosts freely licensed media. Many are Creative Commons works whose
+      license asks for credit — author, source, and license for each image are
+      listed here. Public-domain works (most official U.S. federal portraits)
+      require no credit but are listed for completeness. Details are gathered
+      automatically from each file&rsquo;s Commons record
+      {credited < rows.length ? " and fill in as portraits are served" : ""}.
+      Spot an error? <a href="/corrections/">Corrections</a>.
+    </p>
+
+    {rows.length === 0 ? (
+      <p class="dateline">No portraits are in service yet.</p>
+    ) : (
+      <ul class="credit-list">
+        {rows.map((r) => (
+          <li class="credit-row">
+            <PoliticianAvatar slug={r.slug} name={r.name} size="sm" />
+            <div class="credit-row__body">
+              <p class="credit-row__name">
+                <a href={`/politicians/${r.slug}/`}>{r.name}</a>
+              </p>
+              <p class="credit-row__meta">
+                {r.pending ? (
+                  <>
+                    {r.sourceUrl ? (
+                      <a href={r.sourceUrl} rel="noopener noreferrer" target="_blank">Wikimedia Commons</a>
+                    ) : (
+                      "Wikimedia Commons"
+                    )}
+                    {" — author and license details pending"}
+                  </>
+                ) : (
+                  <>
+                    {r.artist ?? "Unknown author"}
+                    {" · "}
+                    {r.sourceUrl ? (
+                      <a href={r.sourceUrl} rel="noopener noreferrer" target="_blank">source</a>
+                    ) : (
+                      "Wikimedia Commons"
+                    )}
+                    {" · "}
+                    {r.licenseUrl ? (
+                      <a href={r.licenseUrl} rel="noopener noreferrer" target="_blank">{r.license ?? "license"}</a>
+                    ) : (
+                      r.license ?? (r.publicDomain ? "Public domain" : "See source for license")
+                    )}
+                  </>
+                )}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    )}
+
+    <p class="dateline credit-foot">
+      Images are served through a same-origin proxy and are not modified beyond
+      the sizes Wikimedia itself provides. Portraits of U.S. federal officials
+      produced by the federal government are public domain (17 U.S.C. §105).
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .credit-list {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    border-top: 1px solid var(--rule, #1a140d);
+  }
+  .credit-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--ink, #1a140d) 22%, transparent);
+  }
+  .credit-row__body {
+    min-width: 0;
+  }
+  .credit-row__name {
+    margin: 0;
+    font-weight: 700;
+  }
+  .credit-row__meta {
+    margin: 0.1rem 0 0;
+    font-size: 0.86rem;
+    opacity: 0.85;
+    overflow-wrap: anywhere;
+  }
+  .credit-foot {
+    margin-top: 1.5rem;
+  }
+</style>
