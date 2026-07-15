@@ -7,14 +7,12 @@ import BreakingStrip from "~/components/BreakingStrip.astro";
 import TopicRow from "~/components/TopicRow.astro";
 import GradeBoard from "~/components/GradeBoard.astro";
 import HomeCharts from "~/components/HomeCharts.astro";
-import Ticker from "~/components/Ticker.astro";
-import QuipTicker from "~/components/QuipTicker.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
 import NewsletterSignup from "~/components/NewsletterSignup.astro";
 import ReportCard from "~/components/ReportCard.astro";
-import { getFrontpage, getBreaking, getTicker, getQuips, getSentiments } from "~/lib/agents";
-import { aggregateTopics, gradeToGpa, leanScoreOf } from "~/lib/topics";
+import { getFrontpage, getBreaking, getSentiments } from "~/lib/agents";
+import { aggregateTopics, gradeToGpa, gpaToGrade } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
 import { sampleUnlockedId } from "~/lib/sample";
@@ -32,21 +30,17 @@ const all = (await getCollection("posts", (p) => !p.data.draft)).sort(
 );
 const byId = new Map(all.map((p) => [p.id, p]));
 
-// Hero = the Front Page Curator's selection (ordered) — news-media talk-show /
-// panel / commentary segments across any network. Fall back to manually
-// featured, then most-recent, if the curator hasn't run yet.
+// Hero = Front Page Curator selection. Fall back to featured, then most-recent.
 let curated = await getFrontpage(env.AGENTS);
 let heroPosts = curated.map((id) => byId.get(id)).filter((p) => p !== undefined);
 if (heroPosts.length === 0) {
   const flagged = all.filter((p) => p.data.featured);
   heroPosts = flagged.length > 0 ? flagged : all.slice(0, 8);
 }
-heroPosts = heroPosts.slice(0, 24);
+// Home is a newspaper front page — not an infinite archive. Cap hard.
+heroPosts = heroPosts.slice(0, 12);
 
-// Breaking News = the curator's impact-ordered selection: single outlet posts,
-// or temporary same-story groups (shown as a topic shell with aggregated grade
-// + lean). Resolve each item; a group needs ≥2 resolvable members, else it
-// degrades to a single post.
+// Breaking = impact-ordered; cap for mobile length.
 const breakingItems = await getBreaking(env.AGENTS);
 let breaking = breakingItems
   .map((it) => {
@@ -62,38 +56,16 @@ let breaking = breakingItems
     return null;
   })
   .filter((x): x is NonNullable<typeof x> => x !== null)
-  .slice(0, 24);
+  .slice(0, 10);
 
-// Recent = the newest reports overall (any type/outlet), newest first —
-// excluding anything already shown in the hero or breaking strips.
-const shown = new Set([
-  ...heroPosts.map((p) => p.id),
-  ...breaking.flatMap((b) => (b.kind === "post" ? [b.post.id] : b.members.map((m) => m.id))),
-]);
-let recent = all.filter((p) => !shown.has(p.id)).slice(0, 30);
-
-const ticker = await getTicker(env.AGENTS);
-const quips = await getQuips(env.AGENTS);
-
-// Anonymous readers see all the pages and article text (great for SEO), but
-// the scoreboard unlocks with an account — hidden everywhere via `locked`,
-// and the graded analytics sections are replaced with a register panel.
 const locked = !access.fullAccess;
-// Report of the Day — one card renders fully unlocked (with a sample badge)
-// for restricted readers; same pick site-wide per NY day.
 const sampleId = locked ? sampleUnlockedId(all) : null;
-// The free-card section is the sole unlocked scoreband for guests. Keep that
-// post out of every strip (hero / recent / breaking) so anonymous HTML has
-// exactly one real LetterGrade — smoke-anon allows only one on /.
-// (2026-07: prod smoke failed 2× when the sample also appeared in Breaking
-// with unlockedId, re-rendering the sample badge.)
+// Free-card is the sole unlocked scoreband for guests — keep it out of strips.
 if (sampleId) {
   heroPosts = heroPosts.filter((p) => p.id !== sampleId);
-  recent = recent.filter((p) => p.id !== sampleId);
   breaking = breaking
     .map((it) => {
       if (it.kind === "post") return it.post.id === sampleId ? null : it;
-      // Drop the sample member from a group; degrade to a single post or drop.
       const members = it.members.filter((p) => p.id !== sampleId);
       if (members.length >= 2) return { ...it, members };
       if (members.length === 1) return { kind: "post" as const, post: members[0] };
@@ -102,23 +74,19 @@ if (sampleId) {
     .filter((x): x is NonNullable<typeof x> => x !== null);
 }
 
-// Social-media sentiment (KV, scanner-scored) — Premium; the read is skipped
-// for restricted readers so the reception analytics never reach their HTML.
 const sentiments = locked ? {} : await getSentiments(env.AGENTS);
-
 const topics = aggregateTopics(all, sentiments);
-const TOPICS_PER_PAGE = 20;
+const TOPICS_ON_HOME = 8;
 
-// Best & worst graded. Rank only graded (broadcast) posts; recency breaks ties.
+// Best & worst — compact (3 each) for signed-in desk board.
 const graded = all.filter((p) => gradeToGpa(p.data.letterGrade) != null);
 const byGradeDesc = [...graded].sort(
   (a, b) =>
     gradeToGpa(b.data.letterGrade)! - gradeToGpa(a.data.letterGrade)! ||
     b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
 );
-const topGraded = byGradeDesc.slice(0, 5);
+const topGraded = byGradeDesc.slice(0, 3);
 const topIds = new Set(topGraded.map((p) => p.id));
-// Lowest = worst-first, excluding any already shown in the top column.
 const bottomGraded = [...graded]
   .filter((p) => !topIds.has(p.id))
   .sort(
@@ -126,26 +94,24 @@ const bottomGraded = [...graded]
       gradeToGpa(a.data.letterGrade)! - gradeToGpa(b.data.letterGrade)! ||
       b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
   )
-  .slice(0, 5);
+  .slice(0, 3);
 
-// Most politically biased: the most left-leaning and most right-leaning posts.
-const leaned = all.filter((p) => leanScoreOf(p.data) != null);
-const mostLeft = [...leaned]
-  .sort(
-    (a, b) =>
-      leanScoreOf(a.data)! - leanScoreOf(b.data)! ||
-      b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
-  )
-  .slice(0, 5);
-const leftIds = new Set(mostLeft.map((p) => p.id));
-const mostRight = [...leaned]
-  .filter((p) => !leftIds.has(p.id))
-  .sort(
-    (a, b) =>
-      leanScoreOf(b.data)! - leanScoreOf(a.data)! ||
-      b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
-  )
-  .slice(0, 5);
+// Public pulse stats (no gated grades in labels for guests).
+const broadcastCount = all.filter((p) => p.data.type === "broadcast").length;
+const outletSet = new Set(
+  all.map((p) => p.data.sourceTitle).filter((n): n is string => Boolean(n) && isNewsOutlet(n))
+);
+const weekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+const weekCount = all.filter((p) => p.data.publishedAt.valueOf() >= weekAgo).length;
+
+// Signed-in: one-line desk average (safe — only rendered when unlocked).
+const weekGpas = all
+  .filter((p) => p.data.publishedAt.valueOf() >= weekAgo)
+  .map((p) => gradeToGpa(p.data.letterGrade))
+  .filter((n): n is number => n != null);
+const weekAvgGpa =
+  weekGpas.length > 0 ? weekGpas.reduce((a, b) => a + b, 0) / weekGpas.length : null;
+const weekAvgLetter = !locked && weekAvgGpa != null ? gpaToGrade(weekAvgGpa) : null;
 ---
 <BaseLayout
   title="Clad — Grading Content & Exposing Bias"
@@ -162,8 +128,7 @@ const mostRight = [...leaned]
           <aside class="app-promo" id="app-promo" data-app-hide hidden>
             <p class="app-promo__msg">
               <span class="app-promo__kicker">Now on iOS</span>
-              Read the front page on your phone — every grade, political-lean rating, and
-              breaking-news alert in the CladFacts app.
+              Every grade and alert in your pocket.
             </p>
             <a class="app-promo__cta" href={APP_STORE_URL} target="_blank" rel="noopener">Get the app →</a>
             <button type="button" class="app-promo__close" id="app-promo-close" aria-label="Dismiss app promotion">×</button>
@@ -175,8 +140,6 @@ const mostRight = [...leaned]
               const KEY = "clad_app_promo_dismissed";
               let dismissed = false;
               try { dismissed = !!localStorage.getItem(KEY); } catch {}
-              // Reveal only for visitors who haven't dismissed it (avoids a flash for
-              // those who have). Inside the iOS app it stays hidden via data-app-hide.
               if (!dismissed) el.hidden = false;
               const close = document.getElementById("app-promo-close");
               if (close) close.addEventListener("click", () => {
@@ -187,34 +150,82 @@ const mostRight = [...leaned]
           </script>
         </>
       )}
-      {locked && (
-        <aside class="paywall-banner">
-          <span>
-            Reading as a guest — every grade, political-lean rating &amp; sentiment
-            score unlocks with a free account. No card, no clock.
-            Prefer email first? <a href="/newsletter/">Get the free weekly</a>.
-          </span>
-          <a class="paywall-banner__cta" href="/register/">Create free account</a>
-        </aside>
-      )}
+
+      {/* Value prop first — not a wall of carousels. */}
+      <section class="home-lede" aria-label="What Clad is">
+        <p class="home-lede__kicker small-caps">Independent fact-check desk</p>
+        <p class="home-lede__line">
+          We grade TV news for <strong>accuracy</strong> and <strong>bias</strong> —
+          letter grade, lean score, claim tags, sources you can open.
+        </p>
+        <ul class="home-pulse" aria-label="Desk at a glance">
+          <li><strong>{broadcastCount.toLocaleString()}</strong><span>graded reports</span></li>
+          <li><strong>{weekCount}</strong><span>this week</span></li>
+          <li><strong>{outletSet.size}</strong><span>outlets watched</span></li>
+          {weekAvgLetter && (
+            <li><strong>{weekAvgLetter}</strong><span>avg this week</span></li>
+          )}
+        </ul>
+        {locked ? (
+          <p class="home-lede__cta-row">
+            <a class="home-lede__cta" href="/register/">Unlock every grade — free</a>
+            <a class="home-lede__ghost" href="/learn/grades/">What do grades mean?</a>
+          </p>
+        ) : (
+          <p class="home-lede__cta-row">
+            <a class="home-lede__ghost" href="/quiz/">Morning quiz</a>
+            <a class="home-lede__ghost" href="/elections/map/">Midterms map</a>
+            <a class="home-lede__ghost" href="/trends/">News trends</a>
+          </p>
+        )}
+      </section>
+
+      {/* Guest aha: one real grade before the feed noise. */}
       {locked && sampleId && byId.has(sampleId) && (
         <section class="free-card" aria-labelledby="free-card-title">
           <div class="feed__head">
-            <h2 class="feed__title" id="free-card-title">Today's Free Report Card</h2>
-            <span class="free-card__note">One full grade, free every day — a free account unlocks this on every report.</span>
+            <h2 class="feed__title" id="free-card-title">Start here — today&rsquo;s free grade</h2>
+            <span class="free-card__note">One full report card, free every day. An account unlocks the rest.</span>
           </div>
           <div class="rule rule--double" aria-hidden="true"></div>
           <ReportCard post={byId.get(sampleId)!} sample />
         </section>
       )}
-      {/* Decorative fun strip above the main rows; aria-hidden inside the
-          component, so screen readers skip straight to the day's content. */}
-      <QuipTicker data={quips} />
-      {/* unlockedId omitted: free-card above is the only sanctioned sample. */}
+
       <BreakingStrip items={breaking} locked={locked} />
-      <Ticker data={ticker} />
-      <HeroStrip posts={heroPosts} title="Front Page" locked={locked} />
-      <HeroStrip posts={recent} title="Recent" locked={locked} />
+
+      <HeroStrip
+        posts={heroPosts}
+        title="Front Page"
+        locked={locked}
+        moreHref="/recent/"
+        moreLabel="Latest →"
+      />
+
+      {/* Product discovery without another carousel of cards. */}
+      <nav class="desk-rails" aria-label="Explore Clad">
+        <a class="desk-rails__card" href="/elections/map/">
+          <span class="desk-rails__kicker small-caps">Midterms 2026</span>
+          <span class="desk-rails__title">Election map</span>
+          <span class="desk-rails__blurb">Class II Senate, governors, coverage heat — not polls.</span>
+        </a>
+        <a class="desk-rails__card" href="/bracket/">
+          <span class="desk-rails__kicker small-caps">Midterms 2026</span>
+          <span class="desk-rails__title">Race board</span>
+          <span class="desk-rails__blurb">Who&rsquo;s on the ballot, with coverage grades.</span>
+        </a>
+        <a class="desk-rails__card" href="/quiz/">
+          <span class="desk-rails__kicker small-caps">Daily</span>
+          <span class="desk-rails__title">Morning quiz</span>
+          <span class="desk-rails__blurb">Five real claims. Spot the spin in two minutes.</span>
+        </a>
+        <a class="desk-rails__card" href="/students/">
+          <span class="desk-rails__kicker small-caps">Campus</span>
+          <span class="desk-rails__title">For students</span>
+          <span class="desk-rails__blurb">Grades, explainers, share kit — free account.</span>
+        </a>
+      </nav>
+
       <section class="feed">
         <div class="feed__head">
           <h2 class="feed__title">Topics</h2>
@@ -222,69 +233,49 @@ const mostRight = [...leaned]
         </div>
         <div class="rule rule--double" aria-hidden="true"></div>
         <ul class="topic-rows">
-          {topics.map((t, i) => (
-            <li class="topic-row-item" hidden={i >= TOPICS_PER_PAGE}>
+          {topics.slice(0, TOPICS_ON_HOME).map((t) => (
+            <li class="topic-row-item">
               <TopicRow topic={t} locked={locked} />
             </li>
           ))}
         </ul>
-        {topics.length > TOPICS_PER_PAGE && (
-          <button type="button" id="topics-more" class="show-more" data-step={TOPICS_PER_PAGE}>
-            Show more <span aria-hidden="true">↓</span>
-          </button>
+        {topics.length > TOPICS_ON_HOME && (
+          <p class="feed__foot">
+            <a href="/search/">Browse {topics.length} topics in search →</a>
+          </p>
         )}
       </section>
-      <script is:inline>
-        (() => {
-          const btn = document.getElementById("topics-more");
-          if (!btn) return;
-          const items = Array.from(document.querySelectorAll(".topic-row-item"));
-          const step = Number(btn.getAttribute("data-step")) || 20;
-          let shown = step;
-          btn.addEventListener("click", () => {
-            shown += step;
-            items.forEach((el, i) => { if (i < shown) el.hidden = false; });
-            if (shown >= items.length) btn.hidden = true;
-          });
-        })();
-      </script>
+
       {locked ? (
         <PaywallPanel signedIn={access.signedIn} />
       ) : (
         <>
           <HomeCharts posts={all} topics={topics} sentiments={sentiments} />
           {topGraded.length > 0 && <GradeBoard top={topGraded} bottom={bottomGraded} />}
-          {mostLeft.length > 0 && (
-            <GradeBoard
-              title="Most Politically Biased"
-              topLabel="Most Left-Leaning"
-              bottomLabel="Most Right-Leaning"
-              top={mostLeft}
-              bottom={mostRight}
-            />
-          )}
+          <p class="home-more-analytics">
+            Lean extremes and week-over-week quality live on{" "}
+            <a href="/trends/">News Trends</a>
+            {" · "}
+            <a href="/bias/">Check your bias</a>.
+          </p>
         </>
       )}
+
+      <section class="more-clad" aria-labelledby="more-clad-title">
+        <div class="feed__head">
+          <h2 class="feed__title" id="more-clad-title">More from Clad</h2>
+        </div>
+        <div class="rule rule--double" aria-hidden="true"></div>
+        <ul class="more-clad__list">
+          <li><a href="/week/"><strong>Week in Grades</strong></a> — best, worst, and blind spots</li>
+          <li><a href="/trends/"><strong>News Trends</strong></a> — quality and lean over time</li>
+          <li><a href="/politicians/"><strong>Politician cards</strong></a> — coverage report cards for the trail</li>
+          <li><a href="/learn/"><strong>New to the news?</strong></a> — six short explainers</li>
+          <li><a href="/how-it-works/"><strong>How Clad works</strong></a> — full methodology</li>
+        </ul>
+      </section>
     </>
   )}
-  <section class="feed">
-    <div class="feed__head">
-      <h2 class="feed__title">The Record</h2>
-      <a class="category__more" href="/week/">The Week in Grades →</a>
-    </div>
-    <div class="rule rule--double" aria-hidden="true"></div>
-    <p class="dateline">
-      The week's best &amp; worst graded coverage, its most disputed claims, and
-      where coverage skewed to one side — wrapped up weekly, alongside the
-      long-run <a href="/trends/">News Trends</a>. Midterms:
-      <a href="/politicians/">politician report cards</a>
-      ·
-      <a href="/bracket/">coverage bracket</a>.
-      New to this? <a href="/students/">Clad for students</a>
-      ·
-      <a href="/learn/grades/">What does a C− mean?</a>
-    </p>
-  </section>
   <NewsletterSignup />
   <Disclaimer />
 </BaseLayout>

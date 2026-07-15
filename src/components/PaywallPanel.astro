@@ -7,16 +7,20 @@ interface Props {
 const { signedIn } = Astro.props;
 ---
 <section class="paywall">
-  <p class="small-caps paywall__eyebrow">Free with a CladFacts account</p>
-  <h2 class="paywall__title">See every grade — free</h2>
+  <p class="small-caps paywall__eyebrow">Free account · no card</p>
+  <h2 class="paywall__title">You&rsquo;ve seen one grade. Unlock the rest.</h2>
   <p class="paywall__lede">
-    Letter grades, political-lean ratings, social sentiment, the By-the-Numbers
-    charts, the Best &amp; Worst Graded boards, and the News Trends dashboard
-    unlock with a free account. No card, no trial clock.
+    Letter grades, lean scores, charts, best &amp; worst boards, and News Trends —
+    free with any account. Premium funds the desk and unlocks Reader Reactions.
   </p>
+  <ul class="paywall__perks">
+    <li>Every report&rsquo;s grade &amp; lean</li>
+    <li>By-the-Numbers desk charts</li>
+    <li>Morning quiz + weekly newsletter</li>
+  </ul>
   <div class="paywall__cta">
     <a class="auth-submit" href="/register/">Create free account</a>
-    <a class="auth-submit secondary" href="/upgrade/">Support Clad — Premium from {PRICE.monthly}/mo</a>
+    <a class="auth-submit secondary" href="/upgrade/">Premium from {PRICE.monthly}/mo</a>
   </div>
   {!signedIn && (
     <p class="paywall__signin">Already have an account? <a href="/login/">Sign in</a>.</p>
