@@ -22,6 +22,7 @@ import { runSentimentScanner } from "./sentimentScanner.mjs";
 import { runRaceBoardAuditor } from "./raceBoardAuditor.mjs";
 import { runPoliticianRosterSync } from "./politicianRosterSync.mjs";
 import { runPoliticianProfileBuilder } from "./politicianProfileBuilder.mjs";
+import { runPoliticianGrader } from "./politicianGrader.mjs";
 import { processUrlQueue } from "./urlIntake.mjs";
 import { updateTicker } from "./ticker.mjs";
 
@@ -44,6 +45,7 @@ const KINDS = {
   "race-board-auditor": runRaceBoardAuditor,
   "politician-roster-sync": runPoliticianRosterSync,
   "politician-profile-builder": runPoliticianProfileBuilder,
+  "politician-grader": runPoliticianGrader,
 };
 
 function log(...args) {

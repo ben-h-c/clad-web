@@ -287,6 +287,17 @@ export const DEFAULT_REGISTRY: Registry = {
         publishedWithinHours: 168, // 7 days
       },
     },
+    {
+      id: "politician-grader",
+      kind: "politician-grader",
+      name: "Politician Grader (person ideology + claim record)",
+      enabled: true,
+      // Daily 15:30 UTC — score the people themselves (not coverage averages).
+      cron: "30 15 * * *",
+      config: {
+        maxPoliticiansPerRun: 8,
+      },
+    },
   ],
 };
 

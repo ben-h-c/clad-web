@@ -14,6 +14,11 @@
 import type { CollectionEntry } from "astro:content";
 import { ROSTER_SEEDS } from "../data/politicianRoster.ts";
 import { getPoliticianRoster } from "./agents.ts";
+import {
+  getPersonProfileMap,
+  resolvePersonProfile,
+  type PersonProfileMap,
+} from "./politicianProfiles.ts";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "./topics.ts";
 
 /** Directory sections — officeholders by branch/chamber, then coverage-only. */
@@ -66,6 +71,24 @@ export interface PoliticianAgg {
   race?: string;
   bucket: RaceBucket;
   appearances: PoliticianAppearance[];
+  /**
+   * Person-level scores (the politician themselves — ideology & claim record).
+   * NOT an average of news coverage that mentions them.
+   */
+  personGrade: string | null;
+  personFactuality: number | null;
+  personLean: number | null;
+  personLeanRationale: string | null;
+  personGradeRationale: string | null;
+  /** How media covering them graded (coverage of them — secondary). */
+  coverageGrade: string | null;
+  coverageFactuality: number | null;
+  coverageLean: number | null;
+  /**
+   * @deprecated Alias of person* for race-board coverage math that still reads
+   * avgFactuality as volume tie-break — race board uses coverage* via sideLive.
+   * Politician pages must use person* fields.
+   */
   avgGrade: string | null;
   avgFactuality: number | null;
   avgLean: number | null;
@@ -140,10 +163,11 @@ export async function resolvePoliticianSeeds(
 /** @deprecated Prefer resolvePoliticianSeeds — kept for sync helpers. */
 export const POLITICIAN_SEEDS: PoliticianSeed[] = ROSTER_SEEDS as PoliticianSeed[];
 
-/** Build index from posts + explicit officeholder seeds. */
+/** Build index from posts + officeholder seeds + person profiles. */
 export function buildPoliticianIndex(
   posts: CollectionEntry<"posts">[],
-  seeds: PoliticianSeed[] = POLITICIAN_SEEDS
+  seeds: PoliticianSeed[] = POLITICIAN_SEEDS,
+  profiles: PersonProfileMap | null = null
 ): PoliticianAgg[] {
   const seedBySlug = new Map(seeds.map((s) => [s.slug, s]));
   const bySlug = new Map<
@@ -216,9 +240,20 @@ export function buildPoliticianIndex(
       .map(appearanceFrom)
       .sort((a, b) => b.publishedAt.valueOf() - a.publishedAt.valueOf());
 
+    // Coverage-of-them (media mentioning this person) — secondary metrics.
     const gpas = appearances.map((a) => gradeToGpa(a.letterGrade ?? undefined)).filter((n): n is number => n != null);
     const scores = appearances.map((a) => a.factualityScore).filter((n): n is number => n != null);
     const leans = appearances.map((a) => a.leanScore).filter((n): n is number => n != null);
+    const coverageGrade = gpas.length ? gpaToGrade(gpas.reduce((a, b) => a + b, 0) / gpas.length) : null;
+    const coverageFactuality = scores.length
+      ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length)
+      : null;
+    const coverageLean = leans.length
+      ? Math.round(leans.reduce((a, b) => a + b, 0) / leans.length)
+      : null;
+
+    // Person themselves (ideology + claim reliability) — never coverage average.
+    const person = resolvePersonProfile(row.slug, profiles);
 
     out.push({
       name: row.name,
@@ -226,9 +261,18 @@ export function buildPoliticianIndex(
       race: row.race,
       bucket: row.bucket,
       appearances,
-      avgGrade: gpas.length ? gpaToGrade(gpas.reduce((a, b) => a + b, 0) / gpas.length) : null,
-      avgFactuality: scores.length ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : null,
-      avgLean: leans.length ? Math.round(leans.reduce((a, b) => a + b, 0) / leans.length) : null,
+      personGrade: person?.letterGrade ?? null,
+      personFactuality: person?.factualityScore ?? null,
+      personLean: person != null ? person.leanScore : null,
+      personLeanRationale: person?.leanRationale ?? null,
+      personGradeRationale: person?.gradeRationale ?? null,
+      coverageGrade,
+      coverageFactuality,
+      coverageLean,
+      // Race board / legacy: coverage volume + factuality of coverage.
+      avgGrade: coverageGrade,
+      avgFactuality: coverageFactuality,
+      avgLean: coverageLean,
     });
   }
 
@@ -243,7 +287,18 @@ export async function findPolitician(
   kv?: KVNamespace
 ): Promise<PoliticianAgg | null> {
   const { seeds } = await resolvePoliticianSeeds(kv);
-  return buildPoliticianIndex(posts, seeds).find((p) => p.slug === slug) ?? null;
+  const profiles = kv ? await getPersonProfileMap(kv) : null;
+  return buildPoliticianIndex(posts, seeds, profiles).find((p) => p.slug === slug) ?? null;
+}
+
+/** Load seeds + person profiles for directory builds. */
+export async function buildPoliticianIndexLive(
+  posts: CollectionEntry<"posts">[],
+  kv?: KVNamespace
+): Promise<PoliticianAgg[]> {
+  const { seeds } = await resolvePoliticianSeeds(kv);
+  const profiles = kv ? await getPersonProfileMap(kv) : null;
+  return buildPoliticianIndex(posts, seeds, profiles);
 }
 
 export interface PoliticianTag {

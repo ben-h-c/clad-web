@@ -7,7 +7,7 @@ import PoliticianAvatar from "~/components/PoliticianAvatar.astro";
 import { env } from "cloudflare:workers";
 import { getAccess } from "~/lib/access";
 import {
-  buildPoliticianIndex,
+  buildPoliticianIndexLive,
   bucketLabel,
   groupPoliticiansByBucket,
   resolvePoliticianSeeds,
@@ -20,8 +20,8 @@ const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
 
 const all = await getCollection("posts", (p) => !p.data.draft);
-const { seeds, updatedAt, source } = await resolvePoliticianSeeds(env.AGENTS);
-const politicians = buildPoliticianIndex(all, seeds);
+const { updatedAt, source } = await resolvePoliticianSeeds(env.AGENTS);
+const politicians = await buildPoliticianIndexLive(all, env.AGENTS);
 const groups = groupPoliticiansByBucket(politicians);
 const totalReports = politicians.reduce((n, p) => n + p.appearances.length, 0);
 const officeCount = politicians.filter((p) => p.bucket !== "Coverage").length;
@@ -52,15 +52,14 @@ const jsonLd = {
       Supreme Court — grouped by branch. {officeCount} officeholders
       {politicians.length > officeCount ? ` · ${politicians.length - officeCount} also in coverage` : ""}
       · {totalReports} report links.
-      A daily agent refreshes the roster
-      {updatedAt ? ` (last sync ${new Date(updatedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })})` : " (using snapshot until first sync)"}.
+      Grades and lean describe the <em>person</em> (ideology and claim record), not an average of news about them.
       {locked ? (
         <>
-          {" "}Average grades unlock with a
+          {" "}Scores unlock with a
           <a href="/register/">free account</a>.
         </>
       ) : (
-        <> Average grades and lean ratings below are live for your account.</>
+        <> Person scores below are live for your account.</>
       )}
     </p>
 
@@ -106,29 +105,24 @@ const jsonLd = {
                         </p>
                         {locked ? (
                           <div class="scoreband scoreband--locked pol-card__scores" aria-hidden="true">
-                            <span class="grade-lock">🔒 Grade &amp; lean</span>
+                            <span class="grade-lock">🔒 Their lean &amp; record</span>
                           </div>
                         ) : (
                           <div class="scoreband pol-card__scores">
-                            {p.avgGrade ? (
+                            {p.personGrade ? (
                               <div class="scoreband__grade">
-                                <LetterGrade grade={p.avgGrade} size="card" />
-                                <span class="scoreband__cap small-caps">Avg grade</span>
+                                <LetterGrade grade={p.personGrade} size="card" />
+                                <span class="scoreband__cap small-caps">Record</span>
                               </div>
                             ) : (
                               <div class="scoreband__grade scoreband__grade--empty">
                                 <span class="pol-card__na">—</span>
-                                <span class="scoreband__cap small-caps">Avg grade</span>
+                                <span class="scoreband__cap small-caps">Record</span>
                               </div>
                             )}
-                            {p.avgLean != null ? (
+                            {p.personLean != null ? (
                               <div class="scoreband__bias">
-                                <PoliticalLean score={p.avgLean} />
-                              </div>
-                            ) : p.avgFactuality != null ? (
-                              <div class="pol-card__fact">
-                                <span class="pol-card__fact-num">{p.avgFactuality}</span>
-                                <span class="small-caps">Avg factuality</span>
+                                <PoliticalLean score={p.personLean} />
                               </div>
                             ) : null}
                           </div>

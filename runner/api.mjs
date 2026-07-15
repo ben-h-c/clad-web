@@ -103,6 +103,17 @@ export function putPoliticianProfile(payload) {
   });
 }
 
+export function getPoliticianGradeQueue() {
+  return call("/api/agent/politicians-grade", { method: "GET" });
+}
+
+export function putPoliticianGrades(payload) {
+  return call("/api/agent/politicians-grade", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
 export function getCategories() {
   return call("/api/agent/categories", { method: "GET" });
 }

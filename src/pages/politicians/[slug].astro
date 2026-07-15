@@ -75,14 +75,14 @@ const jsonLd = {
           ) : (
             <>
               {pol.appearances.length} graded report{pol.appearances.length === 1 ? "" : "s"}
-              on CladFacts.
+              mentioning them on CladFacts.
               {locked ? (
                 <>
-                  {" "}Sign in free to see average grade, factuality, and lean —
+                  {" "}Sign in free to see <em>their</em> ideology and claim record —
                   <a href="/register/">create an account</a>.
                 </>
               ) : (
-                <> Averages below are computed from every report listed.</>
+                <> Scores below are about {pol.name.split(" ").slice(-1)[0]} personally — not an average of the media that covers them.</>
               )}
             </>
           )}
@@ -110,34 +110,64 @@ const jsonLd = {
 
     {locked ? (
       <div class="scoreband scoreband--locked pol-scoreband" aria-hidden="true">
-        <span class="grade-lock">🔒 Average grade &amp; political lean — free with any account</span>
+        <span class="grade-lock">🔒 Their ideology &amp; claim record — free with any account</span>
       </div>
-    ) : (pol.avgGrade || pol.avgFactuality != null || pol.avgLean != null) ? (
-      <div class="scoreband pol-scoreband" aria-label="Aggregate grades">
-        {pol.avgGrade && (
+    ) : (pol.personGrade || pol.personFactuality != null || pol.personLean != null) ? (
+      <div class="scoreband pol-scoreband" aria-label="Person scores">
+        {pol.personGrade && (
           <div class="scoreband__grade">
-            <LetterGrade grade={pol.avgGrade} size="hero" />
-            <span class="scoreband__cap small-caps">Avg grade</span>
+            <LetterGrade grade={pol.personGrade} size="hero" />
+            <span class="scoreband__cap small-caps">Claim record</span>
           </div>
         )}
-        {pol.avgLean != null && (
+        {pol.personLean != null && (
           <div class="scoreband__bias">
-            <PoliticalLean score={pol.avgLean} size="header" />
+            <PoliticalLean score={pol.personLean} size="header" />
           </div>
         )}
-        {pol.avgFactuality != null && (
+        {pol.personFactuality != null && (
           <div class="pol-fact-pill">
-            <span class="pol-fact-pill__num">{pol.avgFactuality}</span>
-            <span class="small-caps">Avg factuality / 100</span>
+            <span class="pol-fact-pill__num">{pol.personFactuality}</span>
+            <span class="small-caps">Claim factuality / 100</span>
           </div>
         )}
       </div>
-    ) : null}
+    ) : (
+      <p class="dateline" style="margin: 0.75rem 0">
+        Person scores not yet graded — a daily agent scores ideology and claim reliability.
+      </p>
+    )}
+
+    {!locked && (pol.personLeanRationale || pol.personGradeRationale) && (
+      <div class="pol-person-notes">
+        {pol.personLeanRationale && (
+          <p class="pol-person-notes__line">
+            <span class="small-caps">Why this lean:</span> {pol.personLeanRationale}
+          </p>
+        )}
+        {pol.personGradeRationale && (
+          <p class="pol-person-notes__line">
+            <span class="small-caps">Why this record grade:</span> {pol.personGradeRationale}
+          </p>
+        )}
+      </div>
+    )}
 
     {locked && (
       <p class="paywall-banner" style="margin: 1rem 0">
-        <span>Averages locked for guests — free with any account.</span>
+        <span>Person scores locked for guests — free with any account.</span>
         <a class="paywall-banner__cta" href="/register/">Create free account</a>
+      </p>
+    )}
+
+    {!locked && (pol.coverageGrade || pol.coverageLean != null) && (
+      <p class="dateline pol-coverage-meta">
+        Coverage of them
+        {pol.coverageGrade ? ` · media avg grade ${pol.coverageGrade}` : ""}
+        {pol.coverageLean != null
+          ? ` · media avg lean ${Math.abs(pol.coverageLean)}% ${pol.coverageLean > 0 ? "right" : "left"}`
+          : ""}
+        {" "}(how outlets covering them scored — not {pol.name.split(" ").slice(-1)[0]}’s own ideology)
       </p>
     )}
 
@@ -180,7 +210,7 @@ const jsonLd = {
     )}
 
     <p class="static-page__note">
-      Portrait via Wikimedia Commons when available. Verdicts are researched with AI assistance and reviewed by an editor.
+      Portrait via Wikimedia Commons when available. Person lean is ideology; claim record grades the reliability of their public statements — not how TV covered them.
       <a href="/how-it-works/">How grading works</a>
       ·
       <a href="/corrections/">Corrections</a>
@@ -265,6 +295,23 @@ const jsonLd = {
     padding: 1rem 1.15rem;
     border: 3px double var(--ink, #1a140d);
     background: color-mix(in srgb, var(--ink, #1a140d) 4%, transparent);
+  }
+  .pol-person-notes {
+    margin: -0.75rem 0 1.25rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid color-mix(in srgb, var(--rule, #16110c) 55%, transparent);
+    background: color-mix(in srgb, var(--ink, #1a140d) 3%, transparent);
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+  .pol-person-notes__line { margin: 0.35rem 0; }
+  .pol-person-notes__line .small-caps {
+    color: var(--muted-ink, #6e5e4d);
+    margin-right: 0.35rem;
+  }
+  .pol-coverage-meta {
+    margin: 0 0 1.25rem;
+    opacity: 0.85;
   }
   .pol-fact-pill {
     display: flex;
