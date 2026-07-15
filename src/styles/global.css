@@ -1,7 +1,7 @@
 /*
  * Newspaper theme, ported from Clad/UI/NewspaperTheme.swift.
  * 1920s broadsheet: warm cream paper, near-black ink, dense serif type,
- * heavy ruled borders. Restrained — fact-checker, not tabloid.
+ * heavy ruled borders, light desk + grain. Restrained — fact-checker, not tabloid.
  */
 
 :root {
@@ -9,17 +9,22 @@
      native controls/scrollbars light even on an OS set to dark — dark mode is
      opt-in only (see the data-theme="dark" block below and the Masthead toggle). */
   color-scheme: light;
-  --paper: rgb(245, 237, 217);
+  --paper: rgb(244, 235, 212);
+  --paper-deep: rgb(236, 224, 196);
+  --desk: rgb(58, 48, 38);
+  --desk-edge: rgb(42, 34, 26);
   --ink: rgb(26, 20, 13);
   --muted-ink: rgb(110, 94, 77);
-  --rule: rgb(10, 8, 5);
+  --rule: rgb(22, 17, 12);
   --red-ink: rgb(148, 26, 26);
   --accent: rgb(150, 30, 20);
   --accent-soft: rgba(150, 30, 20, 0.05);
   --tint-1: rgba(10, 8, 5, 0.03);
   --tint-2: rgba(10, 8, 5, 0.06);
   --tint-3: rgba(10, 8, 5, 0.12);
-  --shadow: rgba(0, 0, 0, 0.2);
+  --shadow: rgba(20, 12, 6, 0.28);
+  --grain-opacity: 0.045;
+  --wear-opacity: 0.07;
 
   --font-masthead: "Didot", "Bodoni 72", "Playfair Display", Georgia, serif;
   --font-display: "Bodoni 72", "Playfair Display", Georgia, serif;
@@ -28,6 +33,9 @@
 
   --measure: 70ch;
   --gutter: 1.25rem;
+
+  /* Film grain (tiny SVG noise) — reused on body overlay + paper sheet */
+  --noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
 }
 
 /* Dark palette — applied ONLY when the reader has explicitly opted in via the
@@ -35,7 +43,10 @@
    data-theme="dark"). Light is the default for everyone; we intentionally do
    NOT auto-apply dark from the OS preference or time of day. */
 :root[data-theme="dark"] {
-  --paper: rgb(24, 22, 18);
+  --paper: rgb(28, 25, 20);
+  --paper-deep: rgb(22, 20, 16);
+  --desk: rgb(12, 11, 9);
+  --desk-edge: rgb(8, 7, 6);
   --ink: rgb(232, 224, 205);
   --muted-ink: rgb(158, 145, 125);
   --rule: rgb(200, 190, 168);
@@ -45,7 +56,9 @@
   --tint-1: rgba(245, 237, 217, 0.05);
   --tint-2: rgba(245, 237, 217, 0.09);
   --tint-3: rgba(245, 237, 217, 0.16);
-  --shadow: rgba(0, 0, 0, 0.6);
+  --shadow: rgba(0, 0, 0, 0.65);
+  --grain-opacity: 0.06;
+  --wear-opacity: 0.1;
   color-scheme: dark;
 }
 
@@ -53,21 +66,57 @@
   box-sizing: border-box;
 }
 
-html,
+html {
+  margin: 0;
+  padding: 0;
+  /* Reading desk under the broadsheet */
+  background-color: var(--desk);
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% 0%, rgba(90, 72, 52, 0.45), transparent 55%),
+    linear-gradient(180deg, var(--desk-edge), var(--desk) 28%, var(--desk));
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
-  background: var(--paper);
+  min-height: 100vh;
+  background: transparent;
   color: var(--ink);
   font-family: var(--font-serif);
   font-size: 18px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  /* Never allow sideways scroll of the page itself (the hero strip keeps its
-     own internal horizontal scroll). */
   max-width: 100%;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Global grain veil — very light film on the whole viewport */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10000;
+  opacity: var(--grain-opacity);
+  background-image: var(--noise);
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  mix-blend-mode: multiply;
+}
+
+:root[data-theme="dark"] body::before {
+  mix-blend-mode: soft-light;
+  opacity: calc(var(--grain-opacity) * 1.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    opacity: 0.02;
+  }
 }
 
 /* Media never forces the page wider than the screen. */
@@ -130,22 +179,101 @@ p {
   outline: 2px solid var(--ink);
 }
 
-/* Layout shell */
+/* Layout shell — the broadsheet sheet on the desk */
 
 .shell {
   /* Full-width/fluid: fill the window with comfortable side gutters. Article
      body text stays readable via its own max-width (--measure); the home-page
      strips, tickers, topics, and grade board expand to use the space. */
+  position: relative;
   max-width: none;
-  margin: 0 auto;
-  padding: 2rem clamp(1.25rem, 4vw, 4rem) 4rem;
+  margin: 0.65rem auto 1.5rem;
+  padding: 1.75rem clamp(1.15rem, 3.5vw, 3.5rem) 3.25rem;
+  background-color: var(--paper);
+  /* Soft paper fiber + faint age wash */
+  background-image:
+    radial-gradient(ellipse 90% 55% at 12% 8%, rgba(255, 252, 240, 0.55), transparent 50%),
+    radial-gradient(ellipse 70% 45% at 92% 96%, rgba(180, 150, 100, 0.12), transparent 55%),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  color: var(--ink);
+  /* Double-rule frame like a nameplate border */
+  border: 1px solid color-mix(in srgb, var(--rule) 88%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--paper) 80%, var(--rule)),
+    0 0 0 4px color-mix(in srgb, var(--rule) 75%, transparent),
+    0 0 0 5px color-mix(in srgb, var(--paper) 40%, transparent),
+    0 10px 28px var(--shadow),
+    0 2px 6px color-mix(in srgb, var(--shadow) 50%, transparent);
+  /* Soft corner wear — not rounded UI, just aged paper edge */
+  border-radius: 1px 2px 1px 2px;
+  overflow: clip;
 }
 
-/* Masthead */
+/* Sheet grain + edge foxing (wear) */
+.shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: calc(var(--grain-opacity) * 1.6);
+  background-image: var(--noise);
+  background-size: 140px 140px;
+  mix-blend-mode: multiply;
+  border-radius: inherit;
+}
+
+.shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+  /* Very subtle edge wear / foxing — darker toward corners only */
+  box-shadow:
+    inset 0 0 40px 2px color-mix(in srgb, var(--rule) calc(var(--wear-opacity) * 100%), transparent),
+    inset 18px 12px 36px -18px rgba(90, 60, 30, 0.07),
+    inset -16px -14px 34px -16px rgba(90, 60, 30, 0.06),
+    inset 0 0 0 1px color-mix(in srgb, var(--paper) 35%, transparent);
+}
+
+.shell > * {
+  position: relative;
+  z-index: 1;
+}
+
+:root[data-theme="dark"] .shell::before {
+  mix-blend-mode: soft-light;
+}
+
+@media (max-width: 640px) {
+  .shell {
+    margin: 0.35rem 0.35rem 0.75rem;
+    padding: 1.25rem 1rem 2.5rem;
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--paper) 80%, var(--rule)),
+      0 0 0 3px color-mix(in srgb, var(--rule) 70%, transparent),
+      0 6px 18px var(--shadow);
+  }
+}
+
+/* In-app WebView: no desk margin (native chrome already frames the page) */
+html.clad-app .shell {
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+html.clad-app .shell::after {
+  box-shadow: inset 0 0 24px 1px color-mix(in srgb, var(--rule) 4%, transparent);
+}
+
+/* Masthead — nameplate */
 
 .masthead {
   text-align: center;
-  padding: 1rem 0 0.75rem;
+  padding: 1rem 0 0.85rem;
   position: relative;
 }
 
@@ -1100,7 +1228,8 @@ p {
   font-size: 1.3rem;
   margin: 1.75rem 0 0.5rem;
   border-bottom: 1px solid var(--rule);
-  padding-bottom: 0.25rem;
+  box-shadow: 0 2px 0 -1px color-mix(in srgb, var(--rule) 40%, transparent);
+  padding-bottom: 0.3rem;
   scroll-margin-top: 1rem;
 }
 
@@ -1130,34 +1259,41 @@ p {
   font-family: var(--font-masthead);
   font-weight: 700;
   font-size: clamp(2.5rem, 8vw, 4.75rem);
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   margin: 0;
   line-height: 1;
+  text-shadow: 0 1px 0 color-mix(in srgb, var(--paper) 70%, transparent);
 }
 
 .masthead__tagline {
   text-align: center;
   color: var(--muted-ink);
-  margin: 0.35rem 0 0;
+  margin: 0.4rem 0 0;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
 }
 
 .masthead__meta {
   display: flex;
   justify-content: space-between;
+  gap: 0.75rem;
   color: var(--muted-ink);
-  font-size: 0.75rem;
-  margin-top: 0.5rem;
+  font-size: 0.72rem;
+  margin-top: 0.55rem;
+  padding: 0.35rem 0.15rem 0;
+  border-top: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
 }
 
 .masthead__meta .edition {
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .masthead__meta .date {
   font-style: italic;
+  letter-spacing: 0.02em;
 }
 
 .masthead__nav {
@@ -1278,20 +1414,22 @@ p {
 
 .rule {
   height: 1px;
-  background: var(--rule);
+  background: color-mix(in srgb, var(--rule) 88%, transparent);
   border: 0;
   margin: 0;
 }
 
 .rule--thick {
   height: 2px;
+  background: var(--rule);
 }
 
 .rule--double {
   border-top: 2px solid var(--rule);
   border-bottom: 1px solid var(--rule);
-  height: 4px;
+  height: 5px;
   background: transparent;
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--paper) 50%, transparent);
 }
 
 .dingbat {
@@ -1546,7 +1684,8 @@ p {
 .report-card__thumb {
   position: relative;
   aspect-ratio: 16 / 9;
-  border: 1px solid var(--rule);
+  border: 1px solid color-mix(in srgb, var(--rule) 80%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--paper) 25%, transparent);
   overflow: hidden;
   background: var(--ink);
   margin-bottom: 0.6rem;
@@ -1557,7 +1696,7 @@ p {
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: grayscale(0.25) contrast(1.02);
+  filter: grayscale(0.28) contrast(1.04) sepia(0.08);
 }
 
 /* Prominent grade + bias scoreband on cards */
@@ -1567,10 +1706,13 @@ p {
   align-items: center;
   gap: 1.25rem;
   flex-wrap: wrap;
-  border: 1px solid var(--rule);
-  background: var(--tint-1);
+  border: 1px solid color-mix(in srgb, var(--rule) 80%, transparent);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--paper) 40%, transparent), transparent),
+    var(--tint-1);
   padding: 0.6rem 0.85rem;
   margin: 0.4rem 0 0.75rem;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--paper) 55%, transparent);
 }
 
 .scoreband__grade {
@@ -2960,9 +3102,10 @@ html[data-theme="dark"] .grade--mid {
 /* Footer */
 
 .colophon {
-  margin-top: 4rem;
-  padding-top: 1rem;
+  margin-top: 3.5rem;
+  padding: 1.1rem 0.5rem 0.25rem;
   border-top: 2px solid var(--rule);
+  box-shadow: inset 0 4px 0 -2px color-mix(in srgb, var(--rule) 35%, transparent);
   font-size: 0.8rem;
   color: var(--muted-ink);
   font-style: italic;
@@ -2971,6 +3114,12 @@ html[data-theme="dark"] .grade--mid {
 
 .colophon a {
   color: var(--muted-ink);
+  text-underline-offset: 2px;
+}
+
+.colophon p:first-child {
+  font-style: normal;
+  letter-spacing: 0.02em;
 }
 
 /* Admin — same paper, but utilitarian */
