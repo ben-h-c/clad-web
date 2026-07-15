@@ -12,7 +12,7 @@ import Disclaimer from "~/components/Disclaimer.astro";
 import NewsletterSignup from "~/components/NewsletterSignup.astro";
 import HomePromoBanner from "~/components/HomePromoBanner.astro";
 import { getFrontpage, getBreaking, getSentiments } from "~/lib/agents";
-import { aggregateTopics, gradeToGpa, gpaToGrade } from "~/lib/topics";
+import { aggregateTopics, gradeToGpa } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
@@ -80,23 +80,6 @@ const bottomGraded = [...graded]
       b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
   )
   .slice(0, 3);
-
-// Public pulse stats (no gated grades in labels for guests).
-const broadcastCount = all.filter((p) => p.data.type === "broadcast").length;
-const outletSet = new Set(
-  all.map((p) => p.data.sourceTitle).filter((n): n is string => Boolean(n) && isNewsOutlet(n))
-);
-const weekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
-const weekCount = all.filter((p) => p.data.publishedAt.valueOf() >= weekAgo).length;
-
-// Signed-in: one-line desk average (safe — only rendered when unlocked).
-const weekGpas = all
-  .filter((p) => p.data.publishedAt.valueOf() >= weekAgo)
-  .map((p) => gradeToGpa(p.data.letterGrade))
-  .filter((n): n is number => n != null);
-const weekAvgGpa =
-  weekGpas.length > 0 ? weekGpas.reduce((a, b) => a + b, 0) / weekGpas.length : null;
-const weekAvgLetter = !locked && weekAvgGpa != null ? gpaToGrade(weekAvgGpa) : null;
 ---
 <BaseLayout
   title="Clad — Grading Content & Exposing Bias"
@@ -138,38 +121,6 @@ const weekAvgLetter = !locked && weekAvgGpa != null ? gpaToGrade(weekAvgGpa) : n
           </script>
         </>
       )}
-
-      {/* Broadsheet lede — hook, not institutional mission copy. */}
-      <section class="home-lede" aria-label="What Clad is">
-        <p class="home-lede__kicker small-caps">
-          {locked ? "Grades free with any account" : "Your grades are on"}
-        </p>
-        <h2 class="home-lede__headline">The coverage got a report card.</h2>
-        <p class="home-lede__deck">
-          Clad watches the broadcast, checks the claims, and scores the
-          <em> coverage</em> — accuracy, slant, sources. Not the people in it.
-        </p>
-        <ul class="home-pulse" aria-label="This edition">
-          <li><strong>{broadcastCount.toLocaleString()}</strong><span>report cards</span></li>
-          <li><strong>{weekCount}</strong><span>new this week</span></li>
-          <li><strong>{outletSet.size}</strong><span>outlets</span></li>
-          {weekAvgLetter && (
-            <li><strong>{weekAvgLetter}</strong><span>week&rsquo;s average</span></li>
-          )}
-        </ul>
-        {locked ? (
-          <p class="home-lede__cta-row">
-            <a class="home-lede__cta" href="/register/">See every grade free</a>
-            <a class="home-lede__ghost" href="/learn/grades/">A vs. F, plain English</a>
-          </p>
-        ) : (
-          <p class="home-lede__cta-row">
-            <a class="home-lede__ghost" href="/quiz/">Morning quiz</a>
-            <a class="home-lede__ghost" href="/elections/map/">Midterms map</a>
-            <a class="home-lede__ghost" href="/trends/">News trends</a>
-          </p>
-        )}
-      </section>
 
       <BreakingStrip items={breaking} locked={locked} />
 
