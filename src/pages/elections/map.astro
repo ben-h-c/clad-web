@@ -110,7 +110,6 @@ const featured = [...map.states]
         <a class="emap-modes__on" href="/elections/map/" aria-current="page">Map</a>
         <a href="/bracket/">Ballot board</a>
         <a href="/bracket/votes/">Community votes</a>
-        <a href="/bracket/coverage/">Coverage ranking</a>
         <a href="/politicians/">Politicians</a>
       </nav>
 
@@ -480,7 +479,7 @@ const featured = [...map.states]
       const links = `<p class="emap-panel__more">
         <a href="/bracket/">Race board</a> ·
         <a href="/politicians/">Politicians</a> ·
-        <a href="/bracket/coverage/">Coverage tournament</a>
+        <a href="/bracket/votes/">Community votes</a>
       </p>`;
       return { code: st.code, name: st.name, glance, badges, body, links };
     }

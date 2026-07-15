@@ -383,7 +383,7 @@ export const CIVICS_BLURBS = {
   notPolls:
     "These cards rank graded media coverage of each side, not voters. A “coverage lead” means more CladFacts reports (and higher average factuality of that coverage when signed in) — not a projected winner.",
   house:
-    "All 435 House seats are contested every two years. We don’t card every district; national House control still dominates midterm coverage and shows up in the coverage ranking when figures dominate the feed.",
+    "All 435 House seats are contested every two years. We don’t card every district; national House control still dominates midterm coverage and politician report cards when figures dominate the feed.",
 } as const;
 
 export function racesByRegion(): { region: RaceRegion; races: RaceDef[] }[] {
