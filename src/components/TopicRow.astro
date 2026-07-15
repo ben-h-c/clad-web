@@ -33,14 +33,12 @@ const thumb = displayableThumb(topic.thumbnail);
   <span class="topic-row__body">
     <span class="topic-row__name">{topic.display}</span>
     <span class="topic-row__meta">
-      {topic.todayCount > 0 ? (
-        <>{topic.todayCount} today · {topic.count} {topic.count === 1 ? "report" : "reports"}</>
-      ) : topic.recentCount > 0 ? (
-        <>{topic.recentCount} recent · {topic.count} {topic.count === 1 ? "report" : "reports"}</>
-      ) : (
-        <>{topic.count} {topic.count === 1 ? "report" : "reports"}</>
-      )}
-      {lean && <> · {lean}</>}
+      {topic.todayCount > 0
+        ? `${topic.todayCount} today · ${topic.count} ${topic.count === 1 ? "report" : "reports"}`
+        : topic.recentCount > 0
+          ? `${topic.recentCount} recent · ${topic.count} ${topic.count === 1 ? "report" : "reports"}`
+          : `${topic.count} ${topic.count === 1 ? "report" : "reports"}`}
+      {lean && ` · ${lean}`}
     </span>
   </span>
   {!locked && topic.avgGrade && (
