@@ -95,7 +95,6 @@ const jsonLd = {
         rel="noopener noreferrer"
       >X</a>
       <button type="button" class="pol-share__btn" id="pol-copy" data-url={pageUrl}>Copy link</button>
-      <a class="pol-share__btn pol-share__btn--ghost" href={ogImage} target="_blank" rel="noopener">Preview card</a>
     </div>
     <p class="pol-share__status" id="pol-copy-status" role="status" hidden></p>
 
@@ -184,7 +183,7 @@ const jsonLd = {
         await navigator.clipboard.writeText(url);
         if (status) {
           status.hidden = false;
-          status.textContent = "Link copied — paste anywhere; the share card unfurls with the report count.";
+          status.textContent = "Link copied.";
         }
       } catch {
         if (status) {
@@ -234,10 +233,6 @@ const jsonLd = {
     color: var(--paper, #f5edd9);
     text-decoration: none;
     cursor: pointer;
-  }
-  .pol-share__btn--ghost {
-    background: transparent;
-    color: inherit;
   }
   .pol-share__status {
     font-size: 0.9rem;

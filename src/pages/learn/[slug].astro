@@ -51,7 +51,6 @@ const others = LEARN_PAGES.filter((p) => p.slug !== page.slug);
         target="_blank"
         rel="noopener"
       >X</a>
-      <a class="learn-share__btn learn-share__btn--ghost" href={ogImage} target="_blank" rel="noopener">Card image</a>
     </div>
     <p class="learn-share__status" id="learn-copy-status" role="status" hidden></p>
 
@@ -140,10 +139,6 @@ const others = LEARN_PAGES.filter((p) => p.slug !== page.slug);
     color: var(--paper, #f5edd9);
     text-decoration: none;
     cursor: pointer;
-  }
-  .learn-share__btn--ghost {
-    background: transparent;
-    color: inherit;
   }
   .learn-share__status {
     font-size: 0.9rem;
