@@ -1,0 +1,954 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getAccess } from "~/lib/access";
+import { buildRaceBoard, maskRaceLeaders, statusLabel } from "~/lib/bracket";
+import { buildElectionMap, type StateMapCell } from "~/lib/electionMap";
+import { RACE_BOARD_VERIFIED_ASOF } from "~/lib/races";
+import { US_MAP_VIEWBOX, US_STATE_PATHS } from "~/lib/usMapPaths";
+
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "private, no-store");
+
+const access = await getAccess(Astro.request.headers);
+const reveal = access.fullAccess;
+
+const all = await getCollection("posts", (p) => !p.data.draft);
+const board = maskRaceLeaders(buildRaceBoard(all, reveal), reveal);
+const map = buildElectionMap(board.cards);
+
+const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
+const pageUrl = `${origin}/elections/map/`;
+
+// Serialize for client interactivity (no gated grades if locked — grades already masked)
+const clientPayload = {
+  reveal,
+  maxHeat: map.maxHeat,
+  states: Object.fromEntries(
+    map.states.map((s) => [
+      s.code,
+      {
+        code: s.code,
+        name: s.name,
+        classII: s.classII,
+        governor2026: s.governor2026,
+        heat: s.heat,
+        fill: s.fill,
+        chips: s.chips,
+        glance: s.glance,
+        hasBoardCard: s.hasBoardCard,
+        races: s.races.map((r) => ({
+          id: r.id,
+          office: r.office,
+          chamber: r.chamber,
+          status: r.status,
+          statusLabel: statusLabel(r.status),
+          tier: r.tier,
+          heat: r.heat,
+          aName: r.aName,
+          bName: r.bName,
+          aParty: r.aParty ?? null,
+          bParty: r.bParty ?? null,
+          aSlug: r.aSlug,
+          bSlug: r.bSlug,
+          aHref: r.aHref,
+          bHref: r.bHref,
+          aGrade: reveal ? r.aGrade : null,
+          bGrade: reveal ? r.bGrade : null,
+          aLean: reveal ? r.aLean : null,
+          bLean: reveal ? r.bLean : null,
+          leaderSlug: reveal ? r.leaderSlug : null,
+          note: r.note ?? null,
+        })),
+      },
+    ])
+  ),
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Midterms 2026 interactive map — CladFacts",
+  description:
+    "Tap any state for Class II Senate seats, midterm governors, and live CladFacts coverage heat — not polls.",
+  url: pageUrl,
+};
+
+// Featured states for the "start here" strip (highest heat, then marquee)
+const featured = [...map.states]
+  .filter((s) => s.hasBoardCard)
+  .sort((a, b) => b.heat - a.heat || a.name.localeCompare(b.name))
+  .slice(0, 8);
+
+---
+<BaseLayout
+  title="Midterms 2026 map — CladFacts"
+  description="Interactive U.S. map of the 2026 midterms: Class II Senate, governors, open seats, and live coverage heat by state. Tap a state to dig in."
+  ogTitle="Midterms 2026 interactive map"
+  ogDescription="Class II Senate · governors · coverage heat — tap any state. Not a poll."
+  ogImage={`${origin}/og/bracket.png`}
+  jsonLd={jsonLd}
+>
+  <article class="emap-page">
+    <header class="emap-hero">
+      <p class="small-caps upgrade__eyebrow">Midterms 2026 · Interactive map</p>
+      <h1 class="static-page__title">Election map</h1>
+      <p class="upgrade__lede">
+        One glance at the midterm calendar: which states have a <strong>Class II Senate</strong> race,
+        a <strong>governor</strong> race, and where CladFacts coverage is heating up.
+        Tap a state for candidates, open seats, and grades
+        {reveal ? "." : " (sign in free to unlock average grades & lean)."}
+      </p>
+
+      <nav class="emap-modes" aria-label="Election tools">
+        <a class="emap-modes__on" href="/elections/map/" aria-current="page">Map</a>
+        <a href="/bracket/">Race board</a>
+        <a href="/bracket/coverage/">Coverage tournament</a>
+        <a href="/politicians/">Politicians</a>
+      </nav>
+
+      <ul class="emap-stats" aria-label="Map summary">
+        <li><strong>{map.stats.classII}</strong><span>Class II Senate states</span></li>
+        <li><strong>{map.stats.governors}</strong><span>Governor races 2026</span></li>
+        <li><strong>{map.stats.boardCards}</strong><span>Featured race cards</span></li>
+        <li><strong>{map.stats.hotStates}</strong><span>States with graded reports</span></li>
+      </ul>
+    </header>
+
+    {!reveal && (
+      <p class="paywall-banner" style="margin: 0 0 1rem">
+        <span>Map is public. Coverage grades &amp; lean unlock free with any account.</span>
+        <a class="paywall-banner__cta" href="/register/">Create free account</a>
+      </p>
+    )}
+
+    <div class="emap-shell">
+      <div class="emap-map-wrap">
+        <div class="emap-legend" aria-label="Map legend">
+          <span class="emap-leg emap-leg--hot">Hot coverage</span>
+          <span class="emap-leg emap-leg--marquee">Marquee</span>
+          <span class="emap-leg emap-leg--watch">Watch</span>
+          <span class="emap-leg emap-leg--lean">On board</span>
+          <span class="emap-leg emap-leg--senate">Class II Senate</span>
+          <span class="emap-leg emap-leg--governor">Governor</span>
+          <span class="emap-leg emap-leg--quiet">House only</span>
+        </div>
+
+        <p class="emap-hint small-caps" id="emap-hint">Tap or click a state · keyboard: Tab + Enter</p>
+
+        <svg
+          class="emap-svg"
+          viewBox={US_MAP_VIEWBOX}
+          role="img"
+          aria-labelledby="emap-title emap-desc"
+          id="emap-svg"
+        >
+          <title id="emap-title">United States midterms 2026 map</title>
+          <desc id="emap-desc">
+            Interactive map of U.S. states colored by Class II Senate races, governors, and CladFacts coverage heat.
+          </desc>
+          <g class="emap-states">
+            {map.states.map((s) => (
+              <path
+                id={`st-${s.code}`}
+                class={`emap-state emap-fill--${s.fill}`}
+                d={US_STATE_PATHS[s.code]}
+                data-code={s.code}
+                data-fill={s.fill}
+                data-heat={s.heat}
+                tabindex="0"
+                role="button"
+                aria-label={`${s.name}: ${s.glance}`}
+              />
+            ))}
+          </g>
+        </svg>
+
+        <!-- Live hover / focus chip (desktop + tablet) -->
+        <div class="emap-float" id="emap-float" hidden>
+          <p class="emap-float__code small-caps" id="emap-float-code"></p>
+          <p class="emap-float__name" id="emap-float-name"></p>
+          <p class="emap-float__glance" id="emap-float-glance"></p>
+          <div class="emap-float__chips" id="emap-float-chips"></div>
+        </div>
+      </div>
+
+      <aside class="emap-panel" id="emap-panel" aria-live="polite">
+        <div class="emap-panel__empty" id="emap-panel-empty">
+          <h2 class="emap-panel__title">Pick a state</h2>
+          <p>
+            Color shows what’s on the ballot and where our graded coverage is densest.
+            Start with a hot state below, or tap the map.
+          </p>
+          <ul class="emap-featured">
+            {featured.map((s) => (
+              <li>
+                <button type="button" class="emap-featured__btn" data-pick={s.code}>
+                  <span class="emap-featured__code">{s.code}</span>
+                  <span class="emap-featured__body">
+                    <strong>{s.name}</strong>
+                    <span>{s.glance}</span>
+                  </span>
+                  {s.heat > 0 && <span class="emap-featured__heat">{s.heat}</span>}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="emap-panel__detail" id="emap-panel-detail" hidden>
+          <button type="button" class="emap-panel__close" id="emap-close" aria-label="Close state detail">×</button>
+          <p class="small-caps emap-panel__eyebrow" id="emap-detail-code"></p>
+          <h2 class="emap-panel__title" id="emap-detail-name"></h2>
+          <p class="emap-panel__glance" id="emap-detail-glance"></p>
+          <div class="emap-panel__badges" id="emap-detail-badges"></div>
+          <div class="emap-panel__races" id="emap-detail-races"></div>
+          <div class="emap-panel__links" id="emap-detail-links"></div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Mobile bottom sheet (mirrors panel content when open) -->
+    <div class="emap-sheet" id="emap-sheet" hidden>
+      <div class="emap-sheet__handle" aria-hidden="true"></div>
+      <div class="emap-sheet__body" id="emap-sheet-body"></div>
+      <button type="button" class="emap-sheet__close" id="emap-sheet-close">Close</button>
+    </div>
+    <div class="emap-sheet-backdrop" id="emap-backdrop" hidden></div>
+
+    <section class="emap-list-section" aria-label="All states list">
+      <h2 class="static-page__sub">All states</h2>
+      <p class="emap-list-lede">Keyboard- and screen-reader friendly list — same data as the map.</p>
+      <div class="emap-filters">
+        <button type="button" class="emap-filter emap-filter--on" data-filter="all">All</button>
+        <button type="button" class="emap-filter" data-filter="senate">Class II Senate</button>
+        <button type="button" class="emap-filter" data-filter="governor">Governor 2026</button>
+        <button type="button" class="emap-filter" data-filter="board">On our board</button>
+        <button type="button" class="emap-filter" data-filter="hot">Has coverage</button>
+      </div>
+      <ul class="emap-list" id="emap-list">
+        {map.states
+          .slice()
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .map((s: StateMapCell) => (
+            <li
+              class="emap-list__item"
+              data-code={s.code}
+              data-classii={s.classII ? "1" : "0"}
+              data-gov={s.governor2026 ? "1" : "0"}
+              data-board={s.hasBoardCard ? "1" : "0"}
+              data-hot={s.heat > 0 ? "1" : "0"}
+            >
+              <button type="button" class="emap-list__btn" data-pick={s.code}>
+                <span class={`emap-list__swatch emap-fill--${s.fill}`} aria-hidden="true"></span>
+                <span class="emap-list__code">{s.code}</span>
+                <span class="emap-list__name">{s.name}</span>
+                <span class="emap-list__glance">{s.glance}</span>
+                {s.heat > 0 && <span class="emap-list__heat">{s.heat}</span>}
+              </button>
+            </li>
+          ))}
+      </ul>
+    </section>
+
+    <h2 class="static-page__sub">How to read this map</h2>
+    <ul class="upgrade__perks">
+      <li><strong>Not a poll.</strong> Colors reflect ballot structure and CladFacts coverage heat — not projected winners.</li>
+      <li><strong>Class II Senate</strong> = one-third of the chamber up in 2026 (Art. I §3). Candidate map verified {RACE_BOARD_VERIFIED_ASOF}.</li>
+      <li><strong>Governor 2026</strong> = states electing a governor this cycle (most large states; VA/NJ/KY/MS/LA run on other calendars).</li>
+      <li><strong>House</strong> = all 435 seats every midterm, every state.</li>
+      <li><strong>Hot / marquee</strong> = denser graded broadcasts about the people in that race on CladFacts.</li>
+    </ul>
+
+    <p class="static-page__note">
+      Dig deeper: <a href="/bracket/">race board</a> · <a href="/politicians/">politician cards</a> ·
+      <a href="/learn/first-vote/">first-time voter guide</a>.
+      Map paths: Wikimedia Commons blank US map (public domain).
+    </p>
+  </article>
+</BaseLayout>
+
+<script type="application/json" id="emap-data" set:html={JSON.stringify(clientPayload)} />
+
+<script is:inline>
+  (() => {
+    const raw = document.getElementById("emap-data");
+    if (!raw) return;
+    let DATA;
+    try { DATA = JSON.parse(raw.textContent || "{}"); } catch { return; }
+    const states = DATA.states;
+    const svg = document.getElementById("emap-svg");
+    const floatEl = document.getElementById("emap-float");
+    const floatCode = document.getElementById("emap-float-code");
+    const floatName = document.getElementById("emap-float-name");
+    const floatGlance = document.getElementById("emap-float-glance");
+    const floatChips = document.getElementById("emap-float-chips");
+    const panelEmpty = document.getElementById("emap-panel-empty");
+    const panelDetail = document.getElementById("emap-panel-detail");
+    const sheet = document.getElementById("emap-sheet");
+    const sheetBody = document.getElementById("emap-sheet-body");
+    const backdrop = document.getElementById("emap-backdrop");
+    let selected = null;
+    let hover = null;
+
+    const isMobile = () => window.matchMedia("(max-width: 860px)").matches;
+
+    function esc(s) {
+      return String(s ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function party(p) {
+      return p ? ` (${esc(p)})` : "";
+    }
+
+    function detailHtml(st) {
+      const badges = st.chips.map((c) => `<span class="emap-chip">${esc(c)}</span>`).join("");
+      let races = "";
+      if (!st.races.length) {
+        races = `<p class="emap-muted">No featured race card yet — still a full House slate${st.classII ? " plus Class II Senate" : ""}${st.governor2026 ? " and a governor race" : ""}.</p>
+          <p><a href="/bracket/">See national race board</a> · <a href="/politicians/">Politicians</a></p>`;
+      } else {
+        races = st.races
+          .map((r) => {
+            const aLead = r.leaderSlug && r.leaderSlug === r.aSlug;
+            const bLead = r.leaderSlug && r.leaderSlug === r.bSlug;
+            const aName = r.aHref
+              ? `<a href="${esc(r.aHref)}">${esc(r.aName)}${party(r.aParty)}</a>`
+              : `${esc(r.aName)}${party(r.aParty)}`;
+            const bName = r.bHref
+              ? `<a href="${esc(r.bHref)}">${esc(r.bName)}${party(r.bParty)}</a>`
+              : `${esc(r.bName)}${party(r.bParty)}`;
+            const aGrade = r.aGrade
+              ? `<span class="emap-grade-pill emap-grade-pill--${String(r.aGrade).charAt(0).toUpperCase()}">${esc(r.aGrade)}</span>`
+              : "";
+            const bGrade = r.bGrade
+              ? `<span class="emap-grade-pill emap-grade-pill--${String(r.bGrade).charAt(0).toUpperCase()}">${esc(r.bGrade)}</span>`
+              : "";
+            return `<article class="emap-race" data-tier="${esc(r.tier)}">
+              <header class="emap-race__head">
+                <h3>${esc(r.office)}</h3>
+                <span class="small-caps">${esc(r.tier)}</span>
+                <span class="small-caps">${esc(r.statusLabel)}</span>
+                <span class="emap-race__heat">${r.heat} reports</span>
+              </header>
+              <div class="emap-race__sides">
+                <div class="emap-race__side${aLead ? " emap-race__side--lead" : ""}">
+                  <div class="emap-race__who">${aName} ${aGrade}</div>
+                </div>
+                <div class="emap-race__vs">vs</div>
+                <div class="emap-race__side${bLead ? " emap-race__side--lead" : ""}">
+                  <div class="emap-race__who">${bName} ${bGrade}</div>
+                </div>
+              </div>
+              ${r.note ? `<p class="emap-race__note">${esc(r.note)}</p>` : ""}
+            </article>`;
+          })
+          .join("");
+      }
+      const links = `<p class="emap-panel__more">
+        <a href="/bracket/">Race board</a> ·
+        <a href="/politicians/">Politicians</a> ·
+        <a href="/bracket/coverage/">Coverage tournament</a>
+      </p>`;
+      return {
+        code: st.code,
+        name: st.name,
+        glance: st.glance,
+        badges,
+        races,
+        links,
+      };
+    }
+
+    function paintDetail(st) {
+      const d = detailHtml(st);
+      document.getElementById("emap-detail-code").textContent = st.code + " · Midterms 2026";
+      document.getElementById("emap-detail-name").textContent = d.name;
+      document.getElementById("emap-detail-glance").textContent = d.glance;
+      document.getElementById("emap-detail-badges").innerHTML = d.badges;
+      document.getElementById("emap-detail-races").innerHTML = d.races;
+      document.getElementById("emap-detail-links").innerHTML = d.links;
+      panelEmpty.hidden = true;
+      panelDetail.hidden = false;
+
+      if (isMobile()) {
+        sheetBody.innerHTML = `
+          <p class="small-caps">${esc(d.code)} · Midterms 2026</p>
+          <h2 class="emap-panel__title">${esc(d.name)}</h2>
+          <p class="emap-panel__glance">${esc(d.glance)}</p>
+          <div class="emap-panel__badges">${d.badges}</div>
+          <div class="emap-panel__races">${d.races}</div>
+          ${d.links}`;
+        sheet.hidden = false;
+        backdrop.hidden = false;
+        document.body.classList.add("emap-sheet-open");
+      }
+    }
+
+    function clearDetail() {
+      selected = null;
+      document.querySelectorAll(".emap-state--selected").forEach((el) => el.classList.remove("emap-state--selected"));
+      panelEmpty.hidden = false;
+      panelDetail.hidden = true;
+      sheet.hidden = true;
+      backdrop.hidden = true;
+      document.body.classList.remove("emap-sheet-open");
+      if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+    }
+
+    function selectState(code, { fromHash } = {}) {
+      const st = states[code];
+      if (!st) return;
+      selected = code;
+      document.querySelectorAll(".emap-state--selected").forEach((el) => el.classList.remove("emap-state--selected"));
+      const path = document.getElementById("st-" + code);
+      if (path) path.classList.add("emap-state--selected");
+      paintDetail(st);
+      if (!fromHash) {
+        history.replaceState(null, "", "#" + code);
+      }
+    }
+
+    function showFloat(code, clientX, clientY) {
+      const st = states[code];
+      if (!st || !floatEl || isMobile()) return;
+      hover = code;
+      floatCode.textContent = st.code;
+      floatName.textContent = st.name;
+      floatGlance.textContent = st.glance;
+      floatChips.innerHTML = st.chips.map((c) => `<span class="emap-chip">${esc(c)}</span>`).join("");
+      floatEl.hidden = false;
+      const wrap = floatEl.parentElement.getBoundingClientRect();
+      const x = Math.min(wrap.width - 220, Math.max(8, clientX - wrap.left + 12));
+      const y = Math.min(wrap.height - 120, Math.max(8, clientY - wrap.top + 12));
+      floatEl.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function hideFloat() {
+      hover = null;
+      if (floatEl) floatEl.hidden = true;
+    }
+
+    // Map interactions
+    if (svg) {
+      svg.addEventListener("pointerover", (e) => {
+        const t = e.target.closest(".emap-state");
+        if (!t) return;
+        t.classList.add("emap-state--hover");
+        showFloat(t.getAttribute("data-code"), e.clientX, e.clientY);
+      });
+      svg.addEventListener("pointermove", (e) => {
+        const t = e.target.closest(".emap-state");
+        if (!t || !hover) return;
+        showFloat(t.getAttribute("data-code"), e.clientX, e.clientY);
+      });
+      svg.addEventListener("pointerout", (e) => {
+        const t = e.target.closest(".emap-state");
+        if (t) t.classList.remove("emap-state--hover");
+        if (!e.relatedTarget || !svg.contains(e.relatedTarget)) hideFloat();
+      });
+      svg.addEventListener("click", (e) => {
+        const t = e.target.closest(".emap-state");
+        if (!t) return;
+        selectState(t.getAttribute("data-code"));
+      });
+      svg.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        const t = e.target.closest(".emap-state");
+        if (!t) return;
+        e.preventDefault();
+        selectState(t.getAttribute("data-code"));
+      });
+    }
+
+    document.querySelectorAll("[data-pick]").forEach((btn) => {
+      btn.addEventListener("click", () => selectState(btn.getAttribute("data-pick")));
+    });
+
+    document.getElementById("emap-close")?.addEventListener("click", clearDetail);
+    document.getElementById("emap-sheet-close")?.addEventListener("click", clearDetail);
+    backdrop?.addEventListener("click", clearDetail);
+
+    // Filters
+    const list = document.getElementById("emap-list");
+    document.querySelectorAll(".emap-filter").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".emap-filter").forEach((b) => b.classList.remove("emap-filter--on"));
+        btn.classList.add("emap-filter--on");
+        const f = btn.getAttribute("data-filter");
+        list.querySelectorAll(".emap-list__item").forEach((li) => {
+          let show = true;
+          if (f === "senate") show = li.getAttribute("data-classii") === "1";
+          else if (f === "governor") show = li.getAttribute("data-gov") === "1";
+          else if (f === "board") show = li.getAttribute("data-board") === "1";
+          else if (f === "hot") show = li.getAttribute("data-hot") === "1";
+          li.hidden = !show;
+        });
+      });
+    });
+
+    // Deep link
+    const hash = (location.hash || "").replace(/^#/, "").toUpperCase();
+    if (hash && states[hash]) selectState(hash, { fromHash: true });
+  })();
+</script>
+
+<style>
+  .emap-page {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 0.75rem 2rem;
+  }
+  .emap-hero { max-width: 44rem; }
+  .emap-modes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin: 0.75rem 0 1rem;
+    font-size: 0.95rem;
+  }
+  .emap-modes a { color: inherit; }
+  .emap-modes__on {
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid var(--ink, #1a140d);
+  }
+  .emap-stats {
+    list-style: none;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+  .emap-stats li {
+    border: 1px solid var(--ink, #1a140d);
+    padding: 0.65rem 0.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    background: color-mix(in srgb, var(--ink, #1a140d) 4%, transparent);
+  }
+  .emap-stats strong {
+    font-family: var(--serif, Georgia, serif);
+    font-size: 1.55rem;
+    line-height: 1;
+  }
+  .emap-stats span {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+  @media (max-width: 640px) {
+    .emap-stats { grid-template-columns: 1fr 1fr; }
+  }
+
+  .emap-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(16rem, 0.9fr);
+    gap: 1rem;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .emap-shell { grid-template-columns: 1fr; }
+    .emap-panel { display: none; } /* mobile uses bottom sheet */
+  }
+
+  .emap-map-wrap {
+    position: relative;
+    border: 2px solid var(--ink, #1a140d);
+    background: color-mix(in srgb, var(--ink, #1a140d) 3%, var(--paper, #f5edd9));
+    padding: 0.65rem 0.65rem 0.85rem;
+  }
+  .emap-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.55rem;
+    margin-bottom: 0.45rem;
+  }
+  .emap-leg {
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.4rem;
+    border: 1px solid var(--ink, #1a140d);
+  }
+  .emap-leg--hot { background: #c45c2a; color: #fff; border-color: #9a4218; }
+  .emap-leg--marquee { background: #941a1a; color: #fff; border-color: #6e1212; }
+  .emap-leg--watch { background: #c9a227; color: #1a140d; border-color: #9a7a12; }
+  .emap-leg--lean { background: #5c7a6a; color: #fff; border-color: #3f564a; }
+  .emap-leg--senate { background: #3b6ea5; color: #fff; border-color: #2a4f78; }
+  .emap-leg--governor { background: #2f6b4f; color: #fff; border-color: #214a37; }
+  .emap-leg--quiet { background: #d9d0bc; color: #1a140d; border-color: #b8ad96; }
+
+  .emap-hint {
+    margin: 0 0 0.35rem;
+    opacity: 0.65;
+    font-size: 0.72rem;
+  }
+
+  .emap-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: min(62vh, 520px);
+    touch-action: manipulation;
+  }
+  .emap-state {
+    stroke: var(--paper, #f5edd9);
+    stroke-width: 1;
+    cursor: pointer;
+    transition: fill 0.12s ease, stroke-width 0.12s ease, filter 0.12s ease;
+  }
+  .emap-state:focus {
+    outline: 2px solid var(--ink, #1a140d);
+    outline-offset: 2px;
+  }
+  .emap-state--hover {
+    stroke: var(--ink, #1a140d);
+    stroke-width: 1.75;
+    filter: brightness(1.06);
+  }
+  .emap-state--selected {
+    stroke: var(--ink, #1a140d);
+    stroke-width: 2.25;
+    filter: brightness(1.08);
+  }
+
+  .emap-fill--hot { fill: #c45c2a; }
+  .emap-fill--marquee { fill: #941a1a; }
+  .emap-fill--watch { fill: #c9a227; }
+  .emap-fill--lean { fill: #5c7a6a; }
+  .emap-fill--senate { fill: #3b6ea5; }
+  .emap-fill--governor { fill: #2f6b4f; }
+  .emap-fill--quiet { fill: #d9d0bc; }
+
+  .emap-float {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 13.5rem;
+    pointer-events: none;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid var(--ink, #1a140d);
+    background: var(--paper, #f5edd9);
+    box-shadow: 3px 3px 0 rgba(26, 20, 13, 0.15);
+  }
+  .emap-float__code { margin: 0; opacity: 0.65; font-size: 0.7rem; }
+  .emap-float__name {
+    margin: 0.1rem 0 0.25rem;
+    font-family: var(--serif, Georgia, serif);
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1.15;
+  }
+  .emap-float__glance {
+    margin: 0 0 0.4rem;
+    font-size: 0.82rem;
+    line-height: 1.35;
+    opacity: 0.88;
+  }
+  .emap-float__chips { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+
+  .emap-chip {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.35rem;
+    border: 1px solid var(--ink, #1a140d);
+    background: color-mix(in srgb, var(--ink, #1a140d) 6%, transparent);
+  }
+
+  .emap-panel {
+    border: 2px solid var(--ink, #1a140d);
+    background: var(--paper, #f5edd9);
+    padding: 1rem 1.05rem 1.15rem;
+    position: sticky;
+    top: 0.75rem;
+    max-height: calc(100vh - 1.5rem);
+    overflow: auto;
+  }
+  .emap-panel__title {
+    font-family: var(--serif, Georgia, serif);
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin: 0.15rem 0 0.45rem;
+    line-height: 1.1;
+  }
+  .emap-panel__eyebrow { margin: 0; opacity: 0.7; }
+  .emap-panel__glance { margin: 0 0 0.65rem; line-height: 1.4; }
+  .emap-panel__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-bottom: 0.85rem;
+  }
+  .emap-panel__close {
+    float: right;
+    appearance: none;
+    border: 1px solid var(--ink, #1a140d);
+    background: transparent;
+    font-size: 1.25rem;
+    line-height: 1;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+  }
+  .emap-featured {
+    list-style: none;
+    margin: 0.75rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .emap-featured__btn {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2.4rem 1fr auto;
+    gap: 0.5rem;
+    align-items: center;
+    text-align: left;
+    padding: 0.5rem 0.55rem;
+    border: 1px solid var(--ink, #1a140d);
+    background: transparent;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+  .emap-featured__btn:hover {
+    background: color-mix(in srgb, var(--ink, #1a140d) 7%, transparent);
+  }
+  .emap-featured__code {
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+  }
+  .emap-featured__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    min-width: 0;
+  }
+  .emap-featured__body strong {
+    font-family: var(--serif, Georgia, serif);
+    font-size: 0.98rem;
+  }
+  .emap-featured__body span {
+    font-size: 0.78rem;
+    opacity: 0.8;
+    line-height: 1.3;
+  }
+  .emap-featured__heat {
+    font-weight: 700;
+    font-size: 0.9rem;
+    opacity: 0.75;
+  }
+
+  .emap-race {
+    border: 1px solid var(--ink, #1a140d);
+    padding: 0.65rem 0.7rem;
+    margin: 0 0 0.65rem;
+  }
+  .emap-race[data-tier="marquee"] { border-width: 2px; }
+  .emap-race__head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 0.55rem;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+  .emap-race__head h3 {
+    margin: 0;
+    font-family: var(--serif, Georgia, serif);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .emap-race__head .small-caps { opacity: 0.65; font-size: 0.68rem; }
+  .emap-race__heat { margin-left: auto; font-size: 0.82rem; opacity: 0.8; }
+  .emap-race__sides {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0.35rem;
+    align-items: start;
+  }
+  .emap-race__vs {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.45;
+    padding-top: 0.35rem;
+  }
+  .emap-race__side { padding: 0.25rem; }
+  .emap-race__side--lead {
+    outline: 1px solid var(--ink, #1a140d);
+    background: color-mix(in srgb, var(--ink, #1a140d) 7%, transparent);
+  }
+  .emap-race__who {
+    font-family: var(--serif, Georgia, serif);
+    font-weight: 700;
+    font-size: 0.92rem;
+    line-height: 1.25;
+  }
+  .emap-race__who a { color: inherit; }
+  .emap-race__note {
+    margin: 0.45rem 0 0;
+    font-size: 0.8rem;
+    opacity: 0.72;
+    font-style: italic;
+  }
+  .emap-grade-pill {
+    display: inline-block;
+    margin-left: 0.25rem;
+    padding: 0.05rem 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 800;
+    border: 1px solid;
+    vertical-align: middle;
+  }
+  .emap-grade-pill--A, .emap-grade-pill--B {
+    background: #1f5c45;
+    color: #f4f7f2;
+    border-color: #174834;
+  }
+  .emap-grade-pill--C {
+    background: #c9a227;
+    color: #1a140d;
+    border-color: #9a7a12;
+  }
+  .emap-grade-pill--D, .emap-grade-pill--F {
+    background: #941a1a;
+    color: #fff;
+    border-color: #6e1212;
+  }
+  .emap-muted { opacity: 0.85; }
+  .emap-panel__more { margin: 0.75rem 0 0; font-size: 0.9rem; }
+
+  /* Mobile sheet */
+  .emap-sheet-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 8, 5, 0.35);
+    z-index: 40;
+  }
+  .emap-sheet {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    max-height: min(78vh, 640px);
+    overflow: auto;
+    background: var(--paper, #f5edd9);
+    border-top: 3px solid var(--ink, #1a140d);
+    border-radius: 12px 12px 0 0;
+    padding: 0.5rem 1rem 1rem;
+    box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.18);
+  }
+  .emap-sheet__handle {
+    width: 2.5rem;
+    height: 0.28rem;
+    border-radius: 99px;
+    background: color-mix(in srgb, var(--ink, #1a140d) 25%, transparent);
+    margin: 0.25rem auto 0.65rem;
+  }
+  .emap-sheet__close {
+    display: block;
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.65rem;
+    border: 1px solid var(--ink, #1a140d);
+    background: var(--ink, #1a140d);
+    color: var(--paper, #f5edd9);
+    font: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+  }
+  body.emap-sheet-open { overflow: hidden; }
+
+  .emap-list-section { margin-top: 2.25rem; }
+  .emap-list-lede { opacity: 0.8; margin: 0 0 0.75rem; }
+  .emap-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 0.75rem;
+  }
+  .emap-filter {
+    appearance: none;
+    font: inherit;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.55rem;
+    border: 1px solid var(--ink, #1a140d);
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+  .emap-filter--on {
+    background: var(--ink, #1a140d);
+    color: var(--paper, #f5edd9);
+  }
+  .emap-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--rule, #cfc3ad);
+  }
+  .emap-list__btn {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 0.85rem 2.2rem minmax(6rem, 0.9fr) minmax(0, 1.6fr) auto;
+    gap: 0.45rem 0.65rem;
+    align-items: center;
+    text-align: left;
+    padding: 0.55rem 0.25rem;
+    border: 0;
+    border-bottom: 1px solid var(--rule, #cfc3ad);
+    background: transparent;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+  .emap-list__btn:hover {
+    background: color-mix(in srgb, var(--ink, #1a140d) 5%, transparent);
+  }
+  .emap-list__swatch {
+    width: 0.75rem;
+    height: 0.75rem;
+    border: 1px solid var(--ink, #1a140d);
+  }
+  .emap-list__code { font-weight: 800; font-size: 0.85rem; }
+  .emap-list__name {
+    font-family: var(--serif, Georgia, serif);
+    font-weight: 700;
+  }
+  .emap-list__glance {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    line-height: 1.3;
+  }
+  .emap-list__heat { font-weight: 700; opacity: 0.7; }
+  @media (max-width: 640px) {
+    .emap-list__btn {
+      grid-template-columns: 0.75rem 2rem 1fr auto;
+      grid-template-areas:
+        "sw code name heat"
+        "sw . glance glance";
+    }
+    .emap-list__swatch { grid-area: sw; }
+    .emap-list__code { grid-area: code; }
+    .emap-list__name { grid-area: name; }
+    .emap-list__glance { grid-area: glance; }
+    .emap-list__heat { grid-area: heat; }
+  }
+</style>
