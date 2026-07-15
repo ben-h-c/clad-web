@@ -4,6 +4,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
 import PoliticianAvatar from "~/components/PoliticianAvatar.astro";
+import CollapsibleSection from "~/components/CollapsibleSection.astro";
 import { getAccess } from "~/lib/access";
 import { buildCoverageBracket, roundLabel, type BracketMatchup } from "~/lib/bracket";
 import type { PoliticianAgg } from "~/lib/politicians";
@@ -186,6 +187,15 @@ function slotLine(m: BracketMatchup, side: "a" | "b") {
         )}
       </div>
     )}
+
+    <CollapsibleSection title="How this tournament works" eyebrow="Guide">
+      <ul class="upgrade__perks">
+        <li><strong>Seeding</strong> is by graded-report volume — who shows up most in coverage we grade, not by polls or fundraising.</li>
+        <li><strong>Matchup lead</strong> (signed-in) prefers more reports, then higher average factuality of that coverage.</li>
+        <li><strong>Not a prediction.</strong> This is a coverage heat bracket, not who will win an election.</li>
+        <li>Want fixed races on the calendar? Use the <a href="/bracket/">race board</a>.</li>
+      </ul>
+    </CollapsibleSection>
 
     <p class="static-page__note">
       Prefer fixed races? See the <a href="/bracket/">race board</a>.

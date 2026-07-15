@@ -1,0 +1,29 @@
+---
+/**
+ * Newspaper-style expandable block. Defaults closed to save mobile vertical space.
+ * Uses native <details> for keyboard + screen-reader support (no JS).
+ */
+interface Props {
+  title: string;
+  /** Optional eyebrow above the title in the summary row */
+  eyebrow?: string;
+  /** Start open (default false) */
+  open?: boolean;
+  /** Extra class on the outer details */
+  class?: string;
+  id?: string;
+}
+const { title, eyebrow, open = false, class: className = "", id } = Astro.props;
+---
+<details class:list={["fold", className]} open={open || undefined} id={id}>
+  <summary class="fold__summary">
+    <span class="fold__text">
+      {eyebrow && <span class="fold__eyebrow small-caps">{eyebrow}</span>}
+      <span class="fold__title">{title}</span>
+    </span>
+    <span class="fold__chev" aria-hidden="true"></span>
+  </summary>
+  <div class="fold__body">
+    <slot />
+  </div>
+</details>

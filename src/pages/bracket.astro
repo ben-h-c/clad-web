@@ -5,6 +5,7 @@ import { getAccess } from "~/lib/access";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
 import PoliticianAvatar from "~/components/PoliticianAvatar.astro";
+import CollapsibleSection from "~/components/CollapsibleSection.astro";
 import {
   buildRaceBoard,
   maskRaceLeaders,
@@ -75,8 +76,7 @@ const jsonLd = {
       <a href="/learn/first-vote/">First-time voter guide</a>
     </nav>
 
-    <section class="civics" aria-label="How midterms work">
-      <h2 class="static-page__sub">How midterms work (short)</h2>
+    <CollapsibleSection title="How midterms work (short)" eyebrow="Civics">
       <ul class="civics__list">
         <li>{board.civics.midterm}</li>
         <li>{board.civics.senateClass}</li>
@@ -84,7 +84,7 @@ const jsonLd = {
         <li>{board.civics.house}</li>
         <li>{board.civics.notPolls}</li>
       </ul>
-    </section>
+    </CollapsibleSection>
 
     {!reveal && (
       <p class="paywall-banner" style="margin: 1rem 0">
@@ -223,17 +223,18 @@ const jsonLd = {
       </section>
     ))}
 
-    <h2 class="static-page__sub">How to read this board</h2>
-    <ul class="upgrade__perks">
-      <li><strong>Candidate map verified</strong> as of {RACE_BOARD_VERIFIED_ASOF}. A background agent re-checks dropouts and nominees with web search every other day; stale pairings get fixed in code.</li>
-      <li><strong>On-cycle only.</strong> Senate cards are Class II (2026). Class I (next 2030) and Class III (next 2028) are not marquee Senate cards here.</li>
-      <li><strong>Open seats</strong> mark retirements (Tillis, Peters, Smith, Shaheen, Durbin) or term-limited governors — not “incumbent vs field.”</li>
-      <li><strong>Special</strong> marks a mid-term vacancy under the 17th Amendment + state law (South Carolina after Graham’s death).</li>
-      <li><strong>Heat</strong> = combined graded reports mentioning either side (public).</li>
-      <li><strong>Coverage lead</strong> (signed-in) = more reports, then higher average factuality of that coverage — not a vote forecast.</li>
-      <li><strong>Field</strong> means the nominee is not locked in our data; we show a coverage stand-in and note it. Withdrawn candidates (e.g. Platner in Maine) are not listed as active sides.</li>
-      <li><strong>House:</strong> all 435 seats every midterm — national control still shows up in the <a href="/bracket/coverage/">coverage tournament</a>.</li>
-    </ul>
+    <CollapsibleSection title="How to read this board" eyebrow="Guide">
+      <ul class="upgrade__perks">
+        <li><strong>Candidate map verified</strong> as of {RACE_BOARD_VERIFIED_ASOF}. A background agent re-checks dropouts and nominees with web search every other day; stale pairings get fixed in code.</li>
+        <li><strong>On-cycle only.</strong> Senate cards are Class II (2026). Class I (next 2030) and Class III (next 2028) are not marquee Senate cards here.</li>
+        <li><strong>Open seats</strong> mark retirements (Tillis, Peters, Smith, Shaheen, Durbin) or term-limited governors — not “incumbent vs field.”</li>
+        <li><strong>Special</strong> marks a mid-term vacancy under the 17th Amendment + state law (South Carolina after Graham’s death).</li>
+        <li><strong>Heat</strong> = combined graded reports mentioning either side (public).</li>
+        <li><strong>Coverage lead</strong> (signed-in) = more reports, then higher average factuality of that coverage — not a vote forecast.</li>
+        <li><strong>Field</strong> means the nominee is not locked in our data; we show a coverage stand-in and note it. Withdrawn candidates (e.g. Platner in Maine) are not listed as active sides.</li>
+        <li><strong>House:</strong> all 435 seats every midterm — national control still shows up in the <a href="/bracket/coverage/">coverage tournament</a>.</li>
+      </ul>
+    </CollapsibleSection>
 
     <p class="static-page__note">
       People-level tournament (volume seeding): <a href="/bracket/coverage/">coverage tournament</a>.
@@ -272,21 +273,6 @@ const jsonLd = {
     font-weight: 700;
     text-decoration: none;
     border-bottom: 2px solid var(--ink, #1a140d);
-  }
-  .civics {
-    margin: 0 0 1.5rem;
-    padding: 1rem 1.15rem;
-    border: 1px solid var(--ink, #1a140d);
-    background: color-mix(in srgb, var(--ink, #1a140d) 4%, transparent);
-  }
-  .civics__list {
-    margin: 0.5rem 0 0;
-    padding-left: 1.2rem;
-  }
-  .civics__list li {
-    margin: 0.45rem 0;
-    line-height: 1.45;
-    font-size: 0.95rem;
   }
   .bracket-champ {
     display: flex;

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import CollapsibleSection from "~/components/CollapsibleSection.astro";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "public, max-age=300");
@@ -50,23 +51,29 @@ const editorLd = {
       <a href="/students/">student&rsquo;s guide</a>.
     </p>
 
-    <h2 class="static-page__sub">How we assess political leaning</h2>
-    <p>Each report assigns a political-lean score on a scale from -100 (strongly left) through 0 (centered, no discernible slant) to +100 (strongly right). The score reflects only the segment under review and is based on observable cues such as word choice, which facts are emphasized or omitted, guest and source selection, and overall framing. The same criteria apply to every network and figure. Non-political content receives a score of 0. The final value is shown with both its numeric magnitude and a short rationale that names the specific cues observed in the segment.</p>
+    <CollapsibleSection title="How we assess political leaning" eyebrow="Method">
+      <p>Each report assigns a political-lean score on a scale from -100 (strongly left) through 0 (centered, no discernible slant) to +100 (strongly right). The score reflects only the segment under review and is based on observable cues such as word choice, which facts are emphasized or omitted, guest and source selection, and overall framing. The same criteria apply to every network and figure. Non-political content receives a score of 0. The final value is shown with both its numeric magnitude and a short rationale that names the specific cues observed in the segment.</p>
+    </CollapsibleSection>
 
-    <h2 class="static-page__sub">How we grade for accuracy</h2>
-    <p>Accuracy is reported with both a letter grade (A+ through F) and a factuality score (0–100). The letter grade evaluates severity rather than simply counting issues: A indicates high accuracy, sound sourcing, and balance with minimal problems; B indicates mostly accurate material with only minor concerns; C indicates a mix of accurate and problematic claims along with noticeable patterns such as one-sided sourcing or missing context; D indicates significant factual issues, heavy partisan framing, or major unsourced claims; F indicates pervasive misinformation or propaganda-level distortion. The 0–100 factuality score complements the letter grade by placing the segment on a continuum from entirely false (0) to entirely accurate (100).</p>
+    <CollapsibleSection title="How we grade for accuracy" eyebrow="Method">
+      <p>Accuracy is reported with both a letter grade (A+ through F) and a factuality score (0–100). The letter grade evaluates severity rather than simply counting issues: A indicates high accuracy, sound sourcing, and balance with minimal problems; B indicates mostly accurate material with only minor concerns; C indicates a mix of accurate and problematic claims along with noticeable patterns such as one-sided sourcing or missing context; D indicates significant factual issues, heavy partisan framing, or major unsourced claims; F indicates pervasive misinformation or propaganda-level distortion. The 0–100 factuality score complements the letter grade by placing the segment on a continuum from entirely false (0) to entirely accurate (100).</p>
+    </CollapsibleSection>
 
-    <h2 class="static-page__sub">How we write the summary, analysis, and key moments</h2>
-    <p>The summary is a factual, non-editorial description of the segment’s content. It notes the topics covered, the sourcing approach (named versus anonymous), notable guests, and the main throughlines. The assessment section explains what context may be missing, how loaded language or selective statistics could shape viewer perception, how individual claims hold up, and any recurring patterns. Adjectives in the assessment describe the evidence itself (documented, unsubstantiated) rather than individuals. Key moments isolate three to five load-bearing claims and label each one verified, disputed, missing context, or unsupported, accompanied by a one-sentence rationale citing the relevant source or reasoning.</p>
+    <CollapsibleSection title="How we write the summary, analysis, and key moments" eyebrow="Method">
+      <p>The summary is a factual, non-editorial description of the segment’s content. It notes the topics covered, the sourcing approach (named versus anonymous), notable guests, and the main throughlines. The assessment section explains what context may be missing, how loaded language or selective statistics could shape viewer perception, how individual claims hold up, and any recurring patterns. Adjectives in the assessment describe the evidence itself (documented, unsubstantiated) rather than individuals. Key moments isolate three to five load-bearing claims and label each one verified, disputed, missing context, or unsupported, accompanied by a one-sentence rationale citing the relevant source or reasoning.</p>
+    </CollapsibleSection>
 
-    <h2 class="static-page__sub">How we verify and source every report</h2>
-    <p>Reports cover U.S. political news and commentary video segments from established network newscasts, morning shows, roundtables, and opinion programs, plus occasional notable clips from independent creators and specialist channels submitted by the editor — all graded by the same criteria. Transcripts are taken from on-screen captions when available; otherwise the specific video is researched via web search. Before any grade is assigned, every factual claim is checked against current authoritative sources through live web search. The system does not label a claim false simply because it is unfamiliar or recent; verification occurs first, and search results take precedence over prior assumptions. All sources cited are primary documents, official data, statutes, named experts, or reputable outlets across the spectrum. Every report also links directly to its original source video.</p>
+    <CollapsibleSection title="How we verify and source every report" eyebrow="Method">
+      <p>Reports cover U.S. political news and commentary video segments from established network newscasts, morning shows, roundtables, and opinion programs, plus occasional notable clips from independent creators and specialist channels submitted by the editor — all graded by the same criteria. Transcripts are taken from on-screen captions when available; otherwise the specific video is researched via web search. Before any grade is assigned, every factual claim is checked against current authoritative sources through live web search. The system does not label a claim false simply because it is unfamiliar or recent; verification occurs first, and search results take precedence over prior assumptions. All sources cited are primary documents, official data, statutes, named experts, or reputable outlets across the spectrum. Every report also links directly to its original source video.</p>
+    </CollapsibleSection>
 
-    <h2 class="static-page__sub">Human oversight, corrections, and your right to challenge us</h2>
-    <p>Reports are drafted with AI assistance and then reviewed and approved by a human editor before publication. Corrections appear as new posts rather than silent edits to the original report, and every one is logged on the public <a href="/corrections/">corrections page</a>. Readers may flag any grade or political-lean score they believe is incorrect. When that happens, the report is re-run through the exact same grading process that produced it. If the fresh result confirms the original was off, the report is removed. If it holds up, it stays — a reader disagreeing with a grade that is accurate and well sourced is not, by itself, a reason to change it.</p>
+    <CollapsibleSection title="Human oversight, corrections, and your right to challenge us" eyebrow="Method">
+      <p>Reports are drafted with AI assistance and then reviewed and approved by a human editor before publication. Corrections appear as new posts rather than silent edits to the original report, and every one is logged on the public <a href="/corrections/">corrections page</a>. Readers may flag any grade or political-lean score they believe is incorrect. When that happens, the report is re-run through the exact same grading process that produced it. If the fresh result confirms the original was off, the report is removed. If it holds up, it stays — a reader disagreeing with a grade that is accurate and well sourced is not, by itself, a reason to change it.</p>
+    </CollapsibleSection>
 
-    <h2 class="static-page__sub">What we do not claim</h2>
-    <p>This process is AI-assisted analysis of video segments. Transcripts may contain paraphrase or transcription errors. Grades evaluate the reporting and the evidence presented, not the character of any person named. The output constitutes editorial commentary and analysis; it is not legal or financial advice.</p>
+    <CollapsibleSection title="What we do not claim" eyebrow="Limits">
+      <p>This process is AI-assisted analysis of video segments. Transcripts may contain paraphrase or transcription errors. Grades evaluate the reporting and the evidence presented, not the character of any person named. The output constitutes editorial commentary and analysis; it is not legal or financial advice.</p>
+    </CollapsibleSection>
 
     <h2 class="static-page__sub" id="editor">The editor</h2>
     <p>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import CollapsibleSection from "~/components/CollapsibleSection.astro";
 import { PRICE } from "~/lib/access";
 
 export const prerender = false;
@@ -17,137 +18,147 @@ Astro.response.headers.set("Cache-Control", "public, max-age=300");
       page explains, step by step, how each part of a report is produced — what
       the AI does, what the human editor does, and where the limits are. A
       rating is only as good as the method behind it, so here is the method.
+      Tap a section to expand it.
     </p>
 
-    <h3 class="static-page__sub">What gets checked</h3>
-    <p>
-      Clad reviews news broadcast segments — network newscasts, morning shows,
-      roundtables, interviews, and opinion programs published on YouTube —
-      along with occasional notable clips from independent creators and
-      specialist channels submitted by the editor, all graded by the same
-      criteria. Every report links directly to its source video, so you can
-      watch what we watched and judge for yourself.
-    </p>
+    <CollapsibleSection title="What gets checked" eyebrow="Scope">
+      <p>
+        Clad reviews news broadcast segments — network newscasts, morning shows,
+        roundtables, interviews, and opinion programs published on YouTube —
+        along with occasional notable clips from independent creators and
+        specialist channels submitted by the editor, all graded by the same
+        criteria. Every report links directly to its source video, so you can
+        watch what we watched and judge for yourself.
+      </p>
+    </CollapsibleSection>
 
-    <h3 class="static-page__sub" id="rubric">The grade</h3>
-    <p>Each broadcast report carries three measurements:</p>
-    <ul>
-      <li>
-        <strong>Letter grade (A+ through F).</strong> An overall quality grade
-        that weighs severity, not just count: A means high accuracy, sound
-        sourcing, and balance; B means mostly accurate with minor concerns; C
-        means a mix of accurate and problematic claims with noticeable patterns
-        such as one-sided sourcing or missing context; D means significant
-        factual issues, heavy partisan framing, or major unsourced claims; F
-        means pervasive misinformation or propaganda-level distortion. Every
-        grade is published with a one-line rationale naming the specific
-        strengths or failings that earned it. Browse the archive by grade:
-        {" "}<a href="/grades/a-plus/">A+</a>, <a href="/grades/a/">A</a>,
-        {" "}<a href="/grades/a-minus/">A−</a>, <a href="/grades/b-plus/">B+</a>,
-        {" "}<a href="/grades/b/">B</a>, <a href="/grades/b-minus/">B−</a>,
-        {" "}<a href="/grades/c-plus/">C+</a>, <a href="/grades/c/">C</a>,
-        {" "}<a href="/grades/c-minus/">C−</a>, <a href="/grades/d-plus/">D+</a>,
-        {" "}<a href="/grades/d/">D</a>, <a href="/grades/d-minus/">D−</a>,
-        {" "}or <a href="/grades/f/">F</a>.
-      </li>
-      <li>
-        <strong>Factuality score (0–100).</strong> Places the segment on a
-        continuum from entirely false (0) through mixed (50) to entirely
-        accurate (100). Severity matters: three minor missing-context issues
-        are not the same as one outright false claim on a load-bearing point.
-      </li>
-      <li>
-        <strong>Political lean.</strong> A direction and magnitude from -100
-        (strongly left) through 0 (centered) to +100 (strongly right),
-        measuring the slant of the segment as presented — word choice, which
-        facts are emphasized or omitted, guest and source selection, and
-        framing. The same standard applies to every network and figure, and the
-        lean is published with its own rationale naming the specific cues
-        observed. Non-political content scores 0.
-      </li>
-    </ul>
+    <CollapsibleSection title="The grade" eyebrow="Rubric" id="rubric">
+      <p>Each broadcast report carries three measurements:</p>
+      <ul>
+        <li>
+          <strong>Letter grade (A+ through F).</strong> An overall quality grade
+          that weighs severity, not just count: A means high accuracy, sound
+          sourcing, and balance; B means mostly accurate with minor concerns; C
+          means a mix of accurate and problematic claims with noticeable patterns
+          such as one-sided sourcing or missing context; D means significant
+          factual issues, heavy partisan framing, or major unsourced claims; F
+          means pervasive misinformation or propaganda-level distortion. Every
+          grade is published with a one-line rationale naming the specific
+          strengths or failings that earned it. Browse the archive by grade:
+          {" "}<a href="/grades/a-plus/">A+</a>, <a href="/grades/a/">A</a>,
+          {" "}<a href="/grades/a-minus/">A−</a>, <a href="/grades/b-plus/">B+</a>,
+          {" "}<a href="/grades/b/">B</a>, <a href="/grades/b-minus/">B−</a>,
+          {" "}<a href="/grades/c-plus/">C+</a>, <a href="/grades/c/">C</a>,
+          {" "}<a href="/grades/c-minus/">C−</a>, <a href="/grades/d-plus/">D+</a>,
+          {" "}<a href="/grades/d/">D</a>, <a href="/grades/d-minus/">D−</a>,
+          {" "}or <a href="/grades/f/">F</a>.
+        </li>
+        <li>
+          <strong>Factuality score (0–100).</strong> Places the segment on a
+          continuum from entirely false (0) through mixed (50) to entirely
+          accurate (100). Severity matters: three minor missing-context issues
+          are not the same as one outright false claim on a load-bearing point.
+        </li>
+        <li>
+          <strong>Political lean.</strong> A direction and magnitude from -100
+          (strongly left) through 0 (centered) to +100 (strongly right),
+          measuring the slant of the segment as presented — word choice, which
+          facts are emphasized or omitted, guest and source selection, and
+          framing. The same standard applies to every network and figure, and the
+          lean is published with its own rationale naming the specific cues
+          observed. Non-political content scores 0.
+        </li>
+      </ul>
+    </CollapsibleSection>
 
-    <h3 class="static-page__sub" id="key-moments">Key Moments — claim by claim</h3>
-    <p>
-      Each report isolates three to five of the segment's most load-bearing
-      claims and labels each one <strong>verified</strong>,
-      <strong>disputed</strong>, <strong>missing context</strong>, or
-      <strong>unsupported</strong>, with a one-sentence note giving the source,
-      context, or reasoning behind the verdict. Where evidence is genuinely
-      thin, we prefer "missing context" or "unsupported" over guessing.
-    </p>
-    <p>
-      Each labeled claim is also published as machine-readable
-      <code>ClaimReview</code> markup so fact-check aggregators can ingest it.
-      The four labels map onto ClaimReview's 1–5 rating scale as:
-      verified = 5, missing context = 3, disputed = 2, unsupported = 1
-      (no label maps to 4; "unverified" single-claim posts carry the label
-      without a numeric rating).
-    </p>
+    <CollapsibleSection title="Key Moments — claim by claim" eyebrow="Claims" id="key-moments">
+      <p>
+        Each report isolates three to five of the segment's most load-bearing
+        claims and labels each one <strong>verified</strong>,
+        <strong>disputed</strong>, <strong>missing context</strong>, or
+        <strong>unsupported</strong>, with a one-sentence note giving the source,
+        context, or reasoning behind the verdict. Where evidence is genuinely
+        thin, we prefer "missing context" or "unsupported" over guessing.
+      </p>
+      <p>
+        Each labeled claim is also published as machine-readable
+        <code>ClaimReview</code> markup so fact-check aggregators can ingest it.
+        The four labels map onto ClaimReview's 1–5 rating scale as:
+        verified = 5, missing context = 3, disputed = 2, unsupported = 1
+        (no label maps to 4; "unverified" single-claim posts carry the label
+        without a numeric rating).
+      </p>
+    </CollapsibleSection>
 
-    <h3 class="static-page__sub">What the AI does, and what the human does</h3>
-    <p>
-      Reports are AI-drafted: xAI's Grok analyzes the broadcast and verifies
-      its factual claims against current authoritative sources via live web
-      search before any grade is assigned. The AI's role is research and
-      drafting — it produces the structured report card, the rationales, and
-      the sourced claim-by-claim verdicts.
-    </p>
-    <p>
-      No report publishes itself. Every draft goes through a human approval
-      queue, where the editor reviews it — and can send it back for revision —
-      before it appears on the site. Every verdict is hand-reviewed. We
-      disclose this because you deserve to know the role AI plays, why we use
-      it (it can check every claim in a broadcast against primary sources at a
-      speed no newsroom of one could match), and that a human remains
-      accountable for everything published.
-    </p>
+    <CollapsibleSection title="What the AI does, and what the human does" eyebrow="Process">
+      <p>
+        Reports are AI-drafted: xAI's Grok analyzes the broadcast and verifies
+        its factual claims against current authoritative sources via live web
+        search before any grade is assigned. The AI's role is research and
+        drafting — it produces the structured report card, the rationales, and
+        the sourced claim-by-claim verdicts.
+      </p>
+      <p>
+        No report publishes itself. Every draft goes through a human approval
+        queue, where the editor reviews it — and can send it back for revision —
+        before it appears on the site. Every verdict is hand-reviewed. We
+        disclose this because you deserve to know the role AI plays, why we use
+        it (it can check every claim in a broadcast against primary sources at a
+        speed no newsroom of one could match), and that a human remains
+        accountable for everything published.
+      </p>
+    </CollapsibleSection>
 
-    <h3 class="static-page__sub">Sourcing standards</h3>
-    <p>
-      Reports cite their sources — typically four to six per report, and often
-      more. Primary sources are preferred: official documents, statistics,
-      statutes and filings, named experts, and reputable outlets across the
-      spectrum. Wikipedia and other tertiary encyclopedias are listed under
-      "Background," never as Sources Consulted. Dead links are pruned before
-      publication.
-    </p>
+    <CollapsibleSection title="Sourcing standards" eyebrow="Sources">
+      <p>
+        Reports cite their sources — typically four to six per report, and often
+        more. Primary sources are preferred: official documents, statistics,
+        statutes and filings, named experts, and reputable outlets across the
+        spectrum. Wikipedia and other tertiary encyclopedias are listed under
+        "Background," never as Sources Consulted. Dead links are pruned before
+        publication.
+      </p>
+    </CollapsibleSection>
 
-    <h3 class="static-page__sub">Editorial style</h3>
-    <p>
-      Headlines describe; they don't judge. The verdict lives in the grade and
-      the report, not the headline — no clickbait, no exclamation, no political
-      adjectives applied to people. Adjectives in the assessment describe the
-      evidence itself ("documented," "unsubstantiated"), never individuals.
-    </p>
+    <CollapsibleSection title="Editorial style" eyebrow="Style">
+      <p>
+        Headlines describe; they don't judge. The verdict lives in the grade and
+        the report, not the headline — no clickbait, no exclamation, no political
+        adjectives applied to people. Adjectives in the assessment describe the
+        evidence itself ("documented," "unsubstantiated"), never individuals.
+      </p>
+    </CollapsibleSection>
 
-    <h3 class="static-page__sub">Corrections</h3>
-    <p>
-      When a report needs correcting, the correction is issued as a new post
-      that links the original — never a silent edit. Both posts carry a visible
-      correction banner, and every correction is logged publicly on the
-      <a href="/corrections/">corrections page</a>.
-    </p>
+    <CollapsibleSection title="Corrections" eyebrow="Integrity">
+      <p>
+        When a report needs correcting, the correction is issued as a new post
+        that links the original — never a silent edit. Both posts carry a visible
+        correction banner, and every correction is logged publicly on the
+        <a href="/corrections/">corrections page</a>.
+      </p>
+    </CollapsibleSection>
 
-    <h3 class="static-page__sub">Disputes</h3>
-    <p>
-      Every report carries a flag mechanism. If you believe a grade or
-      political-lean rating is wrong, say so — your note goes to the editor and
-      the report is re-run through the exact same grading process that produced
-      it. If the fresh result confirms the original was off, the report is
-      removed; if it holds up, it stays.
-    </p>
+    <CollapsibleSection title="Disputes" eyebrow="Integrity">
+      <p>
+        Every report carries a flag mechanism. If you believe a grade or
+        political-lean rating is wrong, say so — your note goes to the editor and
+        the report is re-run through the exact same grading process that produced
+        it. If the fresh result confirms the original was off, the report is
+        removed; if it holds up, it stays.
+      </p>
+    </CollapsibleSection>
 
-    <h3 class="static-page__sub">What's free and what's Premium</h3>
-    <p>
-      The full report — summary, editorial assessment, key moments, and sources
-      — is free to read by anyone. The scoreboard — letter grade, factuality
-      score, political-lean rating, and social sentiment — is free with a
-      <a href="/register/">free account</a> (no card required).
-      <a href="/upgrade/">CladFacts Premium</a> ({PRICE.monthly}/mo or
-      {PRICE.annual}/yr) is the supporter tier that funds the newsroom and lets
-      you post in Reader Reactions.
-    </p>
+    <CollapsibleSection title="What's free and what's Premium" eyebrow="Access">
+      <p>
+        The full report — summary, editorial assessment, key moments, and sources
+        — is free to read by anyone. The scoreboard — letter grade, factuality
+        score, political-lean rating, and social sentiment — is free with a
+        <a href="/register/">free account</a> (no card required).
+        <a href="/upgrade/">CladFacts Premium</a> ({PRICE.monthly}/mo or
+        {PRICE.annual}/yr) is the supporter tier that funds the newsroom and lets
+        you post in Reader Reactions.
+      </p>
+    </CollapsibleSection>
 
     <p>
       Want to see it in action? <a href="/?tour=1">Take the 30-second tour</a>,
@@ -162,3 +173,19 @@ Astro.response.headers.set("Cache-Control", "public, max-age=300");
     </p>
   </article>
 </BaseLayout>
+
+<script is:inline>
+  (() => {
+    const openHash = () => {
+      const id = location.hash.slice(1);
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el && el.tagName === "DETAILS") {
+        el.open = true;
+        el.scrollIntoView({ block: "start" });
+      }
+    };
+    openHash();
+    window.addEventListener("hashchange", openHash);
+  })();
+</script>

@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import CollapsibleSection from "~/components/CollapsibleSection.astro";
 import { getAccess } from "~/lib/access";
 import { buildRaceBoard, maskRaceLeaders, statusLabel } from "~/lib/bracket";
 import { buildElectionMap, type StateMapCell } from "~/lib/electionMap";
@@ -267,14 +268,15 @@ const featured = [...map.states]
       </label>
     </section>
 
-    <h2 class="static-page__sub">How to read these maps</h2>
-    <ul class="upgrade__perks">
-      <li><strong>Coverage map</strong> — ballot structure + CladFacts graded-report heat. Not a forecast of who wins.</li>
-      <li><strong>Party &amp; outlook map</strong> — who holds the seat/control now, Cook-style solid/likely/lean/toss-up bands for 2026, and flip-risk striping when the favored party differs from the holder. Editorial snapshot as of {FORECAST_ASOF}.</li>
-      <li><strong>Toggles</strong> — Senate (Class II), governor, House (state lean, not districts), or overall state-government control.</li>
-      <li><strong>Class II Senate</strong> = one-third of the chamber up in 2026 (Art. I §3). Candidate map verified {RACE_BOARD_VERIFIED_ASOF}.</li>
-      <li><strong>House</strong> = all 435 seats every midterm; colors are statewide lean only.</li>
-    </ul>
+    <CollapsibleSection title="How to read these maps" eyebrow="Guide">
+      <ul class="upgrade__perks">
+        <li><strong>Coverage map</strong> — ballot structure + CladFacts graded-report heat. Not a forecast of who wins.</li>
+        <li><strong>Party &amp; outlook map</strong> — who holds the seat/control now, Cook-style solid/likely/lean/toss-up bands for 2026, and flip-risk striping when the favored party differs from the holder. Editorial snapshot as of {FORECAST_ASOF}.</li>
+        <li><strong>Toggles</strong> — Senate (Class II), governor, House (state lean, not districts), or overall state-government control.</li>
+        <li><strong>Class II Senate</strong> = one-third of the chamber up in 2026 (Art. I §3). Candidate map verified {RACE_BOARD_VERIFIED_ASOF}.</li>
+        <li><strong>House</strong> = all 435 seats every midterm; colors are statewide lean only.</li>
+      </ul>
+    </CollapsibleSection>
 
     <p class="static-page__note">
       Dig deeper: <a href="/bracket/">race board</a> · <a href="/politicians/">politician cards</a> ·

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import CollapsibleSection from "~/components/CollapsibleSection.astro";
 import { CAMPUS_SHARE_LINES, GRADE_BANDS, LEARN_PAGES } from "~/lib/campus";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 
@@ -59,30 +60,33 @@ const packText = CAMPUS_SHARE_LINES.map((l) => `• ${l}`).join("\n");
       ))}
     </ul>
 
-    <h2 class="static-page__sub">What free gets you</h2>
-    <ul>
-      <li><strong>Full scoreboard</strong> — letter grade, lean, factuality, charts. No card.</li>
-      <li><strong><a href="/quiz/">Morning quiz</a></strong> — five real claims, practice spotting spin.</li>
-      <li><strong><a href="/newsletter/">Sunday newsletter</a></strong> — best and worst coverage of the week.</li>
-      <li><strong><a href="/search/">Search</a></strong> — for papers: every report cites sources you can chase.</li>
-      <li><strong><a href="/politicians/">Politician cards</a></strong> + <a href="/bracket/">midterm bracket</a> — how coverage of the trail is grading.</li>
-    </ul>
+    <CollapsibleSection title="What free gets you" eyebrow="Account">
+      <ul>
+        <li><strong>Full scoreboard</strong> — letter grade, lean, factuality, charts. No card.</li>
+        <li><strong><a href="/quiz/">Morning quiz</a></strong> — five real claims, practice spotting spin.</li>
+        <li><strong><a href="/newsletter/">Sunday newsletter</a></strong> — best and worst coverage of the week.</li>
+        <li><strong><a href="/search/">Search</a></strong> — for papers: every report cites sources you can chase.</li>
+        <li><strong><a href="/politicians/">Politician cards</a></strong> + <a href="/bracket/">midterm bracket</a> — how coverage of the trail is grading.</li>
+      </ul>
+    </CollapsibleSection>
 
-    <h2 class="static-page__sub">Share kit (Discord · group chat · stories)</h2>
-    <p>
-      Copy a line, paste where your people actually are. Links unfurl with a
-      card image — no need to screenshot the whole site.
-    </p>
-    <pre class="campus-pack" id="campus-pack">{packText}</pre>
-    <button type="button" class="learn-share__btn" id="campus-copy-pack">Copy all lines</button>
-    <p class="learn-share__status" id="campus-copy-status" role="status" hidden></p>
+    <CollapsibleSection title="Share kit (Discord · group chat · stories)" eyebrow="Campus">
+      <p>
+        Copy a line, paste where your people actually are. Links unfurl with a
+        card image — no need to screenshot the whole site.
+      </p>
+      <pre class="campus-pack" id="campus-pack">{packText}</pre>
+      <button type="button" class="learn-share__btn" id="campus-copy-pack">Copy all lines</button>
+      <p class="learn-share__status" id="campus-copy-status" role="status" hidden></p>
+    </CollapsibleSection>
 
-    <h2 class="static-page__sub">Why trust this?</h2>
-    <p>
-      Don't — check it. AI-drafted, human-edited, sources listed. Free accounts
-      can flag a grade; the <a href="/corrections/">corrections log</a> is public.
-      <a href="/about/#funding">Who funds Clad</a>: subscribers, not ads.
-    </p>
+    <CollapsibleSection title="Why trust this?" eyebrow="Trust">
+      <p>
+        Don't — check it. AI-drafted, human-edited, sources listed. Free accounts
+        can flag a grade; the <a href="/corrections/">corrections log</a> is public.
+        <a href="/about/#funding">Who funds Clad</a>: subscribers, not ads.
+      </p>
+    </CollapsibleSection>
 
     <p class="static-page__note">
       Deeper method: <a href="/how-it-works/">How it works</a>.
