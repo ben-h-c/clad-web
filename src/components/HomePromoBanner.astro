@@ -1,0 +1,63 @@
+---
+/**
+ * Dismissible home spotlights from ~/lib/homePromos.
+ * Hidden until JS confirms the promo isn't dismissed (avoids flash for return visitors).
+ */
+import { activeHomePromos, type HomePromo } from "~/lib/homePromos";
+
+interface Props {
+  /** Override for tests; defaults to active promos now. */
+  promos?: HomePromo[];
+}
+const promos = Astro.props.promos ?? activeHomePromos();
+---
+{promos.length > 0 && (
+  <div class="home-promos" data-home-promos>
+    {promos.map((p) => (
+      <aside
+        class:list={["home-promo", p.variant && `home-promo--${p.variant}`]}
+        data-promo-id={p.id}
+        hidden
+      >
+        <div class="home-promo__text">
+          <p class="home-promo__kicker small-caps">{p.kicker}</p>
+          <p class="home-promo__title">{p.title}</p>
+          <p class="home-promo__body">{p.body}</p>
+        </div>
+        <div class="home-promo__actions">
+          <a class="home-promo__cta" href={p.href}>{p.cta}</a>
+          {p.secondaryHref && p.secondaryCta && (
+            <a class="home-promo__secondary" href={p.secondaryHref}>{p.secondaryCta}</a>
+          )}
+        </div>
+        <button
+          type="button"
+          class="home-promo__close"
+          data-promo-dismiss
+          aria-label={`Dismiss ${p.kicker} highlight`}
+        >×</button>
+      </aside>
+    ))}
+  </div>
+  <script is:inline>
+    (() => {
+      const root = document.querySelector("[data-home-promos]");
+      if (!root) return;
+      const key = (id) => "clad_promo_" + id;
+      root.querySelectorAll("[data-promo-id]").forEach((el) => {
+        const id = el.getAttribute("data-promo-id");
+        if (!id) return;
+        let dismissed = false;
+        try { dismissed = !!localStorage.getItem(key(id)); } catch {}
+        if (!dismissed) el.hidden = false;
+        const btn = el.querySelector("[data-promo-dismiss]");
+        if (btn) {
+          btn.addEventListener("click", () => {
+            el.hidden = true;
+            try { localStorage.setItem(key(id), "1"); } catch {}
+          });
+        }
+      });
+    })();
+  </script>
+)}

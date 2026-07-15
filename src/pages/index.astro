@@ -10,12 +10,11 @@ import HomeCharts from "~/components/HomeCharts.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
 import NewsletterSignup from "~/components/NewsletterSignup.astro";
-import ReportCard from "~/components/ReportCard.astro";
+import HomePromoBanner from "~/components/HomePromoBanner.astro";
 import { getFrontpage, getBreaking, getSentiments } from "~/lib/agents";
 import { aggregateTopics, gradeToGpa, gpaToGrade } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
-import { sampleUnlockedId } from "~/lib/sample";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 
 // SSR so the hero reflects the curator's live KV-stored selection without a
@@ -59,20 +58,6 @@ let breaking = breakingItems
   .slice(0, 10);
 
 const locked = !access.fullAccess;
-const sampleId = locked ? sampleUnlockedId(all) : null;
-// Free-card is the sole unlocked scoreband for guests — keep it out of strips.
-if (sampleId) {
-  heroPosts = heroPosts.filter((p) => p.id !== sampleId);
-  breaking = breaking
-    .map((it) => {
-      if (it.kind === "post") return it.post.id === sampleId ? null : it;
-      const members = it.members.filter((p) => p.id !== sampleId);
-      if (members.length >= 2) return { ...it, members };
-      if (members.length === 1) return { kind: "post" as const, post: members[0] };
-      return null;
-    })
-    .filter((x): x is NonNullable<typeof x> => x !== null);
-}
 
 const sentiments = locked ? {} : await getSentiments(env.AGENTS);
 const topics = aggregateTopics(all, sentiments);
@@ -123,6 +108,9 @@ const weekAvgLetter = !locked && weekAvgGpa != null ? gpaToGrade(weekAvgGpa) : n
     <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
   ) : (
     <>
+      {/* Configurable spotlight(s) — midterms, campus, hot nights, etc. */}
+      <HomePromoBanner />
+
       {APP_STORE_LIVE && (
         <>
           <aside class="app-promo" id="app-promo" data-app-hide hidden>
@@ -182,18 +170,6 @@ const weekAvgLetter = !locked && weekAvgGpa != null ? gpaToGrade(weekAvgGpa) : n
           </p>
         )}
       </section>
-
-      {/* Guest aha: one real grade before the feed. */}
-      {locked && sampleId && byId.has(sampleId) && (
-        <section class="free-card" aria-labelledby="free-card-title">
-          <div class="feed__head">
-            <h2 class="feed__title" id="free-card-title">Today&rsquo;s open report card</h2>
-            <span class="free-card__note">One full grade free each day — no account. The rest unlock when you sign up.</span>
-          </div>
-          <div class="rule rule--double" aria-hidden="true"></div>
-          <ReportCard post={byId.get(sampleId)!} sample />
-        </section>
-      )}
 
       <BreakingStrip items={breaking} locked={locked} />
 

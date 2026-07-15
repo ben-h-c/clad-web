@@ -5712,7 +5712,142 @@ html.clad-app .clad-app-only { display: block; }
 }
 .app-promo__close:hover { color: var(--ink); }
 
-/* Home: free sample + redesigned front page */
+/* Home spotlight promos (configurable via src/lib/homePromos.ts) */
+
+.home-promos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: 0 0 0.75rem;
+}
+
+.home-promo {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.1rem;
+  padding: 0.85rem 2.4rem 0.85rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
+  border-radius: 4px;
+  background:
+    linear-gradient(125deg, color-mix(in srgb, var(--accent) 8%, var(--paper)) 0%, var(--paper) 55%, var(--paper-deep) 100%);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 45%, transparent),
+    0 10px 24px color-mix(in srgb, var(--shadow) 30%, transparent);
+}
+
+.home-promo[hidden] {
+  display: none;
+}
+
+.home-promo--midterms {
+  background:
+    linear-gradient(125deg, color-mix(in srgb, rgb(40, 80, 140) 12%, var(--paper)) 0%, var(--paper) 50%, var(--paper-deep) 100%);
+  border-color: color-mix(in srgb, rgb(40, 80, 140) 35%, var(--rule));
+}
+
+.home-promo--urgent {
+  background:
+    linear-gradient(125deg, color-mix(in srgb, var(--red-ink) 12%, var(--paper)) 0%, var(--paper) 55%, var(--paper-deep) 100%);
+  border-color: color-mix(in srgb, var(--red-ink) 40%, var(--rule));
+}
+
+.home-promo--campus {
+  background:
+    linear-gradient(125deg, color-mix(in srgb, rgb(48, 86, 64) 12%, var(--paper)) 0%, var(--paper) 55%, var(--paper-deep) 100%);
+  border-color: color-mix(in srgb, rgb(48, 86, 64) 35%, var(--rule));
+}
+
+.home-promo__text {
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+
+.home-promo__kicker {
+  margin: 0 0 0.2rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+}
+
+.home-promo--midterms .home-promo__kicker {
+  color: rgb(40, 80, 140);
+}
+
+.home-promo--campus .home-promo__kicker {
+  color: var(--grade-good-ink, rgb(48, 86, 64));
+}
+
+.home-promo__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
+  line-height: 1.15;
+}
+
+.home-promo__body {
+  margin: 0.3rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: var(--ink);
+  max-width: 40rem;
+}
+
+.home-promo__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.65rem;
+  align-items: center;
+  flex: 0 1 auto;
+}
+
+.home-promo__cta {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.48rem 0.85rem;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 3px;
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--rule) 45%, #000);
+}
+
+.home-promo__cta:hover {
+  opacity: 0.92;
+  color: var(--paper);
+  text-shadow: none;
+}
+
+.home-promo__secondary {
+  font-size: 0.88rem;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.home-promo__close {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.4rem;
+  border: none;
+  background: none;
+  color: var(--muted-ink);
+  font-size: 1.35rem;
+  line-height: 1;
+  padding: 0.2rem 0.35rem;
+  cursor: pointer;
+}
+
+.home-promo__close:hover {
+  color: var(--ink);
+}
+
+/* Home: redesigned front page */
 
 .home-lede {
   margin: 0.65rem 0 0.15rem;
@@ -5918,38 +6053,7 @@ html.clad-app .clad-app-only { display: block; }
   .hero__hint { display: none; }
 }
 
-/* Home free sample — feature without eating the whole viewport */
-.free-card {
-  margin: 1.15rem 0 0.25rem;
-}
-.free-card__note {
-  font-size: 0.85rem;
-  color: var(--muted-ink);
-  max-width: 22rem;
-  text-align: right;
-  line-height: 1.3;
-}
-@media (max-width: 600px) {
-  .free-card .feed__head {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
-  }
-  .free-card__note {
-    text-align: left;
-    max-width: none;
-  }
-  /* One featured free card: show full width, not carousel width */
-  .free-card .report-card {
-    max-width: none;
-  }
-  .free-card .report-card__summary {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-}
+
 
 /* Topic chips are links when a topic page exists — keep the chip look. */
 a.topic-tag { color: inherit; text-decoration: none; }
