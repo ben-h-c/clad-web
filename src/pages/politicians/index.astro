@@ -4,8 +4,14 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
 import PoliticianAvatar from "~/components/PoliticianAvatar.astro";
+import { env } from "cloudflare:workers";
 import { getAccess } from "~/lib/access";
-import { buildPoliticianIndex, groupPoliticiansByBucket } from "~/lib/politicians";
+import {
+  buildPoliticianIndex,
+  bucketLabel,
+  groupPoliticiansByBucket,
+  resolvePoliticianSeeds,
+} from "~/lib/politicians";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "private, no-store");
@@ -14,9 +20,11 @@ const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
 
 const all = await getCollection("posts", (p) => !p.data.draft);
-const politicians = buildPoliticianIndex(all);
+const { seeds, updatedAt, source } = await resolvePoliticianSeeds(env.AGENTS);
+const politicians = buildPoliticianIndex(all, seeds);
 const groups = groupPoliticiansByBucket(politicians);
 const totalReports = politicians.reduce((n, p) => n + p.appearances.length, 0);
+const officeCount = politicians.filter((p) => p.bucket !== "Coverage").length;
 
 const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
 const jsonLd = {
@@ -37,13 +45,15 @@ const jsonLd = {
   jsonLd={jsonLd}
 >
   <article class="static-page politicians-dir">
-    <p class="small-caps upgrade__eyebrow">Report cards · full roster</p>
+    <p class="small-caps upgrade__eyebrow">Report cards · by branch</p>
     <h1 class="static-page__title">Politician report cards</h1>
     <p class="upgrade__lede">
-      Every member of Congress, all 50 governors, the Supreme Court, and the
-      executive branch — plus figures who show up in graded coverage.
-      {politicians.length} people · {totalReports} report links.
-      Cards with no reports yet are waiting for the next broadcast we grade.
+      Who holds office now — executive, Senate, House, governors, and the
+      Supreme Court — grouped by branch. {officeCount} officeholders
+      {politicians.length > officeCount ? ` · ${politicians.length - officeCount} also in coverage` : ""}
+      · {totalReports} report links.
+      A daily agent refreshes the roster
+      {updatedAt ? ` (last sync ${new Date(updatedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })})` : " (using snapshot until first sync)"}.
       {locked ? (
         <>
           {" "}Average grades unlock with a
@@ -77,7 +87,7 @@ const jsonLd = {
         <div id="pol-groups">
           {groups.map((g) => (
             <section class="pol-group" data-bucket={g.bucket}>
-              <h2 class="pol-group__title">{g.bucket}</h2>
+              <h2 class="pol-group__title">{bucketLabel(g.bucket)} <span class="pol-group__n">({g.items.length})</span></h2>
               <ul class="politician-grid">
                 {g.items.map((p) => (
                   <li
@@ -136,7 +146,8 @@ const jsonLd = {
     )}
 
     <p class="static-page__note">
-      Portraits from Wikimedia Commons (official photos where available). Pages update when new reports publish.
+      Roster source: {source}. Portraits from Wikimedia Commons where available.
+      Pages update when new reports publish.
       <a href="/how-it-works/">Methodology</a>
       ·
       <a href="/corrections/">Corrections</a>
@@ -220,6 +231,13 @@ const jsonLd = {
     margin: 0 0 0.85rem;
     padding-bottom: 0.35rem;
     border-bottom: 2px solid var(--ink, #1a140d);
+  }
+  .pol-group__n {
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+    opacity: 0.55;
+    font-size: 0.9em;
   }
   .politician-grid {
     list-style: none;

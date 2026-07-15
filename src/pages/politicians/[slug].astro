@@ -4,6 +4,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
 import PoliticianAvatar from "~/components/PoliticianAvatar.astro";
+import { env } from "cloudflare:workers";
 import { getAccess } from "~/lib/access";
 import { findPolitician } from "~/lib/politicians";
 import { shortDate } from "~/lib/dateline";
@@ -17,7 +18,7 @@ const locked = !access.fullAccess;
 
 const slug = Astro.params.slug ?? "";
 const all = await getCollection("posts", (p) => !p.data.draft);
-const pol = findPolitician(all, slug);
+const pol = await findPolitician(all, slug, env.AGENTS);
 if (!pol) return new Response("Not found", { status: 404 });
 
 const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;

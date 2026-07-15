@@ -9,6 +9,7 @@
     "once": "node index.mjs --once"
   },
   "dependencies": {
-    "cron-parser": "^4.9.0"
+    "cron-parser": "^4.9.0",
+    "js-yaml": "^5.2.1"
   }
 }

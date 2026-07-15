@@ -81,6 +81,17 @@ export function putRaceAuditReport(report) {
   return call("/api/agent/races", { method: "POST", body: JSON.stringify(report) });
 }
 
+export function getPoliticianRoster() {
+  return call("/api/agent/politicians-roster", { method: "GET" });
+}
+
+export function putPoliticianRoster(roster) {
+  return call("/api/agent/politicians-roster", {
+    method: "POST",
+    body: JSON.stringify(roster),
+  });
+}
+
 export function getCategories() {
   return call("/api/agent/categories", { method: "GET" });
 }

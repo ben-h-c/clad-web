@@ -1,56 +1,54 @@
 /**
  * Politician index for /politicians/*.
  *
- * Membership sources (merged):
- *  1. Full officeholder roster (Congress, governors, SCOTUS, executive) —
- *     `src/data/politicianRoster.ts`, generated from public data.
- *  2. Optional post frontmatter `politicians: [{ name, slug }]` (agent/editor).
- *  3. Alias match of seeds against headline + topics + summary.
+ * Officeholder roster (who holds power now):
+ *  - Live: AGENTS KV `politicians:roster` (daily politician-roster-sync agent)
+ *  - Fallback: src/data/politicianRoster.ts snapshot
  *
- * Every roster seed gets a directory card even with zero graded appearances
- * so the map of power is complete; grades fill in as coverage lands.
+ * Coverage matching still uses aliases + post frontmatter tags. People who
+ * appear only in coverage (not officeholders) land in "Coverage".
  *
- * Aggregate grades/leans are computed here and gated in the page (same hybrid
- * access model as outlets). OG cards use public fields only.
+ * Directory groups by branch / chamber: Executive, Senate, House, Governor,
+ * Supreme Court — then Coverage for non-officeholders with reports.
  */
 import type { CollectionEntry } from "astro:content";
 import { ROSTER_SEEDS } from "../data/politicianRoster.ts";
+import { getPoliticianRoster } from "./agents.ts";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "./topics.ts";
 
-/** Index / filter grouping for the politicians directory. */
+/** Directory sections — officeholders by branch/chamber, then coverage-only. */
 export type RaceBucket =
-  | "Senate 2026"
+  | "Executive"
   | "Senate"
   | "House"
   | "Governor"
-  | "Executive"
   | "Supreme Court"
-  | "International"
-  | "Other";
+  | "Coverage";
 
 export interface PoliticianSeed {
   name: string;
   slug: string;
-  /** Short race / office label shown on cards. */
   race?: string;
-  bucket?: RaceBucket;
-  /** Case-insensitive aliases. Prefer multi-word; single tokens need word bounds. */
+  bucket?: RaceBucket | string;
   aliases: string[];
 }
 
-/** Full roster + contenders + international coverage figures. */
-export const POLITICIAN_SEEDS: PoliticianSeed[] = ROSTER_SEEDS as PoliticianSeed[];
-
 const BUCKET_ORDER: RaceBucket[] = [
   "Executive",
-  "Senate 2026",
   "Senate",
   "House",
   "Governor",
   "Supreme Court",
-  "International",
-  "Other",
+  "Coverage",
 ];
+
+const OFFICE_BUCKETS = new Set<string>([
+  "Executive",
+  "Senate",
+  "House",
+  "Governor",
+  "Supreme Court",
+]);
 
 export interface PoliticianAppearance {
   id: string;
@@ -80,11 +78,9 @@ function escapeRe(s: string): string {
 function matchesAlias(haystack: string, alias: string): boolean {
   const a = alias.trim();
   if (!a) return false;
-  // Multi-word / hyphen / initial: substring match (case-insensitive haystack).
   if (/\s/.test(a) || a.includes("-") || a.includes(".")) {
     return haystack.includes(a.toLowerCase());
   }
-  // Single token: word boundary only.
   const re = new RegExp(`\\b${escapeRe(a)}\\b`, "i");
   return re.test(haystack);
 }
@@ -108,45 +104,83 @@ function appearanceFrom(p: CollectionEntry<"posts">): PoliticianAppearance {
 }
 
 function normalizeBucket(b?: string): RaceBucket {
-  if (!b) return "Other";
-  if ((BUCKET_ORDER as string[]).includes(b)) return b as RaceBucket;
-  // Legacy seeds / FM
-  if (b === "U.S. leadership") return "Executive";
-  if (b === "Congress") return "House";
-  return "Other";
+  if (!b) return "Coverage";
+  if (b === "Senate 2026") return "Senate";
+  if (b === "U.S. leadership" || b === "Congress") return b === "Congress" ? "House" : "Executive";
+  if (b === "International" || b === "Other") return "Coverage";
+  if (OFFICE_BUCKETS.has(b)) return b as RaceBucket;
+  return "Coverage";
 }
 
-const seedBySlug = new Map(POLITICIAN_SEEDS.map((s) => [s.slug, s]));
+/** Resolve officeholder seeds: live KV roster preferred over static snapshot. */
+export async function resolvePoliticianSeeds(
+  kv?: KVNamespace
+): Promise<{ seeds: PoliticianSeed[]; updatedAt: string | null; source: string }> {
+  if (kv) {
+    try {
+      const live = await getPoliticianRoster(kv);
+      if (live?.seeds?.length) {
+        return {
+          seeds: live.seeds as PoliticianSeed[],
+          updatedAt: live.updatedAt,
+          source: live.source || "live roster",
+        };
+      }
+    } catch {
+      // fall through to static
+    }
+  }
+  return {
+    seeds: ROSTER_SEEDS as PoliticianSeed[],
+    updatedAt: null,
+    source: "static snapshot",
+  };
+}
 
-/** Build the full politician index from a posts collection. */
-export function buildPoliticianIndex(posts: CollectionEntry<"posts">[]): PoliticianAgg[] {
+/** @deprecated Prefer resolvePoliticianSeeds — kept for sync helpers. */
+export const POLITICIAN_SEEDS: PoliticianSeed[] = ROSTER_SEEDS as PoliticianSeed[];
+
+/** Build index from posts + explicit officeholder seeds. */
+export function buildPoliticianIndex(
+  posts: CollectionEntry<"posts">[],
+  seeds: PoliticianSeed[] = POLITICIAN_SEEDS
+): PoliticianAgg[] {
+  const seedBySlug = new Map(seeds.map((s) => [s.slug, s]));
   const bySlug = new Map<
     string,
-    { name: string; slug: string; race?: string; bucket: RaceBucket; posts: Map<string, CollectionEntry<"posts">> }
+    { name: string; slug: string; race?: string; bucket: RaceBucket; posts: Map<string, CollectionEntry<"posts">>; onRoster: boolean }
   >();
 
-  const ensure = (slug: string, name: string, race?: string, bucket?: RaceBucket) => {
+  const ensure = (
+    slug: string,
+    name: string,
+    opts?: { race?: string; bucket?: string; onRoster?: boolean }
+  ) => {
     let row = bySlug.get(slug);
     if (!row) {
       const seed = seedBySlug.get(slug);
       row = {
         name: name || seed?.name || slug,
         slug,
-        race: race || seed?.race,
-        bucket: normalizeBucket(bucket || seed?.bucket),
+        race: opts?.race || seed?.race,
+        bucket: normalizeBucket(opts?.bucket || seed?.bucket),
         posts: new Map(),
+        onRoster: Boolean(opts?.onRoster || seed),
       };
       bySlug.set(slug, row);
     } else {
-      if (race && !row.race) row.race = race;
-      if (bucket && row.bucket === "Other") row.bucket = normalizeBucket(bucket);
+      if (opts?.race && !row.race) row.race = opts.race;
+      if (opts?.onRoster) {
+        row.onRoster = true;
+        if (opts.bucket) row.bucket = normalizeBucket(opts.bucket);
+      }
     }
     return row;
   };
 
-  // Always materialize the full roster so cards exist before first coverage.
-  for (const seed of POLITICIAN_SEEDS) {
-    ensure(seed.slug, seed.name, seed.race, seed.bucket);
+  // Full officeholder roster always appears.
+  for (const seed of seeds) {
+    ensure(seed.slug, seed.name, { race: seed.race, bucket: seed.bucket, onRoster: true });
   }
 
   for (const p of posts) {
@@ -159,15 +193,25 @@ export function buildPoliticianIndex(posts: CollectionEntry<"posts">[]): Politic
       ensure(slug, tag.name.trim() || slug).posts.set(p.id, p);
     }
 
-    for (const seed of POLITICIAN_SEEDS) {
+    for (const seed of seeds) {
       if (seed.aliases.some((a) => matchesAlias(blob, a))) {
-        ensure(seed.slug, seed.name, seed.race, seed.bucket).posts.set(p.id, p);
+        ensure(seed.slug, seed.name, {
+          race: seed.race,
+          bucket: seed.bucket,
+          onRoster: true,
+        }).posts.set(p.id, p);
       }
     }
   }
 
   const out: PoliticianAgg[] = [];
   for (const row of bySlug.values()) {
+    // Coverage-only people need at least one report; officeholders always show.
+    if (!row.onRoster && row.posts.size === 0) continue;
+
+    // Non-roster people with reports → Coverage bucket
+    if (!row.onRoster) row.bucket = "Coverage";
+
     const appearances = [...row.posts.values()]
       .map(appearanceFrom)
       .sort((a, b) => b.publishedAt.valueOf() - a.publishedAt.valueOf());
@@ -188,41 +232,28 @@ export function buildPoliticianIndex(posts: CollectionEntry<"posts">[]): Politic
     });
   }
 
-  // Covered first, then A–Z within the same count.
   return out.sort(
-    (a, b) =>
-      b.appearances.length - a.appearances.length || a.name.localeCompare(b.name)
+    (a, b) => b.appearances.length - a.appearances.length || a.name.localeCompare(b.name)
   );
 }
 
-export function findPolitician(posts: CollectionEntry<"posts">[], slug: string): PoliticianAgg | null {
-  // Prefer full index (includes empty roster cards).
-  const fromIndex = buildPoliticianIndex(posts).find((p) => p.slug === slug);
-  if (fromIndex) return fromIndex;
-  const seed = seedBySlug.get(slug);
-  if (!seed) return null;
-  return {
-    name: seed.name,
-    slug: seed.slug,
-    race: seed.race,
-    bucket: normalizeBucket(seed.bucket),
-    appearances: [],
-    avgGrade: null,
-    avgFactuality: null,
-    avgLean: null,
-  };
+export async function findPolitician(
+  posts: CollectionEntry<"posts">[],
+  slug: string,
+  kv?: KVNamespace
+): Promise<PoliticianAgg | null> {
+  const { seeds } = await resolvePoliticianSeeds(kv);
+  return buildPoliticianIndex(posts, seeds).find((p) => p.slug === slug) ?? null;
 }
 
-/** Explicit FM tag shape written on publish / agent approve. */
 export interface PoliticianTag {
   name: string;
   slug: string;
 }
 
 /**
- * Deterministic tagger for new drafts/publishes: match seed aliases against
- * headline + summary + assessment + topics. Prefer this over asking the model
- * so slugs stay canonical and stable.
+ * Deterministic tagger for drafts/publishes. Uses the static snapshot (sync)
+ * so agent publish path doesn't need KV; live roster still drives the directory.
  */
 export function tagPoliticiansFromText(parts: {
   headline?: string;
@@ -252,8 +283,10 @@ export function tagPoliticiansFromText(parts: {
   return out.slice(0, 8);
 }
 
-/** Group for the index page, stable bucket order. */
-export function groupPoliticiansByBucket(list: PoliticianAgg[]): { bucket: RaceBucket; items: PoliticianAgg[] }[] {
+/** Group for the index page — officeholders by branch, then Coverage. */
+export function groupPoliticiansByBucket(
+  list: PoliticianAgg[]
+): { bucket: RaceBucket; items: PoliticianAgg[] }[] {
   const map = new Map<RaceBucket, PoliticianAgg[]>();
   for (const p of list) {
     const b = normalizeBucket(p.bucket);
@@ -263,7 +296,27 @@ export function groupPoliticiansByBucket(list: PoliticianAgg[]): { bucket: RaceB
   return BUCKET_ORDER.filter((b) => map.has(b)).map((bucket) => ({
     bucket,
     items: (map.get(bucket) ?? []).sort(
-      (a, b) => b.appearances.length - a.appearances.length || a.name.localeCompare(b.name)
+      (a, b) => a.name.localeCompare(b.name) || b.appearances.length - a.appearances.length
     ),
   }));
+}
+
+/** Human labels for section headers. */
+export function bucketLabel(bucket: RaceBucket): string {
+  switch (bucket) {
+    case "Executive":
+      return "Executive branch";
+    case "Senate":
+      return "U.S. Senate";
+    case "House":
+      return "U.S. House";
+    case "Governor":
+      return "Governors";
+    case "Supreme Court":
+      return "Supreme Court";
+    case "Coverage":
+      return "Also in coverage";
+    default:
+      return bucket;
+  }
 }

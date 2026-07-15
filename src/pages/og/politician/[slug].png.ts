@@ -64,7 +64,7 @@ export const GET: APIRoute = async ({ params, request, locals }) => {
   if (hit) return hit;
 
   const all = await getCollection("posts", (p) => !p.data.draft);
-  const pol = findPolitician(all, slug);
+  const pol = await findPolitician(all, slug);
   if (!pol) return new Response(null, { status: 404 });
 
   const fonts = await loadFonts(new URL(request.url).origin);

@@ -259,6 +259,15 @@ export const DEFAULT_REGISTRY: Registry = {
         maxRacesPerRun: 24,
       },
     },
+    {
+      id: "politician-roster-sync",
+      kind: "politician-roster-sync",
+      name: "Politician Roster Sync (who holds office)",
+      enabled: true,
+      // Daily 06:30 UTC — refresh Congress, governors, SCOTUS, executive.
+      cron: "30 6 * * *",
+      config: {},
+    },
   ],
 };
 
@@ -1043,6 +1052,42 @@ export async function getRaceAuditReport(kv: KVNamespace): Promise<RaceAuditRepo
 
 export async function setRaceAuditReport(kv: KVNamespace, report: RaceAuditReport): Promise<void> {
   await kv.put(RACE_AUDIT_KEY, JSON.stringify(report));
+}
+
+// ── Politician roster (officeholders — daily sync agent) ───────────────
+const POLITICIAN_ROSTER_KEY = "politicians:roster";
+
+/** Live officeholder seed written by politician-roster-sync. */
+export interface PoliticianRosterSeed {
+  name: string;
+  slug: string;
+  race?: string;
+  /** Senate | House | Governor | Executive | Supreme Court */
+  bucket: string;
+  aliases: string[];
+}
+
+export interface PoliticianRosterLive {
+  updatedAt: string;
+  source: string;
+  seeds: PoliticianRosterSeed[];
+  counts?: Record<string, number>;
+}
+
+export async function getPoliticianRoster(kv: KVNamespace): Promise<PoliticianRosterLive | null> {
+  const raw = await kv.get(POLITICIAN_ROSTER_KEY);
+  if (!raw) return null;
+  try {
+    const data = JSON.parse(raw) as PoliticianRosterLive;
+    if (!data || !Array.isArray(data.seeds) || data.seeds.length < 50) return null;
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+export async function setPoliticianRoster(kv: KVNamespace, roster: PoliticianRosterLive): Promise<void> {
+  await kv.put(POLITICIAN_ROSTER_KEY, JSON.stringify(roster));
 }
 
 export interface PostContent {
