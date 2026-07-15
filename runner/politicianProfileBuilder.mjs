@@ -25,6 +25,24 @@ function lastName(name) {
   return parts[parts.length - 1] || name;
 }
 
+// Licensing gate (docs/legal/image-claims.md): the portrait pipeline carries
+// Wikimedia COMMONS files only — Commons hosts free-licensed media, while the
+// page/summary lead image can be a non-free enwiki-local fair-use file
+// (upload.wikimedia.org/wikipedia/en/…) that we may not reuse. The Worker
+// enforces the same rule at serve time and at the photo-map write endpoint.
+function isCommonsMediaUrl(url) {
+  try {
+    const u = new URL(url);
+    return (
+      u.protocol === "https:" &&
+      u.hostname === "upload.wikimedia.org" &&
+      u.pathname.startsWith("/wikipedia/commons/")
+    );
+  } catch {
+    return false;
+  }
+}
+
 async function wikiPortrait(name) {
   const titles = [
     name.replace(/\s+/g, "_"),
@@ -39,7 +57,7 @@ async function wikiPortrait(name) {
       if (!r.ok) continue;
       const j = await r.json();
       if (j.type === "disambiguation") continue;
-      if (j.thumbnail?.source) return j.thumbnail.source;
+      if (j.thumbnail?.source && isCommonsMediaUrl(j.thumbnail.source)) return j.thumbnail.source;
     } catch {
       /* try next */
     }
