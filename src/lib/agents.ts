@@ -51,6 +51,10 @@ export interface AgentConfig {
   refreshWindowHours?: number; // …but only while the post itself is younger than this
   // race-board-auditor
   maxRacesPerRun?: number; // how many race cards to web-audit per run
+  // politician-profile-builder
+  maxPoliticiansPerRun?: number; // how many officeholders to scout per run
+  maxDraftsPerPolitician?: number; // drafts allowed per person per run
+  maxPhotoLookupsPerRun?: number; // Wikipedia portrait resolves per run
   // dead-video-pruner
   maxDeletePerRun?: number;
   dryRun?: boolean;
@@ -267,6 +271,21 @@ export const DEFAULT_REGISTRY: Registry = {
       // Daily 06:30 UTC — refresh Congress, governors, SCOTUS, executive.
       cron: "30 6 * * *",
       config: {},
+    },
+    {
+      id: "politician-profile-builder",
+      kind: "politician-profile-builder",
+      name: "Politician Profile Builder (coverage + photos)",
+      enabled: true,
+      // Daily 14:00 UTC — rotate officeholders, search news, fill portraits.
+      cron: "0 14 * * *",
+      config: {
+        maxPoliticiansPerRun: 12,
+        maxDraftsPerPolitician: 1,
+        maxPublishesPerRun: 10,
+        maxPhotoLookupsPerRun: 40,
+        publishedWithinHours: 168, // 7 days
+      },
     },
   ],
 };
@@ -1088,6 +1107,72 @@ export async function getPoliticianRoster(kv: KVNamespace): Promise<PoliticianRo
 
 export async function setPoliticianRoster(kv: KVNamespace, roster: PoliticianRosterLive): Promise<void> {
   await kv.put(POLITICIAN_ROSTER_KEY, JSON.stringify(roster));
+}
+
+// Live portrait URL map (slug → Wikimedia thumb). Filled by profile-builder.
+const POLITICIAN_PHOTOS_KEY = "politicians:photos";
+const POLITICIAN_SCOUT_KEY = "politicians:scout";
+
+export interface PoliticianPhotoMap {
+  updatedAt: string;
+  bySlug: Record<string, string>;
+}
+
+export interface PoliticianScoutState {
+  /** Index into the coverage-priority rotation. */
+  cursor: number;
+  updatedAt: string;
+}
+
+export async function getPoliticianPhotoMap(kv: KVNamespace): Promise<PoliticianPhotoMap | null> {
+  const raw = await kv.get(POLITICIAN_PHOTOS_KEY);
+  if (!raw) return null;
+  try {
+    const data = JSON.parse(raw) as PoliticianPhotoMap;
+    if (!data?.bySlug || typeof data.bySlug !== "object") return null;
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+export async function setPoliticianPhotoMap(kv: KVNamespace, map: PoliticianPhotoMap): Promise<void> {
+  await kv.put(POLITICIAN_PHOTOS_KEY, JSON.stringify(map));
+}
+
+export async function mergePoliticianPhotos(
+  kv: KVNamespace,
+  additions: Record<string, string>
+): Promise<PoliticianPhotoMap> {
+  const prev = (await getPoliticianPhotoMap(kv)) ?? { updatedAt: "", bySlug: {} };
+  const bySlug = { ...prev.bySlug };
+  for (const [slug, url] of Object.entries(additions)) {
+    const s = slug.trim().toLowerCase();
+    const u = url.trim();
+    if (!s || !/^https:\/\//i.test(u)) continue;
+    bySlug[s] = u;
+  }
+  const next: PoliticianPhotoMap = { updatedAt: new Date().toISOString(), bySlug };
+  await setPoliticianPhotoMap(kv, next);
+  return next;
+}
+
+export async function getPoliticianScoutState(kv: KVNamespace): Promise<PoliticianScoutState> {
+  const raw = await kv.get(POLITICIAN_SCOUT_KEY);
+  if (!raw) return { cursor: 0, updatedAt: new Date(0).toISOString() };
+  try {
+    const data = JSON.parse(raw) as PoliticianScoutState;
+    return {
+      cursor: Math.max(0, Number(data.cursor) || 0),
+      updatedAt: data.updatedAt || new Date(0).toISOString(),
+    };
+  } catch {
+    return { cursor: 0, updatedAt: new Date(0).toISOString() };
+  }
+}
+
+export async function setPoliticianScoutState(kv: KVNamespace, state: PoliticianScoutState): Promise<void> {
+  await kv.put(POLITICIAN_SCOUT_KEY, JSON.stringify(state));
 }
 
 export interface PostContent {

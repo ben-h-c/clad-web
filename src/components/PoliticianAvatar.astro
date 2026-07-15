@@ -9,24 +9,22 @@ interface Props {
   decorative?: boolean;
 }
 const { slug, name, size = "md", decorative = true } = Astro.props;
-// Same-origin proxy — direct Wikimedia thumbs broke when we rewrote sizes (HTTP 400).
+// Always hit the proxy — resolves static maps, live KV, or Wikipedia by name.
 const photo = photoSrc(slug);
 const mono = monogram(name);
 ---
 <div class={`pol-avatar pol-avatar--${size}`} aria-hidden={decorative ? "true" : undefined}>
   <span class="pol-avatar__mono">{mono}</span>
-  {photo && (
-    <img
-      class="pol-avatar__img"
-      src={photo}
-      alt={decorative ? "" : name}
-      width="240"
-      height="240"
-      loading="lazy"
-      decoding="async"
-      onerror="this.remove()"
-    />
-  )}
+  <img
+    class="pol-avatar__img"
+    src={photo}
+    alt={decorative ? "" : name}
+    width="240"
+    height="240"
+    loading="lazy"
+    decoding="async"
+    onerror="this.remove()"
+  />
 </div>
 
 <style>

@@ -92,6 +92,17 @@ export function putPoliticianRoster(roster) {
   });
 }
 
+export function getPoliticianProfile() {
+  return call("/api/agent/politicians-profile", { method: "GET" });
+}
+
+export function putPoliticianProfile(payload) {
+  return call("/api/agent/politicians-profile", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
 export function getCategories() {
   return call("/api/agent/categories", { method: "GET" });
 }

@@ -213,6 +213,14 @@ export function wikiTitleForSlug(slug: string): string | null {
   return POLITICIAN_WIKI[slug] ?? null;
 }
 
+/** Guess a Wikipedia article title from a display name. */
+export function wikiTitleFromName(name: string): string {
+  return name
+    .trim()
+    .replace(/\s+/g, "_")
+    .replace(/[’']/g, "'");
+}
+
 /** Initials for monogram fallback (e.g. "Jon Ossoff" → "JO"). */
 export function monogram(name: string): string {
   const parts = name.trim().split(/\s+/).filter(Boolean);
@@ -221,8 +229,11 @@ export function monogram(name: string): string {
   return (parts[0]![0]! + parts[parts.length - 1]![0]!).toUpperCase();
 }
 
-/** Same-origin photo URL used in the UI. */
-export function photoSrc(slug: string): string | null {
-  if (!POLITICIAN_PHOTOS[slug] && !POLITICIAN_WIKI[slug]) return null;
+/**
+ * Same-origin photo URL used in the UI.
+ * Always return the proxy path — the API resolves static maps, live KV, or Wikipedia by name.
+ * Avatars keep a monogram underneath; img onerror removes a missing portrait.
+ */
+export function photoSrc(slug: string): string {
   return `/api/politician-photo/${encodeURIComponent(slug)}`;
 }
