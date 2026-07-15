@@ -4,7 +4,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getAccess } from "~/lib/access";
 import { buildRaceBoard, maskRaceLeaders, statusLabel } from "~/lib/bracket";
 import { buildElectionMap, type StateMapCell } from "~/lib/electionMap";
-import { buildStateForecasts, FORECAST_ASOF, LAYER_LABELS, RATING_LEGEND } from "~/lib/electionForecast";
+import { buildStateForecasts, FORECAST_ASOF, LAYER_LABELS } from "~/lib/electionForecast";
 import { RACE_BOARD_VERIFIED_ASOF } from "~/lib/races";
 import { US_MAP_VIEWBOX, US_STATE_PATHS } from "~/lib/usMapPaths";
 
@@ -153,19 +153,13 @@ const featured = [...map.states]
     <div class="emap-shell">
       <div class="emap-map-wrap">
         <div class="emap-legend" id="legend-coverage" aria-label="Coverage map legend">
-          <span class="emap-leg emap-leg--hot">Hot coverage</span>
+          <span class="emap-leg emap-leg--hot">Hot</span>
           <span class="emap-leg emap-leg--marquee">Marquee</span>
           <span class="emap-leg emap-leg--watch">Watch</span>
-          <span class="emap-leg emap-leg--lean">On board</span>
-          <span class="emap-leg emap-leg--senate">Class II Senate</span>
-          <span class="emap-leg emap-leg--governor">Governor</span>
-          <span class="emap-leg emap-leg--quiet">House only</span>
-        </div>
-        <div class="emap-legend" id="legend-party" aria-label="Party outlook legend" hidden>
-          {RATING_LEGEND.map((r) => (
-            <span class={`emap-leg emap-party-leg--${r.css}`}>{r.label}</span>
-          ))}
-          <span class="emap-leg emap-leg--flip">Stripe = flip risk</span>
+          <span class="emap-leg emap-leg--lean">Board</span>
+          <span class="emap-leg emap-leg--senate">Senate</span>
+          <span class="emap-leg emap-leg--governor">Gov</span>
+          <span class="emap-leg emap-leg--quiet">House</span>
         </div>
 
         <p class="emap-hint small-caps" id="emap-hint">Tap or click a state · keyboard: Tab + Enter</p>
@@ -310,7 +304,6 @@ const featured = [...map.states]
     const backdrop = document.getElementById("emap-backdrop");
     const layerGroup = document.getElementById("layer-group");
     const legendCov = document.getElementById("legend-coverage");
-    const legendParty = document.getElementById("legend-party");
     const discParty = document.getElementById("emap-disclaimer-party");
     let selected = null;
     let hover = null;
@@ -389,7 +382,6 @@ const featured = [...map.states]
         path.setAttribute("aria-label", st.name + ": " + (mode === "coverage" ? st.glance : partyGlance(st)));
       });
       if (legendCov) legendCov.hidden = mode !== "coverage";
-      if (legendParty) legendParty.hidden = mode !== "party";
       if (layerGroup) layerGroup.hidden = mode !== "party";
       if (discParty) discParty.hidden = mode !== "party";
       if (selected && states[selected]) paintDetail(states[selected]);
@@ -698,23 +690,25 @@ const featured = [...map.states]
   .emap-legend {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem 0.55rem;
-    margin-bottom: 0.45rem;
+    gap: 0.25rem 0.4rem;
+    margin: 0 0 0.35rem;
+    opacity: 0.72;
   }
   .emap-leg {
-    font-size: 0.68rem;
+    font-size: 0.62rem;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    padding: 0.2rem 0.4rem;
-    border: 1px solid var(--ink, #1a140d);
+    padding: 0.12rem 0.32rem;
+    border: 1px solid color-mix(in srgb, var(--ink, #1a140d) 45%, transparent);
+    font-weight: 500;
   }
-  .emap-leg--hot { background: #c45c2a; color: #fff; border-color: #9a4218; }
-  .emap-leg--marquee { background: #941a1a; color: #fff; border-color: #6e1212; }
-  .emap-leg--watch { background: #c9a227; color: #1a140d; border-color: #9a7a12; }
-  .emap-leg--lean { background: #5c7a6a; color: #fff; border-color: #3f564a; }
-  .emap-leg--senate { background: #3b6ea5; color: #fff; border-color: #2a4f78; }
-  .emap-leg--governor { background: #2f6b4f; color: #fff; border-color: #214a37; }
-  .emap-leg--quiet { background: #d9d0bc; color: #1a140d; border-color: #b8ad96; }
+  .emap-leg--hot { background: color-mix(in srgb, #c45c2a 55%, var(--paper, #f5edd9)); color: var(--ink, #1a140d); }
+  .emap-leg--marquee { background: color-mix(in srgb, #941a1a 45%, var(--paper, #f5edd9)); color: var(--ink, #1a140d); }
+  .emap-leg--watch { background: color-mix(in srgb, #c9a227 50%, var(--paper, #f5edd9)); color: var(--ink, #1a140d); }
+  .emap-leg--lean { background: color-mix(in srgb, #5c7a6a 45%, var(--paper, #f5edd9)); color: var(--ink, #1a140d); }
+  .emap-leg--senate { background: color-mix(in srgb, #3b6ea5 40%, var(--paper, #f5edd9)); color: var(--ink, #1a140d); }
+  .emap-leg--governor { background: color-mix(in srgb, #2f6b4f 40%, var(--paper, #f5edd9)); color: var(--ink, #1a140d); }
+  .emap-leg--quiet { background: color-mix(in srgb, #d9d0bc 70%, var(--paper, #f5edd9)); color: var(--ink, #1a140d); }
 
   .emap-hint {
     margin: 0 0 0.35rem;
@@ -818,19 +812,6 @@ const featured = [...map.states]
     padding: 0.55rem 0.7rem;
     border-left: 3px solid var(--ink, #1a140d);
     background: color-mix(in srgb, var(--ink, #1a140d) 5%, transparent);
-  }
-
-  .emap-party-leg--solid-d { background: #0b3d91; color: #fff; border-color: #082c68; }
-  .emap-party-leg--likely-d { background: #2a6fdb; color: #fff; border-color: #1e56ad; }
-  .emap-party-leg--lean-d { background: #7aa7ef; color: #1a140d; border-color: #5a86cc; }
-  .emap-party-leg--tossup { background: #9b8bb8; color: #1a140d; border-color: #7a6c94; }
-  .emap-party-leg--lean-r { background: #e07a72; color: #1a140d; border-color: #b85a53; }
-  .emap-party-leg--likely-r { background: #c0392b; color: #fff; border-color: #96281e; }
-  .emap-party-leg--solid-r { background: #8b1a14; color: #fff; border-color: #64120e; }
-  .emap-party-leg--no-race { background: #d9d0bc; color: #1a140d; border-color: #b8ad96; }
-  .emap-leg--flip {
-    background: repeating-linear-gradient(135deg, #f5edd9, #f5edd9 4px, #1a140d 4px, #1a140d 6px);
-    color: #1a140d;
   }
 
   .emap-forecast {
