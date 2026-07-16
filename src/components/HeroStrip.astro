@@ -85,7 +85,9 @@ const {
     window.__heroPeek = true;
 
     const LONG_MS = 380;
-    const MOVE_PX = 14;
+    // Only abort the *pending* hold if the finger clearly starts a scroll/swipe.
+    // Small jitter while pressing must NOT cancel; once open, movement never closes.
+    const CANCEL_HOLD_PX = 56;
     const EASE_OUT = "cubic-bezier(0.16, 1, 0.3, 1)";
     const reduceMotion = () =>
       matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -100,6 +102,7 @@ const {
     let suppressClick = false;
     let pop = null; // { root, scrim, panel, source, first }
     let holdActive = false;
+    let scrollYLock = 0;
 
     function clearTimer() {
       if (timer) {
@@ -131,6 +134,22 @@ const {
       if (on) clearSelection();
     }
 
+    /** Freeze page/strip scroll while the popup is up so a wiggle doesn’t dismiss it. */
+    function setScrollLock(on) {
+      const root = document.documentElement;
+      if (on) {
+        if (root.classList.contains("is-peek-open")) return;
+        scrollYLock = window.scrollY || window.pageYOffset || 0;
+        root.classList.add("is-peek-open");
+        root.style.setProperty("--peek-scroll-y", `-${scrollYLock}px`);
+      } else {
+        if (!root.classList.contains("is-peek-open")) return;
+        root.classList.remove("is-peek-open");
+        root.style.removeProperty("--peek-scroll-y");
+        window.scrollTo(0, scrollYLock);
+      }
+    }
+
     function measureTarget(panel) {
       const pad = 14;
       const vw = window.innerWidth;
@@ -153,6 +172,7 @@ const {
       open = true;
       suppressClick = true;
       setHolding(true);
+      setScrollLock(true);
       clearSelection();
       source.classList.add("is-peeking");
       source.setAttribute("aria-expanded", "true");
@@ -260,6 +280,7 @@ const {
         closing = false;
         card = null;
         pointerId = null;
+        setScrollLock(false);
         setHolding(false);
         clearSelection();
       };
@@ -333,27 +354,33 @@ const {
       "pointermove",
       (e) => {
         if (!card) return;
-        // Before open: cancel hold if the user is scrolling the strip.
-        if (!open && timer) {
+        // Once the popup is open, finger movement must NOT close it — only release does.
+        if (open) {
+          if (holdActive) clearSelection();
+          return;
+        }
+        // Before open: only cancel if this is clearly a scroll/swipe, not a light wiggle.
+        if (timer) {
           const dx = Math.abs(e.clientX - startX);
           const dy = Math.abs(e.clientY - startY);
-          if (dx > MOVE_PX || dy > MOVE_PX) {
+          if (dx > CANCEL_HOLD_PX || dy > CANCEL_HOLD_PX) {
             clearTimer();
             try {
               if (pointerId != null) card.releasePointerCapture(pointerId);
             } catch (_) {}
             card = null;
             pointerId = null;
-            if (!open) setHolding(false);
+            setHolding(false);
           }
         }
-        // Nudge selection away while the finger is down on a card.
         if (holdActive) clearSelection();
       },
       { passive: true }
     );
 
     const endPress = (e) => {
+      // Ignore stray end events from other pointers.
+      if (pointerId != null && e && e.pointerId != null && e.pointerId !== pointerId) return;
       clearTimer();
       // Always collapse on release — hold-to-preview only.
       if (open) {
@@ -373,10 +400,8 @@ const {
     };
     document.addEventListener("pointerup", endPress, { passive: true });
     document.addEventListener("pointercancel", endPress, { passive: true });
-    // Lost capture (e.g. scroll takeover) should also close.
-    document.addEventListener("lostpointercapture", (e) => {
-      if (card && e.target === card) endPress(e);
-    });
+    // Do NOT close on lostpointercapture — iOS often fires that on tiny scrolls
+    // while the finger is still down. Release (pointerup) is the only dismiss.
 
     document.addEventListener(
       "click",
@@ -407,17 +432,27 @@ const {
       true
     );
 
-    // iOS: cancel the native text-selection gesture once a hold is underway.
-    // Only after we've committed to a hold so strip scrolling still works.
+    // While the popup is open, block the page from scrolling under the finger
+    // (that used to steal the gesture and dismiss the preview).
     document.addEventListener(
       "touchmove",
       (e) => {
-        if (!holdActive) return;
-        if (open || timer) {
+        if (open) {
+          e.preventDefault();
           clearSelection();
+          return;
         }
+        if (holdActive && timer) clearSelection();
       },
-      { passive: true }
+      { passive: false }
+    );
+
+    document.addEventListener(
+      "wheel",
+      (e) => {
+        if (open) e.preventDefault();
+      },
+      { passive: false }
     );
 
     // Block the browser’s native “start selecting text” path entirely on peeks.

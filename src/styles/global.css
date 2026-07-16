@@ -2656,6 +2656,20 @@ html.is-peek-holding body * {
 html.is-peek-holding {
   -webkit-tap-highlight-color: transparent;
 }
+/* Popup open: freeze document scroll so a finger wiggle doesn’t scroll/dismiss */
+html.is-peek-open,
+html.is-peek-open body {
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
+  touch-action: none !important;
+}
+html.is-peek-open body {
+  /* Keep visual scroll position while locked */
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  top: var(--peek-scroll-y, 0px);
+}
 .report-card--peek.is-peeking {
   opacity: 0.22;
   transform: scale(0.98);
