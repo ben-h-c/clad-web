@@ -39,7 +39,9 @@ const captionOneLine = hook
 const fbQuote = hook ? `${title} — ${hook}` : title;
 
 const xHref = `https://twitter.com/intent/tweet?text=${enc(titleBlock)}&url=${enc(url)}`;
-const fbHref = `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}&quote=${enc(fbQuote)}`;
+// Desktop web share dialog. On phones, JS prefers the system share sheet —
+// Facebook's Universal Link often opens the app without a compose preview.
+const fbHref = `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`;
 const blueskyHref = `https://bsky.app/intent/compose?text=${enc(caption)}`;
 const threadsHref = `https://www.threads.net/intent/post?text=${enc(caption)}`;
 const redditHref = `https://www.reddit.com/submit?url=${enc(url)}&title=${enc(hook ? `${title} — ${hook}` : title)}`;
@@ -87,7 +89,14 @@ const igOpen = storyImage ?? "https://www.instagram.com/";
     <span>X</span>
   </a>
 
-  <a class="sharebar__btn" data-share="facebook" href={fbHref} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook">
+  <a
+    class="sharebar__btn sharebar__facebook"
+    data-share="facebook"
+    href={fbHref}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Share on Facebook"
+  >
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"></path>
     </svg>
@@ -186,13 +195,13 @@ const igOpen = storyImage ?? "https://www.instagram.com/";
       const titleBlock = hook ? title + "\n\n" + hook : title;
       const caption = titleBlock + "\n\n" + url + "\n\nvia CladFacts";
       const oneLine = hook ? title + " — " + hook + " " + url : title + " " + url;
-      const fbQuote = hook ? title + " — " + hook : title;
       const redditTitle = hook ? title + " — " + hook : title;
 
       const map = {
         sms: "sms:?&body=" + enc(oneLine),
         x: "https://twitter.com/intent/tweet?text=" + enc(titleBlock) + "&url=" + enc(url),
-        facebook: "https://www.facebook.com/sharer/sharer.php?u=" + enc(url) + "&quote=" + enc(fbQuote),
+        // quote= is ignored by Facebook; preview comes from the page's OG tags.
+        facebook: "https://www.facebook.com/sharer/sharer.php?u=" + enc(url),
         bluesky: "https://bsky.app/intent/compose?text=" + enc(caption),
         threads: "https://www.threads.net/intent/post?text=" + enc(caption),
         reddit: "https://www.reddit.com/submit?url=" + enc(url) + "&title=" + enc(redditTitle),
@@ -240,7 +249,42 @@ const igOpen = storyImage ?? "https://www.instagram.com/";
         native.addEventListener("click", function () {
           const url = bar.getAttribute("data-url") || location.href;
           const title = bar.getAttribute("data-title") || document.title;
-          navigator.share({ title: title, text: title, url: url }).catch(function () {});
+          const hook = bar.getAttribute("data-hook") || "";
+          const text = hook ? title + "\n\n" + hook : title;
+          navigator.share({ title: title, text: text, url: url }).catch(function () {});
+        });
+      }
+
+      /*
+       * Facebook: there is no public web intent that reliably opens a compose
+       * sheet with a link preview (unlike X/Twitter). On phones, sharer.php is
+       * often claimed by the Facebook app via Universal Links and lands on the
+       * home feed with no draft. Prefer the OS share sheet on touch devices —
+       * picking Facebook there usually opens the real share composer + OG card.
+       * Desktop keeps the classic facebook.com/sharer dialog.
+       */
+      const fbBtn = bar.querySelector(".sharebar__facebook");
+      if (fbBtn) {
+        fbBtn.addEventListener("click", function (e) {
+          const url = bar.getAttribute("data-url") || location.href;
+          const title = bar.getAttribute("data-title") || document.title;
+          const hook = bar.getAttribute("data-hook") || "";
+          const text = hook ? title + "\n\n" + hook : title;
+          const coarse =
+            (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) ||
+            /iPhone|iPad|iPod|Android/i.test(navigator.userAgent || "");
+          if (coarse && typeof navigator.share === "function") {
+            e.preventDefault();
+            navigator.share({ title: title, text: text, url: url }).catch(function () {
+              // User cancelled or share failed — fall back to the web dialog.
+              window.open(
+                "https://www.facebook.com/sharer/sharer.php?u=" + enc(url),
+                "_blank",
+                "noopener"
+              );
+            });
+          }
+          // Desktop: let the default <a href> open sharer.php.
         });
       }
 
