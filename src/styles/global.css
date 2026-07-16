@@ -7635,6 +7635,42 @@ html.clad-app section.charts.home-app-only {
   gap: 0;
   min-width: 0;
 }
+.home-spotlight__close {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.3rem;
+  z-index: 3;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  border: none;
+  border-radius: 2px;
+  background: transparent;
+  color: var(--muted-ink);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.home-spotlight__close:hover,
+.home-spotlight__close:focus-visible {
+  opacity: 1;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+  outline: none;
+}
+/* Leave room so the × doesn't sit on the title */
+.home-spotlight__slide .home-promo--spotlight {
+  padding-right: 2rem;
+}
+html.clad-app .home-spotlight__close {
+  top: 0.2rem;
+  right: 0.2rem;
+  /* App has no side arrows — close sits on the card corner */
+  width: 1.9rem;
+  height: 1.9rem;
+}
 .home-spotlight__viewport {
   flex: 1 1 auto;
   min-width: 0;

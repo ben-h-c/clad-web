@@ -1,8 +1,7 @@
 ---
 /**
- * Fixed top-of-home spotlight: same promo card format as the old midterms
- * banner, but a non-dismissible carousel of hot/popular site sections.
- * Prev/next arrows (and swipe) cycle slides — website + iOS app.
+ * Top-of-home spotlight carousel of hot/popular site sections.
+ * Arrows (web) + swipe; optional dismiss (localStorage) so readers can hide it.
  */
 import type { HomePromo } from "~/lib/homePromos";
 
@@ -13,13 +12,17 @@ interface Props {
 const promos = Astro.props.promos ?? [];
 const wrapClass = ["home-spotlight", Astro.props.class].filter(Boolean).join(" ");
 const multi = promos.length > 1;
+/** Bump when the promo set changes in a way that should re-show for everyone. */
+const DISMISS_KEY = "clad_spotlight_v1";
 ---
 {promos.length > 0 && (
   <section
     class={wrapClass}
     data-home-spotlight
+    data-spotlight-key={DISMISS_KEY}
     aria-roledescription="carousel"
     aria-label="Featured on CladFacts"
+    hidden
   >
     <div class="home-spotlight__frame">
       {multi && (
@@ -73,6 +76,16 @@ const multi = promos.length > 1;
           ›
         </button>
       )}
+
+      <button
+        type="button"
+        class="home-spotlight__close"
+        data-spotlight-close
+        aria-label="Hide featured highlights"
+        title="Close"
+      >
+        ×
+      </button>
     </div>
 
     {multi && (
@@ -92,90 +105,107 @@ const multi = promos.length > 1;
   </section>
 )}
 
-{multi && (
-  <script is:inline>
-    (() => {
-      if (window.__homeSpotlight) return;
-      window.__homeSpotlight = true;
+<script is:inline>
+  (() => {
+    if (window.__homeSpotlight) return;
+    window.__homeSpotlight = true;
 
-      const wire = (root) => {
-        const track = root.querySelector("[data-spotlight-track]");
-        const slides = [...root.querySelectorAll("[data-spotlight-slide]")];
-        const dots = [...root.querySelectorAll("[data-spotlight-dot]")];
-        const prev = root.querySelector("[data-spotlight-prev]");
-        const next = root.querySelector("[data-spotlight-next]");
-        if (!track || slides.length < 2) return;
-
-        let i = 0;
-        let touchX = null;
-
-        const go = (n) => {
-          i = ((n % slides.length) + slides.length) % slides.length;
-          slides.forEach((s, k) => {
-            const on = k === i;
-            s.classList.toggle("is-active", on);
-            s.setAttribute("aria-hidden", on ? "false" : "true");
-          });
-          dots.forEach((d, k) => {
-            const on = k === i;
-            d.classList.toggle("is-on", on);
-            d.setAttribute("aria-selected", on ? "true" : "false");
-          });
-          track.style.transform = `translate3d(${-i * 100}%, 0, 0)`;
-        };
-
-        prev?.addEventListener("click", () => go(i - 1));
-        next?.addEventListener("click", () => go(i + 1));
-        dots.forEach((d) => {
-          d.addEventListener("click", () => {
-            const n = Number(d.getAttribute("data-spotlight-dot"));
-            if (Number.isFinite(n)) go(n);
-          });
-        });
-
-        root.addEventListener("keydown", (e) => {
-          if (e.key === "ArrowLeft") {
-            e.preventDefault();
-            go(i - 1);
-          } else if (e.key === "ArrowRight") {
-            e.preventDefault();
-            go(i + 1);
-          }
-        });
-
-        const vp = root.querySelector("[data-spotlight-viewport]");
-        if (vp) {
-          vp.addEventListener(
-            "touchstart",
-            (e) => {
-              touchX = e.changedTouches[0]?.clientX ?? null;
-            },
-            { passive: true }
-          );
-          vp.addEventListener(
-            "touchend",
-            (e) => {
-              if (touchX == null) return;
-              const x = e.changedTouches[0]?.clientX;
-              if (x == null) return;
-              const dx = x - touchX;
-              touchX = null;
-              if (Math.abs(dx) < 40) return;
-              if (dx < 0) go(i + 1);
-              else go(i - 1);
-            },
-            { passive: true }
-          );
+    const wire = (root) => {
+      const key = root.getAttribute("data-spotlight-key") || "clad_spotlight_v1";
+      try {
+        if (localStorage.getItem(key)) {
+          root.hidden = true;
+          return;
         }
+      } catch (_) {}
+      root.hidden = false;
 
-        go(0);
+      const closeBtn = root.querySelector("[data-spotlight-close]");
+      closeBtn?.addEventListener("click", () => {
+        root.hidden = true;
+        try {
+          localStorage.setItem(key, "1");
+        } catch (_) {}
+      });
+
+      const track = root.querySelector("[data-spotlight-track]");
+      const slides = [...root.querySelectorAll("[data-spotlight-slide]")];
+      const dots = [...root.querySelectorAll("[data-spotlight-dot]")];
+      const prev = root.querySelector("[data-spotlight-prev]");
+      const next = root.querySelector("[data-spotlight-next]");
+      if (!track || slides.length < 2) return;
+
+      let i = 0;
+      let touchX = null;
+
+      const go = (n) => {
+        i = ((n % slides.length) + slides.length) % slides.length;
+        slides.forEach((s, k) => {
+          const on = k === i;
+          s.classList.toggle("is-active", on);
+          s.setAttribute("aria-hidden", on ? "false" : "true");
+        });
+        dots.forEach((d, k) => {
+          const on = k === i;
+          d.classList.toggle("is-on", on);
+          d.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        track.style.transform = `translate3d(${-i * 100}%, 0, 0)`;
       };
 
-      const init = () => {
-        document.querySelectorAll("[data-home-spotlight]").forEach(wire);
-      };
-      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
-      else init();
-    })();
-  </script>
-)}
+      prev?.addEventListener("click", () => go(i - 1));
+      next?.addEventListener("click", () => go(i + 1));
+      dots.forEach((d) => {
+        d.addEventListener("click", () => {
+          const n = Number(d.getAttribute("data-spotlight-dot"));
+          if (Number.isFinite(n)) go(n);
+        });
+      });
+
+      root.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          go(i - 1);
+        } else if (e.key === "ArrowRight") {
+          e.preventDefault();
+          go(i + 1);
+        } else if (e.key === "Escape") {
+          closeBtn?.click();
+        }
+      });
+
+      const vp = root.querySelector("[data-spotlight-viewport]");
+      if (vp) {
+        vp.addEventListener(
+          "touchstart",
+          (e) => {
+            touchX = e.changedTouches[0]?.clientX ?? null;
+          },
+          { passive: true }
+        );
+        vp.addEventListener(
+          "touchend",
+          (e) => {
+            if (touchX == null) return;
+            const x = e.changedTouches[0]?.clientX;
+            if (x == null) return;
+            const dx = x - touchX;
+            touchX = null;
+            if (Math.abs(dx) < 40) return;
+            if (dx < 0) go(i + 1);
+            else go(i - 1);
+          },
+          { passive: true }
+        );
+      }
+
+      go(0);
+    };
+
+    const init = () => {
+      document.querySelectorAll("[data-home-spotlight]").forEach(wire);
+    };
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+    else init();
+  })();
+</script>
