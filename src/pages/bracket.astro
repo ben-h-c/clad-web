@@ -391,6 +391,26 @@ const jsonLd = {
       Map: <a href="/elections/map/">election map</a>.
       Civics: <a href="/learn/first-vote/">first-time voter guide</a>.
     </p>
+
+    {/* Themed confirm dialog (replaces browser confirm) — follows light/dark. */}
+    <div class="clad-confirm" id="clad-confirm" hidden>
+      <div class="clad-confirm__backdrop" data-confirm-cancel tabindex="-1"></div>
+      <div
+        class="clad-confirm__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="clad-confirm-title"
+        aria-describedby="clad-confirm-body"
+      >
+        <p class="clad-confirm__eyebrow small-caps" id="clad-confirm-eyebrow">Confirm</p>
+        <h2 class="clad-confirm__title" id="clad-confirm-title">Are you sure?</h2>
+        <p class="clad-confirm__body" id="clad-confirm-body"></p>
+        <div class="clad-confirm__actions">
+          <button type="button" class="auth-submit secondary" data-confirm-cancel>Cancel</button>
+          <button type="button" class="auth-submit" id="clad-confirm-ok">Confirm</button>
+        </div>
+      </div>
+    </div>
   </article>
 </BaseLayout>
 
@@ -415,6 +435,56 @@ const jsonLd = {
       if (!status) return;
       status.hidden = !msg;
       status.textContent = msg || "";
+    }
+
+    /** Clad-styled confirm — matches paper UI + light/dark theme tokens. */
+    function cladConfirm(opts) {
+      const title = opts.title || "Are you sure?";
+      const body = opts.body || "";
+      const okLabel = opts.okLabel || "Confirm";
+      const eyebrow = opts.eyebrow || "Confirm";
+      const danger = !!opts.danger;
+      const el = document.getElementById("clad-confirm");
+      const titleEl = document.getElementById("clad-confirm-title");
+      const bodyEl = document.getElementById("clad-confirm-body");
+      const okBtn = document.getElementById("clad-confirm-ok");
+      const eyeEl = document.getElementById("clad-confirm-eyebrow");
+      if (!el || !titleEl || !bodyEl || !okBtn) return Promise.resolve(false);
+
+      return new Promise((resolve) => {
+        let done = false;
+        const finish = (val) => {
+          if (done) return;
+          done = true;
+          el.hidden = true;
+          el.classList.remove("is-open");
+          document.body.style.overflow = prevOverflow;
+          okBtn.classList.remove("clad-confirm__ok--danger");
+          document.removeEventListener("keydown", onKey);
+          resolve(val);
+        };
+        const onKey = (e) => {
+          if (e.key === "Escape") finish(false);
+        };
+        titleEl.textContent = title;
+        bodyEl.textContent = body;
+        okBtn.textContent = okLabel;
+        if (eyeEl) eyeEl.textContent = eyebrow;
+        okBtn.classList.toggle("clad-confirm__ok--danger", danger);
+        const prevOverflow = document.body.style.overflow;
+        el.hidden = false;
+        // reflow for enter animation
+        void el.offsetWidth;
+        el.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+        document.addEventListener("keydown", onKey);
+        okBtn.focus();
+
+        el.querySelectorAll("[data-confirm-cancel]").forEach((btn) => {
+          btn.onclick = () => finish(false);
+        });
+        okBtn.onclick = () => finish(true);
+      });
     }
 
     function updateProgress(ballot) {
@@ -537,7 +607,13 @@ const jsonLd = {
 
     if (lockBtn) {
       lockBtn.addEventListener("click", async () => {
-        if (!confirm("Lock your ballot? You won’t be able to change or reset picks after this — but you will be able to share, and your anonymous picks join the community tally.")) return;
+        const ok = await cladConfirm({
+          eyebrow: "Lock ballot",
+          title: "Lock this ballot in?",
+          body: "You won’t be able to change or reset picks after this — but you can share your sheet, and your anonymous picks join the community tally.",
+          okLabel: "Lock ballot",
+        });
+        if (!ok) return;
         try {
           const res = await fetch("/api/me/ballot", {
             method: "PUT",
@@ -559,7 +635,14 @@ const jsonLd = {
 
     if (resetBtn) {
       resetBtn.addEventListener("click", async () => {
-        if (!confirm("Clear all picks on this ballot? You can only do this before locking.")) return;
+        const ok = await cladConfirm({
+          eyebrow: "Reset picks",
+          title: "Clear all picks?",
+          body: "This removes every pick on your draft ballot. You can only do this before locking. This cannot be undone.",
+          okLabel: "Clear picks",
+          danger: true,
+        });
+        if (!ok) return;
         try {
           const res = await fetch("/api/me/ballot", {
             method: "PUT",
@@ -646,6 +729,80 @@ const jsonLd = {
     text-decoration: underline;
     cursor: pointer;
   }
+
+  /* Themed confirm dialog — uses page CSS vars so light/dark match Clad. */
+  .clad-confirm {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+  }
+  .clad-confirm[hidden] { display: none; }
+  .clad-confirm__backdrop {
+    position: absolute;
+    inset: 0;
+    background: color-mix(in srgb, var(--ink, #1a140d) 45%, transparent);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .clad-confirm.is-open .clad-confirm__backdrop { opacity: 1; }
+  .clad-confirm__dialog {
+    position: relative;
+    z-index: 1;
+    width: min(26rem, 100%);
+    padding: 1.35rem 1.4rem 1.25rem;
+    background: var(--paper, #f5edd9);
+    color: var(--ink, #1a140d);
+    border: 2px solid var(--ink, #1a140d);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--paper, #f5edd9) 70%, transparent),
+      0 18px 40px color-mix(in srgb, var(--shadow, #000) 40%, transparent);
+    transform: translateY(10px) scale(0.98);
+    opacity: 0;
+    transition: transform 0.22s ease, opacity 0.22s ease;
+  }
+  .clad-confirm.is-open .clad-confirm__dialog {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  .clad-confirm__eyebrow {
+    margin: 0 0 0.35rem;
+    color: var(--accent, #941a1a);
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+  }
+  .clad-confirm__title {
+    font-family: var(--serif, Georgia, serif);
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0 0 0.55rem;
+    line-height: 1.2;
+  }
+  .clad-confirm__body {
+    margin: 0 0 1.15rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--muted-ink, #6e5e4d);
+  }
+  .clad-confirm__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-end;
+  }
+  .clad-confirm__ok--danger {
+    background: var(--accent, #941a1a) !important;
+    border-color: var(--accent, #941a1a) !important;
+    color: var(--paper, #f5edd9) !important;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .clad-confirm__backdrop,
+    .clad-confirm__dialog { transition: none; }
+  }
+
   .ballot-toolbar {
     display: flex;
     flex-direction: column;
