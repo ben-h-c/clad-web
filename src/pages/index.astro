@@ -8,6 +8,8 @@ import TopicRow from "~/components/TopicRow.astro";
 import GradeBoard from "~/components/GradeBoard.astro";
 import HomeCharts from "~/components/HomeCharts.astro";
 import HomeElectionMap from "~/components/HomeElectionMap.astro";
+import CoverageLeanBar from "~/components/CoverageLeanBar.astro";
+import TopIssuesGrid from "~/components/TopIssuesGrid.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
 import NewsletterSignup from "~/components/NewsletterSignup.astro";
@@ -64,6 +66,8 @@ const locked = !access.fullAccess;
 const sentiments = locked ? {} : await getSentiments(env.AGENTS);
 const topics = aggregateTopics(all, sentiments);
 const TOPICS_ON_HOME = 8;
+/** Fixed tiles in the website-only Top issues grid. */
+const TOP_ISSUES_GRID = 6;
 
 // Live promo inputs: hottest topic + freshest report for top-of-home cards
 const hotTopic =
@@ -134,8 +138,18 @@ if (!locked) {
     <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
   ) : (
     <>
-      {/* Flagship spotlight only at the top (usually Midterms). */}
-      {topPromo && <HomePromoBanner promo={topPromo} />}
+      {/* Website: midterms promo + overall lean side by side.
+          App: promo only (lean stays inside By the Numbers). */}
+      <div class="home-top-desk">
+        {topPromo && (
+          <div class="home-top-desk__promo">
+            <HomePromoBanner promo={topPromo} />
+          </div>
+        )}
+        {!locked && (
+          <CoverageLeanBar posts={all} class="home-top-desk__lean home-web-only" />
+        )}
+      </div>
 
       {APP_STORE_LIVE && (
         <>
@@ -238,6 +252,9 @@ if (!locked) {
         <PaywallPanel signedIn={access.signedIn} returnTo="/" />
       ) : (
         <>
+          {/* Website: static top-issues grid (no “By the Numbers” wrapper). */}
+          <TopIssuesGrid topics={topics} limit={TOP_ISSUES_GRID} class="home-web-only" />
+          {/* iOS app: original By the Numbers strip (lean + issues). */}
           <HomeCharts posts={all} topics={topics} sentiments={sentiments} />
           {topGraded.length > 0 && <GradeBoard top={topGraded} bottom={bottomGraded} />}
           <p class="home-more-analytics">

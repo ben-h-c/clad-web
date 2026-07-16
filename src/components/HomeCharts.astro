@@ -36,7 +36,8 @@ const overallGpa = mean(posts.map((p) => gradeToGpa(p.data.letterGrade)).filter(
 // ---- top issues right now (already recency/popularity-ranked) ----
 const topIssues = topics.slice(0, 10);
 ---
-<section class="charts">
+{/* iOS app only — public website uses CoverageLeanBar + TopIssuesGrid instead. */}
+<section class="charts home-app-only" data-home-charts>
   <div class="feed__head">
     <h2 class="feed__title">By the Numbers</h2>
     <a class="charts-more" href="/trends/">Full News Trends →</a>

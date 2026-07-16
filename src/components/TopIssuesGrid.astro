@@ -1,0 +1,63 @@
+---
+/**
+ * Fixed grid of top issues for the public website (not the app charts strip).
+ */
+import type { TopicAgg } from "~/lib/topics";
+
+interface Props {
+  topics: TopicAgg[];
+  /** Fixed number of tiles in the grid. */
+  limit?: number;
+  class?: string;
+}
+const limit = Astro.props.limit ?? 6;
+const topics = Astro.props.topics.slice(0, limit);
+const wrapClass = ["top-issues", Astro.props.class].filter(Boolean).join(" ");
+
+function leanLabel(s: number | null): string {
+  if (s === null) return "—";
+  return Math.abs(s) < 5 ? "Center" : `${Math.abs(Math.round(s))}% ${s > 0 ? "Right" : "Left"}`;
+}
+function sentiLabel(s: number | null): string {
+  if (s === null) return "—";
+  return Math.abs(s) < 10 ? "Mixed" : `${Math.abs(Math.round(s))}% ${s > 0 ? "Positive" : "Negative"}`;
+}
+---
+{topics.length > 0 && (
+  <section class={wrapClass} aria-labelledby="top-issues-title">
+    <div class="feed__head">
+      <h2 class="feed__title" id="top-issues-title">Top issues right now</h2>
+      <a class="category__more" href="/search/">All topics →</a>
+    </div>
+    <div class="rule rule--double" aria-hidden="true"></div>
+    <ul class="top-issues__grid">
+      {topics.map((t) => (
+        <li class="top-issues__tile">
+          <a class="top-issues__link" href={`/topics/${t.slug}/`}>
+            <span class="top-issues__name">{t.display}</span>
+            <span class="top-issues__meta">
+              <span class="top-issues__count">
+                {t.todayCount > 0
+                  ? `${t.todayCount} today`
+                  : t.recentCount > 0
+                    ? `${t.recentCount} recent`
+                    : `${t.count} ${t.count === 1 ? "report" : "reports"}`}
+              </span>
+              <span
+                class={`top-issues__lean ${t.avgLean === null ? "" : t.avgLean > 5 ? "is-right" : t.avgLean < -5 ? "is-left" : "is-center"}`}
+              >
+                {leanLabel(t.avgLean)}
+              </span>
+              <span
+                class={`top-issues__senti ${t.avgSentiment === null ? "" : t.avgSentiment >= 10 ? "is-pos" : t.avgSentiment <= -10 ? "is-neg" : "is-center"}`}
+              >
+                {sentiLabel(t.avgSentiment)}
+              </span>
+              <span class="top-issues__grade">{t.avgGrade ?? "—"}</span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

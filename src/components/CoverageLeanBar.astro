@@ -1,0 +1,56 @@
+---
+/**
+ * Overall coverage lean strip — used next to the midterms promo on the website.
+ * (iOS app still gets this inside HomeCharts / By the Numbers.)
+ */
+import { gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  posts: CollectionEntry<"posts">[];
+  class?: string;
+}
+const { posts } = Astro.props;
+const wrapClass = ["coverage-lean", Astro.props.class].filter(Boolean).join(" ");
+
+const mean = (ns: number[]) => (ns.length ? ns.reduce((a, b) => a + b, 0) / ns.length : null);
+const allLeans = posts.map((p) => leanScoreOf(p.data)).filter((n): n is number => n !== null);
+const split = { left: 0, center: 0, right: 0 };
+for (const s of allLeans) {
+  if (s < -15) split.left++;
+  else if (s > 15) split.right++;
+  else split.center++;
+}
+const splitTotal = allLeans.length || 1;
+const pct = (n: number) => Math.round((n / splitTotal) * 100);
+const overallGpa = mean(
+  posts.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n !== null)
+);
+---
+<aside class={wrapClass} aria-label="Overall coverage lean">
+  <h2 class="coverage-lean__title small-caps">Overall coverage lean</h2>
+  <div
+    class="split-bar"
+    role="img"
+    aria-label={`Left ${pct(split.left)}%, Center ${pct(split.center)}%, Right ${pct(split.right)}%`}
+  >
+    <span class="split-bar__seg split--left" style={`width:${pct(split.left)}%`}></span>
+    <span class="split-bar__seg split--center" style={`width:${pct(split.center)}%`}></span>
+    <span class="split-bar__seg split--right" style={`width:${pct(split.right)}%`}></span>
+  </div>
+  <div class="split-legend coverage-lean__legend">
+    <span><i class="dot split--left"></i> Left {pct(split.left)}%</span>
+    <span><i class="dot split--center"></i> Center {pct(split.center)}%</span>
+    <span><i class="dot split--right"></i> Right {pct(split.right)}%</span>
+  </div>
+  <p class="coverage-lean__note">
+    {splitTotal.toLocaleString("en-US")} graded reports
+    {overallGpa !== null && (
+      <>
+        {" · "}avg grade <strong>{gpaToGrade(overallGpa)}</strong>
+      </>
+    )}
+    {" · "}
+    <a href="/trends/">News Trends</a>
+  </p>
+</aside>

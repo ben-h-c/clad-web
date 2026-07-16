@@ -7531,3 +7531,153 @@ html.theme-dark .home-emap__card {
     gap: 0.28rem 0.5rem;
   }
 }
+
+/* ---------- Website vs iOS app homepage analytics layout ---------- */
+/* Default = website. App shell flips these. */
+.home-web-only { display: block; }
+.home-app-only { display: none !important; }
+html.clad-app .home-web-only { display: none !important; }
+html.clad-app .home-app-only { display: block !important; }
+/* charts section is flex/block depending — restore strip behavior in app */
+html.clad-app section.charts.home-app-only {
+  display: block !important;
+}
+
+/* Top desk: midterms promo + coverage lean (web) */
+.home-top-desk {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0 0 0.85rem;
+  align-items: stretch;
+}
+.home-top-desk__promo .home-promos {
+  margin: 0;
+  height: 100%;
+}
+.home-top-desk__promo .home-promo {
+  height: 100%;
+  box-sizing: border-box;
+}
+@media (min-width: 860px) {
+  .home-top-desk:has(.home-top-desk__lean) {
+    grid-template-columns: minmax(0, 1.15fr) minmax(14rem, 0.85fr);
+  }
+}
+/* App: only the promo column (lean lives in By the Numbers) */
+html.clad-app .home-top-desk {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.coverage-lean {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0.85rem 1rem 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
+  border-radius: 4px;
+  background-color: var(--card);
+  background-image:
+    radial-gradient(ellipse 80% 55% at 12% 0%, rgba(255, 248, 230, 0.4), transparent 55%),
+    linear-gradient(165deg, color-mix(in srgb, var(--card) 72%, #fff8e4) 0%, var(--card-deep) 100%);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 45%, transparent),
+    0 8px 18px color-mix(in srgb, var(--shadow) 26%, transparent);
+}
+:root[data-theme="dark"] .coverage-lean,
+html.theme-dark .coverage-lean {
+  background-image: none;
+  background-color: var(--card);
+}
+.coverage-lean__title {
+  margin: 0 0 0.55rem;
+  letter-spacing: 0.1em;
+  color: var(--muted-ink);
+  font-size: 0.72rem;
+}
+.coverage-lean__legend {
+  margin-top: 0.45rem;
+}
+.coverage-lean__note {
+  margin: 0.55rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted-ink);
+  line-height: 1.35;
+}
+.coverage-lean__note a {
+  color: inherit;
+}
+
+/* Fixed top-issues grid (website) */
+.top-issues {
+  margin: 1.5rem 0 1.1rem;
+}
+.top-issues__grid {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+}
+@media (min-width: 560px) {
+  .top-issues__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 900px) {
+  .top-issues__grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.top-issues__tile {
+  margin: 0;
+  min-width: 0;
+}
+.top-issues__link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0.7rem 0.8rem 0.65rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
+  border-radius: 4px;
+  background: var(--card);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--shadow) 18%, transparent);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+.top-issues__link:hover,
+.top-issues__link:focus-visible {
+  border-color: color-mix(in srgb, var(--accent) 32%, var(--rule));
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--shadow) 32%, transparent);
+  transform: translateY(-2px);
+  outline: none;
+}
+.top-issues__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+.top-issues__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.65rem;
+  font-size: 0.78rem;
+  color: var(--muted-ink);
+}
+.top-issues__count { font-style: italic; }
+.top-issues__lean.is-left,
+.top-issues__senti.is-neg { color: #3b6ea5; }
+.top-issues__lean.is-right,
+.top-issues__senti.is-pos { color: #b23b2e; }
+.top-issues__lean.is-center,
+.top-issues__senti.is-center { color: var(--muted-ink); }
+.top-issues__grade {
+  font-weight: 700;
+  color: var(--ink);
+  margin-left: auto;
+}
