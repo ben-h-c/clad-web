@@ -183,97 +183,151 @@ async function fetchCurrentPresident() {
 }
 
 /**
- * Current SCOTUS justices: rows in the main list that have no "End date"
- * (still serving). Wikipedia table columns vary; we look for empty end / present.
+ * Extract a justice's display name from a Wikipedia cell like
+ * "John Roberts (born 1955)" or "Ruth Bader Ginsburg (1933–2020)".
+ */
+function scotusNameFromCell(raw) {
+  const cleaned = cleanPersonName(String(raw || "").replace(/\s*\([^)]*\)\s*/g, " ").trim());
+  if (!cleaned || cleaned.length < 5 || cleaned.length > 50) return null;
+  if (/^\d+$/.test(cleaned)) return null;
+  if (/Justice|Born|State|Appointed|President|Name|Position|Succeeded|Confirmation/i.test(cleaned)) {
+    return null;
+  }
+  // "First Last" or "First Middle Last" (allow Jr./III and initials)
+  if (!/^[A-Z][\w.'’-]+(?:\s+[A-Z][\w.'’-]+){1,4}(?:,?\s*(?:Jr\.?|Sr\.?|III|IV))?$/u.test(cleaned)) {
+    return null;
+  }
+  return cleaned;
+}
+
+function scotusSeed(name, positionHint = "") {
+  const chief =
+    /Chief/i.test(positionHint) || /Roberts/i.test(name);
+  return {
+    name,
+    slug: slugify(name),
+    race: chief
+      ? "U.S. Supreme Court · Chief Justice"
+      : "U.S. Supreme Court · Associate Justice",
+    bucket: "Supreme Court",
+    aliases: [
+      name,
+      chief ? "Chief Justice Roberts" : `Justice ${name.split(" ").slice(-1)[0]}`,
+    ].filter(Boolean),
+  };
+}
+
+/**
+ * Current SCOTUS justices.
+ * Prefer the membership table on the Court page (always 9 sitting justices).
+ * Fall back to the historical list filtered by "– present" term strings.
+ * Wikipedia restructures markup often; keep multiple strategies.
  */
 async function fetchCurrentScotus() {
+  // Strategy 1: Supreme Court of the United States → current membership table
+  try {
+    const mainHtml = await wikiHtml("Supreme_Court_of_the_United_States");
+    const tables = [...mainHtml.matchAll(/<table[^>]*class="[^"]*wikitable[^"]*"[^>]*>[\s\S]*?<\/table>/gi)].map(
+      (m) => m[0]
+    );
+    for (const table of tables) {
+      const header = cellText(table.slice(0, 800));
+      // Membership table: justice + appointed by + start date (not retirees)
+      if (!/Justice/i.test(header) || !/Appointed/i.test(header)) continue;
+      if (/Retirement|End date/i.test(header) && !/Length of service/i.test(header)) continue;
+
+      const out = [];
+      const seen = new Set();
+      for (const r of table.matchAll(/<tr[\s\S]*?<\/tr>/g)) {
+        const cells = [...r[0].matchAll(/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/g)].map((c) =>
+          cellText(c[1])
+        );
+        if (cells.length < 3) continue;
+        // Name is usually in the second cell after an empty/portrait first cell:
+        // "(Chief Justice) John Roberts ( 1955-01-27 ) January 27, 1955 …"
+        const nameCell =
+          cells.find((c) => /\b(Chief Justice|Associate)?\s*[A-Z][a-z]+ [A-Z]/.test(c) && c.length > 8) ||
+          cells[1] ||
+          cells[0];
+        const stripped = String(nameCell || "")
+          .replace(/\(Chief Justice\)\s*/i, "Chief ")
+          .replace(/\(.*?\)/g, " ")
+          .replace(/January|February|March|April|May|June|July|August|September|October|November|December/gi, " ")
+          .replace(/\b\d{1,2},?\s*\d{4}\b/g, " ")
+          .replace(/\bage\s*\d+\b/gi, " ")
+          .replace(/\s+/g, " ")
+          .trim();
+        // Drop city/state trails: "Buffalo, New York" often follows after the name
+        // Keep first 2–4 name tokens only.
+        const tokens = stripped.split(" ").filter(Boolean);
+        // "Chief John Roberts" or "John Roberts"
+        let nameTokens = tokens;
+        const chiefLead = /^Chief$/i.test(tokens[0]);
+        if (chiefLead) nameTokens = tokens.slice(1);
+        // Cut at first non-name token (e.g. location words that slipped through)
+        const personBits = [];
+        for (const t of nameTokens) {
+          if (!/^[A-Z][\w.'’-]+$/u.test(t) && !/^(Jr\.?|Sr\.?|III|IV)$/i.test(t)) break;
+          personBits.push(t);
+          if (personBits.length >= 4) break;
+        }
+        const name = scotusNameFromCell(personBits.join(" "));
+        if (!name || seen.has(name)) continue;
+        seen.add(name);
+        out.push(scotusSeed(name, chiefLead || /Roberts/i.test(name) ? "Chief" : ""));
+      }
+      if (out.length >= 8 && out.length <= 12) return out.slice(0, 9);
+    }
+  } catch {
+    // fall through to list page
+  }
+
+  // Strategy 2: historical list — Term column ends with "– present"
   const html = await wikiHtml("List_of_justices_of_the_Supreme_Court_of_the_United_States");
-  const table = html.match(/<table class="wikitable[^"]*sortable[^"]*"[^>]*>[\s\S]*?<\/table>/)?.[0]
-    || html.match(/<table class="wikitable[^"]*"[^>]*>[\s\S]*?<\/table>/)?.[0];
+  const table =
+    html.match(/<table class="wikitable[^"]*sortable[^"]*"[^>]*>[\s\S]*?<\/table>/)?.[0] ||
+    html.match(/<table class="wikitable[^"]*"[^>]*>[\s\S]*?<\/table>/)?.[0];
   if (!table) throw new Error("SCOTUS table not found");
 
-  const rows = [...table.matchAll(/<tr[\s\S]*?<\/tr>/g)];
-  const justices = [];
-  for (const r of rows) {
-    const cells = [...r[0].matchAll(/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/g)].map((c) => cellText(c[1]));
-    if (cells.length < 4) continue;
-    // Typical: Justice | … | Start | End | …
-    // Current members often have empty End or "Incumbent"
-    const joined = cells.join(" | ");
-    if (/Justice|Born|Start date|Appointed/i.test(cells[0]) && cells.length < 6) continue;
-
-    // Find a person-looking cell
-    const nameCell = cells.find((c) => /^[A-Z][a-z]+ .+/.test(c) && c.length < 50 && !/President|Senate|Congress/i.test(c));
-    if (!nameCell) continue;
-
-    // End date: often second-to-last date-ish column
-    const endLike = cells.filter((c) => /\d{4}|Incumbent|Present|—|–|-/.test(c));
-    const endCol = cells[cells.length - 2] || cells[cells.length - 1] || "";
-    const stillServing =
-      /Incumbent|Present|^$|^—$|^–$|^-$/i.test(endCol.trim()) ||
-      (!/\d{1,2}\s+\w+\s+\d{4}/.test(endCol) && !/^\d{4}/.test(endCol.trim()) && justices.length < 15);
-
-    // Better: Wikipedia marks current justices; check for no death/end year in last columns
-    const hasEndYear = cells.some((c, i) => i > 2 && /^(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+\d{4}/.test(c));
-    // For historical table, both start and end are full dates for retired. Current have only start.
-    // Heuristic used by many scrapers: last date column empty or "Incumbent"
-    if (!stillServing && hasEndYear) {
-      // if there are two full dates, likely retired
-      const fullDates = cells.filter((c) => /,\s*\d{4}/.test(c));
-      if (fullDates.length >= 2) continue;
-    }
-
-    // Only take rows that look like current membership from a "current" subsection —
-    // Fall back: collect from a dedicated current list if this yields noise.
-    justices.push(nameCell);
-  }
-
-  // The full historical table is noisy. Prefer a tighter approach:
-  // Parse "Members" gallery or use known pattern on the page for "Current justices"
-  const currentBlock = html.match(/id="Current_justices"[\s\S]{0,50}<\/h[23]>[\s\S]{0,8000}/i)
-    || html.match(/Current justices[\s\S]{0,8000}/i);
-  if (currentBlock) {
-    const names = [...currentBlock[0].matchAll(/title="([^"]+)"[^>]*>([^<]+)<\/a>/g)]
-      .map((m) => cleanPersonName(m[2]))
-      .filter((n) => n && n.length > 4 && n.length < 40 && !/Supreme Court|United States|Chief Justice of/i.test(n));
-    const unique = [...new Set(names)].slice(0, 12);
-    if (unique.length >= 8) {
-      return unique.map((name) => ({
-        name,
-        slug: slugify(name),
-        race: name.includes("Roberts")
-          ? "U.S. Supreme Court · Chief Justice"
-          : "U.S. Supreme Court · Associate Justice",
-        bucket: "Supreme Court",
-        aliases: [name, name.includes("Roberts") ? "Chief Justice Roberts" : `Justice ${name.split(" ").slice(-1)[0]}`].filter(Boolean),
-      }));
-    }
-  }
-
-  // Final fallback: nine well-known seats filled from cabinet-style scrape is not available —
-  // use the first 9 unique justice-looking names that lack an end year in the sortable table.
-  const fallback = [];
+  const out = [];
   const seen = new Set();
-  for (const r of rows) {
-    const cells = [...r[0].matchAll(/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/g)].map((c) => cellText(c[1]));
-    if (cells.length < 5) continue;
-    const end = (cells[4] || cells[cells.length - 1] || "").trim();
-    if (end && /\d{4}/.test(end) && !/Incumbent|Present/i.test(end)) continue;
-    const name = cleanPersonName(cells[1] || cells[0] || "");
-    if (!name || name.length < 5 || seen.has(name)) continue;
-    if (/Justice|Born|State|Appointed|President/i.test(name)) continue;
+  for (const r of table.matchAll(/<tr[\s\S]*?<\/tr>/g)) {
+    const cells = [...r[0].matchAll(/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/g)].map((c) =>
+      cellText(c[1])
+    );
+    if (cells.length < 6) continue;
+    // Columns (2026 markup): No. | (portrait) | Name (birth–death) | State | Position | …
+    // | Confirmation | Term | Duration | Appointer
+    // Current seats: Term like "October 23, 1991 – present"
+    const termCell = cells.find((c) => /\d{4}\s*[–—-]\s*present/i.test(c));
+    if (!termCell) continue;
+
+    // Name cell is usually "Clarence Thomas (born 1948)" — not the numeric No. col
+    let name = null;
+    let position = "";
+    for (const c of cells) {
+      if (/Chief Justice|Associate Justice/i.test(c) && c.length < 30) {
+        position = c;
+        continue;
+      }
+      const candidate = scotusNameFromCell(c.replace(/\s*\([^)]*\)\s*/g, " "));
+      if (candidate) {
+        name = candidate;
+        break;
+      }
+    }
+    // Prefer the dedicated name column when cells[2] is person-shaped
+    const col2 = scotusNameFromCell(String(cells[2] || "").replace(/\s*\([^)]*\)\s*/g, " "));
+    if (col2) name = col2;
+
+    if (!name || seen.has(name)) continue;
     seen.add(name);
-    fallback.push({
-      name,
-      slug: slugify(name),
-      race: /Roberts/i.test(name) ? "U.S. Supreme Court · Chief Justice" : "U.S. Supreme Court · Associate Justice",
-      bucket: "Supreme Court",
-      aliases: [name],
-    });
-    if (fallback.length >= 9) break;
+    out.push(scotusSeed(name, position));
   }
-  if (fallback.length < 8) throw new Error(`SCOTUS parse weak (${fallback.length})`);
-  return fallback;
+
+  if (out.length < 8) throw new Error(`SCOTUS parse weak (${out.length})`);
+  // Cap at 9 sitting seats (ignore historical noise)
+  return out.slice(0, 9);
 }
 
 const TERRITORIES = new Set(["PR", "VI", "GU", "AS", "MP", "DC"]);
