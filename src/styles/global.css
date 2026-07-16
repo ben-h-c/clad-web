@@ -2250,7 +2250,6 @@ html.clad-app .emap-page {
   border-top: 2px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   scrollbar-width: thin;
-  align-items: stretch;
 }
 
 /* Left/right scroll arrows: faint until hovered. */
@@ -2298,74 +2297,6 @@ html.clad-app .emap-page {
 .hero-strip__item {
   flex: 0 0 clamp(16rem, 72%, 22rem);
   scroll-snap-align: start;
-}
-
-/* ── Vertical collapse for Breaking + Front Page ──────────────────────────
- * Width fixed. Detail blocks (summary, date, lean, source) animate open/closed
- * with max-height + opacity — never display:none, no size thrashing. */
-.hero-strip--focusable .hero-strip__item {
-  flex: 0 0 clamp(16rem, 72%, 22rem);
-  scroll-snap-align: start;
-}
-.hero-strip--focusable .hero-strip__item .report-card {
-  height: auto;
-}
-
-/* Shared “detail” bundle — one vertical motion for all extra copy */
-.hero-strip--focusable .report-card__meta,
-.hero-strip--focusable .report-card__summary,
-.hero-strip--focusable .scoreband__bias,
-.hero-strip--focusable .report-card__source,
-.hero-strip--focusable .report-card__kicker {
-  overflow: hidden;
-  max-height: 12rem;
-  opacity: 1;
-  margin-top: revert;
-  margin-bottom: revert;
-  transform: translateY(0);
-  transition:
-    max-height 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
-    opacity 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
-    margin 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
-    transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-/* Collapsed: stack closes upward; keep thumb + grade + headline */
-.hero-strip--focusable .hero-strip__item.is-compact .report-card__meta,
-.hero-strip--focusable .hero-strip__item.is-compact .report-card__summary,
-.hero-strip--focusable .hero-strip__item.is-compact .scoreband__bias,
-.hero-strip--focusable .hero-strip__item.is-compact .report-card__source,
-.hero-strip--focusable .hero-strip__item.is-compact .report-card__kicker {
-  max-height: 0;
-  opacity: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  transform: translateY(-0.2rem);
-  pointer-events: none;
-}
-
-/* Lean column inside scoreband collapses without reflow of grade */
-.hero-strip--focusable .hero-strip__item.is-compact .scoreband {
-  transition: gap 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
-  gap: 0.35rem;
-}
-.hero-strip--focusable .hero-strip__item.is-focus .scoreband {
-  transition: gap 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-strip--focusable .report-card__meta,
-  .hero-strip--focusable .report-card__summary,
-  .hero-strip--focusable .scoreband__bias,
-  .hero-strip--focusable .report-card__source,
-  .hero-strip--focusable .report-card__kicker {
-    transition: none !important;
-    max-height: none !important;
-    opacity: 1 !important;
-    margin: revert !important;
-    transform: none !important;
-    pointer-events: auto !important;
-  }
 }
 
 /* Card grid (categories, section pages) */

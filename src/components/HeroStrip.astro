@@ -31,9 +31,9 @@ const {
     </div>
     <div class="hero-strip-wrap">
       <button type="button" class="hero-arrow hero-arrow--left" aria-label="Scroll left" hidden>‹</button>
-      <div class="hero-strip hero-strip--focusable" aria-label={`${title} reports`}>
+      <div class="hero-strip" aria-label={`${title} reports`}>
         {posts.map((p) => (
-          <div class="hero-strip__item is-compact">
+          <div class="hero-strip__item">
             <ReportCard post={p} locked={locked && p.id !== unlockedId} sample={locked && p.id === unlockedId} />
           </div>
         ))}
@@ -45,100 +45,36 @@ const {
 
 <script is:inline>
   (() => {
-    // ── Horizontal arrows (once) ──────────────────────────────────────────
-    if (!window.__heroArrows) {
-      window.__heroArrows = true;
-      const updaters = [];
-      const wire = (wrap) => {
-        const strip = wrap.querySelector(".hero-strip");
-        const left = wrap.querySelector(".hero-arrow--left");
-        const right = wrap.querySelector(".hero-arrow--right");
-        if (!strip || !left || !right) return;
-        const update = () => {
-          const max = strip.scrollWidth - strip.clientWidth;
-          if (max <= 4) { left.hidden = true; right.hidden = true; return; }
-          left.hidden = strip.scrollLeft <= 2;
-          right.hidden = strip.scrollLeft >= max - 2;
-        };
-        const step = () => Math.max(240, strip.clientWidth * 0.8);
-        const behavior = () =>
-          matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
-        left.addEventListener("click", () => strip.scrollBy({ left: -step(), behavior: behavior() }));
-        right.addEventListener("click", () => strip.scrollBy({ left: step(), behavior: behavior() }));
-        strip.addEventListener("scroll", update, { passive: true });
-        updaters.push(update);
-        update();
+    if (window.__heroArrows) return;
+    window.__heroArrows = true;
+    const updaters = [];
+    const wire = (wrap) => {
+      const strip = wrap.querySelector(".hero-strip");
+      const left = wrap.querySelector(".hero-arrow--left");
+      const right = wrap.querySelector(".hero-arrow--right");
+      if (!strip || !left || !right) return;
+      const update = () => {
+        const max = strip.scrollWidth - strip.clientWidth;
+        if (max <= 4) { left.hidden = true; right.hidden = true; return; }
+        left.hidden = strip.scrollLeft <= 2;
+        right.hidden = strip.scrollLeft >= max - 2;
       };
-      const initArrows = () => {
-        document.querySelectorAll(".hero-strip-wrap").forEach(wire);
-        requestAnimationFrame(() => updaters.forEach((u) => u()));
-      };
-      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initArrows);
-      else initArrows();
-      window.addEventListener("load", () => updaters.forEach((u) => u()));
-      window.addEventListener("resize", () => updaters.forEach((u) => u()));
-    }
-
-    // ── Vertical expand (Breaking + Front Page) ───────────────────────────
-    // Width fixed. Strip opens when near mid-viewport and stays open with
-    // hysteresis so it does not chatter. CSS handles slow max-height motion.
-    if (window.__heroFocus) return;
-    window.__heroFocus = true;
-
-    const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
-    /** @type {WeakMap<Element, boolean>} */
-    const openState = new WeakMap();
-
-    function applyFocus() {
-      const strips = document.querySelectorAll(".hero-strip--focusable");
-      if (!strips.length) return;
-      const vh = window.innerHeight;
-      const mid = vh * 0.5;
-      // Hysteresis: open sooner, close later — one consistent motion, no flicker
-      const openDist = vh * 0.38;
-      const closeDist = vh * 0.52;
-      const expandAll = reduced();
-
-      strips.forEach((strip) => {
-        const section = strip.closest(".hero") || strip;
-        const r = section.getBoundingClientRect();
-        const cy = r.top + r.height / 2;
-        const dist = Math.abs(cy - mid);
-        const visible = r.bottom > 40 && r.top < vh - 40;
-        let open = openState.get(strip);
-        if (expandAll) open = true;
-        else if (!visible) open = false;
-        else if (open === undefined) open = dist < openDist;
-        else if (open && dist > closeDist) open = false;
-        else if (!open && dist < openDist) open = true;
-        openState.set(strip, open);
-
-        const items = strip.querySelectorAll(".hero-strip__item");
-        items.forEach((el) => {
-          el.classList.toggle("is-focus", open);
-          el.classList.toggle("is-compact", !open);
-          el.classList.remove("is-mid");
-        });
-      });
-    }
-
-    let ticking = false;
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        ticking = false;
-        applyFocus();
-      });
+      const step = () => Math.max(240, strip.clientWidth * 0.8);
+      const behavior = () =>
+        matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+      left.addEventListener("click", () => strip.scrollBy({ left: -step(), behavior: behavior() }));
+      right.addEventListener("click", () => strip.scrollBy({ left: step(), behavior: behavior() }));
+      strip.addEventListener("scroll", update, { passive: true });
+      updaters.push(update);
+      update();
     };
-
-    const initFocus = () => {
-      applyFocus();
-      window.addEventListener("scroll", onScroll, { passive: true });
-      window.addEventListener("resize", onScroll);
+    const init = () => {
+      document.querySelectorAll(".hero-strip-wrap").forEach(wire);
+      requestAnimationFrame(() => updaters.forEach((u) => u()));
     };
-    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initFocus);
-    else initFocus();
-    window.addEventListener("load", applyFocus);
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+    else init();
+    window.addEventListener("load", () => updaters.forEach((u) => u()));
+    window.addEventListener("resize", () => updaters.forEach((u) => u()));
   })();
 </script>
