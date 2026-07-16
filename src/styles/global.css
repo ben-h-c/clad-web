@@ -600,9 +600,14 @@ html.clad-app .site-tip {
 html.clad-app .colophon {
   padding-bottom: 0.25rem;
 }
-/* Tighter masthead chrome on phone-width app screens */
+/* Tighter masthead on phone-width app screens */
 html.clad-app .masthead {
-  padding-top: 0.35rem;
+  padding-top: 0;
+}
+html.clad-app .masthead__bar {
+  min-height: 2.15rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
 }
 /* Map / full-bleed tools: keep side gutters but use full vertical space */
 html.clad-app .emap-page {
@@ -618,37 +623,98 @@ html.clad-app .emap-page {
   contain-intrinsic-size: auto 8rem;
 }
 
-/* Masthead — nameplate */
+/* Masthead — sticky compact bar + scrolling nameplate identity */
 
 .masthead {
   text-align: center;
-  padding: 1rem 0 0.85rem;
+  padding: 0 0 0.55rem;
   position: relative;
   overflow: visible;
   z-index: 0;
 }
 
-/* Title/tagline are full-width text layers — don't steal clicks from chrome. */
-.masthead__title,
+/* Sticky header row: Menu · Clad · Account / Theme / Search */
+.masthead__bar {
+  position: sticky;
+  top: 0;
+  z-index: 5000;
+  display: grid;
+  grid-template-columns: minmax(2.5rem, 1fr) auto minmax(2.5rem, 1fr);
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  /* Compact on web — less dead space above/below the controls */
+  min-height: 2.35rem;
+  padding: 0.28rem 0;
+  margin: 0 0 0.35rem;
+  /* Opaque so page content never shows through while stuck */
+  background: var(--paper);
+  border-bottom: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--paper) 100%, transparent),
+    0 6px 14px color-mix(in srgb, var(--shadow) 12%, transparent);
+  /* Bleed slightly into shell gutters so the bar feels continuous */
+  margin-left: -0.15rem;
+  margin-right: -0.15rem;
+  padding-left: 0.15rem;
+  padding-right: 0.15rem;
+}
+
+:root[data-theme="dark"] .masthead__bar,
+html.theme-dark .masthead__bar {
+  background: var(--paper);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--rule) 25%, transparent),
+    0 8px 16px color-mix(in srgb, var(--shadow) 35%, transparent);
+}
+
+.masthead__bar-spacer {
+  display: block;
+  min-width: 2.1rem;
+  min-height: 1px;
+}
+
+.masthead__identity {
+  padding: 0.15rem 0 0;
+}
+
+/* Title is in the bar; tagline/meta don't need click-through hacks on bar. */
 .masthead__tagline,
 .masthead__meta {
   pointer-events: none;
 }
+.masthead__title {
+  pointer-events: auto;
+  justify-self: center;
+  grid-column: 2;
+  margin: 0;
+  line-height: 1;
+}
 .masthead__title a {
   pointer-events: auto;
+  color: inherit;
+  text-decoration: none;
 }
 
-/* Top-right chrome group: Account · Theme · Search — one stacking layer. */
+/* Left: menu (or spacer on admin) */
+.masthead__menu {
+  justify-self: start;
+  grid-column: 1;
+}
+
+/* Right: Account · Theme · Search */
 .masthead__chrome {
-  position: absolute;
-  top: 0;
-  right: 0;
+  position: relative;
+  top: auto;
+  right: auto;
   z-index: 100;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0.35rem;
+  justify-content: flex-end;
+  gap: 0.3rem;
   pointer-events: auto;
+  justify-self: end;
+  grid-column: 3;
 }
 
 .masthead__search,
@@ -667,8 +733,8 @@ html.clad-app .emap-page {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.1rem;
+  height: 2.1rem;
   color: var(--ink);
   border: 1px solid var(--rule);
 }
@@ -682,10 +748,10 @@ html.clad-app .emap-page {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.1rem;
+  height: 2.1rem;
   padding: 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1;
   letter-spacing: 0;
   color: var(--ink);
@@ -706,9 +772,9 @@ html.clad-app .emap-page {
 .masthead__account {
   display: inline-flex;
   align-items: center;
-  height: 2.4rem;
-  padding: 0 0.7rem;
-  font-size: 0.72rem;
+  height: 2.1rem;
+  padding: 0 0.55rem;
+  font-size: 0.68rem;
   letter-spacing: 0.08em;
   color: var(--ink);
   border: 1px solid var(--rule);
@@ -722,7 +788,6 @@ html.clad-app .emap-page {
 
 @media (max-width: 30rem) {
   .masthead__account {
-    /* Keep the control; shorten label via CSS not required */
     max-width: 5.5rem;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -734,6 +799,16 @@ html.clad-app .emap-page {
   .masthead__account {
     display: none;
   }
+}
+
+/* In-app: sticky under the notch / status bar */
+html.clad-app .masthead__bar {
+  top: 0;
+  /* shell already pads safe-area; keep bar flush with content top */
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* Auth pages (login / register / account) */
@@ -1555,9 +1630,9 @@ html.clad-app .emap-page {
 }
 
 .masthead__menu {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
+  top: auto;
+  left: auto;
   text-align: left;
   z-index: 50;
 }
@@ -1569,9 +1644,9 @@ html.clad-app .emap-page {
 .masthead__menu > summary {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  height: 2.4rem;
-  padding: 0 0.7rem;
+  gap: 0.35rem;
+  height: 2.1rem;
+  padding: 0 0.55rem;
   color: var(--ink);
   border: 1px solid var(--rule);
   background: var(--paper);
@@ -1599,7 +1674,7 @@ html.clad-app .emap-page {
 
 .masthead__menu-list {
   position: absolute;
-  top: 2.4rem;
+  top: calc(100% + 0.2rem);
   left: 0;
   min-width: 14.5rem;
   max-width: min(18rem, calc(100vw - 1.5rem));
@@ -1611,8 +1686,8 @@ html.clad-app .emap-page {
   background: var(--paper);
   border: 1px solid var(--rule);
   box-shadow: 3px 3px 0 var(--shadow);
-  /* Within masthead isolation context — must beat title/meta/search chips. */
-  z-index: 200;
+  /* Above sticky bar siblings + page content while open */
+  z-index: 5200;
   pointer-events: auto;
 }
 
@@ -1897,11 +1972,12 @@ html.clad-app .emap-page {
   font-size: 0.9rem;
 }
 
+/* Compact wordmark in the sticky bar (was a tall nameplate). */
 .masthead__title {
   font-family: var(--font-masthead);
   font-weight: 700;
-  font-size: clamp(2.5rem, 8vw, 4.75rem);
-  letter-spacing: 0.2em;
+  font-size: clamp(1.35rem, 3.2vw, 1.75rem);
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   margin: 0;
   line-height: 1;
@@ -1911,9 +1987,9 @@ html.clad-app .emap-page {
 .masthead__tagline {
   text-align: center;
   color: var(--muted-ink);
-  margin: 0.4rem 0 0;
+  margin: 0.15rem 0 0;
   letter-spacing: 0.12em;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
 }
 
 .masthead__meta {
@@ -1921,9 +1997,9 @@ html.clad-app .emap-page {
   justify-content: space-between;
   gap: 0.75rem;
   color: var(--muted-ink);
-  font-size: 0.72rem;
-  margin-top: 0.55rem;
-  padding: 0.35rem 0.15rem 0;
+  font-size: 0.68rem;
+  margin-top: 0.35rem;
+  padding: 0.28rem 0.15rem 0;
   border-top: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
 }
 
@@ -4676,23 +4752,28 @@ html.admin-nav-open .admin-nav {
     justify-content: center;
   }
 
-  /* Masthead: reclaim a lot of vertical space */
+  /* Masthead: compact sticky bar + tight identity */
   .masthead {
-    padding: 0.4rem 0 0.4rem;
+    padding: 0 0 0.35rem;
+  }
+  .masthead__bar {
+    min-height: 2.2rem;
+    padding: 0.22rem 0;
+    margin-bottom: 0.25rem;
   }
   .masthead__title {
-    font-size: clamp(2rem, 13vw, 2.6rem);
-    letter-spacing: 0.08em;
+    font-size: clamp(1.2rem, 5.5vw, 1.45rem);
+    letter-spacing: 0.12em;
   }
   .masthead__tagline {
-    font-size: 0.78rem;
-    margin-top: 0.2rem;
+    font-size: 0.68rem;
+    margin-top: 0.1rem;
   }
   .masthead .rule--double {
-    margin: 0.4rem 0;
+    margin: 0.3rem 0;
   }
   .masthead__meta {
-    margin-top: 0.3rem;
+    margin-top: 0.25rem;
   }
 
   /* Tighter gaps between the big sections */
