@@ -5,6 +5,7 @@ import { ImageResponse } from "workers-og";
 import { aggregateTopics, gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
 import { getBreaking } from "~/lib/agents";
 import { isNewsOutlet } from "~/lib/networks";
+import { displayableThumb } from "~/lib/imagePolicy";
 
 export const prerender = false;
 
@@ -12,8 +13,7 @@ export const prerender = false;
 // (instant invalidation on deploy) and posts reference /og/<slug>.png?v=N so
 // social scrapers — which key their own caches on the URL — re-unfurl
 // already-shared links with the new design.
-// Bump to force social scrapers + edge cache to re-unfurl redesigned cards.
-const CARD_VERSION = "4";
+const CARD_VERSION = "5";
 
 const PAPER = "#F5EDD9";
 const INK = "#1A140D";
@@ -47,6 +47,8 @@ interface Card {
   /** The most attention-worthy key moment (a contested claim when one exists)
    *  — rendered as the paper-on-ink pull quote in the top band. */
   moment?: { claim: string; verdict: string } | null;
+  /** Absolute URL for the post/topic still (YouTube or /generated/), if any. */
+  thumbUrl?: string | null;
 }
 
 function gradeColor(badge: string): string {
@@ -61,13 +63,10 @@ function verdictChipColor(verdict: string): string {
 }
 
 /**
- * Top band. Licensing: never bake third-party imagery into a PNG we serve
- * from our own domain — broadcasters' video stills can contain licensed wire
- * photos (docs/legal/image-claims.md). Instead of the old empty ink band, the
- * space now carries the card's strongest hook: the actual claim we checked,
- * set paper-on-ink like a letterpress pull quote. Cards without a key moment
- * (topics, verdict posts, breaking groups without one) get the masthead
- * tagline treatment so the band is never dead space.
+ * Post stills on OG cards: same source as site tiles (YouTube poster of the
+ * reviewed video, or site-owned /generated/ art), gated by SHOW_VIDEO_STILLS
+ * (docs/legal/image-claims.md). Bytes are fetched at render time and embedded
+ * as a data URI for satori — not hotlinked.
  */
 /** Human urgency label for the hook band — reads like a feed thumbnail. */
 function hookKicker(verdict: string): string {
@@ -79,28 +78,45 @@ function hookKicker(verdict: string): string {
   return "WE FACT-CHECKED THIS";
 }
 
-function bandBlock(card: Card): string {
-  if (card.moment?.claim) {
-    const v = card.moment.verdict.toUpperCase();
-    const chipColor = verdictChipColor(card.moment.verdict);
-    const q = clip(card.moment.claim, 130);
-    const qSize = q.length > 85 ? 36 : 44;
-    return `<div style="display:flex;flex-direction:column;justify-content:center;width:1200px;height:250px;background:${INK};padding:0 48px;">
-      <div style="display:flex;align-items:center;margin-bottom:16px;">
-        <div style="display:flex;font-size:22px;color:${PAPER};opacity:0.8;letter-spacing:5px;font-weight:700;">${esc(hookKicker(card.moment.verdict))}</div>
-        <div style="display:flex;margin-left:22px;padding:8px 16px;border:3px solid ${chipColor};font-size:22px;letter-spacing:3px;font-weight:700;color:${chipColor};">${esc(v)}</div>
-      </div>
-      <div style="display:flex;font-size:${qSize}px;font-weight:700;line-height:1.15;color:${PAPER};">“${esc(q)}”</div>
-    </div>`;
+function arrayBufferToDataUri(buf: ArrayBuffer, mime: string): string {
+  const bytes = new Uint8Array(buf);
+  const chunk = 0x8000;
+  let binary = "";
+  for (let i = 0; i < bytes.length; i += chunk) {
+    binary += String.fromCharCode(...bytes.subarray(i, i + chunk));
   }
-  return `<div style="display:flex;flex-direction:column;justify-content:center;align-items:center;width:1200px;height:250px;background:${INK};">
-    <div style="display:flex;font-size:28px;color:${PAPER};opacity:0.85;letter-spacing:8px;font-weight:700;">FACT-CHECKED · GRADED · BIAS-RATED</div>
-    <div style="display:flex;width:480px;height:3px;background:${PAPER};opacity:0.45;margin:20px 0;"></div>
-    <div style="display:flex;font-size:52px;font-weight:700;letter-spacing:4px;color:${PAPER};">SEE HOW IT HELD UP</div>
-  </div>`;
+  return `data:${mime};base64,${btoa(binary)}`;
 }
 
-function markup(card: Card): string {
+/** Fetch a still and return a data URI satori can embed, or null. */
+async function loadThumbDataUri(rawUrl: string | null | undefined, origin: string): Promise<string | null> {
+  const allowed = displayableThumb(rawUrl);
+  if (!allowed) return null;
+  let url = allowed;
+  if (url.startsWith("/")) url = new URL(url, origin).href;
+  try {
+    const r = await fetch(url, {
+      headers: { "User-Agent": "CladFactsOG/1.0 (+https://cladfacts.com)", Accept: "image/*" },
+      redirect: "follow",
+    });
+    if (!r.ok) return null;
+    const buf = await r.arrayBuffer();
+    if (buf.byteLength < 800 || buf.byteLength > 2_500_000) return null;
+    const bytes = new Uint8Array(buf);
+    let mime = (r.headers.get("content-type") || "").split(";")[0]?.trim() || "";
+    if (!mime.startsWith("image/")) {
+      if (bytes[0] === 0x89 && bytes[1] === 0x50) mime = "image/png";
+      else if (bytes[0] === 0xff && bytes[1] === 0xd8) mime = "image/jpeg";
+      else if (bytes[0] === 0x52 && bytes[1] === 0x49) mime = "image/webp";
+      else return null;
+    }
+    return arrayBufferToDataUri(buf, mime);
+  } catch {
+    return null;
+  }
+}
+
+function markup(card: Card, thumbDataUri: string | null): string {
   const color = gradeColor(card.badge);
   const meta =
     card.metaLine != null
@@ -108,42 +124,68 @@ function markup(card: Card): string {
       : [card.lean ? "POLITICAL LEAN" : null, card.factuality != null ? `FACTUALITY ${card.factuality}/100` : null]
           .filter(Boolean)
           .join("    ·    ");
-  // Timeline legibility: a 1200px card renders ~500px wide in a feed (0.42
-  // scale) — the grade and headline must survive that. Letter grades get the
-  // full stamp treatment; word badges stay smaller.
-  const badgeSize = card.badge.length <= 2 ? 120 : 52;
-  const hClipped = clip(card.headline, 120);
-  const hSize = hClipped.length > 70 ? 38 : 46;
-  const leanBlock = card.lean
-    ? `<div style="display:flex;flex-direction:column;">
-         <div style="display:flex;font-size:42px;font-weight:700;">${esc(card.lean)}</div>
-         <div style="display:flex;font-size:22px;color:${MUTED};letter-spacing:2px;margin-top:6px;">${esc(meta)}</div>
-       </div>`
+  const badgeSize = card.badge.length <= 2 ? 96 : 44;
+  const hClipped = clip(card.headline, thumbDataUri ? 90 : 120);
+  const hSize = hClipped.length > 70 ? 34 : 42;
+
+  const leanLine = card.lean
+    ? `<div style="display:flex;font-size:28px;font-weight:700;">${esc(card.lean)}</div>
+       <div style="display:flex;font-size:18px;color:${MUTED};letter-spacing:2px;margin-top:4px;">${esc(meta)}</div>`
     : meta
-      ? `<div style="display:flex;font-size:24px;color:${MUTED};letter-spacing:2px;">${esc(meta)}</div>`
-      : `<div style="display:flex;"></div>`;
+      ? `<div style="display:flex;font-size:20px;color:${MUTED};letter-spacing:2px;">${esc(meta)}</div>`
+      : "";
+
+  const hook =
+    card.moment?.claim
+      ? (() => {
+          const v = card.moment!.verdict.toUpperCase();
+          const chipColor = verdictChipColor(card.moment!.verdict);
+          const q = clip(card.moment!.claim, thumbDataUri ? 95 : 120);
+          return `<div style="display:flex;flex-direction:column;margin-bottom:14px;">
+            <div style="display:flex;align-items:center;margin-bottom:10px;">
+              <div style="display:flex;font-size:16px;color:${MUTED};letter-spacing:3px;font-weight:700;">${esc(hookKicker(card.moment!.verdict))}</div>
+              <div style="display:flex;margin-left:14px;padding:5px 12px;border:2px solid ${chipColor};font-size:16px;letter-spacing:2px;font-weight:700;color:${color === RED ? RED : INK};border-color:${chipColor === PAPER ? INK : chipColor};">${esc(v)}</div>
+            </div>
+            <div style="display:flex;font-size:26px;font-weight:700;line-height:1.2;color:${INK};">“${esc(q)}”</div>
+          </div>`;
+        })()
+      : `<div style="display:flex;font-size:18px;color:${MUTED};letter-spacing:4px;font-weight:700;margin-bottom:12px;">FACT-CHECKED · GRADED · BIAS-RATED</div>`;
+
+  const gradeStamp = `<div style="display:flex;flex-direction:column;align-items:center;border:5px solid ${color};padding:8px 16px;margin-right:20px;background:${PAPER};">
+    <div style="display:flex;font-size:${badgeSize}px;font-weight:700;line-height:1;color:${color};">${esc(card.badge)}</div>
+    <div style="display:flex;font-size:16px;color:${color};letter-spacing:2px;margin-top:2px;font-weight:700;">${esc(card.badgeLabel)}</div>
+  </div>`;
+
+  const bodyRight = `<div style="display:flex;flex-direction:column;flex:1;padding:20px 28px 12px;justify-content:space-between;min-width:0;">
+    ${hook}
+    <div style="display:flex;align-items:center;">
+      ${gradeStamp}
+      <div style="display:flex;flex-direction:column;">${leanLine}</div>
+    </div>
+    <div style="display:flex;font-size:${hSize}px;font-weight:700;line-height:1.1;margin-top:12px;">${esc(hClipped)}</div>
+  </div>`;
+
+  const mid = thumbDataUri
+    ? `<div style="display:flex;flex:1;flex-direction:row;min-height:0;border-bottom:3px solid ${INK};">
+        <div style="display:flex;width:480px;height:470px;overflow:hidden;border-right:3px solid ${INK};background:${INK};">
+          <img src="${thumbDataUri}" width="480" height="470" style="object-fit:cover;width:480px;height:470px;" />
+        </div>
+        ${bodyRight}
+      </div>`
+    : `<div style="display:flex;flex:1;flex-direction:column;min-height:0;border-bottom:3px solid ${INK};">
+        ${bodyRight}
+      </div>`;
 
   return `
   <div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;">
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 44px;height:64px;border-bottom:4px solid ${INK};">
-      <div style="display:flex;font-size:34px;font-weight:700;letter-spacing:5px;">CLADFACTS</div>
-      <div style="display:flex;font-size:20px;color:${MUTED};letter-spacing:3px;font-weight:700;">REPORT CARD</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 36px;height:56px;border-bottom:4px solid ${INK};">
+      <div style="display:flex;font-size:30px;font-weight:700;letter-spacing:5px;">CLADFACTS</div>
+      <div style="display:flex;font-size:18px;color:${MUTED};letter-spacing:3px;font-weight:700;">REPORT CARD</div>
     </div>
-    <div style="display:flex;width:1200px;height:250px;border-bottom:1px solid ${INK};">${bandBlock(card)}</div>
-    <div style="display:flex;flex-direction:column;flex:1;padding:20px 44px 0;justify-content:space-between;">
-      <div style="display:flex;align-items:center;">
-        <div style="display:flex;flex-direction:column;align-items:center;margin-right:28px;border:5px solid ${color};padding:10px 18px;">
-          <div style="display:flex;font-size:${badgeSize}px;font-weight:700;line-height:1;color:${color};">${esc(card.badge)}</div>
-          <div style="display:flex;font-size:18px;color:${color};letter-spacing:3px;margin-top:4px;font-weight:700;">${esc(card.badgeLabel)}</div>
-        </div>
-        <div style="display:flex;width:3px;height:110px;background:${INK};margin-right:28px;"></div>
-        ${leanBlock}
-      </div>
-      <div style="display:flex;font-size:${hSize}px;font-weight:700;line-height:1.1;margin-top:12px;">${esc(hClipped)}</div>
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding:14px 0;border-top:3px solid ${INK};">
-        <div style="display:flex;font-size:22px;font-weight:700;letter-spacing:2px;color:${RED};">TAP FOR THE FULL RECEIPTS</div>
-        <div style="display:flex;font-size:20px;color:${MUTED};letter-spacing:2px;">cladfacts.com</div>
-      </div>
+    ${mid}
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 36px;height:48px;">
+      <div style="display:flex;font-size:20px;font-weight:700;letter-spacing:2px;color:${RED};">TAP FOR THE FULL RECEIPTS</div>
+      <div style="display:flex;font-size:18px;color:${MUTED};letter-spacing:2px;">cladfacts.com</div>
     </div>
   </div>`;
 }
@@ -209,9 +251,11 @@ export const GET: APIRoute = async ({ params, request, locals }) => {
   const card = await buildCard(slug);
   if (!card) return new Response("Not found", { status: 404 });
 
-  const fonts = await loadFonts(new URL(request.url).origin);
+  const origin = new URL(request.url).origin;
+  const fonts = await loadFonts(origin);
+  const thumbDataUri = await loadThumbDataUri(card.thumbUrl, origin);
 
-  const img = new ImageResponse(markup(card), {
+  const img = new ImageResponse(markup(card, thumbDataUri), {
     width: 1200,
     height: 630,
     fonts: fonts as any,
@@ -243,6 +287,12 @@ function pickMoment(
   return m ? { claim: m.claim, verdict: m.verdict } : null;
 }
 
+function postThumbUrl(d: { thumbnail?: string; videoId?: string }): string | null {
+  if (d.thumbnail) return d.thumbnail;
+  if (d.videoId) return `https://img.youtube.com/vi/${d.videoId}/hqdefault.jpg`;
+  return null;
+}
+
 async function buildCard(slug: string): Promise<Card | null> {
   const all = await getCollection("posts", (p) => !p.data.draft);
 
@@ -250,6 +300,7 @@ async function buildCard(slug: string): Promise<Card | null> {
     const topicSlug = slug.slice("topic-".length);
     const t = aggregateTopics(all).find((x) => x.slug === topicSlug);
     if (!t) return null;
+    const thumbPost = t.posts[0];
     return {
       headline: t.display,
       badge: t.avgGrade ?? "—",
@@ -257,6 +308,7 @@ async function buildCard(slug: string): Promise<Card | null> {
       lean: leanLabel(t.avgLean, undefined),
       factuality: null,
       metaLine: `TOPIC · ${t.count} ${t.count === 1 ? "REPORT" : "REPORTS"}`,
+      thumbUrl: t.thumbnail || (thumbPost ? postThumbUrl(thumbPost.data) : null),
     };
   }
 
@@ -282,6 +334,7 @@ async function buildCard(slug: string): Promise<Card | null> {
       factuality: null,
       metaLine: `DEVELOPING STORY · ${members.length} ${members.length === 1 ? "OUTLET" : "OUTLETS"} GRADED`,
       moment: pickMoment(members[0]!.data.keyMoments),
+      thumbUrl: postThumbUrl(members[0]!.data),
     };
   }
 
@@ -296,5 +349,6 @@ async function buildCard(slug: string): Promise<Card | null> {
     lean: isBroadcast ? leanLabel(leanScoreOf(d), d.politicalLean) : null,
     factuality: isBroadcast && typeof d.factualityScore === "number" ? d.factualityScore : null,
     moment: isBroadcast ? pickMoment(d.keyMoments) : null,
+    thumbUrl: postThumbUrl(d),
   };
 }

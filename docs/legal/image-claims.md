@@ -8,11 +8,14 @@ deadline._
 
 Post artwork on cladfacts.com is exactly one of:
 
-1. **The YouTube CDN still of the post's own embedded video**, hotlinked from
-   `img.youtube.com` / `i.ytimg.com`. We display the poster frame of a video we
-   embed and review; the bytes never touch our servers. We never rehost,
-   proxy, resize, or bake these stills into images we serve (the OG share-card
-   route composes its cards without them for this reason).
+1. **The YouTube CDN still of the post's own embedded video**, from
+   `img.youtube.com` / `i.ytimg.com`. On site tiles we hotlink the poster of
+   the video we embed and review. OG share cards (`/og/<slug>.png`) may
+   **compose that same still into the PNG** at render time (fetched and
+   embedded as a data URI for satori) so social feeds show a real thumbnail
+   alongside the grade stamp — still the post's own broadcast still only,
+   never a third-party page's `og:image`. The `SHOW_VIDEO_STILLS` kill switch
+   suppresses both tiles and OG composition in one flip.
 2. **Site-owned generated art** under `/generated/` (editorial illustrations
    produced by our own pipeline, committed to the repo).
 
