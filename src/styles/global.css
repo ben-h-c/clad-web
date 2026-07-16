@@ -1,6 +1,7 @@
 /*
- * Base newspaper layout tokens + structure (Clad/UI/NewspaperTheme.swift roots).
- * Visual finish is the hand-drawn theme in hand-drawn.css: ink on sketch paper.
+ * Newspaper theme, ported from Clad/UI/NewspaperTheme.swift.
+ * 1920s broadsheet: warm cream paper, near-black ink, dense serif type,
+ * heavy ruled borders, light desk + grain. Restrained — fact-checker, not tabloid.
  */
 
 :root {
@@ -36,13 +37,10 @@
   --grade-bad-wash: color-mix(in srgb, rgb(150, 36, 30) 13%, var(--paper));
   --grade-bad-rule: color-mix(in srgb, rgb(138, 40, 34) 42%, var(--rule));
 
-  /* Hand-drawn lettering (loaded in BaseLayout); system print fonts as fallback */
-  --font-masthead: "Caveat", "Segoe Print", "Comic Sans MS", cursive;
-  --font-display: "Caveat", "Segoe Print", "Comic Sans MS", cursive;
-  --font-serif: "Patrick Hand", "Segoe Print", "Comic Sans MS", cursive;
-  --font-italic: "Patrick Hand", "Segoe Print", cursive;
-  --serif: var(--font-serif);
-  --sans: var(--font-serif);
+  --font-masthead: "Didot", "Bodoni 72", "Playfair Display", Georgia, serif;
+  --font-display: "Bodoni 72", "Playfair Display", Georgia, serif;
+  --font-serif: "Iowan Old Style", "Charter", "Source Serif Pro", Georgia, serif;
+  --font-italic: "Iowan Old Style", "Charter", Georgia, serif;
 
   --measure: 70ch;
   --gutter: 1.25rem;
