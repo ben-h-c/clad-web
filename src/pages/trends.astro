@@ -94,6 +94,10 @@ const sentiTxt = (v: number) => (v > 0 ? `+${v}` : v < 0 ? `−${-v}` : "0");
       </p>
     </header>
 
+    {!locked && (
+      <CoverageLeanBar posts={posts} class="trends-lean" />
+    )}
+
     {weeks.length === 0 ? (
       <p class="dateline">Not enough data yet — check back as coverage accumulates.</p>
     ) : (

@@ -136,17 +136,10 @@ if (!locked) {
     <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
   ) : (
     <>
-      {/* Fixed spotlight carousel (midterms + hot/popular) + web lean bar. */}
-      <div class="home-top-desk">
-        {spotlightPromos.length > 0 && (
-          <div class="home-top-desk__promo">
-            <HomeSpotlightCarousel promos={spotlightPromos} />
-          </div>
-        )}
-        {!locked && (
-          <CoverageLeanBar posts={all} class="home-top-desk__lean home-web-only" />
-        )}
-      </div>
+      {/* Fixed spotlight carousel (midterms + hot/popular sections). */}
+      {spotlightPromos.length > 0 && (
+        <HomeSpotlightCarousel promos={spotlightPromos} class="home-spotlight--top" />
+      )}
 
       {APP_STORE_LIVE && (
         <>
