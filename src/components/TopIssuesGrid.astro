@@ -1,7 +1,9 @@
 ---
 /**
  * Fixed grid of top issues for the public website (not the app charts strip).
+ * Includes topic thumbnail when available.
  */
+import { displayableThumb } from "~/lib/imagePolicy";
 import type { TopicAgg } from "~/lib/topics";
 
 interface Props {
@@ -11,7 +13,10 @@ interface Props {
   class?: string;
 }
 const limit = Astro.props.limit ?? 6;
-const topics = Astro.props.topics.slice(0, limit);
+const topics = Astro.props.topics.slice(0, limit).map((t) => ({
+  ...t,
+  thumb: displayableThumb(t.thumbnail),
+}));
 const wrapClass = ["top-issues", Astro.props.class].filter(Boolean).join(" ");
 
 function leanLabel(s: number | null): string {
@@ -34,26 +39,44 @@ function sentiLabel(s: number | null): string {
       {topics.map((t) => (
         <li class="top-issues__tile">
           <a class="top-issues__link" href={`/topics/${t.slug}/`}>
-            <span class="top-issues__name">{t.display}</span>
-            <span class="top-issues__meta">
-              <span class="top-issues__count">
-                {t.todayCount > 0
-                  ? `${t.todayCount} today`
-                  : t.recentCount > 0
-                    ? `${t.recentCount} recent`
-                    : `${t.count} ${t.count === 1 ? "report" : "reports"}`}
+            <span class="top-issues__media" aria-hidden="true">
+              {t.thumb ? (
+                <img
+                  class="top-issues__thumb"
+                  src={t.thumb}
+                  alt=""
+                  width="320"
+                  height="180"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')"
+                />
+              ) : (
+                <span class="top-issues__thumb top-issues__thumb--empty"></span>
+              )}
+            </span>
+            <span class="top-issues__body">
+              <span class="top-issues__name">{t.display}</span>
+              <span class="top-issues__meta">
+                <span class="top-issues__count">
+                  {t.todayCount > 0
+                    ? `${t.todayCount} today`
+                    : t.recentCount > 0
+                      ? `${t.recentCount} recent`
+                      : `${t.count} ${t.count === 1 ? "report" : "reports"}`}
+                </span>
+                <span
+                  class={`top-issues__lean ${t.avgLean === null ? "" : t.avgLean > 5 ? "is-right" : t.avgLean < -5 ? "is-left" : "is-center"}`}
+                >
+                  {leanLabel(t.avgLean)}
+                </span>
+                <span
+                  class={`top-issues__senti ${t.avgSentiment === null ? "" : t.avgSentiment >= 10 ? "is-pos" : t.avgSentiment <= -10 ? "is-neg" : "is-center"}`}
+                >
+                  {sentiLabel(t.avgSentiment)}
+                </span>
+                <span class="top-issues__grade">{t.avgGrade ?? "—"}</span>
               </span>
-              <span
-                class={`top-issues__lean ${t.avgLean === null ? "" : t.avgLean > 5 ? "is-right" : t.avgLean < -5 ? "is-left" : "is-center"}`}
-              >
-                {leanLabel(t.avgLean)}
-              </span>
-              <span
-                class={`top-issues__senti ${t.avgSentiment === null ? "" : t.avgSentiment >= 10 ? "is-pos" : t.avgSentiment <= -10 ? "is-neg" : "is-center"}`}
-              >
-                {sentiLabel(t.avgSentiment)}
-              </span>
-              <span class="top-issues__grade">{t.avgGrade ?? "—"}</span>
             </span>
           </a>
         </li>
