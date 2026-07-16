@@ -169,8 +169,8 @@ const menuAccountText = signedIn ? accountLabel : "Sign in";
         });
       });
     });
-    // Manual light/dark toggle; persists across visits. Light is the default,
-    // so an unset theme counts as light (we do not follow the OS preference).
+    // Manual light/dark toggle. Persists to localStorage; when signed in also
+    // updates the account default so it sticks across devices/sessions.
     const themeBtn = document.getElementById("theme-toggle");
     if (themeBtn) {
       themeBtn.addEventListener("click", () => {
@@ -179,7 +179,16 @@ const menuAccountText = signedIn ? accountLabel : "Sign in";
         root.dataset.theme = next;
         try { localStorage.setItem("clad_theme", next); } catch {}
         const tc = document.querySelector('meta[name="theme-color"]');
-        if (tc) tc.setAttribute("content", next === "dark" ? "#181612" : "#f5edd9");
+        if (tc) tc.setAttribute("content", next === "dark" ? "#181612" : "#3a3026");
+        const mast = document.querySelector(".masthead");
+        if (mast && mast.getAttribute("data-signed-in") === "1") {
+          fetch("/api/me/preferences", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "same-origin",
+            body: JSON.stringify({ theme: next }),
+          }).catch(() => {});
+        }
       });
     }
     // Client backup only if SSR missed a session (cookie race / bfcache).

@@ -5,6 +5,7 @@ import OnboardingTour from "~/components/OnboardingTour.astro";
 import SiteTips from "~/components/SiteTips.astro";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 import { FOOTER_PRODUCT_LINKS } from "~/lib/explore";
+import { getSessionUser, getPrefs, type ThemePref } from "~/lib/user-data";
 
 interface Props {
   title: string;
@@ -49,6 +50,23 @@ const shareDescription = (ogDescription ?? description).replace(/\s+/g, " ").tri
 // (X/Twitter, etc.) always show a large image.
 const shareImage = new URL(ogImage ?? "/og/brand.png", site).href;
 
+// Signed-in account theme (light/dark) — applied before paint to avoid flash.
+// Guests keep using localStorage (masthead toggle) only.
+let accountTheme: ThemePref | null = null;
+if (!path.startsWith("/admin")) {
+  try {
+    const u = await getSessionUser(Astro.request.headers);
+    if (u) {
+      const prefs = await getPrefs(u.id);
+      accountTheme = prefs.theme === "dark" ? "dark" : "light";
+    }
+  } catch {
+    accountTheme = null;
+  }
+}
+const htmlTheme = accountTheme ?? undefined;
+const themeColor = accountTheme === "dark" ? "#181612" : "#3a3026";
+
 // Site-wide structured data: the publisher + a searchable website. Page-specific
 // schema (e.g. NewsArticle) is passed in via the jsonLd prop.
 const SITE_URL = site.origin;
@@ -86,7 +104,7 @@ const siteLd = {
 const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme={htmlTheme} data-account-theme={accountTheme ? "1" : "0"}>
   <head>
     <meta charset="utf-8" />
     <!-- The iOS app injects window.__cladNative at document start. Flag the
@@ -107,18 +125,22 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#3a3026" />
-    <!-- Light is the default for everyone. We apply a saved theme before first
-         paint only so a returning reader who chose dark doesn't flash light.
-         Dark mode is opt-in via the Masthead toggle (persisted as clad_theme);
-         we intentionally do NOT auto-switch to dark from the OS or time of day. -->
+    <meta name="theme-color" content={themeColor} />
+    <!-- Theme before first paint: signed-in account default (SSR data-theme)
+         wins; guests use localStorage from the masthead toggle. -->
     <script is:inline>
       try {
-        var t = localStorage.getItem("clad_theme");
-        if (t === "dark" || t === "light") {
-          document.documentElement.dataset.theme = t;
+        var root = document.documentElement;
+        var fromAccount = root.getAttribute("data-account-theme") === "1";
+        var t = root.dataset.theme;
+        if (fromAccount && (t === "dark" || t === "light")) {
+          localStorage.setItem("clad_theme", t);
+        } else {
+          t = localStorage.getItem("clad_theme");
+          if (t === "dark" || t === "light") root.dataset.theme = t;
+          else root.removeAttribute("data-theme");
         }
-        if (t === "dark") {
+        if (root.dataset.theme === "dark") {
           var tc = document.querySelector('meta[name="theme-color"]');
           if (tc) tc.setAttribute("content", "#181612");
         }

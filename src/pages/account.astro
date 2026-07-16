@@ -98,6 +98,39 @@ const planLabel = access.tier === "paid" ? "Premium" : "Free";
       )}
     </section>
 
+    <section class="account-card" id="appearance-section">
+      <div class="account-card__head">
+        <h3 class="account-card__title">Appearance</h3>
+      </div>
+      <p class="account-card__desc">
+        Default reading theme for your account. Applied on every signed-in visit
+        (you can still flip the ◐ control in the header anytime).
+      </p>
+      <form id="theme-form" class="prefs">
+        <fieldset class="theme-fieldset">
+          <legend class="visually-hidden">Default theme</legend>
+          <label class="theme-choice">
+            <input type="radio" name="theme" value="light" checked={prefs.theme !== "dark"} />
+            <span class="theme-choice__card theme-choice__card--light">
+              <strong>Light</strong>
+              <small>Paper desk — the classic Clad look</small>
+            </span>
+          </label>
+          <label class="theme-choice">
+            <input type="radio" name="theme" value="dark" checked={prefs.theme === "dark"} />
+            <span class="theme-choice__card theme-choice__card--dark">
+              <strong>Dark</strong>
+              <small>Low-light reading after hours</small>
+            </span>
+          </label>
+        </fieldset>
+        <div class="account-actions">
+          <button type="submit" class="auth-submit">Save appearance</button>
+          <span id="theme-status" class="auth-status" role="status"></span>
+        </div>
+      </form>
+    </section>
+
     <section class="account-card" id="prefs-section">
       <div class="account-card__head">
         <h3 class="account-card__title">Email preferences</h3>
@@ -266,6 +299,33 @@ const planLabel = access.tier === "paid" ? "Premium" : "Free";
           setStatus(prefsStatus, "error", String(err.message || err));
         }
       });
+
+      // --- Appearance (theme default) ---
+      const themeForm = document.getElementById("theme-form");
+      const themeStatus = document.getElementById("theme-status");
+      if (themeForm) {
+        themeForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const picked = themeForm.querySelector('input[name="theme"]:checked');
+          const theme = picked && picked.value === "dark" ? "dark" : "light";
+          setStatus(themeStatus, "info", "Saving…");
+          try {
+            const res = await fetch("/api/me/preferences", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ theme }),
+            });
+            if (!res.ok) throw new Error("Could not save.");
+            document.documentElement.dataset.theme = theme;
+            try { localStorage.setItem("clad_theme", theme); } catch {}
+            const tc = document.querySelector('meta[name="theme-color"]');
+            if (tc) tc.setAttribute("content", theme === "dark" ? "#181612" : "#3a3026");
+            setStatus(themeStatus, "info", "Saved.");
+          } catch (err) {
+            setStatus(themeStatus, "error", String(err.message || err));
+          }
+        });
+      }
 
       // --- Topic alerts ---
       const alertForm = document.getElementById("alert-form");

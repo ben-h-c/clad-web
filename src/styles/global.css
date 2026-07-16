@@ -839,6 +839,65 @@ html.clad-app body {
   background: var(--paper);
   color: var(--ink);
 }
+.theme-fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+@media (max-width: 420px) {
+  .theme-fieldset { grid-template-columns: 1fr; }
+}
+.theme-choice {
+  display: block;
+  cursor: pointer;
+  margin: 0;
+}
+.theme-choice input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.theme-choice__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.75rem 0.85rem;
+  border: 2px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 4.5rem;
+  transition: border-color 0.12s ease, box-shadow 0.12s ease;
+}
+.theme-choice__card strong {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+.theme-choice__card small {
+  color: var(--muted-ink);
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+.theme-choice__card--dark {
+  background: #1c1915;
+  color: #f0e6d4;
+  border-color: #3a342c;
+}
+.theme-choice__card--dark small { color: #b0a48f; }
+.theme-choice input:focus-visible + .theme-choice__card {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.theme-choice input:checked + .theme-choice__card {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 1px var(--ink);
+}
+.theme-choice input:checked + .theme-choice__card--dark {
+  border-color: #f0e6d4;
+  box-shadow: 0 0 0 1px #f0e6d4;
+}
 .chip-list {
   list-style: none;
   padding: 0;

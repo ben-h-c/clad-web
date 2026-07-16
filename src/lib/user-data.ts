@@ -2,15 +2,20 @@ import { env } from "cloudflare:workers";
 import { getAuth } from "./auth-server.ts";
 import { cancelSubscription } from "./stripe.ts";
 
+export type ThemePref = "light" | "dark";
+
 export interface UserPrefs {
   newsletter: boolean;
   digest: "off" | "weekly" | "daily";
   breakingAlerts: boolean;
+  /** Preferred reading theme when signed in (synced to localStorage). */
+  theme: ThemePref;
 }
 export const DEFAULT_PREFS: UserPrefs = {
   newsletter: false,
   digest: "off",
   breakingAlerts: false,
+  theme: "light",
 };
 
 export interface SessionUser {
@@ -68,10 +73,12 @@ export async function setPrefs(userId: string, prefs: UserPrefs): Promise<void> 
 export function sanitizePrefs(input: unknown): UserPrefs {
   const o = (input ?? {}) as Record<string, unknown>;
   const digest = o.digest === "weekly" || o.digest === "daily" ? o.digest : "off";
+  const theme: ThemePref = o.theme === "dark" ? "dark" : "light";
   return {
     newsletter: !!o.newsletter,
     digest,
     breakingAlerts: !!o.breakingAlerts,
+    theme,
   };
 }
 
