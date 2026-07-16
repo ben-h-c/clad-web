@@ -50,7 +50,7 @@ export interface AgentConfig {
   refreshHours?: number; // re-scan a post once its sentiment is older than this
   refreshWindowHours?: number; // …but only while the post itself is younger than this
   // race-board-auditor
-  maxRacesPerRun?: number; // how many race cards to web-audit per run
+  maxRacesPerRun?: number; // how many race cards to web-audit (candidates + dates) per run
   // politician-profile-builder
   maxPoliticiansPerRun?: number; // how many officeholders to scout per run
   maxDraftsPerPolitician?: number; // drafts allowed per person per run
@@ -255,10 +255,10 @@ export const DEFAULT_REGISTRY: Registry = {
     {
       id: "race-board-auditor",
       kind: "race-board-auditor",
-      name: "Race Board Auditor (2026 candidates)",
+      name: "Race Board Auditor (2026 candidates + dates)",
       enabled: true,
-      // Every other day 15:00 UTC — candidate maps change around primaries/dropouts.
-      cron: "0 15 */2 * *",
+      // Daily 15:00 UTC — publish election dates ASAP; candidates + calendar.
+      cron: "0 15 * * *",
       config: {
         maxRacesPerRun: 24,
       },
@@ -323,6 +323,19 @@ export async function getRegistry(kv: KVNamespace): Promise<Registry> {
   for (const def of DEFAULT_REGISTRY.agents) {
     if (!reg.agents.some((a) => a.id === def.id)) {
       reg.agents.push(def);
+      changed = true;
+    }
+  }
+  // Bump race-board-auditor to daily so election dates publish ASAP (was */2).
+  const raceAuditor = reg.agents.find((a) => a.id === "race-board-auditor");
+  if (raceAuditor) {
+    const def = DEFAULT_REGISTRY.agents.find((a) => a.id === "race-board-auditor");
+    if (def && raceAuditor.cron !== def.cron) {
+      raceAuditor.cron = def.cron;
+      changed = true;
+    }
+    if (def && raceAuditor.name !== def.name) {
+      raceAuditor.name = def.name;
       changed = true;
     }
   }
@@ -1044,21 +1057,48 @@ export async function removeComplianceFinding(
   return report;
 }
 
-// ── Race board auditor (2026 midterms candidates) ──────────────────────
+// ── Race board auditor (2026 midterms candidates + election dates) ─────
 const RACE_AUDIT_KEY = "races:audit";
 
 export type RaceAuditSeverity = "critical" | "stale" | "info";
+
+/** Kind of the next meaningful vote on a race card. */
+export type RaceVoteKind =
+  | "primary"
+  | "runoff"
+  | "special"
+  | "general"
+  | "party-process"
+  | "undecided";
 
 export interface RaceAuditFinding {
   raceId: string;
   office: string;
   severity: RaceAuditSeverity;
-  /** Short machine-friendly tag e.g. withdrawn, wrong-nominee, open-seat */
+  /** Short machine-friendly tag e.g. withdrawn, wrong-nominee, open-seat, wrong-date */
   issue: string;
   detail: string;
   /** Suggested side labels if a change is needed */
   suggestedA?: string;
   suggestedB?: string;
+  /** Suggested next vote date (YYYY-MM-DD or "TBD") when issue is date-related */
+  suggestedNextVoteDate?: string;
+  sources?: string[];
+}
+
+/**
+ * Researched election calendar for one race — published live as soon as the
+ * daily auditor lands them. Use nextVoteDate "TBD" when not yet scheduled.
+ */
+export interface RaceElectionDate {
+  raceId: string;
+  office: string;
+  /** ISO date YYYY-MM-DD, or the literal "TBD" when not decided. */
+  nextVoteDate: string;
+  voteKind: RaceVoteKind;
+  /** ISO date YYYY-MM-DD, or "TBD" if general day is somehow unset. */
+  generalDate: string;
+  note?: string;
   sources?: string[];
 }
 
@@ -1068,6 +1108,8 @@ export interface RaceAuditReport {
   racesAudited: number;
   summary: string;
   findings: RaceAuditFinding[];
+  /** One entry per audited race — drives published vote dates on the board. */
+  electionDates?: RaceElectionDate[];
 }
 
 export async function getRaceAuditReport(kv: KVNamespace): Promise<RaceAuditReport | null> {
@@ -1082,6 +1124,12 @@ export async function getRaceAuditReport(kv: KVNamespace): Promise<RaceAuditRepo
 
 export async function setRaceAuditReport(kv: KVNamespace, report: RaceAuditReport): Promise<void> {
   await kv.put(RACE_AUDIT_KEY, JSON.stringify(report));
+}
+
+/** Latest researched dates only (empty if no audit yet). */
+export async function getPublishedElectionDates(kv: KVNamespace): Promise<RaceElectionDate[]> {
+  const report = await getRaceAuditReport(kv);
+  return Array.isArray(report?.electionDates) ? report!.electionDates! : [];
 }
 
 // ── Politician roster (officeholders — daily sync agent) ───────────────

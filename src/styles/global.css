@@ -454,19 +454,27 @@ p {
     inset 0 0 0 1px color-mix(in srgb, var(--paper) 35%, transparent);
 }
 
-/* Content sits above paper grain/wear. Masthead must stack above main so the
-   menu dropdown is not covered (and thus not clickable). */
+/* Content sits above paper grain/wear. Masthead must stack ABOVE main so the
+   menu dropdown is never covered (and thus stays clickable). Keep #main low. */
 .shell > main,
 .shell > .colophon {
   position: relative;
   z-index: 1;
+  overflow: visible;
 }
 
 .shell > .masthead {
   position: relative;
-  z-index: 200;
-  /* Create an isolation context so open menus paint above #main reliably. */
+  z-index: 4000;
+  overflow: visible;
+  /* Isolation keeps open menus above main without fighting body chrome. */
   isolation: isolate;
+}
+
+/* While the site menu is open, keep main inert for hit-testing under the sheet. */
+html.masthead-menu-open .shell > main {
+  /* Stay below masthead (4000); do not create a higher stacking context. */
+  z-index: 1;
 }
 
 :root[data-theme="dark"] .shell::before {
@@ -560,6 +568,9 @@ html.clad-app .emap-page {
   text-align: center;
   padding: 1rem 0 0.85rem;
   position: relative;
+  overflow: visible;
+  /* Ensure children (search/account) don't invent a higher sibling stack than Menu. */
+  z-index: 0;
 }
 
 .masthead__search {
@@ -1457,7 +1468,11 @@ html.clad-app .emap-page {
   top: 0;
   left: 0;
   text-align: left;
-  z-index: 300;
+  z-index: 50;
+}
+
+.masthead__menu[open] {
+  z-index: 100;
 }
 
 .masthead__menu > summary {
@@ -1505,8 +1520,9 @@ html.clad-app .emap-page {
   background: var(--paper);
   border: 1px solid var(--rule);
   box-shadow: 3px 3px 0 var(--shadow);
-  /* Above search/theme/account chips and any main content under the sheet. */
-  z-index: 400;
+  /* Within masthead isolation context — must beat title/meta/search chips. */
+  z-index: 200;
+  pointer-events: auto;
 }
 
 .masthead__menu-list li {
@@ -3936,11 +3952,31 @@ button.small {
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 1.25rem;
-  padding-bottom: 0.5rem;
+  padding: 0.4rem 0 0.55rem;
   border-bottom: 1px solid var(--rule);
-  /* Keep open console menu above page tables/forms (they often paint later). */
+  /* Stick under the viewport top so the open list stays usable while scrolling. */
+  position: sticky;
+  top: 0;
+  /* Well above queue cards, agent panels, tables, scorebands, etc. */
+  z-index: 5000;
+  background: var(--paper);
+  overflow: visible;
+  /* Own stacking context so the open list always paints above following siblings. */
+  isolation: isolate;
+}
+
+html.admin-nav-open .admin-nav {
+  z-index: 6000;
+}
+
+/* While console menu is open, demote following admin content for hit-testing. */
+html.admin-nav-open .admin > :not(.admin-nav) {
   position: relative;
-  z-index: 500;
+  z-index: 0;
+  pointer-events: none;
+}
+html.admin-nav-open .admin-nav {
+  pointer-events: auto;
 }
 
 .admin-nav details {
@@ -3975,7 +4011,7 @@ button.small {
 
 .admin-nav ul {
   position: absolute;
-  z-index: 600;
+  z-index: 10;
   top: calc(100% + 2px);
   left: 0;
   min-width: 15rem;
@@ -3987,8 +4023,7 @@ button.small {
   background: var(--paper);
   border: 1px solid var(--rule);
   box-shadow: 3px 3px 0 var(--shadow);
-  /* Avoid being covered by sticky toolbars / tables with their own stacking. */
-  isolation: isolate;
+  pointer-events: auto;
 }
 
 .admin-nav li a,
@@ -4477,6 +4512,14 @@ button.small {
 
 .sharebar__btn svg {
   flex: none;
+}
+
+/* Ballot / quiz: full-width share row under progress actions */
+.ballot-sharebar {
+  margin: 0.35rem 0 1rem;
+}
+.ballot-sharebar[hidden] {
+  display: none !important;
 }
 
 /* ---------- Mobile density pass ----------
@@ -6306,7 +6349,7 @@ html.clad-app .clad-app-only { display: block; }
   left: 0.75rem;
   right: 0.75rem;
   bottom: 0.75rem;
-  /* Below masthead/admin menus (200–600) so open dropdowns stay clickable. */
+  /* Below masthead (4000) and admin-nav (5000) so open dropdowns stay clickable. */
   z-index: 30;
   display: flex;
   flex-wrap: wrap;

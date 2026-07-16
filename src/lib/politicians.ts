@@ -392,3 +392,74 @@ export function bucketLabel(bucket: RaceBucket): string {
       return bucket;
   }
 }
+
+/** URL slug for drill-in: /politicians/?branch=senate */
+export function bucketSlug(bucket: RaceBucket): string {
+  switch (bucket) {
+    case "Executive":
+      return "executive";
+    case "Senate":
+      return "senate";
+    case "House":
+      return "house";
+    case "Governor":
+      return "governor";
+    case "Supreme Court":
+      return "supreme-court";
+    case "Coverage":
+      return "coverage";
+    default:
+      return "coverage";
+  }
+}
+
+/** Parse ?branch= query into a RaceBucket (null if missing/unknown). */
+export function bucketFromSlug(raw: string | null | undefined): RaceBucket | null {
+  if (!raw) return null;
+  const s = raw.trim().toLowerCase().replace(/_/g, "-");
+  switch (s) {
+    case "executive":
+    case "exec":
+      return "Executive";
+    case "senate":
+      return "Senate";
+    case "house":
+      return "House";
+    case "governor":
+    case "governors":
+    case "gov":
+      return "Governor";
+    case "supreme-court":
+    case "supremecourt":
+    case "scotus":
+    case "court":
+      return "Supreme Court";
+    case "coverage":
+    case "other":
+      return "Coverage";
+    default:
+      return null;
+  }
+}
+
+/** One-line blurb on the branch hub cards. */
+export function bucketBlurb(bucket: RaceBucket): string {
+  switch (bucket) {
+    case "Executive":
+      return "President, VP, and cabinet-level figures on our roster.";
+    case "Senate":
+      return "Sitting senators and 2026 Class II contenders we track.";
+    case "House":
+      return "Representatives and leadership names in graded coverage.";
+    case "Governor":
+      return "State executives — midterm cycle and beyond.";
+    case "Supreme Court":
+      return "Justices of the U.S. Supreme Court.";
+    case "Coverage":
+      return "People who appear in reports but aren’t on the officeholder roster.";
+    default:
+      return "";
+  }
+}
+
+export { BUCKET_ORDER };

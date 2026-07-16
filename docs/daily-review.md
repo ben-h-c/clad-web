@@ -39,10 +39,11 @@ on.
      surface? Are explainers ("what does the grade mean?", "how do you
      measure lean?") one tap away for someone who's never read a fact-check?
    - **Shareability**: sharing is the growth loop. Links unfurl with the
-     grade card; the ShareBar covers text/X/Facebook/Bluesky/Reddit/email/
-     TikTok (caption-copy flow) plus a downloadable grade-card image for
-     stories and videos. Keep asking: what's the friction between "this is
-     wild" and it appearing in a group chat or a story?
+     grade card; every share surface uses ShareBar with X, Facebook, TikTok,
+     Bluesky, Instagram, Threads (plus text/Reddit/email/copy and system Share).
+     TikTok/Instagram use caption-copy + open; story-card images when available.
+     Keep asking: what's the friction between "this is wild" and it appearing
+     in a group chat or a story?
    - **First-time-voter context**: young readers are new to civics. Where a
      report assumes knowledge (what the filibuster is, what an executive
      order does), is there a plain-language path to context without

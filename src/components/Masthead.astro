@@ -156,10 +156,28 @@ const menuAccountText = signedIn ? accountLabel : "Sign in";
 </header>
 {!isAdmin && (
   <script is:inline>
-    document.addEventListener("click", (e) => {
+    (() => {
       const menu = document.querySelector(".masthead__menu");
-      if (menu && menu.open && !menu.contains(e.target)) menu.open = false;
-    });
+      const syncMenuOpen = () => {
+        document.documentElement.classList.toggle("masthead-menu-open", !!(menu && menu.open));
+      };
+      if (menu) {
+        menu.addEventListener("toggle", syncMenuOpen);
+        syncMenuOpen();
+      }
+      document.addEventListener("click", (e) => {
+        if (menu && menu.open && !menu.contains(e.target)) {
+          menu.open = false;
+          syncMenuOpen();
+        }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && menu && menu.open) {
+          menu.open = false;
+          syncMenuOpen();
+        }
+      });
+    })();
     // Only one submenu open at a time (accordion).
     document.querySelectorAll(".masthead__submenu").forEach((sub) => {
       sub.addEventListener("toggle", () => {

@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ExploreNext from "~/components/ExploreNext.astro";
+import ShareBar from "~/components/ShareBar.astro";
 import { nyDateParts } from "~/lib/dateline";
 
 export const prerender = false;
@@ -90,8 +91,13 @@ const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
           <div class="rule rule--double" aria-hidden="true"></div>
           <p class="quiz__score">You called <strong id="quiz-score">0</strong> of 5 the way the report did.</p>
           <p class="quiz__streak small-caps" id="quiz-streak"></p>
+          <ShareBar
+            id="quiz-sharebar"
+            class="quiz-sharebar"
+            url="https://cladfacts.com/quiz/"
+            title="I just took today's CladFacts Morning Quiz — can you spot the spin?"
+          />
           <div class="quiz__cta">
-            <button type="button" class="quiz__share" id="quiz-share">Share your score</button>
             <a href="/register/?next=%2Fquiz%2F">Free account unlocks every grade →</a>
           </div>
         </div>
@@ -119,7 +125,7 @@ const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
     .quiz__score { font-size: 1.25rem; margin: 0.9rem 0 0.3rem; }
     .quiz__streak { color: var(--muted-ink); }
     .quiz__cta { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 0.8rem; }
-    .quiz__share { font: inherit; font-size: 0.9rem; padding: 0.4rem 0.9rem; background: transparent; border: 1px solid var(--ink); color: var(--ink); cursor: pointer; }
+    .quiz-sharebar { margin: 0.75rem 0 0.25rem; }
   </style>
 
   <script is:inline>
@@ -152,19 +158,17 @@ const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
         if (best > 0) parts.push(`best score ${best}/5`);
         document.getElementById("quiz-streak").textContent = parts.join(" · ");
         result.hidden = false;
-        const share = document.getElementById("quiz-share");
-        share.addEventListener("click", async () => {
-          const streakBit = streak > 1 ? ` (${streak}-day streak)` : "";
-          const text = `I called ${score}/5 on today's CladFacts Morning Quiz${streakBit} — can you spot the spin? https://cladfacts.com/quiz/`;
-          try {
-            if (navigator.share) await navigator.share({ text });
-            else {
-              await navigator.clipboard.writeText(text);
-              share.textContent = "Copied!";
-              setTimeout(() => (share.textContent = "Share your score"), 1800);
-            }
-          } catch {}
-        });
+        const streakBit = streak > 1 ? ` (${streak}-day streak)` : "";
+        const shareTitle =
+          `I called ${score}/5 on today's CladFacts Morning Quiz${streakBit} — can you spot the spin?`;
+        const shareBar = document.getElementById("quiz-sharebar");
+        if (shareBar) {
+          shareBar.setAttribute("data-title", shareTitle);
+          shareBar.setAttribute("data-url", "https://cladfacts.com/quiz/");
+          if (typeof window.cladRefreshShareBars === "function") {
+            window.cladRefreshShareBars(shareBar);
+          }
+        }
       };
 
       for (const q of qs) {

@@ -58,9 +58,26 @@ const currentLabel = links.find((l) => l.key === current)?.label ?? "Console";
   (() => {
     const nav = document.querySelector(".admin-nav");
     if (!nav) return;
+    const menu = nav.querySelector("details");
+    if (!menu) return;
+
+    const syncOpen = () => {
+      document.documentElement.classList.toggle("admin-nav-open", !!menu.open);
+    };
+    menu.addEventListener("toggle", syncOpen);
+    syncOpen();
+
     document.addEventListener("click", (e) => {
-      const menu = nav.querySelector("details");
-      if (menu && menu.open && !menu.contains(e.target)) menu.open = false;
+      if (menu.open && !menu.contains(e.target)) {
+        menu.open = false;
+        syncOpen();
+      }
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        syncOpen();
+      }
     });
   })();
 </script>

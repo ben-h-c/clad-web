@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import CollapsibleSection from "~/components/CollapsibleSection.astro";
 import ExploreNext from "~/components/ExploreNext.astro";
@@ -7,6 +8,7 @@ import { getAccess } from "~/lib/access";
 import { buildRaceBoard, maskRaceLeaders, statusLabel } from "~/lib/bracket";
 import { buildElectionMap, type StateMapCell } from "~/lib/electionMap";
 import { buildStateForecasts, FORECAST_ASOF, LAYER_LABELS } from "~/lib/electionForecast";
+import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates } from "~/lib/elections";
 import { RACE_BOARD_VERIFIED_ASOF } from "~/lib/races";
 import { US_MAP_VIEWBOX, US_STATE_PATHS } from "~/lib/usMapPaths";
 import { registerHref } from "~/lib/safeNext";
@@ -18,7 +20,16 @@ const access = await getAccess(Astro.request.headers);
 const reveal = access.fullAccess;
 
 const all = await getCollection("posts", (p) => !p.data.draft);
-const board = maskRaceLeaders(buildRaceBoard(all, reveal), reveal);
+const election = await getElectionWithPublishedDates(DEFAULT_ELECTION_ID, env.AGENTS);
+const board = maskRaceLeaders(
+  buildRaceBoard(all, {
+    revealScores: reveal,
+    races: election?.races,
+    title: election?.title,
+    subtitle: election?.subtitle,
+  }),
+  reveal
+);
 const map = buildElectionMap(board.cards);
 const forecast = buildStateForecasts();
 
@@ -53,6 +64,8 @@ const clientPayload = {
           statusLabel: statusLabel(r.status),
           tier: r.tier,
           heat: r.heat,
+          voteDateLabel: r.voteDateLabel ?? null,
+          nextVoteDate: r.nextVoteDate ?? null,
           aName: r.aName,
           bName: r.bName,
           aParty: r.aParty ?? null,
@@ -436,8 +449,13 @@ const registerMap = registerHref("/elections/map/");
         }
         path.setAttribute("aria-label", st.name + ": " + (mode === "coverage" ? st.glance : partyGlance(st)));
       });
-      // Legend only on Coverage map; Party & outlook has no color chip legend.
-      if (legendCov) legendCov.hidden = mode !== "coverage";
+      // Hot / Watch / Marquee legend ONLY when Map selection is Coverage.
+      // Party & outlook (any election layer) must not show coverage chips.
+      if (legendCov) {
+        const showCovLegend = mode === "coverage";
+        legendCov.hidden = !showCovLegend;
+        legendCov.setAttribute("aria-hidden", showCovLegend ? "false" : "true");
+      }
       if (layerGroup) layerGroup.hidden = mode !== "party";
       if (discParty) discParty.hidden = mode !== "party";
       if (discCov) discCov.hidden = mode !== "coverage";
@@ -486,11 +504,15 @@ const registerMap = registerHref("/elections/map/");
           const bGrade = r.bGrade
             ? `<span class="emap-grade-pill emap-grade-pill--${String(r.bGrade).charAt(0).toUpperCase()}">${esc(r.bGrade)}</span>`
             : "";
+          const when = r.voteDateLabel
+            ? `<span class="small-caps emap-race__when" title="${esc(r.nextVoteDate || "TBD")}">${esc(r.voteDateLabel)}</span>`
+            : "";
           return `<article class="emap-race" data-tier="${esc(r.tier)}">
             <header class="emap-race__head">
               <h3>${esc(r.office)}</h3>
               <span class="small-caps">${esc(r.tier)}</span>
               <span class="small-caps">${esc(r.statusLabel)}</span>
+              ${when}
               <span class="emap-race__heat">${r.heat} reports</span>
             </header>
             <div class="emap-race__sides">
@@ -762,12 +784,17 @@ const registerMap = registerHref("/elections/map/");
     background: color-mix(in srgb, var(--ink, #1a140d) 3%, var(--paper, #f5edd9));
     padding: 0.65rem 0.65rem 0.85rem;
   }
+  /* Coverage heat legend (Hot / Watch / …) — only when Map = Coverage.
+     Must not use bare `display: flex` alone or it overrides the HTML `hidden` attribute. */
   .emap-legend {
     display: flex;
     flex-wrap: wrap;
     gap: 0.25rem 0.4rem;
     margin: 0 0 0.35rem;
     opacity: 0.72;
+  }
+  .emap-legend[hidden] {
+    display: none !important;
   }
   .emap-leg {
     font-size: 0.62rem;

@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getAccess } from "~/lib/access";
 import { getSessionUser } from "~/lib/user-data";
@@ -7,21 +8,20 @@ import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
 import PoliticianAvatar from "~/components/PoliticianAvatar.astro";
 import CollapsibleSection from "~/components/CollapsibleSection.astro";
+import ShareBar from "~/components/ShareBar.astro";
 import {
   buildRaceBoard,
   maskRaceLeaders,
+  raceWhenLabel,
   statusLabel,
-  voteCountdownLabel,
   type RaceCardLive,
   type RaceSideLive,
 } from "~/lib/bracket";
 import { RACE_BOARD_VERIFIED_ASOF } from "~/lib/races";
 import {
   DEFAULT_ELECTION_ID,
-  getElection,
-  parseSortMode,
+  getElectionWithPublishedDates,
   picksAreOpen,
-  type RaceSortMode,
 } from "~/lib/elections";
 import { getBallotForUser, listResults } from "~/lib/picks";
 
@@ -33,17 +33,14 @@ const user = await getSessionUser(Astro.request.headers);
 const reveal = access.fullAccess;
 const signedIn = access.signedIn;
 
-const election = getElection(DEFAULT_ELECTION_ID)!;
-const sortMode: RaceSortMode = parseSortMode(Astro.url.searchParams.get("sort"));
-const chamberFilter = Astro.url.searchParams.get("chamber"); // senate | governor | null
-const stateFilter = (Astro.url.searchParams.get("state") || "").toUpperCase() || null;
-const marqueeOnly = Astro.url.searchParams.get("marquee") === "1";
+const election = (await getElectionWithPublishedDates(DEFAULT_ELECTION_ID, env.AGENTS))!;
 
 const all = await getCollection("posts", (p) => !p.data.draft);
 const board = maskRaceLeaders(
   buildRaceBoard(all, {
     revealScores: reveal,
-    sortMode,
+    // Fixed board order — no sort UI (hot coverage + soonest vote).
+    sortMode: "hot-soon",
     races: election.races,
     title: election.title,
     subtitle: election.subtitle,
@@ -51,12 +48,9 @@ const board = maskRaceLeaders(
   reveal
 );
 
-let cards = board.cards;
-if (chamberFilter === "senate" || chamberFilter === "governor") {
-  cards = cards.filter((c) => c.def.chamber === chamberFilter);
-}
-if (stateFilter) cards = cards.filter((c) => c.def.state === stateFilter);
-if (marqueeOnly) cards = cards.filter((c) => c.def.tier === "marquee");
+// Always render the full board; filter chips show/hide cards client-side so the
+// pick counter (X/Y) matches the visible filter.
+const cards = board.cards;
 
 const results = await listResults(election.id);
 const resultByRace = new Map(results.map((r) => [r.raceId, r]));
@@ -73,6 +67,10 @@ const score = ballot?.score ?? {
   wrong: 0,
   pending: election.races.length,
 };
+// Prefer counting from rendered cards so SSR matches post-pick DOM recount.
+const pickedFromCards = cards.filter((c) => pickByRace.has(c.def.id)).length;
+const displayPicked = Math.max(score.picked, pickedFromCards);
+const displayTotal = cards.length;
 
 const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
 const ogImage = `${origin}/og/bracket.png`;
@@ -84,8 +82,8 @@ const shareUrl =
     : null;
 const registerNext = encodeURIComponent("/bracket/");
 const canShare = isLocked && !!shareUrl;
-const canReset = signedIn && !isLocked && (score.picked > 0 || !!ballot);
-const canLock = signedIn && picksOpen && score.picked > 0 && !isLocked;
+const canReset = signedIn && !isLocked && (displayPicked > 0 || !!ballot);
+const canLock = signedIn && picksOpen && displayPicked > 0 && !isLocked;
 
 function party(p?: string) {
   return p ? ` (${p})` : "";
@@ -97,17 +95,6 @@ function sideLabel(side: RaceSideLive, defSide: RaceCardLive["def"]["a"]) {
     defSide.field ? "Field" : "",
   ].filter(Boolean);
   return bits.join(" · ");
-}
-function sortHref(mode: RaceSortMode) {
-  const u = new URL(Astro.url);
-  u.searchParams.set("sort", mode);
-  return u.pathname + u.search;
-}
-function filterHref(key: string, value: string | null) {
-  const u = new URL(Astro.url);
-  if (value == null || value === "") u.searchParams.delete(key);
-  else u.searchParams.set(key, value);
-  return u.pathname + u.search;
 }
 
 const jsonLd = {
@@ -133,8 +120,8 @@ const jsonLd = {
     data-picks-open={picksOpen ? "1" : "0"}
     data-locked={isLocked ? "1" : "0"}
     data-share-url={shareUrl || ""}
-    data-picked-count={String(score.picked)}
-    data-total-races={String(score.total)}
+    data-picked-count={String(displayPicked)}
+    data-total-races={String(displayTotal)}
     data-picked-ids={JSON.stringify([...pickByRace.keys()])}
   >
     <p class="small-caps upgrade__eyebrow">Midterms 2026 · Ballot board</p>
@@ -151,7 +138,7 @@ const jsonLd = {
 
     <div class="ballot-progress" id="ballot-progress" aria-live="polite">
       <div class="ballot-progress__main">
-        <strong id="ballot-picked-label">{score.picked}/{score.total} picks</strong>
+        <strong id="ballot-picked-label">{displayPicked}/{displayTotal} picks</strong>
         {score.called > 0 && (
           <span id="ballot-score-label">
             · Score {score.correct}–{score.wrong}
@@ -163,15 +150,6 @@ const jsonLd = {
       <div class="ballot-progress__actions">
         {signedIn ? (
           <>
-            <button
-              type="button"
-              class="race-share__btn"
-              id="ballot-share"
-              hidden={!canShare}
-              title={canShare ? "Copy or share your locked ballot" : "Lock your ballot to share"}
-            >
-              Share my ballot
-            </button>
             {canLock && (
               <button type="button" class="race-share__btn" id="ballot-lock">
                 Lock ballot
@@ -190,6 +168,16 @@ const jsonLd = {
     </div>
     <p class="race-share__status" id="ballot-status" hidden></p>
 
+    {/* Full platform share bar — shown only after lock (shareSlug becomes public). */}
+    <ShareBar
+      id="ballot-sharebar"
+      class="ballot-sharebar"
+      hidden={!canShare}
+      url={shareUrl || `${origin}/bracket/`}
+      title="My locked 2026 midterms ballot on CladFacts — fill yours"
+      storyImage={shareUrl ? `${origin}/og/ballot/${ballot?.shareSlug}.png` : undefined}
+    />
+
     {signedIn && !isLocked && (
       <p class="ballot-note" id="ballot-lock-note">
         <strong>Lock to share.</strong> You can change picks until you lock in.
@@ -198,9 +186,9 @@ const jsonLd = {
       </p>
     )}
     {signedIn && isLocked && (
-      <p class="ballot-note ballot-note--locked">
-        Your ballot is locked. You can <button type="button" class="auth-linklike" id="ballot-share-inline">share it</button>
-        {" "}and it counts in the <a href="/bracket/votes/">community votes</a> board. Picks can no longer be edited or reset.
+      <p class="ballot-note ballot-note--locked" id="ballot-locked-note">
+        Your ballot is locked. Share it below — X, Facebook, TikTok, Bluesky, Instagram, Threads, and more —
+        and it counts in the <a href="/bracket/votes/">community votes</a> board. Picks can no longer be edited or reset.
       </p>
     )}
 
@@ -223,33 +211,18 @@ const jsonLd = {
       </div>
     )}
 
-    <div class="ballot-toolbar">
-      <div class="ballot-toolbar__group" role="group" aria-label="Sort races">
-        <span class="small-caps ballot-toolbar__label">Sort</span>
-        {(
-          [
-            ["hot-soon", "Hot + soon"],
-            ["soonest", "Soonest vote"],
-            ["heat", "Most coverage"],
-            ["marquee", "Marquee first"],
-          ] as const
-        ).map(([mode, label]) => (
-          <a
-            class:list={["ballot-chip", sortMode === mode && "ballot-chip--on"]}
-            href={sortHref(mode)}
-          >{label}</a>
-        ))}
-      </div>
-      <div class="ballot-toolbar__group" role="group" aria-label="Filter">
+    <div class="ballot-toolbar" id="ballot-filters">
+      <div class="ballot-toolbar__group" role="group" aria-label="Filter races">
         <span class="small-caps ballot-toolbar__label">Filter</span>
-        <a class:list={["ballot-chip", !chamberFilter && "ballot-chip--on"]} href={filterHref("chamber", null)}>All</a>
-        <a class:list={["ballot-chip", chamberFilter === "senate" && "ballot-chip--on"]} href={filterHref("chamber", "senate")}>Senate</a>
-        <a class:list={["ballot-chip", chamberFilter === "governor" && "ballot-chip--on"]} href={filterHref("chamber", "governor")}>Governors</a>
-        <a class:list={["ballot-chip", marqueeOnly && "ballot-chip--on"]} href={filterHref("marquee", marqueeOnly ? null : "1")}>Marquee only</a>
+        <button type="button" class="ballot-chip ballot-chip--on" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="ballot-chip" data-filter="chamber" data-value="senate" aria-pressed="false">Senate</button>
+        <button type="button" class="ballot-chip" data-filter="chamber" data-value="governor" aria-pressed="false">Governors</button>
+        <button type="button" class="ballot-chip" data-filter="marquee" data-value="1" aria-pressed="false">Marquee only</button>
       </div>
+      <p class="ballot-filter-meta small-caps" id="ballot-filter-meta" hidden></p>
     </div>
 
-    <ul class="race-list ballot-list">
+    <ul class="race-list ballot-list" id="ballot-race-list">
       {cards.map((card) => {
         const pick = pickByRace.get(card.def.id) ?? null;
         const result = resultByRace.get(card.def.id);
@@ -268,6 +241,7 @@ const jsonLd = {
             class="race-card"
             data-tier={card.def.tier}
             data-chamber={card.def.chamber}
+            data-state={card.def.state}
             data-id={card.def.id}
             data-pick={pick || ""}
             data-outcome={outcome}
@@ -275,7 +249,7 @@ const jsonLd = {
             <header class="race-card__head">
               <span class="race-card__seed" title="Coverage heat seed (1 = most graded reports)">#{card.heatSeed}</span>
               <h3 class="race-card__office">{card.def.office}</h3>
-              <span class="race-card__when small-caps">{voteCountdownLabel(card.daysToVote)}</span>
+              <span class="race-card__when small-caps" title={card.def.nextVoteDate === "TBD" || card.def.nextVoteTbd ? "Election date not yet decided" : card.def.nextVoteDate}>{raceWhenLabel(card)}</span>
               <span class="race-card__tier small-caps">{card.def.tier}</span>
               <span class="race-card__status small-caps">{statusLabel(card.def.status)}</span>
               <span class="race-card__heat">{card.heat} reports</span>
@@ -360,9 +334,9 @@ const jsonLd = {
       })}
     </ul>
 
-    {cards.length === 0 && (
-      <p class="dateline">No races match this filter.</p>
-    )}
+    <p class="dateline ballot-filter-empty" id="ballot-filter-empty" hidden>
+      No races match this filter.
+    </p>
 
     <nav class="explore-next explore-next--compact" aria-label="Related midterms tools" style="border-top:none;margin-top:1rem">
       <div class="explore-next__head">
@@ -380,8 +354,8 @@ const jsonLd = {
     <CollapsibleSection title="How this works" eyebrow="Guide">
       <ul class="upgrade__perks">
         <li><strong>Independent races</strong> — unlike March Madness, winners don’t advance into each other. You pick each race’s winner.</li>
-        <li><strong>Heat seed (#)</strong> ranks how much graded coverage Clad has on that race — popularity of the story, not a poll.</li>
-        <li><strong>Soonest vote</strong> uses the next primary, special, or general date for that race.</li>
+        <li><strong>Heat seed (#)</strong> ranks how much graded coverage Clad has on that race — popularity of the story, not a poll. Board order is fixed (hottest + soonest first).</li>
+        <li><strong>Filter</strong> (Senate / Governors / Marquee) narrows the list; the pick counter shows picks for races currently on screen.</li>
         <li><strong>Your pick</strong> requires a free account. <strong>Lock</strong> when you&rsquo;re ready — only then can you share, and only locked ballots join the <a href="/bracket/votes/">anonymous community tally</a>.</li>
         <li><strong>Reset picks</strong> clears your draft before lock. After lock, picks are final for scoring and sharing.</li>
         <li><strong>Coverage lead</strong> (signed-in) is editorial context about airtime quality — separate from your ballot.</li>
@@ -428,12 +402,35 @@ const jsonLd = {
     const status = document.getElementById("ballot-status");
     const pickedLabel = document.getElementById("ballot-picked-label");
     const scoreLabel = document.getElementById("ballot-score-label");
-    const shareBtn = document.getElementById("ballot-share");
-    const shareInline = document.getElementById("ballot-share-inline");
+    const shareBar = document.getElementById("ballot-sharebar");
     const lockBtn = document.getElementById("ballot-lock");
     const resetBtn = document.getElementById("ballot-reset");
+    const filterEmpty = document.getElementById("ballot-filter-empty");
+    const filterMeta = document.getElementById("ballot-filter-meta");
     let shareUrl = root.getAttribute("data-share-url") || "";
-    const totalRaces = Number(root.getAttribute("data-total-races") || "21") || 21;
+    /** Full ballot size (for lock/API); visible count comes from filtered cards. */
+    const allRaceCount = Number(root.getAttribute("data-total-races") || "21") || 21;
+
+    /** Active filter: chamber null | senate | governor; marquee boolean. */
+    let chamberFilter = null;
+    let marqueeOnly = false;
+
+    function showShareBar(url) {
+      if (!shareBar || !url) return;
+      shareBar.hidden = false;
+      shareBar.setAttribute("data-url", url);
+      shareBar.setAttribute("data-title", "My locked 2026 midterms ballot on CladFacts — fill yours");
+      const slugMatch = /\/ballot\/([^/]+)\//.exec(url);
+      if (slugMatch) {
+        shareBar.setAttribute(
+          "data-story-image",
+          location.origin + "/og/ballot/" + slugMatch[1] + ".png"
+        );
+      }
+      if (typeof window.cladRefreshShareBars === "function") {
+        window.cladRefreshShareBars(shareBar);
+      }
+    }
     let pickedIds = new Set();
     try {
       const initial = JSON.parse(root.getAttribute("data-picked-ids") || "[]");
@@ -446,12 +443,103 @@ const jsonLd = {
       status.textContent = msg || "";
     }
 
-    function setPickedLabel(n) {
-      if (!pickedLabel) return;
-      const count = typeof n === "number" ? n : pickedIds.size;
-      pickedLabel.textContent = count + "/" + totalRaces + " picks";
-      root.setAttribute("data-picked-count", String(count));
+    function raceCards() {
+      return [...root.querySelectorAll(".race-card")];
     }
+
+    function visibleCards() {
+      return raceCards().filter((c) => !c.hidden);
+    }
+
+    /**
+     * Recount picks for the currently visible filter.
+     * Prefer data-pick on cards so SSR + optimistic updates stay in sync.
+     */
+    function recountPicks() {
+      const visible = visibleCards();
+      const total = visible.length;
+      let picked = 0;
+      for (const c of visible) {
+        const id = c.getAttribute("data-id") || "";
+        const hasPick = !!(c.getAttribute("data-pick") || "").trim();
+        if (hasPick) {
+          picked += 1;
+          if (id) pickedIds.add(id);
+        }
+      }
+      // Full-ballot pick set still tracks off-screen races for lock.
+      for (const c of raceCards()) {
+        const id = c.getAttribute("data-id") || "";
+        const hasPick = !!(c.getAttribute("data-pick") || "").trim();
+        if (id && hasPick) pickedIds.add(id);
+        else if (id && !hasPick) pickedIds.delete(id);
+      }
+      if (pickedLabel) {
+        pickedLabel.textContent = picked + "/" + total + " picks";
+      }
+      root.setAttribute("data-picked-count", String(pickedIds.size));
+      if (filterEmpty) filterEmpty.hidden = total > 0;
+      if (filterMeta) {
+        const filtered = chamberFilter || marqueeOnly;
+        if (filtered) {
+          filterMeta.hidden = false;
+          const bits = [];
+          if (chamberFilter === "senate") bits.push("Senate");
+          if (chamberFilter === "governor") bits.push("Governors");
+          if (marqueeOnly) bits.push("Marquee");
+          filterMeta.textContent =
+            "Showing " + total + " race" + (total === 1 ? "" : "s") +
+            (bits.length ? " · " + bits.join(" · ") : "") +
+            " · " + pickedIds.size + "/" + allRaceCount + " on full ballot";
+        } else {
+          filterMeta.hidden = true;
+          filterMeta.textContent = "";
+        }
+      }
+      if (resetBtn) resetBtn.hidden = locked || pickedIds.size === 0;
+      if (lockBtn) lockBtn.hidden = locked || pickedIds.size === 0 || !picksOpen;
+    }
+
+    function applyFilter() {
+      for (const c of raceCards()) {
+        const chamber = c.getAttribute("data-chamber") || "";
+        const tier = c.getAttribute("data-tier") || "";
+        let show = true;
+        if (chamberFilter === "senate" || chamberFilter === "governor") {
+          show = chamber === chamberFilter;
+        }
+        if (show && marqueeOnly) show = tier === "marquee";
+        c.hidden = !show;
+      }
+      // Chip pressed state
+      root.querySelectorAll("[data-filter]").forEach((btn) => {
+        const kind = btn.getAttribute("data-filter");
+        let on = false;
+        if (kind === "all") on = !chamberFilter && !marqueeOnly;
+        else if (kind === "chamber") on = chamberFilter === btn.getAttribute("data-value");
+        else if (kind === "marquee") on = marqueeOnly;
+        btn.classList.toggle("ballot-chip--on", on);
+        btn.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      recountPicks();
+    }
+
+    root.querySelectorAll("[data-filter]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const kind = btn.getAttribute("data-filter");
+        if (kind === "all") {
+          chamberFilter = null;
+          marqueeOnly = false;
+        } else if (kind === "chamber") {
+          const v = btn.getAttribute("data-value");
+          // Toggle: re-clicking same chamber returns to All (keeps marquee if on)
+          chamberFilter = chamberFilter === v ? null : v;
+        } else if (kind === "marquee") {
+          marqueeOnly = !marqueeOnly;
+        }
+        applyFilter();
+      });
+    });
 
     /** Clad-styled confirm — matches paper UI + light/dark theme tokens. */
     function cladConfirm(opts) {
@@ -505,19 +593,27 @@ const jsonLd = {
 
     function updateProgress(ballot, justPickedRaceId) {
       if (!ballot) return;
-      // Rebuild pick set from server when present; always fold in the race just saved
-      // so the header never lags behind a successful click.
+      // Sync data-pick on cards from server picks when provided.
       if (Array.isArray(ballot.picks)) {
-        pickedIds = new Set(ballot.picks.map((p) => String(p.raceId)));
+        const byRace = new Map(ballot.picks.map((p) => [String(p.raceId), p.side]));
+        pickedIds = new Set(byRace.keys());
+        for (const c of raceCards()) {
+          const id = c.getAttribute("data-id") || "";
+          if (byRace.has(id)) c.setAttribute("data-pick", byRace.get(id));
+        }
       }
-      if (justPickedRaceId) pickedIds.add(String(justPickedRaceId));
+      if (justPickedRaceId) {
+        pickedIds.add(String(justPickedRaceId));
+        const card = root.querySelector('.race-card[data-id="' + CSS.escape(String(justPickedRaceId)) + '"]');
+        // data-pick already set optimistically in savePick
+        if (card && !card.getAttribute("data-pick") && Array.isArray(ballot.picks)) {
+          const p = ballot.picks.find((x) => String(x.raceId) === String(justPickedRaceId));
+          if (p) card.setAttribute("data-pick", p.side);
+        }
+      }
 
       const s = ballot.score || {};
-      const picked =
-        typeof s.picked === "number" && s.picked >= pickedIds.size
-          ? s.picked
-          : pickedIds.size;
-      setPickedLabel(picked);
+      recountPicks();
 
       if (scoreLabel && typeof s.called === "number" && s.called > 0) {
         scoreLabel.innerHTML =
@@ -531,13 +627,12 @@ const jsonLd = {
       if (ballot.lockedAt && ballot.shareSlug) {
         shareUrl = location.origin + "/ballot/" + ballot.shareSlug + "/";
         root.setAttribute("data-share-url", shareUrl);
+        showShareBar(shareUrl);
       } else {
         shareUrl = "";
         root.setAttribute("data-share-url", "");
+        if (shareBar) shareBar.hidden = true;
       }
-      if (shareBtn) shareBtn.hidden = !locked || !shareUrl;
-      if (resetBtn) resetBtn.hidden = locked || picked === 0;
-      if (lockBtn) lockBtn.hidden = locked || picked === 0;
     }
 
     async function savePick(raceId, side, btn) {
@@ -579,10 +674,14 @@ const jsonLd = {
         }
         // Optimistic: count this race immediately, then reconcile with server ballot.
         pickedIds.add(String(raceId));
-        setPickedLabel(pickedIds.size);
-        if (resetBtn) resetBtn.hidden = false;
-        if (lockBtn) lockBtn.hidden = locked;
-        updateProgress(data.ballot || { picks: [], score: { picked: pickedIds.size, total: totalRaces } }, raceId);
+        recountPicks();
+        updateProgress(
+          data.ballot || {
+            picks: [...pickedIds].map((id) => ({ raceId: id, side: id === raceId ? side : "a" })),
+            score: { picked: pickedIds.size, total: allRaceCount },
+          },
+          raceId
+        );
         setStatus("Saved.");
         setTimeout(() => setStatus(""), 1200);
       } catch {
@@ -612,31 +711,9 @@ const jsonLd = {
       });
     }
 
-    async function doShare() {
-      if (!locked || !shareUrl) {
-        setStatus("Lock your ballot first — then you can share.");
-        return;
-      }
-      const text = "My locked 2026 midterms ballot on CladFacts — fill yours: " + shareUrl;
-      try {
-        if (navigator.share) {
-          await navigator.share({ title: "My Clad midterms ballot", text, url: shareUrl });
-        } else {
-          await navigator.clipboard.writeText(text);
-          setStatus("Share link copied.");
-        }
-      } catch {
-        try {
-          await navigator.clipboard.writeText(shareUrl);
-          setStatus("Link copied.");
-        } catch {
-          setStatus(shareUrl);
-        }
-      }
-    }
-
-    if (shareBtn) shareBtn.addEventListener("click", doShare);
-    if (shareInline) shareInline.addEventListener("click", doShare);
+    if (shareUrl) showShareBar(shareUrl);
+    // Initial count from data-pick on cards (respects any active filter).
+    recountPicks();
 
     if (lockBtn) {
       lockBtn.addEventListener("click", async () => {
@@ -853,19 +930,36 @@ const jsonLd = {
     opacity: 0.65;
   }
   .ballot-chip {
+    appearance: none;
+    font: inherit;
     font-size: 0.78rem;
     letter-spacing: 0.03em;
     text-transform: uppercase;
     padding: 0.28rem 0.55rem;
     border: 1px solid var(--rule, #cfc3ad);
+    background: var(--paper, #f5edd9);
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
+    line-height: 1.2;
+  }
+  .ballot-chip:hover {
+    border-color: var(--ink, #1a140d);
   }
   .ballot-chip--on {
     border-color: var(--ink, #1a140d);
     background: var(--ink, #1a140d);
     color: var(--paper, #f5edd9);
     font-weight: 700;
+  }
+  .ballot-filter-meta {
+    width: 100%;
+    margin: 0.15rem 0 0;
+    opacity: 0.75;
+    font-size: 0.72rem;
+  }
+  .race-card[hidden] {
+    display: none !important;
   }
   .race-share__btn {
     appearance: none;

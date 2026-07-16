@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import CollapsibleSection from "~/components/CollapsibleSection.astro";
+import ShareBar from "~/components/ShareBar.astro";
 import { CAMPUS_SHARE_LINES, GRADE_BANDS, LEARN_PAGES } from "~/lib/campus";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 
@@ -8,6 +9,7 @@ export const prerender = false;
 Astro.response.headers.set("Cache-Control", "public, max-age=300");
 
 const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
+const pageUrl = `${origin}/students/`;
 const packText = CAMPUS_SHARE_LINES.map((l) => `• ${l}`).join("\n");
 ---
 <BaseLayout
@@ -34,6 +36,12 @@ const packText = CAMPUS_SHARE_LINES.map((l) => `• ${l}`).join("\n");
         <a class="auth-submit secondary" href={APP_STORE_URL} target="_blank" rel="noopener">Get the iOS app</a>
       )}
     </p>
+
+    <ShareBar
+      url={pageUrl}
+      title="Clad for students — news with receipts (grades, lean, sources you can check)"
+      storyImage={`${origin}/og/learn/grades.png`}
+    />
 
     <h2 class="static-page__sub">Grades in five seconds</h2>
     <p>
@@ -72,8 +80,8 @@ const packText = CAMPUS_SHARE_LINES.map((l) => `• ${l}`).join("\n");
 
     <CollapsibleSection title="Share kit (Discord · group chat · stories)" eyebrow="Campus">
       <p>
-        Copy a line, paste where your people actually are. Links unfurl with a
-        card image — no need to screenshot the whole site.
+        Use the share bar above for X, Facebook, TikTok, Bluesky, Instagram, and Threads.
+        Or copy a line below for Discord and group chats — links unfurl with a card image.
       </p>
       <pre class="campus-pack" id="campus-pack">{packText}</pre>
       <button type="button" class="learn-share__btn" id="campus-copy-pack">Copy all lines</button>

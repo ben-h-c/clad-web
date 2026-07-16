@@ -21,9 +21,18 @@
  * - Coverage heat: how CladFacts has graded *broadcasts about* each side.
  *
  * Keep `verifiedAsOf` current. The race-board-auditor agent (runner) web-searches
- * each card periodically and stores findings in KV for the editor — apply those
- * findings here by hand (or via PR) before changing live pairings.
+ * each card daily: (1) candidate correctness findings for the editor to apply by
+ * hand, and (2) electionDates which publish live automatically (ISO date or TBD).
  */
+
+/** Next meaningful vote kind — used on ballot chips and the map. */
+export type RaceVoteKind =
+  | "primary"
+  | "runoff"
+  | "special"
+  | "general"
+  | "party-process"
+  | "undecided";
 
 export type RaceRegion = "South" | "Midwest" | "Northeast" | "West";
 export type RaceChamber = "senate" | "governor";
@@ -64,11 +73,33 @@ export interface RaceDef {
   verifiedAsOf?: string;
   /**
    * Next meaningful vote date (primary / runoff / special / general).
-   * Used to sort the ballot board by “how soon.”
+   * ISO YYYY-MM-DD, or the literal "TBD" when not yet scheduled.
+   * Used to sort the ballot board by “how soon” and to publish dates.
    */
   nextVoteDate?: string;
+  /** What kind of vote nextVoteDate is (primary, general, …). */
+  voteKind?: RaceVoteKind;
   /** General election date for this race (usually the midterm Tuesday). */
   generalDate?: string;
+  /** True when researched date was published as TBD (not decided). */
+  nextVoteTbd?: boolean;
+}
+
+/** True when a vote date string is undecided / not yet published as a calendar day. */
+export function isVoteDateTbd(date: string | null | undefined): boolean {
+  if (date == null || date === "") return true;
+  const s = String(date).trim().toUpperCase();
+  return s === "TBD" || s === "TDB" || s === "UNKNOWN" || s === "UNDECIDED";
+}
+
+/** Normalize researched date: valid ISO → ISO, else "TBD". */
+export function normalizeVoteDate(raw: string | null | undefined): string {
+  if (raw == null || isVoteDateTbd(raw)) return "TBD";
+  const s = String(raw).trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
+  const t = Date.parse(s);
+  if (!Number.isNaN(t)) return new Date(t).toISOString().slice(0, 10);
+  return "TBD";
 }
 
 /** Bump when you complete a full human pass over the board. */
@@ -410,10 +441,14 @@ export function racesByChamber(): { chamber: RaceChamber; label: string; races: 
 }
 
 /** Snapshot for the race-board auditor agent (no coverage stats). */
-export function raceBoardSnapshot() {
+export function raceBoardSnapshot(opts?: {
+  /** Editorial/template races with current nextVoteDate overlays when available. */
+  races?: RaceDef[];
+}) {
+  const list = opts?.races ?? RACE_MATCHUPS;
   return {
     verifiedAsOf: RACE_BOARD_VERIFIED_ASOF,
-    races: RACE_MATCHUPS.map((r) => ({
+    races: list.map((r) => ({
       id: r.id,
       office: r.office,
       chamber: r.chamber,
@@ -425,6 +460,11 @@ export function raceBoardSnapshot() {
       b: r.b,
       note: r.note ?? null,
       verifiedAsOf: r.verifiedAsOf ?? null,
+      /** Current published/editorial next vote — auditor must refresh or set TBD. */
+      nextVoteDate: r.nextVoteDate ?? null,
+      voteKind: r.voteKind ?? null,
+      generalDate: r.generalDate ?? null,
+      nextVoteTbd: r.nextVoteTbd === true || isVoteDateTbd(r.nextVoteDate),
     })),
   };
 }

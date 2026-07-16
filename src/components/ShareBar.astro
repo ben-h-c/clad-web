@@ -1,27 +1,56 @@
 ---
+/**
+ * Universal share bar — every surface that offers "share" should use this.
+ *
+ * Platforms (web intents or caption-copy where Meta/TikTok have no link intent):
+ *   X, Facebook, TikTok, Bluesky, Instagram, Threads
+ * Plus always-useful: system Share, Text, Reddit, Email, Copy link.
+ *
+ * Instagram & TikTok have no web link-share dialog — we copy a caption and open
+ * the app/site (and the story-card image when `storyImage` is set).
+ */
 interface Props {
   url: string;
   title: string;
-  /** Path to the 9:16 story-card PNG (e.g. `/og/story/<slug>.png`). Post pages pass it; topic/breaking pages omit it. */
+  /** Path or absolute URL to a 9:16 story card (e.g. `/og/story/<slug>.png`). */
   storyImage?: string;
+  /** Extra class on the root (e.g. to nest under a toolbar). */
+  class?: string;
+  /** When true, hide the bar until JS shows it (ballot lock, quiz result). */
+  hidden?: boolean;
+  /** id for the root element so host pages can toggle visibility. */
+  id?: string;
 }
-const { url, title, storyImage } = Astro.props;
+const { url, title, storyImage, class: className, hidden = false, id } = Astro.props;
 
 const enc = encodeURIComponent;
+const caption = `${title}\n${url}`;
+const captionOneLine = `${title} ${url}`;
+
 const xHref = `https://twitter.com/intent/tweet?text=${enc(title)}&url=${enc(url)}`;
 const fbHref = `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`;
-const smsHref = `sms:?&body=${enc(`${title} ${url}`)}`;
+const blueskyHref = `https://bsky.app/intent/compose?text=${enc(caption)}`;
+const threadsHref = `https://www.threads.net/intent/post?text=${enc(caption)}`;
 const redditHref = `https://www.reddit.com/submit?url=${enc(url)}&title=${enc(title)}`;
-const mailHref = `mailto:?subject=${enc(title)}&body=${enc(`${title}\n\n${url}`)}`;
-const tiktokHref = storyImage ?? "https://www.tiktok.com/upload";
-const tiktokLabel = storyImage
-  ? "Share on TikTok — copies a ready-made caption and opens the story card image to save and post"
-  : "Share on TikTok — copies a ready-made caption and opens TikTok";
+const smsHref = `sms:?&body=${enc(captionOneLine)}`;
+const mailHref = `mailto:?subject=${enc(title)}&body=${enc(caption)}`;
+/** Caption-copy destinations when no story image; story image opens first when set. */
+const tiktokOpen = storyImage ?? "https://www.tiktok.com/upload";
+const igOpen = storyImage ?? "https://www.instagram.com/";
 ---
-<div class="sharebar" data-url={url} data-title={title}>
+<div
+  class:list={["sharebar", className]}
+  id={id}
+  data-url={url}
+  data-title={title}
+  data-story-image={storyImage ?? ""}
+  hidden={hidden || undefined}
+  role="group"
+  aria-label="Share"
+>
   <span class="sharebar__label small-caps">Share</span>
 
-  <button type="button" class="sharebar__btn sharebar__native" hidden aria-label="Share">
+  <button type="button" class="sharebar__btn sharebar__native" hidden aria-label="Share via device">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <circle cx="18" cy="5" r="3"></circle>
       <circle cx="6" cy="12" r="3"></circle>
@@ -32,28 +61,74 @@ const tiktokLabel = storyImage
     <span>Share</span>
   </button>
 
-  <a class="sharebar__btn" href={smsHref} aria-label="Share via text message">
+  <a class="sharebar__btn" data-share="sms" href={smsHref} aria-label="Share via text message">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5z"></path>
     </svg>
     <span>Text</span>
   </a>
 
-  <a class="sharebar__btn" href={xHref} target="_blank" rel="noopener" aria-label="Share on X">
+  <a class="sharebar__btn" data-share="x" href={xHref} target="_blank" rel="noopener noreferrer" aria-label="Share on X">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25h6.83l4.713 6.231 5.447-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"></path>
     </svg>
     <span>X</span>
   </a>
 
-  <a class="sharebar__btn" href={fbHref} target="_blank" rel="noopener" aria-label="Share on Facebook">
+  <a class="sharebar__btn" data-share="facebook" href={fbHref} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"></path>
     </svg>
     <span>Facebook</span>
   </a>
 
-  <a class="sharebar__btn" href={redditHref} target="_blank" rel="noopener" aria-label="Share on Reddit">
+  <a
+    class="sharebar__btn sharebar__caption-open"
+    data-share="tiktok"
+    data-open={tiktokOpen}
+    href={tiktokOpen}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Share on TikTok — copies a ready-made caption, then opens TikTok or the story card"
+  >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path>
+    </svg>
+    <span class="sharebar__caption-label" data-default="TikTok">TikTok</span>
+  </a>
+
+  <a class="sharebar__btn" data-share="bluesky" href={blueskyHref} target="_blank" rel="noopener noreferrer" aria-label="Share on Bluesky">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 11.4c-1.4-2.7-5.2-7.7-8.7-10.2C1.4.2 0 1.1 0 3.4c0 1.5.8 12.4 9.4 17.3 1.3.7 2.5 1.3 2.6 1.3s1.3-.6 2.6-1.3C23.2 15.8 24 4.9 24 3.4c0-2.3-1.4-3.2-3.3-2.2-3.5 2.5-7.3 7.5-8.7 10.2z"></path>
+    </svg>
+    <span>Bluesky</span>
+  </a>
+
+  <a
+    class="sharebar__btn sharebar__caption-open"
+    data-share="instagram"
+    data-open={igOpen}
+    href={igOpen}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Share on Instagram — copies a ready-made caption, then opens Instagram or the story card"
+  >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+      <circle cx="12" cy="12" r="4"></circle>
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+    </svg>
+    <span class="sharebar__caption-label" data-default="Instagram">Instagram</span>
+  </a>
+
+  <a class="sharebar__btn" data-share="threads" href={threadsHref} target="_blank" rel="noopener noreferrer" aria-label="Share on Threads">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12.186 24h-.007c-3.581-.024-6.334-1.313-8.184-3.834C2.309 18.135 1.5 15.235 1.5 11.598 1.5 5.021 6.049.5 12.186.5S22.87 5.021 22.87 11.598c0 3.637-.809 6.537-2.495 8.568-1.85 2.521-4.603 3.81-8.189 3.834zm5.207-13.516c.24.54.36 1.125.36 1.74 0 2.76-2.25 4.995-5.01 4.995-1.575 0-2.97-.72-3.885-1.845.48.075.975.12 1.485.12 2.505 0 4.545-1.665 5.13-3.885a6.03 6.03 0 0 1-2.7.63c-1.89 0-3.42-1.305-3.42-3.09 0-1.71 1.35-3.105 3.15-3.105.48 0 .945.105 1.35.285a5.19 5.19 0 0 0-1.635-2.04c.24-.03.48-.045.735-.045 3.24 0 5.865 2.325 5.865 5.25 0 .54-.075 1.065-.225 1.56z"/>
+    </svg>
+    <span>Threads</span>
+  </a>
+
+  <a class="sharebar__btn" data-share="reddit" href={redditHref} target="_blank" rel="noopener noreferrer" aria-label="Share on Reddit">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <ellipse cx="12" cy="14.5" rx="8.5" ry="5.5"></ellipse>
       <circle cx="8.5" cy="13.5" r="1" fill="currentColor" stroke="none"></circle>
@@ -67,14 +142,7 @@ const tiktokLabel = storyImage
     <span>Reddit</span>
   </a>
 
-  <a class="sharebar__btn sharebar__tiktok" href={tiktokHref} target="_blank" rel="noopener" aria-label={tiktokLabel}>
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path>
-    </svg>
-    <span class="sharebar__tiktok-label">TikTok</span>
-  </a>
-
-  <a class="sharebar__btn" href={mailHref} aria-label="Share by email">
+  <a class="sharebar__btn" data-share="email" href={mailHref} aria-label="Share by email">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect x="2" y="4" width="20" height="16" rx="2"></rect>
       <path d="m22 7-10 6L2 7"></path>
@@ -82,7 +150,7 @@ const tiktokLabel = storyImage
     <span>Email</span>
   </a>
 
-  <a class="sharebar__btn sharebar__copy" href={url} aria-label="Copy link">
+  <a class="sharebar__btn sharebar__copy" data-share="copy" href={url} aria-label="Copy link">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.7 1.7"></path>
       <path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.7-1.7"></path>
@@ -92,58 +160,128 @@ const tiktokLabel = storyImage
 </div>
 
 <script is:inline>
-  document.querySelectorAll(".sharebar").forEach((bar) => {
-    const url = bar.getAttribute("data-url") || location.href;
-    const title = bar.getAttribute("data-title") || document.title;
-
-    const native = bar.querySelector(".sharebar__native");
-    if (native && navigator.share) {
-      native.hidden = false;
-      native.addEventListener("click", () => {
-        navigator.share({ title, url }).catch(() => {});
-      });
+  (function () {
+    function enc(s) {
+      return encodeURIComponent(s);
     }
 
-    // TikTok has no link-share intent like X/Facebook — the working flow is:
-    // put a ready-made caption on the clipboard, then open the anchor's
-    // destination (the story-card image to save & post when the page has one,
-    // otherwise TikTok's creation surface — the app takes over on phones).
-    // The href doubles as the no-JS fallback.
-    const tiktok = bar.querySelector(".sharebar__tiktok");
-    if (tiktok) {
-      tiktok.addEventListener("click", async (e) => {
-        e.preventDefault();
-        const label = tiktok.querySelector(".sharebar__tiktok-label");
-        try {
-          await navigator.clipboard.writeText(`${title} ${url}`);
-          if (label) {
-            label.textContent = "Caption copied!";
-            setTimeout(() => (label.textContent = "TikTok"), 2200);
+    /** Rebuild platform hrefs from data-url / data-title (used after ballot lock). */
+    function applyShareTargets(bar) {
+      const url = bar.getAttribute("data-url") || location.href;
+      const title = bar.getAttribute("data-title") || document.title;
+      const story = bar.getAttribute("data-story-image") || "";
+      const caption = title + "\n" + url;
+      const oneLine = title + " " + url;
+
+      const map = {
+        sms: "sms:?&body=" + enc(oneLine),
+        x: "https://twitter.com/intent/tweet?text=" + enc(title) + "&url=" + enc(url),
+        facebook: "https://www.facebook.com/sharer/sharer.php?u=" + enc(url),
+        bluesky: "https://bsky.app/intent/compose?text=" + enc(caption),
+        threads: "https://www.threads.net/intent/post?text=" + enc(caption),
+        reddit: "https://www.reddit.com/submit?url=" + enc(url) + "&title=" + enc(title),
+        email: "mailto:?subject=" + enc(title) + "&body=" + enc(caption),
+        copy: url,
+      };
+      Object.keys(map).forEach(function (key) {
+        const el = bar.querySelector('[data-share="' + key + '"]');
+        if (el) el.setAttribute("href", map[key]);
+      });
+
+      const tiktokOpen = story || "https://www.tiktok.com/upload";
+      const igOpen = story || "https://www.instagram.com/";
+      const tt = bar.querySelector('[data-share="tiktok"]');
+      if (tt) {
+        tt.setAttribute("href", tiktokOpen);
+        tt.setAttribute("data-open", tiktokOpen);
+      }
+      const ig = bar.querySelector('[data-share="instagram"]');
+      if (ig) {
+        ig.setAttribute("href", igOpen);
+        ig.setAttribute("data-open", igOpen);
+      }
+    }
+
+    function wireBar(bar) {
+      if (bar.getAttribute("data-share-wired") === "1") {
+        applyShareTargets(bar);
+        return;
+      }
+      bar.setAttribute("data-share-wired", "1");
+      applyShareTargets(bar);
+
+      const native = bar.querySelector(".sharebar__native");
+      if (native && navigator.share) {
+        native.hidden = false;
+        native.addEventListener("click", function () {
+          const url = bar.getAttribute("data-url") || location.href;
+          const title = bar.getAttribute("data-title") || document.title;
+          navigator.share({ title: title, text: title, url: url }).catch(function () {});
+        });
+      }
+
+      // TikTok + Instagram: no web link intent — copy caption, then open app/site/story card.
+      bar.querySelectorAll(".sharebar__caption-open").forEach(function (btn) {
+        btn.addEventListener("click", async function (e) {
+          e.preventDefault();
+          const url = bar.getAttribute("data-url") || location.href;
+          const title = bar.getAttribute("data-title") || document.title;
+          const openUrl = btn.getAttribute("data-open") || btn.getAttribute("href") || "/";
+          const label = btn.querySelector(".sharebar__caption-label");
+          const def = (label && label.getAttribute("data-default")) || "Shared";
+          try {
+            await navigator.clipboard.writeText(title + " " + url);
+            if (label) {
+              label.textContent = "Caption copied!";
+              setTimeout(function () {
+                label.textContent = def;
+              }, 2200);
+            }
+          } catch (_) {
+            /* still open destination */
           }
-        } catch {
-          // Clipboard denied — still open the destination; the reader can copy manually.
-        }
-        window.open(tiktok.getAttribute("href"), "_blank", "noopener");
+          window.open(openUrl, "_blank", "noopener");
+        });
       });
+
+      const copy = bar.querySelector(".sharebar__copy");
+      if (copy) {
+        copy.addEventListener("click", async function (e) {
+          e.preventDefault();
+          const url = bar.getAttribute("data-url") || location.href;
+          const label = copy.querySelector(".sharebar__copy-label");
+          try {
+            await navigator.clipboard.writeText(url);
+            if (label) {
+              label.textContent = "Copied!";
+              setTimeout(function () {
+                label.textContent = "Copy link";
+              }, 1600);
+            }
+          } catch (_) {
+            if (label) label.textContent = "Copy failed";
+          }
+        });
+      }
     }
 
-    // No-JS fallback is a plain link to the page; JS upgrades it to copy-to-clipboard.
-    const copy = bar.querySelector(".sharebar__copy");
-    if (copy) {
-      copy.addEventListener("click", async (e) => {
-        e.preventDefault();
-        const label = copy.querySelector(".sharebar__copy-label");
-        try {
-          await navigator.clipboard.writeText(url);
-          if (label) {
-            const prev = label.textContent;
-            label.textContent = "Copied!";
-            setTimeout(() => (label.textContent = prev), 1600);
-          }
-        } catch {
-          if (label) label.textContent = "Copy failed";
-        }
-      });
+    function initAll() {
+      document.querySelectorAll(".sharebar").forEach(wireBar);
     }
-  });
+
+    /** Host pages (ballot board, quiz) call this after setting data-url. */
+    window.cladRefreshShareBars = function (root) {
+      const scope = root && root.querySelectorAll ? root : document;
+      (root && root.classList && root.classList.contains("sharebar")
+        ? [root]
+        : scope.querySelectorAll(".sharebar")
+      ).forEach(wireBar);
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initAll);
+    } else {
+      initAll();
+    }
+  })();
 </script>

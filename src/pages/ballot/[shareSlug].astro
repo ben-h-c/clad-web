@@ -70,7 +70,11 @@ const rows = election.races.map((race) => {
       . Not polls — personal picks on CladFacts.
     </p>
 
-    <ShareBar url={pageUrl} title={`${displayName}'s 2026 midterms ballot on CladFacts`} />
+    <ShareBar
+      url={pageUrl}
+      title={`${displayName}'s 2026 midterms ballot on CladFacts`}
+      storyImage={ogImage}
+    />
 
     <p class="public-ballot__cta">
       <a class="race-share__btn" href="/bracket/">Fill your own ballot →</a>

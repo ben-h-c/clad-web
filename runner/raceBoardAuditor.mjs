@@ -1,15 +1,20 @@
 /**
  * Race Board Auditor — web-search grounded check of every card on the
- * Midterms 2026 race board (src/lib/races.ts). Flags withdrawn nominees,
- * wrong incumbents, open seats mislabeled as incumbents, etc.
+ * Midterms 2026 race board (src/lib/races.ts).
  *
- * Does NOT auto-edit races.ts (editorial apply). Stores findings in KV via
- * POST /api/agent/races for the console / next human pass.
+ * 1) Candidates: flags withdrawn nominees, wrong incumbents, open seats
+ *    mislabeled as incumbents, etc. Does NOT auto-edit races.ts (editorial apply).
+ * 2) Election dates: researches nextVoteDate for every race and PUBLISHES
+ *    them live via the audit report (ISO YYYY-MM-DD or "TBD" when undecided).
+ *
+ * Stores findings + electionDates in KV via POST /api/agent/races.
  */
 import { getRaceBoard, putRaceAuditReport } from "./api.mjs";
 
 const XAI_RESPONSES = "https://api.x.ai/v1/responses";
 const MODEL = "grok-4.3";
+
+const VOTE_KINDS = ["primary", "runoff", "special", "general", "party-process", "undecided"];
 
 const SCHEMA = {
   type: "object",
@@ -27,23 +32,46 @@ const SCHEMA = {
           detail: { type: "string" },
           suggestedA: { type: "string" },
           suggestedB: { type: "string" },
+          suggestedNextVoteDate: { type: "string" },
           sources: { type: "array", items: { type: "string" } },
         },
         required: ["raceId", "office", "severity", "issue", "detail"],
         additionalProperties: false,
       },
     },
+    electionDates: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          raceId: { type: "string" },
+          office: { type: "string" },
+          /** YYYY-MM-DD when known; the literal "TBD" when not decided. */
+          nextVoteDate: { type: "string" },
+          voteKind: { type: "string", enum: VOTE_KINDS },
+          generalDate: { type: "string" },
+          note: { type: "string" },
+          sources: { type: "array", items: { type: "string" } },
+        },
+        required: ["raceId", "office", "nextVoteDate", "voteKind", "generalDate"],
+        additionalProperties: false,
+      },
+    },
   },
-  required: ["summary", "findings"],
+  required: ["summary", "findings", "electionDates"],
   additionalProperties: false,
 };
 
 const SYSTEM = `You are the elections desk for CladFacts, a fact-checking site. Audit a curated
 list of 2026 U.S. midterm race cards (Class II Senate + selected governors).
 
-Use web search (Ballotpedia, AP, Reuters, major state papers, official SOS pages)
-to verify who is CURRENTLY on the ballot or is the clear leading contender as of today.
+Use web search (Ballotpedia, AP, Reuters, major state papers, official Secretary of State /
+elections division pages, party committee notices) to verify:
 
+A) CANDIDATES — who is CURRENTLY on the ballot or the clear leading contender as of today.
+B) ELECTION DATES — the next meaningful vote date for EACH race, published as soon as known.
+
+── Candidates (findings) ──────────────────────────────────────────────────
 Flag problems only when evidence is strong:
 - critical: a named person is listed as the nominee/contender but has withdrawn, died,
   lost a primary, is not running, or is the wrong Senate class for 2026.
@@ -61,7 +89,33 @@ Rules:
 - suggestedA / suggestedB should be short display names for the board if a change is needed.
 - sources: 1–3 URLs or outlet+date strings you actually used.
 
-Return ONLY JSON matching the schema. Empty findings array means the board looks accurate.`;
+── Election dates (electionDates — REQUIRED for every race in the payload) ─
+For EACH raceId in the input, return one electionDates entry:
+
+- nextVoteDate: ISO calendar day "YYYY-MM-DD" of the next meaningful public vote
+  (primary, runoff, special election, or general). When the date has NOT been
+  decided or is not yet published by officials / parties, you MUST set
+  nextVoteDate to the literal string "TBD" (never invent a date).
+- voteKind: one of primary | runoff | special | general | party-process | undecided
+  (use party-process when a party will name a replacement without a scheduled primary;
+  use undecided when nextVoteDate is TBD).
+- generalDate: the general election day for that race (almost always 2026-11-03 for
+  this midterm board). Use "TBD" only if truly unknown.
+- note: short free text (optional), e.g. "Dem replacement committee; no filing date yet".
+- sources: 1–3 sources for the date when known.
+
+Date findings (optional, in findings array):
+- If the board's current nextVoteDate is wrong or missing while you found a real date,
+  add a finding with issue "wrong-date" or "date-now-set", severity "stale" (or
+  "critical" if the vote is within 14 days and the board is wrong), and set
+  suggestedNextVoteDate to the correct ISO date or "TBD".
+- If the board invents a date that is not official, flag it and set suggestedNextVoteDate "TBD".
+
+Publish ASAP: as soon as an official primary / special / general date is confirmed,
+nextVoteDate must be that ISO day — do not leave TBD when the calendar is public.
+
+Return ONLY JSON matching the schema. electionDates length must match the number of
+races audited. Empty findings array means candidate labels look accurate.`;
 
 function extractText(data) {
   if (typeof data?.output_text === "string" && data.output_text) return data.output_text;
@@ -104,6 +158,69 @@ async function callGrok(xaiKey, user) {
   return JSON.parse(text);
 }
 
+function normalizeDateField(raw) {
+  if (raw == null || raw === "") return "TBD";
+  const s = String(raw).trim();
+  const up = s.toUpperCase();
+  if (up === "TBD" || up === "TDB" || up === "UNKNOWN" || up === "UNDECIDED") return "TBD";
+  if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
+  const t = Date.parse(s);
+  if (!Number.isNaN(t)) return new Date(t).toISOString().slice(0, 10);
+  return "TBD";
+}
+
+function normalizeVoteKind(raw, nextVoteDate) {
+  const k = String(raw || "").toLowerCase();
+  if (VOTE_KINDS.includes(k)) return k;
+  if (nextVoteDate === "TBD") return "undecided";
+  return "general";
+}
+
+function normalizeElectionDates(rawList, races) {
+  const byId = new Map();
+  for (const item of Array.isArray(rawList) ? rawList : []) {
+    const raceId = String(item?.raceId || "").slice(0, 80);
+    if (!raceId) continue;
+    const nextVoteDate = normalizeDateField(item.nextVoteDate);
+    const generalDate = normalizeDateField(item.generalDate);
+    byId.set(raceId, {
+      raceId,
+      office: String(item.office || "").slice(0, 160),
+      nextVoteDate,
+      voteKind: normalizeVoteKind(item.voteKind, nextVoteDate),
+      generalDate: generalDate === "TBD" ? "2026-11-03" : generalDate,
+      note: item.note ? String(item.note).slice(0, 400) : undefined,
+      sources: Array.isArray(item.sources)
+        ? item.sources.map((s) => String(s).slice(0, 300)).slice(0, 6)
+        : undefined,
+    });
+  }
+
+  // Every audited race gets a published row. Prefer the model's answer; if the
+  // model omitted a race, keep the board's current date (do not wipe known days
+  // to TBD). Use TBD only when the model (or board) says the date is undecided.
+  const out = [];
+  for (const r of races) {
+    const existing = byId.get(r.id);
+    if (existing) {
+      if (!existing.office) existing.office = r.office || r.id;
+      out.push(existing);
+      continue;
+    }
+    const boardNext = normalizeDateField(r.nextVoteDate);
+    const boardGeneral = normalizeDateField(r.generalDate);
+    out.push({
+      raceId: r.id,
+      office: r.office || r.id,
+      nextVoteDate: boardNext,
+      voteKind: normalizeVoteKind(r.voteKind, boardNext),
+      generalDate: boardGeneral === "TBD" ? "2026-11-03" : boardGeneral,
+      note: "Auditor omitted this race's date — kept board value until next run.",
+    });
+  }
+  return out;
+}
+
 export async function runRaceBoardAuditor(agent) {
   const xaiKey = process.env.XAI_API_KEY;
   if (!xaiKey) return { ok: false, message: "XAI_API_KEY missing" };
@@ -119,6 +236,8 @@ export async function runRaceBoardAuditor(agent) {
   const payload = {
     today: new Date().toISOString().slice(0, 10),
     boardVerifiedAsOf: board.verifiedAsOf,
+    instruction:
+      "For every race, return electionDates with nextVoteDate (YYYY-MM-DD or TBD) and voteKind. Publish dates as soon as official; use TBD when not decided.",
     races,
   };
 
@@ -126,19 +245,25 @@ export async function runRaceBoardAuditor(agent) {
   try {
     result = await callGrok(
       xaiKey,
-      `Audit these CladFacts race cards against current 2026 election reality.\n\n${JSON.stringify(payload, null, 2)}`
+      `Audit these CladFacts race cards against current 2026 election reality.\n` +
+        `Research candidates AND next vote dates for every race.\n\n${JSON.stringify(payload, null, 2)}`
     );
   } catch (err) {
     return { ok: false, message: String(err?.message || err).slice(0, 280) };
   }
 
   const findings = Array.isArray(result.findings) ? result.findings : [];
+  const electionDates = normalizeElectionDates(result.electionDates, races);
+  const dated = electionDates.filter((d) => d.nextVoteDate !== "TBD").length;
+  const tbd = electionDates.length - dated;
+
   const report = {
     generatedAt: new Date().toISOString(),
     boardVerifiedAsOf: board.verifiedAsOf || "",
     racesAudited: races.length,
     summary: String(result.summary || "").slice(0, 2000),
     findings,
+    electionDates,
   };
 
   const put = await putRaceAuditReport(report);
@@ -148,8 +273,10 @@ export async function runRaceBoardAuditor(agent) {
   const stale = findings.filter((f) => f.severity === "stale").length;
   return {
     ok: true,
-    message: `audited ${races.length} races · ${critical} critical · ${stale} stale · ${findings.length} total findings`,
-    submitted: findings.length,
+    message:
+      `audited ${races.length} races · ${critical} critical · ${stale} stale · ` +
+      `${findings.length} findings · dates ${dated} set / ${tbd} TBD`,
+    submitted: findings.length + electionDates.length,
     skipped: 0,
   };
 }

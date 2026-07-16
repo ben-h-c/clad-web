@@ -39,6 +39,9 @@ export interface StateRaceLine {
   status: RaceStatus;
   tier: RaceTier;
   heat: number;
+  /** Published next vote chip (date · kind, or Date TBD). */
+  voteDateLabel?: string;
+  nextVoteDate?: string;
   aName: string;
   bName: string;
   aParty?: string;
@@ -155,6 +158,8 @@ export function buildElectionMap(cards: RaceCardLive[]): {
         status: c.def.status,
         tier: c.def.tier,
         heat: c.heat,
+        voteDateLabel: c.voteDateLabel,
+        nextVoteDate: c.def.nextVoteDate,
         aName: c.a.name,
         bName: c.b.name,
         aParty: c.a.party,

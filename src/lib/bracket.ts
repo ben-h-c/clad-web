@@ -18,6 +18,8 @@ import {
 import {
   daysUntil,
   hotSoonScore,
+  isVoteDateTbd,
+  voteDateChip,
   type RaceSortMode,
 } from "./elections/index.ts";
 
@@ -41,8 +43,10 @@ export interface RaceCardLive {
   heat: number;
   /** 1 = hottest coverage on the board (cosmetic “seed”). */
   heatSeed: number;
-  /** Days until nextVoteDate (can be negative if past). */
+  /** Days until nextVoteDate (can be negative if past). Large when date is TBD. */
   daysToVote: number;
+  /** Published next-vote chip: calendar date + kind, or "Date TBD". */
+  voteDateLabel: string;
   /** Leader slug when scores revealed; null for guests or ties with no data. */
   leaderSlug: string | null;
   leaderReason: string | null;
@@ -68,12 +72,17 @@ function sortCards(cards: RaceCardLive[], mode: RaceSortMode): RaceCardLive[] {
   const list = [...cards];
   switch (mode) {
     case "soonest":
-      return list.sort(
-        (x, y) =>
+      return list.sort((x, y) => {
+        // TBD dates sort after known calendar days.
+        const xt = isVoteDateTbd(x.def.nextVoteDate) ? 1 : 0;
+        const yt = isVoteDateTbd(y.def.nextVoteDate) ? 1 : 0;
+        return (
+          xt - yt ||
           x.daysToVote - y.daysToVote ||
           y.heat - x.heat ||
           x.def.office.localeCompare(y.def.office)
-      );
+        );
+      });
     case "heat":
       return list.sort(
         (x, y) => y.heat - x.heat || x.def.office.localeCompare(y.def.office)
@@ -166,12 +175,14 @@ export function buildRaceBoard(
     const b = sideLive(def.b, bySlug);
     const { slug, reason } = raceLeader(a, b, revealScores);
     const heat = a.reports + b.reports;
+    const next = def.nextVoteDate ?? def.generalDate;
     return {
       def,
       a,
       b,
       heat,
-      daysToVote: daysUntil(def.nextVoteDate ?? def.generalDate ?? "2099-01-01"),
+      daysToVote: daysUntil(next),
+      voteDateLabel: voteDateChip(def),
       leaderSlug: slug,
       leaderReason: reason,
     };
@@ -241,8 +252,9 @@ export function maskRaceLeaders(board: RaceBoard, reveal: boolean): RaceBoard {
   };
 }
 
-/** Human label for countdown chip. */
+/** Human label for countdown chip (when a calendar day is known). */
 export function voteCountdownLabel(days: number): string {
+  if (days >= 9000) return "Date TBD";
   if (days < 0) return "Vote passed";
   if (days === 0) return "Votes today";
   if (days === 1) return "1 day to vote";
@@ -250,6 +262,13 @@ export function voteCountdownLabel(days: number): string {
   if (days < 60) return `${days} days to vote`;
   const weeks = Math.round(days / 7);
   return weeks === 1 ? "1 week to vote" : `${weeks} weeks to vote`;
+}
+
+/** Prefer published calendar date (or TBD); fall back to relative countdown. */
+export function raceWhenLabel(card: Pick<RaceCardLive, "voteDateLabel" | "daysToVote" | "def">): string {
+  if (card.voteDateLabel) return card.voteDateLabel;
+  if (isVoteDateTbd(card.def.nextVoteDate) || card.def.nextVoteTbd) return "Date TBD";
+  return voteCountdownLabel(card.daysToVote);
 }
 
 export function statusLabel(status: RaceDef["status"]): string {
