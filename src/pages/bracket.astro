@@ -150,13 +150,24 @@ const jsonLd = {
       <div class="ballot-progress__actions">
         {signedIn ? (
           <>
-            {canLock && (
-              <button type="button" class="race-share__btn" id="ballot-lock">
+            {/* Always in the DOM when unlocked so JS can reveal after the first pick. */}
+            {!isLocked && (
+              <button
+                type="button"
+                class="race-share__btn"
+                id="ballot-lock"
+                hidden={!canLock}
+              >
                 Lock ballot
               </button>
             )}
-            {canReset && (
-              <button type="button" class="race-share__btn race-share__btn--ghost" id="ballot-reset">
+            {!isLocked && (
+              <button
+                type="button"
+                class="race-share__btn race-share__btn--ghost"
+                id="ballot-reset"
+                hidden={!canReset}
+              >
                 Reset picks
               </button>
             )}
@@ -496,6 +507,7 @@ const jsonLd = {
           filterMeta.textContent = "";
         }
       }
+      // Reveal Lock / Reset after the first pick (buttons always exist when unlocked).
       if (resetBtn) resetBtn.hidden = locked || pickedIds.size === 0;
       if (lockBtn) lockBtn.hidden = locked || pickedIds.size === 0 || !picksOpen;
     }
