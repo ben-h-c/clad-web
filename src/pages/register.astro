@@ -14,7 +14,7 @@ const PROVIDER_LABELS: Record<string, string> = { google: "Google", apple: "Appl
 const providers = enabledSocialProviders();
 const loginHref = dest !== "/account/" ? `/login/?next=${encodeURIComponent(dest)}` : "/login/";
 ---
-<BaseLayout title="Create account — Clad" description="Create a free CladFacts account — every grade, political-lean rating, and sentiment score, no card required." noindex={true}>
+<BaseLayout title="Create account — CladFacts" description="Create a free CladFacts account — every grade, political-lean rating, and sentiment score, no card required." noindex={true}>
   <article class="static-page auth-page" id="register-article" data-next={dest}>
     <h2 class="static-page__title">Create your account</h2>
     <p class="dateline">A free account is full access — every letter grade, factuality score, political-lean rating, and social-sentiment score. No card, no trial clock. Plus saved reports and custom topic alerts.</p>

@@ -25,7 +25,7 @@ interface Props {
 
 const {
   title,
-  description = "Clad — fact-checked headlines, edited like a 1920s broadsheet.",
+  description = "CladFacts — fact-checked headlines, edited like a 1920s broadsheet.",
   ogTitle,
   ogDescription,
   ogImage,
@@ -74,11 +74,13 @@ const orgLd = {
   "@context": "https://schema.org",
   "@type": "NewsMediaOrganization",
   name: "CladFacts",
+  alternateName: "Clad",
   legalName: "CladFacts LLC",
   url: SITE_URL,
   logo: `${SITE_URL}/favicon.svg`,
   description: "AI-assisted fact-checking that grades news for accuracy and rates its political bias.",
   publishingPrinciples: `${SITE_URL}/how-it-works/`,
+  factCheckingPolicy: `${SITE_URL}/methodology/`,
   correctionsPolicy: `${SITE_URL}/corrections/`,
   // sameAs grows as handles are reserved; App Store is live (id6781372681).
   sameAs: [
@@ -94,6 +96,7 @@ const siteLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "CladFacts",
+  alternateName: "Clad",
   url: SITE_URL,
   potentialAction: {
     "@type": "SearchAction",
@@ -212,7 +215,7 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
     <title>{title}</title>
 
     <!-- Open Graph / social link previews -->
-    <meta property="og:site_name" content="Clad" />
+    <meta property="og:site_name" content="CladFacts" />
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="en_US" />

@@ -95,7 +95,7 @@ function page(title: string, body: string): Response {
     `<!doctype html><html lang="en"><head><meta charset="utf-8">` +
     `<meta name="viewport" content="width=device-width, initial-scale=1">` +
     `<meta name="robots" content="noindex">` +
-    `<title>${title} — Clad</title></head>` +
+    `<title>${title} — CladFacts</title></head>` +
     `<body style="margin:0;background:#f5edd9;font-family:Georgia,serif;color:#1a140d">` +
     `<div style="max-width:520px;margin:12vh auto 0;padding:2rem;background:#fffdf6;border:1px solid #e6ddcb;text-align:center">` +
     `<div style="font-weight:700;font-size:1.8rem;letter-spacing:.18em">CLAD</div>` +
