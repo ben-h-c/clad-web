@@ -1,0 +1,60 @@
+---
+type: "broadcast"
+headline: "Fired pardon attorney testifies against Blanche nomination at Senate hearing"
+summary: "The segment features testimony from Liz Oyer, former DOJ pardon attorney, before the Senate Judiciary Committee during Todd Blanche's attorney general confirmation hearing. Oyer describes her firing two days after Blanche's confirmation for refusing to restore gun rights to Mel Gibson, a convicted domestic abuser and Trump associate. She alleges pressure, false testimony by Blanche, use of U.S. marshals to silence her, and broader issues including a nearly $2 billion settlement agreement and handling of Ghislaine Maxwell. The second paragraph notes sourcing from Oyer's personal account and documents she references, with the clip presented as part of ongoing congressional scrutiny of Blanche's leadership."
+publishedAt: 2026-07-16T16:01:07.000Z
+sourceUrl: "https://www.youtube.com/watch?v=RX3Ct7JHSPc"
+sourceTitle: "CBS News"
+section: "Politics"
+letterGrade: "C-"
+factualityScore: 55
+politicalLean: "left"
+leanScore: -65
+leanRationale: "Democratic-led hearing testimony framed as whistleblower account; emphasized negative allegations against Republican administration official with no counter-testimony or administration defense included."
+gradeRationale: "Graded C-: core firing and settlement claims corroborated by multiple outlets and Oyer's own account, but statistics on DOJ violations appear inflated without clear sourcing, and some retaliation details lack independent confirmation."
+topics:
+  - "Courts & Law"
+  - "Todd Blanche"
+  - "Congress"
+  - "pardon attorney"
+assessment: "Oyer's account of her firing and the Gibson case aligns with contemporaneous reporting and her public letter. The $1.8 billion anti-weaponization fund and judicial criticism of the Trump-IRS settlement are documented in DOJ announcements and court commentary. Claims of over 700 DOJ order violations and nearly 100 false-information findings appear aggregated or unverified at scale. Viewer misses full context of Blanche's responses, Republican committee questions, and any administrative rebuttals. The one-sided presentation amplifies accusations of politicization without balancing evidence of policy priorities or disputed facts."
+notableConcerns:
+  - "Statistics on widespread DOJ misconduct lack primary sourcing or precise verification in public records"
+  - "Retaliation details such as marshals at home presented without independent corroboration"
+keyMoments:
+  - claim: "Fired for refusing to restore gun rights to Mel Gibson, Trump friend and domestic abuser"
+    verdict: "verified"
+    note: "Confirmed in multiple reports including Senate letters and Oyer's statements; Gibson's conviction documented."
+  - claim: "Blanche sent U.S. marshals to home to prevent congressional testimony"
+    verdict: "missing context"
+    note: "Oyer alleges retaliation; specific marshals detail from her account, limited independent confirmation."
+  - claim: "Nearly $2 billion settlement protects Trump family and businesses"
+    verdict: "verified"
+    note: "Matches DOJ announcement of ~$1.776B anti-weaponization fund in Trump v. IRS settlement; judge called lawsuit improper."
+  - claim: "Over 700 documented DOJ violations of judicial orders and nearly 100 false information cases"
+    verdict: "unsupported"
+    note: "District-specific reports exist (e.g., dozens in NJ/MN), but aggregate national figures lack clear authoritative source."
+  - claim: "Blanche personally interviewed Maxwell; she was moved to minimum security after exonerating statements"
+    verdict: "missing context"
+    note: "Interview confirmed with released transcripts; Maxwell's transfer and exact statements require further verification."
+videoId: "RX3Ct7JHSPc"
+videoTitle: "Fired DOJ lawyer attorney accuses Blanche of enforcing Trump's \"pointless vendettas\""
+thumbnail: "https://img.youtube.com/vi/RX3Ct7JHSPc/maxresdefault.jpg"
+citations:
+  - title: "Liz Oyer Senate Judiciary letter"
+    url: "https://www.lawyeroyer.com/p/my-letter-to-the-senate-judiciary"
+  - title: "Durbin probe into Oyer termination"
+    url: "https://www.judiciary.senate.gov/press/dem/releases/durbin-senate-judiciary-democrats-probe-dojs-concerning-termination-of-pardon-attorney-weaponized-restoration-of-gun-rights-to-dangerous-individuals"
+  - title: "DOJ Maxwell interview transcripts"
+    url: "https://www.justice.gov/maxwell-interview"
+  - title: "Anti-Weaponization Fund announcement"
+    url: "https://www.justice.gov/opa/pr/justice-department-announces-anti-weaponization-fund"
+  - title: "NYT on Blanche Maxwell meeting"
+    url: "https://www.nytimes.com/2026/07/14/us/politics/todd-blanche-epstein-investigation-doj.html"
+  - title: "Wikipedia Todd Blanche page (events summary)"
+    url: "https://en.wikipedia.org/wiki/Todd_Blanche"
+  - title: "PBS NewsHour on confirmation hearing"
+    url: "https://www.pbs.org/newshour/politics/watch-live-epstein-survivor-fired-doj-pardon-attorney-testify-at-blanche-confirmation-hearing"
+---
+
+
