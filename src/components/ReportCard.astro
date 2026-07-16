@@ -13,8 +13,13 @@ interface Props {
   locked?: boolean;
   /** Today's free sample — render fully unlocked with a badge + leak-checker marker. */
   sample?: boolean;
+  /**
+   * Hero-strip mode: start compact (smaller, less copy). Long-press expands
+   * to the full card with summary, scoreband, and source.
+   */
+  peek?: boolean;
 }
-const { post, variant = "card", locked = false, sample = false } = Astro.props;
+const { post, variant = "card", locked = false, sample = false, peek = false } = Astro.props;
 const showLocked = locked && !sample;
 const d = post.data;
 const isBroadcast = d.type === "broadcast";
@@ -45,10 +50,18 @@ const leanScore = typeof d.leanScore === "number"
 // Card text: explain WHY it was graded (fall back to summary for legacy posts).
 // Locked readers never see the grade rationale — always the neutral summary.
 const blurb = (!showLocked && isBroadcast && d.gradeRationale) ? d.gradeRationale : d.summary;
+
+const cardClass = [
+  "report-card",
+  `report-card--${variant}`,
+  peek ? "report-card--peek" : "",
+].filter(Boolean).join(" ");
 ---
 <article
-  class={`report-card report-card--${variant}`}
+  class={cardClass}
   data-sample-unlocked={sample ? "true" : undefined}
+  data-peek={peek ? "true" : undefined}
+  aria-expanded={peek ? "false" : undefined}
 >
   <a class="report-card__link" href={`/posts/${post.id}/`}>
     {thumb && (
@@ -65,33 +78,63 @@ const blurb = (!showLocked && isBroadcast && d.gradeRationale) ? d.gradeRational
       </div>
     )}
     <div class="report-card__body">
-      {sample && <span class="sample-badge small-caps">Today's free sample</span>}
-      {showLocked ? (
-        <div class="scoreband scoreband--locked" aria-hidden="true">
-          <span class="grade-lock">🔒 Grade &amp; lean — free with account</span>
-        </div>
-      ) : isBroadcast && d.letterGrade ? (
-        <div class="scoreband">
-          <div class="scoreband__grade">
-            <LetterGrade grade={d.letterGrade} size="card" />
-            <span class="scoreband__cap small-caps">Grade</span>
-          </div>
+      {sample && <span class="sample-badge small-caps report-card__detail">Today's free sample</span>}
+
+      {/* Compact grade chip — visible only while peeked (collapsed). */}
+      {peek && !showLocked && isBroadcast && d.letterGrade && (
+        <div class="report-card__peek-row" aria-hidden="true">
+          <LetterGrade grade={d.letterGrade} size="badge" />
           {leanScore !== null && (
-            <div class="scoreband__bias">
-              <PoliticalLean score={leanScore} />
-            </div>
+            <span class="report-card__peek-lean">
+              {leanScore === 0 ? "Center" : leanScore < 0 ? `${Math.abs(leanScore)}% L` : `${leanScore}% R`}
+            </span>
           )}
         </div>
-      ) : d.verdict ? (
-        <div class="report-card__titlerow"><Verdict verdict={d.verdict} /></div>
-      ) : null}
+      )}
+      {peek && showLocked && (
+        <div class="report-card__peek-row report-card__peek-row--locked" aria-hidden="true">
+          <span class="report-card__peek-lock">🔒</span>
+        </div>
+      )}
+      {peek && !showLocked && !isBroadcast && d.verdict && (
+        <div class="report-card__peek-row" aria-hidden="true">
+          <Verdict verdict={d.verdict} />
+        </div>
+      )}
+
+      {/* Full scoreband / verdict — expanded detail (or always when not peek). */}
+      <div class="report-card__detail">
+        {showLocked ? (
+          <div class="scoreband scoreband--locked" aria-hidden="true">
+            <span class="grade-lock">🔒 Grade &amp; lean — free with account</span>
+          </div>
+        ) : isBroadcast && d.letterGrade ? (
+          <div class="scoreband">
+            <div class="scoreband__grade">
+              <LetterGrade grade={d.letterGrade} size="card" />
+              <span class="scoreband__cap small-caps">Grade</span>
+            </div>
+            {leanScore !== null && (
+              <div class="scoreband__bias">
+                <PoliticalLean score={leanScore} />
+              </div>
+            )}
+          </div>
+        ) : d.verdict ? (
+          <div class="report-card__titlerow"><Verdict verdict={d.verdict} /></div>
+        ) : null}
+      </div>
+
       <h3 class="report-card__headline">{d.headline}</h3>
       <p class="report-card__meta">{shortDate(d.publishedAt)}</p>
-      <p class="report-card__summary">{blurb}</p>
+      {blurb && <p class="report-card__summary report-card__detail">{blurb}</p>}
     </div>
   </a>
-  <p class="report-card__source">
+  <p class="report-card__source report-card__detail">
     {isBroadcast && <span aria-hidden="true">▶ </span>}Source:{" "}
     <a href={d.sourceUrl} rel="noopener noreferrer" target="_blank">{source}</a>
   </p>
+  {peek && (
+    <p class="report-card__hold-hint small-caps" aria-hidden="true">Hold for more</p>
+  )}
 </article>

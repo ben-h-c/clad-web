@@ -33,8 +33,8 @@ const {
       <button type="button" class="hero-arrow hero-arrow--left" aria-label="Scroll left" hidden>‹</button>
       <div class="hero-strip" aria-label={`${title} reports`}>
         {posts.map((p) => (
-          <div class="hero-strip__item">
-            <ReportCard post={p} locked={locked && p.id !== unlockedId} sample={locked && p.id === unlockedId} />
+          <div class="hero-strip__item hero-strip__item--peek">
+            <ReportCard post={p} locked={locked && p.id !== unlockedId} sample={locked && p.id === unlockedId} peek />
           </div>
         ))}
       </div>
@@ -45,36 +45,172 @@ const {
 
 <script is:inline>
   (() => {
-    if (window.__heroArrows) return;
-    window.__heroArrows = true;
-    const updaters = [];
-    const wire = (wrap) => {
-      const strip = wrap.querySelector(".hero-strip");
-      const left = wrap.querySelector(".hero-arrow--left");
-      const right = wrap.querySelector(".hero-arrow--right");
-      if (!strip || !left || !right) return;
-      const update = () => {
-        const max = strip.scrollWidth - strip.clientWidth;
-        if (max <= 4) { left.hidden = true; right.hidden = true; return; }
-        left.hidden = strip.scrollLeft <= 2;
-        right.hidden = strip.scrollLeft >= max - 2;
+    // Scroll arrows for every hero strip (Breaking + Front Page).
+    if (!window.__heroArrows) {
+      window.__heroArrows = true;
+      const updaters = [];
+      const wire = (wrap) => {
+        const strip = wrap.querySelector(".hero-strip");
+        const left = wrap.querySelector(".hero-arrow--left");
+        const right = wrap.querySelector(".hero-arrow--right");
+        if (!strip || !left || !right) return;
+        const update = () => {
+          const max = strip.scrollWidth - strip.clientWidth;
+          if (max <= 4) { left.hidden = true; right.hidden = true; return; }
+          left.hidden = strip.scrollLeft <= 2;
+          right.hidden = strip.scrollLeft >= max - 2;
+        };
+        const step = () => Math.max(240, strip.clientWidth * 0.8);
+        const behavior = () =>
+          matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+        left.addEventListener("click", () => strip.scrollBy({ left: -step(), behavior: behavior() }));
+        right.addEventListener("click", () => strip.scrollBy({ left: step(), behavior: behavior() }));
+        strip.addEventListener("scroll", update, { passive: true });
+        updaters.push(update);
+        update();
       };
-      const step = () => Math.max(240, strip.clientWidth * 0.8);
-      const behavior = () =>
-        matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
-      left.addEventListener("click", () => strip.scrollBy({ left: -step(), behavior: behavior() }));
-      right.addEventListener("click", () => strip.scrollBy({ left: step(), behavior: behavior() }));
-      strip.addEventListener("scroll", update, { passive: true });
-      updaters.push(update);
-      update();
+      const init = () => {
+        document.querySelectorAll(".hero-strip-wrap").forEach(wire);
+        requestAnimationFrame(() => updaters.forEach((u) => u()));
+      };
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+      else init();
+      window.addEventListener("load", () => updaters.forEach((u) => u()));
+      window.addEventListener("resize", () => updaters.forEach((u) => u()));
+    }
+
+    // Long-press expand for compact peek cards in Breaking / Front Page.
+    if (window.__heroPeek) return;
+    window.__heroPeek = true;
+
+    const LONG_MS = 420;
+    const MOVE_PX = 12;
+    let timer = null;
+    let startX = 0;
+    let startY = 0;
+    let card = null;
+    let didLong = false;
+    let suppressClick = false;
+
+    function collapseAll(except) {
+      document.querySelectorAll(".report-card--peek.is-expanded").forEach((el) => {
+        if (except && el === except) return;
+        el.classList.remove("is-expanded");
+        el.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    function expand(el) {
+      collapseAll(el);
+      el.classList.add("is-expanded");
+      el.setAttribute("aria-expanded", "true");
+      try {
+        if (navigator.vibrate) navigator.vibrate(10);
+      } catch (_) {}
+    }
+
+    function clearTimer() {
+      if (timer) {
+        clearTimeout(timer);
+        timer = null;
+      }
+    }
+
+    document.addEventListener(
+      "pointerdown",
+      (e) => {
+        if (e.pointerType === "mouse" && e.button !== 0) return;
+        const t = e.target;
+        if (!(t instanceof Element)) return;
+        // Don't start a hold on the external source link.
+        if (t.closest(".report-card__source a")) return;
+        const next = t.closest(".report-card--peek");
+        // Tap outside → collapse expanded peeks.
+        if (!next) {
+          collapseAll();
+          return;
+        }
+        card = next;
+        didLong = false;
+        startX = e.clientX;
+        startY = e.clientY;
+        clearTimer();
+        timer = setTimeout(() => {
+          if (!card) return;
+          didLong = true;
+          suppressClick = true;
+          expand(card);
+        }, LONG_MS);
+      },
+      { passive: true }
+    );
+
+    document.addEventListener(
+      "pointermove",
+      (e) => {
+        if (!timer || !card) return;
+        const dx = Math.abs(e.clientX - startX);
+        const dy = Math.abs(e.clientY - startY);
+        if (dx > MOVE_PX || dy > MOVE_PX) {
+          clearTimer();
+          card = null;
+        }
+      },
+      { passive: true }
+    );
+
+    const endPress = () => {
+      clearTimer();
+      card = null;
     };
-    const init = () => {
-      document.querySelectorAll(".hero-strip-wrap").forEach(wire);
-      requestAnimationFrame(() => updaters.forEach((u) => u()));
-    };
-    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
-    else init();
-    window.addEventListener("load", () => updaters.forEach((u) => u()));
-    window.addEventListener("resize", () => updaters.forEach((u) => u()));
+    document.addEventListener("pointerup", endPress, { passive: true });
+    document.addEventListener("pointercancel", endPress, { passive: true });
+
+    // After a long-press expand, swallow the synthetic click so we don't navigate.
+    document.addEventListener(
+      "click",
+      (e) => {
+        if (!suppressClick) return;
+        const t = e.target;
+        if (t instanceof Element && t.closest(".report-card--peek")) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        suppressClick = false;
+      },
+      true
+    );
+
+    // No system callout / save-image menu on hold (iOS Safari / app).
+    document.addEventListener(
+      "contextmenu",
+      (e) => {
+        if (e.target instanceof Element && e.target.closest(".report-card--peek")) {
+          e.preventDefault();
+        }
+      },
+      true
+    );
+
+    // Keyboard: Enter/Space on focused card toggles expand when peeking.
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      const t = e.target;
+      if (!(t instanceof Element)) return;
+      const el = t.closest(".report-card--peek");
+      if (!el) return;
+      // Only when focus is on the card link itself.
+      if (!t.classList.contains("report-card__link") && t.tagName !== "A") return;
+      // Space would scroll; Enter navigates — hold Alt/Option to toggle peek.
+      if (e.key === " " || e.altKey) {
+        e.preventDefault();
+        if (el.classList.contains("is-expanded")) {
+          el.classList.remove("is-expanded");
+          el.setAttribute("aria-expanded", "false");
+        } else {
+          expand(el);
+        }
+      }
+    });
   })();
 </script>
