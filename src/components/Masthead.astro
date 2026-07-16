@@ -41,125 +41,127 @@ const menuAccountText = signedIn ? accountLabel : "Sign in";
 ---
 
 <header class="masthead" data-signed-in={signedIn ? "1" : "0"}>
-  {/* Sticky compact row: menu · logo · account/theme/search */}
-  <div class="masthead__bar">
-    {!isAdmin ? (
-      <details class="masthead__menu">
-        <summary aria-label="Menu" title="Menu">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-          <span class="masthead__menu-label small-caps">Menu</span>
-        </summary>
-        <nav aria-label="Site">
-          <ul class="masthead__menu-list">
-            <li class="masthead__popular">
-              <p class="masthead__popular-label small-caps">Popular</p>
-              <ul class="masthead__popular-list">
-                <li><a href="/bracket/">Ballot board</a></li>
-                <li><a href="/bracket/votes/">Community votes</a></li>
-                <li><a href="/quiz/">Morning quiz</a></li>
-                <li><a href="/elections/map/">Election map</a></li>
-              </ul>
-            </li>
-            <li>
-              <details class="masthead__submenu">
-                <summary>Read</summary>
-                <ul>
-                  <li><a href="/">Home</a></li>
-                  <li><a href="/discover/">Discover</a></li>
-                  <li><a href="/good-news/">Good News</a></li>
-                  <li><a href="/trends/">News Trends</a></li>
-                  <li><a href="/recent/">Latest reports</a></li>
-                  <li><a href="/search/">Search</a></li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <details class="masthead__submenu">
-                <summary>Midterms 2026</summary>
-                <ul>
-                  <li><a href="/elections/map/">Interactive map</a></li>
+  {/* Fixed stack: chrome row + volume/date row */}
+  <div class="masthead__fixed">
+    <div class="masthead__bar">
+      {!isAdmin ? (
+        <details class="masthead__menu">
+          <summary aria-label="Menu" title="Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <span class="masthead__menu-label small-caps">Menu</span>
+          </summary>
+          <nav aria-label="Site">
+            <ul class="masthead__menu-list">
+              <li class="masthead__popular">
+                <p class="masthead__popular-label small-caps">Popular</p>
+                <ul class="masthead__popular-list">
                   <li><a href="/bracket/">Ballot board</a></li>
                   <li><a href="/bracket/votes/">Community votes</a></li>
-                  <li><a href="/politicians/">Politicians</a></li>
+                  <li><a href="/quiz/">Morning quiz</a></li>
+                  <li><a href="/elections/map/">Election map</a></li>
                 </ul>
-              </details>
-            </li>
-            <li>
-              <details class="masthead__submenu">
-                <summary>Play &amp; grades</summary>
-                <ul>
-                  <li><a href="/quiz/">Morning Quiz</a></li>
-                  <li><a href="/week/">Week in Grades</a></li>
-                  <li><a href="/bias/">Check your bias</a></li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <details class="masthead__submenu">
-                <summary>Learn</summary>
-                <ul>
-                  <li><a href="/learn/">New to the news?</a></li>
-                  <li><a href="/learn/first-vote/">First-time voter</a></li>
-                  <li><a href="/students/">Students</a></li>
-                  <li><a href="/how-it-works/">How it works</a></li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <details class="masthead__submenu">
-                <summary>More</summary>
-                <ul>
-                  <li><a href="/newsletter/">Newsletter</a></li>
-                  <li><a href="/press/">Press</a></li>
-                  <li><a href="/archive/">Archive</a></li>
-                  <li><a href="/about/">About Clad</a></li>
-                  <li><a href="/about/#contact">Contact</a></li>
-                </ul>
-              </details>
-            </li>
-            <li class="masthead__menu-account">
-              <a id="menu-account" href={accountHref}>{menuAccountText}</a>
-            </li>
-          </ul>
-        </nav>
-      </details>
-    ) : (
-      <span class="masthead__bar-spacer" aria-hidden="true"></span>
-    )}
-    <p class="masthead__title"><a href={homeHref}>CladFacts</a></p>
-    {!isAdmin ? (
-      <div class="masthead__chrome" role="group" aria-label="Account and display">
-        <a class="masthead__account small-caps" id="masthead-account" href={accountHref}>{accountText}</a>
-        <button
-          type="button"
-          class="masthead__theme"
-          id="theme-toggle"
-          aria-label="Toggle light or dark reading"
-          title="Toggle light or dark reading"
-          aria-pressed="false"
-        >◐</button>
-        <a class="masthead__search" href="/search/" aria-label="Search" title="Search">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <circle cx="11" cy="11" r="7"></circle>
-            <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
-          </svg>
-        </a>
-      </div>
-    ) : (
-      <span class="masthead__bar-spacer" aria-hidden="true"></span>
-    )}
-  </div>
-  <div class="masthead__identity">
-    <p class="masthead__tagline small-caps">Grading Content &amp; Exposing Bias</p>
-    <div class="rule rule--double" aria-hidden="true"></div>
+              </li>
+              <li>
+                <details class="masthead__submenu">
+                  <summary>Read</summary>
+                  <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/discover/">Discover</a></li>
+                    <li><a href="/good-news/">Good News</a></li>
+                    <li><a href="/trends/">News Trends</a></li>
+                    <li><a href="/recent/">Latest reports</a></li>
+                    <li><a href="/search/">Search</a></li>
+                  </ul>
+                </details>
+              </li>
+              <li>
+                <details class="masthead__submenu">
+                  <summary>Midterms 2026</summary>
+                  <ul>
+                    <li><a href="/elections/map/">Interactive map</a></li>
+                    <li><a href="/bracket/">Ballot board</a></li>
+                    <li><a href="/bracket/votes/">Community votes</a></li>
+                    <li><a href="/politicians/">Politicians</a></li>
+                  </ul>
+                </details>
+              </li>
+              <li>
+                <details class="masthead__submenu">
+                  <summary>Play &amp; grades</summary>
+                  <ul>
+                    <li><a href="/quiz/">Morning Quiz</a></li>
+                    <li><a href="/week/">Week in Grades</a></li>
+                    <li><a href="/bias/">Check your bias</a></li>
+                  </ul>
+                </details>
+              </li>
+              <li>
+                <details class="masthead__submenu">
+                  <summary>Learn</summary>
+                  <ul>
+                    <li><a href="/learn/">New to the news?</a></li>
+                    <li><a href="/learn/first-vote/">First-time voter</a></li>
+                    <li><a href="/students/">Students</a></li>
+                    <li><a href="/how-it-works/">How it works</a></li>
+                  </ul>
+                </details>
+              </li>
+              <li>
+                <details class="masthead__submenu">
+                  <summary>More</summary>
+                  <ul>
+                    <li><a href="/newsletter/">Newsletter</a></li>
+                    <li><a href="/press/">Press</a></li>
+                    <li><a href="/archive/">Archive</a></li>
+                    <li><a href="/about/">About Clad</a></li>
+                    <li><a href="/about/#contact">Contact</a></li>
+                  </ul>
+                </details>
+              </li>
+              <li class="masthead__menu-account">
+                <a id="menu-account" href={accountHref}>{menuAccountText}</a>
+              </li>
+            </ul>
+          </nav>
+        </details>
+      ) : (
+        <span class="masthead__bar-spacer" aria-hidden="true"></span>
+      )}
+      <p class="masthead__title"><a href={homeHref}>CladFacts</a></p>
+      {!isAdmin ? (
+        <div class="masthead__chrome" role="group" aria-label="Account and display">
+          <a class="masthead__account small-caps" id="masthead-account" href={accountHref}>{accountText}</a>
+          <button
+            type="button"
+            class="masthead__theme"
+            id="theme-toggle"
+            aria-label="Toggle light or dark reading"
+            title="Toggle light or dark reading"
+            aria-pressed="false"
+          >◐</button>
+          <a class="masthead__search" href="/search/" aria-label="Search" title="Search">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+            </svg>
+          </a>
+        </div>
+      ) : (
+        <span class="masthead__bar-spacer" aria-hidden="true"></span>
+      )}
+    </div>
     <div class="masthead__meta">
       <span class="edition">Vol. {vol} · No. {issue} · {count} {count === 1 ? "Report" : "Reports"}</span>
       <span class="date">{dateline(date)}</span>
     </div>
+  </div>
+  <div class="masthead__identity">
+    <p class="masthead__tagline small-caps">Grading Content &amp; Exposing Bias</p>
+    <div class="rule rule--double" aria-hidden="true"></div>
   </div>
 </header>
 {!isAdmin && (

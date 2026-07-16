@@ -624,9 +624,11 @@ html.clad-app .emap-page {
   contain-intrinsic-size: auto 8rem;
 }
 
-/* Site header height — reserved on body so fixed bar never covers content */
+/* Site header height — chrome row + volume/date row (reserved on body) */
 :root {
-  --site-header-h: 2.65rem;
+  --site-header-chrome-h: 2.55rem;
+  --site-header-meta-h: 1.55rem;
+  --site-header-h: calc(var(--site-header-chrome-h) + var(--site-header-meta-h));
 }
 
 /* Fixed header is out of document flow; body top pad keeps content below it.
@@ -635,7 +637,7 @@ body {
   padding-top: var(--site-header-h);
 }
 
-/* Masthead — fixed chrome bar + scrolling nameplate identity */
+/* Masthead — fixed chrome + volume/date; tagline still scrolls with page */
 
 .masthead {
   text-align: center;
@@ -645,37 +647,61 @@ body {
   z-index: 0;
 }
 
-/* Frozen header row: Menu · CladFacts · Account / Theme / Search */
-.masthead__bar {
+/* Frozen stack: chrome row + Vol / date */
+.masthead__fixed {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10050;
-  display: grid;
-  grid-template-columns: minmax(2.5rem, 1fr) auto minmax(2.5rem, 1fr);
-  align-items: center;
-  gap: 0.35rem 0.5rem;
-  height: var(--site-header-h);
-  min-height: var(--site-header-h);
   box-sizing: border-box;
-  margin: 0;
-  padding: 0.3rem max(0.75rem, env(safe-area-inset-right, 0px)) 0.3rem
-    max(0.75rem, env(safe-area-inset-left, 0px));
-  /* Match paper; full viewport width so it reads as a true frozen chrome strip */
   background: var(--paper);
   border-bottom: 1px solid color-mix(in srgb, var(--rule) 60%, transparent);
   box-shadow:
     0 1px 0 color-mix(in srgb, var(--rule) 12%, transparent),
     0 8px 18px color-mix(in srgb, var(--shadow) 22%, transparent);
+  padding-left: max(0.75rem, env(safe-area-inset-left, 0px));
+  padding-right: max(0.75rem, env(safe-area-inset-right, 0px));
 }
 
-:root[data-theme="dark"] .masthead__bar,
-html.theme-dark .masthead__bar {
+:root[data-theme="dark"] .masthead__fixed,
+html.theme-dark .masthead__fixed {
   background: var(--paper);
   box-shadow:
     0 1px 0 color-mix(in srgb, var(--rule) 30%, transparent),
     0 10px 22px color-mix(in srgb, var(--shadow) 45%, transparent);
+}
+
+.masthead__bar {
+  display: grid;
+  grid-template-columns: minmax(2.5rem, 1fr) auto minmax(2.5rem, 1fr);
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  height: var(--site-header-chrome-h);
+  min-height: var(--site-header-chrome-h);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.28rem 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.masthead__fixed .masthead__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  height: var(--site-header-meta-h);
+  min-height: var(--site-header-meta-h);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.15rem 0.1rem 0.28rem;
+  border-top: 1px solid color-mix(in srgb, var(--rule) 45%, transparent);
+  color: var(--muted-ink);
+  font-size: 0.66rem;
+  line-height: 1.25;
+  pointer-events: none;
 }
 
 .masthead__bar-spacer {
@@ -688,9 +714,8 @@ html.theme-dark .masthead__bar {
   padding: 0.15rem 0 0;
 }
 
-/* Title is in the bar; tagline/meta don't need click-through hacks on bar. */
-.masthead__tagline,
-.masthead__meta {
+/* Title is in the bar; tagline doesn't need click-through hacks. */
+.masthead__tagline {
   pointer-events: none;
 }
 .masthead__title {
@@ -812,17 +837,16 @@ html.theme-dark .masthead__bar {
   }
 }
 
-/* In-app: fixed bar sits under the notch / status bar */
+/* In-app: fixed stack sits under the notch / status bar */
 html.clad-app {
-  --site-header-h: 2.5rem;
+  --site-header-chrome-h: 2.4rem;
+  --site-header-meta-h: 1.45rem;
 }
 html.clad-app body {
   padding-top: calc(var(--site-header-h) + env(safe-area-inset-top, 0px));
 }
-html.clad-app .masthead__bar {
+html.clad-app .masthead__fixed {
   top: 0;
-  height: calc(var(--site-header-h) + env(safe-area-inset-top, 0px));
-  min-height: calc(var(--site-header-h) + env(safe-area-inset-top, 0px));
   padding-top: env(safe-area-inset-top, 0px);
   padding-left: max(0.75rem, env(safe-area-inset-left, 0px));
   padding-right: max(0.75rem, env(safe-area-inset-right, 0px));
@@ -2010,26 +2034,20 @@ html.clad-app .masthead__bar {
   font-size: 0.72rem;
 }
 
-.masthead__meta {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.75rem;
-  color: var(--muted-ink);
-  font-size: 0.68rem;
-  margin-top: 0.35rem;
-  padding: 0.28rem 0.15rem 0;
-  border-top: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
-}
-
 .masthead__meta .edition {
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  text-align: left;
+  min-width: 0;
 }
 
 .masthead__meta .date {
   font-style: italic;
   letter-spacing: 0.02em;
+  text-align: right;
+  white-space: nowrap;
+  flex: 0 0 auto;
 }
 
 .masthead__nav {
@@ -4770,12 +4788,13 @@ html.admin-nav-open .admin-nav {
     justify-content: center;
   }
 
-  /* Masthead: compact fixed bar + tight identity */
+  /* Masthead: compact fixed stack + tight identity */
   .masthead {
     padding: 0 0 0.35rem;
   }
   :root {
-    --site-header-h: 2.5rem;
+    --site-header-chrome-h: 2.4rem;
+    --site-header-meta-h: 1.7rem;
   }
   .masthead__title {
     font-size: clamp(0.95rem, 4.2vw, 1.15rem);
@@ -4788,8 +4807,14 @@ html.admin-nav-open .admin-nav {
   .masthead .rule--double {
     margin: 0.3rem 0;
   }
-  .masthead__meta {
-    margin-top: 0.25rem;
+  .masthead__fixed .masthead__meta {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: var(--site-header-meta-h);
+    justify-content: center;
+    gap: 0.1rem 0.65rem;
+    font-size: 0.62rem;
+    padding-bottom: 0.3rem;
   }
 
   /* Tighter gaps between the big sections */
