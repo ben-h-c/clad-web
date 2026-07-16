@@ -7,6 +7,8 @@ import { dateline } from "~/lib/dateline";
 
 export const prerender = false;
 
+/** 9:16 story card for Instagram / TikTok / Stories — designed to stop the scroll. */
+
 const PAPER = "#F5EDD9";
 const INK = "#1A140D";
 const MUTED = "#6E5E4D";
@@ -23,7 +25,7 @@ const ENUM_TO_SCORE: Record<string, number> = {
 function leanLabel(score: number | null | undefined, lean?: string): string | null {
   const s = typeof score === "number" ? score : lean ? (ENUM_TO_SCORE[lean] ?? null) : null;
   if (s === null) return null;
-  return Math.abs(s) < 5 ? "Centered" : `${Math.abs(s)}% ${s > 0 ? "Right" : "Left"}-leaning`;
+  return Math.abs(s) < 5 ? "Centered" : `${Math.abs(s)}% ${s > 0 ? "Right" : "Left"}`;
 }
 
 const esc = (s: unknown) => String(s ?? "").replace(/[<>]/g, " ");
@@ -67,64 +69,62 @@ function momentColor(verdict: string): string {
 
 function markup(card: StoryCard): string {
   const color = badgeColor(card);
-  const badgeSize = card.badge.length > 2 ? 78 : 200;
-  const meta = [card.lean ? "POLITICAL LEAN" : null, card.factuality != null ? `FACTUALITY ${card.factuality}/100` : null]
+  const badgeSize = card.badge.length > 2 ? 72 : 180;
+  const meta = [
+    card.lean ? card.lean.toUpperCase() : null,
+    card.factuality != null ? `FACT ${card.factuality}/100` : null,
+  ]
     .filter(Boolean)
-    .join("    ·    ");
-  const leanBlock = card.lean
-    ? `<div style="display:flex;flex-direction:column;align-items:center;">
-         <div style="display:flex;font-size:54px;font-weight:700;">${esc(card.lean)}</div>
-         <div style="display:flex;font-size:24px;color:${MUTED};letter-spacing:5px;margin-top:10px;">${esc(meta)}</div>
-       </div>`
-    : meta
-      ? `<div style="display:flex;font-size:26px;color:${MUTED};letter-spacing:5px;">${esc(meta)}</div>`
-      : `<div style="display:flex;"></div>`;
-  const momentsBlock = card.moments.length
-    ? card.moments
+    .join("  ·  ");
+  // Lead with the most contested claim (scroll-stopper), then 1–2 more.
+  const ordered = [...card.moments].sort((a, b) => {
+    const rank = (v: string) =>
+      v === "disputed" ? 0 : v === "unsupported" ? 1 : v === "missing context" ? 2 : 3;
+    return rank(a.verdict) - rank(b.verdict);
+  });
+  const top = ordered.slice(0, 3);
+  const momentsBlock = top.length
+    ? top
         .map(
           (m) => `
-      <div style="display:flex;flex-direction:column;">
+      <div style="display:flex;flex-direction:column;margin-bottom:28px;">
         <div style="display:flex;">
-          <div style="display:flex;font-size:22px;font-weight:700;letter-spacing:4px;color:${momentColor(m.verdict)};border:2px solid ${momentColor(m.verdict)};padding:7px 16px;">${esc(m.verdict.toUpperCase())}</div>
+          <div style="display:flex;font-size:24px;font-weight:700;letter-spacing:3px;color:${momentColor(m.verdict)};border:3px solid ${momentColor(m.verdict)};padding:8px 16px;">${esc(m.verdict.toUpperCase())}</div>
         </div>
-        <div style="display:flex;font-size:34px;line-height:1.3;margin-top:14px;">${esc(clip(m.claim, 140))}</div>
+        <div style="display:flex;font-size:36px;line-height:1.25;margin-top:12px;font-weight:700;">${esc(clip(m.claim, 110))}</div>
       </div>`
         )
         .join("")
-    : `<div style="display:flex;font-size:36px;line-height:1.4;color:${INK};">${esc(clip(card.summary, 240))}</div>`;
+    : `<div style="display:flex;font-size:38px;line-height:1.35;font-weight:700;">${esc(clip(card.summary, 200))}</div>`;
 
   return `
   <div style="display:flex;flex-direction:column;width:1080px;height:1920px;background:${PAPER};color:${INK};font-family:Playfair;">
-    <div style="display:flex;flex-direction:column;align-items:center;padding:80px 60px 0;">
-      <div style="display:flex;font-size:26px;color:${MUTED};letter-spacing:9px;">FACT-CHECKING THE NEWS</div>
-      <div style="display:flex;font-size:132px;font-weight:700;letter-spacing:16px;line-height:1;margin:16px 0 22px;">CLAD</div>
-      <div style="display:flex;width:640px;height:4px;background:${INK};"></div>
-      <div style="display:flex;font-size:28px;color:${MUTED};letter-spacing:3px;margin-top:20px;">${esc(card.dateline)}</div>
+    <div style="display:flex;flex-direction:column;align-items:center;padding:64px 56px 0;">
+      <div style="display:flex;font-size:28px;color:${MUTED};letter-spacing:6px;font-weight:700;">WE CHECKED THE CLAIMS</div>
+      <div style="display:flex;font-size:96px;font-weight:700;letter-spacing:6px;line-height:1;margin:12px 0 16px;">CLADFACTS</div>
+      <div style="display:flex;width:560px;height:4px;background:${INK};"></div>
+      <div style="display:flex;font-size:26px;color:${MUTED};letter-spacing:2px;margin-top:16px;">${esc(card.dateline)}</div>
     </div>
-    <div style="display:flex;flex-direction:column;margin:36px 0 0;">
-      <div style="display:flex;height:3px;background:${INK};"></div>
-      <div style="display:flex;height:1px;background:${INK};margin-top:6px;"></div>
-    </div>
-    <div style="display:flex;flex-direction:column;flex:1;padding:56px 72px;justify-content:space-between;">
-      <div style="display:flex;flex-direction:column;align-items:center;">
-        <div style="display:flex;flex-direction:column;align-items:center;border:7px solid ${color};padding:34px 56px;transform:rotate(-3deg);">
-          <div style="display:flex;font-size:${badgeSize}px;font-weight:700;line-height:1;color:${color};">${esc(card.badge)}</div>
-          <div style="display:flex;font-size:24px;letter-spacing:5px;color:${color};margin-top:14px;">${esc(card.badgeLabel)}</div>
-        </div>
-        <div style="display:flex;margin-top:36px;">${leanBlock}</div>
+    <div style="display:flex;flex-direction:column;align-items:center;margin:40px 0 0;">
+      <div style="display:flex;flex-direction:column;align-items:center;border:8px solid ${color};padding:28px 48px;transform:rotate(-3deg);background:${PAPER};">
+        <div style="display:flex;font-size:${badgeSize}px;font-weight:700;line-height:1;color:${color};">${esc(card.badge)}</div>
+        <div style="display:flex;font-size:26px;letter-spacing:4px;color:${color};margin-top:10px;font-weight:700;">${esc(card.badgeLabel)}</div>
       </div>
-      <div style="display:flex;font-size:62px;font-weight:700;line-height:1.14;">${esc(clip(card.headline, 110))}</div>
-      <div style="display:flex;flex-direction:column;gap:34px;">${momentsBlock}</div>
+      ${meta ? `<div style="display:flex;font-size:28px;color:${MUTED};letter-spacing:3px;margin-top:28px;font-weight:700;">${esc(meta)}</div>` : ""}
     </div>
-    <div style="display:flex;flex-direction:column;align-items:center;padding:0 72px 70px;">
-      <div style="display:flex;width:936px;height:3px;background:${INK};"></div>
-      <div style="display:flex;font-size:26px;color:${MUTED};letter-spacing:5px;margin-top:26px;">${card.sourcesCount} ${card.sourcesCount === 1 ? "SOURCE" : "SOURCES"} CITED</div>
-      <div style="display:flex;font-size:32px;font-weight:700;margin-top:14px;">cladfacts.com/posts/${esc(card.slug)}</div>
+    <div style="display:flex;flex-direction:column;flex:1;padding:40px 64px 0;">
+      <div style="display:flex;font-size:52px;font-weight:700;line-height:1.12;margin-bottom:36px;">${esc(clip(card.headline, 90))}</div>
+      <div style="display:flex;flex-direction:column;">${momentsBlock}</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;padding:0 64px 72px;">
+      <div style="display:flex;width:920px;height:4px;background:${INK};"></div>
+      <div style="display:flex;font-size:28px;color:${RED};letter-spacing:3px;margin-top:28px;font-weight:700;">FULL RECEIPTS ON THE SITE →</div>
+      <div style="display:flex;font-size:30px;font-weight:700;margin-top:12px;">cladfacts.com</div>
+      <div style="display:flex;font-size:22px;color:${MUTED};margin-top:8px;">${card.sourcesCount} sources cited</div>
     </div>
   </div>`;
 }
 
-// Fonts are static assets; fetch + cache them in module scope (per isolate).
 let fontsPromise: Promise<{ name: string; data: ArrayBuffer; weight: 400 | 700; style: "normal" }[]> | null = null;
 function loadFonts(origin: string) {
   if (!fontsPromise) {
@@ -145,52 +145,43 @@ function loadFonts(origin: string) {
 export const GET: APIRoute = async ({ params, request, locals }) => {
   const slug = String(params.slug ?? "");
   const cache = (caches as any).default as Cache;
-  // Cache is content-addressed by path only (no route reads query params), so drop
-  // the query string — otherwise ?anything busts the cache and re-runs satori.
   const _u = new URL(request.url);
-  const cacheKey = new Request(_u.origin + _u.pathname);
+  const cacheKey = new Request(_u.origin + "/__story-v2" + _u.pathname);
   const hit = await cache.match(cacheKey);
   if (hit) return hit;
 
-  const card = await buildStoryCard(slug);
-  if (!card) return new Response("Not found", { status: 404 });
-
-  const fonts = await loadFonts(new URL(request.url).origin);
-
-  const img = new ImageResponse(markup(card), {
-    width: 1080,
-    height: 1920,
-    fonts: fonts as any,
-    format: "png",
-  });
-  // Cache the bytes with a long, immutable TTL (cards are content-addressed by slug).
-  const resp = new Response(img.body, {
-    headers: {
-      "Content-Type": "image/png",
-      "Cache-Control": "public, max-age=86400, s-maxage=604800, immutable",
-    },
-  });
-  const cf = (locals as any)?.cfContext;
-  if (cf?.waitUntil) cf.waitUntil(cache.put(cacheKey, resp.clone()));
-  return resp;
-};
-
-async function buildStoryCard(slug: string): Promise<StoryCard | null> {
   const all = await getCollection("posts", (p) => !p.data.draft);
   const post = all.find((p) => p.id === slug);
-  if (!post) return null;
+  if (!post) return new Response("Not found", { status: 404 });
   const d = post.data;
   const isBroadcast = d.type === "broadcast";
-  return {
-    slug,
+  const card: StoryCard = {
+    slug: post.id,
     headline: d.headline,
     badge: isBroadcast ? d.letterGrade ?? "—" : VERDICT_LABELS[d.verdict ?? ""] ?? "—",
     badgeLabel: isBroadcast ? "ARTICLE GRADE" : "VERDICT",
     lean: isBroadcast ? leanLabel(leanScoreOf(d), d.politicalLean) : null,
     factuality: isBroadcast && typeof d.factualityScore === "number" ? d.factualityScore : null,
     dateline: dateline(d.publishedAt),
-    moments: d.keyMoments.slice(0, 3).map((m) => ({ claim: m.claim, verdict: m.verdict })),
+    moments: (d.keyMoments ?? []).slice(0, 4).map((m) => ({ claim: m.claim, verdict: m.verdict })),
     summary: d.summary,
-    sourcesCount: d.citations.length,
+    sourcesCount: (d.sources ?? []).length,
   };
-}
+
+  const fonts = await loadFonts(new URL(request.url).origin);
+  const img = new ImageResponse(markup(card), {
+    width: 1080,
+    height: 1920,
+    fonts: fonts as any,
+    format: "png",
+  });
+  const resp = new Response(img.body, {
+    headers: {
+      "Content-Type": "image/png",
+      "Cache-Control": "public, max-age=86400, s-maxage=604800",
+    },
+  });
+  const cf = (locals as any)?.cfContext;
+  if (cf?.waitUntil) cf.waitUntil(cache.put(cacheKey, resp.clone()));
+  return resp;
+};

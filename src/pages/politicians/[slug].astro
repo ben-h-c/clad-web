@@ -91,7 +91,15 @@ const jsonLd = {
       </div>
     </header>
 
-    <ShareBar url={pageUrl} title={shareText} />
+    <ShareBar
+      url={pageUrl}
+      title={`${pol.name} — CladFacts report card`}
+      hook={
+        pol.appearances.length > 0
+          ? `${pol.appearances.length} graded reports. How did the coverage hold up? Free with any account →`
+          : "On the CladFacts roster — see how coverage holds up when they show up."
+      }
+    />
 
     {locked ? (
       <div class="scoreband scoreband--locked pol-scoreband" aria-hidden="true">

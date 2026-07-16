@@ -35,7 +35,12 @@ const others = LEARN_PAGES.filter((p) => p.slug !== page.slug);
     <h1 class="static-page__title">{page.title}</h1>
     <p class="upgrade__lede">{page.description}</p>
 
-    <ShareBar url={pageUrl} title={page.shareCaption} storyImage={ogImage} />
+    <ShareBar
+      url={pageUrl}
+      title={page.shareCaption}
+      hook="Receipts, not vibes — free on CladFacts →"
+      storyImage={ogImage}
+    />
 
     {page.body.map((para) => <p>{para}</p>)}
 

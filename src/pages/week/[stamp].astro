@@ -116,7 +116,11 @@ const shareUrl = new URL(`/week/${iso(start)}/`, Astro.site ?? "https://cladfact
       the record.
     </p>
 
-    <ShareBar url={shareUrl} title={`The Week in Grades — ${label}, ${year} — CladFacts`} />
+    <ShareBar
+      url={shareUrl}
+      title={`The Week in Grades — ${label}, ${year}`}
+      hook="Best + worst graded coverage, disputed claims, and blindspots. Free on CladFacts →"
+    />
 
     {!locked && leans.length > 0 && (
       <p>

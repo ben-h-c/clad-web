@@ -38,23 +38,22 @@ function loadFonts(origin: string) {
 // text divs single-line (no <br/>): a text+br+text div throws at render time
 // and ships a 0-byte PNG.
 function markup(weekLabel: string, year: number, count: number): string {
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:56px 72px;border:14px solid ${INK}">
-    <div style="display:flex;flex-direction:column;align-items:center;width:100%">
-      <div style="display:flex;font-size:24px;letter-spacing:10px;color:${MUTED}">FACT-CHECKING THE NEWS</div>
-      <div style="display:flex;font-size:76px;font-weight:700;letter-spacing:6px;margin-top:6px">CLAD</div>
-      <div style="display:flex;width:100%;height:3px;background:${INK};margin:18px 0 10px"></div>
-      <div style="display:flex;font-size:22px;letter-spacing:4px;color:${MUTED}">WEEK OF ${weekLabel.toUpperCase()}, ${year}</div>
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:48px 64px;border:16px solid ${INK}">
+    <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
+      <div style="display:flex;font-size:32px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
+      <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED};font-weight:700">WEEK OF ${weekLabel.toUpperCase()}, ${year}</div>
     </div>
-    <div style="display:flex;flex-direction:column;align-items:center;margin-top:48px">
-      <div style="display:flex;font-size:66px;font-weight:700;text-align:center;line-height:1.1">The Week in Grades</div>
-      <div style="display:flex;font-size:32px;margin-top:24px;line-height:1.35">${count} news ${count === 1 ? "report" : "reports"} fact-checked and graded.</div>
-      <div style="display:flex;font-size:32px;line-height:1.35">What held up — and what didn't.</div>
-      <div style="display:flex;gap:18px;margin-top:32px">
-        <div style="display:flex;border:2px solid ${INK};padding:8px 20px;font-size:22px;letter-spacing:2px">BEST AND WORST GRADED</div>
-        <div style="display:flex;border:2px solid ${RED};color:${RED};padding:8px 20px;font-size:22px;letter-spacing:2px">MOST DISPUTED CLAIMS</div>
-        <div style="display:flex;border:2px solid ${MUTED};color:${MUTED};padding:8px 20px;font-size:22px;letter-spacing:2px">BLINDSPOTS</div>
+    <div style="display:flex;width:100%;height:4px;background:${INK};margin:18px 0 28px"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;width:100%">
+      <div style="display:flex;font-size:24px;letter-spacing:5px;color:${RED};font-weight:700">THE SCOREBOARD IS OUT</div>
+      <div style="display:flex;font-size:60px;font-weight:700;text-align:center;line-height:1.05;margin-top:12px">The Week in Grades</div>
+      <div style="display:flex;font-size:32px;margin-top:20px;line-height:1.3;font-weight:700;text-align:center">${count} reports graded. Who held up — and who spun?</div>
+      <div style="display:flex;gap:14px;margin-top:30px">
+        <div style="display:flex;border:3px solid ${INK};padding:10px 18px;font-size:20px;letter-spacing:2px;font-weight:700">BEST + WORST</div>
+        <div style="display:flex;border:3px solid ${RED};color:${RED};padding:10px 18px;font-size:20px;letter-spacing:2px;font-weight:700">DISPUTED CLAIMS</div>
+        <div style="display:flex;border:3px solid ${MUTED};color:${MUTED};padding:10px 18px;font-size:20px;letter-spacing:2px;font-weight:700">BLINDSPOTS</div>
       </div>
-      <div style="display:flex;font-size:26px;color:${MUTED};margin-top:36px;letter-spacing:2px">cladfacts.com/week — every Sunday, free</div>
+      <div style="display:flex;font-size:22px;color:${MUTED};margin-top:34px;letter-spacing:2px;font-weight:700">cladfacts.com/week · free every Sunday</div>
     </div>
   </div>`;
 }

@@ -12,7 +12,8 @@ export const prerender = false;
 // (instant invalidation on deploy) and posts reference /og/<slug>.png?v=N so
 // social scrapers — which key their own caches on the URL — re-unfurl
 // already-shared links with the new design.
-const CARD_VERSION = "2";
+// Bump to force social scrapers + edge cache to re-unfurl redesigned cards.
+const CARD_VERSION = "3";
 
 const PAPER = "#F5EDD9";
 const INK = "#1A140D";
@@ -68,24 +69,34 @@ function verdictChipColor(verdict: string): string {
  * (topics, verdict posts, breaking groups without one) get the masthead
  * tagline treatment so the band is never dead space.
  */
+/** Human urgency label for the hook band — reads like a feed thumbnail. */
+function hookKicker(verdict: string): string {
+  const v = verdict.toLowerCase();
+  if (v === "disputed") return "THEY SAID THIS. WE CHECKED.";
+  if (v === "missing context") return "MISSING THE FULL STORY";
+  if (v === "unsupported") return "NOT BACKED UP";
+  if (v === "verified") return "THIS ONE CHECKED OUT";
+  return "WE FACT-CHECKED THIS";
+}
+
 function bandBlock(card: Card): string {
   if (card.moment?.claim) {
     const v = card.moment.verdict.toUpperCase();
     const chipColor = verdictChipColor(card.moment.verdict);
-    const q = clip(card.moment.claim, 150);
-    const qSize = q.length > 90 ? 34 : 40;
-    return `<div style="display:flex;flex-direction:column;justify-content:center;width:1200px;height:240px;background:${INK};padding:0 44px;">
-      <div style="display:flex;align-items:center;margin-bottom:18px;">
-        <div style="display:flex;font-size:20px;color:${PAPER};opacity:0.75;letter-spacing:6px;">FROM THIS BROADCAST</div>
-        <div style="display:flex;margin-left:24px;padding:6px 14px;border:2px solid ${chipColor};font-size:20px;letter-spacing:3px;color:${chipColor};">${esc(v)}</div>
+    const q = clip(card.moment.claim, 130);
+    const qSize = q.length > 85 ? 36 : 44;
+    return `<div style="display:flex;flex-direction:column;justify-content:center;width:1200px;height:250px;background:${INK};padding:0 48px;">
+      <div style="display:flex;align-items:center;margin-bottom:16px;">
+        <div style="display:flex;font-size:22px;color:${PAPER};opacity:0.8;letter-spacing:5px;font-weight:700;">${esc(hookKicker(card.moment.verdict))}</div>
+        <div style="display:flex;margin-left:22px;padding:8px 16px;border:3px solid ${chipColor};font-size:22px;letter-spacing:3px;font-weight:700;color:${chipColor};">${esc(v)}</div>
       </div>
-      <div style="display:flex;font-size:${qSize}px;font-weight:700;line-height:1.18;color:${PAPER};">“${esc(q)}”</div>
+      <div style="display:flex;font-size:${qSize}px;font-weight:700;line-height:1.15;color:${PAPER};">“${esc(q)}”</div>
     </div>`;
   }
-  return `<div style="display:flex;flex-direction:column;justify-content:center;align-items:center;width:1200px;height:240px;background:${INK};">
-    <div style="display:flex;font-size:26px;color:${PAPER};opacity:0.75;letter-spacing:9px;">FACT-CHECKED · GRADED · RATED FOR BIAS</div>
-    <div style="display:flex;width:520px;height:2px;background:${PAPER};opacity:0.4;margin:22px 0;"></div>
-    <div style="display:flex;font-size:44px;font-weight:700;letter-spacing:5px;color:${PAPER};">THE REPORT CARD</div>
+  return `<div style="display:flex;flex-direction:column;justify-content:center;align-items:center;width:1200px;height:250px;background:${INK};">
+    <div style="display:flex;font-size:28px;color:${PAPER};opacity:0.85;letter-spacing:8px;font-weight:700;">FACT-CHECKED · GRADED · BIAS-RATED</div>
+    <div style="display:flex;width:480px;height:3px;background:${PAPER};opacity:0.45;margin:20px 0;"></div>
+    <div style="display:flex;font-size:52px;font-weight:700;letter-spacing:4px;color:${PAPER};">SEE HOW IT HELD UP</div>
   </div>`;
 }
 
@@ -99,36 +110,40 @@ function markup(card: Card): string {
           .join("    ·    ");
   // Timeline legibility: a 1200px card renders ~500px wide in a feed (0.42
   // scale) — the grade and headline must survive that. Letter grades get the
-  // full 130px treatment; word badges ("Mostly False") stay smaller.
-  const badgeSize = card.badge.length <= 2 ? 130 : 56;
-  const hClipped = clip(card.headline, 140);
-  const hSize = hClipped.length > 78 ? 40 : 48;
+  // full stamp treatment; word badges stay smaller.
+  const badgeSize = card.badge.length <= 2 ? 120 : 52;
+  const hClipped = clip(card.headline, 120);
+  const hSize = hClipped.length > 70 ? 38 : 46;
   const leanBlock = card.lean
     ? `<div style="display:flex;flex-direction:column;">
-         <div style="display:flex;font-size:44px;font-weight:700;">${esc(card.lean)}</div>
-         <div style="display:flex;font-size:24px;color:${MUTED};letter-spacing:2px;margin-top:8px;">${esc(meta)}</div>
+         <div style="display:flex;font-size:42px;font-weight:700;">${esc(card.lean)}</div>
+         <div style="display:flex;font-size:22px;color:${MUTED};letter-spacing:2px;margin-top:6px;">${esc(meta)}</div>
        </div>`
     : meta
-      ? `<div style="display:flex;font-size:26px;color:${MUTED};letter-spacing:2px;">${esc(meta)}</div>`
+      ? `<div style="display:flex;font-size:24px;color:${MUTED};letter-spacing:2px;">${esc(meta)}</div>`
       : `<div style="display:flex;"></div>`;
 
   return `
   <div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;">
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 44px;height:70px;border-bottom:4px solid ${INK};">
-      <div style="display:flex;font-size:40px;font-weight:700;letter-spacing:8px;">CLAD</div>
-      <div style="display:flex;font-size:24px;color:${MUTED};letter-spacing:3px;">CLADFACTS.COM</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 44px;height:64px;border-bottom:4px solid ${INK};">
+      <div style="display:flex;font-size:34px;font-weight:700;letter-spacing:5px;">CLADFACTS</div>
+      <div style="display:flex;font-size:20px;color:${MUTED};letter-spacing:3px;font-weight:700;">REPORT CARD</div>
     </div>
-    <div style="display:flex;width:1200px;height:240px;border-bottom:1px solid ${INK};">${bandBlock(card)}</div>
-    <div style="display:flex;flex-direction:column;flex:1;padding:24px 44px;justify-content:space-between;">
+    <div style="display:flex;width:1200px;height:250px;border-bottom:1px solid ${INK};">${bandBlock(card)}</div>
+    <div style="display:flex;flex-direction:column;flex:1;padding:20px 44px 0;justify-content:space-between;">
       <div style="display:flex;align-items:center;">
-        <div style="display:flex;flex-direction:column;align-items:center;margin-right:34px;">
+        <div style="display:flex;flex-direction:column;align-items:center;margin-right:28px;border:5px solid ${color};padding:10px 18px;">
           <div style="display:flex;font-size:${badgeSize}px;font-weight:700;line-height:1;color:${color};">${esc(card.badge)}</div>
-          <div style="display:flex;font-size:22px;color:${MUTED};letter-spacing:3px;margin-top:6px;">${esc(card.badgeLabel)}</div>
+          <div style="display:flex;font-size:18px;color:${color};letter-spacing:3px;margin-top:4px;font-weight:700;">${esc(card.badgeLabel)}</div>
         </div>
-        <div style="display:flex;width:1px;height:120px;background:${INK};margin-right:34px;"></div>
+        <div style="display:flex;width:3px;height:110px;background:${INK};margin-right:28px;"></div>
         ${leanBlock}
       </div>
-      <div style="display:flex;font-size:${hSize}px;font-weight:700;line-height:1.12;">${esc(hClipped)}</div>
+      <div style="display:flex;font-size:${hSize}px;font-weight:700;line-height:1.1;margin-top:12px;">${esc(hClipped)}</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding:14px 0;border-top:3px solid ${INK};">
+        <div style="display:flex;font-size:22px;font-weight:700;letter-spacing:2px;color:${RED};">TAP FOR THE FULL RECEIPTS →</div>
+        <div style="display:flex;font-size:20px;color:${MUTED};letter-spacing:2px;">cladfacts.com</div>
+      </div>
     </div>
   </div>`;
 }
@@ -137,12 +152,12 @@ function markup(card: Card): string {
 // so link unfurls (X/Twitter, etc.) always show a large preview.
 function brandMarkup(): string {
   return `
-  <div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;align-items:center;justify-content:center;text-align:center;">
-    <div style="display:flex;font-size:28px;color:${MUTED};letter-spacing:10px;">FACT-CHECKING THE NEWS</div>
-    <div style="display:flex;font-size:190px;font-weight:700;letter-spacing:16px;line-height:1;margin:14px 0;">CLAD</div>
-    <div style="display:flex;width:740px;height:4px;background:${INK};"></div>
-    <div style="display:flex;font-size:32px;color:${MUTED};letter-spacing:4px;margin-top:22px;">GRADING CONTENT & EXPOSING BIAS</div>
-    <div style="display:flex;font-size:25px;color:${INK};margin-top:28px;width:880px;justify-content:center;line-height:1.3;">AI-assisted fact-checks that grade the news for accuracy and rate its political bias.</div>
+  <div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;align-items:center;justify-content:center;border:16px solid ${INK};">
+    <div style="display:flex;font-size:26px;color:${MUTED};letter-spacing:8px;font-weight:700;">WE GRADE THE NEWS</div>
+    <div style="display:flex;font-size:120px;font-weight:700;letter-spacing:8px;line-height:1;margin:18px 0 10px;">CLADFACTS</div>
+    <div style="display:flex;width:640px;height:4px;background:${INK};"></div>
+    <div style="display:flex;font-size:36px;font-weight:700;margin-top:28px;line-height:1.25;width:900px;justify-content:center;text-align:center;">Every claim. Graded. Bias-rated. Receipts.</div>
+    <div style="display:flex;margin-top:36px;border:3px solid ${RED};color:${RED};padding:12px 28px;font-size:24px;letter-spacing:3px;font-weight:700;">FREE TO READ · FREE TO SHARE</div>
   </div>`;
 }
 

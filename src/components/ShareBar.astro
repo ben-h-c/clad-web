@@ -29,15 +29,20 @@ interface Props {
 const { url, title, hook, storyImage, class: className, hidden = false, id } = Astro.props;
 
 const enc = encodeURIComponent;
-const titleBlock = hook ? `${title}\n${hook}` : title;
-const caption = `${titleBlock}\n${url}`;
-const captionOneLine = hook ? `${title} — ${hook} ${url}` : `${title} ${url}`;
+/** Punchy multi-line caption for compose boxes (X, Bluesky, Threads, email, SMS). */
+const titleBlock = hook ? `${title}\n\n${hook}` : title;
+const caption = `${titleBlock}\n\n${url}\n\nvia CladFacts`;
+const captionOneLine = hook
+  ? `${title} — ${hook} ${url}`
+  : `${title} ${url}`;
+/** Short hook line for platforms that only take a quote (Facebook). */
+const fbQuote = hook ? `${title} — ${hook}` : title;
 
 const xHref = `https://twitter.com/intent/tweet?text=${enc(titleBlock)}&url=${enc(url)}`;
-const fbHref = `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`;
+const fbHref = `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}&quote=${enc(fbQuote)}`;
 const blueskyHref = `https://bsky.app/intent/compose?text=${enc(caption)}`;
 const threadsHref = `https://www.threads.net/intent/post?text=${enc(caption)}`;
-const redditHref = `https://www.reddit.com/submit?url=${enc(url)}&title=${enc(title)}`;
+const redditHref = `https://www.reddit.com/submit?url=${enc(url)}&title=${enc(hook ? `${title} — ${hook}` : title)}`;
 const smsHref = `sms:?&body=${enc(captionOneLine)}`;
 const mailHref = `mailto:?subject=${enc(title)}&body=${enc(caption)}`;
 /** Caption-copy destinations when no story image; story image opens first when set. */
@@ -172,23 +177,25 @@ const igOpen = storyImage ?? "https://www.instagram.com/";
       return encodeURIComponent(s);
     }
 
-    /** Rebuild platform hrefs from data-url / data-title (used after ballot lock). */
+    /** Rebuild platform hrefs from data-url / data-title (used after ballot lock / quiz). */
     function applyShareTargets(bar) {
       const url = bar.getAttribute("data-url") || location.href;
       const title = bar.getAttribute("data-title") || document.title;
       const hook = bar.getAttribute("data-hook") || "";
       const story = bar.getAttribute("data-story-image") || "";
-      const titleBlock = hook ? title + "\n" + hook : title;
-      const caption = titleBlock + "\n" + url;
+      const titleBlock = hook ? title + "\n\n" + hook : title;
+      const caption = titleBlock + "\n\n" + url + "\n\nvia CladFacts";
       const oneLine = hook ? title + " — " + hook + " " + url : title + " " + url;
+      const fbQuote = hook ? title + " — " + hook : title;
+      const redditTitle = hook ? title + " — " + hook : title;
 
       const map = {
         sms: "sms:?&body=" + enc(oneLine),
         x: "https://twitter.com/intent/tweet?text=" + enc(titleBlock) + "&url=" + enc(url),
-        facebook: "https://www.facebook.com/sharer/sharer.php?u=" + enc(url),
+        facebook: "https://www.facebook.com/sharer/sharer.php?u=" + enc(url) + "&quote=" + enc(fbQuote),
         bluesky: "https://bsky.app/intent/compose?text=" + enc(caption),
         threads: "https://www.threads.net/intent/post?text=" + enc(caption),
-        reddit: "https://www.reddit.com/submit?url=" + enc(url) + "&title=" + enc(title),
+        reddit: "https://www.reddit.com/submit?url=" + enc(url) + "&title=" + enc(redditTitle),
         email: "mailto:?subject=" + enc(title) + "&body=" + enc(caption),
         copy: url,
       };
@@ -211,6 +218,14 @@ const igOpen = storyImage ?? "https://www.instagram.com/";
       }
     }
 
+    /** Caption copied for IG / TikTok — includes hook so it still works without the card. */
+    function captionForBar(bar) {
+      const url = bar.getAttribute("data-url") || location.href;
+      const title = bar.getAttribute("data-title") || document.title;
+      const hook = bar.getAttribute("data-hook") || "";
+      return hook ? title + "\n\n" + hook + "\n\n" + url : title + "\n\n" + url;
+    }
+
     function wireBar(bar) {
       if (bar.getAttribute("data-share-wired") === "1") {
         applyShareTargets(bar);
@@ -229,17 +244,15 @@ const igOpen = storyImage ?? "https://www.instagram.com/";
         });
       }
 
-      // TikTok + Instagram: no web link intent — copy caption, then open app/site/story card.
+      // TikTok + Instagram: no web link intent — copy a punchy caption, then open app/story card.
       bar.querySelectorAll(".sharebar__caption-open").forEach(function (btn) {
         btn.addEventListener("click", async function (e) {
           e.preventDefault();
-          const url = bar.getAttribute("data-url") || location.href;
-          const title = bar.getAttribute("data-title") || document.title;
           const openUrl = btn.getAttribute("data-open") || btn.getAttribute("href") || "/";
           const label = btn.querySelector(".sharebar__caption-label");
           const def = (label && label.getAttribute("data-default")) || "Shared";
           try {
-            await navigator.clipboard.writeText(title + " " + url);
+            await navigator.clipboard.writeText(captionForBar(bar));
             if (label) {
               label.textContent = "Caption copied!";
               setTimeout(function () {

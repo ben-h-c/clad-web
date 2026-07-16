@@ -35,23 +35,22 @@ function loadFonts(origin: string) {
 // PNG (found during the 2026-07-11 review verification). Same all-flex
 // convention as og/story/[slug].png.ts.
 function markup(dateLabel: string): string {
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:56px 72px;border:14px solid ${INK}">
-    <div style="display:flex;flex-direction:column;align-items:center;width:100%">
-      <div style="display:flex;font-size:24px;letter-spacing:10px;color:${MUTED}">FACT-CHECKING THE NEWS</div>
-      <div style="display:flex;font-size:76px;font-weight:700;letter-spacing:6px;margin-top:6px">CLAD</div>
-      <div style="display:flex;width:100%;height:3px;background:${INK};margin:18px 0 10px"></div>
-      <div style="display:flex;font-size:22px;letter-spacing:4px;color:${MUTED}">${dateLabel.toUpperCase()}</div>
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:48px 64px;border:16px solid ${INK}">
+    <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
+      <div style="display:flex;font-size:32px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
+      <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED};font-weight:700">${dateLabel.toUpperCase()}</div>
     </div>
-    <div style="display:flex;flex-direction:column;align-items:center;margin-top:52px">
-      <div style="display:flex;font-size:66px;font-weight:700;text-align:center;line-height:1.1">The Morning Quiz</div>
-      <div style="display:flex;font-size:32px;margin-top:26px;line-height:1.35">Five claims from this week's news.</div>
-      <div style="display:flex;font-size:32px;line-height:1.35">Can you spot the spin?</div>
-      <div style="display:flex;gap:18px;margin-top:34px">
-        <div style="display:flex;border:2px solid ${INK};padding:8px 20px;font-size:22px;letter-spacing:2px">VERIFIED</div>
-        <div style="display:flex;border:2px solid ${RED};color:${RED};padding:8px 20px;font-size:22px;letter-spacing:2px">DISPUTED</div>
-        <div style="display:flex;border:2px solid ${MUTED};color:${MUTED};padding:8px 20px;font-size:22px;letter-spacing:2px">MISSING CONTEXT</div>
+    <div style="display:flex;width:100%;height:4px;background:${INK};margin:18px 0 28px"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;width:100%">
+      <div style="display:flex;font-size:24px;letter-spacing:5px;color:${RED};font-weight:700">MOST PEOPLE GET 2 WRONG</div>
+      <div style="display:flex;font-size:64px;font-weight:700;text-align:center;line-height:1.05;margin-top:12px">The Morning Quiz</div>
+      <div style="display:flex;font-size:34px;margin-top:22px;line-height:1.3;font-weight:700;text-align:center">5 claims from this week. Can you spot the spin?</div>
+      <div style="display:flex;gap:16px;margin-top:32px">
+        <div style="display:flex;border:3px solid ${INK};padding:10px 20px;font-size:22px;letter-spacing:2px;font-weight:700">VERIFIED</div>
+        <div style="display:flex;border:3px solid ${RED};color:${RED};padding:10px 20px;font-size:22px;letter-spacing:2px;font-weight:700">DISPUTED</div>
+        <div style="display:flex;border:3px solid ${MUTED};color:${MUTED};padding:10px 20px;font-size:22px;letter-spacing:2px;font-weight:700">SPIN</div>
       </div>
-      <div style="display:flex;font-size:26px;color:${MUTED};margin-top:38px;letter-spacing:2px">cladfacts.com/quiz — new at midnight Eastern</div>
+      <div style="display:flex;font-size:24px;color:${MUTED};margin-top:36px;letter-spacing:2px;font-weight:700">cladfacts.com/quiz · free · new daily</div>
     </div>
   </div>`;
 }

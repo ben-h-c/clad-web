@@ -195,7 +195,8 @@ const jsonLd = {
       class="ballot-sharebar"
       hidden={!canShare}
       url={shareUrl || `${origin}/bracket/`}
-      title="My locked 2026 midterms ballot on CladFacts — fill yours"
+      title="My locked 2026 midterms ballot"
+      hook="I picked winners for Senate + governors. Can you beat my sheet? Free on CladFacts →"
       storyImage={shareUrl ? `${origin}/og/ballot/${ballot?.shareSlug}.png` : undefined}
     />
 
@@ -444,7 +445,11 @@ const jsonLd = {
       if (!shareBar || !url) return;
       shareBar.hidden = false;
       shareBar.setAttribute("data-url", url);
-      shareBar.setAttribute("data-title", "My locked 2026 midterms ballot on CladFacts — fill yours");
+      shareBar.setAttribute("data-title", "My locked 2026 midterms ballot");
+      shareBar.setAttribute(
+        "data-hook",
+        "I picked winners for Senate + governors. Can you beat my sheet? Free on CladFacts →"
+      );
       const slugMatch = /\/ballot\/([^/]+)\//.exec(url);
       if (slugMatch) {
         shareBar.setAttribute(

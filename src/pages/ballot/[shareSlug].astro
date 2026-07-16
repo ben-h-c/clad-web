@@ -72,7 +72,12 @@ const rows = election.races.map((race) => {
 
     <ShareBar
       url={pageUrl}
-      title={`${displayName}'s 2026 midterms ballot on CladFacts`}
+      title={`${displayName}'s locked 2026 midterms ballot`}
+      hook={
+        score.called > 0
+          ? `${score.correct} correct · ${score.wrong} wrong · ${score.called} called. Can you beat them?`
+          : `${score.picked}/${score.total} races picked — fill yours on CladFacts.`
+      }
       storyImage={ogImage}
     />
 

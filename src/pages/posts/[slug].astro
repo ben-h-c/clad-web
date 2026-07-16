@@ -95,7 +95,7 @@ const ogTitle = d.headline;
 // ?v=<CARD_VERSION> matches src/pages/og/[slug].png.ts — the query is ignored
 // by the route (cache keys on path) but changes the URL social scrapers key
 // their caches on, so card redesigns re-unfurl on already-shared links.
-const ogImage = `/og/${post.id}.png?v=2`;
+const ogImage = `/og/${post.id}.png?v=3`;
 // The claims tally (keyMoments verdict counts) is public page content — the
 // KeyMoments section renders for everyone — so it's safe in anonymous head
 // text and gives crawlers/unfurlers the fact-check tension the raw summary
@@ -295,7 +295,11 @@ const breadcrumbLd = {
       <ShareBar
         url={shareUrl}
         title={d.headline}
-        hook={tally.total > 0 ? `We checked ${tally.total} claims: ${tally.verified} verified${tally.disputed ? `, ${tally.disputed} disputed` : ""}.` : undefined}
+        hook={
+          tally.total > 0
+            ? `${tally.total} claims checked · ${tally.verified} verified${tally.disputed ? ` · ${tally.disputed} disputed` : ""}. See the full receipts on CladFacts →`
+            : "Fact-checked on CladFacts — every claim, with sources."
+        }
         storyImage={`/og/story/${post.id}.png`}
       />
       <button

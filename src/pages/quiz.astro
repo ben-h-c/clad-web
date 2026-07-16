@@ -95,7 +95,8 @@ const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
             id="quiz-sharebar"
             class="quiz-sharebar"
             url="https://cladfacts.com/quiz/"
-            title="I just took today's CladFacts Morning Quiz — can you spot the spin?"
+            title="I just took today's CladFacts Morning Quiz"
+            hook="5 claims from this week's news. Most people get 2 wrong — can you spot the spin?"
           />
           <div class="quiz__cta">
             <a href="/register/?next=%2Fquiz%2F">Free account unlocks every grade →</a>
@@ -158,12 +159,14 @@ const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
         if (best > 0) parts.push(`best score ${best}/5`);
         document.getElementById("quiz-streak").textContent = parts.join(" · ");
         result.hidden = false;
-        const streakBit = streak > 1 ? ` (${streak}-day streak)` : "";
-        const shareTitle =
-          `I called ${score}/5 on today's CladFacts Morning Quiz${streakBit} — can you spot the spin?`;
+        const streakBit = streak > 1 ? ` · ${streak}-day streak` : "";
         const shareBar = document.getElementById("quiz-sharebar");
         if (shareBar) {
-          shareBar.setAttribute("data-title", shareTitle);
+          shareBar.setAttribute("data-title", `I called ${score}/5 on today's CladFacts Morning Quiz${streakBit}`);
+          shareBar.setAttribute(
+            "data-hook",
+            "5 claims from this week's news. Most people get 2 wrong — can you beat me?"
+          );
           shareBar.setAttribute("data-url", "https://cladfacts.com/quiz/");
           if (typeof window.cladRefreshShareBars === "function") {
             window.cladRefreshShareBars(shareBar);

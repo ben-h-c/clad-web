@@ -30,17 +30,18 @@ function loadFonts(origin: string) {
 const esc = (s: unknown) => String(s ?? "").replace(/[<>&]/g, "");
 
 function markup(kicker: string, title: string, line: string): string {
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:48px 64px;border:14px solid ${INK}">
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:48px 64px;border:16px solid ${INK}">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
-      <div style="display:flex;font-size:36px;font-weight:700;letter-spacing:8px">CLAD</div>
-      <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED}">LEARN · ${esc(kicker.toUpperCase())}</div>
+      <div style="display:flex;font-size:32px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
+      <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED};font-weight:700">LEARN · ${esc(kicker.toUpperCase())}</div>
     </div>
-    <div style="display:flex;width:100%;height:3px;background:${INK};margin:22px 0 28px"></div>
-    <div style="display:flex;font-size:56px;font-weight:700;line-height:1.08;max-width:1040px">${esc(title)}</div>
-    <div style="display:flex;font-size:28px;color:${MUTED};margin-top:24px;line-height:1.35;max-width:1000px">${esc(line)}</div>
+    <div style="display:flex;width:100%;height:4px;background:${INK};margin:20px 0 26px"></div>
+    <div style="display:flex;font-size:22px;letter-spacing:4px;color:${RED};font-weight:700">STOP SCROLLING. LEARN THIS.</div>
+    <div style="display:flex;font-size:52px;font-weight:700;line-height:1.06;max-width:1040px;margin-top:12px">${esc(title)}</div>
+    <div style="display:flex;font-size:28px;color:${MUTED};margin-top:20px;line-height:1.35;max-width:1000px">${esc(line)}</div>
     <div style="display:flex;margin-top:auto;justify-content:space-between;align-items:flex-end;width:100%">
-      <div style="display:flex;border:2px solid ${RED};color:${RED};padding:10px 22px;font-size:22px;letter-spacing:2px">RECEIPTS, NOT VIBES</div>
-      <div style="display:flex;font-size:24px;color:${MUTED};letter-spacing:2px">cladfacts.com/learn</div>
+      <div style="display:flex;border:3px solid ${RED};color:${RED};padding:12px 24px;font-size:22px;letter-spacing:2px;font-weight:700">RECEIPTS, NOT VIBES →</div>
+      <div style="display:flex;font-size:22px;color:${MUTED};letter-spacing:2px">cladfacts.com/learn</div>
     </div>
   </div>`;
 }

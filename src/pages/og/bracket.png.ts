@@ -62,21 +62,21 @@ function raceLines(board: ReturnType<typeof buildRaceBoard>): string[] {
 function markup(lines: string[], n: number): string {
   const body =
     lines.length > 0
-      ? lines.map((l) => esc(l)).join("   ·   ")
-      : "Class II Senate · midterm governors · coverage grades, not polls";
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:48px 64px;border:14px solid ${INK}">
+      ? lines.map((l) => esc(l)).join("  ·  ")
+      : "Class II Senate · midterm governors · your picks, not polls";
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:48px 64px;border:16px solid ${INK}">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
-      <div style="display:flex;font-size:36px;font-weight:700;letter-spacing:8px">CLAD</div>
-      <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED}">MIDTERMS 2026</div>
+      <div style="display:flex;font-size:32px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
+      <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED};font-weight:700">MIDTERMS 2026</div>
     </div>
-    <div style="display:flex;width:100%;height:3px;background:${INK};margin:22px 0 28px"></div>
-    <div style="display:flex;font-size:22px;letter-spacing:4px;color:${MUTED}">CLASS II SENATE · MIDTERM GOVERNORS</div>
-    <div style="display:flex;font-size:52px;font-weight:700;line-height:1.08;margin-top:12px">Fill your 2026 ballot</div>
-    <div style="display:flex;font-size:28px;margin-top:20px;line-height:1.35">${n} races · pick winners · share your sheet</div>
+    <div style="display:flex;width:100%;height:4px;background:${INK};margin:20px 0 24px"></div>
+    <div style="display:flex;font-size:22px;letter-spacing:4px;color:${RED};font-weight:700">WHO WINS THE SENATE?</div>
+    <div style="display:flex;font-size:56px;font-weight:700;line-height:1.05;margin-top:10px">Make your picks. Lock them in.</div>
+    <div style="display:flex;font-size:30px;margin-top:18px;line-height:1.3;font-weight:700">${n} races · Senate + governors · share your sheet</div>
     <div style="display:flex;font-size:24px;color:${MUTED};margin-top:16px;line-height:1.4;max-width:1020px">${body}</div>
     <div style="display:flex;margin-top:auto;justify-content:space-between;align-items:flex-end;width:100%">
-      <div style="display:flex;border:2px solid ${RED};color:${RED};padding:10px 22px;font-size:22px;letter-spacing:2px">PICK &amp; SHARE</div>
-      <div style="display:flex;font-size:24px;color:${MUTED};letter-spacing:2px">cladfacts.com/bracket</div>
+      <div style="display:flex;border:3px solid ${RED};color:${RED};padding:12px 24px;font-size:22px;letter-spacing:2px;font-weight:700">FILL YOUR BALLOT →</div>
+      <div style="display:flex;font-size:22px;color:${MUTED};letter-spacing:2px">cladfacts.com/bracket</div>
     </div>
   </div>`;
 }

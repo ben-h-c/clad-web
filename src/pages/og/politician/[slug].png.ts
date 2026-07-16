@@ -37,19 +37,19 @@ const esc = (s: unknown) => String(s ?? "").replace(/[<>&]/g, "");
 function markup(name: string, race: string | null, count: number): string {
   const reports = `${count} graded report${count === 1 ? "" : "s"}`;
   const raceLine = race ? race.toUpperCase() : "FACT-CHECK REPORT CARD";
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:48px 64px;border:14px solid ${INK}">
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:48px 64px;border:16px solid ${INK}">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
-      <div style="display:flex;font-size:36px;font-weight:700;letter-spacing:8px">CLAD</div>
-      <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED}">POLITICIAN REPORT CARD</div>
+      <div style="display:flex;font-size:32px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
+      <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED};font-weight:700">POLITICIAN REPORT CARD</div>
     </div>
-    <div style="display:flex;width:100%;height:3px;background:${INK};margin:22px 0 28px"></div>
-    <div style="display:flex;font-size:22px;letter-spacing:4px;color:${MUTED}">${esc(raceLine)}</div>
-    <div style="display:flex;font-size:64px;font-weight:700;line-height:1.1;margin-top:16px;max-width:1000px">${esc(name)}</div>
-    <div style="display:flex;font-size:32px;margin-top:28px;line-height:1.35">${esc(reports)} on CladFacts</div>
-    <div style="display:flex;font-size:28px;color:${MUTED};margin-top:10px;line-height:1.35">How the coverage held up — free with an account</div>
+    <div style="display:flex;width:100%;height:4px;background:${INK};margin:20px 0 24px"></div>
+    <div style="display:flex;font-size:22px;letter-spacing:4px;color:${RED};font-weight:700">${esc(raceLine)}</div>
+    <div style="display:flex;font-size:64px;font-weight:700;line-height:1.05;margin-top:12px;max-width:1000px">${esc(name)}</div>
+    <div style="display:flex;font-size:36px;margin-top:24px;line-height:1.25;font-weight:700">${esc(reports)} graded against them</div>
+    <div style="display:flex;font-size:26px;color:${MUTED};margin-top:10px;line-height:1.35">How the coverage held up — free with any account</div>
     <div style="display:flex;margin-top:auto;justify-content:space-between;align-items:flex-end;width:100%">
-      <div style="display:flex;border:2px solid ${RED};color:${RED};padding:10px 22px;font-size:22px;letter-spacing:2px">SEE EVERY GRADE</div>
-      <div style="display:flex;font-size:24px;color:${MUTED};letter-spacing:2px">cladfacts.com/politicians</div>
+      <div style="display:flex;border:3px solid ${RED};color:${RED};padding:12px 24px;font-size:22px;letter-spacing:2px;font-weight:700">SEE EVERY GRADE →</div>
+      <div style="display:flex;font-size:22px;color:${MUTED};letter-spacing:2px">cladfacts.com/politicians</div>
     </div>
   </div>`;
 }

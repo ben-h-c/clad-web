@@ -108,7 +108,11 @@ const serpDescription = metaDescription(
       </div>
     )}
 
-    <ShareBar url={shareUrl} title={`${topic.display} — CladFacts`} />
+    <ShareBar
+      url={shareUrl}
+      title={`${topic.display}: ${topic.count} fact-checked reports`}
+      hook="Every claim graded for accuracy and political lean on CladFacts →"
+    />
 
     <div class="rule rule--double" aria-hidden="true" style="margin:1.25rem 0"></div>
 

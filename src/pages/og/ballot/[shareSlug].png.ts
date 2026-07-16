@@ -52,19 +52,19 @@ function markup(opts: {
     opts.lines.length > 0
       ? opts.lines.map((l) => esc(l)).join("   ·   ")
       : "Class II Senate · midterm governors · personal picks";
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:48px 64px;border:14px solid ${INK}">
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:48px 64px;border:16px solid ${INK}">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
-      <div style="display:flex;font-size:36px;font-weight:700;letter-spacing:8px">CLAD</div>
-      <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED}">MIDTERMS 2026</div>
+      <div style="display:flex;font-size:32px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
+      <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED};font-weight:700">MIDTERMS 2026</div>
     </div>
-    <div style="display:flex;width:100%;height:3px;background:${INK};margin:22px 0 28px"></div>
-    <div style="display:flex;font-size:22px;letter-spacing:4px;color:${MUTED}">SHARED BALLOT</div>
-    <div style="display:flex;font-size:48px;font-weight:700;line-height:1.08;margin-top:12px">${esc(opts.name)}&rsquo;s picks</div>
-    <div style="display:flex;font-size:26px;margin-top:16px;line-height:1.35">${esc(opts.scoreLine)}</div>
-    <div style="display:flex;font-size:22px;color:${MUTED};margin-top:16px;line-height:1.4;max-width:1020px">${body}</div>
+    <div style="display:flex;width:100%;height:4px;background:${INK};margin:20px 0 24px"></div>
+    <div style="display:flex;font-size:22px;letter-spacing:4px;color:${RED};font-weight:700">LOCKED BALLOT · CAN YOU BEAT THEM?</div>
+    <div style="display:flex;font-size:50px;font-weight:700;line-height:1.05;margin-top:10px">${esc(opts.name)}'s 2026 picks</div>
+    <div style="display:flex;font-size:28px;margin-top:16px;line-height:1.3;font-weight:700">${esc(opts.scoreLine)}</div>
+    <div style="display:flex;font-size:22px;color:${MUTED};margin-top:14px;line-height:1.4;max-width:1020px">${body}</div>
     <div style="display:flex;margin-top:auto;justify-content:space-between;align-items:flex-end;width:100%">
-      <div style="display:flex;border:2px solid ${RED};color:${RED};padding:10px 22px;font-size:20px;letter-spacing:2px">FILL YOURS</div>
-      <div style="display:flex;font-size:22px;color:${MUTED};letter-spacing:1px">cladfacts.com/ballot/${esc(opts.slug)}</div>
+      <div style="display:flex;border:3px solid ${RED};color:${RED};padding:12px 24px;font-size:20px;letter-spacing:2px;font-weight:700">FILL YOUR BALLOT →</div>
+      <div style="display:flex;font-size:20px;color:${MUTED};letter-spacing:1px">cladfacts.com/bracket</div>
     </div>
   </div>`;
 }
