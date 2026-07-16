@@ -55,9 +55,10 @@
 
 /* Dark palette — applied ONLY when the reader has explicitly opted in via the
    Masthead toggle (persisted in localStorage as clad_theme, reflected as
-   data-theme="dark"). Light is the default for everyone; we intentionally do
-   NOT auto-apply dark from the OS preference or time of day. */
-:root[data-theme="dark"] {
+   data-theme="dark" and/or .theme-dark). Light is the default for everyone;
+   we intentionally do NOT auto-apply dark from the OS preference. */
+:root[data-theme="dark"],
+html.theme-dark {
   --paper: rgb(28, 25, 20);
   --paper-deep: rgb(22, 20, 16);
   --desk: rgb(12, 11, 9);
@@ -166,7 +167,8 @@ body::before {
   contain: strict;
 }
 
-:root[data-theme="dark"] body::before {
+:root[data-theme="dark"] body::before,
+html.theme-dark body::before {
   opacity: calc(var(--grain-opacity) * 0.85);
 }
 
@@ -289,10 +291,12 @@ body::before {
   100% { background-position: 100% 50%; }
 }
 
-:root[data-theme="dark"] .living-bg__orb {
+:root[data-theme="dark"] .living-bg__orb,
+html.theme-dark .living-bg__orb {
   opacity: 0.35;
 }
-:root[data-theme="dark"] .living-bg__grid {
+:root[data-theme="dark"] .living-bg__grid,
+html.theme-dark .living-bg__grid {
   opacity: 0.22;
 }
 
@@ -309,7 +313,20 @@ body::before {
 :root[data-theme="dark"] .account-card,
 :root[data-theme="dark"] .fold,
 :root[data-theme="dark"] .breaking-group,
-:root[data-theme="dark"] .gradeboard__item {
+:root[data-theme="dark"] .gradeboard__item,
+html.theme-dark .report-card,
+html.theme-dark .topic-card,
+html.theme-dark .home-rails__card,
+html.theme-dark .explore-next__card,
+html.theme-dark .scoreband,
+html.theme-dark .pol-card,
+html.theme-dark .race-card,
+html.theme-dark .queue-item,
+html.theme-dark .agent,
+html.theme-dark .account-card,
+html.theme-dark .fold,
+html.theme-dark .breaking-group,
+html.theme-dark .gradeboard__item {
   background-color: var(--card) !important;
   background-image: none !important;
   box-shadow:
@@ -506,12 +523,14 @@ html.masthead-menu-open .shell > main {
   z-index: 1;
 }
 
-:root[data-theme="dark"] .shell::before {
+:root[data-theme="dark"] .shell::before,
+html.theme-dark .shell::before {
   opacity: calc(var(--grain-opacity) * 1.1);
 }
 
 /* Dark sheet keeps a warm corner backlight; cards sit on top as solid stock. */
-:root[data-theme="dark"] .shell {
+:root[data-theme="dark"] .shell,
+html.theme-dark .shell {
   background-image:
     radial-gradient(ellipse 95% 60% at 10% 4%, rgba(255, 170, 90, 0.22), transparent 55%),
     radial-gradient(ellipse 70% 45% at 92% 96%, rgba(70, 110, 180, 0.1), transparent 55%),
@@ -609,19 +628,42 @@ html.clad-app .emap-page {
   z-index: 0;
 }
 
-/* Top-right chrome: always above masthead title / rules so the theme toggle is clickable. */
+/* Title/tagline are full-width text layers — don't steal clicks from chrome. */
+.masthead__title,
+.masthead__tagline,
+.masthead__meta {
+  pointer-events: none;
+}
+.masthead__title a {
+  pointer-events: auto;
+}
+
+/* Top-right chrome group: Account · Theme · Search — one stacking layer. */
+.masthead__chrome {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.35rem;
+  pointer-events: auto;
+}
+
 .masthead__search,
 .masthead__theme,
 .masthead__account {
-  position: absolute;
-  top: 0;
-  z-index: 20;
+  position: relative;
+  top: auto;
+  right: auto;
+  z-index: 1;
   pointer-events: auto;
   background: var(--card);
+  flex: 0 0 auto;
 }
 
 .masthead__search {
-  right: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -636,9 +678,7 @@ html.clad-app .emap-page {
   color: var(--paper);
 }
 
-/* Dark-mode toggle: sits between the account link and the search icon. */
 .masthead__theme {
-  right: 2.8rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -653,15 +693,17 @@ html.clad-app .emap-page {
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
+  font-family: inherit;
+  touch-action: manipulation;
 }
 
-.masthead__theme:hover {
+.masthead__theme:hover,
+.masthead__theme[aria-pressed="true"] {
   background: var(--ink);
   color: var(--paper);
 }
 
 .masthead__account {
-  right: 5.6rem;
   display: inline-flex;
   align-items: center;
   height: 2.4rem;
@@ -676,6 +718,15 @@ html.clad-app .emap-page {
 .masthead__account:hover {
   background: var(--ink);
   color: var(--paper);
+}
+
+@media (max-width: 30rem) {
+  .masthead__account {
+    /* Keep the control; shorten label via CSS not required */
+    max-width: 5.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 /* On phones the text link crowds the centered title — use the ☰ menu's
    Sign in / Account item instead. */

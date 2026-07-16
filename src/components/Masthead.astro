@@ -127,18 +127,23 @@ const menuAccountText = signedIn ? accountLabel : "Sign in";
     </details>
   )}
   {!isAdmin && (
-    <a class="masthead__search" href="/search/" aria-label="Search" title="Search">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-        <circle cx="11" cy="11" r="7"></circle>
-        <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
-      </svg>
-    </a>
-  )}
-  {!isAdmin && (
-    <button type="button" class="masthead__theme" id="theme-toggle" aria-label="Toggle light or dark reading" title="Toggle light or dark reading">◐</button>
-  )}
-  {!isAdmin && (
-    <a class="masthead__account small-caps" id="masthead-account" href={accountHref}>{accountText}</a>
+    <div class="masthead__chrome" role="group" aria-label="Account and display">
+      <a class="masthead__account small-caps" id="masthead-account" href={accountHref}>{accountText}</a>
+      <button
+        type="button"
+        class="masthead__theme"
+        id="theme-toggle"
+        aria-label="Toggle light or dark reading"
+        title="Toggle light or dark reading"
+        aria-pressed="false"
+      >◐</button>
+      <a class="masthead__search" href="/search/" aria-label="Search" title="Search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+        </svg>
+      </a>
+    </div>
   )}
   <p class="masthead__title"><a href={homeHref} style="color:inherit;text-decoration:none">Clad</a></p>
   <p class="masthead__tagline small-caps">Grading Content &amp; Exposing Bias</p>
@@ -181,42 +186,8 @@ const menuAccountText = signedIn ? accountLabel : "Sign in";
         });
       });
     });
-    // Manual light/dark toggle. Persists to localStorage; when signed in also
-    // updates the account default so it sticks across devices/sessions.
-    const themeBtn = document.getElementById("theme-toggle");
-    if (themeBtn) {
-      const applyTheme = (next) => {
-        const root = document.documentElement;
-        root.setAttribute("data-theme", next === "dark" ? "dark" : "light");
-        try { localStorage.setItem("clad_theme", next); } catch {}
-        const tc = document.querySelector('meta[name="theme-color"]');
-        if (tc) tc.setAttribute("content", next === "dark" ? "#181612" : "#3a3026");
-        themeBtn.setAttribute("aria-pressed", next === "dark" ? "true" : "false");
-        themeBtn.title = next === "dark" ? "Switch to light reading" : "Switch to dark reading";
-        themeBtn.setAttribute(
-          "aria-label",
-          next === "dark" ? "Switch to light reading" : "Switch to dark reading"
-        );
-      };
-      const isDark = () => document.documentElement.getAttribute("data-theme") === "dark";
-      themeBtn.setAttribute("aria-pressed", isDark() ? "true" : "false");
-      themeBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const next = isDark() ? "light" : "dark";
-        applyTheme(next);
-        const mast = document.querySelector(".masthead");
-        if (mast && mast.getAttribute("data-signed-in") === "1") {
-          fetch("/api/me/preferences", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            credentials: "same-origin",
-            body: JSON.stringify({ theme: next }),
-          }).catch(() => {});
-        }
-      });
-    }
     // Client backup only if SSR missed a session (cookie race / bfcache).
+    // Theme toggle is wired globally in BaseLayout (capture phase).
     const root = document.querySelector(".masthead");
     if (root && root.getAttribute("data-signed-in") !== "1") {
       fetch("/api/auth/get-session", { headers: { accept: "application/json" }, credentials: "same-origin" })

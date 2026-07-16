@@ -316,10 +316,15 @@ const planLabel = access.tier === "paid" ? "Premium" : "Free";
               body: JSON.stringify({ theme }),
             });
             if (!res.ok) throw new Error("Could not save.");
-            document.documentElement.dataset.theme = theme;
-            try { localStorage.setItem("clad_theme", theme); } catch {}
-            const tc = document.querySelector('meta[name="theme-color"]');
-            if (tc) tc.setAttribute("content", theme === "dark" ? "#181612" : "#3a3026");
+            if (typeof window.__cladApplyTheme === "function") {
+              window.__cladApplyTheme(theme);
+            } else {
+              document.documentElement.dataset.theme = theme;
+              document.documentElement.classList.toggle("theme-dark", theme === "dark");
+              try { localStorage.setItem("clad_theme", theme); } catch {}
+              const tc = document.querySelector('meta[name="theme-color"]');
+              if (tc) tc.setAttribute("content", theme === "dark" ? "#181612" : "#3a3026");
+            }
             setStatus(themeStatus, "info", "Saved.");
           } catch (err) {
             setStatus(themeStatus, "error", String(err.message || err));

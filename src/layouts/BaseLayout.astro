@@ -126,25 +126,70 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content={themeColor} />
-    <!-- Theme before first paint: signed-in account default (SSR data-theme)
-         wins; guests use localStorage from the masthead toggle. -->
+    <!-- Theme before first paint + global toggle handler (capture phase so it
+         always wins over menu chrome stacking / other click handlers). -->
     <script is:inline>
-      try {
+      (function () {
         var root = document.documentElement;
-        var fromAccount = root.getAttribute("data-account-theme") === "1";
-        var t = root.dataset.theme;
-        if (fromAccount && (t === "dark" || t === "light")) {
-          localStorage.setItem("clad_theme", t);
-        } else {
-          t = localStorage.getItem("clad_theme");
-          if (t === "dark" || t === "light") root.dataset.theme = t;
-          else root.removeAttribute("data-theme");
-        }
-        if (root.dataset.theme === "dark") {
+        function applyTheme(next) {
+          var dark = next === "dark";
+          if (dark) {
+            root.setAttribute("data-theme", "dark");
+            root.classList.add("theme-dark");
+          } else {
+            root.setAttribute("data-theme", "light");
+            root.classList.remove("theme-dark");
+          }
+          try { localStorage.setItem("clad_theme", dark ? "dark" : "light"); } catch (e) {}
           var tc = document.querySelector('meta[name="theme-color"]');
-          if (tc) tc.setAttribute("content", "#181612");
+          if (tc) tc.setAttribute("content", dark ? "#181612" : "#3a3026");
+          root.style.colorScheme = dark ? "dark" : "light";
+          var btn = document.getElementById("theme-toggle");
+          if (btn) {
+            btn.setAttribute("aria-pressed", dark ? "true" : "false");
+            btn.title = dark ? "Switch to light reading" : "Switch to dark reading";
+            btn.setAttribute("aria-label", dark ? "Switch to light reading" : "Switch to dark reading");
+          }
         }
-      } catch {}
+        window.__cladApplyTheme = applyTheme;
+        try {
+          var fromAccount = root.getAttribute("data-account-theme") === "1";
+          var t = root.getAttribute("data-theme");
+          if (fromAccount && (t === "dark" || t === "light")) {
+            applyTheme(t);
+          } else {
+            t = localStorage.getItem("clad_theme");
+            if (t === "dark" || t === "light") applyTheme(t);
+            else {
+              root.removeAttribute("data-theme");
+              root.classList.remove("theme-dark");
+            }
+          }
+        } catch (e) {}
+        // Capture phase so masthead title / menu listeners cannot steal the click.
+        document.addEventListener(
+          "click",
+          function (e) {
+            var btn = e.target && e.target.closest && e.target.closest("#theme-toggle");
+            if (!btn) return;
+            e.preventDefault();
+            e.stopPropagation();
+            var cur = root.getAttribute("data-theme") === "dark" || root.classList.contains("theme-dark");
+            var next = cur ? "light" : "dark";
+            applyTheme(next);
+            var mast = document.querySelector(".masthead");
+            if (mast && mast.getAttribute("data-signed-in") === "1") {
+              fetch("/api/me/preferences", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "same-origin",
+                body: JSON.stringify({ theme: next }),
+              }).catch(function () {});
+            }
+          },
+          true
+        );
+      })();
     </script>
     <meta name="google-site-verification" content="OYUpYStZyOvXegnN47Cnf17Ay6-ZtZSQtGrTjwBW5Zs" />
     <meta name="description" content={metaDescription} />
