@@ -2864,6 +2864,30 @@ html.theme-dark .peek-pop__panel {
 }
 .peek-pop__panel .scoreband {
   margin: 0.15rem 0 0.65rem;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+}
+/* Mobile cards hide .lean__scale to save height — always show the blue→red
+   lean bar in the hold-to-preview popup (iOS app). */
+.peek-pop__panel .scoreband .lean__scale {
+  display: flex !important;
+  max-width: none;
+  width: 100%;
+  margin-top: 0.35rem;
+}
+.peek-pop__panel .scoreband__bias {
+  flex: 1 1 100%;
+  min-width: 0;
+  border-left: 0;
+  padding-left: 0;
+  border-top: 1px solid color-mix(in srgb, var(--rule) 45%, transparent);
+  padding-top: 0.45rem;
+}
+.peek-pop__panel .scoreband .lean__track {
+  height: 8px;
+}
+.peek-pop__panel .scoreband .lean__value {
+  font-size: 1.05rem;
 }
 .peek-pop__release {
   margin: 0.55rem 0 0;
