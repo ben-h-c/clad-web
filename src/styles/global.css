@@ -610,6 +610,13 @@ html.clad-app .masthead__bar {
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
 }
+/* In-app WebView: no browser-style top chrome during / after navigation */
+html.clad-app .read-progress {
+  display: none !important;
+}
+html.clad-app .skip-link {
+  display: none !important;
+}
 /* Map / full-bleed tools: keep side gutters but use full vertical space */
 html.clad-app .emap-page {
   padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
