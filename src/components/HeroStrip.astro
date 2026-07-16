@@ -31,9 +31,9 @@ const {
     </div>
     <div class="hero-strip-wrap">
       <button type="button" class="hero-arrow hero-arrow--left" aria-label="Scroll left" hidden>‹</button>
-      <div class="hero-strip" aria-label={`${title} reports`}>
+      <div class="hero-strip hero-strip--focusable" aria-label={`${title} reports`}>
         {posts.map((p) => (
-          <div class="hero-strip__item">
+          <div class="hero-strip__item is-compact">
             <ReportCard post={p} locked={locked && p.id !== unlockedId} sample={locked && p.id === unlockedId} />
           </div>
         ))}
@@ -45,37 +45,103 @@ const {
 
 <script is:inline>
   (() => {
-    if (window.__heroArrows) return;
-    window.__heroArrows = true;
-    const updaters = [];
-    const wire = (wrap) => {
-      const strip = wrap.querySelector(".hero-strip");
-      const left = wrap.querySelector(".hero-arrow--left");
-      const right = wrap.querySelector(".hero-arrow--right");
-      if (!strip || !left || !right) return;
-      const update = () => {
-        const max = strip.scrollWidth - strip.clientWidth;
-        if (max <= 4) { left.hidden = true; right.hidden = true; return; }
-        left.hidden = strip.scrollLeft <= 2;
-        right.hidden = strip.scrollLeft >= max - 2;
+    // ── Horizontal arrows (once) ──────────────────────────────────────────
+    if (!window.__heroArrows) {
+      window.__heroArrows = true;
+      const updaters = [];
+      const wire = (wrap) => {
+        const strip = wrap.querySelector(".hero-strip");
+        const left = wrap.querySelector(".hero-arrow--left");
+        const right = wrap.querySelector(".hero-arrow--right");
+        if (!strip || !left || !right) return;
+        const update = () => {
+          const max = strip.scrollWidth - strip.clientWidth;
+          if (max <= 4) { left.hidden = true; right.hidden = true; return; }
+          left.hidden = strip.scrollLeft <= 2;
+          right.hidden = strip.scrollLeft >= max - 2;
+        };
+        const step = () => Math.max(240, strip.clientWidth * 0.8);
+        const behavior = () =>
+          matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+        left.addEventListener("click", () => strip.scrollBy({ left: -step(), behavior: behavior() }));
+        right.addEventListener("click", () => strip.scrollBy({ left: step(), behavior: behavior() }));
+        strip.addEventListener("scroll", update, { passive: true });
+        updaters.push(update);
+        update();
       };
-      const step = () => Math.max(240, strip.clientWidth * 0.8);
-      const behavior = () =>
-        matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
-      left.addEventListener("click", () => strip.scrollBy({ left: -step(), behavior: behavior() }));
-      right.addEventListener("click", () => strip.scrollBy({ left: step(), behavior: behavior() }));
-      strip.addEventListener("scroll", update, { passive: true });
-      updaters.push(update);
-      update();
+      const initArrows = () => {
+        document.querySelectorAll(".hero-strip-wrap").forEach(wire);
+        requestAnimationFrame(() => updaters.forEach((u) => u()));
+      };
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initArrows);
+      else initArrows();
+      window.addEventListener("load", () => updaters.forEach((u) => u()));
+      window.addEventListener("resize", () => updaters.forEach((u) => u()));
+    }
+
+    // ── Center-focus expand (Breaking + Front Page) ───────────────────────
+    // Cards stay condensed until near the middle of the viewport (vertical page
+    // scroll and horizontal strip scroll). Keeps more of the desk on screen.
+    if (window.__heroFocus) return;
+    window.__heroFocus = true;
+
+    const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function focusScore(rect, vw, vh) {
+      // 0 far · 1 at viewport center (both axes).
+      const ix = rect.left + rect.width / 2;
+      const iy = rect.top + rect.height / 2;
+      const dx = Math.abs(ix - vw / 2) / Math.max(vw * 0.55, 1);
+      const dy = Math.abs(iy - vh / 2) / Math.max(vh * 0.55, 1);
+      // Vertical weight higher — page scroll is the main densify/expand cue.
+      const d = Math.sqrt(dx * dx * 0.45 + dy * dy * 0.9);
+      return Math.max(0, Math.min(1, 1 - d));
+    }
+
+    function applyFocus() {
+      const items = document.querySelectorAll(".hero-strip--focusable .hero-strip__item");
+      if (!items.length) return;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const expandAll = reduced();
+
+      items.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        // Skip work for items well off-screen
+        if (r.bottom < -80 || r.top > vh + 80) {
+          el.classList.add("is-compact");
+          el.classList.remove("is-mid", "is-focus");
+          el.style.setProperty("--focus", "0");
+          return;
+        }
+        const t = expandAll ? 1 : focusScore(r, vw, vh);
+        el.style.setProperty("--focus", t.toFixed(3));
+        el.classList.toggle("is-compact", t < 0.38);
+        el.classList.toggle("is-mid", t >= 0.38 && t < 0.62);
+        el.classList.toggle("is-focus", t >= 0.62);
+      });
+    }
+
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        applyFocus();
+      });
     };
-    const init = () => {
-      document.querySelectorAll(".hero-strip-wrap").forEach(wire);
-      requestAnimationFrame(() => updaters.forEach((u) => u()));
+
+    const initFocus = () => {
+      applyFocus();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+      document.querySelectorAll(".hero-strip--focusable").forEach((strip) => {
+        strip.addEventListener("scroll", onScroll, { passive: true });
+      });
     };
-    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
-    else init();
-    // Re-measure once images/fonts have loaded and on resize.
-    window.addEventListener("load", () => updaters.forEach((u) => u()));
-    window.addEventListener("resize", () => updaters.forEach((u) => u()));
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initFocus);
+    else initFocus();
+    window.addEventListener("load", applyFocus);
   })();
 </script>

@@ -23,9 +23,9 @@ const { items, locked = false, unlockedId = null } = Astro.props;
     </div>
     <div class="hero-strip-wrap">
       <button type="button" class="hero-arrow hero-arrow--left" aria-label="Scroll left" hidden>‹</button>
-      <div class="hero-strip" aria-label="Breaking News reports">
+      <div class="hero-strip hero-strip--focusable" aria-label="Breaking News reports">
         {items.map((it) => (
-          <div class="hero-strip__item">
+          <div class="hero-strip__item is-compact">
             {it.kind === "group" ? (
               <BreakingGroupCard slug={it.slug} title={it.title} topic={it.topic} members={it.members} locked={locked} />
             ) : (
