@@ -79,10 +79,16 @@ const {
       window.addEventListener("resize", () => updaters.forEach((u) => u()));
     }
 
-    // Hold-to-preview popup for compact Breaking / Front Page cards.
-    // Press+hold → FLIP open a floating full card; release → FLIP closed.
+    // Hold-to-preview: iOS app shell only (html.clad-app / __cladNative).
+    // Public website keeps full cards and normal click-to-open.
     if (window.__heroPeek) return;
     window.__heroPeek = true;
+    const isCladApp = () =>
+      !!(
+        window.__cladNative ||
+        document.documentElement.classList.contains("clad-app")
+      );
+    if (!isCladApp()) return;
 
     const LONG_MS = 380;
     // Only abort the *pending* hold if the finger clearly starts a scroll/swipe.

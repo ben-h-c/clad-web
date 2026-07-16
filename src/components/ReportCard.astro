@@ -14,8 +14,9 @@ interface Props {
   /** Today's free sample — render fully unlocked with a badge + leak-checker marker. */
   sample?: boolean;
   /**
-   * Hero-strip mode: compact card. Hold to open a floating preview popup
-   * (releases collapse it). Summary/scoreband live in the popup.
+   * Hero-strip mode: in the iOS app, compact card + hold-to-preview popup.
+   * On the public website these still render as full cards (CSS/JS gated to
+   * html.clad-app).
    */
   peek?: boolean;
 }

@@ -2607,80 +2607,83 @@ html.theme-dark .masthead__menu-list {
   scroll-snap-align: start;
 }
 
-/* Compact peek cards in Breaking / Front Page — hold opens a floating preview */
-.hero-strip__item--peek {
+/*
+ * Compact hold-to-preview cards: iOS app only (html.clad-app).
+ * Public website keeps full Breaking / Front Page cards — no long-press UI.
+ */
+.report-card__peek-row,
+.report-card__hold-hint {
+  display: none;
+}
+
+/* --- App shell: compact tiles + hold-to-preview --- */
+html.clad-app .hero-strip__item--peek {
   flex: 0 0 clamp(12.5rem, 52%, 15.5rem);
   align-self: stretch;
 }
 
-.report-card--peek {
+html.clad-app .report-card--peek {
   padding: 0.45rem 0.5rem 0.4rem;
-  /* pan still allowed for strip/page scroll; no double-tap zoom delay */
   touch-action: manipulation;
   transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1), transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-  /* Kill iOS/Android long-press text select + link callout on the card */
   -webkit-user-select: none !important;
   user-select: none !important;
   -webkit-touch-callout: none !important;
   -webkit-tap-highlight-color: transparent;
 }
-.report-card--peek,
-.report-card--peek * {
+html.clad-app .report-card--peek,
+html.clad-app .report-card--peek * {
   -webkit-user-select: none !important;
   user-select: none !important;
   -webkit-touch-callout: none !important;
   -webkit-tap-highlight-color: transparent;
 }
-.report-card--peek a {
+html.clad-app .report-card--peek a {
   -webkit-user-drag: none;
   user-select: none !important;
 }
-.report-card--peek img {
+html.clad-app .report-card--peek img {
   -webkit-user-drag: none;
-  /* Long-press hits the card, not “Save Image” / image callout */
   pointer-events: none;
 }
-.report-card--peek ::selection,
-.report-card--peek *::selection {
+html.clad-app .report-card--peek ::selection,
+html.clad-app .report-card--peek *::selection {
   background: transparent;
   color: inherit;
 }
-/* While a hold-preview is active, nothing on the page should highlight */
-html.is-peek-holding,
-html.is-peek-holding body,
-html.is-peek-holding body * {
+html.clad-app.is-peek-holding,
+html.clad-app.is-peek-holding body,
+html.clad-app.is-peek-holding body * {
   -webkit-user-select: none !important;
   user-select: none !important;
   -webkit-touch-callout: none !important;
 }
-html.is-peek-holding {
+html.clad-app.is-peek-holding {
   -webkit-tap-highlight-color: transparent;
 }
-/* Popup open: freeze document scroll so a finger wiggle doesn’t scroll/dismiss */
-html.is-peek-open,
-html.is-peek-open body {
+html.clad-app.is-peek-open,
+html.clad-app.is-peek-open body {
   overflow: hidden !important;
   overscroll-behavior: none !important;
   touch-action: none !important;
 }
-html.is-peek-open body {
-  /* Keep visual scroll position while locked */
+html.clad-app.is-peek-open body {
   position: fixed;
   inset: 0;
   width: 100%;
   top: var(--peek-scroll-y, 0px);
 }
-.report-card--peek.is-peeking {
+html.clad-app .report-card--peek.is-peeking {
   opacity: 0.22;
   transform: scale(0.98);
   pointer-events: none;
 }
-.report-card--peek .report-card__thumb {
+html.clad-app .report-card--peek .report-card__thumb {
   aspect-ratio: 16 / 8;
   margin-bottom: 0.4rem;
   border-radius: 2px;
 }
-.report-card--peek .report-card__headline {
+html.clad-app .report-card--peek .report-card__headline {
   font-size: 0.98rem;
   line-height: 1.22;
   display: -webkit-box;
@@ -2688,41 +2691,41 @@ html.is-peek-open body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.report-card--peek .report-card__meta {
+html.clad-app .report-card--peek .report-card__meta {
   font-size: 0.75rem;
   margin: 0.15rem 0 0;
 }
-.report-card--peek .report-card__kicker {
+html.clad-app .report-card--peek .report-card__kicker {
   font-size: 0.62rem;
   margin: 0 0 0.15rem;
 }
-.report-card--peek .report-card__grouptag {
+html.clad-app .report-card--peek .report-card__grouptag {
   font-size: 0.58rem;
   padding: 0.1rem 0.35rem;
 }
-/* Long-form stays on the source card but hidden — the popup clones + reveals it */
-.report-card--peek .report-card__detail {
+/* App compact: hide long-form until hold-preview popup */
+html.clad-app .report-card--peek .report-card__detail {
   display: none;
 }
-.report-card__peek-row {
+html.clad-app .report-card--peek .report-card__peek-row {
   display: flex;
   align-items: center;
   gap: 0.4rem;
   margin: 0 0 0.3rem;
   min-height: 1.15rem;
 }
-.report-card__peek-lean {
+html.clad-app .report-card__peek-lean {
   font-size: 0.68rem;
   letter-spacing: 0.04em;
   color: var(--muted-ink);
   font-style: italic;
   white-space: nowrap;
 }
-.report-card__peek-lock {
+html.clad-app .report-card__peek-lock {
   font-size: 0.85rem;
   line-height: 1;
 }
-.report-card__hold-hint {
+html.clad-app .report-card--peek .report-card__hold-hint {
   display: block;
   margin: 0.35rem 0 0;
   text-align: center;
