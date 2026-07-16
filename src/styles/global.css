@@ -7690,25 +7690,36 @@ html.clad-app .home-spotlight__close {
 .home-spotlight__slide .home-promo--spotlight {
   height: 100%;
   box-sizing: border-box;
-  /* Slimmer card; extra right padding so the × doesn't cover the title */
-  padding: 0.55rem 2rem 0.5rem 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; /* text block + CTAs vertically centered */
+  justify-content: space-between;
+  /* Balanced vertical padding so content doesn't sit high in the bar */
+  padding: 0.85rem 2.1rem 0.85rem 1rem;
   margin: 0;
-  gap: 0.45rem 0.85rem;
-  min-height: 0;
+  gap: 0.55rem 1rem;
+  min-height: 5.25rem;
   box-shadow:
     0 1px 0 color-mix(in srgb, #fff 40%, transparent),
     0 6px 14px color-mix(in srgb, var(--shadow) 22%, transparent);
 }
+.home-spotlight__slide .home-promo__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 14rem;
+  min-width: 0;
+}
 .home-spotlight__slide .home-promo__kicker {
-  margin: 0 0 0.1rem;
+  margin: 0 0 0.15rem;
   font-size: 0.65rem;
 }
 .home-spotlight__slide .home-promo__title {
   font-size: clamp(0.98rem, 2.4vw, 1.15rem);
-  line-height: 1.15;
+  line-height: 1.2;
 }
 .home-spotlight__slide .home-promo__body {
-  margin: 0.15rem 0 0;
+  margin: 0.2rem 0 0;
   font-size: 0.82rem;
   line-height: 1.35;
   display: -webkit-box;
@@ -7718,6 +7729,8 @@ html.clad-app .home-spotlight__close {
 }
 .home-spotlight__slide .home-promo__actions {
   gap: 0.35rem 0.5rem;
+  align-self: center;
+  flex: 0 0 auto;
 }
 .home-spotlight__slide .home-promo__cta {
   padding: 0.35rem 0.65rem;
@@ -7789,7 +7802,8 @@ html.clad-app .home-spotlight__arrow {
     margin: 0;
   }
   .home-spotlight__slide .home-promo--spotlight {
-    padding: 0.5rem 0.6rem 0.45rem;
+    padding: 0.75rem 1.85rem 0.75rem 0.7rem;
+    min-height: 4.75rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {
