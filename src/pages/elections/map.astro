@@ -175,6 +175,7 @@ const registerMap = registerHref("/elections/map/");
     <div class="emap-shell">
       <div class="emap-map-col">
         <div class="emap-map-wrap">
+          {/* Legend only when Coverage map is selected */}
           <div class="emap-legend" id="legend-coverage" hidden aria-label="Coverage map legend">
             <span class="emap-leg emap-leg--hot">Hot</span>
             <span class="emap-leg emap-leg--marquee">Marquee</span>
@@ -183,16 +184,6 @@ const registerMap = registerHref("/elections/map/");
             <span class="emap-leg emap-leg--senate">Senate</span>
             <span class="emap-leg emap-leg--governor">Gov</span>
             <span class="emap-leg emap-leg--quiet">House</span>
-          </div>
-          <div class="emap-legend" id="legend-party" aria-label="Party and outlook map legend">
-            <span class="emap-leg emap-party--solid-d">Solid D</span>
-            <span class="emap-leg emap-party--likely-d">Likely D</span>
-            <span class="emap-leg emap-party--lean-d">Lean D</span>
-            <span class="emap-leg emap-party--tossup">Toss-up</span>
-            <span class="emap-leg emap-party--lean-r">Lean R</span>
-            <span class="emap-leg emap-party--likely-r">Likely R</span>
-            <span class="emap-leg emap-party--solid-r">Solid R</span>
-            <span class="emap-leg emap-leg--flip">Flip risk</span>
           </div>
 
           <p class="emap-hint small-caps" id="emap-hint">Tap a state for control, outlook &amp; races · Tab + Enter</p>
@@ -365,7 +356,6 @@ const registerMap = registerHref("/elections/map/");
     const backdrop = document.getElementById("emap-backdrop");
     const layerGroup = document.getElementById("layer-group");
     const legendCov = document.getElementById("legend-coverage");
-    const legendParty = document.getElementById("legend-party");
     const discParty = document.getElementById("emap-disclaimer-party");
     const discCov = document.getElementById("emap-disclaimer-coverage");
     const hintEl = document.getElementById("emap-hint");
@@ -446,8 +436,8 @@ const registerMap = registerHref("/elections/map/");
         }
         path.setAttribute("aria-label", st.name + ": " + (mode === "coverage" ? st.glance : partyGlance(st)));
       });
+      // Legend only on Coverage map; Party & outlook has no color chip legend.
       if (legendCov) legendCov.hidden = mode !== "coverage";
-      if (legendParty) legendParty.hidden = mode !== "party";
       if (layerGroup) layerGroup.hidden = mode !== "party";
       if (discParty) discParty.hidden = mode !== "party";
       if (discCov) discCov.hidden = mode !== "coverage";
