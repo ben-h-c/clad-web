@@ -79,46 +79,34 @@ const {
       window.addEventListener("resize", () => updaters.forEach((u) => u()));
     }
 
-    // ── Center-focus expand (Breaking + Front Page) ───────────────────────
-    // Cards stay condensed until near the middle of the viewport (vertical page
-    // scroll and horizontal strip scroll). Keeps more of the desk on screen.
+    // ── Vertical expand (Breaking + Front Page) ───────────────────────────
+    // Width stays fixed. When a strip's vertical center is near mid-viewport,
+    // cards show full detail; otherwise hide summary / meta / lean / source.
     if (window.__heroFocus) return;
     window.__heroFocus = true;
 
     const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    function focusScore(rect, vw, vh) {
-      // 0 far · 1 at viewport center (both axes).
-      const ix = rect.left + rect.width / 2;
-      const iy = rect.top + rect.height / 2;
-      const dx = Math.abs(ix - vw / 2) / Math.max(vw * 0.55, 1);
-      const dy = Math.abs(iy - vh / 2) / Math.max(vh * 0.55, 1);
-      // Vertical weight higher — page scroll is the main densify/expand cue.
-      const d = Math.sqrt(dx * dx * 0.45 + dy * dy * 0.9);
-      return Math.max(0, Math.min(1, 1 - d));
-    }
-
     function applyFocus() {
-      const items = document.querySelectorAll(".hero-strip--focusable .hero-strip__item");
-      if (!items.length) return;
-      const vw = window.innerWidth;
+      const strips = document.querySelectorAll(".hero-strip--focusable");
+      if (!strips.length) return;
       const vh = window.innerHeight;
+      const mid = vh * 0.5;
+      // How far from mid (as fraction of half-viewport) still counts as "open"
+      const openBand = vh * 0.42;
       const expandAll = reduced();
 
-      items.forEach((el) => {
-        const r = el.getBoundingClientRect();
-        // Skip work for items well off-screen
-        if (r.bottom < -80 || r.top > vh + 80) {
-          el.classList.add("is-compact");
-          el.classList.remove("is-mid", "is-focus");
-          el.style.setProperty("--focus", "0");
-          return;
-        }
-        const t = expandAll ? 1 : focusScore(r, vw, vh);
-        el.style.setProperty("--focus", t.toFixed(3));
-        el.classList.toggle("is-compact", t < 0.38);
-        el.classList.toggle("is-mid", t >= 0.38 && t < 0.62);
-        el.classList.toggle("is-focus", t >= 0.62);
+      strips.forEach((strip) => {
+        const r = strip.getBoundingClientRect();
+        const cy = r.top + r.height / 2;
+        const nearCenter =
+          expandAll || (r.bottom > 0 && r.top < vh && Math.abs(cy - mid) < openBand);
+        const items = strip.querySelectorAll(".hero-strip__item");
+        items.forEach((el) => {
+          el.classList.toggle("is-focus", nearCenter);
+          el.classList.toggle("is-compact", !nearCenter);
+          el.classList.remove("is-mid");
+        });
       });
     }
 
@@ -136,9 +124,6 @@ const {
       applyFocus();
       window.addEventListener("scroll", onScroll, { passive: true });
       window.addEventListener("resize", onScroll);
-      document.querySelectorAll(".hero-strip--focusable").forEach((strip) => {
-        strip.addEventListener("scroll", onScroll, { passive: true });
-      });
     };
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initFocus);
     else initFocus();
