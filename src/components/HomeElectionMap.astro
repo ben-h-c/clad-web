@@ -1,0 +1,69 @@
+---
+/**
+ * View-only Midterms 2026 map teaser for the homepage.
+ * Shows Party & outlook / state control colors; whole card links to the full map.
+ */
+import { US_MAP_VIEWBOX, US_STATE_CODES, US_STATE_PATHS, US_STATE_NAMES } from "~/lib/usMapPaths";
+import { buildStateForecasts, FORECAST_ASOF, type Rating } from "~/lib/electionForecast";
+
+const forecast = buildStateForecasts();
+const flipCount = US_STATE_CODES.filter((c) => forecast.byCode[c]?.control?.flipRisk).length;
+
+const cells = US_STATE_CODES.map((code) => {
+  const f = forecast.byCode[code]?.control;
+  const rating: Rating = f?.rating ?? "no-race";
+  return {
+    code,
+    name: US_STATE_NAMES[code] ?? code,
+    d: US_STATE_PATHS[code]!,
+    rating,
+    flip: !!f?.flipRisk,
+  };
+});
+---
+<section class="home-emap" aria-labelledby="home-emap-title">
+  <div class="feed__head">
+    <h2 class="feed__title" id="home-emap-title">Midterms 2026</h2>
+    <a class="category__more" href="/elections/map/">Open interactive map →</a>
+  </div>
+  <div class="rule rule--double" aria-hidden="true"></div>
+
+  <a class="home-emap__card" href="/elections/map/" aria-label="Open the interactive Midterms 2026 election map">
+    <div class="home-emap__meta">
+      <p class="home-emap__kicker small-caps">Party &amp; outlook · State control</p>
+      <p class="home-emap__lede">
+        Who holds power now and who is favored in 2026.
+        <strong>{flipCount}</strong> flip-risk states marked.
+        Snapshot as of {FORECAST_ASOF}.
+      </p>
+    </div>
+
+    <div class="home-emap__map" aria-hidden="true">
+      <svg class="home-emap__svg" viewBox={US_MAP_VIEWBOX} role="presentation" focusable="false">
+        <g class="home-emap__states">
+          {cells.map((s) => (
+            <path
+              class={`home-emap__state home-emap__party--${s.rating}${s.flip ? " home-emap__state--flip" : ""}`}
+              d={s.d}
+            />
+          ))}
+        </g>
+      </svg>
+    </div>
+
+    <ul class="home-emap__legend" aria-hidden="true">
+      <li><i class="home-emap__swatch home-emap__party--solid-d"></i> Solid D</li>
+      <li><i class="home-emap__swatch home-emap__party--likely-d"></i> Likely D</li>
+      <li><i class="home-emap__swatch home-emap__party--lean-d"></i> Lean D</li>
+      <li><i class="home-emap__swatch home-emap__party--tossup"></i> Toss-up</li>
+      <li><i class="home-emap__swatch home-emap__party--lean-r"></i> Lean R</li>
+      <li><i class="home-emap__swatch home-emap__party--likely-r"></i> Likely R</li>
+      <li><i class="home-emap__swatch home-emap__party--solid-r"></i> Solid R</li>
+      <li><span class="home-emap__flip-key">— —</span> Flip risk</li>
+    </ul>
+
+    <p class="home-emap__cta small-caps">
+      Explore layers · tap states · full map <span aria-hidden="true">→</span>
+    </p>
+  </a>
+</section>

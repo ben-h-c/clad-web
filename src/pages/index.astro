@@ -7,6 +7,7 @@ import BreakingStrip from "~/components/BreakingStrip.astro";
 import TopicRow from "~/components/TopicRow.astro";
 import GradeBoard from "~/components/GradeBoard.astro";
 import HomeCharts from "~/components/HomeCharts.astro";
+import HomeElectionMap from "~/components/HomeElectionMap.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
 import NewsletterSignup from "~/components/NewsletterSignup.astro";
@@ -229,6 +230,9 @@ if (!locked) {
           </p>
         )}
       </section>
+
+      {/* View-only midterms map teaser → full interactive /elections/map/ */}
+      <HomeElectionMap />
 
       {locked ? (
         <PaywallPanel signedIn={access.signedIn} returnTo="/" />
