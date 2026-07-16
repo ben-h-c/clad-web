@@ -7622,16 +7622,16 @@ html.clad-app section.charts.home-app-only {
 /* Fixed spotlight carousel (compact height; arrows web-only) */
 .home-spotlight {
   position: relative;
-  margin: 0 0 0.65rem;
+  margin: 0.35rem 0 0.75rem;
   min-width: 0;
 }
 .home-spotlight--top {
-  margin: 0 0 0.7rem;
+  margin: 0.45rem 0 0.85rem;
 }
 .home-spotlight__frame {
   position: relative;
   display: flex;
-  align-items: stretch;
+  align-items: center; /* center arrows + card on the cross-axis */
   gap: 0;
   min-width: 0;
 }
