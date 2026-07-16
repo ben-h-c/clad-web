@@ -290,9 +290,12 @@ const registerMap = registerHref("/elections/map/");
       </aside>
     </div>
 
-    <!-- Mobile bottom sheet (mirrors panel content when open) -->
+    <!-- Mobile bottom sheet (mirrors panel content when open). Swipe down to dismiss. -->
     <div class="emap-sheet" id="emap-sheet" hidden>
-      <div class="emap-sheet__handle" aria-hidden="true"></div>
+      <div class="emap-sheet__grab" id="emap-sheet-grab" aria-hidden="true">
+        <div class="emap-sheet__handle"></div>
+        <p class="emap-sheet__hint small-caps">Swipe down to close</p>
+      </div>
       <div class="emap-sheet__body" id="emap-sheet-body"></div>
       <button type="button" class="emap-sheet__close" id="emap-sheet-close">Close</button>
     </div>
@@ -366,6 +369,7 @@ const registerMap = registerHref("/elections/map/");
     const panelDetail = document.getElementById("emap-panel-detail");
     const sheet = document.getElementById("emap-sheet");
     const sheetBody = document.getElementById("emap-sheet-body");
+    const sheetGrab = document.getElementById("emap-sheet-grab");
     const backdrop = document.getElementById("emap-backdrop");
     const layerGroup = document.getElementById("layer-group");
     const legendCov = document.getElementById("legend-coverage");
@@ -377,6 +381,31 @@ const registerMap = registerHref("/elections/map/");
     // Default: party & outlook on state control (user preference / product default).
     let mode = "party"; // party | coverage
     let layer = "control"; // control | senate | governor | house
+    let sheetScrollY = 0;
+
+    /** Freeze the page under the sheet so swipes don’t scroll the document (esp. iOS WKWebView). */
+    function lockPageScroll(on) {
+      const html = document.documentElement;
+      if (on) {
+        if (html.classList.contains("emap-sheet-open")) return;
+        sheetScrollY = window.scrollY || window.pageYOffset || 0;
+        html.classList.add("emap-sheet-open");
+        document.body.classList.add("emap-sheet-open");
+        document.body.style.top = `-${sheetScrollY}px`;
+      } else {
+        html.classList.remove("emap-sheet-open");
+        document.body.classList.remove("emap-sheet-open");
+        document.body.style.top = "";
+        window.scrollTo(0, sheetScrollY);
+      }
+    }
+
+    function resetSheetTransform() {
+      if (!sheet) return;
+      sheet.style.transition = "";
+      sheet.style.transform = "";
+      sheet.classList.remove("is-dragging");
+    }
 
     const isMobile = () => window.matchMedia("(max-width: 860px)").matches;
 
@@ -585,9 +614,11 @@ const registerMap = registerHref("/elections/map/");
           <div class="emap-panel__badges">${d.badges}</div>
           <div class="emap-panel__races">${d.body}</div>
           ${d.links}`;
+        resetSheetTransform();
         sheet.hidden = false;
         backdrop.hidden = false;
-        document.body.classList.add("emap-sheet-open");
+        sheet.scrollTop = 0;
+        lockPageScroll(true);
       }
     }
 
@@ -598,8 +629,109 @@ const registerMap = registerHref("/elections/map/");
       panelDetail.hidden = true;
       sheet.hidden = true;
       backdrop.hidden = true;
-      document.body.classList.remove("emap-sheet-open");
+      resetSheetTransform();
+      lockPageScroll(false);
       if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+    }
+
+    // Swipe-down to dismiss the mobile bottom sheet (handle or content at top).
+    if (sheet) {
+      let drag = null; // { startY, lastY, active, fromGrab }
+      const DISMISS_PX = 88;
+      const DISMISS_V = 0.55; // px/ms
+
+      const yOf = (e) => (e.touches && e.touches[0] ? e.touches[0].clientY : e.clientY);
+
+      const beginDrag = (e, fromGrab) => {
+        if (sheet.hidden) return;
+        // Content area: only start a dismiss drag when already scrolled to the top.
+        if (!fromGrab && sheet.scrollTop > 2) return;
+        const y = yOf(e);
+        drag = { startY: y, lastY: y, t0: performance.now(), active: false, fromGrab: !!fromGrab };
+      };
+
+      const moveDrag = (e) => {
+        if (!drag) return;
+        const y = yOf(e);
+        const dy = y - drag.startY;
+        drag.lastY = y;
+        // Upward or tiny moves: don’t steal scroll inside the sheet.
+        if (dy < 6 && !drag.active) return;
+        if (dy < 0 && !drag.active) {
+          drag = null;
+          return;
+        }
+        // Require a mostly-vertical gesture so horizontal wiggles don’t hijack.
+        if (!drag.active && dy >= 6) {
+          drag.active = true;
+          sheet.classList.add("is-dragging");
+          sheet.style.transition = "none";
+        }
+        if (!drag.active) return;
+        e.preventDefault();
+        const offset = Math.max(0, dy);
+        sheet.style.transform = `translate3d(0, ${offset}px, 0)`;
+        if (backdrop) {
+          const fade = Math.max(0.12, 1 - offset / 420);
+          backdrop.style.opacity = String(fade);
+        }
+      };
+
+      const endDrag = () => {
+        if (!drag) return;
+        const dy = Math.max(0, drag.lastY - drag.startY);
+        const dt = Math.max(16, performance.now() - drag.t0);
+        const v = dy / dt;
+        const shouldClose = drag.active && (dy >= DISMISS_PX || (dy > 40 && v > DISMISS_V));
+        const wasActive = drag.active;
+        drag = null;
+        if (!wasActive) return;
+
+        sheet.classList.remove("is-dragging");
+        if (backdrop) backdrop.style.opacity = "";
+
+        if (shouldClose) {
+          sheet.style.transition = "transform 0.28s cubic-bezier(0.4, 0, 0.2, 1)";
+          sheet.style.transform = "translate3d(0, 110%, 0)";
+          window.setTimeout(() => clearDetail(), 280);
+        } else {
+          sheet.style.transition = "transform 0.32s cubic-bezier(0.16, 1, 0.3, 1)";
+          sheet.style.transform = "translate3d(0, 0, 0)";
+          window.setTimeout(() => {
+            if (!sheet.classList.contains("is-dragging")) resetSheetTransform();
+          }, 340);
+        }
+      };
+
+      // Prefer pointer events. Capture on the grab zone so moves stay with us on iOS.
+      const grabEl = sheetGrab || sheet;
+      grabEl.addEventListener("pointerdown", (e) => {
+        if (e.pointerType === "mouse" && e.button !== 0) return;
+        beginDrag(e, true);
+        try { grabEl.setPointerCapture(e.pointerId); } catch (_) {}
+      });
+      sheet.addEventListener("pointerdown", (e) => {
+        if (e.pointerType === "mouse" && e.button !== 0) return;
+        if (e.target.closest && e.target.closest(".emap-sheet__grab, .emap-sheet__close, a, button")) return;
+        beginDrag(e, false);
+        try { sheet.setPointerCapture(e.pointerId); } catch (_) {}
+      });
+      // Document-level so capture on grab/sheet still routes moves/ends correctly.
+      document.addEventListener("pointermove", (e) => {
+        if (!drag) return;
+        moveDrag(e);
+      });
+      document.addEventListener("pointerup", endDrag);
+      document.addEventListener("pointercancel", endDrag);
+
+      // Non-passive touchmove so we can preventDefault while dragging on iOS.
+      document.addEventListener(
+        "touchmove",
+        (e) => {
+          if (drag && drag.active) e.preventDefault();
+        },
+        { passive: false }
+      );
     }
 
     function selectState(code, { fromHash } = {}) {
@@ -1250,6 +1382,7 @@ const registerMap = registerHref("/elections/map/");
     inset: 0;
     background: rgba(10, 8, 5, 0.35);
     z-index: 40;
+    transition: opacity 0.2s ease;
   }
   .emap-sheet {
     position: fixed;
@@ -1258,19 +1391,50 @@ const registerMap = registerHref("/elections/map/");
     bottom: 0;
     z-index: 50;
     max-height: min(78vh, 640px);
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     background: var(--paper, #f5edd9);
     border-top: 3px solid var(--ink, #1a140d);
     border-radius: 12px 12px 0 0;
-    padding: 0.5rem 1rem 1rem;
+    padding: 0 1rem 1rem;
+    padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
     box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.18);
+    will-change: transform;
+    touch-action: pan-y;
+  }
+  .emap-sheet.is-dragging {
+    /* While dragging down, the sheet owns the gesture (no nested scroll). */
+    overflow: hidden;
+    touch-action: none;
+  }
+  .emap-sheet__grab {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    margin: 0 -1rem;
+    padding: 0.55rem 1rem 0.45rem;
+    background: var(--paper, #f5edd9);
+    touch-action: none;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
   }
   .emap-sheet__handle {
-    width: 2.5rem;
-    height: 0.28rem;
+    width: 2.75rem;
+    height: 0.32rem;
     border-radius: 99px;
-    background: color-mix(in srgb, var(--ink, #1a140d) 25%, transparent);
-    margin: 0.25rem auto 0.65rem;
+    background: color-mix(in srgb, var(--ink, #1a140d) 28%, transparent);
+    margin: 0 auto 0.35rem;
+  }
+  .emap-sheet__hint {
+    margin: 0;
+    text-align: center;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    color: var(--muted-ink, #6e5e4d);
+    opacity: 0.85;
   }
   .emap-sheet__close {
     display: block;
@@ -1285,7 +1449,29 @@ const registerMap = registerHref("/elections/map/");
     letter-spacing: 0.05em;
     cursor: pointer;
   }
-  body.emap-sheet-open { overflow: hidden; }
+  /* Freeze page under sheet — critical in iOS WKWebView so swipes dismiss, not scroll */
+  html.emap-sheet-open,
+  html.emap-sheet-open body {
+    overflow: hidden !important;
+    overscroll-behavior: none !important;
+    touch-action: none;
+  }
+  html.emap-sheet-open body.emap-sheet-open {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+  /* Sheet itself must still receive pan-y for content + swipe-dismiss */
+  html.emap-sheet-open .emap-sheet {
+    touch-action: pan-y;
+  }
+  html.emap-sheet-open .emap-sheet.is-dragging {
+    touch-action: none;
+  }
+  html.emap-sheet-open .emap-sheet-backdrop {
+    touch-action: none;
+  }
 
   .emap-list-section { margin-top: 2.25rem; max-width: 36rem; }
   .emap-list-lede { opacity: 0.8; margin: 0 0 0.75rem; }
