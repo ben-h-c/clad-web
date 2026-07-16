@@ -9,7 +9,7 @@ digest, peaking around the 2026 midterms (Nov 3).
 
 | Piece | Location | Notes |
 |-------|----------|--------|
-| Announce script | `scripts/announce.mjs` | Real frontmatter (`letterGrade`, `factualityScore`, `keyMoments`) |
+| Announce script | `scripts/announce.mjs` | Real frontmatter; Bluesky top **3 impactful posts/day (ET)** |
 | Distribute workflow | `.github/workflows/distribute.yml` | On post push; dry-runs without BSKY secrets |
 | Methodology URL | `/methodology/` → 301 → `/how-it-works/` | E-E-A-T / press checklist alias |
 | Politician pages | `/politicians/`, `/politicians/[slug]/` | Seeds + FM tags; search/groups; OG cards |
@@ -39,8 +39,15 @@ digest, peaking around the 2026 midterms (Nov 3).
 | `BSKY_HANDLE` | for live Bluesky | e.g. `cladfacts.bsky.social` |
 | `BSKY_APP_PASSWORD` | for live Bluesky | App password, not account password |
 | `ANNOUNCE_DRY_RUN` | optional | Set `1` to force print-only |
+| `ANNOUNCE_FORCE` | optional | Set `1` to bypass the daily top-3 gate (manual re-announce) |
+| `BSKY_MAX_PER_DAY` | optional | Default `3` |
 
 Without BSKY_*, every publish still logs paste-ready text in the Actions run.
+
+**Bluesky daily cap:** `announce.mjs` ranks each batch by impact (failing grades,
+disputed claims, claim tension, lean extremes, clean high grades), skips posts
+already linked from today’s author feed (America/New_York), and posts at most
+three report cards per day. X/Threads text is always printed for every post.
 
 ## Manual checklist (accounts — only you)
 

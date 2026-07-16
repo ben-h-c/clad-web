@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 /**
- * Announce a newly published CladFacts post (Bluesky + printed X/Threads text).
+ * Announce newly published CladFacts posts (Bluesky + printed X/Threads text).
+ *
+ * Bluesky is capped at the top MAX_BSKY_PER_DAY most impactful reports per
+ * Eastern calendar day (default 3). Impact ranks failing grades, disputed
+ * claims, claim tension, lean extremes, and clean high grades. Remaining
+ * posts still print paste-ready X/Threads text in the log.
  *
  * Usage:
  *   DRY_RUN=1 node scripts/announce.mjs src/content/posts/2026-07-14-example.md
@@ -11,10 +16,11 @@
  *   BSKY_HANDLE           e.g. cladfacts.bsky.social (optional if DRY_RUN)
  *   BSKY_APP_PASSWORD     Bluesky app password (not your real password)
  *   DRY_RUN=1             print only; never post
+ *   ANNOUNCE_FORCE=1      bypass daily top-N gate (manual re-announce)
+ *   BSKY_MAX_PER_DAY      default 3
  *
  * Frontmatter contract = clad-web broadcast posts:
  *   headline, letterGrade, factualityScore, keyMoments[], leanScore/politicalLean
- * (Not the growth-kit's grade/score/claims shape.)
  *
  * Guardrails: human already approved the post via /admin/queue before it lands
  * in git. This only distributes what was published.
@@ -24,6 +30,10 @@ import { basename } from "node:path";
 
 const SITE = (process.env.SITE_URL || "https://cladfacts.com").replace(/\/$/, "");
 const DRY = process.env.DRY_RUN === "1" || process.env.DRY_RUN === "true";
+const FORCE = process.env.ANNOUNCE_FORCE === "1" || process.env.ANNOUNCE_FORCE === "true";
+const MAX_BSKY_PER_DAY = Math.max(1, Number(process.env.BSKY_MAX_PER_DAY) || 3);
+/** Floor so empty/low-signal posts don't fill the daily slots. */
+const MIN_IMPACT_SCORE = 22;
 
 /** Trim secret values — trailing newlines from GitHub paste are a common auth fail. */
 function envTrim(name) {
@@ -296,17 +306,76 @@ async function fetchOgPng(cardUrl, { attempts = 10, delayMs = 20000 } = {}) {
   return null;
 }
 
-async function postToBluesky(text, url, imageBytes, card) {
-  // Identifier: handle without leading @, or the account email. App password only
-  // (Settings → Privacy and security → App Passwords) — not the account password.
-  let handle = envTrim("BSKY_HANDLE").replace(/^@/, "");
+const PDS = "https://bsky.social/xrpc";
+
+/** Eastern calendar day key (YYYY-MM-DD) — news day for CladFacts. */
+function dayKeyET(d = new Date()) {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/New_York",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(d);
+}
+
+/**
+ * How "feed-worthy" a report is for the daily Bluesky top-N. Higher = more
+ * impactful (failing grades, disputed claims, claim tension, lean extremes).
+ */
+function impactScore(fm) {
+  let s = 0;
+  const grade = String(fm.letterGrade || "");
+  const fact = Number(fm.factualityScore);
+  const tally = claimTally(fm.keyMoments);
+  const contested = contestedMoment(fm.keyMoments);
+  const lean = Number(fm.leanScore);
+
+  // Extreme grades move the feed.
+  if (/^F/.test(grade)) s += 42;
+  else if (/^D/.test(grade)) s += 36;
+  else if (grade === "C-" || grade === "C" || grade === "C+") s += 18;
+  else if (/^A/.test(grade)) s += 14;
+  else if (/^B/.test(grade)) s += 8;
+
+  // A claim that didn't survive is the scroll-stopper.
+  if (contested) {
+    const v = String(contested.verdict || "").toLowerCase();
+    if (v === "disputed") s += 32;
+    else if (v === "unsupported") s += 24;
+    else s += 14; // missing context
+  }
+  if (tally.disputed > 0) s += Math.min(24, tally.disputed * 10);
+  if (tally.total >= 4) s += 6;
+  if (tally.total > 0 && tally.verified < tally.total) s += 8;
+
+  // Low factuality is newsworthy; very high is a clean-sheet signal.
+  if (Number.isFinite(fact)) {
+    if (fact < 50) s += 26;
+    else if (fact < 65) s += 16;
+    else if (fact >= 90) s += 10;
+  }
+
+  if (Number.isFinite(lean) && Math.abs(lean) >= 50) s += 14;
+  else if (Number.isFinite(lean) && Math.abs(lean) >= 30) s += 7;
+
+  // Clean sheet on a real claim set is rare and worth a slot.
+  if (/^A/.test(grade) && tally.total >= 3 && tally.verified === tally.total) s += 14;
+
+  // Prefer reports with a real headline/source over skeleton drafts.
+  if ((fm.headline || "").length > 40) s += 2;
+  if ((fm.sourceTitle || "").trim()) s += 2;
+
+  return s;
+}
+
+async function bskyCreateSession() {
+  const handle = envTrim("BSKY_HANDLE").replace(/^@/, "");
   const password = envTrim("BSKY_APP_PASSWORD");
   if (!handle || !password) {
     throw new Error("BSKY_HANDLE and BSKY_APP_PASSWORD are required to post");
   }
-  const pds = "https://bsky.social/xrpc";
   const session = await (
-    await fetch(`${pds}/com.atproto.server.createSession`, {
+    await fetch(`${PDS}/com.atproto.server.createSession`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ identifier: handle, password }),
@@ -320,8 +389,37 @@ async function postToBluesky(text, url, imageBytes, card) {
         "and BSKY_APP_PASSWORD (Bluesky *app* password, not login password)"
     );
   }
-  const auth = { Authorization: `Bearer ${session.accessJwt}` };
+  return {
+    session,
+    auth: { Authorization: `Bearer ${session.accessJwt}` },
+  };
+}
 
+/**
+ * Slugs already announced to Bluesky today (ET), by scanning our author feed
+ * for external embeds pointing at cladfacts.com/posts/.
+ */
+async function todayAnnouncedSlugs(session, auth) {
+  const today = dayKeyET();
+  const url =
+    `${PDS}/app.bsky.feed.getAuthorFeed?actor=${encodeURIComponent(session.did)}` +
+    `&limit=50&filter=posts_no_replies`;
+  const data = await (await fetch(url, { headers: auth })).json();
+  const slugs = new Set();
+  for (const item of data.feed || []) {
+    const post = item.post;
+    if (!post) continue;
+    const when = post.indexedAt || post.record?.createdAt;
+    if (!when || dayKeyET(new Date(when)) !== today) continue;
+    const external = post.record?.embed?.external || post.embed?.external;
+    const uri = external?.uri || "";
+    const m = String(uri).match(/cladfacts\.com\/posts\/([^/?#]+)/i);
+    if (m) slugs.add(m[1]);
+  }
+  return slugs;
+}
+
+async function postToBluesky(session, auth, text, url, imageBytes, card) {
   const enc = new TextEncoder();
   const idx = text.indexOf(url);
   const facets =
@@ -359,7 +457,7 @@ async function postToBluesky(text, url, imageBytes, card) {
   };
   if (imageBytes && imageBytes.length > 0) {
     const blobRes = await (
-      await fetch(`${pds}/com.atproto.repo.uploadBlob`, {
+      await fetch(`${PDS}/com.atproto.repo.uploadBlob`, {
         method: "POST",
         headers: { ...auth, "Content-Type": "image/png" },
         body: imageBytes,
@@ -374,7 +472,7 @@ async function postToBluesky(text, url, imageBytes, card) {
   record.embed = embed;
 
   const post = await (
-    await fetch(`${pds}/com.atproto.repo.createRecord`, {
+    await fetch(`${PDS}/com.atproto.repo.createRecord`, {
       method: "POST",
       headers: { ...auth, "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -394,7 +492,8 @@ if (paths.length === 0) {
   process.exit(2);
 }
 
-let failed = 0;
+/** Load + score candidates (always print paste text for every path). */
+const candidates = [];
 for (const path of paths) {
   try {
     const fm = frontmatter(readFileSync(path, "utf8"));
@@ -405,38 +504,104 @@ for (const path of paths) {
     const slug = basename(path).replace(/\.mdx?$/, "");
     const postUrl = `${SITE}/posts/${slug}/`;
     const cardUrl = `${SITE}/og/${slug}.png`;
+    const impact = impactScore(fm);
     const { bsky, paste } = buildTexts(fm, postUrl, slug);
-    // Link-card copy (Bluesky external embed) — our own post, so the grade may
-    // appear here; keep it scoreboard-factual.
     const card = {
       title: fm.headline || "CladFacts report card",
       description: statLine(fm),
     };
+    candidates.push({ path, slug, fm, postUrl, cardUrl, impact, bsky, paste, card });
+  } catch (err) {
+    console.error(`parse failed for ${path}:`, err?.message ?? err);
+  }
+}
 
-    console.log(`\n──── ${slug} ────`);
-    console.log(`[X/Threads paste ready — not auto-posted]\n${paste}\n`);
-    console.log(`[Bluesky record text]\n${bsky}\n`);
+// Highest impact first; stable tie-break by slug.
+candidates.sort((a, b) => b.impact - a.impact || a.slug.localeCompare(b.slug));
 
-    if (DRY) {
-      console.log("[dry run] skipping Bluesky · card", cardUrl);
-      continue;
-    }
-    if (!envTrim("BSKY_HANDLE") || !envTrim("BSKY_APP_PASSWORD")) {
-      console.log("[skip] BSKY_* secrets not set — printed text only");
-      continue;
-    }
+console.log(
+  `\n[rank] ${candidates.length} candidate(s) · day ${dayKeyET()} ET · Bluesky cap ${MAX_BSKY_PER_DAY}/day` +
+    (FORCE ? " · FORCE on" : "")
+);
+for (const c of candidates) {
+  console.log(`  impact=${String(c.impact).padStart(3)}  ${c.slug}`);
+}
 
-    // Retry OG for deploy lag; the link card still posts (without a thumb) if
-    // the image never appears — the link is what matters.
-    const img = await fetchOgPng(cardUrl);
-    if (!img) {
-      console.log(`[og] giving up on card thumb — posting link card without image (${cardUrl})`);
-    }
-    const uri = await postToBluesky(bsky, postUrl, img, card);
-    console.log(img ? "bluesky ✓" : "bluesky ✓ (no thumb)", uri);
+let failed = 0;
+let session = null;
+let auth = null;
+let already = new Set();
+let remaining = MAX_BSKY_PER_DAY;
+
+const canLivePost = !DRY && envTrim("BSKY_HANDLE") && envTrim("BSKY_APP_PASSWORD");
+
+if (canLivePost) {
+  try {
+    ({ session, auth } = await bskyCreateSession());
+    already = await todayAnnouncedSlugs(session, auth);
+    remaining = Math.max(0, MAX_BSKY_PER_DAY - already.size);
+    console.log(
+      `[bsky] already announced today (ET): ${already.size} → ${[...already].join(", ") || "(none)"} · slots left ${remaining}`
+    );
   } catch (err) {
     failed++;
-    console.error(`announce failed for ${path}:`, err?.message ?? err);
+    console.error("[bsky] session/list failed:", err?.message ?? err);
+  }
+} else if (DRY) {
+  console.log("[dry run] no Bluesky posts will be created");
+} else {
+  console.log("[skip] BSKY_* secrets not set — printed text only");
+}
+
+// Which of this batch should hit Bluesky?
+const toPost = [];
+for (const c of candidates) {
+  if (FORCE) {
+    toPost.push(c);
+    continue;
+  }
+  if (already.has(c.slug)) {
+    c.skipReason = "already announced today";
+    continue;
+  }
+  if (c.impact < MIN_IMPACT_SCORE) {
+    c.skipReason = `impact ${c.impact} < min ${MIN_IMPACT_SCORE}`;
+    continue;
+  }
+  if (toPost.length >= remaining) {
+    c.skipReason = `outside top ${MAX_BSKY_PER_DAY} for today (slots full)`;
+    continue;
+  }
+  toPost.push(c);
+}
+
+const postSet = new Set(toPost.map((c) => c.slug));
+
+for (const c of candidates) {
+  try {
+    console.log(`\n──── ${c.slug} · impact ${c.impact} ────`);
+    console.log(`[X/Threads paste ready — not auto-posted]\n${c.paste}\n`);
+    console.log(`[Bluesky record text]\n${c.bsky}\n`);
+
+    if (!postSet.has(c.slug)) {
+      console.log(`[bsky skip] ${c.skipReason || "not selected"}`);
+      continue;
+    }
+    if (DRY || !session || !auth) {
+      console.log(`[dry/skip] would post to Bluesky · card ${c.cardUrl}`);
+      continue;
+    }
+
+    const img = await fetchOgPng(c.cardUrl);
+    if (!img) {
+      console.log(`[og] giving up on card thumb — posting link card without image (${c.cardUrl})`);
+    }
+    const uri = await postToBluesky(session, auth, c.bsky, c.postUrl, img, c.card);
+    console.log(img ? "bluesky ✓" : "bluesky ✓ (no thumb)", uri);
+    already.add(c.slug);
+  } catch (err) {
+    failed++;
+    console.error(`announce failed for ${c.path}:`, err?.message ?? err);
   }
 }
 

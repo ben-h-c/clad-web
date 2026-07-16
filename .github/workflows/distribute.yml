@@ -2,6 +2,9 @@
 # OG card is live, then run scripts/announce.mjs (Bluesky when secrets exist;
 # always prints paste-ready X/Threads text in the job log).
 #
+# Bluesky is limited to the top ~3 most impactful reports per Eastern day
+# (see scripts/announce.mjs impactScore + author-feed slot check).
+#
 # Concurrency serializes announces (at most one run waits; earlier pending
 # runs are superseded) so we don't stampede Bluesky or send a wall of
 # failure emails on OG lag.
