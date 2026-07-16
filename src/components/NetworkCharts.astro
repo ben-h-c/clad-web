@@ -1,0 +1,128 @@
+---
+/**
+ * Political bias / average grade / social reception by network.
+ * Used on News Trends (moved off the homepage “By the Numbers” strip).
+ */
+import { gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
+import { isNewsOutlet } from "~/lib/networks";
+import type { SentimentMap } from "~/lib/agents";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  posts: CollectionEntry<"posts">[];
+  sentiments?: SentimentMap;
+}
+const { posts, sentiments = {} } = Astro.props;
+
+const mean = (ns: number[]) => (ns.length ? ns.reduce((a, b) => a + b, 0) / ns.length : null);
+function leanLabel(s: number | null): string {
+  if (s === null) return "—";
+  return Math.abs(s) < 5 ? "Center" : `${Math.abs(Math.round(s))}% ${s > 0 ? "Right" : "Left"}`;
+}
+function sentiLabel(s: number | null): string {
+  if (s === null) return "—";
+  return Math.abs(s) < 10 ? "Mixed" : `${Math.abs(Math.round(s))}% ${s > 0 ? "Positive" : "Negative"}`;
+}
+function gradeTier(gpa: number): "good" | "mid" | "bad" {
+  if (gpa >= 7) return "good";
+  if (gpa >= 4) return "mid";
+  return "bad";
+}
+
+type Net = { name: string; count: number; lean: number | null; gpa: number | null; senti: number | null };
+const byNet = new Map<string, { leans: number[]; gpas: number[]; sentis: number[] }>();
+for (const p of posts) {
+  const name = p.data.sourceTitle;
+  if (!name || !isNewsOutlet(name)) continue;
+  if (!byNet.has(name)) byNet.set(name, { leans: [], gpas: [], sentis: [] });
+  const e = byNet.get(name)!;
+  const l = leanScoreOf(p.data);
+  if (l !== null) e.leans.push(l);
+  const g = gradeToGpa(p.data.letterGrade);
+  if (g !== null) e.gpas.push(g);
+  const s = sentiments[p.id]?.score;
+  if (typeof s === "number") e.sentis.push(s);
+}
+const networks: Net[] = [...byNet.entries()]
+  .map(([name, e]) => ({
+    name,
+    count: Math.max(e.leans.length, e.gpas.length),
+    lean: mean(e.leans),
+    gpa: mean(e.gpas),
+    senti: mean(e.sentis),
+  }))
+  .filter((n) => n.count >= 4);
+
+const biasByNet = [...networks].filter((n) => n.lean !== null).sort((a, b) => a.lean! - b.lean!);
+const gradeByNet = [...networks].filter((n) => n.gpa !== null).sort((a, b) => b.gpa! - a.gpa!);
+const sentiByNet = [...networks].filter((n) => n.senti !== null).sort((a, b) => b.senti! - a.senti!);
+
+const hasAny = biasByNet.length > 0 || gradeByNet.length > 0 || sentiByNet.length > 0;
+---
+{hasAny && (
+  <section class="trendmod network-charts" aria-labelledby="network-charts-title">
+    <h2 class="trends__sub" id="network-charts-title">By network</h2>
+    <p class="trendmod__lede">
+      How established outlets stack up on political lean, average grade
+      {sentiByNet.length > 0 ? ", and social reception" : ""} — at least four graded reports each.
+    </p>
+    <div class="network-charts__grid">
+      {biasByNet.length > 0 && (
+        <div class="chart-panel network-charts__panel">
+          <h3 class="chart-panel__title small-caps">Political bias by network</h3>
+          <div class="chart-rows">
+            {biasByNet.map((n) => (
+              <div class="chart-row">
+                <span class="chart-row__label" title={n.name}>{n.name}</span>
+                <div class="bias-track">
+                  <span class="bias-center" aria-hidden="true"></span>
+                  <span
+                    class={`bias-bar ${n.lean! >= 0 ? "is-right" : "is-left"}`}
+                    style={`width:${Math.min(50, Math.abs(n.lean!) / 2)}%; ${n.lean! >= 0 ? "left:50%" : "right:50%"}`}
+                  ></span>
+                </div>
+                <span class="chart-row__val">{leanLabel(n.lean)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      {gradeByNet.length > 0 && (
+        <div class="chart-panel network-charts__panel">
+          <h3 class="chart-panel__title small-caps">Average grade by network</h3>
+          <div class="chart-rows">
+            {gradeByNet.map((n) => (
+              <div class="chart-row">
+                <span class="chart-row__label" title={n.name}>{n.name}</span>
+                <div class="grade-track">
+                  <span class={`grade-bar grade--${gradeTier(n.gpa!)}`} style={`width:${(n.gpa! / 12) * 100}%`}></span>
+                </div>
+                <span class="chart-row__val">{gpaToGrade(n.gpa!)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      {sentiByNet.length > 0 && (
+        <div class="chart-panel network-charts__panel">
+          <h3 class="chart-panel__title small-caps">Social reception by network</h3>
+          <div class="chart-rows">
+            {sentiByNet.map((n) => (
+              <div class="chart-row">
+                <span class="chart-row__label" title={n.name}>{n.name}</span>
+                <div class="bias-track">
+                  <span class="bias-center" aria-hidden="true"></span>
+                  <span
+                    class={`bias-bar ${n.senti! >= 0 ? "is-pos" : "is-neg"}`}
+                    style={`width:${Math.min(50, Math.abs(n.senti!) / 2)}%; ${n.senti! >= 0 ? "left:50%" : "right:50%"}`}
+                  ></span>
+                </div>
+                <span class="chart-row__val">{sentiLabel(n.senti)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+)}

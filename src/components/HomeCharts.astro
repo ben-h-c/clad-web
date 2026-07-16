@@ -1,17 +1,15 @@
 ---
 import { gradeToGpa, gpaToGrade, leanScoreOf, type TopicAgg } from "~/lib/topics";
-import { isNewsOutlet } from "~/lib/networks";
 import type { SentimentMap } from "~/lib/agents";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
   posts: CollectionEntry<"posts">[];
   topics: TopicAgg[];
-  // Social-media sentiment map (KV, scanner-scored); {} hides the reception
-  // card and column.
+  // Kept for API compatibility with index.astro (network charts live on /trends/).
   sentiments?: SentimentMap;
 }
-const { posts, topics, sentiments = {} } = Astro.props;
+const { posts, topics } = Astro.props;
 
 const mean = (ns: number[]) => (ns.length ? ns.reduce((a, b) => a + b, 0) / ns.length : null);
 function leanLabel(s: number | null): string {
@@ -22,41 +20,6 @@ function sentiLabel(s: number | null): string {
   if (s === null) return "—";
   return Math.abs(s) < 10 ? "Mixed" : `${Math.abs(Math.round(s))}% ${s > 0 ? "Positive" : "Negative"}`;
 }
-// Grade band drives the bar colour: A/B = ink, C = muted, D/F = red.
-function gradeTier(gpa: number): "good" | "mid" | "bad" {
-  if (gpa >= 7) return "good"; // B- and up
-  if (gpa >= 4) return "mid"; // C- to C+
-  return "bad";
-}
-
-// ---- aggregate by media network (established outlets, >=4 graded reports) ----
-type Net = { name: string; count: number; lean: number | null; gpa: number | null; senti: number | null };
-const byNet = new Map<string, { leans: number[]; gpas: number[]; sentis: number[] }>();
-for (const p of posts) {
-  const name = p.data.sourceTitle;
-  if (!name || !isNewsOutlet(name)) continue;
-  if (!byNet.has(name)) byNet.set(name, { leans: [], gpas: [], sentis: [] });
-  const e = byNet.get(name)!;
-  const l = leanScoreOf(p.data);
-  if (l !== null) e.leans.push(l);
-  const g = gradeToGpa(p.data.letterGrade);
-  if (g !== null) e.gpas.push(g);
-  const s = sentiments[p.id]?.score;
-  if (typeof s === "number") e.sentis.push(s);
-}
-const networks: Net[] = [...byNet.entries()]
-  .map(([name, e]) => ({
-    name,
-    count: Math.max(e.leans.length, e.gpas.length),
-    lean: mean(e.leans),
-    gpa: mean(e.gpas),
-    senti: mean(e.sentis),
-  }))
-  .filter((n) => n.count >= 4);
-
-const biasByNet = [...networks].filter((n) => n.lean !== null).sort((a, b) => a.lean! - b.lean!);
-const gradeByNet = [...networks].filter((n) => n.gpa !== null).sort((a, b) => b.gpa! - a.gpa!);
-const sentiByNet = [...networks].filter((n) => n.senti !== null).sort((a, b) => b.senti! - a.senti!);
 
 // ---- overall coverage lean split ----
 const allLeans = posts.map((p) => leanScoreOf(p.data)).filter((n): n is number => n !== null);
@@ -76,9 +39,7 @@ const topIssues = topics.slice(0, 10);
 <section class="charts">
   <div class="feed__head">
     <h2 class="feed__title">By the Numbers</h2>
-    <button type="button" class="charts-expand-all" aria-expanded="false">
-      <span class="charts-expand-all__txt">Expand all</span> <span aria-hidden="true">▾</span>
-    </button>
+    <a class="charts-more" href="/trends/">Full News Trends →</a>
   </div>
   <div class="rule rule--double" aria-hidden="true"></div>
 
@@ -106,76 +67,6 @@ const topIssues = topics.slice(0, 10);
       </div>
       <button type="button" class="chart-expand" aria-expanded="false"><span class="chart-expand__txt">Expand</span> <span aria-hidden="true">▾</span></button>
     </div>
-
-    <!-- One bucket for all network breakdowns — collapsed by default -->
-    <details class="chart-card chart-card--wide chart-card--network-bucket">
-      <summary class="chart-card__summary">
-        <span class="chart-card__summary-text">
-          <h3 class="chart-card__title small-caps">By network</h3>
-          <span class="chart-card__lede">
-            Political bias, average grade{sentiByNet.length > 0 ? ", and social reception" : ""} by outlet
-          </span>
-        </span>
-        <span class="chart-card__toggle">
-          <span class="chart-card__toggle-txt">Show</span>
-          <span aria-hidden="true">▾</span>
-        </span>
-      </summary>
-      <div class="charts-network-stack">
-        <div class="chart-panel">
-          <h4 class="chart-panel__title small-caps">Political bias by network</h4>
-          <div class="chart-rows">
-            {biasByNet.map((n) => (
-              <div class="chart-row">
-                <span class="chart-row__label" title={n.name}>{n.name}</span>
-                <div class="bias-track">
-                  <span class="bias-center" aria-hidden="true"></span>
-                  <span
-                    class={`bias-bar ${n.lean! >= 0 ? "is-right" : "is-left"}`}
-                    style={`width:${Math.min(50, Math.abs(n.lean!) / 2)}%; ${n.lean! >= 0 ? "left:50%" : "right:50%"}`}
-                  ></span>
-                </div>
-                <span class="chart-row__val">{leanLabel(n.lean)}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div class="chart-panel">
-          <h4 class="chart-panel__title small-caps">Average grade by network</h4>
-          <div class="chart-rows">
-            {gradeByNet.map((n) => (
-              <div class="chart-row">
-                <span class="chart-row__label" title={n.name}>{n.name}</span>
-                <div class="grade-track">
-                  <span class={`grade-bar grade--${gradeTier(n.gpa!)}`} style={`width:${(n.gpa! / 12) * 100}%`}></span>
-                </div>
-                <span class="chart-row__val">{gpaToGrade(n.gpa!)}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        {sentiByNet.length > 0 && (
-          <div class="chart-panel">
-            <h4 class="chart-panel__title small-caps">Social reception by network</h4>
-            <div class="chart-rows">
-              {sentiByNet.map((n) => (
-                <div class="chart-row">
-                  <span class="chart-row__label" title={n.name}>{n.name}</span>
-                  <div class="bias-track">
-                    <span class="bias-center" aria-hidden="true"></span>
-                    <span
-                      class={`bias-bar ${n.senti! >= 0 ? "is-pos" : "is-neg"}`}
-                      style={`width:${Math.min(50, Math.abs(n.senti!) / 2)}%; ${n.senti! >= 0 ? "left:50%" : "right:50%"}`}
-                    ></span>
-                  </div>
-                  <span class="chart-row__val">{sentiLabel(n.senti)}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-    </details>
 
     <!-- Top issues -->
     <div class="chart-card chart-card--wide">
@@ -234,9 +125,8 @@ const topIssues = topics.slice(0, 10);
       strip.addEventListener("scroll", updateArrows, { passive: true });
     }
 
-    /* ---- collapse / expand (always-visible cards + one network bucket) ---- */
-    const cards = [...section.querySelectorAll(".chart-card:not(.chart-card--network-bucket)")];
-    const networkBucket = section.querySelector("details.chart-card--network-bucket");
+    /* ---- per-card collapse / expand ---- */
+    const cards = [...section.querySelectorAll(".chart-card")];
     const setCard = (card, expand) => {
       card.classList.toggle("is-expanded", expand);
       const b = card.querySelector(".chart-expand");
@@ -246,8 +136,6 @@ const topIssues = topics.slice(0, 10);
         if (t) t.textContent = expand ? "Collapse" : "Expand";
       }
     };
-    // Measure (while not clipped) whether each body overflows the compact box;
-    // clip + show an expand button only for those. Short cards stay as-is.
     const COLLAPSE_PX = 8.5 * 16;
     const syncFits = () => {
       cards.forEach((card) => {
@@ -264,42 +152,7 @@ const topIssues = topics.slice(0, 10);
       if (b) b.addEventListener("click", () => { setCard(card, !card.classList.contains("is-expanded")); syncFits(); updateArrows(); });
     });
 
-    const allBtn = section.querySelector(".charts-expand-all");
-    const syncBucketLabel = () => {
-      if (!networkBucket) return;
-      const t = networkBucket.querySelector(".chart-card__toggle-txt");
-      if (t) t.textContent = networkBucket.open ? "Hide" : "Show";
-    };
-    const syncAllBtn = () => {
-      if (!allBtn) return;
-      const open = !!(networkBucket && networkBucket.open);
-      allBtn.setAttribute("aria-expanded", String(open));
-      const t = allBtn.querySelector(".charts-expand-all__txt");
-      if (t) t.textContent = open ? "Collapse all" : "Expand all";
-    };
-    if (networkBucket) {
-      networkBucket.addEventListener("toggle", () => {
-        syncBucketLabel();
-        syncAllBtn();
-        updateArrows();
-      });
-    }
-
-    if (allBtn) {
-      allBtn.addEventListener("click", () => {
-        const expand = allBtn.getAttribute("aria-expanded") !== "true";
-        allBtn.setAttribute("aria-expanded", String(expand));
-        const t = allBtn.querySelector(".charts-expand-all__txt");
-        if (t) t.textContent = expand ? "Collapse all" : "Expand all";
-        cards.forEach((card) => setCard(card, expand));
-        if (networkBucket) networkBucket.open = expand;
-        syncBucketLabel();
-        syncFits();
-        updateArrows();
-      });
-    }
-
-    const init = () => { syncBucketLabel(); syncFits(); updateArrows(); };
+    const init = () => { syncFits(); updateArrows(); };
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
     else init();
     window.addEventListener("load", init);

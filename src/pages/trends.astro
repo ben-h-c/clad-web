@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
+import NetworkCharts from "~/components/NetworkCharts.astro";
 import { buildTrends, leanLabel, leanColor, sentimentColor, sentimentLabel } from "~/lib/trends";
 import { getSentiments } from "~/lib/agents";
 import { gpaToGrade } from "~/lib/topics";
@@ -268,6 +269,9 @@ const sentiTxt = (v: number) => (v > 0 ? `+${v}` : v < 0 ? `−${-v}` : "0");
             </ul>
           </section>
         )}
+
+        {/* Bias / grade / reception bar charts (formerly homepage “By network”). */}
+        {!locked && <NetworkCharts posts={posts} sentiments={sentiments} />}
 
         {networks.length > 0 && (
           <section class="trendmod">
