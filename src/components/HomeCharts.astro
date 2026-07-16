@@ -76,21 +76,25 @@ const topIssues = topics.slice(0, 10);
         <ul class="issue-rows">
           {topIssues.map((t) => (
             <li class="issue-row">
-              <a class="issue-row__name" href={`/topics/${t.slug}/`}>{t.display}</a>
-              <span class="issue-row__count">
-                {t.todayCount > 0
-                  ? `${t.todayCount} today`
-                  : t.recentCount > 0
-                    ? `${t.recentCount} recent`
-                    : `${t.count} ${t.count === 1 ? "report" : "reports"}`}
-              </span>
-              <span class={`issue-row__lean ${t.avgLean === null ? "" : t.avgLean > 5 ? "is-right" : t.avgLean < -5 ? "is-left" : "is-center"}`}>
-                {leanLabel(t.avgLean)}
-              </span>
-              <span class={`issue-row__senti ${t.avgSentiment === null ? "" : t.avgSentiment >= 10 ? "is-pos" : t.avgSentiment <= -10 ? "is-neg" : "is-center"}`}>
-                {sentiLabel(t.avgSentiment)}
-              </span>
-              <span class="issue-row__grade">{t.avgGrade ?? "—"}</span>
+              <div class="issue-row__head">
+                <a class="issue-row__name" href={`/topics/${t.slug}/`}>{t.display}</a>
+                <span class="issue-row__grade">{t.avgGrade ?? "—"}</span>
+              </div>
+              <div class="issue-row__stats">
+                <span class="issue-row__count">
+                  {t.todayCount > 0
+                    ? `${t.todayCount} today`
+                    : t.recentCount > 0
+                      ? `${t.recentCount} recent`
+                      : `${t.count} ${t.count === 1 ? "report" : "reports"}`}
+                </span>
+                <span class={`issue-row__lean ${t.avgLean === null ? "" : t.avgLean > 5 ? "is-right" : t.avgLean < -5 ? "is-left" : "is-center"}`}>
+                  {leanLabel(t.avgLean)}
+                </span>
+                <span class={`issue-row__senti ${t.avgSentiment === null ? "" : t.avgSentiment >= 10 ? "is-pos" : t.avgSentiment <= -10 ? "is-neg" : "is-center"}`}>
+                  {sentiLabel(t.avgSentiment)}
+                </span>
+              </div>
             </li>
           ))}
         </ul>
