@@ -4,6 +4,7 @@ import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
 import NetworkCharts from "~/components/NetworkCharts.astro";
+import CoverageLeanBar from "~/components/CoverageLeanBar.astro";
 import { buildTrends, leanLabel, leanColor, sentimentColor, sentimentLabel } from "~/lib/trends";
 import { getSentiments } from "~/lib/agents";
 import { gpaToGrade } from "~/lib/topics";
