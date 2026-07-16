@@ -2607,36 +2607,30 @@ html.theme-dark .masthead__menu-list {
   scroll-snap-align: start;
 }
 
-/* Compact peek cards in Breaking / Front Page — smaller until long-press expands */
+/* Compact peek cards in Breaking / Front Page — hold opens a floating preview */
 .hero-strip__item--peek {
   flex: 0 0 clamp(12.5rem, 52%, 15.5rem);
   align-self: stretch;
-  transition: flex-basis 0.28s ease;
-}
-.hero-strip__item--peek:has(.report-card--peek.is-expanded) {
-  flex: 0 0 clamp(16rem, 72%, 21rem);
 }
 
-/* Condensed card body while collapsed */
 .report-card--peek {
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease,
-    border-color 0.15s ease,
-    padding 0.22s ease;
+  padding: 0.45rem 0.5rem 0.4rem;
   touch-action: pan-y;
   -webkit-touch-callout: none;
   user-select: none;
+  transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1), transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.report-card--peek:not(.is-expanded) {
-  padding: 0.45rem 0.5rem 0.4rem;
+.report-card--peek.is-peeking {
+  opacity: 0.22;
+  transform: scale(0.98);
+  pointer-events: none;
 }
-.report-card--peek:not(.is-expanded) .report-card__thumb {
+.report-card--peek .report-card__thumb {
   aspect-ratio: 16 / 8;
   margin-bottom: 0.4rem;
   border-radius: 2px;
 }
-.report-card--peek:not(.is-expanded) .report-card__headline {
+.report-card--peek .report-card__headline {
   font-size: 0.98rem;
   line-height: 1.22;
   display: -webkit-box;
@@ -2644,35 +2638,28 @@ html.theme-dark .masthead__menu-list {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.report-card--peek:not(.is-expanded) .report-card__meta {
+.report-card--peek .report-card__meta {
   font-size: 0.75rem;
   margin: 0.15rem 0 0;
 }
-.report-card--peek:not(.is-expanded) .report-card__kicker {
+.report-card--peek .report-card__kicker {
   font-size: 0.62rem;
   margin: 0 0 0.15rem;
 }
-.report-card--peek:not(.is-expanded) .report-card__grouptag {
+.report-card--peek .report-card__grouptag {
   font-size: 0.58rem;
   padding: 0.1rem 0.35rem;
 }
-/* Hide the long-form blocks until expanded */
-.report-card--peek:not(.is-expanded) .report-card__detail {
+/* Long-form stays on the source card but hidden — the popup clones + reveals it */
+.report-card--peek .report-card__detail {
   display: none;
 }
-/* Compact grade / lean chip */
 .report-card__peek-row {
-  display: none;
+  display: flex;
   align-items: center;
   gap: 0.4rem;
   margin: 0 0 0.3rem;
   min-height: 1.15rem;
-}
-.report-card--peek:not(.is-expanded) .report-card__peek-row {
-  display: flex;
-}
-.report-card--peek.is-expanded .report-card__peek-row {
-  display: none;
 }
 .report-card__peek-lean {
   font-size: 0.68rem;
@@ -2686,7 +2673,7 @@ html.theme-dark .masthead__menu-list {
   line-height: 1;
 }
 .report-card__hold-hint {
-  display: none;
+  display: block;
   margin: 0.35rem 0 0;
   text-align: center;
   font-size: 0.58rem;
@@ -2694,42 +2681,138 @@ html.theme-dark .masthead__menu-list {
   color: var(--muted-ink);
   opacity: 0.75;
 }
-.report-card--peek:not(.is-expanded) .report-card__hold-hint {
-  display: block;
+
+/* ---------- Hold-to-preview floating popup (FLIP from the compact card) ---------- */
+.peek-pop {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  pointer-events: none;
+  /* Isolate so transforms don't thrash the page */
+  contain: layout style;
 }
-.report-card--peek.is-expanded {
-  z-index: 4;
+.peek-pop__scrim {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--desk) 42%, transparent);
+  opacity: 0;
+  transition: opacity 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity;
+}
+.peek-pop.is-on .peek-pop__scrim {
+  opacity: 1;
+}
+.peek-pop.is-out .peek-pop__scrim {
+  opacity: 0;
+  transition-duration: 0.28s;
+}
+.peek-pop__panel {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  width: min(22.5rem, calc(100vw - 1.75rem));
+  max-height: min(78vh, 36rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  margin: 0;
+  padding: 0.85rem 0.85rem 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 75%, transparent);
+  border-radius: 6px;
+  background-color: var(--card);
+  background-image:
+    radial-gradient(ellipse 80% 55% at 12% 0%, rgba(255, 248, 230, 0.5), transparent 55%),
+    radial-gradient(ellipse 55% 50% at 100% 100%, rgba(150, 105, 55, 0.07), transparent 60%),
+    linear-gradient(165deg, color-mix(in srgb, var(--card) 70%, #fff8e4) 0%, var(--card-deep) 100%);
+  color: var(--ink);
   box-shadow:
-    0 1px 0 color-mix(in srgb, #fff 50%, transparent),
-    0 12px 28px color-mix(in srgb, var(--shadow) 42%, transparent);
-  border-color: color-mix(in srgb, var(--accent) 30%, var(--rule));
+    0 1px 0 color-mix(in srgb, #fff 45%, transparent),
+    0 18px 48px color-mix(in srgb, var(--shadow) 55%, transparent),
+    0 6px 18px color-mix(in srgb, var(--shadow) 35%, transparent);
+  /* FLIP starts from the compact card; is-on clears transform */
+  transform-origin: 0 0;
+  will-change: transform, opacity;
+  opacity: 0.96;
+  transition:
+    transform 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.36s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.report-card--peek.is-expanded .report-card__detail {
+.peek-pop.is-on .peek-pop__panel {
+  opacity: 1;
+  transform: none !important;
+}
+.peek-pop.is-out .peek-pop__panel {
+  opacity: 0.85;
+  transition:
+    transform 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.28s cubic-bezier(0.4, 0, 1, 1);
+}
+:root[data-theme="dark"] .peek-pop__panel,
+html.theme-dark .peek-pop__panel {
+  background-image: none;
+  background-color: var(--card);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 8%, transparent),
+    0 20px 50px color-mix(in srgb, var(--shadow) 70%, transparent);
+}
+.peek-pop__panel .report-card__peek-row,
+.peek-pop__panel .report-card__hold-hint {
+  display: none !important;
+}
+.peek-pop__panel .report-card__detail {
+  display: block !important;
+}
+.peek-pop__panel .report-card__thumb {
+  aspect-ratio: 16 / 9;
+  margin-bottom: 0.65rem;
+}
+.peek-pop__panel .report-card__headline {
+  font-size: 1.22rem;
+  line-height: 1.22;
   display: block;
-  animation: peekReveal 0.28s ease both;
+  -webkit-line-clamp: unset;
+  overflow: visible;
 }
-.report-card--peek.is-expanded .report-card__summary.report-card__detail {
+.peek-pop__panel .report-card__meta {
+  font-size: 0.85rem;
+  margin: 0 0 0.45rem;
+}
+.peek-pop__panel .report-card__summary {
+  font-size: 0.95rem;
+  margin: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 8;
+  -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-@keyframes peekReveal {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+.peek-pop__panel .report-card__source {
+  margin-top: 0.55rem;
+  pointer-events: none; /* hold-preview only — release closes */
 }
+.peek-pop__panel .report-card__link {
+  pointer-events: none;
+}
+.peek-pop__panel .scoreband {
+  margin: 0.15rem 0 0.65rem;
+}
+.peek-pop__release {
+  margin: 0.55rem 0 0;
+  text-align: center;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-ink);
+  opacity: 0.8;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hero-strip__item--peek,
   .report-card--peek,
-  .report-card--peek.is-expanded .report-card__detail {
-    transition: none;
-    animation: none;
+  .peek-pop__scrim,
+  .peek-pop__panel {
+    transition-duration: 0.01ms !important;
   }
 }
 

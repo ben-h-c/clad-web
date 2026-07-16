@@ -14,8 +14,8 @@ interface Props {
   /** Today's free sample — render fully unlocked with a badge + leak-checker marker. */
   sample?: boolean;
   /**
-   * Hero-strip mode: start compact (smaller, less copy). Long-press expands
-   * to the full card with summary, scoreband, and source.
+   * Hero-strip mode: compact card. Hold to open a floating preview popup
+   * (releases collapse it). Summary/scoreband live in the popup.
    */
   peek?: boolean;
 }
@@ -135,6 +135,6 @@ const cardClass = [
     <a href={d.sourceUrl} rel="noopener noreferrer" target="_blank">{source}</a>
   </p>
   {peek && (
-    <p class="report-card__hold-hint small-caps" aria-hidden="true">Hold for more</p>
+    <p class="report-card__hold-hint small-caps" aria-hidden="true">Hold to preview</p>
   )}
 </article>

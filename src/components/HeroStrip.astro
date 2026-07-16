@@ -79,35 +79,26 @@ const {
       window.addEventListener("resize", () => updaters.forEach((u) => u()));
     }
 
-    // Long-press expand for compact peek cards in Breaking / Front Page.
+    // Hold-to-preview popup for compact Breaking / Front Page cards.
+    // Press+hold → FLIP open a floating full card; release → FLIP closed.
     if (window.__heroPeek) return;
     window.__heroPeek = true;
 
-    const LONG_MS = 420;
-    const MOVE_PX = 12;
+    const LONG_MS = 380;
+    const MOVE_PX = 14;
+    const EASE_OUT = "cubic-bezier(0.16, 1, 0.3, 1)";
+    const reduceMotion = () =>
+      matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     let timer = null;
     let startX = 0;
     let startY = 0;
     let card = null;
-    let didLong = false;
+    let pointerId = null;
+    let open = false;
+    let closing = false;
     let suppressClick = false;
-
-    function collapseAll(except) {
-      document.querySelectorAll(".report-card--peek.is-expanded").forEach((el) => {
-        if (except && el === except) return;
-        el.classList.remove("is-expanded");
-        el.setAttribute("aria-expanded", "false");
-      });
-    }
-
-    function expand(el) {
-      collapseAll(el);
-      el.classList.add("is-expanded");
-      el.setAttribute("aria-expanded", "true");
-      try {
-        if (navigator.vibrate) navigator.vibrate(10);
-      } catch (_) {}
-    }
+    let pop = null; // { root, scrim, panel, source, first }
 
     function clearTimer() {
       if (timer) {
@@ -116,30 +107,191 @@ const {
       }
     }
 
+    function measureTarget(panel) {
+      const pad = 14;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const w = Math.min(panel.offsetWidth || 340, vw - pad * 2);
+      // Center in the viewport for a calm, predictable popup.
+      let left = Math.round((vw - w) / 2);
+      // Prefer slightly above center so thumbs don't cover the headline.
+      let top = Math.round(vh * 0.12);
+      // Ensure panel fits vertically — clamp after layout.
+      const h = panel.offsetHeight;
+      if (top + h > vh - pad) top = Math.max(pad, vh - h - pad);
+      if (top < pad) top = pad;
+      left = Math.min(Math.max(pad, left), vw - w - pad);
+      return { left, top, w };
+    }
+
+    function openPeek(source) {
+      if (open || closing || !source) return;
+      open = true;
+      suppressClick = true;
+      source.classList.add("is-peeking");
+      source.setAttribute("aria-expanded", "true");
+
+      const first = source.getBoundingClientRect();
+
+      const root = document.createElement("div");
+      root.className = "peek-pop";
+      root.setAttribute("role", "dialog");
+      root.setAttribute("aria-modal", "true");
+      root.setAttribute("aria-label", "Article preview");
+
+      const scrim = document.createElement("div");
+      scrim.className = "peek-pop__scrim";
+      scrim.setAttribute("aria-hidden", "true");
+
+      const panel = document.createElement("div");
+      panel.className = "peek-pop__panel";
+
+      // Clone the compact card; strip peek chrome so full detail shows.
+      const clone = source.cloneNode(true);
+      clone.classList.remove("report-card--peek", "is-peeking");
+      clone.removeAttribute("data-peek");
+      clone.removeAttribute("aria-expanded");
+      clone.style.height = "auto";
+      clone.style.width = "100%";
+      clone.style.boxShadow = "none";
+      clone.style.border = "0";
+      clone.style.background = "transparent";
+      clone.style.padding = "0";
+      clone.querySelectorAll(".report-card__peek-row, .report-card__hold-hint").forEach((n) => n.remove());
+      clone.querySelectorAll("a").forEach((a) => {
+        a.removeAttribute("href");
+        a.setAttribute("tabindex", "-1");
+      });
+
+      const releaseHint = document.createElement("p");
+      releaseHint.className = "peek-pop__release";
+      releaseHint.textContent = "Release to close";
+
+      panel.appendChild(clone);
+      panel.appendChild(releaseHint);
+      root.appendChild(scrim);
+      root.appendChild(panel);
+      document.body.appendChild(root);
+
+      // Final layout position (centered).
+      const target = measureTarget(panel);
+      panel.style.width = target.w + "px";
+      panel.style.left = target.left + "px";
+      panel.style.top = target.top + "px";
+
+      // FLIP: invert from the compact card's rect to the final popup rect.
+      const last = panel.getBoundingClientRect();
+      const dx = first.left - last.left;
+      const dy = first.top - last.top;
+      const sx = Math.max(0.05, first.width / Math.max(1, last.width));
+      const sy = Math.max(0.05, first.height / Math.max(1, last.height));
+
+      if (reduceMotion()) {
+        panel.style.transform = "none";
+        panel.style.opacity = "1";
+        root.classList.add("is-on");
+      } else {
+        panel.style.transition = "none";
+        panel.style.transform = `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})`;
+        panel.style.opacity = "0.92";
+        // Double-rAF so the browser commits the inverted frame before easing out.
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            panel.style.transition =
+              "transform 0.42s " + EASE_OUT + ", opacity 0.36s " + EASE_OUT;
+            root.classList.add("is-on");
+            panel.style.transform = "none";
+            panel.style.opacity = "1";
+          });
+        });
+      }
+
+      pop = { root, scrim, panel, source, first };
+      try {
+        if (navigator.vibrate) navigator.vibrate(8);
+      } catch (_) {}
+    }
+
+    function closePeek() {
+      if (!open || !pop || closing) {
+        // If we never opened but were mid-hold, just reset.
+        if (card) {
+          card.classList.remove("is-peeking");
+          card.setAttribute("aria-expanded", "false");
+        }
+        open = false;
+        return;
+      }
+      closing = true;
+      const { root, panel, source, first } = pop;
+
+      const finish = () => {
+        root.remove();
+        source.classList.remove("is-peeking");
+        source.setAttribute("aria-expanded", "false");
+        pop = null;
+        open = false;
+        closing = false;
+        card = null;
+        pointerId = null;
+      };
+
+      if (reduceMotion()) {
+        finish();
+        return;
+      }
+
+      // Reverse FLIP back toward the (current) compact card rect.
+      const origin = source.getBoundingClientRect();
+      const box = first && first.width > 4 ? first : origin;
+      const last = panel.getBoundingClientRect();
+      const dx = box.left - last.left;
+      const dy = box.top - last.top;
+      const sx = Math.max(0.05, box.width / Math.max(1, last.width));
+      const sy = Math.max(0.05, box.height / Math.max(1, last.height));
+
+      root.classList.remove("is-on");
+      root.classList.add("is-out");
+      panel.style.transition =
+        "transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.28s cubic-bezier(0.4, 0, 1, 1)";
+      panel.style.transform = `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})`;
+      panel.style.opacity = "0.75";
+
+      let done = false;
+      const end = () => {
+        if (done) return;
+        done = true;
+        finish();
+      };
+      panel.addEventListener("transitionend", end, { once: true });
+      // Safety if transitionend is skipped (tab backgrounded, etc.).
+      setTimeout(end, 380);
+    }
+
     document.addEventListener(
       "pointerdown",
       (e) => {
         if (e.pointerType === "mouse" && e.button !== 0) return;
+        if (open || closing) return;
         const t = e.target;
         if (!(t instanceof Element)) return;
-        // Don't start a hold on the external source link.
         if (t.closest(".report-card__source a")) return;
         const next = t.closest(".report-card--peek");
-        // Tap outside → collapse expanded peeks.
-        if (!next) {
-          collapseAll();
-          return;
-        }
+        if (!next) return;
+
         card = next;
-        didLong = false;
+        pointerId = e.pointerId;
         startX = e.clientX;
         startY = e.clientY;
         clearTimer();
+
+        try {
+          next.setPointerCapture(e.pointerId);
+        } catch (_) {}
+
         timer = setTimeout(() => {
           if (!card) return;
-          didLong = true;
-          suppressClick = true;
-          expand(card);
+          openPeek(card);
         }, LONG_MS);
       },
       { passive: true }
@@ -148,31 +300,53 @@ const {
     document.addEventListener(
       "pointermove",
       (e) => {
-        if (!timer || !card) return;
-        const dx = Math.abs(e.clientX - startX);
-        const dy = Math.abs(e.clientY - startY);
-        if (dx > MOVE_PX || dy > MOVE_PX) {
-          clearTimer();
-          card = null;
+        if (!card) return;
+        // Before open: cancel hold if the user is scrolling the strip.
+        if (!open && timer) {
+          const dx = Math.abs(e.clientX - startX);
+          const dy = Math.abs(e.clientY - startY);
+          if (dx > MOVE_PX || dy > MOVE_PX) {
+            clearTimer();
+            try {
+              if (pointerId != null) card.releasePointerCapture(pointerId);
+            } catch (_) {}
+            card = null;
+            pointerId = null;
+          }
         }
       },
       { passive: true }
     );
 
-    const endPress = () => {
+    const endPress = (e) => {
       clearTimer();
-      card = null;
+      // Always collapse on release — hold-to-preview only.
+      if (open) {
+        closePeek();
+      } else {
+        card = null;
+        pointerId = null;
+      }
+      // Swallow the click that follows a successful long-press preview.
+      if (suppressClick) {
+        setTimeout(() => {
+          suppressClick = false;
+        }, 50);
+      }
     };
     document.addEventListener("pointerup", endPress, { passive: true });
     document.addEventListener("pointercancel", endPress, { passive: true });
+    // Lost capture (e.g. scroll takeover) should also close.
+    document.addEventListener("lostpointercapture", (e) => {
+      if (card && e.target === card) endPress(e);
+    });
 
-    // After a long-press expand, swallow the synthetic click so we don't navigate.
     document.addEventListener(
       "click",
       (e) => {
         if (!suppressClick) return;
         const t = e.target;
-        if (t instanceof Element && t.closest(".report-card--peek")) {
+        if (t instanceof Element && (t.closest(".report-card--peek") || t.closest(".peek-pop"))) {
           e.preventDefault();
           e.stopPropagation();
         }
@@ -181,7 +355,6 @@ const {
       true
     );
 
-    // No system callout / save-image menu on hold (iOS Safari / app).
     document.addEventListener(
       "contextmenu",
       (e) => {
@@ -192,25 +365,9 @@ const {
       true
     );
 
-    // Keyboard: Enter/Space on focused card toggles expand when peeking.
+    // Escape closes if somehow stuck open.
     document.addEventListener("keydown", (e) => {
-      if (e.key !== "Enter" && e.key !== " ") return;
-      const t = e.target;
-      if (!(t instanceof Element)) return;
-      const el = t.closest(".report-card--peek");
-      if (!el) return;
-      // Only when focus is on the card link itself.
-      if (!t.classList.contains("report-card__link") && t.tagName !== "A") return;
-      // Space would scroll; Enter navigates — hold Alt/Option to toggle peek.
-      if (e.key === " " || e.altKey) {
-        e.preventDefault();
-        if (el.classList.contains("is-expanded")) {
-          el.classList.remove("is-expanded");
-          el.setAttribute("aria-expanded", "false");
-        } else {
-          expand(el);
-        }
-      }
+      if (e.key === "Escape" && open) closePeek();
     });
   })();
 </script>
