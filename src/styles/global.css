@@ -7660,10 +7660,6 @@ html.clad-app section.charts.home-app-only {
   background: color-mix(in srgb, var(--ink) 8%, transparent);
   outline: none;
 }
-/* Leave room so the × doesn't sit on the title */
-.home-spotlight__slide .home-promo--spotlight {
-  padding-right: 2rem;
-}
 html.clad-app .home-spotlight__close {
   top: 0.2rem;
   right: 0.2rem;
@@ -7694,8 +7690,8 @@ html.clad-app .home-spotlight__close {
 .home-spotlight__slide .home-promo--spotlight {
   height: 100%;
   box-sizing: border-box;
-  /* Slimmer than the old full promo card */
-  padding: 0.55rem 0.75rem 0.5rem;
+  /* Slimmer card; extra right padding so the × doesn't cover the title */
+  padding: 0.55rem 2rem 0.5rem 0.75rem;
   margin: 0;
   gap: 0.45rem 0.85rem;
   min-height: 0;
