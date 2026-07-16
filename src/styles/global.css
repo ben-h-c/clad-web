@@ -45,6 +45,10 @@
   --measure: 70ch;
   --gutter: 1.25rem;
 
+  /* Solid card faces — sit on the paper and block wash/glow (physical sheets). */
+  --card: rgb(244, 235, 212);
+  --card-deep: rgb(238, 228, 202);
+
   /* Film grain (tiny SVG noise) — reused on body overlay + paper sheet */
   --noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
 }
@@ -80,6 +84,10 @@
   --grade-bad-ink: rgb(228, 132, 118);
   --grade-bad-wash: color-mix(in srgb, rgb(180, 70, 58) 20%, var(--paper));
   --grade-bad-rule: color-mix(in srgb, rgb(228, 132, 118) 32%, var(--rule));
+
+  /* Opaque raised cards that block the warm corner backlight on the sheet */
+  --card: rgb(38, 34, 28);
+  --card-deep: rgb(32, 28, 23);
   color-scheme: dark;
 }
 
@@ -288,6 +296,27 @@ body::before {
   opacity: 0.22;
 }
 
+/* Physical card stock — solid faces block the sheet backlight (dark + light). */
+:root[data-theme="dark"] .report-card,
+:root[data-theme="dark"] .topic-card,
+:root[data-theme="dark"] .home-rails__card,
+:root[data-theme="dark"] .explore-next__card,
+:root[data-theme="dark"] .scoreband,
+:root[data-theme="dark"] .pol-card,
+:root[data-theme="dark"] .race-card,
+:root[data-theme="dark"] .queue-item,
+:root[data-theme="dark"] .agent,
+:root[data-theme="dark"] .account-card,
+:root[data-theme="dark"] .fold,
+:root[data-theme="dark"] .breaking-group,
+:root[data-theme="dark"] .gradeboard__item {
+  background-color: var(--card) !important;
+  background-image: none !important;
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 8%, transparent),
+    0 10px 22px color-mix(in srgb, var(--shadow) 55%, transparent);
+}
+
 /* Mobile / touch / in-app: strip decorative fixed layers for smooth scrolling */
 @media (max-width: 860px), (hover: none) {
   .living-bg__spark,
@@ -403,7 +432,7 @@ p {
   margin: 0.85rem auto 1.75rem;
   padding: 1.75rem clamp(1.15rem, 3.5vw, 3.5rem) 3.25rem;
   background-color: var(--paper);
-  /* Soft paper fiber + faint age wash + subtle living shimmer edge */
+  /* Soft paper fiber + faint age wash + corner backlight (shows between solid cards) */
   background-image:
     radial-gradient(ellipse 90% 55% at 12% 8%, rgba(255, 252, 240, 0.55), transparent 50%),
     radial-gradient(ellipse 70% 45% at 92% 96%, rgba(180, 150, 100, 0.12), transparent 55%),
@@ -479,6 +508,14 @@ html.masthead-menu-open .shell > main {
 
 :root[data-theme="dark"] .shell::before {
   opacity: calc(var(--grain-opacity) * 1.1);
+}
+
+/* Dark sheet keeps a warm corner backlight; cards sit on top as solid stock. */
+:root[data-theme="dark"] .shell {
+  background-image:
+    radial-gradient(ellipse 95% 60% at 10% 4%, rgba(255, 170, 90, 0.22), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 92% 96%, rgba(70, 110, 180, 0.1), transparent 55%),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
 }
 
 @media (max-width: 640px) {
@@ -569,13 +606,21 @@ html.clad-app .emap-page {
   padding: 1rem 0 0.85rem;
   position: relative;
   overflow: visible;
-  /* Ensure children (search/account) don't invent a higher sibling stack than Menu. */
   z-index: 0;
 }
 
-.masthead__search {
+/* Top-right chrome: always above masthead title / rules so the theme toggle is clickable. */
+.masthead__search,
+.masthead__theme,
+.masthead__account {
   position: absolute;
   top: 0;
+  z-index: 20;
+  pointer-events: auto;
+  background: var(--card);
+}
+
+.masthead__search {
   right: 0;
   display: inline-flex;
   align-items: center;
@@ -584,7 +629,6 @@ html.clad-app .emap-page {
   height: 2.4rem;
   color: var(--ink);
   border: 1px solid var(--rule);
-  background: var(--paper);
 }
 
 .masthead__search:hover {
@@ -594,8 +638,6 @@ html.clad-app .emap-page {
 
 /* Dark-mode toggle: sits between the account link and the search icon. */
 .masthead__theme {
-  position: absolute;
-  top: 0;
   right: 2.8rem;
   display: inline-flex;
   align-items: center;
@@ -608,8 +650,9 @@ html.clad-app .emap-page {
   letter-spacing: 0;
   color: var(--ink);
   border: 1px solid var(--rule);
-  background: var(--paper);
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .masthead__theme:hover {
@@ -618,8 +661,6 @@ html.clad-app .emap-page {
 }
 
 .masthead__account {
-  position: absolute;
-  top: 0;
   right: 5.6rem;
   display: inline-flex;
   align-items: center;
@@ -629,7 +670,6 @@ html.clad-app .emap-page {
   letter-spacing: 0.08em;
   color: var(--ink);
   border: 1px solid var(--rule);
-  background: var(--paper);
   text-decoration: none;
   white-space: nowrap;
 }
@@ -2225,7 +2265,9 @@ html.clad-app .emap-page {
   position: relative;
   padding: 0.65rem 0.65rem 0.55rem;
   border: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
-  background: var(--paper);
+  /* Solid stock — blocks sheet wash/backlight (not translucent). */
+  background-color: var(--card);
+  background-image: none;
   border-radius: 4px;
   box-shadow:
     0 1px 0 color-mix(in srgb, #fff 50%, transparent),
@@ -2234,6 +2276,7 @@ html.clad-app .emap-page {
     transform 0.15s ease,
     box-shadow 0.15s ease,
     border-color 0.15s ease;
+  isolation: isolate;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -2283,16 +2326,20 @@ html.clad-app .emap-page {
   gap: 1.25rem;
   flex-wrap: wrap;
   border: 1px solid color-mix(in srgb, var(--rule) 80%, transparent);
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--paper) 40%, transparent), transparent),
-    var(--tint-1);
+  /* Opaque face — no translucent wash that lets the backlight bleed through */
+  background-color: var(--card-deep);
+  background-image: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--card) 88%, #fff 12%),
+    var(--card-deep)
+  );
   padding: 0.6rem 0.85rem;
   margin: 0.4rem 0 0.75rem;
   box-shadow:
     inset 0 0 0 1px color-mix(in srgb, var(--paper) 55%, transparent),
     0 6px 14px color-mix(in srgb, var(--shadow) 25%, transparent);
   border-radius: 3px;
-  transform: translateZ(8px);
+  isolation: isolate;
 }
 
 .scoreband__grade {
@@ -2692,12 +2739,15 @@ html.clad-app .emap-page {
   text-decoration: none;
   color: inherit;
   border: 1px solid var(--rule);
-  background: var(--tint-1);
+  background-color: var(--card);
+  background-image: none;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .topic-card:hover {
-  background: var(--tint-2);
+  background-color: var(--card-deep);
+  background-image: none;
 }
 
 .topic-card__thumb {
@@ -6200,7 +6250,8 @@ html.clad-app .clad-app-only { display: block; }
   gap: 0.25rem;
   padding: 0.85rem 0.85rem;
   border: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
-  background: var(--paper);
+  background-color: var(--card);
+  background-image: none;
   color: inherit;
   text-decoration: none;
   min-height: 6.5rem;
@@ -6209,6 +6260,7 @@ html.clad-app .clad-app-only { display: block; }
     0 1px 0 color-mix(in srgb, #fff 50%, transparent),
     0 6px 14px color-mix(in srgb, var(--shadow) 28%, transparent);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+  isolation: isolate;
 }
 @media (hover: hover) and (pointer: fine) {
   .home-rails__card:hover {
@@ -6321,7 +6373,9 @@ html.clad-app .clad-app-only { display: block; }
   text-decoration: none;
   color: inherit;
   min-height: 5.5rem;
-  background: color-mix(in srgb, var(--paper) 92%, var(--ink));
+  background-color: var(--card);
+  background-image: none;
+  isolation: isolate;
 }
 .explore-next__card:hover {
   border-color: var(--ink);

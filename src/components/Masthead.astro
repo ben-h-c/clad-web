@@ -191,13 +191,26 @@ const menuAccountText = signedIn ? accountLabel : "Sign in";
     // updates the account default so it sticks across devices/sessions.
     const themeBtn = document.getElementById("theme-toggle");
     if (themeBtn) {
-      themeBtn.addEventListener("click", () => {
+      const applyTheme = (next) => {
         const root = document.documentElement;
-        const next = root.dataset.theme === "dark" ? "light" : "dark";
-        root.dataset.theme = next;
+        root.setAttribute("data-theme", next === "dark" ? "dark" : "light");
         try { localStorage.setItem("clad_theme", next); } catch {}
         const tc = document.querySelector('meta[name="theme-color"]');
         if (tc) tc.setAttribute("content", next === "dark" ? "#181612" : "#3a3026");
+        themeBtn.setAttribute("aria-pressed", next === "dark" ? "true" : "false");
+        themeBtn.title = next === "dark" ? "Switch to light reading" : "Switch to dark reading";
+        themeBtn.setAttribute(
+          "aria-label",
+          next === "dark" ? "Switch to light reading" : "Switch to dark reading"
+        );
+      };
+      const isDark = () => document.documentElement.getAttribute("data-theme") === "dark";
+      themeBtn.setAttribute("aria-pressed", isDark() ? "true" : "false");
+      themeBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const next = isDark() ? "light" : "dark";
+        applyTheme(next);
         const mast = document.querySelector(".masthead");
         if (mast && mast.getAttribute("data-signed-in") === "1") {
           fetch("/api/me/preferences", {
