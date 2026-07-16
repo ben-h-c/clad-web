@@ -2,12 +2,14 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import CollapsibleSection from "~/components/CollapsibleSection.astro";
+import ExploreNext from "~/components/ExploreNext.astro";
 import { getAccess } from "~/lib/access";
 import { buildRaceBoard, maskRaceLeaders, statusLabel } from "~/lib/bracket";
 import { buildElectionMap, type StateMapCell } from "~/lib/electionMap";
 import { buildStateForecasts, FORECAST_ASOF, LAYER_LABELS } from "~/lib/electionForecast";
 import { RACE_BOARD_VERIFIED_ASOF } from "~/lib/races";
 import { US_MAP_VIEWBOX, US_STATE_PATHS } from "~/lib/usMapPaths";
+import { registerHref } from "~/lib/safeNext";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "private, no-store");
@@ -76,22 +78,34 @@ const jsonLd = {
   "@type": "WebPage",
   name: "Midterms 2026 interactive map — CladFacts",
   description:
-    "Tap any state for Class II Senate seats, midterm governors, and live CladFacts coverage heat — not polls.",
+    "Party & outlook map of the 2026 midterms — state control, flip risk, Senate, governors, and CladFacts coverage. Tap any state.",
   url: pageUrl,
 };
 
-// Featured states for the "start here" strip (highest heat, then marquee)
+// Default view: Party & outlook → State control. Featured = flip risk first, then heat.
+const flipRiskCodes = new Set(
+  Object.entries(forecast.byCode)
+    .filter(([, f]) => f.control?.flipRisk)
+    .map(([code]) => code)
+);
 const featured = [...map.states]
-  .filter((s) => s.hasBoardCard)
-  .sort((a, b) => b.heat - a.heat || a.name.localeCompare(b.name))
+  .filter((s) => flipRiskCodes.has(s.code) || s.hasBoardCard)
+  .sort((a, b) => {
+    const af = flipRiskCodes.has(a.code) ? 0 : 1;
+    const bf = flipRiskCodes.has(b.code) ? 0 : 1;
+    return af - bf || b.heat - a.heat || a.name.localeCompare(b.name);
+  })
   .slice(0, 8);
+
+const flipCount = flipRiskCodes.size;
+const registerMap = registerHref("/elections/map/");
 
 ---
 <BaseLayout
   title="Midterms 2026 map — CladFacts"
-  description="Interactive U.S. map of the 2026 midterms: Class II Senate, governors, open seats, and live coverage heat by state. Tap a state to dig in."
+  description="Interactive U.S. map of the 2026 midterms: party control, 2026 outlook, flip risk, Senate, governors, and CladFacts coverage heat. Tap a state to dig in."
   ogTitle="Midterms 2026 interactive map"
-  ogDescription="Class II Senate · governors · coverage heat — tap any state. Not a poll."
+  ogDescription="Party & outlook · state control · flip risk — tap any state. Not a poll."
   ogImage={`${origin}/og/bracket.png`}
   jsonLd={jsonLd}
 >
@@ -100,9 +114,10 @@ const featured = [...map.states]
       <p class="small-caps upgrade__eyebrow">Midterms 2026 · Interactive map</p>
       <h1 class="static-page__title">Election map</h1>
       <p class="upgrade__lede">
-        Two views on one page: <strong>Coverage</strong> (ballot structure + CladFacts heat) and
-        <strong>Party &amp; outlook</strong> (who holds power now, flip risk, and who is favored in 2026).
-        Toggle Senate, governor, House, or state control. Tap a state to dig in
+        Defaults to <strong>Party &amp; outlook</strong> on <strong>state control</strong> —
+        who holds power now, who is favored in 2026, and where flip risk is highest.
+        Switch to Senate, governor, or House layers, or flip to <strong>Coverage</strong> for
+        CladFacts graded-report heat. Tap a state to dig in
         {reveal ? "." : " (sign in free for coverage grades & lean)."}
       </p>
 
@@ -111,20 +126,31 @@ const featured = [...map.states]
         <a href="/bracket/">Ballot board</a>
         <a href="/bracket/votes/">Community votes</a>
         <a href="/politicians/">Politicians</a>
+        <a href="/learn/first-vote/">First-time voter</a>
       </nav>
 
       <ul class="emap-stats" aria-label="Map summary">
         <li><strong>{map.stats.classII}</strong><span>Class II Senate states</span></li>
         <li><strong>{map.stats.governors}</strong><span>Governor races 2026</span></li>
-        <li><strong>{map.stats.boardCards}</strong><span>Featured race cards</span></li>
+        <li><strong>{flipCount}</strong><span>Flip-risk (state control)</span></li>
         <li><strong>{map.stats.hotStates}</strong><span>States with graded reports</span></li>
       </ul>
     </header>
 
+    <p class="emap-how-to" id="emap-how-to">
+      <span class="small-caps emap-how-to__k">How to use</span>
+      <span>
+        Colors show the <strong>2026 outlook</strong> for the selected layer.
+        Striped states = <strong>flip risk</strong>. Tap a state for who holds power now,
+        the outlook band, and CladFacts race cards — then lock picks on the
+        <a href="/bracket/">ballot board</a>.
+      </span>
+    </p>
+
     {!reveal && (
       <p class="paywall-banner" style="margin: 0 0 1rem">
-        <span>Map is public. Coverage grades &amp; lean unlock free with any account.</span>
-        <a class="paywall-banner__cta" href="/register/?next=%2Felections%2Fmap%2F">Create free account</a>
+        <span>Map is public. Coverage grades &amp; lean on race cards unlock free with any account.</span>
+        <a class="paywall-banner__cta" href={registerMap}>Create free account</a>
       </p>
     )}
 
@@ -132,24 +158,24 @@ const featured = [...map.states]
       <div class="emap-toolbar__group">
         <span class="small-caps emap-toolbar__label">Map</span>
         <div class="emap-seg" role="group" aria-label="Map type">
-          <button type="button" class="emap-seg__btn emap-seg__btn--on" data-mode="coverage" id="mode-coverage">Coverage</button>
-          <button type="button" class="emap-seg__btn" data-mode="party" id="mode-party">Party &amp; outlook</button>
+          <button type="button" class="emap-seg__btn emap-seg__btn--on" data-mode="party" id="mode-party">Party &amp; outlook</button>
+          <button type="button" class="emap-seg__btn" data-mode="coverage" id="mode-coverage">Coverage</button>
         </div>
       </div>
-      <div class="emap-toolbar__group" id="layer-group" hidden>
+      <div class="emap-toolbar__group" id="layer-group">
         <span class="small-caps emap-toolbar__label">Election</span>
         <div class="emap-seg emap-seg--wrap" role="group" aria-label="Election layer">
-          <button type="button" class="emap-seg__btn emap-seg__btn--on" data-layer="senate">Senate</button>
+          <button type="button" class="emap-seg__btn emap-seg__btn--on" data-layer="control">State control</button>
+          <button type="button" class="emap-seg__btn" data-layer="senate">Senate</button>
           <button type="button" class="emap-seg__btn" data-layer="governor">Governor</button>
           <button type="button" class="emap-seg__btn" data-layer="house">House</button>
-          <button type="button" class="emap-seg__btn" data-layer="control">State control</button>
         </div>
       </div>
     </div>
     <div class="emap-shell">
       <div class="emap-map-col">
         <div class="emap-map-wrap">
-          <div class="emap-legend" id="legend-coverage" aria-label="Coverage map legend">
+          <div class="emap-legend" id="legend-coverage" hidden aria-label="Coverage map legend">
             <span class="emap-leg emap-leg--hot">Hot</span>
             <span class="emap-leg emap-leg--marquee">Marquee</span>
             <span class="emap-leg emap-leg--watch">Watch</span>
@@ -158,8 +184,18 @@ const featured = [...map.states]
             <span class="emap-leg emap-leg--governor">Gov</span>
             <span class="emap-leg emap-leg--quiet">House</span>
           </div>
+          <div class="emap-legend" id="legend-party" aria-label="Party and outlook map legend">
+            <span class="emap-leg emap-party--solid-d">Solid D</span>
+            <span class="emap-leg emap-party--likely-d">Likely D</span>
+            <span class="emap-leg emap-party--lean-d">Lean D</span>
+            <span class="emap-leg emap-party--tossup">Toss-up</span>
+            <span class="emap-leg emap-party--lean-r">Lean R</span>
+            <span class="emap-leg emap-party--likely-r">Likely R</span>
+            <span class="emap-leg emap-party--solid-r">Solid R</span>
+            <span class="emap-leg emap-leg--flip">Flip risk</span>
+          </div>
 
-          <p class="emap-hint small-caps" id="emap-hint">Tap or click a state · keyboard: Tab + Enter</p>
+          <p class="emap-hint small-caps" id="emap-hint">Tap a state for control, outlook &amp; races · Tab + Enter</p>
 
           <svg
             class="emap-svg"
@@ -170,7 +206,7 @@ const featured = [...map.states]
           >
             <title id="emap-title">United States midterms 2026 map</title>
             <desc id="emap-desc">
-              Interactive map of U.S. states colored by Class II Senate races, governors, and CladFacts coverage heat.
+              Interactive map of U.S. states colored by party control and 2026 outlook, with flip-risk states highlighted.
             </desc>
             <g class="emap-states">
               {map.states.map((s) => (
@@ -198,19 +234,27 @@ const featured = [...map.states]
           </div>
         </div>
 
-        <p class="emap-disclaimer" id="emap-disclaimer-party" hidden>
+        <p class="emap-disclaimer" id="emap-disclaimer-party">
           Party map is an editorial snapshot (as of {FORECAST_ASOF}) — solid/likely/lean/toss-up bands for glanceability.
           It is <strong>not</strong> a CladFacts grade, poll average, or prediction market.
+        </p>
+        <p class="emap-disclaimer" id="emap-disclaimer-coverage" hidden>
+          Coverage map shows ballot structure and graded-report heat on CladFacts — not who is winning the election.
         </p>
       </div>
 
       <aside class="emap-panel" id="emap-panel" aria-live="polite">
         <div class="emap-panel__empty" id="emap-panel-empty">
-          <h2 class="emap-panel__title">Pick a state</h2>
+          <h2 class="emap-panel__title">Start with a state</h2>
           <p>
-            Color shows what’s on the ballot and where our graded coverage is densest.
-            Start with a hot state below, or tap the map.
+            You’re viewing <strong>state control</strong> outlook. Stripes mark flip risk.
+            Pick a state below, or tap the map — then cast picks on the ballot board.
           </p>
+          <p class="emap-panel__cta-row">
+            <a class="emap-panel__cta" href="/bracket/">Fill your ballot →</a>
+            <a class="emap-panel__cta emap-panel__cta--ghost" href="/bracket/votes/">Community votes</a>
+          </p>
+          <p class="small-caps emap-featured-label">Watch these first</p>
           <ul class="emap-featured">
             {featured.map((s) => (
               <li>
@@ -218,7 +262,10 @@ const featured = [...map.states]
                   <span class="emap-featured__code">{s.code}</span>
                   <span class="emap-featured__body">
                     <strong>{s.name}</strong>
-                    <span>{s.glance}</span>
+                    <span>
+                      {flipRiskCodes.has(s.code) ? "Flip risk · " : ""}
+                      {s.glance}
+                    </span>
                   </span>
                   {s.heat > 0 && <span class="emap-featured__heat">{s.heat}</span>}
                 </button>
@@ -270,16 +317,26 @@ const featured = [...map.states]
 
     <CollapsibleSection title="How to read these maps" eyebrow="Guide">
       <ul class="upgrade__perks">
+        <li><strong>Party &amp; outlook (default)</strong> — who holds the seat/control now, Cook-style solid/likely/lean/toss-up bands for 2026, and flip-risk striping when the favored party differs from the holder. Editorial snapshot as of {FORECAST_ASOF}.</li>
+        <li><strong>State control (default layer)</strong> — simplified lean of governor + legislature for the whole state. Switch to Senate, governor, or House for office-specific outlooks.</li>
         <li><strong>Coverage map</strong> — ballot structure + CladFacts graded-report heat. Not a forecast of who wins.</li>
-        <li><strong>Party &amp; outlook map</strong> — who holds the seat/control now, Cook-style solid/likely/lean/toss-up bands for 2026, and flip-risk striping when the favored party differs from the holder. Editorial snapshot as of {FORECAST_ASOF}.</li>
-        <li><strong>Toggles</strong> — Senate (Class II), governor, House (state lean, not districts), or overall state-government control.</li>
         <li><strong>Class II Senate</strong> = one-third of the chamber up in 2026 (Art. I §3). Candidate map verified {RACE_BOARD_VERIFIED_ASOF}.</li>
-        <li><strong>House</strong> = all 435 seats every midterm; colors are statewide lean only.</li>
+        <li><strong>House</strong> = all 435 seats every midterm; colors are statewide lean only, not districts.</li>
+        <li><strong>Your picks</strong> — after exploring, lock winners on the <a href="/bracket/">ballot board</a> (account required). Community tallies stay anonymous.</li>
       </ul>
     </CollapsibleSection>
 
+    <ExploreNext
+      context="midterms"
+      title="After the map"
+      eyebrow="Next"
+      locked={!reveal}
+      returnTo="/elections/map/"
+    />
+
     <p class="static-page__note">
-      Dig deeper: <a href="/bracket/">race board</a> · <a href="/politicians/">politician cards</a> ·
+      Dig deeper: <a href="/bracket/">ballot board</a> · <a href="/bracket/votes/">community votes</a> ·
+      <a href="/politicians/">politician cards</a> ·
       <a href="/learn/first-vote/">first-time voter guide</a>.
       Map paths: Wikimedia Commons blank US map (public domain).
     </p>
@@ -308,11 +365,15 @@ const featured = [...map.states]
     const backdrop = document.getElementById("emap-backdrop");
     const layerGroup = document.getElementById("layer-group");
     const legendCov = document.getElementById("legend-coverage");
+    const legendParty = document.getElementById("legend-party");
     const discParty = document.getElementById("emap-disclaimer-party");
+    const discCov = document.getElementById("emap-disclaimer-coverage");
+    const hintEl = document.getElementById("emap-hint");
     let selected = null;
     let hover = null;
-    let mode = "coverage"; // coverage | party
-    let layer = "senate"; // senate | governor | house | control
+    // Default: party & outlook on state control (user preference / product default).
+    let mode = "party"; // party | coverage
+    let layer = "control"; // control | senate | governor | house
 
     const isMobile = () => window.matchMedia("(max-width: 860px)").matches;
 
@@ -386,8 +447,16 @@ const featured = [...map.states]
         path.setAttribute("aria-label", st.name + ": " + (mode === "coverage" ? st.glance : partyGlance(st)));
       });
       if (legendCov) legendCov.hidden = mode !== "coverage";
+      if (legendParty) legendParty.hidden = mode !== "party";
       if (layerGroup) layerGroup.hidden = mode !== "party";
       if (discParty) discParty.hidden = mode !== "party";
+      if (discCov) discCov.hidden = mode !== "coverage";
+      if (hintEl) {
+        hintEl.textContent =
+          mode === "party"
+            ? "Tap a state for control, outlook & races · Tab + Enter"
+            : "Tap a state for coverage heat & race cards · Tab + Enter";
+      }
       if (selected && states[selected]) paintDetail(states[selected]);
     }
 
@@ -477,9 +546,10 @@ const featured = [...map.states]
         body = coverageRacesHtml(st);
       }
       const links = `<p class="emap-panel__more">
-        <a href="/bracket/">Race board</a> ·
+        <a href="/bracket/">Ballot board</a> ·
+        <a href="/bracket/votes/">Community votes</a> ·
         <a href="/politicians/">Politicians</a> ·
-        <a href="/bracket/votes/">Community votes</a>
+        <a href="/quiz/">Morning quiz</a>
       </p>`;
       return { code: st.code, name: st.name, glance, badges, body, links };
     }
@@ -607,7 +677,7 @@ const featured = [...map.states]
       });
     }
 
-    // URL: #party-senate-GA or #GA
+    // URL: #party-control-GA | #party-senate-GA | #coverage-GA | #GA
     const hash = (location.hash || "").replace(/^#/, "");
     const parts = hash.split("-");
     if (parts[0] === "party" && parts[1]) {
@@ -615,7 +685,12 @@ const featured = [...map.states]
       if (["senate", "governor", "house", "control"].includes(parts[1])) setLayer(parts[1]);
       const code = (parts[2] || "").toUpperCase();
       if (code && states[code]) selectState(code, { fromHash: true });
+    } else if (parts[0] === "coverage") {
+      setMode("coverage");
+      const code = (parts[1] || "").toUpperCase();
+      if (code && states[code]) selectState(code, { fromHash: true });
     } else {
+      // Default party + state control
       applyColors();
       const code = hash.toUpperCase();
       if (code && states[code]) selectState(code, { fromHash: true });
@@ -719,6 +794,67 @@ const featured = [...map.states]
   .emap-leg--senate { background: color-mix(in srgb, #3b6ea5 40%, var(--paper, #f5edd9)); color: var(--ink, #1a140d); }
   .emap-leg--governor { background: color-mix(in srgb, #2f6b4f 40%, var(--paper, #f5edd9)); color: var(--ink, #1a140d); }
   .emap-leg--quiet { background: color-mix(in srgb, #d9d0bc 70%, var(--paper, #f5edd9)); color: var(--ink, #1a140d); }
+  /* Party legend chips (background; SVG paths use fill via same class names) */
+  .emap-legend .emap-leg.emap-party--solid-d { background: #0b3d91; color: #fff; border-color: #0b3d91; }
+  .emap-legend .emap-leg.emap-party--likely-d { background: #2a6fdb; color: #fff; border-color: #2a6fdb; }
+  .emap-legend .emap-leg.emap-party--lean-d { background: #7aa7ef; color: #1a140d; border-color: #7aa7ef; }
+  .emap-legend .emap-leg.emap-party--tossup { background: #9b8bb8; color: #1a140d; border-color: #9b8bb8; }
+  .emap-legend .emap-leg.emap-party--lean-r { background: #e07a72; color: #1a140d; border-color: #e07a72; }
+  .emap-legend .emap-leg.emap-party--likely-r { background: #c0392b; color: #fff; border-color: #c0392b; }
+  .emap-legend .emap-leg.emap-party--solid-r { background: #8b1a14; color: #fff; border-color: #8b1a14; }
+  .emap-leg--flip {
+    background: repeating-linear-gradient(
+      -45deg,
+      color-mix(in srgb, var(--ink, #1a140d) 12%, var(--paper, #f5edd9)),
+      color-mix(in srgb, var(--ink, #1a140d) 12%, var(--paper, #f5edd9)) 3px,
+      var(--paper, #f5edd9) 3px,
+      var(--paper, #f5edd9) 6px
+    );
+    border-style: dashed;
+  }
+  .emap-how-to {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.85rem;
+    align-items: baseline;
+    margin: 0 0 1rem;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--rule, #cfc3ad);
+    font-size: 0.92rem;
+    line-height: 1.45;
+    background: color-mix(in srgb, var(--ink, #1a140d) 4%, transparent);
+  }
+  .emap-how-to__k {
+    color: var(--accent, #941a1a);
+    letter-spacing: 0.1em;
+    font-size: 0.68rem;
+  }
+  .emap-how-to a { color: inherit; font-weight: 600; }
+  .emap-panel__cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.65rem 0 0.85rem;
+  }
+  .emap-panel__cta {
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.35rem 0.55rem;
+    border: 1px solid var(--ink, #1a140d);
+    background: var(--ink, #1a140d);
+    color: var(--paper, #f5edd9);
+  }
+  .emap-panel__cta--ghost {
+    background: transparent;
+    color: inherit;
+  }
+  .emap-featured-label {
+    margin: 0.25rem 0 0.4rem;
+    opacity: 0.65;
+    font-size: 0.68rem;
+  }
 
   .emap-hint {
     margin: 0 0 0.35rem;
