@@ -4920,9 +4920,51 @@ html.admin-nav-open .admin-nav {
   display: flex;
   flex-direction: column;
 }
+/* Network charts: collapsed by default via <details> */
+.chart-card--fold {
+  padding-bottom: 0.75rem;
+}
+.chart-card--fold[open] {
+  padding-bottom: 1.1rem;
+}
+.chart-card__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.chart-card__summary::-webkit-details-marker {
+  display: none;
+}
+.chart-card--fold .chart-card__summary .chart-card__title {
+  margin: 0;
+}
+.chart-card__toggle {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  color: var(--muted-ink);
+  letter-spacing: 0.02em;
+}
+.chart-card--fold[open] .chart-card__toggle span[aria-hidden="true"] {
+  transform: rotate(180deg);
+  display: inline-block;
+}
+.chart-card__summary:hover .chart-card__toggle {
+  color: var(--ink);
+}
+.chart-card--fold .chart-card__body {
+  margin-top: 0.75rem;
+}
 /* Clip the body to a compact height (with a fade) only when it's tall enough to
-   need it (JS adds .is-clipped) and not expanded. */
-.chart-card.is-clipped:not(.is-expanded) .chart-card__body {
+   need it (JS adds .is-clipped) and not expanded. Skip fold cards — they are
+   either fully closed or fully open. */
+.chart-card.is-clipped:not(.is-expanded):not(.chart-card--fold) .chart-card__body {
   overflow: hidden;
   max-height: 8.5rem;
   -webkit-mask-image: linear-gradient(#000 68%, transparent);
@@ -4954,17 +4996,15 @@ html.admin-nav-open .admin-nav {
   padding: 0.3rem 0.7rem;
   cursor: pointer;
 }
-/* Per-chart toggle on mobile; one "expand all" on desktop (shared row). */
-.charts-expand-all {
-  display: none;
-}
+/* Per-chart toggle on mobile for non-fold cards; "Expand all" always available
+   so readers can open the collapsed network charts in one click. */
 @media (min-width: 721px) {
   .chart-expand {
     display: none;
   }
-  .charts-expand-all {
-    display: inline-block;
-  }
+}
+.charts-expand-all {
+  display: inline-block;
 }
 /* Laptop/desktop: a horizontal scrolling strip of chart cards. */
 @media (min-width: 721px) {

@@ -107,9 +107,15 @@ const topIssues = topics.slice(0, 10);
       <button type="button" class="chart-expand" aria-expanded="false"><span class="chart-expand__txt">Expand</span> <span aria-hidden="true">▾</span></button>
     </div>
 
-    <!-- Political bias by network -->
-    <div class="chart-card">
-      <h3 class="chart-card__title small-caps">Political bias by network</h3>
+    <!-- Network charts: collapsed by default (native details) -->
+    <details class="chart-card chart-card--fold">
+      <summary class="chart-card__summary">
+        <h3 class="chart-card__title small-caps">Political bias by network</h3>
+        <span class="chart-card__toggle">
+          <span class="chart-card__toggle-txt">Show</span>
+          <span aria-hidden="true">▾</span>
+        </span>
+      </summary>
       <div class="chart-card__body">
         <div class="chart-rows">
           {biasByNet.map((n) => (
@@ -127,12 +133,16 @@ const topIssues = topics.slice(0, 10);
           ))}
         </div>
       </div>
-      <button type="button" class="chart-expand" aria-expanded="false"><span class="chart-expand__txt">Expand</span> <span aria-hidden="true">▾</span></button>
-    </div>
+    </details>
 
-    <!-- Average grade by network -->
-    <div class="chart-card">
-      <h3 class="chart-card__title small-caps">Average grade by network</h3>
+    <details class="chart-card chart-card--fold">
+      <summary class="chart-card__summary">
+        <h3 class="chart-card__title small-caps">Average grade by network</h3>
+        <span class="chart-card__toggle">
+          <span class="chart-card__toggle-txt">Show</span>
+          <span aria-hidden="true">▾</span>
+        </span>
+      </summary>
       <div class="chart-card__body">
         <div class="chart-rows">
           {gradeByNet.map((n) => (
@@ -146,13 +156,17 @@ const topIssues = topics.slice(0, 10);
           ))}
         </div>
       </div>
-      <button type="button" class="chart-expand" aria-expanded="false"><span class="chart-expand__txt">Expand</span> <span aria-hidden="true">▾</span></button>
-    </div>
+    </details>
 
-    <!-- Social reception by network -->
     {sentiByNet.length > 0 && (
-      <div class="chart-card">
-        <h3 class="chart-card__title small-caps">Social reception by network</h3>
+      <details class="chart-card chart-card--fold">
+        <summary class="chart-card__summary">
+          <h3 class="chart-card__title small-caps">Social reception by network</h3>
+          <span class="chart-card__toggle">
+            <span class="chart-card__toggle-txt">Show</span>
+            <span aria-hidden="true">▾</span>
+          </span>
+        </summary>
         <div class="chart-card__body">
           <div class="chart-rows">
             {sentiByNet.map((n) => (
@@ -170,8 +184,7 @@ const topIssues = topics.slice(0, 10);
             ))}
           </div>
         </div>
-        <button type="button" class="chart-expand" aria-expanded="false"><span class="chart-expand__txt">Expand</span> <span aria-hidden="true">▾</span></button>
-      </div>
+      </details>
     )}
 
     <!-- Top issues -->
@@ -231,8 +244,9 @@ const topIssues = topics.slice(0, 10);
       strip.addEventListener("scroll", updateArrows, { passive: true });
     }
 
-    /* ---- collapse / expand ---- */
-    const cards = [...section.querySelectorAll(".chart-card")];
+    /* ---- collapse / expand (always-visible cards) ---- */
+    const cards = [...section.querySelectorAll(".chart-card:not(.chart-card--fold)")];
+    const folds = [...section.querySelectorAll("details.chart-card--fold")];
     const setCard = (card, expand) => {
       card.classList.toggle("is-expanded", expand);
       const b = card.querySelector(".chart-expand");
@@ -261,6 +275,27 @@ const topIssues = topics.slice(0, 10);
     });
 
     const allBtn = section.querySelector(".charts-expand-all");
+    const syncFoldLabels = () => {
+      folds.forEach((d) => {
+        const t = d.querySelector(".chart-card__toggle-txt");
+        if (t) t.textContent = d.open ? "Hide" : "Show";
+      });
+    };
+    const syncAllBtn = () => {
+      if (!allBtn || !folds.length) return;
+      const allOpen = folds.every((f) => f.open);
+      allBtn.setAttribute("aria-expanded", String(allOpen));
+      const t = allBtn.querySelector(".charts-expand-all__txt");
+      if (t) t.textContent = allOpen ? "Collapse all" : "Expand all";
+    };
+    folds.forEach((d) => {
+      d.addEventListener("toggle", () => {
+        syncFoldLabels();
+        syncAllBtn();
+        updateArrows();
+      });
+    });
+
     if (allBtn) {
       allBtn.addEventListener("click", () => {
         const expand = allBtn.getAttribute("aria-expanded") !== "true";
@@ -268,12 +303,14 @@ const topIssues = topics.slice(0, 10);
         const t = allBtn.querySelector(".charts-expand-all__txt");
         if (t) t.textContent = expand ? "Collapse all" : "Expand all";
         cards.forEach((card) => setCard(card, expand));
+        folds.forEach((d) => { d.open = expand; });
+        syncFoldLabels();
         syncFits();
         updateArrows();
       });
     }
 
-    const init = () => { syncFits(); updateArrows(); };
+    const init = () => { syncFoldLabels(); syncFits(); updateArrows(); };
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
     else init();
     window.addEventListener("load", init);
