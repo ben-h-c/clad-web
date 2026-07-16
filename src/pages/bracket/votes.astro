@@ -2,10 +2,14 @@
 /**
  * Anonymous community ballot dashboard.
  * Counts locked ballots only — never exposes who voted for whom.
+ * Includes a US map colored by community lean (vs editorial election map).
  */
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { DEFAULT_ELECTION_ID, getElection } from "~/lib/elections";
 import { getCommunityVotes, type CommunityRaceTally } from "~/lib/picks";
+import { buildCommunityVoteMap, COMMUNITY_FILL_LABELS } from "~/lib/communityMap";
+import { FORECAST_ASOF } from "~/lib/electionForecast";
+import { US_MAP_VIEWBOX, US_STATE_PATHS } from "~/lib/usMapPaths";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "public, max-age=30, s-maxage=60");
@@ -15,6 +19,7 @@ const summary = await getCommunityVotes(election.id);
 const races = summary?.races ?? [];
 const lockedBallots = summary?.lockedBallots ?? 0;
 const totalPicks = summary?.totalPicks ?? 0;
+const cmap = buildCommunityVoteMap(races);
 
 const sort = Astro.url.searchParams.get("sort") || "votes";
 const chamber = Astro.url.searchParams.get("chamber") || "";
@@ -146,6 +151,252 @@ function partyTag(p: string | null) {
             </a>
           )}
         </div>
+
+        {/* Community lean map — same US base as /elections/map, colored by locked picks */}
+        <section class="votes-map" id="votes-map" aria-label="Community votes map">
+          <div class="votes-map__head">
+            <h2 class="static-page__sub" style="margin:0">Community map</h2>
+            <p class="votes-map__lede">
+              Where locked Clad ballots lean by state — same geography as the
+              <a href="/elections/map/">election map</a>, but colored by
+              <strong> reader picks</strong>, not editorial outlook.
+              {cmap.statesWithVotes > 0 && (
+                <>
+                  {" "}
+                  {cmap.statesWithVotes} states with votes · outlook as of {FORECAST_ASOF}.
+                </>
+              )}
+            </p>
+          </div>
+
+          <div class="votes-map__toolbar" role="toolbar" aria-label="Community map layer">
+            <span class="small-caps votes-toolbar__label">Layer</span>
+            <div class="votes-map__seg" role="group">
+              <button type="button" class="votes-map__seg-btn votes-map__seg-btn--on" data-cv-layer="all">All races</button>
+              <button type="button" class="votes-map__seg-btn" data-cv-layer="senate">Senate</button>
+              <button type="button" class="votes-map__seg-btn" data-cv-layer="governor">Governor</button>
+            </div>
+          </div>
+
+          <div class="votes-map__shell">
+            <div class="votes-map__col">
+              <div class="votes-map__wrap">
+                <div class="votes-map__legend" aria-label="Community lean legend">
+                  <span class="votes-map__leg votes-map__leg--solid-d">Solid D</span>
+                  <span class="votes-map__leg votes-map__leg--likely-d">Likely D</span>
+                  <span class="votes-map__leg votes-map__leg--lean-d">Lean D</span>
+                  <span class="votes-map__leg votes-map__leg--tossup">Close</span>
+                  <span class="votes-map__leg votes-map__leg--lean-r">Lean R</span>
+                  <span class="votes-map__leg votes-map__leg--likely-r">Likely R</span>
+                  <span class="votes-map__leg votes-map__leg--solid-r">Solid R</span>
+                  <span class="votes-map__leg votes-map__leg--empty">No picks</span>
+                </div>
+                <p class="votes-map__hint small-caps" id="cv-map-hint">Tap a state for community picks vs outlook</p>
+                <svg
+                  class="votes-map__svg"
+                  viewBox={US_MAP_VIEWBOX}
+                  role="img"
+                  aria-labelledby="cv-map-title cv-map-desc"
+                  id="cv-map-svg"
+                >
+                  <title id="cv-map-title">Community ballot lean by state</title>
+                  <desc id="cv-map-desc">
+                    U.S. map colored by how locked CladFacts ballots lean in each state.
+                  </desc>
+                  <g class="votes-map__states">
+                    {cmap.states.map((s) => (
+                      <path
+                        id={`cv-st-${s.code}`}
+                        class={`votes-map__state votes-map__fill--${s.fill}`}
+                        d={US_STATE_PATHS[s.code]}
+                        data-code={s.code}
+                        tabindex="0"
+                        role="button"
+                        aria-label={`${s.name}: ${s.glance}`}
+                      />
+                    ))}
+                  </g>
+                </svg>
+              </div>
+              <p class="votes-map__note">
+                Colors use locked-ballot share by party (Cook-style bands for glanceability).
+                Compare with the editorial outlook on the
+                <a href="/elections/map/">election map</a> — this is readers, not forecasts.
+              </p>
+            </div>
+
+            <aside class="votes-map__panel" id="cv-map-panel" aria-live="polite">
+              <div id="cv-map-empty">
+                <h3 class="votes-map__panel-title">Pick a state</h3>
+                <p>
+                  See how the community locked picks for that state’s races, and whether
+                  that leans with or against the editorial 2026 outlook.
+                </p>
+                <p class="votes-map__panel-cta">
+                  <a href="/bracket/">Fill your ballot →</a>
+                </p>
+              </div>
+              <div id="cv-map-detail" hidden>
+                <button type="button" class="votes-map__close" id="cv-map-close" aria-label="Close">×</button>
+                <p class="small-caps votes-map__eyebrow" id="cv-detail-code"></p>
+                <h3 class="votes-map__panel-title" id="cv-detail-name"></h3>
+                <p id="cv-detail-glance"></p>
+                <p class="votes-map__compare" id="cv-detail-compare"></p>
+                <div id="cv-detail-races"></div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <script is:inline define:vars={{ cvMapData: Object.fromEntries(cmap.states.map((s) => [s.code, s])), fillLabels: COMMUNITY_FILL_LABELS }}>
+          (() => {
+            const DATA = cvMapData;
+            const LABELS = fillLabels;
+            let layer = "all";
+            let selected = null;
+
+            const svg = document.getElementById("cv-map-svg");
+            const empty = document.getElementById("cv-map-empty");
+            const detail = document.getElementById("cv-map-detail");
+            const closeBtn = document.getElementById("cv-map-close");
+
+            function esc(s) {
+              return String(s ?? "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;");
+            }
+
+            function partyWord(p) {
+              return p === "D" ? "Democratic" : p === "R" ? "Republican" : "—";
+            }
+
+            function ratingWord(r) {
+              const map = {
+                "solid-d": "Solid Dem", "likely-d": "Likely Dem", "lean-d": "Lean Dem",
+                tossup: "Toss-up", "lean-r": "Lean GOP", "likely-r": "Likely GOP",
+                "solid-r": "Solid GOP", "no-race": "No race", empty: "No picks",
+              };
+              return map[r] || r;
+            }
+
+            function layerOutlook(st) {
+              if (layer === "senate") return st.outlook.senate;
+              if (layer === "governor") return st.outlook.governor;
+              return st.outlook.control;
+            }
+
+            function applyColors() {
+              document.querySelectorAll(".votes-map__state").forEach((path) => {
+                const code = path.getAttribute("data-code");
+                const st = DATA[code];
+                if (!st) return;
+                [...path.classList].forEach((c) => {
+                  if (c.startsWith("votes-map__fill--")) path.classList.remove(c);
+                });
+                const fill = (st.fillByLayer && st.fillByLayer[layer]) || st.fill;
+                path.classList.add("votes-map__fill--" + fill);
+                const glance = (st.glanceByLayer && st.glanceByLayer[layer]) || st.glance;
+                path.setAttribute("aria-label", st.name + ": " + glance);
+              });
+              if (selected && DATA[selected]) paintDetail(DATA[selected]);
+            }
+
+            function paintDetail(st) {
+              if (!detail || !empty) return;
+              empty.hidden = true;
+              detail.hidden = false;
+              const glance = (st.glanceByLayer && st.glanceByLayer[layer]) || st.glance;
+              const fill = (st.fillByLayer && st.fillByLayer[layer]) || st.fill;
+              const fo = layerOutlook(st);
+              const agree = st.agreesByLayer ? st.agreesByLayer[layer] : null;
+
+              document.getElementById("cv-detail-code").textContent = st.code;
+              document.getElementById("cv-detail-name").textContent = st.name;
+              document.getElementById("cv-detail-glance").textContent = glance;
+
+              let compare = "Editorial outlook (" + (layer === "all" ? "state control" : layer) + "): " +
+                ratingWord(fo.rating);
+              if (fo.current && fo.current !== "N") compare += " · holds " + partyWord(fo.current);
+              if (agree === true) compare += " · community agrees";
+              else if (agree === false) compare += " · community differs";
+              else if (fill === "empty") compare += " · no community sample yet";
+              document.getElementById("cv-detail-compare").textContent = compare;
+
+              const races = (st.races || []).filter((r) => {
+                if (layer === "senate") return r.chamber === "senate";
+                if (layer === "governor") return r.chamber === "governor";
+                return true;
+              });
+              const box = document.getElementById("cv-detail-races");
+              if (!races.length) {
+                box.innerHTML = "<p class=\"votes-map__muted\">No featured races for this layer.</p>";
+                return;
+              }
+              box.innerHTML = races
+                .map((r) => {
+                  const lead =
+                    r.leader === "a" ? r.aName : r.leader === "b" ? r.bName : "Split";
+                  return (
+                    "<a class=\"votes-map__race\" href=\"" + esc(r.href) + "\">" +
+                    "<strong>" + esc(r.office) + "</strong>" +
+                    "<span>" + esc(r.aName) + " " + r.aPct + "% · " + esc(r.bName) + " " + r.bPct + "%</span>" +
+                    "<span class=\"votes-map__race-lead\">" +
+                    (r.total ? esc(lead) + " · " + r.total + " votes" : "No votes yet") +
+                    "</span></a>"
+                  );
+                })
+                .join("");
+            }
+
+            function selectState(code) {
+              selected = code;
+              document.querySelectorAll(".votes-map__state--selected").forEach((el) => {
+                el.classList.remove("votes-map__state--selected");
+              });
+              const path = document.getElementById("cv-st-" + code);
+              if (path) path.classList.add("votes-map__state--selected");
+              if (DATA[code]) paintDetail(DATA[code]);
+            }
+
+            function clearSelect() {
+              selected = null;
+              document.querySelectorAll(".votes-map__state--selected").forEach((el) => {
+                el.classList.remove("votes-map__state--selected");
+              });
+              if (empty) empty.hidden = false;
+              if (detail) detail.hidden = true;
+            }
+
+            document.querySelectorAll("[data-cv-layer]").forEach((btn) => {
+              btn.addEventListener("click", () => {
+                layer = btn.getAttribute("data-cv-layer") || "all";
+                document.querySelectorAll("[data-cv-layer]").forEach((b) => {
+                  b.classList.toggle("votes-map__seg-btn--on", b === btn);
+                });
+                applyColors();
+              });
+            });
+
+            if (svg) {
+              svg.addEventListener("click", (e) => {
+                const t = e.target.closest(".votes-map__state");
+                if (t) selectState(t.getAttribute("data-code"));
+              });
+              svg.addEventListener("keydown", (e) => {
+                if (e.key !== "Enter" && e.key !== " ") return;
+                const t = e.target.closest(".votes-map__state");
+                if (t) {
+                  e.preventDefault();
+                  selectState(t.getAttribute("data-code"));
+                }
+              });
+            }
+            if (closeBtn) closeBtn.addEventListener("click", clearSelect);
+            applyColors();
+          })();
+        </script>
 
         <div class="votes-toolbar">
           <div class="votes-toolbar__group" role="group" aria-label="Sort">
@@ -413,5 +664,182 @@ function partyTag(p: string | null) {
     font-weight: 700;
     text-decoration: none;
     border-bottom: 2px solid var(--ink, #1a140d);
+  }
+
+  /* Community map */
+  .votes-map {
+    margin: 0 0 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--rule, #cfc3ad);
+  }
+  .votes-map__lede {
+    margin: 0.4rem 0 0.85rem;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    max-width: 42rem;
+  }
+  .votes-map__toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.65rem;
+    margin-bottom: 0.75rem;
+  }
+  .votes-map__seg {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+  .votes-map__seg-btn {
+    appearance: none;
+    font: inherit;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.32rem 0.6rem;
+    border: 1px solid var(--rule, #cfc3ad);
+    background: var(--card, var(--paper, #f5edd9));
+    color: inherit;
+    cursor: pointer;
+  }
+  .votes-map__seg-btn--on {
+    border-color: var(--ink, #1a140d);
+    background: var(--ink, #1a140d);
+    color: var(--paper, #f5edd9);
+    font-weight: 700;
+  }
+  .votes-map__shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(14rem, 0.85fr);
+    gap: 0.85rem;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .votes-map__shell { grid-template-columns: 1fr; }
+  }
+  .votes-map__wrap {
+    position: relative;
+    border: 2px solid var(--ink, #1a140d);
+    background: color-mix(in srgb, var(--ink, #1a140d) 3%, var(--paper, #f5edd9));
+    padding: 0.55rem 0.55rem 0.75rem;
+  }
+  .votes-map__legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.35rem;
+    margin: 0 0 0.35rem;
+  }
+  .votes-map__leg {
+    font-size: 0.62rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.12rem 0.32rem;
+    border: 1px solid color-mix(in srgb, var(--ink, #1a140d) 35%, transparent);
+    font-weight: 600;
+  }
+  .votes-map__leg--solid-d { background: #0b3d91; color: #fff; border-color: #0b3d91; }
+  .votes-map__leg--likely-d { background: #2a6fdb; color: #fff; border-color: #2a6fdb; }
+  .votes-map__leg--lean-d { background: #7aa7ef; color: #1a140d; border-color: #7aa7ef; }
+  .votes-map__leg--tossup { background: #9b8bb8; color: #1a140d; border-color: #9b8bb8; }
+  .votes-map__leg--lean-r { background: #e07a72; color: #1a140d; border-color: #e07a72; }
+  .votes-map__leg--likely-r { background: #c0392b; color: #fff; border-color: #c0392b; }
+  .votes-map__leg--solid-r { background: #8b1a14; color: #fff; border-color: #8b1a14; }
+  .votes-map__leg--empty {
+    background: color-mix(in srgb, var(--paper, #f5edd9) 70%, #bbb);
+    color: var(--ink, #1a140d);
+  }
+  .votes-map__hint {
+    margin: 0 0 0.35rem;
+    opacity: 0.7;
+    font-size: 0.72rem;
+  }
+  .votes-map__svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .votes-map__state {
+    stroke: color-mix(in srgb, var(--ink, #1a140d) 55%, #000);
+    stroke-width: 0.8;
+    cursor: pointer;
+    transition: filter 0.12s ease, stroke-width 0.12s ease;
+  }
+  .votes-map__state:focus {
+    outline: 2px solid var(--ink, #1a140d);
+    outline-offset: 1px;
+  }
+  .votes-map__state--selected {
+    stroke: var(--ink, #1a140d);
+    stroke-width: 1.8;
+    filter: brightness(1.08);
+  }
+  .votes-map__fill--solid-d { fill: #0b3d91; }
+  .votes-map__fill--likely-d { fill: #2a6fdb; }
+  .votes-map__fill--lean-d { fill: #7aa7ef; }
+  .votes-map__fill--tossup { fill: #9b8bb8; }
+  .votes-map__fill--lean-r { fill: #e07a72; }
+  .votes-map__fill--likely-r { fill: #c0392b; }
+  .votes-map__fill--solid-r { fill: #8b1a14; }
+  .votes-map__fill--empty { fill: #d9d0bc; }
+  :root[data-theme="dark"] .votes-map__fill--empty,
+  html.theme-dark .votes-map__fill--empty { fill: #3a342c; }
+
+  .votes-map__note {
+    margin: 0.55rem 0 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    opacity: 0.85;
+  }
+  .votes-map__panel {
+    border: 1px solid var(--ink, #1a140d);
+    padding: 0.9rem 1rem;
+    background: var(--card, var(--paper, #f5edd9));
+    min-height: 12rem;
+    position: relative;
+  }
+  .votes-map__panel-title {
+    font-family: var(--serif, Georgia, serif);
+    font-size: 1.15rem;
+    margin: 0 0 0.4rem;
+  }
+  .votes-map__eyebrow { opacity: 0.65; margin: 0 0 0.15rem; font-size: 0.72rem; }
+  .votes-map__compare {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0.35rem 0 0.75rem;
+    padding: 0.5rem 0.6rem;
+    border-left: 3px solid var(--ink, #1a140d);
+    background: color-mix(in srgb, var(--ink, #1a140d) 5%, transparent);
+  }
+  .votes-map__muted { opacity: 0.7; font-size: 0.9rem; }
+  .votes-map__panel-cta a { color: inherit; font-weight: 700; }
+  .votes-map__close {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.5rem;
+    appearance: none;
+    border: 1px solid var(--rule, #cfc3ad);
+    background: var(--paper, #f5edd9);
+    font-size: 1.1rem;
+    line-height: 1;
+    width: 1.75rem;
+    height: 1.75rem;
+    cursor: pointer;
+  }
+  .votes-map__race {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.55rem 0;
+    border-top: 1px solid var(--rule, #cfc3ad);
+    text-decoration: none;
+    color: inherit;
+    font-size: 0.9rem;
+  }
+  .votes-map__race:first-child { border-top: none; }
+  .votes-map__race:hover strong { text-decoration: underline; }
+  .votes-map__race-lead {
+    font-size: 0.78rem;
+    opacity: 0.75;
   }
 </style>
