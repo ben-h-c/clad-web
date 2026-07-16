@@ -13,7 +13,7 @@ import TopIssuesGrid from "~/components/TopIssuesGrid.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
 import NewsletterSignup from "~/components/NewsletterSignup.astro";
-import HomePromoBanner from "~/components/HomePromoBanner.astro";
+import HomeSpotlightCarousel from "~/components/HomeSpotlightCarousel.astro";
 import { getFrontpage, getBreaking, getSentiments } from "~/lib/agents";
 import { aggregateTopics, gradeToGpa } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
@@ -83,9 +83,9 @@ const hotPost = newest
     }
   : null;
 
-// Up to 3 dismissible promos: midterms (or top priority) stays at the top of the
-// page; the other two are placed between later sections so they don't stack.
-const allHomePromos = homePromosForPage({
+// Fixed top spotlight carousel: midterms + hot topic/report + popular sections.
+// Prefer midterms first when present, then priority order for the rest.
+const rawSpotlight = homePromosForPage({
   locked,
   hotTopic: hotTopic
     ? {
@@ -96,13 +96,12 @@ const allHomePromos = homePromosForPage({
       }
     : null,
   hotPost,
-  max: 3,
+  max: 8,
 });
-const topPromo =
-  allHomePromos.find((p) => p.id === "midterms-2026-ballot") ?? allHomePromos[0] ?? null;
-const inlinePromos = allHomePromos.filter((p) => p.id !== topPromo?.id).slice(0, 2);
-const midPromo = inlinePromos[0] ?? null;
-const lowerPromo = inlinePromos[1] ?? null;
+const midtermsPromo = rawSpotlight.find((p) => p.id === "midterms-2026-ballot");
+const spotlightPromos = midtermsPromo
+  ? [midtermsPromo, ...rawSpotlight.filter((p) => p.id !== midtermsPromo.id)]
+  : rawSpotlight;
 
 // Best & worst — compact (3 each) for the signed-in desk board (GradeBoard).
 // Only full-access readers see it, so skip the two full sorts over the graded
@@ -138,12 +137,11 @@ if (!locked) {
     <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
   ) : (
     <>
-      {/* Website: midterms promo + overall lean side by side.
-          App: promo only (lean stays inside By the Numbers). */}
+      {/* Fixed spotlight carousel (midterms + hot/popular) + web lean bar. */}
       <div class="home-top-desk">
-        {topPromo && (
+        {spotlightPromos.length > 0 && (
           <div class="home-top-desk__promo">
-            <HomePromoBanner promo={topPromo} />
+            <HomeSpotlightCarousel promos={spotlightPromos} />
           </div>
         )}
         {!locked && (
@@ -188,9 +186,6 @@ if (!locked) {
         moreHref="/recent/"
         moreLabel="Latest →"
       />
-
-      {/* Second promo between front page and explore rails */}
-      {midPromo && <HomePromoBanner promo={midPromo} class="home-promos--inline" />}
 
       <nav class="home-rails" aria-label="Explore Clad">
         <a class="home-rails__card" href="/bracket/">
@@ -270,9 +265,6 @@ if (!locked) {
         </>
       )}
 
-      {/* Third promo between analytics/paywall and Keep reading */}
-      {lowerPromo && <HomePromoBanner promo={lowerPromo} class="home-promos--inline" />}
-
       <section class="more-clad" aria-labelledby="more-clad-title">
         <div class="feed__head">
           <h2 class="feed__title" id="more-clad-title">Keep reading</h2>
@@ -292,20 +284,4 @@ if (!locked) {
   )}
   <NewsletterSignup />
   <Disclaimer />
-  <script is:inline>
-    (() => {
-      // One dismiss binder for every home-promo on the page (top + inline).
-      try {
-        Object.keys(localStorage)
-          .filter((k) => k.startsWith("clad_promo_"))
-          .forEach((k) => localStorage.removeItem(k));
-      } catch {}
-      document.querySelectorAll("[data-home-promos] [data-promo-dismiss]").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const el = btn.closest("[data-promo-id]");
-          if (el) el.hidden = true;
-        });
-      });
-    })();
-  </script>
 </BaseLayout>

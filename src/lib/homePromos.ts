@@ -1,9 +1,9 @@
 /**
- * Home spotlight promos — dismissible banners at the top of the landing page.
+ * Home spotlight promos — fixed top carousel slides on the landing page.
  *
  * Static entries live in HOME_PROMOS; call `homePromosForPage()` to merge in
  * live “hot topic / hot report” cards from the current corpus.
- * Each promo is keyed by `id` for per-view dismiss (hide until refresh).
+ * Rendered by HomeSpotlightCarousel (arrows / swipe), not dismissible.
  */
 
 export type HomePromoVariant =

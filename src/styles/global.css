@@ -7595,30 +7595,136 @@ html.clad-app section.charts.home-app-only {
   display: block !important;
 }
 
-/* Top desk: midterms promo + coverage lean (web) */
+/* Top desk: spotlight carousel + coverage lean (web) */
 .home-top-desk {
   display: grid;
   gap: 0.75rem;
   margin: 0 0 0.85rem;
   align-items: stretch;
 }
-.home-top-desk__promo .home-promos {
-  margin: 0;
-  height: 100%;
+.home-top-desk__promo {
+  min-width: 0;
 }
-.home-top-desk__promo .home-promo {
+.home-top-desk__promo .home-spotlight {
   height: 100%;
-  box-sizing: border-box;
 }
 @media (min-width: 860px) {
   .home-top-desk:has(.home-top-desk__lean) {
     grid-template-columns: minmax(0, 1.15fr) minmax(14rem, 0.85fr);
   }
 }
-/* App: only the promo column (lean lives in By the Numbers) */
+/* App: full-width spotlight (lean lives in By the Numbers) */
 html.clad-app .home-top-desk {
   display: block;
   margin-bottom: 0.75rem;
+}
+
+/* Fixed spotlight carousel (same card format as home-promo, with arrows) */
+.home-spotlight {
+  position: relative;
+  margin: 0;
+  min-width: 0;
+}
+.home-spotlight__frame {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  min-width: 0;
+}
+.home-spotlight__viewport {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.home-spotlight__track {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.home-spotlight__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.home-spotlight__slide .home-promo--spotlight {
+  height: 100%;
+  box-sizing: border-box;
+  /* Room for side arrows; no dismiss × */
+  padding: 0.9rem 1rem;
+  margin: 0;
+}
+.home-spotlight__arrow {
+  flex: 0 0 auto;
+  align-self: center;
+  z-index: 2;
+  width: 2.15rem;
+  height: 2.15rem;
+  margin: 0 0.15rem;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--rule) 75%, transparent);
+  border-radius: 2px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 1.55rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.72;
+  transition: opacity 0.15s ease, background 0.15s ease, color 0.15s ease;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--shadow) 22%, transparent);
+}
+.home-spotlight__arrow:hover,
+.home-spotlight__arrow:focus-visible {
+  opacity: 1;
+  background: var(--ink);
+  color: var(--paper);
+  outline: none;
+}
+.home-spotlight__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.45rem 0 0;
+}
+.home-spotlight__dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.home-spotlight__dot.is-on {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+@media (max-width: 560px) {
+  .home-spotlight__arrow {
+    width: 1.85rem;
+    height: 1.85rem;
+    font-size: 1.35rem;
+    margin: 0;
+  }
+  .home-spotlight__slide .home-promo--spotlight {
+    padding: 0.75rem 0.7rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-spotlight__track {
+    transition: none;
+  }
 }
 
 .coverage-lean {

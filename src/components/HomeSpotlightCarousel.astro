@@ -1,0 +1,181 @@
+---
+/**
+ * Fixed top-of-home spotlight: same promo card format as the old midterms
+ * banner, but a non-dismissible carousel of hot/popular site sections.
+ * Prev/next arrows (and swipe) cycle slides — website + iOS app.
+ */
+import type { HomePromo } from "~/lib/homePromos";
+
+interface Props {
+  promos: HomePromo[];
+  class?: string;
+}
+const promos = Astro.props.promos ?? [];
+const wrapClass = ["home-spotlight", Astro.props.class].filter(Boolean).join(" ");
+const multi = promos.length > 1;
+---
+{promos.length > 0 && (
+  <section
+    class={wrapClass}
+    data-home-spotlight
+    aria-roledescription="carousel"
+    aria-label="Featured on CladFacts"
+  >
+    <div class="home-spotlight__frame">
+      {multi && (
+        <button
+          type="button"
+          class="home-spotlight__arrow home-spotlight__arrow--prev"
+          data-spotlight-prev
+          aria-label="Previous highlight"
+        >
+          ‹
+        </button>
+      )}
+
+      <div class="home-spotlight__viewport" data-spotlight-viewport>
+        <ul class="home-spotlight__track" data-spotlight-track>
+          {promos.map((p, i) => (
+            <li
+              class:list={["home-spotlight__slide", i === 0 && "is-active"]}
+              data-spotlight-slide
+              data-index={i}
+              aria-hidden={i === 0 ? "false" : "true"}
+              aria-label={`${i + 1} of ${promos.length}`}
+            >
+              <aside
+                class:list={["home-promo", "home-promo--spotlight", p.variant && `home-promo--${p.variant}`]}
+              >
+                <div class="home-promo__text">
+                  <p class="home-promo__kicker small-caps">{p.kicker}</p>
+                  <p class="home-promo__title">{p.title}</p>
+                  <p class="home-promo__body">{p.body}</p>
+                </div>
+                <div class="home-promo__actions">
+                  <a class="home-promo__cta" href={p.href}>{p.cta}</a>
+                  {p.secondaryHref && p.secondaryCta && (
+                    <a class="home-promo__secondary" href={p.secondaryHref}>{p.secondaryCta}</a>
+                  )}
+                </div>
+              </aside>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {multi && (
+        <button
+          type="button"
+          class="home-spotlight__arrow home-spotlight__arrow--next"
+          data-spotlight-next
+          aria-label="Next highlight"
+        >
+          ›
+        </button>
+      )}
+    </div>
+
+    {multi && (
+      <div class="home-spotlight__dots" data-spotlight-dots role="tablist" aria-label="Choose highlight">
+        {promos.map((p, i) => (
+          <button
+            type="button"
+            class:list={["home-spotlight__dot", i === 0 && "is-on"]}
+            data-spotlight-dot={i}
+            role="tab"
+            aria-selected={i === 0 ? "true" : "false"}
+            aria-label={`${p.kicker}: ${p.title}`}
+          />
+        ))}
+      </div>
+    )}
+  </section>
+)}
+
+{multi && (
+  <script is:inline>
+    (() => {
+      if (window.__homeSpotlight) return;
+      window.__homeSpotlight = true;
+
+      const wire = (root) => {
+        const track = root.querySelector("[data-spotlight-track]");
+        const slides = [...root.querySelectorAll("[data-spotlight-slide]")];
+        const dots = [...root.querySelectorAll("[data-spotlight-dot]")];
+        const prev = root.querySelector("[data-spotlight-prev]");
+        const next = root.querySelector("[data-spotlight-next]");
+        if (!track || slides.length < 2) return;
+
+        let i = 0;
+        let touchX = null;
+
+        const go = (n) => {
+          i = ((n % slides.length) + slides.length) % slides.length;
+          slides.forEach((s, k) => {
+            const on = k === i;
+            s.classList.toggle("is-active", on);
+            s.setAttribute("aria-hidden", on ? "false" : "true");
+          });
+          dots.forEach((d, k) => {
+            const on = k === i;
+            d.classList.toggle("is-on", on);
+            d.setAttribute("aria-selected", on ? "true" : "false");
+          });
+          track.style.transform = `translate3d(${-i * 100}%, 0, 0)`;
+        };
+
+        prev?.addEventListener("click", () => go(i - 1));
+        next?.addEventListener("click", () => go(i + 1));
+        dots.forEach((d) => {
+          d.addEventListener("click", () => {
+            const n = Number(d.getAttribute("data-spotlight-dot"));
+            if (Number.isFinite(n)) go(n);
+          });
+        });
+
+        root.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            go(i - 1);
+          } else if (e.key === "ArrowRight") {
+            e.preventDefault();
+            go(i + 1);
+          }
+        });
+
+        const vp = root.querySelector("[data-spotlight-viewport]");
+        if (vp) {
+          vp.addEventListener(
+            "touchstart",
+            (e) => {
+              touchX = e.changedTouches[0]?.clientX ?? null;
+            },
+            { passive: true }
+          );
+          vp.addEventListener(
+            "touchend",
+            (e) => {
+              if (touchX == null) return;
+              const x = e.changedTouches[0]?.clientX;
+              if (x == null) return;
+              const dx = x - touchX;
+              touchX = null;
+              if (Math.abs(dx) < 40) return;
+              if (dx < 0) go(i + 1);
+              else go(i - 1);
+            },
+            { passive: true }
+          );
+        }
+
+        go(0);
+      };
+
+      const init = () => {
+        document.querySelectorAll("[data-home-spotlight]").forEach(wire);
+      };
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+      else init();
+    })();
+  </script>
+)}
