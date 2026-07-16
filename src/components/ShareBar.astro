@@ -2,22 +2,23 @@
 /**
  * Universal share bar — every surface that offers "share" should use this.
  *
- * Platforms (web intents or caption-copy where Meta/TikTok have no link intent):
- *   X, Facebook, TikTok, Bluesky, Instagram, Threads
+ * Only platforms with a real compose intent (prefill text + link like X):
+ *   X, Bluesky, Threads
  * Plus always-useful: system Share, Text, Reddit, Email, Copy link.
  *
- * Instagram & TikTok have no web link-share dialog — we copy a caption and open
- * the app/site (and the story-card image when `storyImage` is set).
+ * Facebook / Instagram / TikTok have no reliable web compose intent — they
+ * either open the app with no draft, or need a caption-copy workaround.
+ * Users who want those can use system Share or Copy link.
  */
 interface Props {
   url: string;
   title: string;
-  /** One extra prefilled line under the title (e.g. the public claims tally
-   *  "We checked 6 claims: 4 verified, 1 disputed."). Grade-free — the
-   *  prefill renders in the reader's compose box, but keep it consistent with
-   *  what an anonymous page shows. */
+  /** One extra prefilled line under the title (e.g. the public claims tally). */
   hook?: string;
-  /** Path or absolute URL to a 9:16 story card (e.g. `/og/story/<slug>.png`). */
+  /**
+   * Optional 9:16 story-card path (legacy prop). No longer opens a dedicated
+   * IG/TikTok button; kept so callers don't break. Prefer system Share.
+   */
   storyImage?: string;
   /** Extra class on the root (e.g. to nest under a toolbar). */
   class?: string;
@@ -29,27 +30,17 @@ interface Props {
 const { url, title, hook, storyImage, class: className, hidden = false, id } = Astro.props;
 
 const enc = encodeURIComponent;
-/** Punchy multi-line caption for compose boxes (X, Bluesky, Threads, email, SMS). */
 const titleBlock = hook ? `${title}\n\n${hook}` : title;
 const caption = `${titleBlock}\n\n${url}\n\nvia CladFacts`;
-const captionOneLine = hook
-  ? `${title} — ${hook} ${url}`
-  : `${title} ${url}`;
-/** Short hook line for platforms that only take a quote (Facebook). */
-const fbQuote = hook ? `${title} — ${hook}` : title;
+const captionOneLine = hook ? `${title} — ${hook} ${url}` : `${title} ${url}`;
+const redditTitle = hook ? `${title} — ${hook}` : title;
 
 const xHref = `https://twitter.com/intent/tweet?text=${enc(titleBlock)}&url=${enc(url)}`;
-// Desktop web share dialog. On phones, JS prefers the system share sheet —
-// Facebook's Universal Link often opens the app without a compose preview.
-const fbHref = `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`;
 const blueskyHref = `https://bsky.app/intent/compose?text=${enc(caption)}`;
 const threadsHref = `https://www.threads.net/intent/post?text=${enc(caption)}`;
-const redditHref = `https://www.reddit.com/submit?url=${enc(url)}&title=${enc(hook ? `${title} — ${hook}` : title)}`;
+const redditHref = `https://www.reddit.com/submit?url=${enc(url)}&title=${enc(redditTitle)}`;
 const smsHref = `sms:?&body=${enc(captionOneLine)}`;
 const mailHref = `mailto:?subject=${enc(title)}&body=${enc(caption)}`;
-/** Caption-copy destinations when no story image; story image opens first when set. */
-const tiktokOpen = storyImage ?? "https://www.tiktok.com/upload";
-const igOpen = storyImage ?? "https://www.instagram.com/";
 ---
 <div
   class:list={["sharebar", className]}
@@ -89,57 +80,11 @@ const igOpen = storyImage ?? "https://www.instagram.com/";
     <span>X</span>
   </a>
 
-  <a
-    class="sharebar__btn sharebar__facebook"
-    data-share="facebook"
-    href={fbHref}
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Share on Facebook"
-  >
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"></path>
-    </svg>
-    <span>Facebook</span>
-  </a>
-
-  <a
-    class="sharebar__btn sharebar__caption-open"
-    data-share="tiktok"
-    data-open={tiktokOpen}
-    href={tiktokOpen}
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Share on TikTok — copies a ready-made caption, then opens TikTok or the story card"
-  >
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path>
-    </svg>
-    <span class="sharebar__caption-label" data-default="TikTok">TikTok</span>
-  </a>
-
   <a class="sharebar__btn" data-share="bluesky" href={blueskyHref} target="_blank" rel="noopener noreferrer" aria-label="Share on Bluesky">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M12 11.4c-1.4-2.7-5.2-7.7-8.7-10.2C1.4.2 0 1.1 0 3.4c0 1.5.8 12.4 9.4 17.3 1.3.7 2.5 1.3 2.6 1.3s1.3-.6 2.6-1.3C23.2 15.8 24 4.9 24 3.4c0-2.3-1.4-3.2-3.3-2.2-3.5 2.5-7.3 7.5-8.7 10.2z"></path>
     </svg>
     <span>Bluesky</span>
-  </a>
-
-  <a
-    class="sharebar__btn sharebar__caption-open"
-    data-share="instagram"
-    data-open={igOpen}
-    href={igOpen}
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Share on Instagram — copies a ready-made caption, then opens Instagram or the story card"
-  >
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-      <circle cx="12" cy="12" r="4"></circle>
-      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
-    </svg>
-    <span class="sharebar__caption-label" data-default="Instagram">Instagram</span>
   </a>
 
   <a class="sharebar__btn" data-share="threads" href={threadsHref} target="_blank" rel="noopener noreferrer" aria-label="Share on Threads">
@@ -191,7 +136,6 @@ const igOpen = storyImage ?? "https://www.instagram.com/";
       const url = bar.getAttribute("data-url") || location.href;
       const title = bar.getAttribute("data-title") || document.title;
       const hook = bar.getAttribute("data-hook") || "";
-      const story = bar.getAttribute("data-story-image") || "";
       const titleBlock = hook ? title + "\n\n" + hook : title;
       const caption = titleBlock + "\n\n" + url + "\n\nvia CladFacts";
       const oneLine = hook ? title + " — " + hook + " " + url : title + " " + url;
@@ -200,8 +144,6 @@ const igOpen = storyImage ?? "https://www.instagram.com/";
       const map = {
         sms: "sms:?&body=" + enc(oneLine),
         x: "https://twitter.com/intent/tweet?text=" + enc(titleBlock) + "&url=" + enc(url),
-        // quote= is ignored by Facebook; preview comes from the page's OG tags.
-        facebook: "https://www.facebook.com/sharer/sharer.php?u=" + enc(url),
         bluesky: "https://bsky.app/intent/compose?text=" + enc(caption),
         threads: "https://www.threads.net/intent/post?text=" + enc(caption),
         reddit: "https://www.reddit.com/submit?url=" + enc(url) + "&title=" + enc(redditTitle),
@@ -212,27 +154,6 @@ const igOpen = storyImage ?? "https://www.instagram.com/";
         const el = bar.querySelector('[data-share="' + key + '"]');
         if (el) el.setAttribute("href", map[key]);
       });
-
-      const tiktokOpen = story || "https://www.tiktok.com/upload";
-      const igOpen = story || "https://www.instagram.com/";
-      const tt = bar.querySelector('[data-share="tiktok"]');
-      if (tt) {
-        tt.setAttribute("href", tiktokOpen);
-        tt.setAttribute("data-open", tiktokOpen);
-      }
-      const ig = bar.querySelector('[data-share="instagram"]');
-      if (ig) {
-        ig.setAttribute("href", igOpen);
-        ig.setAttribute("data-open", igOpen);
-      }
-    }
-
-    /** Caption copied for IG / TikTok — includes hook so it still works without the card. */
-    function captionForBar(bar) {
-      const url = bar.getAttribute("data-url") || location.href;
-      const title = bar.getAttribute("data-title") || document.title;
-      const hook = bar.getAttribute("data-hook") || "";
-      return hook ? title + "\n\n" + hook + "\n\n" + url : title + "\n\n" + url;
     }
 
     function wireBar(bar) {
@@ -243,6 +164,7 @@ const igOpen = storyImage ?? "https://www.instagram.com/";
       bar.setAttribute("data-share-wired", "1");
       applyShareTargets(bar);
 
+      // System share sheet — the path for Facebook / Instagram / TikTok / etc.
       const native = bar.querySelector(".sharebar__native");
       if (native && navigator.share) {
         native.hidden = false;
@@ -254,61 +176,6 @@ const igOpen = storyImage ?? "https://www.instagram.com/";
           navigator.share({ title: title, text: text, url: url }).catch(function () {});
         });
       }
-
-      /*
-       * Facebook: there is no public web intent that reliably opens a compose
-       * sheet with a link preview (unlike X/Twitter). On phones, sharer.php is
-       * often claimed by the Facebook app via Universal Links and lands on the
-       * home feed with no draft. Prefer the OS share sheet on touch devices —
-       * picking Facebook there usually opens the real share composer + OG card.
-       * Desktop keeps the classic facebook.com/sharer dialog.
-       */
-      const fbBtn = bar.querySelector(".sharebar__facebook");
-      if (fbBtn) {
-        fbBtn.addEventListener("click", function (e) {
-          const url = bar.getAttribute("data-url") || location.href;
-          const title = bar.getAttribute("data-title") || document.title;
-          const hook = bar.getAttribute("data-hook") || "";
-          const text = hook ? title + "\n\n" + hook : title;
-          const coarse =
-            (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) ||
-            /iPhone|iPad|iPod|Android/i.test(navigator.userAgent || "");
-          if (coarse && typeof navigator.share === "function") {
-            e.preventDefault();
-            navigator.share({ title: title, text: text, url: url }).catch(function () {
-              // User cancelled or share failed — fall back to the web dialog.
-              window.open(
-                "https://www.facebook.com/sharer/sharer.php?u=" + enc(url),
-                "_blank",
-                "noopener"
-              );
-            });
-          }
-          // Desktop: let the default <a href> open sharer.php.
-        });
-      }
-
-      // TikTok + Instagram: no web link intent — copy a punchy caption, then open app/story card.
-      bar.querySelectorAll(".sharebar__caption-open").forEach(function (btn) {
-        btn.addEventListener("click", async function (e) {
-          e.preventDefault();
-          const openUrl = btn.getAttribute("data-open") || btn.getAttribute("href") || "/";
-          const label = btn.querySelector(".sharebar__caption-label");
-          const def = (label && label.getAttribute("data-default")) || "Shared";
-          try {
-            await navigator.clipboard.writeText(captionForBar(bar));
-            if (label) {
-              label.textContent = "Caption copied!";
-              setTimeout(function () {
-                label.textContent = def;
-              }, 2200);
-            }
-          } catch (_) {
-            /* still open destination */
-          }
-          window.open(openUrl, "_blank", "noopener");
-        });
-      });
 
       const copy = bar.querySelector(".sharebar__copy");
       if (copy) {
