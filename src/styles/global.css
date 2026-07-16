@@ -446,8 +446,9 @@ p {
   position: relative;
   z-index: 3;
   max-width: none;
-  margin: 0.85rem auto 1.75rem;
-  padding: 1.75rem clamp(1.15rem, 3.5vw, 3.5rem) 3.25rem;
+  /* Less top margin — fixed site header already occupies the top of the viewport */
+  margin: 0.45rem auto 1.75rem;
+  padding: 1.1rem clamp(1.15rem, 3.5vw, 3.5rem) 3.25rem;
   background-color: var(--paper);
   /* Soft paper fiber + faint age wash + corner backlight (shows between solid cards) */
   background-image:
@@ -572,8 +573,8 @@ html.clad-app .shell {
   box-shadow: none;
   border-radius: 0;
   animation: none;
-  /* Safe areas: status bar / Dynamic Island / home indicator */
-  padding-top: max(0.85rem, env(safe-area-inset-top, 0px));
+  /* Top safe-area is handled by the fixed header + body padding-top */
+  padding-top: 0.65rem;
   padding-right: max(1rem, env(safe-area-inset-right, 0px));
   padding-bottom: max(2.25rem, calc(env(safe-area-inset-bottom, 0px) + 1.25rem));
   padding-left: max(1rem, env(safe-area-inset-left, 0px));
@@ -623,7 +624,18 @@ html.clad-app .emap-page {
   contain-intrinsic-size: auto 8rem;
 }
 
-/* Masthead — sticky compact bar + scrolling nameplate identity */
+/* Site header height — reserved on body so fixed bar never covers content */
+:root {
+  --site-header-h: 2.65rem;
+}
+
+/* Fixed header is out of document flow; body top pad keeps content below it.
+   (position:sticky failed here because html/body use overflow-x: hidden.) */
+body {
+  padding-top: var(--site-header-h);
+}
+
+/* Masthead — fixed chrome bar + scrolling nameplate identity */
 
 .masthead {
   text-align: center;
@@ -633,38 +645,37 @@ html.clad-app .emap-page {
   z-index: 0;
 }
 
-/* Sticky header row: Menu · Clad · Account / Theme / Search */
+/* Frozen header row: Menu · CladFacts · Account / Theme / Search */
 .masthead__bar {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 5000;
+  left: 0;
+  right: 0;
+  z-index: 10050;
   display: grid;
   grid-template-columns: minmax(2.5rem, 1fr) auto minmax(2.5rem, 1fr);
   align-items: center;
   gap: 0.35rem 0.5rem;
-  /* Compact on web — less dead space above/below the controls */
-  min-height: 2.35rem;
-  padding: 0.28rem 0;
-  margin: 0 0 0.35rem;
-  /* Opaque so page content never shows through while stuck */
+  height: var(--site-header-h);
+  min-height: var(--site-header-h);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.3rem max(0.75rem, env(safe-area-inset-right, 0px)) 0.3rem
+    max(0.75rem, env(safe-area-inset-left, 0px));
+  /* Match paper; full viewport width so it reads as a true frozen chrome strip */
   background: var(--paper);
-  border-bottom: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--rule) 60%, transparent);
   box-shadow:
-    0 1px 0 color-mix(in srgb, var(--paper) 100%, transparent),
-    0 6px 14px color-mix(in srgb, var(--shadow) 12%, transparent);
-  /* Bleed slightly into shell gutters so the bar feels continuous */
-  margin-left: -0.15rem;
-  margin-right: -0.15rem;
-  padding-left: 0.15rem;
-  padding-right: 0.15rem;
+    0 1px 0 color-mix(in srgb, var(--rule) 12%, transparent),
+    0 8px 18px color-mix(in srgb, var(--shadow) 22%, transparent);
 }
 
 :root[data-theme="dark"] .masthead__bar,
 html.theme-dark .masthead__bar {
   background: var(--paper);
   box-shadow:
-    0 1px 0 color-mix(in srgb, var(--rule) 25%, transparent),
-    0 8px 16px color-mix(in srgb, var(--shadow) 35%, transparent);
+    0 1px 0 color-mix(in srgb, var(--rule) 30%, transparent),
+    0 10px 22px color-mix(in srgb, var(--shadow) 45%, transparent);
 }
 
 .masthead__bar-spacer {
@@ -801,14 +812,20 @@ html.theme-dark .masthead__bar {
   }
 }
 
-/* In-app: sticky under the notch / status bar */
+/* In-app: fixed bar sits under the notch / status bar */
+html.clad-app {
+  --site-header-h: 2.5rem;
+}
+html.clad-app body {
+  padding-top: calc(var(--site-header-h) + env(safe-area-inset-top, 0px));
+}
 html.clad-app .masthead__bar {
   top: 0;
-  /* shell already pads safe-area; keep bar flush with content top */
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 0;
-  padding-right: 0;
+  height: calc(var(--site-header-h) + env(safe-area-inset-top, 0px));
+  min-height: calc(var(--site-header-h) + env(safe-area-inset-top, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: max(0.75rem, env(safe-area-inset-left, 0px));
+  padding-right: max(0.75rem, env(safe-area-inset-right, 0px));
 }
 
 /* Auth pages (login / register / account) */
@@ -1686,8 +1703,8 @@ html.clad-app .masthead__bar {
   background: var(--paper);
   border: 1px solid var(--rule);
   box-shadow: 3px 3px 0 var(--shadow);
-  /* Above sticky bar siblings + page content while open */
-  z-index: 5200;
+  /* Above fixed header + page content while open */
+  z-index: 10100;
   pointer-events: auto;
 }
 
@@ -1972,15 +1989,16 @@ html.clad-app .masthead__bar {
   font-size: 0.9rem;
 }
 
-/* Compact wordmark in the sticky bar (was a tall nameplate). */
+/* Compact wordmark in the fixed bar (CLADFACTS). */
 .masthead__title {
   font-family: var(--font-masthead);
   font-weight: 700;
-  font-size: clamp(1.35rem, 3.2vw, 1.75rem);
-  letter-spacing: 0.16em;
+  font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin: 0;
   line-height: 1;
+  white-space: nowrap;
   text-shadow: 0 1px 0 color-mix(in srgb, var(--paper) 70%, transparent);
 }
 
@@ -4752,18 +4770,16 @@ html.admin-nav-open .admin-nav {
     justify-content: center;
   }
 
-  /* Masthead: compact sticky bar + tight identity */
+  /* Masthead: compact fixed bar + tight identity */
   .masthead {
     padding: 0 0 0.35rem;
   }
-  .masthead__bar {
-    min-height: 2.2rem;
-    padding: 0.22rem 0;
-    margin-bottom: 0.25rem;
+  :root {
+    --site-header-h: 2.5rem;
   }
   .masthead__title {
-    font-size: clamp(1.2rem, 5.5vw, 1.45rem);
-    letter-spacing: 0.12em;
+    font-size: clamp(0.95rem, 4.2vw, 1.15rem);
+    letter-spacing: 0.08em;
   }
   .masthead__tagline {
     font-size: 0.68rem;
