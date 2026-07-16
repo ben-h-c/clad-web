@@ -2615,10 +2615,46 @@ html.theme-dark .masthead__menu-list {
 
 .report-card--peek {
   padding: 0.45rem 0.5rem 0.4rem;
-  touch-action: pan-y;
-  -webkit-touch-callout: none;
-  user-select: none;
+  /* pan still allowed for strip/page scroll; no double-tap zoom delay */
+  touch-action: manipulation;
   transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1), transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  /* Kill iOS/Android long-press text select + link callout on the card */
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+.report-card--peek,
+.report-card--peek * {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+.report-card--peek a {
+  -webkit-user-drag: none;
+  user-select: none !important;
+}
+.report-card--peek img {
+  -webkit-user-drag: none;
+  /* Long-press hits the card, not “Save Image” / image callout */
+  pointer-events: none;
+}
+.report-card--peek ::selection,
+.report-card--peek *::selection {
+  background: transparent;
+  color: inherit;
+}
+/* While a hold-preview is active, nothing on the page should highlight */
+html.is-peek-holding,
+html.is-peek-holding body,
+html.is-peek-holding body * {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+html.is-peek-holding {
+  -webkit-tap-highlight-color: transparent;
 }
 .report-card--peek.is-peeking {
   opacity: 0.22;
@@ -2690,6 +2726,20 @@ html.theme-dark .masthead__menu-list {
   pointer-events: none;
   /* Isolate so transforms don't thrash the page */
   contain: layout style;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+.peek-pop,
+.peek-pop * {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+.peek-pop ::selection,
+.peek-pop *::selection {
+  background: transparent;
 }
 .peek-pop__scrim {
   position: absolute;

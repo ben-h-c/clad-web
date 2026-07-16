@@ -99,12 +99,36 @@ const {
     let closing = false;
     let suppressClick = false;
     let pop = null; // { root, scrim, panel, source, first }
+    let holdActive = false;
 
     function clearTimer() {
       if (timer) {
         clearTimeout(timer);
         timer = null;
       }
+    }
+
+    /** Drop any native text selection / magnifier range (iOS loves these on hold). */
+    function clearSelection() {
+      try {
+        const sel = window.getSelection && window.getSelection();
+        if (sel) {
+          if (sel.removeAllRanges) sel.removeAllRanges();
+          else if (sel.empty) sel.empty();
+        }
+      } catch (_) {}
+      try {
+        if (document.activeElement && document.activeElement.blur) {
+          const ae = document.activeElement;
+          if (ae.closest && ae.closest(".report-card--peek, .peek-pop")) ae.blur();
+        }
+      } catch (_) {}
+    }
+
+    function setHolding(on) {
+      holdActive = !!on;
+      document.documentElement.classList.toggle("is-peek-holding", holdActive);
+      if (on) clearSelection();
     }
 
     function measureTarget(panel) {
@@ -128,6 +152,8 @@ const {
       if (open || closing || !source) return;
       open = true;
       suppressClick = true;
+      setHolding(true);
+      clearSelection();
       source.classList.add("is-peeking");
       source.setAttribute("aria-expanded", "true");
 
@@ -234,6 +260,8 @@ const {
         closing = false;
         card = null;
         pointerId = null;
+        setHolding(false);
+        clearSelection();
       };
 
       if (reduceMotion()) {
@@ -284,6 +312,9 @@ const {
         startX = e.clientX;
         startY = e.clientY;
         clearTimer();
+        clearSelection();
+        // Soft hold flag early so selection CSS kicks in before the popup opens.
+        setHolding(true);
 
         try {
           next.setPointerCapture(e.pointerId);
@@ -291,6 +322,7 @@ const {
 
         timer = setTimeout(() => {
           if (!card) return;
+          clearSelection();
           openPeek(card);
         }, LONG_MS);
       },
@@ -312,8 +344,11 @@ const {
             } catch (_) {}
             card = null;
             pointerId = null;
+            if (!open) setHolding(false);
           }
         }
+        // Nudge selection away while the finger is down on a card.
+        if (holdActive) clearSelection();
       },
       { passive: true }
     );
@@ -326,6 +361,8 @@ const {
       } else {
         card = null;
         pointerId = null;
+        setHolding(false);
+        clearSelection();
       }
       // Swallow the click that follows a successful long-press preview.
       if (suppressClick) {
@@ -358,7 +395,50 @@ const {
     document.addEventListener(
       "contextmenu",
       (e) => {
-        if (e.target instanceof Element && e.target.closest(".report-card--peek")) {
+        if (
+          holdActive ||
+          (e.target instanceof Element && e.target.closest(".report-card--peek, .peek-pop"))
+        ) {
+          e.preventDefault();
+          e.stopPropagation();
+          clearSelection();
+        }
+      },
+      true
+    );
+
+    // iOS: cancel the native text-selection gesture once a hold is underway.
+    // Only after we've committed to a hold so strip scrolling still works.
+    document.addEventListener(
+      "touchmove",
+      (e) => {
+        if (!holdActive) return;
+        if (open || timer) {
+          clearSelection();
+        }
+      },
+      { passive: true }
+    );
+
+    // Block the browser’s native “start selecting text” path entirely on peeks.
+    document.addEventListener(
+      "selectstart",
+      (e) => {
+        if (
+          holdActive ||
+          (e.target instanceof Element && e.target.closest(".report-card--peek, .peek-pop"))
+        ) {
+          e.preventDefault();
+          return false;
+        }
+      },
+      true
+    );
+
+    document.addEventListener(
+      "dragstart",
+      (e) => {
+        if (e.target instanceof Element && e.target.closest(".report-card--peek, .peek-pop")) {
           e.preventDefault();
         }
       },
