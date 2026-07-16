@@ -80,31 +80,43 @@ const {
     }
 
     // ── Vertical expand (Breaking + Front Page) ───────────────────────────
-    // Width stays fixed. When a strip's vertical center is near mid-viewport,
-    // cards show full detail; otherwise hide summary / meta / lean / source.
+    // Width fixed. Strip opens when near mid-viewport and stays open with
+    // hysteresis so it does not chatter. CSS handles slow max-height motion.
     if (window.__heroFocus) return;
     window.__heroFocus = true;
 
     const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+    /** @type {WeakMap<Element, boolean>} */
+    const openState = new WeakMap();
 
     function applyFocus() {
       const strips = document.querySelectorAll(".hero-strip--focusable");
       if (!strips.length) return;
       const vh = window.innerHeight;
       const mid = vh * 0.5;
-      // How far from mid (as fraction of half-viewport) still counts as "open"
-      const openBand = vh * 0.42;
+      // Hysteresis: open sooner, close later — one consistent motion, no flicker
+      const openDist = vh * 0.38;
+      const closeDist = vh * 0.52;
       const expandAll = reduced();
 
       strips.forEach((strip) => {
-        const r = strip.getBoundingClientRect();
+        const section = strip.closest(".hero") || strip;
+        const r = section.getBoundingClientRect();
         const cy = r.top + r.height / 2;
-        const nearCenter =
-          expandAll || (r.bottom > 0 && r.top < vh && Math.abs(cy - mid) < openBand);
+        const dist = Math.abs(cy - mid);
+        const visible = r.bottom > 40 && r.top < vh - 40;
+        let open = openState.get(strip);
+        if (expandAll) open = true;
+        else if (!visible) open = false;
+        else if (open === undefined) open = dist < openDist;
+        else if (open && dist > closeDist) open = false;
+        else if (!open && dist < openDist) open = true;
+        openState.set(strip, open);
+
         const items = strip.querySelectorAll(".hero-strip__item");
         items.forEach((el) => {
-          el.classList.toggle("is-focus", nearCenter);
-          el.classList.toggle("is-compact", !nearCenter);
+          el.classList.toggle("is-focus", open);
+          el.classList.toggle("is-compact", !open);
           el.classList.remove("is-mid");
         });
       });
