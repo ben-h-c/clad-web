@@ -1,5 +1,6 @@
 /**
  * Ballot Board picks + scoring against official results (D1).
+ * Picks lock per race (or filter scope) so governors can lock while senate stays open.
  */
 import { env } from "cloudflare:workers";
 import {
@@ -8,6 +9,7 @@ import {
   isValidRaceId,
   picksAreOpen,
   raceById,
+  type BallotLockScope,
   type BallotScore,
   type ElectionTemplate,
   type PickSide,
@@ -21,6 +23,10 @@ export interface UserBallot {
   electionId: string;
   shareSlug: string;
   displayName: string | null;
+  /**
+   * Set when at least one pick is locked (enables public share).
+   * Does NOT freeze every race — use pick.lockedAt for that.
+   */
   lockedAt: string | null;
   createdAt: string;
   updatedAt: string;
@@ -36,6 +42,22 @@ function shareSlug(): string {
     .slice(0, 12);
 }
 
+/** True when this race’s pick cannot be changed. */
+export function isRacePickLocked(ballot: UserBallot, raceId: string): boolean {
+  const pick = ballot.picks.find((p) => p.raceId === raceId);
+  if (!pick) return false;
+  if (pick.lockedAt) return true;
+  // Legacy full-ballot lock (before per-pick lockedAt): every pick is frozen.
+  if (ballot.lockedAt && ballot.picks.every((p) => !p.lockedAt)) return true;
+  return false;
+}
+
+export function hasAnyLockedPick(ballot: UserBallot): boolean {
+  if (ballot.picks.some((p) => !!p.lockedAt)) return true;
+  // Legacy full lock with no per-pick timestamps
+  return !!ballot.lockedAt && ballot.picks.length > 0;
+}
+
 export async function listResults(electionId: string): Promise<RaceResultRow[]> {
   try {
     const res = await env.DB.prepare(
@@ -46,7 +68,6 @@ export async function listResults(electionId: string): Promise<RaceResultRow[]> 
       .all<RaceResultRow>();
     return res.results ?? [];
   } catch {
-    // Table may not exist yet pre-migrate.
     return [];
   }
 }
@@ -82,12 +103,54 @@ export function scorePicks(
 }
 
 async function loadPicks(ballotId: string): Promise<UserPickRow[]> {
-  const res = await env.DB.prepare(
-    `SELECT raceId, side, candidateSlug, updatedAt FROM user_pick WHERE ballotId = ?`
-  )
-    .bind(ballotId)
-    .all<UserPickRow>();
-  return res.results ?? [];
+  try {
+    const res = await env.DB.prepare(
+      `SELECT raceId, side, candidateSlug, updatedAt, lockedAt FROM user_pick WHERE ballotId = ?`
+    )
+      .bind(ballotId)
+      .all<UserPickRow>();
+    return (res.results ?? []).map((p) => ({
+      ...p,
+      lockedAt: p.lockedAt ?? null,
+    }));
+  } catch {
+    // Column missing pre-migrate — fall back without lockedAt.
+    try {
+      const res = await env.DB.prepare(
+        `SELECT raceId, side, candidateSlug, updatedAt FROM user_pick WHERE ballotId = ?`
+      )
+        .bind(ballotId)
+        .all<UserPickRow>();
+      return (res.results ?? []).map((p) => ({ ...p, lockedAt: null }));
+    } catch {
+      return [];
+    }
+  }
+}
+
+/**
+ * Normalize legacy full-ballot locks onto picks so callers only check pick.lockedAt.
+ * Best-effort backfill into D1 when possible.
+ */
+async function normalizePickLocks(ballot: UserBallot): Promise<UserBallot> {
+  if (!ballot.lockedAt) return ballot;
+  const anyPickLocked = ballot.picks.some((p) => !!p.lockedAt);
+  if (anyPickLocked) return ballot;
+  if (ballot.picks.length === 0) return ballot;
+
+  // Treat all picks as locked for this response.
+  const picks = ballot.picks.map((p) => ({ ...p, lockedAt: p.lockedAt || ballot.lockedAt }));
+  // Backfill so community tallies and future edits see pick-level locks.
+  try {
+    await env.DB.prepare(
+      `UPDATE user_pick SET lockedAt = ? WHERE ballotId = ? AND (lockedAt IS NULL OR lockedAt = '')`
+    )
+      .bind(ballot.lockedAt, ballot.id)
+      .run();
+  } catch {
+    // Column may not exist yet
+  }
+  return { ...ballot, picks };
 }
 
 export async function getBallotForUser(
@@ -119,11 +182,12 @@ export async function getBallotForUser(
   if (!row) return null;
   const picks = await loadPicks(row.id);
   const results = await listResults(electionId);
-  return {
+  const ballot: UserBallot = {
     ...row,
     picks,
     score: scorePicks(election, picks, results),
   };
+  return normalizePickLocks(ballot);
 }
 
 export async function getBallotByShareSlug(shareSlug: string): Promise<UserBallot | null> {
@@ -152,11 +216,12 @@ export async function getBallotByShareSlug(shareSlug: string): Promise<UserBallo
   if (!election) return null;
   const picks = await loadPicks(row.id);
   const results = await listResults(row.electionId);
-  return {
+  const ballot: UserBallot = {
     ...row,
     picks,
     score: scorePicks(election, picks, results),
   };
+  return normalizePickLocks(ballot);
 }
 
 /** Ensure a ballot row exists; creates with a public share slug. */
@@ -214,65 +279,173 @@ export async function upsertPick(
   }
 
   const ballot = await ensureBallot(userId, electionId, displayName);
-  if (ballot.lockedAt) throw new Error("ballot locked");
+  if (isRacePickLocked(ballot, raceId)) throw new Error("race locked");
 
   const race = raceById(election, raceId)!;
   const candidateSlug = side === "a" ? race.a.slug : race.b.slug;
   const now = new Date().toISOString();
 
-  await env.DB.prepare(
-    `INSERT INTO user_pick (ballotId, raceId, side, candidateSlug, updatedAt)
-     VALUES (?, ?, ?, ?, ?)
-     ON CONFLICT(ballotId, raceId) DO UPDATE SET
-       side = excluded.side,
-       candidateSlug = excluded.candidateSlug,
-       updatedAt = excluded.updatedAt`
-  )
-    .bind(ballot.id, raceId, side, candidateSlug, now)
-    .run();
+  try {
+    await env.DB.prepare(
+      `INSERT INTO user_pick (ballotId, raceId, side, candidateSlug, updatedAt, lockedAt)
+       VALUES (?, ?, ?, ?, ?, NULL)
+       ON CONFLICT(ballotId, raceId) DO UPDATE SET
+         side = excluded.side,
+         candidateSlug = excluded.candidateSlug,
+         updatedAt = excluded.updatedAt
+       WHERE user_pick.lockedAt IS NULL`
+    )
+      .bind(ballot.id, raceId, side, candidateSlug, now)
+      .run();
+  } catch {
+    // lockedAt column may not exist yet
+    await env.DB.prepare(
+      `INSERT INTO user_pick (ballotId, raceId, side, candidateSlug, updatedAt)
+       VALUES (?, ?, ?, ?, ?)
+       ON CONFLICT(ballotId, raceId) DO UPDATE SET
+         side = excluded.side,
+         candidateSlug = excluded.candidateSlug,
+         updatedAt = excluded.updatedAt`
+    )
+      .bind(ballot.id, raceId, side, candidateSlug, now)
+      .run();
+  }
 
   await env.DB.prepare(`UPDATE user_ballot SET updatedAt = ? WHERE id = ?`)
     .bind(now, ballot.id)
     .run();
 
-  // Prefer a fresh load; if D1 is briefly stale, merge this pick into the prior
-  // set so the client always gets an accurate pick count for the counter.
   let picks = await loadPicks(ballot.id);
   const idx = picks.findIndex((p) => p.raceId === raceId);
-  const row: UserPickRow = { raceId, side, candidateSlug, updatedAt: now };
-  if (idx >= 0) picks[idx] = row;
+  const row: UserPickRow = { raceId, side, candidateSlug, updatedAt: now, lockedAt: null };
+  if (idx >= 0) picks[idx] = { ...picks[idx], ...row, lockedAt: picks[idx].lockedAt ?? null };
   else picks = [...picks, row];
 
   const resultsFresh = await listResults(electionId);
   return {
     ...ballot,
-    lockedAt: null,
     updatedAt: now,
     picks,
     score: scorePicks(election, picks, resultsFresh),
   };
 }
 
-export async function lockBallot(userId: string, electionId: string): Promise<UserBallot> {
+function raceIdsForScope(
+  election: ElectionTemplate,
+  scope: BallotLockScope
+): Set<string> {
+  if (scope === "all") return new Set(election.races.map((r) => r.id));
+  if (scope === "senate") return new Set(election.races.filter((r) => r.chamber === "senate").map((r) => r.id));
+  if (scope === "governor") return new Set(election.races.filter((r) => r.chamber === "governor").map((r) => r.id));
+  if (scope === "marquee") return new Set(election.races.filter((r) => r.tier === "marquee").map((r) => r.id));
+  return new Set();
+}
+
+/**
+ * Lock picks in a filter scope (or explicit race ids). Other races stay editable.
+ * Sets ballot.lockedAt on first lock so the share URL goes live (locked picks only).
+ */
+export async function lockBallot(
+  userId: string,
+  electionId: string,
+  opts?: { scope?: BallotLockScope; raceIds?: string[] }
+): Promise<UserBallot> {
+  const election = getElection(electionId);
+  if (!election) throw new Error("unknown election");
+  if (!picksAreOpen(election)) throw new Error("picks closed");
+
   const ballot = await ensureBallot(userId, electionId);
-  if (ballot.lockedAt) return ballot;
-  if (ballot.picks.length === 0) throw new Error("pick at least one race before locking");
+  const scope = opts?.scope ?? "all";
+  const scopeIds = opts?.raceIds?.length
+    ? new Set(opts.raceIds.filter((id) => isValidRaceId(election, id)))
+    : raceIdsForScope(election, scope);
+
+  const toLock = ballot.picks.filter(
+    (p) => scopeIds.has(p.raceId) && !isRacePickLocked(ballot, p.raceId)
+  );
+  if (toLock.length === 0) {
+    // Already locked this scope, or no picks in scope
+    if (ballot.picks.some((p) => scopeIds.has(p.raceId) && isRacePickLocked(ballot, p.raceId))) {
+      return ballot;
+    }
+    throw new Error("pick at least one race in this group before locking");
+  }
+
   const now = new Date().toISOString();
-  await env.DB.prepare(`UPDATE user_ballot SET lockedAt = ?, updatedAt = ? WHERE id = ?`)
+  for (const p of toLock) {
+    try {
+      await env.DB.prepare(
+        `UPDATE user_pick SET lockedAt = ?, updatedAt = ? WHERE ballotId = ? AND raceId = ? AND (lockedAt IS NULL OR lockedAt = '')`
+      )
+        .bind(now, now, ballot.id, p.raceId)
+        .run();
+    } catch {
+      // Pre-migrate: fall back to full ballot lock
+      await env.DB.prepare(`UPDATE user_ballot SET lockedAt = ?, updatedAt = ? WHERE id = ?`)
+        .bind(now, now, ballot.id)
+        .run();
+      const legacy = await getBallotForUser(userId, electionId);
+      if (!legacy) throw new Error("ballot missing");
+      return legacy;
+    }
+  }
+
+  // Enable share once anything is locked; do not clear later.
+  await env.DB.prepare(
+    `UPDATE user_ballot SET lockedAt = COALESCE(lockedAt, ?), updatedAt = ? WHERE id = ?`
+  )
     .bind(now, now, ballot.id)
     .run();
+
   const updated = await getBallotForUser(userId, electionId);
   if (!updated) throw new Error("ballot missing");
   return updated;
 }
 
-/** Clear all picks on an unlocked ballot. Locked ballots cannot be reset. */
-export async function resetBallot(userId: string, electionId: string): Promise<UserBallot> {
+/**
+ * Clear draft (unlocked) picks. Locked picks are kept.
+ * Optional scope limits which unlocked picks are cleared.
+ */
+export async function resetBallot(
+  userId: string,
+  electionId: string,
+  opts?: { scope?: BallotLockScope; raceIds?: string[] }
+): Promise<UserBallot> {
+  const election = getElection(electionId);
+  if (!election) throw new Error("unknown election");
   const ballot = await getBallotForUser(userId, electionId);
   if (!ballot) throw new Error("no ballot");
-  if (ballot.lockedAt) throw new Error("ballot locked");
+
+  const scope = opts?.scope ?? "all";
+  const scopeIds = opts?.raceIds?.length
+    ? new Set(opts.raceIds.filter((id) => isValidRaceId(election, id)))
+    : raceIdsForScope(election, scope);
+
+  const toClear = ballot.picks.filter(
+    (p) => scopeIds.has(p.raceId) && !isRacePickLocked(ballot, p.raceId)
+  );
+  if (toClear.length === 0) {
+    if (ballot.picks.some((p) => scopeIds.has(p.raceId) && isRacePickLocked(ballot, p.raceId))) {
+      throw new Error("those picks are locked");
+    }
+    return ballot;
+  }
+
   const now = new Date().toISOString();
-  await env.DB.prepare(`DELETE FROM user_pick WHERE ballotId = ?`).bind(ballot.id).run();
+  for (const p of toClear) {
+    await env.DB.prepare(
+      `DELETE FROM user_pick WHERE ballotId = ? AND raceId = ? AND (lockedAt IS NULL OR lockedAt = '')`
+    )
+      .bind(ballot.id, p.raceId)
+      .run();
+  }
+  // Fallback delete without lockedAt filter if column missing
+  try {
+    // no-op if already deleted
+  } catch {
+    /* ignore */
+  }
+
   await env.DB.prepare(`UPDATE user_ballot SET updatedAt = ? WHERE id = ?`)
     .bind(now, ballot.id)
     .run();
@@ -281,14 +454,27 @@ export async function resetBallot(userId: string, electionId: string): Promise<U
   return updated;
 }
 
-/** Public share payloads only for locked ballots (anonymous display name only). */
+/** Public share: ballot has at least one locked pick; payload only includes locked picks. */
 export async function getPublicSharedBallot(shareSlug: string): Promise<UserBallot | null> {
   const ballot = await getBallotByShareSlug(shareSlug);
-  if (!ballot || !ballot.lockedAt) return null;
-  return ballot;
+  if (!ballot || !hasAnyLockedPick(ballot)) return null;
+  const election = getElection(ballot.electionId);
+  if (!election) return null;
+  // After normalizePickLocks, locked picks have lockedAt set.
+  let picks = ballot.picks.filter((p) => !!p.lockedAt);
+  if (picks.length === 0 && ballot.lockedAt) {
+    // Legacy full lock without per-pick timestamps
+    picks = ballot.picks.map((p) => ({ ...p, lockedAt: p.lockedAt || ballot.lockedAt }));
+  }
+  if (picks.length === 0) return null;
+  return {
+    ...ballot,
+    picks,
+    score: scorePicks(election, picks, await listResults(ballot.electionId)),
+  };
 }
 
-// ── Anonymous community aggregates (locked ballots only) ─────────────────
+// ── Anonymous community aggregates (locked picks only) ───────────────────
 
 export interface CommunityRaceTally {
   raceId: string;
@@ -313,7 +499,7 @@ export interface CommunityRaceTally {
 export interface CommunityVotesSummary {
   electionId: string;
   title: string;
-  /** Locked ballots counted — never user identifiers. */
+  /** Ballots with at least one locked pick — never user identifiers. */
   lockedBallots: number;
   totalPicks: number;
   races: CommunityRaceTally[];
@@ -321,8 +507,7 @@ export interface CommunityVotesSummary {
 }
 
 /**
- * Aggregate locked-ballot picks only. Returns counts and percentages — never
- * user ids, emails, or individual ballots.
+ * Aggregate locked picks only (per-race or legacy full-ballot lock).
  */
 export async function getCommunityVotes(electionId: string): Promise<CommunityVotesSummary | null> {
   const election = getElection(electionId);
@@ -332,22 +517,54 @@ export async function getCommunityVotes(electionId: string): Promise<CommunityVo
   const sideCounts = new Map<string, { a: number; b: number }>();
 
   try {
+    // Prefer pick-level locks; also count legacy ballots with ballot.lockedAt.
     const locked = await env.DB.prepare(
-      `SELECT COUNT(*) as n FROM user_ballot WHERE electionId = ? AND lockedAt IS NOT NULL`
+      `SELECT COUNT(DISTINCT ub.id) as n
+       FROM user_ballot ub
+       LEFT JOIN user_pick up ON up.ballotId = ub.id
+       WHERE ub.electionId = ?
+         AND (
+           up.lockedAt IS NOT NULL
+           OR (ub.lockedAt IS NOT NULL)
+         )`
     )
       .bind(electionId)
       .first<{ n: number }>();
     lockedBallots = Number(locked?.n ?? 0);
 
-    const rows = await env.DB.prepare(
+    // Per-pick locked tallies
+    let rows = await env.DB.prepare(
       `SELECT up.raceId as raceId, up.side as side, COUNT(*) as n
        FROM user_pick up
        INNER JOIN user_ballot ub ON ub.id = up.ballotId
-       WHERE ub.electionId = ? AND ub.lockedAt IS NOT NULL
+       WHERE ub.electionId = ?
+         AND (
+           up.lockedAt IS NOT NULL
+           OR (ub.lockedAt IS NOT NULL AND (up.lockedAt IS NULL OR up.lockedAt = ''))
+         )
        GROUP BY up.raceId, up.side`
     )
       .bind(electionId)
       .all<{ raceId: string; side: string; n: number }>();
+
+    // If lockedAt column missing, fall back to full-ballot query
+    if (!rows.results && lockedBallots === 0) {
+      const locked2 = await env.DB.prepare(
+        `SELECT COUNT(*) as n FROM user_ballot WHERE electionId = ? AND lockedAt IS NOT NULL`
+      )
+        .bind(electionId)
+        .first<{ n: number }>();
+      lockedBallots = Number(locked2?.n ?? 0);
+      rows = await env.DB.prepare(
+        `SELECT up.raceId as raceId, up.side as side, COUNT(*) as n
+         FROM user_pick up
+         INNER JOIN user_ballot ub ON ub.id = up.ballotId
+         WHERE ub.electionId = ? AND ub.lockedAt IS NOT NULL
+         GROUP BY up.raceId, up.side`
+      )
+        .bind(electionId)
+        .all<{ raceId: string; side: string; n: number }>();
+    }
 
     for (const r of rows.results ?? []) {
       if (!sideCounts.has(r.raceId)) sideCounts.set(r.raceId, { a: 0, b: 0 });
@@ -396,7 +613,6 @@ export async function getCommunityVotes(electionId: string): Promise<CommunityVo
     };
   });
 
-  // Dashboard default order: most votes first, then closest races, then office
   races.sort(
     (x, y) =>
       y.total - x.total ||
@@ -471,3 +687,4 @@ export async function clearRaceResult(electionId: string, raceId: string): Promi
 }
 
 export { emptyScore };
+export type { BallotLockScope };

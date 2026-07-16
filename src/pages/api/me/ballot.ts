@@ -6,10 +6,20 @@ import {
   resetBallot,
   upsertPick,
 } from "~/lib/picks";
-import { DEFAULT_ELECTION_ID, getElection } from "~/lib/elections";
+import {
+  DEFAULT_ELECTION_ID,
+  getElection,
+  type BallotLockScope,
+} from "~/lib/elections";
 import { getSessionUser, jsonResponse } from "~/lib/user-data";
 
 export const prerender = false;
+
+function parseScope(raw: unknown): BallotLockScope {
+  const s = String(raw || "all").toLowerCase();
+  if (s === "senate" || s === "governor" || s === "marquee" || s === "all") return s;
+  return "all";
+}
 
 export const GET: APIRoute = async ({ request, url }) => {
   const user = await getSessionUser(request.headers);
@@ -20,7 +30,9 @@ export const GET: APIRoute = async ({ request, url }) => {
   return jsonResponse({
     electionId,
     ballot,
-    picksOpen: getElection(electionId) ? Date.now() < new Date(getElection(electionId)!.picksCloseAt).getTime() : false,
+    picksOpen: getElection(electionId)
+      ? Date.now() < new Date(getElection(electionId)!.picksCloseAt).getTime()
+      : false,
   });
 };
 
@@ -31,7 +43,6 @@ export const PUT: APIRoute = async ({ request }) => {
   const electionId = String(body.electionId ?? DEFAULT_ELECTION_ID);
   if (!getElection(electionId)) return jsonResponse({ error: "unknown election" }, 404);
 
-  // Ensure empty ballot (share slug) without a pick
   if (body.ensure === true) {
     const ballot = await ensureBallot(user.id, electionId, user.name);
     return jsonResponse({ ok: true, ballot });
@@ -39,7 +50,11 @@ export const PUT: APIRoute = async ({ request }) => {
 
   if (body.lock === true) {
     try {
-      const ballot = await lockBallot(user.id, electionId);
+      const scope = parseScope(body.scope);
+      const raceIds = Array.isArray(body.raceIds)
+        ? body.raceIds.map((id) => String(id)).filter(Boolean).slice(0, 80)
+        : undefined;
+      const ballot = await lockBallot(user.id, electionId, { scope, raceIds });
       return jsonResponse({ ok: true, ballot });
     } catch (e) {
       return jsonResponse({ error: e instanceof Error ? e.message : "lock failed" }, 400);
@@ -48,11 +63,20 @@ export const PUT: APIRoute = async ({ request }) => {
 
   if (body.reset === true) {
     try {
-      const ballot = await resetBallot(user.id, electionId);
+      const scope = parseScope(body.scope);
+      const raceIds = Array.isArray(body.raceIds)
+        ? body.raceIds.map((id) => String(id)).filter(Boolean).slice(0, 80)
+        : undefined;
+      const ballot = await resetBallot(user.id, electionId, { scope, raceIds });
       return jsonResponse({ ok: true, ballot });
     } catch (e) {
       const msg = e instanceof Error ? e.message : "reset failed";
-      const status = msg === "ballot locked" ? 403 : msg === "no ballot" ? 404 : 400;
+      const status =
+        msg === "ballot locked" || msg === "those picks are locked"
+          ? 403
+          : msg === "no ballot"
+            ? 404
+            : 400;
       return jsonResponse({ error: msg }, status);
     }
   }
@@ -63,12 +87,15 @@ export const PUT: APIRoute = async ({ request }) => {
     return jsonResponse({ error: "raceId and side (a|b) required" }, 400);
   }
   try {
-    const ballot = await upsertPick(user.id, electionId, raceId, side, user.name);
+    const ballot = await upsertPick(user.id, electionId, raceId, side as "a" | "b", user.name);
     return jsonResponse({ ok: true, ballot });
   } catch (e) {
     const msg = e instanceof Error ? e.message : "save failed";
     const status =
-      msg === "picks closed" || msg === "ballot locked" || msg === "race already called"
+      msg === "picks closed" ||
+      msg === "ballot locked" ||
+      msg === "race locked" ||
+      msg === "race already called"
         ? 403
         : msg === "invalid race" || msg === "invalid side"
           ? 400

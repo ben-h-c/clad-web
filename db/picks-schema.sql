@@ -29,6 +29,8 @@ CREATE TABLE IF NOT EXISTS "user_pick" (
   "side" text NOT NULL CHECK (side IN ('a', 'b')),
   "candidateSlug" text,
   "updatedAt" text NOT NULL,
+  /** ISO time when this race pick was locked (scope locks); null = still draft */
+  "lockedAt" text,
   PRIMARY KEY ("ballotId", "raceId")
 );
 

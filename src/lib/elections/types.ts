@@ -39,7 +39,15 @@ export interface UserPickRow {
   side: PickSide;
   candidateSlug: string | null;
   updatedAt: string;
+  /**
+   * When set, this race’s pick is final (joins community tally / public share).
+   * Other races on the same ballot can stay draft until locked separately.
+   */
+  lockedAt?: string | null;
 }
+
+/** Lock scopes matching ballot board filters. */
+export type BallotLockScope = "all" | "senate" | "governor" | "marquee";
 
 export interface BallotScore {
   picked: number;
