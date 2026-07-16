@@ -63,7 +63,7 @@ function markup(opts: {
     <div style="display:flex;font-size:28px;margin-top:16px;line-height:1.3;font-weight:700">${esc(opts.scoreLine)}</div>
     <div style="display:flex;font-size:22px;color:${MUTED};margin-top:14px;line-height:1.4;max-width:1020px">${body}</div>
     <div style="display:flex;margin-top:auto;justify-content:space-between;align-items:flex-end;width:100%">
-      <div style="display:flex;border:3px solid ${RED};color:${RED};padding:12px 24px;font-size:20px;letter-spacing:2px;font-weight:700">FILL YOUR BALLOT →</div>
+      <div style="display:flex;border:3px solid ${RED};color:${RED};padding:12px 24px;font-size:20px;letter-spacing:2px;font-weight:700">FILL YOUR BALLOT</div>
       <div style="display:flex;font-size:20px;color:${MUTED};letter-spacing:1px">cladfacts.com/bracket</div>
     </div>
   </div>`;

@@ -48,7 +48,7 @@ function markup(name: string, race: string | null, count: number): string {
     <div style="display:flex;font-size:36px;margin-top:24px;line-height:1.25;font-weight:700">${esc(reports)} graded against them</div>
     <div style="display:flex;font-size:26px;color:${MUTED};margin-top:10px;line-height:1.35">How the coverage held up — free with any account</div>
     <div style="display:flex;margin-top:auto;justify-content:space-between;align-items:flex-end;width:100%">
-      <div style="display:flex;border:3px solid ${RED};color:${RED};padding:12px 24px;font-size:22px;letter-spacing:2px;font-weight:700">SEE EVERY GRADE →</div>
+      <div style="display:flex;border:3px solid ${RED};color:${RED};padding:12px 24px;font-size:22px;letter-spacing:2px;font-weight:700">SEE EVERY GRADE</div>
       <div style="display:flex;font-size:22px;color:${MUTED};letter-spacing:2px">cladfacts.com/politicians</div>
     </div>
   </div>`;

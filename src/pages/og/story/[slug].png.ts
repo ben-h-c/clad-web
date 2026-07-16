@@ -118,7 +118,7 @@ function markup(card: StoryCard): string {
     </div>
     <div style="display:flex;flex-direction:column;align-items:center;padding:0 64px 72px;">
       <div style="display:flex;width:920px;height:4px;background:${INK};"></div>
-      <div style="display:flex;font-size:28px;color:${RED};letter-spacing:3px;margin-top:28px;font-weight:700;">FULL RECEIPTS ON THE SITE →</div>
+      <div style="display:flex;font-size:28px;color:${RED};letter-spacing:3px;margin-top:28px;font-weight:700;">FULL RECEIPTS ON THE SITE</div>
       <div style="display:flex;font-size:30px;font-weight:700;margin-top:12px;">cladfacts.com</div>
       <div style="display:flex;font-size:22px;color:${MUTED};margin-top:8px;">${card.sourcesCount} sources cited</div>
     </div>

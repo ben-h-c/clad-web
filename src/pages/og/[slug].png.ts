@@ -13,7 +13,7 @@ export const prerender = false;
 // social scrapers — which key their own caches on the URL — re-unfurl
 // already-shared links with the new design.
 // Bump to force social scrapers + edge cache to re-unfurl redesigned cards.
-const CARD_VERSION = "3";
+const CARD_VERSION = "4";
 
 const PAPER = "#F5EDD9";
 const INK = "#1A140D";
@@ -141,7 +141,7 @@ function markup(card: Card): string {
       </div>
       <div style="display:flex;font-size:${hSize}px;font-weight:700;line-height:1.1;margin-top:12px;">${esc(hClipped)}</div>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding:14px 0;border-top:3px solid ${INK};">
-        <div style="display:flex;font-size:22px;font-weight:700;letter-spacing:2px;color:${RED};">TAP FOR THE FULL RECEIPTS →</div>
+        <div style="display:flex;font-size:22px;font-weight:700;letter-spacing:2px;color:${RED};">TAP FOR THE FULL RECEIPTS</div>
         <div style="display:flex;font-size:20px;color:${MUTED};letter-spacing:2px;">cladfacts.com</div>
       </div>
     </div>

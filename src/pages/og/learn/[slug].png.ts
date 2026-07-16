@@ -40,7 +40,7 @@ function markup(kicker: string, title: string, line: string): string {
     <div style="display:flex;font-size:52px;font-weight:700;line-height:1.06;max-width:1040px;margin-top:12px">${esc(title)}</div>
     <div style="display:flex;font-size:28px;color:${MUTED};margin-top:20px;line-height:1.35;max-width:1000px">${esc(line)}</div>
     <div style="display:flex;margin-top:auto;justify-content:space-between;align-items:flex-end;width:100%">
-      <div style="display:flex;border:3px solid ${RED};color:${RED};padding:12px 24px;font-size:22px;letter-spacing:2px;font-weight:700">RECEIPTS, NOT VIBES →</div>
+      <div style="display:flex;border:3px solid ${RED};color:${RED};padding:12px 24px;font-size:22px;letter-spacing:2px;font-weight:700">RECEIPTS, NOT VIBES</div>
       <div style="display:flex;font-size:22px;color:${MUTED};letter-spacing:2px">cladfacts.com/learn</div>
     </div>
   </div>`;
