@@ -16,6 +16,7 @@ import { aggregateTopics, gradeToGpa } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
+import { homePromosForPage } from "~/lib/homePromos";
 
 // SSR so the hero reflects the curator's live KV-stored selection without a
 // rebuild. Per-user (grades hidden for restricted readers), so never shared-cache.
@@ -77,6 +78,27 @@ const hotPost = newest
     }
   : null;
 
+// Up to 3 dismissible promos: midterms (or top priority) stays at the top of the
+// page; the other two are placed between later sections so they don't stack.
+const allHomePromos = homePromosForPage({
+  locked,
+  hotTopic: hotTopic
+    ? {
+        display: hotTopic.display,
+        slug: hotTopic.slug,
+        todayCount: hotTopic.todayCount,
+        recentCount: hotTopic.recentCount,
+      }
+    : null,
+  hotPost,
+  max: 3,
+});
+const topPromo =
+  allHomePromos.find((p) => p.id === "midterms-2026-ballot") ?? allHomePromos[0] ?? null;
+const inlinePromos = allHomePromos.filter((p) => p.id !== topPromo?.id).slice(0, 2);
+const midPromo = inlinePromos[0] ?? null;
+const lowerPromo = inlinePromos[1] ?? null;
+
 // Best & worst — compact (3 each) for the signed-in desk board (GradeBoard).
 // Only full-access readers see it, so skip the two full sorts over the graded
 // corpus for locked readers — the highest-traffic case that fills the edge cache.
@@ -111,22 +133,8 @@ if (!locked) {
     <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
   ) : (
     <>
-      {/* Dismissible spotlights — features + live hot topic/report */}
-      <HomePromoBanner
-        context={{
-          locked,
-          hotTopic: hotTopic
-            ? {
-                display: hotTopic.display,
-                slug: hotTopic.slug,
-                todayCount: hotTopic.todayCount,
-                recentCount: hotTopic.recentCount,
-              }
-            : null,
-          hotPost,
-          max: 3,
-        }}
-      />
+      {/* Flagship spotlight only at the top (usually Midterms). */}
+      {topPromo && <HomePromoBanner promo={topPromo} />}
 
       {APP_STORE_LIVE && (
         <>
@@ -165,6 +173,9 @@ if (!locked) {
         moreHref="/recent/"
         moreLabel="Latest →"
       />
+
+      {/* Second promo between front page and explore rails */}
+      {midPromo && <HomePromoBanner promo={midPromo} class="home-promos--inline" />}
 
       <nav class="home-rails" aria-label="Explore Clad">
         <a class="home-rails__card" href="/bracket/">
@@ -238,6 +249,9 @@ if (!locked) {
         </>
       )}
 
+      {/* Third promo between analytics/paywall and Keep reading */}
+      {lowerPromo && <HomePromoBanner promo={lowerPromo} class="home-promos--inline" />}
+
       <section class="more-clad" aria-labelledby="more-clad-title">
         <div class="feed__head">
           <h2 class="feed__title" id="more-clad-title">Keep reading</h2>
@@ -257,4 +271,20 @@ if (!locked) {
   )}
   <NewsletterSignup />
   <Disclaimer />
+  <script is:inline>
+    (() => {
+      // One dismiss binder for every home-promo on the page (top + inline).
+      try {
+        Object.keys(localStorage)
+          .filter((k) => k.startsWith("clad_promo_"))
+          .forEach((k) => localStorage.removeItem(k));
+      } catch {}
+      document.querySelectorAll("[data-home-promos] [data-promo-dismiss]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const el = btn.closest("[data-promo-id]");
+          if (el) el.hidden = true;
+        });
+      });
+    })();
+  </script>
 </BaseLayout>

@@ -1,7 +1,8 @@
 ---
 /**
- * Dismissible home spotlights from ~/lib/homePromos.
- * Close hides for this page view only — refresh or a new visit shows them again.
+ * Dismissible home spotlight(s). Pass a single promo or a list.
+ * Close hides for this page view only — refresh shows them again.
+ * Script binds once per page even if this component is mounted multiple times.
  */
 import {
   activeHomePromos,
@@ -11,18 +12,25 @@ import {
 } from "~/lib/homePromos";
 
 interface Props {
-  /** Override list (tests). */
+  /** Explicit promo(s) to render. */
   promos?: HomePromo[];
-  /** Live context for hot topic/post + access-aware promos. */
+  /** Single promo convenience prop. */
+  promo?: HomePromo | null;
+  /** Live context when building the list here (legacy). */
   context?: HomePromoContext;
+  /** Extra class on the wrapper (e.g. mid-page spacing). */
+  class?: string;
 }
-const promos =
-  Astro.props.promos ??
-  (Astro.props.context ? homePromosForPage(Astro.props.context) : activeHomePromos());
+const list: HomePromo[] =
+  Astro.props.promo != null
+    ? [Astro.props.promo]
+    : Astro.props.promos ??
+      (Astro.props.context ? homePromosForPage(Astro.props.context) : activeHomePromos());
+const wrapClass = ["home-promos", Astro.props.class].filter(Boolean).join(" ");
 ---
-{promos.length > 0 && (
-  <div class="home-promos" data-home-promos>
-    {promos.map((p) => (
+{list.length > 0 && (
+  <div class={wrapClass} data-home-promos>
+    {list.map((p) => (
       <aside
         class:list={["home-promo", p.variant && `home-promo--${p.variant}`]}
         data-promo-id={p.id}
@@ -47,21 +55,4 @@ const promos =
       </aside>
     ))}
   </div>
-  <script is:inline>
-    (() => {
-      // Session-only dismiss: hide this banner until next full page load.
-      // (We clear any legacy permanent clad_promo_* keys once.)
-      try {
-        Object.keys(localStorage)
-          .filter((k) => k.startsWith("clad_promo_"))
-          .forEach((k) => localStorage.removeItem(k));
-      } catch {}
-      document.querySelectorAll("[data-home-promos] [data-promo-dismiss]").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const el = btn.closest("[data-promo-id]");
-          if (el) el.hidden = true;
-        });
-      });
-    })();
-  </script>
 )}

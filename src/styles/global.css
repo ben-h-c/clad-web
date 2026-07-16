@@ -5771,6 +5771,10 @@ html.clad-app .clad-app-only { display: block; }
   gap: 0.55rem;
   margin: 0 0 0.75rem;
 }
+/* Mid-page placement between sections */
+.home-promos--inline {
+  margin: 1.15rem 0 0.85rem;
+}
 
 .home-promo {
   position: relative;
