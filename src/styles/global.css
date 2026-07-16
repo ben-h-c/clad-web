@@ -4920,11 +4920,11 @@ html.admin-nav-open .admin-nav {
   display: flex;
   flex-direction: column;
 }
-/* Network charts: collapsed by default via <details> */
-.chart-card--fold {
+/* Network breakdowns: one bucket, collapsed by default */
+.chart-card--network-bucket {
   padding-bottom: 0.75rem;
 }
-.chart-card--fold[open] {
+.chart-card--network-bucket[open] {
   padding-bottom: 1.1rem;
 }
 .chart-card__summary {
@@ -4939,8 +4939,20 @@ html.admin-nav-open .admin-nav {
 .chart-card__summary::-webkit-details-marker {
   display: none;
 }
-.chart-card--fold .chart-card__summary .chart-card__title {
+.chart-card__summary-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+  text-align: left;
+}
+.chart-card--network-bucket .chart-card__summary .chart-card__title {
   margin: 0;
+}
+.chart-card__lede {
+  font-size: 0.82rem;
+  color: var(--muted-ink);
+  line-height: 1.35;
 }
 .chart-card__toggle {
   flex: 0 0 auto;
@@ -4951,20 +4963,36 @@ html.admin-nav-open .admin-nav {
   color: var(--muted-ink);
   letter-spacing: 0.02em;
 }
-.chart-card--fold[open] .chart-card__toggle span[aria-hidden="true"] {
+.chart-card--network-bucket[open] .chart-card__toggle span[aria-hidden="true"] {
   transform: rotate(180deg);
   display: inline-block;
 }
 .chart-card__summary:hover .chart-card__toggle {
   color: var(--ink);
 }
-.chart-card--fold .chart-card__body {
-  margin-top: 0.75rem;
+.charts-network-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  margin-top: 0.9rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+}
+.chart-panel__title {
+  margin: 0 0 0.65rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+@media (min-width: 900px) {
+  .charts-network-stack {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem 1.25rem;
+  }
 }
 /* Clip the body to a compact height (with a fade) only when it's tall enough to
-   need it (JS adds .is-clipped) and not expanded. Skip fold cards — they are
-   either fully closed or fully open. */
-.chart-card.is-clipped:not(.is-expanded):not(.chart-card--fold) .chart-card__body {
+   need it (JS adds .is-clipped) and not expanded. Skip the network bucket. */
+.chart-card.is-clipped:not(.is-expanded):not(.chart-card--network-bucket) .chart-card__body {
   overflow: hidden;
   max-height: 8.5rem;
   -webkit-mask-image: linear-gradient(#000 68%, transparent);

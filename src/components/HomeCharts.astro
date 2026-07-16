@@ -107,85 +107,75 @@ const topIssues = topics.slice(0, 10);
       <button type="button" class="chart-expand" aria-expanded="false"><span class="chart-expand__txt">Expand</span> <span aria-hidden="true">▾</span></button>
     </div>
 
-    <!-- Network charts: collapsed by default (native details) -->
-    <details class="chart-card chart-card--fold">
+    <!-- One bucket for all network breakdowns — collapsed by default -->
+    <details class="chart-card chart-card--wide chart-card--network-bucket">
       <summary class="chart-card__summary">
-        <h3 class="chart-card__title small-caps">Political bias by network</h3>
-        <span class="chart-card__toggle">
-          <span class="chart-card__toggle-txt">Show</span>
-          <span aria-hidden="true">▾</span>
-        </span>
-      </summary>
-      <div class="chart-card__body">
-        <div class="chart-rows">
-          {biasByNet.map((n) => (
-            <div class="chart-row">
-              <span class="chart-row__label" title={n.name}>{n.name}</span>
-              <div class="bias-track">
-                <span class="bias-center" aria-hidden="true"></span>
-                <span
-                  class={`bias-bar ${n.lean! >= 0 ? "is-right" : "is-left"}`}
-                  style={`width:${Math.min(50, Math.abs(n.lean!) / 2)}%; ${n.lean! >= 0 ? "left:50%" : "right:50%"}`}
-                ></span>
-              </div>
-              <span class="chart-row__val">{leanLabel(n.lean)}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </details>
-
-    <details class="chart-card chart-card--fold">
-      <summary class="chart-card__summary">
-        <h3 class="chart-card__title small-caps">Average grade by network</h3>
-        <span class="chart-card__toggle">
-          <span class="chart-card__toggle-txt">Show</span>
-          <span aria-hidden="true">▾</span>
-        </span>
-      </summary>
-      <div class="chart-card__body">
-        <div class="chart-rows">
-          {gradeByNet.map((n) => (
-            <div class="chart-row">
-              <span class="chart-row__label" title={n.name}>{n.name}</span>
-              <div class="grade-track">
-                <span class={`grade-bar grade--${gradeTier(n.gpa!)}`} style={`width:${(n.gpa! / 12) * 100}%`}></span>
-              </div>
-              <span class="chart-row__val">{gpaToGrade(n.gpa!)}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </details>
-
-    {sentiByNet.length > 0 && (
-      <details class="chart-card chart-card--fold">
-        <summary class="chart-card__summary">
-          <h3 class="chart-card__title small-caps">Social reception by network</h3>
-          <span class="chart-card__toggle">
-            <span class="chart-card__toggle-txt">Show</span>
-            <span aria-hidden="true">▾</span>
+        <span class="chart-card__summary-text">
+          <h3 class="chart-card__title small-caps">By network</h3>
+          <span class="chart-card__lede">
+            Political bias, average grade{sentiByNet.length > 0 ? ", and social reception" : ""} by outlet
           </span>
-        </summary>
-        <div class="chart-card__body">
+        </span>
+        <span class="chart-card__toggle">
+          <span class="chart-card__toggle-txt">Show</span>
+          <span aria-hidden="true">▾</span>
+        </span>
+      </summary>
+      <div class="charts-network-stack">
+        <div class="chart-panel">
+          <h4 class="chart-panel__title small-caps">Political bias by network</h4>
           <div class="chart-rows">
-            {sentiByNet.map((n) => (
+            {biasByNet.map((n) => (
               <div class="chart-row">
                 <span class="chart-row__label" title={n.name}>{n.name}</span>
                 <div class="bias-track">
                   <span class="bias-center" aria-hidden="true"></span>
                   <span
-                    class={`bias-bar ${n.senti! >= 0 ? "is-pos" : "is-neg"}`}
-                    style={`width:${Math.min(50, Math.abs(n.senti!) / 2)}%; ${n.senti! >= 0 ? "left:50%" : "right:50%"}`}
+                    class={`bias-bar ${n.lean! >= 0 ? "is-right" : "is-left"}`}
+                    style={`width:${Math.min(50, Math.abs(n.lean!) / 2)}%; ${n.lean! >= 0 ? "left:50%" : "right:50%"}`}
                   ></span>
                 </div>
-                <span class="chart-row__val">{sentiLabel(n.senti)}</span>
+                <span class="chart-row__val">{leanLabel(n.lean)}</span>
               </div>
             ))}
           </div>
         </div>
-      </details>
-    )}
+        <div class="chart-panel">
+          <h4 class="chart-panel__title small-caps">Average grade by network</h4>
+          <div class="chart-rows">
+            {gradeByNet.map((n) => (
+              <div class="chart-row">
+                <span class="chart-row__label" title={n.name}>{n.name}</span>
+                <div class="grade-track">
+                  <span class={`grade-bar grade--${gradeTier(n.gpa!)}`} style={`width:${(n.gpa! / 12) * 100}%`}></span>
+                </div>
+                <span class="chart-row__val">{gpaToGrade(n.gpa!)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        {sentiByNet.length > 0 && (
+          <div class="chart-panel">
+            <h4 class="chart-panel__title small-caps">Social reception by network</h4>
+            <div class="chart-rows">
+              {sentiByNet.map((n) => (
+                <div class="chart-row">
+                  <span class="chart-row__label" title={n.name}>{n.name}</span>
+                  <div class="bias-track">
+                    <span class="bias-center" aria-hidden="true"></span>
+                    <span
+                      class={`bias-bar ${n.senti! >= 0 ? "is-pos" : "is-neg"}`}
+                      style={`width:${Math.min(50, Math.abs(n.senti!) / 2)}%; ${n.senti! >= 0 ? "left:50%" : "right:50%"}`}
+                    ></span>
+                  </div>
+                  <span class="chart-row__val">{sentiLabel(n.senti)}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </details>
 
     <!-- Top issues -->
     <div class="chart-card chart-card--wide">
@@ -244,9 +234,9 @@ const topIssues = topics.slice(0, 10);
       strip.addEventListener("scroll", updateArrows, { passive: true });
     }
 
-    /* ---- collapse / expand (always-visible cards) ---- */
-    const cards = [...section.querySelectorAll(".chart-card:not(.chart-card--fold)")];
-    const folds = [...section.querySelectorAll("details.chart-card--fold")];
+    /* ---- collapse / expand (always-visible cards + one network bucket) ---- */
+    const cards = [...section.querySelectorAll(".chart-card:not(.chart-card--network-bucket)")];
+    const networkBucket = section.querySelector("details.chart-card--network-bucket");
     const setCard = (card, expand) => {
       card.classList.toggle("is-expanded", expand);
       const b = card.querySelector(".chart-expand");
@@ -275,26 +265,25 @@ const topIssues = topics.slice(0, 10);
     });
 
     const allBtn = section.querySelector(".charts-expand-all");
-    const syncFoldLabels = () => {
-      folds.forEach((d) => {
-        const t = d.querySelector(".chart-card__toggle-txt");
-        if (t) t.textContent = d.open ? "Hide" : "Show";
-      });
+    const syncBucketLabel = () => {
+      if (!networkBucket) return;
+      const t = networkBucket.querySelector(".chart-card__toggle-txt");
+      if (t) t.textContent = networkBucket.open ? "Hide" : "Show";
     };
     const syncAllBtn = () => {
-      if (!allBtn || !folds.length) return;
-      const allOpen = folds.every((f) => f.open);
-      allBtn.setAttribute("aria-expanded", String(allOpen));
+      if (!allBtn) return;
+      const open = !!(networkBucket && networkBucket.open);
+      allBtn.setAttribute("aria-expanded", String(open));
       const t = allBtn.querySelector(".charts-expand-all__txt");
-      if (t) t.textContent = allOpen ? "Collapse all" : "Expand all";
+      if (t) t.textContent = open ? "Collapse all" : "Expand all";
     };
-    folds.forEach((d) => {
-      d.addEventListener("toggle", () => {
-        syncFoldLabels();
+    if (networkBucket) {
+      networkBucket.addEventListener("toggle", () => {
+        syncBucketLabel();
         syncAllBtn();
         updateArrows();
       });
-    });
+    }
 
     if (allBtn) {
       allBtn.addEventListener("click", () => {
@@ -303,14 +292,14 @@ const topIssues = topics.slice(0, 10);
         const t = allBtn.querySelector(".charts-expand-all__txt");
         if (t) t.textContent = expand ? "Collapse all" : "Expand all";
         cards.forEach((card) => setCard(card, expand));
-        folds.forEach((d) => { d.open = expand; });
-        syncFoldLabels();
+        if (networkBucket) networkBucket.open = expand;
+        syncBucketLabel();
         syncFits();
         updateArrows();
       });
     }
 
-    const init = () => { syncFoldLabels(); syncFits(); updateArrows(); };
+    const init = () => { syncBucketLabel(); syncFits(); updateArrows(); };
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
     else init();
     window.addEventListener("load", init);
