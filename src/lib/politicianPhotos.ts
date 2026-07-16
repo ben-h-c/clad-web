@@ -205,6 +205,51 @@ export const POLITICIAN_WIKI: Record<string, string> = {
   "zohran-mamdani": "Zohran_Mamdani",
 };
 
+/**
+ * Licensing guard (docs/legal/image-claims.md): the portrait pipeline may only
+ * carry files hosted on Wikimedia COMMONS, whose policy allows free-licensed
+ * media only (public domain / CC). English-Wikipedia-local files
+ * (upload.wikimedia.org/wikipedia/en/…) are routinely non-free fair-use images
+ * that must not be reused off-wiki — the REST page/summary lead image can be
+ * one of those, so every resolution path filters through this check before an
+ * image is stored or served.
+ */
+export function isCommonsMediaUrl(url: string): boolean {
+  try {
+    const u = new URL(url);
+    return (
+      u.protocol === "https:" &&
+      u.hostname === "upload.wikimedia.org" &&
+      u.pathname.startsWith("/wikipedia/commons/")
+    );
+  } catch {
+    return false;
+  }
+}
+
+/** Derive the Commons file title (no "File:" prefix) from an upload URL.
+ *  Thumb form: …/commons/thumb/8/82/Name.jpg/330px-Name.jpg → Name.jpg
+ *  Original:   …/commons/8/82/Name.jpg → Name.jpg */
+export function commonsFileFromUrl(url: string): string | null {
+  if (!isCommonsMediaUrl(url)) return null;
+  try {
+    const parts = new URL(url).pathname.split("/").filter(Boolean);
+    // ["wikipedia","commons","thumb","8","82","Name.jpg","330px-Name.jpg"]
+    // ["wikipedia","commons","8","82","Name.jpg"]
+    const i = parts.indexOf("thumb");
+    const raw = i >= 0 ? parts[i + 3] : parts[4];
+    return raw ? decodeURIComponent(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+/** Human-facing Commons file-description page for a portrait URL. */
+export function commonsFilePage(url: string): string | null {
+  const file = commonsFileFromUrl(url);
+  return file ? `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file)}` : null;
+}
+
 export function photoForSlug(slug: string): string | null {
   return POLITICIAN_PHOTOS[slug] ?? null;
 }
