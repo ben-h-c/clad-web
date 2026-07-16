@@ -4055,22 +4055,27 @@ button.small {
   margin-bottom: 1.25rem;
   padding: 0.4rem 0 0.55rem;
   border-bottom: 1px solid var(--rule);
-  /* Stick under the viewport top so the open list stays usable while scrolling. */
   position: sticky;
   top: 0;
-  /* Well above queue cards, agent panels, tables, scorebands, etc. */
   z-index: 5000;
   background: var(--paper);
   overflow: visible;
-  /* Own stacking context so the open list always paints above following siblings. */
-  isolation: isolate;
 }
 
-html.admin-nav-open .admin-nav {
-  z-index: 6000;
+/*
+ * Footer (.colophon) is a sibling of main with the same z-index (1), so it paints
+ * AFTER main and steals clicks on any menu that overflows past main. When open:
+ * lift main above the footer and disable footer/hit-testing under the sheet.
+ */
+html.admin-nav-open .shell > main {
+  position: relative;
+  z-index: 8000;
 }
-
-/* While console menu is open, demote following admin content for hit-testing. */
+html.admin-nav-open .shell > .colophon,
+html.admin-nav-open .shell > .masthead {
+  pointer-events: none;
+  z-index: 0;
+}
 html.admin-nav-open .admin > :not(.admin-nav) {
   position: relative;
   z-index: 0;
@@ -4078,6 +4083,8 @@ html.admin-nav-open .admin > :not(.admin-nav) {
 }
 html.admin-nav-open .admin-nav {
   pointer-events: auto;
+  z-index: 9000;
+  position: relative;
 }
 
 .admin-nav details {
@@ -4110,10 +4117,11 @@ html.admin-nav-open .admin-nav {
   display: none;
 }
 
+/* Fixed panel escapes parent stacking; JS places it under the summary. */
 .admin-nav ul {
-  position: absolute;
-  z-index: 10;
-  top: calc(100% + 2px);
+  position: fixed;
+  z-index: 10000;
+  top: 0;
   left: 0;
   min-width: 15rem;
   max-height: min(70vh, 28rem);
@@ -4125,6 +4133,11 @@ html.admin-nav-open .admin-nav {
   border: 1px solid var(--rule);
   box-shadow: 3px 3px 0 var(--shadow);
   pointer-events: auto;
+  /* Hidden until open + positioned (avoids a flash at 0,0). */
+  visibility: hidden;
+}
+.admin-nav details[open] > ul {
+  visibility: visible;
 }
 
 .admin-nav li a,

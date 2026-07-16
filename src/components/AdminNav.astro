@@ -40,7 +40,7 @@ const currentLabel = links.find((l) => l.key === current)?.label ?? "Console";
 <nav class="admin-nav" aria-label="Admin console">
   <details class="admin-nav__menu">
     <summary>☰ {currentLabel}</summary>
-    <ul>
+    <ul class="admin-nav__list">
       {links.map((l) => (
         <li>
           {l.key === current ? (
@@ -59,16 +59,55 @@ const currentLabel = links.find((l) => l.key === current)?.label ?? "Console";
     const nav = document.querySelector(".admin-nav");
     if (!nav) return;
     const menu = nav.querySelector("details");
-    if (!menu) return;
+    const list = nav.querySelector(".admin-nav__list") || nav.querySelector("ul");
+    const summary = menu && menu.querySelector("summary");
+    if (!menu || !list || !summary) return;
+
+    const placeList = () => {
+      if (!menu.open) return;
+      const r = summary.getBoundingClientRect();
+      // Prefer below the button; flip up if near the bottom of the viewport.
+      const gap = 4;
+      const maxH = Math.min(window.innerHeight * 0.7, 28 * 16);
+      let top = r.bottom + gap;
+      const spaceBelow = window.innerHeight - r.bottom - gap;
+      if (spaceBelow < 8 * 16 && r.top > spaceBelow) {
+        // Open upward
+        list.style.maxHeight = Math.min(maxH, r.top - gap) + "px";
+        top = Math.max(gap, r.top - gap - Math.min(list.scrollHeight || maxH, maxH));
+      } else {
+        list.style.maxHeight = Math.min(maxH, Math.max(120, spaceBelow)) + "px";
+      }
+      list.style.top = top + "px";
+      list.style.left = Math.max(8, Math.min(r.left, window.innerWidth - 16 - 240)) + "px";
+      list.style.minWidth = Math.max(r.width, 15 * 16) + "px";
+    };
 
     const syncOpen = () => {
       document.documentElement.classList.toggle("admin-nav-open", !!menu.open);
+      if (menu.open) {
+        // Double-rAF so layout is ready after open.
+        requestAnimationFrame(() => {
+          placeList();
+          requestAnimationFrame(placeList);
+        });
+      }
     };
+
     menu.addEventListener("toggle", syncOpen);
-    syncOpen();
+    window.addEventListener("resize", () => {
+      if (menu.open) placeList();
+    });
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (menu.open) placeList();
+      },
+      true
+    );
 
     document.addEventListener("click", (e) => {
-      if (menu.open && !menu.contains(e.target)) {
+      if (menu.open && !menu.contains(e.target) && !list.contains(e.target)) {
         menu.open = false;
         syncOpen();
       }
@@ -79,5 +118,7 @@ const currentLabel = links.find((l) => l.key === current)?.label ?? "Console";
         syncOpen();
       }
     });
+
+    syncOpen();
   })();
 </script>
