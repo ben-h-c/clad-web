@@ -2,8 +2,9 @@
 # OG card is live, then run scripts/announce.mjs (Bluesky when secrets exist;
 # always prints paste-ready X/Threads text in the job log).
 #
-# Agent publishes often land many commits in a burst — concurrency queues them
-# so we don't stampede Bluesky or send a wall of failure emails on OG lag.
+# Concurrency serializes announces (at most one run waits; earlier pending
+# runs are superseded) so we don't stampede Bluesky or send a wall of
+# failure emails on OG lag.
 #
 # Manual test: Actions → Distribute → Run workflow
 # Secrets: SITE_URL, BSKY_HANDLE, BSKY_APP_PASSWORD, ANNOUNCE_DRY_RUN
@@ -39,7 +40,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          # Full history: the diff below ranges from github.event.before, which
+          # can be many commits back on a multi-commit push (fetch-depth: 2
+          # silently dropped every post but the last commit's).
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -57,7 +61,18 @@ jobs:
             echo "Manual announce: $files"
             exit 0
           fi
-          files=$(git diff --name-only HEAD~1 HEAD -- 'src/content/posts/**' | grep '\.md$' || true)
+          # Diff the WHOLE push range (event.before..sha), not just the last
+          # commit — agent bursts land several posts in one push. --diff-filter=A
+          # announces only newly ADDED posts: edits/typo fixes never re-announce,
+          # and deletions never reach announce.mjs. --no-renames keeps a slug
+          # rename (new URL) classified as an add so it still announces.
+          # Corrections that SHOULD re-announce use the workflow_dispatch input.
+          before="${{ github.event.before }}"
+          if [ "$before" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "$before" 2>/dev/null; then
+            echo "event.before unusable (first push or force-push) — falling back to HEAD~1"
+            before="HEAD~1"
+          fi
+          files=$(git diff --name-only --no-renames --diff-filter=A "$before" "${{ github.sha }}" -- 'src/content/posts/**' | grep '\.md$' || true)
           echo "files<<EOF" >> "$GITHUB_OUTPUT"
           echo "$files" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
