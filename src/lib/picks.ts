@@ -235,9 +235,22 @@ export async function upsertPick(
     .bind(now, ballot.id)
     .run();
 
-  const updated = await getBallotForUser(userId, electionId);
-  if (!updated) throw new Error("ballot missing");
-  return updated;
+  // Prefer a fresh load; if D1 is briefly stale, merge this pick into the prior
+  // set so the client always gets an accurate pick count for the counter.
+  let picks = await loadPicks(ballot.id);
+  const idx = picks.findIndex((p) => p.raceId === raceId);
+  const row: UserPickRow = { raceId, side, candidateSlug, updatedAt: now };
+  if (idx >= 0) picks[idx] = row;
+  else picks = [...picks, row];
+
+  const resultsFresh = await listResults(electionId);
+  return {
+    ...ballot,
+    lockedAt: null,
+    updatedAt: now,
+    picks,
+    score: scorePicks(election, picks, resultsFresh),
+  };
 }
 
 export async function lockBallot(userId: string, electionId: string): Promise<UserBallot> {

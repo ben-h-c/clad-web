@@ -133,6 +133,9 @@ const jsonLd = {
     data-picks-open={picksOpen ? "1" : "0"}
     data-locked={isLocked ? "1" : "0"}
     data-share-url={shareUrl || ""}
+    data-picked-count={String(score.picked)}
+    data-total-races={String(score.total)}
+    data-picked-ids={JSON.stringify([...pickByRace.keys()])}
   >
     <p class="small-caps upgrade__eyebrow">Midterms 2026 · Ballot board</p>
     <h1 class="static-page__title">{board.title}</h1>
@@ -430,11 +433,24 @@ const jsonLd = {
     const lockBtn = document.getElementById("ballot-lock");
     const resetBtn = document.getElementById("ballot-reset");
     let shareUrl = root.getAttribute("data-share-url") || "";
+    const totalRaces = Number(root.getAttribute("data-total-races") || "21") || 21;
+    let pickedIds = new Set();
+    try {
+      const initial = JSON.parse(root.getAttribute("data-picked-ids") || "[]");
+      if (Array.isArray(initial)) initial.forEach((id) => { if (id) pickedIds.add(String(id)); });
+    } catch {}
 
     function setStatus(msg) {
       if (!status) return;
       status.hidden = !msg;
       status.textContent = msg || "";
+    }
+
+    function setPickedLabel(n) {
+      if (!pickedLabel) return;
+      const count = typeof n === "number" ? n : pickedIds.size;
+      pickedLabel.textContent = count + "/" + totalRaces + " picks";
+      root.setAttribute("data-picked-count", String(count));
     }
 
     /** Clad-styled confirm — matches paper UI + light/dark theme tokens. */
@@ -487,13 +503,25 @@ const jsonLd = {
       });
     }
 
-    function updateProgress(ballot) {
-      if (!ballot || !pickedLabel) return;
-      const s = ballot.score;
-      pickedLabel.textContent = s.picked + "/" + s.total + " picks";
-      if (scoreLabel && s.called > 0) {
+    function updateProgress(ballot, justPickedRaceId) {
+      if (!ballot) return;
+      // Rebuild pick set from server when present; always fold in the race just saved
+      // so the header never lags behind a successful click.
+      if (Array.isArray(ballot.picks)) {
+        pickedIds = new Set(ballot.picks.map((p) => String(p.raceId)));
+      }
+      if (justPickedRaceId) pickedIds.add(String(justPickedRaceId));
+
+      const s = ballot.score || {};
+      const picked =
+        typeof s.picked === "number" && s.picked >= pickedIds.size
+          ? s.picked
+          : pickedIds.size;
+      setPickedLabel(picked);
+
+      if (scoreLabel && typeof s.called === "number" && s.called > 0) {
         scoreLabel.innerHTML =
-          " · Score " + s.correct + "–" + s.wrong +
+          " · Score " + (s.correct || 0) + "–" + (s.wrong || 0) +
           ' <span class="ballot-progress__muted">(' + s.called + " called)</span>";
       }
       locked = !!ballot.lockedAt;
@@ -508,8 +536,8 @@ const jsonLd = {
         root.setAttribute("data-share-url", "");
       }
       if (shareBtn) shareBtn.hidden = !locked || !shareUrl;
-      if (resetBtn) resetBtn.hidden = locked || s.picked === 0;
-      if (lockBtn) lockBtn.hidden = locked || s.picked === 0;
+      if (resetBtn) resetBtn.hidden = locked || picked === 0;
+      if (lockBtn) lockBtn.hidden = locked || picked === 0;
     }
 
     async function savePick(raceId, side, btn) {
@@ -549,7 +577,12 @@ const jsonLd = {
             }
           });
         }
-        updateProgress(data.ballot);
+        // Optimistic: count this race immediately, then reconcile with server ballot.
+        pickedIds.add(String(raceId));
+        setPickedLabel(pickedIds.size);
+        if (resetBtn) resetBtn.hidden = false;
+        if (lockBtn) lockBtn.hidden = locked;
+        updateProgress(data.ballot || { picks: [], score: { picked: pickedIds.size, total: totalRaces } }, raceId);
         setStatus("Saved.");
         setTimeout(() => setStatus(""), 1200);
       } catch {
