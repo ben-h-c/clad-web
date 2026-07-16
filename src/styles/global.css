@@ -730,14 +730,30 @@ html.clad-app .site-tip {
 html.clad-app .colophon {
   padding-bottom: 0.25rem;
 }
-/* Tighter masthead on phone-width app screens */
+/* Masthead on in-app shell — slightly roomier than the ultra-compact default */
 html.clad-app .masthead {
   padding-top: 0;
 }
 html.clad-app .masthead__bar {
-  min-height: 2.15rem;
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
+  min-height: var(--site-header-chrome-h);
+  padding-top: 0.32rem;
+  padding-bottom: 0.32rem;
+}
+html.clad-app .masthead__title {
+  font-size: clamp(1.18rem, 3vw, 1.48rem);
+  letter-spacing: 0.13em;
+}
+html.clad-app .masthead__search,
+html.clad-app .masthead__theme {
+  width: 2.3rem;
+  height: 2.3rem;
+}
+html.clad-app .masthead__theme {
+  font-size: 1.05rem;
+}
+html.clad-app .masthead__fixed .masthead__meta {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.1rem 0.32rem;
 }
 /* In-app WebView: no browser-style top chrome during / after navigation */
 html.clad-app .read-progress {
@@ -1004,10 +1020,11 @@ html.theme-dark .masthead__fixed::before {
   }
 }
 
-/* In-app: fixed stack sits under the notch / status bar */
+/* In-app: fixed stack sits under the notch / status bar — a touch taller
+   than the dense web mobile chrome so tap targets and the wordmark breathe. */
 html.clad-app {
-  --site-header-chrome-h: 2.4rem;
-  --site-header-meta-h: 1.45rem;
+  --site-header-chrome-h: 2.75rem;
+  --site-header-meta-h: 1.6rem;
 }
 html.clad-app body {
   padding-top: calc(var(--site-header-h) + env(safe-area-inset-top, 0px));
