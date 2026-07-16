@@ -6725,6 +6725,91 @@ html.clad-app .clad-app-only { display: block; }
   .site-tip { box-shadow: none; }
 }
 
+/* First-open coachmark pointing at the light/dark toggle (#theme-toggle). */
+.theme-coach {
+  position: fixed;
+  z-index: 10070; /* above fixed masthead chrome */
+  max-width: min(17.5rem, calc(100vw - 1.5rem));
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  pointer-events: none;
+}
+.theme-coach.is-on {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.theme-coach[hidden] {
+  display: none;
+}
+.theme-coach__arrow {
+  position: absolute;
+  top: -7px;
+  right: 1.35rem;
+  width: 14px;
+  height: 14px;
+  background: var(--paper);
+  border-left: 2px solid var(--ink);
+  border-top: 2px solid var(--ink);
+  transform: rotate(45deg);
+  z-index: 1;
+}
+.theme-coach__card {
+  position: relative;
+  padding: 0.75rem 0.85rem 0.7rem;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  box-shadow:
+    0 10px 28px color-mix(in srgb, var(--shadow) 35%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--paper) 80%, transparent);
+}
+.theme-coach__kicker {
+  margin: 0 0 0.25rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  font-size: 0.68rem;
+}
+.theme-coach__body {
+  margin: 0 0 0.65rem;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+.theme-coach__glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin: 0 0.15rem;
+  border: 1px solid var(--rule);
+  font-size: 0.95rem;
+  vertical-align: middle;
+  background: var(--card);
+}
+.theme-coach__ok {
+  appearance: none;
+  font: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+}
+.theme-coach__ok:hover {
+  background: color-mix(in srgb, var(--ink) 88%, #fff);
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-coach {
+    transition: none;
+    transform: none;
+  }
+}
+
 .colophon__explore {
   display: flex;
   flex-wrap: wrap;

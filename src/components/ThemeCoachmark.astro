@@ -1,0 +1,119 @@
+---
+/**
+ * First-open coachmark for the light/dark toggle (native app shell primarily).
+ * Points at #theme-toggle once, then stays dismissed via localStorage.
+ */
+---
+<div
+  class="theme-coach"
+  id="theme-coach"
+  hidden
+  role="dialog"
+  aria-labelledby="theme-coach-title"
+  aria-describedby="theme-coach-body"
+>
+  <div class="theme-coach__arrow" aria-hidden="true"></div>
+  <div class="theme-coach__card">
+    <p class="theme-coach__kicker small-caps" id="theme-coach-title">Reading mode</p>
+    <p class="theme-coach__body" id="theme-coach-body">
+      Tap <span class="theme-coach__glyph" aria-hidden="true">◐</span> to switch between
+      <strong>light</strong> and <strong>dark</strong> reading anytime.
+    </p>
+    <button type="button" class="theme-coach__ok" id="theme-coach-ok">Got it</button>
+  </div>
+</div>
+
+<script is:inline>
+  (() => {
+    const KEY = "clad_tip_theme_toggle_v1";
+    const coach = document.getElementById("theme-coach");
+    if (!coach) return;
+
+    const path = location.pathname || "/";
+    if (/^\/(login|register|admin|verified|account|reset-password)/.test(path)) return;
+
+    // Prefer the native app shell; also show on first web visit if toggle exists.
+    const inApp =
+      document.documentElement.classList.contains("clad-app") ||
+      !!(window.__cladNative);
+
+    try {
+      if (localStorage.getItem(KEY)) return;
+    } catch {
+      return;
+    }
+
+    function place() {
+      const btn = document.getElementById("theme-toggle");
+      if (!btn || !coach) return false;
+      const r = btn.getBoundingClientRect();
+      if (r.width < 4 || r.height < 4) return false;
+      // Bubble sits under the fixed header chrome, aligned to the toggle.
+      const top = Math.max(r.bottom + 10, 8);
+      const right = Math.max(8, window.innerWidth - r.right - r.width / 2 + 12);
+      coach.style.top = top + "px";
+      coach.style.right = right + "px";
+      coach.style.left = "auto";
+      return true;
+    }
+
+    function dismiss() {
+      coach.hidden = true;
+      coach.classList.remove("is-on");
+      try {
+        localStorage.setItem(KEY, "1");
+      } catch {}
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("scroll", onResize, true);
+    }
+
+    function onResize() {
+      if (!coach.hidden) place();
+    }
+
+    function show() {
+      try {
+        if (localStorage.getItem(KEY)) return;
+      } catch {}
+      if (!place()) return;
+      coach.hidden = false;
+      // Double-rAF so the transition can run after un-hide.
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => coach.classList.add("is-on"));
+      });
+      window.addEventListener("resize", onResize);
+      window.addEventListener("scroll", onResize, true);
+    }
+
+    document.getElementById("theme-coach-ok")?.addEventListener("click", dismiss);
+    // Dismiss if they use the control we are pointing at.
+    document.getElementById("theme-toggle")?.addEventListener(
+      "click",
+      () => {
+        try {
+          localStorage.setItem(KEY, "1");
+        } catch {}
+        dismiss();
+      },
+      { once: true, capture: true }
+    );
+
+    // App: show soon after first paint. Web (non-app): only if no full tour pending.
+    const delay = inApp ? 900 : 2800;
+    setTimeout(() => {
+      if (!inApp) {
+        try {
+          // Let the home tour own first-run attention on the public site.
+          if (
+            path === "/" &&
+            !localStorage.getItem("clad_tour_v3") &&
+            !localStorage.getItem("clad_tour_v2")
+          ) {
+            return;
+          }
+        } catch {}
+      }
+      show();
+    }, delay);
+  })();
+</script>

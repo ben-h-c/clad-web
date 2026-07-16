@@ -3,6 +3,7 @@ import "~/styles/global.css";
 import Masthead from "~/components/Masthead.astro";
 import OnboardingTour from "~/components/OnboardingTour.astro";
 import SiteTips from "~/components/SiteTips.astro";
+import ThemeCoachmark from "~/components/ThemeCoachmark.astro";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 import { FOOTER_PRODUCT_LINKS } from "~/lib/explore";
 import { getSessionUser, getPrefs, type ThemePref } from "~/lib/user-data";
@@ -334,6 +335,7 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
       </footer>
     </div>
     {!path.startsWith("/admin") && <SiteTips />}
+    {!path.startsWith("/admin") && <ThemeCoachmark />}
     {tour && <OnboardingTour />}
   </body>
 </html>
