@@ -15,7 +15,7 @@ export const DEFAULT_PREFS: UserPrefs = {
   newsletter: false,
   digest: "off",
   breakingAlerts: false,
-  theme: "light",
+  theme: "dark",
 };
 
 export interface SessionUser {
@@ -73,7 +73,8 @@ export async function setPrefs(userId: string, prefs: UserPrefs): Promise<void> 
 export function sanitizePrefs(input: unknown): UserPrefs {
   const o = (input ?? {}) as Record<string, unknown>;
   const digest = o.digest === "weekly" || o.digest === "daily" ? o.digest : "off";
-  const theme: ThemePref = o.theme === "dark" ? "dark" : "light";
+  // Dark is the product default; only explicit "light" opts out.
+  const theme: ThemePref = o.theme === "light" ? "light" : "dark";
   return {
     newsletter: !!o.newsletter,
     digest,

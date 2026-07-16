@@ -52,21 +52,22 @@ const shareDescription = (ogDescription ?? description).replace(/\s+/g, " ").tri
 const shareImage = new URL(ogImage ?? "/og/brand.png", site).href;
 
 // Signed-in account theme (light/dark) — applied before paint to avoid flash.
-// Guests keep using localStorage (masthead toggle) only.
+// Guests use localStorage (masthead toggle); if unset, dark is the default.
 let accountTheme: ThemePref | null = null;
 if (!path.startsWith("/admin")) {
   try {
     const u = await getSessionUser(Astro.request.headers);
     if (u) {
       const prefs = await getPrefs(u.id);
-      accountTheme = prefs.theme === "dark" ? "dark" : "light";
+      accountTheme = prefs.theme === "light" ? "light" : "dark";
     }
   } catch {
     accountTheme = null;
   }
 }
-const htmlTheme = accountTheme ?? undefined;
-const themeColor = accountTheme === "dark" ? "#181612" : "#3a3026";
+// SSR default dark so first paint matches FOUC script for guests without localStorage.
+const htmlTheme = accountTheme ?? "dark";
+const themeColor = htmlTheme === "dark" ? "#181612" : "#3a3026";
 
 // Site-wide structured data: the publisher + a searchable website. Page-specific
 // schema (e.g. NewsArticle) is passed in via the jsonLd prop.
@@ -163,13 +164,13 @@ const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : 
             applyTheme(t);
           } else {
             t = localStorage.getItem("clad_theme");
+            // Explicit toggle/account choice wins; otherwise default to dark.
             if (t === "dark" || t === "light") applyTheme(t);
-            else {
-              root.removeAttribute("data-theme");
-              root.classList.remove("theme-dark");
-            }
+            else applyTheme("dark");
           }
-        } catch (e) {}
+        } catch (e) {
+          applyTheme("dark");
+        }
         // Capture phase so masthead title / menu listeners cannot steal the click.
         document.addEventListener(
           "click",

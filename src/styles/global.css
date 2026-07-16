@@ -6,9 +6,8 @@
  */
 
 :root {
-  /* Light is the default reading theme for everyone. color-scheme: light keeps
-     native controls/scrollbars light even on an OS set to dark — dark mode is
-     opt-in only (see the data-theme="dark" block below and the Masthead toggle). */
+  /* Base tokens are light-paper; dark overrides below. Runtime default is dark
+     (BaseLayout FOUC script) unless the user chose light via toggle/account. */
   color-scheme: light;
   /* Aged newsprint — warm cream with a touch of brown (not flat beige) */
   --paper: rgb(236, 224, 196);
@@ -60,10 +59,9 @@
   --fiber: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.035' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
-/* Dark palette — applied ONLY when the reader has explicitly opted in via the
-   Masthead toggle (persisted in localStorage as clad_theme, reflected as
-   data-theme="dark" and/or .theme-dark). Light is the default for everyone;
-   we intentionally do NOT auto-apply dark from the OS preference. */
+/* Dark palette — default for first visit; also when the reader opts in via
+   Masthead toggle / account prefs (clad_theme, data-theme="dark", .theme-dark).
+   We do NOT follow OS preference automatically. */
 :root[data-theme="dark"],
 html.theme-dark {
   --paper: rgb(28, 25, 20);

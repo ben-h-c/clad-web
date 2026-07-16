@@ -110,17 +110,17 @@ const planLabel = access.tier === "paid" ? "Premium" : "Free";
         <fieldset class="theme-fieldset">
           <legend class="visually-hidden">Default theme</legend>
           <label class="theme-choice">
-            <input type="radio" name="theme" value="light" checked={prefs.theme !== "dark"} />
-            <span class="theme-choice__card theme-choice__card--light">
-              <strong>Light</strong>
-              <small>Paper desk — the classic Clad look</small>
+            <input type="radio" name="theme" value="dark" checked={prefs.theme !== "light"} />
+            <span class="theme-choice__card theme-choice__card--dark">
+              <strong>Dark</strong>
+              <small>Default · low-light night desk</small>
             </span>
           </label>
           <label class="theme-choice">
-            <input type="radio" name="theme" value="dark" checked={prefs.theme === "dark"} />
-            <span class="theme-choice__card theme-choice__card--dark">
-              <strong>Dark</strong>
-              <small>Low-light reading after hours</small>
+            <input type="radio" name="theme" value="light" checked={prefs.theme === "light"} />
+            <span class="theme-choice__card theme-choice__card--light">
+              <strong>Light</strong>
+              <small>Paper desk — the classic Clad look</small>
             </span>
           </label>
         </fieldset>
@@ -307,7 +307,7 @@ const planLabel = access.tier === "paid" ? "Premium" : "Free";
         themeForm.addEventListener("submit", async (e) => {
           e.preventDefault();
           const picked = themeForm.querySelector('input[name="theme"]:checked');
-          const theme = picked && picked.value === "dark" ? "dark" : "light";
+          const theme = picked && picked.value === "light" ? "light" : "dark";
           setStatus(themeStatus, "info", "Saving…");
           try {
             const res = await fetch("/api/me/preferences", {
