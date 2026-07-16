@@ -102,12 +102,14 @@ html {
   overflow-x: hidden;
   /* Smoother scroll compositing on mobile Safari / WKWebView */
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  min-height: 100dvh;
   background: transparent;
   color: var(--ink);
   font-family: var(--font-serif);
@@ -120,6 +122,25 @@ body {
   overflow-x: hidden;
   position: relative;
   isolation: isolate;
+  /* Avoid horizontal rubber-band revealing desk beside paper on mobile */
+  overscroll-behavior-x: none;
+}
+
+/* Mobile Safari / small phones: slightly tighter type for comfort */
+@media (max-width: 640px) {
+  body {
+    font-size: 17px;
+    line-height: 1.53;
+  }
+  /* Tap targets: keep interactive chips comfortable on thumb */
+  .home-promo__cta,
+  .race-share__btn,
+  .ballot-chip,
+  .emap-seg__btn {
+    min-height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+  }
 }
 
 /* Global grain — no mix-blend (blend modes force expensive offscreen passes). */
@@ -455,7 +476,10 @@ p {
 @media (max-width: 640px) {
   .shell {
     margin: 0.35rem 0.35rem 0.75rem;
-    padding: 1.25rem 1rem 2.5rem;
+    /* Safe-area aware gutters for notched iPhones (Safari + WKWebView) */
+    padding: 1.15rem max(0.9rem, env(safe-area-inset-right, 0px))
+      max(2.25rem, calc(env(safe-area-inset-bottom, 0px) + 1.5rem))
+      max(0.9rem, env(safe-area-inset-left, 0px));
     box-shadow:
       0 0 0 1px color-mix(in srgb, var(--paper) 80%, var(--rule)),
       0 0 0 3px color-mix(in srgb, var(--rule) 70%, transparent),
@@ -463,13 +487,32 @@ p {
   }
 }
 
-/* In-app WebView: no desk margin (native chrome already frames the page) */
+/* In-app WebView: edge-to-edge paper (native chrome frames the page).
+   viewport-fit=cover + safe-area insets keep content clear of notch / home bar. */
+html.clad-app {
+  background-image: none;
+  background-color: var(--paper);
+}
+html.clad-app body {
+  background: var(--paper);
+  min-height: 100dvh;
+  /* Slightly denser type in WKWebView (feels oversized vs Safari at 18px). */
+  font-size: 16.5px;
+  line-height: 1.52;
+  /* Bounce / overscroll matches paper (light or dark via --paper). */
+  overscroll-behavior-y: contain;
+}
 html.clad-app .shell {
   margin: 0;
   border: 0;
   box-shadow: none;
   border-radius: 0;
   animation: none;
+  /* Safe areas: status bar / Dynamic Island / home indicator */
+  padding-top: max(0.85rem, env(safe-area-inset-top, 0px));
+  padding-right: max(1rem, env(safe-area-inset-right, 0px));
+  padding-bottom: max(2.25rem, calc(env(safe-area-inset-bottom, 0px) + 1.25rem));
+  padding-left: max(1rem, env(safe-area-inset-left, 0px));
 }
 html.clad-app .shell::after {
   box-shadow: inset 0 0 24px 1px color-mix(in srgb, var(--rule) 4%, transparent);
@@ -481,12 +524,25 @@ html.clad-app body::before,
 html.clad-app .shell::before {
   display: none;
 }
-html.clad-app {
-  background-image: none;
-  background-color: var(--paper);
+/* Sticky / fixed UI respects notches and home indicator in-app */
+html.clad-app .ballot-progress {
+  top: env(safe-area-inset-top, 0px);
 }
-html.clad-app body {
-  background: var(--paper);
+html.clad-app .site-tip {
+  bottom: max(0.75rem, calc(env(safe-area-inset-bottom, 0px) + 0.5rem));
+  left: max(0.75rem, env(safe-area-inset-left, 0px));
+  right: max(0.75rem, env(safe-area-inset-right, 0px));
+}
+html.clad-app .colophon {
+  padding-bottom: 0.25rem;
+}
+/* Tighter masthead chrome on phone-width app screens */
+html.clad-app .masthead {
+  padding-top: 0.35rem;
+}
+/* Map / full-bleed tools: keep side gutters but use full vertical space */
+html.clad-app .emap-page {
+  padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
 }
 /* Long lists: skip off-screen paint work (politicians directory, feeds) */
 .pol-card,
@@ -5693,23 +5749,24 @@ button.small {
 
 /* --- Reader-app (iOS) purchase-surface hiding ---
    When running inside the CladFacts iOS app (window.__cladNative → the
-   <html>.clad-app class set in BaseLayout), hide every in-app purchase
-   surface: pricing, checkout, upgrade links, the billing portal, and
-   trial upsells. The app is a "reader" app — Premium content unlocks for
-   users who subscribed on the web, but the app neither sells nor links out
-   to buy (App Review 3.1.1 / 3.1.3). Mark any future CTA with
-   data-app-hide to suppress it too. */
+   <html>.clad-app class set in BaseLayout), hide Stripe/web purchase
+   surfaces. Free-account register CTAs stay visible so users can still
+   unlock grades. Premium buys go through StoreKit (.js-app-purchase).
+   App Review 3.1.1 / 3.1.3. Mark pure-purchase chrome with data-app-hide. */
 .clad-app a[href*="/upgrade"],
 .clad-app a[href*="/api/stripe"],
 .clad-app #plan-section,
 .clad-app #portal-btn,
 .clad-app .plans,
-.clad-app .paywall__cta,
-.clad-app .paywall-banner__cta,
 .clad-app .upgrade__trial,
 .clad-app [data-app-hide] {
   display: none !important;
 }
+/* Paywall panel: keep "Create free account", hide only Premium/upgrade CTAs */
+.clad-app .paywall__cta a[href*="/upgrade"] {
+  display: none !important;
+}
+/* Banners that link to register stay; ones that only upsell Premium use data-app-hide */
 
 /* Sign in with Apple is app-only: native in the iOS app, but the web OAuth
    redirect flow needs a Services ID we don't configure, so hide it on the
