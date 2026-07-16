@@ -26,9 +26,14 @@ export interface PersonProfileMap {
 
 const PROFILES_KEY = "politicians:profiles";
 
-/** Well-known figures — ideology only until the agent scores claim reliability. */
+/** Well-known figures — ideology only until the agent scores claim reliability.
+ * Keys include both common nicknames and congress official-full slugs. */
 export const SEED_PROFILES: Record<string, Pick<PersonProfile, "leanScore" | "leanRationale">> = {
   "bernie-sanders": {
+    leanScore: -88,
+    leanRationale: "Democratic socialist; long record of left-wing positions on healthcare, taxation, and foreign policy.",
+  },
+  "bernard-sanders": {
     leanScore: -88,
     leanRationale: "Democratic socialist; long record of left-wing positions on healthcare, taxation, and foreign policy.",
   },
@@ -36,11 +41,19 @@ export const SEED_PROFILES: Record<string, Pick<PersonProfile, "leanScore" | "le
     leanScore: -82,
     leanRationale: "Progressive Democrat; DSA-aligned positions on climate, housing, and economic policy.",
   },
+  "aoc": {
+    leanScore: -82,
+    leanRationale: "Progressive Democrat (same person as Alexandria Ocasio-Cortez).",
+  },
   "elizabeth-warren": {
     leanScore: -72,
     leanRationale: "Progressive Democrat; consumer protection and wealth-tax advocacy.",
   },
   "chuck-schumer": {
+    leanScore: -48,
+    leanRationale: "Senate Democratic leadership; mainstream center-left party positions.",
+  },
+  "charles-e-schumer": {
     leanScore: -48,
     leanRationale: "Senate Democratic leadership; mainstream center-left party positions.",
   },
@@ -76,10 +89,6 @@ export const SEED_PROFILES: Record<string, Pick<PersonProfile, "leanScore" | "le
     leanScore: -55,
     leanRationale: "Democratic governor of California; progressive state policy record.",
   },
-  "aoc": {
-    leanScore: -82,
-    leanRationale: "Progressive Democrat (same person as Alexandria Ocasio-Cortez).",
-  },
   "marco-rubio": {
     leanScore: 58,
     leanRationale: "Republican; conservative foreign policy and social positions.",
@@ -96,7 +105,15 @@ export const SEED_PROFILES: Record<string, Pick<PersonProfile, "leanScore" | "le
     leanScore: -50,
     leanRationale: "Democratic senator; progressive-to-center-left.",
   },
+  "cory-a-booker": {
+    leanScore: -50,
+    leanRationale: "Democratic senator; progressive-to-center-left.",
+  },
   "mtg": {
+    leanScore: 85,
+    leanRationale: "Far-right Republican House member.",
+  },
+  "marjorie-taylor-greene": {
     leanScore: 85,
     leanRationale: "Far-right Republican House member.",
   },
@@ -142,6 +159,60 @@ export const SEED_PROFILES: Record<string, Pick<PersonProfile, "leanScore" | "le
   },
 };
 
+/**
+ * Party / office lean when we have no named seed and no agent grade yet.
+ * Parsed from race labels like "TX-21 House · R" or "Kentucky Governor · D".
+ */
+export function seedLeanFromOffice(opts: {
+  race?: string;
+  bucket?: string;
+  name?: string;
+}): Pick<PersonProfile, "leanScore" | "leanRationale"> | null {
+  const race = opts.race || "";
+  const bucket = opts.bucket || "";
+
+  // Explicit party marker at end of race string (most roster rows)
+  let party: "D" | "R" | "I" | null = null;
+  const m = race.match(/(?:^|[·|,])\s*([DRI])\s*$/i);
+  if (m) party = m[1]!.toUpperCase() as "D" | "R" | "I";
+  else if (/\bDemocrat/i.test(race)) party = "D";
+  else if (/\bRepublican/i.test(race)) party = "R";
+  else if (/\bIndependent/i.test(race)) party = "I";
+
+  // Executive principals without party in race string
+  if (!party && bucket === "Executive") {
+    const n = (opts.name || "").toLowerCase();
+    if (n.includes("trump") || n.includes("vance") || n.includes("rubio") || n.includes("rollins"))
+      party = "R";
+  }
+
+  // SCOTUS: no party label — leave to SEED_PROFILES or agent
+  if (!party && bucket === "Supreme Court") return null;
+
+  if (party === "D") {
+    return {
+      leanScore: bucket === "House" ? -45 : -42,
+      leanRationale:
+        "Provisional ideology from Democratic affiliation / caucus. Full claim-record grade pending agent review.",
+    };
+  }
+  if (party === "R") {
+    return {
+      leanScore: bucket === "House" ? 48 : 45,
+      leanRationale:
+        "Provisional ideology from Republican affiliation / caucus. Full claim-record grade pending agent review.",
+    };
+  }
+  if (party === "I") {
+    return {
+      leanScore: 0,
+      leanRationale:
+        "Provisional center lean for Independent / non-caucus affiliation. Full grade pending agent review.",
+    };
+  }
+  return null;
+}
+
 export async function getPersonProfileMap(kv: KVNamespace): Promise<PersonProfileMap | null> {
   const raw = await kv.get(PROFILES_KEY);
   if (!raw) return null;
@@ -185,21 +256,41 @@ export async function mergePersonProfiles(
   return next;
 }
 
-/** Resolve a profile: live agent score > seed ideology. */
+/** Resolve a profile: live agent score > KV seed > named seed > party/office lean. */
 export function resolvePersonProfile(
   slug: string,
-  live: PersonProfileMap | null | undefined
+  live: PersonProfileMap | null | undefined,
+  opts?: { race?: string; bucket?: string; name?: string }
 ): PersonProfile | null {
-  const agent = live?.bySlug?.[slug];
-  if (agent) return agent;
-  const seed = SEED_PROFILES[slug];
-  if (!seed) return null;
+  const stored = live?.bySlug?.[slug];
+  if (stored && typeof stored.leanScore === "number") return stored;
+
+  const named = SEED_PROFILES[slug];
+  if (named) {
+    return {
+      leanScore: named.leanScore,
+      leanRationale: named.leanRationale,
+      letterGrade: null,
+      factualityScore: null,
+      gradeRationale: null,
+      updatedAt: "seed",
+      source: "seed",
+    };
+  }
+
+  const fromOffice = seedLeanFromOffice({
+    race: opts?.race,
+    bucket: opts?.bucket,
+    name: opts?.name,
+  });
+  if (!fromOffice) return null;
   return {
-    leanScore: seed.leanScore,
-    leanRationale: seed.leanRationale,
+    leanScore: fromOffice.leanScore,
+    leanRationale: fromOffice.leanRationale,
     letterGrade: null,
     factualityScore: null,
-    gradeRationale: null,
+    gradeRationale:
+      "No agent claim-record grade yet — provisional lean only. politician-grader will upgrade.",
     updatedAt: "seed",
     source: "seed",
   };

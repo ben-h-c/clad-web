@@ -115,10 +115,10 @@ export async function runPoliticianProfileBuilder(agent) {
   if (!xaiKey) return { ok: false, message: "XAI_API_KEY not set" };
 
   const c = agent.config || {};
-  const maxPeople = Math.min(Number(c.maxPoliticiansPerRun) || 12, 25);
-  const maxDraftsTotal = Math.min(Number(c.maxPublishesPerRun) || 10, 20);
+  const maxPeople = Math.min(Number(c.maxPoliticiansPerRun) || 20, 30);
+  const maxDraftsTotal = Math.min(Number(c.maxPublishesPerRun) || 16, 24);
   const maxDraftsEach = Math.min(Number(c.maxDraftsPerPolitician) || 1, 3);
-  const maxPhotos = Math.min(Number(c.maxPhotoLookupsPerRun) || 40, 80);
+  const maxPhotos = Math.min(Number(c.maxPhotoLookupsPerRun) || 60, 100);
   const withinHours = Number(c.publishedWithinHours) || 168;
 
   const profile = await getPoliticianProfile();
@@ -130,8 +130,23 @@ export async function runPoliticianProfileBuilder(agent) {
     return { ok: false, message: `roster too small (${people.length}); run roster sync first` };
   }
 
-  // Priority: fewest appearances first, then missing photos, then A–Z.
+  // Priority: zero-coverage officeholders first (need gradeable material),
+  // then missing photos, then fewest appearances, then A–Z.
+  const bucketWeight = (b) => {
+    const x = String(b || "");
+    if (x === "Executive") return 0;
+    if (x === "Supreme Court") return 1;
+    if (x === "Senate") return 2;
+    if (x === "Governor") return 3;
+    if (x === "House") return 4;
+    return 5;
+  };
   const ranked = [...people].sort((a, b) => {
+    const az = (a.appearances || 0) === 0 ? 0 : 1;
+    const bz = (b.appearances || 0) === 0 ? 0 : 1;
+    if (az !== bz) return az - bz;
+    if (bucketWeight(a.bucket) !== bucketWeight(b.bucket))
+      return bucketWeight(a.bucket) - bucketWeight(b.bucket);
     if (a.appearances !== b.appearances) return a.appearances - b.appearances;
     if (a.hasPhoto !== b.hasPhoto) return a.hasPhoto ? 1 : -1;
     return a.name.localeCompare(b.name);

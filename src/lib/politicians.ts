@@ -270,7 +270,12 @@ export function buildPoliticianIndex(
       : null;
 
     // Person themselves (ideology + claim reliability) — never coverage average.
-    const person = resolvePersonProfile(row.slug, profiles);
+    // Falls back to named seeds, then party/office lean so every officeholder has a baseline.
+    const person = resolvePersonProfile(row.slug, profiles, {
+      race: row.race,
+      bucket: row.bucket,
+      name: row.name,
+    });
 
     out.push({
       name: row.name,
@@ -355,6 +360,58 @@ export function tagPoliticiansFromText(parts: {
   return out.slice(0, 8);
 }
 
+/**
+ * Within-branch hierarchy rank (lower first). Examples:
+ * Executive: President → VP → Cabinet → other
+ * SCOTUS: Chief → associates
+ * Then alphabetical by name among equals.
+ */
+export function officeHierarchyRank(p: {
+  name?: string;
+  race?: string;
+  bucket?: string;
+}): number {
+  const race = (p.race || "").toLowerCase();
+  const name = (p.name || "").toLowerCase();
+  const bucket = normalizeBucket(p.bucket);
+
+  if (bucket === "Executive") {
+    if (/^president of the united states$/.test(race) || (race.includes("president") && !race.includes("vice")))
+      return 0;
+    if (race.includes("vice president")) return 1;
+    if (race.includes("chief of staff")) return 2;
+    if (race.startsWith("secretary of") || race.includes("attorney general")) return 10;
+    if (race.includes("ambassador") || race.includes("director") || race.includes("administrator")) return 20;
+    // Known principals by name if race string is thin
+    if (name.includes("trump") && !name.includes("barron")) return 0;
+    if (name.includes("vance")) return 1;
+    return 30;
+  }
+
+  if (bucket === "Supreme Court") {
+    if (race.includes("chief justice")) return 0;
+    if (name.includes("roberts") && race.includes("supreme")) return 0;
+    return 10;
+  }
+
+  if (bucket === "Senate") {
+    if (race.includes("majority leader") || race.includes("minority leader")) return 0;
+    if (race.includes("class ii") || race.includes("class 2") || race.includes("(2026)")) return 5;
+    return 10;
+  }
+
+  if (bucket === "House") {
+    if (race.includes("speaker")) return 0;
+    if (race.includes("majority leader") || race.includes("minority leader")) return 1;
+    return 10;
+  }
+
+  if (bucket === "Governor") return 10;
+
+  // Coverage: sort by attention later
+  return 50;
+}
+
 /** Group for the index page — officeholders by branch, then Coverage. */
 export function groupPoliticiansByBucket(
   list: PoliticianAgg[]
@@ -367,9 +424,14 @@ export function groupPoliticiansByBucket(
   }
   return BUCKET_ORDER.filter((b) => map.has(b)).map((bucket) => ({
     bucket,
-    items: (map.get(bucket) ?? []).sort(
-      (a, b) => a.name.localeCompare(b.name) || b.appearances.length - a.appearances.length
-    ),
+    items: (map.get(bucket) ?? []).sort((a, b) => {
+      if (bucket === "Coverage") {
+        return b.appearances.length - a.appearances.length || a.name.localeCompare(b.name);
+      }
+      const ra = officeHierarchyRank(a);
+      const rb = officeHierarchyRank(b);
+      return ra - rb || a.name.localeCompare(b.name) || b.appearances.length - a.appearances.length;
+    }),
   }));
 }
 

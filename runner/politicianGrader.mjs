@@ -118,7 +118,7 @@ export async function runPoliticianGrader(agent) {
   const xaiKey = process.env.XAI_API_KEY;
   if (!xaiKey) return { ok: false, message: "XAI_API_KEY missing" };
 
-  const max = Math.min(Number(agent?.config?.maxPoliticiansPerRun) || 8, 15);
+  const max = Math.min(Number(agent?.config?.maxPoliticiansPerRun) || 28, 40);
   const q = await getPoliticianGradeQueue();
   if (!q.ok) return { ok: false, message: `queue fetch failed: ${q.status}` };
 

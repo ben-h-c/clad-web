@@ -9,6 +9,7 @@ import {
 } from "~/lib/politicianProfiles";
 import {
   buildPoliticianIndex,
+  officeHierarchyRank,
   resolvePoliticianSeeds,
 } from "~/lib/politicians";
 
@@ -40,22 +41,28 @@ export const GET: APIRoute = async ({ request }) => {
   const queue = index
     .filter((p) => p.bucket !== "Coverage")
     .map((p) => {
-      const hasAgent = profiles?.bySlug?.[p.slug]?.source === "agent";
-      const hasSeed = Boolean(profiles?.bySlug?.[p.slug] || p.personLean != null);
+      const stored = profiles?.bySlug?.[p.slug];
+      const hasAgent = stored?.source === "agent";
+      const hasSeed = Boolean(stored || p.personLean != null);
+      // Re-score agent grades older than 90 days so the corpus stays fresh.
+      const ageMs = stored?.updatedAt ? Date.now() - Date.parse(stored.updatedAt) : Infinity;
+      const stale = hasAgent && Number.isFinite(ageMs) && ageMs > 90 * 86_400_000;
       return {
         slug: p.slug,
         name: p.name,
         race: p.race ?? "",
         bucket: p.bucket,
         appearances: p.appearances.length,
-        needsGrade: !hasAgent,
+        needsGrade: !hasAgent || stale,
         hasLean: p.personLean != null,
         hasSeedOnly: hasSeed && !hasAgent,
+        hierarchy: officeHierarchyRank(p),
       };
     })
-    // Score people who appear in coverage first, then everyone else.
+    // Never-graded first, then hierarchy (President before back-bench), then heat, then alpha.
     .sort((a, b) => {
       if (a.needsGrade !== b.needsGrade) return a.needsGrade ? -1 : 1;
+      if (a.hierarchy !== b.hierarchy) return a.hierarchy - b.hierarchy;
       if (b.appearances !== a.appearances) return b.appearances - a.appearances;
       return a.name.localeCompare(b.name);
     });

@@ -278,13 +278,14 @@ export const DEFAULT_REGISTRY: Registry = {
       name: "Politician Profile Builder (coverage + photos)",
       enabled: true,
       // Daily 14:00 UTC — rotate officeholders, search news, fill portraits.
-      cron: "0 14 * * *",
+      // Also 02:00 UTC for a second pass so under-covered seats keep filling.
+      cron: "0 2,14 * * *",
       config: {
-        maxPoliticiansPerRun: 12,
+        maxPoliticiansPerRun: 20,
         maxDraftsPerPolitician: 1,
-        maxPublishesPerRun: 10,
-        maxPhotoLookupsPerRun: 40,
-        publishedWithinHours: 168, // 7 days
+        maxPublishesPerRun: 16,
+        maxPhotoLookupsPerRun: 60,
+        publishedWithinHours: 240, // 10 days
       },
     },
     {
@@ -292,10 +293,10 @@ export const DEFAULT_REGISTRY: Registry = {
       kind: "politician-grader",
       name: "Politician Grader (person ideology + claim record)",
       enabled: true,
-      // Daily 15:30 UTC — score the people themselves (not coverage averages).
-      cron: "30 15 * * *",
+      // Twice daily — clear the never-graded backlog and refresh stale scores.
+      cron: "30 7,15 * * *",
       config: {
-        maxPoliticiansPerRun: 8,
+        maxPoliticiansPerRun: 28,
       },
     },
   ],
@@ -326,17 +327,28 @@ export async function getRegistry(kv: KVNamespace): Promise<Registry> {
       changed = true;
     }
   }
-  // Bump race-board-auditor to daily so election dates publish ASAP (was */2).
-  const raceAuditor = reg.agents.find((a) => a.id === "race-board-auditor");
-  if (raceAuditor) {
-    const def = DEFAULT_REGISTRY.agents.find((a) => a.id === "race-board-auditor");
-    if (def && raceAuditor.cron !== def.cron) {
-      raceAuditor.cron = def.cron;
+  // Keep selected agents' cron + throughput knobs aligned with DEFAULT_REGISTRY
+  // so config bumps ship without wiping lastRun / custom toggles.
+  for (const id of [
+    "race-board-auditor",
+    "politician-grader",
+    "politician-profile-builder",
+  ]) {
+    const live = reg.agents.find((a) => a.id === id);
+    const def = DEFAULT_REGISTRY.agents.find((a) => a.id === id);
+    if (!live || !def) continue;
+    if (def.cron && live.cron !== def.cron) {
+      live.cron = def.cron;
       changed = true;
     }
-    if (def && raceAuditor.name !== def.name) {
-      raceAuditor.name = def.name;
+    if (def.name && live.name !== def.name) {
+      live.name = def.name;
       changed = true;
+    }
+    if (def.config) {
+      const before = JSON.stringify(live.config || {});
+      live.config = { ...live.config, ...def.config };
+      if (JSON.stringify(live.config) !== before) changed = true;
     }
   }
   if (changed) await kv.put(REGISTRY_KEY, JSON.stringify(reg));

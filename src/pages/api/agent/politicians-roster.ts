@@ -7,6 +7,13 @@ import {
   type PoliticianRosterLive,
   type PoliticianRosterSeed,
 } from "~/lib/agents";
+import {
+  getPersonProfileMap,
+  mergePersonProfiles,
+  seedLeanFromOffice,
+  SEED_PROFILES,
+  type PersonProfile,
+} from "~/lib/politicianProfiles";
 
 export const prerender = false;
 
@@ -93,5 +100,44 @@ export const POST: APIRoute = async ({ request }) => {
     counts,
   };
   await setPoliticianRoster(env.AGENTS, roster);
-  return json({ ok: true, total: seeds.length, counts, updatedAt: roster.updatedAt });
+
+  // Seed baseline leans for every officeholder that still has no profile, so
+  // report cards never render empty for ideology. Agent grades overwrite later.
+  let seeded = 0;
+  try {
+    const existing = (await getPersonProfileMap(env.AGENTS)) ?? { updatedAt: "", bySlug: {} };
+    const additions: Record<string, PersonProfile> = {};
+    const now = new Date().toISOString();
+    for (const s of seeds) {
+      if (existing.bySlug[s.slug]) continue;
+      const named = SEED_PROFILES[s.slug];
+      const fromOffice = seedLeanFromOffice({ race: s.race, bucket: s.bucket, name: s.name });
+      const lean = named || fromOffice;
+      if (!lean) continue;
+      additions[s.slug] = {
+        leanScore: lean.leanScore,
+        leanRationale: lean.leanRationale,
+        letterGrade: null,
+        factualityScore: null,
+        gradeRationale:
+          "Baseline lean only — politician-grader will add a full claim-record grade.",
+        updatedAt: now,
+        source: "seed",
+      };
+    }
+    if (Object.keys(additions).length) {
+      await mergePersonProfiles(env.AGENTS, additions);
+      seeded = Object.keys(additions).length;
+    }
+  } catch {
+    // Non-fatal: roster still saved; UI can seed on read via resolvePersonProfile.
+  }
+
+  return json({
+    ok: true,
+    total: seeds.length,
+    counts,
+    updatedAt: roster.updatedAt,
+    baselineLeansSeeded: seeded,
+  });
 };
