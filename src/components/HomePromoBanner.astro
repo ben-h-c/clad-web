@@ -3,13 +3,22 @@
  * Dismissible home spotlights from ~/lib/homePromos.
  * Close hides for this page view only — refresh or a new visit shows them again.
  */
-import { activeHomePromos, type HomePromo } from "~/lib/homePromos";
+import {
+  activeHomePromos,
+  homePromosForPage,
+  type HomePromo,
+  type HomePromoContext,
+} from "~/lib/homePromos";
 
 interface Props {
-  /** Override for tests; defaults to active promos now. */
+  /** Override list (tests). */
   promos?: HomePromo[];
+  /** Live context for hot topic/post + access-aware promos. */
+  context?: HomePromoContext;
 }
-const promos = Astro.props.promos ?? activeHomePromos();
+const promos =
+  Astro.props.promos ??
+  (Astro.props.context ? homePromosForPage(Astro.props.context) : activeHomePromos());
 ---
 {promos.length > 0 && (
   <div class="home-promos" data-home-promos>
@@ -40,7 +49,8 @@ const promos = Astro.props.promos ?? activeHomePromos();
   </div>
   <script is:inline>
     (() => {
-      // Clear any old permanent dismiss flags from earlier builds.
+      // Session-only dismiss: hide this banner until next full page load.
+      // (We clear any legacy permanent clad_promo_* keys once.)
       try {
         Object.keys(localStorage)
           .filter((k) => k.startsWith("clad_promo_"))

@@ -5810,6 +5810,18 @@ html.clad-app .clad-app-only { display: block; }
   border-color: color-mix(in srgb, rgb(48, 86, 64) 35%, var(--rule));
 }
 
+.home-promo--play {
+  background:
+    linear-gradient(125deg, color-mix(in srgb, rgb(120, 70, 20) 12%, var(--paper)) 0%, var(--paper) 55%, var(--paper-deep) 100%);
+  border-color: color-mix(in srgb, rgb(120, 70, 20) 35%, var(--rule));
+}
+
+.home-promo--feature {
+  background:
+    linear-gradient(125deg, color-mix(in srgb, rgb(70, 50, 110) 11%, var(--paper)) 0%, var(--paper) 55%, var(--paper-deep) 100%);
+  border-color: color-mix(in srgb, rgb(70, 50, 110) 32%, var(--rule));
+}
+
 .home-promo__text {
   flex: 1 1 16rem;
   min-width: 0;
@@ -5828,6 +5840,18 @@ html.clad-app .clad-app-only { display: block; }
 
 .home-promo--campus .home-promo__kicker {
   color: var(--grade-good-ink, rgb(48, 86, 64));
+}
+
+.home-promo--play .home-promo__kicker {
+  color: rgb(120, 70, 20);
+}
+
+.home-promo--feature .home-promo__kicker {
+  color: rgb(70, 50, 110);
+}
+
+.home-promo--urgent .home-promo__kicker {
+  color: var(--red-ink, #941a1a);
 }
 
 .home-promo__title {

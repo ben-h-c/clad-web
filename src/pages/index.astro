@@ -63,6 +63,20 @@ const sentiments = locked ? {} : await getSentiments(env.AGENTS);
 const topics = aggregateTopics(all, sentiments);
 const TOPICS_ON_HOME = 8;
 
+// Live promo inputs: hottest topic + freshest report for top-of-home cards
+const hotTopic =
+  topics.find((t) => t.todayCount >= 2) ??
+  topics.find((t) => t.recentCount >= 4) ??
+  null;
+const newest = all[0];
+const hotPost = newest
+  ? {
+      id: newest.id,
+      headline: newest.data.headline,
+      ageHours: (Date.now() - newest.data.publishedAt.valueOf()) / 3_600_000,
+    }
+  : null;
+
 // Best & worst — compact (3 each) for the signed-in desk board (GradeBoard).
 // Only full-access readers see it, so skip the two full sorts over the graded
 // corpus for locked readers — the highest-traffic case that fills the edge cache.
@@ -97,8 +111,22 @@ if (!locked) {
     <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
   ) : (
     <>
-      {/* Configurable spotlight(s) — midterms, campus, hot nights, etc. */}
-      <HomePromoBanner />
+      {/* Dismissible spotlights — features + live hot topic/report */}
+      <HomePromoBanner
+        context={{
+          locked,
+          hotTopic: hotTopic
+            ? {
+                display: hotTopic.display,
+                slug: hotTopic.slug,
+                todayCount: hotTopic.todayCount,
+                recentCount: hotTopic.recentCount,
+              }
+            : null,
+          hotPost,
+          max: 3,
+        }}
+      />
 
       {APP_STORE_LIVE && (
         <>
