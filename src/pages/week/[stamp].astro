@@ -95,7 +95,7 @@ const year = new Date(start).getUTCFullYear();
 const shareUrl = new URL(`/week/${iso(start)}/`, Astro.site ?? "https://cladfacts.com").href;
 ---
 <BaseLayout
-  title={`The Week in Grades — ${label}, ${year} — Clad`}
+  title={`The Week in Grades — ${label}, ${year} — CladFacts`}
   description={`Clad's week in review for ${label}, ${year}: the best- and worst-graded news coverage, the week's most disputed claims, and where coverage skewed to one side.`}
   ogTitle={`The Week in Grades — ${label}, ${year}`}
   ogImage={`/og/week/${iso(start)}.png`}
@@ -116,7 +116,7 @@ const shareUrl = new URL(`/week/${iso(start)}/`, Astro.site ?? "https://cladfact
       the record.
     </p>
 
-    <ShareBar url={shareUrl} title={`The Week in Grades — ${label}, ${year} — Clad`} />
+    <ShareBar url={shareUrl} title={`The Week in Grades — ${label}, ${year} — CladFacts`} />
 
     {!locked && leans.length > 0 && (
       <p>

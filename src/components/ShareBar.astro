@@ -12,6 +12,11 @@
 interface Props {
   url: string;
   title: string;
+  /** One extra prefilled line under the title (e.g. the public claims tally
+   *  "We checked 6 claims: 4 verified, 1 disputed."). Grade-free — the
+   *  prefill renders in the reader's compose box, but keep it consistent with
+   *  what an anonymous page shows. */
+  hook?: string;
   /** Path or absolute URL to a 9:16 story card (e.g. `/og/story/<slug>.png`). */
   storyImage?: string;
   /** Extra class on the root (e.g. to nest under a toolbar). */
@@ -21,13 +26,14 @@ interface Props {
   /** id for the root element so host pages can toggle visibility. */
   id?: string;
 }
-const { url, title, storyImage, class: className, hidden = false, id } = Astro.props;
+const { url, title, hook, storyImage, class: className, hidden = false, id } = Astro.props;
 
 const enc = encodeURIComponent;
-const caption = `${title}\n${url}`;
-const captionOneLine = `${title} ${url}`;
+const titleBlock = hook ? `${title}\n${hook}` : title;
+const caption = `${titleBlock}\n${url}`;
+const captionOneLine = hook ? `${title} — ${hook} ${url}` : `${title} ${url}`;
 
-const xHref = `https://twitter.com/intent/tweet?text=${enc(title)}&url=${enc(url)}`;
+const xHref = `https://twitter.com/intent/tweet?text=${enc(titleBlock)}&url=${enc(url)}`;
 const fbHref = `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`;
 const blueskyHref = `https://bsky.app/intent/compose?text=${enc(caption)}`;
 const threadsHref = `https://www.threads.net/intent/post?text=${enc(caption)}`;
@@ -43,6 +49,7 @@ const igOpen = storyImage ?? "https://www.instagram.com/";
   id={id}
   data-url={url}
   data-title={title}
+  data-hook={hook ?? ""}
   data-story-image={storyImage ?? ""}
   hidden={hidden || undefined}
   role="group"
@@ -169,13 +176,15 @@ const igOpen = storyImage ?? "https://www.instagram.com/";
     function applyShareTargets(bar) {
       const url = bar.getAttribute("data-url") || location.href;
       const title = bar.getAttribute("data-title") || document.title;
+      const hook = bar.getAttribute("data-hook") || "";
       const story = bar.getAttribute("data-story-image") || "";
-      const caption = title + "\n" + url;
-      const oneLine = title + " " + url;
+      const titleBlock = hook ? title + "\n" + hook : title;
+      const caption = titleBlock + "\n" + url;
+      const oneLine = hook ? title + " — " + hook + " " + url : title + " " + url;
 
       const map = {
         sms: "sms:?&body=" + enc(oneLine),
-        x: "https://twitter.com/intent/tweet?text=" + enc(title) + "&url=" + enc(url),
+        x: "https://twitter.com/intent/tweet?text=" + enc(titleBlock) + "&url=" + enc(url),
         facebook: "https://www.facebook.com/sharer/sharer.php?u=" + enc(url),
         bluesky: "https://bsky.app/intent/compose?text=" + enc(caption),
         threads: "https://www.threads.net/intent/post?text=" + enc(caption),

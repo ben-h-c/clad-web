@@ -8,7 +8,7 @@
  * tags so midterm surfaces stay current without a second model call.
  */
 import type { BroadcastReport } from "./broadcast.ts";
-import { lintHeadline } from "./headlineLint.ts";
+import { lintHeadline, lintHeadlineStyle } from "./headlineLint.ts";
 import { tagPoliticiansFromText, type PoliticianTag } from "./politicians.ts";
 import { gradeToGpa } from "./topics.ts";
 
@@ -132,6 +132,12 @@ export function assessDraftQuality(
   const headlineLint = lintHeadline(report.headline);
   if (headlineLint.length) {
     warnings.push(`Headline states the verdict (${headlineLint.map((w) => `"${w}"`).join(", ")})`);
+  }
+  const flatVerbs = lintHeadlineStyle(report.headline);
+  if (flatVerbs.length) {
+    warnings.push(
+      `Headline describes coverage, not news (${flatVerbs.map((w) => `"${w}"`).join(", ")}) — name what happened`
+    );
   }
   if (report.headline.length > 110) {
     warnings.push(`Headline is long (${report.headline.length} chars) — prefer ≤90`);

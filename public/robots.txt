@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 Disallow: /admin
+# The public reader feed is advertised (privacy policy §13) and crawlable;
+# everything else under /api stays off-limits.
+Allow: /api/posts.json
 Disallow: /api
 Disallow: /account
 Disallow: /login

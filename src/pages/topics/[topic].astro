@@ -11,6 +11,8 @@ import { getSentiments } from "~/lib/agents";
 import { aggregateTopics } from "~/lib/topics";
 import { getAccess } from "~/lib/access";
 import { sampleUnlockedId } from "~/lib/sample";
+import { metaDescription } from "~/lib/seo";
+import { shortDate } from "~/lib/dateline";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
@@ -60,10 +62,17 @@ const ogDescription = !access.fullAccess
   : [countLabel, topic.avgGrade ? `avg grade ${topic.avgGrade}` : null, leanLbl]
       .filter(Boolean)
       .join(" · ");
+// SERP description: differentiated per topic (count, freshness, the newest
+// headlines) instead of the old one-size template — grade-free, so identical
+// for anonymous crawlers and signed-out readers.
+const newestHeads = sorted.slice(0, 2).map((p) => p.data.headline).join("; ");
+const serpDescription = metaDescription(
+  `${countLabel}, updated ${shortDate(sorted[0]!.data.publishedAt)}. Latest: ${newestHeads}.`
+);
 ---
 <BaseLayout
-  title={`${topic.display} — Clad`}
-  description={`All Clad reports tagged ${topic.display}.`}
+  title={`${topic.display} fact-checks — ${topic.count} graded ${topic.count === 1 ? "report" : "reports"} — CladFacts`}
+  description={serpDescription}
   ogTitle={`${topic.display} — ${topic.count} ${topic.count === 1 ? "report" : "reports"}`}
   ogDescription={ogDescription}
   ogImage={`/og/topic-${topic.slug}.png`}
@@ -99,7 +108,7 @@ const ogDescription = !access.fullAccess
       </div>
     )}
 
-    <ShareBar url={shareUrl} title={`${topic.display} — Clad`} />
+    <ShareBar url={shareUrl} title={`${topic.display} — CladFacts`} />
 
     <div class="rule rule--double" aria-hidden="true" style="margin:1.25rem 0"></div>
 

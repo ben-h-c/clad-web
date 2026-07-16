@@ -18,7 +18,7 @@ import { dateline, shortDate } from "~/lib/dateline";
 import { embedUrl, isOwnedGeneratedImage } from "~/lib/youtube";
 import { getAccess } from "~/lib/access";
 import { sampleUnlockedId } from "~/lib/sample";
-import { metaDescription } from "~/lib/seo";
+import { metaDescription, stripSummaryOpener } from "~/lib/seo";
 import { splitCitations } from "~/lib/citations";
 import { slugify } from "~/lib/slug";
 import { aggregateTopicsCached, canonicalTopic, topicSlug } from "~/lib/topics";
@@ -92,14 +92,37 @@ const ogParts = isBroadcast
 // visually, so the title stays clean; the description keeps them as a backstop
 // for the rare client that shows text but not the image.
 const ogTitle = d.headline;
-const ogImage = `/og/${post.id}.png`;
+// ?v=<CARD_VERSION> matches src/pages/og/[slug].png.ts — the query is ignored
+// by the route (cache keys on path) but changes the URL social scrapers key
+// their caches on, so card redesigns re-unfurl on already-shared links.
+const ogImage = `/og/${post.id}.png?v=2`;
+// The claims tally (keyMoments verdict counts) is public page content — the
+// KeyMoments section renders for everyone — so it's safe in anonymous head
+// text and gives crawlers/unfurlers the fact-check tension the raw summary
+// buries. stripSummaryOpener removes the "The segment features…" boilerplate
+// so the description leads with the actual subject.
+const tally = (() => {
+  let verified = 0;
+  let disputed = 0;
+  let total = 0;
+  for (const m of d.keyMoments ?? []) {
+    total++;
+    if (m.verdict === "verified") verified++;
+    else if (m.verdict === "disputed") disputed++;
+  }
+  return { verified, disputed, total };
+})();
+const publicLede =
+  tally.total > 0
+    ? `${tally.total} claims checked — ${tally.verified} verified${tally.disputed ? `, ${tally.disputed} disputed` : ""}. ${stripSummaryOpener(d.summary)}`
+    : d.summary;
 // Restricted readers (incl. crawlers) get a grade-free description so the
 // grade/lean stays Premium; full-access requests keep the rich snippet.
 // Keyed to fullAccess (not `locked`) so even the daily sample post keeps its
 // grade out of <head> — the sample unlock lives only inside the marked
 // data-sample-unlocked subtree.
 const ogDescription = !access.fullAccess
-  ? metaDescription(d.summary)
+  ? metaDescription(publicLede)
   : isBroadcast
     ? metaDescription(`${ogParts.join(" · ")} · Factuality ${d.factualityScore}/100. ${d.summary}`)
     : metaDescription(`${ogParts.join(" · ")}. ${d.summary}`);
@@ -122,6 +145,8 @@ const newsLd = {
   // The report text is free for everyone (only the scoreboard is gated), so
   // this page never triggers paywalled-content treatment in Search.
   isAccessibleForFree: true,
+  articleSection: d.section,
+  ...(d.topics.length ? { keywords: d.topics.join(", ") } : {}),
   // Named editor for E-E-A-T; author.url resolves to the bio on /about/.
   author: { "@type": "Person", name: "Ben Cody", jobTitle: "Editor", url: `${origin}/about/#editor` },
   publisher: {
@@ -201,17 +226,35 @@ const sentiment = isBroadcast && !locked ? (await getSentiments(env.AGENTS))[pos
 const topicAggs = aggregateTopicsCached(all);
 const topicPageSlugs = new Set(topicAggs.map((t) => t.slug));
 const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id))?.slug ?? null;
+
+// Breadcrumb trail for SERP display: Home › <topic hub> › headline. Falls back
+// to the section-free two-level trail when the post has no topic hub.
+const ownTopic = ownTopicSlug ? topicAggs.find((t) => t.slug === ownTopicSlug) : null;
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "CladFacts", item: `${origin}/` },
+    ...(ownTopic
+      ? [{ "@type": "ListItem", position: 2, name: ownTopic.display, item: `${origin}/topics/${ownTopic.slug}/` }]
+      : []),
+    { "@type": "ListItem", position: ownTopic ? 3 : 2, name: d.headline, item: shareUrl },
+  ],
+};
 ---
 <BaseLayout
-  title={`${d.headline} — Clad`}
-  description={metaDescription(d.summary)}
+  title={`${d.headline} — CladFacts`}
+  description={metaDescription(publicLede)}
   ogTitle={ogTitle}
   ogDescription={ogDescription}
   ogImage={ogImage}
   ogType="article"
-  jsonLd={[newsLd, ...claimLds]}
+  jsonLd={[newsLd, ...claimLds, breadcrumbLd]}
 >
   <meta slot="head" property="article:published_time" content={published} />
+  <meta slot="head" property="article:modified_time" content={modified} />
+  <meta slot="head" property="article:section" content={d.section} />
+  {d.topics.map((t) => <meta slot="head" property="article:tag" content={t} />)}
   <article class="post" data-sample-unlocked={isSample && !access.fullAccess ? "true" : undefined}>
     <div class="post__kicker">
       {locked ? (
@@ -249,7 +292,12 @@ const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id)
     </div>
 
     <div class="post__actions">
-      <ShareBar url={shareUrl} title={`${d.headline} — Clad`} storyImage={`/og/story/${post.id}.png`} />
+      <ShareBar
+        url={shareUrl}
+        title={d.headline}
+        hook={tally.total > 0 ? `We checked ${tally.total} claims: ${tally.verified} verified${tally.disputed ? `, ${tally.disputed} disputed` : ""}.` : undefined}
+        storyImage={`/og/story/${post.id}.png`}
+      />
       <button
         type="button"
         class="save-btn"

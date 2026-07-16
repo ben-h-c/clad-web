@@ -53,7 +53,7 @@ const monthUrl = (d: { y: number; m: number }) => `/archive/${d.y}/${String(d.m)
 const pageUrl = (n: number) => `${monthUrl({ y: year, m: month })}${n === 1 ? "" : `?page=${n}`}`;
 ---
 <BaseLayout
-  title={`${label} archive — Clad`}
+  title={`${label} archive — CladFacts`}
   description={`All ${posts.length} fact-checked CladFacts reports from ${label}.`}
 >
   <Fragment slot="head">

@@ -60,12 +60,16 @@ const shareUrl = new URL(`/breaking/${slug}/`, Astro.site ?? "https://cladfacts.
 // headline here mislabels the page and wastes its shot at "[topic] fact
 // check" queries. group.title (latest headline) stays as on-page context.
 const hubName = group.topic ?? group.title;
-const pageTitle = `${hubName} — developing story, ${members.length} graded report${members.length === 1 ? "" : "s"} — Clad`;
+const pageTitle = `${hubName} — developing story — CladFacts`;
+// Unfurl title stays short (platforms truncate ~60-70 chars); the report count
+// lives in the description where it isn't competing with the topic name.
+const ogTitle = `${hubName} — developing story`;
 ---
 <BaseLayout
   title={pageTitle}
-  ogTitle={pageTitle}
-  description={`Developing story: ${members.length} fact-checked reports on ${hubName}, graded for accuracy and political lean.`}
+  ogTitle={ogTitle}
+  description={`Developing story: ${members.length} fact-checked report${members.length === 1 ? "" : "s"} on ${hubName}, graded for accuracy and political lean.`}
+  ogImage={`/og/breaking-${slug}.png`}
   ogType="website"
 >
   <section class="topic-page">
@@ -112,7 +116,7 @@ const pageTitle = `${hubName} — developing story, ${members.length} graded rep
       story. It dissolves back into the regular topics once the story settles.
     </p>
 
-    <ShareBar url={shareUrl} title={`${group.title} — Breaking — Clad`} />
+    <ShareBar url={shareUrl} title={`${group.title} — Breaking — CladFacts`} />
 
     <div class="rule rule--double" aria-hidden="true" style="margin:1.25rem 0"></div>
 

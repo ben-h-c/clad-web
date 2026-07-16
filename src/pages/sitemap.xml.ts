@@ -35,6 +35,8 @@ export async function GET() {
     url("/how-it-works/", undefined, "0.5"),
     url("/corrections/", undefined, "0.5"),
     url("/politicians/", undefined, "0.7"),
+    url("/quiz/", undefined, "0.6"),
+    url("/bias/", undefined, "0.55"),
     url("/bracket/", undefined, "0.75"),
     url("/elections/map/", undefined, "0.8"),
     url("/bracket/votes/", undefined, "0.7"),
