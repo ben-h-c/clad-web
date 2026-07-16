@@ -1,7 +1,8 @@
 /*
  * Newspaper theme, ported from Clad/UI/NewspaperTheme.swift.
- * 1920s broadsheet: warm cream paper, near-black ink, dense serif type,
- * heavy ruled borders, light desk + grain. Restrained — fact-checker, not tabloid.
+ * 1920s broadsheet: aged cream paper (uneven browning, soft folds, fiber grain),
+ * near-black ink, dense serif type, heavy ruled borders. Restrained — fact-checker,
+ * not tabloid. Light mode carries the worn newsprint character; dark is a night desk.
  */
 
 :root {
@@ -9,8 +10,9 @@
      native controls/scrollbars light even on an OS set to dark — dark mode is
      opt-in only (see the data-theme="dark" block below and the Masthead toggle). */
   color-scheme: light;
-  --paper: rgb(244, 235, 212);
-  --paper-deep: rgb(236, 224, 196);
+  /* Aged newsprint — warm cream with a touch of brown (not flat beige) */
+  --paper: rgb(236, 224, 196);
+  --paper-deep: rgb(222, 204, 168);
   --desk: rgb(58, 48, 38);
   --desk-edge: rgb(42, 34, 26);
   --ink: rgb(26, 20, 13);
@@ -23,8 +25,11 @@
   --tint-2: rgba(10, 8, 5, 0.06);
   --tint-3: rgba(10, 8, 5, 0.12);
   --shadow: rgba(20, 12, 6, 0.28);
-  --grain-opacity: 0.045;
-  --wear-opacity: 0.07;
+  --grain-opacity: 0.07;
+  --wear-opacity: 0.12;
+  /* Soft amber used in uneven foxing / age stains */
+  --fox: rgba(132, 88, 42, 0.075);
+  --fox-deep: rgba(98, 62, 28, 0.09);
 
   /* Letter grades — muted editorial inks on paper wash (not traffic-light blocks) */
   --grade-good-ink: rgb(48, 86, 64);
@@ -46,11 +51,13 @@
   --gutter: 1.25rem;
 
   /* Solid card faces — sit on the paper and block wash/glow (physical sheets). */
-  --card: rgb(244, 235, 212);
-  --card-deep: rgb(238, 228, 202);
+  --card: rgb(240, 228, 200);
+  --card-deep: rgb(228, 212, 178);
 
   /* Film grain (tiny SVG noise) — reused on body overlay + paper sheet */
   --noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  /* Coarser fiber / pulp blotches — low-frequency noise for paper body */
+  --fiber: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.035' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
 /* Dark palette — applied ONLY when the reader has explicitly opted in via the
@@ -334,7 +341,7 @@ html.theme-dark .gradeboard__item {
     0 10px 22px color-mix(in srgb, var(--shadow) 55%, transparent);
 }
 
-/* Mobile / touch / in-app: strip decorative fixed layers for smooth scrolling */
+/* Mobile / touch: strip living-stage flair; keep a quieter paper texture for light */
 @media (max-width: 860px), (hover: none) {
   .living-bg__spark,
   .living-bg__grid {
@@ -348,10 +355,29 @@ html.theme-dark .gradeboard__item {
     opacity: 0.28;
   }
   body::before {
-    opacity: 0.02;
+    opacity: 0.03;
   }
   .shell::before {
-    opacity: 0.02;
+    opacity: 0.05;
+  }
+  /* Fewer fold layers on small screens — age washes remain on .shell itself */
+  .shell::after {
+    background-image:
+      radial-gradient(ellipse 55% 42% at 0% 0%, rgba(115, 72, 32, 0.09), transparent 58%),
+      radial-gradient(ellipse 52% 42% at 100% 100%, rgba(112, 70, 32, 0.1), transparent 58%),
+      linear-gradient(
+        100deg,
+        transparent 0%,
+        transparent 45%,
+        rgba(70, 45, 22, 0.022) 49.5%,
+        rgba(255, 248, 228, 0.08) 50.5%,
+        transparent 55%,
+        transparent 100%
+      );
+  }
+  :root[data-theme="dark"] .shell::after,
+  html.theme-dark .shell::after {
+    background-image: none;
   }
 }
 
@@ -450,11 +476,46 @@ p {
   margin: 0.45rem auto 1.75rem;
   padding: 1.1rem clamp(1.15rem, 3.5vw, 3.5rem) 3.25rem;
   background-color: var(--paper);
-  /* Soft paper fiber + faint age wash + corner backlight (shows between solid cards) */
+  /* Aged newsprint: uneven browning, soft foxing, faint pulp fiber, mild folds */
   background-image:
-    radial-gradient(ellipse 90% 55% at 12% 8%, rgba(255, 252, 240, 0.55), transparent 50%),
-    radial-gradient(ellipse 70% 45% at 92% 96%, rgba(180, 150, 100, 0.12), transparent 55%),
-    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+    /* Uneven age / foxing blotches (not uniform tan) */
+    radial-gradient(ellipse 42% 32% at 14% 18%, var(--fox), transparent 68%),
+    radial-gradient(ellipse 38% 28% at 82% 28%, var(--fox-deep), transparent 70%),
+    radial-gradient(ellipse 48% 30% at 48% 72%, rgba(150, 105, 55, 0.06), transparent 72%),
+    radial-gradient(ellipse 32% 24% at 92% 88%, rgba(120, 78, 38, 0.07), transparent 68%),
+    radial-gradient(ellipse 36% 26% at 6% 78%, rgba(110, 70, 35, 0.065), transparent 70%),
+    radial-gradient(ellipse 28% 20% at 62% 12%, rgba(160, 120, 70, 0.05), transparent 65%),
+    /* Soft fold / crease ridges (very low contrast) */
+    linear-gradient(
+      102deg,
+      transparent 0%,
+      transparent 41%,
+      rgba(70, 45, 22, 0.028) 48.5%,
+      rgba(255, 248, 228, 0.11) 50%,
+      rgba(70, 45, 22, 0.02) 51.5%,
+      transparent 58%,
+      transparent 100%
+    ),
+    linear-gradient(
+      8deg,
+      transparent 0%,
+      transparent 36%,
+      rgba(80, 52, 28, 0.022) 49%,
+      rgba(255, 250, 232, 0.09) 50.2%,
+      transparent 52%,
+      transparent 100%
+    ),
+    /* Corner light + warm depth */
+    radial-gradient(ellipse 90% 55% at 12% 8%, rgba(255, 250, 232, 0.42), transparent 52%),
+    radial-gradient(ellipse 70% 45% at 94% 96%, rgba(170, 125, 75, 0.16), transparent 58%),
+    /* Overall paper body — slightly uneven vertical brown */
+    linear-gradient(
+      172deg,
+      color-mix(in srgb, var(--paper) 92%, #fff8e8) 0%,
+      var(--paper) 28%,
+      color-mix(in srgb, var(--paper-deep) 85%, rgb(190, 155, 100)) 62%,
+      var(--paper-deep) 100%
+    );
   color: var(--ink);
   /* Double-rule frame like a nameplate border */
   border: 1px solid color-mix(in srgb, var(--rule) 88%, transparent);
@@ -473,16 +534,17 @@ p {
   /* No living-float: animating the whole sheet made every scroll janky */
 }
 
-/* Sheet grain — opacity only, no mix-blend. */
+/* Sheet grain + pulp fiber — opacity only, no mix-blend. */
 .shell::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: calc(var(--grain-opacity) * 0.9);
-  background-image: var(--noise);
-  background-size: 160px 160px;
+  opacity: calc(var(--grain-opacity) * 1.05);
+  background-image: var(--noise), var(--fiber);
+  background-size: 140px 140px, 420px 420px;
+  background-repeat: repeat, repeat;
   border-radius: inherit;
 }
 
@@ -493,12 +555,36 @@ p {
   pointer-events: none;
   z-index: 0;
   border-radius: inherit;
-  /* Very subtle edge wear / foxing — darker toward corners only */
+  /* Extra soft wrinkles + corner foxing over the sheet (light mode character) */
+  background-image:
+    linear-gradient(
+      168deg,
+      transparent 0%,
+      transparent 62%,
+      rgba(85, 55, 28, 0.03) 71%,
+      transparent 73.5%,
+      transparent 100%
+    ),
+    linear-gradient(
+      95deg,
+      transparent 0%,
+      transparent 22%,
+      rgba(90, 58, 30, 0.025) 33%,
+      rgba(255, 248, 230, 0.06) 34%,
+      transparent 36%,
+      transparent 100%
+    ),
+    radial-gradient(ellipse 55% 42% at 0% 0%, rgba(115, 72, 32, 0.1), transparent 58%),
+    radial-gradient(ellipse 48% 40% at 100% 0%, rgba(105, 68, 30, 0.08), transparent 56%),
+    radial-gradient(ellipse 50% 44% at 0% 100%, rgba(98, 62, 28, 0.1), transparent 58%),
+    radial-gradient(ellipse 52% 42% at 100% 100%, rgba(112, 70, 32, 0.11), transparent 58%);
+  /* Edge wear / handling — darker toward corners, slightly uneven */
   box-shadow:
-    inset 0 0 40px 2px color-mix(in srgb, var(--rule) calc(var(--wear-opacity) * 100%), transparent),
-    inset 18px 12px 36px -18px rgba(90, 60, 30, 0.07),
-    inset -16px -14px 34px -16px rgba(90, 60, 30, 0.06),
-    inset 0 0 0 1px color-mix(in srgb, var(--paper) 35%, transparent);
+    inset 0 0 48px 3px color-mix(in srgb, var(--rule) calc(var(--wear-opacity) * 100%), transparent),
+    inset 22px 16px 42px -16px rgba(90, 55, 25, 0.11),
+    inset -20px -18px 40px -14px rgba(85, 52, 24, 0.1),
+    inset 0 1px 0 color-mix(in srgb, #fff8e0 22%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--paper) 30%, transparent);
 }
 
 /* Content sits above paper grain/wear. Masthead must stack ABOVE main so the
@@ -527,6 +613,9 @@ html.masthead-menu-open .shell > main {
 :root[data-theme="dark"] .shell::before,
 html.theme-dark .shell::before {
   opacity: calc(var(--grain-opacity) * 1.1);
+  /* Dark uses fine grain only — coarse fiber reads muddy on dark paper */
+  background-image: var(--noise);
+  background-size: 160px 160px;
 }
 
 /* Dark sheet keeps a warm corner backlight; cards sit on top as solid stock. */
@@ -536,6 +625,15 @@ html.theme-dark .shell {
     radial-gradient(ellipse 95% 60% at 10% 4%, rgba(255, 170, 90, 0.22), transparent 55%),
     radial-gradient(ellipse 70% 45% at 92% 96%, rgba(70, 110, 180, 0.1), transparent 55%),
     linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+}
+
+/* Dark: drop light-mode foxing/folds; keep a quiet inset edge only */
+:root[data-theme="dark"] .shell::after,
+html.theme-dark .shell::after {
+  background-image: none;
+  box-shadow:
+    inset 0 0 36px 2px color-mix(in srgb, var(--rule) calc(var(--wear-opacity) * 55%), transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--paper) 25%, transparent);
 }
 
 @media (max-width: 640px) {
@@ -579,14 +677,45 @@ html.clad-app .shell {
   padding-bottom: max(2.25rem, calc(env(safe-area-inset-bottom, 0px) + 1.25rem));
   padding-left: max(1rem, env(safe-area-inset-left, 0px));
 }
-html.clad-app .shell::after {
+/* Light app: keep a quieter version of age/wear (full web folds can feel heavy on phone). */
+html.clad-app:not([data-theme="dark"]):not(.theme-dark) .shell::after {
+  background-image:
+    radial-gradient(ellipse 50% 40% at 0% 0%, rgba(115, 72, 32, 0.08), transparent 58%),
+    radial-gradient(ellipse 48% 38% at 100% 100%, rgba(112, 70, 32, 0.09), transparent 58%),
+    linear-gradient(
+      100deg,
+      transparent 0%,
+      transparent 46%,
+      rgba(70, 45, 22, 0.02) 49.5%,
+      rgba(255, 248, 228, 0.07) 50.5%,
+      transparent 54%,
+      transparent 100%
+    );
+  box-shadow:
+    inset 0 0 32px 2px color-mix(in srgb, var(--rule) 7%, transparent),
+    inset 14px 10px 28px -14px rgba(90, 55, 25, 0.08),
+    inset -12px -12px 26px -12px rgba(85, 52, 24, 0.07);
+}
+html.clad-app[data-theme="dark"] .shell::after,
+html.clad-app.theme-dark .shell::after {
+  background-image: none;
   box-shadow: inset 0 0 24px 1px color-mix(in srgb, var(--rule) 4%, transparent);
 }
 html.clad-app .living-bg {
   display: none;
 }
-html.clad-app body::before,
-html.clad-app .shell::before {
+/* Light app: soft grain only (no global body film; sheet fiber stays subtle). */
+html.clad-app body::before {
+  display: none;
+}
+html.clad-app:not([data-theme="dark"]):not(.theme-dark) .shell::before {
+  display: block;
+  opacity: 0.045;
+  background-image: var(--noise), var(--fiber);
+  background-size: 160px 160px, 480px 480px;
+}
+html.clad-app[data-theme="dark"] .shell::before,
+html.clad-app.theme-dark .shell::before {
   display: none;
 }
 /* Sticky / fixed UI respects notches and home indicator in-app */
@@ -662,7 +791,14 @@ body {
   right: 0;
   z-index: 10050;
   box-sizing: border-box;
-  background: var(--paper);
+  /* Anchor for grain ::before */
+  isolation: isolate;
+  background-color: var(--paper);
+  /* Match sheet: slight age wash so the bar isn’t flat modern chrome */
+  background-image:
+    radial-gradient(ellipse 70% 120% at 8% 50%, rgba(255, 248, 230, 0.35), transparent 60%),
+    radial-gradient(ellipse 55% 100% at 92% 40%, rgba(150, 105, 55, 0.07), transparent 65%),
+    linear-gradient(180deg, color-mix(in srgb, var(--paper) 88%, #fff8e0) 0%, var(--paper-deep) 100%);
   border-bottom: 1px solid color-mix(in srgb, var(--rule) 60%, transparent);
   box-shadow:
     0 1px 0 color-mix(in srgb, var(--rule) 12%, transparent),
@@ -671,12 +807,36 @@ body {
   padding-right: max(0.75rem, env(safe-area-inset-right, 0px));
 }
 
+/* Soft grain on the fixed bar (light); sits under chrome, not over clicks */
+.masthead__fixed::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: calc(var(--grain-opacity) * 0.85);
+  background-image: var(--noise);
+  background-size: 140px 140px;
+  background-repeat: repeat;
+}
+
+.masthead__fixed > * {
+  position: relative;
+  z-index: 1;
+}
+
 :root[data-theme="dark"] .masthead__fixed,
 html.theme-dark .masthead__fixed {
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image: none;
   box-shadow:
     0 1px 0 color-mix(in srgb, var(--rule) 30%, transparent),
     0 10px 22px color-mix(in srgb, var(--shadow) 45%, transparent);
+}
+
+:root[data-theme="dark"] .masthead__fixed::before,
+html.theme-dark .masthead__fixed::before {
+  opacity: calc(var(--grain-opacity) * 0.45);
 }
 
 .masthead__bar {
@@ -1731,12 +1891,21 @@ html.clad-app .masthead__fixed {
   margin: 0;
   padding: 0.3rem 0;
   list-style: none;
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 10% 0%, rgba(255, 248, 230, 0.35), transparent 55%),
+    linear-gradient(180deg, var(--paper), var(--paper-deep));
   border: 1px solid var(--rule);
   box-shadow: 3px 3px 0 var(--shadow);
   /* Above fixed header + page content while open */
   z-index: 10100;
   pointer-events: auto;
+}
+
+:root[data-theme="dark"] .masthead__menu-list,
+html.theme-dark .masthead__menu-list {
+  background-image: none;
+  background-color: var(--paper);
 }
 
 .masthead__menu-list li {
@@ -1870,8 +2039,11 @@ html.clad-app .masthead__fixed {
 .fold {
   margin: 0 0 1.15rem;
   border: 1px solid color-mix(in srgb, var(--rule) 75%, transparent);
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--paper) 88%, #fff), var(--paper));
+  background-color: var(--card);
+  background-image:
+    radial-gradient(ellipse 70% 50% at 0% 0%, rgba(255, 248, 230, 0.4), transparent 55%),
+    radial-gradient(ellipse 50% 45% at 100% 100%, rgba(140, 95, 50, 0.055), transparent 60%),
+    linear-gradient(180deg, color-mix(in srgb, var(--paper) 85%, #fff8e4), var(--paper-deep));
   border-radius: 4px;
   box-shadow:
     0 1px 0 color-mix(in srgb, #fff 50%, transparent),
@@ -2435,9 +2607,12 @@ html.clad-app .masthead__fixed {
   position: relative;
   padding: 0.65rem 0.65rem 0.55rem;
   border: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
-  /* Solid stock — blocks sheet wash/backlight (not translucent). */
+  /* Light: slightly aged stock (dark mode overrides to solid --card). */
   background-color: var(--card);
-  background-image: none;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 12% 0%, rgba(255, 248, 230, 0.45), transparent 55%),
+    radial-gradient(ellipse 55% 50% at 100% 100%, rgba(150, 105, 55, 0.06), transparent 60%),
+    linear-gradient(165deg, color-mix(in srgb, var(--card) 70%, #fff8e4) 0%, var(--card-deep) 100%);
   border-radius: 4px;
   box-shadow:
     0 1px 0 color-mix(in srgb, #fff 50%, transparent),
