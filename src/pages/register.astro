@@ -41,6 +41,19 @@ const loginHref = dest !== "/account/" ? `/login/?next=${encodeURIComponent(dest
         <input id="email" name="email" type="email" autocomplete="email" required />
       </div>
       <div class="field">
+        <label for="birthday">Birthday</label>
+        <input
+          id="birthday"
+          name="birthday"
+          type="date"
+          autocomplete="bday"
+          required
+          max={new Date(new Date().setFullYear(new Date().getFullYear() - 13)).toISOString().slice(0, 10)}
+          min="1905-01-01"
+        />
+        <p class="field__hint">Required · must be 13 or older · private — we only use this for your calendar</p>
+      </div>
+      <div class="field">
         <label for="password">Password (8+ characters)</label>
         <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required />
       </div>
@@ -73,11 +86,19 @@ const loginHref = dest !== "/account/" ? `/login/?next=${encodeURIComponent(dest
       try {
         const nameEl = document.getElementById("name");
         const emailEl = document.getElementById("email");
+        const bdayEl = document.getElementById("birthday");
         const pwEl = document.getElementById("password");
+        const birthday = (bdayEl && bdayEl.value) || "";
+        if (!birthday) throw new Error("Birthday is required.");
         const res = await fetch("/api/auth/sign-up/email", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name: nameEl.value.trim(), email: emailEl.value.trim(), password: pwEl.value }),
+          body: JSON.stringify({
+            name: nameEl.value.trim(),
+            email: emailEl.value.trim(),
+            password: pwEl.value,
+            birthday,
+          }),
         });
         const data = await res.json().catch(() => ({}));
         if (!res.ok) throw new Error(data.message || "Could not create account.");

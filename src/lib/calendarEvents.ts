@@ -52,6 +52,8 @@ export type CalendarEventKind =
   | "sports"
   | "deadline"
   | "clad"
+  /** Private-to-user markers (e.g. their birthday) — only injected server-side for that user. */
+  | "personal"
   | "other";
 
 export const CALENDAR_EVENT_KINDS: CalendarEventKind[] = [
@@ -74,6 +76,7 @@ export const CALENDAR_EVENT_KINDS: CalendarEventKind[] = [
   "sports",
   "deadline",
   "clad",
+  "personal",
   "other",
 ];
 
@@ -384,9 +387,35 @@ export function kindLabel(kind: CalendarEventKind | string): string {
       return "Deadline";
     case "clad":
       return "CladFacts";
+    case "personal":
+      return "Personal";
     default:
       return "News";
   }
+}
+
+/**
+ * Private birthday markers for the signed-in user only.
+ * Placed on this calendar year and next (so Dec→Jan rollover still shows).
+ * Never include user id or other PII in the payload.
+ */
+export function eventsFromUserBirthday(
+  birthday: string | null | undefined,
+  now = new Date()
+): CalendarEvent[] {
+  if (!birthday || !/^\d{4}-\d{2}-\d{2}$/.test(birthday)) return [];
+  const mmdd = birthday.slice(5); // MM-DD
+  if (!/^\d{2}-\d{2}$/.test(mmdd)) return [];
+  const y = now.getFullYear();
+  const years = [y, y + 1];
+  return years.map((year) => ({
+    id: `my-birthday-${year}`,
+    date: `${year}-${mmdd}`,
+    title: "Your birthday",
+    body: "Only you can see this on your CladFacts calendar. Have a great day.",
+    kind: "personal" as const,
+    source: "extra" as const,
+  }));
 }
 
 /**

@@ -18,12 +18,14 @@ import { getFrontpage, getBreaking, getSentiments, getTodayInHistory } from "~/l
 import { aggregateTopics, gradeToGpa } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
+import { getSessionUser, getPrefs } from "~/lib/user-data";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 import { homePromosForPage } from "~/lib/homePromos";
 import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates } from "~/lib/elections";
 import { getCalendarEventsStore } from "~/lib/agents";
 import {
   eventsFromPosts,
+  eventsFromUserBirthday,
   normalizeCalendarEvent,
   type CalendarEvent,
 } from "~/lib/calendarEvents";
@@ -138,6 +140,7 @@ if (!locked) {
 }
 
 // Home calendar: race dates + agent news feed + recent Clad reports on publish days.
+// Private birthday markers only when this request is a signed-in user (never shared).
 const election = await getElectionWithPublishedDates(DEFAULT_ELECTION_ID, env.AGENTS);
 const calendarRaces = election?.races;
 const calStore = await getCalendarEventsStore(env.AGENTS);
@@ -145,6 +148,15 @@ const calendarLive: CalendarEvent[] = (calStore?.events ?? [])
   .map((e) => normalizeCalendarEvent(e, "agent"))
   .filter((e): e is CalendarEvent => e != null);
 const calendarFromPosts = eventsFromPosts(all, { max: 36, maxPerDay: 2, daysBack: 40 });
+let calendarPrivate: CalendarEvent[] = [];
+if (access.signedIn) {
+  const su = await getSessionUser(Astro.request.headers);
+  if (su) {
+    const prefs = await getPrefs(su.id);
+    calendarPrivate = eventsFromUserBirthday(prefs.birthday);
+  }
+}
+const calendarExtra: CalendarEvent[] = [...calendarFromPosts, ...calendarPrivate];
 const todayInHistory = await getTodayInHistory(env.AGENTS);
 ---
 <BaseLayout
@@ -201,7 +213,7 @@ const todayInHistory = await getTodayInHistory(env.AGENTS);
       />
 
       {/* News calendar — agent feed + elections + linked past Clad reports. */}
-      <HomeCalendar races={calendarRaces} live={calendarLive} extra={calendarFromPosts} />
+      <HomeCalendar races={calendarRaces} live={calendarLive} extra={calendarExtra} />
 
       <section class="feed">
         <div class="feed__head">
