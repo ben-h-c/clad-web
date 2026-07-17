@@ -7630,14 +7630,15 @@ html.theme-dark .home-emap__card {
   stroke-width: 1.35;
   stroke-dasharray: 3.5 2;
 }
-.home-emap__party--solid-d { fill: #0b3d91; }
-.home-emap__party--likely-d { fill: #2a6fdb; }
-.home-emap__party--lean-d { fill: #7aa7ef; }
-.home-emap__party--tossup { fill: #9b8bb8; }
-.home-emap__party--lean-r { fill: #e07a72; }
-.home-emap__party--likely-r { fill: #c0392b; }
-.home-emap__party--solid-r { fill: #8b1a14; }
-.home-emap__party--no-race { fill: #d9d0bc; }
+/* Map paths use fill; legend swatches use background */
+.home-emap__party--solid-d { fill: #0b3d91; background: #0b3d91; }
+.home-emap__party--likely-d { fill: #2a6fdb; background: #2a6fdb; }
+.home-emap__party--lean-d { fill: #7aa7ef; background: #7aa7ef; }
+.home-emap__party--tossup { fill: #9b8bb8; background: #9b8bb8; }
+.home-emap__party--lean-r { fill: #e07a72; background: #e07a72; }
+.home-emap__party--likely-r { fill: #c0392b; background: #c0392b; }
+.home-emap__party--solid-r { fill: #8b1a14; background: #8b1a14; }
+.home-emap__party--no-race { fill: #d9d0bc; background: #d9d0bc; }
 
 .home-emap__legend {
   list-style: none;
@@ -7657,16 +7658,22 @@ html.theme-dark .home-emap__card {
 }
 .home-emap__swatch {
   display: inline-block;
-  width: 0.7rem;
-  height: 0.7rem;
+  width: 0.75rem;
+  height: 0.75rem;
   border-radius: 1px;
-  border: 1px solid color-mix(in srgb, var(--rule) 40%, transparent);
+  border: 1px solid color-mix(in srgb, var(--rule) 45%, transparent);
+  flex: 0 0 auto;
 }
 .home-emap__flip-key {
+  display: inline-block;
+  min-width: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   color: var(--ink);
-  opacity: 0.75;
+  opacity: 0.85;
+  border-bottom: 1.5px dashed var(--ink);
+  line-height: 1;
+  padding-bottom: 1px;
 }
 .home-emap__cta {
   margin: 0.15rem 0 0;
