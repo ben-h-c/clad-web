@@ -33,13 +33,39 @@ art.
 - `runner/legalRubric.md` §4 — the compliance auditor checks imagery every run.
 
 **Why stills are still displayed at all:** the embedded video's own poster
-frame, hotlinked from YouTube while we review that very broadcast, is a
-defensible use (commentary/criticism of the identified work; no copy on our
-servers). But broadcasters sometimes put licensed wire photos in their
-thumbnails, and rights-agency crawlers (PicRights, Copytrack, Higbee clients)
-match pixels, not provenance — so letters can still arrive. The trade-off is
-deliberate: keep the visual tiles, keep the response cost low with this
-runbook, and keep the kill switch ready.
+frame, shown while we review that very broadcast, is a defensible use
+(commentary/criticism of the identified work). But broadcasters sometimes put
+licensed wire photos in their thumbnails, and rights-agency crawlers
+(PicRights, Copytrack, Higbee clients) match pixels, not provenance — so
+letters can still arrive. The trade-off is deliberate: keep the visual tiles
+and share cards, keep the response cost low with this runbook, and keep the
+kill switch ready.
+
+**Two different surfaces, two different postures — do not conflate them:**
+
+- **Tiles** (report cards, topic/breaking pages) *hotlink* the still:
+  `<img src="https://img.youtube.com/…">`. No copy is stored on or served
+  from our servers, so the strongest defenses (the 9th-Circuit "server test"
+  where it applies, plus fair use) are available.
+- **OG / story share cards** (`/og/<slug>.png`, `/og/story/<slug>.png`)
+  *bake a copy*: while `SHOW_VIDEO_STILLS` is on they fetch the still
+  server-side and embed it in a PNG we serve from cladfacts.com (added
+  deliberately in commit `d61653d5`, 2026-07-16, so feeds show a real
+  thumbnail beside the grade stamp). This is a **hosted reproduction** — the
+  server test does not reach it, and it is the site's weakest imagery posture
+  (the still is only ever the post's own broadcast frame or owned
+  `/generated/` art, never an arbitrary third-party `og:image`, but a
+  broadcast frame can itself contain a wire photo).
+
+**Response consequence (read before answering any letter):** while
+`SHOW_VIDEO_STILLS` is `true`, "we host no copy of the image" is **false** for
+the share-card surface even though it is true for the tile. Do **not** put a
+blanket "no copy on our servers" assertion in a response. To make that
+assertion accurate first, flip the kill switch (below) and purge the OG
+card — after that only owned `/generated/` art is ever baked into a served
+PNG. The per-post SOP already has you confirm the image is gone from
+`/og/<slug>.png` after remediation; that step is doing real work now, not
+just belt-and-suspenders.
 
 ## When a claim letter arrives (SOP)
 
@@ -55,8 +81,10 @@ runbook, and keep the kill switch ready.
    - Edit that post's `thumbnail:` frontmatter to site-owned generated art
      (preferred — keeps the tile visual), or delete the field entirely.
    - Ship via PR; after deploy, verify the image is gone from the claimed
-     page AND from `/og/<slug>.png` (the deploy purge covers the edge cache;
-     spot-check with `curl -I`).
+     page AND from both baked share cards, `/og/<slug>.png` and
+     `/og/story/<slug>.png` (the deploy purge covers the edge cache;
+     spot-check with `curl -I`). Swapping the post's `thumbnail:` to owned art
+     is enough — the cards bake whatever that field points at.
 4. **Log the incident** in the table below.
 5. **Respond before the deadline, in writing.** Drafting guidance for
    responses is kept privately by the owner (this repo is public); as a rule,
@@ -66,10 +94,19 @@ runbook, and keep the kill switch ready.
 ## Escalation kill switch
 
 If claims arrive faster than one-off remediation is worth, set
-`SHOW_VIDEO_STILLS = false` in `src/lib/imagePolicy.ts` and deploy: every
-video still disappears from tiles site-wide in one release (owned `/generated/`
-art keeps rendering, and the embedded players themselves are unaffected —
-YouTube serves its own poster inside the iframe).
+`SHOW_VIDEO_STILLS = false` in `src/lib/imagePolicy.ts` and deploy. In one
+release every video still disappears from **both** surfaces:
+
+- tiles stop hotlinking it, and
+- the OG / story share cards stop baking it — `displayableThumb()` returns
+  `null` for anything but owned `/generated/` art, so from then on the only
+  thing ever composed into a served PNG is our own art (or the photo-free
+  ink-band layout).
+
+Owned `/generated/` art keeps rendering everywhere, and the embedded players
+themselves are unaffected (YouTube serves its own poster inside the iframe).
+This is also the fastest way to make a blanket "we host no third-party copy"
+statement literally true across the whole site — flip it, purge, then answer.
 
 ## Wikimedia politician portraits
 
@@ -93,4 +130,4 @@ have registered the image, which ordinary Commons contributors rarely do.
 
 | Date | Agency / claimant | Ref | Image / page | Action taken |
 |------|-------------------|-----|--------------|--------------|
-| 2026-07-15 | PicRights Intl. / Reuters News & Media (catalog MT1USATODAY29199757) | 3571-5266-2984 | Broadcaster's video still (`-D40MKvQQDM`) shown on `/topics/sports/` tile | Same day: post art swapped to owned generated illustration on every surface; OG route stopped baking stills site-wide; intake + CI + rubric guards shipped |
+| 2026-07-15 | PicRights Intl. / Reuters News & Media (catalog MT1USATODAY29199757) | 3571-5266-2984 | Broadcaster's video still (`-D40MKvQQDM`) shown on `/topics/sports/` tile | Same day: post art swapped to owned generated illustration on every surface; OG route made photo-free; intake + CI + rubric guards shipped. **Note:** the blanket OG photo-free change was deliberately reversed on 2026-07-16 (`d61653d5`) — share cards now bake the post's own still again, gated by `SHOW_VIDEO_STILLS`. The per-post swap above (owned art) still removes the specific claimed image from every surface including the OG card. |
