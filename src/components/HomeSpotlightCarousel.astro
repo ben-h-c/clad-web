@@ -1,7 +1,8 @@
 ---
 /**
  * Top-of-home spotlight carousel of hot/popular site sections.
- * Arrows (web) + swipe; optional dismiss (localStorage) so readers can hide it.
+ * Arrows (desktop web) + swipe; optional dismiss (localStorage).
+ * Visible by default — only hidden after the user closes it.
  */
 import type { HomePromo } from "~/lib/homePromos";
 
@@ -12,8 +13,8 @@ interface Props {
 const promos = Astro.props.promos ?? [];
 const wrapClass = ["home-spotlight", Astro.props.class].filter(Boolean).join(" ");
 const multi = promos.length > 1;
-/** Bump when the promo set changes in a way that should re-show for everyone. */
-const DISMISS_KEY = "clad_spotlight_v1";
+/** Bump to re-show for everyone after a product change / bug. */
+const DISMISS_KEY = "clad_spotlight_v2";
 ---
 {promos.length > 0 && (
   <section
@@ -22,7 +23,6 @@ const DISMISS_KEY = "clad_spotlight_v1";
     data-spotlight-key={DISMISS_KEY}
     aria-roledescription="carousel"
     aria-label="Featured on CladFacts"
-    hidden
   >
     <div class="home-spotlight__frame">
       {multi && (
@@ -110,18 +110,30 @@ const DISMISS_KEY = "clad_spotlight_v1";
     if (window.__homeSpotlight) return;
     window.__homeSpotlight = true;
 
+    // Clear older dismiss keys so a prior close during the hidden-by-default bug
+    // doesn't keep the bar gone forever.
+    try {
+      localStorage.removeItem("clad_spotlight_v1");
+    } catch (_) {}
+
     const wire = (root) => {
-      const key = root.getAttribute("data-spotlight-key") || "clad_spotlight_v1";
+      if (!root || root.dataset.spotlightWired === "1") return;
+      root.dataset.spotlightWired = "1";
+
+      const key = root.getAttribute("data-spotlight-key") || "clad_spotlight_v2";
       try {
         if (localStorage.getItem(key)) {
           root.hidden = true;
           return;
         }
       } catch (_) {}
+      // Always show unless explicitly dismissed (do not start hidden in HTML).
       root.hidden = false;
 
       const closeBtn = root.querySelector("[data-spotlight-close]");
-      closeBtn?.addEventListener("click", () => {
+      closeBtn?.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         root.hidden = true;
         try {
           localStorage.setItem(key, "1");
