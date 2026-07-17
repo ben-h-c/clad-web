@@ -103,12 +103,17 @@ const spotlightPromos = midtermsPromo
   : rawSpotlight;
 
 // Best & worst — compact (3 each) for the signed-in desk board (GradeBoard).
-// Only full-access readers see it, so skip the two full sorts over the graded
-// corpus for locked readers — the highest-traffic case that fills the edge cache.
+// Only reports published in the last 7 days so the board stays current.
+// Full-access only; skip the sorts for locked readers (highest-traffic case).
 let topGraded: typeof all = [];
 let bottomGraded: typeof all = [];
 if (!locked) {
-  const graded = all.filter((p) => gradeToGpa(p.data.letterGrade) != null);
+  const weekAgo = Date.now() - 7 * 86_400_000;
+  const graded = all.filter(
+    (p) =>
+      gradeToGpa(p.data.letterGrade) != null &&
+      p.data.publishedAt.valueOf() >= weekAgo
+  );
   const byGradeDesc = [...graded].sort(
     (a, b) =>
       gradeToGpa(b.data.letterGrade)! - gradeToGpa(a.data.letterGrade)! ||
@@ -243,7 +248,13 @@ if (!locked) {
           <TopIssuesGrid topics={topics} limit={TOP_ISSUES_GRID} class="home-web-only" />
           {/* iOS app: original By the Numbers strip (lean + issues). */}
           <HomeCharts posts={all} topics={topics} sentiments={sentiments} />
-          {topGraded.length > 0 && <GradeBoard top={topGraded} bottom={bottomGraded} />}
+          {topGraded.length > 0 && (
+            <GradeBoard
+              top={topGraded}
+              bottom={bottomGraded}
+              title="Best & Worst Graded · Last 7 Days"
+            />
+          )}
           <p class="home-more-analytics">
             Want the long view?{" "}
             <a href="/trends/">News Trends</a>
