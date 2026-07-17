@@ -46,21 +46,19 @@ const DISMISS_KEY = "clad_spotlight_v2";
               aria-hidden={i === 0 ? "false" : "true"}
               aria-label={`${i + 1} of ${promos.length}`}
             >
-              <aside
-                class:list={["home-promo", "home-promo--spotlight", p.variant && `home-promo--${p.variant}`]}
+              {/* Whole card is the hit target — no separate CTA buttons. */}
+              <a
+                class:list={["home-promo", "home-promo--spotlight", "home-promo--spotlight-link", p.variant && `home-promo--${p.variant}`]}
+                href={p.href}
               >
                 <div class="home-promo__text">
                   <p class="home-promo__kicker small-caps">{p.kicker}</p>
                   <p class="home-promo__title">{p.title}</p>
                   <p class="home-promo__body">{p.body}</p>
                 </div>
-                <div class="home-promo__actions">
-                  <a class="home-promo__cta" href={p.href}>{p.cta}</a>
-                  {p.secondaryHref && p.secondaryCta && (
-                    <a class="home-promo__secondary" href={p.secondaryHref}>{p.secondaryCta}</a>
-                  )}
-                </div>
-              </aside>
+                <span class="home-spotlight__go" aria-hidden="true">→</span>
+                <span class="visually-hidden">{p.cta}</span>
+              </a>
             </li>
           ))}
         </ul>
