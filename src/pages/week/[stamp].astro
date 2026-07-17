@@ -1,10 +1,12 @@
 ---
 import { getCollection } from "astro:content";
+import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import GradeBoard from "~/components/GradeBoard.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
 import ShareBar from "~/components/ShareBar.astro";
 import { getAccess } from "~/lib/access";
+import { getShareTags } from "~/lib/agents";
 import { canonicalTopic, gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
 import { LEAN_THRESHOLD, labelWeek, weekStartUTC } from "~/lib/trends";
 
@@ -91,6 +93,7 @@ const blindspots = [...byTopic.values()]
   .map((s) => ({ ...s, dir: s.left > s.right ? "the left" : "the right" }));
 
 const label = labelWeek(start);
+const shareTags = (await getShareTags(env.AGENTS))?.tags ?? {};
 const year = new Date(start).getUTCFullYear();
 const shareUrl = new URL(`/week/${iso(start)}/`, Astro.site ?? "https://cladfacts.com").href;
 ---
@@ -119,7 +122,7 @@ const shareUrl = new URL(`/week/${iso(start)}/`, Astro.site ?? "https://cladfact
     <ShareBar
       url={shareUrl}
       title={`The Week in Grades — ${label}, ${year}`}
-      hook="Best + worst graded coverage, disputed claims, and blindspots. Free on CladFacts →"
+      hook={shareTags.week ?? `${week.length} reports fact-checked the week of ${label}. Best, worst, most disputed — the scoreboard is out.`}
     />
 
     {!locked && leans.length > 0 && (

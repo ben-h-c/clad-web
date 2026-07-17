@@ -79,6 +79,10 @@ export interface LearnPage {
   /** Optional section for the letter-grade table */
   showGradeBands?: boolean;
   showClaimTags?: boolean;
+  /** OG card: bordered chip row between description and CTA (omit for the plain layout). */
+  cardChips?: string[];
+  /** OG card: eyebrow line above the title (defaults to a neutral FIELD GUIDE label). */
+  cardEyebrow?: string;
 }
 
 export const LEARN_PAGES: LearnPage[] = [
@@ -91,6 +95,7 @@ export const LEARN_PAGES: LearnPage[] = [
     shareCaption:
       "What does a C− mean on CladFacts? Letter grades for news coverage, decoded — not for the candidate, for the broadcast.",
     showGradeBands: true,
+    cardChips: ["A", "B", "C", "D", "F"],
     body: [
       "The letter grade is for the coverage you watched: how its claims held up, whether load-bearing facts were sourced, and whether the framing matched the evidence.",
       "It is not a grade for the politician, the party, or the story’s “importance.” A hard-hitting segment can earn an A if it’s careful. A flattering segment can earn a C if it leaves out what you needed to know.",
@@ -105,6 +110,7 @@ export const LEARN_PAGES: LearnPage[] = [
       "Political lean (−100 to +100) is about framing and who got airtime — separate from whether the facts are true.",
     shareCaption:
       "Lean ≠ accuracy. A segment can lean hard and still be careful with facts — CladFacts scores both.",
+    cardChips: ["LEFT", "CENTER", "RIGHT"],
     body: [
       "Lean runs from −100 (strongly left framing) through 0 (centered) to +100 (strongly right). It tracks word choice, guest mix, and what got left out — not whether you agree.",
       "Critical rule: lean is not a fact-check. A right-leaning piece can be meticulously sourced. A “centered” piece can still get numbers wrong. Always read lean next to the letter grade and factuality score.",
@@ -147,6 +153,8 @@ export const LEARN_PAGES: LearnPage[] = [
       "Loaded language, selective stats, one-sided guests, fake urgency — a short field guide for watching political TV.",
     shareCaption:
       "Field guide: loaded words, selective stats, one-sided guests, fake urgency. Slow down and check.",
+    cardChips: ["LOADED LANGUAGE", "SELECTIVE STATS", "ONE-SIDED GUESTS", "FAKE URGENCY"],
+    cardEyebrow: "FOUR TELLS · THIRTY SECONDS",
     body: [
       "Loaded language (“slammed,” “gutted,” “caved”) tells you how to feel before you know what happened.",
       "Selective statistics: a real number missing the base rate, time window, or comparison.",

@@ -4,8 +4,12 @@
  * Counts locked ballots only — never exposes who voted for whom.
  * Includes a US map colored by community lean (vs editorial election map).
  */
+import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import ShareBar from "~/components/ShareBar.astro";
+import { getShareTags } from "~/lib/agents";
 import { DEFAULT_ELECTION_ID, getElection } from "~/lib/elections";
+import { OG_VERSIONS } from "~/lib/ogCard";
 import { getCommunityVotes, type CommunityRaceTally } from "~/lib/picks";
 import { buildCommunityVoteMap, COMMUNITY_FILL_LABELS } from "~/lib/communityMap";
 import { FORECAST_ASOF } from "~/lib/electionForecast";
@@ -60,6 +64,9 @@ const ties = races.filter((r) => r.leader === "tie").length;
 const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
 const pageUrl = `${origin}/bracket/votes/`;
 
+// KV tagline (share-tag-writer) with a computed, grade-free fallback.
+const shareTags = (await getShareTags(env.AGENTS))?.tags ?? {};
+
 function sortHref(s: string) {
   const u = new URL(Astro.url);
   u.searchParams.set("sort", s);
@@ -80,7 +87,7 @@ function partyTag(p: string | null) {
   description="Anonymous tallies of locked CladFacts midterms ballots — who the community picked in each race."
   ogTitle="CladFacts community ballots"
   ogDescription={`${lockedBallots} locked ballots · anonymous race-by-race tallies for 2026 midterms.`}
-  ogImage={`${origin}/og/bracket.png`}
+  ogImage={`${origin}/og/bracket-votes.png?v=${OG_VERSIONS.bracketVotes}`}
 >
   <article class="static-page votes-dash" data-page="votes-dashboard">
     <p class="small-caps upgrade__eyebrow">Midterms 2026 · Community</p>
@@ -126,6 +133,15 @@ function partyTag(p: string | null) {
       </p>
     ) : (
       <>
+        <ShareBar
+          url="https://cladfacts.com/bracket/votes/"
+          title="How readers are calling the 2026 midterms"
+          hook={shareTags.votes ??
+            (closest && closest.total >= 2
+              ? `${lockedBallots.toLocaleString("en-US")} locked ballots. Closest race: ${closest.office}, ${closest.aPct}–${closest.bPct}. Not polls — picks.`
+              : `${lockedBallots.toLocaleString("en-US")} locked ballots, tallied race by race. Not polls — picks.`)}
+        />
+
         <div class="votes-highlights">
           {mostVotes && mostVotes.total > 0 && (
             <a class="votes-hl" href={`/bracket/votes/${mostVotes.raceId}/`}>

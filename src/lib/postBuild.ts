@@ -63,6 +63,7 @@ export function buildBroadcastFrontmatter(
     leanScore: report.leanScore,
     leanRationale: report.leanRationale || undefined,
     gradeRationale: report.gradeRationale || undefined,
+    shareText: report.shareText || undefined,
     topics: report.topics,
     assessment: report.assessment,
     notableConcerns: report.notableConcerns,

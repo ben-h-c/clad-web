@@ -47,15 +47,24 @@ const rows = election.races.map((race) => {
     outcome,
   };
 });
+
+// Marquee picks lead the unfurl text — the names a stranger recognizes.
+const marqueePicks = rows
+  .filter((r) => r.pickName && r.race.tier === "marquee")
+  .slice(0, 3)
+  .map((r) => `${r.pickName!.split(" ").pop()} in ${r.race.state}`);
+const pickTeaser = marqueePicks.length
+  ? `${marqueePicks.join(", ")} — ${score.picked} races locked. Pick against them on CladFacts.`
+  : `${score.picked} of ${score.total} races picked. Pick against them on CladFacts.`;
 ---
 <BaseLayout
   title={`${displayName}'s midterms ballot — CladFacts`}
   description={`${displayName} picked ${score.picked} of ${score.total} races on the CladFacts 2026 ballot board.`}
-  ogTitle={`${displayName}'s 2026 midterms ballot`}
+  ogTitle={`${displayName}'s 2026 ballot — ${score.picked} races picked`}
   ogDescription={
     score.called > 0
-      ? `${score.correct} correct · ${score.wrong} wrong · ${score.called} races called`
-      : `${score.picked}/${score.total} races picked — fill yours on CladFacts`
+      ? `Record ${score.correct}–${score.wrong} with ${score.called} races called. See every pick.`
+      : pickTeaser
   }
   ogImage={ogImage}
 >
@@ -75,8 +84,8 @@ const rows = election.races.map((race) => {
       title={`${displayName}'s locked 2026 midterms ballot`}
       hook={
         score.called > 0
-          ? `${score.correct} correct · ${score.wrong} wrong · ${score.called} called. Can you beat them?`
-          : `${score.picked}/${score.total} races picked — fill yours on CladFacts.`
+          ? `${score.correct} right, ${score.wrong} wrong, ${score.total - score.called} races still open. Think you'd have done better?`
+          : `${score.picked} Senate and governor calls, locked before the results. Beat this sheet on CladFacts.`
       }
       storyImage={ogImage}
     />

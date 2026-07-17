@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { DEFAULT_ELECTION_ID, getElection, raceById } from "~/lib/elections";
+import { OG_VERSIONS } from "~/lib/ogCard";
 import { getCommunityVotes, listResults } from "~/lib/picks";
 
 export const prerender = false;
@@ -36,7 +37,7 @@ const peers = ranked.filter((r) => r.raceId !== raceId && r.chamber === race.cha
   description={`Anonymous CladFacts ballot tally for ${race.office}: ${race.a.name} vs ${race.b.name}.`}
   ogTitle={`${race.office} community picks`}
   ogDescription={total ? `${aPct}% ${race.a.name} · ${bPct}% ${race.b.name} · ${total} locked picks` : "No locked picks yet"}
-  ogImage={`${origin}/og/bracket.png`}
+  ogImage={`${origin}/og/bracket.png?v=${OG_VERSIONS.bracket}`}
 >
   <article class="static-page votes-detail">
     <p class="small-caps upgrade__eyebrow">

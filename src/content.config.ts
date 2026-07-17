@@ -85,6 +85,9 @@ const posts = defineCollection({
       leanScore: z.number().int().min(-100).max(100).optional(),
       leanRationale: z.string().optional(),
       gradeRationale: z.string().optional(),
+      // X-ready share teaser written by the report pipeline; grade-free by
+      // construction (sanitizeShareText). Additive — legacy posts lack it.
+      shareText: z.string().optional(),
       topics: z.array(z.string()).max(4).default([]),
       assessment: z.string().optional(),
       notableConcerns: z.array(z.string()).max(3).default([]),

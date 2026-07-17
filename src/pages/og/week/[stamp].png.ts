@@ -3,6 +3,7 @@ import { env } from "cloudflare:workers";
 import { getCollection } from "astro:content";
 import { ImageResponse } from "workers-og";
 import { labelWeek, weekStartUTC } from "~/lib/trends";
+import { OG_VERSIONS, ogCacheKey } from "~/lib/ogCard";
 
 export const prerender = false;
 
@@ -69,10 +70,9 @@ export const GET: APIRoute = async ({ params, request, locals }) => {
   const end = start + 7 * 86_400_000;
 
   const cache = (caches as any).default as Cache;
-  // Cache is content-addressed by path only (no route reads query params), so drop
-  // the query string — otherwise ?anything busts the cache and re-runs satori.
-  const _u = new URL(request.url);
-  const cacheKey = new Request(_u.origin + _u.pathname);
+  // ogCacheKey drops the query string (?anything must not fan out satori
+  // renders) and folds the version into a synthetic path segment.
+  const cacheKey = ogCacheKey(new URL(request.url), "week", OG_VERSIONS.week);
   const hit = await cache.match(cacheKey);
   if (hit) return hit;
 

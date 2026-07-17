@@ -59,6 +59,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   const report = normalizeBroadcast({
     headline: p.report.headline,
+    share_text: p.report.shareText,
     letter_grade: p.report.letterGrade,
     factuality_score: p.report.factualityScore,
     political_lean: p.report.politicalLean,

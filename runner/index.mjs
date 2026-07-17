@@ -13,6 +13,7 @@ import { runFrontpageCurator } from "./frontpageCurator.mjs";
 import { runBreakingCurator } from "./breakingCurator.mjs";
 import { runComplianceAuditor } from "./complianceAuditor.mjs";
 import { runQuipWriter } from "./quipWriter.mjs";
+import { runShareTagWriter } from "./shareTagWriter.mjs";
 import { runDigestSender } from "./digestSender.mjs";
 import { runNewsletterSender } from "./newsletterSender.mjs";
 import { runDiscoverCurator } from "./discoverCurator.mjs";
@@ -38,6 +39,7 @@ const KINDS = {
   "breaking-news-curator": runBreakingCurator,
   "compliance-auditor": runComplianceAuditor,
   "quip-writer": runQuipWriter,
+  "share-tag-writer": runShareTagWriter,
   "digest-sender": runDigestSender,
   "newsletter-sender": runNewsletterSender,
   "discover-curator": runDiscoverCurator,

@@ -3,6 +3,7 @@ import { env } from "cloudflare:workers";
 import { getCollection } from "astro:content";
 import { ImageResponse } from "workers-og";
 import { findPolitician } from "~/lib/politicians";
+import { OG_VERSIONS, ogCacheKey } from "~/lib/ogCard";
 
 export const prerender = false;
 
@@ -35,7 +36,7 @@ function loadFonts(origin: string) {
 const esc = (s: unknown) => String(s ?? "").replace(/[<>&]/g, "");
 
 function markup(name: string, race: string | null, count: number): string {
-  const reports = `${count} graded report${count === 1 ? "" : "s"}`;
+  const reports = `${count} graded report${count === 1 ? " mentions" : "s mention"} them`;
   const raceLine = race ? race.toUpperCase() : "FACT-CHECK REPORT CARD";
   return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:48px 64px;border:16px solid ${INK}">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
@@ -45,7 +46,7 @@ function markup(name: string, race: string | null, count: number): string {
     <div style="display:flex;width:100%;height:4px;background:${INK};margin:20px 0 24px"></div>
     <div style="display:flex;font-size:22px;letter-spacing:4px;color:${RED};font-weight:700">${esc(raceLine)}</div>
     <div style="display:flex;font-size:64px;font-weight:700;line-height:1.05;margin-top:12px;max-width:1000px">${esc(name)}</div>
-    <div style="display:flex;font-size:36px;margin-top:24px;line-height:1.25;font-weight:700">${esc(reports)} graded against them</div>
+    <div style="display:flex;font-size:36px;margin-top:24px;line-height:1.25;font-weight:700">${esc(reports)}</div>
     <div style="display:flex;font-size:26px;color:${MUTED};margin-top:10px;line-height:1.35">How the coverage held up — free with any account</div>
     <div style="display:flex;margin-top:auto;justify-content:space-between;align-items:flex-end;width:100%">
       <div style="display:flex;border:3px solid ${RED};color:${RED};padding:12px 24px;font-size:22px;letter-spacing:2px;font-weight:700">SEE EVERY GRADE</div>
@@ -59,10 +60,9 @@ export const GET: APIRoute = async ({ params, request, locals }) => {
   if (!slug || !/^[a-z0-9-]+$/.test(slug)) return new Response(null, { status: 404 });
 
   const cache = (caches as any).default as Cache;
-  // Cache is content-addressed by path only (no route reads query params), so drop
-  // the query string — otherwise ?anything busts the cache and re-runs satori.
-  const _u = new URL(request.url);
-  const cacheKey = new Request(_u.origin + _u.pathname);
+  // ogCacheKey drops the query string (?anything must not fan out satori
+  // renders) and folds the version into a synthetic path segment.
+  const cacheKey = ogCacheKey(new URL(request.url), "politician", OG_VERSIONS.politician);
   const hit = await cache.match(cacheKey);
   if (hit) return hit;
 

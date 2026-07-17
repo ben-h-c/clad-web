@@ -4,11 +4,13 @@ import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import CollapsibleSection from "~/components/CollapsibleSection.astro";
 import ExploreNext from "~/components/ExploreNext.astro";
+import ShareBar from "~/components/ShareBar.astro";
 import { getAccess } from "~/lib/access";
 import { buildRaceBoardLive, maskRaceLeaders, statusLabel } from "~/lib/bracket";
 import { buildElectionMap, type StateMapCell } from "~/lib/electionMap";
 import { buildStateForecasts, FORECAST_ASOF, LAYER_LABELS } from "~/lib/electionForecast";
 import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates } from "~/lib/elections";
+import { OG_VERSIONS } from "~/lib/ogCard";
 import { RACE_BOARD_VERIFIED_ASOF } from "~/lib/races";
 import { US_MAP_VIEWBOX, US_STATE_PATHS } from "~/lib/usMapPaths";
 import { registerHref } from "~/lib/safeNext";
@@ -123,7 +125,7 @@ const registerMap = registerHref("/elections/map/");
   description="Interactive U.S. map of the 2026 midterms: party control, 2026 outlook, flip risk, Senate, governors, and CladFacts coverage heat. Tap a state to dig in."
   ogTitle="Midterms 2026 interactive map"
   ogDescription="Party & outlook · state control · flip risk — tap any state. Not a poll."
-  ogImage={`${origin}/og/bracket.png`}
+  ogImage={`${origin}/og/bracket.png?v=${OG_VERSIONS.bracket}`}
   jsonLd={jsonLd}
 >
   <article class="emap-page">
@@ -153,6 +155,12 @@ const registerMap = registerHref("/elections/map/");
         <li><strong>{map.stats.hotStates}</strong><span>States with graded reports</span></li>
       </ul>
     </header>
+
+    <ShareBar
+      url={`${origin}/elections/map/`}
+      title="Midterms 2026 interactive map — CladFacts"
+      hook="Party and outlook, state control, flip risk — every state, tap to read. Not a poll."
+    />
 
     <p class="emap-how-to" id="emap-how-to">
       <span class="small-caps emap-how-to__k">How to use</span>

@@ -2,6 +2,7 @@
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ShareBar from "~/components/ShareBar.astro";
 import { CLAIM_TAGS, getLearnPage, GRADE_BANDS, LEARN_PAGES } from "~/lib/campus";
+import { OG_VERSIONS } from "~/lib/ogCard";
 
 export const prerender = false;
 
@@ -11,7 +12,7 @@ if (!page) return new Response("Not found", { status: 404 });
 
 const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
 const pageUrl = `${origin}/learn/${page.slug}/`;
-const ogImage = `${origin}/og/learn/${page.slug}.png`;
+const ogImage = `${origin}/og/learn/${page.slug}.png?v=${OG_VERSIONS.learn}`;
 
 const others = LEARN_PAGES.filter((p) => p.slug !== page.slug);
 ---

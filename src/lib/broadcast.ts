@@ -38,6 +38,10 @@ export interface BroadcastKeyMoment {
 
 export interface BroadcastReport {
   headline: string;
+  /** X/Threads-ready teaser a reader posts with the link. Grade-free by
+   *  construction (sanitizeShareText fails closed) — it renders in anonymous
+   *  HTML via the ShareBar hook, which the anon-gating rule covers. */
+  shareText?: string;
   letterGrade: (typeof LETTER_GRADES)[number];
   factualityScore: number;
   // Signed left↔right axis: -100 = fully left, 0 = center, +100 = fully right.
@@ -71,6 +75,7 @@ const SYSTEM_PROMPT = `You are the editor of "Clad," a one-editor fact-checking 
 Respond with a single JSON object of the form:
 {
   "headline": "<a concise newspaper headline for this report, <= 90 chars>",
+  "share_text": "<one or two sentences a reader posts alongside the link, 80-160 chars>",
   "letter_grade": "A+" | "A" | "A-" | "B+" | "B" | "B-" | "C+" | "C" | "C-" | "D+" | "D" | "D-" | "F",
   "factuality_score": <integer 0-100>,
   "grade_rationale": "<one or two sentences on WHY it earned that grade — name the failings, e.g. 'several unsupported claims and missing context on key figures'>",
@@ -104,6 +109,8 @@ IMPORTANT: use the FULL granularity of the grade. If it's a C-minus, return "C-"
 KNOWLEDGE-CUTOFF GUARDRAIL: Do NOT declare that a real company, product, AI model, person, law, or event "does not exist" or is "fabricated" merely because it is unfamiliar to you or postdates your training. New models and products (including those from Anthropic, OpenAI, Google, and others) are released constantly. If a broadcast references something you cannot confirm, treat its existence as plausible and assess the SOURCE's specific claims about it (numbers, quotes, framing) rather than calling the subject itself fake. Only mark something as false/unsupported when there is a concrete, articulable reason — not just absence from your own knowledge.
 
 \`headline\`: a concise, restrained newspaper headline summarizing the report. No clickbait, no exclamation, no political adjectives applied to people. Do NOT state the verdict or grade in the headline (no "holds up", "accurate", "false", "misleading", "checks out") — the grade communicates the verdict. Within those rules, write an ACTIVE news headline, not a description of coverage: name the actor and the concrete action, and use the broadcast's most specific fact — a number, a date, a place, a stake — when it has one. NEVER open with "examines", "covers", "details", "reports on", "discusses", "highlights", "reviews", "outlines", "comments on", or "reflects on" — name what happened, not that a broadcast talked about it. Examples of the required transformation: "Tom Homan discusses temporary ICE vehicle stop pause" → "Homan pauses ICE vehicle stops, citing agent safety"; "Sky News examines Minab school strike" → "Sky News traces a primary-school strike in Minab to Iran's 2026 war"; "Panel debates Sadiq Khan peerage reports" → "Sadiq Khan peerage reports split TalkTV panel".
+
+\`share_text\`: one or two sentences (80–160 characters) a reader would post next to the link on X or Threads. Write a broadsheet pull-quote, not an ad: lead with the single most concrete, load-bearing fact in the report — a number, a clipped quote, a specific claim and what the sourcing showed — and make the stakes plain. HARD RULES: never state or imply the letter grade, factuality score, or political lean (no "graded", no "B+", no "72/100", no "leans right") — the share-card image carries the verdict; the text must stand without it. No emoji, no hashtags, no exclamation marks, no imperatives ("see", "read", "click"), no "you won't believe". Do not repeat the headline; give the reader a second fact the headline doesn't have. It should read like something a careful person is proud to post. Register examples: "CBS put the Medicaid cut at $880 billion. The bill's own text sets the committee's target lower — and the gap is the whole story." / "Three of the five claims in this segment trace to one unnamed official. We followed each to its source." / "The 4.1% unemployment number is real. What the panel left out is which workers stopped being counted in March."
 
 \`grade_rationale\`: one or two sentences explaining WHY the broadcast earned its letter grade — name the specific failings or strengths (e.g. "Graded C-: several load-bearing claims were unsupported and key statistics lacked context", or "Graded A-: claims were well-sourced to primary data with minor framing concerns"). This is what the reader sees first, so make it concrete, not generic.
 
@@ -155,6 +162,7 @@ const REPORT_SCHEMA = {
   type: "object",
   properties: {
     headline: { type: "string" },
+    share_text: { type: "string" },
     letter_grade: { type: "string", enum: [...LETTER_GRADES] },
     factuality_score: { type: "integer", minimum: 0, maximum: 100 },
     grade_rationale: { type: "string" },
@@ -192,6 +200,7 @@ const REPORT_SCHEMA = {
   },
   required: [
     "headline",
+    "share_text",
     "letter_grade",
     "factuality_score",
     "grade_rationale",
@@ -257,7 +266,7 @@ You are REVISING an existing report based on EDITOR FEEDBACK. You are given the 
 
 Treat the editor's correction as AUTHORITATIVE and factually correct. If the editor says something exists, is true, or is false, accept that and fix every part of the report that contradicts it — including the headline, summary, assessment, key moments, notable concerns, the letter grade, the factuality score, and the rationales. A common case: you may have wrongly claimed a real product, company, model, person, or event does not exist — if the editor corrects you, accept it and re-grade accordingly (do not penalize the source for a claim that is actually true).
 
-Keep everything the editor did NOT flag intact. Return the COMPLETE corrected report in the same JSON schema.`;
+Keep everything the editor did NOT flag intact. If the correction changes what the story is, rewrite share_text to match; otherwise keep it. Return the COMPLETE corrected report in the same JSON schema.`;
 
 /**
  * Re-run Grok over an existing report with editor feedback, returning a
@@ -302,6 +311,9 @@ export async function reviseBroadcastReport(
   const revised = normalizeBroadcast(parsed);
   // Preserve the original citations if the revision dropped them.
   if (revised.citations.length === 0) revised.citations = input.report.citations;
+  // Same for the share teaser: a revision that omits share_text (or returns one
+  // the sanitizer rejects) keeps the prior teaser instead of deleting it.
+  if (!revised.shareText) revised.shareText = input.report.shareText;
   return revised;
 }
 
@@ -410,6 +422,7 @@ export function normalizeBroadcast(p: any): BroadcastReport {
 
   return {
     headline: String(p?.headline ?? "").trim().slice(0, 200),
+    shareText: sanitizeShareText(p?.share_text),
     letterGrade: grade as BroadcastReport["letterGrade"],
     factualityScore: score,
     leanScore,
@@ -428,4 +441,33 @@ export function normalizeBroadcast(p: any): BroadcastReport {
 function toStringArray(v: any): string[] {
   if (!Array.isArray(v)) return [];
   return v.map((s) => String(s ?? "").trim()).filter(Boolean);
+}
+
+// Grade-leak patterns for share_text. The teaser renders in anonymous HTML
+// (ShareBar hook + prefilled intent URLs), which the anon-gating rule covers,
+// so verdict signals must be structurally impossible — prompt compliance is
+// not enough. Bare "A" is deliberately allowed: it is the indefinite article,
+// and blocking it would reject half of English news prose.
+const SHARE_TEXT_LEAKS: RegExp[] = [
+  /\bgrade[sd]?\b/i,
+  /\bfactuality\b/i,
+  /\b\d{1,3}\s*\/\s*100\b/,
+  /\blean(s|ed|ing)?\s+(left|right|[-+]?\d)/i,
+  /(^|[\s("“])(?:[BCDF]|[ABCDF][+\-])(?=[\s.,)"”]|$)/,
+  /\b(earn(s|ed)?|scor(es|ed)|rat(es|ed)|get[s]?|receiv(es|ed))\s+(an?\s+)?[ABCDF][+\-]?(?=[\s.,)"”]|$)/i,
+];
+
+/**
+ * Validate a model-written share teaser. FAILS CLOSED to undefined — never
+ * truncates or repairs — so a bad generation degrades to the caller's static
+ * fallback hook instead of leaking into anonymous HTML. Length window keeps
+ * worst-case X posts (90-char headline + teaser + t.co URL) under 280.
+ */
+export function sanitizeShareText(v: unknown): string | undefined {
+  const s = String(v ?? "").replace(/\s+/g, " ").trim();
+  if (s.length < 40 || s.length > 200) return undefined;
+  if (s.includes("!") || s.includes("#")) return undefined;
+  if (/\p{Extended_Pictographic}/u.test(s)) return undefined;
+  for (const re of SHARE_TEXT_LEAKS) if (re.test(s)) return undefined;
+  return s;
 }

@@ -93,6 +93,11 @@ for (const d of drafts) {
                 <LetterGrade grade={d.report.letterGrade} />
               </span>
               <h3 class="queue-item__headline">{d.report.headline}</h3>
+              {d.report.shareText && (
+                <p class="queue-item__sharetext dateline" style="margin:0.15rem 0 0;opacity:0.75">
+                  Share teaser: “{d.report.shareText}”
+                </p>
+              )}
             </div>
             <p class="queue-qa dateline">
               {d.quality?.priority && <span class="qa-pill qa-pill--priority">Priority</span>}

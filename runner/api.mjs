@@ -161,6 +161,14 @@ export function setQuips(quips) {
   return call("/api/agent/quips", { method: "POST", body: JSON.stringify({ quips }) });
 }
 
+export function getShareTags() {
+  return call("/api/agent/sharetags", { method: "GET" });
+}
+
+export function setShareTags(tags) {
+  return call("/api/agent/sharetags", { method: "POST", body: JSON.stringify({ tags }) });
+}
+
 export function getClassifications() {
   return call("/api/agent/classify", { method: "GET" });
 }
