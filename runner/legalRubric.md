@@ -52,21 +52,34 @@ or false one.
   demand).** The site's imagery
   policy (docs/legal/image-claims.md, enforced by scripts/checkImageLicense.mjs
   and src/lib/postBuild.ts) allows exactly two kinds of post art: the YouTube
-  CDN still of the post's OWN embedded video, hotlinked from img.youtube.com
-  (never copied to or served from cladfacts.com), or site-owned generated art
-  under /generated/. Every audit, verify and flag as **high**:
-  - any image on any page served FROM cladfacts.com (or composed into an
-    OG/share PNG we serve) whose underlying content is a third-party
-    photograph — rehosting forfeits the hotlink/server-test posture;
+  CDN still of the post's OWN embedded video, or site-owned generated art
+  under /generated/. Note the two surfaces differ: TILES hotlink the still (no
+  copy on our servers), while the OG/story SHARE CARDS bake it into a PNG we
+  serve (a hosted copy) while `SHOW_VIDEO_STILLS` is on — this is a documented,
+  owner-accepted posture with a kill switch, NOT a fresh finding. Every audit,
+  verify and flag as **high**:
+  - any image served FROM cladfacts.com (page or baked PNG) whose underlying
+    content is a third-party photograph that is NOT the post's own video still
+    or owned /generated/ art — e.g. a source page's og:image, another video's
+    still, or a stock/wire photo. (The gated baking of the post's *own* still
+    is the accepted posture above; do not re-flag it as high — but DO flag any
+    OG/share route that composes stills WITHOUT routing through
+    `displayableThumb()`/`SHOW_VIDEO_STILLS`, or that bakes anything other than
+    the post's own still or owned art.)
   - any new surface, component, or agent that fetches, caches, proxies, or
     inlines external images (other than the established politician-portrait
-    proxy, tracked separately below);
+    proxy, tracked separately below, and the OG still-composition above);
   - any post artwork that is not the post's own video still or /generated/ art.
-  Video stills that plainly foreground recognizable wire-agency content
-  (sports-championship, red-carpet, or news-agency-style photography) merit a
-  **medium** advisory note naming the post, so the editor can preemptively swap
-  in generated art — automated rights-agency crawlers match pixels and send
-  demands regardless of the hotlink defense.
+  Separately, once per audit **restate the standing accepted risk** in one
+  line so it stays visible: while `SHOW_VIDEO_STILLS` is true the OG/story
+  cards host a baked copy of the post's own broadcast still, so a broadcast
+  frame containing a wire photo is served from our domain (mitigation: the kill
+  switch + per-post swap). Video stills that plainly foreground recognizable
+  wire-agency content (sports-championship, red-carpet, or news-agency-style
+  photography) merit a **medium** advisory note naming the post, so the editor
+  can preemptively swap in generated art — crawlers match pixels regardless of
+  the hotlink defense, and on the share-card surface there is no hotlink
+  defense at all.
 - **Wikimedia portraits (politician cards):** the same-origin proxy
   (/api/politician-photo/) serves Wikimedia COMMONS files only (free-licensed
   by Commons policy), and TASL attribution (author/source/license) is served at
