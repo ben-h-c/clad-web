@@ -79,7 +79,33 @@ const pickTeaser = marqueePicks.length
       . Not polls — personal picks on CladFacts.
     </p>
 
+    {/* Head-to-head vs the visitor's own ballot. The page is publicly cached
+        (s-maxage=60), so ALL personalization happens client-side: the script
+        below compares the signed-in visitor's locked picks (GET /api/me/ballot)
+        against this shared ballot and reveals the strip. The embedded JSON is
+        exactly the data already rendered on this public page — nothing new. */}
+    <script
+      type="application/json"
+      id="shared-ballot"
+      is:inline
+      set:html={JSON.stringify({
+        electionId: ballot.electionId,
+        shareSlug: ballot.shareSlug,
+        displayName,
+        picks: ballot.picks.map((p) => ({ raceId: p.raceId, side: p.side })),
+        score,
+      }).replace(/</g, "\\u003c")}
+    />
+    <section class="h2h" id="h2h" hidden aria-live="polite">
+      <p class="h2h__eyebrow small-caps">Head to head</p>
+      <p class="h2h__line" id="h2h-agree"></p>
+      <p class="h2h__line h2h__line--score" id="h2h-score" hidden>
+        You called <strong id="h2h-mine"></strong> · they called <strong id="h2h-theirs"></strong>
+      </p>
+    </section>
+
     <ShareBar
+      id="ballot-share"
       url={pageUrl}
       title={`${displayName}'s locked 2026 midterms ballot`}
       hook={
@@ -126,7 +152,117 @@ const pickTeaser = marqueePicks.length
   </article>
 </BaseLayout>
 
+<script is:inline>
+  // Head-to-head: compare the signed-in visitor's LOCKED picks with this
+  // shared ballot, then point the share bar at the visitor's own ballot so a
+  // received share produces a new one. Silent no-op when signed out, no
+  // locked picks, viewing your own ballot, or zero shared races.
+  (async () => {
+    const dataEl = document.getElementById("shared-ballot");
+    if (!dataEl) return;
+    let shared;
+    try { shared = JSON.parse(dataEl.textContent || ""); } catch { return; }
+    let res;
+    try {
+      res = await fetch("/api/me/ballot?election=" + encodeURIComponent(shared.electionId || ""), {
+        credentials: "same-origin",
+      });
+    } catch { return; }
+    if (!res.ok) return; // 401 = signed out
+    let me;
+    try { me = await res.json(); } catch { return; }
+    const mine = me && me.ballot;
+    if (!mine || !Array.isArray(mine.picks)) return;
+    if (mine.shareSlug && mine.shareSlug === shared.shareSlug) return; // own ballot
+
+    const myLocked = mine.picks.filter(
+      (p) => p && p.lockedAt && p.raceId && (p.side === "a" || p.side === "b")
+    );
+    if (myLocked.length === 0) return;
+
+    const theirPick = new Map((shared.picks || []).map((p) => [p.raceId, p.side]));
+    let overlap = 0;
+    let agree = 0;
+    for (const p of myLocked) {
+      if (!theirPick.has(p.raceId)) continue;
+      overlap++;
+      if (theirPick.get(p.raceId) === p.side) agree++;
+    }
+    if (overlap === 0) return;
+
+    const name = String(shared.displayName || "this reader");
+    const ms = mine.score || {};
+    const ss = shared.score || {};
+    const bothCalled = (ss.called || 0) > 0 && (ms.called || 0) > 0;
+
+    const strip = document.getElementById("h2h");
+    const agreeLine = document.getElementById("h2h-agree");
+    if (strip && agreeLine) {
+      agreeLine.textContent =
+        "You vs " + name + ": agree on " + agree + " of " + overlap + " shared picks.";
+      if (bothCalled) {
+        const scoreLine = document.getElementById("h2h-score");
+        const m = document.getElementById("h2h-mine");
+        const t = document.getElementById("h2h-theirs");
+        if (scoreLine && m && t) {
+          m.textContent = String(ms.correct || 0);
+          t.textContent = String(ss.correct || 0);
+          if ((ms.correct || 0) > (ss.correct || 0)) m.classList.add("h2h__lead");
+          else if ((ss.correct || 0) > (ms.correct || 0)) t.classList.add("h2h__lead");
+          scoreLine.hidden = false;
+        }
+      }
+      strip.hidden = false;
+    }
+
+    // Outbound share becomes the visitor's own sheet (their slug must exist —
+    // it does whenever they have a locked pick).
+    const bar = document.getElementById("ballot-share");
+    if (bar && mine.shareSlug) {
+      const win = bothCalled && (ms.correct || 0) > (ss.correct || 0);
+      const disagree = overlap - agree;
+      bar.setAttribute("data-url", location.origin + "/ballot/" + mine.shareSlug + "/");
+      bar.setAttribute("data-story-image", location.origin + "/og/ballot/" + mine.shareSlug + ".png");
+      bar.setAttribute(
+        "data-title",
+        win ? "I beat " + name + "'s 2026 midterms sheet" : "My midterms sheet vs " + name + "'s"
+      );
+      bar.setAttribute(
+        "data-hook",
+        win
+          ? (ms.correct || 0) + " correct to " + (ss.correct || 0) + " on the CladFacts ballot board."
+          : disagree === 0
+            ? "We agree on all " + overlap + " shared races. Settled on election night — free on CladFacts."
+            : "We split on " + disagree + " of " + overlap + " shared races. Settled on election night — free on CladFacts."
+      );
+      if (typeof window.cladRefreshShareBars === "function") window.cladRefreshShareBars(bar);
+    }
+  })();
+</script>
+
 <style>
+  .h2h {
+    border: 2px solid var(--ink, #1a140d);
+    padding: 0.7rem 0.9rem;
+    margin: 0 0 0.9rem;
+  }
+  .h2h__eyebrow {
+    margin: 0 0 0.25rem;
+    color: var(--muted-ink, #6e5e4d);
+  }
+  .h2h__line {
+    margin: 0;
+    font-family: var(--serif, Georgia, serif);
+    font-weight: 700;
+    font-size: 1.02rem;
+  }
+  .h2h__line--score {
+    margin-top: 0.2rem;
+  }
+  .h2h__lead {
+    color: #941a1a;
+  }
+
   .public-ballot__cta {
     display: flex;
     flex-wrap: wrap;
