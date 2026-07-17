@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 import { env } from "cloudflare:workers";
-import { getAccess } from "~/lib/access";
+import { getAccess, hasPremiumFeatures } from "~/lib/access";
 import {
   getSessionUser,
   jsonResponse,
@@ -31,12 +31,15 @@ function publicComment(c: PostComment, mineId: string | null) {
   };
 }
 
-// GET /api/comments?slug=<postId> — list reactions + tally. Any signed-in
-// account (full access under the hybrid model); anonymous readers get 403.
+// GET /api/comments?slug=<postId> — list reactions + tally. Full-access
+// (signed-in) readers; anonymous get 403.
 export const GET: APIRoute = async ({ request }) => {
   const access = await getAccess(request.headers);
   if (!access.fullAccess) {
-    return jsonResponse({ error: "Reader reactions are a Premium feature.", upgrade: true }, 403);
+    return jsonResponse(
+      { error: "Create a free account to read Reader Reactions.", upgrade: false },
+      403
+    );
   }
   const slug = new URL(request.url).searchParams.get("slug")?.trim() ?? "";
   if (!validSlug(slug)) return jsonResponse({ error: "Invalid post" }, 400);
@@ -49,7 +52,7 @@ export const GET: APIRoute = async ({ request }) => {
   ]);
 
   return jsonResponse({
-    canComment: access.tier === "paid",
+    canComment: hasPremiumFeatures(access),
     tally,
     mine: mine
       ? { body: mine.body, gradeVote: mine.gradeVote, leanVote: mine.leanVote }
@@ -58,14 +61,15 @@ export const GET: APIRoute = async ({ request }) => {
   });
 };
 
-// POST /api/comments — create/update the caller's reaction. Premium only.
+// POST /api/comments — create/update the caller's reaction.
+// While billing is paused, any full-access account can post.
 export const POST: APIRoute = async ({ request, clientAddress }) => {
   const access = await getAccess(request.headers);
-  if (access.tier !== "paid") {
+  if (!hasPremiumFeatures(access)) {
     const msg = access.fullAccess
-      ? "Commenting is for Premium members — upgrade to join the discussion."
-      : "Reader reactions are a Premium feature.";
-    return jsonResponse({ error: msg, upgrade: true }, 403);
+      ? "Could not post reaction."
+      : "Create a free account to join the discussion.";
+    return jsonResponse({ error: msg, upgrade: false }, 403);
   }
   const user = await getSessionUser(request.headers);
   if (!user) return jsonResponse({ error: "auth" }, 401);

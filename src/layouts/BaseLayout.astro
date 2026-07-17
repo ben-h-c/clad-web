@@ -7,6 +7,7 @@ import ThemeCoachmark from "~/components/ThemeCoachmark.astro";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 import { FOOTER_PRODUCT_LINKS } from "~/lib/explore";
 import { getSessionUser, getPrefs, type ThemePref } from "~/lib/user-data";
+import { showBillingPromo } from "~/lib/access";
 
 interface Props {
   title: string;
@@ -107,19 +108,27 @@ const siteLd = {
   },
 };
 const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
+const billingOn = showBillingPromo();
 ---
 <!doctype html>
-<html lang="en" data-theme={htmlTheme} data-account-theme={accountTheme ? "1" : "0"}>
+<html
+  lang="en"
+  data-theme={htmlTheme}
+  data-account-theme={accountTheme ? "1" : "0"}
+  data-billing={billingOn ? "1" : "0"}
+>
   <head>
     <meta charset="utf-8" />
     <!-- The iOS app injects window.__cladNative at document start. Flag the
          document as in-app so CSS can hide the web/Stripe purchase surfaces
          and reveal the app-only "Go Premium" button, which routes to the
-         native StoreKit paywall via the cladPurchase bridge (Apple IAP). -->
+         native StoreKit paywall via the cladPurchase bridge (Apple IAP).
+         Purchase surfaces stay inert while data-billing="0". -->
     <script is:inline>
       if (window.__cladNative) {
         document.documentElement.classList.add('clad-app');
         document.addEventListener('click', function (e) {
+          if (document.documentElement.getAttribute('data-billing') !== '1') return;
           var b = e.target.closest && e.target.closest('.js-app-purchase');
           if (b && window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.cladPurchase) {
             e.preventDefault();

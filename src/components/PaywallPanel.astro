@@ -1,5 +1,9 @@
 ---
-import { PRICE } from "~/lib/access";
+/**
+ * Registration wall for anonymous readers.
+ * Premium / billing CTAs only when showBillingPromo() is true.
+ */
+import { showBillingPromo, PRICE } from "~/lib/access";
 import { registerHref, loginHref } from "~/lib/safeNext";
 
 interface Props {
@@ -10,13 +14,14 @@ interface Props {
 const { signedIn, returnTo } = Astro.props;
 const reg = returnTo ? registerHref(returnTo) : "/register/";
 const log = returnTo ? loginHref(returnTo) : "/login/";
+const billing = showBillingPromo();
 ---
 <section class="paywall">
-  <p class="small-caps paywall__eyebrow">No card · no trial clock</p>
+  <p class="small-caps paywall__eyebrow">Free account · no card</p>
   <h2 class="paywall__title">See every grade — free with an account.</h2>
   <p class="paywall__lede">
-    Letter grades, lean scores, and charts unlock when you sign up.
-    Premium keeps Clad running and opens Reader Reactions.
+    Letter grades, lean scores, charts, midterms tools, and Reader Reactions
+    unlock the moment you sign up. No card required.
   </p>
   <ul class="paywall__perks">
     <li>Grades on every report</li>
@@ -25,15 +30,21 @@ const log = returnTo ? loginHref(returnTo) : "/login/";
   </ul>
   <div class="paywall__cta">
     <a class="auth-submit" href={reg}>Create free account</a>
-    <a class="auth-submit secondary" href="/upgrade/">Premium from {PRICE.monthly}/mo</a>
+    {billing && (
+      <a class="auth-submit secondary" href="/upgrade/">Premium from {PRICE.monthly}/mo</a>
+    )}
   </div>
   {!signedIn && (
     <p class="paywall__signin">Already have an account? <a href={log}>Sign in</a>.</p>
   )}
-  <button type="button" class="auth-submit js-app-purchase">Go Premium</button>
-  <p class="paywall__legal" data-app-hide>
-    CladFacts Premium — auto-renewing supporter subscription, {PRICE.monthly}/mo or
-    {" "}{PRICE.annual}/yr until cancelled.
-    {" "}<a href="/terms/">Terms of Use</a> · <a href="/privacy/">Privacy Policy</a>
-  </p>
+  {billing && (
+    <>
+      <button type="button" class="auth-submit js-app-purchase">Go Premium</button>
+      <p class="paywall__legal" data-app-hide>
+        CladFacts Premium — auto-renewing supporter subscription, {PRICE.monthly}/mo or
+        {" "}{PRICE.annual}/yr until cancelled.
+        {" "}<a href="/terms/">Terms of Use</a> · <a href="/privacy/">Privacy Policy</a>
+      </p>
+    </>
+  )}
 </section>

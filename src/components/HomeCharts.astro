@@ -9,17 +9,9 @@ interface Props {
   // Kept for API compatibility with index.astro (network charts live on /trends/).
   sentiments?: SentimentMap;
 }
-const { posts, topics } = Astro.props;
+const { posts } = Astro.props;
 
 const mean = (ns: number[]) => (ns.length ? ns.reduce((a, b) => a + b, 0) / ns.length : null);
-function leanLabel(s: number | null): string {
-  if (s === null) return "—";
-  return Math.abs(s) < 5 ? "Center" : `${Math.abs(Math.round(s))}% ${s > 0 ? "Right" : "Left"}`;
-}
-function sentiLabel(s: number | null): string {
-  if (s === null) return "—";
-  return Math.abs(s) < 10 ? "Mixed" : `${Math.abs(Math.round(s))}% ${s > 0 ? "Positive" : "Negative"}`;
-}
 
 // ---- overall coverage lean split ----
 const allLeans = posts.map((p) => leanScoreOf(p.data)).filter((n): n is number => n !== null);
@@ -32,11 +24,8 @@ for (const s of allLeans) {
 const splitTotal = allLeans.length || 1;
 const pct = (n: number) => Math.round((n / splitTotal) * 100);
 const overallGpa = mean(posts.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n !== null));
-
-// ---- top issues right now (already recency/popularity-ranked) ----
-const topIssues = topics.slice(0, 10);
 ---
-{/* iOS app only — public website uses CoverageLeanBar + TopIssuesGrid instead. */}
+{/* iOS app only — lean snapshot. Issues already appear in the Topics list. */}
 <section class="charts home-app-only" data-home-charts>
   <div class="feed__head">
     <h2 class="feed__title">By the Numbers</h2>
@@ -65,39 +54,6 @@ const topIssues = topics.slice(0, 10);
           Across {splitTotal} graded reports · average grade{" "}
           <strong>{overallGpa !== null ? gpaToGrade(overallGpa) : "—"}</strong>
         </p>
-      </div>
-      <button type="button" class="chart-expand" aria-expanded="false"><span class="chart-expand__txt">Expand</span> <span aria-hidden="true">▾</span></button>
-    </div>
-
-    <!-- Top issues -->
-    <div class="chart-card chart-card--wide">
-      <h3 class="chart-card__title small-caps">Top issues right now</h3>
-      <div class="chart-card__body">
-        <ul class="issue-rows">
-          {topIssues.map((t) => (
-            <li class="issue-row">
-              <div class="issue-row__head">
-                <a class="issue-row__name" href={`/topics/${t.slug}/`}>{t.display}</a>
-                <span class="issue-row__grade">{t.avgGrade ?? "—"}</span>
-              </div>
-              <div class="issue-row__stats">
-                <span class="issue-row__count">
-                  {t.todayCount > 0
-                    ? `${t.todayCount} today`
-                    : t.recentCount > 0
-                      ? `${t.recentCount} recent`
-                      : `${t.count} ${t.count === 1 ? "report" : "reports"}`}
-                </span>
-                <span class={`issue-row__lean ${t.avgLean === null ? "" : t.avgLean > 5 ? "is-right" : t.avgLean < -5 ? "is-left" : "is-center"}`}>
-                  {leanLabel(t.avgLean)}
-                </span>
-                <span class={`issue-row__senti ${t.avgSentiment === null ? "" : t.avgSentiment >= 10 ? "is-pos" : t.avgSentiment <= -10 ? "is-neg" : "is-center"}`}>
-                  {sentiLabel(t.avgSentiment)}
-                </span>
-              </div>
-            </li>
-          ))}
-        </ul>
       </div>
       <button type="button" class="chart-expand" aria-expanded="false"><span class="chart-expand__txt">Expand</span> <span aria-hidden="true">▾</span></button>
     </div>

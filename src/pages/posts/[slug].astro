@@ -16,7 +16,7 @@ import ExploreNext from "~/components/ExploreNext.astro";
 import { registerHref } from "~/lib/safeNext";
 import { dateline, shortDate } from "~/lib/dateline";
 import { embedUrl, isOwnedGeneratedImage } from "~/lib/youtube";
-import { getAccess } from "~/lib/access";
+import { getAccess, hasPremiumFeatures, showBillingPromo } from "~/lib/access";
 import { sampleUnlockedId } from "~/lib/sample";
 import { metaDescription, stripSummaryOpener } from "~/lib/seo";
 import { splitCitations } from "~/lib/citations";
@@ -550,11 +550,15 @@ const breadcrumbLd = {
     )}
 
     {isBroadcast && access.fullAccess && (
-      <section class="reactions" data-slug={post.id} data-can-comment={access.tier === "paid" ? "1" : "0"}>
+      <section
+        class="reactions"
+        data-slug={post.id}
+        data-can-comment={hasPremiumFeatures(access) ? "1" : "0"}
+      >
         <h2 class="small-caps reactions__title">Reader Reactions</h2>
         <p class="reactions__tally" id="rx-tally" hidden></p>
 
-        {access.tier === "paid" ? (
+        {hasPremiumFeatures(access) ? (
           <form class="rx-form" id="rx-form" onsubmit="return false">
             <p class="small-caps rx-form__label">Your reaction</p>
             <div class="rx-votes">
@@ -583,10 +587,14 @@ const breadcrumbLd = {
               <span class="rx-form__status" role="status"></span>
             </div>
           </form>
-        ) : (
+        ) : showBillingPromo() ? (
           <p class="rx-upsell">
             Posting a reaction is a <a href="/upgrade/">Premium</a> perk — free accounts
             can read every reaction; go Premium to add yours (and support the newsroom).
+          </p>
+        ) : (
+          <p class="rx-upsell">
+            <a href="/register/">Create a free account</a> to post your reaction.
           </p>
         )}
 

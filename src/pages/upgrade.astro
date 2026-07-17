@@ -1,118 +1,162 @@
 ---
+/**
+ * Premium / billing page. When BILLING_ENABLED is false, show a soft landing
+ * (framework kept; checkout hidden). When true, full supporter checkout UI.
+ */
 import BaseLayout from "~/layouts/BaseLayout.astro";
-import { getAccess, stripeConfigured, PRICE } from "~/lib/access";
+import {
+  getAccess,
+  stripeConfigured,
+  PRICE,
+  showBillingPromo,
+} from "~/lib/access";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
 
 const access = await getAccess(Astro.request.headers);
-const live = stripeConfigured();
+const billing = showBillingPromo();
+const live = billing && stripeConfigured();
 const canceled = Astro.url.searchParams.get("canceled") === "1";
 ---
-<BaseLayout title="Go Premium — CladFacts" description="Support independent fact-checking. Every grade is free with an account — Premium keeps the newsroom running and adds member perks.">
-  <article class="static-page upgrade">
-    <p class="small-caps upgrade__eyebrow">CladFacts Premium</p>
-    <h1 class="static-page__title">Keep the grades coming</h1>
-    <p class="upgrade__lede">
-      Every report is free to read, and every letter grade, factuality score,
-      political-lean rating, and social-sentiment score is free with a
-      <a href="/register/">free account</a>. <strong>Premium</strong> is how
-      readers keep Clad independent — it funds the newsroom and adds member
-      perks on top.
-    </p>
-
-    {canceled && <p class="auth-status">Checkout canceled — no charge was made.</p>}
-
-    {access.tier === "paid" ? (
-      <div class="upgrade__status">
-        <p>You're a <strong>Premium</strong> member. Thanks for supporting CladFacts.</p>
-        <button type="button" id="portal-btn" class="auth-submit">Manage subscription</button>
-        <span id="portal-status" class="auth-status"></span>
-      </div>
-    ) : (
-      <>
-        <ul class="upgrade__perks">
-          <li>Post your take in Reader Reactions on every report</li>
-          <li>Keep independent fact-checking running — Premium is what funds the newsroom</li>
-        </ul>
-
-        <div class="plans">
-          <div class="plan">
-            <h3 class="plan__name">Monthly</h3>
-            <p class="plan__price">{PRICE.monthly}<span>/mo</span></p>
-            <button type="button" class="auth-submit plan__btn" data-plan="monthly" disabled={!live}>
-              {live ? "Start Premium" : "Coming soon"}
-            </button>
-          </div>
-          <div class="plan plan--best">
-            <span class="plan__tag">Best value</span>
-            <h3 class="plan__name">Annual</h3>
-            <p class="plan__price">{PRICE.annual}<span>/yr</span></p>
-            <p class="plan__sub">{PRICE.annualPerMonth}/mo, billed yearly</p>
-            <button type="button" class="auth-submit plan__btn" data-plan="annual" disabled={!live}>
-              {live ? "Start Premium" : "Coming soon"}
-            </button>
-          </div>
-        </div>
-
-        <p class="plans__legal" data-app-hide>
-          <strong>CladFacts Premium</strong> is an auto-renewing subscription —
-          {" "}{PRICE.monthly}/month or {PRICE.annual}/year ({PRICE.annualPerMonth}/mo
-          billed annually). It renews automatically until you cancel, and you can
-          cancel anytime. By subscribing you agree to our
-          {" "}<a href="/terms/">Terms of Use</a> and
-          {" "}<a href="/privacy/">Privacy Policy</a>.
-        </p>
-
-        {!access.signedIn && (
-          <p class="upgrade__note">
-            New here? <a href="/register/">Create a free account</a> first — it
-            unlocks every grade, lean rating, and chart on its own, no card required.
-          </p>
+{!billing ? (
+  <BaseLayout
+    title="Your free account — CladFacts"
+    description="Every grade, lean score, and chart is free with a CladFacts account. No card required."
+    noindex={true}
+  >
+    <article class="static-page upgrade">
+      <p class="small-caps upgrade__eyebrow">Free · no card</p>
+      <h1 class="static-page__title">Everything is open with a free account</h1>
+      <p class="upgrade__lede">
+        Letter grades, political lean, charts, the midterms ballot, and Reader
+        Reactions unlock when you create a free account. No credit card, no
+        trial clock.
+      </p>
+      <ul class="upgrade__perks">
+        <li>Full scoreboard on every report</li>
+        <li>News Trends, search filters, and sentiment</li>
+        <li>Midterms ballot board and election map</li>
+        <li>Post in Reader Reactions</li>
+      </ul>
+      <div class="account-actions" style="margin-top:1.25rem">
+        {access.signedIn ? (
+          <a class="auth-submit" href="/account/">Your account</a>
+        ) : (
+          <>
+            <a class="auth-submit" href="/register/">Create free account</a>
+            <a class="auth-submit secondary" href="/login/">Sign in</a>
+          </>
         )}
-        <div id="checkout-status" class="auth-status" role="status"></div>
-      </>
-    )}
-  </article>
+      </div>
+    </article>
+  </BaseLayout>
+) : (
+  <BaseLayout title="Go Premium — CladFacts" description="Support independent fact-checking. Every grade is free with an account — Premium keeps the newsroom running and adds member perks.">
+    <article class="static-page upgrade">
+      <p class="small-caps upgrade__eyebrow">CladFacts Premium</p>
+      <h1 class="static-page__title">Keep the grades coming</h1>
+      <p class="upgrade__lede">
+        Every report is free to read, and every letter grade, factuality score,
+        political-lean rating, and social-sentiment score is free with a
+        <a href="/register/">free account</a>. <strong>Premium</strong> is how
+        readers keep Clad independent — it funds the newsroom and adds member
+        perks on top.
+      </p>
 
-  <script is:inline>
-    (() => {
-      const cstat = document.getElementById("checkout-status");
-      document.querySelectorAll(".plan__btn").forEach((btn) => {
-        if (btn.disabled) return;
-        btn.addEventListener("click", async () => {
-          btn.disabled = true;
-          if (cstat) cstat.textContent = "Starting checkout…";
+      {canceled && <p class="auth-status">Checkout canceled — no charge was made.</p>}
+
+      {access.tier === "paid" ? (
+        <div class="upgrade__status">
+          <p>You're a <strong>Premium</strong> member. Thanks for supporting CladFacts.</p>
+          <button type="button" id="portal-btn" class="auth-submit">Manage subscription</button>
+          <span id="portal-status" class="auth-status"></span>
+        </div>
+      ) : (
+        <>
+          <ul class="upgrade__perks">
+            <li>Post your take in Reader Reactions on every report</li>
+            <li>Keep independent fact-checking running — Premium is what funds the newsroom</li>
+          </ul>
+
+          <div class="plans">
+            <div class="plan">
+              <h3 class="plan__name">Monthly</h3>
+              <p class="plan__price">{PRICE.monthly}<span>/mo</span></p>
+              <button type="button" class="auth-submit plan__btn" data-plan="monthly" disabled={!live}>
+                {live ? "Start Premium" : "Coming soon"}
+              </button>
+            </div>
+            <div class="plan plan--best">
+              <span class="plan__tag">Best value</span>
+              <h3 class="plan__name">Annual</h3>
+              <p class="plan__price">{PRICE.annual}<span>/yr</span></p>
+              <p class="plan__sub">{PRICE.annualPerMonth}/mo, billed yearly</p>
+              <button type="button" class="auth-submit plan__btn" data-plan="annual" disabled={!live}>
+                {live ? "Start Premium" : "Coming soon"}
+              </button>
+            </div>
+          </div>
+
+          <p class="plans__legal" data-app-hide>
+            <strong>CladFacts Premium</strong> is an auto-renewing subscription —
+            {" "}{PRICE.monthly}/month or {PRICE.annual}/year ({PRICE.annualPerMonth}/mo
+            billed annually). It renews automatically until you cancel, and you can
+            cancel anytime. By subscribing you agree to our
+            {" "}<a href="/terms/">Terms of Use</a> and
+            {" "}<a href="/privacy/">Privacy Policy</a>.
+          </p>
+
+          {!access.signedIn && (
+            <p class="upgrade__note">
+              New here? <a href="/register/">Create a free account</a> first — it
+              unlocks every grade, lean rating, and chart on its own, no card required.
+            </p>
+          )}
+          <div id="checkout-status" class="auth-status" role="status"></div>
+        </>
+      )}
+    </article>
+
+    <script is:inline>
+      (() => {
+        const cstat = document.getElementById("checkout-status");
+        document.querySelectorAll(".plan__btn").forEach((btn) => {
+          if (btn.disabled) return;
+          btn.addEventListener("click", async () => {
+            btn.disabled = true;
+            if (cstat) cstat.textContent = "Starting checkout…";
+            try {
+              const res = await fetch("/api/stripe/checkout", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ plan: btn.getAttribute("data-plan") }),
+              });
+              if (res.status === 401) { location.href = "/login/?next=/upgrade/"; return; }
+              const data = await res.json().catch(() => ({}));
+              if (!res.ok || !data.url) throw new Error(data.error || "Could not start checkout.");
+              location.href = data.url;
+            } catch (err) {
+              if (cstat) { cstat.className = "auth-status auth-status--error"; cstat.textContent = String(err.message || err); }
+              btn.disabled = false;
+            }
+          });
+        });
+        const portal = document.getElementById("portal-btn");
+        if (portal) portal.addEventListener("click", async () => {
+          portal.disabled = true;
           try {
-            const res = await fetch("/api/stripe/checkout", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ plan: btn.getAttribute("data-plan") }),
-            });
-            if (res.status === 401) { location.href = "/login/?next=/upgrade/"; return; }
+            const res = await fetch("/api/stripe/portal", { method: "POST" });
             const data = await res.json().catch(() => ({}));
-            if (!res.ok || !data.url) throw new Error(data.error || "Could not start checkout.");
+            if (!res.ok || !data.url) throw new Error(data.error || "Could not open billing.");
             location.href = data.url;
           } catch (err) {
-            if (cstat) { cstat.className = "auth-status auth-status--error"; cstat.textContent = String(err.message || err); }
-            btn.disabled = false;
+            const s = document.getElementById("portal-status");
+            if (s) { s.className = "auth-status auth-status--error"; s.textContent = String(err.message || err); }
+            portal.disabled = false;
           }
         });
-      });
-      const portal = document.getElementById("portal-btn");
-      if (portal) portal.addEventListener("click", async () => {
-        portal.disabled = true;
-        try {
-          const res = await fetch("/api/stripe/portal", { method: "POST" });
-          const data = await res.json().catch(() => ({}));
-          if (!res.ok || !data.url) throw new Error(data.error || "Could not open billing.");
-          location.href = data.url;
-        } catch (err) {
-          const s = document.getElementById("portal-status");
-          if (s) { s.className = "auth-status auth-status--error"; s.textContent = String(err.message || err); }
-          portal.disabled = false;
-        }
-      });
-    })();
-  </script>
-</BaseLayout>
+      })();
+    </script>
+  </BaseLayout>
+)}

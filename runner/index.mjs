@@ -23,6 +23,8 @@ import { runRaceBoardAuditor } from "./raceBoardAuditor.mjs";
 import { runPoliticianRosterSync } from "./politicianRosterSync.mjs";
 import { runPoliticianProfileBuilder } from "./politicianProfileBuilder.mjs";
 import { runPoliticianGrader } from "./politicianGrader.mjs";
+import { runCalendarScanner } from "./calendarScanner.mjs";
+import { runTodayInHistory } from "./todayInHistory.mjs";
 import { processUrlQueue } from "./urlIntake.mjs";
 import { updateTicker } from "./ticker.mjs";
 
@@ -46,6 +48,8 @@ const KINDS = {
   "politician-roster-sync": runPoliticianRosterSync,
   "politician-profile-builder": runPoliticianProfileBuilder,
   "politician-grader": runPoliticianGrader,
+  "calendar-scanner": runCalendarScanner,
+  "today-in-history": runTodayInHistory,
 };
 
 function log(...args) {

@@ -1,0 +1,344 @@
+---
+/**
+ * Interactive home calendar — all news dates (elections, launches, speeches,
+ * conflicts, Clad reports, etc.). Swipe months; tap a day for details + links.
+ * Live feed: calendar-scanner agent → AGENTS KV → buildCalendarEvents().
+ */
+import {
+  buildCalendarEvents,
+  kindLabel,
+  todayIsoNy,
+  type CalendarEvent,
+} from "~/lib/calendarEvents";
+import type { RaceDef } from "~/lib/races";
+
+interface Props {
+  /** Optional live race defs (published next-vote dates). Defaults to midterms template. */
+  races?: RaceDef[];
+  /** Live agent-scanned events from KV. */
+  live?: CalendarEvent[] | null;
+  /** Extra events (e.g. recent Clad reports linked on publish day). */
+  extra?: CalendarEvent[];
+  class?: string;
+}
+
+const events = buildCalendarEvents({
+  races: Astro.props.races,
+  live: Astro.props.live,
+  extra: Astro.props.extra,
+});
+const today = todayIsoNy();
+/** Always open on the current desk month (past + future via swipe). */
+const defaultMonth = today.slice(0, 7);
+const wrapClass = ["home-cal", Astro.props.class].filter(Boolean).join(" ");
+
+// Serialize for client — keep payload small (titles + links, not full notes forever).
+const clientEvents = events.map((e) => ({
+  id: e.id,
+  date: e.date,
+  title: e.title,
+  body: e.body ?? "",
+  kind: e.kind,
+  kindLabel: kindLabel(e.kind),
+  state: e.state ?? "",
+  links: e.links ?? [],
+}));
+---
+<section
+  class={wrapClass}
+  data-home-cal
+  data-today={today}
+  data-month={defaultMonth}
+  aria-labelledby="home-cal-title"
+>
+  <div class="feed__head">
+    <h2 class="feed__title" id="home-cal-title">Calendar</h2>
+    <a class="category__more" href="/recent/">Latest reports →</a>
+  </div>
+  <div class="rule rule--double" aria-hidden="true"></div>
+
+  <div class="home-cal__panel">
+    <div class="home-cal__toolbar">
+      <button type="button" class="home-cal__nav" data-cal-prev aria-label="Previous month">‹</button>
+      <h3 class="home-cal__month" data-cal-month-label></h3>
+      <button type="button" class="home-cal__nav" data-cal-next aria-label="Next month">›</button>
+    </div>
+    <p class="home-cal__hint small-caps" data-cal-hint>Swipe months · tap a day for details</p>
+
+    <div
+      class="home-cal__swipe"
+      data-cal-swipe
+      tabindex="0"
+      role="application"
+      aria-label="News calendar. Swipe or use arrows to change months."
+    >
+      <div class="home-cal__weekdays" aria-hidden="true">
+        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+      </div>
+      <div class="home-cal__grid" data-cal-grid></div>
+    </div>
+  </div>
+
+  <dialog class="home-cal__dialog" data-cal-dialog aria-labelledby="home-cal-dialog-title">
+    <div class="home-cal__dialog-inner">
+      <header class="home-cal__dialog-head">
+        <h3 class="home-cal__dialog-title" id="home-cal-dialog-title" data-cal-dialog-title>Day</h3>
+        <button type="button" class="home-cal__dialog-close" data-cal-dialog-close aria-label="Close">×</button>
+      </header>
+      <div class="home-cal__dialog-body" data-cal-dialog-body></div>
+    </div>
+  </dialog>
+
+  <script type="application/json" data-cal-events set:html={JSON.stringify(clientEvents)} />
+</section>
+
+<script>
+  type CalEvent = {
+    id: string;
+    date: string;
+    title: string;
+    body: string;
+    kind: string;
+    kindLabel: string;
+    state: string;
+    links: { label: string; href: string }[];
+  };
+
+  function initHomeCalendar(root: HTMLElement) {
+    if (root.dataset.calReady === "1") return;
+    root.dataset.calReady = "1";
+
+    const jsonEl = root.querySelector("[data-cal-events]");
+    let events: CalEvent[] = [];
+    try {
+      events = JSON.parse(jsonEl?.textContent || "[]") as CalEvent[];
+    } catch {
+      events = [];
+    }
+
+    const byDate = new Map<string, CalEvent[]>();
+    for (const e of events) {
+      const list = byDate.get(e.date) ?? [];
+      list.push(e);
+      byDate.set(e.date, list);
+    }
+
+    const today = root.dataset.today || "";
+    let month = root.dataset.month || today.slice(0, 7);
+    const labelEl = root.querySelector("[data-cal-month-label]");
+    const gridEl = root.querySelector("[data-cal-grid]");
+    const swipeEl = root.querySelector("[data-cal-swipe]") as HTMLElement | null;
+    const dialog = root.querySelector("[data-cal-dialog]") as HTMLDialogElement | null;
+    const dialogTitle = root.querySelector("[data-cal-dialog-title]");
+    const dialogBody = root.querySelector("[data-cal-dialog-body]");
+
+    const MONTHS = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December",
+    ];
+
+    function shiftMonth(ym: string, delta: number): string {
+      const [y, m] = ym.split("-").map(Number);
+      const d = new Date(Date.UTC(y, m - 1 + delta, 1));
+      return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
+    }
+
+    function monthLabel(ym: string): string {
+      const [y, m] = ym.split("-").map(Number);
+      return `${MONTHS[(m || 1) - 1] || ""} ${y || ""}`.trim();
+    }
+
+    function daysInMonth(ym: string): number {
+      const [y, m] = ym.split("-").map(Number);
+      return new Date(Date.UTC(y, m, 0)).getUTCDate();
+    }
+
+    function firstWeekday(ym: string): number {
+      const [y, m] = ym.split("-").map(Number);
+      return new Date(Date.UTC(y, m - 1, 1)).getUTCDay(); // 0=Sun
+    }
+
+    function render() {
+      if (!gridEl || !labelEl) return;
+      labelEl.textContent = monthLabel(month);
+      root.dataset.month = month;
+
+      const dim = daysInMonth(month);
+      const start = firstWeekday(month);
+      const cells: string[] = [];
+
+      for (let i = 0; i < start; i++) {
+        cells.push(`<div class="home-cal__cell home-cal__cell--pad" aria-hidden="true"></div>`);
+      }
+
+      for (let day = 1; day <= dim; day++) {
+        const date = `${month}-${String(day).padStart(2, "0")}`;
+        const dayEvents = byDate.get(date) ?? [];
+        const isToday = date === today;
+        const has = dayEvents.length > 0;
+        const kinds = [...new Set(dayEvents.map((e) => e.kind))].slice(0, 3);
+        const dots = kinds
+          .map((k) => `<span class="home-cal__dot home-cal__dot--${k}"></span>`)
+          .join("");
+        const countBadge =
+          dayEvents.length > 1
+            ? `<span class="home-cal__count">${dayEvents.length}</span>`
+            : "";
+        const aria = has
+          ? `${monthLabel(month)} ${day}, ${dayEvents.length} event${dayEvents.length === 1 ? "" : "s"}`
+          : `${monthLabel(month)} ${day}`;
+        cells.push(
+          `<button type="button" class="home-cal__cell${has ? " home-cal__cell--event" : ""}${isToday ? " home-cal__cell--today" : ""}" data-cal-day="${date}" ${has ? "" : "disabled "}aria-label="${aria.replace(/"/g, "&quot;")}">` +
+            `<span class="home-cal__daynum">${day}</span>` +
+            (has ? `<span class="home-cal__marks">${dots}${countBadge}</span>` : "") +
+            `</button>`
+        );
+      }
+
+      // Fill trailing cells for a clean grid
+      const total = start + dim;
+      const trail = total % 7 === 0 ? 0 : 7 - (total % 7);
+      for (let i = 0; i < trail; i++) {
+        cells.push(`<div class="home-cal__cell home-cal__cell--pad" aria-hidden="true"></div>`);
+      }
+
+      gridEl.innerHTML = cells.join("");
+    }
+
+    function openDay(date: string) {
+      if (!dialog || !dialogTitle || !dialogBody) return;
+      const dayEvents = byDate.get(date) ?? [];
+      if (!dayEvents.length) return;
+
+      const [y, m, d] = date.split("-").map(Number);
+      const pretty = new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-US", {
+        weekday: "long",
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+        timeZone: "UTC",
+      });
+      dialogTitle.textContent = pretty;
+
+      dialogBody.innerHTML = dayEvents
+        .map((e) => {
+          // CladFacts paths only — never render external hrefs from the feed.
+          const links = (e.links || [])
+            .filter((l) => {
+              const h = String(l.href || "");
+              return h.startsWith("/") && !h.startsWith("//") && !h.includes("://");
+            })
+            .map(
+              (l) =>
+                `<a class="home-cal__link" href="${escapeHtml(l.href)}">${escapeHtml(l.label)} →</a>`
+            )
+            .join("");
+          return (
+            `<article class="home-cal__event home-cal__event--${escapeHtml(e.kind)}">` +
+            `<p class="home-cal__event-kicker small-caps">${escapeHtml(e.kindLabel)}${e.state ? ` · ${escapeHtml(e.state)}` : ""}</p>` +
+            `<h4 class="home-cal__event-title">${escapeHtml(e.title)}</h4>` +
+            (e.body ? `<p class="home-cal__event-body">${escapeHtml(e.body)}</p>` : "") +
+            (links ? `<div class="home-cal__event-links">${links}</div>` : "") +
+            `</article>`
+          );
+        })
+        .join("");
+
+      if (typeof dialog.showModal === "function") dialog.showModal();
+      else dialog.setAttribute("open", "");
+    }
+
+    function escapeHtml(s: string): string {
+      return String(s)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function closeDialog() {
+      if (!dialog) return;
+      if (typeof dialog.close === "function") dialog.close();
+      else dialog.removeAttribute("open");
+    }
+
+    root.querySelector("[data-cal-prev]")?.addEventListener("click", () => {
+      month = shiftMonth(month, -1);
+      render();
+    });
+    root.querySelector("[data-cal-next]")?.addEventListener("click", () => {
+      month = shiftMonth(month, 1);
+      render();
+    });
+
+    gridEl?.addEventListener("click", (ev) => {
+      const t = (ev.target as HTMLElement).closest("[data-cal-day]") as HTMLElement | null;
+      if (!t || t.hasAttribute("disabled")) return;
+      const date = t.dataset.calDay;
+      if (date) openDay(date);
+    });
+
+    root.querySelector("[data-cal-dialog-close]")?.addEventListener("click", closeDialog);
+    dialog?.addEventListener("click", (ev) => {
+      // Backdrop click closes
+      if (ev.target === dialog) closeDialog();
+    });
+
+    // Swipe left/right between months
+    let touchX = 0;
+    let touchY = 0;
+    let tracking = false;
+    swipeEl?.addEventListener(
+      "touchstart",
+      (ev) => {
+        const t = ev.changedTouches[0];
+        if (!t) return;
+        touchX = t.clientX;
+        touchY = t.clientY;
+        tracking = true;
+      },
+      { passive: true }
+    );
+    swipeEl?.addEventListener(
+      "touchend",
+      (ev) => {
+        if (!tracking) return;
+        tracking = false;
+        const t = ev.changedTouches[0];
+        if (!t) return;
+        const dx = t.clientX - touchX;
+        const dy = t.clientY - touchY;
+        if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+        month = shiftMonth(month, dx < 0 ? 1 : -1);
+        render();
+      },
+      { passive: true }
+    );
+
+    // Keyboard: left/right when focus is in the calendar
+    swipeEl?.addEventListener("keydown", (ev) => {
+      if (ev.key === "ArrowLeft") {
+        ev.preventDefault();
+        month = shiftMonth(month, -1);
+        render();
+      } else if (ev.key === "ArrowRight") {
+        ev.preventDefault();
+        month = shiftMonth(month, 1);
+        render();
+      }
+    });
+
+    render();
+  }
+
+  function boot() {
+    document.querySelectorAll<HTMLElement>("[data-home-cal]").forEach(initHomeCalendar);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+  // Astro view transitions / soft nav
+  document.addEventListener("astro:page-load", boot);
+</script>

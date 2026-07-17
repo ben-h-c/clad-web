@@ -10,7 +10,7 @@ import PoliticianAvatar from "~/components/PoliticianAvatar.astro";
 import CollapsibleSection from "~/components/CollapsibleSection.astro";
 import ShareBar from "~/components/ShareBar.astro";
 import {
-  buildRaceBoard,
+  buildRaceBoardLive,
   maskRaceLeaders,
   raceWhenLabel,
   statusLabel,
@@ -37,14 +37,18 @@ const election = (await getElectionWithPublishedDates(DEFAULT_ELECTION_ID, env.A
 
 const all = await getCollection("posts", (p) => !p.data.draft);
 const board = maskRaceLeaders(
-  buildRaceBoard(all, {
-    revealScores: reveal,
-    // Fixed board order — no sort UI (hot coverage + soonest vote).
-    sortMode: "hot-soon",
-    races: election.races,
-    title: election.title,
-    subtitle: election.subtitle,
-  }),
+  await buildRaceBoardLive(
+    all,
+    {
+      revealScores: reveal,
+      // Fixed board order — no sort UI (hot coverage + soonest vote).
+      sortMode: "hot-soon",
+      races: election.races,
+      title: election.title,
+      subtitle: election.subtitle,
+    },
+    env.AGENTS
+  ),
   reveal
 );
 

@@ -8,17 +8,25 @@ import TopicRow from "~/components/TopicRow.astro";
 import GradeBoard from "~/components/GradeBoard.astro";
 import HomeCharts from "~/components/HomeCharts.astro";
 import HomeElectionMap from "~/components/HomeElectionMap.astro";
-import TopIssuesGrid from "~/components/TopIssuesGrid.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
 import NewsletterSignup from "~/components/NewsletterSignup.astro";
 import HomeSpotlightCarousel from "~/components/HomeSpotlightCarousel.astro";
-import { getFrontpage, getBreaking, getSentiments } from "~/lib/agents";
+import HomeCalendar from "~/components/HomeCalendar.astro";
+import TodayInHistory from "~/components/TodayInHistory.astro";
+import { getFrontpage, getBreaking, getSentiments, getTodayInHistory } from "~/lib/agents";
 import { aggregateTopics, gradeToGpa } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 import { homePromosForPage } from "~/lib/homePromos";
+import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates } from "~/lib/elections";
+import { getCalendarEventsStore } from "~/lib/agents";
+import {
+  eventsFromPosts,
+  normalizeCalendarEvent,
+  type CalendarEvent,
+} from "~/lib/calendarEvents";
 
 // SSR so the hero reflects the curator's live KV-stored selection without a
 // rebuild. Per-user (grades hidden for restricted readers), so never shared-cache.
@@ -65,8 +73,6 @@ const locked = !access.fullAccess;
 const sentiments = locked ? {} : await getSentiments(env.AGENTS);
 const topics = aggregateTopics(all, sentiments);
 const TOPICS_ON_HOME = 8;
-/** Fixed tiles in the website-only Top issues grid. */
-const TOP_ISSUES_GRID = 6;
 
 // Live promo inputs: hottest topic + freshest report for top-of-home cards
 const hotTopic =
@@ -130,6 +136,16 @@ if (!locked) {
     )
     .slice(0, 3);
 }
+
+// Home calendar: race dates + agent news feed + recent Clad reports on publish days.
+const election = await getElectionWithPublishedDates(DEFAULT_ELECTION_ID, env.AGENTS);
+const calendarRaces = election?.races;
+const calStore = await getCalendarEventsStore(env.AGENTS);
+const calendarLive: CalendarEvent[] = (calStore?.events ?? [])
+  .map((e) => normalizeCalendarEvent(e, "agent"))
+  .filter((e): e is CalendarEvent => e != null);
+const calendarFromPosts = eventsFromPosts(all, { max: 36, maxPerDay: 2, daysBack: 40 });
+const todayInHistory = await getTodayInHistory(env.AGENTS);
 ---
 <BaseLayout
   title="CladFacts — Grading Content & Exposing Bias"
@@ -184,38 +200,8 @@ if (!locked) {
         moreLabel="Latest →"
       />
 
-      <nav class="home-rails" aria-label="Explore Clad">
-        <a class="home-rails__card" href="/bracket/">
-          <span class="home-rails__kicker small-caps">Midterms</span>
-          <span class="home-rails__title">Ballot board</span>
-          <span class="home-rails__blurb">Pick winners, share your sheet, track accuracy all season.</span>
-        </a>
-        <a class="home-rails__card" href="/elections/map/">
-          <span class="home-rails__kicker small-caps">Midterms</span>
-          <span class="home-rails__title">Election map</span>
-          <span class="home-rails__blurb">Who&rsquo;s up in 2026 — and where coverage is loudest.</span>
-        </a>
-        <a class="home-rails__card" href="/quiz/">
-          <span class="home-rails__kicker small-caps">Play</span>
-          <span class="home-rails__title">Morning quiz</span>
-          <span class="home-rails__blurb">Five real claims. Can you spot the spin?</span>
-        </a>
-        <a class="home-rails__card" href="/discover/">
-          <span class="home-rails__kicker small-caps">Read</span>
-          <span class="home-rails__title">Discover</span>
-          <span class="home-rails__blurb">Curated stories worth your time.</span>
-        </a>
-        <a class="home-rails__card" href="/bias/">
-          <span class="home-rails__kicker small-caps">You</span>
-          <span class="home-rails__title">Check your bias</span>
-          <span class="home-rails__blurb">See how the coverage you open leans.</span>
-        </a>
-        <a class="home-rails__card" href="/politicians/">
-          <span class="home-rails__kicker small-caps">People</span>
-          <span class="home-rails__title">Politicians</span>
-          <span class="home-rails__blurb">Report cards for the trail — grades, not polls.</span>
-        </a>
-      </nav>
+      {/* News calendar — agent feed + elections + linked past Clad reports. */}
+      <HomeCalendar races={calendarRaces} live={calendarLive} extra={calendarFromPosts} />
 
       <section class="feed">
         <div class="feed__head">
@@ -244,9 +230,7 @@ if (!locked) {
         <PaywallPanel signedIn={access.signedIn} returnTo="/" />
       ) : (
         <>
-          {/* Website: static top-issues grid (no “By the Numbers” wrapper). */}
-          <TopIssuesGrid topics={topics} limit={TOP_ISSUES_GRID} class="home-web-only" />
-          {/* iOS app: original By the Numbers strip (lean + issues). */}
+          {/* iOS app: By the Numbers (coverage lean). Topics list already covers issues. */}
           <HomeCharts posts={all} topics={topics} sentiments={sentiments} />
           {topGraded.length > 0 && (
             <GradeBoard
@@ -255,6 +239,7 @@ if (!locked) {
               title="Best & Worst Graded · Last 7 Days"
             />
           )}
+          <TodayInHistory payload={todayInHistory} />
           <p class="home-more-analytics">
             Want the long view?{" "}
             <a href="/trends/">News Trends</a>

@@ -73,6 +73,17 @@ export const SEED_PROFILES: Record<string, Pick<PersonProfile, "leanScore" | "le
     leanScore: 70,
     leanRationale: "House Republican Speaker; social and fiscal conservative voting record.",
   },
+  // AL-3 House (officeholder) — not the Michigan Senate candidate
+  "mike-rogers": {
+    leanScore: 52,
+    leanRationale: "Republican U.S. Representative (AL-3); mainstream House GOP voting record.",
+  },
+  // Michigan U.S. Senate 2026 candidate (former MI-8 House) — distinct slug
+  "mike-rogers-mi": {
+    leanScore: 55,
+    leanRationale:
+      "Republican U.S. Senate candidate in Michigan (former MI-8 House member); center-right to conservative record.",
+  },
   "john-thune": {
     leanScore: 58,
     leanRationale: "Senate Republican leadership; mainstream conservative record.",
@@ -160,6 +171,39 @@ export const SEED_PROFILES: Record<string, Pick<PersonProfile, "leanScore" | "le
 };
 
 /**
+ * Provisional ideology from a party letter alone (ballot race sides, etc.).
+ * Used when the race card has party: "R"|"D"|"I" but no person profile yet.
+ */
+export function seedLeanFromParty(
+  party?: string | null,
+  bucket?: string
+): Pick<PersonProfile, "leanScore" | "leanRationale"> | null {
+  const p = (party || "").trim().toUpperCase();
+  if (p === "D" || p === "DEMOCRAT" || p === "DEMOCRATIC") {
+    return {
+      leanScore: bucket === "House" ? -45 : -42,
+      leanRationale:
+        "Provisional ideology from Democratic affiliation / caucus. Full claim-record grade pending agent review.",
+    };
+  }
+  if (p === "R" || p === "REPUBLICAN" || p === "GOP") {
+    return {
+      leanScore: bucket === "House" ? 48 : 45,
+      leanRationale:
+        "Provisional ideology from Republican affiliation / caucus. Full claim-record grade pending agent review.",
+    };
+  }
+  if (p === "I" || p === "INDEPENDENT") {
+    return {
+      leanScore: 0,
+      leanRationale:
+        "Provisional center lean for Independent / non-caucus affiliation. Full grade pending agent review.",
+    };
+  }
+  return null;
+}
+
+/**
  * Party / office lean when we have no named seed and no agent grade yet.
  * Parsed from race labels like "TX-21 House · R" or "Kentucky Governor · D".
  */
@@ -189,28 +233,7 @@ export function seedLeanFromOffice(opts: {
   // SCOTUS: no party label — leave to SEED_PROFILES or agent
   if (!party && bucket === "Supreme Court") return null;
 
-  if (party === "D") {
-    return {
-      leanScore: bucket === "House" ? -45 : -42,
-      leanRationale:
-        "Provisional ideology from Democratic affiliation / caucus. Full claim-record grade pending agent review.",
-    };
-  }
-  if (party === "R") {
-    return {
-      leanScore: bucket === "House" ? 48 : 45,
-      leanRationale:
-        "Provisional ideology from Republican affiliation / caucus. Full claim-record grade pending agent review.",
-    };
-  }
-  if (party === "I") {
-    return {
-      leanScore: 0,
-      leanRationale:
-        "Provisional center lean for Independent / non-caucus affiliation. Full grade pending agent review.",
-    };
-  }
-  return null;
+  return seedLeanFromParty(party, bucket);
 }
 
 export async function getPersonProfileMap(kv: KVNamespace): Promise<PersonProfileMap | null> {

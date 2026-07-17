@@ -1,0 +1,274 @@
+---
+/**
+ * Homepage "Today in history" — max 5 callouts for this month-day.
+ * Optional Commons thumbs + YouTube embeds (click-to-play facade).
+ * Collapsed Share button expands full ShareBar.
+ */
+import ShareBar from "~/components/ShareBar.astro";
+import type { TodayInHistoryStore } from "~/lib/agents";
+import { historyDateKey, historyDateLabel } from "~/lib/todayInHistory";
+import { isCommonsMediaUrl } from "~/lib/politicianPhotos";
+import { embedUrl } from "~/lib/youtube";
+
+interface Props {
+  payload?: TodayInHistoryStore | null;
+  class?: string;
+}
+
+const todayKey = historyDateKey();
+const raw = Astro.props.payload;
+// Only show when the pack matches today's desk date.
+const show =
+  raw &&
+  raw.dateKey === todayKey &&
+  Array.isArray(raw.items) &&
+  raw.items.length > 0;
+
+const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
+const dateLabel = show ? raw!.dateLabel || historyDateLabel() : historyDateLabel();
+
+function itemSlug(year: number, title: string): string {
+  const s = title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 48);
+  return `${year}-${s || "event"}`;
+}
+
+const items = show
+  ? raw!.items.slice(0, 5).map((it) => {
+      const slug = itemSlug(it.year, it.title);
+      const shareTitle = `On this day · ${it.year}: ${it.title}`;
+      const videoId =
+        it.videoId && /^[\w-]{11}$/.test(it.videoId) ? it.videoId : null;
+      return {
+        year: it.year,
+        title: it.title,
+        body: it.body,
+        slug,
+        id: `today-hist-${slug}`,
+        imageUrl:
+          it.imageUrl && isCommonsMediaUrl(it.imageUrl) ? it.imageUrl : null,
+        videoId,
+        embed: videoId ? embedUrl(videoId) : null,
+        poster: videoId
+          ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+          : null,
+        shareUrl: `${origin}/#today-hist-${slug}`,
+        shareTitle,
+        shareHook: `${it.body}\n\nToday in history · ${dateLabel} on CladFacts`,
+      };
+    })
+  : [];
+
+const wrapClass = ["today-hist", Astro.props.class].filter(Boolean).join(" ");
+---
+{items.length > 0 && (
+  <section class={wrapClass} aria-labelledby="today-hist-title" data-today-hist>
+    <div class="feed__head">
+      <h2 class="feed__title" id="today-hist-title">Today in history</h2>
+      <span class="category__more today-hist__when small-caps">{dateLabel}</span>
+    </div>
+    <div class="rule rule--double" aria-hidden="true"></div>
+    <ul class="today-hist__list">
+      {items.map((it) => (
+        <li class="today-hist__item" id={it.id}>
+          <div class="today-hist__main">
+            {(it.imageUrl || it.poster) && (
+              <div class="today-hist__thumb" aria-hidden="true">
+                <img
+                  src={it.imageUrl || it.poster || ""}
+                  alt=""
+                  width="72"
+                  height="72"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                />
+              </div>
+            )}
+            <div class="today-hist__text">
+              <p class="today-hist__headline">
+                <span class="today-hist__year">{it.year}</span>
+                <span class="today-hist__title">{it.title}</span>
+              </p>
+              <p class="today-hist__body">{it.body}</p>
+
+              <div class="today-hist__actions">
+                {it.videoId && it.embed && (
+                  <div class="today-hist__video-wrap" data-hist-video>
+                    <button
+                      type="button"
+                      class="today-hist__video-toggle"
+                      data-hist-video-toggle
+                      aria-expanded="false"
+                      aria-label={`Play video about ${it.title}`}
+                    >
+                      <span class="today-hist__video-icon" aria-hidden="true">▶</span>
+                      <span data-hist-video-label>Play video</span>
+                    </button>
+                    <div
+                      class="today-hist__video-panel video-embed"
+                      data-hist-video-panel
+                      data-embed={it.embed}
+                      data-title={`Video: ${it.title}`}
+                      hidden
+                    ></div>
+                  </div>
+                )}
+
+                <div class="today-hist__share-wrap" data-hist-share>
+                  <button
+                    type="button"
+                    class="today-hist__share-toggle"
+                    data-hist-share-toggle
+                    aria-expanded="false"
+                    aria-label={`Share: ${it.shareTitle}`}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="18" cy="5" r="3"></circle>
+                      <circle cx="6" cy="12" r="3"></circle>
+                      <circle cx="18" cy="19" r="3"></circle>
+                      <line x1="8.6" y1="10.5" x2="15.4" y2="6.5"></line>
+                      <line x1="8.6" y1="13.5" x2="15.4" y2="17.5"></line>
+                    </svg>
+                    <span>Share</span>
+                  </button>
+                  <div class="today-hist__share-panel" data-hist-share-panel hidden>
+                    <ShareBar
+                      class="today-hist__share"
+                      url={it.shareUrl}
+                      title={it.shareTitle}
+                      hook={it.shareHook}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<script is:inline>
+  (function () {
+    function closeAllShares(except) {
+      document.querySelectorAll("[data-hist-share].is-open").forEach(function (wrap) {
+        if (except && wrap === except) return;
+        wrap.classList.remove("is-open");
+        var t = wrap.querySelector("[data-hist-share-toggle]");
+        var p = wrap.querySelector("[data-hist-share-panel]");
+        if (t) t.setAttribute("aria-expanded", "false");
+        if (p) p.hidden = true;
+      });
+    }
+
+    function collapseVideo(wrap) {
+      if (!wrap) return;
+      wrap.classList.remove("is-open");
+      var t = wrap.querySelector("[data-hist-video-toggle]");
+      var p = wrap.querySelector("[data-hist-video-panel]");
+      var lab = wrap.querySelector("[data-hist-video-label]");
+      if (t) t.setAttribute("aria-expanded", "false");
+      if (lab) lab.textContent = "Play video";
+      if (p) {
+        p.hidden = true;
+        p.replaceChildren(); // drop iframe so it stops playing
+      }
+    }
+
+    function closeAllVideos(except) {
+      document.querySelectorAll("[data-hist-video].is-open").forEach(function (wrap) {
+        if (except && wrap === except) return;
+        collapseVideo(wrap);
+      });
+    }
+
+    function wireShares(root) {
+      var scope = root && root.querySelectorAll ? root : document;
+      scope.querySelectorAll("[data-hist-share]").forEach(function (wrap) {
+        if (wrap.getAttribute("data-hist-share-wired") === "1") return;
+        wrap.setAttribute("data-hist-share-wired", "1");
+        var toggle = wrap.querySelector("[data-hist-share-toggle]");
+        var panel = wrap.querySelector("[data-hist-share-panel]");
+        if (!toggle || !panel) return;
+        toggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          var open = wrap.classList.contains("is-open");
+          closeAllShares();
+          if (!open) {
+            wrap.classList.add("is-open");
+            toggle.setAttribute("aria-expanded", "true");
+            panel.hidden = false;
+            if (typeof window.cladRefreshShareBars === "function") {
+              window.cladRefreshShareBars(panel);
+            }
+          }
+        });
+      });
+    }
+
+    /** Compact play button → expand 16:9 embed only when opened. */
+    function wireVideos(root) {
+      var scope = root && root.querySelectorAll ? root : document;
+      scope.querySelectorAll("[data-hist-video]").forEach(function (wrap) {
+        if (wrap.getAttribute("data-hist-video-wired") === "1") return;
+        wrap.setAttribute("data-hist-video-wired", "1");
+        var toggle = wrap.querySelector("[data-hist-video-toggle]");
+        var panel = wrap.querySelector("[data-hist-video-panel]");
+        var lab = wrap.querySelector("[data-hist-video-label]");
+        if (!toggle || !panel) return;
+        toggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          var open = wrap.classList.contains("is-open");
+          closeAllVideos();
+          closeAllShares();
+          if (open) return; // already collapsed by closeAllVideos
+          wrap.classList.add("is-open");
+          toggle.setAttribute("aria-expanded", "true");
+          if (lab) lab.textContent = "Hide video";
+          panel.hidden = false;
+          if (!panel.querySelector("iframe")) {
+            var embed = panel.getAttribute("data-embed") || "";
+            if (!embed) return;
+            var iframe = document.createElement("iframe");
+            iframe.src = embed + (embed.indexOf("?") >= 0 ? "&" : "?") + "autoplay=1";
+            iframe.title = panel.getAttribute("data-title") || "History video";
+            iframe.allow =
+              "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+            iframe.allowFullscreen = true;
+            iframe.referrerPolicy = "strict-origin-when-cross-origin";
+            panel.replaceChildren(iframe);
+          }
+        });
+      });
+    }
+
+    document.addEventListener("click", function (e) {
+      var t = e.target && e.target.closest ? e.target.closest("[data-hist-share], [data-hist-video]") : null;
+      if (t && t.hasAttribute("data-hist-share")) return;
+      if (t && t.hasAttribute("data-hist-video")) return;
+      closeAllShares();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        closeAllShares();
+        closeAllVideos();
+      }
+    });
+
+    function boot() {
+      wireShares(document);
+      wireVideos(document);
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", boot);
+    } else {
+      boot();
+    }
+    document.addEventListener("astro:page-load", boot);
+  })();
+</script>

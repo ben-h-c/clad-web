@@ -299,6 +299,32 @@ export const DEFAULT_REGISTRY: Registry = {
         maxPoliticiansPerRun: 28,
       },
     },
+    {
+      id: "calendar-scanner",
+      kind: "calendar-scanner",
+      name: "News Calendar Scanner (upcoming + history)",
+      enabled: true,
+      // Every 4 hours — catch launches, speeches, flash crises, and log past majors.
+      cron: "20 */4 * * *",
+      config: {
+        lookAheadDays: 21,
+        lookBackDays: 14,
+        maxEventsPerRun: 40,
+        maxStoredEvents: 400,
+      },
+    },
+    {
+      id: "today-in-history",
+      kind: "today-in-history",
+      name: "Today in History (homepage fun facts)",
+      enabled: true,
+      // Twice daily: soon after ET midnight (~05:15 UTC) so the new dateKey
+      // is not empty overnight, and again ~7am ET for a morning refresh.
+      cron: "15 5,11 * * *",
+      config: {
+        maxItems: 5,
+      },
+    },
   ],
 };
 
@@ -333,6 +359,8 @@ export async function getRegistry(kv: KVNamespace): Promise<Registry> {
     "race-board-auditor",
     "politician-grader",
     "politician-profile-builder",
+    "calendar-scanner",
+    "today-in-history",
   ]) {
     const live = reg.agents.find((a) => a.id === id);
     const def = DEFAULT_REGISTRY.agents.find((a) => a.id === id);
@@ -1142,6 +1170,181 @@ export async function setRaceAuditReport(kv: KVNamespace, report: RaceAuditRepor
 export async function getPublishedElectionDates(kv: KVNamespace): Promise<RaceElectionDate[]> {
   const report = await getRaceAuditReport(kv);
   return Array.isArray(report?.electionDates) ? report!.electionDates! : [];
+}
+
+// ── News calendar (all news — scanner agent) ───────────────────────────
+const CALENDAR_EVENTS_KEY = "calendar:events";
+
+export interface StoredCalendarEvent {
+  id: string;
+  date: string;
+  title: string;
+  body?: string;
+  kind: string;
+  state?: string;
+  links?: { label: string; href: string }[];
+  raceId?: string;
+  source?: string;
+  updatedAt?: string;
+}
+
+export interface CalendarEventsStore {
+  updatedAt: string;
+  summary?: string;
+  events: StoredCalendarEvent[];
+}
+
+export async function getCalendarEventsStore(
+  kv: KVNamespace
+): Promise<CalendarEventsStore | null> {
+  const raw = await kv.get(CALENDAR_EVENTS_KEY);
+  if (!raw) return null;
+  try {
+    const data = JSON.parse(raw) as CalendarEventsStore;
+    if (!data || !Array.isArray(data.events)) return null;
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+/** Keep only same-origin CladFacts paths on stored calendar links. */
+function scrubStoredLinks(
+  links: StoredCalendarEvent["links"]
+): StoredCalendarEvent["links"] {
+  if (!Array.isArray(links)) return undefined;
+  const clean = links
+    .map((l) => {
+      const label = String(l?.label || "").trim().slice(0, 80);
+      const href = String(l?.href || "").trim().slice(0, 500);
+      if (!label || !href.startsWith("/") || href.startsWith("//") || href.includes("://")) {
+        return null;
+      }
+      if (href.startsWith("/api/") || href.startsWith("/admin")) return null;
+      return { label, href };
+    })
+    .filter((x): x is { label: string; href: string } => x != null)
+    .slice(0, 6);
+  return clean.length ? clean : undefined;
+}
+
+/**
+ * Merge agent events into the stored calendar. Upserts by id; drops events
+ * older than keepDaysBack (default ~18 months) and caps total count.
+ * Always scrubs external links from both prior store and incoming.
+ *
+ * When replaceAgent is true (default for scanner runs), drop prior agent-sourced
+ * rows first so a tighter editorial bar removes stale niche items.
+ */
+export async function mergeCalendarEvents(
+  kv: KVNamespace,
+  incoming: StoredCalendarEvent[],
+  opts?: {
+    summary?: string;
+    maxStored?: number;
+    keepDaysBack?: number;
+    /** Drop previous source=agent events before applying incoming (default false). */
+    replaceAgent?: boolean;
+  }
+): Promise<CalendarEventsStore> {
+  const prev = (await getCalendarEventsStore(kv)) ?? { updatedAt: "", events: [] };
+  const byId = new Map<string, StoredCalendarEvent>();
+  for (const e of prev.events) {
+    if (!e?.id) continue;
+    if (opts?.replaceAgent && (e.source === "agent" || !e.source)) {
+      // Prior scanner rows (including early untagged agent writes) are replaced.
+      continue;
+    }
+    byId.set(e.id, { ...e, links: scrubStoredLinks(e.links) });
+  }
+  const nowIso = new Date().toISOString();
+  for (const e of incoming) {
+    if (!e?.id || !e.date || !e.title) continue;
+    byId.set(e.id, {
+      ...e,
+      links: scrubStoredLinks(e.links),
+      updatedAt: e.updatedAt || nowIso,
+      source: e.source || "agent",
+    });
+  }
+
+  const keepDays = opts?.keepDaysBack ?? 550;
+  const cutoff = Date.now() - keepDays * 86_400_000;
+  const max = Math.min(Math.max(opts?.maxStored ?? 400, 50), 800);
+
+  let events = [...byId.values()].filter((e) => {
+    const t = Date.parse(`${e.date}T12:00:00.000Z`);
+    return !Number.isNaN(t) && t >= cutoff;
+  });
+  events.sort((a, b) => a.date.localeCompare(b.date) || a.title.localeCompare(b.title));
+  if (events.length > max) {
+    // Prefer keeping nearest-to-now events when trimming.
+    const mid = Date.now();
+    events = events
+      .map((e) => ({
+        e,
+        dist: Math.abs(Date.parse(`${e.date}T12:00:00.000Z`) - mid),
+      }))
+      .sort((a, b) => a.dist - b.dist)
+      .slice(0, max)
+      .map((x) => x.e)
+      .sort((a, b) => a.date.localeCompare(b.date) || a.title.localeCompare(b.title));
+  }
+
+  const next: CalendarEventsStore = {
+    updatedAt: nowIso,
+    summary: opts?.summary ? String(opts.summary).slice(0, 2000) : prev.summary,
+    events,
+  };
+  await kv.put(CALENDAR_EVENTS_KEY, JSON.stringify(next));
+  return next;
+}
+
+export async function setCalendarEventsStore(
+  kv: KVNamespace,
+  store: CalendarEventsStore
+): Promise<void> {
+  await kv.put(CALENDAR_EVENTS_KEY, JSON.stringify(store));
+}
+
+// ── Today in history (homepage fun facts) ──────────────────────────────
+const TODAY_IN_HISTORY_KEY = "home:today-in-history";
+
+export interface TodayInHistoryStoredItem {
+  year: number;
+  title: string;
+  body: string;
+  imageUrl?: string | null;
+  /** YouTube video id when an embed was found. */
+  videoId?: string | null;
+}
+
+export interface TodayInHistoryStore {
+  dateKey: string;
+  dateLabel: string;
+  generatedAt: string;
+  items: TodayInHistoryStoredItem[];
+}
+
+export async function getTodayInHistory(
+  kv: KVNamespace
+): Promise<TodayInHistoryStore | null> {
+  const raw = await kv.get(TODAY_IN_HISTORY_KEY);
+  if (!raw) return null;
+  try {
+    const data = JSON.parse(raw) as TodayInHistoryStore;
+    if (!data?.dateKey || !Array.isArray(data.items) || !data.items.length) return null;
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+export async function setTodayInHistory(
+  kv: KVNamespace,
+  payload: TodayInHistoryStore
+): Promise<void> {
+  await kv.put(TODAY_IN_HISTORY_KEY, JSON.stringify(payload));
 }
 
 // ── Politician roster (officeholders — daily sync agent) ───────────────

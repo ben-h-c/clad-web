@@ -2,9 +2,23 @@
  * Midterms Ballot Board — fixed editorial matchups with live coverage heat +
  * sort by popularity / how soon people vote. User picks live in D1.
  * (The old coverage single-elim tournament was removed.)
+ *
+ * Political lean on each side is the *person’s* ideology (profile / seed /
+ * party), never the average lean of media coverage that mentions them.
  */
 import type { CollectionEntry } from "astro:content";
-import { buildPoliticianIndex, type PoliticianAgg } from "./politicians.ts";
+import {
+  buildPoliticianIndex,
+  POLITICIAN_SEEDS,
+  resolvePoliticianSeeds,
+  type PoliticianAgg,
+  type PoliticianSeed,
+} from "./politicians.ts";
+import {
+  getPersonProfileMap,
+  seedLeanFromParty,
+  type PersonProfileMap,
+} from "./politicianProfiles.ts";
 import {
   CIVICS_BLURBS,
   RACE_MATCHUPS,
@@ -29,9 +43,17 @@ export interface RaceSideLive {
   name: string;
   party?: string;
   reports: number;
+  /** Coverage-of-them average grade (media mentioning this person). */
   avgGrade: string | null;
+  /** Coverage-of-them average factuality. */
   avgFactuality: number | null;
+  /**
+   * Person ideology (−100 left … +100 right). Prefer profile/seed, else party.
+   * Shown as “Political Lean” on the ballot — never coverage-avg lean.
+   */
   avgLean: number | null;
+  /** Explicit alias of avgLean (person ideology). */
+  personLean: number | null;
   href: string | null;
 }
 
@@ -104,19 +126,65 @@ function sortCards(cards: RaceCardLive[], mode: RaceSortMode): RaceCardLive[] {
   }
 }
 
+/** Party-only ideology when a *named* candidate has no graded person profile yet. */
+function partyPersonLean(party?: string): number | null {
+  const from = seedLeanFromParty(party);
+  return from?.leanScore ?? null;
+}
+
+/**
+ * True when this side is not a single named person — open seat, multi-candidate
+ * primary, “GOP field”, “nominee TBD”, etc. Those have a party label for the
+ * race card, but no person ideology to display.
+ */
+function isPlaceholderSide(side: RaceDef["a"]): boolean {
+  if (side.slug.includes("-field")) return true;
+  const n = side.name;
+  // Open / unfilled labels (not a single person on the ballot yet)
+  if (/\b(field|TBD|Term-limited)\b/i.test(n)) return true;
+  if (/\bseat\s*\(open\)/i.test(n) || /\(\s*open\s*\)/i.test(n)) return true;
+  if (/\b(Dem primary|GOP primary|Democratic nominee|Democratic field|GOP field|special primary)\b/i.test(n)) {
+    return true;
+  }
+  // Multi-name board labels: "Stevens / El-Sayed", "Sununu / Brown"
+  if (/\//.test(n)) return true;
+  return false;
+}
+
+/**
+ * Resolve person ideology for a race-card side.
+ * Priority: named person only → profile/seed → race-card party → null.
+ * Placeholders (field / TBD / multi-candidate) never get a lean.
+ * Never use coverage-avg lean (media about them).
+ */
+function resolveSidePersonLean(
+  side: RaceDef["a"],
+  p: PoliticianAgg | undefined
+): number | null {
+  if (isPlaceholderSide(side)) return null;
+  if (p?.personLean != null && Number.isFinite(p.personLean)) {
+    return Math.round(p.personLean);
+  }
+  return partyPersonLean(side.party);
+}
+
 function sideLive(
   side: RaceDef["a"],
   bySlug: Map<string, PoliticianAgg>
 ): RaceSideLive {
   const p = bySlug.get(side.slug);
+  const personLean = resolveSidePersonLean(side, p);
   return {
     slug: side.slug,
     name: side.name,
     party: side.party,
     reports: p?.appearances.length ?? 0,
-    avgGrade: p?.avgGrade ?? null,
-    avgFactuality: p?.avgFactuality ?? null,
-    avgLean: p?.avgLean ?? null,
+    // Coverage metrics only — labeled “Coverage avg” in the UI.
+    avgGrade: p?.coverageGrade ?? p?.avgGrade ?? null,
+    avgFactuality: p?.coverageFactuality ?? p?.avgFactuality ?? null,
+    // Political lean = person ideology (or party provisional).
+    avgLean: personLean,
+    personLean,
     // Link to profile whenever we have a real person slug (photo + card), even before reports.
     href: side.slug.includes("-field") || side.slug.endsWith("-field")
       ? null
@@ -152,6 +220,10 @@ export interface BuildRaceBoardOpts {
   races?: RaceDef[];
   title?: string;
   subtitle?: string;
+  /** Officeholder seeds (live roster preferred). Defaults to static snapshot. */
+  seeds?: PoliticianSeed[];
+  /** Person ideology profiles from AGENTS KV (optional). */
+  profiles?: PersonProfileMap | null;
 }
 
 /** Build the fixed-race board with live coverage stats + sort modes. */
@@ -166,8 +238,31 @@ export function buildRaceBoard(
   const revealScores = opts.revealScores;
   const sortMode: RaceSortMode = opts.sortMode ?? "hot-soon";
   const raceDefs = opts.races ?? RACE_MATCHUPS;
+  const seeds = opts.seeds ?? (POLITICIAN_SEEDS as PoliticianSeed[]);
+  const profiles = opts.profiles ?? null;
 
-  const index = buildPoliticianIndex(posts);
+  // Include named race-side candidates so person profiles resolve even when
+  // they are not current officeholders (e.g. MI Senate Mike Rogers). Skip
+  // field / TBD / multi-candidate placeholders — they have no person lean.
+  const raceSideSeeds: PoliticianSeed[] = [];
+  const seen = new Set(seeds.map((s) => s.slug));
+  for (const def of raceDefs) {
+    for (const side of [def.a, def.b]) {
+      if (!side.slug || seen.has(side.slug) || isPlaceholderSide(side)) continue;
+      seen.add(side.slug);
+      raceSideSeeds.push({
+        name: side.name,
+        slug: side.slug,
+        race: side.party ? `${def.office} · ${side.party}` : def.office,
+        bucket: def.chamber === "senate" ? "Senate" : "Coverage",
+        // No bare-name aliases — same-name collisions (Mike Rogers AL vs MI).
+        aliases: [],
+      });
+    }
+  }
+  const mergedSeeds = raceSideSeeds.length ? [...seeds, ...raceSideSeeds] : seeds;
+
+  const index = buildPoliticianIndex(posts, mergedSeeds, profiles);
   const bySlug = new Map(index.map((p) => [p.slug, p]));
 
   const raw: Omit<RaceCardLive, "heatSeed">[] = raceDefs.map((def) => {
@@ -234,6 +329,20 @@ export function buildRaceBoard(
     hottest,
     civics: CIVICS_BLURBS,
   };
+}
+
+/**
+ * Async board build: loads live roster seeds + person profiles from AGENTS KV
+ * so Political Lean is person ideology (not coverage-avg) across the board.
+ */
+export async function buildRaceBoardLive(
+  posts: CollectionEntry<"posts">[],
+  opts: BuildRaceBoardOpts,
+  kv?: KVNamespace
+): Promise<RaceBoard> {
+  const { seeds } = await resolvePoliticianSeeds(kv);
+  const profiles = kv ? await getPersonProfileMap(kv) : null;
+  return buildRaceBoard(posts, { ...opts, seeds, profiles });
 }
 
 /** Guests: clear leaders so UI only shows heat/counts. */

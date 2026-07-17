@@ -81,6 +81,25 @@ export function putRaceAuditReport(report) {
   return call("/api/agent/races", { method: "POST", body: JSON.stringify(report) });
 }
 
+export function getCalendarEvents() {
+  return call("/api/agent/calendar", { method: "GET" });
+}
+
+export function putCalendarEvents(payload) {
+  return call("/api/agent/calendar", { method: "POST", body: JSON.stringify(payload) });
+}
+
+export function getTodayInHistory() {
+  return call("/api/agent/today-in-history", { method: "GET" });
+}
+
+export function putTodayInHistory(payload) {
+  return call("/api/agent/today-in-history", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
 export function getPoliticianRoster() {
   return call("/api/agent/politicians-roster", { method: "GET" });
 }

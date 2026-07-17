@@ -1,22 +1,24 @@
 /**
- * Access tiers — the growth-phase "hybrid" model (owner decision 2026-07-07):
- * a registration wall, not a pay wall.
+ * Access tiers — registration wall (not a pay wall) while billing is paused.
  *
- *  - paid : an active (or Stripe-trialing) subscription → full access, plus
- *           Premium extras (posting Reader Reactions). The supporter tier.
- *  - free : any signed-in account → FULL ACCESS to every grade, factuality
- *           score, political-lean rating, sentiment score, chart, and search
- *           filter. No trial clock, no card.
- *  - anon : not signed in → article text is free; the scoreboard is teased
- *           (plus the daily data-sample-unlocked sample). Creating a free
- *           account is the unlock.
+ *  - paid : active Stripe / Apple subscription (framework kept for future)
+ *  - free : any signed-in account → full scoreboard access
+ *  - anon : not signed in → grades locked until free account
  *
- * "Full access" is the single gate the rest of the app checks. If/when the
- * model is re-metered, this file is the choke point — see
- * docs/daily-review.md ("Constraints") before changing it.
+ * Flip BILLING_ENABLED to true when re-enabling Premium promos and paid-only
+ * feature gates. Stripe/IAP code paths stay live either way.
  */
 import { env } from "cloudflare:workers";
 import { getSessionUser } from "./user-data.ts";
+
+/**
+ * When false:
+ *  - Hide Premium / pricing / “Go Premium” promo surfaces
+ *  - Every signed-in account gets full platform features (incl. reactions)
+ *  - Anon still locked behind free registration
+ * When true: restore supporter-tier upsells and paid-only extras.
+ */
+export const BILLING_ENABLED = false;
 
 export type Tier = "paid" | "free" | "anon";
 
@@ -32,8 +34,7 @@ export async function getAccess(headers: Headers): Promise<Access> {
   try {
     return await resolveAccess(headers);
   } catch (err) {
-    // Fail closed: any auth/DB error (e.g. a misconfigured BETTER_AUTH_SECRET)
-    // degrades to anonymous access instead of a 500 on every page.
+    // Fail closed: any auth/DB error degrades to anonymous access.
     console.error("getAccess failed, degrading to anon:", err);
     return { ...ANON };
   }
@@ -47,10 +48,6 @@ async function resolveAccess(headers: Headers): Promise<Access> {
 
   const now = Date.now();
 
-  // The paid (supporter) tier comes from EITHER rail: Stripe (web) or Apple IAP
-  // (iOS app). Both reads are independent (keyed only on user.id) and are always
-  // evaluated, so dispatch them concurrently to save a D1 round-trip on this
-  // hot, never-edge-cached signed-in path.
   const [sub, apple] = await Promise.all([
     env.DB.prepare("SELECT status, currentPeriodEnd FROM subscription WHERE userId = ?")
       .bind(user.id)
@@ -65,7 +62,6 @@ async function resolveAccess(headers: Headers): Promise<Access> {
     (sub.status === "active" || sub.status === "trialing") &&
     (!sub.currentPeriodEnd || new Date(sub.currentPeriodEnd).getTime() > now);
 
-  // Apple IAP entitlement: active subscription whose period hasn't lapsed.
   const appleActive =
     !!apple &&
     apple.status === "active" &&
@@ -76,19 +72,31 @@ async function resolveAccess(headers: Headers): Promise<Access> {
     return { tier: "paid", fullAccess: true, signedIn: true };
   }
 
-  // Every account gets the full scoreboard — the wall is registration, not
-  // payment. Premium remains the supporter tier (reactions posting + keeping
-  // the newsroom running).
+  // Registration unlocks the full scoreboard. Payment is optional / future.
   return { tier: "free", fullAccess: true, signedIn: true };
 }
 
-/** Stripe is "configured" once its secret key is set. Price IDs now live in
- *  code (see src/lib/stripe.ts), so they no longer gate this. */
+/**
+ * Features that used to require Premium (e.g. posting Reader Reactions).
+ * While BILLING_ENABLED is false, any full-access (signed-in) user qualifies.
+ */
+export function hasPremiumFeatures(access: Access): boolean {
+  if (!BILLING_ENABLED) return access.fullAccess;
+  return access.tier === "paid";
+}
+
+/** Show pricing, /upgrade CTAs, manage-billing upsells, etc. */
+export function showBillingPromo(): boolean {
+  return BILLING_ENABLED;
+}
+
+/** Stripe is "configured" once its secret key is set. */
 export function stripeConfigured(): boolean {
   return !!env.STRIPE_SECRET_KEY;
 }
 
-// Display pricing (copy only — the real amounts live on the Stripe Price).
+// Display pricing (copy only — real amounts live on the Stripe Price).
+// Kept for the upgrade page when BILLING_ENABLED is re-enabled.
 export const PRICE = {
   monthly: "$2.99",
   annual: "$29.99",

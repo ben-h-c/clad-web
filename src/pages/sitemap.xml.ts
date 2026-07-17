@@ -4,6 +4,7 @@ import { aggregateTopics } from "~/lib/topics";
 import { getBreaking } from "~/lib/agents";
 import { buildPoliticianIndex } from "~/lib/politicians";
 import { slugify } from "~/lib/slug";
+import { showBillingPromo } from "~/lib/access";
 
 export const prerender = false;
 
@@ -52,7 +53,7 @@ export async function GET() {
     url("/press/", undefined, "0.4"),
     url("/privacy/", undefined, "0.2"),
     url("/terms/", undefined, "0.2"),
-    url("/upgrade/", undefined, "0.4"),
+    ...(showBillingPromo() ? [url("/upgrade/", undefined, "0.4")] : []),
   ];
 
   for (const p of posts) {

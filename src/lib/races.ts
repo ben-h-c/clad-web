@@ -151,7 +151,8 @@ export const RACE_MATCHUPS: RaceDef[] = [
     state: "MI",
     verifiedAsOf: "2026-07-14",
     a: { slug: "haley-stevens", name: "Dem primary (Stevens / El-Sayed)", party: "D", field: true },
-    b: { slug: "mike-rogers", name: "Mike Rogers", party: "R", field: true },
+    // Distinct from AL-3 House Mike Rogers (slug: mike-rogers)
+    b: { slug: "mike-rogers-mi", name: "Mike Rogers", party: "R", field: true },
     note: "Class II open seat — Gary Peters not seeking re-election. Dem primary Aug 4, 2026: Haley Stevens vs Abdul El-Sayed (McMorrow suspended). Rogers is the main GOP coverage name. Elissa Slotkin is Class I (2030) — not on this ballot.",
   },
   {

@@ -4,7 +4,7 @@ import ExploreNext from "~/components/ExploreNext.astro";
 import { getAuth } from "~/lib/auth-server";
 import { getPrefs, listFavorites, listAlerts, userHasPassword } from "~/lib/user-data";
 import { TOPIC_LABELS } from "~/lib/topics";
-import { getAccess, PRICE } from "~/lib/access";
+import { getAccess, PRICE, showBillingPromo } from "~/lib/access";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
@@ -24,7 +24,9 @@ const [prefs, favorites, alerts, hasPassword] = await Promise.all([
 const alertTopics = new Set(alerts.map((a) => a.topic.toLowerCase()));
 const suggestions = TOPIC_LABELS.filter((t) => !alertTopics.has(t.toLowerCase()));
 const firstName = (user.name || "").trim().split(/\s+/)[0] || "there";
-const planLabel = access.tier === "paid" ? "Premium" : "Free";
+const billing = showBillingPromo();
+const planLabel =
+  billing && access.tier === "paid" ? "Premium" : "Free";
 ---
 <BaseLayout title="Your account — CladFacts" description="Manage your CladFacts membership, email preferences, topic alerts, and saved articles." noindex={true}>
   <article class="static-page account">
@@ -47,7 +49,7 @@ const planLabel = access.tier === "paid" ? "Premium" : "Free";
       compact
     />
 
-    {access.tier !== "paid" && (
+    {billing && access.tier !== "paid" && (
       <section class="account-card clad-app-only">
         <div class="account-card__head">
           <h3 class="account-card__title">Go Premium</h3>
@@ -65,13 +67,13 @@ const planLabel = access.tier === "paid" ? "Premium" : "Free";
     <section class="account-card account-card--plan" id="plan-section">
       <div class="account-card__head">
         <h3 class="account-card__title">Membership</h3>
-        {access.tier === "paid" ? (
+        {billing && access.tier === "paid" ? (
           <span class="plan-badge plan-badge--paid">Premium</span>
         ) : (
           <span class="plan-badge plan-badge--free">Free</span>
         )}
       </div>
-      {access.tier === "paid" ? (
+      {billing && access.tier === "paid" ? (
         <>
           <p class="account-card__desc">
             You have <strong>full access</strong> — every letter grade, political-lean rating,
@@ -87,13 +89,14 @@ const planLabel = access.tier === "paid" ? "Premium" : "Free";
         <>
           <p class="account-card__desc">
             Your free account is <strong>full access</strong> — every letter grade,
-            political-lean rating, sentiment score, the News Trends dashboard, search,
-            and flagging. Premium is how readers keep Clad independent, and it adds
-            posting in Reader Reactions.
+            political-lean rating, sentiment score, Reader Reactions, the News Trends
+            dashboard, search, and flagging. No card required.
           </p>
-          <div class="account-actions">
-            <a class="auth-submit" href="/upgrade/">Support Clad — from {PRICE.monthly}/mo</a>
-          </div>
+          {billing && (
+            <div class="account-actions">
+              <a class="auth-submit" href="/upgrade/">Support Clad — from {PRICE.monthly}/mo</a>
+            </div>
+          )}
         </>
       )}
     </section>
@@ -236,14 +239,16 @@ const planLabel = access.tier === "paid" ? "Premium" : "Free";
       <p class="account-card__desc">
         Permanently delete your CladFacts account and everything tied to it —
         your profile, saved articles, followed topics, email preferences,
-        comments, and subscription records. <strong>This can't be undone.</strong>
+        comments, and related records. <strong>This can't be undone.</strong>
       </p>
-      <p class="account-card__desc account-danger__note">
-        Subscribed through the <strong>iOS app</strong>? Apple-billed
-        subscriptions can't be cancelled here — also cancel in
-        <strong>iOS Settings → your Apple Account → Subscriptions</strong> to
-        stop future charges.
-      </p>
+      {billing && (
+        <p class="account-card__desc account-danger__note">
+          Subscribed through the <strong>iOS app</strong>? Apple-billed
+          subscriptions can't be cancelled here — also cancel in
+          <strong>iOS Settings → your Apple Account → Subscriptions</strong> to
+          stop future charges.
+        </p>
+      )}
       <details class="del-acct">
         <summary class="del-acct__summary">Delete my account…</summary>
         <div class="del-acct__body">
