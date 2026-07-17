@@ -199,7 +199,7 @@ const registerMap = registerHref("/elections/map/");
             <span class="emap-leg emap-leg--quiet">House</span>
           </div>
 
-          <p class="emap-hint small-caps" id="emap-hint">Tap a state for control, outlook &amp; races · Tab + Enter</p>
+          <p class="emap-hint small-caps" id="emap-hint">Tap a state for control, outlook &amp; races</p>
 
           <svg
             class="emap-svg"
@@ -491,8 +491,8 @@ const registerMap = registerHref("/elections/map/");
       if (hintEl) {
         hintEl.textContent =
           mode === "party"
-            ? "Tap a state for control, outlook & races · Tab + Enter"
-            : "Tap a state for coverage heat & race cards · Tab + Enter";
+            ? "Tap a state for control, outlook & races"
+            : "Tap a state for coverage heat & race cards";
       }
       if (selected && states[selected]) paintDetail(states[selected]);
     }
