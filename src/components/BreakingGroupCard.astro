@@ -22,12 +22,10 @@ const leans = members.map((p) => leanScoreOf(p.data)).filter((n): n is number =>
 const avgGrade = gpas.length ? gpaToGrade(gpas.reduce((a, b) => a + b, 0) / gpas.length) : null;
 const avgLean = leans.length ? Math.round(leans.reduce((a, b) => a + b, 0) / leans.length) : null;
 
-// members[0] is the lead (highest-impact) story — its grade reasoning stands in
-// for the group's, like a single article card shows its own.
+// members[0] is the lead (highest-impact) story — its summary stands in for
+// the group on hold-preview (not grade rationale).
 const lead = members[0];
-const reasoning = locked
-  ? lead?.data.summary || ""
-  : lead?.data.gradeRationale || lead?.data.summary || "";
+const reasoning = lead?.data.summary || "";
 
 const byNew = [...members].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 const thumb = displayableThumb(byNew.find((p) => p.data.thumbnail)?.data.thumbnail);
