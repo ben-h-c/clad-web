@@ -1,8 +1,11 @@
 ---
+import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import CollapsibleSection from "~/components/CollapsibleSection.astro";
 import ShareBar from "~/components/ShareBar.astro";
+import { getShareTags } from "~/lib/agents";
 import { CAMPUS_SHARE_LINES, GRADE_BANDS, LEARN_PAGES } from "~/lib/campus";
+import { OG_VERSIONS } from "~/lib/ogCard";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 
 export const prerender = false;
@@ -10,6 +13,8 @@ Astro.response.headers.set("Cache-Control", "public, max-age=300");
 
 const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
 const pageUrl = `${origin}/students/`;
+const ogImage = `${origin}/og/students.png?v=${OG_VERSIONS.students}`;
+const shareTags = (await getShareTags(env.AGENTS))?.tags ?? {};
 const packText = CAMPUS_SHARE_LINES.map((l) => `• ${l}`).join("\n");
 ---
 <BaseLayout
@@ -17,7 +22,7 @@ const packText = CAMPUS_SHARE_LINES.map((l) => `• ${l}`).join("\n");
   description="Built for high-school and college readers: letter grades on TV news, sources you can open, a daily quiz, and shareable explainers. Free account unlocks every grade."
   ogTitle="Clad for students — news with receipts"
   ogDescription="Grades, lean scores, claim tags — plain language for first-time news readers. Free account unlocks the scoreboard."
-  ogImage={`${origin}/og/learn/grades.png`}
+  ogImage={ogImage}
 >
   <article class="static-page campus-hub">
     <p class="small-caps upgrade__eyebrow">For students · ages ~16–24</p>
@@ -40,8 +45,8 @@ const packText = CAMPUS_SHARE_LINES.map((l) => `• ${l}`).join("\n");
     <ShareBar
       url={pageUrl}
       title="Clad for students — news with receipts"
-      hook="Grades, lean scores, claim tags — plain language for first-time news readers. Free account unlocks the board →"
-      storyImage={`${origin}/og/learn/grades.png`}
+      hook={shareTags.students ?? "Grades, lean scores, claim tags — plain language for first-time news readers. Free account unlocks the board →"}
+      storyImage={ogImage}
     />
 
     <h2 class="static-page__sub">Grades in five seconds</h2>

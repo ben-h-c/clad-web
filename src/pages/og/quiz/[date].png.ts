@@ -1,16 +1,29 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
+import { getCollection } from "astro:content";
 import { ImageResponse } from "workers-og";
+import { clip, ogCacheKey, OG_VERSIONS } from "~/lib/ogCard";
+import { pickQuizQuestions } from "~/lib/quiz";
 
 export const prerender = false;
 
 // Share card for The Morning Quiz. Content-addressed by Eastern date so the
-// card (and its edge-cache entry) rolls over with the quiz itself. Carries no
-// post data and nothing gated — it's an invitation, not a scoreboard.
+// card (and its edge-cache entry) rolls over with the quiz itself. It teases
+// the quiz's ACTUAL first claim — selected by the same pickQuizQuestions the
+// page uses, so card and page can never disagree. Claim text + verdict
+// options are free report-body content; Clad's verdict for the claim is the
+// quiz answer and must NEVER render here.
 const PAPER = "#F5EDD9";
 const INK = "#1A140D";
 const MUTED = "#6E5E4D";
 const RED = "#941A1A";
+
+// Wordle-style edition number: days since the quiz launched (2026-06-15),
+// keyed to the card's own Eastern date so each day's share is a visibly new
+// artifact.
+const QUIZ_EPOCH_UTC = Date.UTC(2026, 5, 15);
+
+const esc = (s: unknown) => String(s ?? "").replace(/[<>]/g, " ");
 
 let fontsPromise: Promise<{ name: string; data: ArrayBuffer; weight: 400 | 700; style: "normal" }[]> | null = null;
 function loadFonts(origin: string) {
@@ -34,6 +47,37 @@ function loadFonts(origin: string) {
 // children — the previous markup threw at render time and shipped a 0-byte
 // PNG (found during the 2026-07-11 review verification). Same all-flex
 // convention as og/story/[slug].png.ts.
+
+/** Today's real first claim, spoiler-free: the reader is asked to CALL IT —
+ *  the report's ruling stays inside the quiz. */
+function claimMarkup(opts: { dateLabel: string; edition: number; source: string; claim: string }): string {
+  const chips = ["VERIFIED", "DISPUTED", "MISSING CONTEXT", "UNSUPPORTED"]
+    .map(
+      (c) =>
+        `<div style="display:flex;border:3px solid ${INK};padding:10px 16px;font-size:20px;line-height:1;letter-spacing:2px;font-weight:700">${c}</div>`
+    )
+    .join("");
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:48px 64px;border:16px solid ${INK}">
+    <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
+      <div style="display:flex;font-size:28px;font-weight:700;letter-spacing:4px">CLADFACTS · THE MORNING QUIZ</div>
+      <div style="display:flex;font-size:28px;font-weight:700;letter-spacing:2px;color:${RED}">No. ${opts.edition}</div>
+    </div>
+    <div style="display:flex;width:100%;height:4px;background:${INK};margin:18px 0 26px"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
+      <div style="display:flex;font-size:20px;letter-spacing:3px;color:${RED};font-weight:700">CLAIM 1 OF 5 · AIRED ON ${opts.source}</div>
+      <div style="display:flex;font-size:20px;letter-spacing:2px;color:${MUTED};font-weight:700">${opts.dateLabel}</div>
+    </div>
+    <div style="display:flex;font-size:40px;font-weight:700;line-height:1.25;margin-top:24px">“${opts.claim}”</div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:auto">
+      <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED};font-weight:700">CALL IT:</div>
+      ${chips}
+    </div>
+    <div style="display:flex;font-size:22px;color:${MUTED};margin-top:26px;letter-spacing:2px;font-weight:700">cladfacts.com/quiz · 4 more claims inside</div>
+  </div>`;
+}
+
+/** Generic invitation card — fallback when the day has fewer than 5 questions
+ *  (the page shows its own "come back tomorrow" state on those days). */
 function markup(dateLabel: string): string {
   return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:48px 64px;border:16px solid ${INK}">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
@@ -64,15 +108,29 @@ export const GET: APIRoute = async ({ params, request, locals }) => {
   });
 
   const cache = (caches as any).default as Cache;
-  // Cache is content-addressed by path only (no route reads query params), so drop
-  // the query string — otherwise ?anything busts the cache and re-runs satori.
-  const _u = new URL(request.url);
-  const cacheKey = new Request(_u.origin + _u.pathname);
+  // ogCacheKey folds OG_VERSIONS.quiz into a synthetic path (redesigns
+  // invalidate on deploy) and drops the query string, preserving this route's
+  // anti-satori-DoS property: ?anything must not fan out renders.
+  const cacheKey = ogCacheKey(new URL(request.url), "quiz", OG_VERSIONS.quiz);
   const hit = await cache.match(cacheKey);
   if (hit) return hit;
 
+  const posts = await getCollection("posts", (p) => !p.data.draft);
+  const questions = pickQuizQuestions(posts, date);
+  const first = questions.length >= 5 ? questions[0]! : null;
+  const edition = Math.floor((Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3])) - QUIZ_EPOCH_UTC) / 86_400_000);
+
+  const html = first
+    ? claimMarkup({
+        dateLabel: label.toUpperCase(),
+        edition,
+        source: esc(clip(first.source, 30).toUpperCase()),
+        claim: esc(clip(first.claim, 110)),
+      })
+    : markup(label);
+
   const fonts = await loadFonts(new URL(request.url).origin);
-  const img = new ImageResponse(markup(label), { width: 1200, height: 630, fonts: fonts as any, format: "png" });
+  const img = new ImageResponse(html, { width: 1200, height: 630, fonts: fonts as any, format: "png" });
   const resp = new Response(img.body, {
     headers: {
       "Content-Type": "image/png",

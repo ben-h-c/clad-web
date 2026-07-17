@@ -23,6 +23,7 @@ import {
   getElectionWithPublishedDates,
   picksAreOpen,
 } from "~/lib/elections";
+import { OG_VERSIONS } from "~/lib/ogCard";
 import { getBallotForUser, hasAnyLockedPick, isRacePickLocked, listResults } from "~/lib/picks";
 
 export const prerender = false;
@@ -83,7 +84,7 @@ const displayPicked = Math.max(score.picked, pickedFromCards);
 const displayTotal = cards.length;
 
 const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
-const ogImage = `${origin}/og/bracket.png`;
+const ogImage = `${origin}/og/bracket.png?v=${OG_VERSIONS.bracket}`;
 const pageUrl = `${origin}/bracket/`;
 // Share once any group is locked — public page shows locked picks only.
 const shareUrl =
@@ -94,6 +95,8 @@ const registerNext = encodeURIComponent("/bracket/");
 const canShare = hasShareable && !!shareUrl;
 const canReset = signedIn && calendarOpen && draftPicks.length > 0;
 const canLock = signedIn && calendarOpen && draftPicks.length > 0;
+// Real locked-pick count in the share hook — a personal artifact, not ad copy.
+const lockedCount = ballot ? ballot.picks.filter((p) => !!p.lockedAt).length : 0;
 
 function party(p?: string) {
   return p ? ` (${p})` : "";
@@ -200,7 +203,9 @@ const jsonLd = {
       hidden={!canShare}
       url={shareUrl || `${origin}/bracket/`}
       title="My locked 2026 midterms ballot"
-      hook="I picked winners for Senate + governors. Can you beat my sheet? Free on CladFacts →"
+      hook={lockedCount > 0
+        ? `${lockedCount} midterm races called and locked — Senate and governors. Beat my sheet on CladFacts.`
+        : "I picked winners for Senate + governors. Beat my sheet on CladFacts."}
       storyImage={shareUrl ? `${origin}/og/ballot/${ballot?.shareSlug}.png` : undefined}
     />
 
@@ -450,9 +455,13 @@ const jsonLd = {
       shareBar.hidden = false;
       shareBar.setAttribute("data-url", url);
       shareBar.setAttribute("data-title", "My locked 2026 midterms ballot");
+      // Same two-branch copy as SSR — lockedIds must be current before calling.
       shareBar.setAttribute(
         "data-hook",
-        "I picked winners for Senate + governors. Can you beat my sheet? Free on CladFacts →"
+        lockedIds.size > 0
+          ? lockedIds.size +
+              " midterm races called and locked — Senate and governors. Beat my sheet on CladFacts."
+          : "I picked winners for Senate + governors. Beat my sheet on CladFacts."
       );
       const slugMatch = /\/ballot\/([^/]+)\//.exec(url);
       if (slugMatch) {
@@ -689,16 +698,18 @@ const jsonLd = {
       if (Array.isArray(ballot.picks)) {
         const byRace = new Map(ballot.picks.map((p) => [String(p.raceId), p]));
         pickedIds = new Set(byRace.keys());
+        // Rebuild from the response first so newly locked ids are in lockedIds
+        // before showShareBar() reads lockedIds.size for the hook copy.
         lockedIds = new Set();
+        for (const p of ballot.picks) {
+          if (p.lockedAt) lockedIds.add(String(p.raceId));
+        }
         for (const c of raceCards()) {
           const id = c.getAttribute("data-id") || "";
           const p = byRace.get(id);
           if (p) {
             c.setAttribute("data-pick", p.side);
-            if (p.lockedAt) {
-              lockedIds.add(id);
-              markRaceLocked(c);
-            }
+            if (p.lockedAt) markRaceLocked(c);
           }
         }
       }

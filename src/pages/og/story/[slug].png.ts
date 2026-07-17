@@ -5,6 +5,7 @@ import { ImageResponse } from "workers-og";
 import { leanScoreOf } from "~/lib/topics";
 import { dateline } from "~/lib/dateline";
 import { displayableThumb } from "~/lib/imagePolicy";
+import { OG_VERSIONS, ogCacheKey, clip } from "~/lib/ogCard";
 
 export const prerender = false;
 
@@ -30,7 +31,6 @@ function leanLabel(score: number | null | undefined, lean?: string): string | nu
 }
 
 const esc = (s: unknown) => String(s ?? "").replace(/[<>]/g, " ");
-const clip = (s: string, n: number) => (s.length > n ? `${s.slice(0, n - 1).trimEnd()}…` : s);
 
 interface Moment {
   claim: string;
@@ -188,8 +188,7 @@ function loadFonts(origin: string) {
 export const GET: APIRoute = async ({ params, request, locals }) => {
   const slug = String(params.slug ?? "");
   const cache = (caches as any).default as Cache;
-  const _u = new URL(request.url);
-  const cacheKey = new Request(_u.origin + "/__story-v3" + _u.pathname);
+  const cacheKey = ogCacheKey(new URL(request.url), "story", OG_VERSIONS.story);
   const hit = await cache.match(cacheKey);
   if (hit) return hit;
 

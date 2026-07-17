@@ -198,6 +198,14 @@ export const DEFAULT_REGISTRY: Registry = {
       },
     },
     {
+      id: "share-tag-writer",
+      kind: "share-tag-writer",
+      name: "Share Tagline Writer (static surfaces)",
+      enabled: true,
+      cron: "30 9 */3 * *", // ~every 3 days, just after the quip writer
+      config: {},
+    },
+    {
       id: "digest-sender",
       kind: "digest-sender",
       name: "News Digest Sender",
@@ -808,6 +816,89 @@ export async function getQuips(kv: KVNamespace): Promise<QuipData | null> {
 export async function setQuips(kv: KVNamespace, quips: string[]): Promise<void> {
   const data: QuipData = { updatedAt: new Date().toISOString(), quips: filterQuips(quips) };
   await kv.put(QUIPS_KEY, JSON.stringify(data));
+}
+
+/* ---------- share taglines (static surfaces) ----------
+ * The share-tag-writer agent refreshes one ShareBar hook line per STATIC
+ * surface every few days (per-article share text comes from the report
+ * pipeline instead — see broadcast.ts sanitizeShareText). Pages read the map
+ * and fall back to their computed/static hooks when a key is missing, so an
+ * empty or filtered pool renders exactly today's HTML.
+ *
+ * Taglines render in anonymous HTML (hooks + prefilled intent URLs), so the
+ * filter bans grade/score/lean pairings outright — this is the single
+ * choke-point both the pages and the agent GET read through, and it
+ * self-heals the KV pool the same way filterQuips does. */
+
+const SHARETAGS_KEY = "sharetags:map";
+
+// "bracket" is deliberately absent: its ShareBar shares the user's PERSONAL
+// ballot in first person and gets a computed pick-count hook instead. "home"
+// has no ShareBar today (owner decision pending).
+export const SHARE_SURFACES = ["quiz", "students", "week", "topics", "votes"] as const;
+export type ShareSurface = (typeof SHARE_SURFACES)[number];
+
+export interface ShareTagData {
+  updatedAt: string;
+  tags: Partial<Record<ShareSurface, string>>;
+}
+
+const SHARETAG_BANNED: RegExp[] = [
+  /!/,
+  /#/,
+  /\p{Extended_Pictographic}/u,
+  // Two+ consecutive ALL-CAPS words (single acronyms like SCOTUS survive).
+  /\b[A-Z]{5,}\s+[A-Z]{5,}\b/,
+  /^(you won'?t|don'?t miss|check out|click)/i,
+  // Grade/score leak patterns (never a bare letter-token regex — see
+  // checkAnonLeak's approach): grade+letter pairings, factuality numbers,
+  // lean numbers/labels.
+  /\bgrade[sd]?\b.{0,12}\b[A-F][+-]?\b/i,
+  /\b[A-F][+-]?\b.{0,12}\bgrade/i,
+  /\bfactuality\s*:?\s*\d/i,
+  /\blean(s|ing)?\s*:?\s*[+-]?\d/i,
+];
+
+/** Validate one tagline; null = rejected (caller keeps the previous value). */
+export function filterShareTag(s: unknown): string | null {
+  const t = String(s ?? "").replace(/\s+/g, " ").trim();
+  if (t.length < 40 || t.length > 180) return null;
+  for (const re of SHARETAG_BANNED) if (re.test(t)) return null;
+  return t;
+}
+
+export async function getShareTags(kv: KVNamespace): Promise<ShareTagData | null> {
+  const raw = await kv.get(SHARETAGS_KEY);
+  if (!raw) return null;
+  try {
+    const v = JSON.parse(raw);
+    if (!v || typeof v.tags !== "object" || v.tags === null) return null;
+    const tags: Partial<Record<ShareSurface, string>> = {};
+    for (const key of SHARE_SURFACES) {
+      const ok = filterShareTag(v.tags[key]);
+      if (ok) tags[key] = ok;
+    }
+    return { updatedAt: String(v.updatedAt ?? ""), tags };
+  } catch {
+    return null;
+  }
+}
+
+/** Merge new taglines over the stored map (a partial run never wipes other
+ *  surfaces); invalid values are dropped so the previous tagline survives. */
+export async function setShareTags(
+  kv: KVNamespace,
+  tags: Record<string, unknown>
+): Promise<ShareTagData> {
+  const prev = (await getShareTags(kv))?.tags ?? {};
+  const merged: Partial<Record<ShareSurface, string>> = { ...prev };
+  for (const key of SHARE_SURFACES) {
+    const ok = filterShareTag(tags[key]);
+    if (ok) merged[key] = ok;
+  }
+  const data: ShareTagData = { updatedAt: new Date().toISOString(), tags: merged };
+  await kv.put(SHARETAGS_KEY, JSON.stringify(data));
+  return data;
 }
 
 /* ---------- markets ticker ----------

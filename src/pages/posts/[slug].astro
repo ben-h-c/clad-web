@@ -16,6 +16,7 @@ import ExploreNext from "~/components/ExploreNext.astro";
 import { registerHref } from "~/lib/safeNext";
 import { dateline, shortDate } from "~/lib/dateline";
 import { embedUrl, isOwnedGeneratedImage } from "~/lib/youtube";
+import { OG_VERSIONS } from "~/lib/ogCard";
 import { getAccess, hasPremiumFeatures, showBillingPromo } from "~/lib/access";
 import { sampleUnlockedId } from "~/lib/sample";
 import { metaDescription, stripSummaryOpener } from "~/lib/seo";
@@ -92,10 +93,10 @@ const ogParts = isBroadcast
 // visually, so the title stays clean; the description keeps them as a backstop
 // for the rare client that shows text but not the image.
 const ogTitle = d.headline;
-// ?v=<CARD_VERSION> matches src/pages/og/[slug].png.ts — the query is ignored
+// ?v=<OG_VERSIONS.post> (shared constant with src/pages/og/[slug].png.ts) — the query is ignored
 // by the route (cache keys on path) but changes the URL social scrapers key
 // their caches on, so card redesigns re-unfurl on already-shared links.
-const ogImage = `/og/${post.id}.png?v=5`;
+const ogImage = `/og/${post.id}.png?v=${OG_VERSIONS.post}`;
 // The claims tally (keyMoments verdict counts) is public page content — the
 // KeyMoments section renders for everyone — so it's safe in anonymous head
 // text and gives crawlers/unfurlers the fact-check tension the raw summary
@@ -296,9 +297,10 @@ const breadcrumbLd = {
         url={shareUrl}
         title={d.headline}
         hook={
-          tally.total > 0
-            ? `${tally.total} claims checked · ${tally.verified} verified${tally.disputed ? ` · ${tally.disputed} disputed` : ""}. See the full receipts on CladFacts →`
-            : "Fact-checked on CladFacts — every claim, with sources."
+          d.shareText?.trim() ||
+            (tally.total > 0
+              ? `${tally.total} claims checked · ${tally.verified} verified${tally.disputed ? ` · ${tally.disputed} disputed` : ""}. See the full receipts on CladFacts →`
+              : "Fact-checked on CladFacts — every claim, with sources.")
         }
         storyImage={`/og/story/${post.id}.png`}
       />

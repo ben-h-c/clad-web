@@ -1,9 +1,13 @@
 ---
 import { getCollection } from "astro:content";
+import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ExploreNext from "~/components/ExploreNext.astro";
 import ShareBar from "~/components/ShareBar.astro";
+import { getShareTags } from "~/lib/agents";
 import { nyDateParts } from "~/lib/dateline";
+import { OG_VERSIONS } from "~/lib/ogCard";
+import { pickQuizQuestions } from "~/lib/quiz";
 
 export const prerender = false;
 
@@ -11,37 +15,19 @@ export const prerender = false;
 // verdict, then sees Clad's ruling with the editor's note and a link to the
 // receipts. Claim verdicts + notes are FREE report-body content — nothing
 // gated renders here. Questions are deterministic per Eastern day so every
-// reader (and every cache) gets the same daily quiz.
+// reader (and every cache) gets the same daily quiz — selection lives in
+// ~/lib/quiz, shared with the OG card route so the card's teased claim is
+// always on this page.
 const pad = (n: number) => String(n).padStart(2, "0");
 const { y, m, d } = nyDateParts(new Date());
 const today = `${y}-${pad(m)}-${pad(d)}`;
 const yesterdayParts = nyDateParts(new Date(Date.now() - 24 * 60 * 60 * 1000));
 const yesterday = `${yesterdayParts.y}-${pad(yesterdayParts.m)}-${pad(yesterdayParts.d)}`;
 
-// FNV-1a — tiny, stable, good enough to shuffle a daily quiz.
-function fnv(s: string): number {
-  let h = 2166136261;
-  for (let i = 0; i < s.length; i++) {
-    h ^= s.charCodeAt(i);
-    h = Math.imul(h, 16777619);
-  }
-  return h >>> 0;
-}
+const posts = await getCollection("posts", (p) => !p.data.draft);
+const questions = pickQuizQuestions(posts, today);
 
-const broadcasts = (await getCollection("posts", (p) => !p.data.draft))
-  .filter((p) => p.data.type === "broadcast" && p.data.keyMoments.length > 0)
-  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
-const cutoff = Date.now() - 48 * 60 * 60 * 1000;
-const recent = broadcasts.filter((p) => p.data.publishedAt.valueOf() >= cutoff);
-const pool = recent.length >= 5 ? recent : broadcasts.slice(0, 10);
-
-const questions = [...pool]
-  .sort((a, b) => fnv(today + a.id) - fnv(today + b.id))
-  .slice(0, 5)
-  .map((p, i) => {
-    const km = p.data.keyMoments[fnv(today + p.id + "km") % p.data.keyMoments.length]!;
-    return { n: i + 1, claim: km.claim, verdict: km.verdict, note: km.note, slug: p.id, source: p.data.sourceTitle ?? "a news broadcast" };
-  });
+const shareTags = (await getShareTags(env.AGENTS))?.tags ?? {};
 
 const VERDICTS = ["verified", "disputed", "missing context", "unsupported"] as const;
 const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
@@ -50,7 +36,7 @@ const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
   title="The Morning Quiz — CladFacts"
   description="Five claims from this week's news broadcasts — can you spot the spin? A new quiz every day, with Clad's verdict and sources for every claim."
   ogTitle="The Morning Quiz — can you spot the spin?"
-  ogImage={`/og/quiz/${today}.png`}
+  ogImage={`/og/quiz/${today}.png?v=${OG_VERSIONS.quiz}`}
 >
   <section class="topic-page quiz" data-today={today} data-yesterday={yesterday}>
     <p class="small-caps" style="color:var(--muted-ink)">Daily · five claims · new at midnight Eastern</p>
@@ -96,7 +82,7 @@ const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
             class="quiz-sharebar"
             url="https://cladfacts.com/quiz/"
             title="I just took today's CladFacts Morning Quiz"
-            hook="5 claims from this week's news. Most people get 2 wrong — can you spot the spin?"
+            hook={shareTags.quiz ?? "5 claims from this week's news. Most people get 2 wrong — can you spot the spin?"}
           />
           <div class="quiz__cta">
             <a href="/register/?next=%2Fquiz%2F">Free account unlocks every grade →</a>
@@ -162,11 +148,14 @@ const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
         const streakBit = streak > 1 ? ` · ${streak}-day streak` : "";
         const shareBar = document.getElementById("quiz-sharebar");
         if (shareBar) {
-          shareBar.setAttribute("data-title", `I called ${score}/5 on today's CladFacts Morning Quiz${streakBit}`);
-          shareBar.setAttribute(
-            "data-hook",
-            "5 claims from this week's news. Most people get 2 wrong — can you beat me?"
-          );
+          // Single line — this doubles as the mailto subject / Reddit title.
+          shareBar.setAttribute("data-title", `CladFacts Morning Quiz ${today} — I called ${score}/5${streakBit}`);
+          // Wordle-style spoiler-free grid, read in DOM/question order from
+          // the data-hit stamps (readers answer in any sequence). 🟩⬛ is
+          // luminance-distinct and colorblind-safe; 🟩🟥 is not.
+          const grid = qs.map((q) => (q.getAttribute("data-hit") === "1" ? "🟩" : "⬛")).join("");
+          const priorHook = shareBar.getAttribute("data-hook") || "";
+          shareBar.setAttribute("data-hook", grid + "\n" + priorHook);
           shareBar.setAttribute("data-url", "https://cladfacts.com/quiz/");
           if (typeof window.cladRefreshShareBars === "function") {
             window.cladRefreshShareBars(shareBar);
@@ -184,7 +173,11 @@ const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
             if (q.hasAttribute("data-done")) return;
             q.setAttribute("data-done", "1");
             b.setAttribute("data-picked", "1");
-            if (b.getAttribute("data-verdict") === answer) score++;
+            const hit = b.getAttribute("data-verdict") === answer;
+            if (hit) score++;
+            // Stamped on the question element so the share grid reads in
+            // DOM order, not click order.
+            q.setAttribute("data-hit", hit ? "1" : "0");
             for (const o of opts) {
               o.disabled = true;
               if (o.getAttribute("data-verdict") === answer) o.classList.add("is-right");

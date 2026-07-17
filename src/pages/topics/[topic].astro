@@ -7,7 +7,7 @@ import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
 import SocialSentiment from "~/components/SocialSentiment.astro";
 import ShareBar from "~/components/ShareBar.astro";
-import { getSentiments } from "~/lib/agents";
+import { getSentiments, getShareTags } from "~/lib/agents";
 import { aggregateTopics } from "~/lib/topics";
 import { getAccess } from "~/lib/access";
 import { sampleUnlockedId } from "~/lib/sample";
@@ -53,6 +53,7 @@ const leanLbl =
     : Math.abs(topic.avgLean) < 5
       ? "Centered"
       : `${Math.abs(topic.avgLean)}% ${topic.avgLean > 0 ? "Right" : "Left"}-leaning`;
+const shareTags = (await getShareTags(env.AGENTS))?.tags ?? {};
 const countLabel = `${topic.count} fact-checked ${topic.count === 1 ? "report" : "reports"} on ${topic.display}`;
 // Restricted readers (incl. crawlers) get a grade-free description so the
 // topic's avg grade/lean values stay account-gated even in <head> — keyed to
@@ -111,7 +112,7 @@ const serpDescription = metaDescription(
     <ShareBar
       url={shareUrl}
       title={`${topic.display}: ${topic.count} fact-checked reports`}
-      hook="Every claim graded for accuracy and political lean on CladFacts →"
+      hook={shareTags.topics ?? `${topic.count} fact-checked ${topic.count === 1 ? "report" : "reports"} on ${topic.display}, every claim traced to a source.`}
     />
 
     <div class="rule rule--double" aria-hidden="true" style="margin:1.25rem 0"></div>

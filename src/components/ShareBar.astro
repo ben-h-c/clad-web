@@ -30,17 +30,21 @@ interface Props {
 const { url, title, hook, storyImage, class: className, hidden = false, id } = Astro.props;
 
 const enc = encodeURIComponent;
+/** Single-line contexts (SMS body, Reddit title, mailto subject) must not
+ *  carry embedded newlines — hooks can be multiline (e.g. the quiz result
+ *  grid prepends a line). X/Bluesky/Threads intents keep the multiline text. */
+const flat = (s: string) => s.replace(/\n+/g, " — ");
 const titleBlock = hook ? `${title}\n\n${hook}` : title;
 const caption = `${titleBlock}\n\n${url}\n\nvia CladFacts`;
-const captionOneLine = hook ? `${title} — ${hook} ${url}` : `${title} ${url}`;
-const redditTitle = hook ? `${title} — ${hook}` : title;
+const captionOneLine = flat(hook ? `${title} — ${hook} ${url}` : `${title} ${url}`);
+const redditTitle = flat(hook ? `${title} — ${hook}` : title);
 
 const xHref = `https://twitter.com/intent/tweet?text=${enc(titleBlock)}&url=${enc(url)}`;
 const blueskyHref = `https://bsky.app/intent/compose?text=${enc(caption)}`;
 const threadsHref = `https://www.threads.net/intent/post?text=${enc(caption)}`;
 const redditHref = `https://www.reddit.com/submit?url=${enc(url)}&title=${enc(redditTitle)}`;
 const smsHref = `sms:?&body=${enc(captionOneLine)}`;
-const mailHref = `mailto:?subject=${enc(title)}&body=${enc(caption)}`;
+const mailHref = `mailto:?subject=${enc(flat(title))}&body=${enc(caption)}`;
 ---
 <div
   class:list={["sharebar", className]}
@@ -131,6 +135,11 @@ const mailHref = `mailto:?subject=${enc(title)}&body=${enc(caption)}`;
       return encodeURIComponent(s);
     }
 
+    /** Newlines out of single-line contexts (SMS, Reddit title, mail subject). */
+    function flat(s) {
+      return s.replace(/\n+/g, " — ");
+    }
+
     /** Rebuild platform hrefs from data-url / data-title (used after ballot lock / quiz). */
     function applyShareTargets(bar) {
       const url = bar.getAttribute("data-url") || location.href;
@@ -138,8 +147,8 @@ const mailHref = `mailto:?subject=${enc(title)}&body=${enc(caption)}`;
       const hook = bar.getAttribute("data-hook") || "";
       const titleBlock = hook ? title + "\n\n" + hook : title;
       const caption = titleBlock + "\n\n" + url + "\n\nvia CladFacts";
-      const oneLine = hook ? title + " — " + hook + " " + url : title + " " + url;
-      const redditTitle = hook ? title + " — " + hook : title;
+      const oneLine = flat(hook ? title + " — " + hook + " " + url : title + " " + url);
+      const redditTitle = flat(hook ? title + " — " + hook : title);
 
       const map = {
         sms: "sms:?&body=" + enc(oneLine),
@@ -147,7 +156,7 @@ const mailHref = `mailto:?subject=${enc(title)}&body=${enc(caption)}`;
         bluesky: "https://bsky.app/intent/compose?text=" + enc(caption),
         threads: "https://www.threads.net/intent/post?text=" + enc(caption),
         reddit: "https://www.reddit.com/submit?url=" + enc(url) + "&title=" + enc(redditTitle),
-        email: "mailto:?subject=" + enc(title) + "&body=" + enc(caption),
+        email: "mailto:?subject=" + enc(flat(title)) + "&body=" + enc(caption),
         copy: url,
       };
       Object.keys(map).forEach(function (key) {
@@ -165,14 +174,36 @@ const mailHref = `mailto:?subject=${enc(title)}&body=${enc(caption)}`;
       applyShareTargets(bar);
 
       // System share sheet — the path for Facebook / Instagram / TikTok / etc.
+      // When the page provides a 9:16 story card (data-story-image), attach
+      // it as a file so image-first targets (IG/TikTok Stories) get the card
+      // instead of ignoring the bare URL. Any failure — fetch timeout, no
+      // file support — falls back to the existing text-only share.
       const native = bar.querySelector(".sharebar__native");
       if (native && navigator.share) {
         native.hidden = false;
-        native.addEventListener("click", function () {
+        native.addEventListener("click", async function () {
           const url = bar.getAttribute("data-url") || location.href;
           const title = bar.getAttribute("data-title") || document.title;
           const hook = bar.getAttribute("data-hook") || "";
           const text = hook ? title + "\n\n" + hook : title;
+          const storySrc = bar.getAttribute("data-story-image");
+          if (storySrc) {
+            let sheetOpened = false;
+            try {
+              const resp = await fetch(storySrc, { signal: AbortSignal.timeout(3000) });
+              if (resp.ok) {
+                const file = new File([await resp.blob()], "cladfacts-story.png", { type: "image/png" });
+                if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                  sheetOpened = true;
+                  await navigator.share({ title: title, text: text, url: url, files: [file] });
+                  return;
+                }
+              }
+            } catch (err) {
+              // The sheet opened and the reader dismissed it — don't reopen.
+              if (sheetOpened && err && err.name === "AbortError") return;
+            }
+          }
           navigator.share({ title: title, text: text, url: url }).catch(function () {});
         });
       }

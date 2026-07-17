@@ -6,14 +6,14 @@ import { aggregateTopics, gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topi
 import { getBreaking } from "~/lib/agents";
 import { isNewsOutlet } from "~/lib/networks";
 import { displayableThumb } from "~/lib/imagePolicy";
+import { OG_VERSIONS, ogCacheKey, clip } from "~/lib/ogCard";
 
 export const prerender = false;
 
-// Bump on any card redesign: the version is folded into the edge-cache key
-// (instant invalidation on deploy) and posts reference /og/<slug>.png?v=N so
-// social scrapers — which key their own caches on the URL — re-unfurl
-// already-shared links with the new design.
-const CARD_VERSION = "5";
+// Cache versioning lives in ~/lib/ogCard (OG_VERSIONS.post): the version is
+// folded into the edge-cache key (instant invalidation on deploy) and posts
+// reference /og/<slug>.png?v=N so social scrapers — which key their own
+// caches on the URL — re-unfurl already-shared links with the new design.
 
 const PAPER = "#F5EDD9";
 const INK = "#1A140D";
@@ -28,20 +28,25 @@ const ENUM_TO_SCORE: Record<string, number> = {
   left: -80, "center-left": -40, center: 0, "center-right": 40, right: 80, none: 0,
 };
 
+function resolveLeanScore(score: number | null | undefined, lean?: string): number | null {
+  return typeof score === "number" ? score : lean ? (ENUM_TO_SCORE[lean] ?? null) : null;
+}
+
 function leanLabel(score: number | null | undefined, lean?: string): string | null {
-  const s = typeof score === "number" ? score : lean ? (ENUM_TO_SCORE[lean] ?? null) : null;
+  const s = resolveLeanScore(score, lean);
   if (s === null) return null;
   return Math.abs(s) < 5 ? "Centered" : `${Math.abs(s)}% ${s > 0 ? "Right" : "Left"}-leaning`;
 }
 
 const esc = (s: unknown) => String(s ?? "").replace(/[<>]/g, " ");
-const clip = (s: string, n: number) => (s.length > n ? `${s.slice(0, n - 1).trimEnd()}…` : s);
 
 interface Card {
   headline: string;
   badge: string;
   badgeLabel: string;
   lean: string | null;
+  /** Numeric lean (−100…+100) driving the geometry bar's tick position. */
+  leanScore: number | null;
   factuality: number | null;
   metaLine?: string;
   /** The most attention-worthy key moment (a contested claim when one exists)
@@ -116,24 +121,55 @@ async function loadThumbDataUri(rawUrl: string | null | undefined, origin: strin
   }
 }
 
+/**
+ * Lean as geometry (Ground News pattern): a 360×14 blue/red split bar with an
+ * INK tick at the lean score. Satori-safe — the tick sits in its own flex row
+ * where a flex-basis spacer pushes it into place (no absolute positioning).
+ */
+function leanBarMarkup(score: number): string {
+  const s = Math.max(-100, Math.min(100, score));
+  const pct = (s + 100) / 2;
+  return `<div style="display:flex;flex-direction:column;width:360px;margin-top:8px;">
+    <div style="display:flex;flex-direction:row;width:360px;height:22px;">
+      <div style="display:flex;flex-grow:0;flex-shrink:1;flex-basis:${pct}%;"></div>
+      <div style="display:flex;width:6px;height:22px;background:${INK};"></div>
+    </div>
+    <div style="display:flex;flex-direction:row;width:360px;height:14px;border:2px solid ${INK};">
+      <div style="display:flex;flex:1;background:#0b3d91;"></div>
+      <div style="display:flex;width:4px;background:${PAPER};"></div>
+      <div style="display:flex;flex:1;background:#8b1a14;"></div>
+    </div>
+  </div>`;
+}
+
 function markup(card: Card, thumbDataUri: string | null): string {
   const color = gradeColor(card.badge);
   const meta =
     card.metaLine != null
       ? card.metaLine
-      : [card.lean ? "POLITICAL LEAN" : null, card.factuality != null ? `FACTUALITY ${card.factuality}/100` : null]
-          .filter(Boolean)
-          .join("    ·    ");
+      : card.factuality != null
+        ? `FACTUALITY ${card.factuality}/100`
+        : "";
   const badgeSize = card.badge.length <= 2 ? 96 : 44;
   const hClipped = clip(card.headline, thumbDataUri ? 90 : 120);
   const hSize = hClipped.length > 70 ? 34 : 42;
 
-  const leanLine = card.lean
-    ? `<div style="display:flex;font-size:28px;font-weight:700;">${esc(card.lean)}</div>
-       <div style="display:flex;font-size:18px;color:${MUTED};letter-spacing:2px;margin-top:4px;">${esc(meta)}</div>`
-    : meta
-      ? `<div style="display:flex;font-size:20px;color:${MUTED};letter-spacing:2px;">${esc(meta)}</div>`
+  const factLine =
+    card.factuality != null
+      ? `<div style="display:flex;font-size:18px;color:${INK};letter-spacing:2px;margin-top:8px;font-weight:700;">FACTUALITY ${card.factuality}/100</div>`
       : "";
+  const subLine =
+    card.metaLine != null
+      ? `<div style="display:flex;font-size:18px;color:${MUTED};letter-spacing:2px;margin-top:8px;">${esc(card.metaLine)}</div>`
+      : "";
+  const leanLine =
+    card.lean && card.leanScore != null
+      ? `<div style="display:flex;font-size:28px;font-weight:700;">${esc(card.lean)}</div>
+       ${leanBarMarkup(card.leanScore)}
+       ${factLine}${subLine}`
+      : meta
+        ? `<div style="display:flex;font-size:20px;color:${MUTED};letter-spacing:2px;">${esc(meta)}</div>`
+        : "";
 
   const hook =
     card.moment?.claim
@@ -224,12 +260,10 @@ function loadFonts(origin: string) {
 export const GET: APIRoute = async ({ params, request, locals }) => {
   const slug = String(params.slug ?? "");
   const cache = (caches as any).default as Cache;
-  // Cache is content-addressed by path only (no route reads query params), so drop
-  // the query string — otherwise ?anything busts the cache and re-runs satori.
-  // CARD_VERSION rides in a synthetic (never-served) path segment so a redesign
-  // deploy invalidates the edge instantly instead of aging out over 7 days.
-  const _u = new URL(request.url);
-  const cacheKey = new Request(_u.origin + "/__og-v" + CARD_VERSION + _u.pathname);
+  // ogCacheKey drops the query string (?anything must not fan out satori
+  // renders) and folds OG_VERSIONS.post into a synthetic path segment so a
+  // redesign deploy invalidates the edge instantly instead of aging out.
+  const cacheKey = ogCacheKey(new URL(request.url), "post", OG_VERSIONS.post);
   const hit = await cache.match(cacheKey);
   if (hit) return hit;
 
@@ -306,6 +340,7 @@ async function buildCard(slug: string): Promise<Card | null> {
       badge: t.avgGrade ?? "—",
       badgeLabel: "AVG GRADE",
       lean: leanLabel(t.avgLean, undefined),
+      leanScore: resolveLeanScore(t.avgLean, undefined),
       factuality: null,
       metaLine: `TOPIC · ${t.count} ${t.count === 1 ? "REPORT" : "REPORTS"}`,
       thumbUrl: t.thumbnail || (thumbPost ? postThumbUrl(thumbPost.data) : null),
@@ -326,11 +361,13 @@ async function buildCard(slug: string): Promise<Card | null> {
     if (members.length === 0) return null;
     const gpas = members.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n != null);
     const leans = members.map((p) => leanScoreOf(p.data)).filter((n): n is number => n != null);
+    const avgLean = leans.length ? Math.round(leans.reduce((a, b) => a + b, 0) / leans.length) : null;
     return {
       headline: group.topic ?? group.title,
       badge: gpas.length ? gpaToGrade(gpas.reduce((a, b) => a + b, 0) / gpas.length) : "—",
       badgeLabel: "AVG GRADE",
-      lean: leans.length ? leanLabel(Math.round(leans.reduce((a, b) => a + b, 0) / leans.length)) : null,
+      lean: avgLean != null ? leanLabel(avgLean) : null,
+      leanScore: avgLean,
       factuality: null,
       metaLine: `DEVELOPING STORY · ${members.length} ${members.length === 1 ? "OUTLET" : "OUTLETS"} GRADED`,
       moment: pickMoment(members[0]!.data.keyMoments),
@@ -347,6 +384,7 @@ async function buildCard(slug: string): Promise<Card | null> {
     badge: isBroadcast ? d.letterGrade ?? "—" : VERDICT_LABELS[d.verdict ?? ""] ?? "—",
     badgeLabel: isBroadcast ? "ARTICLE GRADE" : "VERDICT",
     lean: isBroadcast ? leanLabel(leanScoreOf(d), d.politicalLean) : null,
+    leanScore: isBroadcast ? resolveLeanScore(leanScoreOf(d), d.politicalLean) : null,
     factuality: isBroadcast && typeof d.factualityScore === "number" ? d.factualityScore : null,
     moment: isBroadcast ? pickMoment(d.keyMoments) : null,
     thumbUrl: postThumbUrl(d),

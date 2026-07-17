@@ -255,7 +255,10 @@ function statLine(fm) {
 function buildTexts(fm, url, slug) {
   const headline = fm.headline || "CladFacts report";
   const seed = slugSeed(slug);
-  const hook = buildHook(fm, seed);
+  // Prefer the report pipeline's own share teaser (Grok-written, sanitized at
+  // intake); fall back to the deterministic signal-picked templates for the
+  // legacy corpus.
+  const hook = (fm.shareText || "").trim() || buildHook(fm, seed);
   const stats = statLine(fm);
 
   const headlineLine = hook ? headline : `REPORT CARD — ${headline}`;

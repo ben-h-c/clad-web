@@ -4,7 +4,7 @@ import { commitFile } from "~/lib/github";
 import { datedSlug } from "~/lib/slug";
 import { emitPost, type Frontmatter, type KeyMoment } from "~/lib/yaml";
 import { extractVideoId, thumbnailUrl } from "~/lib/youtube";
-import { leanBucket } from "~/lib/broadcast";
+import { leanBucket, sanitizeShareText } from "~/lib/broadcast";
 import { existingVideoIds, findNearDuplicates } from "~/lib/agents";
 import { validateCitations } from "~/lib/citations";
 import { resolveThumbnail } from "~/lib/thumbnail";
@@ -101,6 +101,7 @@ export const POST: APIRoute = async ({ request }) => {
     const politicalLean = leanBucket(leanScore);
     const leanRationale = p.leanRationale ? str(p.leanRationale) : undefined;
     const gradeRationale = p.gradeRationale ? str(p.gradeRationale) : undefined;
+    const shareText = sanitizeShareText(p.shareText);
     const topics = toStringArray(p.topics).slice(0, 4);
     const notableConcerns = toStringArray(p.notableConcerns).slice(0, 3);
     const keyMoments: KeyMoment[] = Array.isArray(p.keyMoments)
@@ -182,6 +183,7 @@ export const POST: APIRoute = async ({ request }) => {
       leanScore,
       leanRationale,
       gradeRationale,
+      shareText,
       topics,
       assessment,
       notableConcerns,

@@ -35,6 +35,7 @@ export interface Frontmatter {
   leanScore?: number;
   leanRationale?: string;
   gradeRationale?: string;
+  shareText?: string;
   topics?: string[];
   assessment?: string;
   notableConcerns?: string[];
@@ -70,6 +71,7 @@ export function emitPost(fm: Frontmatter, body: string): string {
     if (fm.leanScore != null) lines.push(`leanScore: ${Math.round(fm.leanScore)}`);
     if (fm.leanRationale) lines.push(`leanRationale: ${q(fm.leanRationale)}`);
     if (fm.gradeRationale) lines.push(`gradeRationale: ${q(fm.gradeRationale)}`);
+    if (fm.shareText) lines.push(`shareText: ${q(fm.shareText)}`);
     emitStringArray(lines, "topics", fm.topics ?? []);
     if (fm.assessment) lines.push(`assessment: ${q(fm.assessment)}`);
     emitStringArray(lines, "notableConcerns", fm.notableConcerns ?? []);
