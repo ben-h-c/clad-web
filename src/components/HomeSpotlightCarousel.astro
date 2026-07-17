@@ -186,10 +186,13 @@ const DISMISS_KEY = "clad_spotlight_v2";
 
       const vp = root.querySelector("[data-spotlight-viewport]");
       if (vp) {
+        let touchY = null;
         vp.addEventListener(
           "touchstart",
           (e) => {
-            touchX = e.changedTouches[0]?.clientX ?? null;
+            const t = e.changedTouches[0];
+            touchX = t?.clientX ?? null;
+            touchY = t?.clientY ?? null;
           },
           { passive: true }
         );
@@ -197,11 +200,15 @@ const DISMISS_KEY = "clad_spotlight_v2";
           "touchend",
           (e) => {
             if (touchX == null) return;
-            const x = e.changedTouches[0]?.clientX;
-            if (x == null) return;
-            const dx = x - touchX;
+            const t = e.changedTouches[0];
+            const x = t?.clientX;
+            const y = t?.clientY;
+            const dx = x == null ? 0 : x - touchX;
+            const dy = y == null || touchY == null ? 0 : y - touchY;
             touchX = null;
-            if (Math.abs(dx) < 40) return;
+            touchY = null;
+            // Ignore mostly-vertical gestures so page scroll isn't stolen.
+            if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.25) return;
             if (dx < 0) go(i + 1);
             else go(i - 1);
           },

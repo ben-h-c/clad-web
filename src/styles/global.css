@@ -696,6 +696,18 @@ html.clad-app body {
   line-height: 1.52;
   /* Bounce / overscroll matches paper (light or dark via --paper). */
   overscroll-behavior-y: contain;
+  /* Faster tap response on iOS; still allows double-tap zoom to be suppressed
+     on interactive controls via touch-action below. */
+  -webkit-tap-highlight-color: transparent;
+}
+html.clad-app a,
+html.clad-app button,
+html.clad-app [role="button"],
+html.clad-app .report-card__link,
+html.clad-app .race-side,
+html.clad-app .auth-submit {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 html.clad-app .shell {
   margin: 0;
@@ -2590,6 +2602,9 @@ html.theme-dark .masthead__menu-list {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  /* Allow vertical page scroll to win when the gesture is mostly vertical,
+     while still permitting horizontal strip pans (critical in WKWebView). */
+  touch-action: pan-x pan-y;
   padding: 0.85rem 0.35rem 1.65rem;
   border-top: 2px solid var(--rule);
   border-bottom: 1px solid var(--rule);
@@ -2660,7 +2675,9 @@ html.clad-app .hero-strip__item--peek {
 
 html.clad-app .report-card--peek {
   padding: 0.45rem 0.5rem 0.4rem;
-  touch-action: manipulation;
+  /* pan-x pan-y (not manipulation-only) so strip swipe + page scroll both work
+     in WKWebView; hold-to-preview is timed in JS and cancelled on move. */
+  touch-action: pan-x pan-y;
   transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1), transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
   -webkit-user-select: none !important;
   user-select: none !important;
@@ -2776,6 +2793,7 @@ html.clad-app .report-card--peek .report-card__hold-hint {
   position: fixed;
   inset: 0;
   z-index: 12000;
+  /* Allow the holding finger to move; panel itself stays non-interactive. */
   pointer-events: none;
   /* Isolate so transforms don't thrash the page */
   contain: layout style;

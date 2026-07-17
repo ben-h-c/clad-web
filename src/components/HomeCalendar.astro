@@ -284,7 +284,8 @@ const clientEvents = events.map((e) => ({
       if (ev.target === dialog) closeDialog();
     });
 
-    // Swipe left/right between months
+    // Swipe left/right between months — ignore mostly-vertical gestures so
+    // the page can scroll freely when the finger starts on the calendar.
     let touchX = 0;
     let touchY = 0;
     let tracking = false;
@@ -308,7 +309,8 @@ const clientEvents = events.map((e) => ({
         if (!t) return;
         const dx = t.clientX - touchX;
         const dy = t.clientY - touchY;
-        if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+        // Require a clear horizontal swipe (stronger than vertical).
+        if (Math.abs(dx) < 56 || Math.abs(dx) < Math.abs(dy) * 1.35) return;
         month = shiftMonth(month, dx < 0 ? 1 : -1);
         render();
       },

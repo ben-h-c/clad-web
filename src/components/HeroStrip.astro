@@ -90,10 +90,11 @@ const {
     if (window.__heroPeek) return;
     window.__heroPeek = true;
 
-    const LONG_MS = 380;
-    // Only abort the *pending* hold if the finger clearly starts a scroll/swipe.
-    // Small jitter while pressing must NOT cancel; once open, movement never closes.
-    const CANCEL_HOLD_PX = 56;
+    const LONG_MS = 400;
+    // Abort the *pending* hold if the finger clearly starts a scroll/swipe.
+    // Vertical scrolls cancel sooner than diagonal wiggles so page scroll stays fluid.
+    const CANCEL_HOLD_PX = 28;
+    const CANCEL_SCROLL_DY = 14; // clear vertical intent
     const EASE_OUT = "cubic-bezier(0.16, 1, 0.3, 1)";
     const reduceMotion = () =>
       matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -264,13 +265,22 @@ const {
       } catch (_) {}
     }
 
+    function resetHoldState() {
+      clearTimer();
+      if (card) {
+        card.classList.remove("is-peeking");
+        card.setAttribute("aria-expanded", "false");
+      }
+      card = null;
+      pointerId = null;
+      setHolding(false);
+      clearSelection();
+    }
+
     function closePeek() {
       if (!open || !pop || closing) {
         // If we never opened but were mid-hold, just reset.
-        if (card) {
-          card.classList.remove("is-peeking");
-          card.setAttribute("aria-expanded", "false");
-        }
+        resetHoldState();
         open = false;
         return;
       }
@@ -278,9 +288,11 @@ const {
       const { root, panel, source, first } = pop;
 
       const finish = () => {
-        root.remove();
-        source.classList.remove("is-peeking");
-        source.setAttribute("aria-expanded", "false");
+        if (root && root.parentNode) root.remove();
+        if (source) {
+          source.classList.remove("is-peeking");
+          source.setAttribute("aria-expanded", "false");
+        }
         pop = null;
         open = false;
         closing = false;
@@ -339,17 +351,15 @@ const {
         startX = e.clientX;
         startY = e.clientY;
         clearTimer();
-        clearSelection();
-        // Soft hold flag early so selection CSS kicks in before the popup opens.
-        setHolding(true);
-
-        try {
-          next.setPointerCapture(e.pointerId);
-        } catch (_) {}
+        // Do NOT setPointerCapture here — capturing on pointerdown blocks
+        // WKWebView/iOS from scrolling the strip or page until release.
+        // Do NOT setHolding yet either (avoids touch-action fights mid-scroll).
 
         timer = setTimeout(() => {
           if (!card) return;
+          // Still the same finger intent — open preview.
           clearSelection();
+          setHolding(true);
           openPeek(card);
         }, LONG_MS);
       },
@@ -365,21 +375,18 @@ const {
           if (holdActive) clearSelection();
           return;
         }
-        // Before open: only cancel if this is clearly a scroll/swipe, not a light wiggle.
+        // Before open: cancel hold as soon as this looks like scroll/swipe.
         if (timer) {
           const dx = Math.abs(e.clientX - startX);
           const dy = Math.abs(e.clientY - startY);
-          if (dx > CANCEL_HOLD_PX || dy > CANCEL_HOLD_PX) {
-            clearTimer();
-            try {
-              if (pointerId != null) card.releasePointerCapture(pointerId);
-            } catch (_) {}
-            card = null;
-            pointerId = null;
-            setHolding(false);
+          const isScroll =
+            dy > CANCEL_SCROLL_DY && dy >= dx * 0.85
+              ? true
+              : dx > CANCEL_HOLD_PX || dy > CANCEL_HOLD_PX;
+          if (isScroll) {
+            resetHoldState();
           }
         }
-        if (holdActive) clearSelection();
       },
       { passive: true }
     );
@@ -392,10 +399,7 @@ const {
       if (open) {
         closePeek();
       } else {
-        card = null;
-        pointerId = null;
-        setHolding(false);
-        clearSelection();
+        resetHoldState();
       }
       // Swallow the click that follows a successful long-press preview.
       if (suppressClick) {
@@ -406,8 +410,28 @@ const {
     };
     document.addEventListener("pointerup", endPress, { passive: true });
     document.addEventListener("pointercancel", endPress, { passive: true });
-    // Do NOT close on lostpointercapture — iOS often fires that on tiny scrolls
-    // while the finger is still down. Release (pointerup) is the only dismiss.
+    // Safety: never leave the page scroll-locked if the WebView backgrounds
+    // or navigates while a hold preview is open.
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden") {
+        clearTimer();
+        if (open) closePeek();
+        else resetHoldState();
+      }
+    });
+    window.addEventListener("pagehide", () => {
+      clearTimer();
+      if (open && pop) {
+        try {
+          pop.root.remove();
+        } catch (_) {}
+        pop = null;
+        open = false;
+        closing = false;
+      }
+      setScrollLock(false);
+      resetHoldState();
+    });
 
     document.addEventListener(
       "click",
