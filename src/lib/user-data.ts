@@ -15,6 +15,10 @@ export interface UserPrefs {
    * calendar birthday marker — never shown to other users.
    */
   birthday: string | null;
+  /** Cached Grok birthday note (private), valid for birthdayMessageYear. */
+  birthdayMessage: string | null;
+  /** Calendar year the cached birthdayMessage was written for. */
+  birthdayMessageYear: number | null;
 }
 export const DEFAULT_PREFS: UserPrefs = {
   newsletter: false,
@@ -22,6 +26,8 @@ export const DEFAULT_PREFS: UserPrefs = {
   breakingAlerts: false,
   theme: "dark",
   birthday: null,
+  birthdayMessage: null,
+  birthdayMessageYear: null,
 };
 
 /** Minimum age for a free account (COPPA / product policy). */
@@ -130,12 +136,24 @@ export function sanitizePrefs(input: unknown): UserPrefs {
     // Preserve when merging partial updates that omit the key (caller should merge first).
     birthday = null;
   }
+  const msg =
+    typeof o.birthdayMessage === "string"
+      ? o.birthdayMessage.trim().slice(0, 600) || null
+      : null;
+  const msgYear =
+    typeof o.birthdayMessageYear === "number" && Number.isFinite(o.birthdayMessageYear)
+      ? Math.round(o.birthdayMessageYear)
+      : typeof o.birthdayMessageYear === "string" && /^\d{4}$/.test(o.birthdayMessageYear)
+        ? Number(o.birthdayMessageYear)
+        : null;
   return {
     newsletter: !!o.newsletter,
     digest,
     breakingAlerts: !!o.breakingAlerts,
     theme,
     birthday,
+    birthdayMessage: msg,
+    birthdayMessageYear: msgYear,
   };
 }
 
@@ -150,8 +168,23 @@ export function mergePrefs(current: UserPrefs, patch: unknown): UserPrefs {
     base.birthday = current.birthday ?? null;
   } else if (o.birthday === null || o.birthday === "") {
     base.birthday = null;
+    // Clearing DOB also drops cached message
+    base.birthdayMessage = null;
+    base.birthdayMessageYear = null;
   } else {
-    base.birthday = sanitizeBirthday(o.birthday);
+    const next = sanitizeBirthday(o.birthday);
+    base.birthday = next;
+    // New DOB → regenerate message next birthday
+    if (next !== current.birthday) {
+      base.birthdayMessage = null;
+      base.birthdayMessageYear = null;
+    }
+  }
+  if (!("birthdayMessage" in o)) {
+    base.birthdayMessage = current.birthdayMessage ?? null;
+  }
+  if (!("birthdayMessageYear" in o)) {
+    base.birthdayMessageYear = current.birthdayMessageYear ?? null;
   }
   return base;
 }

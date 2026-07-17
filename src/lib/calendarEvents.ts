@@ -395,27 +395,39 @@ export function kindLabel(kind: CalendarEventKind | string): string {
 }
 
 /**
- * Private birthday markers for the signed-in user only.
- * Placed on this calendar year and next (so Dec→Jan rollover still shows).
+ * Private birthday marker — only on the day itself (America/New_York desk date).
+ * Hidden every other day. Message is the Grok-written note (or a short fallback).
  * Never include user id or other PII in the payload.
  */
 export function eventsFromUserBirthday(
   birthday: string | null | undefined,
-  now = new Date()
+  opts?: { message?: string | null; now?: Date }
 ): CalendarEvent[] {
   if (!birthday || !/^\d{4}-\d{2}-\d{2}$/.test(birthday)) return [];
   const mmdd = birthday.slice(5); // MM-DD
   if (!/^\d{2}-\d{2}$/.test(mmdd)) return [];
-  const y = now.getFullYear();
-  const years = [y, y + 1];
-  return years.map((year) => ({
-    id: `my-birthday-${year}`,
-    date: `${year}-${mmdd}`,
-    title: "Your birthday",
-    body: "Only you can see this on your CladFacts calendar. Have a great day.",
-    kind: "personal" as const,
-    source: "extra" as const,
-  }));
+  const today = todayIsoNy(opts?.now);
+  if (today.slice(5) !== mmdd) return []; // only the day of
+  const year = Number(today.slice(0, 4));
+  const message =
+    (opts?.message && String(opts.message).trim().slice(0, 600)) ||
+    "Happy birthday from the CladFacts desk — only you can see this. Enjoy the day.";
+  return [
+    {
+      id: `my-birthday-${year}`,
+      date: today,
+      title: "Happy birthday!",
+      body: message,
+      kind: "personal" as const,
+      source: "extra" as const,
+    },
+  ];
+}
+
+/** True when the desk calendar day matches the user's birthday MM-DD. */
+export function isBirthdayToday(birthday: string | null | undefined, now = new Date()): boolean {
+  if (!birthday || !/^\d{4}-\d{2}-\d{2}$/.test(birthday)) return false;
+  return todayIsoNy(now).slice(5) === birthday.slice(5);
 }
 
 /**

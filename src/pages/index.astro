@@ -29,6 +29,7 @@ import {
   normalizeCalendarEvent,
   type CalendarEvent,
 } from "~/lib/calendarEvents";
+import { resolveBirthdayMessage } from "~/lib/birthdayMessage";
 
 // SSR so the hero reflects the curator's live KV-stored selection without a
 // rebuild. Per-user (grades hidden for restricted readers), so never shared-cache.
@@ -153,7 +154,13 @@ if (access.signedIn) {
   const su = await getSessionUser(Astro.request.headers);
   if (su) {
     const prefs = await getPrefs(su.id);
-    calendarPrivate = eventsFromUserBirthday(prefs.birthday);
+    // Only appears on the day itself; Grok writes a fresh note once per year.
+    const bdayMsg = await resolveBirthdayMessage({
+      userId: su.id,
+      name: su.name,
+      prefs,
+    });
+    calendarPrivate = eventsFromUserBirthday(prefs.birthday, { message: bdayMsg });
   }
 }
 const calendarExtra: CalendarEvent[] = [...calendarFromPosts, ...calendarPrivate];
