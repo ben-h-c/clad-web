@@ -43,6 +43,7 @@ export async function GET() {
     url("/elections/map/", undefined, "0.8"),
     url("/bracket/votes/", undefined, "0.7"),
     url("/students/", undefined, "0.65"),
+    url("/app/", undefined, "0.6"),
     url("/learn/", undefined, "0.65"),
     url("/learn/grades/", undefined, "0.6"),
     url("/learn/lean/", undefined, "0.55"),

@@ -1,0 +1,152 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
+
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "public, max-age=600");
+
+const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
+
+// Opens the App Store review composer directly — the off-device, unthrottled
+// way to ask readers to rate (the in-app SKStoreReviewController prompt is
+// capped at 3/year by Apple; this link is not).
+const RATE_URL = "https://apps.apple.com/app/id6781372681?action=write-review";
+
+// MobileApplication entity so Google understands "CladFacts" is also an iOS
+// app and can surface the store link. No aggregateRating — the app has too few
+// ratings to state one honestly (schema.org ratings must be real).
+const appLd = {
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  name: "CladFacts",
+  operatingSystem: "iOS 17.0 or later",
+  applicationCategory: "NewsApplication",
+  url: `${origin}/app/`,
+  downloadUrl: APP_STORE_URL,
+  installUrl: APP_STORE_URL,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  publisher: { "@type": "Organization", name: "CladFacts", url: origin },
+  description:
+    "The CladFacts iOS app: fact-check report cards on TV news — letter grades, factuality scores, and political-lean ratings, claim by claim — with a Home Screen widget and breaking-news alerts.",
+};
+
+const FEATURES: { title: string; body: string }[] = [
+  {
+    title: "Report cards in your pocket",
+    body: "Every reviewed broadcast, interview, and Sunday show — letter grade, factuality score, and political lean, with a claim-by-claim breakdown and a source for every verdict.",
+  },
+  {
+    title: "A Home Screen widget",
+    body: "The latest graded report card, right on your Home Screen — glance at what held up without opening anything.",
+  },
+  {
+    title: "Breaking-news alerts",
+    body: "Opt in to a push when a major story gets graded. No feed, no doomscroll — just the report card when it lands.",
+  },
+  {
+    title: "Sign in with Apple or Google",
+    body: "One tap to unlock the full scoreboard — grades, lean scores, and charts. A free account is all it takes; Premium is an optional way to support the newsroom.",
+  },
+];
+---
+<BaseLayout
+  title="CladFacts for iPhone — fact-checked news, graded claim by claim"
+  description="Get the CladFacts iOS app: report cards on TV news with letter grades, factuality scores, and political-lean ratings — plus a Home Screen widget and breaking-news alerts. Free on the App Store."
+  ogTitle="CladFacts for iPhone"
+  ogDescription="Report cards on TV news — grades, factuality scores, and lean ratings, claim by claim. Free on the App Store."
+  jsonLd={appLd}
+>
+  <article class="static-page app-page">
+    <p class="small-caps upgrade__eyebrow">Now on iPhone</p>
+    <h1 class="static-page__title">CladFacts on your phone</h1>
+    <p class="upgrade__lede">
+      The same newsroom that grades TV news for accuracy and bias — as an app.
+      Report cards, factuality scores, and lean ratings, claim by claim, with a
+      Home Screen widget and alerts when a big story gets graded.
+    </p>
+
+    {APP_STORE_LIVE ? (
+      <p class="app-page__cta-row">
+        <a
+          class="appstore-badge appstore-badge--lg"
+          href={APP_STORE_URL}
+          target="_blank"
+          rel="noopener"
+          aria-label="Download CladFacts on the App Store"
+        >
+          <svg class="appstore-badge__logo" viewBox="0 0 384 512" aria-hidden="true" focusable="false">
+            <path
+              fill="currentColor"
+              d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"
+            ></path>
+          </svg>
+          <span class="appstore-badge__text">
+            <span class="appstore-badge__small">Download on the</span>
+            <span class="appstore-badge__big">App Store</span>
+          </span>
+        </a>
+      </p>
+    ) : (
+      <p class="upgrade__lede"><strong>Coming soon to the App Store.</strong></p>
+    )}
+
+    <ul class="app-page__features">
+      {FEATURES.map((f) => (
+        <li class="app-page__feature">
+          <h2 class="app-page__feature-title">{f.title}</h2>
+          <p>{f.body}</p>
+        </li>
+      ))}
+    </ul>
+
+    {APP_STORE_LIVE && (
+      <p class="app-page__rate dateline">
+        Already reading in the app? <a href={RATE_URL} target="_blank" rel="noopener">Leave a rating</a> —
+        it's the biggest help for a small, independent newsroom finding new readers.
+      </p>
+    )}
+
+    <p class="dateline app-page__note">
+      iPhone, iOS 17 or later. No trackers, no analytics SDKs.
+      See <a href="/how-it-works/">how the grading works</a> or
+      read <a href="/privacy/">the privacy policy</a>.
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .app-page__cta-row {
+    margin: 1.5rem 0 2rem;
+  }
+  .appstore-badge--lg {
+    transform: scale(1.15);
+    transform-origin: left center;
+  }
+  .app-page__features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.1rem;
+    border-top: 2px solid var(--ink, #1a140d);
+    padding-top: 1.3rem;
+  }
+  .app-page__feature-title {
+    font-family: var(--serif, Georgia, serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 0.2rem;
+  }
+  .app-page__feature p {
+    margin: 0;
+  }
+  .app-page__rate {
+    margin-top: 1.6rem;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--ink, #1a140d);
+  }
+  .app-page__note {
+    margin-top: 1.4rem;
+    opacity: 0.85;
+  }
+</style>

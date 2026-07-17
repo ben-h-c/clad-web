@@ -23,6 +23,7 @@ import { metaDescription, stripSummaryOpener } from "~/lib/seo";
 import { splitCitations } from "~/lib/citations";
 import { slugify } from "~/lib/slug";
 import { aggregateTopicsCached, canonicalTopic, topicSlug } from "~/lib/topics";
+import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
@@ -611,6 +612,40 @@ const breadcrumbLd = {
       title="Done with this report?"
       eyebrow="Keep going"
     />
+
+    {APP_STORE_LIVE && (
+      <>
+        {/* End-of-article install nudge — the highest-intent moment (a reader
+            who just finished a report card). data-app-hide keeps it out of the
+            iOS app; the script reveals it only on phones and remembers dismissal. */}
+        <aside class="post-app-nudge" id="post-app-nudge" data-app-hide hidden>
+          <p class="post-app-nudge__msg">
+            <span class="post-app-nudge__kicker small-caps">Read on the go</span>
+            The report card, a Home Screen widget, and an alert when a big story gets graded.
+          </p>
+          <a class="post-app-nudge__cta" href={APP_STORE_URL} target="_blank" rel="noopener">Get the iPhone app →</a>
+          <button type="button" class="post-app-nudge__close" id="post-app-nudge-close" aria-label="Dismiss">×</button>
+        </aside>
+        <script is:inline>
+          (() => {
+            const el = document.getElementById("post-app-nudge");
+            if (!el) return;
+            const KEY = "clad_post_app_nudge_dismissed";
+            // Phones only — you can't install an iOS app from a desktop.
+            const isPhone = window.matchMedia("(max-width: 700px) and (pointer: coarse)").matches;
+            let dismissed = false;
+            try { dismissed = !!localStorage.getItem(KEY); } catch {}
+            if (isPhone && !dismissed) el.hidden = false;
+            const close = document.getElementById("post-app-nudge-close");
+            if (close) close.addEventListener("click", () => {
+              el.hidden = true;
+              try { localStorage.setItem(KEY, "1"); } catch {}
+            });
+          })();
+        </script>
+      </>
+    )}
+
     <NewsletterSignup compact />
     <Disclaimer />
   </article>

@@ -92,9 +92,46 @@ function applyCachePolicy(context: { request: Request }, path: string, response:
   return response;
 }
 
+// Apple universal-links association file. Served straight from middleware
+// because Apple requires it at EXACTLY /.well-known/apple-app-site-association
+// over https with NO redirect and valid JSON — and the trailing-slash
+// normalizer below would otherwise 301 this extensionless path. Team
+// R7AV32BX6D + bundle com.bencody.cladfacts (see cladfacts-ios). Every content
+// path opens in the app; api / auth / account / admin stay in Safari so
+// sign-in callbacks and the editor console are never hijacked.
+const APPLE_APP_SITE_ASSOCIATION = JSON.stringify({
+  applinks: {
+    details: [
+      {
+        appIDs: ["R7AV32BX6D.com.bencody.cladfacts"],
+        components: [
+          { "/": "/api/*", exclude: true },
+          { "/": "/account/*", exclude: true },
+          { "/": "/login/*", exclude: true },
+          { "/": "/register/*", exclude: true },
+          { "/": "/reset-password/*", exclude: true },
+          { "/": "/admin/*", exclude: true },
+          { "/": "/*" },
+        ],
+      },
+    ],
+  },
+});
+
 export const onRequest = defineMiddleware(async (context, next) => {
   const path = context.url.pathname;
   const method = context.request.method;
+
+  if (path === "/.well-known/apple-app-site-association") {
+    return new Response(APPLE_APP_SITE_ASSOCIATION, {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+        "Cache-Control": "public, max-age=3600",
+      },
+    });
+  }
+
   // Trailing-slash policy (trailingSlash: "always"): 301 bare page URLs to
   // their canonical slash form so every page has one indexable URL. /api/* is
   // exempt to keep the JSON contract byte-stable for the iOS app; the
