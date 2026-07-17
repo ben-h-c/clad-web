@@ -7362,11 +7362,12 @@ button.home-cal__cell:disabled {
   background: color-mix(in srgb, rgb(150, 36, 30) 75%, var(--ink));
 }
 
-/* Day detail popup */
+/* Day detail popup — centered via margin:auto (native <dialog> top-layer) */
 .home-cal__dialog {
   width: min(28rem, calc(100vw - 1.75rem));
   max-width: calc(100vw - 1.75rem);
   max-height: min(80vh, 34rem);
+  /* All four sides auto = center in the viewport (do not override top/bottom alone) */
   margin: auto;
   padding: 0;
   border: 1px solid color-mix(in srgb, var(--rule) 75%, transparent);
@@ -7377,6 +7378,11 @@ button.home-cal__cell:disabled {
   /* Sit above fixed masthead / app chrome if the UA skips top-layer */
   z-index: 13000;
   overflow: hidden;
+  /* Explicit position for UAs that don't center open dialogs by default */
+  position: fixed;
+  inset: 0;
+  height: fit-content;
+  max-width: min(28rem, calc(100vw - 1.75rem));
 }
 .home-cal__dialog::backdrop {
   background: color-mix(in srgb, #000 42%, transparent);
@@ -7451,10 +7457,14 @@ button.home-cal__cell:disabled {
   -webkit-overflow-scrolling: touch;
 }
 html.clad-app .home-cal__dialog {
-  /* Keep clear of notch / home indicator when the modal is tall */
-  max-height: min(80vh, calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 2rem));
-  margin-top: max(1rem, env(safe-area-inset-top, 0px));
-  margin-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  /* Cap height for safe areas; keep margin:auto so the dialog stays centered */
+  max-height: min(
+    80vh,
+    calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 2.5rem)
+  );
+  /* Symmetric auto margins — never set only top (that pins the dialog high) */
+  margin: auto;
+  inset: 0;
 }
 .home-cal__event {
   padding: 0.65rem 0.7rem;
