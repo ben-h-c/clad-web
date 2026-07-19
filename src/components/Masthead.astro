@@ -5,8 +5,10 @@ import { getSessionUser } from "~/lib/user-data";
 
 interface Props {
   date?: Date;
+  /** SSR theme for correct theme-toggle aria-pressed on first paint (dark default). */
+  theme?: "dark" | "light";
 }
-const { date = new Date() } = Astro.props;
+const { date = new Date(), theme = "dark" } = Astro.props;
 const vol = volume(date);
 const issue = issueNumber(date);
 
@@ -141,7 +143,7 @@ const menuAccountText = signedIn ? accountLabel : "Sign in";
             id="theme-toggle"
             aria-label="Toggle light or dark reading"
             title="Toggle light or dark reading"
-            aria-pressed="false"
+            aria-pressed={theme === "dark" ? "true" : "false"}
           >◐</button>
           <a class="masthead__search" href="/search/" aria-label="Search" title="Search">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">

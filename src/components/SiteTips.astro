@@ -2,6 +2,7 @@
 /**
  * One soft, dismissible tip bar for first-time visitors who skipped the tour.
  * Appears once per tip id (localStorage). Never stacks with the tour modal.
+ * Second tip (explore-analytics-v1) arms only after the first tip is dismissed.
  * Mount site-wide from BaseLayout (non-admin).
  */
 ---
@@ -22,21 +23,65 @@
   (() => {
     const el = document.getElementById("site-tip");
     if (!el) return;
-    const id = el.getAttribute("data-tip-id") || "site-tip";
-    const KEY = "clad_tip_" + id;
+    const TIPS = [
+      {
+        id: "explore-midterms-quiz-v1",
+        kicker: "Try this",
+        textHtml:
+          'New here? Fill a <a href="/bracket/">midterms ballot</a>, take the ' +
+          '<a href="/quiz/">morning quiz</a>, or <a href="/register/">create a free account</a> to unlock grades.',
+        ctaHref: "/bracket/",
+        ctaLabel: "Ballot board",
+      },
+      {
+        id: "explore-analytics-v1",
+        // Arms only once the first tip's localStorage flag is set (never stack).
+        requires: "explore-midterms-quiz-v1",
+        kicker: "Try this",
+        textHtml:
+          'Curious how the news leans? Check your <a href="/bias/">bias</a>, see the ' +
+          '<a href="/week/">Week in Grades</a>, or track the <a href="/trends/">trend line</a>.',
+        ctaHref: "/bias/",
+        ctaLabel: "Check your bias",
+      },
+    ];
     const path = location.pathname || "/";
-    // Don't compete with auth, admin, or first-paint tour on home.
     if (/^\/(login|register|admin|verified|account|reset-password)/.test(path)) return;
+
+    const key = (id) => "clad_tip_" + id;
+    let tip = null;
     try {
-      if (localStorage.getItem(KEY)) return;
-      // If tour is still pending on home, let the tour own first attention.
-      if (path === "/" && !localStorage.getItem("clad_tour_v3") && !localStorage.getItem("clad_tour_v2")) {
-        return;
+      for (const t of TIPS) {
+        if (localStorage.getItem(key(t.id))) continue;
+        if (t.requires && !localStorage.getItem(key(t.requires))) continue;
+        // If tour is still pending on home, let the tour own first attention.
+        if (
+          path === "/" &&
+          !localStorage.getItem("clad_tour_v3") &&
+          !localStorage.getItem("clad_tour_v2")
+        ) {
+          return;
+        }
+        tip = t;
+        break;
       }
     } catch {
       return;
     }
-    // Delay so it doesn't flash over the first paint.
+    if (!tip) return;
+
+    el.setAttribute("data-tip-id", tip.id);
+    const kicker = el.querySelector(".site-tip__kicker");
+    const text = el.querySelector(".site-tip__text");
+    const cta = el.querySelector(".site-tip__cta");
+    if (kicker) kicker.textContent = tip.kicker;
+    if (text) text.innerHTML = tip.textHtml;
+    if (cta) {
+      cta.setAttribute("href", tip.ctaHref);
+      cta.textContent = tip.ctaLabel;
+    }
+
+    const KEY = key(tip.id);
     setTimeout(() => {
       try {
         if (localStorage.getItem(KEY)) return;
@@ -46,12 +91,16 @@
 
     const dismiss = () => {
       el.hidden = true;
-      try { localStorage.setItem(KEY, "1"); } catch {}
+      try {
+        localStorage.setItem(KEY, "1");
+      } catch {}
     };
     document.getElementById("site-tip-dismiss")?.addEventListener("click", dismiss);
     el.querySelectorAll("a").forEach((a) => {
       a.addEventListener("click", () => {
-        try { localStorage.setItem(KEY, "1"); } catch {}
+        try {
+          localStorage.setItem(KEY, "1");
+        } catch {}
       });
     });
   })();

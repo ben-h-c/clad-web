@@ -45,6 +45,7 @@ const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
       Five claims Clad checked recently. Call each one — <em>verified</em>, <em>disputed</em>,
       <em>missing context</em>, or <em>unsupported</em> — then compare your read with the report's.
     </p>
+    <p class="quiz__streak-hint small-caps" id="quiz-streak-hint" hidden style="color:var(--muted-ink)"></p>
     <div class="rule rule--double" aria-hidden="true"></div>
 
     {questions.length < 5 ? (
@@ -77,6 +78,7 @@ const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
           <div class="rule rule--double" aria-hidden="true"></div>
           <p class="quiz__score">You called <strong id="quiz-score">0</strong> of 5 the way the report did.</p>
           <p class="quiz__streak small-caps" id="quiz-streak"></p>
+          <p class="quiz__streak small-caps" id="quiz-return-hook"></p>
           <ShareBar
             id="quiz-sharebar"
             class="quiz-sharebar"
@@ -119,7 +121,26 @@ const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
     (() => {
       const quiz = document.querySelector(".quiz");
       const qs = [...document.querySelectorAll(".quiz-q")];
-      if (!quiz || qs.length === 0) return;
+      if (!quiz) return;
+      const today = quiz.getAttribute("data-today");
+      // Pre-play streak reminder (local only; never blocks play).
+      try {
+        const hint = document.getElementById("quiz-streak-hint");
+        if (hint && today) {
+          const last = localStorage.getItem("clad_quiz_last_date");
+          const streak = Number(localStorage.getItem("clad_quiz_streak") || "0");
+          if (last === today) {
+            hint.textContent =
+              "You've played today — come back tomorrow to reach day " + (streak + 1) + ".";
+            hint.hidden = false;
+          } else if (streak > 1 && last) {
+            hint.textContent =
+              "Your streak — day " + streak + ". Keep it alive: today's five are ready.";
+            hint.hidden = false;
+          }
+        }
+      } catch {}
+      if (qs.length === 0) return;
       const result = document.getElementById("quiz-result");
       let answered = 0;
       let score = 0;
@@ -127,7 +148,6 @@ const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
       const finish = () => {
         document.getElementById("quiz-score").textContent = String(score);
         // Streak lives only in this browser: consecutive Eastern-date plays.
-        const today = quiz.getAttribute("data-today");
         const yesterday = quiz.getAttribute("data-yesterday");
         let streak = 1, best = score;
         try {
@@ -144,6 +164,13 @@ const label = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
         if (streak > 1) parts.push(`${streak}-day streak`);
         if (best > 0) parts.push(`best score ${best}/5`);
         document.getElementById("quiz-streak").textContent = parts.join(" · ");
+        const hook = document.getElementById("quiz-return-hook");
+        if (hook) {
+          hook.textContent =
+            streak > 0
+              ? "A fresh five drops at midnight Eastern — come back to reach day " + (streak + 1) + "."
+              : "A fresh five drops at midnight Eastern — come back tomorrow.";
+        }
         result.hidden = false;
         const streakBit = streak > 1 ? ` · ${streak}-day streak` : "";
         const shareBar = document.getElementById("quiz-sharebar");

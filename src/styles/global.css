@@ -15,7 +15,7 @@
   --desk: rgb(58, 48, 38);
   --desk-edge: rgb(42, 34, 26);
   --ink: rgb(26, 20, 13);
-  --muted-ink: rgb(110, 94, 77);
+  --muted-ink: rgb(96, 80, 63);
   --rule: rgb(22, 17, 12);
   --red-ink: rgb(148, 26, 26);
   --accent: rgb(150, 30, 20);
@@ -24,6 +24,21 @@
   --tint-2: rgba(10, 8, 5, 0.06);
   --tint-3: rgba(10, 8, 5, 0.12);
   --shadow: rgba(20, 12, 6, 0.28);
+  /* Elevation drop-shadow layers (generic only — keep letterpress/ring/glow intact) */
+  --shadow-sm: 0 6px 16px color-mix(in srgb, var(--shadow) 32%, transparent);
+  --shadow-md: 0 12px 26px color-mix(in srgb, var(--shadow) 42%, transparent);
+  --shadow-lg: 0 20px 48px color-mix(in srgb, var(--shadow) 55%, transparent);
+  /* Canonical focus ring (accent themes correctly in both modes) */
+  --focus-outline: 2px solid var(--accent);
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.9, 0.25, 1);
+  --dur-card: 0.18s;
+  /* Radii — stock cards, controls, chips */
+  --radius-stock: 2px 4px 3px 2px;
+  --radius-control: 3px;
+  --radius-chip: 2px;
+  /* Disabled solid fills */
+  --disabled-opacity: 0.55;
   /* Stronger newsprint grain + edge wear (still no mix-blend for scroll cost) */
   --grain-opacity: 0.12;
   --wear-opacity: 0.18;
@@ -83,6 +98,9 @@ html.theme-dark {
   --tint-2: rgba(245, 237, 217, 0.09);
   --tint-3: rgba(245, 237, 217, 0.16);
   --shadow: rgba(0, 0, 0, 0.65);
+  --shadow-sm: 0 6px 16px color-mix(in srgb, var(--shadow) 32%, transparent);
+  --shadow-md: 0 12px 26px color-mix(in srgb, var(--shadow) 42%, transparent);
+  --shadow-lg: 0 20px 48px color-mix(in srgb, var(--shadow) 55%, transparent);
   --grain-opacity: 0.1;
   --wear-opacity: 0.14;
   --rule-faded: color-mix(in srgb, var(--rule) 28%, transparent);
@@ -112,6 +130,9 @@ html.theme-dark {
 html {
   margin: 0;
   padding: 0;
+  /* Fixed masthead offset for skip-link + deep anchors */
+  scroll-padding-top: calc(var(--site-header-h) + env(safe-area-inset-top, 0px) + 0.5rem);
+  scroll-behavior: smooth;
   /* Static desk wash — animated bg-position was a continuous full-viewport repaint */
   background-color: var(--desk);
   background-image:
@@ -265,47 +286,6 @@ html.theme-dark body::before {
   /* No 3D perspective transform — that was re-rasterized while scrolling */
 }
 
-@keyframes living-desk {
-  0% { background-position: 0% 20%, 100% 0%, 40% 100%, 0 0; }
-  100% { background-position: 80% 60%, 10% 80%, 70% 20%, 0 0; }
-}
-@keyframes living-orb-a {
-  from { transform: translate3d(0, 0, 0) scale(1); }
-  to { transform: translate3d(12vw, 18vh, 0) scale(1.25); }
-}
-@keyframes living-orb-b {
-  from { transform: translate3d(0, 0, 0) scale(1.05); }
-  to { transform: translate3d(-14vw, 12vh, 0) scale(1.3); }
-}
-@keyframes living-orb-c {
-  from { transform: translate3d(0, 0, 0) scale(1); }
-  to { transform: translate3d(-10vw, -14vh, 0) scale(1.2); }
-}
-@keyframes living-orb-d {
-  from { transform: translate3d(0, 0, 0) scale(0.95); }
-  to { transform: translate3d(8vw, -10vh, 0) scale(1.35); }
-}
-@keyframes living-spark {
-  0%, 100% { transform: translateY(0) scale(0.7); opacity: 0.35; }
-  50% { transform: translateY(-18px) scale(1.35); opacity: 1; }
-}
-@keyframes living-grid {
-  from { background-position: 0 0, 0 0; }
-  to { background-position: 0 48px, 48px 0; }
-}
-@keyframes living-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-@keyframes living-pop {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.06); }
-}
-@keyframes living-shimmer {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-
 :root[data-theme="dark"] .living-bg__orb,
 html.theme-dark .living-bg__orb {
   opacity: 0.35;
@@ -346,7 +326,7 @@ html.theme-dark .gradeboard__item {
   background-image: none !important;
   box-shadow:
     0 1px 0 color-mix(in srgb, #fff 8%, transparent),
-    0 10px 22px color-mix(in srgb, var(--shadow) 55%, transparent);
+    var(--shadow-md);
 }
 
 /* Mobile / touch: strip living-stage flair; keep a quieter paper texture for light */
@@ -391,6 +371,9 @@ html.theme-dark .gradeboard__item {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   body::before {
     opacity: 0.02;
   }
@@ -405,8 +388,17 @@ html.theme-dark .gradeboard__item {
   .gradeboard__item:hover,
   .fold:hover,
   .auth-submit:hover,
-  .home-lede__cta:hover {
+  .home-lede__cta:hover,
+  .home-emap__card:hover,
+  a.home-promo--spotlight-link:hover,
+  .top-issues__link:hover {
     transform: none;
+  }
+  a.home-promo--spotlight-link:hover .home-spotlight__go {
+    transform: none;
+  }
+  .masthead__menu-list {
+    transition: none;
   }
 }
 
@@ -461,7 +453,7 @@ p {
   position: fixed;
   left: 0.75rem;
   top: 0.75rem;
-  z-index: 1100;
+  z-index: 10101;
   padding: 0.6rem 1rem;
   background: var(--ink);
   color: var(--paper);
@@ -469,7 +461,8 @@ p {
   font-weight: 700;
   text-decoration: none;
   border: 1px solid var(--paper);
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* Billing promo surfaces (Premium CTAs) — hidden while data-billing="0" */
@@ -866,7 +859,9 @@ body {
   border-bottom: 1px solid color-mix(in srgb, var(--rule) 60%, transparent);
   box-shadow:
     0 1px 0 color-mix(in srgb, var(--rule) 12%, transparent),
-    0 8px 18px color-mix(in srgb, var(--shadow) 22%, transparent);
+    inset 0 0 0 1px color-mix(in srgb, var(--paper) 32%, transparent),
+    inset 0 -1px 0 color-mix(in srgb, var(--rule) 12%, transparent),
+    var(--shadow-md);
   padding-left: max(0.75rem, env(safe-area-inset-left, 0px));
   padding-right: max(0.75rem, env(safe-area-inset-right, 0px));
 }
@@ -895,7 +890,9 @@ html.theme-dark .masthead__fixed {
   background-image: none;
   box-shadow:
     0 1px 0 color-mix(in srgb, var(--rule) 30%, transparent),
-    0 10px 22px color-mix(in srgb, var(--shadow) 45%, transparent);
+    inset 0 0 0 1px color-mix(in srgb, var(--paper) 22%, transparent),
+    inset 0 -1px 0 color-mix(in srgb, var(--rule) 12%, transparent),
+    var(--shadow-md);
 }
 
 :root[data-theme="dark"] .masthead__fixed::before,
@@ -1105,6 +1102,14 @@ html.clad-app .masthead__fixed {
   border: 1px solid var(--rule);
   background: var(--paper);
   color: var(--ink);
+  transition: border-color 0.15s ease;
+}
+.auth-form input:focus-visible,
+.search-filter select:focus-visible,
+.search-filter input[type="date"]:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent);
 }
 .auth-submit {
   font: inherit;
@@ -1113,17 +1118,17 @@ html.clad-app .masthead__fixed {
   border: 1px solid var(--rule);
   background: var(--ink);
   color: var(--paper);
-  border-radius: 3px;
+  border-radius: var(--radius-control);
   box-shadow:
     0 3px 0 color-mix(in srgb, var(--rule) 55%, #000),
-    0 8px 16px color-mix(in srgb, var(--shadow) 35%, transparent);
+    var(--shadow-sm);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .auth-submit:hover {
   transform: translateY(-3px);
   box-shadow:
     0 5px 0 color-mix(in srgb, var(--rule) 55%, #000),
-    0 14px 24px color-mix(in srgb, var(--shadow) 45%, transparent),
+    var(--shadow-md),
     0 0 20px color-mix(in srgb, var(--accent) 25%, transparent);
 }
 .auth-submit:active {
@@ -1137,10 +1142,10 @@ html.clad-app .masthead__fixed {
   color: var(--ink);
   box-shadow:
     0 3px 0 color-mix(in srgb, var(--rule) 25%, transparent),
-    0 6px 12px color-mix(in srgb, var(--shadow) 20%, transparent);
+    var(--shadow-sm);
 }
 .auth-submit:disabled {
-  opacity: 0.5;
+  opacity: var(--disabled-opacity);
   cursor: default;
   transform: none;
   box-shadow: none;
@@ -1168,7 +1173,8 @@ html.clad-app .masthead__fixed {
   cursor: pointer;
 }
 .auth-linklike:disabled {
-  opacity: 0.6;
+  color: var(--muted-ink);
+  opacity: 0.7;
   cursor: default;
 }
 .auth-social {
@@ -1412,6 +1418,7 @@ html.clad-app .masthead__fixed {
   flex-wrap: wrap;
   gap: 0.5rem;
 }
+
 .chip {
   display: inline-flex;
   align-items: center;
@@ -1420,6 +1427,7 @@ html.clad-app .masthead__fixed {
   border: 1px solid var(--rule);
   background: var(--tint-1);
   font-size: 0.85rem;
+  border-radius: var(--radius-chip);
 }
 .chip__remove {
   font: inherit;
@@ -1430,10 +1438,23 @@ html.clad-app .masthead__fixed {
   color: var(--muted-ink);
   padding: 0 0.25rem;
   font-size: 1.1rem;
+  min-width: 24px;
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .chip__remove:hover {
   color: var(--accent);
 }
+.chip__remove:active {
+  color: var(--accent);
+}
+.chip__remove:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
 .chip-empty,
 .fav-empty {
   color: var(--muted-ink);
@@ -1965,6 +1986,15 @@ html.clad-app .masthead__fixed {
   /* Above fixed header + page content while open */
   z-index: 10100;
   pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--dur-card) var(--ease-out), transform var(--dur-card) var(--ease-out);
+}
+@starting-style {
+  .masthead__menu[open] .masthead__menu-list {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
 }
 
 :root[data-theme="dark"] .masthead__menu-list,
@@ -2109,17 +2139,21 @@ html.theme-dark .masthead__menu-list {
     radial-gradient(ellipse 70% 50% at 0% 0%, rgba(255, 248, 230, 0.4), transparent 55%),
     radial-gradient(ellipse 50% 45% at 100% 100%, rgba(140, 95, 50, 0.055), transparent 60%),
     linear-gradient(180deg, color-mix(in srgb, var(--paper) 85%, #fff8e4), var(--paper-deep));
-  border-radius: 4px;
+  border-radius: var(--radius-stock);
   box-shadow:
     0 1px 0 color-mix(in srgb, #fff 50%, transparent),
-    0 8px 18px color-mix(in srgb, var(--shadow) 30%, transparent);
+    inset 0 0 0 1px color-mix(in srgb, var(--paper) 32%, transparent),
+    inset 0 -1px 0 color-mix(in srgb, var(--rule) 12%, transparent),
+    var(--shadow-sm);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .fold:hover {
   transform: translateY(-3px);
   box-shadow:
     0 1px 0 color-mix(in srgb, #fff 55%, transparent),
-    0 14px 28px color-mix(in srgb, var(--shadow) 42%, transparent);
+    inset 0 0 0 1px color-mix(in srgb, var(--paper) 32%, transparent),
+    inset 0 -1px 0 color-mix(in srgb, var(--rule) 12%, transparent),
+    var(--shadow-md);
 }
 
 .fold__summary {
@@ -2601,6 +2635,7 @@ html.theme-dark .masthead__menu-list {
   gap: 1.25rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  scroll-padding-left: 0.35rem;
   -webkit-overflow-scrolling: touch;
   /* Allow vertical page scroll to win when the gesture is mostly vertical,
      while still permitting horizontal strip pans (critical in WKWebView). */
@@ -2609,6 +2644,7 @@ html.theme-dark .masthead__menu-list {
   border-top: 2px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--rule) 45%, transparent) transparent;
 }
 
 /* Left/right scroll arrows: faint until hovered. */
@@ -2851,8 +2887,9 @@ html.clad-app .report-card--peek .report-card__hold-hint {
   color: var(--ink);
   box-shadow:
     0 1px 0 color-mix(in srgb, #fff 45%, transparent),
-    0 18px 48px color-mix(in srgb, var(--shadow) 55%, transparent),
-    0 6px 18px color-mix(in srgb, var(--shadow) 35%, transparent);
+    inset 0 0 0 1px color-mix(in srgb, var(--paper) 32%, transparent),
+    inset 0 -1px 0 color-mix(in srgb, var(--rule) 12%, transparent),
+    var(--shadow-lg);
   /* FLIP starts from the compact card; is-on clears transform */
   transform-origin: 0 0;
   will-change: transform, opacity;
@@ -2877,7 +2914,9 @@ html.theme-dark .peek-pop__panel {
   background-color: var(--card);
   box-shadow:
     0 1px 0 color-mix(in srgb, #fff 8%, transparent),
-    0 20px 50px color-mix(in srgb, var(--shadow) 70%, transparent);
+    inset 0 0 0 1px color-mix(in srgb, var(--paper) 22%, transparent),
+    inset 0 -1px 0 color-mix(in srgb, var(--rule) 12%, transparent),
+    var(--shadow-lg);
 }
 .peek-pop__panel .report-card__peek-row,
 .peek-pop__panel .report-card__hold-hint {
@@ -2991,12 +3030,12 @@ html.theme-dark .peek-pop__panel {
     radial-gradient(ellipse 55% 50% at 100% 100%, rgba(150, 105, 55, 0.1), transparent 60%),
     radial-gradient(ellipse 40% 35% at 70% 20%, rgba(120, 80, 40, 0.05), transparent 65%),
     linear-gradient(165deg, color-mix(in srgb, var(--card) 70%, #fff8e4) 0%, var(--card-deep) 100%);
-  border-radius: 2px 4px 3px 2px;
+  border-radius: var(--radius-stock);
   box-shadow:
     0 1px 0 color-mix(in srgb, #fff8e0 40%, transparent),
     inset 0 0 0 1px color-mix(in srgb, var(--paper) 35%, transparent),
     inset 0 -1px 0 color-mix(in srgb, var(--rule) 12%, transparent),
-    0 6px 16px color-mix(in srgb, var(--shadow) 32%, transparent);
+    var(--shadow-sm);
   transition:
     transform 0.15s ease,
     box-shadow 0.15s ease,
@@ -3031,7 +3070,7 @@ html.theme-dark .peek-pop__panel {
     box-shadow:
       0 1px 0 color-mix(in srgb, #fff8e0 45%, transparent),
       inset 0 0 0 1px color-mix(in srgb, var(--paper) 30%, transparent),
-      0 12px 24px color-mix(in srgb, var(--shadow) 42%, transparent);
+      var(--shadow-md);
     z-index: 2;
   }
 }
@@ -3055,7 +3094,7 @@ html.theme-dark .peek-pop__panel {
   border-right-color: var(--rule-faded-deep);
   border-bottom-color: var(--rule-faded);
   border-left-color: var(--rule-faded-soft);
-  border-radius: 2px 4px 3px 2px;
+  border-radius: var(--radius-stock);
 }
 
 .report-card__link {
@@ -3124,7 +3163,7 @@ html.theme-dark .peek-pop__panel {
 .scoreband__bias {
   flex: 1;
   min-width: 11rem;
-  border-left: 1px solid var(--rule);
+  border-left: 1px solid var(--rule-faded);
   padding-left: 1.25rem;
 }
 
@@ -3313,9 +3352,10 @@ html.theme-dark .peek-pop__panel {
   background: color-mix(in srgb, var(--paper) 80%, transparent);
   box-shadow:
     0 1px 0 color-mix(in srgb, #fff 45%, transparent),
-    0 8px 18px color-mix(in srgb, var(--shadow) 28%, transparent);
-  transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.25, 1), box-shadow 0.2s ease;
+    var(--shadow-md);
+  transition: transform var(--dur-card) var(--ease-out), box-shadow var(--dur-card) var(--ease-out);
 }
+
 
 .search-result:last-child {
   border-bottom: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
@@ -3326,7 +3366,7 @@ html.theme-dark .peek-pop__panel {
     transform: translateY(-2px);
     box-shadow:
       0 1px 0 color-mix(in srgb, #fff 45%, transparent),
-      0 10px 20px color-mix(in srgb, var(--shadow) 36%, transparent);
+      var(--shadow-md);
   }
 }
 
@@ -3421,7 +3461,7 @@ html.theme-dark .peek-pop__panel {
     0 6px 14px color-mix(in srgb, var(--shadow) 28%, transparent);
   text-decoration: none;
   color: inherit;
-  transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.25, 1), box-shadow 0.2s ease;
+  transition: transform var(--dur-card) var(--ease-out), box-shadow var(--dur-card) var(--ease-out);
 }
 .topic-row-item:last-child .topic-row {
   border-bottom: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
@@ -3431,7 +3471,7 @@ html.theme-dark .peek-pop__panel {
     transform: translateY(-2px);
     box-shadow:
       0 1px 0 color-mix(in srgb, #fff 50%, transparent),
-      0 10px 18px color-mix(in srgb, var(--shadow) 36%, transparent);
+      var(--shadow-md);
     z-index: 1;
   }
 }
@@ -3919,10 +3959,12 @@ html.theme-dark .peek-pop__panel {
   background: var(--ink);
   color: var(--paper);
 }
+
 .c-apply:disabled {
-  opacity: 0.5;
+  opacity: var(--disabled-opacity);
   cursor: default;
 }
+
 .comp-finding--applied {
   opacity: 0.6;
 }
@@ -3981,19 +4023,18 @@ html.theme-dark .peek-pop__panel {
   line-height: 1;
   letter-spacing: 0.02em;
   border: 1px solid var(--rule);
-  border-radius: 3px;
+  border-radius: var(--radius-control);
   box-shadow:
     inset 0 0 0 1px color-mix(in srgb, var(--paper) 70%, transparent),
     0 3px 0 color-mix(in srgb, var(--rule) 35%, transparent),
     0 8px 16px color-mix(in srgb, var(--shadow) 30%, transparent);
-  transform: translateZ(16px);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .report-card:hover .letter-grade,
 .topic-row:hover .letter-grade,
 .gradeboard__item:hover .letter-grade {
-  transform: translateZ(20px) scale(1.08) rotate(-2deg);
+  transform: scale(1.08) rotate(-2deg);
   box-shadow:
     inset 0 0 0 1px color-mix(in srgb, var(--paper) 70%, transparent),
     0 5px 0 color-mix(in srgb, var(--rule) 40%, transparent),
@@ -4282,11 +4323,14 @@ html.theme-dark .peek-pop__panel {
   height: 8px;
   border: 1px solid var(--rule);
   background: var(--paper);
+  border-radius: var(--radius-chip);
+  overflow: hidden;
 }
 
 .factuality__fill {
   height: 100%;
   background: var(--ink);
+  border-radius: var(--radius-chip);
 }
 
 .video-embed {
@@ -5330,6 +5374,7 @@ html.admin-nav-open .admin-nav {
   color: var(--ink);
   background: var(--paper);
   border: 1px solid var(--rule);
+  border-radius: var(--radius-chip);
   text-decoration: none;
   cursor: pointer;
   line-height: 1;
@@ -5517,6 +5562,7 @@ html.admin-nav-open .admin-nav {
   flex-direction: column;
   gap: 1.5rem;
   margin-top: 1rem;
+  scrollbar-color: color-mix(in srgb, var(--rule) 45%, transparent) transparent;
 }
 .chart-card {
   border: 1px solid var(--rule);
@@ -6125,7 +6171,7 @@ html.clad-app .issue-row__stats {
   background: var(--ink);
   color: var(--paper);
 }
-.flag__submit:disabled { opacity: 0.5; cursor: default; }
+.flag__submit:disabled { opacity: var(--disabled-opacity); cursor: default; }
 .flag__status { margin-top: 0.5rem; font-size: 0.88rem; min-height: 1em; }
 .flag__status--error { color: var(--accent); }
 .flag__status--info { color: var(--muted-ink); }
@@ -6174,7 +6220,7 @@ html.clad-app .issue-row__stats {
   color: var(--paper);
 }
 .flag-item__actions button.secondary { background: transparent; color: var(--ink); }
-.flag-item__actions button:disabled { opacity: 0.5; cursor: default; }
+.flag-item__actions button:disabled { opacity: var(--disabled-opacity); cursor: default; }
 .f-status { margin-top: 0.5rem; }
 
 /* --- News Trends page --- */
@@ -6423,7 +6469,11 @@ html.clad-app .issue-row__stats {
 .tmom__dir--flat, .dir--flat { color: var(--muted-ink); }
 
 /* network leaderboard */
-.ntable__wrap { overflow-x: auto; }
+.ntable__wrap {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--rule) 45%, transparent) transparent;
+}
 .ntable { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
 .ntable th, .ntable td {
   text-align: left;
@@ -6555,12 +6605,15 @@ html.clad-app .issue-row__stats {
 .plan__btn { width: 100%; }
 
 /* account membership badge */
+
 .plan-badge {
   display: inline-block;
   font-weight: 700;
-  padding: 0.2rem 0.6rem;
+  padding: 0.12rem 0.45rem;
   border: 1px solid var(--rule);
+  border-radius: var(--radius-chip);
 }
+
 .plan-badge--paid { background: var(--accent); color: #fff; border-color: var(--accent); }
 .plan-badge--trial { background: var(--accent-soft); }
 .plan-badge--free { color: var(--muted-ink); }
@@ -6572,7 +6625,7 @@ html.clad-app .issue-row__stats {
   color: var(--muted-ink);
   border: 1px dashed var(--rule);
   padding: 0.1rem 0.45rem;
-  border-radius: 2px;
+  border-radius: var(--radius-chip);
   white-space: nowrap;
 }
 .scoreband--locked { display: flex; align-items: center; min-height: 1.7rem; margin-bottom: 0.4rem; }
@@ -6584,9 +6637,10 @@ html.clad-app .issue-row__stats {
   border: 1px solid var(--accent);
   padding: 0.1rem 0.45rem;
   margin-bottom: 0.35rem;
-  border-radius: 2px;
+  border-radius: var(--radius-chip);
   white-space: nowrap;
 }
+
 .report__locked { margin: 0.5rem 0 1.25rem; }
 /* Outlet profile pages (/outlets/…) */
 .outlet-vol {
@@ -6619,14 +6673,16 @@ html.clad-app .issue-row__stats {
 
 /* Free coverage-lean split (counts only) on breaking clusters */
 .lean-split { margin: 0.6rem 0 0.2rem; max-width: 26rem; }
+
 .lean-split__bar {
   display: flex;
   height: 0.55rem;
   border: 1px solid var(--rule);
-  border-radius: 2px;
+  border-radius: var(--radius-chip);
   overflow: hidden;
   background: var(--paper);
 }
+
 .lean-split__seg--left { background: #4a6fa5; }
 .lean-split__seg--center { background: var(--muted-ink); opacity: 0.55; }
 .lean-split__seg--right { background: #a54a3f; }
@@ -6677,6 +6733,16 @@ html.clad-app .issue-row__stats {
   text-decoration: underline;
   font-weight: 700;
   white-space: nowrap;
+}
+.paywall-banner__cta:hover {
+  text-decoration-thickness: 2px;
+}
+.paywall-banner__cta:active {
+  opacity: 0.85;
+}
+.paywall-banner__cta:focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 2px;
 }
 
 /* --- Admin: News Digest --- */
@@ -6929,10 +6995,11 @@ html.clad-app .clad-app-only { display: block; }
   color: var(--paper);
   background: var(--ink);
   padding: 0.3rem 0.8rem;
-  border-radius: 4px;
+  border-radius: var(--radius-control);
   white-space: nowrap;
 }
 .app-promo__cta:hover { opacity: 0.85; }
+.app-promo__cta:active { opacity: 0.85; transform: translateY(1px); }
 .app-promo__close {
   flex: none;
   border: none;
@@ -6944,6 +7011,10 @@ html.clad-app .clad-app-only { display: block; }
   cursor: pointer;
 }
 .app-promo__close:hover { color: var(--ink); }
+.app-promo__close:active,
+.post-app-nudge__close:active {
+  transform: translateY(1px);
+}
 
 /* Home spotlight promos (configurable via src/lib/homePromos.ts) */
 
@@ -7577,19 +7648,19 @@ html.clad-app .home-cal__dialog {
   color: inherit;
   text-decoration: none;
   min-height: 6.5rem;
-  border-radius: 4px;
+  border-radius: var(--radius-stock);
   box-shadow:
     0 1px 0 color-mix(in srgb, #fff 50%, transparent),
-    0 6px 14px color-mix(in srgb, var(--shadow) 28%, transparent);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+    var(--shadow-sm);
+  transition: transform var(--dur-card) var(--ease-out), box-shadow var(--dur-card) var(--ease-out);
   isolation: isolate;
 }
 @media (hover: hover) and (pointer: fine) {
   .home-rails__card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow:
       0 1px 0 color-mix(in srgb, #fff 55%, transparent),
-      0 10px 20px color-mix(in srgb, var(--shadow) 36%, transparent);
+      var(--shadow-md);
   }
 }
 .home-rails__kicker {
@@ -8150,18 +8221,18 @@ a.topic-tag:hover { border-color: var(--ink); text-decoration: underline; }
     linear-gradient(165deg, color-mix(in srgb, var(--card) 75%, #fff8e4) 0%, var(--card-deep) 100%);
   box-shadow:
     0 1px 0 color-mix(in srgb, #fff 45%, transparent),
-    0 8px 20px color-mix(in srgb, var(--shadow) 28%, transparent);
+    var(--shadow-sm);
   transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease,
-    border-color 0.18s ease;
+    transform var(--dur-card) var(--ease-out),
+    box-shadow var(--dur-card) var(--ease-out),
+    border-color var(--dur-card) var(--ease-out);
 }
 .home-emap__card:hover,
 .home-emap__card:focus-visible {
   border-color: color-mix(in srgb, var(--accent) 35%, var(--rule));
   box-shadow:
     0 1px 0 color-mix(in srgb, #fff 50%, transparent),
-    0 14px 28px color-mix(in srgb, var(--shadow) 38%, transparent);
+    var(--shadow-md);
   transform: translateY(-2px);
   outline: none;
 }
@@ -8380,17 +8451,17 @@ a.home-promo--spotlight-link {
   color: inherit;
   cursor: pointer;
   transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease,
-    border-color 0.15s ease;
+    transform var(--dur-card) var(--ease-out),
+    box-shadow var(--dur-card) var(--ease-out),
+    border-color var(--dur-card) var(--ease-out);
 }
 a.home-promo--spotlight-link:hover,
 a.home-promo--spotlight-link:focus-visible {
   border-color: color-mix(in srgb, var(--accent) 35%, var(--rule));
   box-shadow:
     0 1px 0 color-mix(in srgb, #fff 45%, transparent),
-    0 10px 22px color-mix(in srgb, var(--shadow) 32%, transparent);
-  transform: translateY(-1px);
+    var(--shadow-md);
+  transform: translateY(-2px);
   outline: none;
 }
 a.home-promo--spotlight-link:hover .home-spotlight__go,
@@ -8668,3 +8739,45 @@ html.theme-dark .coverage-lean {
   color: var(--ink);
   margin-left: auto;
 }
+
+/* Masthead / footer focus rings (canonical accent outline) */
+.masthead__menu > summary:focus-visible,
+.masthead__submenu > summary:focus-visible,
+.masthead__popular-list a:focus-visible,
+.masthead__menu-list > li > a:focus-visible,
+.masthead__account:focus-visible,
+.masthead__search:focus-visible,
+.masthead__theme:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+.colophon a:focus-visible,
+.colophon__explore a:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+  border-radius: 1px;
+}
+
+/* Masthead control hit expanders (~44px tap targets, no visual change) */
+.masthead__theme::before,
+.masthead__search::before,
+.masthead__menu > summary::before,
+.masthead__account::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+}
+
+/* Chip remove coarse pointer hit target */
+@media (pointer: coarse) {
+  .chip__remove {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* Solid-fill disabled buttons */
+button:disabled:not(.auth-linklike):not(.chip__remove) {
+  opacity: var(--disabled-opacity);
+}
+

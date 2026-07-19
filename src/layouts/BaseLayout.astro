@@ -288,7 +288,7 @@ const billingOn = showBillingPromo();
       </>
     )}
     <div class="shell">
-      <Masthead />
+      <Masthead theme={htmlTheme === "light" ? "light" : "dark"} />
       <main id="main">
         <slot />
       </main>
