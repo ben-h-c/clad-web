@@ -24,7 +24,7 @@ export const OG_VERSIONS = {
   quiz: "2", // v2: teases today's actual first claim
   week: "1",
   learn: "2", // v2: page-specific chips replace scroll-bait copy
-  politician: "2", // v2: mention-count copy fix
+  politician: "3", // v3: Commons portrait on the share card
   bracket: "2", // v2: community social proof subhead
   bracketVotes: "1",
   students: "1",
