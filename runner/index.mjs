@@ -26,6 +26,7 @@ import { runPoliticianProfileBuilder } from "./politicianProfileBuilder.mjs";
 import { runPoliticianGrader } from "./politicianGrader.mjs";
 import { runCalendarScanner } from "./calendarScanner.mjs";
 import { runTodayInHistory } from "./todayInHistory.mjs";
+import { runPushReminders } from "./pushReminders.mjs";
 import { processUrlQueue } from "./urlIntake.mjs";
 import { updateTicker } from "./ticker.mjs";
 
@@ -60,6 +61,7 @@ const KINDS = {
   "politician-grader": runPoliticianGrader,
   "calendar-scanner": runCalendarScanner,
   "today-in-history": runTodayInHistory,
+  "push-reminders": runPushReminders,
 };
 
 function log(...args) {

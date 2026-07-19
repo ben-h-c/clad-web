@@ -344,6 +344,15 @@ export const DEFAULT_REGISTRY: Registry = {
         maxItems: 5,
       },
     },
+    {
+      id: "push-reminders",
+      kind: "push-reminders",
+      name: "iOS Push Reminders (calendar daybook)",
+      enabled: true,
+      // Morning ET (~12:30 UTC): "today" events. Evening (~23:30 UTC): "tomorrow" preview.
+      cron: "30 12,23 * * *",
+      config: {},
+    },
   ],
 };
 
@@ -380,6 +389,7 @@ export async function getRegistry(kv: KVNamespace): Promise<Registry> {
     "politician-profile-builder",
     "calendar-scanner",
     "today-in-history",
+    "push-reminders",
   ]) {
     const live = reg.agents.find((a) => a.id === id);
     const def = DEFAULT_REGISTRY.agents.find((a) => a.id === id);

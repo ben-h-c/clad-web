@@ -217,7 +217,7 @@ export const POST: APIRoute = async ({ request }) => {
     if (!draft && (await apnsConfigured())) {
       try {
         push = await sendBreakingPush({
-          title: "CladFacts",
+          title: "New report card",
           body: headline,
           slug,
         });

@@ -8,6 +8,13 @@ export interface UserPrefs {
   newsletter: boolean;
   digest: "off" | "weekly" | "daily";
   breakingAlerts: boolean;
+  /**
+   * iOS push: new graded reports (publish fan-out). Default on — opt-out only.
+   * Granting the system notification permission is the primary opt-in.
+   */
+  pushReports: boolean;
+  /** iOS push: calendar daybook reminders (today / tomorrow events). Default on. */
+  pushEvents: boolean;
   /** Preferred reading theme when signed in (synced to localStorage). */
   theme: ThemePref;
   /**
@@ -24,6 +31,8 @@ export const DEFAULT_PREFS: UserPrefs = {
   newsletter: false,
   digest: "off",
   breakingAlerts: false,
+  pushReports: true,
+  pushEvents: true,
   theme: "dark",
   birthday: null,
   birthdayMessage: null,
@@ -146,10 +155,15 @@ export function sanitizePrefs(input: unknown): UserPrefs {
       : typeof o.birthdayMessageYear === "string" && /^\d{4}$/.test(o.birthdayMessageYear)
         ? Number(o.birthdayMessageYear)
         : null;
+  // Push prefs default ON (missing key ≠ opt-out). Explicit false only opts out.
+  const pushReports = o.pushReports === false ? false : true;
+  const pushEvents = o.pushEvents === false ? false : true;
   return {
     newsletter: !!o.newsletter,
     digest,
     breakingAlerts: !!o.breakingAlerts,
+    pushReports,
+    pushEvents,
     theme,
     birthday,
     birthdayMessage: msg,

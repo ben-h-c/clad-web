@@ -188,6 +188,20 @@ const planLabel =
             <small>A one-off email the moment a major story hits Breaking News — high-impact events only, not every post.</small>
           </span>
         </label>
+        <label class="pref-row">
+          <input type="checkbox" id="pref-push-reports" checked={prefs.pushReports !== false} />
+          <span>
+            <strong>iPhone — new report cards</strong>
+            <small>Push notification when CladFacts publishes a graded report (requires notifications allowed in the iOS app).</small>
+          </span>
+        </label>
+        <label class="pref-row">
+          <input type="checkbox" id="pref-push-events" checked={prefs.pushEvents !== false} />
+          <span>
+            <strong>iPhone — calendar reminders</strong>
+            <small>Push for key daybook events (today / tomorrow on the national news calendar).</small>
+          </span>
+        </label>
         <div class="pref-row pref-row--select">
           <span>
             <strong>News digest</strong>
@@ -329,6 +343,8 @@ const planLabel =
             body: JSON.stringify({
               newsletter: document.getElementById("pref-newsletter").checked,
               breakingAlerts: document.getElementById("pref-breaking").checked,
+              pushReports: document.getElementById("pref-push-reports").checked,
+              pushEvents: document.getElementById("pref-push-events").checked,
               digest: document.getElementById("pref-digest").value,
             }),
           });

@@ -1,26 +1,30 @@
 import { env } from "cloudflare:workers";
 
 /**
- * APNs (Apple Push Notification service) sending from the Worker, using
- * token-based auth: an ES256 JWT signed with the .p8 auth key, refreshed
- * per send (publishes are infrequent, so we don't cache the token).
+ * APNs (Apple Push Notification service) from the Worker, using token-based
+ * auth: an ES256 JWT signed with the .p8 auth key.
  *
- * The Key ID, Team ID, and bundle id are public identifiers, hard-coded so
- * they deploy deterministically with the code. Only APNS_KEY (the private .p8)
- * is a real secret and stays a Worker secret. Push is inert until it's set.
+ * Key ID / Team ID are public identifiers (hard-coded; env can override).
+ * Only APNS_KEY (private .p8) is a real secret — Worker secret or KV
+ * `secret:APNS_KEY`. Push is inert until the key is set.
+ *
+ * Kinds:
+ *  - report  — new graded report (publish path)
+ *  - event   — calendar daybook reminder
+ *  - test    — admin/agent test ping
  */
 
 const DEFAULT_BUNDLE_ID = "com.bencody.cladfacts";
-// Public identifiers (not secrets); env overrides allowed.
 const APNS_KEY_ID = "N88QRFM4D2";
 const APNS_TEAM_ID = "R7AV32BX6D";
 
-function keyId(): string { return env.APNS_KEY_ID || APNS_KEY_ID; }
-function teamId(): string { return env.APNS_TEAM_ID || APNS_TEAM_ID; }
+function keyId(): string {
+  return env.APNS_KEY_ID || APNS_KEY_ID;
+}
+function teamId(): string {
+  return env.APNS_TEAM_ID || APNS_TEAM_ID;
+}
 
-// The private .p8 lives in KV (key "secret:APNS_KEY"), not as a Worker secret:
-// this Worker's git-CI deploys wipe newly-added runtime secrets, but KV is
-// independent of deploys. Env var still wins if set.
 async function getApnsKey(): Promise<string | null> {
   if (env.APNS_KEY) return env.APNS_KEY;
   try {
@@ -30,62 +34,122 @@ async function getApnsKey(): Promise<string | null> {
   }
 }
 
-// Workers have a per-request subrequest cap. One-editor publication, so the
-// install base is small; we still cap defensively and log any overflow
-// rather than silently dropping recipients.
 const MAX_TOKENS_PER_SEND = 800;
 
 export async function apnsConfigured(): Promise<boolean> {
   return !!(await getApnsKey());
 }
 
-interface PushPayload {
+export type PushKind = "report" | "event" | "test";
+
+export interface PushPayload {
   title: string;
   body: string;
-  slug: string;
+  /** Deep-link path on cladfacts.com, e.g. /posts/slug/ or / (calendar). */
+  path: string;
+  kind: PushKind;
+  /** Optional post slug for legacy iOS payloads. */
+  slug?: string;
 }
 
 interface PushTokenRow {
   token: string;
   environment: string;
+  userId: string | null;
 }
 
-/**
- * Send a notification to every registered device. Best-effort: individual
- * failures are swallowed; 410/400-BadDeviceToken responses prune the dead
- * token from D1. Returns a small summary for logging.
- */
-export async function sendBreakingPush(payload: PushPayload): Promise<{
+export interface PushSendResult {
   sent: number;
   failed: number;
   pruned: number;
   skipped: number;
-}> {
-  if (!(await apnsConfigured())) return { sent: 0, failed: 0, pruned: 0, skipped: 0 };
+  recipients: number;
+}
+
+/** New graded report — fan-out to all devices (opt-out via prefs.pushReports). */
+export async function sendBreakingPush(input: {
+  title: string;
+  body: string;
+  slug: string;
+}): Promise<PushSendResult> {
+  return sendPush({
+    title: input.title,
+    body: input.body,
+    path: `/posts/${input.slug}/`,
+    kind: "report",
+    slug: input.slug,
+  });
+}
+
+/** Calendar daybook reminder (today/tomorrow events). */
+export async function sendEventPush(input: {
+  title: string;
+  body: string;
+  path?: string;
+}): Promise<PushSendResult> {
+  return sendPush({
+    title: input.title,
+    body: input.body,
+    path: input.path || "/",
+    kind: "event",
+  });
+}
+
+/**
+ * Send a notification. Best-effort: individual failures are swallowed;
+ * 410/BadDeviceToken prune dead rows. Anonymous tokens always receive;
+ * signed-in tokens honor pushReports / pushEvents prefs (default on).
+ */
+export async function sendPush(payload: PushPayload): Promise<PushSendResult> {
+  if (!(await apnsConfigured())) {
+    return { sent: 0, failed: 0, pruned: 0, skipped: 0, recipients: 0 };
+  }
 
   const rows = await env.DB.prepare(
-    "SELECT token, environment FROM push_token"
+    "SELECT token, environment, userId FROM push_token"
   ).all<PushTokenRow>();
-  const all = rows.results ?? [];
+  let all = rows.results ?? [];
+
+  // Prefs filter for signed-in devices (anonymous devices already opted in via iOS).
+  if (payload.kind === "report" || payload.kind === "event") {
+    const prefKey = payload.kind === "report" ? "pushReports" : "pushEvents";
+    const withUser = all.filter((r) => r.userId);
+    if (withUser.length) {
+      const optOut = await loadPushOptOuts(
+        withUser.map((r) => r.userId!).filter(Boolean),
+        prefKey
+      );
+      all = all.filter((r) => !r.userId || !optOut.has(r.userId));
+    }
+  }
+
   const tokens = all.slice(0, MAX_TOKENS_PER_SEND);
   const skipped = all.length - tokens.length;
   if (skipped > 0) {
-    console.warn(`push: ${all.length} tokens exceeds cap ${MAX_TOKENS_PER_SEND}; ${skipped} not notified this send`);
+    console.warn(
+      `push: ${all.length} tokens exceeds cap ${MAX_TOKENS_PER_SEND}; ${skipped} not notified`
+    );
   }
-  if (tokens.length === 0) return { sent: 0, failed: 0, pruned: 0, skipped };
+  if (tokens.length === 0) {
+    return { sent: 0, failed: 0, pruned: 0, skipped, recipients: 0 };
+  }
 
   const bundleId = env.APNS_BUNDLE_ID || DEFAULT_BUNDLE_ID;
-  // One JWT covers every send; valid for up to an hour. Sign once per
-  // environment-agnostic batch.
   const jwt = await makeProviderToken();
+  const path = payload.path.startsWith("/") ? payload.path : `/${payload.path}`;
+  const absoluteUrl = `https://cladfacts.com${path}`;
 
   const apsBody = JSON.stringify({
     aps: {
       alert: { title: payload.title, body: payload.body },
       sound: "default",
+      // Group related pushes in Notification Center.
+      "thread-id": payload.kind,
     },
-    slug: payload.slug,
-    url: `https://cladfacts.com/posts/${payload.slug}/`,
+    kind: payload.kind,
+    slug: payload.slug ?? null,
+    path,
+    url: absoluteUrl,
   });
 
   let sent = 0;
@@ -106,6 +170,10 @@ export async function sendBreakingPush(payload: PushPayload): Promise<{
             "apns-topic": bundleId,
             "apns-push-type": "alert",
             "apns-priority": "10",
+            "apns-collapse-id":
+              payload.kind === "report" && payload.slug
+                ? `report-${payload.slug}`.slice(0, 64)
+                : payload.kind,
           },
           body: apsBody,
         });
@@ -114,12 +182,13 @@ export async function sendBreakingPush(payload: PushPayload): Promise<{
           return;
         }
         failed++;
-        // Prune tokens APNs reports as permanently invalid.
         if (res.status === 410) {
           dead.push(row.token);
         } else if (res.status === 400) {
           const reason = await res.text().catch(() => "");
-          if (reason.includes("BadDeviceToken")) dead.push(row.token);
+          if (reason.includes("BadDeviceToken") || reason.includes("Unregistered")) {
+            dead.push(row.token);
+          }
         }
       } catch {
         failed++;
@@ -129,29 +198,51 @@ export async function sendBreakingPush(payload: PushPayload): Promise<{
 
   let pruned = 0;
   if (dead.length > 0) {
-    // D1 has a variable limit; prune in modest chunks.
     for (let i = 0; i < dead.length; i += 50) {
       const chunk = dead.slice(i, i + 50);
       const placeholders = chunk.map(() => "?").join(",");
-      await env.DB.prepare(
-        `DELETE FROM push_token WHERE token IN (${placeholders})`
-      )
+      await env.DB.prepare(`DELETE FROM push_token WHERE token IN (${placeholders})`)
         .bind(...chunk)
         .run();
       pruned += chunk.length;
     }
   }
 
-  return { sent, failed, pruned, skipped };
+  return { sent, failed, pruned, skipped, recipients: tokens.length };
+}
+
+/** userIds who explicitly opted out of a push kind (prefs key === false). */
+async function loadPushOptOuts(userIds: string[], prefKey: string): Promise<Set<string>> {
+  const unique = [...new Set(userIds)].slice(0, 500);
+  if (!unique.length) return new Set();
+  const out = new Set<string>();
+  // Batch IN queries of 80.
+  for (let i = 0; i < unique.length; i += 80) {
+    const chunk = unique.slice(i, i + 80);
+    const ph = chunk.map(() => "?").join(",");
+    const res = await env.DB.prepare(
+      `SELECT userId, prefs FROM user_preferences WHERE userId IN (${ph})`
+    )
+      .bind(...chunk)
+      .all<{ userId: string; prefs: string }>();
+    for (const row of res.results ?? []) {
+      try {
+        const p = JSON.parse(row.prefs) as Record<string, unknown>;
+        // Explicit false only — missing key means default on.
+        if (p[prefKey] === false) out.add(row.userId);
+      } catch {
+        /* ignore bad prefs */
+      }
+    }
+  }
+  return out;
 }
 
 // --- JWT (ES256) -----------------------------------------------------------
 
 async function makeProviderToken(): Promise<string> {
   const header = { alg: "ES256", kid: keyId() };
-  // iat must be seconds since epoch; APNs rejects tokens older than 1 hour.
   const claims = { iss: teamId(), iat: Math.floor(Date.now() / 1000) };
-
   const signingInput = `${b64url(JSON.stringify(header))}.${b64url(JSON.stringify(claims))}`;
   const pem = await getApnsKey();
   if (!pem) throw new Error("APNS_KEY not configured");
@@ -161,8 +252,6 @@ async function makeProviderToken(): Promise<string> {
     key,
     new TextEncoder().encode(signingInput)
   );
-  // Web Crypto ECDSA returns the raw r||s pair, which is exactly the JOSE
-  // signature format ES256 expects — no DER unwrapping needed.
   return `${signingInput}.${b64urlBytes(new Uint8Array(signature))}`;
 }
 
