@@ -21,7 +21,7 @@ keyMoments:
   - claim: "US carried out eighth night of air strikes on Iran after two soldiers killed in Jordan"
     verdict: "verified"
     note: "CENTCOM statement and Reuters reporting confirm eighth night of strikes and Jordan casualties on July 17-18."
-  - claim: "US losses now total 16 in the war with Iran"
+  - claim: "US losses now total 16 in the war with Iran, according to CENTCOM"
     verdict: "verified"
     note: "NYT and Reuters cite CENTCOM figures bringing toll to 16 since February 2026 escalation."
   - claim: "US targeting naval infrastructure and weapons sites in southern Iran/Hormozgan area"
