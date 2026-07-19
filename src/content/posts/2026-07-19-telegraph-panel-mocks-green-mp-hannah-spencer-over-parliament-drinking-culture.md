@@ -24,7 +24,7 @@ keyMoments:
   - claim: "Hannah Spencer said people are drinking too much in the Commons"
     verdict: "verified"
     note: "Spencer publicly criticized the drinking culture, citing cheaper alcohol and smelling it between votes (Guardian, April 2026)"
-  - claim: "Ann Widdecombe recently died"
+  - claim: "Ann Widdecombe reportedly recently died"
     verdict: "unsupported"
     note: "No reports or obituaries confirm her death as of July 2026"
   - claim: "Spencer is a left-wing populist resembling a Balamory character"
