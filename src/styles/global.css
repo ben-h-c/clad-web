@@ -2829,13 +2829,26 @@ html.clad-app .report-card--peek .report-card__hold-hint {
   position: fixed;
   inset: 0;
   z-index: 12000;
-  /* Allow the holding finger to move; panel itself stays non-interactive. */
+  /* While holding: non-interactive so the finger can move without fighting the panel. */
   pointer-events: none;
   /* Isolate so transforms don't thrash the page */
   contain: layout style;
   -webkit-user-select: none !important;
   user-select: none !important;
   -webkit-touch-callout: none !important;
+}
+/* Sticky mode (finger released): interact with close / scroll / full-report link. */
+.peek-pop.is-sticky {
+  pointer-events: auto;
+}
+.peek-pop.is-sticky .peek-pop__panel {
+  pointer-events: auto;
+}
+.peek-pop.is-sticky .peek-pop__panel .report-card__link {
+  pointer-events: auto;
+}
+.peek-pop.is-sticky .peek-pop__panel .report-card__source {
+  pointer-events: auto;
 }
 .peek-pop,
 .peek-pop * {
@@ -2873,10 +2886,12 @@ html.clad-app .report-card--peek .report-card__hold-hint {
   max-height: min(78vh, 36rem);
   overflow-x: hidden;
   overflow-y: auto;
+  /* Anchor for absolute × close control */
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   margin: 0;
-  padding: 0.85rem 0.85rem 0.75rem;
+  /* Extra top/right room for the sticky × close control */
+  padding: 2.4rem 0.85rem 0.75rem;
   border: 1px solid color-mix(in srgb, var(--rule) 75%, transparent);
   border-radius: 6px;
   background-color: var(--card);
@@ -2950,10 +2965,43 @@ html.theme-dark .peek-pop__panel {
 }
 .peek-pop__panel .report-card__source {
   margin-top: 0.55rem;
-  pointer-events: none; /* hold-preview only — release closes */
+  pointer-events: none; /* interactive after sticky (see .is-sticky) */
 }
 .peek-pop__panel .report-card__link {
   pointer-events: none;
+}
+.peek-pop__close {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 0;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+  border-radius: var(--radius-control, 3px);
+  background: color-mix(in srgb, var(--paper) 88%, var(--card));
+  color: var(--ink);
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--shadow) 28%, transparent);
+}
+.peek-pop__close:hover,
+.peek-pop__close:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+  outline: none;
+}
+.peek-pop__close:active {
+  transform: translateY(1px);
 }
 .peek-pop__panel .scoreband {
   margin: 0.15rem 0 0.65rem;

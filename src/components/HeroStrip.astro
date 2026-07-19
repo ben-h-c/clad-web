@@ -199,6 +199,22 @@ const {
       const panel = document.createElement("div");
       panel.className = "peek-pop__panel";
 
+      // Close control — preview stays open after release until this is tapped.
+      const closeBtn = document.createElement("button");
+      closeBtn.type = "button";
+      closeBtn.className = "peek-pop__close";
+      closeBtn.setAttribute("aria-label", "Close preview");
+      closeBtn.textContent = "×";
+      closeBtn.addEventListener(
+        "click",
+        (ev) => {
+          ev.preventDefault();
+          ev.stopPropagation();
+          closePeek();
+        },
+        true
+      );
+
       // Clone the compact card; strip peek chrome so full detail shows.
       const clone = source.cloneNode(true);
       clone.classList.remove("report-card--peek", "is-peeking");
@@ -211,17 +227,24 @@ const {
       clone.style.background = "transparent";
       clone.style.padding = "0";
       clone.querySelectorAll(".report-card__peek-row, .report-card__hold-hint").forEach((n) => n.remove());
-      clone.querySelectorAll("a").forEach((a) => {
-        a.removeAttribute("href");
-        a.setAttribute("tabindex", "-1");
-      });
+      // Keep the full-report link so sticky preview can open the article.
+      const srcLink = source.querySelector("a.report-card__link");
+      const cloneLink = clone.querySelector("a.report-card__link");
+      if (srcLink && cloneLink) {
+        const href = srcLink.getAttribute("href");
+        if (href) {
+          cloneLink.setAttribute("href", href);
+          cloneLink.removeAttribute("tabindex");
+        }
+      }
 
-      const releaseHint = document.createElement("p");
-      releaseHint.className = "peek-pop__release";
-      releaseHint.textContent = "Release to close";
+      const closeHint = document.createElement("p");
+      closeHint.className = "peek-pop__release";
+      closeHint.textContent = "Tap × to close";
 
+      panel.appendChild(closeBtn);
       panel.appendChild(clone);
-      panel.appendChild(releaseHint);
+      panel.appendChild(closeHint);
       root.appendChild(scrim);
       root.appendChild(panel);
       document.body.appendChild(root);
@@ -259,15 +282,32 @@ const {
         });
       }
 
-      pop = { root, scrim, panel, source, first };
+      pop = { root, scrim, panel, source, first, sticky: false };
       try {
         if (navigator.vibrate) navigator.vibrate(8);
       } catch (_) {}
     }
 
+    /** After open: release leaves the preview sticky until × / Escape. */
+    function makeSticky() {
+      if (!open || !pop) return;
+      pop.sticky = true;
+      pop.root.classList.add("is-sticky");
+      pop.root.style.pointerEvents = "auto";
+      if (pop.panel) pop.panel.style.pointerEvents = "auto";
+      setHolding(false);
+      pointerId = null;
+      // Source card can drop the "holding" highlight; preview stays open.
+      if (card && card !== pop.source) {
+        card.classList.remove("is-peeking");
+      }
+      card = null;
+      clearSelection();
+    }
+
     function resetHoldState() {
       clearTimer();
-      if (card) {
+      if (card && !(open && pop && card === pop.source)) {
         card.classList.remove("is-peeking");
         card.setAttribute("aria-expanded", "false");
       }
@@ -339,6 +379,7 @@ const {
       "pointerdown",
       (e) => {
         if (e.pointerType === "mouse" && e.button !== 0) return;
+        // Sticky preview is up — only the close control (and panel links) receive input.
         if (open || closing) return;
         const t = e.target;
         if (!(t instanceof Element)) return;
@@ -395,13 +436,13 @@ const {
       // Ignore stray end events from other pointers.
       if (pointerId != null && e && e.pointerId != null && e.pointerId !== pointerId) return;
       clearTimer();
-      // Always collapse on release — hold-to-preview only.
       if (open) {
-        closePeek();
+        // Hold opened the preview — release leaves it open until × is tapped.
+        makeSticky();
       } else {
         resetHoldState();
       }
-      // Swallow the click that follows a successful long-press preview.
+      // Swallow the synthetic click after a long-press so we don't navigate away.
       if (suppressClick) {
         setTimeout(() => {
           suppressClick = false;
@@ -462,12 +503,13 @@ const {
       true
     );
 
-    // While the popup is open, block the page from scrolling under the finger
-    // (that used to steal the gesture and dismiss the preview).
+    // While sticky, allow scrolling inside the panel; block page scroll under the scrim.
     document.addEventListener(
       "touchmove",
       (e) => {
         if (open) {
+          const t = e.target;
+          if (t instanceof Element && t.closest(".peek-pop__panel")) return;
           e.preventDefault();
           clearSelection();
           return;
@@ -480,7 +522,10 @@ const {
     document.addEventListener(
       "wheel",
       (e) => {
-        if (open) e.preventDefault();
+        if (!open) return;
+        const t = e.target;
+        if (t instanceof Element && t.closest(".peek-pop__panel")) return;
+        e.preventDefault();
       },
       { passive: false }
     );
