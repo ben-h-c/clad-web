@@ -30,6 +30,14 @@ import { processUrlQueue } from "./urlIntake.mjs";
 import { updateTicker } from "./ticker.mjs";
 
 const ONCE = process.argv.includes("--once");
+/** Force specific agent kinds this tick (comma-separated): --force=calendar-scanner,politician-grader */
+const FORCE_KINDS = new Set(
+  (process.argv.find((a) => a.startsWith("--force=")) || "")
+    .slice("--force=".length)
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean)
+);
 const TICK_MS = 60_000;
 const running = new Set(); // single-flight per agent id
 
@@ -115,15 +123,18 @@ async function tick() {
   const now = new Date();
   for (const agent of agents) {
     if (!agent.enabled) continue;
+    const forced = FORCE_KINDS.has(agent.kind) || FORCE_KINDS.has(agent.id);
     const manual = agent.runNowAt || null;
-    if (!manual && !isDue(agent.cron, agent.lastRun?.at, now)) continue;
-    await runAgent(agent, manual);
+    if (!forced && !manual && !isDue(agent.cron, agent.lastRun?.at, now)) continue;
+    await runAgent(agent, manual || (forced ? "force-cli" : null));
   }
 }
 
 async function main() {
-  log(`runner start (once=${ONCE}, base=${process.env.WORKER_BASE_URL || "http://localhost:8787"})`);
-  if (ONCE) {
+  log(
+    `runner start (once=${ONCE}, force=[${[...FORCE_KINDS].join(",") || "—"}], base=${process.env.WORKER_BASE_URL || "http://localhost:8787"})`
+  );
+  if (ONCE || FORCE_KINDS.size) {
     await tick();
     log("once complete");
     return;

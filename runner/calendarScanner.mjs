@@ -1,9 +1,10 @@
 /**
  * News Calendar Scanner — web-search for dated news events (past + future)
- * that matter to most Americans, and merge into the home calendar KV store.
+ * that belong on a busy U.S. daybook, and merge into the home calendar KV store.
  *
  * Dig-in links must be CladFacts platform paths only (never external URLs).
- * POST /api/agent/calendar merges by event id.
+ * POST /api/agent/calendar merges by event id with windowed replace so density
+ * accumulates across runs (events outside the active window are kept).
  */
 import { getCalendarEvents, putCalendarEvents } from "./api.mjs";
 
@@ -66,61 +67,66 @@ const SCHEMA = {
   additionalProperties: false,
 };
 
-const SYSTEM = `You are the news calendar desk for CladFacts, a U.S. fact-checking news site.
+const SYSTEM = `You are the news daybook desk for CladFacts, a U.S. fact-checking news site.
 
-Your job: find REAL, date-specific events — both UPCOMING and RECENT PAST — that are
-IMPORTANT OR IMPACTFUL TO MOST AMERICANS. This is a national news desk calendar,
-not a niche hobby board and not election-only.
+Your job: fill a BUSY national calendar with REAL, date-specific events — both
+UPCOMING and RECENT PAST — that a general-interest U.S. news desk would put on
+its wire daybook. Aim for density: key events most days when real public dates exist.
 
 Use web search. Prefer wire + major U.S. outlets and official calendars
-(AP, Reuters, major papers, White House, Congress, federal agencies, state SoS).
+(AP, Reuters, major papers, White House, Congress, federal agencies, Fed, SCOTUS
+calendar, state SoS, sports leagues, major awards).
 
-── The bar (must clear this) ──────────────────────────────────────────────
-Include an event only if a typical American would care about the date itself:
-- National politics (president, Congress, major agency action with broad effect)
-- Elections / primaries that matter nationally or in large states
-- Major SCOTUS or federal court days with broad rights/policy impact
-- Wars, large military actions, or crises that shape U.S. security or markets
-- Disasters with multi-state or national human/economic impact
-- Economy: Fed decisions, debt ceiling, major jobs report days when treated as
-  market-moving national news (not every data release)
-- Landmark national moments (inauguration, State of the Union, major commemorations)
-- Only include tech/space/sports/culture if the story is already mainstream national
-  news with broad public stakes — NOT routine product launches, test flights, or
-  industry-only events.
+── The bar (include when it clears) ───────────────────────────────────────
+Include if a typical American news consumer would notice the date:
+- National politics (president, Congress, major agency action)
+- Elections / primaries (national or large-state)
+- SCOTUS argument/decision days, major federal court days
+- Wars, large military actions, crises affecting U.S. security or markets
+- Disasters with multi-state or national impact
+- Economy: Fed decisions, jobs reports, CPI when treated as national news,
+  debt ceiling / shutdown deadlines, major market-moving events
+- Landmark civic moments (inauguration, SOTU, major commemorations, federal holidays
+  with significant news stakes)
+- Major sports finals / championships already in mainstream national news
+- Major culture awards / ceremonies with broad U.S. coverage
+- Diplomacy summits involving the U.S. or major allies
+- Science/space only when already mainstream national news with public stakes
 
-SpaceX / Starship-style items are NOT default inclusions. Skip niche science,
-celebrity, local politics, and trade-press calendars unless the U.S. public impact
-is clear and large.
+Prefer PLACING something real on most weekdays in the window when a scheduled
+public date exists. One strong entry per distinct event (no fluff duplicates).
 
 ── Windows ────────────────────────────────────────────────────────────────
-UPCOMING (today through lookAheadDays): scheduled or firmly expected public dates.
-RECENT PAST (lookBackDays through yesterday): major things that already happened —
-log them on the day they OCCURRED for reference (war begins, disaster landfall,
-historic vote, assassination attempt, crash, landmark ruling).
+Only return events whose date falls INSIDE the requested window (inclusive).
+UPCOMING: scheduled or firmly expected public dates.
+RECENT PAST: major things that already happened — log them on the day they OCCURRED.
 
 ── Exclude ────────────────────────────────────────────────────────────────
 - Opinion / pundit segments with no dated event
-- Routine briefings, press gaggles, minor hearings
+- Routine unnamed briefings, minor local hearings
 - Vague "sometime this month" without a calendar day
-- Duplicate fluff (one strong entry per event)
-- Niche or low-impact items that most Americans would not plan around or remember
+- Invented or guessed dates — if the day is uncertain, OMIT
+- Pure niche trade-press calendars without public stakes
+- External dig-in links (see links rules)
 
 ── Fields ─────────────────────────────────────────────────────────────────
 - id: stable slug (reuse when updating the same event)
 - date: YYYY-MM-DD only. U.S. civil date when ambiguous.
 - title: short desk headline (≤100 chars)
-- body: 1–3 sentences — why it matters to Americans
+- body: 1–3 sentences — why it matters
 - kind: one of ${KINDS.join(" | ")}
 - state: US postal only if clearly state-scoped; else omit
 - links: OPTIONAL. ONLY CladFacts site paths starting with "/" — never http(s) URLs.
   Allowed examples: "/bracket/", "/elections/map/", "/politicians/", "/breaking/",
   "/search/", "/posts/<slug>/", "/topics/<slug>/".
-  If you do not know a real CladFacts path, OMIT links entirely (empty or omit field).
-  Do NOT invent post slugs. Do NOT link AP, NASA, White House, or any external site.
+  If you do not know a real CladFacts path, OMIT links entirely.
+  Do NOT invent post slugs. Do NOT link external sites.
 
-Quality bar: if the date or national importance is shaky, omit the event.
-Return ONLY JSON matching the schema. Empty events array is OK if search is thin.`;
+Target: return as many verified daybook events as you can find in THIS window
+(aim for the targetMinEvents in the user message). Prefer density with real
+dates over a thin "highlights only" list. Never invent events to hit the target.
+
+Return ONLY JSON matching the schema.`;
 
 function extractText(data) {
   if (typeof data?.output_text === "string" && data.output_text) return data.output_text;
@@ -188,14 +194,41 @@ function scrubEventLinks(events) {
   });
 }
 
+function dedupeById(events) {
+  const byId = new Map();
+  for (const e of events) {
+    if (!e?.id) continue;
+    byId.set(String(e.id), e);
+  }
+  return [...byId.values()];
+}
+
+/**
+ * Split [windowStart, windowEnd] into ~10-day chunks so each Grok call can
+ * pack a dense daybook instead of under-filling a multi-month span.
+ */
+function chunkWindow(windowStart, windowEnd, chunkDays = 10) {
+  const chunks = [];
+  let cur = windowStart;
+  while (cur <= windowEnd) {
+    const end = isoDayOffset(cur, chunkDays - 1);
+    const capped = end > windowEnd ? windowEnd : end;
+    chunks.push([cur, capped]);
+    cur = isoDayOffset(capped, 1);
+    if (chunks.length >= 10) break; // hard cap Grok calls per run
+  }
+  return chunks;
+}
+
 export async function runCalendarScanner(agent) {
   const xaiKey = process.env.XAI_API_KEY;
   if (!xaiKey) return { ok: false, message: "XAI_API_KEY missing" };
 
-  const lookAhead = Math.min(Math.max(Number(agent?.config?.lookAheadDays) || 21, 7), 45);
-  const lookBack = Math.min(Math.max(Number(agent?.config?.lookBackDays) || 14, 3), 45);
-  const maxEvents = Math.min(Math.max(Number(agent?.config?.maxEventsPerRun) || 40, 10), 60);
-  const maxStored = Math.min(Math.max(Number(agent?.config?.maxStoredEvents) || 400, 100), 800);
+  const lookAhead = Math.min(Math.max(Number(agent?.config?.lookAheadDays) || 60, 7), 90);
+  const lookBack = Math.min(Math.max(Number(agent?.config?.lookBackDays) || 21, 3), 45);
+  const maxEvents = Math.min(Math.max(Number(agent?.config?.maxEventsPerRun) || 90, 10), 150);
+  const maxStored = Math.min(Math.max(Number(agent?.config?.maxStoredEvents) || 800, 100), 1200);
+  const targetMin = Math.min(Math.max(Number(agent?.config?.targetMinEvents) || 50, 15), 120);
 
   const today = new Date().toISOString().slice(0, 10);
   const windowStart = isoDayOffset(today, -lookBack);
@@ -205,57 +238,71 @@ export async function runCalendarScanner(agent) {
   if (!existing.ok) {
     return { ok: false, message: `fetch calendar failed: ${existing.status}` };
   }
-  const prior = Array.isArray(existing.body?.store?.events)
-    ? existing.body.store.events.slice(-80)
-    : [];
+  const priorAll = Array.isArray(existing.body?.store?.events) ? existing.body.store.events : [];
+  const prior = priorAll.slice(-100);
 
-  const payload = {
-    today,
-    windowStart,
-    windowEnd,
-    lookBackDays: lookBack,
-    lookAheadDays: lookAhead,
-    maxEvents,
-    instruction:
-      "National-impact calendar only. Most Americans should care. " +
-      "No external links — CladFacts paths only or omit links. " +
-      "Upcoming scheduled + major past events to log for reference.",
-    existingEventIds: prior.map((e) => e.id).filter(Boolean).slice(0, 80),
-    sampleExisting: prior.slice(-12).map((e) => ({
-      id: e.id,
-      date: e.date,
-      title: e.title,
-      kind: e.kind,
-    })),
-  };
+  const chunks = chunkWindow(windowStart, windowEnd, 12);
+  const targetPerChunk = Math.max(8, Math.ceil(targetMin / Math.max(chunks.length, 1)));
 
-  let result;
-  try {
-    result = await callGrok(
-      xaiKey,
-      `Scan the U.S. news calendar for CladFacts.\n` +
-        `Only events important or impactful to most Americans.\n` +
-        `Window: past since ${windowStart}, upcoming through ${windowEnd}.\n` +
-        `Do not default to niche tech/space items. Prefer politics, security, economy, ` +
-        `courts, disasters, and elections with broad public stakes.\n` +
-        `Links: CladFacts paths only — never external URLs.\n\n` +
-        `${JSON.stringify(payload, null, 2)}`
-    );
-  } catch (err) {
-    return { ok: false, message: String(err?.message || err).slice(0, 280) };
+  const collected = [];
+  const summaries = [];
+  let chunkErrors = 0;
+
+  for (const [chunkStart, chunkEnd] of chunks) {
+    const inChunkPrior = prior
+      .filter((e) => e.date >= chunkStart && e.date <= chunkEnd)
+      .slice(0, 20)
+      .map((e) => ({ id: e.id, date: e.date, title: e.title, kind: e.kind }));
+
+    const payload = {
+      today,
+      windowStart: chunkStart,
+      windowEnd: chunkEnd,
+      targetMinEvents: targetPerChunk,
+      maxEvents: Math.min(40, Math.ceil(maxEvents / chunks.length) + 8),
+      instruction:
+        "Dense U.S. news daybook. Fill real public dates in THIS window only. " +
+        "Prefer ≥1 newsworthy item on most weekdays when a firm date exists. " +
+        "No external links — CladFacts paths only or omit links.",
+      existingInWindow: inChunkPrior,
+    };
+
+    try {
+      const result = await callGrok(
+        xaiKey,
+        `Scan the U.S. news daybook for CladFacts — CHUNK ONLY.\n` +
+          `Window (inclusive): ${chunkStart} through ${chunkEnd}.\n` +
+          `Target at least ${targetPerChunk} verified dated events in this chunk.\n` +
+          `Only events with firm YYYY-MM-DD dates inside the window.\n` +
+          `Links: CladFacts paths only — never external URLs.\n\n` +
+          `${JSON.stringify(payload, null, 2)}`
+      );
+      const scrubbed = scrubEventLinks(Array.isArray(result.events) ? result.events : []).filter(
+        (e) => e?.date && e.date >= chunkStart && e.date <= chunkEnd
+      );
+      collected.push(...scrubbed);
+      if (result.summary) summaries.push(String(result.summary).slice(0, 200));
+    } catch (err) {
+      chunkErrors++;
+      // One chunk failure shouldn't abort the whole run.
+      summaries.push(`chunk ${chunkStart}..${chunkEnd} failed: ${String(err?.message || err).slice(0, 80)}`);
+    }
   }
 
-  const events = scrubEventLinks(
-    (Array.isArray(result.events) ? result.events : []).slice(0, maxEvents)
-  );
-  const summary = String(result.summary || "").slice(0, 2000);
+  const events = dedupeById(collected).slice(0, maxEvents);
+  const summary = summaries.filter(Boolean).join(" · ").slice(0, 2000);
+
+  if (events.length === 0 && chunkErrors === chunks.length) {
+    return { ok: false, message: `all ${chunks.length} daybook chunks failed` };
+  }
 
   const put = await putCalendarEvents({
     events,
     summary,
     maxStored,
-    // Drop prior agent rows so niche leftovers (e.g. early test items) do not stick.
-    replaceAgent: true,
+    // Windowed replace: refresh this scan range, keep agent events outside it.
+    replaceAgent: false,
+    replaceAgentInWindow: { start: windowStart, end: windowEnd },
   });
   if (!put.ok) {
     return {
@@ -271,7 +318,11 @@ export async function runCalendarScanner(agent) {
 
   return {
     ok: true,
-    message: `scanned ${events.length} (${upcoming} upcoming, ${past} past) · store ${total} · ${summary.slice(0, 120)}`,
+    message:
+      `scanned ${events.length} across ${chunks.length} chunks ` +
+      `(${upcoming} upcoming, ${past} past` +
+      (chunkErrors ? `, ${chunkErrors} chunk errs` : "") +
+      `) · store ${total} · ${summary.slice(0, 100)}`,
     submitted: merged,
     skipped: 0,
   };

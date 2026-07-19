@@ -51,10 +51,18 @@ export interface AgentConfig {
   refreshWindowHours?: number; // …but only while the post itself is younger than this
   // race-board-auditor
   maxRacesPerRun?: number; // how many race cards to web-audit (candidates + dates) per run
-  // politician-profile-builder
-  maxPoliticiansPerRun?: number; // how many officeholders to scout per run
+  // politician-profile-builder / politician-grader
+  maxPoliticiansPerRun?: number; // how many officeholders to scout/grade per run
   maxDraftsPerPolitician?: number; // drafts allowed per person per run
   maxPhotoLookupsPerRun?: number; // Wikipedia portrait resolves per run
+  publishedWithinHours?: number; // YouTube search lookback
+  minAppearancesTarget?: number; // prioritize people under this mention count
+  // calendar-scanner
+  lookAheadDays?: number;
+  lookBackDays?: number;
+  maxEventsPerRun?: number;
+  maxStoredEvents?: number;
+  targetMinEvents?: number;
   // dead-video-pruner
   maxDeletePerRun?: number;
   dryRun?: boolean;
@@ -285,15 +293,17 @@ export const DEFAULT_REGISTRY: Registry = {
       kind: "politician-profile-builder",
       name: "Politician Profile Builder (coverage + photos)",
       enabled: true,
-      // Daily 14:00 UTC — rotate officeholders, search news, fill portraits.
-      // Also 02:00 UTC for a second pass so under-covered seats keep filling.
-      cron: "0 2,14 * * *",
+      // Three daily passes — under-covered seats, portraits, and mention depth.
+      cron: "0 2,10,18 * * *",
       config: {
-        maxPoliticiansPerRun: 20,
-        maxDraftsPerPolitician: 1,
-        maxPublishesPerRun: 16,
-        maxPhotoLookupsPerRun: 60,
-        publishedWithinHours: 240, // 10 days
+        maxPoliticiansPerRun: 30,
+        maxDraftsPerPolitician: 2,
+        maxPublishesPerRun: 24,
+        maxPhotoLookupsPerRun: 150,
+        // 30 days of YT search for people under 3 appearances.
+        publishedWithinHours: 720,
+        // Target depth: each officeholder should accumulate ≥3 graded mentions.
+        minAppearancesTarget: 3,
       },
     },
     {
@@ -301,10 +311,10 @@ export const DEFAULT_REGISTRY: Registry = {
       kind: "politician-grader",
       name: "Politician Grader (person ideology + claim record)",
       enabled: true,
-      // Twice daily — clear the never-graded backlog and refresh stale scores.
-      cron: "30 7,15 * * *",
+      // Three daily passes — clear never-graded backlog in ~1 week for full roster.
+      cron: "30 5,12,19 * * *",
       config: {
-        maxPoliticiansPerRun: 28,
+        maxPoliticiansPerRun: 40,
       },
     },
     {
@@ -312,13 +322,14 @@ export const DEFAULT_REGISTRY: Registry = {
       kind: "calendar-scanner",
       name: "News Calendar Scanner (upcoming + history)",
       enabled: true,
-      // Every 4 hours — catch launches, speeches, flash crises, and log past majors.
-      cron: "20 */4 * * *",
+      // Every 3 hours — denser daybook fill across a multi-month window.
+      cron: "20 */3 * * *",
       config: {
-        lookAheadDays: 21,
-        lookBackDays: 14,
-        maxEventsPerRun: 40,
-        maxStoredEvents: 400,
+        lookAheadDays: 60,
+        lookBackDays: 21,
+        maxEventsPerRun: 90,
+        maxStoredEvents: 800,
+        targetMinEvents: 50,
       },
     },
     {
@@ -1324,8 +1335,9 @@ function scrubStoredLinks(
  * older than keepDaysBack (default ~18 months) and caps total count.
  * Always scrubs external links from both prior store and incoming.
  *
- * When replaceAgent is true (default for scanner runs), drop prior agent-sourced
- * rows first so a tighter editorial bar removes stale niche items.
+ * replaceAgent: drop ALL prior agent-sourced rows (full wipe — rare).
+ * replaceAgentInWindow: drop only agent rows whose date falls in [start, end]
+ *   so multi-pass scans accumulate density outside the active window.
  */
 export async function mergeCalendarEvents(
   kv: KVNamespace,
@@ -1336,14 +1348,28 @@ export async function mergeCalendarEvents(
     keepDaysBack?: number;
     /** Drop previous source=agent events before applying incoming (default false). */
     replaceAgent?: boolean;
+    /** Drop prior agent rows only inside this YYYY-MM-DD inclusive window. */
+    replaceAgentInWindow?: { start: string; end: string };
   }
 ): Promise<CalendarEventsStore> {
   const prev = (await getCalendarEventsStore(kv)) ?? { updatedAt: "", events: [] };
+  const win = opts?.replaceAgentInWindow;
   const byId = new Map<string, StoredCalendarEvent>();
   for (const e of prev.events) {
     if (!e?.id) continue;
-    if (opts?.replaceAgent && (e.source === "agent" || !e.source)) {
-      // Prior scanner rows (including early untagged agent writes) are replaced.
+    const isAgent = e.source === "agent" || !e.source;
+    if (opts?.replaceAgent && isAgent) {
+      // Full wipe of prior scanner rows.
+      continue;
+    }
+    if (
+      win?.start &&
+      win?.end &&
+      isAgent &&
+      e.date >= win.start &&
+      e.date <= win.end
+    ) {
+      // In-window replace: keep agent events outside the scan window.
       continue;
     }
     byId.set(e.id, { ...e, links: scrubStoredLinks(e.links) });
@@ -1361,7 +1387,7 @@ export async function mergeCalendarEvents(
 
   const keepDays = opts?.keepDaysBack ?? 550;
   const cutoff = Date.now() - keepDays * 86_400_000;
-  const max = Math.min(Math.max(opts?.maxStored ?? 400, 50), 800);
+  const max = Math.min(Math.max(opts?.maxStored ?? 400, 50), 1200);
 
   let events = [...byId.values()].filter((e) => {
     const t = Date.parse(`${e.date}T12:00:00.000Z`);

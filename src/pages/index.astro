@@ -148,7 +148,8 @@ const calStore = await getCalendarEventsStore(env.AGENTS);
 const calendarLive: CalendarEvent[] = (calStore?.events ?? [])
   .map((e) => normalizeCalendarEvent(e, "agent"))
   .filter((e): e is CalendarEvent => e != null);
-const calendarFromPosts = eventsFromPosts(all, { max: 36, maxPerDay: 2, daysBack: 40 });
+// Past density: more Clad reports on the daybook so recent days stay busy.
+const calendarFromPosts = eventsFromPosts(all, { max: 72, maxPerDay: 3, daysBack: 60 });
 let calendarPrivate: CalendarEvent[] = [];
 if (access.signedIn) {
   const su = await getSessionUser(Astro.request.headers);

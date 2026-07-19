@@ -94,7 +94,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   const additions: Record<string, PersonProfile> = {};
   const now = new Date().toISOString();
-  for (const [slug, raw] of Object.entries(body.profiles).slice(0, 40)) {
+  for (const [slug, raw] of Object.entries(body.profiles).slice(0, 50)) {
     if (!raw || typeof raw !== "object") continue;
     const lean = Number(raw.leanScore);
     if (!Number.isFinite(lean)) continue;

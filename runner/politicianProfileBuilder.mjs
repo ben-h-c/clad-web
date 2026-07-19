@@ -69,41 +69,50 @@ async function searchVideos(apiKey, person, withinHours) {
   const publishedAfter = new Date(Date.now() - withinHours * 3600_000).toISOString();
   const ln = lastName(person.name);
   // Prefer exact name + political context so we don't grab cooking-show namesakes.
-  const q = `"${person.name}" (Senate OR Congress OR House OR Governor OR President OR Secretary OR interview OR hearing OR speech OR debate)`;
-  const params = new URLSearchParams({
-    key: apiKey,
-    part: "snippet",
-    type: "video",
-    order: "date",
-    maxResults: "5",
-    publishedAfter,
-    relevanceLanguage: "en",
-    regionCode: "US",
-    videoCategoryId: "25", // News & Politics
-    q,
-  });
-  const res = await fetch(`${YT_SEARCH}?${params}`);
-  if (!res.ok) {
-    const t = await res.text().catch(() => "");
-    throw new Error(`YouTube search ${res.status}: ${t.slice(0, 120)}`);
-  }
-  const data = await res.json();
+  // Second query broadens to C-SPAN / hearing language for under-covered seats.
+  const queries = [
+    `"${person.name}" (Senate OR Congress OR House OR Governor OR President OR Secretary OR interview OR hearing OR speech OR debate)`,
+    `"${person.name}" (C-SPAN OR "press conference" OR "town hall" OR primary OR campaign OR "floor speech")`,
+  ];
   const out = [];
-  for (const it of data.items || []) {
-    const id = it.id?.videoId;
-    const s = it.snippet || {};
-    if (!id) continue;
-    const title = s.title || "";
-    const channel = s.channelTitle || "";
-    // Soft gate: title or channel should mention last name (or full name).
-    const blob = `${title} ${channel}`.toLowerCase();
-    if (!blob.includes(ln.toLowerCase()) && !blob.includes(person.name.toLowerCase())) continue;
-    out.push({
-      videoId: id,
-      title,
-      channel,
-      publishedAt: s.publishedAt || "",
+  const seen = new Set();
+  for (const q of queries) {
+    const params = new URLSearchParams({
+      key: apiKey,
+      part: "snippet",
+      type: "video",
+      order: "date",
+      maxResults: "8",
+      publishedAfter,
+      relevanceLanguage: "en",
+      regionCode: "US",
+      videoCategoryId: "25", // News & Politics
+      q,
     });
+    const res = await fetch(`${YT_SEARCH}?${params}`);
+    if (!res.ok) {
+      const t = await res.text().catch(() => "");
+      throw new Error(`YouTube search ${res.status}: ${t.slice(0, 120)}`);
+    }
+    const data = await res.json();
+    for (const it of data.items || []) {
+      const id = it.id?.videoId;
+      const s = it.snippet || {};
+      if (!id || seen.has(id)) continue;
+      const title = s.title || "";
+      const channel = s.channelTitle || "";
+      // Soft gate: title or channel should mention last name (or full name).
+      const blob = `${title} ${channel}`.toLowerCase();
+      if (!blob.includes(ln.toLowerCase()) && !blob.includes(person.name.toLowerCase())) continue;
+      seen.add(id);
+      out.push({
+        videoId: id,
+        title,
+        channel,
+        publishedAt: s.publishedAt || "",
+      });
+    }
+    if (out.length >= 8) break;
   }
   return out;
 }
@@ -115,11 +124,12 @@ export async function runPoliticianProfileBuilder(agent) {
   if (!xaiKey) return { ok: false, message: "XAI_API_KEY not set" };
 
   const c = agent.config || {};
-  const maxPeople = Math.min(Number(c.maxPoliticiansPerRun) || 20, 30);
-  const maxDraftsTotal = Math.min(Number(c.maxPublishesPerRun) || 16, 24);
-  const maxDraftsEach = Math.min(Number(c.maxDraftsPerPolitician) || 1, 3);
-  const maxPhotos = Math.min(Number(c.maxPhotoLookupsPerRun) || 60, 100);
-  const withinHours = Number(c.publishedWithinHours) || 168;
+  const maxPeople = Math.min(Number(c.maxPoliticiansPerRun) || 30, 40);
+  const maxDraftsTotal = Math.min(Number(c.maxPublishesPerRun) || 24, 32);
+  const maxDraftsEach = Math.min(Number(c.maxDraftsPerPolitician) || 2, 3);
+  const maxPhotos = Math.min(Number(c.maxPhotoLookupsPerRun) || 150, 200);
+  const withinHours = Number(c.publishedWithinHours) || 720;
+  const minTarget = Math.min(Math.max(Number(c.minAppearancesTarget) || 3, 1), 10);
 
   const profile = await getPoliticianProfile();
   if (!profile.ok) {
@@ -130,8 +140,8 @@ export async function runPoliticianProfileBuilder(agent) {
     return { ok: false, message: `roster too small (${people.length}); run roster sync first` };
   }
 
-  // Priority: zero-coverage officeholders first (need gradeable material),
-  // then missing photos, then fewest appearances, then A–Z.
+  // Priority: under minTarget appearances (need ≥3 graded mentions), then
+  // missing photos, then hierarchy (Exec → House), then fewest appearances.
   const bucketWeight = (b) => {
     const x = String(b || "");
     if (x === "Executive") return 0;
@@ -142,13 +152,16 @@ export async function runPoliticianProfileBuilder(agent) {
     return 5;
   };
   const ranked = [...people].sort((a, b) => {
+    const aUnder = (a.appearances || 0) < minTarget ? 0 : 1;
+    const bUnder = (b.appearances || 0) < minTarget ? 0 : 1;
+    if (aUnder !== bUnder) return aUnder - bUnder;
     const az = (a.appearances || 0) === 0 ? 0 : 1;
     const bz = (b.appearances || 0) === 0 ? 0 : 1;
     if (az !== bz) return az - bz;
+    if (a.hasPhoto !== b.hasPhoto) return a.hasPhoto ? 1 : -1;
     if (bucketWeight(a.bucket) !== bucketWeight(b.bucket))
       return bucketWeight(a.bucket) - bucketWeight(b.bucket);
     if (a.appearances !== b.appearances) return a.appearances - b.appearances;
-    if (a.hasPhoto !== b.hasPhoto) return a.hasPhoto ? 1 : -1;
     return a.name.localeCompare(b.name);
   });
 

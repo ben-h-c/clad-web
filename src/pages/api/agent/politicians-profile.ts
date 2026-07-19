@@ -12,7 +12,7 @@ import {
   buildPoliticianIndex,
   resolvePoliticianSeeds,
 } from "~/lib/politicians";
-import { isCommonsMediaUrl } from "~/lib/politicianPhotos";
+import { isCommonsMediaUrl, photoForSlug } from "~/lib/politicianPhotos";
 
 export const prerender = false;
 
@@ -42,22 +42,39 @@ export const GET: APIRoute = async ({ request }) => {
   const scout = await getPoliticianScoutState(env.AGENTS);
 
   // Compact payload for the runner (names + buckets only).
+  // hasPhoto = static map ∪ live KV so the agent does not re-hit known faces.
   const people = seeds
     .filter((s) => s.bucket !== "Coverage")
-    .map((s) => ({
-      slug: s.slug,
-      name: s.name,
-      race: s.race ?? "",
-      bucket: s.bucket ?? "Other",
-      appearances: counts[s.slug] ?? 0,
-      hasPhoto: Boolean(photos.bySlug[s.slug]),
-    }));
+    .map((s) => {
+      const slug = s.slug;
+      const staticPhoto = photoForSlug(slug);
+      const kvPhoto = photos.bySlug[slug];
+      return {
+        slug,
+        name: s.name,
+        race: s.race ?? "",
+        bucket: s.bucket ?? "Other",
+        appearances: counts[slug] ?? 0,
+        hasPhoto: Boolean(
+          (staticPhoto && isCommonsMediaUrl(staticPhoto)) ||
+            (kvPhoto && isCommonsMediaUrl(kvPhoto))
+        ),
+      };
+    });
+
+  const staticPhotoCount = people.filter((p) => {
+    const u = photoForSlug(p.slug);
+    return u && isCommonsMediaUrl(u);
+  }).length;
 
   return json({
     rosterUpdatedAt: updatedAt,
     rosterSource: source,
     people,
     photoCount: Object.keys(photos.bySlug).length,
+    staticPhotoCount,
+    withPhoto: people.filter((p) => p.hasPhoto).length,
+    underCovered: people.filter((p) => p.appearances < 3).length,
     scout,
   });
 };

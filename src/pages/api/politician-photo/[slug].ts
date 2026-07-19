@@ -5,6 +5,7 @@ import {
   getPoliticianRoster,
   getPoliticianPhotoCredits,
   mergePoliticianPhotoCredit,
+  mergePoliticianPhotos,
   type PhotoCredit,
 } from "~/lib/agents";
 import { ROSTER_SEEDS } from "~/data/politicianRoster";
@@ -206,6 +207,19 @@ export const GET: APIRoute = async ({ params, request, locals }) => {
   if (cf?.waitUntil) {
     if (cache) cf.waitUntil(cache.put(cacheKey, resp.clone()));
     cf.waitUntil(captureCredit(slug, remote));
+    // Write resolved Commons URL into the live photo map so the directory and
+    // profile-builder treat this slug as covered (scale via traffic + agents).
+    cf.waitUntil(
+      (async () => {
+        try {
+          const live = await getPoliticianPhotoMap(env.AGENTS);
+          if (live?.bySlug?.[slug] === remote) return;
+          await mergePoliticianPhotos(env.AGENTS, { [slug]: remote });
+        } catch {
+          /* best-effort */
+        }
+      })()
+    );
   }
   return resp;
 };

@@ -252,12 +252,143 @@ export function commonsFilePage(url: string): string | null {
   return file ? `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file)}` : null;
 }
 
+/**
+ * Nickname / formal-name slug aliases → canonical static photo key.
+ * Roster uses official full-name slugs; the static map often uses nicknames.
+ */
+const PHOTO_SLUG_ALIASES: Record<string, string> = {
+  "alexandria-ocasio-cortez": "aoc",
+  "charles-e-schumer": "chuck-schumer",
+  "charles-schumer": "chuck-schumer",
+  "cory-a-booker": "cory-booker",
+  "robert-f-kennedy-jr": "rfk-jr",
+  "robert-francis-kennedy-jr": "rfk-jr",
+  "james-david-vance": "jd-vance",
+  "j-d-vance": "jd-vance",
+  "joseph-r-biden": "joe-biden",
+  "joseph-biden": "joe-biden",
+  "donald-j-trump": "donald-trump",
+  "kamala-d-harris": "kamala-harris",
+  "bernard-sanders": "bernie-sanders",
+  "hakeem-s-jeffries": "hakeem-jeffries",
+  "mike-johnson-la": "mike-johnson",
+  "michael-johnson": "mike-johnson",
+  "raphael-g-warnock": "raphael-warnock",
+  "jon-ossoff": "jon-ossoff",
+  "thomas-r-carper": "tom-carper",
+  "elizabeth-a-warren": "elizabeth-warren",
+  "edward-j-markey": "ed-markey",
+  "christopher-s-murphy": "chris-murphy",
+  "christopher-murphy": "chris-murphy",
+  "richard-j-durbin": "dick-durbin",
+  "richard-durbin": "dick-durbin",
+  "mitch-mcconnell": "mitch-mcconnell",
+  "addison-mitchell-mcconnell": "mitch-mcconnell",
+  "ronald-d-desantis": "ron-desantis",
+  "gavin-c-newsom": "gavin-newsom",
+  "gregory-w-abbott": "greg-abbott",
+  "brian-p-kemp": "brian-kemp",
+  "joshua-d-shapiro": "josh-shapiro",
+  "gretchen-e-whitmer": "gretchen-whitmer",
+  "wes-moore": "wes-moore",
+  "jb-pritzker": "jb-pritzker",
+  "j-b-pritzker": "jb-pritzker",
+  "tim-scott": "tim-scott",
+  "timothy-e-scott": "tim-scott",
+  "ted-cruz": "ted-cruz",
+  "rafael-edward-cruz": "ted-cruz",
+  "marco-a-rubio": "marco-rubio",
+  "lindsey-o-graham": "lindsey-graham",
+  "susan-m-collins": "susan-collins",
+  "tammy-baldwin": "tammy-baldwin",
+  "amy-j-klobuchar": "amy-klobuchar",
+  "tina-smith": "tina-smith",
+  "john-k-fetterman": "john-fetterman",
+  "john-fetterman": "john-fetterman",
+  "mark-e-kelly": "mark-kelly",
+  "ruben-gallego": "ruben-gallego",
+  "elissa-slotkin": "elissa-slotkin",
+  "gary-c-peters": "gary-peters",
+  "jacky-rosen": "jacky-rosen",
+  "catherine-cortezmastov": "catherine-corte-masto",
+  "jon-tester": "jon-tester",
+  "steve-daines": "steve-daines",
+  "thom-tillis": "thom-tillis",
+  "thomas-r-tillis": "thom-tillis",
+  "pete-ricketts": "pete-ricketts",
+  "john-neely-kennedy": "john-kennedy",
+  "john-cornyn": "john-cornyn",
+  "jim-banks": "jim-banks",
+  "jon-husted": "jon-husted",
+  "bernie-moreno": "bernie-moreno",
+  "tim-sheehy": "tim-sheehy",
+  "dave-mccormick": "dave-mccormick",
+  "david-h-mccormick": "dave-mccormick",
+  "michael-whatley": "michael-whatley",
+  "mike-collins": "mike-collins",
+  "mike-rogers": "mike-rogers",
+  "mike-rogers-mi": "mike-rogers-mi",
+  "angie-craig": "angie-craig",
+  "haley-stevens": "haley-stevens",
+  "chris-pappas": "chris-pappas",
+  "colin-allred": "colin-allred",
+  "james-talarico": "james-talarico",
+  "zohran-mamdani": "zohran-mamdani",
+  "vivek-ramaswamy": "vivek-ramaswamy",
+  "nikki-haley": "nikki-haley",
+  "kari-lake": "kari-lake",
+  "sarah-huckabee-sanders": "sarah-huckabee-sanders",
+  "kathy-hochul": "kathy-hochul",
+  "katie-hobbs": "katie-hobbs",
+  "andy-beshear": "andy-beshear",
+  "glenn-youngkin": "glenn-youngkin",
+  "joe-lombardo": "joe-lombardo",
+  "tony-evers": "tony-evers",
+  "phil-weiser": "phil-weiser",
+  "ken-paxton": "ken-paxton",
+  "larry-hogan": "larry-hogan",
+  "roy-cooper": "roy-cooper",
+  "peggy-flanagan": "peggy-flanagan",
+  "annie-andrews": "annie-andrews",
+  "abdul-el-sayed": "abdul-el-sayed",
+  "graham-platner": "graham-platner",
+  "angela-alsobrooks": "angela-alsobrooks",
+  "deb-fischer": "deb-fischer",
+  "jeanne-shaheen": "jeanne-shaheen",
+  "john-hickenlooper": "john-hickenlooper",
+  "john-sununu": "john-sununu",
+  "michael-bennet": "michael-bennet",
+  "mike-bennet": "michael-bennet",
+  "scott-brown": "scott-brown",
+  "sherrod-brown": "sherrod-brown",
+  "eric-hovde": "eric-hovde",
+  "nigel-farage": "nigel-farage",
+  "keir-starmer": "keir-starmer",
+  "justin-trudeau": "justin-trudeau",
+  "mark-carney": "mark-carney",
+  "benjamin-netanyahu": "benjamin-netanyahu",
+  "volodymyr-zelenskyy": "volodymyr-zelenskyy",
+  "vladimir-putin": "vladimir-putin",
+  "xi-jinping": "xi-jinping",
+  "barack-obama": "barack-obama",
+  "barack-h-obama": "barack-obama",
+};
+
+export function resolvePhotoSlug(slug: string): string {
+  const s = String(slug || "")
+    .trim()
+    .toLowerCase();
+  return PHOTO_SLUG_ALIASES[s] || s;
+}
+
 export function photoForSlug(slug: string): string | null {
-  return POLITICIAN_PHOTOS[slug] ?? null;
+  const key = resolvePhotoSlug(slug);
+  return POLITICIAN_PHOTOS[key] ?? POLITICIAN_PHOTOS[slug] ?? null;
 }
 
 export function wikiTitleForSlug(slug: string): string | null {
-  return POLITICIAN_WIKI[slug] ?? null;
+  const key = resolvePhotoSlug(slug);
+  return POLITICIAN_WIKI[key] ?? POLITICIAN_WIKI[slug] ?? null;
 }
 
 /** Guess a Wikipedia article title from a display name. */

@@ -31,7 +31,12 @@ export const GET: APIRoute = async ({ request }) => {
 
 /**
  * POST — merge scanned events (upcoming scheduled + historical majors).
- * Body: { events: [...], summary?: string, maxStored?: number }
+ * Body: {
+ *   events, summary?, maxStored?,
+ *   replaceAgent?: boolean (full wipe of prior agent rows),
+ *   replaceAgentInWindow?: { start, end } (YYYY-MM-DD) — preferred: only
+ *     drop prior agent rows inside the scan window so density accumulates.
+ * }
  */
 export const POST: APIRoute = async ({ request }) => {
   if (!checkAgentToken(request.headers.get("authorization"), env.AGENT_TOKEN)) {
@@ -42,6 +47,7 @@ export const POST: APIRoute = async ({ request }) => {
     summary?: string;
     maxStored?: number;
     replaceAgent?: boolean;
+    replaceAgentInWindow?: { start?: string; end?: string };
   };
   try {
     body = (await request.json()) as typeof body;
@@ -53,7 +59,8 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const normalized: StoredCalendarEvent[] = [];
-  for (const raw of body.events.slice(0, 80)) {
+  // Multi-pass scanners may send up to ~150 events per POST.
+  for (const raw of body.events.slice(0, 150)) {
     const e = normalizeCalendarEvent(raw, "agent");
     if (!e) continue;
     normalized.push({
@@ -70,11 +77,17 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
+  const winStart = String(body.replaceAgentInWindow?.start || "").trim().slice(0, 10);
+  const winEnd = String(body.replaceAgentInWindow?.end || "").trim().slice(0, 10);
+  const hasWindow = /^\d{4}-\d{2}-\d{2}$/.test(winStart) && /^\d{4}-\d{2}-\d{2}$/.test(winEnd);
+
   const store = await mergeCalendarEvents(env.AGENTS, normalized, {
     summary: body.summary,
     maxStored: typeof body.maxStored === "number" ? body.maxStored : undefined,
-    // Scanner runs replace prior agent rows so a tighter bar drops niche leftovers.
-    replaceAgent: body.replaceAgent !== false,
+    // Prefer windowed replace so multi-month density accumulates. Full wipe
+    // only when the runner sets replaceAgent: true without a window.
+    replaceAgent: body.replaceAgent === true && !hasWindow,
+    replaceAgentInWindow: hasWindow ? { start: winStart, end: winEnd } : undefined,
   });
 
   return json({
