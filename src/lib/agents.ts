@@ -345,6 +345,15 @@ export const DEFAULT_REGISTRY: Registry = {
       },
     },
     {
+      id: "human-spotlight",
+      kind: "human-spotlight",
+      name: "Human Spotlight (daily positive human story)",
+      enabled: true,
+      // After today-in-history morning pass; one living person per ET day.
+      cron: "25 5,12 * * *",
+      config: {},
+    },
+    {
       id: "push-reminders",
       kind: "push-reminders",
       name: "iOS Push Reminders (calendar daybook)",
@@ -389,6 +398,7 @@ export async function getRegistry(kv: KVNamespace): Promise<Registry> {
     "politician-profile-builder",
     "calendar-scanner",
     "today-in-history",
+    "human-spotlight",
     "push-reminders",
   ]) {
     const live = reg.agents.find((a) => a.id === id);
@@ -1472,6 +1482,47 @@ export async function setTodayInHistory(
   payload: TodayInHistoryStore
 ): Promise<void> {
   await kv.put(TODAY_IN_HISTORY_KEY, JSON.stringify(payload));
+}
+
+// ── Human Spotlight (daily positive human story) ───────────────────────
+const HUMAN_SPOTLIGHT_KEY = "home:human-spotlight";
+
+export interface HumanSpotlightStore {
+  dateKey: string;
+  dateLabel: string;
+  generatedAt: string;
+  person: {
+    name: string;
+    achievement: string;
+    article: string;
+    whyNow?: string;
+    location?: string;
+    field?: string;
+    imageUrl?: string | null;
+    sources?: { title: string; url: string }[];
+  };
+  recentNames?: string[];
+}
+
+export async function getHumanSpotlight(
+  kv: KVNamespace
+): Promise<HumanSpotlightStore | null> {
+  const raw = await kv.get(HUMAN_SPOTLIGHT_KEY);
+  if (!raw) return null;
+  try {
+    const data = JSON.parse(raw) as HumanSpotlightStore;
+    if (!data?.dateKey || !data?.person?.name || !data?.person?.article) return null;
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+export async function setHumanSpotlight(
+  kv: KVNamespace,
+  payload: HumanSpotlightStore
+): Promise<void> {
+  await kv.put(HUMAN_SPOTLIGHT_KEY, JSON.stringify(payload));
 }
 
 // ── Politician roster (officeholders — daily sync agent) ───────────────

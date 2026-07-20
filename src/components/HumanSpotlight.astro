@@ -1,0 +1,93 @@
+---
+/**
+ * Homepage "Human Spotlight" — one positive human story per desk day.
+ */
+import type { HumanSpotlightStore } from "~/lib/agents";
+import { spotlightDateKey } from "~/lib/humanSpotlight";
+import { isCommonsMediaUrl } from "~/lib/politicianPhotos";
+
+interface Props {
+  payload?: HumanSpotlightStore | null;
+  class?: string;
+}
+
+const todayKey = spotlightDateKey();
+const raw = Astro.props.payload;
+const show =
+  raw &&
+  raw.dateKey === todayKey &&
+  raw.person &&
+  typeof raw.person.name === "string" &&
+  raw.person.name.trim() &&
+  typeof raw.person.article === "string" &&
+  raw.person.article.trim().length > 40;
+
+const person = show ? raw!.person : null;
+const paragraphs = person
+  ? person.article
+      .split(/\n\n+/)
+      .map((p) => p.trim())
+      .filter(Boolean)
+  : [];
+const imageUrl =
+  person?.imageUrl && isCommonsMediaUrl(person.imageUrl) ? person.imageUrl : null;
+const sources = (person?.sources || []).filter((s) => s?.url && s?.title).slice(0, 5);
+
+const wrapClass = ["human-spot", Astro.props.class].filter(Boolean).join(" ");
+---
+{show && person && (
+  <section class={wrapClass} aria-labelledby="human-spot-title" id="human-spotlight">
+    <div class="feed__head">
+      <h2 class="feed__title" id="human-spot-title">Human Spotlight</h2>
+      <span class="category__more human-spot__when small-caps">{raw!.dateLabel}</span>
+    </div>
+    <div class="rule rule--double" aria-hidden="true"></div>
+
+    <article class="human-spot__card">
+      <header class="human-spot__header">
+        {imageUrl && (
+          <div class="human-spot__photo">
+            <img
+              src={imageUrl}
+              alt=""
+              width="160"
+              height="160"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </div>
+        )}
+        <div class="human-spot__intro">
+          {(person.field || person.location) && (
+            <p class="human-spot__meta small-caps">
+              {[person.field, person.location].filter(Boolean).join(" · ")}
+            </p>
+          )}
+          <h3 class="human-spot__name">{person.name}</h3>
+          <p class="human-spot__achievement">{person.achievement}</p>
+          {person.whyNow && <p class="human-spot__why">{person.whyNow}</p>}
+        </div>
+      </header>
+
+      <div class="human-spot__body">
+        {paragraphs.map((p) => (
+          <p>{p}</p>
+        ))}
+      </div>
+
+      {sources.length > 0 && (
+        <footer class="human-spot__sources">
+          <p class="small-caps human-spot__sources-label">Sources</p>
+          <ul>
+            {sources.map((s) => (
+              <li>
+                <a href={s.url} rel="noopener noreferrer" target="_blank">{s.title}</a>
+              </li>
+            ))}
+          </ul>
+        </footer>
+      )}
+    </article>
+  </section>
+)}

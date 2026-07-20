@@ -100,6 +100,17 @@ export function putTodayInHistory(payload) {
   });
 }
 
+export function getHumanSpotlight() {
+  return call("/api/agent/human-spotlight", { method: "GET" });
+}
+
+export function putHumanSpotlight(payload) {
+  return call("/api/agent/human-spotlight", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
 export function getPoliticianRoster() {
   return call("/api/agent/politicians-roster", { method: "GET" });
 }

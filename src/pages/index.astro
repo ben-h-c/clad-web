@@ -14,7 +14,14 @@ import NewsletterSignup from "~/components/NewsletterSignup.astro";
 import HomeSpotlightCarousel from "~/components/HomeSpotlightCarousel.astro";
 import HomeCalendar from "~/components/HomeCalendar.astro";
 import TodayInHistory from "~/components/TodayInHistory.astro";
-import { getFrontpage, getBreaking, getSentiments, getTodayInHistory } from "~/lib/agents";
+import HumanSpotlight from "~/components/HumanSpotlight.astro";
+import {
+  getFrontpage,
+  getBreaking,
+  getSentiments,
+  getTodayInHistory,
+  getHumanSpotlight,
+} from "~/lib/agents";
 import { aggregateTopics, gradeToGpa } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
@@ -166,6 +173,7 @@ if (access.signedIn) {
 }
 const calendarExtra: CalendarEvent[] = [...calendarFromPosts, ...calendarPrivate];
 const todayInHistory = await getTodayInHistory(env.AGENTS);
+const humanSpotlight = await getHumanSpotlight(env.AGENTS);
 ---
 <BaseLayout
   title="CladFacts — Grading Content & Exposing Bias"
@@ -260,6 +268,8 @@ const todayInHistory = await getTodayInHistory(env.AGENTS);
             />
           )}
           <TodayInHistory payload={todayInHistory} />
+          {/* Directly under Today in history; also rendered for free readers below. */}
+          <HumanSpotlight payload={humanSpotlight} />
           <p class="home-more-analytics">
             Want the long view?{" "}
             <a href="/trends/">News Trends</a>
@@ -272,6 +282,8 @@ const todayInHistory = await getTodayInHistory(env.AGENTS);
           </p>
         </>
       )}
+      {/* Free/anonymous readers still get the daily positive story. */}
+      {locked && <HumanSpotlight payload={humanSpotlight} />}
 
       <section class="more-clad" aria-labelledby="more-clad-title">
         <div class="feed__head">

@@ -8248,6 +8248,118 @@ html.clad-app .today-hist__actions {
   margin-top: 0.35rem;
 }
 
+/* ── Human Spotlight (daily positive human story under Today in history) ─ */
+.human-spot {
+  margin: 1.75rem 0 0.5rem;
+}
+.human-spot__when {
+  color: var(--muted-ink);
+  text-decoration: none;
+  cursor: default;
+}
+.human-spot__card {
+  margin-top: 0.75rem;
+  padding: 1rem 1.05rem 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 45%, transparent);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--paper) 70%, var(--card));
+  box-shadow: 2px 2px 0 color-mix(in srgb, var(--shadow) 35%, transparent);
+}
+.human-spot__header {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 0.85rem;
+}
+.human-spot__photo {
+  flex-shrink: 0;
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--rule) 40%, transparent);
+  background: var(--paper-deep);
+}
+.human-spot__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.human-spot__intro {
+  min-width: 0;
+  flex: 1;
+}
+.human-spot__meta {
+  margin: 0 0 0.25rem;
+  color: var(--muted-ink);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+}
+.human-spot__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+.human-spot__achievement {
+  margin: 0.4rem 0 0;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.human-spot__why {
+  margin: 0.4rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--muted-ink);
+  font-style: italic;
+}
+.human-spot__body {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.human-spot__body p {
+  margin: 0 0 0.75em;
+}
+.human-spot__body p:last-child {
+  margin-bottom: 0;
+}
+.human-spot__sources {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid color-mix(in srgb, var(--rule) 40%, transparent);
+}
+.human-spot__sources-label {
+  margin: 0 0 0.35rem;
+  color: var(--muted-ink);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+}
+.human-spot__sources ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+.human-spot__sources a {
+  color: inherit;
+}
+@media (max-width: 520px) {
+  .human-spot__header {
+    flex-direction: column;
+  }
+  .human-spot__photo {
+    width: 100%;
+    height: 11rem;
+  }
+}
+
 .more-clad {
   margin-top: 1.5rem;
 }
