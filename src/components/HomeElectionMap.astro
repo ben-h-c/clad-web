@@ -2,9 +2,19 @@
 /**
  * View-only Midterms 2026 map teaser for the homepage.
  * Shows Party & outlook / state control colors; whole card links to the full map.
+ * Optional “next race” blurb renders under the map when races are provided.
  */
+import type { CollectionEntry } from "astro:content";
+import type { RaceDef } from "~/lib/races";
+import HomeNextElection from "~/components/HomeNextElection.astro";
 import { US_MAP_VIEWBOX, US_STATE_CODES, US_STATE_PATHS, US_STATE_NAMES } from "~/lib/usMapPaths";
 import { buildStateForecasts, FORECAST_ASOF, type Rating } from "~/lib/electionForecast";
+
+interface Props {
+  races?: RaceDef[] | null;
+  posts?: CollectionEntry<"posts">[];
+}
+const { races = null, posts = [] } = Astro.props;
 
 const forecast = buildStateForecasts();
 const flipCount = US_STATE_CODES.filter((c) => forecast.byCode[c]?.control?.flipRisk).length;
@@ -66,4 +76,8 @@ const cells = US_STATE_CODES.map((code) => {
       Explore layers · tap states · full map <span aria-hidden="true">→</span>
     </p>
   </a>
+
+  {races && races.length > 0 && (
+    <HomeNextElection races={races} posts={posts} />
+  )}
 </section>

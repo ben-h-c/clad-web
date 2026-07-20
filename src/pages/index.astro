@@ -283,7 +283,7 @@ const goodNewsPosts = postsFromSections(goodNewsSections, byId, 12);
       </section>
 
       {/* View-only midterms map teaser → full interactive /elections/map/ */}
-      <HomeElectionMap />
+      <HomeElectionMap races={calendarRaces} posts={all} />
 
       {locked ? (
         <PaywallPanel signedIn={access.signedIn} returnTo="/" />

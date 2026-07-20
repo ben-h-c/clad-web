@@ -8812,6 +8812,99 @@ html.theme-dark .home-emap__card {
 .home-emap__party--solid-r { fill: #8b1a14; background: #8b1a14; }
 .home-emap__party--no-race { fill: #d9d0bc; background: #d9d0bc; }
 
+/* Next race blurb under the home map */
+.home-next-race {
+  margin-top: 0.75rem;
+}
+.home-next-race__inner {
+  padding: 0.9rem 1rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--paper) 72%, var(--card));
+  box-shadow: 2px 2px 0 color-mix(in srgb, var(--shadow) 28%, transparent);
+}
+.home-next-race__kicker {
+  margin: 0 0 0.25rem;
+  color: var(--accent, #941a1a);
+  letter-spacing: 0.12em;
+  font-size: 0.68rem;
+}
+.home-next-race__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+.home-next-race__when {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+.home-next-race__countdown {
+  color: var(--muted-ink);
+  font-weight: 400;
+}
+.home-next-race__lede {
+  margin: 0.5rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--ink);
+  max-width: 40rem;
+}
+.home-next-race__sides {
+  margin: 0.55rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.home-next-race__sides a {
+  color: inherit;
+  font-weight: 700;
+}
+.home-next-race__vs {
+  font-weight: 400;
+  opacity: 0.65;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+.home-next-race__related {
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid color-mix(in srgb, var(--rule) 40%, transparent);
+}
+.home-next-race__related-label {
+  margin: 0 0 0.3rem;
+  color: var(--muted-ink);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+}
+.home-next-race__related ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+.home-next-race__related a {
+  color: inherit;
+}
+.home-next-race__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1rem;
+  align-items: center;
+  margin: 0.85rem 0 0;
+  font-size: 0.88rem;
+}
+.home-next-race__links a {
+  color: inherit;
+  font-weight: 600;
+}
+.home-next-race__cta {
+  font-weight: 700 !important;
+}
+
 .home-emap__legend {
   list-style: none;
   margin: 0 0 0.45rem;

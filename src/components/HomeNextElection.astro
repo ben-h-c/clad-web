@@ -1,0 +1,175 @@
+---
+/**
+ * Homepage “next up” race blurb under the midterms map teaser.
+ * Picks the soonest dated race on the board and links map / ballot / related reports.
+ */
+import type { CollectionEntry } from "astro:content";
+import type { RaceDef } from "~/lib/races";
+import {
+  daysUntil,
+  formatShortVoteDate,
+  isVoteDateTbd,
+  voteDateChip,
+  voteKindLabel,
+} from "~/lib/elections";
+import { US_STATE_NAMES } from "~/lib/usMapPaths";
+
+interface Props {
+  races?: RaceDef[] | null;
+  posts?: CollectionEntry<"posts">[];
+}
+
+const { races = [], posts = [] } = Astro.props;
+
+function isNamedSide(side: RaceDef["a"]): boolean {
+  if (!side?.slug || side.slug.includes("field")) return false;
+  const n = side.name || "";
+  if (/\b(field|TBD|nominee|primary)\b/i.test(n) && n.includes("(")) return false;
+  if (/^(dem|gop|democratic|republican)\b/i.test(n) && /field|nominee|primary/i.test(n)) {
+    return false;
+  }
+  return n.trim().length >= 3;
+}
+
+/** Soonest future (or today) race with a real calendar date; else soonest TBD marquee. */
+function pickNextRace(list: RaceDef[]): RaceDef | null {
+  if (!list.length) return null;
+  const dated = list
+    .filter((r) => !isVoteDateTbd(r.nextVoteDate) && daysUntil(r.nextVoteDate) >= 0)
+    .sort((a, b) => {
+      const da = daysUntil(a.nextVoteDate);
+      const db = daysUntil(b.nextVoteDate);
+      const tier = (t: RaceDef["tier"]) => (t === "marquee" ? 0 : t === "watch" ? 1 : 2);
+      return da - db || tier(a.tier) - tier(b.tier) || a.office.localeCompare(b.office);
+    });
+  if (dated.length) return dated[0]!;
+
+  // All dated votes are past or TBD — prefer marquee with any nextVoteDate
+  const fallback = [...list].sort((a, b) => {
+    const da = isVoteDateTbd(a.nextVoteDate) ? 9999 : daysUntil(a.nextVoteDate);
+    const db = isVoteDateTbd(b.nextVoteDate) ? 9999 : daysUntil(b.nextVoteDate);
+    return Math.abs(da) - Math.abs(db) || a.office.localeCompare(b.office);
+  });
+  return fallback[0] ?? null;
+}
+
+const race = pickNextRace(races ?? []);
+const days = race ? daysUntil(race.nextVoteDate) : 9999;
+const whenChip = race ? voteDateChip(race) : "";
+const kind = race ? voteKindLabel(race.voteKind) : "";
+const stateName = race ? US_STATE_NAMES[race.state] ?? race.state : "";
+
+const sides = race
+  ? [race.a, race.b].filter(isNamedSide).map((s) => ({
+      name: s.name,
+      slug: s.slug,
+      party: s.party,
+      href: s.slug.includes("field") ? null : `/politicians/${s.slug}/`,
+    }))
+  : [];
+
+const needles = sides
+  .flatMap((s) => {
+    const parts = s.name.split(/\s+/).filter((w) => w.length >= 4);
+    return [s.name, parts[parts.length - 1]].filter(Boolean) as string[];
+  })
+  .map((n) => n.toLowerCase());
+
+const related = (() => {
+  if (!needles.length || !posts.length) return [] as CollectionEntry<"posts">[];
+  const hits: CollectionEntry<"posts">[] = [];
+  const seen = new Set<string>();
+  for (const p of posts) {
+    if (hits.length >= 3) break;
+    const blob = [p.data.headline, p.data.summary, ...(p.data.topics ?? [])]
+      .join(" \n ")
+      .toLowerCase();
+    if (!needles.some((n) => blob.includes(n))) continue;
+    if (seen.has(p.id)) continue;
+    seen.add(p.id);
+    hits.push(p);
+  }
+  return hits;
+})();
+
+const mapHref = race ? `/elections/map/#${race.state}` : "/elections/map/";
+const ballotHref = "/bracket/";
+const outlookNote = race?.note?.trim() || null;
+
+function daysLabel(d: number): string {
+  if (d === 0) return "Today";
+  if (d === 1) return "Tomorrow";
+  if (d > 1 && d < 9990) return `In ${d} days`;
+  if (d < 0) return `${Math.abs(d)} days ago`;
+  return "Date TBD";
+}
+---
+{race && (
+  <aside class="home-next-race" aria-labelledby="home-next-race-title">
+    <div class="home-next-race__inner">
+      <p class="home-next-race__kicker small-caps">Next on the map</p>
+      <h3 class="home-next-race__title" id="home-next-race-title">{race.office}</h3>
+      <p class="home-next-race__when">
+        <strong>{whenChip || "Date TBD"}</strong>
+        {days < 9990 && (
+          <span class="home-next-race__countdown"> · {daysLabel(days)}</span>
+        )}
+      </p>
+      <p class="home-next-race__lede">
+        {stateName}
+        {kind ? ` · ${kind}` : ""}
+        {race.chamber === "senate" ? " · U.S. Senate" : race.chamber === "governor" ? " · Governor" : ""}
+        {race.tier === "marquee" ? " · Marquee race" : race.tier === "watch" ? " · Watch race" : ""}.
+        {outlookNote
+          ? ` ${outlookNote}`
+          : sides.length >= 2
+            ? ` ${sides[0]!.name} vs ${sides[1]!.name}.`
+            : sides.length === 1
+              ? ` Featuring ${sides[0]!.name}.`
+              : " Open or unsettled field — check the map for the latest outlook."}
+      </p>
+
+      {sides.length > 0 && (
+        <p class="home-next-race__sides">
+          {sides.map((s, i) => (
+            <>
+              {i > 0 && <span class="home-next-race__vs"> vs </span>}
+              {s.href ? (
+                <a href={s.href}>
+                  {s.name}
+                  {s.party ? ` (${s.party})` : ""}
+                </a>
+              ) : (
+                <span>
+                  {s.name}
+                  {s.party ? ` (${s.party})` : ""}
+                </span>
+              )}
+            </>
+          ))}
+        </p>
+      )}
+
+      {related.length > 0 && (
+        <div class="home-next-race__related">
+          <p class="small-caps home-next-race__related-label">Related on CladFacts</p>
+          <ul>
+            {related.map((p) => (
+              <li>
+                <a href={`/posts/${p.id}/`}>{p.data.headline}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <p class="home-next-race__links">
+        <a class="home-next-race__cta" href={mapHref}>Open on map →</a>
+        <a href={ballotHref}>Ballot board</a>
+        {related.length === 0 && (
+          <a href={`/search/?q=${encodeURIComponent(race.office)}`}>Search coverage</a>
+        )}
+      </p>
+    </div>
+  </aside>
+)}
