@@ -172,3 +172,25 @@ export function personInitials(name: string): string {
   if (parts.length === 1) return parts[0]!.slice(0, 2).toUpperCase();
   return (parts[0]![0]! + parts[parts.length - 1]![0]!).toUpperCase();
 }
+
+/**
+ * Display image for teaser/article: Commons portrait first, else the related
+ * YouTube still (same pattern as report cards using their embedded video poster).
+ */
+export function spotlightDisplayImage(person: {
+  imageUrl?: string | null;
+  videoId?: string | null;
+}): { src: string; kind: "commons" | "youtube" } | null {
+  const img = String(person?.imageUrl || "").trim();
+  if (img.startsWith("https://upload.wikimedia.org/wikipedia/commons/")) {
+    return { src: img, kind: "commons" };
+  }
+  const vid = String(person?.videoId || "").trim();
+  if (/^[\w-]{11}$/.test(vid)) {
+    return {
+      src: `https://img.youtube.com/vi/${vid}/hqdefault.jpg`,
+      kind: "youtube",
+    };
+  }
+  return null;
+}

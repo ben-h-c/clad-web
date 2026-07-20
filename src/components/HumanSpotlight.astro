@@ -3,8 +3,12 @@
  * Homepage teaser for Human Spotlight — photo + lede + link into full article.
  */
 import type { HumanSpotlightStore } from "~/lib/agents";
-import { spotlightDateKey, teaserFromArticle, personInitials } from "~/lib/humanSpotlight";
-import { isCommonsMediaUrl } from "~/lib/politicianPhotos";
+import {
+  spotlightDateKey,
+  teaserFromArticle,
+  personInitials,
+  spotlightDisplayImage,
+} from "~/lib/humanSpotlight";
 
 interface Props {
   payload?: HumanSpotlightStore | null;
@@ -23,8 +27,7 @@ const show =
   raw.person.article.trim().length > 40;
 
 const person = show ? raw!.person : null;
-const imageUrl =
-  person?.imageUrl && isCommonsMediaUrl(person.imageUrl) ? person.imageUrl : null;
+const display = person ? spotlightDisplayImage(person) : null;
 const teaser = person ? teaserFromArticle(person.article, 220) : "";
 const initials = person ? personInitials(person.name) : "";
 const href = "/human-spotlight/";
@@ -40,10 +43,13 @@ const wrapClass = ["human-spot", Astro.props.class].filter(Boolean).join(" ");
     <div class="rule rule--double" aria-hidden="true"></div>
 
     <a class="human-spot__teaser" href={href}>
-      <div class="human-spot__photo" aria-hidden={imageUrl ? "true" : undefined}>
-        {imageUrl ? (
+      <div
+        class:list={["human-spot__photo", display?.kind === "youtube" && "human-spot__photo--video"]}
+        aria-hidden={display ? "true" : undefined}
+      >
+        {display ? (
           <img
-            src={imageUrl}
+            src={display.src}
             alt=""
             width="200"
             height="200"

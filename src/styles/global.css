@@ -8291,6 +8291,10 @@ html.clad-app .today-hist__actions {
   object-position: center top;
   display: block;
 }
+/* YouTube posters are 16:9 — crop center for a square face-like tile */
+.human-spot__photo--video img {
+  object-position: center center;
+}
 .human-spot__initials {
   font-family: var(--font-display);
   font-size: 1.75rem;

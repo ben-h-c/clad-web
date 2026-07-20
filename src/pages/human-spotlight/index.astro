@@ -9,9 +9,9 @@ import { getHumanSpotlight } from "~/lib/agents";
 import {
   personInitials,
   spotlightDateKey,
+  spotlightDisplayImage,
   teaserFromArticle,
 } from "~/lib/humanSpotlight";
-import { isCommonsMediaUrl } from "~/lib/politicianPhotos";
 import { embedUrl } from "~/lib/youtube";
 
 export const prerender = false;
@@ -26,8 +26,7 @@ const fresh =
   store.person?.article;
 
 const person = fresh ? store!.person : null;
-const imageUrl =
-  person?.imageUrl && isCommonsMediaUrl(person.imageUrl) ? person.imageUrl : null;
+const display = person ? spotlightDisplayImage(person) : null;
 const paragraphs = person
   ? person.article
       .split(/\n\n+/)
@@ -54,7 +53,7 @@ const description = person
   description={description}
   ogTitle={person ? `${person.name}: ${person.achievement}` : "Human Spotlight"}
   ogDescription={description}
-  ogImage={imageUrl || undefined}
+  ogImage={display?.src || undefined}
 >
   <article class="static-page human-spot-page">
     <p class="small-caps upgrade__eyebrow">
@@ -80,10 +79,15 @@ const description = person
     ) : (
       <>
         <header class="human-spot-page__hero">
-          <div class="human-spot-page__photo">
-            {imageUrl ? (
+          <div
+            class:list={[
+              "human-spot-page__photo",
+              display?.kind === "youtube" && "human-spot-page__photo--video",
+            ]}
+          >
+            {display ? (
               <img
-                src={imageUrl}
+                src={display.src}
                 alt={person.name}
                 width="320"
                 height="320"
@@ -201,6 +205,9 @@ const description = person
     object-fit: cover;
     object-position: center top;
     display: block;
+  }
+  .human-spot-page__photo--video img {
+    object-position: center center;
   }
   .human-spot-page__initials {
     font-family: var(--font-display, Georgia, serif);
