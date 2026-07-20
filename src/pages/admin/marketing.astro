@@ -1,0 +1,704 @@
+---
+import { env } from "cloudflare:workers";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import AdminNav from "~/components/AdminNav.astro";
+import { CAMPAIGN_FEATURES, getCampaigns } from "~/lib/campaign";
+import { shortDate } from "~/lib/dateline";
+
+export const prerender = false;
+
+const campaigns = await getCampaigns(env.AGENTS);
+const featuresJson = JSON.stringify(CAMPAIGN_FEATURES);
+---
+<BaseLayout title="Clad — Campaign Studio" noindex={true}>
+  <section class="admin admin--wide camp">
+    <AdminNav current="marketing" />
+    <h2 class="admin__title">Campaign Studio</h2>
+    <p class="dateline">
+      Turn a plain-language brief into ready-to-post social copy and a broadsheet share card.
+      Grok writes in the CladFacts voice; you edit, save, and paste. Nothing posts without an explicit owner action.
+    </p>
+
+    <form class="camp-form" id="camp-form" onsubmit="return false;">
+      <div class="field">
+        <label for="camp-brief">Brief</label>
+        <textarea
+          id="camp-brief"
+          rows="4"
+          placeholder="e.g. Promote the 2026 midterms plus our ballot board and election map"
+          maxlength="4000"
+        ></textarea>
+      </div>
+
+      <div class="camp-grid-2">
+        <div class="field">
+          <label for="camp-type">Campaign type</label>
+          <select id="camp-type">
+            <option>Feature launch</option>
+            <option>Seasonal/news moment</option>
+            <option>Evergreen awareness</option>
+            <option>App install</option>
+            <option>Re-engagement</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="camp-tone">Tone</label>
+          <select id="camp-tone">
+            <option selected>Broadsheet-restrained</option>
+            <option>Plainspoken</option>
+            <option>Civic-urgent (still no hype)</option>
+            <option>Wry-dry</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="camp-audience">Audience</label>
+          <select id="camp-audience">
+            <option selected>General readers</option>
+            <option>News junkies</option>
+            <option>Students/educators</option>
+            <option>Journalists</option>
+            <option>Politically engaged</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="camp-cta">Primary CTA path</label>
+          <input id="camp-cta" type="text" value="/bracket/" placeholder="/bracket/" />
+        </div>
+      </div>
+
+      <fieldset class="camp-fieldset">
+        <legend class="small-caps">Platforms</legend>
+        <div class="camp-checks">
+          {["x", "threads", "bluesky", "linkedin", "instagram"].map((p) => (
+            <label class="camp-check">
+              <input type="checkbox" class="camp-platform" value={p} checked={p === "x" || p === "bluesky" || p === "threads"} />
+              <span>{p === "x" ? "X" : p.charAt(0).toUpperCase() + p.slice(1)}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <fieldset class="camp-fieldset">
+        <legend class="small-caps">Features to promote</legend>
+        <div class="camp-checks camp-checks--wrap">
+          {CAMPAIGN_FEATURES.map((f) => (
+            <label class="camp-check">
+              <input
+                type="checkbox"
+                class="camp-highlight"
+                value={f.key}
+                checked={f.key === "ballot" || f.key === "map" || f.key === "core"}
+              />
+              <span>{f.name}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <label class="camp-check camp-check--solo">
+        <input type="checkbox" id="camp-peg" />
+        <span>Peg to current news (web search — slower, costs more)</span>
+      </label>
+
+      <div class="camp-toolbar">
+        <button type="button" id="camp-generate">Generate</button>
+        <button type="button" id="camp-save" class="secondary" disabled>Save campaign</button>
+        <span id="camp-status" class="dateline"></span>
+      </div>
+    </form>
+
+    <div id="camp-results" class="camp-results" hidden>
+      <div class="camp-results__grid">
+        <div>
+          <h3 class="camp-section-title small-caps">Platform copy</h3>
+          <p class="dateline">Edit freely, then save. Copy paste-ready text without another network call.</p>
+          <div id="camp-posts"></div>
+        </div>
+        <div>
+          <h3 class="camp-section-title small-caps">Share card</h3>
+          <div class="camp-card-fields">
+            <div class="field">
+              <label for="card-kicker">Kicker</label>
+              <input id="card-kicker" type="text" maxlength="40" />
+            </div>
+            <div class="field">
+              <label for="card-headline">Headline</label>
+              <input id="card-headline" type="text" maxlength="120" />
+            </div>
+            <div class="field">
+              <label for="card-subhead">Subhead</label>
+              <input id="card-subhead" type="text" maxlength="140" />
+            </div>
+            <div class="field">
+              <label for="card-stat">Stat line</label>
+              <input id="card-stat" type="text" maxlength="90" />
+            </div>
+            <div class="field">
+              <label for="card-cta-label">CTA label</label>
+              <input id="card-cta-label" type="text" maxlength="30" />
+            </div>
+            <div class="field">
+              <label for="card-cta-url">CTA path</label>
+              <input id="card-cta-url" type="text" maxlength="500" />
+            </div>
+          </div>
+          <div class="camp-preview-wrap">
+            <p class="dateline" id="camp-preview-hint">Save to render the broadsheet card preview.</p>
+            <img id="camp-card" class="camp-card-img" alt="Campaign share card preview" hidden />
+          </div>
+          <div class="camp-phase-actions">
+            <button type="button" id="camp-illustration" class="secondary" title="Phase 2">
+              Generate illustration (Phase 2)
+            </button>
+            <button type="button" id="camp-bluesky" class="secondary" title="Phase 3">
+              Post to Bluesky (Phase 3)
+            </button>
+          </div>
+          <div id="camp-citations" class="camp-citations" hidden></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="camp-history">
+      <h3 class="camp-section-title small-caps">Saved campaigns</h3>
+      {campaigns.length === 0 ? (
+        <p class="dateline">No campaigns saved yet.</p>
+      ) : (
+        <ul class="camp-history__list" id="camp-history-list">
+          {campaigns.map((c) => (
+            <li data-id={c.id}>
+              <button type="button" class="camp-history__load" data-load={c.id}>
+                <strong>{c.title}</strong>
+                <span class="dateline">
+                  {shortDate(new Date(c.updatedAt))} · {c.posts.map((p) => p.platform).join(", ")}
+                </span>
+              </button>
+              <button type="button" class="camp-history__del secondary" data-del={c.id} aria-label="Delete campaign">
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  </section>
+
+  <script is:inline define:vars={{ featuresJson, savedCampaigns: campaigns }}>
+    (() => {
+      const FEATURES = typeof featuresJson === "string" ? JSON.parse(featuresJson) : featuresJson;
+      const PLATFORM_LIMITS = { x: 280, bluesky: 300, threads: 500, linkedin: 1300, instagram: 2200 };
+      const PLATFORM_LABEL = {
+        x: "X",
+        threads: "Threads",
+        bluesky: "Bluesky",
+        linkedin: "LinkedIn",
+        instagram: "Instagram",
+      };
+
+      let currentId = null;
+      let currentUpdatedAt = null;
+      let draftIllustrationPrompt = "";
+      let draftCitations = [];
+      let lastInput = null;
+
+      const statusEl = document.getElementById("camp-status");
+      const setStatus = (msg, err) => {
+        if (!statusEl) return;
+        statusEl.textContent = msg || "";
+        statusEl.style.color = err ? "var(--red-ink, #941a1a)" : "";
+      };
+
+      function collect() {
+        const platforms = [...document.querySelectorAll(".camp-platform:checked")].map((el) => el.value);
+        const highlights = [...document.querySelectorAll(".camp-highlight:checked")].map((el) => el.value);
+        return {
+          brief: document.getElementById("camp-brief").value.trim(),
+          campaignType: document.getElementById("camp-type").value,
+          tone: document.getElementById("camp-tone").value,
+          audience: document.getElementById("camp-audience").value,
+          ctaUrl: document.getElementById("camp-cta").value.trim() || "/",
+          platforms,
+          highlights,
+          pegToNews: document.getElementById("camp-peg").checked,
+        };
+      }
+
+      function collectDraft() {
+        const posts = [...document.querySelectorAll(".camp-post")].map((el) => ({
+          platform: el.getAttribute("data-platform"),
+          text: el.querySelector("textarea.camp-post-text").value,
+          altText: el.querySelector("textarea.camp-post-alt").value,
+        }));
+        return {
+          id: currentId || undefined,
+          input: lastInput || collect(),
+          posts,
+          card: {
+            kicker: document.getElementById("card-kicker").value,
+            headline: document.getElementById("card-headline").value,
+            subhead: document.getElementById("card-subhead").value,
+            statLine: document.getElementById("card-stat").value,
+            ctaLabel: document.getElementById("card-cta-label").value,
+            ctaUrl: document.getElementById("card-cta-url").value,
+          },
+          citations: draftCitations,
+          illustrationPrompt: draftIllustrationPrompt,
+        };
+      }
+
+      function showResults(show) {
+        document.getElementById("camp-results").hidden = !show;
+        document.getElementById("camp-save").disabled = !show;
+      }
+
+      function renderPosts(posts) {
+        const root = document.getElementById("camp-posts");
+        root.innerHTML = "";
+        (posts || []).forEach((m) => {
+          const limit = PLATFORM_LIMITS[m.platform] || 500;
+          const wrap = document.createElement("div");
+          wrap.className = "camp-post";
+          wrap.setAttribute("data-platform", m.platform);
+          const label = PLATFORM_LABEL[m.platform] || m.platform;
+          wrap.innerHTML =
+            '<div class="camp-post__head">' +
+            "<strong>" +
+            label +
+            '</strong> <span class="camp-post__count dateline"></span>' +
+            '<button type="button" class="secondary camp-copy-btn">Copy paste-ready text</button>' +
+            "</div>" +
+            '<textarea class="camp-post-text" rows="4"></textarea>' +
+            '<label class="dateline">Alt text (share card)</label>' +
+            '<textarea class="camp-post-alt" rows="2"></textarea>';
+          wrap.querySelector(".camp-post-text").value = m.text || "";
+          wrap.querySelector(".camp-post-alt").value = m.altText || m.alt_text || "";
+          const countEl = wrap.querySelector(".camp-post__count");
+          const ta = wrap.querySelector(".camp-post-text");
+          const updateCount = () => {
+            const n = ta.value.length;
+            countEl.textContent = n + " / " + limit;
+            countEl.style.color = n > limit ? "var(--red-ink, #941a1a)" : "";
+          };
+          ta.addEventListener("input", updateCount);
+          updateCount();
+          wrap.querySelector(".camp-copy-btn").addEventListener("click", async () => {
+            try {
+              await navigator.clipboard.writeText(ta.value);
+              setStatus("Copied " + label + " text.");
+            } catch {
+              ta.select();
+              setStatus("Select and copy manually (clipboard blocked).", true);
+            }
+          });
+          root.appendChild(wrap);
+        });
+      }
+
+      function fillCard(card) {
+        document.getElementById("card-kicker").value = card?.kicker || "";
+        document.getElementById("card-headline").value = card?.headline || "";
+        document.getElementById("card-subhead").value = card?.subhead || "";
+        document.getElementById("card-stat").value = card?.statLine || card?.stat_line || "";
+        document.getElementById("card-cta-label").value = card?.ctaLabel || card?.cta_label || "";
+        document.getElementById("card-cta-url").value = card?.ctaUrl || card?.cta_url || "/";
+      }
+
+      function setCardPreview(id, updatedAt) {
+        const img = document.getElementById("camp-card");
+        const hint = document.getElementById("camp-preview-hint");
+        if (!id || !updatedAt) {
+          img.hidden = true;
+          hint.hidden = false;
+          return;
+        }
+        img.src = "/og/campaign/" + encodeURIComponent(id) + ".png?v=" + encodeURIComponent(updatedAt);
+        img.hidden = false;
+        hint.hidden = true;
+      }
+
+      function renderCitations(list) {
+        const el = document.getElementById("camp-citations");
+        if (!list || !list.length) {
+          el.hidden = true;
+          el.innerHTML = "";
+          return;
+        }
+        el.hidden = false;
+        el.innerHTML =
+          '<p class="small-caps camp-section-title">Citations</p><ul>' +
+          list
+            .map(
+              (c) =>
+                "<li><a href=\"" +
+                String(c.url).replace(/"/g, "") +
+                "\" target=\"_blank\" rel=\"noopener\">" +
+                String(c.title || c.url).replace(/</g, "") +
+                "</a></li>"
+            )
+            .join("") +
+          "</ul>";
+      }
+
+      function applyDraft(draft, input) {
+        lastInput = input || lastInput || collect();
+        draftIllustrationPrompt = draft.illustrationPrompt || draft.illustration_prompt || "";
+        draftCitations = draft.citations || [];
+        renderPosts(draft.posts || []);
+        fillCard(draft.card || {});
+        renderCitations(draftCitations);
+        showResults(true);
+      }
+
+      function applyCampaign(c) {
+        currentId = c.id;
+        currentUpdatedAt = c.updatedAt;
+        lastInput = c.input || collect();
+        if (c.input) {
+          document.getElementById("camp-brief").value = c.input.brief || "";
+          document.getElementById("camp-type").value = c.input.campaignType || "Feature launch";
+          document.getElementById("camp-tone").value = c.input.tone || "Broadsheet-restrained";
+          document.getElementById("camp-audience").value = c.input.audience || "General readers";
+          document.getElementById("camp-cta").value = c.input.ctaUrl || "/";
+          document.getElementById("camp-peg").checked = !!c.input.pegToNews;
+          const plat = new Set(c.input.platforms || []);
+          document.querySelectorAll(".camp-platform").forEach((el) => {
+            el.checked = plat.has(el.value);
+          });
+          const hl = new Set(c.input.highlights || []);
+          document.querySelectorAll(".camp-highlight").forEach((el) => {
+            el.checked = hl.has(el.value);
+          });
+        }
+        applyDraft(c, c.input);
+        setCardPreview(c.id, c.updatedAt);
+      }
+
+      document.getElementById("camp-generate").addEventListener("click", async (e) => {
+        const btn = e.currentTarget;
+        const body = collect();
+        if (!body.brief) {
+          setStatus("Write a brief first.", true);
+          return;
+        }
+        if (!body.platforms.length) {
+          setStatus("Pick at least one platform.", true);
+          return;
+        }
+        btn.disabled = true;
+        setStatus(body.pegToNews ? "Generating with web search (up to ~2 min)…" : "Generating…");
+        try {
+          const res = await fetch("/api/admin/campaign", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action: "generate", ...body }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || "Generate failed");
+          // New generate is a draft until save — keep id if editing same campaign
+          applyDraft(data.draft, data.input || body);
+          if (!currentId) setCardPreview(null, null);
+          setStatus(
+            "Draft ready — edit posts/card, then Save to render the share card." +
+              (data.draft.posts?.length ? " " + data.draft.posts.length + " platform(s)." : "")
+          );
+        } catch (err) {
+          setStatus(String(err.message || err), true);
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      document.getElementById("camp-save").addEventListener("click", async (e) => {
+        const btn = e.currentTarget;
+        btn.disabled = true;
+        setStatus("Saving…");
+        try {
+          const payload = collectDraft();
+          const res = await fetch("/api/admin/campaign", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action: "save", ...payload }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || "Save failed");
+          currentId = data.id;
+          currentUpdatedAt = data.updatedAt;
+          setCardPreview(data.id, data.updatedAt);
+          setStatus("Saved. Share card refreshed.");
+          // Soft-reload history would need a full page refresh; keep it simple
+        } catch (err) {
+          setStatus(String(err.message || err), true);
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      document.getElementById("camp-illustration").addEventListener("click", async () => {
+        if (!currentId) {
+          setStatus("Save the campaign first.", true);
+          return;
+        }
+        setStatus("Phase 2: illustration…");
+        try {
+          const res = await fetch("/api/admin/campaign", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action: "illustration", id: currentId }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || "Illustration failed");
+          setStatus("Illustration ready.");
+        } catch (err) {
+          setStatus(String(err.message || err) + " — Phase 2 not enabled yet.", true);
+        }
+      });
+
+      document.getElementById("camp-bluesky").addEventListener("click", async () => {
+        if (!currentId) {
+          setStatus("Save the campaign first.", true);
+          return;
+        }
+        if (!confirm("Post this to the CladFacts Bluesky account?")) return;
+        setStatus("Phase 3: posting to Bluesky…");
+        try {
+          const res = await fetch("/api/admin/campaign", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action: "post-bluesky", id: currentId }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || "Bluesky post failed");
+          setStatus("Posted to Bluesky.");
+        } catch (err) {
+          setStatus(
+            String(err.message || err) +
+              " — copy paste-ready Bluesky text above and post manually.",
+            true
+          );
+        }
+      });
+
+      document.querySelectorAll("[data-load]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-load");
+          const list = Array.isArray(savedCampaigns) ? savedCampaigns : [];
+          const c = list.find((x) => x.id === id);
+          if (!c) {
+            setStatus("Campaign not in page snapshot — refresh.", true);
+            return;
+          }
+          applyCampaign(c);
+          setStatus("Loaded “" + (c.title || id) + "”.");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+
+      document.querySelectorAll("[data-del]").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const id = btn.getAttribute("data-del");
+          if (!confirm("Delete this campaign?")) return;
+          try {
+            const res = await fetch("/api/admin/campaign", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ action: "delete", id }),
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || "Delete failed");
+            const li = btn.closest("li");
+            if (li) li.remove();
+            if (currentId === id) {
+              currentId = null;
+              setCardPreview(null, null);
+            }
+            setStatus("Deleted.");
+          } catch (err) {
+            setStatus(String(err.message || err), true);
+          }
+        });
+      });
+
+      // silence unused FEATURES lint if tree-shaken in some builds
+      void FEATURES;
+    })();
+  </script>
+
+  <style>
+    .camp { max-width: 56rem; }
+    .camp-form { margin-top: 1.25rem; }
+    .camp-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 1rem;
+    }
+    @media (max-width: 640px) {
+      .camp-grid-2 { grid-template-columns: 1fr; }
+    }
+    .camp textarea,
+    .camp input[type="text"],
+    .camp select {
+      font: inherit;
+      font-size: 0.95rem;
+      padding: 0.5rem 0.7rem;
+      border: 1px solid var(--rule, #cfc3ad);
+      background: var(--paper, #f5edd9);
+      color: var(--ink, #1a140d);
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .camp textarea { resize: vertical; min-height: 4.5rem; }
+    .camp-fieldset {
+      border: 1px solid var(--rule, #cfc3ad);
+      margin: 0 0 1rem;
+      padding: 0.75rem 0.9rem 0.9rem;
+    }
+    .camp-fieldset legend {
+      padding: 0 0.35rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+    }
+    .camp-checks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 1rem;
+    }
+    .camp-checks--wrap { gap: 0.4rem 0.85rem; }
+    .camp-check {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .camp-check--solo { margin: 0 0 1rem; }
+    .camp-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .camp-toolbar button,
+    .camp-post__head button,
+    .camp-phase-actions button,
+    .camp-history__del {
+      font: inherit;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.85rem;
+      border: 1px solid var(--ink, #1a140d);
+      background: var(--ink, #1a140d);
+      color: var(--paper, #f5edd9);
+      cursor: pointer;
+    }
+    .camp-toolbar button.secondary,
+    .camp-post__head button.secondary,
+    .camp-phase-actions button.secondary,
+    .camp-history__del {
+      background: transparent;
+      color: var(--ink, #1a140d);
+    }
+    .camp-toolbar button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    .camp-section-title {
+      margin: 0 0 0.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+    }
+    .camp-results {
+      margin: 0 0 2rem;
+      padding-top: 1.25rem;
+      border-top: 2px solid var(--ink, #1a140d);
+    }
+    .camp-results__grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.95fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 800px) {
+      .camp-results__grid { grid-template-columns: 1fr; }
+    }
+    .camp-post {
+      margin: 0 0 1rem;
+      padding: 0.75rem 0.85rem;
+      border: 1px solid var(--rule, #cfc3ad);
+    }
+    .camp-post__head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem 0.75rem;
+      margin-bottom: 0.4rem;
+    }
+    .camp-post__count { margin-left: auto; }
+    .camp-post-alt { margin-top: 0.35rem; }
+    .camp-card-fields .field { margin-bottom: 0.65rem; }
+    .camp-preview-wrap {
+      margin: 0.75rem 0;
+      border: 1px solid var(--ink, #1a140d);
+      background: color-mix(in srgb, var(--ink, #1a140d) 4%, transparent);
+      min-height: 8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+    .camp-card-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-width: 100%;
+    }
+    .camp-phase-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin: 0.75rem 0;
+    }
+    .camp-citations ul {
+      margin: 0.35rem 0 0;
+      padding-left: 1.1rem;
+      font-size: 0.88rem;
+    }
+    .camp-history {
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--rule, #cfc3ad);
+    }
+    .camp-history__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .camp-history__list > li {
+      display: flex;
+      gap: 0.5rem;
+      align-items: stretch;
+      border-bottom: 1px solid color-mix(in srgb, var(--rule, #cfc3ad) 80%, transparent);
+      padding: 0.35rem 0;
+    }
+    .camp-history__load {
+      flex: 1;
+      text-align: left;
+      font: inherit;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      padding: 0.45rem 0.25rem;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .camp-history__load:hover strong {
+      text-decoration: underline;
+    }
+    .camp-history__del {
+      flex: none;
+      align-self: center;
+    }
+  </style>
+</BaseLayout>

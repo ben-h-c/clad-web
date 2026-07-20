@@ -15,6 +15,11 @@ declare module "cloudflare:workers" {
     GITHUB_REPO: string;
     GITHUB_BRANCH: string;
     FACTCHECK_LIMITER: RateLimitBinding;
+    /** Optional dedicated campaign-studio limiter; falls back to FACTCHECK_LIMITER with campaign: keys. */
+    CAMPAIGN_LIMITER?: RateLimitBinding;
+    /** Phase 3 — in-admin Bluesky post (stub until set). */
+    BSKY_HANDLE?: string;
+    BSKY_APP_PASSWORD?: string;
     AGENT_TOKEN: string;
     AGENTS: KVNamespace;
     // User accounts (Better Auth on D1)

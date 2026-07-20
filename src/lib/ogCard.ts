@@ -28,6 +28,7 @@ export const OG_VERSIONS = {
   bracket: "2", // v2: community social proof subhead
   bracketVotes: "1",
   students: "1",
+  campaign: "1", // Campaign Studio broadsheet share card
 } as const;
 
 export function ogCacheKey(url: URL, route: string, version: string): Request {
