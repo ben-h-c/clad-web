@@ -50,8 +50,6 @@ const shareDescription = (ogDescription ?? description).replace(/\s+/g, " ").tri
 // Resolve the share image to an absolute URL (relative paths -> site origin).
 // Pages without their own image fall back to a branded card so link previews
 // (X/Twitter, etc.) always show a large image.
-const shareImage = new URL(ogImage ?? "/og/brand.png", site).href;
-
 // Signed-in account theme (light/dark) — applied before paint to avoid flash.
 // Guests use localStorage (masthead toggle); if unset, dark is the default.
 let accountTheme: ThemePref | null = null;
@@ -68,7 +66,16 @@ if (!path.startsWith("/admin")) {
 }
 // SSR default dark so first paint matches FOUC script for guests without localStorage.
 const htmlTheme = accountTheme ?? "dark";
-const themeColor = htmlTheme === "dark" ? "#181612" : "#3a3026";
+const themeColor = htmlTheme === "dark" ? "#1C1C1E" : "#F7F5F0";
+
+// Share image: match the viewer's current theme so scorecards look right when
+// shared from a signed-in session (guests default dark; client toggle updates meta).
+const shareImageRaw = ogImage ?? "/og/brand.png";
+const shareImageUrl = new URL(shareImageRaw, site);
+if (!shareImageUrl.searchParams.has("theme")) {
+  shareImageUrl.searchParams.set("theme", htmlTheme);
+}
+const shareImage = shareImageUrl.href;
 
 // Site-wide structured data: the publisher + a searchable website. Page-specific
 // schema (e.g. NewsArticle) is passed in via the jsonLd prop.
@@ -156,7 +163,7 @@ const billingOn = showBillingPromo();
           }
           try { localStorage.setItem("clad_theme", dark ? "dark" : "light"); } catch (e) {}
           var tc = document.querySelector('meta[name="theme-color"]');
-          if (tc) tc.setAttribute("content", dark ? "#181612" : "#3a3026");
+          if (tc) tc.setAttribute("content", dark ? "#1C1C1E" : "#F7F5F0");
           root.style.colorScheme = dark ? "dark" : "light";
           var btn = document.getElementById("theme-toggle");
           if (btn) {
@@ -164,6 +171,19 @@ const billingOn = showBillingPromo();
             btn.title = dark ? "Switch to light reading" : "Switch to dark reading";
             btn.setAttribute("aria-label", dark ? "Switch to light reading" : "Switch to dark reading");
           }
+          // Keep OG scorecard previews aligned with the active theme.
+          try {
+            var theme = dark ? "dark" : "light";
+            document.querySelectorAll('meta[property="og:image"], meta[name="twitter:image"]').forEach(function (m) {
+              var href = m.getAttribute("content");
+              if (!href || href.indexOf("/og/") === -1) return;
+              try {
+                var u = new URL(href, location.origin);
+                u.searchParams.set("theme", theme);
+                m.setAttribute("content", u.toString());
+              } catch (e2) {}
+            });
+          } catch (e3) {}
         }
         window.__cladApplyTheme = applyTheme;
         try {

@@ -5,7 +5,16 @@ import { ImageResponse } from "workers-og";
 import { leanScoreOf } from "~/lib/topics";
 import { dateline } from "~/lib/dateline";
 import { displayableThumb } from "~/lib/imagePolicy";
-import { OG_VERSIONS, ogCacheKey, clip, OG, ogGradeColors } from "~/lib/ogCard";
+import {
+  OG_VERSIONS,
+  ogCacheKey,
+  clip,
+  OG,
+  ogPalette,
+  ogGradeColors,
+  resolveOgTheme,
+  type OgPalette,
+} from "~/lib/ogCard";
 
 export const prerender = false;
 
@@ -52,10 +61,10 @@ interface StoryCard {
   thumbUrl?: string | null;
 }
 
-function momentColors(verdict: string): { bg: string; ink: string } {
-  if (verdict === "verified") return { bg: OG.gradeABg, ink: OG.gradeAInk };
-  if (verdict === "missing context") return { bg: OG.gradeBBg, ink: OG.gradeBInk };
-  return { bg: OG.gradeBadBg, ink: OG.gradeBadInk };
+function momentColors(verdict: string, pal: OgPalette): { bg: string; ink: string } {
+  if (verdict === "verified") return { bg: pal.gradeABg, ink: pal.gradeAInk };
+  if (verdict === "missing context") return { bg: pal.gradeBBg, ink: pal.gradeBInk };
+  return { bg: pal.gradeBadBg, ink: pal.gradeBadInk };
 }
 
 function arrayBufferToDataUri(buf: ArrayBuffer, mime: string): string {
@@ -94,8 +103,8 @@ async function loadThumbDataUri(rawUrl: string | null | undefined, origin: strin
   }
 }
 
-function markup(card: StoryCard, thumbDataUri: string | null): string {
-  const g = ogGradeColors(card.badge);
+function markup(card: StoryCard, thumbDataUri: string | null, pal: OgPalette): string {
+  const g = ogGradeColors(card.badge, pal);
   const badgeSize = card.badge.length > 2 ? 56 : 110;
   const meta = [
     card.lean ? card.lean : null,
@@ -112,31 +121,31 @@ function markup(card: StoryCard, thumbDataUri: string | null): string {
   const momentsBlock = top.length
     ? top
         .map((m) => {
-          const mc = momentColors(m.verdict);
+          const mc = momentColors(m.verdict, pal);
           return `
-      <div style="display:flex;flex-direction:column;margin-bottom:20px;background:${CARD};border-radius:18px;padding:18px 20px;border:1px solid ${OG.rule};">
+      <div style="display:flex;flex-direction:column;margin-bottom:20px;background:${pal.card};border-radius:18px;padding:18px 20px;border:1px solid ${pal.rule};">
         <div style="display:flex;">
           <div style="display:flex;font-size:18px;font-weight:700;letter-spacing:1px;color:${mc.ink};background:${mc.bg};padding:6px 14px;border-radius:999px;">${esc(m.verdict.toUpperCase())}</div>
         </div>
-        <div style="display:flex;font-size:28px;line-height:1.3;margin-top:12px;font-weight:700;color:${INK};">${esc(clip(m.claim, 100))}</div>
+        <div style="display:flex;font-size:28px;line-height:1.3;margin-top:12px;font-weight:700;color:${pal.ink};">${esc(clip(m.claim, 100))}</div>
       </div>`;
         })
         .join("")
-    : `<div style="display:flex;font-size:30px;line-height:1.4;font-weight:600;color:${MUTED};">${esc(clip(card.summary, 180))}</div>`;
+    : `<div style="display:flex;font-size:30px;line-height:1.4;font-weight:600;color:${pal.muted};">${esc(clip(card.summary, 180))}</div>`;
 
   const thumbBlock = thumbDataUri
-    ? `<div style="display:flex;width:968px;height:480px;overflow:hidden;border-radius:20px;background:${INK};margin:0 0 8px;">
+    ? `<div style="display:flex;width:968px;height:480px;overflow:hidden;border-radius:20px;background:${pal.ink};margin:0 0 8px;">
         <img src="${thumbDataUri}" width="968" height="480" style="object-fit:cover;width:968px;height:480px;" />
       </div>`
     : "";
 
   return `
-  <div style="display:flex;flex-direction:column;width:1080px;height:1920px;background:${PAPER};color:${INK};font-family:Playfair;padding:40px 36px;">
-    <div style="display:flex;flex-direction:column;flex:1;background:${CARD};border-radius:28px;border:1px solid ${OG.rule};padding:40px 36px;align-items:center;">
+  <div style="display:flex;flex-direction:column;width:1080px;height:1920px;background:${pal.paper};color:${pal.ink};font-family:Playfair;padding:40px 36px;">
+    <div style="display:flex;flex-direction:column;flex:1;background:${pal.card};border-radius:28px;border:1px solid ${pal.rule};padding:40px 36px;align-items:center;">
       <div style="display:flex;flex-direction:column;align-items:center;">
-        <div style="display:flex;font-size:16px;color:${ACCENT};letter-spacing:1px;font-weight:700;background:${OG.accentSoft};padding:8px 16px;border-radius:999px;">WE CHECKED THE CLAIMS</div>
-        <div style="display:flex;font-size:56px;font-weight:700;letter-spacing:-1px;line-height:1;margin:14px 0 10px;color:${INK};">CladFacts</div>
-        <div style="display:flex;font-size:20px;color:${MUTED};">${esc(card.dateline)}</div>
+        <div style="display:flex;font-size:16px;color:${pal.accent};letter-spacing:1px;font-weight:700;background:${pal.accentSoft};padding:8px 16px;border-radius:999px;">WE CHECKED THE CLAIMS</div>
+        <div style="display:flex;font-size:56px;font-weight:700;letter-spacing:-1px;line-height:1;margin:14px 0 10px;color:${pal.ink};">CladFacts</div>
+        <div style="display:flex;font-size:20px;color:${pal.muted};">${esc(card.dateline)}</div>
       </div>
       ${thumbBlock ? `<div style="display:flex;margin-top:28px;">${thumbBlock}</div>` : ""}
       <div style="display:flex;flex-direction:column;align-items:center;margin:28px 0 0;">
@@ -144,17 +153,17 @@ function markup(card: StoryCard, thumbDataUri: string | null): string {
           <div style="display:flex;font-size:${badgeSize}px;font-weight:700;line-height:1;color:${g.ink};">${esc(card.badge)}</div>
           <div style="display:flex;font-size:16px;letter-spacing:1px;color:${g.ink};margin-top:6px;font-weight:700;">${esc(card.badgeLabel)}</div>
         </div>
-        ${meta ? `<div style="display:flex;font-size:20px;color:${MUTED};margin-top:18px;font-weight:600;">${esc(meta)}</div>` : ""}
+        ${meta ? `<div style="display:flex;font-size:20px;color:${pal.muted};margin-top:18px;font-weight:600;">${esc(meta)}</div>` : ""}
       </div>
       <div style="display:flex;flex-direction:column;flex:1;padding:28px 12px 0;width:100%;">
-        <div style="display:flex;font-size:40px;font-weight:700;line-height:1.15;margin-bottom:22px;color:${INK};">${esc(clip(card.headline, 80))}</div>
+        <div style="display:flex;font-size:40px;font-weight:700;line-height:1.15;margin-bottom:22px;color:${pal.ink};">${esc(clip(card.headline, 80))}</div>
         <div style="display:flex;flex-direction:column;">${momentsBlock}</div>
       </div>
       <div style="display:flex;flex-direction:column;align-items:center;padding:12px 0 0;">
-        <div style="display:flex;width:120px;height:4px;background:${ACCENT};border-radius:999px;"></div>
-        <div style="display:flex;font-size:22px;color:${ACCENT};margin-top:20px;font-weight:700;">Full receipts on the site</div>
-        <div style="display:flex;font-size:26px;font-weight:700;margin-top:8px;color:${INK};">cladfacts.com</div>
-        <div style="display:flex;font-size:18px;color:${MUTED};margin-top:6px;">${card.sourcesCount} sources cited</div>
+        <div style="display:flex;width:120px;height:4px;background:${pal.accent};border-radius:999px;"></div>
+        <div style="display:flex;font-size:22px;color:${pal.accent};margin-top:20px;font-weight:700;">Full receipts on the site</div>
+        <div style="display:flex;font-size:26px;font-weight:700;margin-top:8px;color:${pal.ink};">cladfacts.com</div>
+        <div style="display:flex;font-size:18px;color:${pal.muted};margin-top:6px;">${card.sourcesCount} sources cited</div>
       </div>
     </div>
   </div>`;
@@ -179,13 +188,16 @@ function loadFonts(origin: string) {
 
 export const GET: APIRoute = async ({ params, request, locals }) => {
   const slug = String(params.slug ?? "");
+  const url = new URL(request.url);
+  const theme = resolveOgTheme(url.searchParams.get("theme"));
+  const pal = ogPalette(theme);
   const cache = (caches as any).default as Cache;
-  const cacheKey = ogCacheKey(new URL(request.url), "story", OG_VERSIONS.story);
+  const cacheKey = ogCacheKey(url, "story", OG_VERSIONS.story, theme);
   const hit = await cache.match(cacheKey);
   if (hit) return hit;
 
-  const all = await getCollection("posts", (p) => !p.data.draft);
-  const post = all.find((p) => p.id === slug);
+  const all = await getCollection("posts", (entry) => !entry.data.draft);
+  const post = all.find((entry) => entry.id === slug);
   if (!post) return new Response("Not found", { status: 404 });
   const d = post.data;
   const isBroadcast = d.type === "broadcast";
@@ -206,10 +218,9 @@ export const GET: APIRoute = async ({ params, request, locals }) => {
     thumbUrl,
   };
 
-  const origin = new URL(request.url).origin;
-  const fonts = await loadFonts(origin);
-  const thumbDataUri = await loadThumbDataUri(card.thumbUrl, origin);
-  const img = new ImageResponse(markup(card, thumbDataUri), {
+  const fonts = await loadFonts(url.origin);
+  const thumbDataUri = await loadThumbDataUri(card.thumbUrl, url.origin);
+  const img = new ImageResponse(markup(card, thumbDataUri, pal), {
     width: 1080,
     height: 1920,
     fonts: fonts as any,

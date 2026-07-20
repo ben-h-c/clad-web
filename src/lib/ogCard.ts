@@ -28,24 +28,46 @@ import { displayableThumb } from "./imagePolicy.ts";
 import { isCommonsMediaUrl } from "./politicianPhotos.ts";
 
 export const OG_VERSIONS = {
-  post: "7", // v7: soft neutral card system
-  story: "5", // v5: soft neutral story card
-  quiz: "4", // v4: soft neutral
-  week: "3", // v3: soft neutral
-  learn: "4", // v4: soft neutral
-  politician: "5", // v5: soft neutral
-  bracket: "4", // v4: soft neutral
-  bracketVotes: "3", // v3: soft neutral
-  students: "3", // v3: soft neutral
-  campaign: "3", // v3: soft neutral
-  ballot: "3", // v3: soft neutral
+  post: "8", // v8: light/dark theme variants
+  story: "6", // v6: light/dark theme variants
+  quiz: "5",
+  week: "4",
+  learn: "5",
+  politician: "6",
+  bracket: "5",
+  bracketVotes: "4",
+  students: "4",
+  campaign: "4",
+  ballot: "4",
 } as const;
 
-/**
- * Soft Neutral palette for OG share cards (matches clad-web CSS tokens).
- * Keep in sync with :root in src/styles/global.css.
- */
-export const OG = {
+export type OgTheme = "light" | "dark";
+
+export type OgPalette = {
+  paper: string;
+  card: string;
+  ink: string;
+  muted: string;
+  accent: string;
+  accentSoft: string;
+  rule: string;
+  gradeABg: string;
+  gradeAInk: string;
+  gradeBBg: string;
+  gradeBInk: string;
+  gradeCBg: string;
+  gradeCInk: string;
+  gradeBadBg: string;
+  gradeBadInk: string;
+  leanLeft: string;
+  leanCenter: string;
+  leanRight: string;
+  ctaText: string;
+  red: string;
+};
+
+/** Light soft-neutral palette (matches :root CSS tokens). */
+export const OG_LIGHT: OgPalette = {
   paper: "#F7F5F0",
   card: "#FFFFFF",
   ink: "#1C1C1E",
@@ -64,45 +86,122 @@ export const OG = {
   leanLeft: "#93C5FD",
   leanCenter: "#D1D5DB",
   leanRight: "#FCA5A5",
-  /** @deprecated alias — prefer OG.ink */
+  ctaText: "#FFFFFF",
   red: "#C45C52",
-} as const;
+};
+
+/** Dark soft-neutral palette (matches data-theme=dark CSS tokens). */
+export const OG_DARK: OgPalette = {
+  paper: "#1C1C1E",
+  card: "#2C2C2E",
+  ink: "#F5F5F7",
+  muted: "#A1A1A6",
+  accent: "#6FB5A4",
+  accentSoft: "rgba(111,181,164,0.18)",
+  rule: "rgba(245,245,247,0.12)",
+  gradeABg: "#1F4A3A",
+  gradeAInk: "#A7F3D0",
+  gradeBBg: "#4A3818",
+  gradeBInk: "#FDE68A",
+  gradeCBg: "#4A3818",
+  gradeCInk: "#FDE68A",
+  gradeBadBg: "#4A1F2A",
+  gradeBadInk: "#FECDD3",
+  leanLeft: "#60A5FA",
+  leanCenter: "#6B7280",
+  leanRight: "#F87171",
+  ctaText: "#0E1512",
+  red: "#F0A8A0",
+};
+
+/** Default export alias = light (legacy callers). Prefer ogPalette(theme). */
+export const OG = OG_LIGHT;
+
+/** Only light|dark — anything else falls back to dark (site default). */
+export function resolveOgTheme(raw: unknown): OgTheme {
+  const s = String(raw ?? "").trim().toLowerCase();
+  return s === "light" ? "light" : "dark";
+}
+
+export function ogPalette(theme: OgTheme = "dark"): OgPalette {
+  return theme === "light" ? OG_LIGHT : OG_DARK;
+}
 
 /** Soft grade badge colors from letter (A→sage, B→amber, C→amber, D/F→rose). */
-export function ogGradeColors(badge: string): { bg: string; ink: string } {
+export function ogGradeColors(
+  badge: string,
+  palette: OgPalette = OG_LIGHT
+): { bg: string; ink: string } {
   const t = (badge || "").charAt(0).toUpperCase();
-  if (t === "A") return { bg: OG.gradeABg, ink: OG.gradeAInk };
-  if (t === "B") return { bg: OG.gradeBBg, ink: OG.gradeBInk };
-  if (t === "C") return { bg: OG.gradeCBg, ink: OG.gradeCInk };
-  if (t === "D" || t === "F") return { bg: OG.gradeBadBg, ink: OG.gradeBadInk };
-  // verdicts / long labels
+  if (t === "A") return { bg: palette.gradeABg, ink: palette.gradeAInk };
+  if (t === "B") return { bg: palette.gradeBBg, ink: palette.gradeBInk };
+  if (t === "C") return { bg: palette.gradeCBg, ink: palette.gradeCInk };
+  if (t === "D" || t === "F") return { bg: palette.gradeBadBg, ink: palette.gradeBadInk };
   const lower = (badge || "").toLowerCase();
-  if (lower.includes("true") && !lower.includes("false")) return { bg: OG.gradeABg, ink: OG.gradeAInk };
-  if (lower.includes("mixed") || lower.includes("unverified")) return { bg: OG.gradeBBg, ink: OG.gradeBInk };
-  if (lower.includes("false")) return { bg: OG.gradeBadBg, ink: OG.gradeBadInk };
-  return { bg: OG.accentSoft, ink: OG.accent };
+  if (lower.includes("true") && !lower.includes("false")) {
+    return { bg: palette.gradeABg, ink: palette.gradeAInk };
+  }
+  if (lower.includes("mixed") || lower.includes("unverified")) {
+    return { bg: palette.gradeBBg, ink: palette.gradeBInk };
+  }
+  if (lower.includes("false")) return { bg: palette.gradeBadBg, ink: palette.gradeBadInk };
+  return { bg: palette.accentSoft, ink: palette.accent };
 }
 
 /** Soft blue→gray→rose lean track with pill tick (satori-safe flex). */
-export function ogLeanBarMarkup(score: number, width = 360): string {
+export function ogLeanBarMarkup(
+  score: number,
+  width = 360,
+  palette: OgPalette = OG_LIGHT
+): string {
   const s = Math.max(-100, Math.min(100, score));
   const pct = (s + 100) / 2;
   const tick = 18;
   return `<div style="display:flex;flex-direction:column;width:${width}px;margin-top:10px;">
     <div style="display:flex;flex-direction:row;width:${width}px;height:${tick}px;align-items:center;">
       <div style="display:flex;flex-grow:0;flex-shrink:1;flex-basis:${pct}%;"></div>
-      <div style="display:flex;width:${tick}px;height:${tick}px;border-radius:999px;background:${OG.card};border:2px solid ${OG.rule};"></div>
+      <div style="display:flex;width:${tick}px;height:${tick}px;border-radius:999px;background:${palette.card};border:2px solid ${palette.rule};"></div>
     </div>
     <div style="display:flex;flex-direction:row;width:${width}px;height:10px;border-radius:999px;overflow:hidden;margin-top:-14px;">
-      <div style="display:flex;flex:1;background:${OG.leanLeft};"></div>
-      <div style="display:flex;flex:1;background:${OG.leanCenter};"></div>
-      <div style="display:flex;flex:1;background:${OG.leanRight};"></div>
+      <div style="display:flex;flex:1;background:${palette.leanLeft};"></div>
+      <div style="display:flex;flex:1;background:${palette.leanCenter};"></div>
+      <div style="display:flex;flex:1;background:${palette.leanRight};"></div>
     </div>
   </div>`;
 }
 
-export function ogCacheKey(url: URL, route: string, version: string): Request {
-  return new Request(url.origin + "/__og-" + route + "-v" + version + url.pathname);
+/**
+ * Worker cache key. Theme is allow-listed (light|dark) and folded into the
+ * synthetic path so light/dark cards don't share a cache entry. Other query
+ * params are still ignored (anti-DoS).
+ */
+export function ogCacheKey(url: URL, route: string, version: string, theme?: OgTheme): Request {
+  const t = theme === "light" ? "light" : "dark";
+  return new Request(url.origin + "/__og-" + route + "-v" + version + "-" + t + url.pathname);
+}
+
+/** Append theme (and optional version) to an OG image path/URL. */
+export function withOgTheme(
+  imagePath: string,
+  theme: OgTheme,
+  version?: string
+): string {
+  try {
+    const abs = imagePath.startsWith("http")
+      ? new URL(imagePath)
+      : new URL(imagePath, "https://cladfacts.com");
+    if (version) abs.searchParams.set("v", version);
+    abs.searchParams.set("theme", theme);
+    // Return relative if input was relative
+    if (!imagePath.startsWith("http")) {
+      return abs.pathname + abs.search;
+    }
+    return abs.toString();
+  } catch {
+    const sep = imagePath.includes("?") ? "&" : "?";
+    const v = version ? `v=${version}&` : "";
+    return `${imagePath}${sep}${v}theme=${theme}`;
+  }
 }
 
 /**

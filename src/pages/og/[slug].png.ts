@@ -6,7 +6,16 @@ import { aggregateTopics, gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topi
 import { getBreaking } from "~/lib/agents";
 import { isNewsOutlet } from "~/lib/networks";
 import { displayableThumb } from "~/lib/imagePolicy";
-import { OG_VERSIONS, ogCacheKey, clip, OG, ogGradeColors, ogLeanBarMarkup } from "~/lib/ogCard";
+import {
+  OG_VERSIONS,
+  ogCacheKey,
+  clip,
+  ogPalette,
+  ogGradeColors,
+  ogLeanBarMarkup,
+  resolveOgTheme,
+  type OgPalette,
+} from "~/lib/ogCard";
 
 export const prerender = false;
 
@@ -14,12 +23,6 @@ export const prerender = false;
 // folded into the edge-cache key (instant invalidation on deploy) and posts
 // reference /og/<slug>.png?v=N so social scrapers — which key their own
 // caches on the URL — re-unfurl already-shared links with the new design.
-
-const PAPER = OG.paper;
-const INK = OG.ink;
-const MUTED = OG.muted;
-const ACCENT = OG.accent;
-const CARD = OG.card;
 
 const VERDICT_LABELS: Record<string, string> = {
   true: "True", "mostly-true": "Mostly True", mixed: "Mixed",
@@ -57,11 +60,11 @@ interface Card {
   thumbUrl?: string | null;
 }
 
-function verdictChipColors(verdict: string): { bg: string; ink: string } {
+function verdictChipColors(verdict: string, p: OgPalette): { bg: string; ink: string } {
   const v = verdict.toLowerCase();
-  if (v === "verified") return { bg: OG.gradeABg, ink: OG.gradeAInk };
-  if (v === "missing context") return { bg: OG.gradeBBg, ink: OG.gradeBInk };
-  return { bg: OG.gradeBadBg, ink: OG.gradeBadInk };
+  if (v === "verified") return { bg: p.gradeABg, ink: p.gradeAInk };
+  if (v === "missing context") return { bg: p.gradeBBg, ink: p.gradeBInk };
+  return { bg: p.gradeBadBg, ink: p.gradeBadInk };
 }
 
 /**
@@ -118,8 +121,8 @@ async function loadThumbDataUri(rawUrl: string | null | undefined, origin: strin
   }
 }
 
-function markup(card: Card, thumbDataUri: string | null): string {
-  const g = ogGradeColors(card.badge);
+function markup(card: Card, thumbDataUri: string | null, p: OgPalette): string {
+  const g = ogGradeColors(card.badge, p);
   const meta =
     card.metaLine != null
       ? card.metaLine
@@ -132,36 +135,36 @@ function markup(card: Card, thumbDataUri: string | null): string {
 
   const factLine =
     card.factuality != null
-      ? `<div style="display:flex;font-size:16px;color:${MUTED};margin-top:8px;font-weight:600;">Factuality ${card.factuality}/100</div>`
+      ? `<div style="display:flex;font-size:16px;color:${p.muted};margin-top:8px;font-weight:600;">Factuality ${card.factuality}/100</div>`
       : "";
   const subLine =
     card.metaLine != null
-      ? `<div style="display:flex;font-size:16px;color:${MUTED};margin-top:8px;">${esc(card.metaLine)}</div>`
+      ? `<div style="display:flex;font-size:16px;color:${p.muted};margin-top:8px;">${esc(card.metaLine)}</div>`
       : "";
   const leanLine =
     card.lean && card.leanScore != null
-      ? `<div style="display:flex;font-size:24px;font-weight:700;color:${INK};">${esc(card.lean)}</div>
-       ${ogLeanBarMarkup(card.leanScore, 320)}
+      ? `<div style="display:flex;font-size:24px;font-weight:700;color:${p.ink};">${esc(card.lean)}</div>
+       ${ogLeanBarMarkup(card.leanScore, 320, p)}
        ${factLine}${subLine}`
       : meta
-        ? `<div style="display:flex;font-size:18px;color:${MUTED};font-weight:600;">${esc(meta)}</div>`
+        ? `<div style="display:flex;font-size:18px;color:${p.muted};font-weight:600;">${esc(meta)}</div>`
         : "";
 
   const hook =
     card.moment?.claim
       ? (() => {
           const v = card.moment!.verdict.toUpperCase();
-          const chip = verdictChipColors(card.moment!.verdict);
+          const chip = verdictChipColors(card.moment!.verdict, p);
           const q = clip(card.moment!.claim, thumbDataUri ? 95 : 120);
           return `<div style="display:flex;flex-direction:column;margin-bottom:14px;">
             <div style="display:flex;align-items:center;margin-bottom:10px;">
-              <div style="display:flex;font-size:14px;color:${MUTED};letter-spacing:1px;font-weight:700;">${esc(hookKicker(card.moment!.verdict))}</div>
+              <div style="display:flex;font-size:14px;color:${p.muted};letter-spacing:1px;font-weight:700;">${esc(hookKicker(card.moment!.verdict))}</div>
               <div style="display:flex;margin-left:12px;padding:6px 14px;border-radius:999px;background:${chip.bg};font-size:14px;font-weight:700;color:${chip.ink};">${esc(v)}</div>
             </div>
-            <div style="display:flex;font-size:24px;font-weight:700;line-height:1.25;color:${INK};">“${esc(q)}”</div>
+            <div style="display:flex;font-size:24px;font-weight:700;line-height:1.25;color:${p.ink};">“${esc(q)}”</div>
           </div>`;
         })()
-      : `<div style="display:flex;font-size:14px;color:${ACCENT};letter-spacing:1px;font-weight:700;margin-bottom:12px;">FACT-CHECKED · GRADED · BIAS-RATED</div>`;
+      : `<div style="display:flex;font-size:14px;color:${p.accent};letter-spacing:1px;font-weight:700;margin-bottom:12px;">FACT-CHECKED · GRADED · BIAS-RATED</div>`;
 
   const gradeStamp = `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:999px;padding:14px 20px;margin-right:18px;background:${g.bg};min-width:88px;min-height:88px;">
     <div style="display:flex;font-size:${badgeSize}px;font-weight:700;line-height:1;color:${g.ink};">${esc(card.badge)}</div>
@@ -174,12 +177,12 @@ function markup(card: Card, thumbDataUri: string | null): string {
       ${gradeStamp}
       <div style="display:flex;flex-direction:column;">${leanLine}</div>
     </div>
-    <div style="display:flex;font-size:${hSize}px;font-weight:700;line-height:1.15;margin-top:14px;color:${INK};">${esc(hClipped)}</div>
+    <div style="display:flex;font-size:${hSize}px;font-weight:700;line-height:1.15;margin-top:14px;color:${p.ink};">${esc(hClipped)}</div>
   </div>`;
 
   const mid = thumbDataUri
     ? `<div style="display:flex;flex:1;flex-direction:row;min-height:0;">
-        <div style="display:flex;width:440px;height:100%;overflow:hidden;border-radius:16px;margin:16px 0 16px 16px;background:${INK};">
+        <div style="display:flex;width:440px;height:100%;overflow:hidden;border-radius:16px;margin:16px 0 16px 16px;background:${p.ink};">
           <img src="${thumbDataUri}" width="440" height="470" style="object-fit:cover;width:440px;height:470px;" />
         </div>
         ${bodyRight}
@@ -189,16 +192,16 @@ function markup(card: Card, thumbDataUri: string | null): string {
       </div>`;
 
   return `
-  <div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:28px;">
-    <div style="display:flex;flex-direction:column;flex:1;background:${CARD};border-radius:24px;border:1px solid ${OG.rule};overflow:hidden;">
+  <div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${p.paper};color:${p.ink};font-family:Playfair;padding:28px;">
+    <div style="display:flex;flex-direction:column;flex:1;background:${p.card};border-radius:24px;border:1px solid ${p.rule};overflow:hidden;">
       <div style="display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:52px;">
-        <div style="display:flex;font-size:26px;font-weight:700;letter-spacing:-0.5px;color:${INK};">CladFacts</div>
-        <div style="display:flex;font-size:13px;color:${ACCENT};letter-spacing:1px;font-weight:700;background:${OG.accentSoft};padding:6px 14px;border-radius:999px;">REPORT CARD</div>
+        <div style="display:flex;font-size:26px;font-weight:700;letter-spacing:-0.5px;color:${p.ink};">CladFacts</div>
+        <div style="display:flex;font-size:13px;color:${p.accent};letter-spacing:1px;font-weight:700;background:${p.accentSoft};padding:6px 14px;border-radius:999px;">REPORT CARD</div>
       </div>
       ${mid}
-      <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 28px;height:52px;background:${OG.accentSoft};">
-        <div style="display:flex;font-size:16px;font-weight:700;color:${ACCENT};">Open for full receipts →</div>
-        <div style="display:flex;font-size:16px;color:${MUTED};font-weight:600;">cladfacts.com</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 28px;height:52px;background:${p.accentSoft};">
+        <div style="display:flex;font-size:16px;font-weight:700;color:${p.accent};">Open for full receipts →</div>
+        <div style="display:flex;font-size:16px;color:${p.muted};font-weight:600;">cladfacts.com</div>
       </div>
     </div>
   </div>`;
@@ -206,15 +209,15 @@ function markup(card: Card, thumbDataUri: string | null): string {
 
 // Default brand card for pages without a specific image (homepage, about, etc.)
 // so link unfurls (X/Twitter, etc.) always show a large preview.
-function brandMarkup(): string {
+function brandMarkup(p: OgPalette): string {
   return `
-  <div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;align-items:center;justify-content:center;padding:40px;">
-    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;background:${CARD};border-radius:28px;border:1px solid ${OG.rule};padding:48px;">
-      <div style="display:flex;font-size:18px;color:${ACCENT};letter-spacing:2px;font-weight:700;background:${OG.accentSoft};padding:8px 18px;border-radius:999px;">WE GRADE THE NEWS</div>
-      <div style="display:flex;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1;margin:22px 0 12px;color:${INK};">CladFacts</div>
-      <div style="display:flex;width:120px;height:4px;background:${ACCENT};border-radius:999px;"></div>
-      <div style="display:flex;font-size:32px;font-weight:600;margin-top:28px;line-height:1.3;width:860px;justify-content:center;text-align:center;color:${MUTED};">Every claim. Graded. Bias-rated. Receipts.</div>
-      <div style="display:flex;margin-top:36px;background:${ACCENT};color:#FFFFFF;padding:14px 32px;font-size:20px;letter-spacing:1px;font-weight:700;border-radius:999px;">FREE TO READ · FREE TO SHARE</div>
+  <div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${p.paper};color:${p.ink};font-family:Playfair;align-items:center;justify-content:center;padding:40px;">
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;background:${p.card};border-radius:28px;border:1px solid ${p.rule};padding:48px;">
+      <div style="display:flex;font-size:18px;color:${p.accent};letter-spacing:2px;font-weight:700;background:${p.accentSoft};padding:8px 18px;border-radius:999px;">WE GRADE THE NEWS</div>
+      <div style="display:flex;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1;margin:22px 0 12px;color:${p.ink};">CladFacts</div>
+      <div style="display:flex;width:120px;height:4px;background:${p.accent};border-radius:999px;"></div>
+      <div style="display:flex;font-size:32px;font-weight:600;margin-top:28px;line-height:1.3;width:860px;justify-content:center;text-align:center;color:${p.muted};">Every claim. Graded. Bias-rated. Receipts.</div>
+      <div style="display:flex;margin-top:36px;background:${p.accent};color:${p.ctaText};padding:14px 32px;font-size:20px;letter-spacing:1px;font-weight:700;border-radius:999px;">FREE TO READ · FREE TO SHARE</div>
     </div>
   </div>`;
 }
@@ -239,18 +242,19 @@ function loadFonts(origin: string) {
 
 export const GET: APIRoute = async ({ params, request, locals }) => {
   const slug = String(params.slug ?? "");
+  const url = new URL(request.url);
+  const theme = resolveOgTheme(url.searchParams.get("theme"));
+  const p = ogPalette(theme);
   const cache = (caches as any).default as Cache;
-  // ogCacheKey drops the query string (?anything must not fan out satori
-  // renders) and folds OG_VERSIONS.post into a synthetic path segment so a
-  // redesign deploy invalidates the edge instantly instead of aging out.
-  const cacheKey = ogCacheKey(new URL(request.url), "post", OG_VERSIONS.post);
+  // Theme is folded into the cache key (light|dark only). Other query params ignored.
+  const cacheKey = ogCacheKey(url, "post", OG_VERSIONS.post, theme);
   const hit = await cache.match(cacheKey);
   if (hit) return hit;
 
   // Branded default card (homepage / pages without their own image).
   if (slug === "brand") {
-    const fonts = await loadFonts(new URL(request.url).origin);
-    const img = new ImageResponse(brandMarkup(), { width: 1200, height: 630, fonts: fonts as any, format: "png" });
+    const fonts = await loadFonts(url.origin);
+    const img = new ImageResponse(brandMarkup(p), { width: 1200, height: 630, fonts: fonts as any, format: "png" });
     const resp = new Response(img.body, {
       headers: {
         "Content-Type": "image/png",
@@ -265,11 +269,10 @@ export const GET: APIRoute = async ({ params, request, locals }) => {
   const card = await buildCard(slug);
   if (!card) return new Response("Not found", { status: 404 });
 
-  const origin = new URL(request.url).origin;
-  const fonts = await loadFonts(origin);
-  const thumbDataUri = await loadThumbDataUri(card.thumbUrl, origin);
+  const fonts = await loadFonts(url.origin);
+  const thumbDataUri = await loadThumbDataUri(card.thumbUrl, url.origin);
 
-  const img = new ImageResponse(markup(card, thumbDataUri), {
+  const img = new ImageResponse(markup(card, thumbDataUri, p), {
     width: 1200,
     height: 630,
     fonts: fonts as any,
