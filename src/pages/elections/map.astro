@@ -1859,7 +1859,7 @@ const registerMap = registerHref("/elections/map/");
   }
   .emap-desk__kind {
     font-size: 0.58rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     font-weight: 700;
     padding: 0.14rem 0.35rem;
@@ -1869,6 +1869,10 @@ const registerMap = registerHref("/elections/map/");
     flex: none;
     align-self: start;
     margin-top: 0.1rem;
+    max-width: 10.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .emap-desk__kind--candidate { background: #3b6ea5; border-color: #3b6ea5; }
   .emap-desk__kind--race { background: #2f6b4f; border-color: #2f6b4f; }

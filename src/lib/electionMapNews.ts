@@ -36,6 +36,30 @@ const KIND_LABEL: Record<ElectionNewsKind, string> = {
   forecast: "Outlook",
 };
 
+/** Badge text: show board candidate names instead of the generic "Candidate" chip. */
+function deskKindLabel(kind: ElectionNewsKind, matchedNames: string[]): string {
+  if (kind === "candidate" && matchedNames.length > 0) {
+    // Prefer a readable short form (last token) so the chip stays compact.
+    const short = matchedNames.slice(0, 2).map((n) => {
+      const parts = n
+        .trim()
+        .replace(/[()]/g, " ")
+        .split(/\s+/)
+        .filter(Boolean);
+      if (parts.length <= 1) return parts[0] || n;
+      // Keep multi-part surnames like "El-Sayed" / "Van Hollen" (last 1–2 tokens)
+      const last = parts[parts.length - 1]!;
+      const prev = parts[parts.length - 2]!;
+      if (/^(el|van|de|da|di|la|le|von|st\.?)$/i.test(prev)) {
+        return `${prev} ${last}`;
+      }
+      return last;
+    });
+    return short.join(" · ");
+  }
+  return KIND_LABEL[kind];
+}
+
 /** US midterm / process signals (not bare "election" — that pulls foreign races). */
 const ELECTION_RE =
   /\b(midterm|midterms|2026\s+election|class\s*ii|u\.?s\.?\s+senate|senate\s+race|senate\s+seat|governor(?:ial)?\s+race|gubernatorial|special\s+election|primary\s+(?:day|election|voters?)|runoff|ballot\s+board|congressional\s+race|house\s+race|redistrict|gerrymander|voting\s+rights|voter\s+id|save\s+act|election\s+integrity|election\s+day|general\s+election)\b/i;
@@ -191,11 +215,12 @@ export function pickElectionMapNews(
     // Recency: newer wins ties
     score += Math.max(0, 8 - ageDays * 0.25);
 
+    const names = matchedNames.slice(0, 3);
     scored.push({
       post,
       kind,
-      kindLabel: KIND_LABEL[kind],
-      matchedNames: matchedNames.slice(0, 3),
+      kindLabel: deskKindLabel(kind, names),
+      matchedNames: names,
       score,
     });
   }
