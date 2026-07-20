@@ -1,0 +1,216 @@
+---
+/**
+ * Full Human Spotlight article — linked from the homepage teaser.
+ */
+import { env } from "cloudflare:workers";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import ShareBar from "~/components/ShareBar.astro";
+import { getHumanSpotlight } from "~/lib/agents";
+import {
+  personInitials,
+  spotlightDateKey,
+  teaserFromArticle,
+} from "~/lib/humanSpotlight";
+import { isCommonsMediaUrl } from "~/lib/politicianPhotos";
+
+export const prerender = false;
+Astro.response.headers.set("Cache-Control", "public, max-age=120, s-maxage=300");
+
+const store = await getHumanSpotlight(env.AGENTS);
+const todayKey = spotlightDateKey();
+const fresh =
+  store &&
+  store.dateKey === todayKey &&
+  store.person?.name &&
+  store.person?.article;
+
+const person = fresh ? store!.person : null;
+const imageUrl =
+  person?.imageUrl && isCommonsMediaUrl(person.imageUrl) ? person.imageUrl : null;
+const paragraphs = person
+  ? person.article
+      .split(/\n\n+/)
+      .map((p) => p.trim())
+      .filter(Boolean)
+  : [];
+const sources = (person?.sources || []).filter((s) => s?.url && s?.title).slice(0, 6);
+const initials = person ? personInitials(person.name) : "";
+
+const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
+const pageUrl = `${origin}/human-spotlight/`;
+const title = person
+  ? `${person.name} — Human Spotlight | CladFacts`
+  : "Human Spotlight — CladFacts";
+const description = person
+  ? teaserFromArticle(`${person.achievement}. ${person.article}`, 160)
+  : "A daily CladFacts feature on a living person doing something great.";
+---
+<BaseLayout
+  title={title}
+  description={description}
+  ogTitle={person ? `${person.name}: ${person.achievement}` : "Human Spotlight"}
+  ogDescription={description}
+  ogImage={imageUrl || undefined}
+>
+  <article class="static-page human-spot-page">
+    <p class="small-caps upgrade__eyebrow">
+      <a href="/">Home</a>
+      {" · "}
+      Human Spotlight
+      {store?.dateLabel ? ` · ${store.dateLabel}` : ""}
+    </p>
+
+    {!person ? (
+      <>
+        <h1 class="static-page__title">Human Spotlight</h1>
+        <p class="upgrade__lede">
+          Today’s story is not ready yet. Check back after the morning desk run —
+          each day we feature one living person doing something great and positive.
+        </p>
+        <p class="static-page__note">
+          <a href="/">← Back to the front page</a>
+          {" · "}
+          <a href="/good-news/">Good News</a>
+        </p>
+      </>
+    ) : (
+      <>
+        <header class="human-spot-page__hero">
+          <div class="human-spot-page__photo">
+            {imageUrl ? (
+              <img
+                src={imageUrl}
+                alt={person.name}
+                width="320"
+                height="320"
+                loading="eager"
+                decoding="async"
+                referrerpolicy="no-referrer"
+              />
+            ) : (
+              <span class="human-spot-page__initials" aria-hidden="true">{initials}</span>
+            )}
+          </div>
+          <div class="human-spot-page__head">
+            {(person.field || person.location) && (
+              <p class="human-spot__meta small-caps">
+                {[person.field, person.location].filter(Boolean).join(" · ")}
+              </p>
+            )}
+            <h1 class="static-page__title human-spot-page__name">{person.name}</h1>
+            <p class="human-spot-page__achievement">{person.achievement}</p>
+            {person.whyNow && <p class="human-spot__why">{person.whyNow}</p>}
+          </div>
+        </header>
+
+        <ShareBar
+          url={pageUrl}
+          title={`${person.name} — Human Spotlight`}
+          hook={person.achievement}
+        />
+
+        <div class="human-spot-page__body">
+          {paragraphs.map((p) => (
+            <p>{p}</p>
+          ))}
+        </div>
+
+        {sources.length > 0 && (
+          <footer class="human-spot__sources human-spot-page__sources">
+            <p class="small-caps human-spot__sources-label">Sources</p>
+            <ul>
+              {sources.map((s) => (
+                <li>
+                  <a href={s.url} rel="noopener noreferrer" target="_blank">{s.title}</a>
+                </li>
+              ))}
+            </ul>
+          </footer>
+        )}
+
+        <p class="static-page__note human-spot-page__foot">
+          Human Spotlight is a daily CladFacts desk feature — one living person,
+          one verified positive story. Photo when a free-licensed Commons portrait exists.
+          {" "}
+          <a href="/">← Front page</a>
+          {" · "}
+          <a href="/good-news/">Good News</a>
+        </p>
+      </>
+    )}
+  </article>
+</BaseLayout>
+
+<style>
+  .human-spot-page {
+    max-width: 40rem;
+  }
+  .human-spot-page__hero {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    margin: 0.75rem 0 1.25rem;
+  }
+  .human-spot-page__photo {
+    flex-shrink: 0;
+    width: 10rem;
+    height: 10rem;
+    border: 2px solid var(--ink, #1a140d);
+    overflow: hidden;
+    background: var(--paper-deep, #decca8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .human-spot-page__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .human-spot-page__initials {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--muted-ink, #6e5e4d);
+  }
+  .human-spot-page__head {
+    min-width: 0;
+    flex: 1;
+  }
+  .human-spot-page__name {
+    margin-bottom: 0.35rem;
+  }
+  .human-spot-page__achievement {
+    margin: 0;
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  .human-spot-page__body {
+    margin-top: 1.25rem;
+    font-size: 1.02rem;
+    line-height: 1.6;
+  }
+  .human-spot-page__body p {
+    margin: 0 0 1em;
+  }
+  .human-spot-page__sources {
+    margin-top: 1.5rem;
+  }
+  .human-spot-page__foot {
+    margin-top: 1.75rem;
+  }
+  @media (max-width: 520px) {
+    .human-spot-page__hero {
+      flex-direction: column;
+    }
+    .human-spot-page__photo {
+      width: 100%;
+      height: 14rem;
+    }
+  }
+</style>

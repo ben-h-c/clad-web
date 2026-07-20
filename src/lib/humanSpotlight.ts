@@ -142,3 +142,24 @@ export function normalizeSpotlightPayload(raw: unknown): HumanSpotlightPayload |
     recentNames: recentNames.length ? recentNames : undefined,
   };
 }
+
+/** First ~n chars of article for homepage teaser (word-boundary). */
+export function teaserFromArticle(article: string, max = 200): string {
+  const plain = String(article || "")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (plain.length <= max) return plain;
+  const cut = plain.slice(0, max - 1);
+  const sp = cut.lastIndexOf(" ");
+  return (sp > max - 40 ? cut.slice(0, sp) : cut).trimEnd() + "…";
+}
+
+export function personInitials(name: string): string {
+  const parts = String(name || "")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
+  if (!parts.length) return "?";
+  if (parts.length === 1) return parts[0]!.slice(0, 2).toUpperCase();
+  return (parts[0]![0]! + parts[parts.length - 1]![0]!).toUpperCase();
+}

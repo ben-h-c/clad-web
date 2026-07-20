@@ -115,10 +115,48 @@ async function commonsThumbForWikiTitle(title) {
     const j = await r.json();
     if (j?.type === "disambiguation") return null;
     const src = j?.thumbnail?.source;
-    return src && isCommonsUrl(src) ? src : null;
+    // Prefer a larger Commons thumb when possible (still free-licensed).
+    if (src && isCommonsUrl(src)) {
+      return src.replace(/\/\d+px-/, "/440px-");
+    }
+    return null;
   } catch {
     return null;
   }
+}
+
+/** Wikipedia search → first hit with a Commons lead image. */
+async function commonsThumbForPersonName(name) {
+  const q = String(name || "").trim();
+  if (!q) return null;
+  try {
+    // 1) Direct summary by name
+    const direct = await commonsThumbForWikiTitle(q);
+    if (direct) return direct;
+
+    // 2) OpenSearch titles
+    const params = new URLSearchParams({
+      action: "opensearch",
+      search: q,
+      limit: "5",
+      namespace: "0",
+      format: "json",
+    });
+    const r = await fetch(`https://en.wikipedia.org/w/api.php?${params}`, {
+      headers: { "User-Agent": UA },
+      signal: AbortSignal.timeout(8000),
+    });
+    if (!r.ok) return null;
+    const data = await r.json();
+    const titles = Array.isArray(data?.[1]) ? data[1] : [];
+    for (const title of titles) {
+      const thumb = await commonsThumbForWikiTitle(title);
+      if (thumb) return thumb;
+    }
+  } catch {
+    /* ignore */
+  }
+  return null;
 }
 
 function deskDateParts() {
@@ -252,6 +290,7 @@ export async function runHumanSpotlight(agent) {
   let imageUrl = null;
   const wikiTitle = String(result?.wikiTitle || "").trim();
   if (wikiTitle) imageUrl = await commonsThumbForWikiTitle(wikiTitle);
+  if (!imageUrl) imageUrl = await commonsThumbForPersonName(name);
 
   const sources = sanitizeSources(result?.sources);
   if (sources.length < 1) {
