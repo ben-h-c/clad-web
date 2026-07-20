@@ -21,6 +21,8 @@ export interface HumanSpotlightPerson {
   field?: string;
   /** Wikimedia Commons thumbnail only. */
   imageUrl?: string | null;
+  /** Optional YouTube video id (11 chars) for an embedded explainer. */
+  videoId?: string | null;
   sources?: HumanSpotlightSource[];
 }
 
@@ -99,6 +101,12 @@ export function normalizeSpotlightPerson(raw: unknown): HumanSpotlightPerson | n
     }
   }
 
+  let videoId: string | null = null;
+  if (r.videoId) {
+    const v = String(r.videoId).trim();
+    if (/^[\w-]{11}$/.test(v)) videoId = v;
+  }
+
   const sources = (Array.isArray(r.sources) ? r.sources : [])
     .map((s) => {
       if (!s || typeof s !== "object") return null;
@@ -119,6 +127,7 @@ export function normalizeSpotlightPerson(raw: unknown): HumanSpotlightPerson | n
     location: String(r.location || "").trim().slice(0, 80) || undefined,
     field: String(r.field || "").trim().slice(0, 40) || undefined,
     imageUrl,
+    videoId,
     sources: sources.length ? sources : undefined,
   };
 }

@@ -1499,6 +1499,8 @@ export interface HumanSpotlightStore {
     location?: string;
     field?: string;
     imageUrl?: string | null;
+    /** YouTube video id when a relevant embed was found. */
+    videoId?: string | null;
     sources?: { title: string; url: string }[];
   };
   recentNames?: string[];

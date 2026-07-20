@@ -83,6 +83,7 @@ export const POST: APIRoute = async ({ request }) => {
       location: person.location,
       field: person.field,
       imageUrl: person.imageUrl || null,
+      videoId: person.videoId || null,
       sources: person.sources,
     },
     recentNames,
@@ -92,5 +93,6 @@ export const POST: APIRoute = async ({ request }) => {
     ok: true,
     dateKey: payload.dateKey,
     name: person.name,
+    hasVideo: Boolean(person.videoId),
   });
 };

@@ -8,6 +8,8 @@ import { getHumanSpotlight, putHumanSpotlight } from "./api.mjs";
 const XAI_RESPONSES = "https://api.x.ai/v1/responses";
 const MODEL = "grok-4.3";
 const UA = "CladFactsBot/1.0 (https://cladfacts.com; human-spotlight)";
+const YT_SEARCH = "https://www.googleapis.com/youtube/v3/search";
+const YT_VIDEOS = "https://www.googleapis.com/youtube/v3/videos";
 
 const SCHEMA = {
   type: "object",
@@ -22,6 +24,11 @@ const SCHEMA = {
       type: "string",
       description:
         "English Wikipedia article title for a free-licensed lead image, or empty string",
+    },
+    youtubeQuery: {
+      type: "string",
+      description:
+        "Short YouTube search query to find a relevant video about THIS person and their achievement, or empty string",
     },
     sources: {
       type: "array",
@@ -44,6 +51,7 @@ const SCHEMA = {
     "location",
     "field",
     "wikiTitle",
+    "youtubeQuery",
     "sources",
   ],
   additionalProperties: false,
@@ -73,6 +81,9 @@ HARD RULES:
 - location: city/region/country if known, else empty string.
 - field: one short tag (science, health, community, arts, environment, education, sports, other).
 - wikiTitle: English Wikipedia page title for a free image if one exists; else empty string.
+- youtubeQuery: a concise YouTube search string for a video about THIS person and their
+  specific achievement (interview, news clip, institutional film). Include the person's
+  name and distinctive keywords. Empty string only if a video is truly unlikely.
 - sources: 2–5 real https URLs you found (news or institutional pages). Never invent URLs.
   If you cannot find two real sources, pick a different person.
 
@@ -120,6 +131,83 @@ async function commonsThumbForWikiTitle(title) {
       return src.replace(/\/\d+px-/, "/440px-");
     }
     return null;
+  } catch {
+    return null;
+  }
+}
+
+function isVideoId(id) {
+  return typeof id === "string" && /^[\w-]{11}$/.test(id);
+}
+
+/**
+ * Find a public, embeddable YouTube video about this person + achievement.
+ * Prefers the model's youtubeQuery; falls back to name + achievement keywords.
+ */
+async function findYoutubeVideo(apiKey, { name, achievement, youtubeQuery }) {
+  if (!apiKey) return null;
+  const q =
+    String(youtubeQuery || "").trim() ||
+    `${name} ${achievement}`.replace(/\s+/g, " ").trim().slice(0, 120);
+  if (!q) return null;
+
+  try {
+    const params = new URLSearchParams({
+      key: apiKey,
+      part: "snippet",
+      type: "video",
+      order: "relevance",
+      maxResults: "6",
+      relevanceLanguage: "en",
+      regionCode: "US",
+      videoEmbeddable: "true",
+      safeSearch: "moderate",
+      q,
+    });
+    const res = await fetch(`${YT_SEARCH}?${params}`, {
+      signal: AbortSignal.timeout(10_000),
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    const ids = (data.items || [])
+      .map((it) => it?.id?.videoId)
+      .filter(isVideoId)
+      .slice(0, 6);
+    if (!ids.length) return null;
+
+    const vParams = new URLSearchParams({
+      key: apiKey,
+      part: "status,snippet",
+      id: ids.join(","),
+    });
+    const vRes = await fetch(`${YT_VIDEOS}?${vParams}`, {
+      signal: AbortSignal.timeout(10_000),
+    });
+    if (!vRes.ok) return ids[0];
+    const vData = await vRes.json();
+    const nameBits = String(name || "")
+      .toLowerCase()
+      .split(/\s+/)
+      .filter((w) => w.length >= 3);
+    // Prefer a hit whose title/description mentions the person
+    for (const v of vData.items || []) {
+      const id = v?.id;
+      const st = v?.status || {};
+      if (!isVideoId(id)) continue;
+      if (st.privacyStatus && st.privacyStatus !== "public") continue;
+      if (st.embeddable === false) continue;
+      const blob = `${v?.snippet?.title || ""} ${v?.snippet?.description || ""}`.toLowerCase();
+      if (nameBits.length && nameBits.some((w) => blob.includes(w))) return id;
+    }
+    for (const v of vData.items || []) {
+      const id = v?.id;
+      const st = v?.status || {};
+      if (!isVideoId(id)) continue;
+      if (st.privacyStatus && st.privacyStatus !== "public") continue;
+      if (st.embeddable === false) continue;
+      return id;
+    }
+    return ids[0] || null;
   } catch {
     return null;
   }
@@ -238,6 +326,7 @@ function sanitizeSources(list) {
 export async function runHumanSpotlight(agent) {
   const xaiKey = process.env.XAI_API_KEY;
   if (!xaiKey) return { ok: false, message: "XAI_API_KEY missing" };
+  const ytKey = process.env.YOUTUBE_API_KEY || "";
 
   const force = Boolean(agent?.config?.force);
   const { dateKey, dateLabel } = deskDateParts();
@@ -245,6 +334,30 @@ export async function runHumanSpotlight(agent) {
   const existing = await getHumanSpotlight();
   const store = existing.ok ? existing.body?.store : null;
   if (store?.dateKey === dateKey && store?.person?.name && !force) {
+    // Same day: fill missing video without rewriting the article.
+    if (!store.person.videoId && ytKey) {
+      const videoId = await findYoutubeVideo(ytKey, {
+        name: store.person.name,
+        achievement: store.person.achievement,
+        youtubeQuery: `${store.person.name} ${store.person.achievement}`,
+      });
+      if (videoId) {
+        const put = await putHumanSpotlight({
+          dateKey,
+          dateLabel: store.dateLabel || dateLabel,
+          person: { ...store.person, videoId },
+          recentNames: store.recentNames,
+        });
+        if (put.ok) {
+          return {
+            ok: true,
+            message: `${dateLabel}: attached video for ${store.person.name}`,
+            submitted: 1,
+            skipped: 0,
+          };
+        }
+      }
+    }
     return {
       ok: true,
       message: `already fresh for ${dateLabel}: ${store.person.name}`,
@@ -292,6 +405,16 @@ export async function runHumanSpotlight(agent) {
   if (wikiTitle) imageUrl = await commonsThumbForWikiTitle(wikiTitle);
   if (!imageUrl) imageUrl = await commonsThumbForPersonName(name);
 
+  const youtubeQuery = String(result?.youtubeQuery || "").trim();
+  let videoId = null;
+  if (ytKey) {
+    videoId = await findYoutubeVideo(ytKey, {
+      name,
+      achievement,
+      youtubeQuery,
+    });
+  }
+
   const sources = sanitizeSources(result?.sources);
   if (sources.length < 1) {
     // Soft fail — still publish if the piece is solid; prefer sources when present
@@ -305,6 +428,7 @@ export async function runHumanSpotlight(agent) {
     location: String(result?.location || "").trim().slice(0, 80) || undefined,
     field: String(result?.field || "").trim().slice(0, 40) || undefined,
     imageUrl: imageUrl || null,
+    videoId: videoId || null,
     sources: sources.length ? sources : undefined,
   };
 
@@ -323,7 +447,7 @@ export async function runHumanSpotlight(agent) {
 
   return {
     ok: true,
-    message: `${dateLabel}: ${name}${imageUrl ? " (photo)" : ""}${sources.length ? ` · ${sources.length} sources` : ""}`,
+    message: `${dateLabel}: ${name}${imageUrl ? " (photo)" : ""}${videoId ? " (video)" : ""}${sources.length ? ` · ${sources.length} sources` : ""}`,
     submitted: 1,
     skipped: 0,
   };
