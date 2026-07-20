@@ -64,7 +64,17 @@ const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
         </div>
         <div class="field">
           <label for="camp-cta">Primary CTA path</label>
-          <input id="camp-cta" type="text" value="/bracket/" placeholder="/bracket/" />
+          <input
+            id="camp-cta"
+            type="text"
+            value="/bracket/"
+            readonly
+            aria-readonly="true"
+            title="Derived from the features you promote (first concrete feature in catalog order)"
+          />
+          <p class="dateline camp-cta-hint" id="camp-cta-hint">
+            Set automatically from Features to promote below.
+          </p>
         </div>
       </div>
 
@@ -82,6 +92,10 @@ const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
 
       <fieldset class="camp-fieldset">
         <legend class="small-caps">Features to promote</legend>
+        <p class="dateline camp-feat-lede">
+          Primary CTA uses the first selected feature (catalog order), preferring a concrete
+          feature over “Graded TV-news report cards” (/).
+        </p>
         <div class="camp-checks camp-checks--wrap">
           {CAMPAIGN_FEATURES.map((f) => (
             <label class="camp-check">
@@ -89,6 +103,8 @@ const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
                 type="checkbox"
                 class="camp-highlight"
                 value={f.key}
+                data-url={f.url}
+                data-name={f.name}
                 checked={f.key === "ballot" || f.key === "map" || f.key === "core"}
               />
               <span>{f.name}</span>
@@ -221,15 +237,44 @@ const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
         statusEl.style.color = err ? "var(--red-ink, #941a1a)" : "";
       };
 
+      /** Catalog-order CTA from checked features; prefer non-core over home. */
+      function ctaFromHighlights(keys) {
+        const selected = FEATURES.filter((f) => keys.indexOf(f.key) >= 0);
+        if (!selected.length) return { url: "/", name: null };
+        const nonCore = selected.filter((f) => f.key !== "core");
+        const pick = nonCore[0] || selected[0];
+        return { url: pick.url || "/", name: pick.name || null };
+      }
+
+      function syncCtaFromFeatures() {
+        const highlights = [...document.querySelectorAll(".camp-highlight:checked")].map((el) => el.value);
+        const { url, name } = ctaFromHighlights(highlights);
+        const ctaInput = document.getElementById("camp-cta");
+        const hint = document.getElementById("camp-cta-hint");
+        if (ctaInput) ctaInput.value = url;
+        if (hint) {
+          hint.textContent = name
+            ? "From feature: " + name + " → " + url
+            : "Select a feature below to set the primary CTA.";
+        }
+        // Keep card CTA in sync when owner hasn't customized a different path
+        const cardCta = document.getElementById("card-cta-url");
+        if (cardCta && (!cardCta.value || cardCta.dataset.auto !== "0")) {
+          cardCta.value = url;
+          cardCta.dataset.auto = "1";
+        }
+      }
+
       function collect() {
         const platforms = [...document.querySelectorAll(".camp-platform:checked")].map((el) => el.value);
         const highlights = [...document.querySelectorAll(".camp-highlight:checked")].map((el) => el.value);
+        const { url: ctaUrl } = ctaFromHighlights(highlights);
         return {
           brief: document.getElementById("camp-brief").value.trim(),
           campaignType: document.getElementById("camp-type").value,
           tone: document.getElementById("camp-tone").value,
           audience: document.getElementById("camp-audience").value,
-          ctaUrl: document.getElementById("camp-cta").value.trim() || "/",
+          ctaUrl,
           platforms,
           highlights,
           pegToNews: document.getElementById("camp-peg").checked,
@@ -313,7 +358,11 @@ const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
         document.getElementById("card-subhead").value = card?.subhead || "";
         document.getElementById("card-stat").value = card?.statLine || card?.stat_line || "";
         document.getElementById("card-cta-label").value = card?.ctaLabel || card?.cta_label || "";
-        document.getElementById("card-cta-url").value = card?.ctaUrl || card?.cta_url || "/";
+        const cardCta = document.getElementById("card-cta-url");
+        const path = card?.ctaUrl || card?.cta_url || document.getElementById("camp-cta").value || "/";
+        cardCta.value = path;
+        // Treat loaded/generated card CTA as auto unless user later edits it
+        cardCta.dataset.auto = "1";
       }
 
       function setCardPreview(id, updatedAt) {
@@ -462,7 +511,6 @@ const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
           document.getElementById("camp-type").value = c.input.campaignType || "Feature launch";
           document.getElementById("camp-tone").value = c.input.tone || "Broadsheet-restrained";
           document.getElementById("camp-audience").value = c.input.audience || "General readers";
-          document.getElementById("camp-cta").value = c.input.ctaUrl || "/";
           document.getElementById("camp-peg").checked = !!c.input.pegToNews;
           const plat = new Set(c.input.platforms || []);
           document.querySelectorAll(".camp-platform").forEach((el) => {
@@ -472,10 +520,27 @@ const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
           document.querySelectorAll(".camp-highlight").forEach((el) => {
             el.checked = hl.has(el.value);
           });
+          // CTA path always follows selected features (re-derive after restoring checks)
+          syncCtaFromFeatures();
         }
         applyDraft(c, c.input);
         setCardPreview(c.id, c.updatedAt);
       }
+
+      document.querySelectorAll(".camp-highlight").forEach((el) => {
+        el.addEventListener("change", () => {
+          syncCtaFromFeatures();
+          if (currentId) refreshShareBar();
+        });
+      });
+      // Mark card CTA as user-owned if they type a different path after generate
+      const cardCtaEl = document.getElementById("card-cta-url");
+      if (cardCtaEl) {
+        cardCtaEl.addEventListener("input", () => {
+          cardCtaEl.dataset.auto = "0";
+        });
+      }
+      syncCtaFromFeatures();
 
       document.getElementById("camp-generate").addEventListener("click", async (e) => {
         const btn = e.currentTarget;
@@ -619,6 +684,19 @@ const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
       color: var(--ink, #1a140d);
       width: 100%;
       box-sizing: border-box;
+    }
+    .camp input[type="text"][readonly] {
+      opacity: 0.92;
+      cursor: default;
+      background: color-mix(in srgb, var(--ink, #1a140d) 4%, var(--paper, #f5edd9));
+    }
+    .camp-cta-hint,
+    .camp-feat-lede {
+      margin: 0.3rem 0 0;
+      font-size: 0.82rem;
+    }
+    .camp-feat-lede {
+      margin: 0 0 0.65rem;
     }
     .camp textarea { resize: vertical; min-height: 4.5rem; }
     .camp-fieldset {

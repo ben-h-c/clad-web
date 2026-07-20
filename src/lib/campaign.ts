@@ -47,6 +47,28 @@ export function safeCtaUrl(raw: unknown): string {
   return href;
 }
 
+/**
+ * Primary CTA path from selected feature keys (catalog order).
+ * Prefers a concrete feature over "core" (/) when both are selected.
+ */
+export function ctaUrlFromHighlights(keys: readonly string[]): string {
+  const selected = CAMPAIGN_FEATURES.filter((f) => keys.includes(f.key));
+  if (!selected.length) return "/";
+  const nonCore = selected.filter((f) => f.key !== "core");
+  const pick = nonCore[0] ?? selected[0];
+  return safeCtaUrl(pick.url);
+}
+
+/** Feature name for the derived CTA (for UI labels). */
+export function ctaFeatureFromHighlights(
+  keys: readonly string[]
+): (typeof CAMPAIGN_FEATURES)[number] | null {
+  const selected = CAMPAIGN_FEATURES.filter((f) => keys.includes(f.key));
+  if (!selected.length) return null;
+  const nonCore = selected.filter((f) => f.key !== "core");
+  return nonCore[0] ?? selected[0] ?? null;
+}
+
 // ── Types ────────────────────────────────────────────────────────────────
 
 export interface CampaignInput {
@@ -350,7 +372,10 @@ export function sanitizeInput(p: any): CampaignInput {
     String(p?.audience ?? "General readers").trim().slice(0, 80) || "General readers";
   const campaignType =
     String(p?.campaignType ?? "Feature launch").trim().slice(0, 80) || "Feature launch";
-  const ctaUrl = safeCtaUrl(p?.ctaUrl);
+  // Primary CTA is always derived from selected features (not free-typed).
+  const ctaUrl = highlights.length
+    ? ctaUrlFromHighlights(highlights)
+    : safeCtaUrl(p?.ctaUrl);
   const ctaLabel = String(p?.ctaLabel ?? "").trim().slice(0, 30) || undefined;
   const pegToNews = Boolean(p?.pegToNews);
 
