@@ -101,40 +101,6 @@ const planLabel =
       )}
     </section>
 
-    <section class="account-card" id="birthday-section">
-      <div class="account-card__head">
-        <h3 class="account-card__title">Birthday</h3>
-      </div>
-      <p class="account-card__desc">
-        Private to you. On your birthday only, a personal note appears on
-        <strong> your</strong> calendar (with a fun message from the desk) — no one else can see it.
-      </p>
-      {!prefs.birthday && (
-        <p class="account-card__desc account-pill account-pill--warn" style="display:inline-block;margin-bottom:0.75rem">
-          Please add your birthday to finish setting up your account.
-        </p>
-      )}
-      <form id="birthday-form" class="prefs">
-        <div class="field">
-          <label for="pref-birthday">Date of birth</label>
-          <input
-            type="date"
-            id="pref-birthday"
-            name="birthday"
-            autocomplete="bday"
-            required
-            value={prefs.birthday ?? ""}
-            max={new Date(new Date().setFullYear(new Date().getFullYear() - 13)).toISOString().slice(0, 10)}
-            min="1905-01-01"
-          />
-        </div>
-        <div class="account-actions">
-          <button type="submit" class="auth-submit">Save birthday</button>
-          <span id="birthday-status" class="auth-status" role="status"></span>
-        </div>
-      </form>
-    </section>
-
     <section class="account-card" id="appearance-section">
       <div class="account-card__head">
         <h3 class="account-card__title">Appearance</h3>
@@ -354,30 +320,6 @@ const planLabel =
           setStatus(prefsStatus, "error", String(err.message || err));
         }
       });
-
-      // --- Birthday (private calendar marker) ---
-      const bdayForm = document.getElementById("birthday-form");
-      const bdayStatus = document.getElementById("birthday-status");
-      if (bdayForm) {
-        bdayForm.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          const input = document.getElementById("pref-birthday");
-          const birthday = (input && input.value) || "";
-          setStatus(bdayStatus, "info", "Saving…");
-          try {
-            const res = await fetch("/api/me/preferences", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ birthday }),
-            });
-            const data = await res.json().catch(() => ({}));
-            if (!res.ok) throw new Error(data.error || "Could not save.");
-            setStatus(bdayStatus, "info", "Saved. Your calendar will flag this day for you only.");
-          } catch (err) {
-            setStatus(bdayStatus, "error", String(err.message || err));
-          }
-        });
-      }
 
       // --- Appearance (theme default) ---
       const themeForm = document.getElementById("theme-form");
