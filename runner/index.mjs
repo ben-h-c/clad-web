@@ -68,6 +68,27 @@ function log(...args) {
   console.log(new Date().toISOString(), ...args);
 }
 
+// Hard cap so a hung Grok/YouTube call cannot freeze the whole runner loop.
+// Youtube scan can draft many reports; 12 min is generous. Curators are short.
+const AGENT_TIMEOUT_MS = {
+  "youtube-scanner": 12 * 60_000,
+  "politician-profile-builder": 12 * 60_000,
+  "politician-grader": 10 * 60_000,
+  "calendar-scanner": 10 * 60_000,
+  default: 6 * 60_000,
+};
+
+function withTimeout(promise, ms, label) {
+  let timer;
+  const timeout = new Promise((_, reject) => {
+    timer = setTimeout(
+      () => reject(new Error(`timeout after ${Math.round(ms / 1000)}s`)),
+      ms
+    );
+  });
+  return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
+}
+
 async function runAgent(agent, consumedRunNow = null) {
   if (running.has(agent.id)) {
     log(`skip ${agent.id}: still running`);
@@ -79,9 +100,12 @@ async function runAgent(agent, consumedRunNow = null) {
   let result;
   try {
     const fn = KINDS[agent.kind];
-    result = fn
-      ? await fn(agent)
-      : { ok: false, message: `unknown kind: ${agent.kind}` };
+    if (!fn) {
+      result = { ok: false, message: `unknown kind: ${agent.kind}` };
+    } else {
+      const ms = AGENT_TIMEOUT_MS[agent.kind] ?? AGENT_TIMEOUT_MS.default;
+      result = await withTimeout(fn(agent), ms, agent.id);
+    }
   } catch (err) {
     result = { ok: false, message: String(err?.message || err).slice(0, 300) };
   } finally {
@@ -94,6 +118,7 @@ async function runAgent(agent, consumedRunNow = null) {
     submitted: result.submitted || 0,
     skipped: result.skipped || 0,
     durationMs: Date.now() - started,
+    // Always consume runNow even on timeout so a stuck manual run doesn't loop forever.
     consumedRunNow,
   };
   log(`done ${agent.id}: ${status.ok ? "ok" : "FAIL"} — ${status.message}`);

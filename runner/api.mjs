@@ -3,7 +3,7 @@
 const BASE = process.env.WORKER_BASE_URL || "http://localhost:8787";
 const TOKEN = process.env.AGENT_TOKEN || "";
 
-async function call(path, init = {}) {
+export async function call(path, init = {}) {
   const res = await fetch(BASE + path, {
     ...init,
     headers: {

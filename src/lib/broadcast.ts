@@ -318,9 +318,11 @@ export async function reviseBroadcastReport(
 }
 
 async function callResponsesWithSearch(apiKey: string, system: string, user: string): Promise<string> {
+  // Hard timeout: without this a stalled xAI connection freezes the agent runner.
   const res = await fetch("https://api.x.ai/v1/responses", {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+    signal: AbortSignal.timeout(120_000),
     body: JSON.stringify({
       model: SEARCH_MODEL,
       input: [
