@@ -90,6 +90,8 @@ function isPlaceholderName(name: string): boolean {
   ) {
     return true;
   }
+  // "Dick Durbin seat", "open seat (IL)", race-structure labels — not people
+  if (/\bseat\b/.test(n)) return true;
   // "Term-limited / open (FL)", "Open (MI)", bare state codes, etc.
   if (/\bopen\b/.test(n) && (n.includes("/") || /\([a-z]{2}\)/.test(n) || n.length < 18)) {
     return true;
