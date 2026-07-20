@@ -36,26 +36,31 @@ const KIND_LABEL: Record<ElectionNewsKind, string> = {
   forecast: "Outlook",
 };
 
+/** Clean a board / tag name for the desk chip (drop middles, junk). */
+function displayCandidateName(name: string): string {
+  return name
+    .trim()
+    .replace(/\s*\([^)]*\)\s*/g, " ") // drop "(FL)" style notes
+    .replace(/\s+[A-Z]\.\s+/g, " ") // middle initial
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 /** Badge text: show board candidate names instead of the generic "Candidate" chip. */
 function deskKindLabel(kind: ElectionNewsKind, matchedNames: string[]): string {
   if (kind === "candidate" && matchedNames.length > 0) {
-    // Prefer a readable short form (last token) so the chip stays compact.
-    const short = matchedNames.slice(0, 2).map((n) => {
-      const parts = n
-        .trim()
-        .replace(/[()]/g, " ")
-        .split(/\s+/)
-        .filter(Boolean);
-      if (parts.length <= 1) return parts[0] || n;
-      // Keep multi-part surnames like "El-Sayed" / "Van Hollen" (last 1–2 tokens)
-      const last = parts[parts.length - 1]!;
-      const prev = parts[parts.length - 2]!;
-      if (/^(el|van|de|da|di|la|le|von|st\.?)$/i.test(prev)) {
-        return `${prev} ${last}`;
-      }
-      return last;
-    });
-    return short.join(" · ");
+    const seen = new Set<string>();
+    const labels: string[] = [];
+    for (const raw of matchedNames) {
+      const label = displayCandidateName(raw);
+      if (!label || isPlaceholderName(label)) continue;
+      const key = label.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      labels.push(label);
+      if (labels.length >= 2) break;
+    }
+    if (labels.length) return labels.join(" · ");
   }
   return KIND_LABEL[kind];
 }
@@ -78,11 +83,21 @@ function escapeRe(s: string): string {
 function isPlaceholderName(name: string): boolean {
   const n = name.trim().toLowerCase();
   if (!n) return true;
-  if (/\b(field|tbd|nominee|primary|gop field|dem field|democratic nominee|republican nominee)\b/.test(n)) {
+  if (
+    /\b(field|tbd|nominee|primary|gop field|dem field|democratic nominee|republican nominee|term[- ]?limited|open seat|unopposed|no candidate|vacant|to be determined)\b/.test(
+      n
+    )
+  ) {
+    return true;
+  }
+  // "Term-limited / open (FL)", "Open (MI)", bare state codes, etc.
+  if (/\bopen\b/.test(n) && (n.includes("/") || /\([a-z]{2}\)/.test(n) || n.length < 18)) {
     return true;
   }
   // "Dem primary (X / Y)" style placeholders
   if (/^(dem|gop|democratic|republican)\b/i.test(n) && n.includes("(")) return true;
+  // Not a person name
+  if (/^term[- ]?limited\b/.test(n)) return true;
   return false;
 }
 
