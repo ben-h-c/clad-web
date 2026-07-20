@@ -186,10 +186,18 @@ const mailHref = `mailto:?subject=${enc(flat(title))}&body=${enc(caption)}`;
           const title = bar.getAttribute("data-title") || document.title;
           const hook = bar.getAttribute("data-hook") || "";
           const text = hook ? title + "\n\n" + hook : title;
-          const storySrc = bar.getAttribute("data-story-image");
+          let storySrc = bar.getAttribute("data-story-image");
           if (storySrc) {
             let sheetOpened = false;
             try {
+              // Match the reader's light/dark theme on the 9:16 scorecard.
+              try {
+                const theme =
+                  document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+                const u = new URL(storySrc, location.origin);
+                u.searchParams.set("theme", theme);
+                storySrc = u.pathname + u.search;
+              } catch (e) {}
               const resp = await fetch(storySrc, { signal: AbortSignal.timeout(3000) });
               if (resp.ok) {
                 const file = new File([await resp.blob()], "cladfacts-story.png", { type: "image/png" });
