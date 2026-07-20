@@ -2,6 +2,7 @@
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import AdminNav from "~/components/AdminNav.astro";
+import ShareBar from "~/components/ShareBar.astro";
 import { CAMPAIGN_FEATURES, getCampaigns } from "~/lib/campaign";
 import { shortDate } from "~/lib/dateline";
 
@@ -9,6 +10,7 @@ export const prerender = false;
 
 const campaigns = await getCampaigns(env.AGENTS);
 const featuresJson = JSON.stringify(CAMPAIGN_FEATURES);
+const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
 ---
 <BaseLayout title="Clad — Campaign Studio" noindex={true}>
   <section class="admin admin--wide camp">
@@ -146,6 +148,24 @@ const featuresJson = JSON.stringify(CAMPAIGN_FEATURES);
             <p class="dateline" id="camp-preview-hint">Save to render the broadsheet card preview.</p>
             <img id="camp-card" class="camp-card-img" alt="Campaign share card preview" hidden />
           </div>
+
+          {/* Same share targets as posts / ballot / app — shown once campaign is saved */}
+          <div id="camp-share-wrap" class="camp-share-wrap" hidden>
+            <h3 class="camp-section-title small-caps">Share this campaign</h3>
+            <p class="dateline camp-share-lede">
+              Same options as on CladFacts: system Share (with the card image when the device allows it),
+              Text, X, Bluesky, Threads, Reddit, Email, Copy link.
+              X / Bluesky / Threads use your edited platform copy when available.
+            </p>
+            <ShareBar
+              id="camp-sharebar"
+              class="camp-sharebar"
+              url={`${siteOrigin}/`}
+              title="CladFacts"
+              hook="Graded TV-news report cards."
+            />
+          </div>
+
           <div class="camp-phase-actions">
             <button type="button" id="camp-illustration" class="secondary" title="Phase 2">
               Generate illustration (Phase 2)
@@ -183,9 +203,10 @@ const featuresJson = JSON.stringify(CAMPAIGN_FEATURES);
     </section>
   </section>
 
-  <script is:inline define:vars={{ featuresJson, savedCampaigns: campaigns }}>
+  <script is:inline define:vars={{ featuresJson, savedCampaigns: campaigns, siteOrigin }}>
     (() => {
       const FEATURES = typeof featuresJson === "string" ? JSON.parse(featuresJson) : featuresJson;
+      const ORIGIN = siteOrigin || "https://cladfacts.com";
       const PLATFORM_LIMITS = { x: 280, bluesky: 300, threads: 500, linkedin: 1300, instagram: 2200 };
       const PLATFORM_LABEL = {
         x: "X",
@@ -309,11 +330,102 @@ const featuresJson = JSON.stringify(CAMPAIGN_FEATURES);
         if (!id || !updatedAt) {
           img.hidden = true;
           hint.hidden = false;
+          hideShareBar();
           return;
         }
         img.src = "/og/campaign/" + encodeURIComponent(id) + ".png?v=" + encodeURIComponent(updatedAt);
         img.hidden = false;
         hint.hidden = true;
+        refreshShareBar();
+      }
+
+      function absoluteCtaUrl(path) {
+        let p = String(path || "/").trim() || "/";
+        if (!p.startsWith("/")) p = "/" + p;
+        if (p.startsWith("//") || p.includes("://")) p = "/";
+        if (p.startsWith("/api/") || p.startsWith("/admin")) p = "/";
+        return ORIGIN.replace(/\/$/, "") + p;
+      }
+
+      function postTextFor(platform) {
+        const el = document.querySelector('.camp-post[data-platform="' + platform + '"] textarea.camp-post-text');
+        return el ? el.value.trim() : "";
+      }
+
+      function hideShareBar() {
+        const wrap = document.getElementById("camp-share-wrap");
+        if (wrap) wrap.hidden = true;
+      }
+
+      /** Wire the same ShareBar as the app/site once the campaign is saved. */
+      function refreshShareBar() {
+        const wrap = document.getElementById("camp-share-wrap");
+        const bar = document.getElementById("camp-sharebar");
+        if (!wrap || !bar || !currentId || !currentUpdatedAt) {
+          hideShareBar();
+          return;
+        }
+
+        const headline =
+          (document.getElementById("card-headline") && document.getElementById("card-headline").value.trim()) ||
+          "CladFacts";
+        const subhead =
+          (document.getElementById("card-subhead") && document.getElementById("card-subhead").value.trim()) || "";
+        const stat =
+          (document.getElementById("card-stat") && document.getElementById("card-stat").value.trim()) || "";
+        const ctaPath =
+          (document.getElementById("card-cta-url") && document.getElementById("card-cta-url").value.trim()) ||
+          (document.getElementById("camp-cta") && document.getElementById("camp-cta").value.trim()) ||
+          "/";
+        const url = absoluteCtaUrl(ctaPath);
+        const hook = [subhead, stat].filter(Boolean).join("\n") || "Graded TV-news report cards.";
+        const cardImg =
+          ORIGIN.replace(/\/$/, "") +
+          "/og/campaign/" +
+          encodeURIComponent(currentId) +
+          ".png?v=" +
+          encodeURIComponent(currentUpdatedAt);
+
+        // Card fields drive the universal bar (Text / Email / Reddit / Copy / native).
+        // Platform posts override X / Bluesky / Threads intents below.
+        const xText = postTextFor("x");
+        const bskyText = postTextFor("bluesky");
+        const threadsText = postTextFor("threads");
+        const nativeHook =
+          xText || bskyText || threadsText || hook;
+
+        bar.setAttribute("data-url", url);
+        bar.setAttribute("data-title", headline);
+        bar.setAttribute("data-hook", nativeHook);
+        bar.setAttribute("data-story-image", cardImg);
+        wrap.hidden = false;
+
+        if (typeof window.cladRefreshShareBars === "function") {
+          window.cladRefreshShareBars(bar);
+        }
+
+        // Prefer owner-edited platform copy for compose intents (when present).
+        const enc = encodeURIComponent;
+        const ensureUrl = (text) =>
+          text.includes("cladfacts.com") || text.includes(url) ? text : text + "\n\n" + url;
+        const xEl = bar.querySelector('[data-share="x"]');
+        const bskyEl = bar.querySelector('[data-share="bluesky"]');
+        const threadsEl = bar.querySelector('[data-share="threads"]');
+        if (xEl && xText) {
+          xEl.setAttribute("href", "https://twitter.com/intent/tweet?text=" + enc(ensureUrl(xText)));
+        }
+        if (bskyEl && bskyText) {
+          bskyEl.setAttribute(
+            "href",
+            "https://bsky.app/intent/compose?text=" + enc(ensureUrl(bskyText))
+          );
+        }
+        if (threadsEl && threadsText) {
+          threadsEl.setAttribute(
+            "href",
+            "https://www.threads.net/intent/post?text=" + enc(ensureUrl(threadsText))
+          );
+        }
       }
 
       function renderCitations(list) {
@@ -424,12 +536,27 @@ const featuresJson = JSON.stringify(CAMPAIGN_FEATURES);
           currentId = data.id;
           currentUpdatedAt = data.updatedAt;
           setCardPreview(data.id, data.updatedAt);
-          setStatus("Saved. Share card refreshed.");
-          // Soft-reload history would need a full page refresh; keep it simple
+          setStatus("Saved. Share card and share bar ready.");
         } catch (err) {
           setStatus(String(err.message || err), true);
         } finally {
           btn.disabled = false;
+        }
+      });
+
+      // Re-wire share targets when owner edits card fields or platform posts
+      document.getElementById("camp-results").addEventListener("input", (e) => {
+        if (!currentId) return;
+        const t = e.target;
+        if (
+          t &&
+          (t.id === "card-headline" ||
+            t.id === "card-subhead" ||
+            t.id === "card-stat" ||
+            t.id === "card-cta-url" ||
+            t.classList.contains("camp-post-text"))
+        ) {
+          refreshShareBar();
         }
       });
 
@@ -651,6 +778,22 @@ const featuresJson = JSON.stringify(CAMPAIGN_FEATURES);
       height: auto;
       display: block;
       max-width: 100%;
+    }
+    .camp-share-wrap {
+      margin: 1rem 0 0.75rem;
+      padding: 0.85rem 0.9rem;
+      border: 1px solid var(--rule, #cfc3ad);
+      background: color-mix(in srgb, var(--ink, #1a140d) 3%, transparent);
+    }
+    .camp-share-wrap[hidden] {
+      display: none !important;
+    }
+    .camp-share-lede {
+      margin: 0 0 0.65rem;
+    }
+    .camp-sharebar.sharebar {
+      margin: 0;
+      flex-wrap: wrap;
     }
     .camp-phase-actions {
       display: flex;
