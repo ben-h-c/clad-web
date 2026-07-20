@@ -2,8 +2,14 @@ import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { ImageResponse } from "workers-og";
 import { DEFAULT_ELECTION_ID } from "~/lib/elections";
-import { ogCacheKey, OG_VERSIONS } from "~/lib/ogCard";
+import {
+  loadImageDataUri,
+  ogCacheKey,
+  OG_VERSIONS,
+  portraitStripMarkup,
+} from "~/lib/ogCard";
 import { getCommunityVotes, type CommunityRaceTally } from "~/lib/picks";
+import { isCommonsMediaUrl, photoForSlug } from "~/lib/politicianPhotos";
 import { RACE_MATCHUPS } from "~/lib/races";
 
 export const prerender = false;
@@ -84,46 +90,60 @@ function markup(opts: {
   rLeads: number;
   ties: number;
   closest: CommunityRaceTally;
+  portraits: string[];
 }): string {
-  const { lockedBallots, dLeads, rLeads, ties, closest } = opts;
+  const { lockedBallots, dLeads, rLeads, ties, closest, portraits } = opts;
   const subline = `${dLeads} races lean D · ${rLeads} lean R${ties ? ` · ${ties} tied` : ""}`;
   const aWeight = closest.leader === "a" ? 700 : 400;
   const bWeight = closest.leader === "b" ? 700 : 400;
-  // Clamp so a 90/10 blowout still shows both segments (purely graphical —
-  // no text inside the bar; extreme splits clip text in satori).
   const aWidth = clamp(closest.aPct, 6, 94);
-  // Segment colors keyed by each SIDE'S PARTY, never by side letter — side
-  // "a" is not always the Democrat (Maine: a = Collins, R). A party-miscolored
-  // bar on a fact-checking site is a screenshot waiting to happen.
   const partyFill = (party: string | null) =>
     party === "D" ? SOLID_D : party === "R" ? SOLID_R : MUTED;
   const aFill = partyFill(closest.aParty);
   const bFill = partyFill(closest.bParty);
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:48px 64px;border:16px solid ${INK}">
+  const faces = portraits.length
+    ? `<div style="display:flex;margin-top:16px">${portraitStripMarkup(portraits, { size: 96, gap: 10 })}</div>`
+    : "";
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:40px 56px;border:16px solid ${INK}">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
-      <div style="display:flex;font-size:32px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
-      <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED};font-weight:700">MIDTERMS 2026</div>
+      <div style="display:flex;font-size:28px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
+      <div style="display:flex;font-size:18px;letter-spacing:3px;color:${MUTED};font-weight:700">MIDTERMS 2026</div>
     </div>
-    <div style="display:flex;width:100%;height:4px;background:${INK};margin:20px 0 24px"></div>
-    <div style="display:flex;font-size:22px;letter-spacing:4px;color:${RED};font-weight:700">THE COMMUNITY HAS VOTED</div>
-    <div style="display:flex;font-size:64px;font-weight:700;line-height:1.05;margin-top:10px">${esc(lockedBallots.toLocaleString("en-US"))} ballots locked</div>
-    <div style="display:flex;font-size:28px;margin-top:14px;line-height:1.3">${esc(subline)}</div>
-    <div style="display:flex;flex-direction:column;margin-top:28px;width:100%">
-      <div style="display:flex;font-size:22px;letter-spacing:3px;color:${MUTED};font-weight:700">CLOSEST RACE · ${esc(closest.office.toUpperCase())}</div>
-      <div style="display:flex;justify-content:space-between;align-items:flex-end;width:1020px;margin-top:14px">
-        <div style="display:flex;font-size:30px;line-height:1;font-weight:${aWeight}">${esc(closest.aName)} ${closest.aPct}%</div>
-        <div style="display:flex;font-size:30px;line-height:1;font-weight:${bWeight}">${esc(closest.bName)} ${closest.bPct}%</div>
+    <div style="display:flex;width:100%;height:4px;background:${INK};margin:14px 0 18px"></div>
+    <div style="display:flex;font-size:20px;letter-spacing:4px;color:${RED};font-weight:700">THE COMMUNITY HAS VOTED</div>
+    <div style="display:flex;font-size:52px;font-weight:700;line-height:1.05;margin-top:8px">${esc(lockedBallots.toLocaleString("en-US"))} ballots locked</div>
+    <div style="display:flex;font-size:24px;margin-top:10px;line-height:1.3">${esc(subline)}</div>
+    ${faces}
+    <div style="display:flex;flex-direction:column;margin-top:18px;width:100%">
+      <div style="display:flex;font-size:18px;letter-spacing:3px;color:${MUTED};font-weight:700">CLOSEST RACE · ${esc(closest.office.toUpperCase())}</div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;width:1020px;margin-top:10px">
+        <div style="display:flex;font-size:26px;line-height:1;font-weight:${aWeight}">${esc(closest.aName)} ${closest.aPct}%</div>
+        <div style="display:flex;font-size:26px;line-height:1;font-weight:${bWeight}">${esc(closest.bName)} ${closest.bPct}%</div>
       </div>
-      <div style="display:flex;width:1020px;height:44px;border:3px solid ${INK};margin-top:10px">
+      <div style="display:flex;width:1020px;height:40px;border:3px solid ${INK};margin-top:8px">
         <div style="display:flex;width:${aWidth}%;background:${aFill}"></div>
         <div style="display:flex;flex:1;background:${bFill}"></div>
       </div>
     </div>
     <div style="display:flex;margin-top:auto;justify-content:space-between;align-items:flex-end;width:100%">
-      <div style="display:flex;border:3px solid ${RED};color:${RED};padding:12px 24px;font-size:22px;letter-spacing:2px;font-weight:700">FILL YOUR BALLOT</div>
-      <div style="display:flex;font-size:22px;color:${MUTED};letter-spacing:2px">cladfacts.com/bracket/votes</div>
+      <div style="display:flex;border:3px solid ${RED};color:${RED};padding:10px 22px;font-size:20px;letter-spacing:2px;font-weight:700">FILL YOUR BALLOT</div>
+      <div style="display:flex;font-size:20px;color:${MUTED};letter-spacing:2px">cladfacts.com/bracket/votes</div>
     </div>
   </div>`;
+}
+
+async function portraitsForRace(raceId: string, origin: string): Promise<string[]> {
+  const def = RACE_MATCHUPS.find((r) => r.id === raceId);
+  if (!def) return [];
+  const uris: string[] = [];
+  for (const side of [def.a, def.b]) {
+    if (!side.slug || side.slug.includes("field")) continue;
+    const url = photoForSlug(side.slug);
+    if (!url || !isCommonsMediaUrl(url)) continue;
+    const uri = await loadImageDataUri(url, origin, { kind: "commons" });
+    if (uri) uris.push(uri);
+  }
+  return uris;
 }
 
 /**
@@ -193,10 +213,18 @@ export const GET: APIRoute = async ({ request, locals }) => {
     const closest = contested[0] ?? null;
 
     // Small ballot counts fail the proud-to-post test — ship the CTA card.
-    const html =
-      !summary || lockedBallots < 10 || !closest
-        ? genericMarkup()
-        : markup({ lockedBallots, ...partisanLeads(summary.races), closest });
+    let html: string;
+    if (!summary || lockedBallots < 10 || !closest) {
+      html = genericMarkup();
+    } else {
+      const portraits = await portraitsForRace(closest.raceId, url.origin);
+      html = markup({
+        lockedBallots,
+        ...partisanLeads(summary.races),
+        closest,
+        portraits,
+      });
+    }
 
     const fonts = await loadFonts(url.origin);
     const img = new ImageResponse(html, {

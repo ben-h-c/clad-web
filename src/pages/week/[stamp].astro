@@ -7,6 +7,7 @@ import PaywallPanel from "~/components/PaywallPanel.astro";
 import ShareBar from "~/components/ShareBar.astro";
 import { getAccess } from "~/lib/access";
 import { getShareTags } from "~/lib/agents";
+import { OG_VERSIONS } from "~/lib/ogCard";
 import { canonicalTopic, gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
 import { LEAN_THRESHOLD, labelWeek, weekStartUTC } from "~/lib/trends";
 
@@ -101,7 +102,7 @@ const shareUrl = new URL(`/week/${iso(start)}/`, Astro.site ?? "https://cladfact
   title={`The Week in Grades — ${label}, ${year} — CladFacts`}
   description={`Clad's week in review for ${label}, ${year}: the best- and worst-graded news coverage, the week's most disputed claims, and where coverage skewed to one side.`}
   ogTitle={`The Week in Grades — ${label}, ${year}`}
-  ogImage={`/og/week/${iso(start)}.png`}
+  ogImage={`/og/week/${iso(start)}.png?v=${OG_VERSIONS.week}`}
 >
   <section class="topic-page week">
     <p class="small-caps" style="color:var(--muted-ink)">The Record · weekly wrap-up</p>

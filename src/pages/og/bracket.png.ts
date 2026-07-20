@@ -4,13 +4,20 @@ import { getCollection } from "astro:content";
 import { ImageResponse } from "workers-og";
 import { buildRaceBoard } from "~/lib/bracket";
 import { DEFAULT_ELECTION_ID } from "~/lib/elections";
-import { ogCacheKey, OG_VERSIONS } from "~/lib/ogCard";
+import {
+  loadImageDataUri,
+  ogCacheKey,
+  OG_VERSIONS,
+  portraitStripMarkup,
+} from "~/lib/ogCard";
 import { getCommunityVotes } from "~/lib/picks";
+import { photoForSlug, isCommonsMediaUrl } from "~/lib/politicianPhotos";
 import { RACE_MATCHUPS } from "~/lib/races";
 
 export const prerender = false;
 
 // Public race-board share card — offices + heat only (no gated leaders).
+// v3: Commons portraits of hot-race candidates for social thumbnails.
 
 const PAPER = "#F5EDD9";
 const INK = "#1A140D";
@@ -62,29 +69,32 @@ function raceLines(board: ReturnType<typeof buildRaceBoard>): string[] {
   return merged.slice(0, 6);
 }
 
-function markup(lines: string[], n: number, lockedBallots = 0): string {
+function markup(lines: string[], n: number, lockedBallots = 0, portraits: string[] = []): string {
   const body =
     lines.length > 0
       ? lines.map((l) => esc(l)).join("  ·  ")
       : "Class II Senate · midterm governors · your picks, not polls";
-  // Social proof once the community tally is meaningful; format ad otherwise.
   const subhead =
     lockedBallots > 25
       ? `${n} races · ${lockedBallots.toLocaleString("en-US")} ballots locked · share your sheet`
       : `${n} races · Senate + governors · share your sheet`;
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:48px 64px;border:16px solid ${INK}">
+  const faces = portraits.length
+    ? `<div style="display:flex;margin-top:20px">${portraitStripMarkup(portraits, { size: 108, gap: 12 })}</div>`
+    : "";
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:44px 56px;border:16px solid ${INK}">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
-      <div style="display:flex;font-size:32px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
-      <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED};font-weight:700">MIDTERMS 2026</div>
+      <div style="display:flex;font-size:30px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
+      <div style="display:flex;font-size:18px;letter-spacing:3px;color:${MUTED};font-weight:700">MIDTERMS 2026</div>
     </div>
-    <div style="display:flex;width:100%;height:4px;background:${INK};margin:20px 0 24px"></div>
-    <div style="display:flex;font-size:22px;letter-spacing:4px;color:${RED};font-weight:700">WHO WINS THE SENATE?</div>
-    <div style="display:flex;font-size:56px;font-weight:700;line-height:1.05;margin-top:10px">Make your picks. Lock them in.</div>
-    <div style="display:flex;font-size:30px;margin-top:18px;line-height:1.3;font-weight:700">${esc(subhead)}</div>
-    <div style="display:flex;font-size:24px;color:${MUTED};margin-top:16px;line-height:1.4;max-width:1020px">${body}</div>
+    <div style="display:flex;width:100%;height:4px;background:${INK};margin:16px 0 20px"></div>
+    <div style="display:flex;font-size:20px;letter-spacing:4px;color:${RED};font-weight:700">WHO WINS THE SENATE?</div>
+    <div style="display:flex;font-size:50px;font-weight:700;line-height:1.05;margin-top:8px">Make your picks. Lock them in.</div>
+    <div style="display:flex;font-size:26px;margin-top:14px;line-height:1.3;font-weight:700">${esc(subhead)}</div>
+    ${faces}
+    <div style="display:flex;font-size:22px;color:${MUTED};margin-top:14px;line-height:1.4;max-width:1020px">${body}</div>
     <div style="display:flex;margin-top:auto;justify-content:space-between;align-items:flex-end;width:100%">
-      <div style="display:flex;border:3px solid ${RED};color:${RED};padding:12px 24px;font-size:22px;letter-spacing:2px;font-weight:700">FILL YOUR BALLOT</div>
-      <div style="display:flex;font-size:22px;color:${MUTED};letter-spacing:2px">cladfacts.com/bracket</div>
+      <div style="display:flex;border:3px solid ${RED};color:${RED};padding:12px 24px;font-size:20px;letter-spacing:2px;font-weight:700">FILL YOUR BALLOT</div>
+      <div style="display:flex;font-size:20px;color:${MUTED};letter-spacing:2px">cladfacts.com/bracket</div>
     </div>
   </div>`;
 }
@@ -94,8 +104,49 @@ function fallbackMarkup(): string {
     RACE_MATCHUPS.filter((r) => r.tier === "marquee")
       .slice(0, 5)
       .map((r) => r.office),
-    RACE_MATCHUPS.length
+    RACE_MATCHUPS.length,
+    0,
+    []
   );
+}
+
+async function loadRacePortraits(
+  board: ReturnType<typeof buildRaceBoard>,
+  origin: string
+): Promise<string[]> {
+  const slugs: string[] = [];
+  const ordered = [...board.cards].sort((a, b) => b.heat - a.heat);
+  for (const c of ordered) {
+    for (const side of [c.a, c.b]) {
+      const slug = side.slug;
+      if (!slug || slug.includes("field") || slugs.includes(slug)) continue;
+      if (!photoForSlug(slug)) continue;
+      slugs.push(slug);
+      if (slugs.length >= 5) break;
+    }
+    if (slugs.length >= 5) break;
+  }
+  // Marquee fallbacks when heat is sparse
+  if (slugs.length < 3) {
+    for (const r of RACE_MATCHUPS.filter((x) => x.tier === "marquee")) {
+      for (const side of [r.a, r.b]) {
+        if (!side.slug || side.slug.includes("field") || slugs.includes(side.slug)) continue;
+        if (!photoForSlug(side.slug)) continue;
+        slugs.push(side.slug);
+        if (slugs.length >= 5) break;
+      }
+      if (slugs.length >= 5) break;
+    }
+  }
+  const uris: string[] = [];
+  for (const slug of slugs) {
+    const url = photoForSlug(slug);
+    if (!url || !isCommonsMediaUrl(url)) continue;
+    const uri = await loadImageDataUri(url, origin, { kind: "commons" });
+    if (uri) uris.push(uri);
+    if (uris.length >= 5) break;
+  }
+  return uris;
 }
 
 function pngResponse(body: ReadableStream | ArrayBuffer | null, cacheSeconds = 3600): Response {
@@ -131,8 +182,9 @@ export const GET: APIRoute = async ({ request, locals }) => {
     // Anonymous aggregate only — social proof subhead once >25 ballots locked.
     const summary = await getCommunityVotes(DEFAULT_ELECTION_ID).catch(() => null);
     const lockedBallots = summary?.lockedBallots ?? 0;
+    const portraits = await loadRacePortraits(board, url.origin);
     const fonts = await loadFonts(url.origin);
-    const img = new ImageResponse(markup(lines, board.cards.length, lockedBallots), {
+    const img = new ImageResponse(markup(lines, board.cards.length, lockedBallots, portraits), {
       width: 1200,
       height: 630,
       fonts: fonts as any,

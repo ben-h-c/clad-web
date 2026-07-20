@@ -2,9 +2,11 @@ import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { ImageResponse } from "workers-og";
 import { getLearnPage, type LearnPage } from "~/lib/campus";
-import { OG_VERSIONS, ogCacheKey } from "~/lib/ogCard";
+import { loadAssetDataUri, OG_VERSIONS, ogCacheKey } from "~/lib/ogCard";
 
 export const prerender = false;
+
+// v3: owned product screenshot so learn unfurls aren't text-only.
 
 const PAPER = "#F5EDD9";
 const INK = "#1A140D";
@@ -30,30 +32,40 @@ function loadFonts(origin: string) {
 
 const esc = (s: unknown) => String(s ?? "").replace(/[<>&]/g, "");
 
-function markup(page: LearnPage, line: string): string {
+function markup(page: LearnPage, line: string, photo: string | null): string {
   const eyebrow = page.cardEyebrow ?? "FIELD GUIDE";
   const chips = (page.cardChips ?? [])
     .map(
       (c) =>
-        `<div style="display:flex;border:3px solid ${INK};padding:10px 18px;font-size:22px;letter-spacing:2px;font-weight:700">${esc(c)}</div>`
+        `<div style="display:flex;border:3px solid ${INK};padding:8px 14px;font-size:18px;letter-spacing:2px;font-weight:700">${esc(c)}</div>`
     )
     .join("");
   const chipRow = chips
-    ? `<div style="display:flex;flex-direction:row;flex-wrap:wrap;gap:14px;margin-top:30px;max-width:1040px">${chips}</div>`
+    ? `<div style="display:flex;flex-direction:row;flex-wrap:wrap;gap:10px;margin-top:18px;max-width:640px">${chips}</div>`
     : "";
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:48px 64px;border:16px solid ${INK}">
+  const photoBlock = photo
+    ? `<div style="display:flex;width:320px;height:460px;overflow:hidden;border:4px solid ${INK};background:${INK};flex-shrink:0;margin-left:28px">
+        <img src="${photo}" width="320" height="460" style="object-fit:cover;object-position:top center;width:320px;height:460px;" />
+      </div>`
+    : "";
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:40px 48px;border:16px solid ${INK}">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
-      <div style="display:flex;font-size:32px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
-      <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED};font-weight:700">LEARN · ${esc(page.kicker.toUpperCase())}</div>
+      <div style="display:flex;font-size:28px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
+      <div style="display:flex;font-size:18px;letter-spacing:3px;color:${MUTED};font-weight:700">LEARN · ${esc(page.kicker.toUpperCase())}</div>
     </div>
-    <div style="display:flex;width:100%;height:4px;background:${INK};margin:20px 0 26px"></div>
-    <div style="display:flex;font-size:22px;letter-spacing:4px;color:${RED};font-weight:700">${esc(eyebrow.toUpperCase())}</div>
-    <div style="display:flex;font-size:52px;font-weight:700;line-height:1.06;max-width:1040px;margin-top:12px">${esc(page.title)}</div>
-    <div style="display:flex;font-size:28px;color:${MUTED};margin-top:20px;line-height:1.35;max-width:1000px">${esc(line)}</div>
-    ${chipRow}
-    <div style="display:flex;margin-top:auto;justify-content:space-between;align-items:flex-end;width:100%">
-      <div style="display:flex;border:3px solid ${RED};color:${RED};padding:12px 24px;font-size:22px;letter-spacing:2px;font-weight:700">RECEIPTS, NOT VIBES</div>
-      <div style="display:flex;font-size:22px;color:${MUTED};letter-spacing:2px">cladfacts.com/learn</div>
+    <div style="display:flex;width:100%;height:4px;background:${INK};margin:14px 0 20px"></div>
+    <div style="display:flex;flex-direction:row;flex:1;min-height:0;width:100%">
+      <div style="display:flex;flex-direction:column;flex:1;min-width:0">
+        <div style="display:flex;font-size:18px;letter-spacing:4px;color:${RED};font-weight:700">${esc(eyebrow.toUpperCase())}</div>
+        <div style="display:flex;font-size:46px;font-weight:700;line-height:1.06;max-width:700px;margin-top:10px">${esc(page.title)}</div>
+        <div style="display:flex;font-size:24px;color:${MUTED};margin-top:16px;line-height:1.35;max-width:680px">${esc(line)}</div>
+        ${chipRow}
+        <div style="display:flex;margin-top:auto;justify-content:space-between;align-items:flex-end;width:100%">
+          <div style="display:flex;border:3px solid ${RED};color:${RED};padding:10px 20px;font-size:18px;letter-spacing:2px;font-weight:700">RECEIPTS, NOT VIBES</div>
+          <div style="display:flex;font-size:18px;color:${MUTED};letter-spacing:2px">cladfacts.com/learn</div>
+        </div>
+      </div>
+      ${photoBlock}
     </div>
   </div>`;
 }
@@ -63,16 +75,24 @@ export const GET: APIRoute = async ({ params, request, locals }) => {
   const page = getLearnPage(slug);
   if (!page) return new Response(null, { status: 404 });
 
+  const origin = new URL(request.url).origin;
   const cache = (caches as any).default as Cache;
-  // ogCacheKey drops the query string (?anything must not fan out satori
-  // renders) and folds the version into a synthetic path segment.
   const cacheKey = ogCacheKey(new URL(request.url), "learn", OG_VERSIONS.learn);
   const hit = await cache.match(cacheKey);
   if (hit) return hit;
 
-  const fonts = await loadFonts(new URL(request.url).origin);
+  // Site-owned tour screenshots (not third-party news photos).
+  const tour =
+    slug.includes("bias") || slug.includes("lean")
+      ? "/tour/3-bias.png"
+      : slug.includes("quiz") || slug.includes("vote")
+        ? "/tour/1-feed.png"
+        : "/tour/2-report.png";
+  const photo = await loadAssetDataUri(env.ASSETS, tour, origin);
+
+  const fonts = await loadFonts(origin);
   const line = page.description.length > 140 ? page.description.slice(0, 137) + "…" : page.description;
-  const img = new ImageResponse(markup(page, line), {
+  const img = new ImageResponse(markup(page, line, photo), {
     width: 1200,
     height: 630,
     fonts: fonts as any,

@@ -8,9 +8,11 @@ import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { ImageResponse } from "workers-og";
 import { getCampaign, type Campaign, type CampaignCard } from "~/lib/campaign";
-import { clip, ogCacheKey, OG_VERSIONS } from "~/lib/ogCard";
+import { clip, loadAssetDataUri, ogCacheKey, OG_VERSIONS } from "~/lib/ogCard";
 
 export const prerender = false;
+
+// v2: owned product screenshot so campaign unfurls aren't text-only.
 
 const PAPER = "#F5EDD9";
 const INK = "#1A140D";
@@ -54,39 +56,61 @@ function displayPath(path: string): string {
   return `cladfacts.com${clean}`;
 }
 
-function markup(card: CampaignCard): string {
+function markup(card: CampaignCard, photo: string | null): string {
   const kicker = esc(clip(card.kicker || "CLADFACTS", 40).toUpperCase());
-  const headline = esc(clip(card.headline || "CladFacts", 90));
-  const subhead = esc(clip(card.subhead || "Graded TV-news report cards.", 120));
+  const headline = esc(clip(card.headline || "CladFacts", photo ? 70 : 90));
+  const subhead = esc(clip(card.subhead || "Graded TV-news report cards.", photo ? 100 : 120));
   const stat = esc(clip(card.statLine || "Fact-checked. Sourced. Graded.", 80));
   const cta = esc(clip(card.ctaLabel || "Read at CladFacts", 28).toUpperCase());
   const url = esc(displayPath(card.ctaUrl || "/"));
+  const photoBlock = photo
+    ? `<div style="display:flex;width:300px;height:440px;overflow:hidden;border:4px solid ${INK};background:${INK};flex-shrink:0;margin-left:28px">
+        <img src="${photo}" width="300" height="440" style="object-fit:cover;object-position:top center;width:300px;height:440px;" />
+      </div>`
+    : "";
 
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:48px 64px;border:16px solid ${INK}">
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:40px 48px;border:16px solid ${INK}">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
-      <div style="display:flex;font-size:32px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
-      <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED};font-weight:700">${kicker}</div>
+      <div style="display:flex;font-size:28px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
+      <div style="display:flex;font-size:18px;letter-spacing:3px;color:${MUTED};font-weight:700">${kicker}</div>
     </div>
-    <div style="display:flex;width:100%;height:4px;background:${INK};margin:20px 0 28px"></div>
-    <div style="display:flex;font-size:56px;font-weight:700;line-height:1.08;max-width:1040px">${headline}</div>
-    <div style="display:flex;font-size:30px;margin-top:18px;line-height:1.3;font-weight:700;max-width:1000px">${subhead}</div>
-    <div style="display:flex;font-size:24px;color:${MUTED};margin-top:16px;line-height:1.4;max-width:1000px">${stat}</div>
-    <div style="display:flex;margin-top:auto;justify-content:space-between;align-items:flex-end;width:100%">
-      <div style="display:flex;border:3px solid ${RED};color:${RED};padding:12px 24px;font-size:22px;letter-spacing:2px;font-weight:700">${cta}</div>
-      <div style="display:flex;font-size:22px;color:${MUTED};letter-spacing:2px">${url}</div>
+    <div style="display:flex;width:100%;height:4px;background:${INK};margin:14px 0 20px"></div>
+    <div style="display:flex;flex-direction:row;flex:1;width:100%;min-height:0">
+      <div style="display:flex;flex-direction:column;flex:1;min-width:0">
+        <div style="display:flex;font-size:48px;font-weight:700;line-height:1.08;max-width:760px">${headline}</div>
+        <div style="display:flex;font-size:26px;margin-top:14px;line-height:1.3;font-weight:700;max-width:720px">${subhead}</div>
+        <div style="display:flex;font-size:22px;color:${MUTED};margin-top:12px;line-height:1.4;max-width:720px">${stat}</div>
+        <div style="display:flex;margin-top:auto;justify-content:space-between;align-items:flex-end;width:100%">
+          <div style="display:flex;border:3px solid ${RED};color:${RED};padding:10px 20px;font-size:18px;letter-spacing:2px;font-weight:700">${cta}</div>
+          <div style="display:flex;font-size:18px;color:${MUTED};letter-spacing:2px">${url}</div>
+        </div>
+      </div>
+      ${photoBlock}
     </div>
   </div>`;
 }
 
-function fallbackMarkup(): string {
-  return markup({
-    kicker: "CLADFACTS",
-    headline: "Grade the news. Share the record.",
-    subhead: "TV broadcasts, fact-checked and graded.",
-    statLine: "Sourced claims. Letter grades. No hype.",
-    ctaLabel: "Read at CladFacts",
-    ctaUrl: "/",
-  });
+function fallbackMarkup(photo: string | null): string {
+  return markup(
+    {
+      kicker: "CLADFACTS",
+      headline: "Grade the news. Share the record.",
+      subhead: "TV broadcasts, fact-checked and graded.",
+      statLine: "Sourced claims. Letter grades. No hype.",
+      ctaLabel: "Read at CladFacts",
+      ctaUrl: "/",
+    },
+    photo
+  );
+}
+
+function tourForCta(path: string): string {
+  if (path.includes("bracket") || path.includes("map") || path.includes("election")) {
+    return "/tour/1-feed.png";
+  }
+  if (path.includes("bias")) return "/tour/3-bias.png";
+  if (path.includes("quiz") || path.includes("students")) return "/tour/1-feed.png";
+  return "/tour/2-report.png";
 }
 
 function pngResponse(body: ReadableStream | ArrayBuffer | null, cacheSeconds = 3600): Response {
@@ -105,7 +129,12 @@ export async function renderCampaignCard(
   origin: string
 ): Promise<ArrayBuffer> {
   const fonts = await loadFonts(origin);
-  const img = new ImageResponse(markup(campaign.card), {
+  const photo = await loadAssetDataUri(
+    env.ASSETS,
+    tourForCta(campaign.card.ctaUrl || "/"),
+    origin
+  );
+  const img = new ImageResponse(markup(campaign.card, photo), {
     width: 1200,
     height: 630,
     fonts: fonts as any,
@@ -142,7 +171,12 @@ export const GET: APIRoute = async ({ request, params, locals }) => {
 
   try {
     const fonts = await loadFonts(url.origin);
-    const img = new ImageResponse(markup(campaign.card), {
+    const photo = await loadAssetDataUri(
+      env.ASSETS,
+      tourForCta(campaign.card.ctaUrl || "/"),
+      url.origin
+    );
+    const img = new ImageResponse(markup(campaign.card, photo), {
       width: 1200,
       height: 630,
       fonts: fonts as any,
@@ -156,7 +190,8 @@ export const GET: APIRoute = async ({ request, params, locals }) => {
     console.error("[og/campaign]", err);
     try {
       const fonts = await loadFonts(url.origin);
-      const img = new ImageResponse(fallbackMarkup(), {
+      const photo = await loadAssetDataUri(env.ASSETS, "/tour/2-report.png", url.origin);
+      const img = new ImageResponse(fallbackMarkup(photo), {
         width: 1200,
         height: 630,
         fonts: fonts as any,
