@@ -87,6 +87,7 @@ Today: ${new Date().toISOString().slice(0, 10)}`;
       "Content-Type": "application/json",
       Authorization: `Bearer ${xaiKey}`,
     },
+    signal: AbortSignal.timeout(90_000),
     body: JSON.stringify({
       model: MODEL,
       input: [

@@ -123,6 +123,7 @@ async function classifyBatch(xaiKey, batch) {
 
   const res = await fetch(XAI_RESPONSES, {
     method: "POST",
+    signal: AbortSignal.timeout(120_000),
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${xaiKey}` },
     body: JSON.stringify({
       model: MODEL,

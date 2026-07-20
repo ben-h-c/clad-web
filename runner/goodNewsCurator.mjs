@@ -111,6 +111,7 @@ async function verifySections(xaiKey, proposed, pool) {
 
   const r = await fetch(XAI_RESPONSES, {
     method: "POST",
+    signal: AbortSignal.timeout(120_000),
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${xaiKey}` },
     body: JSON.stringify({
       model: VERIFY_MODEL,
@@ -171,6 +172,7 @@ export async function runGoodNewsCurator(agent) {
   try {
     const r = await fetch(XAI_RESPONSES, {
       method: "POST",
+      signal: AbortSignal.timeout(120_000),
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${xaiKey}` },
       body: JSON.stringify({
         model: MODEL,
