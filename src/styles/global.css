@@ -4866,8 +4866,11 @@ button.small {
   position: sticky;
   top: 0;
   z-index: 5000;
-  background: var(--paper);
+  /* Solid bar so scrolled page title never bleeds through the sticky strip */
+  background-color: var(--paper);
+  background-image: none;
   overflow: visible;
+  isolation: isolate;
 }
 
 /*
@@ -4952,20 +4955,34 @@ html.admin-nav-open .admin-nav {
   z-index: 1;
 }
 .admin-nav__group[open] {
-  z-index: 3;
+  z-index: 5;
+}
+/*
+ * Dropdown sheets must fully obscure page chrome/title under them.
+ * Use solid --card (not paper washes / transparent gradients) so header
+ * text never shows through.
+ */
+.admin-nav__group-list,
+.admin-nav__compact-panel {
+  /* Opaque stock — blocks grain/glow and content underneath */
+  background-color: var(--card) !important;
+  background-image: none !important;
+  opacity: 1;
+  isolation: isolate;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 .admin-nav__group-list {
   position: absolute;
   top: calc(100% + 3px);
   left: 0;
-  z-index: 10000;
+  z-index: 10100;
   min-width: 11.5rem;
   margin: 0;
   padding: 0.25rem 0;
   list-style: none;
-  background: var(--paper);
   border: 1px solid var(--rule);
-  box-shadow: 3px 3px 0 var(--shadow);
+  box-shadow: 3px 3px 0 var(--shadow), 0 12px 28px color-mix(in srgb, var(--shadow) 55%, transparent);
   visibility: hidden;
 }
 .admin-nav__group[open] > .admin-nav__group-list {
@@ -4979,7 +4996,7 @@ html.admin-nav-open .admin-nav {
   display: block;
 }
 .admin-nav__compact[open] {
-  z-index: 3;
+  z-index: 5;
 }
 .admin-nav__compact > summary {
   background: var(--ink);
@@ -4988,7 +5005,7 @@ html.admin-nav-open .admin-nav {
 }
 .admin-nav__compact-panel {
   position: fixed;
-  z-index: 10000;
+  z-index: 10100;
   top: 0;
   left: 0;
   min-width: 16rem;
@@ -4997,14 +5014,20 @@ html.admin-nav-open .admin-nav {
   overflow-y: auto;
   margin: 0;
   padding: 0.4rem 0 0.55rem;
-  background: var(--paper);
   border: 1px solid var(--rule);
-  box-shadow: 3px 3px 0 var(--shadow);
+  box-shadow: 3px 3px 0 var(--shadow), 0 12px 28px color-mix(in srgb, var(--shadow) 55%, transparent);
   pointer-events: auto;
   visibility: hidden;
 }
 .admin-nav__compact[open] > .admin-nav__compact-panel {
   visibility: visible;
+}
+:root[data-theme="dark"] .admin-nav__group-list,
+:root[data-theme="dark"] .admin-nav__compact-panel,
+html.theme-dark .admin-nav__group-list,
+html.theme-dark .admin-nav__compact-panel {
+  background-color: var(--card) !important;
+  background-image: none !important;
 }
 .admin-nav__section {
   padding: 0.25rem 0 0.35rem;

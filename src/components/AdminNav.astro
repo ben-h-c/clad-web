@@ -126,12 +126,22 @@ function linkLabel(l: Link): string {
     const nav = document.querySelector(".admin-nav");
     if (!nav) return;
 
-    // --- Compact (mobile) menu: place panel under summary ---
     const compact = nav.querySelector(".admin-nav__compact");
     const compactPanel = nav.querySelector(".admin-nav__compact-panel");
     const compactSummary = compact && compact.querySelector("summary");
+    const groups = [...nav.querySelectorAll(".admin-nav__group")];
+
+    /** Lift nav above page header/title while any menu is open. */
+    const syncOpenClass = () => {
+      const anyGroup = groups.some((d) => d.open);
+      const compactOpen = !!(compact && compact.open);
+      document.documentElement.classList.toggle("admin-nav-open", anyGroup || compactOpen);
+    };
+
+    // --- Compact (mobile): fixed panel placed under the summary ---
+    let placeCompact = () => {};
     if (compact && compactPanel && compactSummary) {
-      const place = () => {
+      placeCompact = () => {
         if (!compact.open) return;
         const r = compactSummary.getBoundingClientRect();
         const gap = 4;
@@ -148,61 +158,69 @@ function linkLabel(l: Link): string {
         compactPanel.style.left = Math.max(8, Math.min(r.left, window.innerWidth - 16 - 260)) + "px";
         compactPanel.style.minWidth = Math.max(r.width, 16 * 16) + "px";
       };
-      const sync = () => {
-        document.documentElement.classList.toggle("admin-nav-open", !!compact.open);
+      compact.addEventListener("toggle", () => {
         if (compact.open) {
+          groups.forEach((d) => {
+            d.open = false;
+          });
           requestAnimationFrame(() => {
-            place();
-            requestAnimationFrame(place);
+            placeCompact();
+            requestAnimationFrame(placeCompact);
           });
         }
-      };
-      compact.addEventListener("toggle", sync);
+        syncOpenClass();
+      });
       window.addEventListener("resize", () => {
-        if (compact.open) place();
+        if (compact.open) placeCompact();
       });
       window.addEventListener(
         "scroll",
         () => {
-          if (compact.open) place();
+          if (compact.open) placeCompact();
         },
         true
       );
-      document.addEventListener("click", (e) => {
-        if (compact.open && !compact.contains(e.target) && !compactPanel.contains(e.target)) {
-          compact.open = false;
-          sync();
-        }
-      });
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && compact.open) {
-          compact.open = false;
-          sync();
-        }
-      });
     }
 
-    // --- Desktop groups: only one open at a time; click-away closes ---
-    const groups = [...nav.querySelectorAll(".admin-nav__group")];
+    // --- Desktop groups: one open at a time ---
     groups.forEach((d) => {
       d.addEventListener("toggle", () => {
-        if (!d.open) return;
-        groups.forEach((o) => {
-          if (o !== d) o.open = false;
-        });
+        if (d.open) {
+          groups.forEach((o) => {
+            if (o !== d) o.open = false;
+          });
+          if (compact) compact.open = false;
+        }
+        syncOpenClass();
       });
     });
+
     document.addEventListener("click", (e) => {
-      if (!(e.target instanceof Node) || nav.contains(e.target)) return;
-      groups.forEach((d) => {
-        d.open = false;
-      });
+      if (!(e.target instanceof Node)) return;
+      // Close compact when clicking outside it
+      if (
+        compact &&
+        compact.open &&
+        !compact.contains(e.target) &&
+        !(compactPanel && compactPanel.contains(e.target))
+      ) {
+        compact.open = false;
+      }
+      // Close desktop groups when clicking outside the nav
+      if (!nav.contains(e.target)) {
+        groups.forEach((d) => {
+          d.open = false;
+        });
+      }
+      syncOpenClass();
     });
     document.addEventListener("keydown", (e) => {
       if (e.key !== "Escape") return;
+      if (compact) compact.open = false;
       groups.forEach((d) => {
         d.open = false;
       });
+      syncOpenClass();
     });
   })();
 </script>
