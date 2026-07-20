@@ -166,14 +166,6 @@ const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
             />
           </div>
 
-          <div class="camp-phase-actions">
-            <button type="button" id="camp-illustration" class="secondary" title="Phase 2">
-              Generate illustration (Phase 2)
-            </button>
-            <button type="button" id="camp-bluesky" class="secondary" title="Phase 3">
-              Post to Bluesky (Phase 3)
-            </button>
-          </div>
           <div id="camp-citations" class="camp-citations" hidden></div>
         </div>
       </div>
@@ -560,51 +552,6 @@ const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
         }
       });
 
-      document.getElementById("camp-illustration").addEventListener("click", async () => {
-        if (!currentId) {
-          setStatus("Save the campaign first.", true);
-          return;
-        }
-        setStatus("Phase 2: illustration…");
-        try {
-          const res = await fetch("/api/admin/campaign", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ action: "illustration", id: currentId }),
-          });
-          const data = await res.json();
-          if (!res.ok) throw new Error(data.error || "Illustration failed");
-          setStatus("Illustration ready.");
-        } catch (err) {
-          setStatus(String(err.message || err) + " — Phase 2 not enabled yet.", true);
-        }
-      });
-
-      document.getElementById("camp-bluesky").addEventListener("click", async () => {
-        if (!currentId) {
-          setStatus("Save the campaign first.", true);
-          return;
-        }
-        if (!confirm("Post this to the CladFacts Bluesky account?")) return;
-        setStatus("Phase 3: posting to Bluesky…");
-        try {
-          const res = await fetch("/api/admin/campaign", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ action: "post-bluesky", id: currentId }),
-          });
-          const data = await res.json();
-          if (!res.ok) throw new Error(data.error || "Bluesky post failed");
-          setStatus("Posted to Bluesky.");
-        } catch (err) {
-          setStatus(
-            String(err.message || err) +
-              " — copy paste-ready Bluesky text above and post manually.",
-            true
-          );
-        }
-      });
-
       document.querySelectorAll("[data-load]").forEach((btn) => {
         btn.addEventListener("click", () => {
           const id = btn.getAttribute("data-load");
@@ -707,7 +654,6 @@ const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
     }
     .camp-toolbar button,
     .camp-post__head button,
-    .camp-phase-actions button,
     .camp-history__del {
       font: inherit;
       font-size: 0.85rem;
@@ -721,7 +667,6 @@ const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
     }
     .camp-toolbar button.secondary,
     .camp-post__head button.secondary,
-    .camp-phase-actions button.secondary,
     .camp-history__del {
       background: transparent;
       color: var(--ink, #1a140d);
@@ -794,12 +739,6 @@ const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
     .camp-sharebar.sharebar {
       margin: 0;
       flex-wrap: wrap;
-    }
-    .camp-phase-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin: 0.75rem 0;
     }
     .camp-citations ul {
       margin: 0.35rem 0 0;
