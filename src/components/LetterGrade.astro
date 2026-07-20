@@ -5,11 +5,13 @@ interface Props {
 }
 const { grade, size = "badge" } = Astro.props;
 
-// Tier from the first letter: A/B = ink, C = muted, D/F = red.
+// Soft pastel tiers: A = sage, B = amber, C = mid, D/F = rose.
 const tier = grade.charAt(0).toUpperCase();
 const tierClass =
-  tier === "A" || tier === "B"
+  tier === "A"
     ? "grade--good"
+    : tier === "B"
+    ? "grade--b"
     : tier === "C"
     ? "grade--mid"
     : "grade--bad";

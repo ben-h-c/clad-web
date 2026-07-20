@@ -93,7 +93,7 @@ const cardClass = [
       )}
       {peek && showLocked && (
         <div class="report-card__peek-row report-card__peek-row--locked" aria-hidden="true">
-          <span class="report-card__peek-lock">🔒</span>
+          <span class="report-card__peek-lock grade-lock">Unlock free</span>
         </div>
       )}
       {peek && !showLocked && !isBroadcast && d.verdict && (
@@ -105,8 +105,10 @@ const cardClass = [
       {/* Full scoreband / verdict — expanded detail (or always when not peek). */}
       <div class="report-card__detail">
         {showLocked ? (
-          <div class="scoreband scoreband--locked" aria-hidden="true">
-            <span class="grade-lock">🔒 Grade &amp; lean — free with account</span>
+          <div class="scoreband scoreband--locked">
+            <span class="grade-lock">
+              Grade &amp; lean — <a href="/register/">Unlock free</a>
+            </span>
           </div>
         ) : isBroadcast && d.letterGrade ? (
           <div class="scoreband">

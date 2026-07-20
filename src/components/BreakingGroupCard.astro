@@ -76,14 +76,14 @@ const cardClass = [
       )}
       {peek && locked && (
         <div class="report-card__peek-row report-card__peek-row--locked" aria-hidden="true">
-          <span class="report-card__peek-lock">🔒</span>
+          <span class="report-card__peek-lock grade-lock">Unlock free</span>
         </div>
       )}
 
       <div class="report-card__detail">
         {locked ? (
           <div class="scoreband scoreband--locked" aria-hidden="true">
-            <span class="grade-lock">🔒 Grade &amp; lean — free with account</span>
+            <span class="grade-lock">Grade &amp; lean — Unlock free</span>
           </div>
         ) : avgGrade ? (
           <div class="scoreband">

@@ -1,125 +1,131 @@
 /*
- * Newspaper theme, ported from Clad/UI/NewspaperTheme.swift.
- * 1920s broadsheet: aged cream paper (uneven browning, soft folds, fiber grain),
- * near-black ink, dense serif type, heavy ruled borders. Restrained — fact-checker,
- * not tabloid. Light mode carries the worn newsprint character; dark is a night desk.
+ * Soft Neutral Card system (2026 redesign).
+ * Warm parchment page, white elevated cards, soft teal accent, pastel grades.
+ * Rollback: git checkout pre-soft-redesign  (tag on clad-web + cladfacts-ios).
+ * Runtime default remains dark unless the reader chose light (BaseLayout FOUC).
  */
 
 :root {
-  /* Base tokens are light-paper; dark overrides below. Runtime default is dark
-     (BaseLayout FOUC script) unless the user chose light via toggle/account. */
   color-scheme: light;
-  /* Aged newsprint — warm cream with a touch of brown (not flat beige) */
-  --paper: rgb(236, 224, 196);
-  --paper-deep: rgb(222, 204, 168);
-  --desk: rgb(58, 48, 38);
-  --desk-edge: rgb(42, 34, 26);
-  --ink: rgb(26, 20, 13);
-  --muted-ink: rgb(96, 80, 63);
-  --rule: rgb(22, 17, 12);
-  --red-ink: rgb(148, 26, 26);
-  --accent: rgb(150, 30, 20);
-  --accent-soft: rgba(150, 30, 20, 0.05);
-  --tint-1: rgba(10, 8, 5, 0.03);
-  --tint-2: rgba(10, 8, 5, 0.06);
-  --tint-3: rgba(10, 8, 5, 0.12);
-  --shadow: rgba(20, 12, 6, 0.28);
-  /* Elevation drop-shadow layers (generic only — keep letterpress/ring/glow intact) */
-  --shadow-sm: 0 6px 16px color-mix(in srgb, var(--shadow) 32%, transparent);
-  --shadow-md: 0 12px 26px color-mix(in srgb, var(--shadow) 42%, transparent);
-  --shadow-lg: 0 20px 48px color-mix(in srgb, var(--shadow) 55%, transparent);
-  /* Canonical focus ring (accent themes correctly in both modes) */
+  /* Soft parchment page */
+  --paper: #f7f5f0;
+  --paper-deep: #f0ede6;
+  --desk: #ebe8e1;
+  --desk-edge: #e4e0d8;
+  --ink: #1c1c1e;
+  --muted-ink: #6b6b6b;
+  --rule: color-mix(in srgb, #1c1c1e 12%, transparent);
+  --red-ink: #c45c52;
+  --accent: #5b9a8b;
+  --accent-soft: rgba(91, 154, 139, 0.12);
+  --tint-1: rgba(28, 28, 30, 0.03);
+  --tint-2: rgba(28, 28, 30, 0.06);
+  --tint-3: rgba(28, 28, 30, 0.1);
+  --shadow: rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.04), 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
   --focus-outline: 2px solid var(--accent);
-  /* Motion */
   --ease-out: cubic-bezier(0.2, 0.9, 0.25, 1);
   --dur-card: 0.18s;
-  /* Radii — stock cards, controls, chips */
-  --radius-stock: 2px 4px 3px 2px;
-  --radius-control: 3px;
-  --radius-chip: 2px;
-  /* Disabled solid fills */
+  /* Soft rounded cards / controls */
+  --radius-stock: 18px;
+  --radius-control: 12px;
+  --radius-chip: 999px;
   --disabled-opacity: 0.55;
-  /* Stronger newsprint grain + edge wear (still no mix-blend for scroll cost) */
-  --grain-opacity: 0.12;
-  --wear-opacity: 0.18;
-  /* Soft amber used in uneven foxing / age stains — a bit more present */
-  --fox: rgba(132, 88, 42, 0.12);
-  --fox-deep: rgba(98, 62, 28, 0.14);
-  /* Uneven ink rule for worn card edges (fade varies by side) */
-  --rule-faded: color-mix(in srgb, var(--rule) 38%, transparent);
-  --rule-faded-soft: color-mix(in srgb, var(--rule) 22%, transparent);
-  --rule-faded-deep: color-mix(in srgb, var(--rule) 52%, transparent);
+  /* Nearly invisible grain — keep vars for legacy selectors */
+  --grain-opacity: 0.02;
+  --wear-opacity: 0.04;
+  --fox: rgba(91, 154, 139, 0.04);
+  --fox-deep: rgba(28, 28, 30, 0.04);
+  --rule-faded: color-mix(in srgb, var(--ink) 10%, transparent);
+  --rule-faded-soft: color-mix(in srgb, var(--ink) 6%, transparent);
+  --rule-faded-deep: color-mix(in srgb, var(--ink) 14%, transparent);
 
-  /* Letter grades — muted editorial inks on paper wash (not traffic-light blocks) */
-  --grade-good-ink: rgb(48, 86, 64);
-  --grade-good-wash: color-mix(in srgb, rgb(70, 112, 84) 15%, var(--paper));
-  --grade-good-rule: color-mix(in srgb, rgb(48, 86, 64) 42%, var(--rule));
-  --grade-mid-ink: rgb(132, 86, 28);
-  --grade-mid-wash: color-mix(in srgb, rgb(176, 124, 42) 16%, var(--paper));
-  --grade-mid-rule: color-mix(in srgb, rgb(132, 86, 28) 40%, var(--rule));
-  --grade-bad-ink: rgb(138, 40, 34);
-  --grade-bad-wash: color-mix(in srgb, rgb(150, 36, 30) 13%, var(--paper));
-  --grade-bad-rule: color-mix(in srgb, rgb(138, 40, 34) 42%, var(--rule));
+  /* Pastel letter grades */
+  --grade-good-ink: #065f46;
+  --grade-good-wash: #d1fae5;
+  --grade-good-rule: color-mix(in srgb, #34d399 45%, transparent);
+  --grade-b-ink: #92400e;
+  --grade-b-wash: #fef3c7;
+  --grade-b-rule: color-mix(in srgb, #fbbf24 50%, transparent);
+  --grade-mid-ink: #92400e;
+  --grade-mid-wash: #fef3c7;
+  --grade-mid-rule: color-mix(in srgb, #fbbf24 45%, transparent);
+  --grade-bad-ink: #9f1239;
+  --grade-bad-wash: #ffe4e6;
+  --grade-bad-rule: color-mix(in srgb, #fda4af 50%, transparent);
 
-  --font-masthead: "Didot", "Bodoni 72", "Playfair Display", Georgia, serif;
-  --font-display: "Bodoni 72", "Playfair Display", Georgia, serif;
-  --font-serif: "Iowan Old Style", "Charter", "Source Serif Pro", Georgia, serif;
-  --font-italic: "Iowan Old Style", "Charter", Georgia, serif;
+  /* Lean spectrum */
+  --lean-left: #93c5fd;
+  --lean-center: #d1d5db;
+  --lean-right: #fca5a5;
+
+  /* Clean modern sans (SF Pro on Apple, system UI elsewhere) */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-masthead: var(--font-sans);
+  --font-display: var(--font-sans);
+  --font-serif: var(--font-sans);
+  --font-italic: var(--font-sans);
 
   --measure: 70ch;
   --gutter: 1.25rem;
+  --section-gap: 1.75rem; /* ~28px between major blocks */
+  --card-pad: 1.15rem;
 
-  /* Solid card faces — sit on the paper and block wash/glow (physical sheets). */
-  --card: rgb(240, 228, 200);
-  --card-deep: rgb(228, 212, 178);
+  --card: #ffffff;
+  --card-deep: #ffffff;
 
-  /* Film grain (tiny SVG noise) — reused on body overlay + paper sheet */
   --noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
-  /* Coarser fiber / pulp blotches — low-frequency noise for paper body */
   --fiber: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.035' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
-/* Dark palette — default for first visit; also when the reader opts in via
-   Masthead toggle / account prefs (clad_theme, data-theme="dark", .theme-dark).
-   We do NOT follow OS preference automatically. */
+/* Soft dark — charcoal page, elevated cards, soft teal accent */
 :root[data-theme="dark"],
 html.theme-dark {
-  --paper: rgb(28, 25, 20);
-  --paper-deep: rgb(22, 20, 16);
-  --desk: rgb(12, 11, 9);
-  --desk-edge: rgb(8, 7, 6);
-  --ink: rgb(232, 224, 205);
-  --muted-ink: rgb(158, 145, 125);
-  --rule: rgb(200, 190, 168);
-  --red-ink: rgb(214, 92, 78);
-  --accent: rgb(206, 84, 66);
-  --accent-soft: rgba(206, 84, 66, 0.12);
-  --tint-1: rgba(245, 237, 217, 0.05);
-  --tint-2: rgba(245, 237, 217, 0.09);
-  --tint-3: rgba(245, 237, 217, 0.16);
-  --shadow: rgba(0, 0, 0, 0.65);
-  --shadow-sm: 0 6px 16px color-mix(in srgb, var(--shadow) 32%, transparent);
-  --shadow-md: 0 12px 26px color-mix(in srgb, var(--shadow) 42%, transparent);
-  --shadow-lg: 0 20px 48px color-mix(in srgb, var(--shadow) 55%, transparent);
-  --grain-opacity: 0.1;
-  --wear-opacity: 0.14;
-  --rule-faded: color-mix(in srgb, var(--rule) 28%, transparent);
-  --rule-faded-soft: color-mix(in srgb, var(--rule) 16%, transparent);
-  --rule-faded-deep: color-mix(in srgb, var(--rule) 40%, transparent);
+  --paper: #1c1c1e;
+  --paper-deep: #161618;
+  --desk: #121214;
+  --desk-edge: #0e0e10;
+  --ink: #f5f5f7;
+  --muted-ink: #a1a1a6;
+  --rule: color-mix(in srgb, #f5f5f7 12%, transparent);
+  --red-ink: #f0a8a0;
+  --accent: #6fb5a4;
+  --accent-soft: rgba(111, 181, 164, 0.16);
+  --tint-1: rgba(245, 245, 247, 0.04);
+  --tint-2: rgba(245, 245, 247, 0.07);
+  --tint-3: rgba(245, 245, 247, 0.12);
+  --shadow: rgba(0, 0, 0, 0.45);
+  --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.45);
+  --grain-opacity: 0.015;
+  --wear-opacity: 0.03;
+  --rule-faded: color-mix(in srgb, var(--ink) 10%, transparent);
+  --rule-faded-soft: color-mix(in srgb, var(--ink) 6%, transparent);
+  --rule-faded-deep: color-mix(in srgb, var(--ink) 16%, transparent);
 
-  --grade-good-ink: rgb(148, 196, 164);
-  --grade-good-wash: color-mix(in srgb, rgb(72, 130, 96) 22%, var(--paper));
-  --grade-good-rule: color-mix(in srgb, rgb(148, 196, 164) 35%, var(--rule));
-  --grade-mid-ink: rgb(220, 178, 96);
-  --grade-mid-wash: color-mix(in srgb, rgb(180, 130, 50) 20%, var(--paper));
-  --grade-mid-rule: color-mix(in srgb, rgb(220, 178, 96) 32%, var(--rule));
-  --grade-bad-ink: rgb(228, 132, 118);
-  --grade-bad-wash: color-mix(in srgb, rgb(180, 70, 58) 20%, var(--paper));
-  --grade-bad-rule: color-mix(in srgb, rgb(228, 132, 118) 32%, var(--rule));
+  --grade-good-ink: #a7f3d0;
+  --grade-good-wash: color-mix(in srgb, #065f46 55%, #2c2c2e);
+  --grade-good-rule: color-mix(in srgb, #34d399 40%, transparent);
+  --grade-b-ink: #fde68a;
+  --grade-b-wash: color-mix(in srgb, #92400e 50%, #2c2c2e);
+  --grade-b-rule: color-mix(in srgb, #fbbf24 40%, transparent);
+  --grade-mid-ink: #fde68a;
+  --grade-mid-wash: color-mix(in srgb, #92400e 50%, #2c2c2e);
+  --grade-mid-rule: color-mix(in srgb, #fbbf24 40%, transparent);
+  --grade-bad-ink: #fecdd3;
+  --grade-bad-wash: color-mix(in srgb, #9f1239 45%, #2c2c2e);
+  --grade-bad-rule: color-mix(in srgb, #fda4af 40%, transparent);
 
-  /* Opaque raised cards that block the warm corner backlight on the sheet */
-  --card: rgb(38, 34, 28);
-  --card-deep: rgb(32, 28, 23);
+  --lean-left: #60a5fa;
+  --lean-center: #6b7280;
+  --lean-right: #f87171;
+
+  --card: #2c2c2e;
+  --card-deep: #2c2c2e;
   color-scheme: dark;
 }
 
@@ -133,17 +139,12 @@ html {
   /* Fixed masthead offset for skip-link + deep anchors */
   scroll-padding-top: calc(var(--site-header-h) + env(safe-area-inset-top, 0px) + 0.5rem);
   scroll-behavior: smooth;
-  /* Static desk wash — animated bg-position was a continuous full-viewport repaint */
-  background-color: var(--desk);
-  background-image:
-    radial-gradient(ellipse 100% 70% at 18% 0%, rgba(210, 120, 70, 0.28), transparent 55%),
-    radial-gradient(ellipse 90% 55% at 88% 18%, rgba(70, 120, 180, 0.2), transparent 50%),
-    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(60, 140, 100, 0.16), transparent 50%),
-    linear-gradient(165deg, var(--desk-edge), var(--desk) 40%, color-mix(in srgb, var(--desk) 70%, #1a3040));
+  /* Soft flat parchment / charcoal — no multi-orb desk */
+  background-color: var(--paper);
+  background-image: none;
   background-attachment: scroll;
   max-width: 100%;
   overflow-x: hidden;
-  /* Smoother scroll compositing on mobile Safari / WKWebView */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -155,8 +156,8 @@ body {
   min-height: 100dvh;
   background: transparent;
   color: var(--ink);
-  font-family: var(--font-serif);
-  font-size: 18px;
+  font-family: var(--font-sans);
+  font-size: 17px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   /* geometricPrecision is cheaper than optimizeLegibility during scroll */
@@ -186,26 +187,16 @@ body {
   }
 }
 
-/* Global grain — no mix-blend (blend modes force expensive offscreen passes). */
+/* Soft redesign: no film grain overlay */
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-  opacity: calc(var(--grain-opacity) * 0.85);
-  background-image: var(--noise), var(--fiber);
-  background-repeat: repeat, repeat;
-  background-size: 180px 180px, 380px 380px;
-  /* contain: strict keeps grain from invalidating page paint */
-  contain: strict;
+  content: none;
+  display: none;
 }
 
 :root[data-theme="dark"] body::before,
 html.theme-dark body::before {
-  opacity: calc(var(--grain-opacity) * 0.95);
-  background-image: var(--noise);
-  background-size: 160px 160px;
+  content: none;
+  display: none;
 }
 
 /* ---------- Living stage (behind the paper) — static washes, no blur filters ---------- */
@@ -221,40 +212,22 @@ html.theme-dark body::before {
   transform: translateZ(0);
 }
 
-/* Soft orbs via large radial gradients only — filter:blur was a scroll killer */
+/* Soft redesign: mute living-stage orbs (flat page, not desk theatre) */
+.living-bg {
+  opacity: 0;
+  visibility: hidden;
+}
 .living-bg__orb {
   position: absolute;
   border-radius: 50%;
-  opacity: 0.45;
-  /* no will-change, no mix-blend-mode, no CSS filter */
+  opacity: 0;
+  display: none;
 }
-.living-bg__orb--a {
-  width: min(52vw, 28rem);
-  height: min(52vw, 28rem);
-  left: -8%;
-  top: 8%;
-  background: radial-gradient(circle, rgba(255, 140, 70, 0.55) 0%, transparent 70%);
-}
-.living-bg__orb--b {
-  width: min(48vw, 26rem);
-  height: min(48vw, 26rem);
-  right: -6%;
-  top: 22%;
-  background: radial-gradient(circle, rgba(80, 160, 255, 0.45) 0%, transparent 70%);
-}
-.living-bg__orb--c {
-  width: min(56vw, 30rem);
-  height: min(56vw, 30rem);
-  left: 28%;
-  bottom: -12%;
-  background: radial-gradient(circle, rgba(90, 220, 140, 0.35) 0%, transparent 70%);
-}
+.living-bg__orb--a,
+.living-bg__orb--b,
+.living-bg__orb--c,
 .living-bg__orb--d {
-  width: min(40vw, 20rem);
-  height: min(40vw, 20rem);
-  right: 18%;
-  bottom: 18%;
-  background: radial-gradient(circle, rgba(255, 90, 140, 0.3) 0%, transparent 70%);
+  display: none;
 }
 
 /* Sparks / grid: desktop-only decoration (hidden on touch / narrow viewports below) */
@@ -324,9 +297,9 @@ html.theme-dark .breaking-group,
 html.theme-dark .gradeboard__item {
   background-color: var(--card) !important;
   background-image: none !important;
-  box-shadow:
-    0 1px 0 color-mix(in srgb, #fff 8%, transparent),
-    var(--shadow-md);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-stock);
+  border-color: var(--rule-faded-soft);
 }
 
 /* Mobile / touch: strip living-stage flair; keep a quieter paper texture for light */
@@ -471,145 +444,27 @@ html[data-billing="0"] .billing-only {
   display: none !important;
 }
 
-/* Layout shell — the broadsheet floating above the living stage */
+/* Layout shell — soft full-bleed parchment (no framed broadsheet sheet) */
 
 .shell {
-  /* Full-width/fluid: fill the window with comfortable side gutters. Article
-     body text stays readable via its own max-width (--measure); the home-page
-     strips, tickers, topics, and grade board expand to use the space. */
   position: relative;
   z-index: 3;
   max-width: none;
-  /* Less top margin — fixed site header already occupies the top of the viewport */
-  margin: 0.45rem auto 1.75rem;
+  margin: 0 auto;
   padding: 1.1rem clamp(1.15rem, 3.5vw, 3.5rem) 3.25rem;
   background-color: var(--paper);
-  /* Aged newsprint: uneven browning, foxing, pulp fiber, soft folds */
-  background-image:
-    /* Uneven age / foxing blotches (not uniform tan) */
-    radial-gradient(ellipse 42% 32% at 14% 18%, var(--fox), transparent 68%),
-    radial-gradient(ellipse 38% 28% at 82% 28%, var(--fox-deep), transparent 70%),
-    radial-gradient(ellipse 48% 30% at 48% 72%, rgba(150, 105, 55, 0.1), transparent 72%),
-    radial-gradient(ellipse 32% 24% at 92% 88%, rgba(120, 78, 38, 0.11), transparent 68%),
-    radial-gradient(ellipse 36% 26% at 6% 78%, rgba(110, 70, 35, 0.1), transparent 70%),
-    radial-gradient(ellipse 28% 20% at 62% 12%, rgba(160, 120, 70, 0.08), transparent 65%),
-    radial-gradient(ellipse 22% 18% at 35% 48%, rgba(140, 95, 50, 0.07), transparent 70%),
-    radial-gradient(ellipse 18% 22% at 78% 62%, rgba(100, 65, 30, 0.08), transparent 68%),
-    /* Soft fold / crease ridges */
-    linear-gradient(
-      102deg,
-      transparent 0%,
-      transparent 41%,
-      rgba(70, 45, 22, 0.045) 48.5%,
-      rgba(255, 248, 228, 0.14) 50%,
-      rgba(70, 45, 22, 0.032) 51.5%,
-      transparent 58%,
-      transparent 100%
-    ),
-    linear-gradient(
-      8deg,
-      transparent 0%,
-      transparent 36%,
-      rgba(80, 52, 28, 0.038) 49%,
-      rgba(255, 250, 232, 0.12) 50.2%,
-      transparent 52%,
-      transparent 100%
-    ),
-    linear-gradient(
-      145deg,
-      transparent 0%,
-      transparent 55%,
-      rgba(90, 55, 25, 0.03) 62%,
-      transparent 64%,
-      transparent 100%
-    ),
-    /* Corner light + warm depth */
-    radial-gradient(ellipse 90% 55% at 12% 8%, rgba(255, 250, 232, 0.38), transparent 52%),
-    radial-gradient(ellipse 70% 45% at 94% 96%, rgba(170, 125, 75, 0.22), transparent 58%),
-    /* Overall paper body — slightly uneven vertical brown */
-    linear-gradient(
-      172deg,
-      color-mix(in srgb, var(--paper) 88%, #fff8e8) 0%,
-      var(--paper) 24%,
-      color-mix(in srgb, var(--paper-deep) 78%, rgb(185, 148, 95)) 58%,
-      color-mix(in srgb, var(--paper-deep) 90%, rgb(170, 130, 80)) 82%,
-      var(--paper-deep) 100%
-    );
+  background-image: none;
   color: var(--ink);
-  /* Double-rule frame — slightly soft / uneven like ink on stock */
-  border: 1px solid color-mix(in srgb, var(--rule) 72%, transparent);
-  border-top-color: color-mix(in srgb, var(--rule) 58%, transparent);
-  border-right-color: color-mix(in srgb, var(--rule) 78%, transparent);
-  border-bottom-color: color-mix(in srgb, var(--rule) 68%, transparent);
-  border-left-color: color-mix(in srgb, var(--rule) 48%, transparent);
-  box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--paper) 70%, var(--rule)),
-    0 0 0 4px color-mix(in srgb, var(--rule) 55%, transparent),
-    0 0 0 5px color-mix(in srgb, var(--paper) 35%, transparent),
-    0 18px 40px color-mix(in srgb, var(--shadow) 85%, transparent),
-    0 6px 14px color-mix(in srgb, var(--shadow) 55%, transparent),
-    0 0 60px rgba(255, 140, 60, 0.12),
-    0 0 90px rgba(80, 140, 255, 0.08);
-  /* Soft corner wear — not rounded UI, just aged paper edge */
-  border-radius: 2px 4px 3px 2px;
-  /* Do NOT clip overflow — masthead dropdown must paint above #main and stay clickable. */
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
   overflow: visible;
-  /* No living-float: animating the whole sheet made every scroll janky */
 }
 
-/* Sheet grain + pulp fiber — opacity only, no mix-blend. */
-.shell::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: calc(var(--grain-opacity) * 1.25);
-  background-image: var(--noise), var(--fiber), var(--noise);
-  background-size: 120px 120px, 360px 360px, 90px 90px;
-  background-position: 0 0, 40px 20px, 15px 8px;
-  background-repeat: repeat, repeat, repeat;
-  border-radius: inherit;
-}
-
+.shell::before,
 .shell::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  border-radius: inherit;
-  /* Wrinkles + corner foxing (light mode character) */
-  background-image:
-    linear-gradient(
-      168deg,
-      transparent 0%,
-      transparent 58%,
-      rgba(85, 55, 28, 0.05) 69%,
-      transparent 72%,
-      transparent 100%
-    ),
-    linear-gradient(
-      95deg,
-      transparent 0%,
-      transparent 20%,
-      rgba(90, 58, 30, 0.04) 32%,
-      rgba(255, 248, 230, 0.09) 34%,
-      transparent 37%,
-      transparent 100%
-    ),
-    radial-gradient(ellipse 55% 42% at 0% 0%, rgba(115, 72, 32, 0.15), transparent 58%),
-    radial-gradient(ellipse 48% 40% at 100% 0%, rgba(105, 68, 30, 0.12), transparent 56%),
-    radial-gradient(ellipse 50% 44% at 0% 100%, rgba(98, 62, 28, 0.15), transparent 58%),
-    radial-gradient(ellipse 52% 42% at 100% 100%, rgba(112, 70, 32, 0.16), transparent 58%),
-    radial-gradient(ellipse 30% 25% at 55% 35%, rgba(130, 85, 40, 0.06), transparent 70%);
-  /* Edge wear / handling — darker toward corners, slightly uneven */
-  box-shadow:
-    inset 0 0 56px 4px color-mix(in srgb, var(--rule) calc(var(--wear-opacity) * 100%), transparent),
-    inset 28px 20px 48px -14px rgba(90, 55, 25, 0.16),
-    inset -24px -22px 46px -12px rgba(85, 52, 24, 0.14),
-    inset 0 1px 0 color-mix(in srgb, #fff8e0 28%, transparent),
-    inset 0 0 0 1px color-mix(in srgb, var(--paper) 25%, transparent);
+  content: none;
+  display: none;
 }
 
 /* Content sits above paper grain/wear. Masthead must stack ABOVE main so the
@@ -635,43 +490,19 @@ html.masthead-menu-open .shell > main {
   z-index: 1;
 }
 
-:root[data-theme="dark"] .shell::before,
-html.theme-dark .shell::before {
-  opacity: calc(var(--grain-opacity) * 1.1);
-  /* Dark uses fine grain only — coarse fiber reads muddy on dark paper */
-  background-image: var(--noise);
-  background-size: 160px 160px;
-}
-
-/* Dark sheet keeps a warm corner backlight; cards sit on top as solid stock. */
 :root[data-theme="dark"] .shell,
 html.theme-dark .shell {
-  background-image:
-    radial-gradient(ellipse 95% 60% at 10% 4%, rgba(255, 170, 90, 0.22), transparent 55%),
-    radial-gradient(ellipse 70% 45% at 92% 96%, rgba(70, 110, 180, 0.1), transparent 55%),
-    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
-}
-
-/* Dark: drop light-mode foxing/folds; keep a quiet inset edge only */
-:root[data-theme="dark"] .shell::after,
-html.theme-dark .shell::after {
+  background-color: var(--paper);
   background-image: none;
-  box-shadow:
-    inset 0 0 36px 2px color-mix(in srgb, var(--rule) calc(var(--wear-opacity) * 55%), transparent),
-    inset 0 0 0 1px color-mix(in srgb, var(--paper) 25%, transparent);
 }
 
 @media (max-width: 640px) {
   .shell {
-    margin: 0.35rem 0.35rem 0.75rem;
-    /* Safe-area aware gutters for notched iPhones (Safari + WKWebView) */
-    padding: 1.15rem max(0.9rem, env(safe-area-inset-right, 0px))
+    margin: 0;
+    padding: 1rem max(0.9rem, env(safe-area-inset-right, 0px))
       max(2.25rem, calc(env(safe-area-inset-bottom, 0px) + 1.5rem))
       max(0.9rem, env(safe-area-inset-left, 0px));
-    box-shadow:
-      0 0 0 1px color-mix(in srgb, var(--paper) 80%, var(--rule)),
-      0 0 0 3px color-mix(in srgb, var(--rule) 70%, transparent),
-      0 6px 18px var(--shadow);
+    box-shadow: none;
   }
 }
 
@@ -817,30 +648,25 @@ html.clad-app .emap-page {
   contain-intrinsic-size: auto 8rem;
 }
 
-/* Site header height — chrome row + volume/date row (reserved on body) */
+/* Site header — single slim chrome row (Vol/meta row collapsed for soft UI) */
 :root {
-  --site-header-chrome-h: 2.55rem;
-  --site-header-meta-h: 1.55rem;
-  --site-header-h: calc(var(--site-header-chrome-h) + var(--site-header-meta-h));
+  --site-header-chrome-h: 3.25rem;
+  --site-header-meta-h: 0px;
+  --site-header-h: var(--site-header-chrome-h);
 }
 
-/* Fixed header is out of document flow; body top pad keeps content below it.
-   (position:sticky failed here because html/body use overflow-x: hidden.) */
 body {
   padding-top: var(--site-header-h);
 }
 
-/* Masthead — fixed chrome + volume/date; tagline still scrolls with page */
-
 .masthead {
   text-align: center;
-  padding: 0 0 0.55rem;
+  padding: 0 0 0.35rem;
   position: relative;
   overflow: visible;
   z-index: 0;
 }
 
-/* Frozen stack: chrome row + Vol / date */
 .masthead__fixed {
   position: fixed;
   top: 0;
@@ -848,35 +674,20 @@ body {
   right: 0;
   z-index: 10050;
   box-sizing: border-box;
-  /* Anchor for grain ::before */
   isolation: isolate;
-  background-color: var(--paper);
-  /* Match sheet: slight age wash so the bar isn’t flat modern chrome */
-  background-image:
-    radial-gradient(ellipse 70% 120% at 8% 50%, rgba(255, 248, 230, 0.35), transparent 60%),
-    radial-gradient(ellipse 55% 100% at 92% 40%, rgba(150, 105, 55, 0.07), transparent 65%),
-    linear-gradient(180deg, color-mix(in srgb, var(--paper) 88%, #fff8e0) 0%, var(--paper-deep) 100%);
-  border-bottom: 1px solid color-mix(in srgb, var(--rule) 60%, transparent);
-  box-shadow:
-    0 1px 0 color-mix(in srgb, var(--rule) 12%, transparent),
-    inset 0 0 0 1px color-mix(in srgb, var(--paper) 32%, transparent),
-    inset 0 -1px 0 color-mix(in srgb, var(--rule) 12%, transparent),
-    var(--shadow-md);
-  padding-left: max(0.75rem, env(safe-area-inset-left, 0px));
-  padding-right: max(0.75rem, env(safe-area-inset-right, 0px));
+  background-color: color-mix(in srgb, var(--paper) 88%, transparent);
+  background-image: none;
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  backdrop-filter: blur(16px) saturate(1.2);
+  border-bottom: 1px solid var(--rule-faded-soft);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 4%, transparent);
+  padding-left: max(0.85rem, env(safe-area-inset-left, 0px));
+  padding-right: max(0.85rem, env(safe-area-inset-right, 0px));
 }
 
-/* Soft grain on the fixed bar (light); sits under chrome, not over clicks */
 .masthead__fixed::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: calc(var(--grain-opacity) * 0.85);
-  background-image: var(--noise);
-  background-size: 140px 140px;
-  background-repeat: repeat;
+  content: none;
+  display: none;
 }
 
 .masthead__fixed > * {
@@ -886,18 +697,9 @@ body {
 
 :root[data-theme="dark"] .masthead__fixed,
 html.theme-dark .masthead__fixed {
-  background-color: var(--paper);
+  background-color: color-mix(in srgb, var(--paper) 86%, transparent);
   background-image: none;
-  box-shadow:
-    0 1px 0 color-mix(in srgb, var(--rule) 30%, transparent),
-    inset 0 0 0 1px color-mix(in srgb, var(--paper) 22%, transparent),
-    inset 0 -1px 0 color-mix(in srgb, var(--rule) 12%, transparent),
-    var(--shadow-md);
-}
-
-:root[data-theme="dark"] .masthead__fixed::before,
-html.theme-dark .masthead__fixed::before {
-  opacity: calc(var(--grain-opacity) * 0.45);
+  box-shadow: 0 1px 0 color-mix(in srgb, #000 35%, transparent);
 }
 
 .masthead__bar {
@@ -909,26 +711,21 @@ html.theme-dark .masthead__fixed::before {
   min-height: var(--site-header-chrome-h);
   box-sizing: border-box;
   margin: 0;
-  padding: 0.28rem 0;
+  padding: 0.35rem 0;
   background: transparent;
   border: 0;
   box-shadow: none;
 }
 
+/* Hide newspaper volume row; keep date available for a11y off-screen if needed */
 .masthead__fixed .masthead__meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem 0.75rem;
-  height: var(--site-header-meta-h);
-  min-height: var(--site-header-meta-h);
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0.15rem 0.1rem 0.28rem;
-  border-top: 1px solid color-mix(in srgb, var(--rule) 45%, transparent);
-  color: var(--muted-ink);
-  font-size: 0.66rem;
-  line-height: 1.25;
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
   pointer-events: none;
 }
 
@@ -938,13 +735,13 @@ html.theme-dark .masthead__fixed::before {
   min-height: 1px;
 }
 
+/* Soft redesign: no broadsheet tagline / double-rule identity strip */
 .masthead__identity {
-  padding: 0.15rem 0 0;
+  display: none;
 }
 
-/* Title is in the bar; tagline doesn't need click-through hacks. */
 .masthead__tagline {
-  pointer-events: none;
+  display: none;
 }
 .masthead__title {
   pointer-events: auto;
@@ -952,6 +749,10 @@ html.theme-dark .masthead__fixed::before {
   grid-column: 2;
   margin: 0;
   line-height: 1;
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 .masthead__title a {
   pointer-events: auto;
@@ -959,13 +760,11 @@ html.theme-dark .masthead__fixed::before {
   text-decoration: none;
 }
 
-/* Left: menu (or spacer on admin) */
 .masthead__menu {
   justify-self: start;
   grid-column: 1;
 }
 
-/* Right: Account · Theme · Search */
 .masthead__chrome {
   position: relative;
   top: auto;
@@ -975,7 +774,7 @@ html.theme-dark .masthead__fixed::before {
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  gap: 0.3rem;
+  gap: 0.4rem;
   pointer-events: auto;
   justify-self: end;
   grid-column: 3;
@@ -991,35 +790,37 @@ html.theme-dark .masthead__fixed::before {
   pointer-events: auto;
   background: var(--card);
   flex: 0 0 auto;
+  border-radius: var(--radius-chip);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--rule-faded-soft);
 }
 
 .masthead__search {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 2.25rem;
+  height: 2.25rem;
   color: var(--ink);
-  border: 1px solid var(--rule);
 }
 
 .masthead__search:hover {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
 }
 
 .masthead__theme {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 2.25rem;
+  height: 2.25rem;
   padding: 0;
   font-size: 1rem;
   line-height: 1;
   letter-spacing: 0;
-  color: var(--ink);
-  border: 1px solid var(--rule);
+  color: var(--muted-ink);
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
@@ -1029,25 +830,27 @@ html.theme-dark .masthead__fixed::before {
 
 .masthead__theme:hover,
 .masthead__theme[aria-pressed="true"] {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
 .masthead__account {
   display: inline-flex;
   align-items: center;
-  height: 2.1rem;
-  padding: 0 0.55rem;
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
+  height: 2.25rem;
+  padding: 0 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   color: var(--ink);
-  border: 1px solid var(--rule);
   text-decoration: none;
   white-space: nowrap;
+  text-transform: none;
 }
 .masthead__account:hover {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
 }
 
 @media (max-width: 30rem) {
@@ -1068,8 +871,8 @@ html.theme-dark .masthead__fixed::before {
 /* In-app: fixed stack sits under the notch / status bar — a touch taller
    than the dense web mobile chrome so tap targets and the wordmark breathe. */
 html.clad-app {
-  --site-header-chrome-h: 2.75rem;
-  --site-header-meta-h: 1.6rem;
+  --site-header-chrome-h: 3.35rem;
+  --site-header-meta-h: 0px;
 }
 html.clad-app body {
   padding-top: calc(var(--site-header-h) + env(safe-area-inset-top, 0px));
@@ -1986,12 +1789,11 @@ html.clad-app .masthead__fixed {
   background-image: none !important;
   opacity: 1;
   isolation: isolate;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-  border: 1px solid var(--rule);
-  box-shadow:
-    3px 3px 0 var(--shadow),
-    0 14px 32px color-mix(in srgb, var(--shadow) 55%, transparent);
+  -webkit-backdrop-filter: blur(12px) saturate(1.15);
+  backdrop-filter: blur(12px) saturate(1.15);
+  border: 1px solid var(--rule-faded-soft);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
   /* Above fixed header + page content while open */
   z-index: 10100;
   pointer-events: auto;
@@ -2509,15 +2311,15 @@ html.masthead-menu-open .masthead__menu-list {
 /* Typography helpers */
 
 .small-caps {
-  font-family: var(--font-serif);
-  font-weight: 700;
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
+  font-family: var(--font-sans);
+  font-weight: 650;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .dateline {
-  font-style: italic;
+  font-style: normal;
   color: var(--muted-ink);
   font-size: 0.9rem;
 }
@@ -3079,54 +2881,31 @@ html.theme-dark .peek-pop__panel {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: 1.5rem 1.25rem;
+  gap: var(--section-gap) 1.35rem;
 }
 
-/* Report card — light elevation + worn stock (no 3D preserve / rotate) */
+/* Report card — soft elevated white / charcoal card */
 
 .report-card {
   display: flex;
   flex-direction: column;
   height: 100%;
   position: relative;
-  padding: 0.65rem 0.65rem 0.55rem;
-  /* Faded, uneven ink border — not a crisp UI stroke */
-  border-style: solid;
-  border-width: 1px;
-  border-top-color: var(--rule-faded-soft);
-  border-right-color: var(--rule-faded-deep);
-  border-bottom-color: var(--rule-faded);
-  border-left-color: var(--rule-faded-soft);
-  /* Light: slightly aged stock (dark mode overrides to solid --card). */
+  padding: var(--card-pad);
+  border: 1px solid var(--rule-faded-soft);
   background-color: var(--card);
-  background-image:
-    radial-gradient(ellipse 80% 60% at 12% 0%, rgba(255, 248, 230, 0.4), transparent 55%),
-    radial-gradient(ellipse 55% 50% at 100% 100%, rgba(150, 105, 55, 0.1), transparent 60%),
-    radial-gradient(ellipse 40% 35% at 70% 20%, rgba(120, 80, 40, 0.05), transparent 65%),
-    linear-gradient(165deg, color-mix(in srgb, var(--card) 70%, #fff8e4) 0%, var(--card-deep) 100%);
+  background-image: none;
   border-radius: var(--radius-stock);
-  box-shadow:
-    0 1px 0 color-mix(in srgb, #fff8e0 40%, transparent),
-    inset 0 0 0 1px color-mix(in srgb, var(--paper) 35%, transparent),
-    inset 0 -1px 0 color-mix(in srgb, var(--rule) 12%, transparent),
-    var(--shadow-sm);
+  box-shadow: var(--shadow-md);
   transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease,
-    border-color 0.15s ease;
+    transform 0.18s var(--ease-out),
+    box-shadow 0.18s var(--ease-out),
+    border-color 0.18s ease;
   isolation: isolate;
 }
-/* Quiet grain on card stock */
 .report-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: calc(var(--grain-opacity) * 0.55);
-  background-image: var(--noise);
-  background-size: 110px 110px;
-  border-radius: inherit;
+  content: none;
+  display: none;
 }
 .report-card > * {
   position: relative;
@@ -3136,20 +2915,14 @@ html.theme-dark .peek-pop__panel {
 @media (hover: hover) and (pointer: fine) {
   .report-card:hover,
   .report-card:focus-within {
-    transform: translateY(-4px);
-    border-top-color: color-mix(in srgb, var(--accent) 28%, var(--rule-faded-soft));
-    border-right-color: color-mix(in srgb, var(--accent) 32%, var(--rule-faded-deep));
-    border-bottom-color: color-mix(in srgb, var(--accent) 30%, var(--rule-faded));
-    border-left-color: color-mix(in srgb, var(--accent) 22%, var(--rule-faded-soft));
-    box-shadow:
-      0 1px 0 color-mix(in srgb, #fff8e0 45%, transparent),
-      inset 0 0 0 1px color-mix(in srgb, var(--paper) 30%, transparent),
-      var(--shadow-md);
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--accent) 22%, var(--rule-faded-soft));
+    box-shadow: var(--shadow-lg);
     z-index: 2;
   }
 }
 
-/* Shared worn-card treatment for other stock faces */
+/* Shared soft-card faces */
 .topic-card,
 .home-rails__card,
 .pol-card,
@@ -3161,14 +2934,19 @@ html.theme-dark .peek-pop__panel {
 .fold,
 .home-promo,
 .coverage-lean,
-.network-charts__panel {
-  border-style: solid;
-  border-width: 1px;
-  border-top-color: var(--rule-faded-soft);
-  border-right-color: var(--rule-faded-deep);
-  border-bottom-color: var(--rule-faded);
-  border-left-color: var(--rule-faded-soft);
+.network-charts__panel,
+.account-card,
+.breaking-group,
+.scoreband,
+.home-cal,
+.home-emap__card,
+.home-next-race,
+.emap-desk__acc,
+.static-page .fold {
+  border: 1px solid var(--rule-faded-soft);
   border-radius: var(--radius-stock);
+  background-color: var(--card);
+  box-shadow: var(--shadow-sm);
 }
 
 .report-card__link {
@@ -3182,11 +2960,12 @@ html.theme-dark .peek-pop__panel {
 .report-card__thumb {
   position: relative;
   aspect-ratio: 16 / 9;
-  border: 1px solid color-mix(in srgb, var(--rule) 80%, transparent);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--paper) 25%, transparent);
+  border: 0;
+  box-shadow: none;
   overflow: hidden;
-  background: var(--ink);
-  margin-bottom: 0.6rem;
+  background: color-mix(in srgb, var(--ink) 8%, var(--card));
+  margin-bottom: 0.75rem;
+  border-radius: 12px;
   border-radius: 3px;
 }
 
@@ -3266,7 +3045,9 @@ html.theme-dark .peek-pop__panel {
 }
 
 .report-card__headline {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
+  font-weight: 650;
+  letter-spacing: -0.015em;
   font-weight: 700;
   font-size: 1.2rem;
   line-height: 1.2;
@@ -4088,55 +3869,61 @@ html.theme-dark .peek-pop__panel {
   font-style: italic;
 }
 
-/* Letter grade badge — chunky 3D stamp */
+/* Letter grade — soft pastel pill / circle */
 
 .letter-grade {
-  display: inline-block;
-  font-family: var(--font-display);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
   font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.02em;
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-control);
-  box-shadow:
-    inset 0 0 0 1px color-mix(in srgb, var(--paper) 70%, transparent),
-    0 3px 0 color-mix(in srgb, var(--rule) 35%, transparent),
-    0 8px 16px color-mix(in srgb, var(--shadow) 30%, transparent);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
+  border-radius: var(--radius-chip);
+  box-shadow: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .report-card:hover .letter-grade,
 .topic-row:hover .letter-grade,
 .gradeboard__item:hover .letter-grade {
-  transform: scale(1.08) rotate(-2deg);
-  box-shadow:
-    inset 0 0 0 1px color-mix(in srgb, var(--paper) 70%, transparent),
-    0 5px 0 color-mix(in srgb, var(--rule) 40%, transparent),
-    0 14px 22px color-mix(in srgb, var(--shadow) 40%, transparent),
-    0 0 20px color-mix(in srgb, var(--accent) 20%, transparent);
+  transform: scale(1.04);
+  box-shadow: var(--shadow-sm);
 }
 
 .letter-grade--badge {
-  font-size: 0.95rem;
-  padding: 0.12rem 0.42rem;
+  font-size: 0.85rem;
+  min-width: 1.85rem;
+  min-height: 1.85rem;
+  padding: 0.2rem 0.45rem;
 }
 
 .letter-grade--card {
-  font-size: 2rem;
-  padding: 0.22rem 0.7rem;
-  border-width: 1.5px;
+  font-size: 1.35rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0.35rem 0.55rem;
 }
 
 .letter-grade--hero {
-  font-size: clamp(3rem, 12vw, 4.5rem);
-  padding: 0.45rem 0.95rem;
-  border-width: 1.5px;
+  font-size: clamp(2rem, 8vw, 3rem);
+  min-width: 3.5rem;
+  min-height: 3.5rem;
+  padding: 0.5rem 0.75rem;
 }
 
 .grade--good {
   background: var(--grade-good-wash);
   color: var(--grade-good-ink);
   border-color: var(--grade-good-rule);
+}
+
+/* B grades — soft amber (LetterGrade.astro uses grade--b) */
+.grade--b {
+  background: var(--grade-b-wash);
+  color: var(--grade-b-ink);
+  border-color: var(--grade-b-rule);
 }
 
 .grade--mid {
@@ -4220,8 +4007,8 @@ html.theme-dark .peek-pop__panel {
 }
 
 .lean__scale-end {
-  font-family: var(--font-serif);
-  font-weight: 700;
+  font-family: var(--font-sans);
+  font-weight: 600;
   font-size: 0.7rem;
   color: var(--muted-ink);
 }
@@ -4229,49 +4016,51 @@ html.theme-dark .peek-pop__panel {
 .lean__track {
   position: relative;
   flex: 1;
-  height: 6px;
+  height: 8px;
   border-radius: 999px;
   background: linear-gradient(
     90deg,
-    #3b6ea5 0%,
-    #7a9ec4 28%,
-    var(--rule) 48%,
-    var(--rule) 52%,
-    #c47a72 72%,
-    #a54a3f 100%
+    var(--lean-left) 0%,
+    color-mix(in srgb, var(--lean-left) 55%, var(--lean-center)) 28%,
+    var(--lean-center) 48%,
+    var(--lean-center) 52%,
+    color-mix(in srgb, var(--lean-right) 55%, var(--lean-center)) 72%,
+    var(--lean-right) 100%
   );
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
 .lean__center {
   position: absolute;
-  top: -4px;
+  top: -3px;
   left: 50%;
   width: 2px;
   height: 14px;
-  background: var(--ink);
-  opacity: 0.45;
+  background: color-mix(in srgb, var(--ink) 25%, transparent);
+  opacity: 1;
   transform: translateX(-50%);
+  border-radius: 1px;
 }
 
 .lean__marker {
   position: absolute;
   top: 50%;
-  width: 14px;
-  height: 14px;
-  background: var(--ink);
-  border: 2px solid var(--paper);
+  width: 16px;
+  height: 16px;
+  background: var(--card);
+  border: 2px solid color-mix(in srgb, var(--ink) 18%, transparent);
   border-radius: 50%;
-  box-shadow: 0 0 0 1px var(--ink);
+  box-shadow: var(--shadow-sm), 0 0 0 1px color-mix(in srgb, var(--ink) 6%, transparent);
   transform: translate(-50%, -50%);
 }
 
 .lean__scale-end:first-child {
-  color: #3b6ea5;
-  font-weight: 800;
+  color: color-mix(in srgb, var(--lean-left) 70%, var(--ink));
+  font-weight: 700;
 }
 .lean__scale-end:last-child {
-  color: #a54a3f;
-  font-weight: 800;
+  color: color-mix(in srgb, var(--lean-right) 70%, var(--ink));
+  font-weight: 700;
 }
 
 /* Social sentiment — same anatomy as the lean chip, negative→positive axis */
@@ -6844,19 +6633,13 @@ html.clad-app .issue-row__stats {
 
 /* --- Paid tier: paywall, preview, plans --- */
 .paywall {
-  margin: 1.5rem 0;
-  padding: 1.6rem 1.4rem;
-  border: 2px solid var(--ink);
-  border-radius: 6px;
-  background:
-    radial-gradient(120% 120% at 50% 0%, var(--accent-soft), transparent 60%),
-    linear-gradient(165deg, color-mix(in srgb, var(--paper) 88%, #fff), var(--paper));
+  margin: 1.75rem 0;
+  padding: 1.75rem 1.5rem;
+  border: 1px solid var(--rule-faded-soft);
+  border-radius: var(--radius-stock);
+  background: var(--card);
   text-align: center;
-  box-shadow:
-    0 2px 0 color-mix(in srgb, #fff 40%, transparent),
-    0 16px 0 -4px color-mix(in srgb, var(--rule) 12%, transparent),
-    0 28px 48px color-mix(in srgb, var(--shadow) 45%, transparent),
-    0 0 50px color-mix(in srgb, var(--accent) 12%, transparent);
+  box-shadow: var(--shadow-md);
   transform: translateZ(0);
 }
 .paywall__eyebrow { color: var(--accent); letter-spacing: 0.16em; margin: 0; }
@@ -6952,27 +6735,92 @@ html.clad-app .issue-row__stats {
 .plan-badge--trial { background: var(--accent-soft); }
 .plan-badge--free { color: var(--muted-ink); }
 
-/* locked grade chips + panels */
+/* locked grade chips + panels — soft frost, no hard lock emoji emphasis */
 .grade-lock {
-  display: inline-block;
-  font-size: 0.72rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
   color: var(--muted-ink);
-  border: 1px dashed var(--rule);
-  padding: 0.1rem 0.45rem;
+  border: 1px solid var(--rule-faded-soft);
+  padding: 0.35rem 0.7rem;
   border-radius: var(--radius-chip);
   white-space: nowrap;
+  background: color-mix(in srgb, var(--card) 55%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
 }
-.scoreband--locked { display: flex; align-items: center; min-height: 1.7rem; margin-bottom: 0.4rem; }
+.grade-lock a {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+.grade-lock a:hover {
+  text-decoration: underline;
+}
+.scoreband--locked {
+  display: flex;
+  align-items: center;
+  min-height: 2.4rem;
+  margin-bottom: 0.55rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--paper-deep) 55%, transparent);
+  border: 1px solid var(--rule-faded-soft);
+  -webkit-backdrop-filter: blur(12px) saturate(1.15);
+  backdrop-filter: blur(12px) saturate(1.15);
+  position: relative;
+  overflow: hidden;
+}
 /* "Today's free sample" pill — marks the daily unlocked Report of the Day */
 .sample-badge {
   display: inline-block;
-  font-size: 0.68rem;
+  font-size: 0.72rem;
+  font-weight: 600;
   color: var(--accent);
-  border: 1px solid var(--accent);
-  padding: 0.1rem 0.45rem;
-  margin-bottom: 0.35rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  background: var(--accent-soft);
+  padding: 0.18rem 0.55rem;
+  margin-bottom: 0.45rem;
   border-radius: var(--radius-chip);
   white-space: nowrap;
+}
+
+/* Soft section rhythm on the home feed */
+.feed,
+.category,
+.home-rails,
+.home-promo,
+.home-cal,
+.home-emap,
+.emap-desk,
+.human-spotlight,
+.explore-next {
+  margin-block: var(--section-gap);
+}
+
+.auth-submit,
+button.auth-submit,
+a.auth-submit {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 80%, #000) !important;
+  border-radius: var(--radius-chip) !important;
+  box-shadow: var(--shadow-sm);
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+.auth-submit:hover {
+  filter: brightness(1.05);
+}
+
+.rule--double {
+  border: 0 !important;
+  height: 1px !important;
+  background: var(--rule-faded-soft) !important;
+  opacity: 0.9;
 }
 
 .report__locked { margin: 0.5rem 0 1.25rem; }
@@ -7017,9 +6865,9 @@ html.clad-app .issue-row__stats {
   background: var(--paper);
 }
 
-.lean-split__seg--left { background: #4a6fa5; }
-.lean-split__seg--center { background: var(--muted-ink); opacity: 0.55; }
-.lean-split__seg--right { background: #a54a3f; }
+.lean-split__seg--left { background: var(--lean-left); }
+.lean-split__seg--center { background: var(--lean-center); opacity: 0.9; }
+.lean-split__seg--right { background: var(--lean-right); }
 .lean-split__caption {
   font-size: 0.72rem;
   color: var(--muted-ink);
@@ -7044,11 +6892,15 @@ html.clad-app .issue-row__stats {
   white-space: nowrap;
 }
 .grade-lock-panel {
-  background: var(--accent-soft);
-  border-left: 3px solid var(--accent);
-  padding: 0.7rem 0.9rem;
+  background: color-mix(in srgb, var(--card) 70%, transparent);
+  border: 1px solid var(--rule-faded-soft);
+  border-radius: var(--radius-stock);
+  padding: 0.85rem 1rem;
   font-size: 0.92rem;
   line-height: 1.5;
+  box-shadow: var(--shadow-sm);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 .paywall-banner {
   display: flex;
@@ -7056,11 +6908,13 @@ html.clad-app .issue-row__stats {
   justify-content: space-between;
   gap: 0.75rem;
   flex-wrap: wrap;
-  background: var(--ink);
-  color: var(--paper);
-  padding: 0.5rem 0.9rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.55rem 1rem;
   font-size: 0.85rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  border-radius: var(--radius-control);
+  box-shadow: var(--shadow-sm);
 }
 .paywall-banner__cta {
   color: var(--paper);

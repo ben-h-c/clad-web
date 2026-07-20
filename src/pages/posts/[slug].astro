@@ -260,7 +260,7 @@ const breadcrumbLd = {
   <article class="post" data-sample-unlocked={isSample && !access.fullAccess ? "true" : undefined}>
     <div class="post__kicker">
       {locked ? (
-        <span class="grade-lock" aria-label="Locked — the grade unlocks with a free account"><span aria-hidden="true">🔒</span> Grade — free with account</span>
+        <span class="grade-lock" aria-label="Locked — the grade unlocks with a free account">Grade — Unlock free</span>
       ) : isBroadcast ? (
         <LetterGrade grade={d.letterGrade!} />
       ) : (
@@ -369,7 +369,7 @@ const breadcrumbLd = {
         {locked ? (
           <div class="report__locked">
             <p class="grade-lock-panel">
-              <span aria-hidden="true">🔒</span> The <strong>letter grade</strong>, factuality score,
+              <span class="grade-lock-icon" aria-hidden="true"></span> The <strong>letter grade</strong>, factuality score,
               <strong> political-lean</strong> rating, and <strong>social-media sentiment</strong> for this report unlock with a
               <a href={registerHref(`/posts/${post.id}/`)}> free CladFacts account</a> — no card, no trial clock.
               Already have one? <a href={`/login/?next=/posts/${post.id}/`}>Sign in</a>.
