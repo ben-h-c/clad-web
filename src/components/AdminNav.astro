@@ -20,105 +20,188 @@ try {
   flags = 0;
 }
 
-const links = [
-  { key: "queue", label: `Pending Queue${pending ? ` (${pending})` : ""}`, href: "/admin/queue/" },
-  { key: "intake", label: "Add URLs", href: "/admin/intake/" },
-  { key: "posts", label: "Posts", href: "/admin/posts/" },
-  { key: "users", label: "Users", href: "/admin/users/" },
-  { key: "digest", label: "Email", href: "/admin/digest/" },
-  { key: "flags", label: `Reader Flags${flags ? ` (${flags})` : ""}`, href: "/admin/flags/" },
-  { key: "comments", label: "Reader Comments", href: "/admin/comments/" },
-  { key: "agents", label: "Agents", href: "/admin/agents/" },
-  { key: "categories", label: "Categories", href: "/admin/categories/" },
-  { key: "compliance", label: "Compliance", href: "/admin/compliance/" },
-  { key: "results", label: "Race results", href: "/admin/results/" },
-  { key: "stats", label: "Stats", href: "/admin/stats/" },
-  { key: "health", label: "Health", href: "/admin/health/" },
+type Link = { key: string; label: string; href: string; badge?: number };
+type Group = { id: string; label: string; links: Link[] };
+
+const groups: Group[] = [
+  {
+    id: "desk",
+    label: "Desk",
+    links: [
+      { key: "dashboard", label: "Dashboard", href: "/admin/" },
+      { key: "queue", label: "Pending queue", href: "/admin/queue/", badge: pending || undefined },
+      { key: "intake", label: "Add URLs", href: "/admin/intake/" },
+      { key: "posts", label: "Posts", href: "/admin/posts/" },
+    ],
+  },
+  {
+    id: "readers",
+    label: "Readers",
+    links: [
+      { key: "users", label: "Users", href: "/admin/users/" },
+      { key: "flags", label: "Reader flags", href: "/admin/flags/", badge: flags || undefined },
+      { key: "comments", label: "Comments", href: "/admin/comments/" },
+      { key: "digest", label: "Email", href: "/admin/digest/" },
+    ],
+  },
+  {
+    id: "ops",
+    label: "Ops",
+    links: [
+      { key: "agents", label: "Agents", href: "/admin/agents/" },
+      { key: "categories", label: "Categories", href: "/admin/categories/" },
+      { key: "compliance", label: "Compliance", href: "/admin/compliance/" },
+      { key: "results", label: "Race results", href: "/admin/results/" },
+      { key: "stats", label: "Stats", href: "/admin/stats/" },
+      { key: "health", label: "Health", href: "/admin/health/" },
+    ],
+  },
 ];
-const currentLabel = links.find((l) => l.key === current)?.label ?? "Console";
+
+const flat = groups.flatMap((g) => g.links);
+const currentLabel = flat.find((l) => l.key === current)?.label ?? "Console";
+const currentGroup = groups.find((g) => g.links.some((l) => l.key === current));
+
+function linkLabel(l: Link): string {
+  return l.badge ? `${l.label} (${l.badge})` : l.label;
+}
 ---
-<nav class="admin-nav" aria-label="Admin console">
-  <details class="admin-nav__menu">
+<nav class="admin-nav" aria-label="Admin console" data-current={current}>
+  <!-- Desktop / wide: grouped horizontal nav (not one mega-list) -->
+  <div class="admin-nav__desktop" aria-hidden="false">
+    <a
+      class:list={["admin-nav__home", { "is-current": current === "dashboard" }]}
+      href="/admin/"
+    >Dashboard</a>
+    {groups.map((g) => (
+      <details class="admin-nav__group" data-group={g.id}>
+        <summary class:list={[{ "is-current-group": currentGroup?.id === g.id }]}>
+          {g.label}
+          {g.id === "desk" && pending > 0 ? ` · ${pending}` : ""}
+          {g.id === "readers" && flags > 0 ? ` · ${flags}` : ""}
+        </summary>
+        <ul class="admin-nav__group-list">
+          {g.links.map((l) => (
+            <li>
+              {l.key === current ? (
+                <span class="admin-nav__current">{linkLabel(l)}</span>
+              ) : (
+                <a href={l.href}>{linkLabel(l)}</a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </details>
+    ))}
+  </div>
+
+  <!-- Compact: sectioned mobile menu (replaces one long flat dropdown) -->
+  <details class="admin-nav__compact">
     <summary>☰ {currentLabel}</summary>
-    <ul class="admin-nav__list">
-      {links.map((l) => (
-        <li>
-          {l.key === current ? (
-            <span class="admin-nav__current">{l.label}</span>
-          ) : (
-            <a href={l.href}>{l.label}</a>
-          )}
-        </li>
+    <div class="admin-nav__compact-panel">
+      {groups.map((g) => (
+        <div class="admin-nav__section">
+          <p class="admin-nav__section-label small-caps">{g.label}</p>
+          <ul>
+            {g.links.map((l) => (
+              <li>
+                {l.key === current ? (
+                  <span class="admin-nav__current">{linkLabel(l)}</span>
+                ) : (
+                  <a href={l.href}>{linkLabel(l)}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
       ))}
-    </ul>
+    </div>
   </details>
+
   <a class="admin-nav__site" href="/" target="_blank" rel="noopener">View site ↗</a>
 </nav>
 <script is:inline>
   (() => {
     const nav = document.querySelector(".admin-nav");
     if (!nav) return;
-    const menu = nav.querySelector("details");
-    const list = nav.querySelector(".admin-nav__list") || nav.querySelector("ul");
-    const summary = menu && menu.querySelector("summary");
-    if (!menu || !list || !summary) return;
 
-    const placeList = () => {
-      if (!menu.open) return;
-      const r = summary.getBoundingClientRect();
-      // Prefer below the button; flip up if near the bottom of the viewport.
-      const gap = 4;
-      const maxH = Math.min(window.innerHeight * 0.7, 28 * 16);
-      let top = r.bottom + gap;
-      const spaceBelow = window.innerHeight - r.bottom - gap;
-      if (spaceBelow < 8 * 16 && r.top > spaceBelow) {
-        // Open upward
-        list.style.maxHeight = Math.min(maxH, r.top - gap) + "px";
-        top = Math.max(gap, r.top - gap - Math.min(list.scrollHeight || maxH, maxH));
-      } else {
-        list.style.maxHeight = Math.min(maxH, Math.max(120, spaceBelow)) + "px";
-      }
-      list.style.top = top + "px";
-      list.style.left = Math.max(8, Math.min(r.left, window.innerWidth - 16 - 240)) + "px";
-      list.style.minWidth = Math.max(r.width, 15 * 16) + "px";
-    };
+    // --- Compact (mobile) menu: place panel under summary ---
+    const compact = nav.querySelector(".admin-nav__compact");
+    const compactPanel = nav.querySelector(".admin-nav__compact-panel");
+    const compactSummary = compact && compact.querySelector("summary");
+    if (compact && compactPanel && compactSummary) {
+      const place = () => {
+        if (!compact.open) return;
+        const r = compactSummary.getBoundingClientRect();
+        const gap = 4;
+        const maxH = Math.min(window.innerHeight * 0.75, 32 * 16);
+        let top = r.bottom + gap;
+        const spaceBelow = window.innerHeight - r.bottom - gap;
+        if (spaceBelow < 10 * 16 && r.top > spaceBelow) {
+          compactPanel.style.maxHeight = Math.min(maxH, r.top - gap) + "px";
+          top = Math.max(gap, r.top - gap - Math.min(compactPanel.scrollHeight || maxH, maxH));
+        } else {
+          compactPanel.style.maxHeight = Math.min(maxH, Math.max(160, spaceBelow)) + "px";
+        }
+        compactPanel.style.top = top + "px";
+        compactPanel.style.left = Math.max(8, Math.min(r.left, window.innerWidth - 16 - 260)) + "px";
+        compactPanel.style.minWidth = Math.max(r.width, 16 * 16) + "px";
+      };
+      const sync = () => {
+        document.documentElement.classList.toggle("admin-nav-open", !!compact.open);
+        if (compact.open) {
+          requestAnimationFrame(() => {
+            place();
+            requestAnimationFrame(place);
+          });
+        }
+      };
+      compact.addEventListener("toggle", sync);
+      window.addEventListener("resize", () => {
+        if (compact.open) place();
+      });
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (compact.open) place();
+        },
+        true
+      );
+      document.addEventListener("click", (e) => {
+        if (compact.open && !compact.contains(e.target) && !compactPanel.contains(e.target)) {
+          compact.open = false;
+          sync();
+        }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && compact.open) {
+          compact.open = false;
+          sync();
+        }
+      });
+    }
 
-    const syncOpen = () => {
-      document.documentElement.classList.toggle("admin-nav-open", !!menu.open);
-      if (menu.open) {
-        // Double-rAF so layout is ready after open.
-        requestAnimationFrame(() => {
-          placeList();
-          requestAnimationFrame(placeList);
+    // --- Desktop groups: only one open at a time; click-away closes ---
+    const groups = [...nav.querySelectorAll(".admin-nav__group")];
+    groups.forEach((d) => {
+      d.addEventListener("toggle", () => {
+        if (!d.open) return;
+        groups.forEach((o) => {
+          if (o !== d) o.open = false;
         });
-      }
-    };
-
-    menu.addEventListener("toggle", syncOpen);
-    window.addEventListener("resize", () => {
-      if (menu.open) placeList();
+      });
     });
-    window.addEventListener(
-      "scroll",
-      () => {
-        if (menu.open) placeList();
-      },
-      true
-    );
-
     document.addEventListener("click", (e) => {
-      if (menu.open && !menu.contains(e.target) && !list.contains(e.target)) {
-        menu.open = false;
-        syncOpen();
-      }
+      if (!(e.target instanceof Node) || nav.contains(e.target)) return;
+      groups.forEach((d) => {
+        d.open = false;
+      });
     });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && menu.open) {
-        menu.open = false;
-        syncOpen();
-      }
+      if (e.key !== "Escape") return;
+      groups.forEach((d) => {
+        d.open = false;
+      });
     });
-
-    syncOpen();
   })();
 </script>

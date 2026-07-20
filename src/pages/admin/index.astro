@@ -1,6 +1,112 @@
 ---
-// The manual Editorial Desk has been retired (content now flows through the
-// agents + URL intake + pending queue). Land /admin on the Pending Queue.
+import { env } from "cloudflare:workers";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import AdminNav from "~/components/AdminNav.astro";
+import { buildAdminDashboard } from "~/lib/adminDashboard";
+import { shortDate } from "~/lib/dateline";
+
 export const prerender = false;
-return Astro.redirect("/admin/queue/", 302);
+
+const dash = await buildAdminDashboard(env);
+const failN = dash.failingAgents.length;
+const pendingTile = dash.tiles.find((t) => t.key === "pending");
+const headline =
+  failN > 0
+    ? `${failN} agent job${failN === 1 ? "" : "s"} need attention`
+    : pendingTile && Number(pendingTile.value) > 0
+      ? `${pendingTile.value} draft${pendingTile.value === 1 ? "" : "s"} waiting for approval`
+      : "Desk is clear";
 ---
+<BaseLayout title="Clad — Admin dashboard" noindex={true}>
+  <section class="admin admin--wide">
+    <AdminNav current="dashboard" />
+    <header class="admin-dash__head">
+      <h2 class="admin__title">Dashboard</h2>
+      <p class="dateline">
+        {headline}. Snapshot {shortDate(new Date(dash.generatedAt))} ·
+        {new Date(dash.generatedAt).toUTCString().slice(17, 25)} UTC.
+      </p>
+    </header>
+
+    <div class="admin-dash__tiles" role="list">
+      {dash.tiles.map((t) => (
+        <a class={`admin-tile admin-tile--${t.tone}`} href={t.href} role="listitem">
+          <span class="admin-tile__label small-caps">{t.label}</span>
+          <span class="admin-tile__value">{t.value}</span>
+          <span class="admin-tile__detail">{t.detail}</span>
+        </a>
+      ))}
+    </div>
+
+    <div class="admin-dash__cols">
+      <section class="admin-dash__panel">
+        <h3 class="admin-dash__panel-title small-caps">Failing agent jobs</h3>
+        {dash.failingAgents.length === 0 ? (
+          <p class="dateline">No failed runs in the registry.</p>
+        ) : (
+          <ul class="admin-dash__list">
+            {dash.failingAgents.map((a) => (
+              <li>
+                <a href="/admin/agents/"><strong>{a.name}</strong></a>
+                <span class="admin-dash__meta">
+                  {a.at ? shortDate(new Date(a.at)) : "—"}
+                </span>
+                <p class="admin-dash__msg">{a.message}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+        <p class="admin-dash__more"><a href="/admin/agents/">Open agents →</a></p>
+      </section>
+
+      <section class="admin-dash__panel">
+        <h3 class="admin-dash__panel-title small-caps">Stale / overdue agents</h3>
+        {dash.staleAgents.length === 0 ? (
+          <p class="dateline">Enabled agents look fresh vs their cron cadence.</p>
+        ) : (
+          <ul class="admin-dash__list">
+            {dash.staleAgents.map((a) => (
+              <li>
+                <a href="/admin/agents/"><strong>{a.name}</strong></a>
+                <span class="admin-dash__meta">
+                  {a.hoursAgo < 0 ? "never run" : `${a.hoursAgo}h ago`}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
+        <p class="admin-dash__more"><a href="/admin/health/">Full health →</a></p>
+      </section>
+
+      <section class="admin-dash__panel">
+        <h3 class="admin-dash__panel-title small-caps">Newest accounts</h3>
+        {dash.recentUsers.length === 0 ? (
+          <p class="dateline">No user rows (or DB unavailable).</p>
+        ) : (
+          <ul class="admin-dash__list">
+            {dash.recentUsers.map((u) => (
+              <li>
+                <strong>{u.name}</strong>
+                <span class="admin-dash__meta">{shortDate(new Date(u.createdAt))}</span>
+                <p class="admin-dash__msg">{u.email}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+        <p class="admin-dash__more"><a href="/admin/users/">All users →</a></p>
+      </section>
+    </div>
+
+    <section class="admin-dash__shortcuts">
+      <h3 class="admin-dash__panel-title small-caps">Quick links</h3>
+      <ul class="admin-dash__chips">
+        <li><a href="/admin/queue/">Review queue</a></li>
+        <li><a href="/admin/intake/">Paste URLs</a></li>
+        <li><a href="/admin/agents/">Run an agent</a></li>
+        <li><a href="/admin/flags/">Reader flags</a></li>
+        <li><a href="/admin/stats/">Stats</a></li>
+        <li><a href="/admin/health/">Health checks</a></li>
+      </ul>
+    </section>
+  </section>
+</BaseLayout>
