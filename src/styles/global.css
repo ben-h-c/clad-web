@@ -1977,30 +1977,56 @@ html.clad-app .masthead__fixed {
   margin: 0;
   padding: 0.3rem 0;
   list-style: none;
-  background-color: var(--paper);
-  background-image:
-    radial-gradient(ellipse 80% 60% at 10% 0%, rgba(255, 248, 230, 0.35), transparent 55%),
-    linear-gradient(180deg, var(--paper), var(--paper-deep));
+  /*
+   * Solid stock — no washes/gradients. The volume/date row used to show
+   * through because (1) translucent backgrounds and (2) meta painted above
+   * the absolute panel (same z-index as the bar, later in the DOM).
+   */
+  background-color: var(--card) !important;
+  background-image: none !important;
+  opacity: 1;
+  isolation: isolate;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
   border: 1px solid var(--rule);
-  box-shadow: 3px 3px 0 var(--shadow);
+  box-shadow:
+    3px 3px 0 var(--shadow),
+    0 14px 32px color-mix(in srgb, var(--shadow) 55%, transparent);
   /* Above fixed header + page content while open */
   z-index: 10100;
   pointer-events: auto;
-  opacity: 1;
   transform: translateY(0);
-  transition: opacity var(--dur-card) var(--ease-out), transform var(--dur-card) var(--ease-out);
+  transition: transform var(--dur-card) var(--ease-out);
 }
 @starting-style {
   .masthead__menu[open] .masthead__menu-list {
-    opacity: 0;
     transform: translateY(-4px);
   }
 }
 
 :root[data-theme="dark"] .masthead__menu-list,
 html.theme-dark .masthead__menu-list {
-  background-image: none;
-  background-color: var(--paper);
+  background-image: none !important;
+  background-color: var(--card) !important;
+}
+
+/*
+ * While Menu is open: lift the chrome row (and its absolute panel) above the
+ * volume/date meta row so “VOL. 1 · No. …” never shows through the sheet.
+ */
+html.masthead-menu-open .masthead__fixed .masthead__bar {
+  z-index: 3;
+}
+html.masthead-menu-open .masthead__fixed .masthead__meta {
+  z-index: 0;
+  /* Keep layout; don’t let edition line paint over the open menu */
+  opacity: 0.35;
+}
+html.masthead-menu-open .masthead__menu {
+  z-index: 4;
+}
+html.masthead-menu-open .masthead__menu-list {
+  z-index: 10100;
 }
 
 .masthead__menu-list li {
