@@ -362,7 +362,6 @@ const registerMap = registerHref("/elections/map/");
                   <li class="emap-desk__news-item">
                     <details class="emap-desk__acc">
                       <summary class="emap-desk__acc-sum">
-                        <span class={`emap-desk__kind emap-desk__kind--${item.kind}`}>{item.kindLabel}</span>
                         <span class="emap-desk__acc-headline">{d.headline}</span>
                         <span class="emap-desk__acc-meta">
                           {!showLocked && d.letterGrade ? (
@@ -377,12 +376,9 @@ const registerMap = registerHref("/elections/map/");
                         </span>
                       </summary>
                       <div class="emap-desk__acc-body">
-                        {(item.matchedNames.length > 0 || isSample) && (
+                        {isSample && (
                           <div class="emap-desk__tags">
-                            {isSample && <span class="emap-desk__who">Today’s free sample</span>}
-                            {item.matchedNames.slice(0, 2).map((n) => (
-                              <span class="emap-desk__who">{n}</span>
-                            ))}
+                            <span class="emap-desk__who">Today’s free sample</span>
                           </div>
                         )}
                         {!showLocked && d.letterGrade && (
@@ -1749,7 +1745,7 @@ const registerMap = registerHref("/elections/map/");
   }
   .emap-desk__acc-sum {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 0.45rem 0.55rem;
     align-items: start;
     cursor: pointer;
@@ -1857,27 +1853,6 @@ const registerMap = registerHref("/elections/map/");
     gap: 0.3rem 0.45rem;
     margin-bottom: 0.45rem;
   }
-  .emap-desk__kind {
-    font-size: 0.58rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    font-weight: 700;
-    padding: 0.14rem 0.35rem;
-    border: 1px solid var(--ink, #1a140d);
-    background: var(--ink, #1a140d);
-    color: var(--paper, #f5edd9);
-    flex: none;
-    align-self: start;
-    margin-top: 0.1rem;
-    max-width: 14rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .emap-desk__kind--candidate { background: #3b6ea5; border-color: #3b6ea5; }
-  .emap-desk__kind--race { background: #2f6b4f; border-color: #2f6b4f; }
-  .emap-desk__kind--forecast { background: #8b5a12; border-color: #8b5a12; }
-  .emap-desk__kind--election { background: #5c4a6e; border-color: #5c4a6e; }
   .emap-desk__who {
     font-size: 0.72rem;
     letter-spacing: 0.02em;
@@ -1887,10 +1862,9 @@ const registerMap = registerHref("/elections/map/");
   }
   @media (max-width: 520px) {
     .emap-desk__acc-sum {
-      grid-template-columns: auto minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr);
     }
     .emap-desk__acc-meta {
-      grid-column: 2;
       justify-content: flex-start;
       padding-top: 0;
     }
