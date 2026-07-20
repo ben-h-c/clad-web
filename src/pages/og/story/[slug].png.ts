@@ -5,16 +5,17 @@ import { ImageResponse } from "workers-og";
 import { leanScoreOf } from "~/lib/topics";
 import { dateline } from "~/lib/dateline";
 import { displayableThumb } from "~/lib/imagePolicy";
-import { OG_VERSIONS, ogCacheKey, clip } from "~/lib/ogCard";
+import { OG_VERSIONS, ogCacheKey, clip, OG, ogGradeColors } from "~/lib/ogCard";
 
 export const prerender = false;
 
-/** 9:16 story card for system share / Stories — designed to stop the scroll. */
+/** 9:16 story card for system share / Stories — soft neutral design. */
 
-const PAPER = "#F5EDD9";
-const INK = "#1A140D";
-const MUTED = "#6E5E4D";
-const RED = "#941A1A";
+const PAPER = OG.paper;
+const INK = OG.ink;
+const MUTED = OG.muted;
+const ACCENT = OG.accent;
+const CARD = OG.card;
 
 const VERDICT_LABELS: Record<string, string> = {
   true: "True", "mostly-true": "Mostly True", mixed: "Mixed",
@@ -51,22 +52,10 @@ interface StoryCard {
   thumbUrl?: string | null;
 }
 
-function badgeColor(card: StoryCard): string {
-  if (card.badgeLabel === "VERDICT") {
-    if (card.badge === "True" || card.badge === "Mostly True") return INK;
-    if (card.badge === "Mixed" || card.badge === "Unverified") return MUTED;
-    return RED;
-  }
-  const t = card.badge.charAt(0).toUpperCase();
-  if (t === "A" || t === "B") return INK;
-  if (t === "C") return MUTED;
-  return RED;
-}
-
-function momentColor(verdict: string): string {
-  if (verdict === "verified") return INK;
-  if (verdict === "missing context") return MUTED;
-  return RED;
+function momentColors(verdict: string): { bg: string; ink: string } {
+  if (verdict === "verified") return { bg: OG.gradeABg, ink: OG.gradeAInk };
+  if (verdict === "missing context") return { bg: OG.gradeBBg, ink: OG.gradeBInk };
+  return { bg: OG.gradeBadBg, ink: OG.gradeBadInk };
 }
 
 function arrayBufferToDataUri(buf: ArrayBuffer, mime: string): string {
@@ -106,11 +95,11 @@ async function loadThumbDataUri(rawUrl: string | null | undefined, origin: strin
 }
 
 function markup(card: StoryCard, thumbDataUri: string | null): string {
-  const color = badgeColor(card);
-  const badgeSize = card.badge.length > 2 ? 64 : 140;
+  const g = ogGradeColors(card.badge);
+  const badgeSize = card.badge.length > 2 ? 56 : 110;
   const meta = [
-    card.lean ? card.lean.toUpperCase() : null,
-    card.factuality != null ? `FACT ${card.factuality}/100` : null,
+    card.lean ? card.lean : null,
+    card.factuality != null ? `Fact ${card.factuality}/100` : null,
   ]
     .filter(Boolean)
     .join("  ·  ");
@@ -122,48 +111,51 @@ function markup(card: StoryCard, thumbDataUri: string | null): string {
   const top = ordered.slice(0, thumbDataUri ? 2 : 3);
   const momentsBlock = top.length
     ? top
-        .map(
-          (m) => `
-      <div style="display:flex;flex-direction:column;margin-bottom:22px;">
+        .map((m) => {
+          const mc = momentColors(m.verdict);
+          return `
+      <div style="display:flex;flex-direction:column;margin-bottom:20px;background:${CARD};border-radius:18px;padding:18px 20px;border:1px solid ${OG.rule};">
         <div style="display:flex;">
-          <div style="display:flex;font-size:22px;font-weight:700;letter-spacing:3px;color:${momentColor(m.verdict)};border:3px solid ${momentColor(m.verdict)};padding:6px 14px;">${esc(m.verdict.toUpperCase())}</div>
+          <div style="display:flex;font-size:18px;font-weight:700;letter-spacing:1px;color:${mc.ink};background:${mc.bg};padding:6px 14px;border-radius:999px;">${esc(m.verdict.toUpperCase())}</div>
         </div>
-        <div style="display:flex;font-size:32px;line-height:1.25;margin-top:10px;font-weight:700;">${esc(clip(m.claim, 100))}</div>
-      </div>`
-        )
+        <div style="display:flex;font-size:28px;line-height:1.3;margin-top:12px;font-weight:700;color:${INK};">${esc(clip(m.claim, 100))}</div>
+      </div>`;
+        })
         .join("")
-    : `<div style="display:flex;font-size:34px;line-height:1.35;font-weight:700;">${esc(clip(card.summary, 180))}</div>`;
+    : `<div style="display:flex;font-size:30px;line-height:1.4;font-weight:600;color:${MUTED};">${esc(clip(card.summary, 180))}</div>`;
 
   const thumbBlock = thumbDataUri
-    ? `<div style="display:flex;width:1080px;height:520px;overflow:hidden;border-bottom:4px solid ${INK};background:${INK};">
-        <img src="${thumbDataUri}" width="1080" height="520" style="object-fit:cover;width:1080px;height:520px;" />
+    ? `<div style="display:flex;width:968px;height:480px;overflow:hidden;border-radius:20px;background:${INK};margin:0 0 8px;">
+        <img src="${thumbDataUri}" width="968" height="480" style="object-fit:cover;width:968px;height:480px;" />
       </div>`
     : "";
 
   return `
-  <div style="display:flex;flex-direction:column;width:1080px;height:1920px;background:${PAPER};color:${INK};font-family:Playfair;">
-    <div style="display:flex;flex-direction:column;align-items:center;padding:48px 48px 0;">
-      <div style="display:flex;font-size:24px;color:${MUTED};letter-spacing:6px;font-weight:700;">WE CHECKED THE CLAIMS</div>
-      <div style="display:flex;font-size:72px;font-weight:700;letter-spacing:5px;line-height:1;margin:10px 0 12px;">CLADFACTS</div>
-      <div style="display:flex;font-size:24px;color:${MUTED};letter-spacing:2px;">${esc(card.dateline)}</div>
-    </div>
-    ${thumbBlock}
-    <div style="display:flex;flex-direction:column;align-items:center;margin:28px 0 0;">
-      <div style="display:flex;flex-direction:column;align-items:center;border:7px solid ${color};padding:20px 40px;transform:rotate(-3deg);background:${PAPER};">
-        <div style="display:flex;font-size:${badgeSize}px;font-weight:700;line-height:1;color:${color};">${esc(card.badge)}</div>
-        <div style="display:flex;font-size:22px;letter-spacing:4px;color:${color};margin-top:8px;font-weight:700;">${esc(card.badgeLabel)}</div>
+  <div style="display:flex;flex-direction:column;width:1080px;height:1920px;background:${PAPER};color:${INK};font-family:Playfair;padding:40px 36px;">
+    <div style="display:flex;flex-direction:column;flex:1;background:${CARD};border-radius:28px;border:1px solid ${OG.rule};padding:40px 36px;align-items:center;">
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <div style="display:flex;font-size:16px;color:${ACCENT};letter-spacing:1px;font-weight:700;background:${OG.accentSoft};padding:8px 16px;border-radius:999px;">WE CHECKED THE CLAIMS</div>
+        <div style="display:flex;font-size:56px;font-weight:700;letter-spacing:-1px;line-height:1;margin:14px 0 10px;color:${INK};">CladFacts</div>
+        <div style="display:flex;font-size:20px;color:${MUTED};">${esc(card.dateline)}</div>
       </div>
-      ${meta ? `<div style="display:flex;font-size:24px;color:${MUTED};letter-spacing:3px;margin-top:20px;font-weight:700;">${esc(meta)}</div>` : ""}
-    </div>
-    <div style="display:flex;flex-direction:column;flex:1;padding:28px 56px 0;">
-      <div style="display:flex;font-size:44px;font-weight:700;line-height:1.12;margin-bottom:24px;">${esc(clip(card.headline, 80))}</div>
-      <div style="display:flex;flex-direction:column;">${momentsBlock}</div>
-    </div>
-    <div style="display:flex;flex-direction:column;align-items:center;padding:0 56px 56px;">
-      <div style="display:flex;width:900px;height:4px;background:${INK};"></div>
-      <div style="display:flex;font-size:26px;color:${RED};letter-spacing:3px;margin-top:22px;font-weight:700;">FULL RECEIPTS ON THE SITE</div>
-      <div style="display:flex;font-size:28px;font-weight:700;margin-top:10px;">cladfacts.com</div>
-      <div style="display:flex;font-size:20px;color:${MUTED};margin-top:6px;">${card.sourcesCount} sources cited</div>
+      ${thumbBlock ? `<div style="display:flex;margin-top:28px;">${thumbBlock}</div>` : ""}
+      <div style="display:flex;flex-direction:column;align-items:center;margin:28px 0 0;">
+        <div style="display:flex;flex-direction:column;align-items:center;border-radius:999px;padding:22px 36px;background:${g.bg};min-width:160px;">
+          <div style="display:flex;font-size:${badgeSize}px;font-weight:700;line-height:1;color:${g.ink};">${esc(card.badge)}</div>
+          <div style="display:flex;font-size:16px;letter-spacing:1px;color:${g.ink};margin-top:6px;font-weight:700;">${esc(card.badgeLabel)}</div>
+        </div>
+        ${meta ? `<div style="display:flex;font-size:20px;color:${MUTED};margin-top:18px;font-weight:600;">${esc(meta)}</div>` : ""}
+      </div>
+      <div style="display:flex;flex-direction:column;flex:1;padding:28px 12px 0;width:100%;">
+        <div style="display:flex;font-size:40px;font-weight:700;line-height:1.15;margin-bottom:22px;color:${INK};">${esc(clip(card.headline, 80))}</div>
+        <div style="display:flex;flex-direction:column;">${momentsBlock}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;padding:12px 0 0;">
+        <div style="display:flex;width:120px;height:4px;background:${ACCENT};border-radius:999px;"></div>
+        <div style="display:flex;font-size:22px;color:${ACCENT};margin-top:20px;font-weight:700;">Full receipts on the site</div>
+        <div style="display:flex;font-size:26px;font-weight:700;margin-top:8px;color:${INK};">cladfacts.com</div>
+        <div style="display:flex;font-size:18px;color:${MUTED};margin-top:6px;">${card.sourcesCount} sources cited</div>
+      </div>
     </div>
   </div>`;
 }

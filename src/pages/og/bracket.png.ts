@@ -9,6 +9,7 @@ import {
   ogCacheKey,
   OG_VERSIONS,
   portraitStripMarkup,
+  OG,
 } from "~/lib/ogCard";
 import { getCommunityVotes } from "~/lib/picks";
 import { photoForSlug, isCommonsMediaUrl } from "~/lib/politicianPhotos";
@@ -19,10 +20,10 @@ export const prerender = false;
 // Public race-board share card — offices + heat only (no gated leaders).
 // v3: Commons portraits of hot-race candidates for social thumbnails.
 
-const PAPER = "#F5EDD9";
-const INK = "#1A140D";
-const MUTED = "#6E5E4D";
-const RED = "#941A1A";
+const PAPER = OG.paper;
+const INK = OG.ink;
+const MUTED = OG.muted;
+const RED = OG.accent;
 
 type FontFace = { name: string; data: ArrayBuffer; weight: 400 | 700; style: "normal" };
 
@@ -81,7 +82,7 @@ function markup(lines: string[], n: number, lockedBallots = 0, portraits: string
   const faces = portraits.length
     ? `<div style="display:flex;margin-top:20px">${portraitStripMarkup(portraits, { size: 108, gap: 12 })}</div>`
     : "";
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:44px 56px;border:16px solid ${INK}">
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:44px 56px;border:1px solid ${OG.rule};border-radius:24px">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
       <div style="display:flex;font-size:30px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
       <div style="display:flex;font-size:18px;letter-spacing:3px;color:${MUTED};font-weight:700">MIDTERMS 2026</div>

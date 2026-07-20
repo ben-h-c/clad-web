@@ -28,18 +28,78 @@ import { displayableThumb } from "./imagePolicy.ts";
 import { isCommonsMediaUrl } from "./politicianPhotos.ts";
 
 export const OG_VERSIONS = {
-  post: "6", // v6: lean geometry bar + word-boundary clipping
-  story: "4", // v4: word-boundary clipping
-  quiz: "3", // v3: post still beside the claim
-  week: "2", // v2: collage of the week's report stills
-  learn: "3", // v3: owned product screenshot
-  politician: "4", // v4: claim-record grade + ideology lean on share card
-  bracket: "3", // v3: candidate portrait strip
-  bracketVotes: "2", // v2: candidate portrait strip
-  students: "2", // v2: owned product screenshot
-  campaign: "2", // v2: owned product screenshot
-  ballot: "2", // v2: candidate portrait strip on shared ballots
+  post: "7", // v7: soft neutral card system
+  story: "5", // v5: soft neutral story card
+  quiz: "4", // v4: soft neutral
+  week: "3", // v3: soft neutral
+  learn: "4", // v4: soft neutral
+  politician: "5", // v5: soft neutral
+  bracket: "4", // v4: soft neutral
+  bracketVotes: "3", // v3: soft neutral
+  students: "3", // v3: soft neutral
+  campaign: "3", // v3: soft neutral
+  ballot: "3", // v3: soft neutral
 } as const;
+
+/**
+ * Soft Neutral palette for OG share cards (matches clad-web CSS tokens).
+ * Keep in sync with :root in src/styles/global.css.
+ */
+export const OG = {
+  paper: "#F7F5F0",
+  card: "#FFFFFF",
+  ink: "#1C1C1E",
+  muted: "#6B6B6B",
+  accent: "#5B9A8B",
+  accentSoft: "#E8F3F0",
+  rule: "rgba(28,28,30,0.10)",
+  gradeABg: "#D1FAE5",
+  gradeAInk: "#065F46",
+  gradeBBg: "#FEF3C7",
+  gradeBInk: "#92400E",
+  gradeCBg: "#FEF3C7",
+  gradeCInk: "#92400E",
+  gradeBadBg: "#FFE4E6",
+  gradeBadInk: "#9F1239",
+  leanLeft: "#93C5FD",
+  leanCenter: "#D1D5DB",
+  leanRight: "#FCA5A5",
+  /** @deprecated alias — prefer OG.ink */
+  red: "#C45C52",
+} as const;
+
+/** Soft grade badge colors from letter (A→sage, B→amber, C→amber, D/F→rose). */
+export function ogGradeColors(badge: string): { bg: string; ink: string } {
+  const t = (badge || "").charAt(0).toUpperCase();
+  if (t === "A") return { bg: OG.gradeABg, ink: OG.gradeAInk };
+  if (t === "B") return { bg: OG.gradeBBg, ink: OG.gradeBInk };
+  if (t === "C") return { bg: OG.gradeCBg, ink: OG.gradeCInk };
+  if (t === "D" || t === "F") return { bg: OG.gradeBadBg, ink: OG.gradeBadInk };
+  // verdicts / long labels
+  const lower = (badge || "").toLowerCase();
+  if (lower.includes("true") && !lower.includes("false")) return { bg: OG.gradeABg, ink: OG.gradeAInk };
+  if (lower.includes("mixed") || lower.includes("unverified")) return { bg: OG.gradeBBg, ink: OG.gradeBInk };
+  if (lower.includes("false")) return { bg: OG.gradeBadBg, ink: OG.gradeBadInk };
+  return { bg: OG.accentSoft, ink: OG.accent };
+}
+
+/** Soft blue→gray→rose lean track with pill tick (satori-safe flex). */
+export function ogLeanBarMarkup(score: number, width = 360): string {
+  const s = Math.max(-100, Math.min(100, score));
+  const pct = (s + 100) / 2;
+  const tick = 18;
+  return `<div style="display:flex;flex-direction:column;width:${width}px;margin-top:10px;">
+    <div style="display:flex;flex-direction:row;width:${width}px;height:${tick}px;align-items:center;">
+      <div style="display:flex;flex-grow:0;flex-shrink:1;flex-basis:${pct}%;"></div>
+      <div style="display:flex;width:${tick}px;height:${tick}px;border-radius:999px;background:${OG.card};border:2px solid ${OG.rule};"></div>
+    </div>
+    <div style="display:flex;flex-direction:row;width:${width}px;height:10px;border-radius:999px;overflow:hidden;margin-top:-14px;">
+      <div style="display:flex;flex:1;background:${OG.leanLeft};"></div>
+      <div style="display:flex;flex:1;background:${OG.leanCenter};"></div>
+      <div style="display:flex;flex:1;background:${OG.leanRight};"></div>
+    </div>
+  </div>`;
+}
 
 export function ogCacheKey(url: URL, route: string, version: string): Request {
   return new Request(url.origin + "/__og-" + route + "-v" + version + url.pathname);
@@ -172,12 +232,11 @@ export function portraitStripMarkup(
   if (!uris.length) return "";
   const size = opts?.size ?? 112;
   const gap = opts?.gap ?? 10;
-  const INK = "#1A140D";
   const faces = uris
     .slice(0, 5)
     .map(
       (u) =>
-        `<div style="display:flex;width:${size}px;height:${size}px;border:3px solid ${INK};overflow:hidden;background:${INK}">
+        `<div style="display:flex;width:${size}px;height:${size}px;border:1px solid ${OG.rule};border-radius:16px;overflow:hidden;background:${OG.ink}">
           <img src="${u}" width="${size}" height="${size}" style="object-fit:cover;object-position:center top;width:${size}px;height:${size}px;" />
         </div>`
     )

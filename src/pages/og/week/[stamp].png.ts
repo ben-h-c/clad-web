@@ -3,15 +3,15 @@ import { env } from "cloudflare:workers";
 import { getCollection } from "astro:content";
 import { ImageResponse } from "workers-og";
 import { labelWeek, weekStartUTC } from "~/lib/trends";
-import { loadImageDataUri, ogCacheKey, OG_VERSIONS, postStillUrl } from "~/lib/ogCard";
+import { loadImageDataUri, ogCacheKey, OG_VERSIONS, postStillUrl, OG } from "~/lib/ogCard";
 
 export const prerender = false;
 
 // Share card for "The Week in Grades". v2: collage of report stills from the week.
-const PAPER = "#F5EDD9";
-const INK = "#1A140D";
-const MUTED = "#6E5E4D";
-const RED = "#941A1A";
+const PAPER = OG.paper;
+const INK = OG.ink;
+const MUTED = OG.muted;
+const RED = OG.accent;
 
 let fontsPromise: Promise<{ name: string; data: ArrayBuffer; weight: 400 | 700; style: "normal" }[]> | null = null;
 function loadFonts(origin: string) {
@@ -49,7 +49,7 @@ function markup(weekLabel: string, year: number, count: number, thumbs: string[]
           <div style="display:flex;border:3px solid ${MUTED};color:${MUTED};padding:10px 18px;font-size:20px;letter-spacing:2px;font-weight:700">BLINDSPOTS</div>
         </div>`;
 
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:44px 56px;border:16px solid ${INK}">
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:44px 56px;border:1px solid ${OG.rule};border-radius:24px">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
       <div style="display:flex;font-size:30px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
       <div style="display:flex;font-size:18px;letter-spacing:3px;color:${MUTED};font-weight:700">WEEK OF ${weekLabel.toUpperCase()}, ${year}</div>

@@ -7,6 +7,7 @@ import {
   ogCacheKey,
   OG_VERSIONS,
   portraitStripMarkup,
+  OG,
 } from "~/lib/ogCard";
 import { getCommunityVotes, type CommunityRaceTally } from "~/lib/picks";
 import { isCommonsMediaUrl, photoForSlug } from "~/lib/politicianPhotos";
@@ -17,10 +18,10 @@ export const prerender = false;
 // Community consensus share card — anonymous aggregates only (locked-ballot
 // counts + race percentages, non-gated by design). Never names a voter.
 
-const PAPER = "#F5EDD9";
-const INK = "#1A140D";
-const MUTED = "#6E5E4D";
-const RED = "#941A1A";
+const PAPER = OG.paper;
+const INK = OG.ink;
+const MUTED = OG.muted;
+const RED = OG.accent;
 const SOLID_D = "#0b3d91"; // .home-emap__party--solid-d
 const SOLID_R = "#8b1a14"; // .home-emap__party--solid-r
 
@@ -104,7 +105,7 @@ function markup(opts: {
   const faces = portraits.length
     ? `<div style="display:flex;margin-top:16px">${portraitStripMarkup(portraits, { size: 96, gap: 10 })}</div>`
     : "";
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:40px 56px;border:16px solid ${INK}">
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:40px 56px;border:1px solid ${OG.rule};border-radius:24px">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
       <div style="display:flex;font-size:28px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
       <div style="display:flex;font-size:18px;letter-spacing:3px;color:${MUTED};font-weight:700">MIDTERMS 2026</div>
@@ -160,7 +161,7 @@ function genericMarkup(): string {
     lines.length > 0
       ? lines.map((l) => esc(l)).join("  ·  ")
       : "Class II Senate · midterm governors · your picks, not polls";
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:48px 64px;border:16px solid ${INK}">
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:48px 64px;border:1px solid ${OG.rule};border-radius:24px">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
       <div style="display:flex;font-size:32px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
       <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED};font-weight:700">MIDTERMS 2026</div>

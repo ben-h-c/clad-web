@@ -2,7 +2,7 @@ import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { getCollection } from "astro:content";
 import { ImageResponse } from "workers-og";
-import { clip, loadImageDataUri, ogCacheKey, OG_VERSIONS, postStillUrl } from "~/lib/ogCard";
+import { clip, loadImageDataUri, ogCacheKey, OG_VERSIONS, postStillUrl, OG } from "~/lib/ogCard";
 import { pickQuizQuestions } from "~/lib/quiz";
 
 export const prerender = false;
@@ -15,10 +15,10 @@ export const prerender = false;
 // quiz answer and must NEVER render here.
 //
 // v3: bake the first claim's report still so the unfurl has a photo.
-const PAPER = "#F5EDD9";
-const INK = "#1A140D";
-const MUTED = "#6E5E4D";
-const RED = "#941A1A";
+const PAPER = OG.paper;
+const INK = OG.ink;
+const MUTED = OG.muted;
+const RED = OG.accent;
 
 const QUIZ_EPOCH_UTC = Date.UTC(2026, 5, 15);
 
@@ -78,7 +78,7 @@ function claimMarkup(opts: {
       </div>`
     : `<div style="display:flex;flex:1;min-height:0">${body}</div>`;
 
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:40px 52px;border:16px solid ${INK}">
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:40px 52px;border:1px solid ${OG.rule};border-radius:24px">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
       <div style="display:flex;font-size:26px;font-weight:700;letter-spacing:4px">CLADFACTS · THE MORNING QUIZ</div>
       <div style="display:flex;font-size:26px;font-weight:700;letter-spacing:2px;color:${RED}">No. ${opts.edition}</div>
@@ -95,7 +95,7 @@ function markup(dateLabel: string, thumbDataUri: string | null): string {
         <img src="${thumbDataUri}" width="360" height="360" style="object-fit:cover;width:360px;height:360px;" />
       </div>`
     : "";
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:48px 64px;border:16px solid ${INK}">
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:48px 64px;border:1px solid ${OG.rule};border-radius:24px">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
       <div style="display:flex;font-size:32px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
       <div style="display:flex;font-size:20px;letter-spacing:3px;color:${MUTED};font-weight:700">${dateLabel.toUpperCase()}</div>

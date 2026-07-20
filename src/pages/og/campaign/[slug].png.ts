@@ -8,16 +8,16 @@ import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { ImageResponse } from "workers-og";
 import { getCampaign, type Campaign, type CampaignCard } from "~/lib/campaign";
-import { clip, loadAssetDataUri, ogCacheKey, OG_VERSIONS } from "~/lib/ogCard";
+import { clip, loadAssetDataUri, ogCacheKey, OG_VERSIONS, OG } from "~/lib/ogCard";
 
 export const prerender = false;
 
 // v2: owned product screenshot so campaign unfurls aren't text-only.
 
-const PAPER = "#F5EDD9";
-const INK = "#1A140D";
-const MUTED = "#6E5E4D";
-const RED = "#941A1A";
+const PAPER = OG.paper;
+const INK = OG.ink;
+const MUTED = OG.muted;
+const RED = OG.accent;
 
 type FontFace = { name: string; data: ArrayBuffer; weight: 400 | 700; style: "normal" };
 
@@ -64,28 +64,29 @@ function markup(card: CampaignCard, photo: string | null): string {
   const cta = esc(clip(card.ctaLabel || "Read at CladFacts", 28).toUpperCase());
   const url = esc(displayPath(card.ctaUrl || "/"));
   const photoBlock = photo
-    ? `<div style="display:flex;width:300px;height:440px;overflow:hidden;border:4px solid ${INK};background:${INK};flex-shrink:0;margin-left:28px">
+    ? `<div style="display:flex;width:300px;height:440px;overflow:hidden;border:1px solid ${OG.rule};border-radius:18px;background:${INK};flex-shrink:0;margin-left:28px">
         <img src="${photo}" width="300" height="440" style="object-fit:cover;object-position:top center;width:300px;height:440px;" />
       </div>`
     : "";
 
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:40px 48px;border:16px solid ${INK}">
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:36px 40px;">
+    <div style="display:flex;flex-direction:column;flex:1;background:${OG.card};border:1px solid ${OG.rule};border-radius:24px;padding:28px 36px;">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
-      <div style="display:flex;font-size:28px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
-      <div style="display:flex;font-size:18px;letter-spacing:3px;color:${MUTED};font-weight:700">${kicker}</div>
+      <div style="display:flex;font-size:26px;font-weight:700;letter-spacing:-0.5px;color:${INK}">CladFacts</div>
+      <div style="display:flex;font-size:13px;letter-spacing:1px;color:${RED};font-weight:700;background:${OG.accentSoft};padding:6px 14px;border-radius:999px">${kicker}</div>
     </div>
-    <div style="display:flex;width:100%;height:4px;background:${INK};margin:14px 0 20px"></div>
-    <div style="display:flex;flex-direction:row;flex:1;width:100%;min-height:0">
+    <div style="display:flex;flex-direction:row;flex:1;width:100%;min-height:0;margin-top:22px">
       <div style="display:flex;flex-direction:column;flex:1;min-width:0">
-        <div style="display:flex;font-size:48px;font-weight:700;line-height:1.08;max-width:760px">${headline}</div>
-        <div style="display:flex;font-size:26px;margin-top:14px;line-height:1.3;font-weight:700;max-width:720px">${subhead}</div>
-        <div style="display:flex;font-size:22px;color:${MUTED};margin-top:12px;line-height:1.4;max-width:720px">${stat}</div>
+        <div style="display:flex;font-size:44px;font-weight:700;line-height:1.1;max-width:760px;color:${INK}">${headline}</div>
+        <div style="display:flex;font-size:24px;margin-top:14px;line-height:1.35;font-weight:600;max-width:720px;color:${MUTED}">${subhead}</div>
+        <div style="display:flex;font-size:20px;color:${MUTED};margin-top:12px;line-height:1.4;max-width:720px">${stat}</div>
         <div style="display:flex;margin-top:auto;justify-content:space-between;align-items:flex-end;width:100%">
-          <div style="display:flex;border:3px solid ${RED};color:${RED};padding:10px 20px;font-size:18px;letter-spacing:2px;font-weight:700">${cta}</div>
-          <div style="display:flex;font-size:18px;color:${MUTED};letter-spacing:2px">${url}</div>
+          <div style="display:flex;background:${OG.accent};border-radius:999px;color:#FFFFFF;padding:12px 22px;font-size:16px;letter-spacing:1px;font-weight:700">${cta}</div>
+          <div style="display:flex;font-size:16px;color:${MUTED};font-weight:600">${url}</div>
         </div>
       </div>
       ${photoBlock}
+    </div>
     </div>
   </div>`;
 }

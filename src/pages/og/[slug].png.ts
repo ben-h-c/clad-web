@@ -6,7 +6,7 @@ import { aggregateTopics, gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topi
 import { getBreaking } from "~/lib/agents";
 import { isNewsOutlet } from "~/lib/networks";
 import { displayableThumb } from "~/lib/imagePolicy";
-import { OG_VERSIONS, ogCacheKey, clip } from "~/lib/ogCard";
+import { OG_VERSIONS, ogCacheKey, clip, OG, ogGradeColors, ogLeanBarMarkup } from "~/lib/ogCard";
 
 export const prerender = false;
 
@@ -15,10 +15,11 @@ export const prerender = false;
 // reference /og/<slug>.png?v=N so social scrapers — which key their own
 // caches on the URL — re-unfurl already-shared links with the new design.
 
-const PAPER = "#F5EDD9";
-const INK = "#1A140D";
-const MUTED = "#6E5E4D";
-const RED = "#941A1A";
+const PAPER = OG.paper;
+const INK = OG.ink;
+const MUTED = OG.muted;
+const ACCENT = OG.accent;
+const CARD = OG.card;
 
 const VERDICT_LABELS: Record<string, string> = {
   true: "True", "mostly-true": "Mostly True", mixed: "Mixed",
@@ -56,15 +57,11 @@ interface Card {
   thumbUrl?: string | null;
 }
 
-function gradeColor(badge: string): string {
-  const t = (badge || "").charAt(0).toUpperCase();
-  if (t === "A" || t === "B") return INK;
-  if (t === "C") return MUTED;
-  return RED;
-}
-
-function verdictChipColor(verdict: string): string {
-  return verdict.toLowerCase() === "verified" ? PAPER : "#E8B4B4";
+function verdictChipColors(verdict: string): { bg: string; ink: string } {
+  const v = verdict.toLowerCase();
+  if (v === "verified") return { bg: OG.gradeABg, ink: OG.gradeAInk };
+  if (v === "missing context") return { bg: OG.gradeBBg, ink: OG.gradeBInk };
+  return { bg: OG.gradeBadBg, ink: OG.gradeBadInk };
 }
 
 /**
@@ -121,107 +118,88 @@ async function loadThumbDataUri(rawUrl: string | null | undefined, origin: strin
   }
 }
 
-/**
- * Lean as geometry (Ground News pattern): a 360×14 blue/red split bar with an
- * INK tick at the lean score. Satori-safe — the tick sits in its own flex row
- * where a flex-basis spacer pushes it into place (no absolute positioning).
- */
-function leanBarMarkup(score: number): string {
-  const s = Math.max(-100, Math.min(100, score));
-  const pct = (s + 100) / 2;
-  return `<div style="display:flex;flex-direction:column;width:360px;margin-top:8px;">
-    <div style="display:flex;flex-direction:row;width:360px;height:22px;">
-      <div style="display:flex;flex-grow:0;flex-shrink:1;flex-basis:${pct}%;"></div>
-      <div style="display:flex;width:6px;height:22px;background:${INK};"></div>
-    </div>
-    <div style="display:flex;flex-direction:row;width:360px;height:14px;border:2px solid ${INK};">
-      <div style="display:flex;flex:1;background:#0b3d91;"></div>
-      <div style="display:flex;width:4px;background:${PAPER};"></div>
-      <div style="display:flex;flex:1;background:#8b1a14;"></div>
-    </div>
-  </div>`;
-}
-
 function markup(card: Card, thumbDataUri: string | null): string {
-  const color = gradeColor(card.badge);
+  const g = ogGradeColors(card.badge);
   const meta =
     card.metaLine != null
       ? card.metaLine
       : card.factuality != null
-        ? `FACTUALITY ${card.factuality}/100`
+        ? `Factuality ${card.factuality}/100`
         : "";
-  const badgeSize = card.badge.length <= 2 ? 96 : 44;
+  const badgeSize = card.badge.length <= 2 ? 72 : 36;
   const hClipped = clip(card.headline, thumbDataUri ? 90 : 120);
-  const hSize = hClipped.length > 70 ? 34 : 42;
+  const hSize = hClipped.length > 70 ? 32 : 40;
 
   const factLine =
     card.factuality != null
-      ? `<div style="display:flex;font-size:18px;color:${INK};letter-spacing:2px;margin-top:8px;font-weight:700;">FACTUALITY ${card.factuality}/100</div>`
+      ? `<div style="display:flex;font-size:16px;color:${MUTED};margin-top:8px;font-weight:600;">Factuality ${card.factuality}/100</div>`
       : "";
   const subLine =
     card.metaLine != null
-      ? `<div style="display:flex;font-size:18px;color:${MUTED};letter-spacing:2px;margin-top:8px;">${esc(card.metaLine)}</div>`
+      ? `<div style="display:flex;font-size:16px;color:${MUTED};margin-top:8px;">${esc(card.metaLine)}</div>`
       : "";
   const leanLine =
     card.lean && card.leanScore != null
-      ? `<div style="display:flex;font-size:28px;font-weight:700;">${esc(card.lean)}</div>
-       ${leanBarMarkup(card.leanScore)}
+      ? `<div style="display:flex;font-size:24px;font-weight:700;color:${INK};">${esc(card.lean)}</div>
+       ${ogLeanBarMarkup(card.leanScore, 320)}
        ${factLine}${subLine}`
       : meta
-        ? `<div style="display:flex;font-size:20px;color:${MUTED};letter-spacing:2px;">${esc(meta)}</div>`
+        ? `<div style="display:flex;font-size:18px;color:${MUTED};font-weight:600;">${esc(meta)}</div>`
         : "";
 
   const hook =
     card.moment?.claim
       ? (() => {
           const v = card.moment!.verdict.toUpperCase();
-          const chipColor = verdictChipColor(card.moment!.verdict);
+          const chip = verdictChipColors(card.moment!.verdict);
           const q = clip(card.moment!.claim, thumbDataUri ? 95 : 120);
           return `<div style="display:flex;flex-direction:column;margin-bottom:14px;">
             <div style="display:flex;align-items:center;margin-bottom:10px;">
-              <div style="display:flex;font-size:16px;color:${MUTED};letter-spacing:3px;font-weight:700;">${esc(hookKicker(card.moment!.verdict))}</div>
-              <div style="display:flex;margin-left:14px;padding:5px 12px;border:2px solid ${chipColor};font-size:16px;letter-spacing:2px;font-weight:700;color:${color === RED ? RED : INK};border-color:${chipColor === PAPER ? INK : chipColor};">${esc(v)}</div>
+              <div style="display:flex;font-size:14px;color:${MUTED};letter-spacing:1px;font-weight:700;">${esc(hookKicker(card.moment!.verdict))}</div>
+              <div style="display:flex;margin-left:12px;padding:6px 14px;border-radius:999px;background:${chip.bg};font-size:14px;font-weight:700;color:${chip.ink};">${esc(v)}</div>
             </div>
-            <div style="display:flex;font-size:26px;font-weight:700;line-height:1.2;color:${INK};">“${esc(q)}”</div>
+            <div style="display:flex;font-size:24px;font-weight:700;line-height:1.25;color:${INK};">“${esc(q)}”</div>
           </div>`;
         })()
-      : `<div style="display:flex;font-size:18px;color:${MUTED};letter-spacing:4px;font-weight:700;margin-bottom:12px;">FACT-CHECKED · GRADED · BIAS-RATED</div>`;
+      : `<div style="display:flex;font-size:14px;color:${ACCENT};letter-spacing:1px;font-weight:700;margin-bottom:12px;">FACT-CHECKED · GRADED · BIAS-RATED</div>`;
 
-  const gradeStamp = `<div style="display:flex;flex-direction:column;align-items:center;border:5px solid ${color};padding:8px 16px;margin-right:20px;background:${PAPER};">
-    <div style="display:flex;font-size:${badgeSize}px;font-weight:700;line-height:1;color:${color};">${esc(card.badge)}</div>
-    <div style="display:flex;font-size:16px;color:${color};letter-spacing:2px;margin-top:2px;font-weight:700;">${esc(card.badgeLabel)}</div>
+  const gradeStamp = `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:999px;padding:14px 20px;margin-right:18px;background:${g.bg};min-width:88px;min-height:88px;">
+    <div style="display:flex;font-size:${badgeSize}px;font-weight:700;line-height:1;color:${g.ink};">${esc(card.badge)}</div>
+    <div style="display:flex;font-size:12px;color:${g.ink};letter-spacing:1px;margin-top:4px;font-weight:700;">${esc(card.badgeLabel)}</div>
   </div>`;
 
-  const bodyRight = `<div style="display:flex;flex-direction:column;flex:1;padding:20px 28px 12px;justify-content:space-between;min-width:0;">
+  const bodyRight = `<div style="display:flex;flex-direction:column;flex:1;padding:24px 28px 16px;justify-content:space-between;min-width:0;">
     ${hook}
     <div style="display:flex;align-items:center;">
       ${gradeStamp}
       <div style="display:flex;flex-direction:column;">${leanLine}</div>
     </div>
-    <div style="display:flex;font-size:${hSize}px;font-weight:700;line-height:1.1;margin-top:12px;">${esc(hClipped)}</div>
+    <div style="display:flex;font-size:${hSize}px;font-weight:700;line-height:1.15;margin-top:14px;color:${INK};">${esc(hClipped)}</div>
   </div>`;
 
   const mid = thumbDataUri
-    ? `<div style="display:flex;flex:1;flex-direction:row;min-height:0;border-bottom:3px solid ${INK};">
-        <div style="display:flex;width:480px;height:470px;overflow:hidden;border-right:3px solid ${INK};background:${INK};">
-          <img src="${thumbDataUri}" width="480" height="470" style="object-fit:cover;width:480px;height:470px;" />
+    ? `<div style="display:flex;flex:1;flex-direction:row;min-height:0;">
+        <div style="display:flex;width:440px;height:100%;overflow:hidden;border-radius:16px;margin:16px 0 16px 16px;background:${INK};">
+          <img src="${thumbDataUri}" width="440" height="470" style="object-fit:cover;width:440px;height:470px;" />
         </div>
         ${bodyRight}
       </div>`
-    : `<div style="display:flex;flex:1;flex-direction:column;min-height:0;border-bottom:3px solid ${INK};">
+    : `<div style="display:flex;flex:1;flex-direction:column;min-height:0;">
         ${bodyRight}
       </div>`;
 
   return `
-  <div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;">
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 36px;height:56px;border-bottom:4px solid ${INK};">
-      <div style="display:flex;font-size:30px;font-weight:700;letter-spacing:5px;">CLADFACTS</div>
-      <div style="display:flex;font-size:18px;color:${MUTED};letter-spacing:3px;font-weight:700;">REPORT CARD</div>
-    </div>
-    ${mid}
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 36px;height:48px;">
-      <div style="display:flex;font-size:20px;font-weight:700;letter-spacing:2px;color:${RED};">TAP FOR THE FULL RECEIPTS</div>
-      <div style="display:flex;font-size:18px;color:${MUTED};letter-spacing:2px;">cladfacts.com</div>
+  <div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:28px;">
+    <div style="display:flex;flex-direction:column;flex:1;background:${CARD};border-radius:24px;border:1px solid ${OG.rule};overflow:hidden;">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:52px;">
+        <div style="display:flex;font-size:26px;font-weight:700;letter-spacing:-0.5px;color:${INK};">CladFacts</div>
+        <div style="display:flex;font-size:13px;color:${ACCENT};letter-spacing:1px;font-weight:700;background:${OG.accentSoft};padding:6px 14px;border-radius:999px;">REPORT CARD</div>
+      </div>
+      ${mid}
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 28px;height:52px;background:${OG.accentSoft};">
+        <div style="display:flex;font-size:16px;font-weight:700;color:${ACCENT};">Open for full receipts →</div>
+        <div style="display:flex;font-size:16px;color:${MUTED};font-weight:600;">cladfacts.com</div>
+      </div>
     </div>
   </div>`;
 }
@@ -230,12 +208,14 @@ function markup(card: Card, thumbDataUri: string | null): string {
 // so link unfurls (X/Twitter, etc.) always show a large preview.
 function brandMarkup(): string {
   return `
-  <div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;align-items:center;justify-content:center;border:16px solid ${INK};">
-    <div style="display:flex;font-size:26px;color:${MUTED};letter-spacing:8px;font-weight:700;">WE GRADE THE NEWS</div>
-    <div style="display:flex;font-size:120px;font-weight:700;letter-spacing:8px;line-height:1;margin:18px 0 10px;">CLADFACTS</div>
-    <div style="display:flex;width:640px;height:4px;background:${INK};"></div>
-    <div style="display:flex;font-size:36px;font-weight:700;margin-top:28px;line-height:1.25;width:900px;justify-content:center;text-align:center;">Every claim. Graded. Bias-rated. Receipts.</div>
-    <div style="display:flex;margin-top:36px;border:3px solid ${RED};color:${RED};padding:12px 28px;font-size:24px;letter-spacing:3px;font-weight:700;">FREE TO READ · FREE TO SHARE</div>
+  <div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;align-items:center;justify-content:center;padding:40px;">
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;background:${CARD};border-radius:28px;border:1px solid ${OG.rule};padding:48px;">
+      <div style="display:flex;font-size:18px;color:${ACCENT};letter-spacing:2px;font-weight:700;background:${OG.accentSoft};padding:8px 18px;border-radius:999px;">WE GRADE THE NEWS</div>
+      <div style="display:flex;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1;margin:22px 0 12px;color:${INK};">CladFacts</div>
+      <div style="display:flex;width:120px;height:4px;background:${ACCENT};border-radius:999px;"></div>
+      <div style="display:flex;font-size:32px;font-weight:600;margin-top:28px;line-height:1.3;width:860px;justify-content:center;text-align:center;color:${MUTED};">Every claim. Graded. Bias-rated. Receipts.</div>
+      <div style="display:flex;margin-top:36px;background:${ACCENT};color:#FFFFFF;padding:14px 32px;font-size:20px;letter-spacing:1px;font-weight:700;border-radius:999px;">FREE TO READ · FREE TO SHARE</div>
+    </div>
   </div>`;
 }
 

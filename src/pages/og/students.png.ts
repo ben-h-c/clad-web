@@ -1,16 +1,16 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { ImageResponse } from "workers-og";
-import { loadAssetDataUri, OG_VERSIONS, ogCacheKey } from "~/lib/ogCard";
+import { loadAssetDataUri, OG_VERSIONS, ogCacheKey, OG } from "~/lib/ogCard";
 
 export const prerender = false;
 
 // Share card for /students/. v2: owned product screenshot so unfurls have a photo.
 
-const PAPER = "#F5EDD9";
-const INK = "#1A140D";
-const MUTED = "#6E5E4D";
-const RED = "#941A1A";
+const PAPER = OG.paper;
+const INK = OG.ink;
+const MUTED = OG.muted;
+const RED = OG.accent;
 
 let fontsPromise: Promise<{ name: string; data: ArrayBuffer; weight: 400 | 700; style: "normal" }[]> | null = null;
 function loadFonts(origin: string) {
@@ -43,7 +43,7 @@ function markup(photo: string | null): string {
         <img src="${photo}" width="300" height="440" style="object-fit:cover;object-position:top center;width:300px;height:440px;" />
       </div>`
     : "";
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:40px 48px;border:16px solid ${INK}">
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:40px 48px;border:1px solid ${OG.rule};border-radius:24px">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
       <div style="display:flex;font-size:28px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
       <div style="display:flex;font-size:18px;letter-spacing:3px;color:${MUTED};font-weight:700">FOR STUDENTS · AGES 16–24</div>

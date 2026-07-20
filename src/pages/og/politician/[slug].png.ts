@@ -3,7 +3,7 @@ import { env } from "cloudflare:workers";
 import { getCollection } from "astro:content";
 import { ImageResponse } from "workers-og";
 import { findPolitician } from "~/lib/politicians";
-import { OG_VERSIONS, ogCacheKey } from "~/lib/ogCard";
+import { OG_VERSIONS, ogCacheKey, OG, ogGradeColors, ogLeanBarMarkup } from "~/lib/ogCard";
 import { getPoliticianPhotoMap } from "~/lib/agents";
 import {
   photoForSlug,
@@ -18,10 +18,10 @@ export const prerender = false;
 // grade + ideology lean (same person* fields as the HTML scoreband — not media
 // coverage averages).
 
-const PAPER = "#F5EDD9";
-const INK = "#1A140D";
-const MUTED = "#6E5E4D";
-const RED = "#941A1A";
+const PAPER = OG.paper;
+const INK = OG.ink;
+const MUTED = OG.muted;
+const RED = OG.accent;
 const UA = "CladFactsOG/1.0 (+https://cladfacts.com; politician report cards)";
 
 let fontsPromise: Promise<{ name: string; data: ArrayBuffer; weight: 400 | 700; style: "normal" }[]> | null = null;
@@ -114,36 +114,9 @@ async function loadPortraitDataUri(url: string | null): Promise<string | null> {
   }
 }
 
-function gradeColor(grade: string): string {
-  const t = (grade || "").charAt(0).toUpperCase();
-  if (t === "A" || t === "B") return INK;
-  if (t === "C") return MUTED;
-  return RED;
-}
-
 function leanLabel(score: number): string {
   if (Math.abs(score) < 5) return "Centered";
   return `${Math.abs(score)}% ${score > 0 ? "Right" : "Left"}-leaning`;
-}
-
-/**
- * Lean as geometry (same Ground News pattern as post OG cards): blue/red split
- * with an ink tick at the lean score. Satori-safe flex layout.
- */
-function leanBarMarkup(score: number): string {
-  const s = Math.max(-100, Math.min(100, score));
-  const pct = (s + 100) / 2;
-  return `<div style="display:flex;flex-direction:column;width:320px;margin-top:6px;">
-    <div style="display:flex;flex-direction:row;width:320px;height:18px;">
-      <div style="display:flex;flex-grow:0;flex-shrink:1;flex-basis:${pct}%;"></div>
-      <div style="display:flex;width:5px;height:18px;background:${INK};"></div>
-    </div>
-    <div style="display:flex;flex-direction:row;width:320px;height:12px;border:2px solid ${INK};">
-      <div style="display:flex;flex:1;background:#0b3d91;"></div>
-      <div style="display:flex;width:3px;background:${PAPER};"></div>
-      <div style="display:flex;flex:1;background:#8b1a14;"></div>
-    </div>
-  </div>`;
 }
 
 interface CardInput {
@@ -166,28 +139,28 @@ function markup(card: CardInput): string {
   const raceLine = card.race ? card.race.toUpperCase() : "FACT-CHECK REPORT CARD";
 
   const photoBlock = card.photoDataUri
-    ? `<div style="display:flex;width:240px;height:240px;border:4px solid ${INK};overflow:hidden;flex-shrink:0;background:${INK}">
+    ? `<div style="display:flex;width:240px;height:240px;border:1px solid ${OG.rule};border-radius:20px;overflow:hidden;flex-shrink:0;background:${INK}">
         <img src="${card.photoDataUri}" width="240" height="240" style="object-fit:cover;object-position:center top;width:240px;height:240px;" />
       </div>`
-    : `<div style="display:flex;width:240px;height:240px;border:4px solid ${INK};align-items:center;justify-content:center;flex-shrink:0;background:rgba(26,20,13,0.1)">
-        <div style="display:flex;font-size:72px;font-weight:700;color:${MUTED};letter-spacing:4px">${esc(card.initials)}</div>
+    : `<div style="display:flex;width:240px;height:240px;border:1px solid ${OG.rule};border-radius:20px;align-items:center;justify-content:center;flex-shrink:0;background:${OG.accentSoft}">
+        <div style="display:flex;font-size:72px;font-weight:700;color:${MUTED};letter-spacing:2px">${esc(card.initials)}</div>
       </div>`;
 
-  const color = card.grade ? gradeColor(card.grade) : INK;
-  const badgeSize = card.grade && card.grade.length <= 2 ? 72 : 40;
-  const gradeStamp = card.grade
-    ? `<div style="display:flex;flex-direction:column;align-items:center;border:5px solid ${color};padding:8px 16px;background:${PAPER};flex-shrink:0;">
-        <div style="display:flex;font-size:${badgeSize}px;font-weight:700;line-height:1;color:${color};">${esc(card.grade)}</div>
-        <div style="display:flex;font-size:14px;color:${color};letter-spacing:2px;margin-top:2px;font-weight:700;">CLAIM RECORD</div>
+  const g = card.grade ? ogGradeColors(card.grade) : null;
+  const badgeSize = card.grade && card.grade.length <= 2 ? 64 : 36;
+  const gradeStamp = g
+    ? `<div style="display:flex;flex-direction:column;align-items:center;border-radius:999px;padding:12px 18px;background:${g.bg};flex-shrink:0;min-width:84px;min-height:84px;justify-content:center;">
+        <div style="display:flex;font-size:${badgeSize}px;font-weight:700;line-height:1;color:${g.ink};">${esc(card.grade!)}</div>
+        <div style="display:flex;font-size:12px;color:${g.ink};letter-spacing:1px;margin-top:4px;font-weight:700;">CLAIM RECORD</div>
       </div>`
     : "";
 
   const leanBlock =
     card.lean != null
       ? `<div style="display:flex;flex-direction:column;margin-left:${card.grade ? "20" : "0"}px;">
-          <div style="display:flex;font-size:14px;letter-spacing:2px;color:${MUTED};font-weight:700;">IDEOLOGY</div>
-          <div style="display:flex;font-size:26px;font-weight:700;margin-top:2px;">${esc(leanLabel(card.lean))}</div>
-          ${leanBarMarkup(card.lean)}
+          <div style="display:flex;font-size:13px;letter-spacing:1px;color:${MUTED};font-weight:700;">IDEOLOGY</div>
+          <div style="display:flex;font-size:24px;font-weight:700;margin-top:2px;color:${INK};">${esc(leanLabel(card.lean))}</div>
+          ${ogLeanBarMarkup(card.lean, 300)}
         </div>`
       : "";
 
@@ -196,26 +169,27 @@ function markup(card: CardInput): string {
       ? `<div style="display:flex;flex-direction:row;align-items:center;margin-top:16px;">
           ${gradeStamp}${leanBlock}
         </div>`
-      : `<div style="display:flex;font-size:22px;color:${MUTED};margin-top:16px;line-height:1.35">Person scores pending — see graded appearances</div>`;
+      : `<div style="display:flex;font-size:20px;color:${MUTED};margin-top:16px;line-height:1.35">Person scores pending — see graded appearances</div>`;
 
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:40px 52px;border:16px solid ${INK}">
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair;padding:36px 44px;">
+    <div style="display:flex;flex-direction:column;flex:1;background:${OG.card};border-radius:24px;border:1px solid ${OG.rule};padding:28px 36px;">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
-      <div style="display:flex;font-size:28px;font-weight:700;letter-spacing:5px">CLADFACTS</div>
-      <div style="display:flex;font-size:18px;letter-spacing:3px;color:${MUTED};font-weight:700">POLITICIAN REPORT CARD</div>
+      <div style="display:flex;font-size:26px;font-weight:700;letter-spacing:-0.5px;color:${INK}">CladFacts</div>
+      <div style="display:flex;font-size:13px;letter-spacing:1px;color:${RED};font-weight:700;background:${OG.accentSoft};padding:6px 14px;border-radius:999px">POLITICIAN REPORT CARD</div>
     </div>
-    <div style="display:flex;width:100%;height:4px;background:${INK};margin:14px 0 24px"></div>
-    <div style="display:flex;flex-direction:row;align-items:flex-start;width:100%;flex:1">
+    <div style="display:flex;flex-direction:row;align-items:flex-start;width:100%;flex:1;margin-top:22px">
       ${photoBlock}
-      <div style="display:flex;flex-direction:column;margin-left:36px;flex:1;min-width:0">
-        <div style="display:flex;font-size:18px;letter-spacing:4px;color:${RED};font-weight:700">${esc(raceLine)}</div>
-        <div style="display:flex;font-size:52px;font-weight:700;line-height:1.05;margin-top:8px;max-width:760px">${esc(card.name)}</div>
+      <div style="display:flex;flex-direction:column;margin-left:32px;flex:1;min-width:0">
+        <div style="display:flex;font-size:14px;letter-spacing:1px;color:${RED};font-weight:700">${esc(raceLine)}</div>
+        <div style="display:flex;font-size:48px;font-weight:700;line-height:1.05;margin-top:8px;max-width:760px;color:${INK}">${esc(card.name)}</div>
         ${scoresRow}
-        <div style="display:flex;font-size:24px;margin-top:18px;line-height:1.25;font-weight:700">${esc(reports)}</div>
+        <div style="display:flex;font-size:22px;margin-top:16px;line-height:1.25;font-weight:600;color:${MUTED}">${esc(reports)}</div>
       </div>
     </div>
     <div style="display:flex;margin-top:auto;justify-content:space-between;align-items:flex-end;width:100%;padding-top:16px">
-      <div style="display:flex;border:3px solid ${RED};color:${RED};padding:10px 22px;font-size:18px;letter-spacing:2px;font-weight:700">FULL REPORT CARD</div>
-      <div style="display:flex;font-size:18px;color:${MUTED};letter-spacing:2px">cladfacts.com/politicians</div>
+      <div style="display:flex;background:${OG.accent};border-radius:999px;color:#FFFFFF;padding:12px 22px;font-size:16px;letter-spacing:1px;font-weight:700">FULL REPORT CARD</div>
+      <div style="display:flex;font-size:16px;color:${MUTED};font-weight:600">cladfacts.com/politicians</div>
+    </div>
     </div>
   </div>`;
 }

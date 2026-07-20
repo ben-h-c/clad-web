@@ -8,6 +8,7 @@ import {
   ogCacheKey,
   OG_VERSIONS,
   portraitStripMarkup,
+  OG,
 } from "~/lib/ogCard";
 import { isCommonsMediaUrl, photoForSlug } from "~/lib/politicianPhotos";
 
@@ -20,10 +21,10 @@ export const prerender = false;
  * scores are public-by-design on shared ballots — nothing gated renders here.
  */
 
-const PAPER = "#F5EDD9";
-const INK = "#1A140D";
-const MUTED = "#6E5E4D";
-const RED = "#941A1A";
+const PAPER = OG.paper;
+const INK = OG.ink;
+const MUTED = OG.muted;
+const RED = OG.accent;
 const SOLID_D = "#0b3d91"; // .home-emap__party--solid-d (election-map token)
 const SOLID_R = "#8b1a14"; // .home-emap__party--solid-r
 const GREEN = "#2d6a4f"; // correct-outcome tone (ballot page)
@@ -109,7 +110,7 @@ function markup(opts: {
   const faces = opts.portraits.length
     ? `<div style="display:flex;margin-top:10px">${portraitStripMarkup(opts.portraits, { size: 72, gap: 8 })}</div>`
     : "";
-  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:28px 52px 30px;border:16px solid ${INK}">
+  return `<div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${PAPER};color:${INK};font-family:Playfair,Georgia,serif;padding:28px 52px 30px;border:1px solid ${OG.rule};border-radius:24px">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
       <div style="display:flex;font-size:24px;line-height:1;font-weight:700;letter-spacing:5px">CLADFACTS</div>
       <div style="display:flex;font-size:16px;line-height:1;letter-spacing:3px;color:${MUTED};font-weight:700">MIDTERMS 2026 · BALLOT BOARD</div>
