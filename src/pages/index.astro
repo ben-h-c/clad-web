@@ -21,7 +21,11 @@ import {
   getSentiments,
   getTodayInHistory,
   getHumanSpotlight,
+  getDiscover,
+  getGoodNews,
+  getCalendarEventsStore,
 } from "~/lib/agents";
+import { buildGoodNewsSections } from "~/lib/goodnews";
 import { aggregateTopics, gradeToGpa } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
@@ -29,7 +33,6 @@ import { getSessionUser, getPrefs } from "~/lib/user-data";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 import { homePromosForPage } from "~/lib/homePromos";
 import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates } from "~/lib/elections";
-import { getCalendarEventsStore } from "~/lib/agents";
 import {
   eventsFromPosts,
   eventsFromUserBirthday,
@@ -174,6 +177,34 @@ if (access.signedIn) {
 const calendarExtra: CalendarEvent[] = [...calendarFromPosts, ...calendarPrivate];
 const todayInHistory = await getTodayInHistory(env.AGENTS);
 const humanSpotlight = await getHumanSpotlight(env.AGENTS);
+
+// Discover + Good News — same horizontal strip format as Breaking / Front Page.
+// Flatten curated section post ids (order preserved, de-duped). Cap for mobile.
+function postsFromSections(
+  sections: { ids: string[] }[],
+  map: typeof byId,
+  max = 12
+): typeof all {
+  const seen = new Set<string>();
+  const out: typeof all = [];
+  for (const s of sections) {
+    for (const id of s.ids || []) {
+      if (seen.has(id)) continue;
+      const p = map.get(id);
+      if (!p) continue;
+      seen.add(id);
+      out.push(p);
+      if (out.length >= max) return out;
+    }
+  }
+  return out;
+}
+const discoverSections = await getDiscover(env.AGENTS);
+const goodNewsCurated = await getGoodNews(env.AGENTS);
+const goodNewsSections =
+  goodNewsCurated.length > 0 ? goodNewsCurated : buildGoodNewsSections(all);
+const discoverPosts = postsFromSections(discoverSections, byId, 12);
+const goodNewsPosts = postsFromSections(goodNewsSections, byId, 12);
 ---
 <BaseLayout
   title="CladFacts — Grading Content & Exposing Bias"
@@ -284,6 +315,22 @@ const humanSpotlight = await getHumanSpotlight(env.AGENTS);
       )}
       {/* Free/anonymous readers still get the daily positive story. */}
       {locked && <HumanSpotlight payload={humanSpotlight} />}
+
+      {/* Discover + Good News — horizontal cards like Breaking / Front Page */}
+      <HeroStrip
+        posts={discoverPosts}
+        title="Discover"
+        locked={locked}
+        moreHref="/discover/"
+        moreLabel="All collections →"
+      />
+      <HeroStrip
+        posts={goodNewsPosts}
+        title="Good News"
+        locked={locked}
+        moreHref="/good-news/"
+        moreLabel="All good news →"
+      />
 
       <section class="more-clad" aria-labelledby="more-clad-title">
         <div class="feed__head">
