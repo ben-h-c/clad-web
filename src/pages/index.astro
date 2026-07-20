@@ -29,17 +29,14 @@ import { buildGoodNewsSections } from "~/lib/goodnews";
 import { aggregateTopics, gradeToGpa } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
-import { getSessionUser, getPrefs } from "~/lib/user-data";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 import { homePromosForPage } from "~/lib/homePromos";
 import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates } from "~/lib/elections";
 import {
   eventsFromPosts,
-  eventsFromUserBirthday,
   normalizeCalendarEvent,
   type CalendarEvent,
 } from "~/lib/calendarEvents";
-import { resolveBirthdayMessage } from "~/lib/birthdayMessage";
 
 // SSR so the hero reflects the curator's live KV-stored selection without a
 // rebuild. Per-user (grades hidden for restricted readers), so never shared-cache.
@@ -151,7 +148,6 @@ if (!locked) {
 }
 
 // Home calendar: race dates + agent news feed + recent Clad reports on publish days.
-// Private birthday markers only when this request is a signed-in user (never shared).
 const election = await getElectionWithPublishedDates(DEFAULT_ELECTION_ID, env.AGENTS);
 const calendarRaces = election?.races;
 const calStore = await getCalendarEventsStore(env.AGENTS);
@@ -160,21 +156,7 @@ const calendarLive: CalendarEvent[] = (calStore?.events ?? [])
   .filter((e): e is CalendarEvent => e != null);
 // Past density: more Clad reports on the daybook so recent days stay busy.
 const calendarFromPosts = eventsFromPosts(all, { max: 72, maxPerDay: 3, daysBack: 60 });
-let calendarPrivate: CalendarEvent[] = [];
-if (access.signedIn) {
-  const su = await getSessionUser(Astro.request.headers);
-  if (su) {
-    const prefs = await getPrefs(su.id);
-    // Only appears on the day itself; Grok writes a fresh note once per year.
-    const bdayMsg = await resolveBirthdayMessage({
-      userId: su.id,
-      name: su.name,
-      prefs,
-    });
-    calendarPrivate = eventsFromUserBirthday(prefs.birthday, { message: bdayMsg });
-  }
-}
-const calendarExtra: CalendarEvent[] = [...calendarFromPosts, ...calendarPrivate];
+const calendarExtra: CalendarEvent[] = calendarFromPosts;
 const todayInHistory = await getTodayInHistory(env.AGENTS);
 const humanSpotlight = await getHumanSpotlight(env.AGENTS);
 

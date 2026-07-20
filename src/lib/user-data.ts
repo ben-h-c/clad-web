@@ -17,15 +17,6 @@ export interface UserPrefs {
   pushEvents: boolean;
   /** Preferred reading theme when signed in (synced to localStorage). */
   theme: ThemePref;
-  /**
-   * Date of birth as YYYY-MM-DD (private). Used for the user’s personal
-   * calendar birthday marker — never shown to other users.
-   */
-  birthday: string | null;
-  /** Cached Grok birthday note (private), valid for birthdayMessageYear. */
-  birthdayMessage: string | null;
-  /** Calendar year the cached birthdayMessage was written for. */
-  birthdayMessageYear: number | null;
 }
 export const DEFAULT_PREFS: UserPrefs = {
   newsletter: false,
@@ -34,51 +25,7 @@ export const DEFAULT_PREFS: UserPrefs = {
   pushReports: true,
   pushEvents: true,
   theme: "dark",
-  birthday: null,
-  birthdayMessage: null,
-  birthdayMessageYear: null,
 };
-
-/** Minimum age for a free account (COPPA / product policy). */
-export const MIN_ACCOUNT_AGE = 13;
-
-/**
- * Validate and normalize a birthday string to YYYY-MM-DD, or null if invalid.
- * Rejects future dates and ages under MIN_ACCOUNT_AGE.
- */
-export function sanitizeBirthday(raw: unknown): string | null {
-  if (raw == null || raw === "") return null;
-  const s = String(raw).trim().slice(0, 10);
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(s)) return null;
-  const [ys, ms, ds] = s.split("-").map(Number);
-  if (!ys || !ms || !ds) return null;
-  // Civil-date checks without TZ shift
-  const probe = new Date(Date.UTC(ys, ms - 1, ds));
-  if (
-    probe.getUTCFullYear() !== ys ||
-    probe.getUTCMonth() !== ms - 1 ||
-    probe.getUTCDate() !== ds
-  ) {
-    return null;
-  }
-  const now = new Date();
-  const todayUtc = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
-  if (probe.getTime() > todayUtc) return null;
-  // Age at UTC midnight today
-  let age = now.getUTCFullYear() - ys;
-  const hadBirthday =
-    now.getUTCMonth() > ms - 1 ||
-    (now.getUTCMonth() === ms - 1 && now.getUTCDate() >= ds);
-  if (!hadBirthday) age -= 1;
-  if (age < MIN_ACCOUNT_AGE || age > 120) return null;
-  return s;
-}
-
-/** MM-DD for calendar matching (America/New_York not needed — civil month/day). */
-export function birthdayMonthDay(birthday: string | null | undefined): string | null {
-  if (!birthday || !/^\d{4}-\d{2}-\d{2}$/.test(birthday)) return null;
-  return birthday.slice(5);
-}
 
 export interface SessionUser {
   id: string;
@@ -116,7 +63,8 @@ export async function getPrefs(userId: string): Promise<UserPrefs> {
     .first<{ prefs: string }>();
   if (!row) return { ...DEFAULT_PREFS };
   try {
-    return { ...DEFAULT_PREFS, ...JSON.parse(row.prefs) };
+    // sanitizePrefs drops legacy birthday fields still sitting in older rows
+    return sanitizePrefs({ ...DEFAULT_PREFS, ...JSON.parse(row.prefs) });
   } catch {
     return { ...DEFAULT_PREFS };
   }
@@ -137,24 +85,6 @@ export function sanitizePrefs(input: unknown): UserPrefs {
   const digest = o.digest === "weekly" || o.digest === "daily" ? o.digest : "off";
   // Dark is the product default; only explicit "light" opts out.
   const theme: ThemePref = o.theme === "light" ? "light" : "dark";
-  // Birthday: keep prior value if the field is omitted; clear only on explicit null/"".
-  let birthday: string | null = null;
-  if ("birthday" in o) {
-    birthday = sanitizeBirthday(o.birthday);
-  } else {
-    // Preserve when merging partial updates that omit the key (caller should merge first).
-    birthday = null;
-  }
-  const msg =
-    typeof o.birthdayMessage === "string"
-      ? o.birthdayMessage.trim().slice(0, 600) || null
-      : null;
-  const msgYear =
-    typeof o.birthdayMessageYear === "number" && Number.isFinite(o.birthdayMessageYear)
-      ? Math.round(o.birthdayMessageYear)
-      : typeof o.birthdayMessageYear === "string" && /^\d{4}$/.test(o.birthdayMessageYear)
-        ? Number(o.birthdayMessageYear)
-        : null;
   // Push prefs default ON (missing key ≠ opt-out). Explicit false only opts out.
   const pushReports = o.pushReports === false ? false : true;
   const pushEvents = o.pushEvents === false ? false : true;
@@ -165,42 +95,15 @@ export function sanitizePrefs(input: unknown): UserPrefs {
     pushReports,
     pushEvents,
     theme,
-    birthday,
-    birthdayMessage: msg,
-    birthdayMessageYear: msgYear,
   };
 }
 
 /**
- * Merge a partial prefs patch onto existing prefs without wiping birthday
- * when the client omits it (theme-only saves, email toggles, etc.).
+ * Merge a partial prefs patch onto existing prefs so theme-only / email toggles
+ * don't wipe other settings. Drops legacy birthday fields if present in storage.
  */
 export function mergePrefs(current: UserPrefs, patch: unknown): UserPrefs {
-  const o = (patch ?? {}) as Record<string, unknown>;
-  const base = sanitizePrefs({ ...current, ...o });
-  if (!("birthday" in o)) {
-    base.birthday = current.birthday ?? null;
-  } else if (o.birthday === null || o.birthday === "") {
-    base.birthday = null;
-    // Clearing DOB also drops cached message
-    base.birthdayMessage = null;
-    base.birthdayMessageYear = null;
-  } else {
-    const next = sanitizeBirthday(o.birthday);
-    base.birthday = next;
-    // New DOB → regenerate message next birthday
-    if (next !== current.birthday) {
-      base.birthdayMessage = null;
-      base.birthdayMessageYear = null;
-    }
-  }
-  if (!("birthdayMessage" in o)) {
-    base.birthdayMessage = current.birthdayMessage ?? null;
-  }
-  if (!("birthdayMessageYear" in o)) {
-    base.birthdayMessageYear = current.birthdayMessageYear ?? null;
-  }
-  return base;
+  return sanitizePrefs({ ...current, ...(patch as object) });
 }
 
 // --- Favorites -------------------------------------------------------------

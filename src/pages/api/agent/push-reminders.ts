@@ -54,7 +54,7 @@ export const POST: APIRoute = async ({ request }) => {
   const store = await getCalendarEventsStore(env.AGENTS);
   const events = (store?.events ?? [])
     .filter((e) => e.date === targetDate)
-    .filter((e) => e.kind !== "personal" && e.kind !== "clad")
+    .filter((e) => e.kind !== "clad")
     .slice(0, 8);
 
   if (events.length === 0) {

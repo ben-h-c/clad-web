@@ -52,8 +52,6 @@ export type CalendarEventKind =
   | "sports"
   | "deadline"
   | "clad"
-  /** Private-to-user markers (e.g. their birthday) — only injected server-side for that user. */
-  | "personal"
   | "other";
 
 export const CALENDAR_EVENT_KINDS: CalendarEventKind[] = [
@@ -76,7 +74,6 @@ export const CALENDAR_EVENT_KINDS: CalendarEventKind[] = [
   "sports",
   "deadline",
   "clad",
-  "personal",
   "other",
 ];
 
@@ -521,47 +518,9 @@ export function kindLabel(kind: CalendarEventKind | string): string {
       return "Deadline";
     case "clad":
       return "CladFacts";
-    case "personal":
-      return "Personal";
     default:
       return "News";
   }
-}
-
-/**
- * Private birthday marker — only on the day itself (America/New_York desk date).
- * Hidden every other day. Message is the Grok-written note (or a short fallback).
- * Never include user id or other PII in the payload.
- */
-export function eventsFromUserBirthday(
-  birthday: string | null | undefined,
-  opts?: { message?: string | null; now?: Date }
-): CalendarEvent[] {
-  if (!birthday || !/^\d{4}-\d{2}-\d{2}$/.test(birthday)) return [];
-  const mmdd = birthday.slice(5); // MM-DD
-  if (!/^\d{2}-\d{2}$/.test(mmdd)) return [];
-  const today = todayIsoNy(opts?.now);
-  if (today.slice(5) !== mmdd) return []; // only the day of
-  const year = Number(today.slice(0, 4));
-  const message =
-    (opts?.message && String(opts.message).trim().slice(0, 600)) ||
-    "Happy birthday from the CladFacts desk — only you can see this. Enjoy the day.";
-  return [
-    {
-      id: `my-birthday-${year}`,
-      date: today,
-      title: "Happy birthday!",
-      body: message,
-      kind: "personal" as const,
-      source: "extra" as const,
-    },
-  ];
-}
-
-/** True when the desk calendar day matches the user's birthday MM-DD. */
-export function isBirthdayToday(birthday: string | null | undefined, now = new Date()): boolean {
-  if (!birthday || !/^\d{4}-\d{2}-\d{2}$/.test(birthday)) return false;
-  return todayIsoNy(now).slice(5) === birthday.slice(5);
 }
 
 /**

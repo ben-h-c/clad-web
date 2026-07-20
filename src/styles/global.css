@@ -7805,15 +7805,6 @@ button.home-cal__cell:disabled {
 .home-cal__dot--election {
   background: color-mix(in srgb, rgb(150, 36, 30) 75%, var(--ink));
 }
-/* Private personal markers (birthday) — gold star-ish, only on this user's SSR */
-.home-cal__dot--personal {
-  background: color-mix(in srgb, rgb(196, 150, 48) 90%, var(--ink));
-  box-shadow: 0 0 0 1px color-mix(in srgb, rgb(196, 150, 48) 40%, transparent);
-}
-.home-cal__event--personal {
-  border-color: color-mix(in srgb, rgb(196, 150, 48) 55%, var(--rule));
-  background: color-mix(in srgb, rgb(196, 150, 48) 12%, var(--card));
-}
 .field__hint {
   margin: 0.3rem 0 0;
   font-size: 0.78rem;
