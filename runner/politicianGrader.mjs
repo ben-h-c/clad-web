@@ -87,14 +87,14 @@ Today: ${new Date().toISOString().slice(0, 10)}`;
       "Content-Type": "application/json",
       Authorization: `Bearer ${xaiKey}`,
     },
-    signal: AbortSignal.timeout(90_000),
+    signal: AbortSignal.timeout(60_000),
     body: JSON.stringify({
       model: MODEL,
       input: [
         { role: "system", content: SYSTEM },
         { role: "user", content: user },
       ],
-      tools: [{ type: "web_search" }],
+      tools: [{ type: "web_search", max_search_results: 4 }],
       text: {
         format: {
           type: "json_schema",
@@ -112,14 +112,20 @@ Today: ${new Date().toISOString().slice(0, 10)}`;
   const data = await res.json();
   const text = extractText(data);
   if (!text) throw new Error("empty Grok response");
-  return JSON.parse(text);
+  try {
+    return JSON.parse(text);
+  } catch {
+    throw new Error("invalid JSON from Grok");
+  }
 }
 
 export async function runPoliticianGrader(agent) {
   const xaiKey = process.env.XAI_API_KEY;
   if (!xaiKey) return { ok: false, message: "XAI_API_KEY missing" };
 
-  const max = Math.min(Number(agent?.config?.maxPoliticiansPerRun) || 40, 50);
+  // Keep batches modest: each grade uses web_search and can take ~30–60s.
+  // Large batches (40) routinely hit the runner's per-agent timeout.
+  const max = Math.min(Number(agent?.config?.maxPoliticiansPerRun) || 12, 20);
   const q = await getPoliticianGradeQueue();
   if (!q.ok) return { ok: false, message: `queue fetch failed: ${q.status}` };
 

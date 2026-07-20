@@ -73,8 +73,8 @@ function log(...args) {
 const AGENT_TIMEOUT_MS = {
   "youtube-scanner": 12 * 60_000,
   "politician-profile-builder": 12 * 60_000,
-  "politician-grader": 10 * 60_000,
-  "calendar-scanner": 10 * 60_000,
+  "politician-grader": 15 * 60_000,
+  "calendar-scanner": 15 * 60_000,
   default: 6 * 60_000,
 };
 
