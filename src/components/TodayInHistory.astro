@@ -71,7 +71,7 @@ const wrapClass = ["today-hist", Astro.props.class].filter(Boolean).join(" ");
       <span class="category__more today-hist__when small-caps">{dateLabel}</span>
     </div>
     <div class="rule rule--double" aria-hidden="true"></div>
-    <ul class="today-hist__list">
+    <ul class="today-hist__list" aria-label="Today in history events">
       {items.map((it) => (
         <li class="today-hist__item" id={it.id}>
           <div class="today-hist__main">

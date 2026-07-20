@@ -8173,6 +8173,55 @@ html.clad-app .home-cal__dialog {
   }
 }
 
+/*
+ * iOS app only: swipe horizontally through history cards.
+ * Web/desktop keep the vertical list.
+ */
+html.clad-app .today-hist__list {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 0.15rem;
+  -webkit-overflow-scrolling: touch;
+  /* Vertical page scroll still wins on mostly-vertical gestures (WKWebView). */
+  touch-action: pan-x pan-y;
+  padding: 0.15rem 0.1rem 0.85rem;
+  margin-left: -0.15rem;
+  margin-right: -0.15rem;
+  scrollbar-width: none;
+}
+html.clad-app .today-hist__list::-webkit-scrollbar {
+  display: none;
+}
+html.clad-app .today-hist__item {
+  flex: 0 0 min(82vw, 17.5rem);
+  max-width: min(82vw, 17.5rem);
+  scroll-snap-align: start;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+html.clad-app .today-hist__main {
+  flex-direction: column;
+  gap: 0.55rem;
+}
+html.clad-app .today-hist__thumb {
+  width: 100%;
+  height: 7.5rem;
+  border-radius: 3px;
+}
+html.clad-app .today-hist__body {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
+html.clad-app .today-hist__actions {
+  margin-top: 0.35rem;
+}
+
 .more-clad {
   margin-top: 1.5rem;
 }
