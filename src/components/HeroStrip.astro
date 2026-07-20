@@ -148,12 +148,26 @@ const {
         if (root.classList.contains("is-peek-open")) return;
         scrollYLock = window.scrollY || window.pageYOffset || 0;
         root.classList.add("is-peek-open");
+        // Negative top on fixed body freezes the visual scroll position.
         root.style.setProperty("--peek-scroll-y", `-${scrollYLock}px`);
       } else {
         if (!root.classList.contains("is-peek-open")) return;
         root.classList.remove("is-peek-open");
         root.style.removeProperty("--peek-scroll-y");
-        window.scrollTo(0, scrollYLock);
+        // Site CSS sets html { scroll-behavior: smooth }. Instant restore is
+        // required — otherwise unlock animates from y=0 down to the lock
+        // offset (looks like a full-page scroll refresh after × close).
+        const prev = root.style.scrollBehavior;
+        root.style.scrollBehavior = "auto";
+        try {
+          window.scrollTo({ top: scrollYLock, left: 0, behavior: "instant" });
+        } catch (_) {
+          window.scrollTo(0, scrollYLock);
+        }
+        // Defer restoring smooth so the browser commits the jump first.
+        requestAnimationFrame(() => {
+          root.style.scrollBehavior = prev;
+        });
       }
     }
 
