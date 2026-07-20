@@ -1,5 +1,5 @@
 /**
- * Campaign Studio share card — broadsheet OG for owner marketing.
+ * Campaign Studio share card — OG image for owner marketing.
  * Flexbox only, inline styles, no external images.
  * Cache key folds campaign.updatedAt so edits bust Worker cache.
  * Export renderCampaignCard for Phase-3 in-process Bluesky (never ASSETS.fetch).

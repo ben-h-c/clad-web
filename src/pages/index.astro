@@ -57,7 +57,7 @@ if (heroPosts.length === 0) {
   const flagged = all.filter((p) => p.data.featured);
   heroPosts = flagged.length > 0 ? flagged : all.slice(0, 8);
 }
-// Home is a newspaper front page — not an infinite archive. Cap hard.
+// Home is a curated front page — not an infinite archive. Cap hard.
 heroPosts = heroPosts.slice(0, 12);
 
 // Breaking = impact-ordered; cap for mobile length.
@@ -190,7 +190,7 @@ const goodNewsPosts = postsFromSections(goodNewsSections, byId, 12);
 ---
 <BaseLayout
   title="CladFacts — Grading Content & Exposing Bias"
-  description={`${all.length.toLocaleString("en-US")} political broadcasts fact-checked claim by claim — graded for accuracy, called out for bias, edited like a 1920s broadsheet.`}
+  description={`${all.length.toLocaleString("en-US")} political broadcasts fact-checked claim by claim — graded for accuracy and political lean.`}
   tour
 >
   <h1 class="visually-hidden">Clad — fact-checked news, graded for accuracy and bias</h1>

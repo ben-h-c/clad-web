@@ -18,7 +18,7 @@ Slugs: `grades`, `lean`, `claim-tags`, `sources`, `spin`, `first-vote`.
 
 - Clear, direct, respectful of a smart 18-year-old
 - No slang-chasing, no “fellow kids,” no outrage bait
-- Broadsheet identity stays; grades are the hook
+- Soft modern design stays; grades are the hook
 
 ## Share loops
 

@@ -1,9 +1,9 @@
 # Clad (cladfacts.com)
 
-Newspaper-format fact-checks of the news: an agent pipeline drafts report
-cards on news broadcasts (letter grade, factuality score, political lean,
-social-media sentiment), an editor approves them, and the site publishes them
-as git-committed markdown. Astro 6 on a Cloudflare Worker; the runner
+Fact-checks of the news: an agent pipeline drafts report cards on news
+broadcasts (letter grade, factuality score, political lean, social-media
+sentiment), an editor approves them, and the site publishes them as
+git-committed markdown. Astro 6 on a Cloudflare Worker; the runner
 (`runner/`) executes background agents; grading logic lives in
 `src/lib/broadcast.ts`.
 
@@ -18,7 +18,7 @@ audience charter and what it means in practice — the scheduled Clad Daily
 Review works from that document.
 
 The foundation is non-negotiable regardless of audience: a newsroom for the
-news, grading accuracy and bias, easy to use. Broadsheet identity, restrained
+news, grading accuracy and bias, easy to use. Soft modern UI, restrained
 tone, no clickbait, no slang-chasing.
 
 ## Hard rules

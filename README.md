@@ -1,6 +1,6 @@
 # clad-web
 
-Fact-checked news broadcasts, edited like a 1920s broadsheet. One-editor
+Fact-checked news broadcasts, graded for accuracy and political lean. One-editor
 publication (Ben), powered by xAI Grok for research, hand-curated for
 publishing. Live at [cladfacts.com](https://cladfacts.com).
 

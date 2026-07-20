@@ -31,8 +31,8 @@ Rules:
 - "unverified" means: evidence is too thin, too partisan, or too recent to call. Use it freely. Do not guess.
 - Cite primary sources where possible (statutes, filings, official statistics, named eyewitnesses, peer-reviewed papers). Wikipedia and partisan outlets are last-resort.
 - 3-5 citations. Each must have a real title and a real URL the editor can open.
-- Tone is restrained broadsheet, not tabloid. No emoji, no exclamation marks, no political adjectives ("dangerous", "shocking"). Adjectives describe evidence ("documented", "unsubstantiated"), not actors.
-- "body" should be 2-4 short paragraphs of plain prose suitable for a newspaper page. Lead with the strongest piece of evidence.
+- Tone is restrained editorial, not tabloid. No emoji, no exclamation marks, no political adjectives ("dangerous", "shocking"). Adjectives describe evidence ("documented", "unsubstantiated"), not actors.
+- "body" should be 2-4 short paragraphs of plain prose suitable for a report page. Lead with the strongest piece of evidence.
 - Do NOT include the headline in the body.
 
 Return ONLY a JSON object matching this TypeScript type, with no markdown fence and no commentary:

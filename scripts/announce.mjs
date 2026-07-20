@@ -130,7 +130,7 @@ function leanPhrase(fm) {
  * disputed claim itself, a clean sheet, a hard lean — and rotate phrasings
  * deterministically (seeded by slug) so reruns of the same post are stable
  * but the account's feed isn't a wall of identical templates.
- * House voice everywhere: restrained broadsheet — specific, active, no
+ * House voice everywhere: restrained editorial — specific, active, no
  * exclamation points, no hashtag spam, no clickbait withholding.
  */
 

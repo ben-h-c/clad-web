@@ -53,7 +53,7 @@ milestones). Prefer well-documented facts. No invented events.
 
 ── Fields ─────────────────────────────────────────────────────────────────
 - year: four-digit year the event occurred
-- title: short headline (≤90 chars), present tense or newspaper style
+- title: short headline (≤90 chars), present tense or news headline style
 - body: 1–2 sentences of plain context (≤280 chars). No URLs. No "click here".
 - wikiTitle: English Wikipedia article title that best matches the event for a
   free image (e.g. "Apollo_11", "Storming_of_the_Bastille"). Use underscores or

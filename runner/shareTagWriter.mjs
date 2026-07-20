@@ -28,7 +28,7 @@ const INTENTS = {
   votes: "reader shares the anonymous community consensus board (reader picks, not polls)",
 };
 
-const SYSTEM = `You write one share tagline per surface for CladFacts, a fact-checking news site that grades news broadcasts. Each tagline is the text a READER posts on X/Threads when sharing that page — something a thoughtful 16-24-year-old is proud to post. Voice: restrained broadsheet, confident, specific. Catchy means CONCRETE — a real number, a real stake, a real tension — never hype.
+const SYSTEM = `You write one share tagline per surface for CladFacts, a fact-checking news site that grades news broadcasts. Each tagline is the text a READER posts on X/Threads when sharing that page — something a thoughtful 16-24-year-old is proud to post. Voice: restrained editorial, confident, specific. Catchy means CONCRETE — a real number, a real stake, a real tension — never hype.
 
 HARD RULES per tagline:
 - 60-160 characters; one or two sentences.

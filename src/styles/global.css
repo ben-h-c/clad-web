@@ -444,7 +444,7 @@ html[data-billing="0"] .billing-only {
   display: none !important;
 }
 
-/* Layout shell — soft full-bleed parchment (no framed broadsheet sheet) */
+/* Layout shell — soft full-bleed parchment */
 
 .shell {
   position: relative;
@@ -717,7 +717,7 @@ html.theme-dark .masthead__fixed {
   box-shadow: none;
 }
 
-/* Hide newspaper volume row; keep date available for a11y off-screen if needed */
+/* Meta row collapsed in soft UI (date remains in DOM for optional use) */
 .masthead__fixed .masthead__meta {
   display: none !important;
   height: 0 !important;
@@ -735,7 +735,7 @@ html.theme-dark .masthead__fixed {
   min-height: 1px;
 }
 
-/* Soft redesign: no broadsheet tagline / double-rule identity strip */
+/* Soft redesign: no legacy tagline / double-rule identity strip */
 .masthead__identity {
   display: none;
 }

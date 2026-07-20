@@ -1,8 +1,7 @@
 # CladFacts
 
-> Independent newspaper-format fact-checks of news broadcasts. Letter grades,
-> factuality scores, and political-lean ratings — AI-assisted research,
-> human-reviewed before publish.
+> Independent fact-checks of news broadcasts. Letter grades, factuality scores,
+> and political-lean ratings — AI-assisted research, human-reviewed before publish.
 
 Site: https://cladfacts.com
 App: https://apps.apple.com/app/id6781372681

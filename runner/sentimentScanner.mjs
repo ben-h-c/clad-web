@@ -65,7 +65,7 @@ Return a single JSON object:
 
 "sentiment_score": the overall valence of the public reaction. -100 = overwhelmingly negative/hostile (outrage, ridicule, alarm), 0 = mixed or evenly divided, +100 = overwhelmingly positive/celebratory. Use the full range and be precise (e.g. -35 for clearly-negative-but-not-furious). Measure the crowd, not your own view, and not the story's objective merits — a well-reported story can still be received with fury, and vice versa. Be even-handed: apply the same standard regardless of which political side the reaction comes from.
 
-"summary": one or two factual sentences describing the reaction — what people are praising, mocking, disputing, or worried about, and whether reaction splits along partisan or other lines. Restrained broadsheet tone; no emoji; describe the crowd's words, don't adopt them.
+"summary": one or two factual sentences describing the reaction — what people are praising, mocking, disputing, or worried about, and whether reaction splits along partisan or other lines. Restrained editorial tone; no emoji; describe the crowd's words, don't adopt them.
 
 "volume": how much discussion you actually found. "minimal" = you found almost none; "viral" = it is dominating feeds. If discussion is too sparse to characterize, use "minimal", set sentiment_score to 0, and say so plainly in the summary.
 

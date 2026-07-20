@@ -46,7 +46,7 @@ export async function generateThumbnail(
 ): Promise<GeneratedImage | null> {
   const prompt =
     `Editorial illustration for a U.S. political news fact-check headlined: "${title}". ` +
-    `Restrained broadsheet-newspaper engraving style, monochrome ink on cream paper, ` +
+    `Clean restrained editorial illustration style, soft neutral palette, ` +
     `dignified and neutral in tone. No text, no words, no lettering, no logos.`;
   try {
     const r = await fetch(XAI_IMAGE_ENDPOINT, {

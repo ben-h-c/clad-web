@@ -1,6 +1,5 @@
 /**
- * "Tuesday, May 30, 1926" — the classic broadsheet dateline.
- * Ported from Clad/UI/NewspaperTheme.swift's NewspaperDate.dateline.
+ * "Tuesday, May 30, 2026" — long-form calendar dateline for the site.
  *
  * All date math is anchored to Eastern time (the newsroom's clock) so the
  * dateline, issue number, and volume agree regardless of server timezone.

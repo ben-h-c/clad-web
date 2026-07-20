@@ -13,7 +13,7 @@ grow up with a paper on the doorstep; they grew up with feeds. Clad's pitch
 to them: *don't just see the news — see how much to trust it.*
 
 The foundation does not move: **a newsroom for the news, grading accuracy
-and bias, easy to use.** The broadsheet identity, the restrained tone, and
+and bias, easy to use.** The soft modern design, the restrained tone, and
 the editorial standards stay. Meeting young readers where they are must never
 mean chasing them with clickbait, slang, or outrage mechanics — they can
 smell that instantly, and it would corrode the credibility the grades depend
@@ -80,9 +80,9 @@ on.
   the cards on those pages still render locked for guests. Do not re-gate the
   listings.
 - `/api/posts.json` stays byte-compatible for the iOS app (additive only).
-- The newspaper look is the brand, not a legacy to strip away. Youth-focused
-  ≠ dumbed down: the 1920s-broadsheet-meets-report-card aesthetic is
-  distinctive and screenshots well — lean into it.
+- The soft card UI and clear grade/lean scoreboard are the brand. Youth-focused
+  ≠ dumbed down: clean design that screenshots well and stays easy to use —
+  lean into that.
 - Verify every change with `npm run build` and the anon-leak check before
   pushing; note anything deferred and why in the PR body.
 

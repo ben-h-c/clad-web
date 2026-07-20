@@ -1,6 +1,5 @@
 ---
-import { dateline, volume, issueNumber } from "~/lib/dateline";
-import { publishedPostCount } from "~/lib/postCount";
+import { dateline } from "~/lib/dateline";
 import { getSessionUser } from "~/lib/user-data";
 
 interface Props {
@@ -9,14 +8,6 @@ interface Props {
   theme?: "dark" | "light";
 }
 const { date = new Date(), theme = "dark" } = Astro.props;
-const vol = volume(date);
-const issue = issueNumber(date);
-
-// Masthead renders inside BaseLayout on essentially every page, purely to show
-// the edition's report count. The post collection is baked at build time and
-// immutable for the deploy, so publishedPostCount() memoizes the scan per
-// isolate instead of materializing all ~2530 posts on every render.
-const count = await publishedPostCount();
 
 // In the console, keep the masthead within /admin (the logo and nav shouldn't
 // bounce the editor out to the public site — AdminNav handles that on purpose).
@@ -157,7 +148,6 @@ const menuAccountText = signedIn ? accountLabel : "Sign in";
       )}
     </div>
     <div class="masthead__meta">
-      <span class="edition">Vol. {vol} · No. {issue} · {count} {count === 1 ? "Report" : "Reports"}</span>
       <span class="date">{dateline(date)}</span>
     </div>
   </div>

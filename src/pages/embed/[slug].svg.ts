@@ -4,7 +4,7 @@ import { shortDate } from "~/lib/dateline";
 
 export const prerender = false;
 
-// Embeddable letterpress grade badge — the same sanctioned grade-exposure
+// Embeddable grade badge — the same sanctioned grade-exposure
 // class as the /og/ share cards (a grade rendered in an image, never in
 // anonymous HTML). Bloggers embed it with a plain <a><img></a> snippet; the
 // image links readers back to the full report.

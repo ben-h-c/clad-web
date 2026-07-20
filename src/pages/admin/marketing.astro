@@ -17,7 +17,7 @@ const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
     <AdminNav current="marketing" />
     <h2 class="admin__title">Campaign Studio</h2>
     <p class="dateline">
-      Turn a plain-language brief into ready-to-post social copy and a broadsheet share card.
+      Turn a plain-language brief into ready-to-post social copy and a share card.
       Grok writes in the CladFacts voice; you edit, save, and paste. Nothing posts without an explicit owner action.
     </p>
 
@@ -46,7 +46,7 @@ const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
         <div class="field">
           <label for="camp-tone">Tone</label>
           <select id="camp-tone">
-            <option selected>Broadsheet-restrained</option>
+            <option selected>Restrained</option>
             <option>Plainspoken</option>
             <option>Civic-urgent (still no hype)</option>
             <option>Wry-dry</option>
@@ -161,7 +161,7 @@ const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
             </div>
           </div>
           <div class="camp-preview-wrap">
-            <p class="dateline" id="camp-preview-hint">Save to render the broadsheet card preview.</p>
+            <p class="dateline" id="camp-preview-hint">Save to render the share card preview.</p>
             <img id="camp-card" class="camp-card-img" alt="Campaign share card preview" hidden />
           </div>
 
@@ -509,7 +509,7 @@ const siteOrigin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
         if (c.input) {
           document.getElementById("camp-brief").value = c.input.brief || "";
           document.getElementById("camp-type").value = c.input.campaignType || "Feature launch";
-          document.getElementById("camp-tone").value = c.input.tone || "Broadsheet-restrained";
+          document.getElementById("camp-tone").value = c.input.tone || "Restrained";
           document.getElementById("camp-audience").value = c.input.audience || "General readers";
           document.getElementById("camp-peg").checked = !!c.input.pegToNews;
           const plat = new Set(c.input.platforms || []);
