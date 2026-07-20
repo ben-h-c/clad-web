@@ -38,6 +38,10 @@ const initials = person ? personInitials(person.name) : "";
 const videoId =
   person?.videoId && /^[\w-]{11}$/.test(person.videoId) ? person.videoId : null;
 const videoEmbed = videoId ? embedUrl(videoId) : null;
+// Don't show a hero still that's only the YouTube poster — the embed below is enough.
+const showHeroPhoto = Boolean(
+  display && !(display.kind === "youtube" && videoEmbed)
+);
 
 const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
 const pageUrl = `${origin}/human-spotlight/`;
@@ -78,27 +82,24 @@ const description = person
       </>
     ) : (
       <>
-        <header class="human-spot-page__hero">
-          <div
-            class:list={[
-              "human-spot-page__photo",
-              display?.kind === "youtube" && "human-spot-page__photo--video",
-            ]}
-          >
-            {display ? (
-              <img
-                src={display.src}
-                alt={person.name}
-                width="320"
-                height="320"
-                loading="eager"
-                decoding="async"
-                referrerpolicy="no-referrer"
-              />
-            ) : (
-              <span class="human-spot-page__initials" aria-hidden="true">{initials}</span>
-            )}
-          </div>
+        <header class:list={["human-spot-page__hero", !showHeroPhoto && "human-spot-page__hero--text"]}>
+          {showHeroPhoto && (
+            <div class="human-spot-page__photo">
+              {display ? (
+                <img
+                  src={display.src}
+                  alt={person.name}
+                  width="320"
+                  height="320"
+                  loading="eager"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                />
+              ) : (
+                <span class="human-spot-page__initials" aria-hidden="true">{initials}</span>
+              )}
+            </div>
+          )}
           <div class="human-spot-page__head">
             {(person.field || person.location) && (
               <p class="human-spot__meta small-caps">
@@ -187,6 +188,10 @@ const description = person
     gap: 1.25rem;
     align-items: flex-start;
     margin: 0.75rem 0 1.25rem;
+  }
+  .human-spot-page__hero--text {
+    /* No portrait — title stack uses full measure */
+    display: block;
   }
   .human-spot-page__photo {
     flex-shrink: 0;
