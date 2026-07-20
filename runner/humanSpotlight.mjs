@@ -142,75 +142,87 @@ function isVideoId(id) {
 
 /**
  * Find a public, embeddable YouTube video about this person + achievement.
- * Prefers the model's youtubeQuery; falls back to name + achievement keywords.
+ * Tries several query shapes (model query → name+topic → name only).
  */
 async function findYoutubeVideo(apiKey, { name, achievement, youtubeQuery }) {
   if (!apiKey) return null;
-  const q =
-    String(youtubeQuery || "").trim() ||
-    `${name} ${achievement}`.replace(/\s+/g, " ").trim().slice(0, 120);
-  if (!q) return null;
+  const nm = String(name || "").trim();
+  if (!nm) return null;
+  const ach = String(achievement || "")
+    .replace(/[^\w\s'-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 60);
+  const queries = [
+    String(youtubeQuery || "").trim().slice(0, 100),
+    ach ? `${nm} ${ach}`.slice(0, 100) : "",
+    nm,
+  ].filter((q, i, arr) => q && arr.indexOf(q) === i);
 
-  try {
-    const params = new URLSearchParams({
-      key: apiKey,
-      part: "snippet",
-      type: "video",
-      order: "relevance",
-      maxResults: "6",
-      relevanceLanguage: "en",
-      regionCode: "US",
-      videoEmbeddable: "true",
-      safeSearch: "moderate",
-      q,
-    });
-    const res = await fetch(`${YT_SEARCH}?${params}`, {
-      signal: AbortSignal.timeout(10_000),
-    });
-    if (!res.ok) return null;
-    const data = await res.json();
-    const ids = (data.items || [])
-      .map((it) => it?.id?.videoId)
-      .filter(isVideoId)
-      .slice(0, 6);
-    if (!ids.length) return null;
+  const nameBits = nm
+    .toLowerCase()
+    .split(/\s+/)
+    .filter((w) => w.length >= 3);
 
-    const vParams = new URLSearchParams({
-      key: apiKey,
-      part: "status,snippet",
-      id: ids.join(","),
-    });
-    const vRes = await fetch(`${YT_VIDEOS}?${vParams}`, {
-      signal: AbortSignal.timeout(10_000),
-    });
-    if (!vRes.ok) return ids[0];
-    const vData = await vRes.json();
-    const nameBits = String(name || "")
-      .toLowerCase()
-      .split(/\s+/)
-      .filter((w) => w.length >= 3);
-    // Prefer a hit whose title/description mentions the person
-    for (const v of vData.items || []) {
-      const id = v?.id;
-      const st = v?.status || {};
-      if (!isVideoId(id)) continue;
-      if (st.privacyStatus && st.privacyStatus !== "public") continue;
-      if (st.embeddable === false) continue;
-      const blob = `${v?.snippet?.title || ""} ${v?.snippet?.description || ""}`.toLowerCase();
-      if (nameBits.length && nameBits.some((w) => blob.includes(w))) return id;
+  for (const q of queries) {
+    try {
+      const params = new URLSearchParams({
+        key: apiKey,
+        part: "snippet",
+        type: "video",
+        order: "relevance",
+        maxResults: "6",
+        relevanceLanguage: "en",
+        regionCode: "US",
+        videoEmbeddable: "true",
+        safeSearch: "moderate",
+        q,
+      });
+      const res = await fetch(`${YT_SEARCH}?${params}`, {
+        signal: AbortSignal.timeout(10_000),
+      });
+      if (!res.ok) continue;
+      const data = await res.json();
+      const ids = (data.items || [])
+        .map((it) => it?.id?.videoId)
+        .filter(isVideoId)
+        .slice(0, 6);
+      if (!ids.length) continue;
+
+      const vParams = new URLSearchParams({
+        key: apiKey,
+        part: "status,snippet",
+        id: ids.join(","),
+      });
+      const vRes = await fetch(`${YT_VIDEOS}?${vParams}`, {
+        signal: AbortSignal.timeout(10_000),
+      });
+      if (!vRes.ok) return ids[0];
+      const vData = await vRes.json();
+      // Prefer a hit whose title/description mentions the person
+      for (const v of vData.items || []) {
+        const id = v?.id;
+        const st = v?.status || {};
+        if (!isVideoId(id)) continue;
+        if (st.privacyStatus && st.privacyStatus !== "public") continue;
+        if (st.embeddable === false) continue;
+        const blob = `${v?.snippet?.title || ""} ${v?.snippet?.description || ""}`.toLowerCase();
+        if (nameBits.length && nameBits.some((w) => blob.includes(w))) return id;
+      }
+      for (const v of vData.items || []) {
+        const id = v?.id;
+        const st = v?.status || {};
+        if (!isVideoId(id)) continue;
+        if (st.privacyStatus && st.privacyStatus !== "public") continue;
+        if (st.embeddable === false) continue;
+        return id;
+      }
+      return ids[0] || null;
+    } catch {
+      /* try next query */
     }
-    for (const v of vData.items || []) {
-      const id = v?.id;
-      const st = v?.status || {};
-      if (!isVideoId(id)) continue;
-      if (st.privacyStatus && st.privacyStatus !== "public") continue;
-      if (st.embeddable === false) continue;
-      return id;
-    }
-    return ids[0] || null;
-  } catch {
-    return null;
   }
+  return null;
 }
 
 /** Wikipedia search → first hit with a Commons lead image. */
