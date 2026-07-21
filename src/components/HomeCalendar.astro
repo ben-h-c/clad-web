@@ -109,8 +109,8 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
       <div class="home-cal__encodings" role="group" aria-label="Colour the month by">
         {!locked && (
           <>
-            <button type="button" class="home-cal__enc is-on" data-cal-enc="grade" aria-pressed="true">Grade</button>
-            <button type="button" class="home-cal__enc" data-cal-enc="lean" aria-pressed="false">Lean</button>
+            <button type="button" class="home-cal__enc" data-cal-enc="grade" aria-pressed="false">Grade</button>
+            <button type="button" class="home-cal__enc is-on" data-cal-enc="lean" aria-pressed="true">Lean</button>
           </>
         )}
         <button
@@ -217,7 +217,11 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
     const minMonth = root.dataset.minMonth || "";
     const maxMonth = root.dataset.maxMonth || "";
     let month = root.dataset.month || today.slice(0, 7);
-    let enc: "grade" | "lean" | "volume" = locked ? "volume" : "grade";
+    // Lean is the default encoding: it is the read most people come for, and
+    // it stays legible on days where grades cluster. Restricted readers have
+    // no lean values, so they fall back to volume. Must match the button that
+    // renders with `is-on` above.
+    let enc: "grade" | "lean" | "volume" = locked ? "volume" : "lean";
 
     const labelEl = root.querySelector("[data-cal-month-label]");
     const gridEl = root.querySelector("[data-cal-grid]");
