@@ -232,6 +232,8 @@ const clientEvents = events.map((e) => ({
     const gridEl = root.querySelector("[data-cal-grid]");
     const legendEl = root.querySelector("[data-cal-legend]");
     const agendaEl = root.querySelector("[data-cal-agenda]");
+    const comingEl = root.querySelector("[data-cal-coming]") as HTMLElement | null;
+    const comingToggle = root.querySelector("[data-cal-coming-toggle]") as HTMLButtonElement | null;
     const swipeEl = root.querySelector("[data-cal-swipe]") as HTMLElement | null;
     const prevBtn = root.querySelector("[data-cal-prev]") as HTMLButtonElement | null;
     const nextBtn = root.querySelector("[data-cal-next]") as HTMLButtonElement | null;
@@ -658,6 +660,13 @@ const clientEvents = events.map((e) => ({
       if (typeof dialog.close === "function") dialog.close();
       else dialog.removeAttribute("open");
     }
+
+    comingToggle?.addEventListener("click", () => {
+      if (!comingEl || !comingToggle) return;
+      const open = !comingEl.classList.contains("is-open");
+      comingEl.classList.toggle("is-open", open);
+      comingToggle.setAttribute("aria-expanded", String(open));
+    });
 
     prevBtn?.addEventListener("click", () => {
       if (minMonth && month <= minMonth) return;
