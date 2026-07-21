@@ -7130,45 +7130,89 @@ html.clad-app .clad-app-only { display: block; }
 }
 .home-cal__panel {
   margin-top: 0.65rem;
-  padding: 0.75rem 0.7rem 0.85rem;
-  border: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
-  border-radius: 4px;
-  background-color: var(--card);
+  padding: 0.9rem 0.85rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+  border-radius: 14px;
+  background:
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--card) 92%, var(--paper)) 0%,
+      var(--card) 48%,
+      color-mix(in srgb, var(--card) 96%, var(--paper-deep)) 100%
+    );
   box-shadow:
-    0 1px 0 color-mix(in srgb, #fff 45%, transparent),
-    0 6px 14px color-mix(in srgb, var(--shadow) 26%, transparent);
+    0 1px 0 color-mix(in srgb, #fff 28%, transparent),
+    0 10px 28px color-mix(in srgb, var(--shadow) 18%, transparent);
   isolation: isolate;
 }
 .home-cal__toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: 0.55rem;
+  margin-bottom: 0.15rem;
+}
+.home-cal__month-wrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
 }
 .home-cal__month {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.15rem;
-  letter-spacing: 0.01em;
+  font-size: 1.18rem;
+  letter-spacing: -0.01em;
   text-align: center;
-  flex: 1;
+  line-height: 1.15;
+}
+.home-cal__today {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--accent, #5b9a8b);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.home-cal__today:hover,
+.home-cal__today:focus-visible {
+  background: color-mix(in srgb, var(--accent, #5b9a8b) 16%, transparent);
+  outline: none;
 }
 .home-cal__nav {
   appearance: none;
-  width: 2.35rem;
-  height: 2.35rem;
-  border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
-  border-radius: 4px;
-  background: color-mix(in srgb, var(--paper) 88%, var(--paper-deep));
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 50%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--paper) 70%, var(--card));
   color: var(--ink);
-  font-size: 1.45rem;
+  font-size: 1.4rem;
   line-height: 1;
   cursor: pointer;
   flex-shrink: 0;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
 }
-.home-cal__nav:active {
-  transform: translateY(1px);
+.home-cal__nav:hover:not(:disabled),
+.home-cal__nav:focus-visible:not(:disabled) {
+  background: color-mix(in srgb, var(--ink) 8%, var(--card));
+  border-color: color-mix(in srgb, var(--rule) 80%, transparent);
+  outline: none;
+}
+.home-cal__nav:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.home-cal__nav:active:not(:disabled) {
+  transform: scale(0.96);
 }
 .home-cal__hint {
   margin: 0.35rem 0 0.55rem;
@@ -7180,26 +7224,34 @@ html.clad-app .clad-app-only { display: block; }
 .home-cal__swipe {
   touch-action: pan-y;
   outline: none;
+  border-radius: 10px;
 }
 .home-cal__swipe:focus-visible {
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent, #961e14) 55%, transparent);
-  border-radius: 3px;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent, #5b9a8b) 55%, transparent);
 }
 .home-cal__weekdays {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 2px;
-  margin-bottom: 2px;
+  gap: 4px;
+  margin-bottom: 4px;
   text-align: center;
   font-size: 0.62rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted-ink);
+  opacity: 0.9;
 }
 .home-cal__grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 2px;
+  gap: 4px;
+}
+.home-cal__grid.is-animating .home-cal__cell {
+  animation: home-cal-fade 0.22s ease both;
+}
+@keyframes home-cal-fade {
+  from { opacity: 0.55; transform: translateY(2px); }
+  to { opacity: 1; transform: none; }
 }
 .home-cal__cell {
   appearance: none;
@@ -7207,48 +7259,77 @@ html.clad-app .clad-app-only { display: block; }
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.15rem;
-  min-height: 3.1rem;
-  padding: 0.28rem 0.1rem 0.35rem;
+  gap: 0.12rem;
+  min-height: 3.35rem;
+  padding: 0.32rem 0.12rem 0.4rem;
   border: 1px solid transparent;
-  border-radius: 3px;
+  border-radius: 10px;
   background: transparent;
   color: var(--ink);
   font: inherit;
   cursor: default;
+  transition:
+    transform 0.14s ease,
+    box-shadow 0.14s ease,
+    border-color 0.14s ease,
+    background 0.14s ease;
 }
 button.home-cal__cell {
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 button.home-cal__cell:disabled {
   cursor: default;
-  opacity: 0.72;
+  opacity: 0.55;
 }
 .home-cal__cell--pad {
-  min-height: 3.1rem;
+  min-height: 3.35rem;
   pointer-events: none;
 }
 .home-cal__daynum {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   font-variant-numeric: tabular-nums;
   line-height: 1.1;
+  font-weight: 600;
 }
 .home-cal__cell--today {
-  border-color: color-mix(in srgb, var(--rule) 70%, transparent);
-  background: color-mix(in srgb, var(--paper-deep) 55%, var(--paper));
+  border-color: color-mix(in srgb, var(--accent, #5b9a8b) 55%, var(--rule));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #5b9a8b) 35%, transparent);
   font-weight: 700;
 }
+.home-cal__cell--today .home-cal__daynum {
+  color: color-mix(in srgb, var(--accent, #5b9a8b) 70%, var(--ink));
+}
 .home-cal__cell--event {
-  background: color-mix(in srgb, var(--paper-deep) 28%, var(--paper));
-  border-color: color-mix(in srgb, var(--rule) 42%, transparent);
+  background: color-mix(in srgb, var(--paper-deep) 22%, var(--card));
+  border-color: color-mix(in srgb, var(--rule) 38%, transparent);
 }
 .home-cal__cell--event.home-cal__cell--today {
-  border-color: color-mix(in srgb, var(--rule) 85%, transparent);
+  border-color: color-mix(in srgb, var(--accent, #5b9a8b) 60%, var(--rule));
+}
+.home-cal__cell--selected,
+.home-cal__cell--selected.home-cal__cell--event {
+  border-color: color-mix(in srgb, var(--ink) 55%, transparent);
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--ink) 12%, transparent),
+    0 6px 14px color-mix(in srgb, var(--shadow) 22%, transparent);
+  transform: translateY(-1px);
+}
+.home-cal__cell.is-pulse {
+  animation: home-cal-pulse 0.65s ease;
+}
+@keyframes home-cal-pulse {
+  0%, 100% { transform: none; }
+  40% { transform: scale(1.05); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent, #5b9a8b) 35%, transparent); }
 }
 @media (hover: hover) and (pointer: fine) {
   button.home-cal__cell--event:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px color-mix(in srgb, var(--shadow) 28%, transparent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px color-mix(in srgb, var(--shadow) 24%, transparent);
+    border-color: color-mix(in srgb, var(--rule) 65%, transparent);
+  }
+  button.home-cal__cell--event:active {
+    transform: translateY(0);
   }
 }
 .home-cal__marks {
@@ -7322,50 +7403,48 @@ button.home-cal__cell:disabled {
 
 /* Day detail popup — centered via margin:auto (native <dialog> top-layer) */
 .home-cal__dialog {
-  width: min(28rem, calc(100vw - 1.75rem));
-  max-width: calc(100vw - 1.75rem);
-  max-height: min(80vh, 34rem);
-  /* All four sides auto = center in the viewport (do not override top/bottom alone) */
+  width: min(30rem, calc(100vw - 1.5rem));
+  max-width: calc(100vw - 1.5rem);
+  max-height: min(82vh, 36rem);
   margin: auto;
   padding: 0;
-  border: 1px solid color-mix(in srgb, var(--rule) 75%, transparent);
-  border-radius: 6px;
+  border: 1px solid color-mix(in srgb, var(--rule) 60%, transparent);
+  border-radius: 16px;
   background: var(--card);
   color: var(--ink);
-  box-shadow: 0 18px 40px color-mix(in srgb, var(--shadow) 45%, transparent);
-  /* Sit above fixed masthead / app chrome if the UA skips top-layer */
+  box-shadow: 0 22px 48px color-mix(in srgb, var(--shadow) 42%, transparent);
   z-index: 13000;
   overflow: hidden;
-  /* Explicit position for UAs that don't center open dialogs by default */
   position: fixed;
   inset: 0;
   height: fit-content;
-  max-width: min(28rem, calc(100vw - 1.75rem));
+  max-width: min(30rem, calc(100vw - 1.5rem));
 }
 .home-cal__dialog::backdrop {
-  background: color-mix(in srgb, #000 42%, transparent);
+  background: color-mix(in srgb, #000 48%, transparent);
+  backdrop-filter: blur(2px);
 }
 .home-cal__dialog-inner {
   display: flex;
   flex-direction: column;
-  max-height: min(80vh, 34rem);
+  max-height: min(82vh, 36rem);
   position: relative;
 }
 .home-cal__dialog-head {
   position: relative;
   display: block;
-  /* Room for absolute close control so title never runs under the × */
-  padding: 0.85rem 2.75rem 0.65rem 0.95rem;
+  padding: 0.95rem 2.9rem 0.75rem 1.05rem;
   border-bottom: 1px solid color-mix(in srgb, var(--rule) 35%, transparent);
+  background: color-mix(in srgb, var(--paper) 55%, var(--card));
 }
 .home-cal__dialog-title {
   margin: 0;
   padding: 0;
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   font-weight: 700;
   line-height: 1.3;
-  /* Long weekday dates wrap cleanly inside the padded header */
+  letter-spacing: -0.01em;
   max-width: 100%;
   overflow-wrap: anywhere;
   word-break: break-word;
@@ -7375,18 +7454,18 @@ button.home-cal__cell:disabled {
   appearance: none;
   position: absolute;
   top: 0.55rem;
-  right: 0.45rem;
+  right: 0.5rem;
   z-index: 2;
   box-sizing: border-box;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.3rem;
+  height: 2.3rem;
   margin: 0;
   padding: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid color-mix(in srgb, var(--rule) 40%, transparent);
-  border-radius: 4px;
+  border-radius: 999px;
   background: color-mix(in srgb, var(--paper) 88%, var(--card));
   color: var(--ink);
   font-family: system-ui, -apple-system, sans-serif;
@@ -7398,6 +7477,7 @@ button.home-cal__cell:disabled {
   flex-shrink: 0;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+  transition: background 0.12s ease, color 0.12s ease;
 }
 .home-cal__dialog-close:hover,
 .home-cal__dialog-close:focus-visible {
@@ -7407,11 +7487,11 @@ button.home-cal__cell:disabled {
   outline: none;
 }
 .home-cal__dialog-body {
-  padding: 0.65rem 0.9rem 1rem;
+  padding: 0.85rem 1.05rem 1.15rem;
   overflow: auto;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
   -webkit-overflow-scrolling: touch;
 }
 html.clad-app .home-cal__dialog {
@@ -8910,8 +8990,9 @@ button:disabled:not(.auth-linklike):not(.chip__remove) {
   position: absolute;
   inset: 0;
   z-index: 0;
-  opacity: 0.3;
+  opacity: 0.28;
   pointer-events: none;
+  transition: opacity 0.2s ease;
 }
 .home-cal__daynum,
 .home-cal__count,
@@ -8921,36 +9002,37 @@ button:disabled:not(.auth-linklike):not(.chip__remove) {
   position: relative;
   z-index: 1;
 }
-.home-cal__wash--a { background: color-mix(in srgb, rgb(48, 86, 64) 80%, var(--ink)); }
-.home-cal__wash--b { background: color-mix(in srgb, rgb(104, 118, 58) 78%, var(--ink)); }
-.home-cal__wash--c { background: color-mix(in srgb, rgb(150, 104, 34) 78%, var(--ink)); }
-.home-cal__wash--d { background: color-mix(in srgb, rgb(150, 44, 36) 80%, var(--ink)); }
-.home-cal__wash--left { background: color-mix(in srgb, rgb(11, 61, 145) 72%, var(--ink)); }
-.home-cal__wash--center { background: color-mix(in srgb, var(--ink) 42%, transparent); }
-.home-cal__wash--right { background: color-mix(in srgb, rgb(139, 26, 20) 76%, var(--ink)); }
-.home-cal__wash--vol { background: color-mix(in srgb, var(--accent) 82%, var(--ink)); opacity: 0.3; }
+.home-cal__wash--a { background: color-mix(in srgb, rgb(48, 86, 64) 72%, transparent); }
+.home-cal__wash--b { background: color-mix(in srgb, rgb(120, 130, 58) 68%, transparent); }
+.home-cal__wash--c { background: color-mix(in srgb, rgb(180, 130, 40) 65%, transparent); }
+.home-cal__wash--d { background: color-mix(in srgb, rgb(180, 55, 45) 68%, transparent); }
+.home-cal__wash--left { background: color-mix(in srgb, var(--lean-left) 70%, transparent); }
+.home-cal__wash--center { background: color-mix(in srgb, var(--ink) 14%, transparent); }
+.home-cal__wash--right { background: color-mix(in srgb, var(--lean-right) 72%, transparent); }
+.home-cal__wash--vol { background: color-mix(in srgb, var(--accent) 70%, transparent); opacity: 0.28; }
 
 /* Count sits top-right; the grade/figure anchors the bottom of the cell. */
 .home-cal__count {
   position: absolute;
-  top: 0.22rem;
-  right: 0.3rem;
+  top: 0.28rem;
+  right: 0.32rem;
   font-size: 0.55rem;
   font-weight: 700;
   line-height: 1;
   color: var(--muted-ink);
   margin-left: 0;
+  opacity: 0.9;
 }
 .home-cal__cellgrade,
 .home-cal__cellnum {
   font-family: var(--font-display);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 700;
   line-height: 1;
   font-variant-numeric: tabular-nums;
-  margin-bottom: 0.14rem;
+  margin-bottom: 0.18rem;
 }
-.home-cal__cellnum { color: var(--ink); opacity: 0.82; }
+.home-cal__cellnum { color: var(--ink); opacity: 0.88; }
 .home-cal__cellgrade--a { color: color-mix(in srgb, rgb(48, 86, 64) 88%, var(--ink)); }
 .home-cal__cellgrade--b { color: color-mix(in srgb, rgb(92, 108, 52) 88%, var(--ink)); }
 .home-cal__cellgrade--c { color: color-mix(in srgb, rgb(150, 104, 34) 90%, var(--ink)); }
@@ -8961,48 +9043,61 @@ button:disabled:not(.auth-linklike):not(.chip__remove) {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 3px;
+  height: 4px;
   display: flex;
   z-index: 1;
 }
-.home-cal__ribbon--l { background: color-mix(in srgb, rgb(11, 61, 145) 72%, var(--ink)); }
-.home-cal__ribbon--c { background: color-mix(in srgb, var(--ink) 34%, transparent); }
-.home-cal__ribbon--r { background: color-mix(in srgb, rgb(139, 26, 20) 76%, var(--ink)); }
+.home-cal__ribbon i,
+.home-cal__leanbar i {
+  display: block;
+  height: 100%;
+  min-width: 0;
+}
+.home-cal__ribbon--l { background: color-mix(in srgb, var(--lean-left) 88%, #2563eb); }
+.home-cal__ribbon--c { background: color-mix(in srgb, var(--lean-center) 80%, var(--ink)); opacity: 0.75; }
+.home-cal__ribbon--r { background: color-mix(in srgb, var(--lean-right) 90%, #dc2626); }
 
 /* Segmented controls: view (Record | Ahead) and encoding (Grade | Lean | Volume) */
 .home-cal__modes,
 .home-cal__encodings {
   display: flex;
   flex-wrap: wrap;
-  gap: 0;
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  overflow: hidden;
+  gap: 0.2rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+  border-radius: 999px;
+  padding: 0.18rem;
   width: fit-content;
-  margin: 0 auto 0.7rem;
+  max-width: 100%;
+  margin: 0 auto 0.75rem;
+  background: color-mix(in srgb, var(--paper) 55%, var(--card));
 }
-.home-cal__encodings { margin-bottom: 0.6rem; }
+.home-cal__encodings { margin-bottom: 0.65rem; }
 .home-cal__mode,
 .home-cal__enc {
   appearance: none;
   background: transparent;
   border: 0;
-  border-right: 1px solid var(--rule);
+  border-radius: 999px;
   color: var(--muted-ink);
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.4rem 0.8rem;
+  padding: 0.42rem 0.85rem;
   cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
 }
-.home-cal__mode:last-child,
-.home-cal__enc:last-child { border-right: 0; }
+.home-cal__mode:hover:not(.is-on),
+.home-cal__enc:hover:not(.is-on) {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--ink) 6%, transparent);
+}
 .home-cal__mode.is-on,
 .home-cal__enc.is-on {
   background: var(--ink);
   color: var(--paper);
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--shadow) 28%, transparent);
 }
 
 /* Legend — the thing the old build deliberately omitted. */
@@ -9010,98 +9105,231 @@ button:disabled:not(.auth-linklike):not(.chip__remove) {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.4rem 0.9rem;
-  margin-top: 0.7rem;
-  padding-top: 0.6rem;
-  border-top: 1px solid var(--rule-faded, var(--rule));
+  gap: 0.45rem 0.95rem;
+  margin-top: 0.8rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid color-mix(in srgb, var(--rule) 40%, transparent);
 }
 .home-cal__key {
   display: inline-flex;
   align-items: center;
-  gap: 0.32rem;
+  gap: 0.35rem;
   font-size: 0.66rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted-ink);
 }
 .home-cal__swatch {
-  width: 0.7rem;
-  height: 0.7rem;
-  border-radius: 2px;
+  width: 0.72rem;
+  height: 0.72rem;
+  border-radius: 4px;
   display: inline-block;
-  opacity: 0.55;
+  opacity: 0.7;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 8%, transparent);
 }
 .home-cal__keynote {
   font-size: 0.66rem;
   font-style: italic;
   color: var(--muted-ink);
-  opacity: 0.85;
+  opacity: 0.88;
 }
 .home-cal__locked-note {
-  margin: 0.7rem 0 0;
+  margin: 0.75rem 0 0;
   font-size: 0.78rem;
   font-style: italic;
   color: var(--muted-ink);
   text-align: center;
 }
+.home-cal__locked-inline {
+  margin: 0.55rem 0 0;
+  font-size: 0.8rem;
+  color: var(--muted-ink);
+  line-height: 1.4;
+}
 
 /* Day peek inside the dialog */
+.home-cal__scorecard {
+  padding: 0.85rem 0.95rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 42%, transparent);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--paper) 55%, var(--card));
+}
 .home-cal__score {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
-  margin-bottom: 0.5rem;
+  gap: 0.85rem;
+  margin-bottom: 0.65rem;
 }
 .home-cal__scoregrade {
   font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1;
+  min-width: 2.4rem;
+  text-align: center;
+}
+.home-cal__scoregrade--muted {
+  font-size: 1.55rem;
+  color: var(--muted-ink);
 }
 .home-cal__scorebits {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.15rem 0.7rem;
-  font-size: 0.82rem;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.84rem;
   color: var(--muted-ink);
+}
+.home-cal__scorebits .small-caps {
+  letter-spacing: 0.1em;
+  font-size: 0.64rem;
+  color: var(--muted-ink);
+}
+.home-cal__scorebits b {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* Article-style blue → red lean spectrum (day dialog) */
+.home-cal__spectrum {
+  margin: 0.15rem 0 0.55rem;
+}
+.home-cal__spectrum-label {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--muted-ink);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+}
+.home-cal__spectrum-value {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.12rem;
+  line-height: 1.2;
+  margin-bottom: 0.35rem;
+}
+.home-cal__spectrum-scale {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  max-width: 18rem;
+}
+.home-cal__spectrum-end {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.72rem;
+  color: var(--muted-ink);
+}
+.home-cal__spectrum-end--l {
+  color: color-mix(in srgb, var(--lean-left) 75%, var(--ink));
+}
+.home-cal__spectrum-end--r {
+  color: color-mix(in srgb, var(--lean-right) 75%, var(--ink));
+}
+.home-cal__spectrum-track {
+  position: relative;
+  flex: 1;
+  height: 9px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--lean-left) 0%,
+    color-mix(in srgb, var(--lean-left) 55%, var(--lean-center)) 28%,
+    var(--lean-center) 48%,
+    var(--lean-center) 52%,
+    color-mix(in srgb, var(--lean-right) 55%, var(--lean-center)) 72%,
+    var(--lean-right) 100%
+  );
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+.home-cal__spectrum-center {
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  width: 2px;
+  height: 15px;
+  background: color-mix(in srgb, var(--ink) 28%, transparent);
+  transform: translateX(-50%);
+  border-radius: 1px;
+}
+.home-cal__spectrum-marker {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  background: var(--card);
+  border: 2px solid color-mix(in srgb, var(--ink) 20%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 1px 4px color-mix(in srgb, var(--shadow) 35%, transparent);
+  transform: translate(-50%, -50%);
+}
+
+.home-cal__splitblock {
+  margin-top: 0.55rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid color-mix(in srgb, var(--rule) 35%, transparent);
+}
+.home-cal__splitlabel {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--muted-ink);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
 }
 .home-cal__leanbar {
   display: flex;
-  height: 6px;
+  height: 8px;
   border-radius: 99px;
   overflow: hidden;
-  margin: 0.35rem 0 0.25rem;
+  margin: 0 0 0.3rem;
+  background: color-mix(in srgb, var(--ink) 6%, transparent);
 }
 .home-cal__leankey {
-  margin: 0 0 0.6rem;
-  font-size: 0.7rem;
+  margin: 0;
+  font-size: 0.72rem;
   color: var(--muted-ink);
   font-variant-numeric: tabular-nums;
 }
+.home-cal__leankey-l { color: color-mix(in srgb, var(--lean-left) 70%, var(--ink)); }
+.home-cal__leankey-r { color: color-mix(in srgb, var(--lean-right) 70%, var(--ink)); }
 .home-cal__daylist {
   list-style: none;
-  margin: 0 0 0.6rem;
+  margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  gap: 0.5rem;
 }
 .home-cal__daylist li {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 0.4rem;
-  font-size: 0.86rem;
+  gap: 0.4rem 0.5rem;
+  font-size: 0.88rem;
   line-height: 1.35;
+  padding: 0.45rem 0.55rem;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--paper) 40%, transparent);
+  border: 1px solid color-mix(in srgb, var(--rule) 28%, transparent);
+}
+.home-cal__daylist a {
+  font-weight: 600;
+  color: inherit;
+  text-decoration: none;
+}
+.home-cal__daylist a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .home-cal__pill {
   font-family: var(--font-display);
   font-size: 0.68rem;
   font-weight: 700;
-  border: 1px solid var(--rule);
-  border-radius: 2px;
-  padding: 0.05rem 0.28rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+  border-radius: 999px;
+  padding: 0.08rem 0.4rem;
   color: var(--ink);
+  background: color-mix(in srgb, var(--card) 80%, var(--paper));
 }
 .home-cal__outlet {
   font-size: 0.68rem;
@@ -9110,9 +9338,12 @@ button:disabled:not(.auth-linklike):not(.chip__remove) {
   color: var(--muted-ink);
 }
 .home-cal__more {
-  margin: 0.2rem 0 0.8rem;
-  font-size: 0.84rem;
+  margin: 0.1rem 0 0;
+  font-size: 0.88rem;
   font-weight: 700;
+}
+.home-cal__more a {
+  color: inherit;
 }
 
 /* Ahead — the scheduled daybook */
@@ -9122,7 +9353,7 @@ button:disabled:not(.auth-linklike):not(.chip__remove) {
   align-items: baseline;
   justify-content: space-between;
   gap: 0.5rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.75rem;
 }
 .home-cal__ics {
   font-size: 0.72rem;
@@ -9130,25 +9361,38 @@ button:disabled:not(.auth-linklike):not(.chip__remove) {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted-ink);
+  text-decoration: none;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--rule) 45%, transparent);
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.home-cal__ics:hover {
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+  color: var(--ink);
 }
 .home-cal__agenda {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.6rem;
 }
 .home-cal__agenda-head {
-  margin: 0.9rem 0 0.1rem;
+  margin: 0.95rem 0 0.15rem;
   font-size: 0.66rem;
   color: var(--muted-ink);
 }
 .home-cal__ev {
   display: grid;
-  grid-template-columns: 3rem 1fr;
-  gap: 0.8rem;
-  border: 1px solid var(--rule-faded, var(--rule));
-  border-radius: 3px;
-  padding: 0.6rem 0.7rem;
-  background: var(--card);
+  grid-template-columns: 3.1rem 1fr;
+  gap: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 42%, transparent);
+  border-radius: 12px;
+  padding: 0.7rem 0.8rem;
+  background: color-mix(in srgb, var(--paper) 40%, var(--card));
+  transition: border-color 0.12s ease, transform 0.12s ease;
+}
+.home-cal__ev:hover {
+  border-color: color-mix(in srgb, var(--rule) 70%, transparent);
 }
 .home-cal__ev.is-past { opacity: 0.78; }
 .home-cal__evwhen {
@@ -9156,8 +9400,8 @@ button:disabled:not(.auth-linklike):not(.chip__remove) {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  border-right: 1px solid var(--rule-faded, var(--rule));
-  padding-right: 0.6rem;
+  border-right: 1px solid color-mix(in srgb, var(--rule) 40%, transparent);
+  padding-right: 0.65rem;
   line-height: 1.1;
 }
 .home-cal__evmon,
@@ -9169,7 +9413,7 @@ button:disabled:not(.auth-linklike):not(.chip__remove) {
 }
 .home-cal__evday {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
@@ -9183,6 +9427,13 @@ button:disabled:not(.auth-linklike):not(.chip__remove) {
   color: var(--muted-ink);
   font-size: 0.86rem;
   margin: 0.4rem 0;
+}
+
+@media (max-width: 420px) {
+  .home-cal__panel { padding: 0.75rem 0.55rem 0.85rem; }
+  .home-cal__cell { min-height: 3rem; border-radius: 8px; }
+  .home-cal__mode,
+  .home-cal__enc { padding: 0.38rem 0.6rem; font-size: 0.62rem; }
 }
 
 /* ---- /day/[date] page ---- */

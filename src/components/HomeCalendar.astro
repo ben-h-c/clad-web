@@ -102,7 +102,10 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
     <div data-cal-record>
       <div class="home-cal__toolbar">
         <button type="button" class="home-cal__nav" data-cal-prev aria-label="Previous month">‹</button>
-        <h3 class="home-cal__month" data-cal-month-label></h3>
+        <div class="home-cal__month-wrap">
+          <h3 class="home-cal__month" data-cal-month-label></h3>
+          <button type="button" class="home-cal__today" data-cal-today hidden>Today</button>
+        </div>
         <button type="button" class="home-cal__nav" data-cal-next aria-label="Next month">›</button>
       </div>
 
@@ -185,6 +188,7 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
     grade: string | null;
     gpa: number | null;
     lean: [number, number, number] | null;
+    avgLean: number | null;
     top: DayReport[];
   };
 
@@ -233,10 +237,12 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
     const swipeEl = root.querySelector("[data-cal-swipe]") as HTMLElement | null;
     const prevBtn = root.querySelector("[data-cal-prev]") as HTMLButtonElement | null;
     const nextBtn = root.querySelector("[data-cal-next]") as HTMLButtonElement | null;
+    const todayBtn = root.querySelector("[data-cal-today]") as HTMLButtonElement | null;
     const dialog = root.querySelector("[data-cal-dialog]") as HTMLDialogElement | null;
     const dialogTitle = root.querySelector("[data-cal-dialog-title]");
     const dialogBody = root.querySelector("[data-cal-dialog-body]");
     let lastTrigger: HTMLElement | null = null;
+    let selectedDate: string | null = null;
 
     const MONTHS = [
       "January", "February", "March", "April", "May", "June",
@@ -288,6 +294,45 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
       return "d"; // D+ and below
     }
 
+    function leanLabel(score: number | null): string {
+      if (score == null) return "";
+      const mag = Math.abs(score);
+      if (mag < 5) return "Centered";
+      return `${mag}% ${score > 0 ? "Right" : "Left"}-leaning`;
+    }
+
+    function leanSpectrumHtml(score: number, compact = false): string {
+      const s = Math.max(-100, Math.min(100, Math.round(score)));
+      const pos = (s + 100) / 2;
+      return (
+        `<div class="home-cal__spectrum${compact ? " home-cal__spectrum--compact" : ""}">` +
+        `<span class="home-cal__spectrum-label small-caps">Political lean</span>` +
+        `<span class="home-cal__spectrum-value">${escapeHtml(leanLabel(s))}</span>` +
+        `<div class="home-cal__spectrum-scale" aria-hidden="true">` +
+        `<span class="home-cal__spectrum-end home-cal__spectrum-end--l">L</span>` +
+        `<div class="home-cal__spectrum-track">` +
+        `<span class="home-cal__spectrum-center"></span>` +
+        `<span class="home-cal__spectrum-marker" style="left:${pos}%"></span>` +
+        `</div>` +
+        `<span class="home-cal__spectrum-end home-cal__spectrum-end--r">R</span>` +
+        `</div></div>`
+      );
+    }
+
+    function splitBarHtml(lean: [number, number, number]): string {
+      const [l, c, r] = lean;
+      return (
+        `<div class="home-cal__leanbar" role="img" aria-label="Coverage split: ${l}% left, ${c}% center, ${r}% right">` +
+        `<i class="home-cal__ribbon--l" style="flex:0 0 ${l}%"></i>` +
+        `<i class="home-cal__ribbon--c" style="flex:0 0 ${c}%"></i>` +
+        `<i class="home-cal__ribbon--r" style="flex:0 0 ${r}%"></i>` +
+        `</div>` +
+        `<p class="home-cal__leankey"><span class="home-cal__leankey-l">${l}% left</span> · ` +
+        `<span class="home-cal__leankey-c">${c}% center</span> · ` +
+        `<span class="home-cal__leankey-r">${r}% right</span></p>`
+      );
+    }
+
     function cellFace(sum: DaySummary | undefined): string {
       if (!sum) return "";
       let wash = "";
@@ -306,7 +351,11 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
         mark = `<span class="home-cal__cellnum">${sum.n}</span>`;
       }
       const ribbon = sum.lean
-        ? `<span class="home-cal__ribbon"><i style="width:${sum.lean[0]}%"class="home-cal__ribbon--l"></i><i style="width:${sum.lean[1]}%"class="home-cal__ribbon--c"></i><i style="width:${sum.lean[2]}%"class="home-cal__ribbon--r"></i></span>`
+        ? `<span class="home-cal__ribbon" aria-hidden="true">` +
+          `<i class="home-cal__ribbon--l" style="flex:0 0 ${sum.lean[0]}%"></i>` +
+          `<i class="home-cal__ribbon--c" style="flex:0 0 ${sum.lean[1]}%"></i>` +
+          `<i class="home-cal__ribbon--r" style="flex:0 0 ${sum.lean[2]}%"></i>` +
+          `</span>`
         : "";
       return `${wash}<span class="home-cal__count">${sum.n}</span>${mark}${ribbon}`;
     }
@@ -317,6 +366,10 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
       root.dataset.month = month;
       if (prevBtn) prevBtn.disabled = !!minMonth && month <= minMonth;
       if (nextBtn) nextBtn.disabled = !!maxMonth && month >= maxMonth;
+      if (todayBtn) {
+        const todayMonth = today.slice(0, 7);
+        todayBtn.hidden = !todayMonth || month === todayMonth;
+      }
 
       const dim = daysInMonth(month);
       const start = firstWeekday(month);
@@ -331,6 +384,7 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
         const dayEvents = byDate.get(date) ?? [];
         const has = !!sum || dayEvents.length > 0;
         const isToday = date === today;
+        const isSelected = date === selectedDate;
         const dots =
           !sum && dayEvents.length
             ? `<span class="home-cal__marks">${[...new Set(dayEvents.map((e) => e.kind))]
@@ -342,11 +396,22 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
         if (sum) {
           bits.push(`${sum.n} report${sum.n === 1 ? "" : "s"}`);
           if (sum.grade) bits.push(`average ${sum.grade}`);
+          if (sum.avgLean != null) bits.push(leanLabel(sum.avgLean));
         } else if (dayEvents.length) {
           bits.push(`${dayEvents.length} event${dayEvents.length === 1 ? "" : "s"}`);
         }
+        const cls = [
+          "home-cal__cell",
+          has ? "home-cal__cell--event" : "",
+          isToday ? "home-cal__cell--today" : "",
+          isSelected ? "home-cal__cell--selected" : "",
+        ]
+          .filter(Boolean)
+          .join(" ");
         cells.push(
-          `<button type="button" class="home-cal__cell${has ? " home-cal__cell--event" : ""}${isToday ? " home-cal__cell--today" : ""}" data-cal-day="${date}" ${has ? "" : "disabled "}aria-label="${escapeHtml(bits.join(", "))}">` +
+          `<button type="button" class="${cls}" data-cal-day="${date}" ${has ? "" : "disabled "}` +
+            `aria-label="${escapeHtml(bits.join(", "))}"` +
+            `${isSelected ? ' aria-current="true"' : ""}>` +
             `<span class="home-cal__daynum">${day}</span>${sum ? cellFace(sum) : dots}` +
             `</button>`
         );
@@ -357,6 +422,11 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
       for (let i = 0; i < trail; i++) {
         cells.push(`<div class="home-cal__cell home-cal__cell--pad" aria-hidden="true"></div>`);
       }
+      // Subtle re-paint so encoding switches and month changes feel live.
+      gridEl.classList.remove("is-animating");
+      // Force reflow so the animation restarts when month/encoding changes.
+      void (gridEl as HTMLElement).offsetWidth;
+      gridEl.classList.add("is-animating");
       gridEl.innerHTML = cells.join("");
       renderLegend();
     }
@@ -392,6 +462,16 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
       const sum = dayByDate.get(date);
       const dayEvents = byDate.get(date) ?? [];
       if (!sum && !dayEvents.length) return;
+      selectedDate = date;
+      // Highlight the opened cell without a full re-render of washes.
+      gridEl?.querySelectorAll(".home-cal__cell--selected").forEach((el) => {
+        el.classList.remove("home-cal__cell--selected");
+        el.removeAttribute("aria-current");
+      });
+      const cell = gridEl?.querySelector(`[data-cal-day="${date}"]`);
+      cell?.classList.add("home-cal__cell--selected");
+      cell?.setAttribute("aria-current", "true");
+
       dialogTitle.textContent = prettyDate(date);
 
       const parts: string[] = [];
@@ -400,16 +480,25 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
         const scoreBits = [`<span><b>${sum.n}</b> report${sum.n === 1 ? "" : "s"}</span>`];
         if (sum.grade) scoreBits.push(`<span>average <b>${escapeHtml(sum.grade)}</b></span>`);
         parts.push(
-          `<div class="home-cal__score">` +
+          `<div class="home-cal__scorecard">` +
+            `<div class="home-cal__score">` +
             (sum.grade
               ? `<span class="home-cal__scoregrade home-cal__cellgrade--${gradeBand(sum.gpa)}">${escapeHtml(sum.grade)}</span>`
-              : "") +
-            `<div class="home-cal__scorebits">${scoreBits.join("")}</div>` +
-            `</div>` +
+              : `<span class="home-cal__scoregrade home-cal__scoregrade--muted">${sum.n}</span>`) +
+            `<div class="home-cal__scorebits">` +
+            (sum.grade ? `<span class="small-caps">Day average</span>` : "") +
+            scoreBits.join("") +
+            `</div></div>` +
+            (sum.avgLean != null ? leanSpectrumHtml(sum.avgLean) : "") +
             (sum.lean
-              ? `<div class="home-cal__leanbar"><i class="home-cal__ribbon--l" style="width:${sum.lean[0]}%"></i><i class="home-cal__ribbon--c" style="width:${sum.lean[1]}%"></i><i class="home-cal__ribbon--r" style="width:${sum.lean[2]}%"></i></div>` +
-                `<p class="home-cal__leankey">${sum.lean[0]}% left · ${sum.lean[1]}% center · ${sum.lean[2]}% right</p>`
-              : "")
+              ? `<div class="home-cal__splitblock">` +
+                `<span class="home-cal__splitlabel small-caps">Coverage split</span>` +
+                splitBarHtml(sum.lean) +
+                `</div>`
+              : locked
+                ? `<p class="home-cal__locked-inline"><a href="/register/">Create a free account</a> to unlock grade and lean for this day.</p>`
+                : "") +
+            `</div>`
         );
         if (sum.top.length) {
           parts.push(
@@ -417,7 +506,8 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
               sum.top
                 .map(
                   (r) =>
-                    `<li>${r.grade ? `<span class="home-cal__pill">${escapeHtml(r.grade)}</span>` : ""}` +
+                    `<li>` +
+                    (r.grade ? `<span class="home-cal__pill">${escapeHtml(r.grade)}</span>` : "") +
                     `<a href="/posts/${encodeURIComponent(r.slug)}/">${escapeHtml(r.title)}</a>` +
                     (r.outlet ? `<span class="home-cal__outlet">${escapeHtml(r.outlet)}</span>` : "") +
                     `</li>`
@@ -558,6 +648,17 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
       month = shiftMonth(month, 1);
       render();
     });
+    todayBtn?.addEventListener("click", () => {
+      const target = today.slice(0, 7);
+      if (!target) return;
+      month = target;
+      render();
+      // Nudge attention to today after jumping back.
+      requestAnimationFrame(() => {
+        gridEl?.querySelector(".home-cal__cell--today")?.classList.add("is-pulse");
+        setTimeout(() => gridEl?.querySelector(".is-pulse")?.classList.remove("is-pulse"), 700);
+      });
+    });
 
     root.querySelectorAll<HTMLElement>("[data-cal-view]").forEach((b) => {
       b.addEventListener("click", () => setView(b.dataset.calView || "record"));
@@ -565,7 +666,7 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
     root.querySelectorAll<HTMLElement>("[data-cal-enc]").forEach((b) => {
       b.addEventListener("click", () => {
         const next = b.dataset.calEnc as typeof enc;
-        if (!next) return;
+        if (!next || next === enc) return;
         enc = next;
         root.querySelectorAll<HTMLElement>("[data-cal-enc]").forEach((x) => {
           const on = x === b;
@@ -591,6 +692,11 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
     // Return focus to the day that opened the dialog (native <dialog> traps
     // focus but does not restore it when closed by backdrop or ESC).
     dialog?.addEventListener("close", () => {
+      selectedDate = null;
+      gridEl?.querySelectorAll(".home-cal__cell--selected").forEach((el) => {
+        el.classList.remove("home-cal__cell--selected");
+        el.removeAttribute("aria-current");
+      });
       lastTrigger?.focus?.();
       lastTrigger = null;
     });

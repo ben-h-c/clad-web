@@ -35,10 +35,18 @@ export interface CalendarDaySummary {
   n: number;
   /** Average letter grade for the day — null when locked or ungraded. */
   grade: string | null;
-  /** Average GPA 0–4.3, drives the colour wash — null when locked. */
+  /**
+   * Mean grade band on the 0–12 scale used by gradeToGpa (F=0 … A+=12).
+   * Drives the colour wash — null when locked.
+   */
   gpa: number | null;
   /** Coverage split [left, center, right] as percentages — null when locked. */
   lean: [number, number, number] | null;
+  /**
+   * Mean political-lean score −100..+100 for the article-style spectrum bar.
+   * Null when locked or no scored reports that day.
+   */
+  avgLean: number | null;
   /** A few headlines for the day peek. */
   top: CalendarDayReport[];
 }
@@ -94,6 +102,7 @@ export function buildDaySummaries(
     let grade: string | null = null;
     let gpa: number | null = null;
     let lean: [number, number, number] | null = null;
+    let avgLean: number | null = null;
 
     if (!locked) {
       const gpas = sorted
@@ -120,6 +129,7 @@ export function buildDaySummaries(
         const pl = Math.round((l / leans.length) * 100);
         const pc = Math.round((c / leans.length) * 100);
         lean = [pl, pc, Math.max(0, 100 - pl - pc)];
+        avgLean = Math.round(leans.reduce((a, b) => a + b, 0) / leans.length);
       }
     }
 
@@ -129,6 +139,7 @@ export function buildDaySummaries(
       grade,
       gpa,
       lean,
+      avgLean,
       top: sorted.slice(0, topPerDay).map((p) => ({
         slug: p.id,
         title: String(p.data.headline || "").slice(0, 140),
