@@ -5,8 +5,8 @@
  * Month grid: each day encodes average grade (wash), report count, and lean
  * ribbon. Encoding switch recolours by grade / lean / volume.
  *
- * Coming up: daybook events for the next three calendar days (today + 2),
- * always visible under the grid — no separate Ahead tab.
+ * Coming up: separate card under the calendar — daybook events for the next
+ * three calendar days (today + 2), collapsible.
  *
  * GATING: grade and lean are Premium values. When `locked`, buildDaySummaries
  * emits nulls, the grade/lean encodings are withheld, and the calendar falls
@@ -124,28 +124,28 @@ const clientEvents = events.map((e) => ({
         record by grade and coverage lean.
       </p>
     )}
+  </div>
 
-    {/* Daybook peek: events on today through today+2. Expanded by default. */}
-    <div class="home-cal__coming is-open" data-cal-coming>
-      <button
-        type="button"
-        class="home-cal__coming-toggle"
-        data-cal-coming-toggle
-        aria-expanded="true"
-        aria-controls="home-cal-coming-panel"
-        id="home-cal-coming-toggle"
-      >
-        <span class="home-cal__coming-title">Coming up</span>
-        <span class="home-cal__coming-chevron" aria-hidden="true"></span>
-      </button>
-      <div
-        class="home-cal__coming-panel"
-        id="home-cal-coming-panel"
-        data-cal-agenda
-        role="region"
-        aria-labelledby="home-cal-coming-toggle"
-      ></div>
-    </div>
+  {/* Separate card: daybook peek for today through today+2. Expanded by default. */}
+  <div class="home-cal__coming is-open" data-cal-coming>
+    <button
+      type="button"
+      class="home-cal__coming-toggle"
+      data-cal-coming-toggle
+      aria-expanded="true"
+      aria-controls="home-cal-coming-panel"
+      id="home-cal-coming-toggle"
+    >
+      <span class="home-cal__coming-title">Coming up</span>
+      <span class="home-cal__coming-chevron" aria-hidden="true"></span>
+    </button>
+    <div
+      class="home-cal__coming-panel"
+      id="home-cal-coming-panel"
+      data-cal-agenda
+      role="region"
+      aria-labelledby="home-cal-coming-toggle"
+    ></div>
   </div>
 
   <dialog class="home-cal__dialog" data-cal-dialog aria-labelledby="home-cal-dialog-title">

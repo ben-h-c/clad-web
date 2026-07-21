@@ -9751,11 +9751,23 @@ html.theme-dark .home-cal__pill--d {
   color: inherit;
 }
 
-/* Coming up — next three days under the month grid (collapsible) */
+/* Coming up — own card below the calendar (collapsible) */
 .home-cal__coming {
-  margin-top: 0.95rem;
-  padding-top: 0.55rem;
-  border-top: 1px solid color-mix(in srgb, var(--rule) 40%, transparent);
+  margin-top: 0.85rem;
+  padding: 0.65rem 0.85rem 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+  border-radius: 14px;
+  background:
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--card) 92%, var(--paper)) 0%,
+      var(--card) 48%,
+      color-mix(in srgb, var(--card) 96%, var(--paper-deep)) 100%
+    );
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 28%, transparent),
+    0 10px 28px color-mix(in srgb, var(--shadow) 18%, transparent);
+  isolation: isolate;
 }
 .home-cal__coming-toggle {
   appearance: none;
@@ -9765,7 +9777,7 @@ html.theme-dark .home-cal__pill--d {
   gap: 0.75rem;
   width: 100%;
   margin: 0;
-  padding: 0.4rem 0.15rem 0.45rem;
+  padding: 0.35rem 0.1rem 0.45rem;
   border: 0;
   background: transparent;
   color: inherit;
@@ -9810,10 +9822,13 @@ html.theme-dark .home-cal__pill--d {
   gap: 0.55rem;
 }
 .home-cal__coming-panel {
-  padding-bottom: 0.1rem;
+  padding-bottom: 0.05rem;
 }
 .home-cal__coming:not(.is-open) .home-cal__coming-panel {
   display: none;
+}
+.home-cal__coming:not(.is-open) {
+  padding-bottom: 0.55rem;
 }
 .home-cal__ev {
   display: grid;
