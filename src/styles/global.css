@@ -9084,8 +9084,7 @@ button:disabled:not(.auth-linklike):not(.chip__remove) {
 .home-cal__ribbon--c { background: color-mix(in srgb, var(--lean-center) 80%, var(--ink)); opacity: 0.75; }
 .home-cal__ribbon--r { background: color-mix(in srgb, var(--lean-right) 90%, #dc2626); }
 
-/* Segmented controls: view (Record | Ahead) and encoding (Grade | Lean | Volume) */
-.home-cal__modes,
+/* Encoding switch (Grade | Lean | Volume) */
 .home-cal__encodings {
   display: flex;
   flex-wrap: wrap;
@@ -9095,11 +9094,9 @@ button:disabled:not(.auth-linklike):not(.chip__remove) {
   padding: 0.18rem;
   width: fit-content;
   max-width: 100%;
-  margin: 0 auto 0.75rem;
+  margin: 0 auto 0.65rem;
   background: color-mix(in srgb, var(--paper) 55%, var(--card));
 }
-.home-cal__encodings { margin-bottom: 0.65rem; }
-.home-cal__mode,
 .home-cal__enc {
   appearance: none;
   background: transparent;
@@ -9115,12 +9112,10 @@ button:disabled:not(.auth-linklike):not(.chip__remove) {
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease;
 }
-.home-cal__mode:hover:not(.is-on),
 .home-cal__enc:hover:not(.is-on) {
   color: var(--ink);
   background: color-mix(in srgb, var(--ink) 6%, transparent);
 }
-.home-cal__mode.is-on,
 .home-cal__enc.is-on {
   background: var(--ink);
   color: var(--paper);
@@ -9603,88 +9598,24 @@ html.theme-dark .home-cal__pill--d {
   color: inherit;
 }
 
-/* Ahead — the scheduled daybook.
-   No nested max-height/overflow scroll: that trapped touch scrolling in the
-   iOS WebView and made the countdown chrome look "stuck" on the page. The
-   agenda is just normal document flow; the page itself scrolls. */
-.home-cal__ahead {
-  display: block;
+/* Coming up — next three days under the month grid */
+.home-cal__coming {
+  margin-top: 0.95rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid color-mix(in srgb, var(--rule) 40%, transparent);
 }
-.home-cal__ahead-sticky {
-  padding-bottom: 0.15rem;
-}
-.home-cal__ahead-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.55rem 0.75rem;
-  margin-bottom: 0.45rem;
-}
-.home-cal__ics-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  justify-content: flex-end;
-}
-.home-cal__ics {
-  font-size: 0.68rem;
+.home-cal__coming-title {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted-ink);
-  text-decoration: none;
-  padding: 0.35rem 0.7rem;
-  border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--rule) 45%, transparent);
-  background: color-mix(in srgb, var(--paper) 50%, var(--card));
-  transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
-  white-space: nowrap;
-}
-.home-cal__ics:hover,
-.home-cal__ics:focus-visible {
-  background: color-mix(in srgb, var(--ink) 8%, transparent);
+  letter-spacing: -0.01em;
   color: var(--ink);
-  outline: none;
-}
-.home-cal__ics--sub {
-  color: var(--paper);
-  background: var(--ink);
-  border-color: var(--ink);
-}
-.home-cal__ics--sub:hover,
-.home-cal__ics--sub:focus-visible {
-  background: color-mix(in srgb, var(--ink) 88%, var(--accent, #5b9a8b));
-  color: var(--paper);
-  border-color: transparent;
-}
-.home-cal__ics-note {
-  margin: 0 0 0.75rem;
-  font-size: 0.78rem;
-  line-height: 1.4;
-  color: var(--muted-ink);
-}
-.home-cal__ics-note strong {
-  color: var(--ink);
-  font-weight: 600;
 }
 .home-cal__agenda {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 0.25rem;
-  /* Keep the last card clear of the panel edge while scrolling. */
-  scroll-padding-bottom: 0.5rem;
-}
-.home-cal__agenda-head {
-  margin: 0.95rem 0 0.15rem;
-  font-size: 0.66rem;
-  color: var(--muted-ink);
+  gap: 0.55rem;
 }
 .home-cal__ev {
   display: grid;
@@ -9699,7 +9630,10 @@ html.theme-dark .home-cal__pill--d {
 .home-cal__ev:hover {
   border-color: color-mix(in srgb, var(--rule) 70%, transparent);
 }
-.home-cal__ev.is-past { opacity: 0.78; }
+.home-cal__ev.is-today {
+  border-color: color-mix(in srgb, var(--accent, #5b9a8b) 45%, var(--rule));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #5b9a8b) 22%, transparent);
+}
 .home-cal__evwhen {
   display: flex;
   flex-direction: column;
@@ -9737,7 +9671,6 @@ html.theme-dark .home-cal__pill--d {
 @media (max-width: 420px) {
   .home-cal__panel { padding: 0.75rem 0.55rem 0.85rem; }
   .home-cal__cell { min-height: 3rem; border-radius: 8px; }
-  .home-cal__mode,
   .home-cal__enc { padding: 0.38rem 0.6rem; font-size: 0.62rem; }
 }
 

@@ -1,16 +1,12 @@
 ---
 /**
- * Interactive home calendar — the graded record plus the daybook ahead.
+ * Interactive home calendar — the graded record plus a short "Coming up" list.
  *
- * Two modes:
- *  · Record — a month grid where each day carries the day's own numbers.
- *    Cells encode the day's average grade (wash), how many reports ran
- *    (figure), and how coverage split by lean (bottom ribbon). The encoding
- *    switch recolours the whole month by grade, lean or volume, and the
- *    legend says what the colours mean.
- *  · Ahead — the scheduled daybook (elections, rulings, launches) from the
- *    calendar-scanner agent + race board, with .ics export. Once an event's
- *    date passes it resolves into a link to the coverage it produced.
+ * Month grid: each day encodes average grade (wash), report count, and lean
+ * ribbon. Encoding switch recolours by grade / lean / volume.
+ *
+ * Coming up: daybook events for the next three calendar days (today + 2),
+ * always visible under the grid — no separate Ahead tab.
  *
  * GATING: grade and lean are Premium values. When `locked`, buildDaySummaries
  * emits nulls, the grade/lean encodings are withheld, and the calendar falls
@@ -71,7 +67,6 @@ const clientEvents = events.map((e) => ({
   links: e.links ?? [],
 }));
 
-const upcomingCount = events.filter((e) => e.date >= today).length;
 ---
 <section
   class={wrapClass}
@@ -84,95 +79,55 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
   aria-label="Calendar"
 >
   <div class="home-cal__panel">
-    <div class="home-cal__modes" role="group" aria-label="Calendar view">
-      <button type="button" class="home-cal__mode is-on" data-cal-view="record" aria-pressed="true">
-        The record
-      </button>
-      <button type="button" class="home-cal__mode" data-cal-view="ahead" aria-pressed="false">
-        Ahead{upcomingCount > 0 ? ` · ${upcomingCount}` : ""}
-      </button>
+    <div class="home-cal__toolbar">
+      <button type="button" class="home-cal__nav" data-cal-prev aria-label="Previous month">‹</button>
+      <div class="home-cal__month-wrap">
+        <h3 class="home-cal__month" data-cal-month-label></h3>
+        <button type="button" class="home-cal__today" data-cal-today hidden>Today</button>
+      </div>
+      <button type="button" class="home-cal__nav" data-cal-next aria-label="Next month">›</button>
     </div>
 
-    <div data-cal-record>
-      <div class="home-cal__toolbar">
-        <button type="button" class="home-cal__nav" data-cal-prev aria-label="Previous month">‹</button>
-        <div class="home-cal__month-wrap">
-          <h3 class="home-cal__month" data-cal-month-label></h3>
-          <button type="button" class="home-cal__today" data-cal-today hidden>Today</button>
-        </div>
-        <button type="button" class="home-cal__nav" data-cal-next aria-label="Next month">›</button>
-      </div>
-
-      <div class="home-cal__encodings" role="group" aria-label="Colour the month by">
-        {!locked && (
-          <>
-            <button type="button" class="home-cal__enc" data-cal-enc="grade" aria-pressed="false">Grade</button>
-            <button type="button" class="home-cal__enc is-on" data-cal-enc="lean" aria-pressed="true">Lean</button>
-          </>
-        )}
-        <button
-          type="button"
-          class={`home-cal__enc${locked ? " is-on" : ""}`}
-          data-cal-enc="volume"
-          aria-pressed={locked ? "true" : "false"}
-        >Volume</button>
-      </div>
-
-      <div
-        class="home-cal__swipe"
-        data-cal-swipe
-        tabindex="0"
-        role="application"
-        aria-label="News calendar. Swipe or use arrows to change months."
-      >
-        <div class="home-cal__weekdays" aria-hidden="true">
-          <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
-        </div>
-        <div class="home-cal__grid" data-cal-grid></div>
-      </div>
-
-      <div class="home-cal__legend" data-cal-legend></div>
-
-      {locked && (
-        <p class="home-cal__locked-note">
-          Showing how much ran each day. <a href="/register/">Create a free account</a> to colour the
-          record by grade and coverage lean.
-        </p>
+    <div class="home-cal__encodings" role="group" aria-label="Colour the month by">
+      {!locked && (
+        <>
+          <button type="button" class="home-cal__enc" data-cal-enc="grade" aria-pressed="false">Grade</button>
+          <button type="button" class="home-cal__enc is-on" data-cal-enc="lean" aria-pressed="true">Lean</button>
+        </>
       )}
+      <button
+        type="button"
+        class={`home-cal__enc${locked ? " is-on" : ""}`}
+        data-cal-enc="volume"
+        aria-pressed={locked ? "true" : "false"}
+      >Volume</button>
     </div>
 
-    <div class="home-cal__ahead" data-cal-ahead hidden>
-      {/* Sticky chrome — countdown + export stay put while the agenda scrolls. */}
-      <div class="home-cal__ahead-sticky">
-        <div class="home-cal__ahead-head">
-          <h3 class="home-cal__month" data-cal-countdown></h3>
-          <div class="home-cal__ics-actions">
-            {/*
-              Export of the upcoming *daybook* (elections, rulings, data drops) —
-              not a single report day. Two paths:
-                · Download .ics — one-shot import (desktop / Files)
-                · Subscribe — webcal:// so Apple/Google Calendar keep the feed
-              The plain download attribute is unreliable on iOS/WKWebView, so we
-              also wire a click handler that forces navigation as a fallback.
-            */}
-            <a
-              class="home-cal__ics"
-              data-cal-ics-download
-              href="/api/calendar.ics"
-              download="cladfacts-daybook.ics"
-            >Download .ics</a>
-            <a
-              class="home-cal__ics home-cal__ics--sub"
-              data-cal-ics-subscribe
-              href="webcal://cladfacts.com/api/calendar.ics"
-            >Subscribe</a>
-          </div>
-        </div>
-        <p class="home-cal__ics-note">
-          Puts <strong>upcoming daybook events</strong> (elections, court dates, data releases)
-          into Apple Calendar, Google Calendar, or Outlook — not individual fact-check days.
-        </p>
+    <div
+      class="home-cal__swipe"
+      data-cal-swipe
+      tabindex="0"
+      role="application"
+      aria-label="News calendar. Swipe or use arrows to change months."
+    >
+      <div class="home-cal__weekdays" aria-hidden="true">
+        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
       </div>
+      <div class="home-cal__grid" data-cal-grid></div>
+    </div>
+
+    <div class="home-cal__legend" data-cal-legend></div>
+
+    {locked && (
+      <p class="home-cal__locked-note">
+        Showing how much ran each day. <a href="/register/">Create a free account</a> to colour the
+        record by grade and coverage lean.
+      </p>
+    )}
+
+    {/* Always-visible daybook peek: events on today through today+2. */}
+    <div class="home-cal__coming" data-cal-coming>
+      <h3 class="home-cal__coming-title">Coming up</h3>
       <div class="home-cal__agenda" data-cal-agenda></div>
     </div>
   </div>
@@ -261,9 +216,6 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
     const gridEl = root.querySelector("[data-cal-grid]");
     const legendEl = root.querySelector("[data-cal-legend]");
     const agendaEl = root.querySelector("[data-cal-agenda]");
-    const countdownEl = root.querySelector("[data-cal-countdown]");
-    const recordEl = root.querySelector("[data-cal-record]") as HTMLElement | null;
-    const aheadEl = root.querySelector("[data-cal-ahead]") as HTMLElement | null;
     const swipeEl = root.querySelector("[data-cal-swipe]") as HTMLElement | null;
     const prevBtn = root.querySelector("[data-cal-prev]") as HTMLButtonElement | null;
     const nextBtn = root.querySelector("[data-cal-next]") as HTMLButtonElement | null;
@@ -638,22 +590,26 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
       });
     }
 
-    function renderAhead() {
-      if (!agendaEl) return;
-      const upcoming = events.filter((e) => e.date >= today).sort((a, b) => a.date.localeCompare(b.date));
-      const recent = events.filter((e) => e.date < today).sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4);
+    /** Civil date + n days without timezone drift (UTC day math on ISO parts). */
+    function shiftIso(date: string, deltaDays: number): string {
+      const [y, m, d] = date.split("-").map(Number);
+      return new Date(Date.UTC(y, (m || 1) - 1, (d || 1) + deltaDays)).toISOString().slice(0, 10);
+    }
 
-      function card(e: CalEvent, past: boolean): string {
+    /** Events on today through the next two days (three calendar days). */
+    function renderComingUp() {
+      if (!agendaEl) return;
+      const end = shiftIso(today, 2);
+      const coming = events
+        .filter((e) => e.date >= today && e.date <= end)
+        .sort((a, b) => a.date.localeCompare(b.date) || a.title.localeCompare(b.title));
+
+      function card(e: CalEvent): string {
         const [y, m, d] = e.date.split("-").map(Number);
         const dt = new Date(Date.UTC(y, m - 1, d));
         const mon = dt.toLocaleDateString("en-US", { month: "short", timeZone: "UTC" });
         const wd = dt.toLocaleDateString("en-US", { weekday: "short", timeZone: "UTC" });
-        const sum = dayByDate.get(e.date);
-        // A past event resolves into the coverage it actually produced.
-        const resolved =
-          past && sum
-            ? `<a class="home-cal__resolved" href="/day/${e.date}/">✓ ${sum.n} graded report${sum.n === 1 ? "" : "s"}${sum.grade ? ` · avg ${escapeHtml(sum.grade)}` : ""} →</a>`
-            : "";
+        const isToday = e.date === today;
         const links = (e.links || [])
           .filter((l) => {
             const h = String(l.href || "");
@@ -662,56 +618,23 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
           .map((l) => `<a class="home-cal__link" href="${escapeHtml(l.href)}">${escapeHtml(l.label)} →</a>`)
           .join("");
         return (
-          `<article class="home-cal__ev${past ? " is-past" : ""}">` +
+          `<article class="home-cal__ev${isToday ? " is-today" : ""}">` +
           `<div class="home-cal__evwhen"><span class="home-cal__evmon">${mon}</span>` +
           `<span class="home-cal__evday">${d}</span><span class="home-cal__evwd">${wd}</span></div>` +
           `<div class="home-cal__evbody">` +
-          `<p class="home-cal__event-kicker small-caps">${escapeHtml(e.kindLabel)}${e.state ? ` · ${escapeHtml(e.state)}` : ""}</p>` +
+          `<p class="home-cal__event-kicker small-caps">${escapeHtml(e.kindLabel)}${e.state ? ` · ${escapeHtml(e.state)}` : ""}${isToday ? " · Today" : ""}</p>` +
           `<h4 class="home-cal__event-title">${escapeHtml(e.title)}</h4>` +
           (e.body ? `<p class="home-cal__event-body">${escapeHtml(e.body)}</p>` : "") +
-          (links || resolved ? `<div class="home-cal__event-links">${resolved}${links}</div>` : "") +
+          (links ? `<div class="home-cal__event-links">${links}</div>` : "") +
           `</div></article>`
         );
       }
 
-      const out: string[] = [];
-      if (upcoming.length) out.push(upcoming.slice(0, 24).map((e) => card(e, false)).join(""));
-      else out.push(`<p class="home-cal__empty">Nothing scheduled on the daybook right now.</p>`);
-      if (recent.length) {
-        out.push(`<h4 class="home-cal__agenda-head small-caps">Just passed</h4>`);
-        out.push(recent.map((e) => card(e, true)).join(""));
+      if (!coming.length) {
+        agendaEl.innerHTML = `<p class="home-cal__empty">Nothing scheduled in the next three days.</p>`;
+        return;
       }
-      agendaEl.innerHTML = out.join("");
-
-      if (countdownEl) {
-        // The nearest election-shaped anchor drives the countdown.
-        const anchor = upcoming.find((e) =>
-          ["election", "general", "primary", "runoff", "special"].includes(e.kind)
-        );
-        if (anchor) {
-          const [ay, am, ad] = anchor.date.split("-").map(Number);
-          const [ty, tm, td] = today.split("-").map(Number);
-          const diff = Math.round(
-            (Date.UTC(ay, am - 1, ad) - Date.UTC(ty, tm - 1, td)) / 86_400_000
-          );
-          countdownEl.textContent =
-            diff <= 0 ? `${anchor.title} — today` : `${anchor.title} in ${diff} day${diff === 1 ? "" : "s"}`;
-        } else {
-          countdownEl.textContent = "What's ahead";
-        }
-      }
-    }
-
-    function setView(view: string) {
-      const isAhead = view === "ahead";
-      if (recordEl) recordEl.hidden = isAhead;
-      if (aheadEl) aheadEl.hidden = !isAhead;
-      root.querySelectorAll<HTMLElement>("[data-cal-view]").forEach((b) => {
-        const on = b.dataset.calView === view;
-        b.classList.toggle("is-on", on);
-        b.setAttribute("aria-pressed", String(on));
-      });
-      if (isAhead) renderAhead();
+      agendaEl.innerHTML = coming.map(card).join("");
     }
 
     function closeDialog() {
@@ -719,31 +642,6 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
       if (typeof dialog.close === "function") dialog.close();
       else dialog.removeAttribute("open");
     }
-
-    // Make the daybook export actually do something visible on every platform.
-    // iOS/WKWebView often ignores the HTML download attribute; force a same-
-    // tab navigation (or new tab) so the system calendar / Files picker opens.
-    const icsDownload = root.querySelector("[data-cal-ics-download]") as HTMLAnchorElement | null;
-    const icsSubscribe = root.querySelector("[data-cal-ics-subscribe]") as HTMLAnchorElement | null;
-    if (icsSubscribe) {
-      try {
-        const host = window.location.host || "cladfacts.com";
-        icsSubscribe.href = `webcal://${host}/api/calendar.ics`;
-      } catch {
-        /* keep the hardcoded host from the markup */
-      }
-    }
-    icsDownload?.addEventListener("click", (ev) => {
-      // Let native download work when it can; otherwise fall through to a
-      // hard navigation that always surfaces the .ics response.
-      const isApp =
-        document.documentElement.classList.contains("clad-app") ||
-        !!(window as unknown as { __cladNative?: unknown }).__cladNative;
-      if (isApp) {
-        ev.preventDefault();
-        window.location.assign("/api/calendar.ics");
-      }
-    });
 
     prevBtn?.addEventListener("click", () => {
       if (minMonth && month <= minMonth) return;
@@ -767,9 +665,6 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
       });
     });
 
-    root.querySelectorAll<HTMLElement>("[data-cal-view]").forEach((b) => {
-      b.addEventListener("click", () => setView(b.dataset.calView || "record"));
-    });
     root.querySelectorAll<HTMLElement>("[data-cal-enc]").forEach((b) => {
       b.addEventListener("click", () => {
         const next = b.dataset.calEnc as typeof enc;
@@ -857,6 +752,7 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
     });
 
     render();
+    renderComingUp();
   }
 
   function boot() {
