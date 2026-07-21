@@ -164,12 +164,14 @@ const humanSpotlight = await getHumanSpotlight(env.AGENTS);
 
 // Discover + Good News — same horizontal strip format as Breaking / Front Page.
 // Flatten curated section post ids (order preserved, de-duped). Cap for mobile.
+// `exclude` skips ids already shown in another home strip (e.g. Discover vs Good News).
 function postsFromSections(
   sections: { ids: string[] }[],
   map: typeof byId,
-  max = 12
+  max = 12,
+  exclude?: Set<string>
 ): typeof all {
-  const seen = new Set<string>();
+  const seen = new Set<string>(exclude ?? []);
   const out: typeof all = [];
   for (const s of sections) {
     for (const id of s.ids || []) {
@@ -188,7 +190,13 @@ const goodNewsCurated = await getGoodNews(env.AGENTS);
 const goodNewsSections =
   goodNewsCurated.length > 0 ? goodNewsCurated : buildGoodNewsSections(all);
 const discoverPosts = postsFromSections(discoverSections, byId, 12);
-const goodNewsPosts = postsFromSections(goodNewsSections, byId, 12);
+// Good News never repeats a card already in Discover (common curator overlap).
+const goodNewsPosts = postsFromSections(
+  goodNewsSections,
+  byId,
+  12,
+  new Set(discoverPosts.map((p) => p.id))
+);
 // Decorative marquee — loads after the main story rows so crawlers hit real content first.
 const quips = await getQuips(env.AGENTS);
 ---
