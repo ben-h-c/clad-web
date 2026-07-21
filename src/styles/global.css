@@ -9162,15 +9162,60 @@ button:disabled:not(.auth-linklike):not(.chip__remove) {
 }
 .home-cal__scoregrade {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 1.85rem;
   font-weight: 700;
   line-height: 1;
-  min-width: 2.4rem;
+  min-width: 2.6rem;
   text-align: center;
+  padding: 0.35rem 0.45rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+.home-cal__scoregrade.home-cal__cellgrade--a {
+  color: color-mix(in srgb, #065f46 88%, var(--ink));
+  background: color-mix(in srgb, #6ee7b7 42%, var(--card));
+  border-color: color-mix(in srgb, #34d399 45%, transparent);
+}
+.home-cal__scoregrade.home-cal__cellgrade--b {
+  color: color-mix(in srgb, #854d0e 90%, var(--ink));
+  background: color-mix(in srgb, #fde68a 48%, var(--card));
+  border-color: color-mix(in srgb, #fbbf24 42%, transparent);
+}
+.home-cal__scoregrade.home-cal__cellgrade--c {
+  color: color-mix(in srgb, #9a3412 90%, var(--ink));
+  background: color-mix(in srgb, #fdba74 42%, var(--card));
+  border-color: color-mix(in srgb, #fb923c 40%, transparent);
+}
+.home-cal__scoregrade.home-cal__cellgrade--d {
+  color: color-mix(in srgb, #9f1239 90%, var(--ink));
+  background: color-mix(in srgb, #fda4af 40%, var(--card));
+  border-color: color-mix(in srgb, #fb7185 42%, transparent);
+}
+:root[data-theme="dark"] .home-cal__scoregrade.home-cal__cellgrade--a,
+html.theme-dark .home-cal__scoregrade.home-cal__cellgrade--a {
+  color: #a7f3d0;
+  background: color-mix(in srgb, #065f46 55%, var(--card));
+}
+:root[data-theme="dark"] .home-cal__scoregrade.home-cal__cellgrade--b,
+html.theme-dark .home-cal__scoregrade.home-cal__cellgrade--b {
+  color: #fde68a;
+  background: color-mix(in srgb, #854d0e 50%, var(--card));
+}
+:root[data-theme="dark"] .home-cal__scoregrade.home-cal__cellgrade--c,
+html.theme-dark .home-cal__scoregrade.home-cal__cellgrade--c {
+  color: #fdba74;
+  background: color-mix(in srgb, #9a3412 48%, var(--card));
+}
+:root[data-theme="dark"] .home-cal__scoregrade.home-cal__cellgrade--d,
+html.theme-dark .home-cal__scoregrade.home-cal__cellgrade--d {
+  color: #fecdd3;
+  background: color-mix(in srgb, #9f1239 48%, var(--card));
 }
 .home-cal__scoregrade--muted {
   font-size: 1.55rem;
   color: var(--muted-ink);
+  background: color-mix(in srgb, var(--ink) 6%, var(--card));
+  border-color: color-mix(in srgb, var(--rule) 40%, transparent);
 }
 .home-cal__scorebits {
   display: flex;
@@ -9298,44 +9343,229 @@ button:disabled:not(.auth-linklike):not(.chip__remove) {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.55rem;
 }
-.home-cal__daylist li {
+/* Per-story mini-card: thumb + colour grade + lean spectrum */
+.home-cal__story {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--paper) 42%, var(--card));
+  border: 1px solid color-mix(in srgb, var(--rule) 30%, transparent);
+  overflow: hidden;
+  transition: border-color 0.12s ease, box-shadow 0.12s ease, transform 0.12s ease;
+}
+.home-cal__story:hover {
+  border-color: color-mix(in srgb, var(--rule) 65%, transparent);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--shadow) 18%, transparent);
+  transform: translateY(-1px);
+}
+.home-cal__story-link {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 0.65rem;
+  align-items: stretch;
+  padding: 0.55rem 0.6rem 0.55rem 0.55rem;
+  text-decoration: none;
+  color: inherit;
+  min-height: 4.25rem;
+}
+.home-cal__story-thumb {
+  display: block;
+  width: 5.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--ink) 8%, var(--paper-deep, var(--paper)));
+  border: 1px solid color-mix(in srgb, var(--rule) 28%, transparent);
+  align-self: stretch;
+  min-height: 3.4rem;
+}
+.home-cal__story-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.home-cal__story-thumb--empty {
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--ink) 6%, transparent) 0%,
+      color-mix(in srgb, var(--ink) 12%, transparent) 100%
+    );
+}
+.home-cal__story-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  min-width: 0;
+  justify-content: center;
+}
+.home-cal__story-top {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.4rem 0.5rem;
-  font-size: 0.88rem;
-  line-height: 1.35;
-  padding: 0.45rem 0.55rem;
-  border-radius: 8px;
-  background: color-mix(in srgb, var(--paper) 40%, transparent);
-  border: 1px solid color-mix(in srgb, var(--rule) 28%, transparent);
+  align-items: center;
+  gap: 0.35rem 0.5rem;
 }
-.home-cal__daylist a {
-  font-weight: 600;
-  color: inherit;
-  text-decoration: none;
-}
-.home-cal__daylist a:hover {
-  text-decoration: underline;
-  text-underline-offset: 2px;
+.home-cal__story-title {
+  font-size: 0.9rem;
+  font-weight: 650;
+  line-height: 1.3;
+  color: var(--ink);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 .home-cal__pill {
   font-family: var(--font-display);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+  border: 1px solid transparent;
   border-radius: 999px;
-  padding: 0.08rem 0.4rem;
+  padding: 0.12rem 0.48rem;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  flex-shrink: 0;
+}
+/* Colour-coded grade pills (soft fills, readable ink in light + dark) */
+.home-cal__pill--a {
+  color: color-mix(in srgb, #065f46 88%, var(--ink));
+  background: color-mix(in srgb, #6ee7b7 42%, var(--card));
+  border-color: color-mix(in srgb, #34d399 45%, transparent);
+}
+.home-cal__pill--b {
+  color: color-mix(in srgb, #854d0e 90%, var(--ink));
+  background: color-mix(in srgb, #fde68a 48%, var(--card));
+  border-color: color-mix(in srgb, #fbbf24 42%, transparent);
+}
+.home-cal__pill--c {
+  color: color-mix(in srgb, #9a3412 90%, var(--ink));
+  background: color-mix(in srgb, #fdba74 42%, var(--card));
+  border-color: color-mix(in srgb, #fb923c 40%, transparent);
+}
+.home-cal__pill--d {
+  color: color-mix(in srgb, #9f1239 90%, var(--ink));
+  background: color-mix(in srgb, #fda4af 40%, var(--card));
+  border-color: color-mix(in srgb, #fb7185 42%, transparent);
+}
+.home-cal__pill--none {
   color: var(--ink);
   background: color-mix(in srgb, var(--card) 80%, var(--paper));
+  border-color: color-mix(in srgb, var(--rule) 55%, transparent);
+}
+:root[data-theme="dark"] .home-cal__pill--a,
+html.theme-dark .home-cal__pill--a {
+  color: #a7f3d0;
+  background: color-mix(in srgb, #065f46 55%, var(--card));
+  border-color: color-mix(in srgb, #34d399 35%, transparent);
+}
+:root[data-theme="dark"] .home-cal__pill--b,
+html.theme-dark .home-cal__pill--b {
+  color: #fde68a;
+  background: color-mix(in srgb, #854d0e 50%, var(--card));
+  border-color: color-mix(in srgb, #fbbf24 30%, transparent);
+}
+:root[data-theme="dark"] .home-cal__pill--c,
+html.theme-dark .home-cal__pill--c {
+  color: #fdba74;
+  background: color-mix(in srgb, #9a3412 48%, var(--card));
+  border-color: color-mix(in srgb, #fb923c 28%, transparent);
+}
+:root[data-theme="dark"] .home-cal__pill--d,
+html.theme-dark .home-cal__pill--d {
+  color: #fecdd3;
+  background: color-mix(in srgb, #9f1239 48%, var(--card));
+  border-color: color-mix(in srgb, #fb7185 28%, transparent);
 }
 .home-cal__outlet {
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted-ink);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* Compact per-story lean spectrum */
+.home-cal__story-lean {
+  display: flex;
+  align-items: center;
+  gap: 0.28rem;
+  margin-top: 0.15rem;
+  max-width: 100%;
+}
+.home-cal__story-lean-end {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--muted-ink);
+  flex-shrink: 0;
+}
+.home-cal__story-lean-end:first-child {
+  color: color-mix(in srgb, var(--lean-left) 75%, var(--ink));
+}
+.home-cal__story-lean-end:nth-child(3) {
+  color: color-mix(in srgb, var(--lean-right) 75%, var(--ink));
+}
+.home-cal__story-lean-track {
+  position: relative;
+  flex: 1 1 4.5rem;
+  min-width: 3.5rem;
+  max-width: 7.5rem;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--lean-left) 0%,
+    color-mix(in srgb, var(--lean-left) 55%, var(--lean-center)) 28%,
+    var(--lean-center) 48%,
+    var(--lean-center) 52%,
+    color-mix(in srgb, var(--lean-right) 55%, var(--lean-center)) 72%,
+    var(--lean-right) 100%
+  );
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+.home-cal__story-lean-center {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  width: 1.5px;
+  height: 10px;
+  background: color-mix(in srgb, var(--ink) 28%, transparent);
+  transform: translateX(-50%);
+  border-radius: 1px;
+}
+.home-cal__story-lean-marker {
+  position: absolute;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  background: var(--card);
+  border: 1.5px solid color-mix(in srgb, var(--ink) 22%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--shadow) 30%, transparent);
+  transform: translate(-50%, -50%);
+}
+.home-cal__story-lean-txt {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--muted-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 7.5rem;
+  flex-shrink: 1;
+}
+@media (max-width: 380px) {
+  .home-cal__story-link {
+    grid-template-columns: 4.4rem minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+  .home-cal__story-thumb { width: 4.4rem; }
+  .home-cal__story-lean-txt { display: none; }
 }
 .home-cal__more {
   margin: 0.1rem 0 0;

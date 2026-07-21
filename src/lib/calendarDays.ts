@@ -17,15 +17,20 @@
  * src/lib under plain Node, which does no alias or extensionless resolution.
  */
 import { todayIsoNy } from "./calendarEvents.ts";
+import { displayableThumb, SHOW_VIDEO_STILLS } from "./imagePolicy.ts";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "./topics.ts";
 import { LEAN_THRESHOLD } from "./trends.ts";
 
-/** One report surfaced in a day's peek list. Grade is null when locked. */
+/** One report surfaced in a day's peek list. Grade/lean are null when locked. */
 export interface CalendarDayReport {
   slug: string;
   title: string;
   outlet: string;
   grade: string | null;
+  /** Political lean −100..+100; null when locked or unscored. */
+  lean: number | null;
+  /** Displayable tile image (policy-filtered); public. */
+  thumb: string | null;
 }
 
 export interface CalendarDaySummary {
@@ -66,9 +71,23 @@ type PostLike = {
     publishedAt: Date;
     sourceTitle?: string;
     letterGrade?: string;
+    thumbnail?: string;
+    videoId?: string;
     [k: string]: unknown;
   };
 };
+
+/** Policy-safe tile image for a day-peek card (public — not gated). */
+function reportThumb(data: PostLike["data"]): string | null {
+  const owned = displayableThumb(data.thumbnail);
+  if (owned) return owned;
+  if (!SHOW_VIDEO_STILLS) return null;
+  const vid = String(data.videoId || "").trim();
+  if (/^[\w-]{11}$/.test(vid)) {
+    return `https://img.youtube.com/vi/${vid}/hqdefault.jpg`;
+  }
+  return null;
+}
 
 /**
  * Bucket every published report by its NY publish day and summarise each day.
@@ -140,12 +159,17 @@ export function buildDaySummaries(
       gpa,
       lean,
       avgLean,
-      top: sorted.slice(0, topPerDay).map((p) => ({
-        slug: p.id,
-        title: String(p.data.headline || "").slice(0, 140),
-        outlet: String(p.data.sourceTitle || "").slice(0, 60),
-        grade: locked ? null : (p.data.letterGrade ?? null),
-      })),
+      top: sorted.slice(0, topPerDay).map((p) => {
+        const leanScore = locked ? null : leanScoreOf(p.data as never);
+        return {
+          slug: p.id,
+          title: String(p.data.headline || "").slice(0, 140),
+          outlet: String(p.data.sourceTitle || "").slice(0, 60),
+          grade: locked ? null : (p.data.letterGrade ?? null),
+          lean: leanScore != null ? Math.round(leanScore) : null,
+          thumb: reportThumb(p.data),
+        };
+      }),
     });
   }
 

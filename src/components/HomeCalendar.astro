@@ -205,7 +205,14 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
     state: string;
     links: { label: string; href: string }[];
   };
-  type DayReport = { slug: string; title: string; outlet: string; grade: string | null };
+  type DayReport = {
+    slug: string;
+    title: string;
+    outlet: string;
+    grade: string | null;
+    lean: number | null;
+    thumb: string | null;
+  };
   type DaySummary = {
     date: string;
     n: number;
@@ -318,6 +325,17 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
       return "d"; // D+ and below
     }
 
+    /** Letter → colour band for per-story grade pills (A/B/C/D+F). */
+    function gradeBandFromLetter(letter: string | null | undefined): string {
+      if (!letter) return "none";
+      const t = letter.charAt(0).toUpperCase();
+      if (t === "A") return "a";
+      if (t === "B") return "b";
+      if (t === "C") return "c";
+      if (t === "D" || t === "F") return "d";
+      return "none";
+    }
+
     function leanLabel(score: number | null): string {
       if (score == null) return "";
       const mag = Math.abs(score);
@@ -328,8 +346,21 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
     function leanSpectrumHtml(score: number, compact = false): string {
       const s = Math.max(-100, Math.min(100, Math.round(score)));
       const pos = (s + 100) / 2;
+      if (compact) {
+        return (
+          `<div class="home-cal__story-lean" aria-label="${escapeHtml(leanLabel(s))}">` +
+          `<span class="home-cal__story-lean-end">L</span>` +
+          `<span class="home-cal__story-lean-track" aria-hidden="true">` +
+          `<span class="home-cal__story-lean-center"></span>` +
+          `<span class="home-cal__story-lean-marker" style="left:${pos}%"></span>` +
+          `</span>` +
+          `<span class="home-cal__story-lean-end">R</span>` +
+          `<span class="home-cal__story-lean-txt">${escapeHtml(leanLabel(s))}</span>` +
+          `</div>`
+        );
+      }
       return (
-        `<div class="home-cal__spectrum${compact ? " home-cal__spectrum--compact" : ""}">` +
+        `<div class="home-cal__spectrum">` +
         `<span class="home-cal__spectrum-label small-caps">Political lean</span>` +
         `<span class="home-cal__spectrum-value">${escapeHtml(leanLabel(s))}</span>` +
         `<div class="home-cal__spectrum-scale" aria-hidden="true">` +
@@ -340,6 +371,32 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
         `</div>` +
         `<span class="home-cal__spectrum-end home-cal__spectrum-end--r">R</span>` +
         `</div></div>`
+      );
+    }
+
+    function storyCardHtml(r: DayReport): string {
+      const band = gradeBandFromLetter(r.grade);
+      const thumb = r.thumb
+        ? `<span class="home-cal__story-thumb" aria-hidden="true">` +
+          `<img src="${escapeHtml(r.thumb)}" alt="" width="96" height="54" loading="lazy" decoding="async" referrerpolicy="no-referrer">` +
+          `</span>`
+        : `<span class="home-cal__story-thumb home-cal__story-thumb--empty" aria-hidden="true"></span>`;
+      const pill = r.grade
+        ? `<span class="home-cal__pill home-cal__pill--${band}">${escapeHtml(r.grade)}</span>`
+        : "";
+      const lean = r.lean != null ? leanSpectrumHtml(r.lean, true) : "";
+      return (
+        `<li class="home-cal__story">` +
+        `<a class="home-cal__story-link" href="/posts/${encodeURIComponent(r.slug)}/">` +
+        thumb +
+        `<span class="home-cal__story-main">` +
+        `<span class="home-cal__story-top">` +
+        pill +
+        (r.outlet ? `<span class="home-cal__outlet">${escapeHtml(r.outlet)}</span>` : "") +
+        `</span>` +
+        `<span class="home-cal__story-title">${escapeHtml(r.title)}</span>` +
+        lean +
+        `</span></a></li>`
       );
     }
 
@@ -526,18 +583,7 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
         );
         if (sum.top.length) {
           parts.push(
-            `<ul class="home-cal__daylist">` +
-              sum.top
-                .map(
-                  (r) =>
-                    `<li>` +
-                    (r.grade ? `<span class="home-cal__pill">${escapeHtml(r.grade)}</span>` : "") +
-                    `<a href="/posts/${encodeURIComponent(r.slug)}/">${escapeHtml(r.title)}</a>` +
-                    (r.outlet ? `<span class="home-cal__outlet">${escapeHtml(r.outlet)}</span>` : "") +
-                    `</li>`
-                )
-                .join("") +
-              `</ul>`
+            `<ul class="home-cal__daylist">` + sum.top.map((r) => storyCardHtml(r)).join("") + `</ul>`
           );
         }
         if (sum.n > sum.top.length) {
