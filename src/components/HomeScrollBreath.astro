@@ -1,10 +1,15 @@
 ---
 /**
- * Homepage scroll driver for the coverage lean strip only:
- * focus / label reveal as the bar approaches the viewport middle.
+ * Homepage scroll driver for the coverage lean strip.
  *
- * One passive scroll listener + one rAF. Values are quantized so we rarely
- * write styles; @property + short CSS transitions interpolate the rest.
+ * Directional latch (not a symmetric center peak):
+ *  · Scroll down — expands as the strip approaches, then stays fully open
+ *    while it rides up and off the top of the screen.
+ *  · Scroll up — same the other way: expands on approach, stays open until
+ *    it fully leaves the bottom of the screen.
+ *
+ * One passive scroll listener + rAF. Values are quantized; @property CSS
+ * transitions interpolate between steps.
  */
 ---
 <script>
@@ -14,7 +19,21 @@
   let lastText = -1;
   let leanEl: HTMLElement | null = null;
 
-  const STEPS = 20; // 0.05 resolution
+  /** Last scrollY used to infer direction. */
+  let lastScrollY = typeof window !== "undefined" ? window.scrollY || 0 : 0;
+  /** 1 = down the page, -1 = up the page. */
+  let scrollDir = 1;
+  /**
+   * Once the strip has opened enough while scrolling a direction, stay fully
+   * open until it fully exits the far edge of that direction.
+   *  0 = not latched
+   *  1 = latched while scrolling down (hold until fully above viewport)
+   * -1 = latched while scrolling up (hold until fully below viewport)
+   */
+  let latch = 0;
+
+  const STEPS = 20;
+  const LATCH_AT = 0.55; // raw focus needed to lock open
   const quantize = (v: number) => Math.round(Math.max(0, Math.min(1, v)) * STEPS) / STEPS;
 
   const smoothstep = (t: number) => {
@@ -43,19 +62,57 @@
 
     if (!leanEl) leanEl = document.querySelector<HTMLElement>("[data-lean-scroll]");
 
+    const y = window.scrollY || 0;
+    const dy = y - lastScrollY;
+    if (Math.abs(dy) > 0.5) {
+      scrollDir = dy > 0 ? 1 : -1;
+    }
+    lastScrollY = y;
+
     const vh = window.innerHeight || 1;
     const viewMid = vh * 0.5;
     const range = vh * 0.45;
 
-    let leanFocus = 0;
+    let raw = 0;
+    let fullyAbove = true;
+    let fullyBelow = true;
+
     if (leanEl) {
       const r = leanEl.getBoundingClientRect();
-      if (r.bottom >= -40 && r.top <= vh + 40) {
+      // Small slack so sub-pixel edges don't flicker the latch.
+      fullyAbove = r.bottom < 4;
+      fullyBelow = r.top > vh - 4;
+      if (!fullyAbove && !fullyBelow) {
         const elMid = r.top + r.height * 0.5;
-        leanFocus = smoothstep(1 - Math.abs(elMid - viewMid) / range);
+        raw = smoothstep(1 - Math.abs(elMid - viewMid) / range);
       }
+    } else {
+      fullyAbove = fullyBelow = true;
+      raw = 0;
     }
-    const leanText = smoothstep((leanFocus - 0.12) / 0.72);
+
+    // Clear latch only after the strip fully leaves in the latched direction.
+    if (latch === 1 && fullyAbove) latch = 0;
+    if (latch === -1 && fullyBelow) latch = 0;
+
+    // Arm latch once the strip has opened enough in the current scroll direction.
+    if (!latch && raw >= LATCH_AT) {
+      latch = scrollDir >= 0 ? 1 : -1;
+    }
+
+    // While latched, stay fully expanded regardless of center distance.
+    // Otherwise use the live approach curve (opening as you scroll onto it).
+    let leanFocus = 0;
+    if (latch !== 0) {
+      leanFocus = 1;
+    } else if (!fullyAbove && !fullyBelow) {
+      leanFocus = raw;
+    }
+
+    // Labels follow focus, with a slight lag on the way open only when unlatched.
+    const leanText =
+      latch !== 0 ? 1 : smoothstep((leanFocus - 0.12) / 0.72);
+
     lastLean = setRoot("--home-lean-focus", leanFocus, lastLean);
     lastText = setRoot("--home-lean-text", leanText, lastText);
   };
@@ -68,12 +125,16 @@
 
   const boot = () => {
     leanEl = document.querySelector<HTMLElement>("[data-lean-scroll]");
+    lastScrollY = window.scrollY || 0;
+    latch = 0;
     if (!bound) {
       bound = true;
       window.addEventListener("scroll", onScroll, { passive: true, capture: false });
       window.addEventListener("resize", onScroll, { passive: true });
       document.addEventListener("astro:page-load", () => {
         leanEl = document.querySelector<HTMLElement>("[data-lean-scroll]");
+        lastScrollY = window.scrollY || 0;
+        latch = 0;
         lastLean = lastText = -1;
         requestAnimationFrame(update);
       });
