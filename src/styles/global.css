@@ -9350,26 +9350,57 @@ button:disabled:not(.auth-linklike):not(.chip__remove) {
 .home-cal__ahead-head {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
+  gap: 0.55rem 0.75rem;
+  margin-bottom: 0.45rem;
+}
+.home-cal__ics-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  justify-content: flex-end;
 }
 .home-cal__ics {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted-ink);
   text-decoration: none;
-  padding: 0.3rem 0.65rem;
+  padding: 0.35rem 0.7rem;
   border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--rule) 45%, transparent);
-  transition: background 0.12s ease, color 0.12s ease;
+  background: color-mix(in srgb, var(--paper) 50%, var(--card));
+  transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+  white-space: nowrap;
 }
-.home-cal__ics:hover {
+.home-cal__ics:hover,
+.home-cal__ics:focus-visible {
   background: color-mix(in srgb, var(--ink) 8%, transparent);
   color: var(--ink);
+  outline: none;
+}
+.home-cal__ics--sub {
+  color: var(--paper);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.home-cal__ics--sub:hover,
+.home-cal__ics--sub:focus-visible {
+  background: color-mix(in srgb, var(--ink) 88%, var(--accent, #5b9a8b));
+  color: var(--paper);
+  border-color: transparent;
+}
+.home-cal__ics-note {
+  margin: 0 0 0.75rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--muted-ink);
+}
+.home-cal__ics-note strong {
+  color: var(--ink);
+  font-weight: 600;
 }
 .home-cal__agenda {
   display: flex;

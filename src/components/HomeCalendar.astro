@@ -150,8 +150,32 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
     <div data-cal-ahead hidden>
       <div class="home-cal__ahead-head">
         <h3 class="home-cal__month" data-cal-countdown></h3>
-        <a class="home-cal__ics" href="/api/calendar.ics" download="cladfacts.ics">Add to calendar</a>
+        <div class="home-cal__ics-actions">
+          {/*
+            Export of the upcoming *daybook* (elections, rulings, data drops) —
+            not a single report day. Two paths:
+              · Download .ics — one-shot import (desktop / Files)
+              · Subscribe — webcal:// so Apple/Google Calendar keep the feed
+            The plain download attribute is unreliable on iOS/WKWebView, so we
+            also wire a click handler that forces navigation as a fallback.
+          */}
+          <a
+            class="home-cal__ics"
+            data-cal-ics-download
+            href="/api/calendar.ics"
+            download="cladfacts-daybook.ics"
+          >Download .ics</a>
+          <a
+            class="home-cal__ics home-cal__ics--sub"
+            data-cal-ics-subscribe
+            href="webcal://cladfacts.com/api/calendar.ics"
+          >Subscribe</a>
+        </div>
       </div>
+      <p class="home-cal__ics-note">
+        Puts <strong>upcoming daybook events</strong> (elections, court dates, data releases)
+        into Apple Calendar, Google Calendar, or Outlook — not individual fact-check days.
+      </p>
       <div class="home-cal__agenda" data-cal-agenda></div>
     </div>
   </div>
@@ -637,6 +661,31 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
       if (typeof dialog.close === "function") dialog.close();
       else dialog.removeAttribute("open");
     }
+
+    // Make the daybook export actually do something visible on every platform.
+    // iOS/WKWebView often ignores the HTML download attribute; force a same-
+    // tab navigation (or new tab) so the system calendar / Files picker opens.
+    const icsDownload = root.querySelector("[data-cal-ics-download]") as HTMLAnchorElement | null;
+    const icsSubscribe = root.querySelector("[data-cal-ics-subscribe]") as HTMLAnchorElement | null;
+    if (icsSubscribe) {
+      try {
+        const host = window.location.host || "cladfacts.com";
+        icsSubscribe.href = `webcal://${host}/api/calendar.ics`;
+      } catch {
+        /* keep the hardcoded host from the markup */
+      }
+    }
+    icsDownload?.addEventListener("click", (ev) => {
+      // Let native download work when it can; otherwise fall through to a
+      // hard navigation that always surfaces the .ics response.
+      const isApp =
+        document.documentElement.classList.contains("clad-app") ||
+        !!(window as unknown as { __cladNative?: unknown }).__cladNative;
+      if (isApp) {
+        ev.preventDefault();
+        window.location.assign("/api/calendar.ics");
+      }
+    });
 
     prevBtn?.addEventListener("click", () => {
       if (minMonth && month <= minMonth) return;
