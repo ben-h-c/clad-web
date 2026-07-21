@@ -1,0 +1,200 @@
+---
+import { getCollection } from "astro:content";
+import { env } from "cloudflare:workers";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import PaywallPanel from "~/components/PaywallPanel.astro";
+import ShareBar from "~/components/ShareBar.astro";
+import { getAccess } from "~/lib/access";
+import { getShareTags } from "~/lib/agents";
+import { OG_VERSIONS } from "~/lib/ogCard";
+import { canonicalTopic, gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
+import { LEAN_THRESHOLD, weekStartUTC } from "~/lib/trends";
+import { adjacentDays, labelDay, postsForDay, shiftIsoDate } from "~/lib/calendarDays";
+import { todayIsoNy } from "~/lib/calendarEvents";
+
+export const prerender = false;
+
+// A single day of the graded record, as a permanent linkable page — the
+// destination the home calendar points at. Mirrors /week/[stamp]: same
+// gating rule (grade / factuality / lean render only for full-access
+// readers), same prev/next spine, same share + OG treatment.
+
+const { date } = Astro.params;
+if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return new Response(null, { status: 404 });
+const parsed = new Date(`${date}T00:00:00Z`);
+if (Number.isNaN(parsed.valueOf())) return new Response(null, { status: 404 });
+
+const all = (await getCollection("posts", (p) => !p.data.draft)).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+const dayPosts = postsForDay(all, date);
+if (dayPosts.length === 0) return new Response(null, { status: 404 });
+
+const access = await getAccess(Astro.request.headers);
+const locked = !access.fullAccess;
+
+// The day in numbers.
+const gpas = dayPosts.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n != null);
+const avgGpa = gpas.length ? gpas.reduce((a, b) => a + b, 0) / gpas.length : null;
+const avgGrade = avgGpa != null ? gpaToGrade(avgGpa) : null;
+const factualities = dayPosts
+  .map((p) => p.data.factualityScore)
+  .filter((n): n is number => typeof n === "number");
+const avgFactuality = factualities.length
+  ? Math.round(factualities.reduce((a, b) => a + b, 0) / factualities.length)
+  : null;
+
+const leans = dayPosts.map((p) => leanScoreOf(p.data)).filter((n): n is number => n != null);
+let left = 0;
+let center = 0;
+let right = 0;
+for (const l of leans) (l <= -LEAN_THRESHOLD ? left++ : l >= LEAN_THRESHOLD ? right++ : center++);
+const leanPct = leans.length
+  ? {
+      l: Math.round((left / leans.length) * 100),
+      c: Math.round((center / leans.length) * 100),
+      r: Math.round((right / leans.length) * 100),
+    }
+  : null;
+
+// Prev / next day that actually carry reports, so the spine never dead-ends.
+const allDates = [...new Set(all.map((p) => todayIsoNy(p.data.publishedAt)))];
+const { prev, next } = adjacentDays(allDates, date);
+
+// One year ago today — recirculation the archive can't currently do.
+const yearAgoDate = shiftIsoDate(date, -365);
+const yearAgoPosts = postsForDay(all, yearAgoDate);
+const yearAgoGpas = yearAgoPosts
+  .map((p) => gradeToGpa(p.data.letterGrade))
+  .filter((n): n is number => n != null);
+const yearAgoGrade = yearAgoGpas.length
+  ? gpaToGrade(yearAgoGpas.reduce((a, b) => a + b, 0) / yearAgoGpas.length)
+  : null;
+
+// Grouped by topic so a heavy day reads as a set of stories, not a wall.
+// Topics are long-tailed — most days produce dozens of one-off subjects — so
+// only genuinely covered stories (2+ reports) earn their own section and the
+// singletons collapse into one closing list. Otherwise "grouping" just adds
+// forty headings to forty headlines.
+const groups = new Map<string, typeof dayPosts>();
+for (const p of dayPosts) {
+  const key = canonicalTopic(p.data.topics?.[0] ?? "General");
+  const list = groups.get(key);
+  if (list) list.push(p);
+  else groups.set(key, [p]);
+}
+const multi = [...groups.entries()]
+  .filter(([, posts]) => posts.length >= 2)
+  .map(([topic, posts]) => ({ topic, posts }))
+  .sort((a, b) => b.posts.length - a.posts.length || a.topic.localeCompare(b.topic));
+const singles = [...groups.values()].filter((posts) => posts.length === 1).flat();
+const grouped = [
+  ...multi,
+  ...(singles.length ? [{ topic: "Also reported", posts: singles }] : []),
+];
+
+const label = labelDay(date);
+const weekStamp = new Date(weekStartUTC(parsed)).toISOString().slice(0, 10);
+const shareTags = (await getShareTags(env.AGENTS))?.tags ?? {};
+const shareUrl = new URL(`/day/${date}/`, Astro.site ?? "https://cladfacts.com").href;
+const isToday = date === todayIsoNy();
+
+// Anonymous description must stay grade-free by construction.
+const description = locked
+  ? `Every news broadcast CladFacts fact-checked on ${label} — ${dayPosts.length} graded ${dayPosts.length === 1 ? "report" : "reports"} across ${grouped.length} ${grouped.length === 1 ? "topic" : "topics"}.`
+  : `CladFacts graded ${dayPosts.length} news ${dayPosts.length === 1 ? "report" : "reports"} on ${label}, averaging a ${avgGrade}. See the day's best and worst coverage, and how it split by political lean.`;
+---
+<BaseLayout
+  title={`${label} — The Graded Record — CladFacts`}
+  description={description}
+  ogTitle={`The Graded Record — ${label}`}
+  ogImage={`/og/day/${date}.png?v=${OG_VERSIONS.day}`}
+>
+  <section class="topic-page day-page">
+    <p class="small-caps" style="color:var(--muted-ink)">
+      The Record · <a href={`/archive/${date.slice(0, 4)}/${date.slice(5, 7)}/`}>archive</a>
+    </p>
+    <h1 class="topic-page__title">{isToday ? "Today" : label}</h1>
+    <p class="dateline">
+      {isToday ? `${label} · ` : ""}{dayPosts.length} {dayPosts.length === 1 ? "report" : "reports"} fact-checked
+      {!locked && avgGrade ? `, averaging a ${avgGrade}` : ""}
+    </p>
+    <div class="rule rule--double" aria-hidden="true"></div>
+
+    <ShareBar
+      url={shareUrl}
+      title={`The Graded Record — ${label}`}
+      hook={shareTags.day ?? `${dayPosts.length} news reports fact-checked on ${label}. Here's how the coverage held up.`}
+    />
+
+    {!locked && (
+      <div class="day-score">
+        {avgGrade && (
+          <div class="day-score__grade">
+            <span class="day-score__letter">{avgGrade}</span>
+            <span class="small-caps">Day average</span>
+          </div>
+        )}
+        <dl class="day-score__stats">
+          <div><dt>Reports</dt><dd>{dayPosts.length}</dd></div>
+          {avgFactuality != null && (
+            <div><dt>Factuality</dt><dd>{avgFactuality}<span class="day-score__of">/100</span></dd></div>
+          )}
+          {leanPct && (
+            <div class="day-score__lean">
+              <dt>Coverage lean</dt>
+              <dd>
+                <span class="day-score__bar" aria-hidden="true">
+                  <i class="day-score__bar--l" style={`width:${leanPct.l}%`}></i>
+                  <i class="day-score__bar--c" style={`width:${leanPct.c}%`}></i>
+                  <i class="day-score__bar--r" style={`width:${leanPct.r}%`}></i>
+                </span>
+                <span class="day-score__leankey">
+                  {leanPct.l}% left · {leanPct.c}% center · {leanPct.r}% right
+                </span>
+              </dd>
+            </div>
+          )}
+        </dl>
+      </div>
+    )}
+
+    {locked && <PaywallPanel signedIn={access.signedIn} returnTo={Astro.url.pathname} />}
+
+    {grouped.map((g) => (
+      <section class="day-group">
+        <h2 class="feed__title">
+          {g.topic} <span class="day-group__count">{g.posts.length}</span>
+        </h2>
+        <div class="rule" aria-hidden="true"></div>
+        <ul class="day-list">
+          {g.posts.map((p) => (
+            <li class="day-list__item">
+              {!locked && p.data.letterGrade && (
+                <span class="day-list__grade">{p.data.letterGrade}</span>
+              )}
+              <a class="day-list__title" href={`/posts/${p.id}/`}>{p.data.headline}</a>
+              {p.data.sourceTitle && <span class="day-list__outlet">{p.data.sourceTitle}</span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+
+    {yearAgoPosts.length > 0 && (
+      <aside class="day-yearago">
+        <p class="small-caps">One year ago today</p>
+        <p>
+          CladFacts graded <a href={`/day/${yearAgoDate}/`}>{yearAgoPosts.length} {yearAgoPosts.length === 1 ? "report" : "reports"}</a> on {labelDay(yearAgoDate)}
+          {!locked && yearAgoGrade ? `, averaging a ${yearAgoGrade}` : ""}.
+        </p>
+      </aside>
+    )}
+
+    <nav class="day-nav" aria-label="Nearby days">
+      {prev ? <a class="day-nav__prev" href={`/day/${prev}/`}>‹ {labelDay(prev)}</a> : <span></span>}
+      <a class="day-nav__week" href={`/week/${weekStamp}/`}>The Week in Grades →</a>
+      {next ? <a class="day-nav__next" href={`/day/${next}/`}>{labelDay(next)} ›</a> : <span></span>}
+    </nav>
+  </section>
+</BaseLayout>

@@ -45,7 +45,11 @@ const PUBLIC_API = (path: string) =>
   // double-opt-in inside the route.
   path === "/api/subscribe" ||
   // Same-origin Wikimedia portrait proxy for politician cards / race board.
-  path.startsWith("/api/politician-photo/");
+  path.startsWith("/api/politician-photo/") ||
+  // Subscribable .ics of the scheduled daybook (home calendar → "Ahead").
+  // Carries only scheduled events — no grade, factuality or lean values —
+  // so it is public and shared-cacheable by construction.
+  path === "/api/calendar.ics";
 
 const PROTECTED = (path: string) =>
   path === "/admin" ||

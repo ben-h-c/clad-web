@@ -318,6 +318,16 @@ try {
   // against blank, not against small — same bar as the other section pages.
   if (wk.status >= 300 && wk.status < 400 && wkLoc) await checkHtml(new URL(wkLoc, base).pathname, { minBytes: 800 });
   else fail("/week/", `expected a redirect to the latest week, got ${wk.status}`);
+  // The graded record for one day (/day/YYYY-MM-DD/) — where the home
+  // calendar sends readers. It aggregates the same gated values as /week/
+  // (day average grade, factuality, lean split), so it gets the same scan;
+  // anonymous readers must see counts and headlines only.
+  {
+    const day = new Date(testPosts[0].fm.publishedAt).toLocaleDateString("en-CA", {
+      timeZone: "America/New_York",
+    });
+    await checkHtml(`/day/${day}/`, { minBytes: 800 });
+  }
   await checkHtml("/rss.xml", { minBytes: 1024 });
   await checkHtml("/search/?q=test", { minBytes: 1024 });
   // Auth pages are intentionally lean; guard against blank, not against small.

@@ -1,8 +1,20 @@
 ---
 /**
- * Interactive home calendar — all news dates (elections, launches, speeches,
- * conflicts, Clad reports, etc.). Swipe months; tap a day for details + links.
- * Live feed: calendar-scanner agent → AGENTS KV → buildCalendarEvents().
+ * Interactive home calendar — the graded record plus the daybook ahead.
+ *
+ * Two modes:
+ *  · Record — a month grid where each day carries the day's own numbers.
+ *    Cells encode the day's average grade (wash), how many reports ran
+ *    (figure), and how coverage split by lean (bottom ribbon). The encoding
+ *    switch recolours the whole month by grade, lean or volume, and the
+ *    legend says what the colours mean.
+ *  · Ahead — the scheduled daybook (elections, rulings, launches) from the
+ *    calendar-scanner agent + race board, with .ics export. Once an event's
+ *    date passes it resolves into a link to the coverage it produced.
+ *
+ * GATING: grade and lean are Premium values. When `locked`, buildDaySummaries
+ * emits nulls, the grade/lean encodings are withheld, and the calendar falls
+ * back to volume — which doubles as the sign-in prompt.
  */
 import {
   buildCalendarEvents,
@@ -10,15 +22,20 @@ import {
   todayIsoNy,
   type CalendarEvent,
 } from "~/lib/calendarEvents";
+import type { CalendarDaySummary } from "~/lib/calendarDays";
 import type { RaceDef } from "~/lib/races";
 
 interface Props {
-  /** Optional live race defs (published next-vote dates). Defaults to midterms template. */
   races?: RaceDef[];
-  /** Live agent-scanned events from KV. */
   live?: CalendarEvent[] | null;
-  /** Extra events (e.g. recent Clad reports linked on publish day). */
   extra?: CalendarEvent[];
+  /** Per-day aggregates of the graded record. */
+  days?: CalendarDaySummary[];
+  /** Earliest / latest day carrying reports — bounds the month nav. */
+  first?: string | null;
+  last?: string | null;
+  /** True for anonymous / restricted readers: no grade or lean values. */
+  locked?: boolean;
   class?: string;
 }
 
@@ -27,12 +44,22 @@ const events = buildCalendarEvents({
   live: Astro.props.live,
   extra: Astro.props.extra,
 });
+const days = Astro.props.days ?? [];
+const locked = Astro.props.locked ?? true;
 const today = todayIsoNy();
-/** Always open on the current desk month (past + future via swipe). */
 const defaultMonth = today.slice(0, 7);
 const wrapClass = ["home-cal", Astro.props.class].filter(Boolean).join(" ");
 
-// Serialize for client — keep payload small (titles + links, not full notes forever).
+// Nav bounds: the record on one side, the furthest scheduled event on the
+// other, so paging can't wander into empty centuries.
+const eventDates = events.map((e) => e.date).filter(Boolean).sort();
+const firstDay = Astro.props.first ?? (days.length ? days[0].date : null);
+const lastDay = Astro.props.last ?? (days.length ? days[days.length - 1].date : null);
+const minMonth = [firstDay, eventDates[0]].filter(Boolean).sort()[0]?.slice(0, 7) ?? defaultMonth;
+const maxMonth =
+  [lastDay, eventDates[eventDates.length - 1], today].filter(Boolean).sort().pop()?.slice(0, 7) ??
+  defaultMonth;
+
 const clientEvents = events.map((e) => ({
   id: e.id,
   date: e.date,
@@ -43,12 +70,17 @@ const clientEvents = events.map((e) => ({
   state: e.state ?? "",
   links: e.links ?? [],
 }));
+
+const upcomingCount = events.filter((e) => e.date >= today).length;
 ---
 <section
   class={wrapClass}
   data-home-cal
   data-today={today}
   data-month={defaultMonth}
+  data-min-month={minMonth}
+  data-max-month={maxMonth}
+  data-locked={locked ? "1" : "0"}
   aria-labelledby="home-cal-title"
 >
   <div class="feed__head">
@@ -58,24 +90,66 @@ const clientEvents = events.map((e) => ({
   <div class="rule rule--double" aria-hidden="true"></div>
 
   <div class="home-cal__panel">
-    <div class="home-cal__toolbar">
-      <button type="button" class="home-cal__nav" data-cal-prev aria-label="Previous month">‹</button>
-      <h3 class="home-cal__month" data-cal-month-label></h3>
-      <button type="button" class="home-cal__nav" data-cal-next aria-label="Next month">›</button>
+    <div class="home-cal__modes" role="group" aria-label="Calendar view">
+      <button type="button" class="home-cal__mode is-on" data-cal-view="record" aria-pressed="true">
+        The record
+      </button>
+      <button type="button" class="home-cal__mode" data-cal-view="ahead" aria-pressed="false">
+        Ahead{upcomingCount > 0 ? ` · ${upcomingCount}` : ""}
+      </button>
     </div>
-    <p class="home-cal__hint small-caps" data-cal-hint>Swipe months · tap a day for details</p>
 
-    <div
-      class="home-cal__swipe"
-      data-cal-swipe
-      tabindex="0"
-      role="application"
-      aria-label="News calendar. Swipe or use arrows to change months."
-    >
-      <div class="home-cal__weekdays" aria-hidden="true">
-        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+    <div data-cal-record>
+      <div class="home-cal__toolbar">
+        <button type="button" class="home-cal__nav" data-cal-prev aria-label="Previous month">‹</button>
+        <h3 class="home-cal__month" data-cal-month-label></h3>
+        <button type="button" class="home-cal__nav" data-cal-next aria-label="Next month">›</button>
       </div>
-      <div class="home-cal__grid" data-cal-grid></div>
+
+      <div class="home-cal__encodings" role="group" aria-label="Colour the month by">
+        {!locked && (
+          <>
+            <button type="button" class="home-cal__enc is-on" data-cal-enc="grade" aria-pressed="true">Grade</button>
+            <button type="button" class="home-cal__enc" data-cal-enc="lean" aria-pressed="false">Lean</button>
+          </>
+        )}
+        <button
+          type="button"
+          class={`home-cal__enc${locked ? " is-on" : ""}`}
+          data-cal-enc="volume"
+          aria-pressed={locked ? "true" : "false"}
+        >Volume</button>
+      </div>
+
+      <div
+        class="home-cal__swipe"
+        data-cal-swipe
+        tabindex="0"
+        role="application"
+        aria-label="News calendar. Swipe or use arrows to change months."
+      >
+        <div class="home-cal__weekdays" aria-hidden="true">
+          <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+        </div>
+        <div class="home-cal__grid" data-cal-grid></div>
+      </div>
+
+      <div class="home-cal__legend" data-cal-legend></div>
+
+      {locked && (
+        <p class="home-cal__locked-note">
+          Showing how much ran each day. <a href="/register/">Create a free account</a> to colour the
+          record by grade and coverage lean.
+        </p>
+      )}
+    </div>
+
+    <div data-cal-ahead hidden>
+      <div class="home-cal__ahead-head">
+        <h3 class="home-cal__month" data-cal-countdown></h3>
+        <a class="home-cal__ics" href="/api/calendar.ics" download="cladfacts.ics">Add to calendar</a>
+      </div>
+      <div class="home-cal__agenda" data-cal-agenda></div>
     </div>
   </div>
 
@@ -90,6 +164,7 @@ const clientEvents = events.map((e) => ({
   </dialog>
 
   <script type="application/json" data-cal-events set:html={JSON.stringify(clientEvents)} />
+  <script type="application/json" data-cal-days set:html={JSON.stringify(days)} />
 </section>
 
 <script>
@@ -103,18 +178,30 @@ const clientEvents = events.map((e) => ({
     state: string;
     links: { label: string; href: string }[];
   };
+  type DayReport = { slug: string; title: string; outlet: string; grade: string | null };
+  type DaySummary = {
+    date: string;
+    n: number;
+    grade: string | null;
+    gpa: number | null;
+    lean: [number, number, number] | null;
+    top: DayReport[];
+  };
 
   function initHomeCalendar(root: HTMLElement) {
     if (root.dataset.calReady === "1") return;
     root.dataset.calReady = "1";
 
-    const jsonEl = root.querySelector("[data-cal-events]");
-    let events: CalEvent[] = [];
-    try {
-      events = JSON.parse(jsonEl?.textContent || "[]") as CalEvent[];
-    } catch {
-      events = [];
+    function readJson<T>(sel: string): T[] {
+      try {
+        return JSON.parse(root.querySelector(sel)?.textContent || "[]") as T[];
+      } catch {
+        return [];
+      }
     }
+
+    const events = readJson<CalEvent>("[data-cal-events]");
+    const days = readJson<DaySummary>("[data-cal-days]");
 
     const byDate = new Map<string, CalEvent[]>();
     for (const e of events) {
@@ -122,131 +209,35 @@ const clientEvents = events.map((e) => ({
       list.push(e);
       byDate.set(e.date, list);
     }
+    const dayByDate = new Map<string, DaySummary>(days.map((d) => [d.date, d]));
+    const maxN = days.reduce((m, d) => (d.n > m ? d.n : m), 0) || 1;
 
     const today = root.dataset.today || "";
+    const locked = root.dataset.locked === "1";
+    const minMonth = root.dataset.minMonth || "";
+    const maxMonth = root.dataset.maxMonth || "";
     let month = root.dataset.month || today.slice(0, 7);
+    let enc: "grade" | "lean" | "volume" = locked ? "volume" : "grade";
+
     const labelEl = root.querySelector("[data-cal-month-label]");
     const gridEl = root.querySelector("[data-cal-grid]");
+    const legendEl = root.querySelector("[data-cal-legend]");
+    const agendaEl = root.querySelector("[data-cal-agenda]");
+    const countdownEl = root.querySelector("[data-cal-countdown]");
+    const recordEl = root.querySelector("[data-cal-record]") as HTMLElement | null;
+    const aheadEl = root.querySelector("[data-cal-ahead]") as HTMLElement | null;
     const swipeEl = root.querySelector("[data-cal-swipe]") as HTMLElement | null;
+    const prevBtn = root.querySelector("[data-cal-prev]") as HTMLButtonElement | null;
+    const nextBtn = root.querySelector("[data-cal-next]") as HTMLButtonElement | null;
     const dialog = root.querySelector("[data-cal-dialog]") as HTMLDialogElement | null;
     const dialogTitle = root.querySelector("[data-cal-dialog-title]");
     const dialogBody = root.querySelector("[data-cal-dialog-body]");
+    let lastTrigger: HTMLElement | null = null;
 
     const MONTHS = [
       "January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December",
     ];
-
-    function shiftMonth(ym: string, delta: number): string {
-      const [y, m] = ym.split("-").map(Number);
-      const d = new Date(Date.UTC(y, m - 1 + delta, 1));
-      return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
-    }
-
-    function monthLabel(ym: string): string {
-      const [y, m] = ym.split("-").map(Number);
-      return `${MONTHS[(m || 1) - 1] || ""} ${y || ""}`.trim();
-    }
-
-    function daysInMonth(ym: string): number {
-      const [y, m] = ym.split("-").map(Number);
-      return new Date(Date.UTC(y, m, 0)).getUTCDate();
-    }
-
-    function firstWeekday(ym: string): number {
-      const [y, m] = ym.split("-").map(Number);
-      return new Date(Date.UTC(y, m - 1, 1)).getUTCDay(); // 0=Sun
-    }
-
-    function render() {
-      if (!gridEl || !labelEl) return;
-      labelEl.textContent = monthLabel(month);
-      root.dataset.month = month;
-
-      const dim = daysInMonth(month);
-      const start = firstWeekday(month);
-      const cells: string[] = [];
-
-      for (let i = 0; i < start; i++) {
-        cells.push(`<div class="home-cal__cell home-cal__cell--pad" aria-hidden="true"></div>`);
-      }
-
-      for (let day = 1; day <= dim; day++) {
-        const date = `${month}-${String(day).padStart(2, "0")}`;
-        const dayEvents = byDate.get(date) ?? [];
-        const isToday = date === today;
-        const has = dayEvents.length > 0;
-        const kinds = [...new Set(dayEvents.map((e) => e.kind))].slice(0, 3);
-        const dots = kinds
-          .map((k) => `<span class="home-cal__dot home-cal__dot--${k}"></span>`)
-          .join("");
-        const countBadge =
-          dayEvents.length > 1
-            ? `<span class="home-cal__count">${dayEvents.length}</span>`
-            : "";
-        const aria = has
-          ? `${monthLabel(month)} ${day}, ${dayEvents.length} event${dayEvents.length === 1 ? "" : "s"}`
-          : `${monthLabel(month)} ${day}`;
-        cells.push(
-          `<button type="button" class="home-cal__cell${has ? " home-cal__cell--event" : ""}${isToday ? " home-cal__cell--today" : ""}" data-cal-day="${date}" ${has ? "" : "disabled "}aria-label="${aria.replace(/"/g, "&quot;")}">` +
-            `<span class="home-cal__daynum">${day}</span>` +
-            (has ? `<span class="home-cal__marks">${dots}${countBadge}</span>` : "") +
-            `</button>`
-        );
-      }
-
-      // Fill trailing cells for a clean grid
-      const total = start + dim;
-      const trail = total % 7 === 0 ? 0 : 7 - (total % 7);
-      for (let i = 0; i < trail; i++) {
-        cells.push(`<div class="home-cal__cell home-cal__cell--pad" aria-hidden="true"></div>`);
-      }
-
-      gridEl.innerHTML = cells.join("");
-    }
-
-    function openDay(date: string) {
-      if (!dialog || !dialogTitle || !dialogBody) return;
-      const dayEvents = byDate.get(date) ?? [];
-      if (!dayEvents.length) return;
-
-      const [y, m, d] = date.split("-").map(Number);
-      const pretty = new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-US", {
-        weekday: "long",
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-        timeZone: "UTC",
-      });
-      dialogTitle.textContent = pretty;
-
-      dialogBody.innerHTML = dayEvents
-        .map((e) => {
-          // CladFacts paths only — never render external hrefs from the feed.
-          const links = (e.links || [])
-            .filter((l) => {
-              const h = String(l.href || "");
-              return h.startsWith("/") && !h.startsWith("//") && !h.includes("://");
-            })
-            .map(
-              (l) =>
-                `<a class="home-cal__link" href="${escapeHtml(l.href)}">${escapeHtml(l.label)} →</a>`
-            )
-            .join("");
-          return (
-            `<article class="home-cal__event home-cal__event--${escapeHtml(e.kind)}">` +
-            `<p class="home-cal__event-kicker small-caps">${escapeHtml(e.kindLabel)}${e.state ? ` · ${escapeHtml(e.state)}` : ""}</p>` +
-            `<h4 class="home-cal__event-title">${escapeHtml(e.title)}</h4>` +
-            (e.body ? `<p class="home-cal__event-body">${escapeHtml(e.body)}</p>` : "") +
-            (links ? `<div class="home-cal__event-links">${links}</div>` : "") +
-            `</article>`
-          );
-        })
-        .join("");
-
-      if (typeof dialog.showModal === "function") dialog.showModal();
-      else dialog.setAttribute("open", "");
-    }
 
     function escapeHtml(s: string): string {
       return String(s)
@@ -256,36 +247,350 @@ const clientEvents = events.map((e) => ({
         .replace(/"/g, "&quot;");
     }
 
+    function shiftMonth(ym: string, delta: number): string {
+      const [y, m] = ym.split("-").map(Number);
+      const d = new Date(Date.UTC(y, m - 1 + delta, 1));
+      return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
+    }
+    function monthLabel(ym: string): string {
+      const [y, m] = ym.split("-").map(Number);
+      return `${MONTHS[(m || 1) - 1] || ""} ${y || ""}`.trim();
+    }
+    function daysInMonth(ym: string): number {
+      const [y, m] = ym.split("-").map(Number);
+      return new Date(Date.UTC(y, m, 0)).getUTCDate();
+    }
+    function firstWeekday(ym: string): number {
+      const [y, m] = ym.split("-").map(Number);
+      return new Date(Date.UTC(y, m - 1, 1)).getUTCDay();
+    }
+    function prettyDate(date: string): string {
+      const [y, m, d] = date.split("-").map(Number);
+      return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-US", {
+        weekday: "long", month: "long", day: "numeric", year: "numeric", timeZone: "UTC",
+      });
+    }
+
+    /**
+     * Grade band → CSS class suffix. lib/topics scores grades on a 0–12 scale
+     * (F=0 … A+=12), NOT a 4.0 GPA — the thresholds below are the midpoints
+     * between letter bands on that scale.
+     */
+    function gradeBand(gpa: number | null): string {
+      if (gpa == null) return "none";
+      if (gpa >= 9.5) return "a"; // A- and up
+      if (gpa >= 6.5) return "b"; // B- … B+
+      if (gpa >= 3.5) return "c"; // C- … C+
+      return "d"; // D+ and below
+    }
+
+    function cellFace(sum: DaySummary | undefined): string {
+      if (!sum) return "";
+      let wash = "";
+      let mark = "";
+      if (enc === "grade" && sum.gpa != null) {
+        wash = `<span class="home-cal__wash home-cal__wash--${gradeBand(sum.gpa)}"></span>`;
+        mark = `<span class="home-cal__cellgrade home-cal__cellgrade--${gradeBand(sum.gpa)}">${escapeHtml(sum.grade || "")}</span>`;
+      } else if (enc === "lean" && sum.lean) {
+        const [l, c, r] = sum.lean;
+        const band = c >= 60 ? "center" : l > r ? "left" : "right";
+        wash = `<span class="home-cal__wash home-cal__wash--${band}"></span>`;
+        mark = `<span class="home-cal__cellnum">${c}%C</span>`;
+      } else {
+        const t = Math.min(1, sum.n / maxN);
+        wash = `<span class="home-cal__wash home-cal__wash--vol" style="opacity:${(0.12 + t * 0.6).toFixed(2)}"></span>`;
+        mark = `<span class="home-cal__cellnum">${sum.n}</span>`;
+      }
+      const ribbon = sum.lean
+        ? `<span class="home-cal__ribbon"><i style="width:${sum.lean[0]}%"class="home-cal__ribbon--l"></i><i style="width:${sum.lean[1]}%"class="home-cal__ribbon--c"></i><i style="width:${sum.lean[2]}%"class="home-cal__ribbon--r"></i></span>`
+        : "";
+      return `${wash}<span class="home-cal__count">${sum.n}</span>${mark}${ribbon}`;
+    }
+
+    function render() {
+      if (!gridEl || !labelEl) return;
+      labelEl.textContent = monthLabel(month);
+      root.dataset.month = month;
+      if (prevBtn) prevBtn.disabled = !!minMonth && month <= minMonth;
+      if (nextBtn) nextBtn.disabled = !!maxMonth && month >= maxMonth;
+
+      const dim = daysInMonth(month);
+      const start = firstWeekday(month);
+      const cells: string[] = [];
+      for (let i = 0; i < start; i++) {
+        cells.push(`<div class="home-cal__cell home-cal__cell--pad" aria-hidden="true"></div>`);
+      }
+
+      for (let day = 1; day <= dim; day++) {
+        const date = `${month}-${String(day).padStart(2, "0")}`;
+        const sum = dayByDate.get(date);
+        const dayEvents = byDate.get(date) ?? [];
+        const has = !!sum || dayEvents.length > 0;
+        const isToday = date === today;
+        const dots =
+          !sum && dayEvents.length
+            ? `<span class="home-cal__marks">${[...new Set(dayEvents.map((e) => e.kind))]
+                .slice(0, 3)
+                .map((k) => `<span class="home-cal__dot home-cal__dot--${k}"></span>`)
+                .join("")}</span>`
+            : "";
+        const bits = [`${monthLabel(month)} ${day}`];
+        if (sum) {
+          bits.push(`${sum.n} report${sum.n === 1 ? "" : "s"}`);
+          if (sum.grade) bits.push(`average ${sum.grade}`);
+        } else if (dayEvents.length) {
+          bits.push(`${dayEvents.length} event${dayEvents.length === 1 ? "" : "s"}`);
+        }
+        cells.push(
+          `<button type="button" class="home-cal__cell${has ? " home-cal__cell--event" : ""}${isToday ? " home-cal__cell--today" : ""}" data-cal-day="${date}" ${has ? "" : "disabled "}aria-label="${escapeHtml(bits.join(", "))}">` +
+            `<span class="home-cal__daynum">${day}</span>${sum ? cellFace(sum) : dots}` +
+            `</button>`
+        );
+      }
+
+      const total = start + dim;
+      const trail = total % 7 === 0 ? 0 : 7 - (total % 7);
+      for (let i = 0; i < trail; i++) {
+        cells.push(`<div class="home-cal__cell home-cal__cell--pad" aria-hidden="true"></div>`);
+      }
+      gridEl.innerHTML = cells.join("");
+      renderLegend();
+    }
+
+    function renderLegend() {
+      if (!legendEl) return;
+      let html = "";
+      if (enc === "grade") {
+        html =
+          [["a", "A / A−"], ["b", "B"], ["c", "C"], ["d", "D / F"]]
+            .map(
+              ([k, l]) =>
+                `<span class="home-cal__key"><i class="home-cal__swatch home-cal__wash--${k}"></i>${l}</span>`
+            )
+            .join("") + `<span class="home-cal__keynote">Colour = the day's average grade · figure = reports</span>`;
+      } else if (enc === "lean") {
+        html =
+          `<span class="home-cal__key"><i class="home-cal__swatch home-cal__wash--left"></i>Left</span>` +
+          `<span class="home-cal__key"><i class="home-cal__swatch home-cal__wash--center"></i>Center</span>` +
+          `<span class="home-cal__key"><i class="home-cal__swatch home-cal__wash--right"></i>Right</span>` +
+          `<span class="home-cal__keynote">Ribbon = share of the day's coverage by lean</span>`;
+      } else {
+        html =
+          `<span class="home-cal__key"><i class="home-cal__swatch home-cal__wash--vol" style="opacity:.18"></i>Lighter day</span>` +
+          `<span class="home-cal__key"><i class="home-cal__swatch home-cal__wash--vol" style="opacity:.72"></i>Heavier day</span>` +
+          `<span class="home-cal__keynote">Shading = how many reports ran that day</span>`;
+      }
+      legendEl.innerHTML = html;
+    }
+
+    function openDay(date: string) {
+      if (!dialog || !dialogTitle || !dialogBody) return;
+      const sum = dayByDate.get(date);
+      const dayEvents = byDate.get(date) ?? [];
+      if (!sum && !dayEvents.length) return;
+      dialogTitle.textContent = prettyDate(date);
+
+      const parts: string[] = [];
+
+      if (sum) {
+        const scoreBits = [`<span><b>${sum.n}</b> report${sum.n === 1 ? "" : "s"}</span>`];
+        if (sum.grade) scoreBits.push(`<span>average <b>${escapeHtml(sum.grade)}</b></span>`);
+        parts.push(
+          `<div class="home-cal__score">` +
+            (sum.grade
+              ? `<span class="home-cal__scoregrade home-cal__cellgrade--${gradeBand(sum.gpa)}">${escapeHtml(sum.grade)}</span>`
+              : "") +
+            `<div class="home-cal__scorebits">${scoreBits.join("")}</div>` +
+            `</div>` +
+            (sum.lean
+              ? `<div class="home-cal__leanbar"><i class="home-cal__ribbon--l" style="width:${sum.lean[0]}%"></i><i class="home-cal__ribbon--c" style="width:${sum.lean[1]}%"></i><i class="home-cal__ribbon--r" style="width:${sum.lean[2]}%"></i></div>` +
+                `<p class="home-cal__leankey">${sum.lean[0]}% left · ${sum.lean[1]}% center · ${sum.lean[2]}% right</p>`
+              : "")
+        );
+        if (sum.top.length) {
+          parts.push(
+            `<ul class="home-cal__daylist">` +
+              sum.top
+                .map(
+                  (r) =>
+                    `<li>${r.grade ? `<span class="home-cal__pill">${escapeHtml(r.grade)}</span>` : ""}` +
+                    `<a href="/posts/${encodeURIComponent(r.slug)}/">${escapeHtml(r.title)}</a>` +
+                    (r.outlet ? `<span class="home-cal__outlet">${escapeHtml(r.outlet)}</span>` : "") +
+                    `</li>`
+                )
+                .join("") +
+              `</ul>`
+          );
+        }
+        if (sum.n > sum.top.length) {
+          parts.push(
+            `<p class="home-cal__more"><a href="/day/${date}/">Open the full day — all ${sum.n} reports →</a></p>`
+          );
+        } else {
+          parts.push(`<p class="home-cal__more"><a href="/day/${date}/">Open the full day →</a></p>`);
+        }
+      }
+
+      if (dayEvents.length) {
+        parts.push(
+          dayEvents
+            .map((e) => {
+              const links = (e.links || [])
+                .filter((l) => {
+                  const h = String(l.href || "");
+                  return h.startsWith("/") && !h.startsWith("//") && !h.includes("://");
+                })
+                .map(
+                  (l) => `<a class="home-cal__link" href="${escapeHtml(l.href)}">${escapeHtml(l.label)} →</a>`
+                )
+                .join("");
+              return (
+                `<article class="home-cal__event home-cal__event--${escapeHtml(e.kind)}">` +
+                `<p class="home-cal__event-kicker small-caps">${escapeHtml(e.kindLabel)}${e.state ? ` · ${escapeHtml(e.state)}` : ""}</p>` +
+                `<h4 class="home-cal__event-title">${escapeHtml(e.title)}</h4>` +
+                (e.body ? `<p class="home-cal__event-body">${escapeHtml(e.body)}</p>` : "") +
+                (links ? `<div class="home-cal__event-links">${links}</div>` : "") +
+                `</article>`
+              );
+            })
+            .join("")
+        );
+      }
+
+      dialogBody.innerHTML = parts.join("");
+      if (typeof dialog.showModal === "function") dialog.showModal();
+      else dialog.setAttribute("open", "");
+    }
+
+    function renderAhead() {
+      if (!agendaEl) return;
+      const upcoming = events.filter((e) => e.date >= today).sort((a, b) => a.date.localeCompare(b.date));
+      const recent = events.filter((e) => e.date < today).sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4);
+
+      function card(e: CalEvent, past: boolean): string {
+        const [y, m, d] = e.date.split("-").map(Number);
+        const dt = new Date(Date.UTC(y, m - 1, d));
+        const mon = dt.toLocaleDateString("en-US", { month: "short", timeZone: "UTC" });
+        const wd = dt.toLocaleDateString("en-US", { weekday: "short", timeZone: "UTC" });
+        const sum = dayByDate.get(e.date);
+        // A past event resolves into the coverage it actually produced.
+        const resolved =
+          past && sum
+            ? `<a class="home-cal__resolved" href="/day/${e.date}/">✓ ${sum.n} graded report${sum.n === 1 ? "" : "s"}${sum.grade ? ` · avg ${escapeHtml(sum.grade)}` : ""} →</a>`
+            : "";
+        const links = (e.links || [])
+          .filter((l) => {
+            const h = String(l.href || "");
+            return h.startsWith("/") && !h.startsWith("//") && !h.includes("://");
+          })
+          .map((l) => `<a class="home-cal__link" href="${escapeHtml(l.href)}">${escapeHtml(l.label)} →</a>`)
+          .join("");
+        return (
+          `<article class="home-cal__ev${past ? " is-past" : ""}">` +
+          `<div class="home-cal__evwhen"><span class="home-cal__evmon">${mon}</span>` +
+          `<span class="home-cal__evday">${d}</span><span class="home-cal__evwd">${wd}</span></div>` +
+          `<div class="home-cal__evbody">` +
+          `<p class="home-cal__event-kicker small-caps">${escapeHtml(e.kindLabel)}${e.state ? ` · ${escapeHtml(e.state)}` : ""}</p>` +
+          `<h4 class="home-cal__event-title">${escapeHtml(e.title)}</h4>` +
+          (e.body ? `<p class="home-cal__event-body">${escapeHtml(e.body)}</p>` : "") +
+          (links || resolved ? `<div class="home-cal__event-links">${resolved}${links}</div>` : "") +
+          `</div></article>`
+        );
+      }
+
+      const out: string[] = [];
+      if (upcoming.length) out.push(upcoming.slice(0, 24).map((e) => card(e, false)).join(""));
+      else out.push(`<p class="home-cal__empty">Nothing scheduled on the daybook right now.</p>`);
+      if (recent.length) {
+        out.push(`<h4 class="home-cal__agenda-head small-caps">Just passed</h4>`);
+        out.push(recent.map((e) => card(e, true)).join(""));
+      }
+      agendaEl.innerHTML = out.join("");
+
+      if (countdownEl) {
+        // The nearest election-shaped anchor drives the countdown.
+        const anchor = upcoming.find((e) =>
+          ["election", "general", "primary", "runoff", "special"].includes(e.kind)
+        );
+        if (anchor) {
+          const [ay, am, ad] = anchor.date.split("-").map(Number);
+          const [ty, tm, td] = today.split("-").map(Number);
+          const diff = Math.round(
+            (Date.UTC(ay, am - 1, ad) - Date.UTC(ty, tm - 1, td)) / 86_400_000
+          );
+          countdownEl.textContent =
+            diff <= 0 ? `${anchor.title} — today` : `${anchor.title} in ${diff} day${diff === 1 ? "" : "s"}`;
+        } else {
+          countdownEl.textContent = "What's ahead";
+        }
+      }
+    }
+
+    function setView(view: string) {
+      const isAhead = view === "ahead";
+      if (recordEl) recordEl.hidden = isAhead;
+      if (aheadEl) aheadEl.hidden = !isAhead;
+      root.querySelectorAll<HTMLElement>("[data-cal-view]").forEach((b) => {
+        const on = b.dataset.calView === view;
+        b.classList.toggle("is-on", on);
+        b.setAttribute("aria-pressed", String(on));
+      });
+      if (isAhead) renderAhead();
+    }
+
     function closeDialog() {
       if (!dialog) return;
       if (typeof dialog.close === "function") dialog.close();
       else dialog.removeAttribute("open");
     }
 
-    root.querySelector("[data-cal-prev]")?.addEventListener("click", () => {
+    prevBtn?.addEventListener("click", () => {
+      if (minMonth && month <= minMonth) return;
       month = shiftMonth(month, -1);
       render();
     });
-    root.querySelector("[data-cal-next]")?.addEventListener("click", () => {
+    nextBtn?.addEventListener("click", () => {
+      if (maxMonth && month >= maxMonth) return;
       month = shiftMonth(month, 1);
       render();
+    });
+
+    root.querySelectorAll<HTMLElement>("[data-cal-view]").forEach((b) => {
+      b.addEventListener("click", () => setView(b.dataset.calView || "record"));
+    });
+    root.querySelectorAll<HTMLElement>("[data-cal-enc]").forEach((b) => {
+      b.addEventListener("click", () => {
+        const next = b.dataset.calEnc as typeof enc;
+        if (!next) return;
+        enc = next;
+        root.querySelectorAll<HTMLElement>("[data-cal-enc]").forEach((x) => {
+          const on = x === b;
+          x.classList.toggle("is-on", on);
+          x.setAttribute("aria-pressed", String(on));
+        });
+        render();
+      });
     });
 
     gridEl?.addEventListener("click", (ev) => {
       const t = (ev.target as HTMLElement).closest("[data-cal-day]") as HTMLElement | null;
       if (!t || t.hasAttribute("disabled")) return;
+      lastTrigger = t;
       const date = t.dataset.calDay;
       if (date) openDay(date);
     });
 
     root.querySelector("[data-cal-dialog-close]")?.addEventListener("click", closeDialog);
     dialog?.addEventListener("click", (ev) => {
-      // Backdrop click closes
       if (ev.target === dialog) closeDialog();
     });
+    // Return focus to the day that opened the dialog (native <dialog> traps
+    // focus but does not restore it when closed by backdrop or ESC).
+    dialog?.addEventListener("close", () => {
+      lastTrigger?.focus?.();
+      lastTrigger = null;
+    });
 
-    // Swipe left/right between months — ignore mostly-vertical gestures so
-    // the page can scroll freely when the finger starts on the calendar.
     let touchX = 0;
     let touchY = 0;
     let tracking = false;
@@ -309,22 +614,26 @@ const clientEvents = events.map((e) => ({
         if (!t) return;
         const dx = t.clientX - touchX;
         const dy = t.clientY - touchY;
-        // Require a clear horizontal swipe (stronger than vertical).
         if (Math.abs(dx) < 56 || Math.abs(dx) < Math.abs(dy) * 1.35) return;
-        month = shiftMonth(month, dx < 0 ? 1 : -1);
+        const dir = dx < 0 ? 1 : -1;
+        const target = shiftMonth(month, dir);
+        if (dir < 0 && minMonth && month <= minMonth) return;
+        if (dir > 0 && maxMonth && month >= maxMonth) return;
+        month = target;
         render();
       },
       { passive: true }
     );
 
-    // Keyboard: left/right when focus is in the calendar
     swipeEl?.addEventListener("keydown", (ev) => {
       if (ev.key === "ArrowLeft") {
         ev.preventDefault();
+        if (minMonth && month <= minMonth) return;
         month = shiftMonth(month, -1);
         render();
       } else if (ev.key === "ArrowRight") {
         ev.preventDefault();
+        if (maxMonth && month >= maxMonth) return;
         month = shiftMonth(month, 1);
         render();
       }
@@ -341,6 +650,5 @@ const clientEvents = events.map((e) => ({
   } else {
     boot();
   }
-  // Astro view transitions / soft nav
   document.addEventListener("astro:page-load", boot);
 </script>

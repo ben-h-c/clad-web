@@ -5,6 +5,7 @@ import { getBreaking } from "~/lib/agents";
 import { buildPoliticianIndex } from "~/lib/politicians";
 import { slugify } from "~/lib/slug";
 import { showBillingPromo } from "~/lib/access";
+import { todayIsoNy } from "~/lib/calendarEvents";
 
 export const prerender = false;
 
@@ -81,6 +82,14 @@ export async function GET() {
       seen.add(`${y}/${m}`);
     }
     for (const ym of seen) entries.push(url(`/archive/${ym}/`, undefined, "0.4"));
+  }
+  // The graded record, one page per publish day (see src/pages/day/[date]).
+  // Ranked above month archives: a day page is a real edition with its own
+  // scorecard, not just a paginated list.
+  {
+    const days = new Set<string>();
+    for (const p of posts) days.add(todayIsoNy(p.data.publishedAt));
+    for (const d of days) entries.push(url(`/day/${d}/`, d, "0.5"));
   }
   // Outlet profiles — one per distinct source channel (see /outlets/[outlet]).
   const outlets = new Set<string>();
