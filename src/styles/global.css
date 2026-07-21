@@ -2597,7 +2597,6 @@ html.theme-dark .peek-pop__panel {
 .account-card,
 .breaking-group,
 .scoreband,
-.home-cal,
 .home-emap__card,
 .home-next-race,
 .emap-desk__acc,
@@ -7507,8 +7506,11 @@ button.home-cal__cell:disabled {
   outline: none;
 }
 .home-cal__dialog-body {
-  padding: 0.85rem 1.05rem 1.15rem;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0.75rem 1.05rem 1.15rem;
   overflow: auto;
+  overscroll-behavior: contain;
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
@@ -9597,6 +9599,23 @@ html.theme-dark .home-cal__pill--d {
 }
 
 /* Ahead — the scheduled daybook */
+/* Ahead daybook: sticky countdown/export, scrollable agenda list */
+.home-cal__ahead {
+  display: flex;
+  flex-direction: column;
+  max-height: min(70vh, 34rem);
+  min-height: 0;
+}
+.home-cal__ahead-sticky {
+  flex-shrink: 0;
+  padding-bottom: 0.15rem;
+  background: linear-gradient(
+    180deg,
+    var(--card) 70%,
+    color-mix(in srgb, var(--card) 88%, transparent) 100%
+  );
+  z-index: 1;
+}
 .home-cal__ahead-head {
   display: flex;
   flex-wrap: wrap;
@@ -9656,6 +9675,14 @@ html.theme-dark .home-cal__pill--d {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.25rem;
+  /* Keep the last card clear of the panel edge while scrolling. */
+  scroll-padding-bottom: 0.5rem;
 }
 .home-cal__agenda-head {
   margin: 0.95rem 0 0.15rem;
