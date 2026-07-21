@@ -98,21 +98,9 @@
       { once: true, capture: true }
     );
 
-    // App: show soon after first paint. Web (non-app): only if no full tour pending.
+    // App: show soon after first paint; web a bit later so the page settles.
     const delay = inApp ? 900 : 2800;
     setTimeout(() => {
-      if (!inApp) {
-        try {
-          // Let the home tour own first-run attention on the public site.
-          if (
-            path === "/" &&
-            !localStorage.getItem("clad_tour_v3") &&
-            !localStorage.getItem("clad_tour_v2")
-          ) {
-            return;
-          }
-        } catch {}
-      }
       show();
     }, delay);
   })();

@@ -1,7 +1,6 @@
 ---
 import "~/styles/global.css";
 import Masthead from "~/components/Masthead.astro";
-import OnboardingTour from "~/components/OnboardingTour.astro";
 import SiteTips from "~/components/SiteTips.astro";
 import ThemeCoachmark from "~/components/ThemeCoachmark.astro";
 import { APP_STORE_LIVE } from "~/lib/app-store";
@@ -20,8 +19,6 @@ interface Props {
   noindex?: boolean;
   /** Extra JSON-LD object(s) to emit in <head> (e.g. NewsArticle). */
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
-  /** Mount the onboarding tour on this page (home only). */
-  tour?: boolean;
 }
 
 const {
@@ -33,7 +30,6 @@ const {
   ogType = "website",
   noindex = false,
   jsonLd,
-  tour = false,
 } = Astro.props;
 
 const site = Astro.site ?? new URL("https://cladfacts.com");
@@ -354,6 +350,5 @@ const billingOn = showBillingPromo();
     </div>
     {!path.startsWith("/admin") && <SiteTips />}
     {!path.startsWith("/admin") && <ThemeCoachmark />}
-    {tour && <OnboardingTour />}
   </body>
 </html>

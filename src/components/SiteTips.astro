@@ -1,7 +1,7 @@
 ---
 /**
- * One soft, dismissible tip bar for first-time visitors who skipped the tour.
- * Appears once per tip id (localStorage). Never stacks with the tour modal.
+ * One soft, dismissible tip bar for first-time visitors.
+ * Appears once per tip id (localStorage).
  * Second tip (explore-analytics-v1) arms only after the first tip is dismissed.
  * Mount site-wide from BaseLayout (non-admin).
  */
@@ -54,14 +54,6 @@
       for (const t of TIPS) {
         if (localStorage.getItem(key(t.id))) continue;
         if (t.requires && !localStorage.getItem(key(t.requires))) continue;
-        // If tour is still pending on home, let the tour own first attention.
-        if (
-          path === "/" &&
-          !localStorage.getItem("clad_tour_v3") &&
-          !localStorage.getItem("clad_tour_v2")
-        ) {
-          return;
-        }
         tip = t;
         break;
       }
