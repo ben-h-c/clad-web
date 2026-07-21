@@ -7124,11 +7124,16 @@ html.clad-app .clad-app-only { display: block; }
 }
 
 /* ── Home calendar (replaces explore rails grid under Front Page) ───────── */
+/* Outer section is a spacing shell only — the panel is the single card. */
 .home-cal {
-  margin: 1.35rem 0 0.75rem;
+  margin: 1.1rem 0 0.75rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 .home-cal__panel {
-  margin-top: 0.65rem;
+  margin-top: 0;
   padding: 0.9rem 0.85rem 1rem;
   border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
   border-radius: 14px;
@@ -9598,23 +9603,15 @@ html.theme-dark .home-cal__pill--d {
   color: inherit;
 }
 
-/* Ahead — the scheduled daybook */
-/* Ahead daybook: sticky countdown/export, scrollable agenda list */
+/* Ahead — the scheduled daybook.
+   No nested max-height/overflow scroll: that trapped touch scrolling in the
+   iOS WebView and made the countdown chrome look "stuck" on the page. The
+   agenda is just normal document flow; the page itself scrolls. */
 .home-cal__ahead {
-  display: flex;
-  flex-direction: column;
-  max-height: min(70vh, 34rem);
-  min-height: 0;
+  display: block;
 }
 .home-cal__ahead-sticky {
-  flex-shrink: 0;
   padding-bottom: 0.15rem;
-  background: linear-gradient(
-    180deg,
-    var(--card) 70%,
-    color-mix(in srgb, var(--card) 88%, transparent) 100%
-  );
-  z-index: 1;
 }
 .home-cal__ahead-head {
   display: flex;
