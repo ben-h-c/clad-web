@@ -8880,24 +8880,23 @@ html.clad-app .home-spotlight__arrow {
     0 8px 18px color-mix(in srgb, var(--shadow) 18%, transparent);
 }
 /* Homepage placement: between Front Page and calendar.
-   --lean-focus (0…1) from scroll: quiet off-center, fuller when centered.
-   Margins + padding also breathe with focus so Front Page and Calendar
-   draw together when the lean strip is a passing glance. */
+   Quiet glance = the 3-color bar alone. --lean-focus drives chrome/spacing;
+   --lean-text (lags slightly) reveals title above + legend/note below. */
 .home-lean {
   --lean-focus: 0;
+  --lean-text: 0;
   /* Gap above (→ Front Page) and below (→ Calendar) expands with focus */
   margin-top: calc(0.2rem + 0.7rem * var(--lean-focus));
   margin-bottom: calc(0.12rem + 0.85rem * var(--lean-focus));
-  /* Inner pad tightens when quiet so the band itself takes less vertical room */
-  padding-top: calc(0.55rem + 0.3rem * var(--lean-focus));
-  padding-bottom: calc(0.5rem + 0.3rem * var(--lean-focus));
-  padding-left: calc(0.75rem + 0.25rem * var(--lean-focus));
-  padding-right: calc(0.75rem + 0.25rem * var(--lean-focus));
+  /* Slim pad when bar-only; opens as labels appear */
+  padding-top: calc(0.4rem + 0.45rem * var(--lean-text));
+  padding-bottom: calc(0.4rem + 0.4rem * var(--lean-text));
+  padding-left: calc(0.65rem + 0.35rem * var(--lean-focus));
+  padding-right: calc(0.65rem + 0.35rem * var(--lean-focus));
   /* Compact “passing glance” → full presence near viewport center */
-  transform: scale(calc(0.935 + 0.065 * var(--lean-focus)));
+  transform: scale(calc(0.96 + 0.04 * var(--lean-focus)));
   transform-origin: center center;
-  opacity: calc(0.78 + 0.22 * var(--lean-focus));
-  /* Soften chrome when peripheral; deepen border + lift when focused */
+  opacity: calc(0.88 + 0.12 * var(--lean-focus));
   border-color: color-mix(
     in srgb,
     var(--accent, #5b9a8b) calc(22% + 24% * var(--lean-focus)),
@@ -8907,7 +8906,7 @@ html.clad-app .home-spotlight__arrow {
     0 0 0 calc(1px + 0.5px * var(--lean-focus))
       color-mix(in srgb, var(--accent, #5b9a8b) calc(6% + 14% * var(--lean-focus)), transparent),
     0 1px 0 color-mix(in srgb, #fff calc(18% + 12% * var(--lean-focus)), transparent),
-    0 calc(4px + 8px * var(--lean-focus)) calc(10px + 12px * var(--lean-focus))
+    0 calc(3px + 7px * var(--lean-focus)) calc(8px + 10px * var(--lean-focus))
       color-mix(in srgb, var(--shadow) calc(10% + 14% * var(--lean-focus)), transparent);
   will-change: transform, opacity, margin, padding;
 }
@@ -8920,29 +8919,57 @@ html.clad-app .home-spotlight__arrow {
   padding-bottom: calc(0.95rem + 0.7rem * var(--home-lean-focus, 0));
   transition: none;
 }
-.home-lean .coverage-lean__title {
-  opacity: calc(0.75 + 0.25 * var(--lean-focus));
-  margin-bottom: calc(0.35rem + 0.2rem * var(--lean-focus));
+/* Bar always present; labels collapse to zero when quiet */
+.home-lean .split-bar {
+  margin: 0;
+  border-radius: 6px;
+  overflow: hidden;
 }
-.home-lean .coverage-lean__note,
+.home-lean .coverage-lean__title,
+.home-lean .coverage-lean__legend,
+.home-lean .coverage-lean__note {
+  overflow: hidden;
+  opacity: var(--lean-text);
+  /* Keep in a11y tree; visually gated by focus */
+  pointer-events: none;
+}
+.home-lean .coverage-lean__title {
+  max-height: calc(1.35rem * var(--lean-text));
+  margin: 0 0 calc(0.5rem * var(--lean-text));
+  transform: translateY(calc((1 - var(--lean-text)) * -0.2rem));
+}
 .home-lean .coverage-lean__legend {
-  opacity: calc(0.72 + 0.28 * var(--lean-focus));
+  max-height: calc(2.2rem * var(--lean-text));
+  margin: calc(0.4rem * var(--lean-text)) 0 0;
+  transform: translateY(calc((1 - var(--lean-text)) * 0.15rem));
 }
 .home-lean .coverage-lean__note {
-  margin-top: calc(0.35rem + 0.2rem * var(--lean-focus));
+  max-height: calc(1.8rem * var(--lean-text));
+  margin: calc(0.45rem * var(--lean-text)) 0 0;
+  transform: translateY(calc((1 - var(--lean-text)) * 0.15rem));
 }
-.home-lean .coverage-lean__legend {
-  margin-top: calc(0.3rem + 0.15rem * var(--lean-focus));
+/* When fully revealed, allow interaction on note links if any */
+.home-lean .coverage-lean__note {
+  pointer-events: auto;
 }
 @media (prefers-reduced-motion: reduce) {
   .home-lean {
     --lean-focus: 1 !important;
+    --lean-text: 1 !important;
     transform: none;
     opacity: 1;
     will-change: auto;
     margin-top: 0.9rem;
     margin-bottom: 0.97rem;
     padding: 0.85rem 1rem 0.8rem;
+  }
+  .home-lean .coverage-lean__title,
+  .home-lean .coverage-lean__legend,
+  .home-lean .coverage-lean__note {
+    max-height: none;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
   }
   .hero-strip-wrap:has(+ .home-lean) .hero-strip {
     padding-bottom: 1.65rem;

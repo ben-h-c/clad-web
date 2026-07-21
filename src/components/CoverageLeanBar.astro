@@ -29,16 +29,16 @@ const overallGpa = mean(
 ---
 {
   /*
-   * Homepage (class home-lean): scroll-linked "passing glance" — stays compact
-   * until the card is near the vertical center of the viewport, then eases to
-   * full prominence. Driven by --lean-focus (0…1). Reduced-motion: static.
+   * Homepage (class home-lean): quiet state is only the 3-color bar; title +
+   * legend/note ease in via --lean-text as the strip nears viewport center.
+   * --lean-focus still drives scale, chrome, and neighbor spacing.
    */
 }
 <aside
   class={wrapClass}
   aria-label="Overall coverage lean"
   data-lean-scroll={wrapClass.includes("home-lean") ? "" : undefined}
-  style={wrapClass.includes("home-lean") ? "--lean-focus:0" : undefined}
+  style={wrapClass.includes("home-lean") ? "--lean-focus:0;--lean-text:0" : undefined}
 >
   <h2 class="coverage-lean__title small-caps">Overall coverage lean</h2>
   <div
@@ -81,7 +81,10 @@ const overallGpa = mean(
           matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         if (reduce) {
-          leanEls().forEach((el) => el.style.setProperty("--lean-focus", "1"));
+          leanEls().forEach((el) => {
+            el.style.setProperty("--lean-focus", "1");
+            el.style.setProperty("--lean-text", "1");
+          });
           document.documentElement.style.setProperty("--home-lean-focus", "1");
           return;
         }
@@ -105,12 +108,16 @@ const overallGpa = mean(
             const r = el.getBoundingClientRect();
             if (r.bottom < -80 || r.top > vh + 80) {
               el.style.setProperty("--lean-focus", "0");
+              el.style.setProperty("--lean-text", "0");
               return;
             }
             const elMid = r.top + r.height * 0.5;
             const dist = Math.abs(elMid - viewMid);
             const focus = smoothstep(1 - dist / range);
+            // Title/legend lag slightly so the bar alone is the first read.
+            const text = smoothstep((focus - 0.12) / 0.72);
             el.style.setProperty("--lean-focus", focus.toFixed(4));
+            el.style.setProperty("--lean-text", text.toFixed(4));
             if (focus > maxFocus) maxFocus = focus;
           });
           // Shared token so Front Page padding can breathe with the same curve.
