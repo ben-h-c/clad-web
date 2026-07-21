@@ -137,16 +137,10 @@ export function exploreLinks(ctx: ExploreContext, opts?: { locked?: boolean }): 
   }
 }
 
-/** Compact footer product links (label only). */
+/** Compact footer links (About / method / legal only). */
 export const FOOTER_PRODUCT_LINKS: { href: string; label: string }[] = [
-  { href: "/bracket/", label: "Ballot" },
-  { href: "/bracket/votes/", label: "Votes" },
-  { href: "/elections/map/", label: "Map" },
-  { href: "/quiz/", label: "Quiz" },
-  { href: "/discover/", label: "Discover" },
-  { href: "/trends/", label: "Trends" },
-  { href: "/bias/", label: "Bias check" },
-  { href: "/politicians/", label: "Politicians" },
-  { href: "/search/", label: "Search" },
-  { href: "/newsletter/", label: "Newsletter" },
+  { href: "/about/", label: "About" },
+  { href: "/how-it-works/", label: "How it works" },
+  { href: "/privacy/", label: "Privacy" },
+  { href: "/terms/", label: "Terms" },
 ];

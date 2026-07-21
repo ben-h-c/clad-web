@@ -8471,15 +8471,17 @@ html.clad-app .today-hist__actions {
   }
 }
 
+.colophon__legal,
 .colophon__explore {
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem 0.15rem;
   justify-content: center;
   margin: 0 0 0.75rem;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   line-height: 1.5;
 }
+.colophon__legal a,
 .colophon__explore a {
   color: inherit;
   text-decoration: underline;
