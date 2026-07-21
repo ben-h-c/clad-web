@@ -81,14 +81,8 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
   data-min-month={minMonth}
   data-max-month={maxMonth}
   data-locked={locked ? "1" : "0"}
-  aria-labelledby="home-cal-title"
+  aria-label="Calendar"
 >
-  <div class="feed__head">
-    <h2 class="feed__title" id="home-cal-title">Calendar</h2>
-    <a class="category__more" href="/recent/">Latest reports →</a>
-  </div>
-  <div class="rule rule--double" aria-hidden="true"></div>
-
   <div class="home-cal__panel">
     <div class="home-cal__modes" role="group" aria-label="Calendar view">
       <button type="button" class="home-cal__mode is-on" data-cal-view="record" aria-pressed="true">
