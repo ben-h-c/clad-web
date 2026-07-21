@@ -1,17 +1,13 @@
 /**
- * News-digest composition. Picks recent fact-checks for a reader — leading with
- * coverage on the topics they follow, then filling with the period's newest —
- * and renders an email. Every account holder sees grades + political lean
- * (hybrid access model — digests only go to accounts, and accounts have full
- * access); `showGrades:false` is kept for any future metered rendering.
+ * News-digest composition. Soft Neutral email chrome matches the site redesign.
+ * Digests only go to accounts (full access); `showGrades:false` kept for future use.
  */
 import type { CollectionEntry } from "astro:content";
 import { canonicalTopic, leanScoreOf } from "./topics.ts";
+import { EMAIL, emailShell, escHtml, gradePill } from "./emailTheme.ts";
 
-const SITE = "https://cladfacts.com";
-const INK = "#1a140d";
-const MUTED = "#6b6257";
-const ACCENT = "rgb(150,30,20)";
+const SITE = EMAIL.site;
+const { ink, muted, accent, rule, font, body } = EMAIL;
 
 type Post = CollectionEntry<"posts">;
 
@@ -19,10 +15,6 @@ export interface DigestResult {
   subject: string;
   html: string;
   count: number;
-}
-
-function esc(s: string): string {
-  return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
 }
 
 function leanLabel(s: number | null): string | null {
@@ -34,17 +26,12 @@ function fmtDate(d: Date): string {
   return d.toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
 }
 
-/** Absolute thumbnail URL for an email (YouTube still, or generated image). */
 function thumbUrl(d: Post["data"]): string | null {
   if (d.thumbnail) return d.thumbnail.startsWith("/") ? SITE + d.thumbnail : d.thumbnail;
   if (d.videoId) return `https://img.youtube.com/vi/${d.videoId}/hqdefault.jpg`;
   return null;
 }
 
-/**
- * Build a digest, or null when there's nothing new in the window. `followed`
- * is the user's raw followed-topic strings; `showGrades` gates premium content.
- */
 export function buildDigest(opts: {
   posts: Post[];
   followed: string[];
@@ -77,62 +64,57 @@ export function buildDigest(opts: {
       if (opts.showGrades) {
         const lean = leanLabel(leanScoreOf(d));
         const bits = [
-          d.letterGrade ? `Grade ${esc(d.letterGrade)}` : null,
-          lean ? esc(lean) : null,
+          d.letterGrade ? gradePill(d.letterGrade) : null,
+          lean ? `<span style="font:600 13px ${font};color:${muted}">${escHtml(lean)}</span>` : null,
         ].filter(Boolean);
         if (bits.length) {
-          scoreLine = `<div style="font:600 13px Georgia,serif;color:${INK};margin:2px 0 4px">${bits.join(" &nbsp;·&nbsp; ")}</div>`;
+          scoreLine = `<div style="margin:6px 0 4px;line-height:1.6">${bits.join(" &nbsp; ")}</div>`;
         }
       } else {
-        scoreLine = `<div style="font:13px Georgia,serif;color:${ACCENT};margin:2px 0 4px"><a href="${SITE}/register/" style="color:${ACCENT};text-decoration:none">🔒 Unlock the grade &amp; lean — free account →</a></div>`;
+        scoreLine = `<div style="font:13px ${font};color:${accent};margin:4px 0"><a href="${SITE}/register/" style="color:${accent};text-decoration:none;font-weight:600">Unlock the grade &amp; lean — free account →</a></div>`;
       }
-      const blurb = esc((d.summary || "").slice(0, 160));
+      const blurb = escHtml((d.summary || "").slice(0, 160));
       const thumb = thumbUrl(d);
       const thumbCell = thumb
-        ? `<td width="128" valign="top" style="padding-right:12px">
-             <a href="${url}"><img src="${esc(thumb)}" width="128" height="72" alt="" style="display:block;width:128px;height:72px;object-fit:cover;border:1px solid #e6ddcb"></a>
+        ? `<td width="128" valign="top" style="padding-right:14px">
+             <a href="${url}"><img src="${escHtml(thumb)}" width="128" height="72" alt="" style="display:block;width:128px;height:72px;object-fit:cover;border:0;border-radius:10px"></a>
            </td>`
         : "";
       return `
-        <tr><td style="padding:14px 0;border-bottom:1px solid #e6ddcb">
+        <tr><td style="padding:14px 0;border-bottom:1px solid ${rule}">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
             ${thumbCell}
             <td valign="top">
-              <a href="${url}" style="font:700 17px Georgia,serif;color:${INK};text-decoration:none;line-height:1.25">${esc(d.headline)}</a>
-              <div style="font:12px Georgia,serif;color:${MUTED};margin:3px 0">${esc(meta)}</div>
+              <a href="${url}" style="font:700 16px ${font};color:${ink};text-decoration:none;line-height:1.3">${escHtml(d.headline)}</a>
+              <div style="font:12px ${font};color:${muted};margin:4px 0">${escHtml(meta)}</div>
               ${scoreLine}
-              <div style="font:13px Georgia,serif;color:#333;line-height:1.45">${blurb}…</div>
+              <div style="font:13px ${font};color:${body};line-height:1.5">${blurb}…</div>
             </td>
           </tr></table>
         </td></tr>`;
     })
     .join("");
 
-  const hello = opts.name ? `Hi ${esc(opts.name.split(/\s+/)[0])},` : "Hello,";
+  const hello = opts.name ? `Hi ${escHtml(opts.name.split(/\s+/)[0]!)},` : "Hello,";
   const intro = hasFollowed
     ? "Here's the latest on the topics you follow, plus other fact-checks worth a look."
     : "Here are the newest fact-checks from the CladFacts desk.";
 
-  const html = `<!doctype html><html><body style="margin:0;background:#f5edd9;padding:24px 12px">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;background:#fffdf6;border:1px solid #e6ddcb">
-    <tr><td style="padding:22px 26px 6px;text-align:center;border-bottom:2px solid ${INK}">
-      <div style="font:700 30px Georgia,serif;letter-spacing:.18em;color:${INK}">CLAD</div>
-      <div style="font:11px Georgia,serif;letter-spacing:.12em;color:${MUTED};text-transform:uppercase">Your News Digest</div>
-    </td></tr>
-    <tr><td style="padding:20px 26px 0">
-      <p style="font:15px Georgia,serif;color:${INK};margin:0 0 4px">${hello}</p>
-      <p style="font:14px Georgia,serif;color:${MUTED};margin:0">${intro}</p>
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:6px">${items}</table>
-    </td></tr>
-    <tr><td style="padding:8px 26px 22px;text-align:center">
-      <a href="${SITE}/" style="display:inline-block;background:${ACCENT};color:#fff;font:600 14px Georgia,serif;text-decoration:none;padding:9px 18px;margin-top:8px">Read more at CladFacts →</a>
-    </td></tr>
-    <tr><td style="padding:14px 26px;border-top:1px solid #e6ddcb;font:12px Georgia,serif;color:${MUTED};text-align:center">
-      You're receiving this because you turned on the News Digest.
-      <a href="${SITE}/account/" style="color:${MUTED}">Manage your email preferences</a>.
-      <br>© ${new Date().getUTCFullYear()} CladFacts LLC
-    </td></tr>
-  </table></body></html>`;
+  const bodyHtml = `<tr><td style="padding:22px 28px 0">
+      <p style="font:16px ${font};color:${ink};margin:0 0 6px;font-weight:600">${hello}</p>
+      <p style="font:14px ${font};color:${muted};margin:0 0 8px;line-height:1.5">${intro}</p>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:4px">${items}</table>
+    </td></tr>`;
+
+  const html = emailShell({
+    title: "",
+    subtitle: "Your News Digest",
+    body: bodyHtml,
+    ctaHref: `${SITE}/`,
+    ctaLabel: "Read more at CladFacts →",
+    footerNote: `You're receiving this because you turned on the News Digest.
+      <a href="${SITE}/account/" style="color:${muted}">Manage your email preferences</a>.`,
+  });
 
   const subject = hasFollowed
     ? `Your CladFacts digest — ${ordered.length} new on your topics`
