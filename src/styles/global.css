@@ -2049,6 +2049,37 @@ html.masthead-menu-open .masthead__menu-list {
   margin-top: 1.5rem;
 }
 
+/* Breaking → Front Page: gap breathes with --break-hero-focus (0…1).
+   Peak when the seam sits near the vertical center of the viewport. */
+.hero--breaking {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+.hero--breaking .hero-strip {
+  padding-bottom: calc(0.7rem + 0.95rem * var(--break-hero-focus, 0));
+}
+.hero--breaking + .hero,
+.hero--breaking + [data-front-page] {
+  margin-top: calc(0.3rem + 1.2rem * var(--break-hero-focus, 0));
+}
+.hero--breaking + .hero .hero__head,
+.hero--breaking + [data-front-page] .hero__head {
+  margin-bottom: calc(0.35rem + 0.25rem * var(--break-hero-focus, 0));
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero--breaking .hero-strip {
+    padding-bottom: 1.65rem;
+  }
+  .hero--breaking + .hero,
+  .hero--breaking + [data-front-page] {
+    margin-top: 1.5rem;
+  }
+  .hero--breaking + .hero .hero__head,
+  .hero--breaking + [data-front-page] .hero__head {
+    margin-bottom: 0.5rem;
+  }
+}
+
 .hero__head {
   display: flex;
   align-items: baseline;
