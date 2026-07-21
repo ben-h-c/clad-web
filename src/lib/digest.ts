@@ -1,5 +1,5 @@
 /**
- * News-digest composition. Soft Neutral email chrome matches the site redesign.
+ * News-digest composition. Soft Neutral dark email chrome matches the site dark theme.
  * Digests only go to accounts (full access); `showGrades:false` kept for future use.
  */
 import type { CollectionEntry } from "astro:content";

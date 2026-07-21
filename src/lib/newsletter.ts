@@ -1,14 +1,14 @@
 /**
  * Weekly newsletter — an editorial "week in review" sent to everyone who opts
- * in (same content for all, unlike the personalized digest). Soft Neutral email
- * chrome matches the site redesign.
+ * in (same content for all, unlike the personalized digest). Soft Neutral dark
+ * email chrome matches the site dark theme.
  */
 import type { CollectionEntry } from "astro:content";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "./topics.ts";
 import { EMAIL, emailShell, escHtml, gradePill } from "./emailTheme.ts";
 
 const SITE = EMAIL.site;
-const { ink, muted, accent, rule, font, body, accentSoft } = EMAIL;
+const { ink, muted, accent, rule, font, body, accentSoft, ctaText } = EMAIL;
 const WEEK = 7 * 86_400_000;
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -186,7 +186,7 @@ export function buildNewsletter(opts: { posts: Post[]; showGrades: boolean; max?
       section(
         "Grades, swings &amp; bias",
         `<p style="font:14px ${font};color:${body};line-height:1.55;margin:0 0 12px">The week's best- and worst-graded coverage and the most politically biased reports unlock with a <strong>free CladFacts account</strong> — no card, no trial clock.</p>
-         <a href="${SITE}/register/" style="display:inline-block;background:${accent};color:#fff;font:600 14px ${font};text-decoration:none;padding:11px 20px;border-radius:999px">Unlock this week's grades — free →</a>`
+         <a href="${SITE}/register/" style="display:inline-block;background:${accent};color:${ctaText};font:600 14px ${font};text-decoration:none;padding:11px 20px;border-radius:999px">Unlock this week's grades — free →</a>`
       )
     );
   }
