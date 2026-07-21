@@ -71,7 +71,7 @@
 
   --measure: 70ch;
   --gutter: 1.25rem;
-  --section-gap: 1.75rem; /* ~28px between major blocks */
+  --section-gap: 2.1rem; /* breathing room between major home blocks */
   --card-pad: 1.15rem;
 
   --card: #ffffff;
@@ -2046,41 +2046,35 @@ html.masthead-menu-open .masthead__menu-list {
 /* Hero strip — horizontally scrolling featured reports */
 
 .hero {
-  margin-top: 1.5rem;
-}
-
-/* Scroll-breath tokens for the coverage lean strip only.
-   Interpolated by the browser between quantized JS updates. */
-@property --home-lean-focus {
-  syntax: "<number>";
-  inherits: true;
-  initial-value: 0;
-}
-@property --home-lean-text {
-  syntax: "<number>";
-  inherits: true;
-  initial-value: 0;
-}
-html {
-  transition:
-    --home-lean-focus 120ms linear,
-    --home-lean-text 140ms linear;
-}
-@media (prefers-reduced-motion: reduce) {
-  html {
-    transition: none;
-  }
+  margin-top: 1.75rem;
 }
 
 .hero__head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
+  gap: 0.75rem 1rem;
+  margin-bottom: 0.55rem;
 }
 
 .hero__head .small-caps {
-  color: var(--muted-ink);
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  opacity: 0.92;
+}
+.hero__head .category__more {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--accent, #5b9a8b) 75%, var(--ink));
+  text-decoration: none;
+}
+.hero__head .category__more:hover {
+  color: var(--accent, #5b9a8b);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 /* Breaking News strip — urgent label with a soft light-up pulse. */
@@ -2150,9 +2144,16 @@ html {
   /* Allow vertical page scroll to win when the gesture is mostly vertical,
      while still permitting horizontal strip pans (critical in WKWebView). */
   touch-action: pan-x pan-y;
-  padding: 0.85rem 0.35rem 1.65rem;
-  border-top: 2px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
+  padding: 0.95rem 0.4rem 1.55rem;
+  border-top: 2px solid color-mix(in srgb, var(--ink) 18%, var(--rule));
+  border-bottom: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--card) 55%, transparent) 0%,
+    transparent 100%
+  );
+  border-radius: 0 0 4px 4px;
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 18%, transparent);
   scrollbar-width: thin;
   scrollbar-color: color-mix(in srgb, var(--rule) 45%, transparent) transparent;
 }
@@ -3184,21 +3185,48 @@ html.theme-dark .peek-pop__panel {
   padding: 0.75rem 1rem;
 }
 
-/* Latest-reports feed */
+/* Latest-reports feed / section heads */
 
 .feed {
   margin-top: 2.5rem;
 }
 
+.feed__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 1.1rem;
+  flex-wrap: wrap;
+}
+
 .feed__title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.6rem;
+  font-weight: 750;
+  font-size: clamp(1.55rem, 3.4vw, 1.9rem);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
   margin: 0;
+  color: var(--ink);
+}
+
+.feed__head .category__more {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--accent, #5b9a8b) 75%, var(--ink));
+  text-decoration: none;
+  white-space: nowrap;
+}
+.feed__head .category__more:hover {
+  color: var(--accent, #5b9a8b);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .feed .rule--double {
-  margin: 0.5rem 0 1.25rem;
+  margin: 0.55rem 0 1.35rem;
+  border-color: color-mix(in srgb, var(--ink) 22%, var(--rule));
+  opacity: 0.95;
 }
 
 /* Best & worst graded board — compact, smaller than hero/topic tiles */
@@ -3207,8 +3235,13 @@ html.theme-dark .peek-pop__panel {
   margin-top: 2.5rem;
 }
 
+.gradeboard .feed__title {
+  font-size: clamp(1.4rem, 3vw, 1.7rem);
+}
+
 .gradeboard .rule--double {
-  margin: 0.5rem 0 1.25rem;
+  margin: 0.55rem 0 1.35rem;
+  border-color: color-mix(in srgb, var(--ink) 22%, var(--rule));
 }
 
 .gradeboard__cols {
@@ -6499,6 +6532,65 @@ html.clad-app .issue-row__stats {
   margin-block: var(--section-gap);
 }
 
+/* Homepage energy — slightly punchier titles, clearer depth between blocks */
+.home-cal__month {
+  font-size: 1.28rem;
+  letter-spacing: -0.02em;
+}
+.home-cal__coming-title {
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+.home-cal__panel,
+.home-cal__coming {
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 32%, transparent),
+    0 12px 28px color-mix(in srgb, var(--shadow) 20%, transparent);
+}
+.topic-row {
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 26%, transparent),
+    0 8px 18px color-mix(in srgb, var(--shadow) 18%, transparent);
+}
+.human-spot__teaser {
+  box-shadow:
+    2px 2px 0 color-mix(in srgb, var(--shadow) 28%, transparent),
+    0 10px 22px color-mix(in srgb, var(--shadow) 14%, transparent);
+}
+.home-emap__card {
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--shadow) 18%, transparent);
+}
+.home-more-analytics {
+  margin: 1.75rem 0 0.5rem;
+  padding: 0.85rem 1rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--muted-ink);
+  border: 1px solid color-mix(in srgb, var(--rule) 45%, transparent);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--card) 80%, var(--paper));
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--shadow) 12%, transparent);
+}
+.home-more-analytics a {
+  color: color-mix(in srgb, var(--accent, #5b9a8b) 70%, var(--ink));
+  font-weight: 700;
+  text-decoration: none;
+}
+.home-more-analytics a:hover {
+  color: var(--accent, #5b9a8b);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.quips {
+  border-color: color-mix(in srgb, var(--rule) 55%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 12%, transparent);
+}
+.coverage-lean__title {
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  color: color-mix(in srgb, var(--ink) 55%, var(--muted-ink));
+}
+
 .auth-submit,
 button.auth-submit,
 a.auth-submit {
@@ -8055,13 +8147,7 @@ html.clad-app .today-hist__actions {
 }
 .feed__foot a { color: inherit; }
 
-.home-more-analytics {
-  margin: 0.35rem 0 0;
-  font-size: 0.9rem;
-  color: var(--muted-ink);
-  line-height: 1.45;
-}
-.home-more-analytics a { color: inherit; }
+/* home-more-analytics card styles live with homepage energy block above */
 
 /* --- Soft discovery: end-of-page rails + one dismissible tip --- */
 .explore-next {
@@ -8871,61 +8957,19 @@ html.clad-app .home-spotlight__arrow {
     0 1px 0 color-mix(in srgb, #fff 28%, transparent),
     0 8px 18px color-mix(in srgb, var(--shadow) 18%, transparent);
 }
-/* Homepage lean — FIXED layout (no margin/padding/max-height tied to scroll).
-   That was causing the page jump past the calendar: collapsing height above
-   the viewport shifts scroll. Open/close is compositor-only (opacity + scale).
-   Quiet glance: labels faded out over a reserved full card height. */
+/* Homepage lean — static card (scroll animation removed) */
 .home-lean {
-  margin: 0.75rem 0 0.15rem;
-  padding: 0.85rem 1rem 0.8rem;
-  transform: scale(calc(0.97 + 0.03 * var(--home-lean-focus, 0)));
-  transform-origin: center center;
-  opacity: calc(0.9 + 0.1 * var(--home-lean-focus, 0));
-  border-color: color-mix(
-    in srgb,
-    var(--accent, #5b9a8b) calc(28% + 18% * var(--home-lean-focus, 0)),
-    var(--rule)
-  );
-  box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--accent, #5b9a8b) 12%, transparent),
-    0 6px 16px color-mix(in srgb, var(--shadow) 16%, transparent);
-  backface-visibility: hidden;
+  margin: 1rem 0 0.35rem;
+  padding: 0.9rem 1.05rem 0.85rem;
 }
-.home-lean + .home-cal {
-  margin-top: 0.65rem;
-}
-/* Labels: opacity only — always reserve space so document height is stable */
 .home-lean .split-bar {
   margin: 0;
   border-radius: 6px;
   overflow: hidden;
+  height: 1.15rem;
 }
-.home-lean .coverage-lean__title,
-.home-lean .coverage-lean__legend,
-.home-lean .coverage-lean__note {
-  opacity: var(--home-lean-text, 0);
-  /* Keep layout; fade content. Avoids reflow/jump when “collapsing”. */
-  transition: none;
-}
-.home-lean .coverage-lean__title {
-  margin: 0 0 0.55rem;
-}
-.home-lean .coverage-lean__legend {
-  margin-top: 0.45rem;
-}
-.home-lean .coverage-lean__note {
-  margin-top: 0.55rem;
-}
-@media (prefers-reduced-motion: reduce) {
-  .home-lean {
-    transform: none;
-    opacity: 1;
-  }
-  .home-lean .coverage-lean__title,
-  .home-lean .coverage-lean__legend,
-  .home-lean .coverage-lean__note {
-    opacity: 1;
-  }
+.home-lean + .home-cal {
+  margin-top: 0.85rem;
 }
 .trends-lean {
   margin: 0 0 1.25rem;
@@ -8945,19 +8989,6 @@ html.theme-dark .coverage-lean {
   box-shadow:
     0 0 0 1px color-mix(in srgb, var(--accent, #6fb5a4) 14%, transparent),
     0 8px 18px color-mix(in srgb, var(--shadow) 22%, transparent);
-}
-:root[data-theme="dark"] .home-lean,
-html.theme-dark .home-lean {
-  border-color: color-mix(
-    in srgb,
-    var(--accent, #6fb5a4) calc(20% + 22% * var(--lean-focus)),
-    var(--rule)
-  );
-  box-shadow:
-    0 0 0 calc(1px + 0.5px * var(--lean-focus))
-      color-mix(in srgb, var(--accent, #6fb5a4) calc(8% + 12% * var(--lean-focus)), transparent),
-    0 calc(4px + 8px * var(--lean-focus)) calc(12px + 10px * var(--lean-focus))
-      color-mix(in srgb, var(--shadow) calc(14% + 12% * var(--lean-focus)), transparent);
 }
 .coverage-lean__title {
   margin: 0 0 0.55rem;

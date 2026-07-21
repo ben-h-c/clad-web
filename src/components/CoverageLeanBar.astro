@@ -1,7 +1,7 @@
 ---
 /**
  * Overall coverage lean strip — homepage (between Front Page and calendar)
- * and News Trends. Single box only; no "By the Numbers" section wrapper.
+ * and News Trends. Static box; no scroll animation.
  */
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
 import type { CollectionEntry } from "astro:content";
@@ -27,18 +27,7 @@ const overallGpa = mean(
   posts.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n !== null)
 );
 ---
-{
-  /*
-   * Homepage (class home-lean): quiet state is only the 3-color bar; title +
-   * legend/note ease in via --lean-text as the strip nears viewport center.
-   * --lean-focus still drives scale, chrome, and neighbor spacing.
-   */
-}
-<aside
-  class={wrapClass}
-  aria-label="Overall coverage lean"
-  data-lean-scroll={wrapClass.includes("home-lean") ? "" : undefined}
->
+<aside class={wrapClass} aria-label="Overall coverage lean">
   <h2 class="coverage-lean__title small-caps">Overall coverage lean</h2>
   <div
     class="split-bar"
