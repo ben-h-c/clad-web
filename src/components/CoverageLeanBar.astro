@@ -82,6 +82,7 @@ const overallGpa = mean(
 
         if (reduce) {
           leanEls().forEach((el) => el.style.setProperty("--lean-focus", "1"));
+          document.documentElement.style.setProperty("--home-lean-focus", "1");
           return;
         }
 
@@ -99,6 +100,7 @@ const overallGpa = mean(
           // Falloff: quiet near edges, peak when card center ≈ viewport mid.
           const range = vh * 0.42;
 
+          let maxFocus = 0;
           leanEls().forEach((el) => {
             const r = el.getBoundingClientRect();
             if (r.bottom < -80 || r.top > vh + 80) {
@@ -109,7 +111,13 @@ const overallGpa = mean(
             const dist = Math.abs(elMid - viewMid);
             const focus = smoothstep(1 - dist / range);
             el.style.setProperty("--lean-focus", focus.toFixed(4));
+            if (focus > maxFocus) maxFocus = focus;
           });
+          // Shared token so Front Page padding can breathe with the same curve.
+          document.documentElement.style.setProperty(
+            "--home-lean-focus",
+            maxFocus.toFixed(4)
+          );
         };
 
         const onScroll = () => {

@@ -8848,11 +8848,20 @@ html.clad-app .home-spotlight__arrow {
     0 1px 0 color-mix(in srgb, #fff 28%, transparent),
     0 8px 18px color-mix(in srgb, var(--shadow) 18%, transparent);
 }
-/* Homepage placement: tight between Front Page strip and calendar.
-   --lean-focus (0…1) is set by scroll: quiet off-center, fuller when centered. */
+/* Homepage placement: between Front Page and calendar.
+   --lean-focus (0…1) from scroll: quiet off-center, fuller when centered.
+   Margins + padding also breathe with focus so Front Page and Calendar
+   draw together when the lean strip is a passing glance. */
 .home-lean {
   --lean-focus: 0;
-  margin: 0.85rem 0 0;
+  /* Gap above (→ Front Page) and below (→ Calendar) expands with focus */
+  margin-top: calc(0.2rem + 0.7rem * var(--lean-focus));
+  margin-bottom: calc(0.12rem + 0.85rem * var(--lean-focus));
+  /* Inner pad tightens when quiet so the band itself takes less vertical room */
+  padding-top: calc(0.55rem + 0.3rem * var(--lean-focus));
+  padding-bottom: calc(0.5rem + 0.3rem * var(--lean-focus));
+  padding-left: calc(0.75rem + 0.25rem * var(--lean-focus));
+  padding-right: calc(0.75rem + 0.25rem * var(--lean-focus));
   /* Compact “passing glance” → full presence near viewport center */
   transform: scale(calc(0.935 + 0.065 * var(--lean-focus)));
   transform-origin: center center;
@@ -8869,14 +8878,30 @@ html.clad-app .home-spotlight__arrow {
     0 1px 0 color-mix(in srgb, #fff calc(18% + 12% * var(--lean-focus)), transparent),
     0 calc(4px + 8px * var(--lean-focus)) calc(10px + 12px * var(--lean-focus))
       color-mix(in srgb, var(--shadow) calc(10% + 14% * var(--lean-focus)), transparent);
-  will-change: transform, opacity;
+  will-change: transform, opacity, margin, padding;
+}
+/* Lean owns the gap to the calendar when present */
+.home-lean + .home-cal {
+  margin-top: 0;
+}
+/* Front Page strip: slightly less bottom pad when lean is a quiet glance */
+.hero-strip-wrap:has(+ .home-lean) .hero-strip {
+  padding-bottom: calc(0.95rem + 0.7rem * var(--home-lean-focus, 0));
+  transition: none;
 }
 .home-lean .coverage-lean__title {
   opacity: calc(0.75 + 0.25 * var(--lean-focus));
+  margin-bottom: calc(0.35rem + 0.2rem * var(--lean-focus));
 }
 .home-lean .coverage-lean__note,
 .home-lean .coverage-lean__legend {
   opacity: calc(0.72 + 0.28 * var(--lean-focus));
+}
+.home-lean .coverage-lean__note {
+  margin-top: calc(0.35rem + 0.2rem * var(--lean-focus));
+}
+.home-lean .coverage-lean__legend {
+  margin-top: calc(0.3rem + 0.15rem * var(--lean-focus));
 }
 @media (prefers-reduced-motion: reduce) {
   .home-lean {
@@ -8884,6 +8909,12 @@ html.clad-app .home-spotlight__arrow {
     transform: none;
     opacity: 1;
     will-change: auto;
+    margin-top: 0.9rem;
+    margin-bottom: 0.97rem;
+    padding: 0.85rem 1rem 0.8rem;
+  }
+  .hero-strip-wrap:has(+ .home-lean) .hero-strip {
+    padding-bottom: 1.65rem;
   }
 }
 .trends-lean {
