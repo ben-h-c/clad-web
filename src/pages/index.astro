@@ -15,6 +15,7 @@ import HomeSpotlightCarousel from "~/components/HomeSpotlightCarousel.astro";
 import HomeCalendar from "~/components/HomeCalendar.astro";
 import TodayInHistory from "~/components/TodayInHistory.astro";
 import HumanSpotlight from "~/components/HumanSpotlight.astro";
+import QuipTicker from "~/components/QuipTicker.astro";
 import {
   getFrontpage,
   getBreaking,
@@ -24,6 +25,7 @@ import {
   getDiscover,
   getGoodNews,
   getCalendarEventsStore,
+  getQuips,
 } from "~/lib/agents";
 import { buildGoodNewsSections } from "~/lib/goodnews";
 import { aggregateTopics, gradeToGpa } from "~/lib/topics";
@@ -187,6 +189,8 @@ const goodNewsSections =
   goodNewsCurated.length > 0 ? goodNewsCurated : buildGoodNewsSections(all);
 const discoverPosts = postsFromSections(discoverSections, byId, 12);
 const goodNewsPosts = postsFromSections(goodNewsSections, byId, 12);
+// Decorative marquee — loads after the main story rows so crawlers hit real content first.
+const quips = await getQuips(env.AGENTS);
 ---
 <BaseLayout
   title="CladFacts — Grading Content & Exposing Bias"
@@ -312,6 +316,9 @@ const goodNewsPosts = postsFromSections(goodNewsSections, byId, 12);
         moreHref="/good-news/"
         moreLabel="All good news →"
       />
+
+      {/* Scrolling for-fun quip band (decorative; aria-hidden). */}
+      <QuipTicker data={quips} />
 
       <section class="more-clad" aria-labelledby="more-clad-title">
         <div class="feed__head">
