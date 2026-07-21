@@ -2,14 +2,13 @@
 /**
  * Homepage scroll driver for the coverage lean strip.
  *
- * Directional latch (not a symmetric center peak):
- *  · Scroll down — expands as the strip approaches, then stays fully open
- *    while it rides up and off the top of the screen.
- *  · Scroll up — same the other way: expands on approach, stays open until
- *    it fully leaves the bottom of the screen.
+ * Directional latch without layout collapse jumps:
+ *  · Scroll down — opens on approach, stays open through the top edge and
+ *    while off-screen above (never collapses content above the viewport).
+ *  · Scroll up — opens on approach, stays open until fully below; collapse
+ *    only happens below the fold so the screen doesn’t jump.
  *
- * One passive scroll listener + rAF. Values are quantized; @property CSS
- * transitions interpolate between steps.
+ * Visual open/close uses opacity + transform only (no margin/max-height thrash).
  */
 ---
 <script>
@@ -19,21 +18,20 @@
   let lastText = -1;
   let leanEl: HTMLElement | null = null;
 
-  /** Last scrollY used to infer direction. */
   let lastScrollY = typeof window !== "undefined" ? window.scrollY || 0 : 0;
   /** 1 = down the page, -1 = up the page. */
   let scrollDir = 1;
   /**
-   * Once the strip has opened enough while scrolling a direction, stay fully
-   * open until it fully exits the far edge of that direction.
-   *  0 = not latched
-   *  1 = latched while scrolling down (hold until fully above viewport)
-   * -1 = latched while scrolling up (hold until fully below viewport)
+   *  0 = free (follow approach curve)
+   *  1 = hold open after scrolling down (even when fully above)
+   * -1 = hold open after scrolling up (until fully below, then release)
    */
   let latch = 0;
+  /** Last applied focus — never drop it while the strip is fully above. */
+  let appliedFocus = 0;
 
-  const STEPS = 20;
-  const LATCH_AT = 0.55; // raw focus needed to lock open
+  const STEPS = 16;
+  const LATCH_AT = 0.5;
   const quantize = (v: number) => Math.round(Math.max(0, Math.min(1, v)) * STEPS) / STEPS;
 
   const smoothstep = (t: number) => {
@@ -64,14 +62,12 @@
 
     const y = window.scrollY || 0;
     const dy = y - lastScrollY;
-    if (Math.abs(dy) > 0.5) {
-      scrollDir = dy > 0 ? 1 : -1;
-    }
+    if (Math.abs(dy) > 0.5) scrollDir = dy > 0 ? 1 : -1;
     lastScrollY = y;
 
     const vh = window.innerHeight || 1;
     const viewMid = vh * 0.5;
-    const range = vh * 0.45;
+    const range = vh * 0.5;
 
     let raw = 0;
     let fullyAbove = true;
@@ -79,39 +75,54 @@
 
     if (leanEl) {
       const r = leanEl.getBoundingClientRect();
-      // Small slack so sub-pixel edges don't flicker the latch.
-      fullyAbove = r.bottom < 4;
-      fullyBelow = r.top > vh - 4;
+      fullyAbove = r.bottom < 2;
+      fullyBelow = r.top > vh - 2;
       if (!fullyAbove && !fullyBelow) {
         const elMid = r.top + r.height * 0.5;
         raw = smoothstep(1 - Math.abs(elMid - viewMid) / range);
       }
-    } else {
-      fullyAbove = fullyBelow = true;
-      raw = 0;
     }
 
-    // Clear latch only after the strip fully leaves in the latched direction.
-    if (latch === 1 && fullyAbove) latch = 0;
-    if (latch === -1 && fullyBelow) latch = 0;
-
-    // Arm latch once the strip has opened enough in the current scroll direction.
+    // Arm latch when the strip has opened enough.
     if (!latch && raw >= LATCH_AT) {
       latch = scrollDir >= 0 ? 1 : -1;
     }
 
-    // While latched, stay fully expanded regardless of center distance.
-    // Otherwise use the live approach curve (opening as you scroll onto it).
+    // Release rules that avoid shrinking content above the viewport:
+    //  · down-latch: release only after scrolling back up past the strip
+    //    (strip ends fully below us) — height change is below the fold.
+    //  · up-latch: release when scrolling down past the strip off the top,
+    //    but KEEP applied focus frozen while fullyAbove so height doesn’t
+    //    collapse above the fold mid-scroll.
+    if (latch === 1 && scrollDir < 0 && fullyBelow) {
+      latch = 0;
+    }
+    if (latch === -1 && scrollDir > 0 && fullyAbove) {
+      latch = 0;
+      // Don’t force focus to 0 yet while still fullyAbove — freeze below.
+    }
+
     let leanFocus = 0;
     if (latch !== 0) {
       leanFocus = 1;
     } else if (!fullyAbove && !fullyBelow) {
       leanFocus = raw;
+    } else if (fullyAbove) {
+      // Off the top: freeze last applied value (never animate closed above fold).
+      leanFocus = appliedFocus > 0.05 ? appliedFocus : 0;
+    } else {
+      // Fully below: safe to close.
+      leanFocus = 0;
     }
 
-    // Labels follow focus, with a slight lag on the way open only when unlatched.
-    const leanText =
-      latch !== 0 ? 1 : smoothstep((leanFocus - 0.12) / 0.72);
+    // Hard freeze: never decrease focus while the strip is fully above.
+    if (fullyAbove && leanFocus < appliedFocus) {
+      leanFocus = appliedFocus;
+    }
+
+    appliedFocus = leanFocus;
+
+    const leanText = leanFocus >= 0.92 ? 1 : smoothstep((leanFocus - 0.08) / 0.75);
 
     lastLean = setRoot("--home-lean-focus", leanFocus, lastLean);
     lastText = setRoot("--home-lean-text", leanText, lastText);
@@ -127,6 +138,7 @@
     leanEl = document.querySelector<HTMLElement>("[data-lean-scroll]");
     lastScrollY = window.scrollY || 0;
     latch = 0;
+    appliedFocus = 0;
     if (!bound) {
       bound = true;
       window.addEventListener("scroll", onScroll, { passive: true, capture: false });
@@ -135,6 +147,7 @@
         leanEl = document.querySelector<HTMLElement>("[data-lean-scroll]");
         lastScrollY = window.scrollY || 0;
         latch = 0;
+        appliedFocus = 0;
         lastLean = lastText = -1;
         requestAnimationFrame(update);
       });

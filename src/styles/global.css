@@ -2049,7 +2049,8 @@ html.masthead-menu-open .masthead__menu-list {
   margin-top: 1.5rem;
 }
 
-/* Scroll-breath tokens for the coverage lean strip only. */
+/* Scroll-breath tokens for the coverage lean strip only.
+   Interpolated by the browser between quantized JS updates. */
 @property --home-lean-focus {
   syntax: "<number>";
   inherits: true;
@@ -2062,8 +2063,8 @@ html.masthead-menu-open .masthead__menu-list {
 }
 html {
   transition:
-    --home-lean-focus 90ms linear,
-    --home-lean-text 110ms linear;
+    --home-lean-focus 120ms linear,
+    --home-lean-text 140ms linear;
 }
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -8870,82 +8871,60 @@ html.clad-app .home-spotlight__arrow {
     0 1px 0 color-mix(in srgb, #fff 28%, transparent),
     0 8px 18px color-mix(in srgb, var(--shadow) 18%, transparent);
 }
-/* Homepage lean: tokens from :root (--home-lean-focus / --home-lean-text).
-   Quiet glance = bar only; labels fade via opacity + grid 0fr→1fr (no max-height thrash). */
+/* Homepage lean — FIXED layout (no margin/padding/max-height tied to scroll).
+   That was causing the page jump past the calendar: collapsing height above
+   the viewport shifts scroll. Open/close is compositor-only (opacity + scale).
+   Quiet glance: labels faded out over a reserved full card height. */
 .home-lean {
-  /* Gap above (→ Front Page) and below (→ Calendar) */
-  margin-top: calc(0.2rem + 0.7rem * var(--home-lean-focus, 0));
-  margin-bottom: calc(0.12rem + 0.85rem * var(--home-lean-focus, 0));
-  padding: calc(0.4rem + 0.45rem * var(--home-lean-text, 0))
-    calc(0.65rem + 0.35rem * var(--home-lean-focus, 0));
-  /* Compositor-friendly presence */
-  transform: scale(calc(0.96 + 0.04 * var(--home-lean-focus, 0)));
+  margin: 0.75rem 0 0.15rem;
+  padding: 0.85rem 1rem 0.8rem;
+  transform: scale(calc(0.97 + 0.03 * var(--home-lean-focus, 0)));
   transform-origin: center center;
-  opacity: calc(0.88 + 0.12 * var(--home-lean-focus, 0));
+  opacity: calc(0.9 + 0.1 * var(--home-lean-focus, 0));
   border-color: color-mix(
     in srgb,
-    var(--accent, #5b9a8b) calc(22% + 24% * var(--home-lean-focus, 0)),
+    var(--accent, #5b9a8b) calc(28% + 18% * var(--home-lean-focus, 0)),
     var(--rule)
   );
-  /* Static shadow — animating multi-layer shadows every frame is expensive */
   box-shadow:
     0 0 0 1px color-mix(in srgb, var(--accent, #5b9a8b) 12%, transparent),
     0 6px 16px color-mix(in srgb, var(--shadow) 16%, transparent);
   backface-visibility: hidden;
 }
 .home-lean + .home-cal {
-  margin-top: 0;
+  margin-top: 0.65rem;
 }
-.hero-strip-wrap:has(+ .home-lean) .hero-strip {
-  padding-bottom: calc(0.95rem + 0.7rem * var(--home-lean-focus, 0));
-}
+/* Labels: opacity only — always reserve space so document height is stable */
 .home-lean .split-bar {
   margin: 0;
   border-radius: 6px;
   overflow: hidden;
 }
-/* Labels collapse via max-height + opacity (interpolated with --home-lean-text) */
 .home-lean .coverage-lean__title,
 .home-lean .coverage-lean__legend,
 .home-lean .coverage-lean__note {
-  overflow: hidden;
   opacity: var(--home-lean-text, 0);
-  pointer-events: none;
+  /* Keep layout; fade content. Avoids reflow/jump when “collapsing”. */
+  transition: none;
 }
 .home-lean .coverage-lean__title {
-  max-height: calc(var(--home-lean-text, 0) * 1.4rem);
-  margin: 0 0 calc(var(--home-lean-text, 0) * 0.5rem);
+  margin: 0 0 0.55rem;
 }
 .home-lean .coverage-lean__legend {
-  max-height: calc(var(--home-lean-text, 0) * 2.4rem);
-  margin: calc(var(--home-lean-text, 0) * 0.4rem) 0 0;
+  margin-top: 0.45rem;
 }
 .home-lean .coverage-lean__note {
-  max-height: calc(var(--home-lean-text, 0) * 2rem);
-  margin: calc(var(--home-lean-text, 0) * 0.45rem) 0 0;
-  pointer-events: auto;
+  margin-top: 0.55rem;
 }
 @media (prefers-reduced-motion: reduce) {
   .home-lean {
     transform: none;
     opacity: 1;
-    margin-top: 0.9rem;
-    margin-bottom: 0.97rem;
-    padding: 0.85rem 1rem 0.8rem;
   }
   .home-lean .coverage-lean__title,
   .home-lean .coverage-lean__legend,
   .home-lean .coverage-lean__note {
-    max-height: none;
     opacity: 1;
-    overflow: visible;
-    pointer-events: auto;
-  }
-  .home-lean .coverage-lean__title { margin-bottom: 0.55rem; }
-  .home-lean .coverage-lean__legend { margin-top: 0.45rem; }
-  .home-lean .coverage-lean__note { margin-top: 0.55rem; }
-  .hero-strip-wrap:has(+ .home-lean) .hero-strip {
-    padding-bottom: 1.65rem;
   }
 }
 .trends-lean {
