@@ -2049,13 +2049,7 @@ html.masthead-menu-open .masthead__menu-list {
   margin-top: 1.5rem;
 }
 
-/* Scroll-breath tokens — registered so the browser interpolates between
-   quantized JS updates (avoids writing layout styles every frame). */
-@property --break-hero-focus {
-  syntax: "<number>";
-  inherits: true;
-  initial-value: 0;
-}
+/* Scroll-breath tokens for the coverage lean strip only. */
 @property --home-lean-focus {
   syntax: "<number>";
   inherits: true;
@@ -2067,43 +2061,13 @@ html.masthead-menu-open .masthead__menu-list {
   initial-value: 0;
 }
 html {
-  /* Short ease so quantized steps feel continuous without fighting scroll */
   transition:
-    --break-hero-focus 90ms linear,
     --home-lean-focus 90ms linear,
     --home-lean-text 110ms linear;
-}
-
-/* Breaking → Front Page: gap breathes with --break-hero-focus (0…1). */
-.hero--breaking {
-  margin-top: 1.5rem;
-  margin-bottom: 0;
-}
-.hero--breaking .hero-strip {
-  padding-bottom: calc(0.7rem + 0.95rem * var(--break-hero-focus, 0));
-}
-.hero--breaking + .hero,
-.hero--breaking + [data-front-page] {
-  margin-top: calc(0.3rem + 1.2rem * var(--break-hero-focus, 0));
-}
-.hero--breaking + .hero .hero__head,
-.hero--breaking + [data-front-page] .hero__head {
-  margin-bottom: calc(0.35rem + 0.25rem * var(--break-hero-focus, 0));
 }
 @media (prefers-reduced-motion: reduce) {
   html {
     transition: none;
-  }
-  .hero--breaking .hero-strip {
-    padding-bottom: 1.65rem;
-  }
-  .hero--breaking + .hero,
-  .hero--breaking + [data-front-page] {
-    margin-top: 1.5rem;
-  }
-  .hero--breaking + .hero .hero__head,
-  .hero--breaking + [data-front-page] .hero__head {
-    margin-bottom: 0.5rem;
   }
 }
 

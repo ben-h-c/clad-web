@@ -1,12 +1,10 @@
 ---
 /**
- * Single homepage scroll driver for "breath" effects:
- *  - coverage lean strip focus / label reveal
- *  - Breaking News ↔ Front Page gap
+ * Homepage scroll driver for the coverage lean strip only:
+ * focus / label reveal as the bar approaches the viewport middle.
  *
  * One passive scroll listener + one rAF. Values are quantized so we rarely
  * write styles; @property + short CSS transitions interpolate the rest.
- * Avoids dual scroll handlers and per-frame layout thrash.
  */
 ---
 <script>
@@ -14,23 +12,14 @@
   let ticking = false;
   let lastLean = -1;
   let lastText = -1;
-  let lastBreak = -1;
   let leanEl: HTMLElement | null = null;
-  let breakingEl: HTMLElement | null = null;
-  let frontEl: HTMLElement | null = null;
 
-  const STEPS = 20; // 0.05 resolution — enough for smooth CSS interpolation
+  const STEPS = 20; // 0.05 resolution
   const quantize = (v: number) => Math.round(Math.max(0, Math.min(1, v)) * STEPS) / STEPS;
 
   const smoothstep = (t: number) => {
     const x = Math.max(0, Math.min(1, t));
     return x * x * (3 - 2 * x);
-  };
-
-  const cacheEls = () => {
-    leanEl = document.querySelector<HTMLElement>("[data-lean-scroll]");
-    breakingEl = document.querySelector<HTMLElement>(".hero--breaking");
-    frontEl = document.querySelector<HTMLElement>("[data-front-page]");
   };
 
   const setRoot = (name: string, value: number, last: number): number => {
@@ -49,19 +38,15 @@
     if (reduce) {
       root.style.setProperty("--home-lean-focus", "1");
       root.style.setProperty("--home-lean-text", "1");
-      root.style.setProperty("--break-hero-focus", "1");
       return;
     }
 
     if (!leanEl) leanEl = document.querySelector<HTMLElement>("[data-lean-scroll]");
-    if (!breakingEl) breakingEl = document.querySelector<HTMLElement>(".hero--breaking");
-    if (!frontEl) frontEl = document.querySelector<HTMLElement>("[data-front-page]");
 
     const vh = window.innerHeight || 1;
     const viewMid = vh * 0.5;
     const range = vh * 0.45;
 
-    // ── Coverage lean ──────────────────────────────────────────────
     let leanFocus = 0;
     if (leanEl) {
       const r = leanEl.getBoundingClientRect();
@@ -73,18 +58,6 @@
     const leanText = smoothstep((leanFocus - 0.12) / 0.72);
     lastLean = setRoot("--home-lean-focus", leanFocus, lastLean);
     lastText = setRoot("--home-lean-text", leanText, lastText);
-
-    // ── Breaking ↔ Front Page seam ─────────────────────────────────
-    let breakFocus = 0;
-    if (breakingEl && frontEl) {
-      const br = breakingEl.getBoundingClientRect();
-      const fr = frontEl.getBoundingClientRect();
-      if (br.bottom >= -80 && fr.top <= vh + 80) {
-        const seam = (br.bottom + fr.top) * 0.5;
-        breakFocus = smoothstep(1 - Math.abs(seam - viewMid) / range);
-      }
-    }
-    lastBreak = setRoot("--break-hero-focus", breakFocus, lastBreak);
   };
 
   const onScroll = () => {
@@ -94,18 +67,18 @@
   };
 
   const boot = () => {
-    cacheEls();
+    leanEl = document.querySelector<HTMLElement>("[data-lean-scroll]");
     if (!bound) {
       bound = true;
       window.addEventListener("scroll", onScroll, { passive: true, capture: false });
       window.addEventListener("resize", onScroll, { passive: true });
       document.addEventListener("astro:page-load", () => {
-        cacheEls();
-        lastLean = lastText = lastBreak = -1; // force refresh after navigation
+        leanEl = document.querySelector<HTMLElement>("[data-lean-scroll]");
+        lastLean = lastText = -1;
         requestAnimationFrame(update);
       });
     }
-    lastLean = lastText = lastBreak = -1;
+    lastLean = lastText = -1;
     update();
   };
 

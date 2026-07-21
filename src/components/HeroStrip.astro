@@ -24,10 +24,7 @@ const {
 } = Astro.props;
 ---
 {posts.length > 0 && (
-  <section
-    class={`hero${variant ? ` hero--${variant}` : ""}`}
-    data-front-page={title === "Front Page" ? "" : undefined}
-  >
+  <section class={`hero${variant ? ` hero--${variant}` : ""}`}>
     <div class="hero__head">
       <h2 class="small-caps">{title}</h2>
       {moreHref && <a class="category__more" href={moreHref}>{moreLabel}</a>}
