@@ -6,7 +6,7 @@ import HeroStrip from "~/components/HeroStrip.astro";
 import BreakingStrip from "~/components/BreakingStrip.astro";
 import TopicRow from "~/components/TopicRow.astro";
 import GradeBoard from "~/components/GradeBoard.astro";
-import HomeCharts from "~/components/HomeCharts.astro";
+import CoverageLeanBar from "~/components/CoverageLeanBar.astro";
 import HomeElectionMap from "~/components/HomeElectionMap.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
@@ -255,6 +255,9 @@ const quips = await getQuips(env.AGENTS);
         moreLabel="Latest →"
       />
 
+      {/* Lean snapshot between Front Page and the calendar — box only, no section chrome. */}
+      {!locked && <CoverageLeanBar posts={all} class="home-lean" />}
+
       {/* News calendar — agent feed + elections + linked past Clad reports. */}
       <HomeCalendar
         races={calendarRaces}
@@ -292,8 +295,6 @@ const quips = await getQuips(env.AGENTS);
         <PaywallPanel signedIn={access.signedIn} returnTo="/" />
       ) : (
         <>
-          {/* iOS app: By the Numbers (coverage lean). Topics list already covers issues. */}
-          <HomeCharts posts={all} topics={topics} sentiments={sentiments} />
           {topGraded.length > 0 && (
             <GradeBoard
               top={topGraded}
