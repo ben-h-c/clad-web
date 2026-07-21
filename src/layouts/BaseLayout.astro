@@ -52,8 +52,11 @@ const shareDescription = (ogDescription ?? description).replace(/\s+/g, " ").tri
 // (X/Twitter, etc.) always show a large image.
 // Signed-in account theme (light/dark) — applied before paint to avoid flash.
 // Guests use localStorage (masthead toggle); if unset, dark is the default.
+// Admin desk is always dark (editor basic-auth + console), independent of
+// the public reading preference.
+const isAdminPath = path === "/admin" || path.startsWith("/admin/");
 let accountTheme: ThemePref | null = null;
-if (!path.startsWith("/admin")) {
+if (!isAdminPath) {
   try {
     const u = await getSessionUser(Astro.request.headers);
     if (u) {
@@ -65,7 +68,7 @@ if (!path.startsWith("/admin")) {
   }
 }
 // SSR default dark so first paint matches FOUC script for guests without localStorage.
-const htmlTheme = accountTheme ?? "dark";
+const htmlTheme: ThemePref = isAdminPath ? "dark" : accountTheme ?? "dark";
 const themeColor = htmlTheme === "dark" ? "#1C1C1E" : "#F7F5F0";
 
 // Share image: match the viewer's current theme so scorecards look right when
@@ -122,6 +125,7 @@ const billingOn = showBillingPromo();
   lang="en"
   data-theme={htmlTheme}
   data-account-theme={accountTheme ? "1" : "0"}
+  data-force-theme={isAdminPath ? "dark" : undefined}
   data-billing={billingOn ? "1" : "0"}
 >
   <head>
@@ -152,8 +156,9 @@ const billingOn = showBillingPromo();
     <script is:inline>
       (function () {
         var root = document.documentElement;
-        function applyTheme(next) {
+        function applyTheme(next, opts) {
           var dark = next === "dark";
+          var skipStorage = opts && opts.skipStorage;
           if (dark) {
             root.setAttribute("data-theme", "dark");
             root.classList.add("theme-dark");
@@ -161,7 +166,9 @@ const billingOn = showBillingPromo();
             root.setAttribute("data-theme", "light");
             root.classList.remove("theme-dark");
           }
-          try { localStorage.setItem("clad_theme", dark ? "dark" : "light"); } catch (e) {}
+          if (!skipStorage) {
+            try { localStorage.setItem("clad_theme", dark ? "dark" : "light"); } catch (e) {}
+          }
           var tc = document.querySelector('meta[name="theme-color"]');
           if (tc) tc.setAttribute("content", dark ? "#1C1C1E" : "#F7F5F0");
           root.style.colorScheme = dark ? "dark" : "light";
@@ -187,18 +194,24 @@ const billingOn = showBillingPromo();
         }
         window.__cladApplyTheme = applyTheme;
         try {
-          var fromAccount = root.getAttribute("data-account-theme") === "1";
-          var t = root.getAttribute("data-theme");
-          if (fromAccount && (t === "dark" || t === "light")) {
-            applyTheme(t);
+          // Admin desk always dark — do not follow public light preference.
+          var forced = root.getAttribute("data-force-theme");
+          if (forced === "dark" || forced === "light") {
+            applyTheme(forced, { skipStorage: true });
           } else {
-            t = localStorage.getItem("clad_theme");
-            // Explicit toggle/account choice wins; otherwise default to dark.
-            if (t === "dark" || t === "light") applyTheme(t);
-            else applyTheme("dark");
+            var fromAccount = root.getAttribute("data-account-theme") === "1";
+            var t = root.getAttribute("data-theme");
+            if (fromAccount && (t === "dark" || t === "light")) {
+              applyTheme(t);
+            } else {
+              t = localStorage.getItem("clad_theme");
+              // Explicit toggle/account choice wins; otherwise default to dark.
+              if (t === "dark" || t === "light") applyTheme(t);
+              else applyTheme("dark");
+            }
           }
         } catch (e) {
-          applyTheme("dark");
+          applyTheme("dark", { skipStorage: true });
         }
         // Capture phase so masthead title / menu listeners cannot steal the click.
         document.addEventListener(
@@ -206,6 +219,13 @@ const billingOn = showBillingPromo();
           function (e) {
             var btn = e.target && e.target.closest && e.target.closest("#theme-toggle");
             if (!btn) return;
+            // Admin is locked to dark — ignore the public theme toggle.
+            if (root.getAttribute("data-force-theme") === "dark") {
+              e.preventDefault();
+              e.stopPropagation();
+              applyTheme("dark", { skipStorage: true });
+              return;
+            }
             e.preventDefault();
             e.stopPropagation();
             var cur = root.getAttribute("data-theme") === "dark" || root.classList.contains("theme-dark");
