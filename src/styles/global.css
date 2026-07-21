@@ -2060,15 +2060,57 @@ html.masthead-menu-open .masthead__menu-list {
   color: var(--muted-ink);
 }
 
-/* Breaking News strip — same format, red accent so it reads as urgent. */
+/* Breaking News strip — urgent label with a soft light-up pulse. */
 .hero--breaking .hero__head h2 {
   color: var(--red-ink);
   letter-spacing: 0.12em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  animation: breaking-label-pulse 2.2s ease-in-out infinite;
 }
 .hero--breaking .hero__head h2::before {
-  content: "● ";
-  font-size: 0.7em;
-  vertical-align: middle;
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  border-radius: 50%;
+  background: var(--red-ink);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--red-ink) 55%, transparent);
+  animation: breaking-dot-pulse 1.6s ease-in-out infinite;
+  flex: none;
+}
+@keyframes breaking-dot-pulse {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--red-ink) 50%, transparent);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+    box-shadow:
+      0 0 0 6px color-mix(in srgb, var(--red-ink) 0%, transparent),
+      0 0 12px 2px color-mix(in srgb, var(--red-ink) 45%, transparent);
+  }
+}
+@keyframes breaking-label-pulse {
+  0%,
+  100% {
+    opacity: 0.88;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.12);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero--breaking .hero__head h2,
+  .hero--breaking .hero__head h2::before {
+    animation: none;
+  }
 }
 
 .hero-strip-wrap {
