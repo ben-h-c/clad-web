@@ -8848,9 +8848,43 @@ html.clad-app .home-spotlight__arrow {
     0 1px 0 color-mix(in srgb, #fff 28%, transparent),
     0 8px 18px color-mix(in srgb, var(--shadow) 18%, transparent);
 }
-/* Homepage placement: tight between Front Page strip and calendar */
+/* Homepage placement: tight between Front Page strip and calendar.
+   --lean-focus (0…1) is set by scroll: quiet off-center, fuller when centered. */
 .home-lean {
+  --lean-focus: 0;
   margin: 0.85rem 0 0;
+  /* Compact “passing glance” → full presence near viewport center */
+  transform: scale(calc(0.935 + 0.065 * var(--lean-focus)));
+  transform-origin: center center;
+  opacity: calc(0.78 + 0.22 * var(--lean-focus));
+  /* Soften chrome when peripheral; deepen border + lift when focused */
+  border-color: color-mix(
+    in srgb,
+    var(--accent, #5b9a8b) calc(22% + 24% * var(--lean-focus)),
+    var(--rule)
+  );
+  box-shadow:
+    0 0 0 calc(1px + 0.5px * var(--lean-focus))
+      color-mix(in srgb, var(--accent, #5b9a8b) calc(6% + 14% * var(--lean-focus)), transparent),
+    0 1px 0 color-mix(in srgb, #fff calc(18% + 12% * var(--lean-focus)), transparent),
+    0 calc(4px + 8px * var(--lean-focus)) calc(10px + 12px * var(--lean-focus))
+      color-mix(in srgb, var(--shadow) calc(10% + 14% * var(--lean-focus)), transparent);
+  will-change: transform, opacity;
+}
+.home-lean .coverage-lean__title {
+  opacity: calc(0.75 + 0.25 * var(--lean-focus));
+}
+.home-lean .coverage-lean__note,
+.home-lean .coverage-lean__legend {
+  opacity: calc(0.72 + 0.28 * var(--lean-focus));
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-lean {
+    --lean-focus: 1 !important;
+    transform: none;
+    opacity: 1;
+    will-change: auto;
+  }
 }
 .trends-lean {
   margin: 0 0 1.25rem;
@@ -8870,6 +8904,19 @@ html.theme-dark .coverage-lean {
   box-shadow:
     0 0 0 1px color-mix(in srgb, var(--accent, #6fb5a4) 14%, transparent),
     0 8px 18px color-mix(in srgb, var(--shadow) 22%, transparent);
+}
+:root[data-theme="dark"] .home-lean,
+html.theme-dark .home-lean {
+  border-color: color-mix(
+    in srgb,
+    var(--accent, #6fb5a4) calc(20% + 22% * var(--lean-focus)),
+    var(--rule)
+  );
+  box-shadow:
+    0 0 0 calc(1px + 0.5px * var(--lean-focus))
+      color-mix(in srgb, var(--accent, #6fb5a4) calc(8% + 12% * var(--lean-focus)), transparent),
+    0 calc(4px + 8px * var(--lean-focus)) calc(12px + 10px * var(--lean-focus))
+      color-mix(in srgb, var(--shadow) calc(14% + 12% * var(--lean-focus)), transparent);
 }
 .coverage-lean__title {
   margin: 0 0 0.55rem;
