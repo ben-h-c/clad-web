@@ -35,10 +35,10 @@ import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 import { homePromosForPage } from "~/lib/homePromos";
 import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates } from "~/lib/elections";
 import {
-  eventsFromPosts,
   normalizeCalendarEvent,
   type CalendarEvent,
 } from "~/lib/calendarEvents";
+import { buildDaySummaries } from "~/lib/calendarDays";
 
 // SSR so the hero reflects the curator's live KV-stored selection without a
 // rebuild. Per-user (grades hidden for restricted readers), so never shared-cache.
@@ -156,9 +156,12 @@ const calStore = await getCalendarEventsStore(env.AGENTS);
 const calendarLive: CalendarEvent[] = (calStore?.events ?? [])
   .map((e) => normalizeCalendarEvent(e, "agent"))
   .filter((e): e is CalendarEvent => e != null);
-// Past density: more Clad reports on the daybook so recent days stay busy.
-const calendarFromPosts = eventsFromPosts(all, { max: 72, maxPerDay: 3, daysBack: 60 });
-const calendarExtra: CalendarEvent[] = calendarFromPosts;
+// The graded record: one aggregate per publish day across the WHOLE archive.
+// This replaces the old eventsFromPosts extras (3/day, 72 total, 60 days) —
+// an aggregate costs a few bytes per day instead of per report, so the
+// calendar can finally show every day it has rather than a 3% sample. Grade
+// and lean are nulled here for restricted readers.
+const calendarDays = buildDaySummaries(all, { locked });
 const todayInHistory = await getTodayInHistory(env.AGENTS);
 const humanSpotlight = await getHumanSpotlight(env.AGENTS);
 
@@ -253,7 +256,14 @@ const quips = await getQuips(env.AGENTS);
       />
 
       {/* News calendar — agent feed + elections + linked past Clad reports. */}
-      <HomeCalendar races={calendarRaces} live={calendarLive} extra={calendarExtra} />
+      <HomeCalendar
+        races={calendarRaces}
+        live={calendarLive}
+        days={calendarDays.days}
+        first={calendarDays.first}
+        last={calendarDays.last}
+        locked={locked}
+      />
 
       <section class="feed">
         <div class="feed__head">

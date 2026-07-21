@@ -32,6 +32,7 @@ export const OG_VERSIONS = {
   story: "6", // v6: light/dark theme variants
   quiz: "5",
   week: "4",
+  day: "1",
   learn: "5",
   politician: "6",
   bracket: "5",
