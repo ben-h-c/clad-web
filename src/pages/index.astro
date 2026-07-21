@@ -7,6 +7,7 @@ import BreakingStrip from "~/components/BreakingStrip.astro";
 import TopicRow from "~/components/TopicRow.astro";
 import GradeBoard from "~/components/GradeBoard.astro";
 import CoverageLeanBar from "~/components/CoverageLeanBar.astro";
+import HomeScrollBreath from "~/components/HomeScrollBreath.astro";
 import HomeElectionMap from "~/components/HomeElectionMap.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
@@ -244,6 +245,9 @@ const quips = await getQuips(env.AGENTS);
           </script>
         </>
       )}
+
+      {/* One scroll driver for lean focus + Breaking↔Front Page gap breath. */}
+      <HomeScrollBreath />
 
       <BreakingStrip items={breaking} locked={locked} />
 

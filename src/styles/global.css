@@ -2049,8 +2049,32 @@ html.masthead-menu-open .masthead__menu-list {
   margin-top: 1.5rem;
 }
 
-/* Breaking → Front Page: gap breathes with --break-hero-focus (0…1).
-   Peak when the seam sits near the vertical center of the viewport. */
+/* Scroll-breath tokens — registered so the browser interpolates between
+   quantized JS updates (avoids writing layout styles every frame). */
+@property --break-hero-focus {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+@property --home-lean-focus {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+@property --home-lean-text {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+html {
+  /* Short ease so quantized steps feel continuous without fighting scroll */
+  transition:
+    --break-hero-focus 90ms linear,
+    --home-lean-focus 90ms linear,
+    --home-lean-text 110ms linear;
+}
+
+/* Breaking → Front Page: gap breathes with --break-hero-focus (0…1). */
 .hero--breaking {
   margin-top: 1.5rem;
   margin-bottom: 0;
@@ -2067,6 +2091,9 @@ html.masthead-menu-open .masthead__menu-list {
   margin-bottom: calc(0.35rem + 0.25rem * var(--break-hero-focus, 0));
 }
 @media (prefers-reduced-motion: reduce) {
+  html {
+    transition: none;
+  }
   .hero--breaking .hero-strip {
     padding-bottom: 1.65rem;
   }
@@ -8879,86 +8906,65 @@ html.clad-app .home-spotlight__arrow {
     0 1px 0 color-mix(in srgb, #fff 28%, transparent),
     0 8px 18px color-mix(in srgb, var(--shadow) 18%, transparent);
 }
-/* Homepage placement: between Front Page and calendar.
-   Quiet glance = the 3-color bar alone. --lean-focus drives chrome/spacing;
-   --lean-text (lags slightly) reveals title above + legend/note below. */
+/* Homepage lean: tokens from :root (--home-lean-focus / --home-lean-text).
+   Quiet glance = bar only; labels fade via opacity + grid 0fr→1fr (no max-height thrash). */
 .home-lean {
-  --lean-focus: 0;
-  --lean-text: 0;
-  /* Gap above (→ Front Page) and below (→ Calendar) expands with focus */
-  margin-top: calc(0.2rem + 0.7rem * var(--lean-focus));
-  margin-bottom: calc(0.12rem + 0.85rem * var(--lean-focus));
-  /* Slim pad when bar-only; opens as labels appear */
-  padding-top: calc(0.4rem + 0.45rem * var(--lean-text));
-  padding-bottom: calc(0.4rem + 0.4rem * var(--lean-text));
-  padding-left: calc(0.65rem + 0.35rem * var(--lean-focus));
-  padding-right: calc(0.65rem + 0.35rem * var(--lean-focus));
-  /* Compact “passing glance” → full presence near viewport center */
-  transform: scale(calc(0.96 + 0.04 * var(--lean-focus)));
+  /* Gap above (→ Front Page) and below (→ Calendar) */
+  margin-top: calc(0.2rem + 0.7rem * var(--home-lean-focus, 0));
+  margin-bottom: calc(0.12rem + 0.85rem * var(--home-lean-focus, 0));
+  padding: calc(0.4rem + 0.45rem * var(--home-lean-text, 0))
+    calc(0.65rem + 0.35rem * var(--home-lean-focus, 0));
+  /* Compositor-friendly presence */
+  transform: scale(calc(0.96 + 0.04 * var(--home-lean-focus, 0)));
   transform-origin: center center;
-  opacity: calc(0.88 + 0.12 * var(--lean-focus));
+  opacity: calc(0.88 + 0.12 * var(--home-lean-focus, 0));
   border-color: color-mix(
     in srgb,
-    var(--accent, #5b9a8b) calc(22% + 24% * var(--lean-focus)),
+    var(--accent, #5b9a8b) calc(22% + 24% * var(--home-lean-focus, 0)),
     var(--rule)
   );
+  /* Static shadow — animating multi-layer shadows every frame is expensive */
   box-shadow:
-    0 0 0 calc(1px + 0.5px * var(--lean-focus))
-      color-mix(in srgb, var(--accent, #5b9a8b) calc(6% + 14% * var(--lean-focus)), transparent),
-    0 1px 0 color-mix(in srgb, #fff calc(18% + 12% * var(--lean-focus)), transparent),
-    0 calc(3px + 7px * var(--lean-focus)) calc(8px + 10px * var(--lean-focus))
-      color-mix(in srgb, var(--shadow) calc(10% + 14% * var(--lean-focus)), transparent);
-  will-change: transform, opacity, margin, padding;
+    0 0 0 1px color-mix(in srgb, var(--accent, #5b9a8b) 12%, transparent),
+    0 6px 16px color-mix(in srgb, var(--shadow) 16%, transparent);
+  backface-visibility: hidden;
 }
-/* Lean owns the gap to the calendar when present */
 .home-lean + .home-cal {
   margin-top: 0;
 }
-/* Front Page strip: slightly less bottom pad when lean is a quiet glance */
 .hero-strip-wrap:has(+ .home-lean) .hero-strip {
   padding-bottom: calc(0.95rem + 0.7rem * var(--home-lean-focus, 0));
-  transition: none;
 }
-/* Bar always present; labels collapse to zero when quiet */
 .home-lean .split-bar {
   margin: 0;
   border-radius: 6px;
   overflow: hidden;
 }
+/* Labels collapse via max-height + opacity (interpolated with --home-lean-text) */
 .home-lean .coverage-lean__title,
 .home-lean .coverage-lean__legend,
 .home-lean .coverage-lean__note {
   overflow: hidden;
-  opacity: var(--lean-text);
-  /* Keep in a11y tree; visually gated by focus */
+  opacity: var(--home-lean-text, 0);
   pointer-events: none;
 }
 .home-lean .coverage-lean__title {
-  max-height: calc(1.35rem * var(--lean-text));
-  margin: 0 0 calc(0.5rem * var(--lean-text));
-  transform: translateY(calc((1 - var(--lean-text)) * -0.2rem));
+  max-height: calc(var(--home-lean-text, 0) * 1.4rem);
+  margin: 0 0 calc(var(--home-lean-text, 0) * 0.5rem);
 }
 .home-lean .coverage-lean__legend {
-  max-height: calc(2.2rem * var(--lean-text));
-  margin: calc(0.4rem * var(--lean-text)) 0 0;
-  transform: translateY(calc((1 - var(--lean-text)) * 0.15rem));
+  max-height: calc(var(--home-lean-text, 0) * 2.4rem);
+  margin: calc(var(--home-lean-text, 0) * 0.4rem) 0 0;
 }
 .home-lean .coverage-lean__note {
-  max-height: calc(1.8rem * var(--lean-text));
-  margin: calc(0.45rem * var(--lean-text)) 0 0;
-  transform: translateY(calc((1 - var(--lean-text)) * 0.15rem));
-}
-/* When fully revealed, allow interaction on note links if any */
-.home-lean .coverage-lean__note {
+  max-height: calc(var(--home-lean-text, 0) * 2rem);
+  margin: calc(var(--home-lean-text, 0) * 0.45rem) 0 0;
   pointer-events: auto;
 }
 @media (prefers-reduced-motion: reduce) {
   .home-lean {
-    --lean-focus: 1 !important;
-    --lean-text: 1 !important;
     transform: none;
     opacity: 1;
-    will-change: auto;
     margin-top: 0.9rem;
     margin-bottom: 0.97rem;
     padding: 0.85rem 1rem 0.8rem;
@@ -8968,9 +8974,12 @@ html.clad-app .home-spotlight__arrow {
   .home-lean .coverage-lean__note {
     max-height: none;
     opacity: 1;
-    transform: none;
+    overflow: visible;
     pointer-events: auto;
   }
+  .home-lean .coverage-lean__title { margin-bottom: 0.55rem; }
+  .home-lean .coverage-lean__legend { margin-top: 0.45rem; }
+  .home-lean .coverage-lean__note { margin-top: 0.55rem; }
   .hero-strip-wrap:has(+ .home-lean) .hero-strip {
     padding-bottom: 1.65rem;
   }

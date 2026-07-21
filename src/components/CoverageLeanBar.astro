@@ -38,7 +38,6 @@ const overallGpa = mean(
   class={wrapClass}
   aria-label="Overall coverage lean"
   data-lean-scroll={wrapClass.includes("home-lean") ? "" : undefined}
-  style={wrapClass.includes("home-lean") ? "--lean-focus:0;--lean-text:0" : undefined}
 >
   <h2 class="coverage-lean__title small-caps">Overall coverage lean</h2>
   <div
@@ -64,89 +63,3 @@ const overallGpa = mean(
     )}
   </p>
 </aside>
-
-{
-  wrapClass.includes("home-lean") && (
-    <script>
-      // Module scope — only attach scroll listeners once per page session.
-      let leanScrollBound = false;
-
-      function leanEls(): HTMLElement[] {
-        return [...document.querySelectorAll<HTMLElement>("[data-lean-scroll]")];
-      }
-
-      function wireLeanScroll() {
-        const reduce =
-          typeof matchMedia === "function" &&
-          matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-        if (reduce) {
-          leanEls().forEach((el) => {
-            el.style.setProperty("--lean-focus", "1");
-            el.style.setProperty("--lean-text", "1");
-          });
-          document.documentElement.style.setProperty("--home-lean-focus", "1");
-          return;
-        }
-
-        let ticking = false;
-
-        const smoothstep = (t: number) => {
-          const x = Math.max(0, Math.min(1, t));
-          return x * x * (3 - 2 * x);
-        };
-
-        const update = () => {
-          ticking = false;
-          const vh = window.innerHeight || 1;
-          const viewMid = vh * 0.5;
-          // Falloff: quiet near edges, peak when card center ≈ viewport mid.
-          const range = vh * 0.42;
-
-          let maxFocus = 0;
-          leanEls().forEach((el) => {
-            const r = el.getBoundingClientRect();
-            if (r.bottom < -80 || r.top > vh + 80) {
-              el.style.setProperty("--lean-focus", "0");
-              el.style.setProperty("--lean-text", "0");
-              return;
-            }
-            const elMid = r.top + r.height * 0.5;
-            const dist = Math.abs(elMid - viewMid);
-            const focus = smoothstep(1 - dist / range);
-            // Title/legend lag slightly so the bar alone is the first read.
-            const text = smoothstep((focus - 0.12) / 0.72);
-            el.style.setProperty("--lean-focus", focus.toFixed(4));
-            el.style.setProperty("--lean-text", text.toFixed(4));
-            if (focus > maxFocus) maxFocus = focus;
-          });
-          // Shared token so Front Page padding can breathe with the same curve.
-          document.documentElement.style.setProperty(
-            "--home-lean-focus",
-            maxFocus.toFixed(4)
-          );
-        };
-
-        const onScroll = () => {
-          if (ticking) return;
-          ticking = true;
-          requestAnimationFrame(update);
-        };
-
-        if (!leanScrollBound) {
-          leanScrollBound = true;
-          window.addEventListener("scroll", onScroll, { passive: true });
-          window.addEventListener("resize", onScroll, { passive: true });
-          document.addEventListener("astro:page-load", () => requestAnimationFrame(update));
-        }
-        update();
-      }
-
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", wireLeanScroll);
-      } else {
-        wireLeanScroll();
-      }
-    </script>
-  )
-}
