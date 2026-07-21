@@ -576,8 +576,15 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
       }
 
       dialogBody.innerHTML = parts.join("");
+      // Always start a fresh day at the top — the body keeps its scrollTop
+      // across close/reopen (same element, same dialog instance).
+      dialogBody.scrollTop = 0;
       if (typeof dialog.showModal === "function") dialog.showModal();
       else dialog.setAttribute("open", "");
+      // After paint, force again in case the UA restores scroll into view.
+      requestAnimationFrame(() => {
+        dialogBody.scrollTop = 0;
+      });
     }
 
     function renderAhead() {
