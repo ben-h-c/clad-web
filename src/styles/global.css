@@ -9598,24 +9598,69 @@ html.theme-dark .home-cal__pill--d {
   color: inherit;
 }
 
-/* Coming up — next three days under the month grid */
+/* Coming up — next three days under the month grid (collapsible) */
 .home-cal__coming {
   margin-top: 0.95rem;
-  padding-top: 0.85rem;
+  padding-top: 0.55rem;
   border-top: 1px solid color-mix(in srgb, var(--rule) 40%, transparent);
 }
+.home-cal__coming-toggle {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  margin: 0;
+  padding: 0.4rem 0.15rem 0.45rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-tap-highlight-color: transparent;
+}
+.home-cal__coming-toggle:hover,
+.home-cal__coming-toggle:focus-visible {
+  background: color-mix(in srgb, var(--ink) 5%, transparent);
+  outline: none;
+}
 .home-cal__coming-title {
-  margin: 0 0 0.65rem;
+  margin: 0;
   font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--ink);
 }
+.home-cal__coming-chevron {
+  flex-shrink: 0;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid color-mix(in srgb, var(--ink) 55%, transparent);
+  border-bottom: 2px solid color-mix(in srgb, var(--ink) 55%, transparent);
+  transform: rotate(45deg);
+  transition: transform 0.18s ease;
+  margin-right: 0.35rem;
+  margin-top: -0.2rem;
+}
+.home-cal__coming.is-open .home-cal__coming-chevron {
+  transform: rotate(225deg);
+  margin-top: 0.15rem;
+}
+.home-cal__coming-panel,
 .home-cal__agenda {
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
+}
+.home-cal__coming-panel {
+  padding-bottom: 0.1rem;
+}
+.home-cal__coming:not(.is-open) .home-cal__coming-panel {
+  display: none;
 }
 .home-cal__ev {
   display: grid;

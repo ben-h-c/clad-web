@@ -125,10 +125,26 @@ const clientEvents = events.map((e) => ({
       </p>
     )}
 
-    {/* Always-visible daybook peek: events on today through today+2. */}
-    <div class="home-cal__coming" data-cal-coming>
-      <h3 class="home-cal__coming-title">Coming up</h3>
-      <div class="home-cal__agenda" data-cal-agenda></div>
+    {/* Daybook peek: events on today through today+2. Expanded by default. */}
+    <div class="home-cal__coming is-open" data-cal-coming>
+      <button
+        type="button"
+        class="home-cal__coming-toggle"
+        data-cal-coming-toggle
+        aria-expanded="true"
+        aria-controls="home-cal-coming-panel"
+        id="home-cal-coming-toggle"
+      >
+        <span class="home-cal__coming-title">Coming up</span>
+        <span class="home-cal__coming-chevron" aria-hidden="true"></span>
+      </button>
+      <div
+        class="home-cal__coming-panel"
+        id="home-cal-coming-panel"
+        data-cal-agenda
+        role="region"
+        aria-labelledby="home-cal-coming-toggle"
+      ></div>
     </div>
   </div>
 
