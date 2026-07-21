@@ -8808,13 +8808,21 @@ html.clad-app .home-spotlight__arrow {
 .coverage-lean {
   box-sizing: border-box;
   padding: 0.85rem 1rem 0.8rem;
-  border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+  /* Soft accent border + hairline outer ring so it reads a step above plain cards */
+  border: 1.5px solid color-mix(in srgb, var(--accent, #5b9a8b) 42%, var(--rule));
   border-radius: 14px;
   background-color: var(--card);
   background-image:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent, #5b9a8b) 14%, transparent) 0,
+      color-mix(in srgb, var(--accent, #5b9a8b) 14%, transparent) 3px,
+      transparent 3px
+    ),
     radial-gradient(ellipse 80% 55% at 12% 0%, rgba(255, 248, 230, 0.4), transparent 55%),
     linear-gradient(165deg, color-mix(in srgb, var(--card) 72%, #fff8e4) 0%, var(--card-deep) 100%);
   box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent, #5b9a8b) 12%, transparent),
     0 1px 0 color-mix(in srgb, #fff 28%, transparent),
     0 8px 18px color-mix(in srgb, var(--shadow) 18%, transparent);
 }
@@ -8828,8 +8836,18 @@ html.clad-app .home-spotlight__arrow {
 }
 :root[data-theme="dark"] .coverage-lean,
 html.theme-dark .coverage-lean {
-  background-image: none;
+  background-image:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent, #6fb5a4) 22%, transparent) 0,
+      color-mix(in srgb, var(--accent, #6fb5a4) 22%, transparent) 3px,
+      transparent 3px
+    );
   background-color: var(--card);
+  border-color: color-mix(in srgb, var(--accent, #6fb5a4) 38%, var(--rule));
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent, #6fb5a4) 14%, transparent),
+    0 8px 18px color-mix(in srgb, var(--shadow) 22%, transparent);
 }
 .coverage-lean__title {
   margin: 0 0 0.55rem;
