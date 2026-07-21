@@ -147,35 +147,38 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
       )}
     </div>
 
-    <div data-cal-ahead hidden>
-      <div class="home-cal__ahead-head">
-        <h3 class="home-cal__month" data-cal-countdown></h3>
-        <div class="home-cal__ics-actions">
-          {/*
-            Export of the upcoming *daybook* (elections, rulings, data drops) —
-            not a single report day. Two paths:
-              · Download .ics — one-shot import (desktop / Files)
-              · Subscribe — webcal:// so Apple/Google Calendar keep the feed
-            The plain download attribute is unreliable on iOS/WKWebView, so we
-            also wire a click handler that forces navigation as a fallback.
-          */}
-          <a
-            class="home-cal__ics"
-            data-cal-ics-download
-            href="/api/calendar.ics"
-            download="cladfacts-daybook.ics"
-          >Download .ics</a>
-          <a
-            class="home-cal__ics home-cal__ics--sub"
-            data-cal-ics-subscribe
-            href="webcal://cladfacts.com/api/calendar.ics"
-          >Subscribe</a>
+    <div class="home-cal__ahead" data-cal-ahead hidden>
+      {/* Sticky chrome — countdown + export stay put while the agenda scrolls. */}
+      <div class="home-cal__ahead-sticky">
+        <div class="home-cal__ahead-head">
+          <h3 class="home-cal__month" data-cal-countdown></h3>
+          <div class="home-cal__ics-actions">
+            {/*
+              Export of the upcoming *daybook* (elections, rulings, data drops) —
+              not a single report day. Two paths:
+                · Download .ics — one-shot import (desktop / Files)
+                · Subscribe — webcal:// so Apple/Google Calendar keep the feed
+              The plain download attribute is unreliable on iOS/WKWebView, so we
+              also wire a click handler that forces navigation as a fallback.
+            */}
+            <a
+              class="home-cal__ics"
+              data-cal-ics-download
+              href="/api/calendar.ics"
+              download="cladfacts-daybook.ics"
+            >Download .ics</a>
+            <a
+              class="home-cal__ics home-cal__ics--sub"
+              data-cal-ics-subscribe
+              href="webcal://cladfacts.com/api/calendar.ics"
+            >Subscribe</a>
+          </div>
         </div>
+        <p class="home-cal__ics-note">
+          Puts <strong>upcoming daybook events</strong> (elections, court dates, data releases)
+          into Apple Calendar, Google Calendar, or Outlook — not individual fact-check days.
+        </p>
       </div>
-      <p class="home-cal__ics-note">
-        Puts <strong>upcoming daybook events</strong> (elections, court dates, data releases)
-        into Apple Calendar, Google Calendar, or Outlook — not individual fact-check days.
-      </p>
       <div class="home-cal__agenda" data-cal-agenda></div>
     </div>
   </div>
@@ -186,6 +189,8 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
         <h3 class="home-cal__dialog-title" id="home-cal-dialog-title" data-cal-dialog-title>Day</h3>
         <button type="button" class="home-cal__dialog-close" data-cal-dialog-close aria-label="Close">×</button>
       </header>
+      {/* Scorecard / day summary pins under the title; stories scroll below. */}
+      <div class="home-cal__dialog-pin" data-cal-dialog-pin></div>
       <div class="home-cal__dialog-body" data-cal-dialog-body></div>
     </div>
   </dialog>
@@ -271,7 +276,8 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
     const todayBtn = root.querySelector("[data-cal-today]") as HTMLButtonElement | null;
     const dialog = root.querySelector("[data-cal-dialog]") as HTMLDialogElement | null;
     const dialogTitle = root.querySelector("[data-cal-dialog-title]");
-    const dialogBody = root.querySelector("[data-cal-dialog-body]");
+    const dialogPin = root.querySelector("[data-cal-dialog-pin]") as HTMLElement | null;
+    const dialogBody = root.querySelector("[data-cal-dialog-body]") as HTMLElement | null;
     let lastTrigger: HTMLElement | null = null;
     let selectedDate: string | null = null;
 
@@ -555,12 +561,15 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
 
       dialogTitle.textContent = prettyDate(date);
 
-      const parts: string[] = [];
+      // Pin: day scorecard stays fixed under the title.
+      // Scroll: story cards, daybook events, and "open full day" link.
+      const pinParts: string[] = [];
+      const scrollParts: string[] = [];
 
       if (sum) {
         const scoreBits = [`<span><b>${sum.n}</b> report${sum.n === 1 ? "" : "s"}</span>`];
         if (sum.grade) scoreBits.push(`<span>average <b>${escapeHtml(sum.grade)}</b></span>`);
-        parts.push(
+        pinParts.push(
           `<div class="home-cal__scorecard">` +
             `<div class="home-cal__score">` +
             (sum.grade
@@ -582,21 +591,21 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
             `</div>`
         );
         if (sum.top.length) {
-          parts.push(
+          scrollParts.push(
             `<ul class="home-cal__daylist">` + sum.top.map((r) => storyCardHtml(r)).join("") + `</ul>`
           );
         }
         if (sum.n > sum.top.length) {
-          parts.push(
+          scrollParts.push(
             `<p class="home-cal__more"><a href="/day/${date}/">Open the full day — all ${sum.n} reports →</a></p>`
           );
         } else {
-          parts.push(`<p class="home-cal__more"><a href="/day/${date}/">Open the full day →</a></p>`);
+          scrollParts.push(`<p class="home-cal__more"><a href="/day/${date}/">Open the full day →</a></p>`);
         }
       }
 
       if (dayEvents.length) {
-        parts.push(
+        scrollParts.push(
           dayEvents
             .map((e) => {
               const links = (e.links || [])
@@ -621,13 +630,15 @@ const upcomingCount = events.filter((e) => e.date >= today).length;
         );
       }
 
-      dialogBody.innerHTML = parts.join("");
-      // Always start a fresh day at the top — the body keeps its scrollTop
-      // across close/reopen (same element, same dialog instance).
+      if (dialogPin) {
+        dialogPin.innerHTML = pinParts.join("");
+        dialogPin.hidden = pinParts.length === 0;
+      }
+      dialogBody.innerHTML = scrollParts.join("");
+      // Always start a fresh day at the top of the scroll pane.
       dialogBody.scrollTop = 0;
       if (typeof dialog.showModal === "function") dialog.showModal();
       else dialog.setAttribute("open", "");
-      // After paint, force again in case the UA restores scroll into view.
       requestAnimationFrame(() => {
         dialogBody.scrollTop = 0;
       });

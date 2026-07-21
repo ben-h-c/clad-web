@@ -7429,13 +7429,33 @@ button.home-cal__cell:disabled {
   flex-direction: column;
   max-height: min(82vh, 36rem);
   position: relative;
+  min-height: 0;
 }
 .home-cal__dialog-head {
   position: relative;
   display: block;
+  flex-shrink: 0;
   padding: 0.95rem 2.9rem 0.75rem 1.05rem;
   border-bottom: 1px solid color-mix(in srgb, var(--rule) 35%, transparent);
   background: color-mix(in srgb, var(--paper) 55%, var(--card));
+  z-index: 2;
+}
+/* Pinned day summary (grade + lean) — stays put while stories scroll. */
+.home-cal__dialog-pin {
+  flex-shrink: 0;
+  padding: 0.75rem 1.05rem 0.55rem;
+  background: var(--card);
+  border-bottom: 1px solid color-mix(in srgb, var(--rule) 30%, transparent);
+  z-index: 1;
+}
+.home-cal__dialog-pin:empty,
+.home-cal__dialog-pin[hidden] {
+  display: none;
+  padding: 0;
+  border: 0;
+}
+.home-cal__dialog-pin .home-cal__scorecard {
+  margin: 0;
 }
 .home-cal__dialog-title {
   margin: 0;
