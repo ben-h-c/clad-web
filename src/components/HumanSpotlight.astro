@@ -6,7 +6,6 @@ import type { HumanSpotlightStore } from "~/lib/agents";
 import {
   spotlightDateKey,
   teaserFromArticle,
-  personInitials,
   spotlightDisplayImage,
 } from "~/lib/humanSpotlight";
 
@@ -29,7 +28,6 @@ const show =
 const person = show ? raw!.person : null;
 const display = person ? spotlightDisplayImage(person) : null;
 const teaser = person ? teaserFromArticle(person.article, 220) : "";
-const initials = person ? personInitials(person.name) : "";
 const href = "/human-spotlight/";
 
 const wrapClass = ["human-spot", Astro.props.class].filter(Boolean).join(" ");
@@ -43,11 +41,11 @@ const wrapClass = ["human-spot", Astro.props.class].filter(Boolean).join(" ");
     <div class="rule rule--double" aria-hidden="true"></div>
 
     <a class="human-spot__teaser" href={href}>
-      <div
-        class:list={["human-spot__photo", display?.kind === "youtube" && "human-spot__photo--video"]}
-        aria-hidden={display ? "true" : undefined}
-      >
-        {display ? (
+      {display && (
+        <div
+          class:list={["human-spot__photo", display.kind === "youtube" && "human-spot__photo--video"]}
+          aria-hidden="true"
+        >
           <img
             src={display.src}
             alt=""
@@ -57,10 +55,8 @@ const wrapClass = ["human-spot", Astro.props.class].filter(Boolean).join(" ");
             decoding="async"
             referrerpolicy="no-referrer"
           />
-        ) : (
-          <span class="human-spot__initials" aria-hidden="true">{initials}</span>
-        )}
-      </div>
+        </div>
+      )}
       <div class="human-spot__intro">
         {(person.field || person.location) && (
           <p class="human-spot__meta small-caps">
