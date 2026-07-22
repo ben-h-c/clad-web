@@ -3163,8 +3163,50 @@ html.theme-dark .peek-pop__panel {
 /* Topic page */
 
 .topic-page {
+  /* Phone keeps reading measure; tablets/iPad open the column */
   max-width: var(--measure);
+  width: 100%;
   margin: 1.5rem auto 0;
+}
+
+@media (min-width: 768px) {
+  .topic-page {
+    max-width: min(52rem, 100%);
+  }
+  .topic-page .report-card--bar .report-card__thumb {
+    flex: 0 0 15.5rem;
+    max-width: 34%;
+  }
+  .topic-page .report-card--bar .report-card__headline {
+    font-size: 1.4rem;
+  }
+}
+
+/* 13" iPad / large tablets — fill most of the shell width */
+@media (min-width: 1024px) {
+  .topic-page {
+    max-width: min(62rem, 100%);
+  }
+  .topic-page__title {
+    font-size: clamp(2.1rem, 3.2vw, 3rem);
+  }
+  .topic-page .report-card--bar {
+    padding: 1.4rem 0;
+  }
+  .topic-page .report-card--bar .report-card__link {
+    gap: 1.5rem;
+  }
+  .topic-page .report-card--bar .report-card__thumb {
+    flex: 0 0 17.5rem;
+    max-width: 32%;
+  }
+  .topic-page .report-card--bar .report-card__headline {
+    font-size: 1.5rem;
+  }
+  .topic-page .report-card--bar .report-card__summary {
+    font-size: 1.05rem;
+    max-width: 58ch;
+  }
 }
 
 .topic-page__title {
@@ -3183,6 +3225,13 @@ html.theme-dark .peek-pop__panel {
   border: 1px solid var(--rule);
   background: var(--tint-1);
   padding: 0.75rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .topic-page__agg {
+    gap: 1.5rem;
+    padding: 0.9rem 1.15rem;
+  }
 }
 
 /* Latest-reports feed / section heads */
