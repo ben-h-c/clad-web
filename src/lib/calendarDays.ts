@@ -97,10 +97,11 @@ function reportThumb(data: PostLike["data"]): string | null {
  */
 export function buildDaySummaries(
   posts: PostLike[],
-  opts: { locked: boolean; topPerDay?: number }
+  opts: { locked: boolean; topPerDay?: number; /** Cap days kept newest-first (home payload size). */ maxDays?: number }
 ): CalendarDayIndex {
   const topPerDay = opts.topPerDay ?? 5;
   const locked = opts.locked;
+  const maxDays = opts.maxDays;
 
   const buckets = new Map<string, PostLike[]>();
   for (const p of posts) {
@@ -174,10 +175,18 @@ export function buildDaySummaries(
   }
 
   days.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+  const first = days.length ? days[0]!.date : null;
+  const last = days.length ? days[days.length - 1]!.date : null;
+  // Home only needs a recent window for the grid payload; keep full first/last
+  // for month-nav bounds so paging still reaches the full archive range.
+  const trimmed =
+    maxDays != null && maxDays > 0 && days.length > maxDays
+      ? days.slice(days.length - maxDays)
+      : days;
   return {
-    days,
-    first: days.length ? days[0].date : null,
-    last: days.length ? days[days.length - 1].date : null,
+    days: trimmed,
+    first,
+    last,
   };
 }
 

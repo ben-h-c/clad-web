@@ -161,7 +161,9 @@ const calendarLive: CalendarEvent[] = (calStore?.events ?? [])
 // an aggregate costs a few bytes per day instead of per report, so the
 // calendar can finally show every day it has rather than a 3% sample. Grade
 // and lean are nulled here for restricted readers.
-const calendarDays = buildDaySummaries(all, { locked });
+// Cap day payload (newest ~4 months) so the home HTML stays lean for the
+// iOS WebView — full first/last still bound month nav.
+const calendarDays = buildDaySummaries(all, { locked, topPerDay: 4, maxDays: 120 });
 const todayInHistory = await getTodayInHistory(env.AGENTS);
 const humanSpotlight = await getHumanSpotlight(env.AGENTS);
 
