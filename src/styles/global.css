@@ -7544,8 +7544,9 @@ button.home-cal__cell:disabled {
 
 /* Day detail popup — centered via margin:auto (native <dialog> top-layer) */
 .home-cal__dialog {
+  /* Phone default; tablets scale up via media queries below */
   width: min(30rem, calc(100vw - 1.5rem));
-  max-width: calc(100vw - 1.5rem);
+  max-width: min(30rem, calc(100vw - 1.5rem));
   max-height: min(82vh, 36rem);
   margin: auto;
   padding: 0;
@@ -7559,7 +7560,6 @@ button.home-cal__cell:disabled {
   position: fixed;
   inset: 0;
   height: fit-content;
-  max-width: min(30rem, calc(100vw - 1.5rem));
 }
 .home-cal__dialog::backdrop {
   background: color-mix(in srgb, #000 48%, transparent);
@@ -7571,6 +7571,42 @@ button.home-cal__cell:disabled {
   max-height: min(82vh, 36rem);
   position: relative;
   min-height: 0;
+}
+/* iPad / tablet: day sheet should use most of the viewport, not a phone card */
+@media (min-width: 768px) {
+  .home-cal__dialog {
+    width: min(42rem, calc(100vw - 3.5rem));
+    max-width: min(42rem, calc(100vw - 3.5rem));
+    max-height: min(88vh, 52rem);
+    border-radius: 18px;
+  }
+  .home-cal__dialog-inner {
+    max-height: min(88vh, 52rem);
+  }
+  .home-cal__dialog-head {
+    padding: 1.1rem 3.2rem 0.9rem 1.25rem;
+  }
+  .home-cal__dialog-title {
+    font-size: 1.22rem;
+  }
+  .home-cal__dialog-pin {
+    padding: 0.9rem 1.25rem 0.7rem;
+  }
+  .home-cal__dialog-body {
+    padding: 0.9rem 1.25rem 1.35rem;
+    gap: 1rem;
+  }
+}
+/* 13" iPad and larger landscape / desktop tablets */
+@media (min-width: 1024px) {
+  .home-cal__dialog {
+    width: min(48rem, calc(100vw - 4.5rem));
+    max-width: min(48rem, calc(100vw - 4.5rem));
+    max-height: min(90vh, 58rem);
+  }
+  .home-cal__dialog-inner {
+    max-height: min(90vh, 58rem);
+  }
 }
 .home-cal__dialog-head {
   position: relative;
@@ -7667,6 +7703,34 @@ html.clad-app .home-cal__dialog {
   /* Symmetric auto margins — never set only top (that pins the dialog high) */
   margin: auto;
   inset: 0;
+}
+@media (min-width: 768px) {
+  html.clad-app .home-cal__dialog {
+    max-height: min(
+      88vh,
+      calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 2rem)
+    );
+  }
+  html.clad-app .home-cal__dialog-inner {
+    max-height: min(
+      88vh,
+      calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 2rem)
+    );
+  }
+}
+@media (min-width: 1024px) {
+  html.clad-app .home-cal__dialog {
+    max-height: min(
+      90vh,
+      calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 2rem)
+    );
+  }
+  html.clad-app .home-cal__dialog-inner {
+    max-height: min(
+      90vh,
+      calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 2rem)
+    );
+  }
 }
 .home-cal__event {
   padding: 0.65rem 0.7rem;
