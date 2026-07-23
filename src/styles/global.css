@@ -2136,7 +2136,8 @@ html.masthead-menu-open .masthead__menu-list {
 
 .hero-strip {
   display: flex;
-  gap: 1.25rem;
+  align-items: flex-start; /* don't equal-height stretch — that left a hole under thumbs */
+  gap: 1rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-padding-left: 0.35rem;
@@ -2203,6 +2204,24 @@ html.masthead-menu-open .masthead__menu-list {
 .hero-strip__item {
   flex: 0 0 clamp(16rem, 72%, 22rem);
   scroll-snap-align: start;
+  align-self: flex-start;
+  min-width: 0;
+}
+/* Keep image → grade → copy stacked tight (no stretch gap under the thumb). */
+.hero-strip .report-card {
+  height: auto;
+}
+.hero-strip .report-card__link {
+  flex: 0 1 auto;
+  justify-content: flex-start;
+}
+.hero-strip .report-card__thumb {
+  flex: 0 0 auto;
+  width: 100%;
+}
+.hero-strip .report-card__body {
+  flex: 0 0 auto;
+  min-width: 0;
 }
 
 /*
@@ -2217,7 +2236,7 @@ html.masthead-menu-open .masthead__menu-list {
 /* --- App shell: compact tiles + hold-to-preview --- */
 html.clad-app .hero-strip__item--peek {
   flex: 0 0 clamp(12.5rem, 52%, 15.5rem);
-  align-self: stretch;
+  align-self: flex-start;
 }
 
 html.clad-app .report-card--peek {
