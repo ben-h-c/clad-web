@@ -1030,11 +1030,16 @@ const registerMap = registerHref("/elections/map/");
 
 <style>
   .emap-page {
-    max-width: 72rem;
+    max-width: min(76rem, 100%);
     margin: 0 auto;
-    padding: 0 0.75rem 2rem;
+    padding: 0 0.5rem 2rem;
   }
-  .emap-hero { max-width: 44rem; }
+  .emap-hero { max-width: 48rem; }
+  @media (min-width: 861px) {
+    .emap-page { padding: 0 0.35rem 1.5rem; }
+    .emap-hero { max-width: none; }
+    .emap-hero .upgrade__lede { max-width: 48rem; }
+  }
   .emap-modes {
     display: flex;
     flex-wrap: wrap;
@@ -1081,26 +1086,77 @@ const registerMap = registerHref("/elections/map/");
 
   .emap-shell {
     display: grid;
-    grid-template-columns: minmax(0, 1.45fr) minmax(16rem, 0.9fr);
-    gap: 1rem;
-    align-items: start;
+    grid-template-columns: minmax(0, 1.55fr) minmax(15.5rem, 0.85fr);
+    gap: 0.85rem;
+    align-items: stretch;
   }
   @media (max-width: 860px) {
     .emap-shell { grid-template-columns: 1fr; }
     .emap-panel { display: none; } /* mobile uses bottom sheet */
   }
+  /* Tablet / desktop workbench: map + panel share one height — no void under map */
+  @media (min-width: 861px) {
+    .emap-shell {
+      --emap-workbench-h: min(
+        calc(100dvh - var(--site-header-h, 4.25rem) - env(safe-area-inset-top, 0px) - 5.5rem),
+        44rem
+      );
+      min-height: var(--emap-workbench-h);
+    }
+    .emap-map-col {
+      min-height: 0;
+      height: var(--emap-workbench-h);
+      max-height: var(--emap-workbench-h);
+      position: sticky;
+      top: calc(var(--site-header-h, 4.25rem) + env(safe-area-inset-top, 0px) + 0.5rem);
+    }
+    .emap-map-wrap {
+      flex: 1 1 auto;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .emap-hint {
+      flex: 0 0 auto;
+    }
+    .emap-svg {
+      /* Grow to fill workbench height while keeping US map aspect */
+      width: 100%;
+      height: auto;
+      max-height: 100%;
+      min-height: 0;
+      aspect-ratio: 959 / 593;
+      margin: 0 auto;
+    }
+    .emap-panel {
+      height: var(--emap-workbench-h);
+      max-height: var(--emap-workbench-h);
+      top: calc(var(--site-header-h, 4.25rem) + env(safe-area-inset-top, 0px) + 0.5rem);
+    }
+  }
+  @media (min-width: 1100px) {
+    .emap-shell {
+      --emap-workbench-h: min(
+        calc(100dvh - var(--site-header-h, 4.25rem) - env(safe-area-inset-top, 0px) - 5rem),
+        48rem
+      );
+      grid-template-columns: minmax(0, 1.65fr) minmax(16rem, 0.8fr);
+    }
+  }
 
   .emap-map-col {
     display: flex;
     flex-direction: column;
-    gap: 0.55rem;
+    gap: 0.45rem;
     min-width: 0;
   }
   .emap-map-wrap {
     position: relative;
     border: 2px solid var(--ink, #1a140d);
     background: color-mix(in srgb, var(--ink, #1a140d) 3%, var(--paper, #f5edd9));
-    padding: 0.65rem 0.65rem 0.85rem;
+    padding: 0.55rem 0.55rem 0.7rem;
+    min-height: 0;
   }
   /* Coverage heat legend (Hot / Watch / …) — only when Map = Coverage.
      Must not use bare `display: flex` alone or it overrides the HTML `hidden` attribute. */
@@ -1152,12 +1208,16 @@ const registerMap = registerHref("/elections/map/");
     flex-wrap: wrap;
     gap: 0.45rem 0.85rem;
     align-items: baseline;
-    margin: 0 0 1rem;
-    padding: 0.7rem 0.9rem;
+    margin: 0 0 0.75rem;
+    padding: 0.55rem 0.75rem;
     border: 1px solid var(--rule, #cfc3ad);
-    font-size: 0.92rem;
-    line-height: 1.45;
+    font-size: 0.88rem;
+    line-height: 1.4;
     background: color-mix(in srgb, var(--ink, #1a140d) 4%, transparent);
+  }
+  @media (min-width: 861px) {
+    .emap-how-to { margin-bottom: 0.65rem; }
+    .emap-toolbar { margin-bottom: 0.65rem; }
   }
   .emap-how-to__k {
     color: var(--accent, #941a1a);
@@ -1201,8 +1261,13 @@ const registerMap = registerHref("/elections/map/");
     display: block;
     width: 100%;
     height: auto;
-    max-height: min(62vh, 520px);
     touch-action: manipulation;
+  }
+  /* Mobile / single-column only — workbench media query owns desktop height */
+  @media (max-width: 860px) {
+    .emap-svg {
+      max-height: min(58vh, 28rem);
+    }
   }
   .emap-state {
     stroke: var(--paper, #f5edd9);
@@ -1287,10 +1352,11 @@ const registerMap = registerHref("/elections/map/");
   }
   .emap-disclaimer {
     margin: 0;
-    font-size: 0.85rem;
-    line-height: 1.4;
+    flex: 0 0 auto;
+    font-size: 0.8rem;
+    line-height: 1.35;
     opacity: 0.88;
-    padding: 0.55rem 0.7rem;
+    padding: 0.45rem 0.6rem;
     border-left: 3px solid var(--ink, #1a140d);
     background: color-mix(in srgb, var(--ink, #1a140d) 5%, transparent);
   }
@@ -1399,11 +1465,13 @@ const registerMap = registerHref("/elections/map/");
   .emap-panel {
     border: 2px solid var(--ink, #1a140d);
     background: var(--paper, #f5edd9);
-    padding: 1rem 1.05rem 1.15rem;
+    padding: 0.85rem 0.9rem 1rem;
     position: sticky;
-    top: 0.75rem;
-    max-height: calc(100vh - 1.5rem);
+    top: calc(var(--site-header-h, 4.25rem) + env(safe-area-inset-top, 0px) + 0.5rem);
+    max-height: calc(100dvh - var(--site-header-h, 4.25rem) - 2rem);
     overflow: auto;
+    min-height: 0;
+    overscroll-behavior: contain;
   }
   .emap-panel__title {
     font-family: var(--serif, Georgia, serif);
