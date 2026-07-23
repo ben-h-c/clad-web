@@ -9085,15 +9085,45 @@ html.clad-app section.charts.home-app-only {
   margin: 0;
   padding: 0;
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
 }
 .guest-hero__slide {
   display: none;
   margin: 0;
   padding: 0;
+  min-width: 0;
   animation: guest-hero-in 0.45s ease both;
 }
 .guest-hero__slide.is-active {
   display: block;
+}
+/* Desktop: two sample cards side-by-side when .guest-hero--dual is set by JS */
+.guest-hero--dual .guest-hero__track {
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+  padding: 0 0.35rem;
+  align-items: stretch;
+}
+.guest-hero--dual .guest-hero__slide.is-active {
+  display: block;
+  height: 100%;
+}
+.guest-hero--dual .guest-hero__card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.guest-hero--dual .guest-hero__card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.guest-hero--dual .guest-hero__card-cta {
+  margin-top: auto;
 }
 @keyframes guest-hero-in {
   from { opacity: 0; transform: translateY(6px); }
@@ -9365,9 +9395,10 @@ html.clad-app section.charts.home-app-only {
     margin: 0.25rem 0 1rem;
   }
   .guest-hero__grid {
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    gap: 1.15rem 1.5rem;
-    padding: 1.15rem 1.35rem;
+    /* Copy left, dual slideshow right — use the width instead of leaving void */
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.2fr);
+    gap: 1.15rem 1.35rem;
+    padding: 1.1rem 1.25rem;
     align-items: center;
   }
   .guest-hero__brand {
@@ -9380,7 +9411,7 @@ html.clad-app section.charts.home-app-only {
   }
   .guest-hero__lede {
     margin: 0 0 0.8rem;
-    max-width: 32rem;
+    max-width: 30rem;
     font-size: 0.95rem;
     line-height: 1.45;
   }
@@ -9397,8 +9428,9 @@ html.clad-app section.charts.home-app-only {
     font-size: 0.75rem;
   }
   .guest-hero__stage {
-    max-width: 22rem;
-    margin-left: auto;
+    max-width: none;
+    width: 100%;
+    margin-left: 0;
   }
   .guest-hero__frame {
     border-radius: 12px;
@@ -9407,47 +9439,62 @@ html.clad-app section.charts.home-app-only {
     padding: 0.4rem 0.55rem;
   }
   .guest-hero__card {
-    padding: 0.65rem 0.7rem 0.75rem;
+    padding: 0.55rem 0.55rem 0.65rem;
   }
   .guest-hero__media {
-    margin-bottom: 0.55rem;
+    margin-bottom: 0.45rem;
     border-radius: 8px;
-    /* Shorter still on wide screens so the hero stays compact */
-    aspect-ratio: 16 / 8.5;
+    aspect-ratio: 16 / 9;
+  }
+  .guest-hero--dual .guest-hero__media {
+    aspect-ratio: 16 / 8.25;
   }
   .guest-hero__score {
-    margin-bottom: 0.45rem;
-    padding: 0.4rem 0.5rem;
-    gap: 0.55rem;
+    margin-bottom: 0.4rem;
+    padding: 0.35rem 0.4rem;
+    gap: 0.4rem;
   }
   .guest-hero__grade {
-    min-width: 2.2rem;
-    height: 2.2rem;
-    font-size: 0.95rem;
+    min-width: 2rem;
+    height: 2rem;
+    font-size: 0.88rem;
+  }
+  .guest-hero__lean-label {
+    font-size: 0.55rem;
   }
   .guest-hero__lean-value {
-    font-size: 0.85rem;
+    font-size: 0.78rem;
   }
   .guest-hero__card-title {
-    font-size: 1rem;
-    margin: 0 0 0.25rem;
+    font-size: 0.92rem;
+    margin: 0 0 0.2rem;
+    -webkit-line-clamp: 2;
   }
   .guest-hero__card-meta {
-    margin: 0 0 0.3rem;
-    font-size: 0.72rem;
+    margin: 0 0 0.25rem;
+    font-size: 0.68rem;
   }
   .guest-hero__card-sum {
-    margin: 0 0 0.4rem;
-    font-size: 0.8rem;
-    line-height: 1.4;
+    margin: 0 0 0.35rem;
+    font-size: 0.76rem;
+    line-height: 1.35;
     -webkit-line-clamp: 2;
   }
   .guest-hero__card-cta {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
   .guest-hero__counter {
-    padding: 0 0.65rem 0.55rem;
+    padding: 0 0.65rem 0.5rem;
     font-size: 0.65rem;
+  }
+  .guest-hero__nav {
+    left: 0.15rem;
+    right: 0.15rem;
+  }
+  .guest-hero__arrow {
+    width: 1.85rem;
+    height: 1.85rem;
+    font-size: 1.1rem;
   }
 }
 /* Ultra-wide: keep hero from stretching edge-to-edge */

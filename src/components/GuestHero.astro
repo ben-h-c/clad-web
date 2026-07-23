@@ -240,47 +240,103 @@ const multi = slides.length > 1;
       root.dataset.bound = "1";
 
       const slides = Array.from(root.querySelectorAll("[data-guest-slide]"));
-      const dots = Array.from(root.querySelectorAll("[data-guest-dot]"));
+      const dotsHost = root.querySelector("[data-guest-dots]");
       const counter = root.querySelector("[data-guest-counter]");
       const prev = root.querySelector("[data-guest-prev]");
       const next = root.querySelector("[data-guest-next]");
       const stage = root.querySelector("[data-guest-stage]");
       if (slides.length < 2) return;
 
+      // Wide screens show two cards; phones/tablets keep one.
+      const dualMq = window.matchMedia("(min-width: 1200px)");
       let i = 0;
       let timer = 0;
-      const INTERVAL = 5200;
+      const INTERVAL = 5600;
+
+      function perView() {
+        return dualMq.matches && slides.length >= 2 ? 2 : 1;
+      }
+
+      function pageCount() {
+        return Math.ceil(slides.length / perView());
+      }
+
+      function snap(start) {
+        const pv = perView();
+        const pages = pageCount();
+        let page = Math.floor(start / pv);
+        if (page < 0) page = pages - 1;
+        if (page >= pages) page = 0;
+        return page * pv;
+      }
+
+      function rebuildDots() {
+        if (!dotsHost) return;
+        const pv = perView();
+        const pages = pageCount();
+        dotsHost.innerHTML = "";
+        for (let p = 0; p < pages; p++) {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "guest-hero__pill";
+          btn.setAttribute("data-guest-dot", String(p * pv));
+          btn.setAttribute("role", "tab");
+          const a = p * pv + 1;
+          const b = Math.min(p * pv + pv, slides.length);
+          btn.setAttribute(
+            "aria-label",
+            pv === 2 ? `Samples ${a}–${b}` : `Sample ${a}`
+          );
+          btn.addEventListener("click", () => {
+            show(p * pv);
+            arm();
+          });
+          dotsHost.appendChild(btn);
+        }
+      }
 
       function show(n) {
-        i = (n + slides.length) % slides.length;
+        const pv = perView();
+        i = snap(n);
+        root.dataset.perView = String(pv);
+        root.classList.toggle("guest-hero--dual", pv === 2);
+
         slides.forEach((el, idx) => {
-          const on = idx === i;
+          const on = idx >= i && idx < i + pv;
           el.classList.toggle("is-active", on);
           el.setAttribute("aria-hidden", on ? "false" : "true");
         });
+
+        const dots = Array.from(root.querySelectorAll("[data-guest-dot]"));
+        const page = Math.floor(i / pv);
         dots.forEach((el, idx) => {
-          const on = idx === i;
+          const on = idx === page;
           el.classList.toggle("is-on", on);
           el.setAttribute("aria-selected", on ? "true" : "false");
         });
-        if (counter) counter.textContent = i + 1 + " / " + slides.length;
+
+        if (counter) {
+          if (pv === 2) {
+            const end = Math.min(i + pv, slides.length);
+            counter.textContent = i + 1 + "–" + end + " / " + slides.length;
+          } else {
+            counter.textContent = i + 1 + " / " + slides.length;
+          }
+        }
+      }
+
+      function step(dir) {
+        show(i + dir * perView());
       }
 
       function arm() {
         window.clearInterval(timer);
-        timer = window.setInterval(() => show(i + 1), INTERVAL);
+        timer = window.setInterval(() => step(1), INTERVAL);
       }
 
-      prev && prev.addEventListener("click", () => { show(i - 1); arm(); });
-      next && next.addEventListener("click", () => { show(i + 1); arm(); });
-      dots.forEach((el) => {
-        el.addEventListener("click", () => {
-          const n = Number(el.getAttribute("data-guest-dot"));
-          if (Number.isFinite(n)) { show(n); arm(); }
-        });
-      });
+      prev && prev.addEventListener("click", () => { step(-1); arm(); });
+      next && next.addEventListener("click", () => { step(1); arm(); });
 
-      // Pause autoplay while the visitor interacts / hovers.
       if (stage) {
         stage.addEventListener("mouseenter", () => window.clearInterval(timer));
         stage.addEventListener("mouseleave", arm);
@@ -294,12 +350,25 @@ const multi = slides.length > 1;
         stage.addEventListener("touchend", (e) => {
           const x = e.changedTouches[0]?.clientX ?? touchX;
           const dx = x - touchX;
-          if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1));
+          if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
           arm();
         }, { passive: true });
       }
 
-      // Respect reduced motion — still show first slide, no autoplay.
+      function onLayout() {
+        rebuildDots();
+        show(i);
+      }
+
+      dualMq.addEventListener?.("change", onLayout);
+      // Safari < 14
+      if (typeof dualMq.addEventListener !== "function" && dualMq.addListener) {
+        dualMq.addListener(onLayout);
+      }
+
+      rebuildDots();
+      show(0);
+
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (!reduce) arm();
     })();
