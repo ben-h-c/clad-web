@@ -2135,8 +2135,10 @@ html.masthead-menu-open .masthead__menu-list {
 }
 
 .hero-strip {
+  /* Shared height budget for every horizontal article strip (Breaking, Front Page, …) */
+  --hero-card-max-h: 28.5rem;
   display: flex;
-  align-items: flex-start; /* don't equal-height stretch — that left a hole under thumbs */
+  align-items: stretch; /* even row bottoms once copy is line-clamped */
   gap: 1rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -2204,24 +2206,80 @@ html.masthead-menu-open .masthead__menu-list {
 .hero-strip__item {
   flex: 0 0 clamp(16rem, 72%, 22rem);
   scroll-snap-align: start;
-  align-self: flex-start;
+  align-self: stretch;
   min-width: 0;
+  max-height: var(--hero-card-max-h);
+  display: flex;
 }
-/* Keep image → grade → copy stacked tight (no stretch gap under the thumb). */
-.hero-strip .report-card {
-  height: auto;
+/*
+ * Uniform card height for horizontal article rows:
+ * hard max + line-clamped copy so long summaries can’t tower over neighbors.
+ */
+.hero-strip .report-card,
+.hero-strip .breaking-group {
+  height: 100%;
+  max-height: var(--hero-card-max-h);
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .hero-strip .report-card__link {
-  flex: 0 1 auto;
+  flex: 1 1 auto;
+  min-height: 0;
   justify-content: flex-start;
+  overflow: hidden;
 }
 .hero-strip .report-card__thumb {
   flex: 0 0 auto;
   width: 100%;
 }
 .hero-strip .report-card__body {
-  flex: 0 0 auto;
+  flex: 1 1 auto;
   min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.hero-strip .report-card__headline {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  /* room for up to 3 lines; shorter titles just leave less space below */
+  flex: 0 0 auto;
+}
+.hero-strip .report-card__meta {
+  flex: 0 0 auto;
+}
+.hero-strip .report-card__summary {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  flex: 0 1 auto;
+  min-height: 0;
+  margin: 0;
+}
+.hero-strip .report-card__detail {
+  flex: 0 0 auto;
+}
+.hero-strip .report-card__source {
+  flex: 0 0 auto;
+  margin-top: auto;
+}
+@media (min-width: 768px) {
+  .hero-strip {
+    --hero-card-max-h: 30rem;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-strip {
+    /* iPad / wide tablets: room for thumb + 3-line blurb, not essays */
+    --hero-card-max-h: 31rem;
+  }
 }
 
 /*
@@ -2236,7 +2294,15 @@ html.masthead-menu-open .masthead__menu-list {
 /* --- App shell: compact tiles + hold-to-preview --- */
 html.clad-app .hero-strip__item--peek {
   flex: 0 0 clamp(12.5rem, 52%, 15.5rem);
-  align-self: flex-start;
+  align-self: stretch;
+  max-height: min(22rem, var(--hero-card-max-h));
+}
+html.clad-app .hero-strip {
+  --hero-card-max-h: 22rem;
+}
+html.clad-app .hero-strip .report-card__summary {
+  /* App peek hides long detail; keep clamp if detail is shown */
+  -webkit-line-clamp: 2;
 }
 
 html.clad-app .report-card--peek {
