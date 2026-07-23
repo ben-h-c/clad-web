@@ -44,7 +44,8 @@ const board = maskRaceLeaders(
 const map = buildElectionMap(board.cards);
 const forecast = buildStateForecasts();
 const electionNews = pickElectionMapNews(all, board.cards, { limit: 10, maxAgeDays: 50 });
-const raceWatch = pickRaceWatch(board.cards, 6);
+/* A few more board cards so the watch column matches the desk workbench height. */
+const raceWatch = pickRaceWatch(board.cards, 10);
 const sampleId = locked ? sampleUnlockedId(all) : null;
 
 const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
@@ -1749,13 +1750,13 @@ const registerMap = registerHref("/elections/map/");
 
   /* Election desk — headlines + board watch under the map */
   .emap-desk {
-    margin: 2.5rem 0 0;
-    padding-top: 1.75rem;
+    margin: 2rem 0 0;
+    padding-top: 1.35rem;
     border-top: 2px solid var(--ink, #1a140d);
   }
   .emap-desk__head {
-    max-width: 40rem;
-    margin-bottom: 1.25rem;
+    max-width: 44rem;
+    margin-bottom: 1rem;
   }
   .emap-desk__eyebrow {
     margin: 0 0 0.25rem;
@@ -1772,11 +1773,69 @@ const registerMap = registerHref("/elections/map/");
   .emap-desk__grid {
     display: grid;
     grid-template-columns: minmax(0, 1.35fr) minmax(14rem, 0.85fr);
-    gap: 1.5rem 1.75rem;
-    align-items: start;
+    gap: 1rem 1.15rem;
+    align-items: stretch;
   }
   @media (max-width: 860px) {
     .emap-desk__grid { grid-template-columns: 1fr; }
+  }
+  /* Tablet / desktop: equal-height columns, lists scroll inside — no void under headlines */
+  @media (min-width: 861px) {
+    .emap-desk__grid {
+      --emap-desk-h: min(
+        calc(100dvh - var(--site-header-h, 4.25rem) - env(safe-area-inset-top, 0px) - 6rem),
+        38rem
+      );
+    }
+    .emap-desk__col {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      height: var(--emap-desk-h);
+      max-height: var(--emap-desk-h);
+      padding: 0.75rem 0.8rem 0.85rem;
+      border: 1px solid color-mix(in srgb, var(--ink, #1a140d) 18%, transparent);
+      background: color-mix(in srgb, var(--card, var(--paper, #f5edd9)) 88%, transparent);
+      box-shadow: 0 1px 0 color-mix(in srgb, #fff 22%, transparent);
+      overflow: hidden;
+    }
+    .emap-desk__col-title {
+      flex: 0 0 auto;
+    }
+    .emap-desk__watch-lede {
+      flex: 0 0 auto;
+    }
+    .emap-desk__news,
+    .emap-desk__watch {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    .emap-desk__empty {
+      flex: 1 1 auto;
+    }
+    .emap-desk__more {
+      flex: 0 0 auto;
+      margin-top: auto;
+      padding-top: 0.75rem;
+      border-top: 1px solid color-mix(in srgb, var(--ink, #1a140d) 14%, transparent);
+    }
+    .emap-desk__flip {
+      flex: 0 0 auto;
+      margin-top: 0.75rem;
+    }
+  }
+  @media (min-width: 1100px) {
+    .emap-desk__grid {
+      --emap-desk-h: min(
+        calc(100dvh - var(--site-header-h, 4.25rem) - env(safe-area-inset-top, 0px) - 5.5rem),
+        42rem
+      );
+      grid-template-columns: minmax(0, 1.4fr) minmax(15rem, 0.85fr);
+    }
   }
   .emap-desk__col-title {
     margin: 0 0 0.65rem;
