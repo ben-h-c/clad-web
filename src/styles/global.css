@@ -1692,28 +1692,33 @@ html.masthead-menu-open .masthead__menu-list {
   font-size: 0.95rem;
 }
 
-/* Responsive page width: open the column on iPad / large tablets.
-   Phone keeps a readable measure; desktop opens further without full-bleed prose. */
+/* Responsive page width: iPad / tablets fill the shell (no phone-width column).
+   Prose still uses --measure / .post__body so long-form stays readable. */
 @media (min-width: 768px) {
   :root {
     --measure: min(48rem, 100%);
-    --measure-page: min(50rem, 100%);
+    --measure-page: 100%;
+  }
+  .shell {
+    padding-left: clamp(0.85rem, 2vw, 1.5rem);
+    padding-right: clamp(0.85rem, 2vw, 1.5rem);
   }
 }
 @media (min-width: 1024px) {
   :root {
     --measure: min(54rem, 100%);
-    --measure-page: min(58rem, 100%);
+    --measure-page: 100%;
   }
   .shell {
-    padding-left: clamp(1rem, 2vw, 2rem);
-    padding-right: clamp(1rem, 2vw, 2rem);
+    padding-left: clamp(1rem, 1.8vw, 1.75rem);
+    padding-right: clamp(1rem, 1.8vw, 1.75rem);
   }
 }
 @media (min-width: 1280px) {
   :root {
     --measure: min(58rem, 100%);
-    --measure-page: min(64rem, 100%);
+    /* Soft cap only on very wide desktops; 13" iPad landscape stays full shell */
+    --measure-page: min(80rem, 100%);
   }
 }
 
@@ -2940,7 +2945,8 @@ html.theme-dark .peek-pop__panel {
 /* Search */
 
 .search-page {
-  max-width: var(--measure);
+  max-width: var(--measure-page);
+  width: 100%;
   margin: 1.5rem auto 0;
 }
 
@@ -3281,16 +3287,12 @@ html.theme-dark .peek-pop__panel {
 /* Topic page */
 
 .topic-page {
-  /* Phone keeps reading measure; tablets/iPad open the column */
-  max-width: var(--measure);
+  max-width: var(--measure-page);
   width: 100%;
   margin: 1.5rem auto 0;
 }
 
 @media (min-width: 768px) {
-  .topic-page {
-    max-width: min(52rem, 100%);
-  }
   .topic-page .report-card--bar .report-card__thumb {
     flex: 0 0 15.5rem;
     max-width: 34%;
@@ -3300,11 +3302,8 @@ html.theme-dark .peek-pop__panel {
   }
 }
 
-/* 13" iPad / large tablets — fill most of the shell width */
+/* 13" iPad / large tablets — larger cards inside the full-width column */
 @media (min-width: 1024px) {
-  .topic-page {
-    max-width: min(62rem, 100%);
-  }
   .topic-page__title {
     font-size: clamp(2.1rem, 3.2vw, 3rem);
   }
@@ -3323,7 +3322,7 @@ html.theme-dark .peek-pop__panel {
   }
   .topic-page .report-card--bar .report-card__summary {
     font-size: 1.05rem;
-    max-width: 58ch;
+    max-width: min(58ch, 100%);
   }
 }
 
@@ -4299,7 +4298,7 @@ html.theme-dark .peek-pop__panel {
 
 .disclaimer--compact {
   text-align: center;
-  max-width: var(--measure);
+  max-width: var(--measure-page);
   margin: 2rem auto 0;
 }
 
@@ -4333,10 +4332,15 @@ html.theme-dark .peek-pop__panel {
 }
 
 .post__body {
-  /* Slightly capped so long-form stays readable when the page is wider on iPad */
+  /* Long-form stays readable; page chrome (grade, share, media) uses full measure-page */
   max-width: min(48rem, 100%);
   font-size: 1.0625rem;
   line-height: 1.7;
+}
+@media (min-width: 1024px) {
+  .post__body {
+    max-width: min(54rem, 100%);
+  }
 }
 
 .post__body p:first-of-type::first-letter {
@@ -6247,7 +6251,7 @@ html.clad-app .issue-row__stats {
 .f-status { margin-top: 0.5rem; }
 
 /* --- News Trends page --- */
-.trends { max-width: 60rem; margin: 0 auto; padding: 1rem 0 2rem; }
+.trends { max-width: var(--measure-page); width: 100%; margin: 0 auto; padding: 1rem 0 2rem; }
 .trends__eyebrow { color: var(--muted-ink); letter-spacing: 0.16em; margin: 0; }
 .trends__title {
   font-family: var(--font-display);
@@ -6941,7 +6945,7 @@ a.auth-submit {
 .search-filter__clear:hover { background: var(--tint-1); }
 
 /* --- Discover page --- */
-.discover { max-width: 60rem; margin: 0 auto; padding: 1rem 0 2rem; }
+.discover { max-width: var(--measure-page); width: 100%; margin: 0 auto; padding: 1rem 0 2rem; }
 .discover__head { padding-bottom: 1.25rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; }
 .discover__eyebrow { color: var(--accent); letter-spacing: 0.16em; margin: 0; }
 .discover__title {
