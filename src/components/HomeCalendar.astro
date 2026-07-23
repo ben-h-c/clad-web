@@ -88,20 +88,20 @@ const clientEvents = events.map((e) => ({
       <button type="button" class="home-cal__nav" data-cal-next aria-label="Next month">›</button>
     </div>
 
-    <div class="home-cal__encodings" role="group" aria-label="Colour the month by">
-      {!locked && (
-        <>
-          <button type="button" class="home-cal__enc" data-cal-enc="grade" aria-pressed="false">Grade</button>
-          <button type="button" class="home-cal__enc is-on" data-cal-enc="lean" aria-pressed="true">Lean</button>
-        </>
-      )}
-      <button
-        type="button"
-        class={`home-cal__enc${locked ? " is-on" : ""}`}
-        data-cal-enc="volume"
-        aria-pressed={locked ? "true" : "false"}
-      >Volume</button>
-    </div>
+    {locked ? (
+      <div class="home-cal__preview-badge" aria-label="Free preview of the calendar">
+        <span class="home-cal__preview-dot" aria-hidden="true"></span>
+        <span class="home-cal__preview-label">Free preview</span>
+        <span class="home-cal__preview-sep" aria-hidden="true">·</span>
+        <span class="home-cal__preview-mode">Coverage by day</span>
+      </div>
+    ) : (
+      <div class="home-cal__encodings" role="group" aria-label="Colour the month by">
+        <button type="button" class="home-cal__enc" data-cal-enc="grade" aria-pressed="false">Grade</button>
+        <button type="button" class="home-cal__enc is-on" data-cal-enc="lean" aria-pressed="true">Lean</button>
+        <button type="button" class="home-cal__enc" data-cal-enc="volume" aria-pressed="false">Volume</button>
+      </div>
+    )}
 
     <div
       class="home-cal__swipe"
@@ -119,10 +119,19 @@ const clientEvents = events.map((e) => ({
     <div class="home-cal__legend" data-cal-legend></div>
 
     {locked && (
-      <p class="home-cal__locked-note">
-        Showing how much ran each day. <a href="/register/">Create a free account</a> to colour the
-        record by grade and coverage lean.
-      </p>
+      <aside class="home-cal__unlock" aria-label="Unlock the full calendar">
+        <div class="home-cal__unlock-copy">
+          <p class="home-cal__unlock-kicker small-caps">Full scoreboard free</p>
+          <p class="home-cal__unlock-title">See grades &amp; lean on every day</p>
+          <p class="home-cal__unlock-body">
+            Colour the month by accuracy and political lean — same free account that unlocks every report.
+          </p>
+        </div>
+        <div class="home-cal__unlock-actions">
+          <a class="home-cal__unlock-cta" href="/register/">Create free account</a>
+          <a class="home-cal__unlock-secondary" href="/login/">Sign in</a>
+        </div>
+      </aside>
     )}
   </div>
 
@@ -398,8 +407,15 @@ const clientEvents = events.map((e) => ({
         mark = `<span class="home-cal__cellnum">${c}%C</span>`;
       } else {
         const t = Math.min(1, sum.n / maxN);
-        wash = `<span class="home-cal__wash home-cal__wash--vol" style="opacity:${(0.12 + t * 0.6).toFixed(2)}"></span>`;
-        mark = `<span class="home-cal__cellnum">${sum.n}</span>`;
+        // Heat tiers read clearer than a single opacity wash (esp. free preview).
+        const tier = t < 0.2 ? "low" : t < 0.45 ? "mid" : t < 0.72 ? "high" : "peak";
+        wash =
+          `<span class="home-cal__wash home-cal__wash--vol home-cal__wash--vol-${tier}"` +
+          ` style="--vol:${t.toFixed(3)}" aria-hidden="true"></span>`;
+        mark =
+          `<span class="home-cal__cellnum home-cal__cellnum--vol home-cal__cellnum--vol-${tier}">` +
+          `${sum.n}` +
+          `</span>`;
       }
       const ribbon = sum.lean
         ? `<span class="home-cal__ribbon" aria-hidden="true">` +
@@ -408,7 +424,10 @@ const clientEvents = events.map((e) => ({
           `<i class="home-cal__ribbon--r" style="flex:0 0 ${sum.lean[2]}%"></i>` +
           `</span>`
         : "";
-      return `${wash}<span class="home-cal__count">${sum.n}</span>${mark}${ribbon}`;
+      // Volume mark already shows the count — skip the duplicate corner chip.
+      const count =
+        enc === "volume" ? "" : `<span class="home-cal__count">${sum.n}</span>`;
+      return `${wash}${count}${mark}${ribbon}`;
     }
 
     function render() {
@@ -501,9 +520,11 @@ const clientEvents = events.map((e) => ({
           `<span class="home-cal__keynote">Ribbon = share of the day's coverage by lean</span>`;
       } else {
         html =
-          `<span class="home-cal__key"><i class="home-cal__swatch home-cal__wash--vol" style="opacity:.18"></i>Lighter day</span>` +
-          `<span class="home-cal__key"><i class="home-cal__swatch home-cal__wash--vol" style="opacity:.72"></i>Heavier day</span>` +
-          `<span class="home-cal__keynote">Shading = how many reports ran that day</span>`;
+          `<span class="home-cal__key"><i class="home-cal__swatch home-cal__wash--vol-low"></i>Quiet</span>` +
+          `<span class="home-cal__key"><i class="home-cal__swatch home-cal__wash--vol-mid"></i>Active</span>` +
+          `<span class="home-cal__key"><i class="home-cal__swatch home-cal__wash--vol-high"></i>Busy</span>` +
+          `<span class="home-cal__key"><i class="home-cal__swatch home-cal__wash--vol-peak"></i>Peak</span>` +
+          `<span class="home-cal__keynote">${locked ? "Free preview · shading = reports that day" : "Shading = how many reports ran that day"}</span>`;
       }
       legendEl.innerHTML = html;
     }
