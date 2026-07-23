@@ -13,6 +13,7 @@ import Disclaimer from "~/components/Disclaimer.astro";
 import NewsletterSignup from "~/components/NewsletterSignup.astro";
 import HomeSpotlightCarousel from "~/components/HomeSpotlightCarousel.astro";
 import GuestHero from "~/components/GuestHero.astro";
+import HomeFeatureHighlight from "~/components/HomeFeatureHighlight.astro";
 import HomeCalendar from "~/components/HomeCalendar.astro";
 import TodayInHistory from "~/components/TodayInHistory.astro";
 import HumanSpotlight from "~/components/HumanSpotlight.astro";
@@ -23,6 +24,7 @@ import {
   getSentiments,
   getTodayInHistory,
   getHumanSpotlight,
+  getHomeLayout,
   getDiscover,
   getGoodNews,
   getCalendarEventsStore,
@@ -34,6 +36,7 @@ import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 import { homePromosForPage } from "~/lib/homePromos";
+import { resolveHomeHighlight, resolveHomeOrder } from "~/lib/homeLayout";
 import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates } from "~/lib/elections";
 import {
   normalizeCalendarEvent,
@@ -167,6 +170,12 @@ const calendarLive: CalendarEvent[] = (calStore?.events ?? [])
 const calendarDays = buildDaySummaries(all, { locked, topPerDay: 4, maxDays: 120 });
 const todayInHistory = await getTodayInHistory(env.AGENTS);
 const humanSpotlight = await getHumanSpotlight(env.AGENTS);
+// Dynamic landing plan (home-layout-curator agent — Grok + web_search).
+const homeLayout = await getHomeLayout(env.AGENTS);
+const homeOrder = resolveHomeOrder(homeLayout);
+const homeHighlight = resolveHomeHighlight(homeLayout, {
+  signedIn: access.signedIn,
+});
 
 // Discover + Good News — same horizontal strip format as Breaking / Front Page.
 // Flatten curated section post ids (order preserved, de-duped). Cap for mobile.
@@ -215,161 +224,192 @@ const quips = await getQuips(env.AGENTS);
     <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
   ) : (
     <>
-      {/* Marketing hero for signed-out visitors — product value + live grade slideshow. */}
-      {!access.signedIn && (
-        <GuestHero
-          posts={
-            heroPosts.some((p) => p.data.letterGrade)
-              ? heroPosts
-              : all.filter((p) => p.data.letterGrade).slice(0, 8)
-          }
-          reportCount={all.length}
-          class="guest-hero--home"
-        />
-      )}
-
-      {/* Fixed spotlight carousel (midterms + hot/popular sections). */}
-      {spotlightPromos.length > 0 && (
-        <HomeSpotlightCarousel promos={spotlightPromos} class="home-spotlight--top" />
-      )}
-
-      {APP_STORE_LIVE && (
+      {/*
+        Section order is dynamic when home-layout-curator has a fresh plan
+        (Grok + web_search). Missing/expired plan → DEFAULT_HOME_ORDER.
+      */}
+      {homeOrder.map((section) => (
         <>
-          <aside class="app-promo" id="app-promo" data-app-hide hidden>
-            <p class="app-promo__msg">
-              <span class="app-promo__kicker">Now on iOS</span>
-              Every grade and alert in your pocket.
-            </p>
-            <a class="app-promo__cta" href={APP_STORE_URL} target="_blank" rel="noopener">Get the app →</a>
-            <button type="button" class="app-promo__close" id="app-promo-close" aria-label="Dismiss app promotion">×</button>
-          </aside>
-          <script is:inline>
-            (() => {
-              const el = document.getElementById("app-promo");
-              if (!el) return;
-              const KEY = "clad_app_promo_dismissed";
-              let dismissed = false;
-              try { dismissed = !!localStorage.getItem(KEY); } catch {}
-              if (!dismissed) el.hidden = false;
-              const close = document.getElementById("app-promo-close");
-              if (close) close.addEventListener("click", () => {
-                el.hidden = true;
-                try { localStorage.setItem(KEY, "1"); } catch {}
-              });
-            })();
-          </script>
-        </>
-      )}
-
-      <BreakingStrip items={breaking} locked={locked} />
-
-      <HeroStrip
-        posts={heroPosts}
-        title="Front Page"
-        locked={locked}
-        moreHref="/recent/"
-        moreLabel="Latest →"
-      />
-
-      {/* Lean snapshot between Front Page and the calendar — static box. */}
-      {!locked && <CoverageLeanBar posts={all} class="home-lean" />}
-
-      {/* News calendar — agent feed + elections + linked past Clad reports. */}
-      <HomeCalendar
-        races={calendarRaces}
-        live={calendarLive}
-        days={calendarDays.days}
-        first={calendarDays.first}
-        last={calendarDays.last}
-        locked={locked}
-      />
-
-      <section class="feed">
-        <div class="feed__head">
-          <h2 class="feed__title">Topics</h2>
-          <a class="category__more" href="/search/">Hot today · search all →</a>
-        </div>
-        <div class="rule rule--double" aria-hidden="true"></div>
-        <ul class="topic-rows">
-          {topics.slice(0, TOPICS_ON_HOME).map((t) => (
-            <li class="topic-row-item">
-              <TopicRow topic={t} locked={locked} />
-            </li>
-          ))}
-        </ul>
-        {topics.length > TOPICS_ON_HOME && (
-          <p class="feed__foot">
-            <a href="/search/">Browse {topics.length} topics in search →</a>
-          </p>
-        )}
-      </section>
-
-      {/* View-only midterms map teaser → full interactive /elections/map/ */}
-      <HomeElectionMap races={calendarRaces} posts={all} />
-
-      {locked ? (
-        <PaywallPanel signedIn={access.signedIn} returnTo="/" />
-      ) : (
-        <>
-          {topGraded.length > 0 && (
-            <GradeBoard
-              top={topGraded}
-              bottom={bottomGraded}
-              title="Best & Worst Graded · Last 7 Days"
+          {section === "guest-hero" && !access.signedIn && (
+            <GuestHero
+              posts={
+                heroPosts.some((p) => p.data.letterGrade)
+                  ? heroPosts
+                  : all.filter((p) => p.data.letterGrade).slice(0, 8)
+              }
+              reportCount={all.length}
+              class="guest-hero--home"
             />
           )}
-          <TodayInHistory payload={todayInHistory} />
-          {/* Directly under Today in history; also rendered for free readers below. */}
-          <HumanSpotlight payload={humanSpotlight} />
-          <p class="home-more-analytics">
-            Want the long view?{" "}
-            <a href="/trends/">News Trends</a>
-            {" · "}
-            <a href="/bias/">Check your bias</a>
-            {" · "}
-            <a href="/week/">Week in Grades</a>
-            {" · "}
-            <a href="/good-news/">Good News</a>.
-          </p>
+
+          {section === "feature-highlight" && homeHighlight && (
+            <HomeFeatureHighlight highlight={homeHighlight} />
+          )}
+
+          {section === "spotlight" && spotlightPromos.length > 0 && (
+            <HomeSpotlightCarousel promos={spotlightPromos} class="home-spotlight--top" />
+          )}
+
+          {section === "app-promo" && APP_STORE_LIVE && (
+            <>
+              <aside class="app-promo" id="app-promo" data-app-hide hidden>
+                <p class="app-promo__msg">
+                  <span class="app-promo__kicker">Now on iOS</span>
+                  Every grade and alert in your pocket.
+                </p>
+                <a class="app-promo__cta" href={APP_STORE_URL} target="_blank" rel="noopener">Get the app →</a>
+                <button type="button" class="app-promo__close" id="app-promo-close" aria-label="Dismiss app promotion">×</button>
+              </aside>
+              <script is:inline>
+                (() => {
+                  const el = document.getElementById("app-promo");
+                  if (!el) return;
+                  const KEY = "clad_app_promo_dismissed";
+                  let dismissed = false;
+                  try { dismissed = !!localStorage.getItem(KEY); } catch {}
+                  if (!dismissed) el.hidden = false;
+                  const close = document.getElementById("app-promo-close");
+                  if (close) close.addEventListener("click", () => {
+                    el.hidden = true;
+                    try { localStorage.setItem(KEY, "1"); } catch {}
+                  });
+                })();
+              </script>
+            </>
+          )}
+
+          {section === "breaking" && (
+            <BreakingStrip items={breaking} locked={locked} />
+          )}
+
+          {section === "front-page" && (
+            <HeroStrip
+              posts={heroPosts}
+              title="Front Page"
+              locked={locked}
+              moreHref="/recent/"
+              moreLabel="Latest →"
+            />
+          )}
+
+          {section === "lean" && !locked && (
+            <CoverageLeanBar posts={all} class="home-lean" />
+          )}
+
+          {section === "calendar" && (
+            <HomeCalendar
+              races={calendarRaces}
+              live={calendarLive}
+              days={calendarDays.days}
+              first={calendarDays.first}
+              last={calendarDays.last}
+              locked={locked}
+            />
+          )}
+
+          {section === "topics" && (
+            <section class="feed">
+              <div class="feed__head">
+                <h2 class="feed__title">Topics</h2>
+                <a class="category__more" href="/search/">Hot today · search all →</a>
+              </div>
+              <div class="rule rule--double" aria-hidden="true"></div>
+              <ul class="topic-rows">
+                {topics.slice(0, TOPICS_ON_HOME).map((t) => (
+                  <li class="topic-row-item">
+                    <TopicRow topic={t} locked={locked} />
+                  </li>
+                ))}
+              </ul>
+              {topics.length > TOPICS_ON_HOME && (
+                <p class="feed__foot">
+                  <a href="/search/">Browse {topics.length} topics in search →</a>
+                </p>
+              )}
+            </section>
+          )}
+
+          {section === "election-map" && (
+            <HomeElectionMap races={calendarRaces} posts={all} />
+          )}
+
+          {section === "grades" && (
+            locked ? (
+              <PaywallPanel signedIn={access.signedIn} returnTo="/" />
+            ) : (
+              topGraded.length > 0 && (
+                <GradeBoard
+                  top={topGraded}
+                  bottom={bottomGraded}
+                  title="Best & Worst Graded · Last 7 Days"
+                />
+              )
+            )
+          )}
+
+          {section === "today-history" && !locked && (
+            <TodayInHistory payload={todayInHistory} />
+          )}
+
+          {section === "human-spotlight" && (
+            <>
+              <HumanSpotlight payload={humanSpotlight} />
+              {!locked && (
+                <p class="home-more-analytics">
+                  Want the long view?{" "}
+                  <a href="/trends/">News Trends</a>
+                  {" · "}
+                  <a href="/bias/">Check your bias</a>
+                  {" · "}
+                  <a href="/week/">Week in Grades</a>
+                  {" · "}
+                  <a href="/good-news/">Good News</a>.
+                </p>
+              )}
+            </>
+          )}
+
+          {section === "discover" && (
+            <HeroStrip
+              posts={discoverPosts}
+              title="Discover"
+              locked={locked}
+              moreHref="/discover/"
+              moreLabel="All collections →"
+            />
+          )}
+
+          {section === "good-news" && (
+            <HeroStrip
+              posts={goodNewsPosts}
+              title="Good News"
+              locked={locked}
+              moreHref="/good-news/"
+              moreLabel="All good news →"
+            />
+          )}
+
+          {section === "quips" && <QuipTicker data={quips} />}
+
+          {section === "more" && (
+            <section class="more-clad" aria-labelledby="more-clad-title">
+              <div class="feed__head">
+                <h2 class="feed__title" id="more-clad-title">Keep reading</h2>
+              </div>
+              <div class="rule rule--double" aria-hidden="true"></div>
+              <ul class="more-clad__list">
+                <li><a href="/week/"><strong>Week in Grades</strong></a> — best, worst, and what got ignored</li>
+                <li><a href="/trends/"><strong>News Trends</strong></a> — is coverage getting better or worse?</li>
+                <li><a href="/good-news/"><strong>Good News</strong></a> — solid reporting, lighter load</li>
+                <li><a href="/students/"><strong>For students</strong></a> — how to read grades and share them</li>
+                <li><a href="/learn/"><strong>New to the news?</strong></a> — short explainers, no jargon</li>
+                <li><a href="/how-it-works/"><strong>How Clad works</strong></a> — the method, start to finish</li>
+                <li><a href="/newsletter/"><strong>Newsletter</strong></a> — Sunday desk in your inbox</li>
+              </ul>
+            </section>
+          )}
         </>
-      )}
-      {/* Free/anonymous readers still get the daily positive story. */}
-      {locked && <HumanSpotlight payload={humanSpotlight} />}
-
-      {/* Discover + Good News — horizontal cards like Breaking / Front Page */}
-      <HeroStrip
-        posts={discoverPosts}
-        title="Discover"
-        locked={locked}
-        moreHref="/discover/"
-        moreLabel="All collections →"
-      />
-      <HeroStrip
-        posts={goodNewsPosts}
-        title="Good News"
-        locked={locked}
-        moreHref="/good-news/"
-        moreLabel="All good news →"
-      />
-
-      {/* Scrolling for-fun quip band (decorative; aria-hidden). */}
-      <QuipTicker data={quips} />
-
-      <section class="more-clad" aria-labelledby="more-clad-title">
-        <div class="feed__head">
-          <h2 class="feed__title" id="more-clad-title">Keep reading</h2>
-        </div>
-        <div class="rule rule--double" aria-hidden="true"></div>
-        <ul class="more-clad__list">
-          <li><a href="/week/"><strong>Week in Grades</strong></a> — best, worst, and what got ignored</li>
-          <li><a href="/trends/"><strong>News Trends</strong></a> — is coverage getting better or worse?</li>
-          <li><a href="/good-news/"><strong>Good News</strong></a> — solid reporting, lighter load</li>
-          <li><a href="/students/"><strong>For students</strong></a> — how to read grades and share them</li>
-          <li><a href="/learn/"><strong>New to the news?</strong></a> — short explainers, no jargon</li>
-          <li><a href="/how-it-works/"><strong>How Clad works</strong></a> — the method, start to finish</li>
-          <li><a href="/newsletter/"><strong>Newsletter</strong></a> — Sunday desk in your inbox</li>
-        </ul>
-      </section>
+      ))}
     </>
   )}
   <NewsletterSignup />

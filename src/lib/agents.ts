@@ -9,6 +9,10 @@
  */
 import { getCollection } from "astro:content";
 import type { BroadcastReport } from "./broadcast.ts";
+import type { HomeLayoutStore } from "./homeLayout.ts";
+import { normalizeHomeLayout } from "./homeLayout.ts";
+
+export type { HomeLayoutStore, HomeLayoutHighlight, HomeSectionId } from "./homeLayout.ts";
 
 export interface AgentConfig {
   // youtube-scanner
@@ -354,6 +358,15 @@ export const DEFAULT_REGISTRY: Registry = {
       config: {},
     },
     {
+      id: "home-layout-curator",
+      kind: "home-layout-curator",
+      name: "Home layout curator (current events → landing modules)",
+      enabled: true,
+      // Every 4 hours — web-search current events, refresh home order + feature strip.
+      cron: "40 */4 * * *",
+      config: {},
+    },
+    {
       id: "push-reminders",
       kind: "push-reminders",
       name: "iOS Push Reminders (calendar daybook)",
@@ -399,6 +412,7 @@ export async function getRegistry(kv: KVNamespace): Promise<Registry> {
     "calendar-scanner",
     "today-in-history",
     "human-spotlight",
+    "home-layout-curator",
     "push-reminders",
   ]) {
     const live = reg.agents.find((a) => a.id === id);
@@ -1525,6 +1539,28 @@ export async function setHumanSpotlight(
   payload: HumanSpotlightStore
 ): Promise<void> {
   await kv.put(HUMAN_SPOTLIGHT_KEY, JSON.stringify(payload));
+}
+
+// ── Home layout curator (dynamic landing order + feature highlight) ───
+const HOME_LAYOUT_KEY = "home:layout";
+
+export async function getHomeLayout(
+  kv: KVNamespace
+): Promise<HomeLayoutStore | null> {
+  const raw = await kv.get(HOME_LAYOUT_KEY);
+  if (!raw) return null;
+  try {
+    return normalizeHomeLayout(JSON.parse(raw));
+  } catch {
+    return null;
+  }
+}
+
+export async function setHomeLayout(
+  kv: KVNamespace,
+  payload: HomeLayoutStore
+): Promise<void> {
+  await kv.put(HOME_LAYOUT_KEY, JSON.stringify(payload));
 }
 
 // ── Politician roster (officeholders — daily sync agent) ───────────────

@@ -111,6 +111,17 @@ export function putHumanSpotlight(payload) {
   });
 }
 
+export function getHomeLayout() {
+  return call("/api/agent/home-layout", { method: "GET" });
+}
+
+export function putHomeLayout(payload) {
+  return call("/api/agent/home-layout", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
 export function getPoliticianRoster() {
   return call("/api/agent/politicians-roster", { method: "GET" });
 }

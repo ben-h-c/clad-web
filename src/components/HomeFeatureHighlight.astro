@@ -1,0 +1,35 @@
+---
+/**
+ * Agent-driven full-width feature / current-events strip on the home page.
+ * Payload comes from home-layout-curator (Grok + web_search) via AGENTS KV.
+ */
+import type { HomeLayoutHighlight } from "~/lib/homeLayout";
+
+interface Props {
+  highlight: HomeLayoutHighlight;
+  class?: string;
+}
+const { highlight: h } = Astro.props;
+const wrapClass = [
+  "home-feature",
+  h.variant && `home-feature--${h.variant}`,
+  Astro.props.class,
+]
+  .filter(Boolean)
+  .join(" ");
+---
+<section class={wrapClass} aria-labelledby={`home-feature-${h.id}`} data-home-feature={h.id}>
+  <div class="home-feature__inner">
+    <div class="home-feature__text">
+      <p class="home-feature__kicker small-caps">{h.kicker}</p>
+      <h2 class="home-feature__title" id={`home-feature-${h.id}`}>{h.title}</h2>
+      <p class="home-feature__body">{h.body}</p>
+    </div>
+    <div class="home-feature__actions">
+      <a class="home-feature__cta" href={h.href}>{h.cta}</a>
+      {h.secondaryHref && h.secondaryCta && (
+        <a class="home-feature__secondary" href={h.secondaryHref}>{h.secondaryCta}</a>
+      )}
+    </div>
+  </div>
+</section>
