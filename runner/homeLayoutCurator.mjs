@@ -238,14 +238,15 @@ function emptyHighlight() {
   };
 }
 
-export async function runHomeLayoutCurator(agent, env) {
-  const xaiKey = env.XAI_API_KEY || process.env.XAI_API_KEY;
-  if (!xaiKey) throw new Error("XAI_API_KEY missing");
+export async function runHomeLayoutCurator(agent) {
+  const xaiKey = process.env.XAI_API_KEY;
+  if (!xaiKey) return { ok: false, message: "XAI_API_KEY missing" };
 
   let previous = null;
   try {
     const cur = await getHomeLayout();
-    previous = cur?.store || null;
+    // call() returns { ok, body }; GET body shape is { store }
+    previous = cur?.ok ? cur.body?.store || null : null;
   } catch {
     /* first run */
   }
@@ -305,12 +306,22 @@ export async function runHomeLayoutCurator(agent, env) {
       : [],
   };
 
-  // Worker re-validates; send empty highlight object fields only when null
-  // is desired — API normalize treats missing highlight vs null via our body.
-  await putHomeLayout({
+  const put = await putHomeLayout({
     ...payload,
-    highlight: highlight,
+    highlight,
   });
+  if (!put.ok) {
+    const err =
+      put.body?.error ||
+      put.body?.raw ||
+      JSON.stringify(put.body || {}).slice(0, 200);
+    return {
+      ok: false,
+      message: `POST /api/agent/home-layout ${put.status}: ${err}`,
+      submitted: 0,
+      skipped: 0,
+    };
+  }
 
   const hl = highlight ? ` highlight="${highlight.title}"` : " no-highlight";
   return {
