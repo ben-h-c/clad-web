@@ -1,0 +1,307 @@
+---
+/**
+ * Top-of-home marketing hero for signed-out visitors.
+ * Split layout: value prop + CTAs on the left; auto-advancing product
+ * slideshow (live graded reports) on the right — Ground News–style promo.
+ */
+import type { CollectionEntry } from "astro:content";
+import { displayableThumb } from "~/lib/imagePolicy";
+import { shortDate } from "~/lib/dateline";
+
+interface Props {
+  posts: CollectionEntry<"posts">[];
+  reportCount: number;
+  class?: string;
+}
+
+const { posts, reportCount } = Astro.props;
+const wrapClass = ["guest-hero", Astro.props.class].filter(Boolean).join(" ");
+
+const ENUM_TO_SCORE: Record<string, number> = {
+  left: -80,
+  "center-left": -40,
+  center: 0,
+  "center-right": 40,
+  right: 80,
+  none: 0,
+};
+
+function leanOf(d: CollectionEntry<"posts">["data"]): number {
+  if (typeof d.leanScore === "number") return d.leanScore;
+  if (d.politicalLean) return ENUM_TO_SCORE[d.politicalLean] ?? 0;
+  return 0;
+}
+
+function leanLabel(score: number): string {
+  const mag = Math.abs(score);
+  if (mag < 5) return "Centered";
+  return `${mag}% ${score > 0 ? "Right" : "Left"}-leaning`;
+}
+
+function leanPos(score: number): number {
+  return (Math.max(-100, Math.min(100, score)) + 100) / 2;
+}
+
+function gradeTier(grade: string | undefined): string {
+  const t = (grade ?? "").charAt(0).toUpperCase();
+  if (t === "A") return "good";
+  if (t === "B") return "b";
+  if (t === "C") return "mid";
+  return "bad";
+}
+
+const slides = posts
+  .filter((p) => p.data.letterGrade)
+  .slice(0, 6)
+  .map((p) => {
+    const lean = leanOf(p.data);
+    return {
+      id: p.id,
+      headline: p.data.headline,
+      summary: p.data.summary,
+      grade: p.data.letterGrade as string,
+      tier: gradeTier(p.data.letterGrade),
+      lean,
+      leanLabel: leanLabel(lean),
+      leanPos: leanPos(lean),
+      source: p.data.sourceTitle ?? "Source",
+      date: shortDate(p.data.publishedAt),
+      thumb: displayableThumb(p.data.thumbnail),
+      href: `/posts/${p.id}/`,
+    };
+  });
+
+const countLabel = reportCount.toLocaleString("en-US");
+const multi = slides.length > 1;
+---
+<section
+  class={wrapClass}
+  data-guest-hero
+  aria-label="Why CladFacts"
+>
+  <div class="guest-hero__grid">
+    <div class="guest-hero__copy">
+      <p class="guest-hero__brand">CLADFACTS</p>
+      <h2 class="guest-hero__headline">
+        Grading content.<br aria-hidden="true" />
+        <span class="guest-hero__headline-accent">Exposing bias.</span>
+      </h2>
+      <p class="guest-hero__lede">
+        Every broadcast fact-checked claim by claim — letter grade for accuracy,
+        political lean on a spectrum, and sources you can open yourself.
+      </p>
+      <div class="guest-hero__actions">
+        <a class="guest-hero__cta guest-hero__cta--primary" href="/register/">
+          Create free account
+        </a>
+        <a class="guest-hero__cta guest-hero__cta--ghost" href="/how-it-works/">
+          Learn more
+        </a>
+      </div>
+      <p class="guest-hero__meta">
+        <span>{countLabel}+ graded reports</span>
+        <span class="guest-hero__meta-dot" aria-hidden="true">·</span>
+        <span>Full scoreboard free with an account</span>
+      </p>
+    </div>
+
+    {slides.length > 0 && (
+      <div
+        class="guest-hero__stage"
+        data-guest-stage
+        aria-roledescription="carousel"
+        aria-label="Sample graded reports"
+      >
+        <div class="guest-hero__frame">
+          <div class="guest-hero__chrome" aria-hidden="true">
+            <span class="guest-hero__dot"></span>
+            <span class="guest-hero__dot"></span>
+            <span class="guest-hero__dot"></span>
+            <span class="guest-hero__chrome-label">Live on CladFacts</span>
+          </div>
+
+          <div class="guest-hero__viewport" data-guest-viewport>
+            <ul class="guest-hero__track" data-guest-track>
+              {slides.map((s, i) => (
+                <li
+                  class:list={["guest-hero__slide", i === 0 && "is-active"]}
+                  data-guest-slide
+                  data-index={i}
+                  aria-hidden={i === 0 ? "false" : "true"}
+                  aria-label={`${i + 1} of ${slides.length}`}
+                >
+                  <a class="guest-hero__card" href={s.href}>
+                    {s.thumb ? (
+                      <div class="guest-hero__media">
+                        <img
+                          src={s.thumb}
+                          alt=""
+                          width="640"
+                          height="360"
+                          loading={i === 0 ? "eager" : "lazy"}
+                          decoding="async"
+                          referrerpolicy="no-referrer"
+                        />
+                      </div>
+                    ) : (
+                      <div class="guest-hero__media guest-hero__media--empty" aria-hidden="true"></div>
+                    )}
+                    <div class="guest-hero__card-body">
+                      <div class="guest-hero__score">
+                        <span class={`guest-hero__grade grade--${s.tier}`}>{s.grade}</span>
+                        <div class="guest-hero__lean">
+                          <span class="guest-hero__lean-label small-caps">Political lean</span>
+                          <span class="guest-hero__lean-value">{s.leanLabel}</span>
+                          <div class="guest-hero__lean-track" aria-hidden="true">
+                            <span class="guest-hero__lean-end">L</span>
+                            <span class="guest-hero__lean-bar">
+                              <span class="guest-hero__lean-center"></span>
+                              <span
+                                class="guest-hero__lean-marker"
+                                style={`left:${s.leanPos}%`}
+                              ></span>
+                            </span>
+                            <span class="guest-hero__lean-end">R</span>
+                          </div>
+                        </div>
+                      </div>
+                      <h3 class="guest-hero__card-title">{s.headline}</h3>
+                      <p class="guest-hero__card-meta">
+                        <span>{s.source}</span>
+                        <span aria-hidden="true">·</span>
+                        <time>{s.date}</time>
+                      </p>
+                      {s.summary && (
+                        <p class="guest-hero__card-sum">{s.summary}</p>
+                      )}
+                      <span class="guest-hero__card-cta">
+                        Unlock full grades free →
+                      </span>
+                    </div>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {multi && (
+            <>
+              <div class="guest-hero__nav" data-guest-nav>
+                <button
+                  type="button"
+                  class="guest-hero__arrow"
+                  data-guest-prev
+                  aria-label="Previous sample report"
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  class="guest-hero__arrow"
+                  data-guest-next
+                  aria-label="Next sample report"
+                >
+                  ›
+                </button>
+              </div>
+              <div
+                class="guest-hero__dots"
+                data-guest-dots
+                role="tablist"
+                aria-label="Choose sample report"
+              >
+                {slides.map((s, i) => (
+                  <button
+                    type="button"
+                    class:list={["guest-hero__pill", i === 0 && "is-on"]}
+                    data-guest-dot={i}
+                    role="tab"
+                    aria-selected={i === 0 ? "true" : "false"}
+                    aria-label={`Sample ${i + 1}: ${s.headline}`}
+                  />
+                ))}
+              </div>
+              <p class="guest-hero__counter" data-guest-counter aria-live="polite">
+                1 / {slides.length}
+              </p>
+            </>
+          )}
+        </div>
+      </div>
+    )}
+  </div>
+</section>
+
+{multi && (
+  <script is:inline>
+    (() => {
+      const root = document.querySelector("[data-guest-hero]");
+      if (!root || root.dataset.bound === "1") return;
+      root.dataset.bound = "1";
+
+      const slides = Array.from(root.querySelectorAll("[data-guest-slide]"));
+      const dots = Array.from(root.querySelectorAll("[data-guest-dot]"));
+      const counter = root.querySelector("[data-guest-counter]");
+      const prev = root.querySelector("[data-guest-prev]");
+      const next = root.querySelector("[data-guest-next]");
+      const stage = root.querySelector("[data-guest-stage]");
+      if (slides.length < 2) return;
+
+      let i = 0;
+      let timer = 0;
+      const INTERVAL = 5200;
+
+      function show(n) {
+        i = (n + slides.length) % slides.length;
+        slides.forEach((el, idx) => {
+          const on = idx === i;
+          el.classList.toggle("is-active", on);
+          el.setAttribute("aria-hidden", on ? "false" : "true");
+        });
+        dots.forEach((el, idx) => {
+          const on = idx === i;
+          el.classList.toggle("is-on", on);
+          el.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        if (counter) counter.textContent = i + 1 + " / " + slides.length;
+      }
+
+      function arm() {
+        window.clearInterval(timer);
+        timer = window.setInterval(() => show(i + 1), INTERVAL);
+      }
+
+      prev && prev.addEventListener("click", () => { show(i - 1); arm(); });
+      next && next.addEventListener("click", () => { show(i + 1); arm(); });
+      dots.forEach((el) => {
+        el.addEventListener("click", () => {
+          const n = Number(el.getAttribute("data-guest-dot"));
+          if (Number.isFinite(n)) { show(n); arm(); }
+        });
+      });
+
+      // Pause autoplay while the visitor interacts / hovers.
+      if (stage) {
+        stage.addEventListener("mouseenter", () => window.clearInterval(timer));
+        stage.addEventListener("mouseleave", arm);
+        stage.addEventListener("focusin", () => window.clearInterval(timer));
+        stage.addEventListener("focusout", arm);
+        let touchX = 0;
+        stage.addEventListener("touchstart", (e) => {
+          touchX = e.changedTouches[0]?.clientX ?? 0;
+          window.clearInterval(timer);
+        }, { passive: true });
+        stage.addEventListener("touchend", (e) => {
+          const x = e.changedTouches[0]?.clientX ?? touchX;
+          const dx = x - touchX;
+          if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1));
+          arm();
+        }, { passive: true });
+      }
+
+      // Respect reduced motion — still show first slide, no autoplay.
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!reduce) arm();
+    })();
+  </script>
+)}

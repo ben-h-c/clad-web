@@ -12,6 +12,7 @@ import PaywallPanel from "~/components/PaywallPanel.astro";
 import Disclaimer from "~/components/Disclaimer.astro";
 import NewsletterSignup from "~/components/NewsletterSignup.astro";
 import HomeSpotlightCarousel from "~/components/HomeSpotlightCarousel.astro";
+import GuestHero from "~/components/GuestHero.astro";
 import HomeCalendar from "~/components/HomeCalendar.astro";
 import TodayInHistory from "~/components/TodayInHistory.astro";
 import HumanSpotlight from "~/components/HumanSpotlight.astro";
@@ -214,6 +215,19 @@ const quips = await getQuips(env.AGENTS);
     <p class="dateline" style="margin-top:2rem">No reports published yet.</p>
   ) : (
     <>
+      {/* Marketing hero for signed-out visitors — product value + live grade slideshow. */}
+      {!access.signedIn && (
+        <GuestHero
+          posts={
+            heroPosts.some((p) => p.data.letterGrade)
+              ? heroPosts
+              : all.filter((p) => p.data.letterGrade).slice(0, 8)
+          }
+          reportCount={all.length}
+          class="guest-hero--home"
+        />
+      )}
+
       {/* Fixed spotlight carousel (midterms + hot/popular sections). */}
       {spotlightPromos.length > 0 && (
         <HomeSpotlightCarousel promos={spotlightPromos} class="home-spotlight--top" />
