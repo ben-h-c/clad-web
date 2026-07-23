@@ -2135,8 +2135,10 @@ html.masthead-menu-open .masthead__menu-list {
 }
 
 .hero-strip {
-  /* Shared height budget for every horizontal article strip (Breaking, Front Page, …) */
-  --hero-card-max-h: 28.5rem;
+  /* Shared height budget for every horizontal article strip (Breaking, Front Page, …).
+     Room for thumb + scoreband + headline + ~9-line description. */
+  --hero-card-max-h: 38rem;
+  --hero-summary-lines: 9;
   display: flex;
   align-items: stretch; /* even row bottoms once copy is line-clamped */
   gap: 1rem;
@@ -2257,11 +2259,12 @@ html.masthead-menu-open .masthead__menu-list {
 .hero-strip .report-card__summary {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: var(--hero-summary-lines, 9);
   overflow: hidden;
   flex: 0 1 auto;
   min-height: 0;
   margin: 0;
+  line-height: 1.45;
 }
 .hero-strip .report-card__detail {
   flex: 0 0 auto;
@@ -2272,13 +2275,15 @@ html.masthead-menu-open .masthead__menu-list {
 }
 @media (min-width: 768px) {
   .hero-strip {
-    --hero-card-max-h: 30rem;
+    --hero-card-max-h: 40rem;
+    --hero-summary-lines: 9;
   }
 }
 @media (min-width: 1024px) {
   .hero-strip {
-    /* iPad / wide tablets: room for thumb + 3-line blurb, not essays */
-    --hero-card-max-h: 31rem;
+    /* iPad / wide: show a full-looking blurb (~9 lines), still capped */
+    --hero-card-max-h: 42rem;
+    --hero-summary-lines: 10;
   }
 }
 
@@ -2295,14 +2300,11 @@ html.masthead-menu-open .masthead__menu-list {
 html.clad-app .hero-strip__item--peek {
   flex: 0 0 clamp(12.5rem, 52%, 15.5rem);
   align-self: stretch;
-  max-height: min(22rem, var(--hero-card-max-h));
+  max-height: min(26rem, var(--hero-card-max-h));
 }
 html.clad-app .hero-strip {
-  --hero-card-max-h: 22rem;
-}
-html.clad-app .hero-strip .report-card__summary {
-  /* App peek hides long detail; keep clamp if detail is shown */
-  -webkit-line-clamp: 2;
+  --hero-card-max-h: 26rem;
+  --hero-summary-lines: 4;
 }
 
 html.clad-app .report-card--peek {
