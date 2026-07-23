@@ -69,7 +69,10 @@
   --font-serif: var(--font-sans);
   --font-italic: var(--font-sans);
 
+  /* Reading column — phone default; tablets open via --measure-page below */
   --measure: 70ch;
+  /* Full page column (posts, static, search, archives) — responsive width */
+  --measure-page: min(40rem, 100%);
   --gutter: 1.25rem;
   --section-gap: 2.1rem; /* breathing room between major home blocks */
   --card-pad: 1.15rem;
@@ -451,7 +454,8 @@ html[data-billing="0"] .billing-only {
   z-index: 3;
   max-width: none;
   margin: 0 auto;
-  padding: 1.1rem clamp(1.15rem, 3.5vw, 3.5rem) 3.25rem;
+  /* Tighter side padding on tablets so content can use more of the screen */
+  padding: 1.1rem clamp(0.9rem, 2.2vw, 2.25rem) 3.25rem;
   background-color: var(--paper);
   background-image: none;
   color: var(--ink);
@@ -1688,10 +1692,36 @@ html.masthead-menu-open .masthead__menu-list {
   font-size: 0.95rem;
 }
 
+/* Responsive page width: open the column on iPad / large tablets.
+   Phone keeps a readable measure; desktop opens further without full-bleed prose. */
+@media (min-width: 768px) {
+  :root {
+    --measure: min(48rem, 100%);
+    --measure-page: min(50rem, 100%);
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --measure: min(54rem, 100%);
+    --measure-page: min(58rem, 100%);
+  }
+  .shell {
+    padding-left: clamp(1rem, 2vw, 2rem);
+    padding-right: clamp(1rem, 2vw, 2rem);
+  }
+}
+@media (min-width: 1280px) {
+  :root {
+    --measure: min(58rem, 100%);
+    --measure-page: min(64rem, 100%);
+  }
+}
+
 /* Static prose pages (About, etc.) */
 
 .static-page {
-  max-width: var(--measure);
+  max-width: var(--measure-page);
+  width: 100%;
   margin: 1.5rem auto 0;
 }
 
@@ -1803,7 +1833,8 @@ html.masthead-menu-open .masthead__menu-list {
 
 .section-page,
 .archive-page {
-  max-width: var(--measure);
+  max-width: var(--measure-page);
+  width: 100%;
   margin: 1.5rem auto 0;
 }
 
@@ -4275,10 +4306,10 @@ html.theme-dark .peek-pop__panel {
 /* Post page */
 
 .post {
-  max-width: var(--measure);
+  max-width: var(--measure-page);
+  width: 100%;
   margin: 2rem auto 0;
 }
-
 .post__kicker {
   margin-bottom: 0.75rem;
 }
@@ -4302,6 +4333,8 @@ html.theme-dark .peek-pop__panel {
 }
 
 .post__body {
+  /* Slightly capped so long-form stays readable when the page is wider on iPad */
+  max-width: min(48rem, 100%);
   font-size: 1.0625rem;
   line-height: 1.7;
 }
