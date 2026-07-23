@@ -11,7 +11,8 @@ import { buildRaceBoardLive, maskRaceLeaders, statusLabel } from "~/lib/bracket"
 import { shortDate } from "~/lib/dateline";
 import { buildElectionMap, type StateMapCell } from "~/lib/electionMap";
 import { pickElectionMapNews, pickRaceWatch } from "~/lib/electionMapNews";
-import { buildStateForecasts, FORECAST_ASOF, LAYER_LABELS } from "~/lib/electionForecast";
+import { buildStateForecasts, LAYER_LABELS } from "~/lib/electionForecast";
+import { getElectionForecastLive } from "~/lib/agents";
 import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates } from "~/lib/elections";
 import { OG_VERSIONS } from "~/lib/ogCard";
 import { RACE_BOARD_VERIFIED_ASOF } from "~/lib/races";
@@ -42,7 +43,10 @@ const board = maskRaceLeaders(
   reveal
 );
 const map = buildElectionMap(board.cards);
-const forecast = buildStateForecasts();
+// Live agent overlay (asOf + rating patches); falls back to base seed tables.
+const forecastLive = await getElectionForecastLive(env.AGENTS);
+const forecast = buildStateForecasts(forecastLive);
+const FORECAST_ASOF = forecast.asOf;
 const electionNews = pickElectionMapNews(all, board.cards, { limit: 10, maxAgeDays: 50 });
 /* A few more board cards so the watch column matches the desk workbench height. */
 const raceWatch = pickRaceWatch(board.cards, 10);

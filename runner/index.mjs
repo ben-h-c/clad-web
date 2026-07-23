@@ -28,6 +28,7 @@ import { runCalendarScanner } from "./calendarScanner.mjs";
 import { runTodayInHistory } from "./todayInHistory.mjs";
 import { runHumanSpotlight } from "./humanSpotlight.mjs";
 import { runHomeLayoutCurator } from "./homeLayoutCurator.mjs";
+import { runForecastRefresher } from "./forecastRefresher.mjs";
 import { runPushReminders } from "./pushReminders.mjs";
 import { processUrlQueue } from "./urlIntake.mjs";
 import { updateTicker } from "./ticker.mjs";
@@ -65,6 +66,7 @@ const KINDS = {
   "today-in-history": runTodayInHistory,
   "human-spotlight": runHumanSpotlight,
   "home-layout-curator": runHomeLayoutCurator,
+  "forecast-refresher": runForecastRefresher,
   "push-reminders": runPushReminders,
 };
 

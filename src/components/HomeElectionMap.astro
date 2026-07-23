@@ -5,10 +5,12 @@
  * Optional “next race” blurb renders under the map when races are provided.
  */
 import type { CollectionEntry } from "astro:content";
+import { env } from "cloudflare:workers";
 import type { RaceDef } from "~/lib/races";
 import HomeNextElection from "~/components/HomeNextElection.astro";
 import { US_MAP_VIEWBOX, US_STATE_CODES, US_STATE_PATHS, US_STATE_NAMES } from "~/lib/usMapPaths";
-import { buildStateForecasts, FORECAST_ASOF, type Rating } from "~/lib/electionForecast";
+import { buildStateForecasts, type Rating } from "~/lib/electionForecast";
+import { getElectionForecastLive } from "~/lib/agents";
 
 interface Props {
   races?: RaceDef[] | null;
@@ -16,7 +18,9 @@ interface Props {
 }
 const { races = null, posts = [] } = Astro.props;
 
-const forecast = buildStateForecasts();
+const forecastLive = await getElectionForecastLive(env.AGENTS);
+const forecast = buildStateForecasts(forecastLive);
+const FORECAST_ASOF = forecast.asOf;
 const flipCount = US_STATE_CODES.filter((c) => forecast.byCode[c]?.control?.flipRisk).length;
 
 const cells = US_STATE_CODES.map((code) => {

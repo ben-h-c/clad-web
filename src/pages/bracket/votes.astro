@@ -12,7 +12,8 @@ import { DEFAULT_ELECTION_ID, getElection } from "~/lib/elections";
 import { OG_VERSIONS } from "~/lib/ogCard";
 import { getCommunityVotes, type CommunityRaceTally } from "~/lib/picks";
 import { buildCommunityVoteMap, COMMUNITY_FILL_LABELS } from "~/lib/communityMap";
-import { FORECAST_ASOF } from "~/lib/electionForecast";
+import { buildStateForecasts } from "~/lib/electionForecast";
+import { getElectionForecastLive } from "~/lib/agents";
 import { US_MAP_VIEWBOX, US_STATE_PATHS } from "~/lib/usMapPaths";
 
 export const prerender = false;
@@ -24,6 +25,8 @@ const races = summary?.races ?? [];
 const lockedBallots = summary?.lockedBallots ?? 0;
 const totalPicks = summary?.totalPicks ?? 0;
 const cmap = buildCommunityVoteMap(races);
+const forecastLive = await getElectionForecastLive(env.AGENTS);
+const FORECAST_ASOF = buildStateForecasts(forecastLive).asOf;
 
 const sort = Astro.url.searchParams.get("sort") || "votes";
 const chamber = Astro.url.searchParams.get("chamber") || "";

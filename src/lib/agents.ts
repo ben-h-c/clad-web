@@ -11,8 +11,11 @@ import { getCollection } from "astro:content";
 import type { BroadcastReport } from "./broadcast.ts";
 import type { HomeLayoutStore } from "./homeLayout.ts";
 import { normalizeHomeLayout } from "./homeLayout.ts";
+import type { ElectionForecastLiveStore } from "./electionForecast.ts";
+import { normalizeForecastLive } from "./electionForecast.ts";
 
 export type { HomeLayoutStore, HomeLayoutHighlight, HomeSectionId } from "./homeLayout.ts";
+export type { ElectionForecastLiveStore } from "./electionForecast.ts";
 
 export interface AgentConfig {
   // youtube-scanner
@@ -367,6 +370,15 @@ export const DEFAULT_REGISTRY: Registry = {
       config: {},
     },
     {
+      id: "forecast-refresher",
+      kind: "forecast-refresher",
+      name: "Election forecast refresher (party map as-of + ratings)",
+      enabled: true,
+      // Twice daily — bump map "as of" date and competitive ratings via web_search.
+      cron: "50 6,18 * * *",
+      config: {},
+    },
+    {
       id: "push-reminders",
       kind: "push-reminders",
       name: "iOS Push Reminders (calendar daybook)",
@@ -413,6 +425,7 @@ export async function getRegistry(kv: KVNamespace): Promise<Registry> {
     "today-in-history",
     "human-spotlight",
     "home-layout-curator",
+    "forecast-refresher",
     "push-reminders",
   ]) {
     const live = reg.agents.find((a) => a.id === id);
@@ -1561,6 +1574,54 @@ export async function setHomeLayout(
   payload: HomeLayoutStore
 ): Promise<void> {
   await kv.put(HOME_LAYOUT_KEY, JSON.stringify(payload));
+}
+
+// ── Election forecast live overlay (party map as-of + rating patches) ──
+const ELECTION_FORECAST_LIVE_KEY = "elections:forecast-live";
+
+export async function getElectionForecastLive(
+  kv: KVNamespace
+): Promise<ElectionForecastLiveStore | null> {
+  const raw = await kv.get(ELECTION_FORECAST_LIVE_KEY);
+  if (!raw) return null;
+  try {
+    return normalizeForecastLive(JSON.parse(raw));
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Merge new patches onto the previous live store so partial agent runs
+ * don't wipe earlier state ratings.
+ */
+export function mergeElectionForecastLive(
+  prev: ElectionForecastLiveStore | null,
+  next: ElectionForecastLiveStore
+): ElectionForecastLiveStore {
+  const mergeLayer = (
+    a?: Record<string, import("./electionForecast.ts").ForecastRatingPatch>,
+    b?: Record<string, import("./electionForecast.ts").ForecastRatingPatch>
+  ) => {
+    if (!a && !b) return undefined;
+    return { ...(a || {}), ...(b || {}) };
+  };
+  return {
+    asOf: next.asOf,
+    generatedAt: next.generatedAt,
+    reason: next.reason || prev?.reason || "",
+    senate: mergeLayer(prev?.senate, next.senate),
+    governor: mergeLayer(prev?.governor, next.governor),
+    house: mergeLayer(prev?.house, next.house),
+    control: mergeLayer(prev?.control, next.control),
+  };
+}
+
+export async function setElectionForecastLive(
+  kv: KVNamespace,
+  payload: ElectionForecastLiveStore
+): Promise<void> {
+  await kv.put(ELECTION_FORECAST_LIVE_KEY, JSON.stringify(payload));
 }
 
 // ── Politician roster (officeholders — daily sync agent) ───────────────

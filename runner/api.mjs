@@ -122,6 +122,17 @@ export function putHomeLayout(payload) {
   });
 }
 
+export function getElectionForecastLive() {
+  return call("/api/agent/election-forecast", { method: "GET" });
+}
+
+export function putElectionForecastLive(payload) {
+  return call("/api/agent/election-forecast", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
 export function getPoliticianRoster() {
   return call("/api/agent/politicians-roster", { method: "GET" });
 }

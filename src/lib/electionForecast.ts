@@ -1,15 +1,21 @@
 /**
  * Party-control + 2026 outlook layer for the elections map.
  *
- * This is an editorial snapshot for glanceability — NOT CladFacts grades,
- * NOT a poll, and NOT a prediction market. Ratings are Cook-style bands
- * (solid / likely / lean / toss-up) based on public consensus as of
- * FORECAST_ASOF. Update when major ratings shift.
+ * Base tables are an editorial snapshot (FORECAST_BASE_ASOF). Live overlays
+ * from the forecast-refresher agent (AGENTS KV) bump ratings and the public
+ * "as of" date. This is glanceability only — NOT CladFacts grades, polls,
+ * or a prediction market.
  */
 import { US_STATE_CODES, US_STATE_NAMES } from "./usMapPaths.ts";
 import { CLASS_II_STATES, GOVERNOR_2026_STATES } from "./electionMap.ts";
 
-export const FORECAST_ASOF = "2026-07-14";
+/** Seed snapshot baked into source control (fallback when no live overlay). */
+export const FORECAST_BASE_ASOF = "2026-07-14";
+/**
+ * @deprecated Prefer buildStateForecasts(live).asOf — live agent overlay wins.
+ * Kept for imports that still expect a constant (defaults to base seed).
+ */
+export const FORECAST_ASOF = FORECAST_BASE_ASOF;
 
 export type Party = "D" | "R" | "S" | "N"; // Dem, Rep, Split, None/N/A
 export type Rating =
@@ -21,6 +27,83 @@ export type Rating =
   | "likely-r"
   | "solid-r"
   | "no-race";
+
+/** Live rating patch from the forecast-refresher agent. */
+export interface ForecastRatingPatch {
+  rating: Rating;
+  favored?: string;
+  note?: string;
+  /** Optional holder party override (rare). */
+  current?: Party;
+}
+
+/** KV payload: refreshed outlook + public as-of date. */
+export interface ElectionForecastLiveStore {
+  /** Desk date (America/New_York) YYYY-MM-DD shown on the map disclaimer. */
+  asOf: string;
+  generatedAt: string;
+  reason: string;
+  senate?: Record<string, ForecastRatingPatch>;
+  governor?: Record<string, ForecastRatingPatch>;
+  house?: Record<string, ForecastRatingPatch>;
+  control?: Record<string, ForecastRatingPatch>;
+}
+
+const RATINGS: Rating[] = [
+  "solid-d",
+  "likely-d",
+  "lean-d",
+  "tossup",
+  "lean-r",
+  "likely-r",
+  "solid-r",
+  "no-race",
+];
+
+export function isForecastRating(v: unknown): v is Rating {
+  return typeof v === "string" && (RATINGS as string[]).includes(v);
+}
+
+export function isForecastParty(v: unknown): v is Party {
+  return v === "D" || v === "R" || v === "S" || v === "N";
+}
+
+export function normalizeForecastLive(raw: unknown): ElectionForecastLiveStore | null {
+  if (!raw || typeof raw !== "object") return null;
+  const o = raw as Record<string, unknown>;
+  const asOf = String(o.asOf || "").trim();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(asOf)) return null;
+  const generatedAt = String(o.generatedAt || new Date().toISOString()).trim();
+  const reason = String(o.reason || "").slice(0, 400);
+
+  const patchMap = (v: unknown): Record<string, ForecastRatingPatch> | undefined => {
+    if (!v || typeof v !== "object") return undefined;
+    const out: Record<string, ForecastRatingPatch> = {};
+    for (const [code, row] of Object.entries(v as Record<string, unknown>)) {
+      const c = code.toUpperCase();
+      if (!/^[A-Z]{2}$/.test(c) && c !== "DC") continue;
+      if (!row || typeof row !== "object") continue;
+      const r = row as Record<string, unknown>;
+      if (!isForecastRating(r.rating)) continue;
+      const patch: ForecastRatingPatch = { rating: r.rating };
+      if (r.favored != null) patch.favored = String(r.favored).slice(0, 120);
+      if (r.note != null) patch.note = String(r.note).slice(0, 220);
+      if (isForecastParty(r.current)) patch.current = r.current;
+      out[c] = patch;
+    }
+    return Object.keys(out).length ? out : undefined;
+  };
+
+  return {
+    asOf,
+    generatedAt,
+    reason,
+    senate: patchMap(o.senate),
+    governor: patchMap(o.governor),
+    house: patchMap(o.house),
+    control: patchMap(o.control),
+  };
+}
 
 export type ForecastLayer = "senate" | "governor" | "house" | "control";
 
@@ -212,45 +295,72 @@ function favoredPartyFromRating(r: Rating): Party | null {
   return null;
 }
 
-function buildSenate(code: string): LayerForecast {
+function mergeRow(
+  base: { rating: Rating; favored?: string; note?: string } | undefined,
+  live: ForecastRatingPatch | undefined,
+  fallback: Rating
+): { rating: Rating; favored?: string; note?: string; current?: Party } {
+  if (!live && !base) return { rating: fallback };
+  if (!live) return { rating: base!.rating, favored: base!.favored, note: base!.note };
+  return {
+    rating: live.rating,
+    favored: live.favored ?? base?.favored,
+    note: live.note ?? base?.note,
+    current: live.current,
+  };
+}
+
+function buildSenate(code: string, live?: ElectionForecastLiveStore | null): LayerForecast {
   if (!CLASS_II_STATES.has(code)) {
     return R("no-race", "N", "No Class II Senate race in 2026", {
       note: "This state’s next Senate elections are Class I (2030) and/or Class III (2028).",
     });
   }
-  const current = SENATE_HOLDER[code] ?? "N";
-  const row = SENATE_RATING[code] ?? { rating: "tossup" as Rating };
+  const row = mergeRow(SENATE_RATING[code], live?.senate?.[code], "tossup");
+  const current = row.current ?? SENATE_HOLDER[code] ?? "N";
   return R(row.rating, current, `${ratingWord(row.rating)} · holds: ${partyWord(current)}`, {
     favored: row.favored,
     note: row.note,
   });
 }
 
-function buildGovernor(code: string): LayerForecast {
+function buildGovernor(code: string, live?: ElectionForecastLiveStore | null): LayerForecast {
   if (!GOVERNOR_2026_STATES.has(code)) {
     return R("no-race", GOV_HOLDER[code] ?? "N", "No governor race in 2026", {
       note: "Governor elected on a different calendar (e.g. odd-year or off-year cycle).",
     });
   }
-  const current = GOV_HOLDER[code] ?? "N";
-  const row = GOV_RATING[code] ?? { rating: "tossup" as Rating };
+  const row = mergeRow(GOV_RATING[code], live?.governor?.[code], "tossup");
+  const current = row.current ?? GOV_HOLDER[code] ?? "N";
   return R(row.rating, current, `${ratingWord(row.rating)} · holds: ${partyWord(current)}`, {
     favored: row.favored,
     note: row.note,
   });
 }
 
-function buildHouse(code: string): LayerForecast {
-  const current = HOUSE_HOLDER[code] ?? "S";
-  const rating = HOUSE_LEAN[code] ?? "tossup";
+function buildHouse(code: string, live?: ElectionForecastLiveStore | null): LayerForecast {
+  const liveRow = live?.house?.[code];
+  const current = liveRow?.current ?? HOUSE_HOLDER[code] ?? "S";
+  const rating = liveRow?.rating ?? HOUSE_LEAN[code] ?? "tossup";
   return R(rating, current, `${ratingWord(rating)} · House tilt`, {
-    note: "State-level House lean (not district-by-district). All 435 seats are on the ballot.",
-    favored: rating === "tossup" ? "Competitive districts" : undefined,
+    note:
+      liveRow?.note ??
+      "State-level House lean (not district-by-district). All 435 seats are on the ballot.",
+    favored:
+      liveRow?.favored ??
+      (rating === "tossup" ? "Competitive districts" : undefined),
   });
 }
 
-function buildControl(code: string): LayerForecast {
-  const current = STATE_CONTROL[code] ?? "S";
+function buildControl(code: string, live?: ElectionForecastLiveStore | null): LayerForecast {
+  const liveRow = live?.control?.[code];
+  const current = liveRow?.current ?? STATE_CONTROL[code] ?? "S";
+  if (liveRow?.rating) {
+    return R(liveRow.rating, current, `${partyWord(current)} state control`, {
+      note: liveRow.note ?? "Live overlay · simplified trifecta lean.",
+      favored: liveRow.favored,
+    });
+  }
   // Control map: show current dominance; “rating” mirrors lean for potential shift narrative
   const house = HOUSE_LEAN[code] ?? "tossup";
   // Map house lean → control outlook loosely
@@ -265,28 +375,45 @@ function buildControl(code: string): LayerForecast {
   });
 }
 
-// Built entirely from module-constant lookup tables — the output is identical
-// on every call, so memoize it per isolate instead of rebuilding all 51 states'
-// four layers on every /elections/map request.
-let _forecastCache: { byCode: Record<string, StateForecast>; asOf: string } | null = null;
-export function buildStateForecasts(): {
+// Base-only forecasts are memoized; live overlays rebuild (cheap) with the live asOf.
+let _baseForecastCache: { byCode: Record<string, StateForecast>; asOf: string } | null = null;
+
+export function buildStateForecasts(live?: ElectionForecastLiveStore | null): {
   byCode: Record<string, StateForecast>;
   asOf: string;
 } {
-  if (_forecastCache) return _forecastCache;
+  const asOf =
+    live?.asOf && /^\d{4}-\d{2}-\d{2}$/.test(live.asOf) ? live.asOf : FORECAST_BASE_ASOF;
+
+  if (!live) {
+    if (_baseForecastCache) return _baseForecastCache;
+    const byCode: Record<string, StateForecast> = {};
+    for (const code of US_STATE_CODES) {
+      byCode[code] = {
+        code,
+        name: US_STATE_NAMES[code] ?? code,
+        senate: buildSenate(code),
+        governor: buildGovernor(code),
+        house: buildHouse(code),
+        control: buildControl(code),
+      };
+    }
+    _baseForecastCache = { byCode, asOf: FORECAST_BASE_ASOF };
+    return _baseForecastCache;
+  }
+
   const byCode: Record<string, StateForecast> = {};
   for (const code of US_STATE_CODES) {
     byCode[code] = {
       code,
       name: US_STATE_NAMES[code] ?? code,
-      senate: buildSenate(code),
-      governor: buildGovernor(code),
-      house: buildHouse(code),
-      control: buildControl(code),
+      senate: buildSenate(code, live),
+      governor: buildGovernor(code, live),
+      house: buildHouse(code, live),
+      control: buildControl(code, live),
     };
   }
-  _forecastCache = { byCode, asOf: FORECAST_ASOF };
-  return _forecastCache;
+  return { byCode, asOf };
 }
 
 export const LAYER_LABELS: Record<ForecastLayer, string> = {
