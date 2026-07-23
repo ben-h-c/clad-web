@@ -7,11 +7,10 @@
  * on average, and how the day's coverage split by lean — which is what makes
  * the calendar readable as a record rather than a list of links.
  *
- * GATING: letter grade, GPA and lean are Premium-gated values (same rule as
- * every other surface — see lib/access). When `locked` is true this module
- * emits `null` for all three and strips per-report grades, so nothing gated
- * can reach anonymous HTML even though the payload is inlined in the page.
- * Report counts, headlines and outlet names are public content and stay.
+ * GATING: letter grades (and per-report grades) stay account-gated. Political
+ * lean is public so the free home calendar can default to lean colouring —
+ * when `locked` is true this module still emits day lean / avgLean / per-report
+ * lean, but nulls grade + GPA. Report counts, headlines and outlets stay public.
  *
  * Imports are relative with explicit .ts extensions: the agent runner loads
  * src/lib under plain Node, which does no alias or extensionless resolution.
@@ -21,13 +20,13 @@ import { displayableThumb, SHOW_VIDEO_STILLS } from "./imagePolicy.ts";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "./topics.ts";
 import { LEAN_THRESHOLD } from "./trends.ts";
 
-/** One report surfaced in a day's peek list. Grade/lean are null when locked. */
+/** One report surfaced in a day's peek list. Grade is null when locked. */
 export interface CalendarDayReport {
   slug: string;
   title: string;
   outlet: string;
   grade: string | null;
-  /** Political lean −100..+100; null when locked or unscored. */
+  /** Political lean −100..+100; null when unscored (public even when locked). */
   lean: number | null;
   /** Displayable tile image (policy-filtered); public. */
   thumb: string | null;
@@ -45,11 +44,11 @@ export interface CalendarDaySummary {
    * Drives the colour wash — null when locked.
    */
   gpa: number | null;
-  /** Coverage split [left, center, right] as percentages — null when locked. */
+  /** Coverage split [left, center, right] as percentages — public (null if unscored). */
   lean: [number, number, number] | null;
   /**
    * Mean political-lean score −100..+100 for the article-style spectrum bar.
-   * Null when locked or no scored reports that day.
+   * Public; null when no scored reports that day.
    */
   avgLean: number | null;
   /** A few headlines for the day peek. */
@@ -124,6 +123,7 @@ export function buildDaySummaries(
     let lean: [number, number, number] | null = null;
     let avgLean: number | null = null;
 
+    // Grades stay account-gated; lean is always computed for the free calendar.
     if (!locked) {
       const gpas = sorted
         .map((p) => gradeToGpa(p.data.letterGrade))
@@ -132,25 +132,25 @@ export function buildDaySummaries(
         gpa = gpas.reduce((a, b) => a + b, 0) / gpas.length;
         grade = gpaToGrade(gpa);
       }
+    }
 
-      const leans = sorted
-        .map((p) => leanScoreOf(p.data as never))
-        .filter((n): n is number => n != null);
-      if (leans.length) {
-        let l = 0;
-        let c = 0;
-        let r = 0;
-        for (const s of leans) {
-          if (s <= -LEAN_THRESHOLD) l++;
-          else if (s >= LEAN_THRESHOLD) r++;
-          else c++;
-        }
-        // Percentages that always total 100 — the ribbon is drawn from these.
-        const pl = Math.round((l / leans.length) * 100);
-        const pc = Math.round((c / leans.length) * 100);
-        lean = [pl, pc, Math.max(0, 100 - pl - pc)];
-        avgLean = Math.round(leans.reduce((a, b) => a + b, 0) / leans.length);
+    const leans = sorted
+      .map((p) => leanScoreOf(p.data as never))
+      .filter((n): n is number => n != null);
+    if (leans.length) {
+      let l = 0;
+      let c = 0;
+      let r = 0;
+      for (const s of leans) {
+        if (s <= -LEAN_THRESHOLD) l++;
+        else if (s >= LEAN_THRESHOLD) r++;
+        else c++;
       }
+      // Percentages that always total 100 — the ribbon is drawn from these.
+      const pl = Math.round((l / leans.length) * 100);
+      const pc = Math.round((c / leans.length) * 100);
+      lean = [pl, pc, Math.max(0, 100 - pl - pc)];
+      avgLean = Math.round(leans.reduce((a, b) => a + b, 0) / leans.length);
     }
 
     days.push({
@@ -161,7 +161,7 @@ export function buildDaySummaries(
       lean,
       avgLean,
       top: sorted.slice(0, topPerDay).map((p) => {
-        const leanScore = locked ? null : leanScoreOf(p.data as never);
+        const leanScore = leanScoreOf(p.data as never);
         return {
           slug: p.id,
           title: String(p.data.headline || "").slice(0, 140),
