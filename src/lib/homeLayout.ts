@@ -83,8 +83,8 @@ export const DEFAULT_HOME_ORDER: HomeSectionId[] = [
   "more",
 ];
 
-/** Never hide these — the front page always has news. */
-const PROTECTED = new Set<HomeSectionId>(["breaking", "front-page"]);
+/** Never hide these — core news + always-on midterms map teaser. */
+const PROTECTED = new Set<HomeSectionId>(["breaking", "front-page", "election-map"]);
 
 const SECTION_SET = new Set<HomeSectionId>(DEFAULT_HOME_ORDER);
 

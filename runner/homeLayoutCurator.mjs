@@ -126,7 +126,7 @@ or topic that is timely.
 - lean: coverage lean bar (signed-in only on the site)
 - calendar: interactive news calendar
 - topics: hot topic rows
-- election-map: midterms map teaser
+- election-map: midterms map teaser (PROTECTED — always show; reorder only)
 - grades: best/worst graded board (signed-in)
 - today-history: on-this-day
 - human-spotlight: daily positive human story
@@ -152,7 +152,7 @@ post slug is clearly current and you know it exists from search/context.
    - Media spin / bias debates → quiz, bias, feature-highlight
    - Heavy news day → keep breaking + front-page high; optionally hide quips
    - Quiet news / need relief → surface good-news, human-spotlight higher
-3. Never hide breaking or front-page.
+3. Never hide breaking, front-page, or election-map (map may only be reordered).
 4. Do not invent CladFacts grades, lean scores, or post headlines.
 5. highlight: one timely card. If nothing useful, set highlightNull=true and
    still fill highlight with empty strings (schema requires the object).
