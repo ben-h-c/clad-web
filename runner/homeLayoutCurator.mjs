@@ -251,6 +251,22 @@ export async function runHomeLayoutCurator(agent) {
     /* first run */
   }
 
+  // Desk overrides (reason starts with "Editor") stay until their expiresAt.
+  // Prevents the periodic Grok pass from wiping a human-placed highlight.
+  if (
+    previous?.reason &&
+    /^editor\b/i.test(String(previous.reason)) &&
+    previous.expiresAt &&
+    Date.parse(previous.expiresAt) > Date.now()
+  ) {
+    return {
+      ok: true,
+      message: `kept editor layout until ${previous.expiresAt}`,
+      submitted: 0,
+      skipped: 1,
+    };
+  }
+
   const user = [
     `Desk time (America/New_York): ${deskStamp()}.`,
     `Valid section ids: ${SECTIONS.join(", ")}.`,
