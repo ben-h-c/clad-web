@@ -3201,27 +3201,6 @@ html.theme-dark .peek-pop__panel {
   gap: 0.2rem;
   align-items: flex-start;
 }
-.topic-row__hot {
-  display: inline-block;
-  margin: 0 0 0.15rem;
-  padding: 0.12rem 0.45rem;
-  border-radius: 4px;
-  font-size: 0.58rem;
-  letter-spacing: 0.12em;
-  font-weight: 750;
-  color: #f4f1ea;
-  background: color-mix(in srgb, #0c0e12 45%, transparent);
-  border: 1px solid color-mix(in srgb, #f4f1ea 22%, transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-.topic-row--plain .topic-row__hot {
-  color: color-mix(in srgb, var(--accent) 75%, var(--ink));
-  background: color-mix(in srgb, var(--accent) 12%, var(--card));
-  border-color: color-mix(in srgb, var(--accent) 28%, var(--rule));
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-}
 .topic-row__name {
   font-family: var(--font-display);
   font-weight: 750;
@@ -3241,13 +3220,131 @@ html.theme-dark .peek-pop__panel {
   font-style: normal;
   font-size: 0.78rem;
   line-height: 1.35;
-  color: color-mix(in srgb, #f4f1ea 78%, #a8a49a);
+  color: color-mix(in srgb, #f4f1ea 72%, #a8a49a);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+  margin-bottom: 0.15rem;
 }
 .topic-row--plain .topic-row__meta {
   color: var(--muted-ink);
   text-shadow: none;
 }
+
+/* Prominent lean strip on topic tiles */
+.topic-row__lean {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  width: 100%;
+  max-width: 13.5rem;
+  margin-top: 0.2rem;
+  padding: 0.4rem 0.5rem 0.45rem;
+  border-radius: 10px;
+  background: color-mix(in srgb, #0c0e12 52%, transparent);
+  border: 1px solid color-mix(in srgb, #f4f1ea 18%, transparent);
+  backdrop-filter: blur(10px) saturate(1.1);
+  -webkit-backdrop-filter: blur(10px) saturate(1.1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+}
+.topic-row--plain .topic-row__lean {
+  background: color-mix(in srgb, var(--paper-deep, var(--paper)) 55%, var(--card));
+  border-color: color-mix(in srgb, var(--rule) 55%, transparent);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: var(--shadow-sm);
+}
+.topic-row__lean-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  font-weight: 750;
+  color: color-mix(in srgb, #f4f1ea 70%, transparent);
+}
+.topic-row--plain .topic-row__lean-label {
+  color: var(--muted-ink);
+}
+.topic-row__lean-value {
+  font-size: 0.92rem;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: #faf8f4;
+}
+.topic-row__lean--left .topic-row__lean-value {
+  color: color-mix(in srgb, var(--lean-left, #7aa7ef) 75%, #fff);
+}
+.topic-row__lean--right .topic-row__lean-value {
+  color: color-mix(in srgb, var(--lean-right, #e07a72) 80%, #fff);
+}
+.topic-row--plain .topic-row__lean-value {
+  color: var(--ink);
+}
+.topic-row--plain .topic-row__lean--left .topic-row__lean-value {
+  color: color-mix(in srgb, #2a6fdb 70%, var(--ink));
+}
+.topic-row--plain .topic-row__lean--right .topic-row__lean-value {
+  color: color-mix(in srgb, #c0392b 70%, var(--ink));
+}
+.topic-row__lean-track {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.12rem;
+}
+.topic-row__lean-end {
+  font-size: 0.58rem;
+  font-weight: 750;
+  color: color-mix(in srgb, #f4f1ea 55%, transparent);
+}
+.topic-row--plain .topic-row__lean-end {
+  color: var(--muted-ink);
+}
+.topic-row__lean-bar {
+  position: relative;
+  flex: 1;
+  height: 0.38rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--lean-left, #7aa7ef) 0%,
+    var(--lean-center, #c8c8c8) 48%,
+    var(--lean-center, #c8c8c8) 52%,
+    var(--lean-right, #e07a72) 100%
+  );
+  overflow: visible;
+}
+.topic-row__lean-center {
+  position: absolute;
+  left: 50%;
+  top: -2px;
+  bottom: -2px;
+  width: 1px;
+  background: color-mix(in srgb, #fff 45%, transparent);
+  transform: translateX(-50%);
+}
+.topic-row--plain .topic-row__lean-center {
+  background: color-mix(in srgb, var(--ink) 35%, transparent);
+}
+.topic-row__lean-marker {
+  position: absolute;
+  top: 50%;
+  width: 0.72rem;
+  height: 0.72rem;
+  border-radius: 50%;
+  background: #faf8f4;
+  border: 2px solid color-mix(in srgb, #0c0e12 35%, transparent);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+  transform: translate(-50%, -50%);
+}
+.topic-row--plain .topic-row__lean-marker {
+  background: var(--card);
+  border-color: color-mix(in srgb, var(--ink) 22%, transparent);
+  box-shadow: 0 1px 4px color-mix(in srgb, var(--shadow) 30%, transparent);
+}
+.topic-row__lean--locked .topic-row__lean-value {
+  font-size: 0.82rem;
+  font-weight: 650;
+  opacity: 0.85;
+}
+
 .topic-row__grade {
   position: relative;
   z-index: 2;

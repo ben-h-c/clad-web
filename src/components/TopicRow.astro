@@ -13,11 +13,6 @@ interface Props {
 }
 const { topic, locked = false } = Astro.props;
 
-function leanLabel(s: number | null): string | null {
-  if (s === null) return null;
-  return Math.abs(s) < 5 ? "Centered" : `${Math.abs(s)}% ${s > 0 ? "Right" : "Left"}`;
-}
-const lean = locked ? null : leanLabel(topic.avgLean);
 const thumb = displayableThumb(topic.thumbnail);
 
 const metaParts: string[] = [];
@@ -30,8 +25,20 @@ if (topic.todayCount > 0) {
 } else {
   metaParts.push(`${topic.count} ${topic.count === 1 ? "report" : "reports"}`);
 }
-if (lean) metaParts.push(lean);
 const meta = metaParts.join(" · ");
+
+const leanScore =
+  !locked && typeof topic.avgLean === "number" ? topic.avgLean : null;
+const leanMag = leanScore === null ? 0 : Math.abs(leanScore);
+const leanLabel =
+  leanScore === null
+    ? null
+    : leanMag < 5
+      ? "Centered"
+      : `${leanMag}% ${leanScore > 0 ? "Right" : "Left"}`;
+const leanPos = leanScore === null ? 50 : (Math.max(-100, Math.min(100, leanScore)) + 100) / 2;
+const leanSide =
+  leanScore === null ? "center" : leanMag < 5 ? "center" : leanScore < 0 ? "left" : "right";
 
 const rowClass = [
   "topic-row",
@@ -57,11 +64,29 @@ const rowClass = [
   ) : null}
 
   <span class="topic-row__content">
-    {topic.todayCount > 0 && (
-      <span class="topic-row__hot small-caps">Hot today</span>
-    )}
     <span class="topic-row__name">{topic.display}</span>
     <span class="topic-row__meta">{meta}</span>
+
+    {leanLabel && (
+      <span class={`topic-row__lean topic-row__lean--${leanSide}`} aria-label={`Political lean ${leanLabel}`}>
+        <span class="topic-row__lean-label small-caps">Political lean</span>
+        <span class="topic-row__lean-value">{leanLabel}</span>
+        <span class="topic-row__lean-track" aria-hidden="true">
+          <span class="topic-row__lean-end">L</span>
+          <span class="topic-row__lean-bar">
+            <span class="topic-row__lean-center"></span>
+            <span class="topic-row__lean-marker" style={`left:${leanPos}%`}></span>
+          </span>
+          <span class="topic-row__lean-end">R</span>
+        </span>
+      </span>
+    )}
+    {locked && (
+      <span class="topic-row__lean topic-row__lean--locked">
+        <span class="topic-row__lean-label small-caps">Political lean</span>
+        <span class="topic-row__lean-value">Unlock free</span>
+      </span>
+    )}
   </span>
 
   {!locked && topic.avgGrade && (
