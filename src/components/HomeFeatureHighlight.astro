@@ -89,11 +89,6 @@ const wrapClass = ["home-features", Astro.props.class].filter(Boolean).join(" ")
         <button type="button" class="hero-arrow hero-arrow--right" data-hf-next aria-label="Next highlights">›</button>
       )}
     </div>
-    {multi && (
-      <p class="home-features__hint small-caps" aria-hidden="true">
-        Swipe · loops · {items.length} stories today
-      </p>
-    )}
   </section>
 )}
 

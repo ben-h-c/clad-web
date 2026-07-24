@@ -9212,13 +9212,6 @@ html.clad-app section.charts.home-app-only {
   flex: 0 0 100%;
   max-width: 100%;
 }
-.home-features__hint {
-  margin: 0.15rem 0 0;
-  text-align: center;
-  color: var(--muted-ink);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-}
 @media (min-width: 900px) {
   .home-features__item,
   .home-features__slide {
