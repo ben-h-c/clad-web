@@ -21,6 +21,7 @@ const SECTIONS = [
   "lean",
   "calendar",
   "topics",
+  "politician-spotlight",
   "election-map",
   "grades",
   "today-history",
@@ -126,6 +127,7 @@ or topic that is timely.
 - lean: coverage lean bar (signed-in only on the site)
 - calendar: interactive news calendar
 - topics: hot topic rows
+- politician-spotlight: media strip of people in the news + midterms candidates
 - election-map: midterms map teaser (PROTECTED — always show; reorder only)
 - grades: best/worst graded board (signed-in)
 - today-history: on-this-day
@@ -138,8 +140,8 @@ or topic that is timely.
 ── Allowed hrefs for highlight (MUST be on-site paths) ────────────────────
 /bracket/  /elections/map/  /quiz/  /bias/  /discover/  /good-news/
 /students/  /learn/  /week/  /trends/  /topics/{slug}/  /posts/{slug}/
-/politicians/  /search/  /register/  /how-it-works/  /human-spotlight/
-/recent/  /newsletter/  /grades/
+/politicians/  /politicians/{slug}/  /search/  /register/  /how-it-works/
+/human-spotlight/  /recent/  /newsletter/  /grades/
 
 Prefer linking to product surfaces or topic hubs over a specific post unless a
 post slug is clearly current and you know it exists from search/context.
@@ -148,7 +150,8 @@ post slug is clearly current and you know it exists from search/context.
 1. Use web_search for US political / news-cycle context (elections, major
    hearings, crises, cultural news moments). Prefer the last 48–72 hours.
 2. When something is hot, promote related surfaces:
-   - Midterms / races / ballots → election-map, feature-highlight → /bracket/
+   - Midterms / races / ballots → election-map, politician-spotlight, bracket
+   - Named politicians in the news → politician-spotlight higher in order
    - Media spin / bias debates → quiz, bias, feature-highlight
    - Heavy news day → keep breaking + front-page high; optionally hide quips
    - Quiet news / need relief → surface good-news, human-spotlight higher

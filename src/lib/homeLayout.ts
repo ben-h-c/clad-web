@@ -14,6 +14,7 @@ export type HomeSectionId =
   | "lean"
   | "calendar"
   | "topics"
+  | "politician-spotlight"
   | "election-map"
   | "grades"
   | "today-history"
@@ -78,6 +79,7 @@ export const DEFAULT_HOME_ORDER: HomeSectionId[] = [
   "lean",
   "calendar",
   "topics",
+  "politician-spotlight",
   "election-map",
   "grades",
   "today-history",

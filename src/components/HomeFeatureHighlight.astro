@@ -10,27 +10,35 @@ interface Props {
   items: HomeFeatureItem[];
   class?: string;
   title?: string;
+  /** Override default day-page link in the section head. */
+  moreHref?: string;
+  moreLabel?: string;
+  /** Distinct id when multiple strips share the page (loop scripts). */
+  stripId?: string;
 }
-const { items, title = "Today" } = Astro.props;
+const { items, title = "Today", moreHref, moreLabel, stripId = "home-features" } = Astro.props;
 const today = todayIsoNy();
 const multi = items.length > 1;
+const headMoreHref = moreHref ?? `/day/${today}/`;
+const headMoreLabel = moreLabel ?? "Full day →";
+const titleId = `${stripId}-title`;
 const wrapClass = ["home-features", Astro.props.class].filter(Boolean).join(" ");
 ---
 {items.length > 0 && (
-  <section class={wrapClass} aria-label={title} data-home-features>
+  <section class={wrapClass} aria-label={title} data-home-features data-hf-root={stripId}>
     <div class="feed__head home-features__head">
-      <h2 class="feed__title" id="home-features-title">{title}</h2>
-      <a class="category__more" href={`/day/${today}/`}>Full day →</a>
+      <h2 class="feed__title" id={titleId}>{title}</h2>
+      <a class="category__more" href={headMoreHref}>{headMoreLabel}</a>
     </div>
     <div class="rule rule--double" aria-hidden="true"></div>
 
     <div class="home-features__wrap" data-home-features-wrap>
       {multi && (
-        <button type="button" class="hero-arrow hero-arrow--left" data-hf-prev aria-label="Previous highlights">‹</button>
+        <button type="button" class="hero-arrow hero-arrow--left" data-hf-prev aria-label={`Previous ${title}`}>‹</button>
       )}
       <div
         class="home-features__strip"
-        aria-labelledby="home-features-title"
+        aria-labelledby={titleId}
         data-home-features-strip
         data-loop={multi ? "1" : "0"}
       >
@@ -95,24 +103,25 @@ const wrapClass = ["home-features", Astro.props.class].filter(Boolean).join(" ")
 {multi && (
   <script is:inline>
     (() => {
-      const root = document.querySelector("[data-home-features]");
-      if (!root || root.dataset.loopBound === "1") return;
+      // Bind every unbound media strip (Today + politician spotlight, etc.).
+      const roots = Array.from(document.querySelectorAll("[data-home-features]"));
+      for (const root of roots) {
+      if (root.dataset.loopBound === "1") continue;
       root.dataset.loopBound = "1";
 
       const strip = root.querySelector("[data-home-features-strip]");
       const prev = root.querySelector("[data-hf-prev]");
       const next = root.querySelector("[data-hf-next]");
-      if (!strip || strip.dataset.loop !== "1") return;
+      if (!strip || strip.dataset.loop !== "1") continue;
 
       const originals = Array.from(strip.querySelectorAll("[data-hf-slide]"));
-      if (originals.length < 2) return;
+      if (originals.length < 2) continue;
 
-      // Duplicate the set once for seamless wrap (start mid-set).
+      // Duplicate the set once for seamless wrap.
       const frag = document.createDocumentFragment();
       originals.forEach((el) => {
         const clone = el.cloneNode(true);
         clone.setAttribute("aria-hidden", "true");
-        // Avoid duplicate eager images fighting bandwidth
         clone.querySelectorAll("img[loading=eager]").forEach((img) => {
           img.setAttribute("loading", "lazy");
         });
@@ -135,7 +144,6 @@ const wrapClass = ["home-features", Astro.props.class].filter(Boolean).join(" ")
         setWidth = mid.offsetLeft - first.offsetLeft;
       };
 
-      /** When scrolled into the clone half, snap back by one set (seamless loop). */
       const jumpIfNeeded = () => {
         if (!setWidth || jumping) return;
         const x = strip.scrollLeft;
@@ -153,7 +161,6 @@ const wrapClass = ["home-features", Astro.props.class].filter(Boolean).join(" ")
         measure();
         if (!setWidth) return;
         const behavior = reduce() ? "auto" : "smooth";
-        // From the start, left needs a silent hop into the clone set first
         if (dir < 0 && strip.scrollLeft <= 6) {
           jumping = true;
           strip.scrollLeft = setWidth + strip.scrollLeft;
@@ -179,14 +186,7 @@ const wrapClass = ["home-features", Astro.props.class].filter(Boolean).join(" ")
         { passive: true }
       );
 
-      // Touch: when user flings past the end of the first set, wrap
-      strip.addEventListener(
-        "scrollend",
-        () => {
-          jumpIfNeeded();
-        },
-        { passive: true }
-      );
+      strip.addEventListener("scrollend", () => jumpIfNeeded(), { passive: true });
 
       if (prev) prev.hidden = false;
       if (next) next.hidden = false;
@@ -208,6 +208,7 @@ const wrapClass = ["home-features", Astro.props.class].filter(Boolean).join(" ")
       strip.querySelectorAll("img").forEach((img) => {
         if (!img.complete) img.addEventListener("load", measure, { once: true });
       });
+      } // end for roots
     })();
   </script>
 )}

@@ -9346,9 +9346,15 @@ html.clad-app section.charts.home-app-only {
   -webkit-backdrop-filter: none;
 }
 
-/* ---------- Today feature strip (horizontal media heroes) ---------- */
+/* ---------- Today / politician media strips (horizontal heroes) ---------- */
 .home-features {
   margin: 0.35rem 0 1.15rem;
+}
+.home-features--politicians .media-hero__title {
+  font-size: clamp(1.25rem, 2.8vw, 1.75rem);
+}
+.home-features--politicians .media-hero--midterms {
+  border-color: color-mix(in srgb, #2a6fdb 40%, transparent);
 }
 .home-features__head {
   margin-bottom: 0.15rem;

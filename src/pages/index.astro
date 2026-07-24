@@ -29,6 +29,7 @@ import {
   getGoodNews,
   getCalendarEventsStore,
   getQuips,
+  getPoliticianPhotoMap,
 } from "~/lib/agents";
 import { buildGoodNewsSections } from "~/lib/goodnews";
 import { aggregateTopics, gradeToGpa } from "~/lib/topics";
@@ -38,6 +39,8 @@ import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 import { homePromosForPage } from "~/lib/homePromos";
 import { resolveHomeHighlight, resolveHomeOrder } from "~/lib/homeLayout";
 import { buildHomeFeatureItems } from "~/lib/homeFeatures";
+import { buildPoliticianSpotlightItems } from "~/lib/homePoliticians";
+import { buildPoliticianIndexLive } from "~/lib/politicians";
 import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates } from "~/lib/elections";
 import {
   normalizeCalendarEvent,
@@ -187,6 +190,18 @@ const featureItems = buildHomeFeatureItems({
   highlight: homeHighlight,
   calendarEvents: featureCalendar,
   posts: all,
+  max: 10,
+});
+
+// Politician media strip — people in recent coverage + midterms race sides.
+const politiciansLive = await buildPoliticianIndexLive(all, env.AGENTS);
+const photoMap = (await getPoliticianPhotoMap(env.AGENTS))?.bySlug ?? {};
+const politicianSpotlightItems = buildPoliticianSpotlightItems({
+  politicians: politiciansLive,
+  photoBySlug: photoMap,
+  races: calendarRaces ?? undefined,
+  postsById: byId,
+  locked,
   max: 10,
 });
 
@@ -340,6 +355,17 @@ const quips = await getQuips(env.AGENTS);
                 </p>
               )}
             </section>
+          )}
+
+          {section === "politician-spotlight" && politicianSpotlightItems.length > 0 && (
+            <HomeFeatureHighlight
+              items={politicianSpotlightItems}
+              title="People in the news"
+              moreHref="/politicians/"
+              moreLabel="All politicians →"
+              stripId="home-politicians"
+              class="home-features--politicians"
+            />
           )}
 
           {section === "election-map" && (
