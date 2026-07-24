@@ -36,6 +36,10 @@ keyMoments:
 videoId: "v6_JZ7-VBp8"
 videoTitle: "Heavy rain triggers flash floods in India"
 thumbnail: "https://img.youtube.com/vi/v6_JZ7-VBp8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations: []
 ---
 

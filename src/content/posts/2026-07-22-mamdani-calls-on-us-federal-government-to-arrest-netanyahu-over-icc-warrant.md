@@ -30,6 +30,10 @@ keyMoments:
 videoId: "89YWS5S2tZo"
 videoTitle: "#Gaza: #Mamdani urges government to arrest #Netanyahu if he visits #US • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/89YWS5S2tZo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Netanyahu | International Criminal Court"
     url: "https://www.icc-cpi.int/defendant/netanyahu"

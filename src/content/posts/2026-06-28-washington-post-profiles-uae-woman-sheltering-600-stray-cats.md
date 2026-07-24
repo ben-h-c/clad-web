@@ -34,6 +34,10 @@ keyMoments:
 videoId: "NQU2OqdCrl8"
 videoTitle: "She biked stray cats to the vet in a backpack. Now she shelters 600."
 thumbnail: "https://img.youtube.com/vi/NQU2OqdCrl8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "She biked stray cats to the vet in a backpack. Now she shelters 600."
     url: "https://www.washingtonpost.com/video/world/she-biked-stray-cats-to-the-vet-in-a-backpack-now-she-shelters-600/2026/06/26/3278b09f-a78b-4925-82b3-f134795e1074_video.html"

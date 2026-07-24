@@ -35,6 +35,10 @@ keyMoments:
 videoId: "9hMHkhN1H18"
 videoTitle: "‘Call me a liar again’: Reps. Mary Miller and Jahana Hayes clash over Title IX Bill"
 thumbnail: "https://img.youtube.com/vi/9hMHkhN1H18/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Jahana Hayes"
     slug: "jahana-hayes"

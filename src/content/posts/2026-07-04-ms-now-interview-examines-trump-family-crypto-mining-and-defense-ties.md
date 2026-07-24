@@ -40,6 +40,10 @@ keyMoments:
 videoId: "TZcpWTlbN_s"
 videoTitle: "How Trump played his followers for 'SUCKERS' and grabbed big bucks for himself"
 thumbnail: "https://img.youtube.com/vi/TZcpWTlbN_s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump Cut a Billion-Dollar Mining Deal. His Sons Stand to Profit."
     url: "https://www.nytimes.com/2026/06/28/us/politics/trump-kazakhstan-tungsten-mining.html"

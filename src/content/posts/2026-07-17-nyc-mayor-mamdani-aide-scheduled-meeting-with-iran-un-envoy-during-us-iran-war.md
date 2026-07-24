@@ -36,6 +36,10 @@ keyMoments:
 videoId: "q2Q-dFdZkUY"
 videoTitle: "This makes absolutely no sense, Rep Beth Van Duyne says"
 thumbnail: "https://img.youtube.com/vi/q2Q-dFdZkUY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Beth Van Duyne"
     slug: "beth-van-duyne"

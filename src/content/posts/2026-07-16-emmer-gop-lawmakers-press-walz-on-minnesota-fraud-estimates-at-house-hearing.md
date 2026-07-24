@@ -41,6 +41,10 @@ keyMoments:
 videoId: "o4mAZ14mwvs"
 videoTitle: "MAGA: &quot;Gov. Walz, You Can&#39;t Escape!&quot; Tom Emmer Explodes Over $9 Billion Fraud"
 thumbnail: "https://img.youtube.com/vi/o4mAZ14mwvs/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Tim Walz"
     slug: "tim-walz"

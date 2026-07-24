@@ -34,6 +34,10 @@ keyMoments:
 videoId: "KfNre5wa-PA"
 videoTitle: "Authorities search for suspect after Monaco explosion"
 thumbnail: "https://img.youtube.com/vi/KfNre5wa-PA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Manhunt after Monaco bomb attack wounds Ukrainian tycoon in ‘attempted assassination’"
     url: "https://www.cnn.com/2026/06/30/world/monaco-manhunt-explosion-intl-hnk"

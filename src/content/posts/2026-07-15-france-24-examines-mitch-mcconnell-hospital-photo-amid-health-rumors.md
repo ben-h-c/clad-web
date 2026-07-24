@@ -34,6 +34,10 @@ keyMoments:
 videoId: "1N1p9htNTOU"
 videoTitle: "No evidence Mitch McConnell’s ‘proof of life’ photo is fake or AI-generated • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/1N1p9htNTOU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Mitch McConnell"
     slug: "mitch-mcconnell"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "yJV4M5H11mY"
 videoTitle: "Congresswoman Terri Sewell @ Miles College 7.17.2026"
 thumbnail: "https://img.youtube.com/vi/yJV4M5H11mY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Terri A. Sewell"
     slug: "terri-a-sewell"

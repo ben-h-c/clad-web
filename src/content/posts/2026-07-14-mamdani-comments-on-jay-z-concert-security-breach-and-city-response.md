@@ -25,6 +25,10 @@ keyMoments:
 videoId: "JxtvCRw30d4"
 videoTitle: "Mamdani: City Will 'Follow Up On' Breach Of Security At Jay-Z Concert That Led To Concert Delay"
 thumbnail: "https://img.youtube.com/vi/JxtvCRw30d4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Zohran Mamdani"
     slug: "zohran-mamdani"

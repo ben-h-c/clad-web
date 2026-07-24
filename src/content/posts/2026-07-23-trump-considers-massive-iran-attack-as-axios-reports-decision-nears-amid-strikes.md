@@ -32,6 +32,10 @@ keyMoments:
 videoId: "zX63GZk5-0U"
 videoTitle: "Is 'massive attack' on Iran next on the table for Trump?"
 thumbnail: "https://img.youtube.com/vi/zX63GZk5-0U/maxresdefault.jpg"
+mediaNote: "Talking-head focus on Trump face upper-middle; keep smoke backdrop secondary"
+thumbFocusY: 28
+thumbFocusX: 58
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

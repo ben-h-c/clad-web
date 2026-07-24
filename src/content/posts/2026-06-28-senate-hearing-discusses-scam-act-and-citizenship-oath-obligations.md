@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Ssv58YqHMRg"
 videoTitle: "'What Obligations Does That Person Undertake?': Lee Asks Attorney About Oath Of Citizenship"
 thumbnail: "https://img.youtube.com/vi/Ssv58YqHMRg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "S.3674 - SCAM Act"
     url: "https://www.congress.gov/bill/119th-congress/senate-bill/3674/text"

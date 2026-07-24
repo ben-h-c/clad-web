@@ -32,6 +32,10 @@ keyMoments:
 videoId: "hWh8KEcOxbU"
 videoTitle: "Fisherman catches a white shark and removes hook before releasing it"
 thumbnail: "https://img.youtube.com/vi/hWh8KEcOxbU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fisherman reels in nine-foot white shark near Nantucket"
     url: "https://apnews.com/article/great-white-shark-nantucket-fisherman-released-7d4367fceb135097769afcfd122481e4"

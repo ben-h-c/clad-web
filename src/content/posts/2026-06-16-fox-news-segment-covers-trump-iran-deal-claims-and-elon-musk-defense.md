@@ -37,6 +37,10 @@ keyMoments:
 videoId: "nb66K1KMnRQ"
 videoTitle: "Fox News Highlights - June 15th, 2026"
 thumbnail: "https://img.youtube.com/vi/nb66K1KMnRQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. and Iran reach initial deal to end war, reopen Strait of ..."
     url: "https://www.npr.org/2026/06/15/nx-s1-5858590/us-iran-deal-updates"

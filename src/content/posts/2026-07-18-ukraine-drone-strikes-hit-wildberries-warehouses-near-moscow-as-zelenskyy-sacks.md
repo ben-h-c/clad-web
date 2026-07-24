@@ -36,6 +36,10 @@ keyMoments:
 videoId: "vIGgD9760bU"
 videoTitle: "Ukraine strikes Russia amid political turmoil in Kyiv"
 thumbnail: "https://img.youtube.com/vi/vIGgD9760bU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ukrainian drone strikes hit two sprawling warehouses belonging to Russia’s major online retailer, Wildberries"
     url: "https://www.facebook.com/aljazeera/posts/ukrainian-drone-strikes-hit-two-sprawling-warehouses-belonging-to-russias-major-/1509652444542438/"

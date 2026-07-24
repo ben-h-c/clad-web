@@ -32,6 +32,10 @@ keyMoments:
 videoId: "AlW95qoMQTo"
 videoTitle: "Kerr eyes gold after world record #JoshKerr #CommonwealthGames"
 thumbnail: "https://img.youtube.com/vi/AlW95qoMQTo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Glasgow 2026 Commonwealth Games"
     url: "https://www.glasgow2026.com/"

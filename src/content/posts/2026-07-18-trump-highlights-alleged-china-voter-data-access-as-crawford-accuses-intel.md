@@ -35,6 +35,10 @@ keyMoments:
 videoId: "gZe43PrVRIw"
 videoTitle: "Rep Rick Crawford alleges intel community withheld election data | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/gZe43PrVRIw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

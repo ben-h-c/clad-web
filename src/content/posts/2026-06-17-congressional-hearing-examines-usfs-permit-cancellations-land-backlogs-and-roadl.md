@@ -35,6 +35,10 @@ keyMoments:
 videoId: "J7eFkllO6F0"
 videoTitle: "Pete Stauber Asks USFS Chief: What Are You Doing To Address Administrative Land Transfer Backlog?"
 thumbnail: "https://img.youtube.com/vi/J7eFkllO6F0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Superior National Forest Permit and Visitor Use Report"
     url: "https://www.fs.usda.gov/r09/superior/passes/permit-and-visitor-use-report"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "kBc1Ce_DJaE"
 videoTitle: "U.S. launches 13th straight night of strikes on Iran"
 thumbnail: "https://img.youtube.com/vi/kBc1Ce_DJaE/maxresdefault.jpg"
+mediaNote: "CENTCOM seal upper-center on device screen"
+thumbFocusY: 28
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. Completes 8th Consecutive Night of Strikes Against Iran"
     url: "https://www.centcom.mil/MEDIA/PUBLIC-RELEASES/Article/4549643/us-completes-8th-consecutive-night-of-strikes-against-iran/"

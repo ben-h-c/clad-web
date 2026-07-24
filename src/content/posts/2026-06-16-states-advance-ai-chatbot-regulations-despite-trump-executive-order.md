@@ -28,6 +28,10 @@ keyMoments:
 videoId: "U1hODSdD7bs"
 videoTitle: "States advance AI regulations despite federal opposition"
 thumbnail: "https://img.youtube.com/vi/U1hODSdD7bs/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ensuring a National Policy Framework for Artificial Intelligence"
     url: "https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/"

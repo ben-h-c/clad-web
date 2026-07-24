@@ -31,6 +31,10 @@ keyMoments:
 videoId: "MXasZtLS41k"
 videoTitle: "New details about the Ohio \"House of Horrors.\""
 thumbnail: "https://img.youtube.com/vi/MXasZtLS41k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Records reveal 3 teen marriages in family charged with abuse | Exclusive"
     url: "https://www.dispatch.com/story/news/crime/2026/07/17/ohio-child-marriage-siders-family-vinton-county-abuse-case/90899778007/"

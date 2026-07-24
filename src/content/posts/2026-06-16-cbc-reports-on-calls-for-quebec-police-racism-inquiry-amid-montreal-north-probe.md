@@ -35,6 +35,10 @@ keyMoments:
 videoId: "13ca3yKoJRU"
 videoTitle: "Montreal Black community leaders call for public inquiry into racism, profiling within police"
 thumbnail: "https://img.youtube.com/vi/13ca3yKoJRU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Advocacy network calls for public inquiry into police racism across Quebec"
     url: "https://www.cbc.ca/news/canada/montreal/quebec-racism-policing-9.7237803"

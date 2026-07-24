@@ -37,6 +37,10 @@ keyMoments:
 videoId: "s8rWuBQPfQ4"
 videoTitle: "Foreigners LOVE America MORE than Democrats: Sage Steele"
 thumbnail: "https://img.youtube.com/vi/s8rWuBQPfQ4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sage Steele: President Trump cares about all of our cities"
     url: "https://www.foxnews.com/video/6397254645112"

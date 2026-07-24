@@ -39,6 +39,10 @@ keyMoments:
 videoId: "f9wY0iPmAkc"
 videoTitle: "AI Trade Faces Big Test as Trump Rings Opening Bell | Open Interest 7/6/2026"
 thumbnail: "https://img.youtube.com/vi/f9wY0iPmAkc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX to join Nasdaq-100, effective July 7, 2026"
     url: "https://www.msn.com/en-us/money/topstocks/spacex-to-join-the-nasdaq-100-effective-july-7-2026/ar-AA26Fds4"

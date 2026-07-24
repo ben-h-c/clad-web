@@ -38,6 +38,10 @@ keyMoments:
 videoId: "i3ebN_8dpHs"
 videoTitle: "Russia's FSB will look for 'opportunities' to 'exploit Kash Patel': Fmr. FBI senior official"
 thumbnail: "https://img.youtube.com/vi/i3ebN_8dpHs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Kash Patel"
     slug: "kash-patel"

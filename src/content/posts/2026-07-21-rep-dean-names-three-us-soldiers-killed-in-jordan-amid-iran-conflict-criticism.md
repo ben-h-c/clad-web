@@ -36,6 +36,10 @@ keyMoments:
 videoId: "p-iOYouVSBE"
 videoTitle: "‘I'm going to say the names': Trump & Hegseth excoriated by Rep. Dean who pays tribute to war dead"
 thumbnail: "https://img.youtube.com/vi/p-iOYouVSBE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Madeleine Dean"
     slug: "madeleine-dean"

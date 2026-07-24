@@ -37,6 +37,10 @@ keyMoments:
 videoId: "G_gL_t3CnTc"
 videoTitle: "Rick Scott's Resolution To Condemn China's Xi Jinping Passes Senate With Unanimous Consent"
 thumbnail: "https://img.youtube.com/vi/G_gL_t3CnTc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "S.Res.444 - 119th Congress (2025-2026): A resolution condemning the dictator of the People's Republic of China, Xi Jinping, for deceit, undermining prospects for peace and security, and orchestrating crimes against humanity"
     url: "https://www.congress.gov/bill/119th-congress/senate-resolution/444"

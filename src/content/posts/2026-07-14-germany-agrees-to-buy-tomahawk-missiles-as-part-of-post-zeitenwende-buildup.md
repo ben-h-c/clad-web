@@ -34,6 +34,10 @@ keyMoments:
 videoId: "nihzsbFAZzY"
 videoTitle: "Germany launches biggest military build-up since WWII as Russia threatens Europe"
 thumbnail: "https://img.youtube.com/vi/nihzsbFAZzY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Germany Will Buy US Tomahawk Missiles to Close Crucial Gap"
     url: "https://www.bloomberg.com/news/articles/2026-07-09/germany-will-buy-us-made-tomahawk-missiles-to-close-crucial-gap"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "oPDDR_8JTic"
 videoTitle: "Are Trump’s latest tariff threats on Canada legal?"
 thumbnail: "https://img.youtube.com/vi/oPDDR_8JTic/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2025–2026 United States trade war with Canada and Mexico"
     url: "https://en.wikipedia.org/wiki/2025%E2%80%932026_United_States_trade_war_with_Canada_and_Mexico"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "XLtV0jIWjhw"
 videoTitle: "Nashville's Star-Spangled Bash"
 thumbnail: "https://img.youtube.com/vi/XLtV0jIWjhw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "ABC’s Fourth of July 2026 Special with Ryan Seacrest: Full Performers Lineup Revealed!"
     url: "https://www.justjared.com/2026/07/04/abcs-fourth-of-july-2026-special-with-ryan-seacrest-full-performers-lineup-revealed/"

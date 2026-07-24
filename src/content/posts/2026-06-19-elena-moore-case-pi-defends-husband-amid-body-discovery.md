@@ -34,6 +34,10 @@ keyMoments:
 videoId: "2D2brhwxM_U"
 videoTitle: "Elena Moore's husband 'absolutely not' suspicious: Investigator | Jesse Weber Live"
 thumbnail: "https://img.youtube.com/vi/2D2brhwxM_U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Elena Moore’s husband ‘absolutely not’ suspicious: Investigator"
     url: "https://www.newsnationnow.com/missing/elena-moore-afraid-for-life-before-disappearance/"

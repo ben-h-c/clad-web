@@ -34,6 +34,10 @@ keyMoments:
 videoId: "63tCF3ZncvE"
 videoTitle: "British couple describe moment Russian warship fired warning shots near them | BBC News"
 thumbnail: "https://img.youtube.com/vi/63tCF3ZncvE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russian warship fires warning shots near UK-registered yacht in Channel"
     url: "https://www.bbc.co.uk/news/articles/c20yzm84r7lo"

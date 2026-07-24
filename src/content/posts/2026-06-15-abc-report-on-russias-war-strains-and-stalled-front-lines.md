@@ -37,6 +37,10 @@ keyMoments:
 videoId: "LBDPMQloU8E"
 videoTitle: "An inside look at Vladimir Putin’s Russia as Ukraine war surpasses WWI"
 thumbnail: "https://img.youtube.com/vi/LBDPMQloU8E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The War in Ukraine Has Now Gone On Longer Than World War I"
     url: "https://www.nytimes.com/2026/06/11/world/europe/ukraine-russia-world-war-i.html"

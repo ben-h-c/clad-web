@@ -33,6 +33,10 @@ keyMoments:
 videoId: "fY8TgiZDaEQ"
 videoTitle: "Why is the BLACK MARKET becoming more popular?"
 thumbnail: "https://img.youtube.com/vi/fY8TgiZDaEQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Why are UK tobacco sales falling? - ASH"
     url: "https://ash.org.uk/media-centre/news/blog/why-are-uk-tobacco-sales-falling"

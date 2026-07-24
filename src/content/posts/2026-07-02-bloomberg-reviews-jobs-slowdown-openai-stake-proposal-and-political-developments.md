@@ -36,6 +36,10 @@ keyMoments:
 videoId: "ZKF-TiiFWXc"
 videoTitle: "Open AI Proposes Handing Trump Admin 5% Stake | Balance of Power 07/02/2026"
 thumbnail: "https://img.youtube.com/vi/ZKF-TiiFWXc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "OpenAI proposes handing Trump administration a 5% stake, FT reports"
     url: "https://www.reuters.com/business/openai-proposes-handing-trump-administration-5-stake-ft-reports-2026-07-02/"

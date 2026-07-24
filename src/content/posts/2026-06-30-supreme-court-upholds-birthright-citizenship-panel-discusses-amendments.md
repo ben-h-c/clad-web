@@ -36,6 +36,10 @@ keyMoments:
 videoId: "vtQyn9qUwm8"
 videoTitle: "Trump's agenda took a hit at Supreme Court today – now he is demanding Congress fix it"
 thumbnail: "https://img.youtube.com/vi/vtQyn9qUwm8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump v. Barbara - SCOTUSblog"
     url: "https://www.scotusblog.com/cases/trump-v-barbara/"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "UxqzieFWErE"
 videoTitle: "Europe: Extreme weather fuels climate concerns • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/UxqzieFWErE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Severe hailstorms increasing most rapidly in Europe"
     url: "https://www.munichre.com/en/insights/natural-disaster-and-climate-change/hail-research-2025.html"

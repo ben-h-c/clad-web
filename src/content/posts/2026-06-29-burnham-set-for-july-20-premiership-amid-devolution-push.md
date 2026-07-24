@@ -35,6 +35,10 @@ keyMoments:
 videoId: "we84Tu5hFpg"
 videoTitle: "Power shift: Will Burnham’s big plan work"
 thumbnail: "https://img.youtube.com/vi/we84Tu5hFpg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Prime Minister Andy Burnham comes with defense and national security implications"
     url: "https://breakingdefense.com/2026/06/prime-minister-andy-burnham-comes-with-defense-and-national-security-implications/"

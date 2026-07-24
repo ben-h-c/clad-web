@@ -34,6 +34,10 @@ keyMoments:
 videoId: "njjYd3GSRzo"
 videoTitle: "Supreme Court lets Trump administration to end protections for Haitians and Syrians"
 thumbnail: "https://img.youtube.com/vi/njjYd3GSRzo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court allows Trump to remove protections from thousands of Haitian and Syrian immigrants"
     url: "https://www.nbcnews.com/politics/supreme-court/supreme-court-allows-trump-remove-protections-thousands-haitian-syrian-rcna263164"

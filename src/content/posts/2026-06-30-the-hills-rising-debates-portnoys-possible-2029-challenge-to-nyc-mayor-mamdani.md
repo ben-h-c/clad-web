@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Cz3sr5ulQHk"
 videoTitle: "Dave Portnoy floats CHALLENGING Mamdani in 2029 | RISING"
 thumbnail: "https://img.youtube.com/vi/Cz3sr5ulQHk/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Dave Portnoy says he 'would love' to run against 'clown politicians' like NYC Mayor Mamdani"
     url: "https://nypost.com/2026/06/30/us-news/dave-portnoy-says-he-would-love-to-run-against-clown-politicians-like-nyc-mayor-mamdani/"

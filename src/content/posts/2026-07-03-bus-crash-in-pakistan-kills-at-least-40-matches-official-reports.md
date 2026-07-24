@@ -31,6 +31,10 @@ keyMoments:
 videoId: "pbl47irtM-w"
 videoTitle: "Bus crash in Pakistan kills at least 40 people"
 thumbnail: "https://img.youtube.com/vi/pbl47irtM-w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Overcrowded bus plunges into ravine in southwest Pakistan, killing 40 passengers and injuring 8"
     url: "https://abcnews.com/International/wireStory/overcrowded-bus-plunges-ravine-southwest-pakistan-killing-40-134434925"

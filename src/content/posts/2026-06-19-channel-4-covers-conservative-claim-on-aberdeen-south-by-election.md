@@ -31,6 +31,10 @@ keyMoments:
 videoId: "KgbUg4lGrLg"
 videoTitle: "Aberdeen South by-election ‘was a referendum on oil and gas’"
 thumbnail: "https://img.youtube.com/vi/KgbUg4lGrLg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Scottish Conservatives win first Westminster by-election in more than 50 years"
     url: "https://www.bbc.com/news/articles/cpv3kk3nlj1o"

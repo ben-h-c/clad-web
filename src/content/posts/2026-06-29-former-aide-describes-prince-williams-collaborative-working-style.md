@@ -31,6 +31,10 @@ keyMoments:
 videoId: "dz-_kJqM7o8"
 videoTitle: "Ex-Cabinet Secretary reveals what working with Prince William is like"
 thumbnail: "https://img.youtube.com/vi/dz-_kJqM7o8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Princess of Wales' work on the Early Years"
     url: "https://www.royal.uk/the-princess-of-wales-work-on-the-early-years"

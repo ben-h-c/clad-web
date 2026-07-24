@@ -31,6 +31,10 @@ keyMoments:
 videoId: "0wBJOTm28U0"
 videoTitle: "America's Indigenous Legacy | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/0wBJOTm28U0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "From Alabama to Yosemite: 50 US places with Native American origins"
     url: "https://www.aljazeera.com/features/longform/2026/7/2/from-alabama-to-yosemite-50-us-places-with-native-american-origins"

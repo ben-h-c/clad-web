@@ -35,10 +35,10 @@ keyMoments:
 videoId: "5EPkNb5-Jsk"
 videoTitle: "This is such deep, virulent anti-Americanism: Newt Gingrich"
 thumbnail: "https://img.youtube.com/vi/5EPkNb5-Jsk/maxresdefault.jpg"
-mediaNote: "Split-screen dual talking heads with Fox bug; anchor on Gingrich face left so crop keeps a primary subject clear of logo and podium"
+mediaNote: "Split talking-heads: dual faces upper-middle; avoid bottom logos/podium and extreme side edges"
 thumbFocusY: 28
-thumbFocusX: 28
-mediaStyle: "modular"
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Talarico for Texas - Official Campaign Website"
     url: "https://jamestalarico.com/"

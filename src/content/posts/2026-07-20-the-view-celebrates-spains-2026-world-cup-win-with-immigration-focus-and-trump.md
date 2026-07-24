@@ -37,6 +37,10 @@ keyMoments:
 videoId: "y2LsQeU5tpo"
 videoTitle: "Ana Navarro Reacts To Spain's World Cup Victory"
 thumbnail: "https://img.youtube.com/vi/y2LsQeU5tpo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Spain defeats Argentina 1-0 to win 2026 World Cup"
     url: "https://abcnews.com/GMA/Culture/spain-argentina-win-2026-world-cup/story?id=134824556"

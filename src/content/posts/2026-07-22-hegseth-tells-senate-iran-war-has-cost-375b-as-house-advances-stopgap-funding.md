@@ -37,6 +37,10 @@ keyMoments:
 videoId: "htbIyuUKGY8"
 videoTitle: "The Costs of the U.S. War with Iran and Congress Races Toward August Recess | July 22"
 thumbnail: "https://img.youtube.com/vi/htbIyuUKGY8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

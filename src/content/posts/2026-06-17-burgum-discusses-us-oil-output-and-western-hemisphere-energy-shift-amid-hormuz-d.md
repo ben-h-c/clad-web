@@ -37,6 +37,10 @@ keyMoments:
 videoId: "jqHNyjBvdec"
 videoTitle: "Secretary Burgum: Trump MOVED the world’s center of energy"
 thumbnail: "https://img.youtube.com/vi/jqHNyjBvdec/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Short-Term Energy Outlook - EIA"
     url: "https://www.eia.gov/outlooks/steo/"

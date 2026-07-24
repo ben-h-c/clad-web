@@ -33,6 +33,10 @@ keyMoments:
 videoId: "n-xI3i8NbsI"
 videoTitle: "Montreal woman has hands, legs amputated after surviving rare bacterial infection"
 thumbnail: "https://img.youtube.com/vi/n-xI3i8NbsI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Capnocytophaga spp. - Pathogen Safety Data Sheets"
     url: "https://www.canada.ca/en/public-health/services/laboratory-biosafety-biosecurity/pathogen-safety-data-sheets-risk-assessment/capnocytophaga.html"

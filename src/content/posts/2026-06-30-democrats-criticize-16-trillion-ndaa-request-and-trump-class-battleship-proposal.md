@@ -37,6 +37,10 @@ keyMoments:
 videoId: "jqxs15huV2k"
 videoTitle: "'Even Dr. Strangelove Is Impressed!': Jim McGovern And Adam Smith Rip NDAA's Massive Budget Request"
 thumbnail: "https://img.youtube.com/vi/jqxs15huV2k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "$1.5 Trillion Budget Request Prioritizes Service Members, Modernization"
     url: "https://www.war.gov/News/News-Stories/Article/Article/4465551/15-trillion-budget-request-prioritizes-service-members-modernization/"

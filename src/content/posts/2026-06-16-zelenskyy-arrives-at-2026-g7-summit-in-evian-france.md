@@ -31,6 +31,10 @@ keyMoments:
 videoId: "cc8OeaNx3B4"
 videoTitle: "Ukraine's Zelenskyy Arrives at G7 Summit in France"
 thumbnail: "https://img.youtube.com/vi/cc8OeaNx3B4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ukraine's Zelenskyy set to attend G7 summit in France"
     url: "https://www.politico.eu/article/ukraine-volodymyr-zelenskyy-attend-g7-summit-france/"

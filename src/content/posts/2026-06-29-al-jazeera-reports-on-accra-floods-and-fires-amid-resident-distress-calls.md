@@ -28,6 +28,10 @@ keyMoments:
 videoId: "YfUwv8UTRJA"
 videoTitle: "Fire and floods hit Ghana’s capital as residents are left stranded"
 thumbnail: "https://img.youtube.com/vi/YfUwv8UTRJA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "11 Years After June 3: Fire, Floods, And Building Collapse Claim Lives Again"
     url: "https://www.modernghana.com/news/1499627/11-years-after-june-3-fire-floods-and-building.html"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "jcXxdGvMSow"
 videoTitle: "Hassan Asks Trump Nom: 'Do You Think That Grocery Prices Are Too High For American Families?'"
 thumbnail: "https://img.youtube.com/vi/jcXxdGvMSow/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NEW: In 2025, Families Paid $310 More For Groceries Under Trump"
     url: "https://www.jec.senate.gov/public/index.cfm/democrats/2026/1/new-in-2025-families-paid-310-more-for-groceries-under-trump"

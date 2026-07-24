@@ -38,6 +38,10 @@ keyMoments:
 videoId: "lEaBHotHwWw"
 videoTitle: "US-Iran ceasefire on life support as both sides trade strikes; peace talks continue | Sunrise"
 thumbnail: "https://img.youtube.com/vi/lEaBHotHwWw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran and US agree to halt attacks and renew talks, US official says"
     url: "https://www.reuters.com/world/asia-pacific/us-carries-out-fresh-strikes-against-iran-after-tanker-struck-hormuz-escalating-2026-06-27/"

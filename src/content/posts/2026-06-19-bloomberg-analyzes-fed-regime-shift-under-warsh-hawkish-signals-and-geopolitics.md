@@ -32,6 +32,10 @@ keyMoments:
 videoId: "KV5LHt70XLg"
 videoTitle: "It's a Regime-Shift for US Real Yields: 3-Minutes MLIV"
 thumbnail: "https://img.youtube.com/vi/KV5LHt70XLg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Here are the five big takeaways from Kevin Warsh's first meeting as Fed chairman"
     url: "https://www.cnbc.com/2026/06/17/here-are-the-five-big-takeaways-from-kevin-warshs-first-meeting-as-fed-chairman.html"

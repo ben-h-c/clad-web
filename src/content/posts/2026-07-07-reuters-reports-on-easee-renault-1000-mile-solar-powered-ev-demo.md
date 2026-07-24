@@ -31,6 +31,10 @@ keyMoments:
 videoId: "-deJUcOrp84"
 videoTitle: "Electric vehicle makes 1,000-mile journey using only solar"
 thumbnail: "https://img.youtube.com/vi/-deJUcOrp84/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Easee and Renault complete 1,000-mile Sun Run, the first fully solar-powered drive of a production EV"
     url: "https://www.renewableenergymagazine.com/electric_hybrid_vehicles/easee-and-renault-complete-1-000mile-sun-20260629"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Bghm8Pp0QFw"
 videoTitle: "At least 30 aftershocks hit Venezuela after powerful earthquakes"
 thumbnail: "https://img.youtube.com/vi/Bghm8Pp0QFw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The death toll is rising after major Venezuelan earthquakes topple many buildings"
     url: "https://www.npr.org/2026/06/24/nx-s1-5869817/2-major-earthquakes-strike-northern-venezuela-near-caracas"

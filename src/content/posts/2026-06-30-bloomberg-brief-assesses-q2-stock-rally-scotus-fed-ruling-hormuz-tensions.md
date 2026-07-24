@@ -38,6 +38,10 @@ keyMoments:
 videoId: "r5d_j2leiM0"
 videoTitle: "Stocks Set for Best Quarter Since Pandemic; SCOTUS Expands Trump's Power | Bloomberg Brief 6/30/2026"
 thumbnail: "https://img.youtube.com/vi/r5d_j2leiM0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court rules Trump cannot fire Fed Governor Lisa Cook for now"
     url: "https://www.cnbc.com/2026/06/29/supreme-court-lisa-cook-trump-federal-reserve.html"

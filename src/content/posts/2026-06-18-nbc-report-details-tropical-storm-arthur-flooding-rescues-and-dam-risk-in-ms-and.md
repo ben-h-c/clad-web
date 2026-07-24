@@ -35,6 +35,10 @@ keyMoments:
 videoId: "V286Ozy0gaA"
 videoTitle: "Catastrophic floods trigger water rescues"
 thumbnail: "https://img.youtube.com/vi/V286Ozy0gaA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "LIVE MAP: Track the path of Tropical Storm Arthur"
     url: "https://www.pbs.org/newshour/nation/live-map-track-the-path-of-tropical-storm-arthur"

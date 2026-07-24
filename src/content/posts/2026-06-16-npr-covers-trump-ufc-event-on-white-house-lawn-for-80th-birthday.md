@@ -35,6 +35,10 @@ keyMoments:
 videoId: "9upEwOMIH-M"
 videoTitle: "Trump celebrates his 80th birthday with UFC fight on White House lawn"
 thumbnail: "https://img.youtube.com/vi/9upEwOMIH-M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump celebrates 80th birthday with Iran deal and UFC fights at the White House"
     url: "https://www.npr.org/2026/06/15/nx-s1-5858610/trump-birthday-ufc-white-house"

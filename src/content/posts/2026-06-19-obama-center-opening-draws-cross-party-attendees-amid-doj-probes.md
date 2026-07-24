@@ -36,6 +36,10 @@ keyMoments:
 videoId: "zkz-HpnOOqs"
 videoTitle: "Obama re-ups American values in an age of Trump depravity"
 thumbnail: "https://img.youtube.com/vi/zkz-HpnOOqs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Obama re-ups American values in an age of Trump depravity"
     url: "https://www.youtube.com/watch?v=zkz-HpnOOqs"

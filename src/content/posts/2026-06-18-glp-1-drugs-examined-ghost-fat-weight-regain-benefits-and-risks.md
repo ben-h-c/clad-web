@@ -39,6 +39,10 @@ keyMoments:
 videoId: "gN3rxDup-k8"
 videoTitle: "The NEW GLP-1 Side Effect Nobody Saw Coming | Hot Take with Jesse Weber"
 thumbnail: "https://img.youtube.com/vi/gN3rxDup-k8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Poll: 1 in 8 Adults Say They Are Currently Taking a GLP-1 Drug"
     url: "https://www.kff.org/public-opinion/poll-1-in-8-adults-say-they-are-currently-taking-a-glp-1-drug-for-weight-loss-diabetes-or-another-condition-even-as-half-say-the-drugs-are-difficult-to-afford/"

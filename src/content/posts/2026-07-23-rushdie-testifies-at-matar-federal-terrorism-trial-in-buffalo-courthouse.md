@@ -32,6 +32,10 @@ keyMoments:
 videoId: "Tmm_je38mlw"
 videoTitle: "Salman Rushdie sits across a courtroom from man convicted of stabbing him"
 thumbnail: "https://img.youtube.com/vi/Tmm_je38mlw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Terrorism trial opens in stabbing of author Salman Rushdie"
     url: "https://apnews.com/article/salman-rushdie-stabbing-trial-hadi-matar-5d2a06a832e8a3848cff7e8b58b7a17e"

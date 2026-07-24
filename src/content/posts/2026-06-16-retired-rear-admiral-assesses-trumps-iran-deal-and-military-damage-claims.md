@@ -35,6 +35,10 @@ keyMoments:
 videoId: "S7sD1FKSDwQ"
 videoTitle: "Does Trump's Iran Peace Deal Make America Safer? Rear Admiral Explains And Reveals Possible Holes"
 thumbnail: "https://img.youtube.com/vi/S7sD1FKSDwQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How Effective Will Trump's Iran Peace Deal Be? Retired Rear Admiral Mark Montgomery Discusses"
     url: "https://www.youtube.com/watch?v=5lapKhjZerI"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "tidr-4wiEWg"
 videoTitle: "“A Total DISASTER!” | Burnham Says Labour Has 'Room for Movement' on Tax"
 thumbnail: "https://img.youtube.com/vi/tidr-4wiEWg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Andy_Burnham"

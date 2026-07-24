@@ -37,6 +37,10 @@ keyMoments:
 videoId: "UPgOU0iv248"
 videoTitle: "'A speech JFK would have been happy to give’: Historian reacts to Mamdani’s America 250 address"
 thumbnail: "https://img.youtube.com/vi/UPgOU0iv248/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "America’s 250th: Trump kicks off July Fourth festivities at Mount Rushmore"
     url: "https://www.nbcnews.com/politics/politics-news/live-blog/america-250-celebration-trump-speech-mt-rushmore-live-updates-rcna352190"

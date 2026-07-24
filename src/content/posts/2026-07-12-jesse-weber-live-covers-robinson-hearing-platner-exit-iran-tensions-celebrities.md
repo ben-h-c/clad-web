@@ -36,6 +36,10 @@ keyMoments:
 videoId: "AiiJ_Xbg-B4"
 videoTitle: "Can the kids rescued from the Ohio house of horrors ever fully recover? | Jesse Weber Live Full Show"
 thumbnail: "https://img.youtube.com/vi/AiiJ_Xbg-B4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Takeaways from the preliminary hearing for Charlie Kirk’s accused killer"
     url: "https://www.cnn.com/2026/07/11/us/charlie-kirk-tyler-robinson-hearing-takeaways"

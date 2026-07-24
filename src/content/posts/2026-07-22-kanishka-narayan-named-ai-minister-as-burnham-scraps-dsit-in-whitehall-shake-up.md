@@ -36,6 +36,10 @@ keyMoments:
 videoId: "qADDHhfWVlY"
 videoTitle: "Why new AI cabinet minister role isn't quite what it seems"
 thumbnail: "https://img.youtube.com/vi/qADDHhfWVlY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "AI minister role boosted but tech department axed in Burnham shake-up"
     url: "https://www.bbc.co.uk/news/articles/cz97x8k4zqzo"

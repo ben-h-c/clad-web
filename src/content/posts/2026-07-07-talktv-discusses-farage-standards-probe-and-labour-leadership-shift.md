@@ -36,6 +36,10 @@ keyMoments:
 videoId: "PSKBuM9ebWM"
 videoTitle: "‘Brits Want Farage In No10’ | Nigel Farage Could Fight Re-Election If Found Guilty"
 thumbnail: "https://img.youtube.com/vi/PSKBuM9ebWM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UK's Farage referred to standards watchdog after new report of undeclared benefits"
     url: "https://www.reuters.com/world/uk/uks-farage-denies-rules-broken-after-report-undeclared-benefits-2026-07-05/"

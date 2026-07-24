@@ -30,6 +30,10 @@ keyMoments:
 videoId: "J6wcpvPjVvA"
 videoTitle: "Deadly blaze engulfs popular Bangkok brewery"
 thumbnail: "https://img.youtube.com/vi/J6wcpvPjVvA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "At least 27 killed in Bangkok bar fire"
     url: "https://www.bbc.com/news/articles/c24yev53q06o"

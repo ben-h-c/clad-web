@@ -34,6 +34,10 @@ keyMoments:
 videoId: "WfbdmDAUFXs"
 videoTitle: "Air Canada pilot suffers medical emergency during flight"
 thumbnail: "https://img.youtube.com/vi/WfbdmDAUFXs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Passengers restrain pilot during apparent medical emergency on terrifying flight"
     url: "https://abcnews.com/US/passengers-restrain-pilot-apparent-medical-emergency-terrifying-flight/story?id=134186861"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Unsway-ICOE"
 videoTitle: "'What Callousness, What Cold-Heartedness': Chuck Schumer Tears Into Trump Over Childcare Cuts"
 thumbnail: "https://img.youtube.com/vi/Unsway-ICOE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says it's 'not possible' for the U.S. to pay for Medicaid, Medicare and day care: 'We’re fighting wars'"
     url: "https://www.nbcnews.com/politics/donald-trump/trump-says-not-possible-us-pay-medicaid-medicare-daycare-re-fighting-w-rcna266381"

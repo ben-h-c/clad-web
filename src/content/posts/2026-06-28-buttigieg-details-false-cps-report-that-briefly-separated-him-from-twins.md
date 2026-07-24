@@ -35,6 +35,10 @@ keyMoments:
 videoId: "yuVSSN17ArE"
 videoTitle: "Buttigieg family targeted in swatting attack"
 thumbnail: "https://img.youtube.com/vi/yuVSSN17ArE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Pete Buttigieg and his kids were targeted by child services swatting call, police say"
     url: "https://abc7.com/post/pete-buttigieg-kids-were-targeted-child-services-swatting-call-police-say/19396086/"

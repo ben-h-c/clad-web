@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Bk6rJwiValI"
 videoTitle: "LeBron James to leave Lakers and play 24th season elsewhere"
 thumbnail: "https://img.youtube.com/vi/Bk6rJwiValI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "LeBron James informs Lakers he plans to play elsewhere in 2026-27"
     url: "https://www.espn.com/nba/story/_/id/49226472/lebron-james-informs-lakers-plans-play-elsewhere-2026-27"

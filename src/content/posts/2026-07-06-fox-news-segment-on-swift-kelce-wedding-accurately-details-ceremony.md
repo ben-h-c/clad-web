@@ -37,6 +37,10 @@ keyMoments:
 videoId: "_udAoUdF4QY"
 videoTitle: "‘CONSERVATIVE COUPLE GOALS’: Tomi Lahren on Swift-Kelce wedding #shorts #foxnews #news #us"
 thumbnail: "https://img.youtube.com/vi/_udAoUdF4QY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Inside Taylor Swift and Travis Kelce's Wedding: Everything We Know"
     url: "https://variety.com/2026/music/news/taylor-swift-travis-kelce-wedding-guest-gifts-stevie-nicks-1236801759/"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "L7LSUHw4KJg"
 videoTitle: "Aide to Rep. Ro Khanna on moment he says he was detained by Israeli settlers in West Bank"
 thumbnail: "https://img.youtube.com/vi/L7LSUHw4KJg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "‘High-level sources’ say Khanna’s description of Judea and Samaria incident didn’t happen, Gottheimer tells JNS"
     url: "https://www.jns.org/news/u-s-news/high-level-sources-say-khannas-description-of-judea-and-samaria-incident-didnt-happen-gottheimer-tells-jns"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "usdL4aSFwzI"
 videoTitle: "Reform supporters voted \"tactically\" for Burnham to \"get Starmer out\", Richard Tice said. #BBCNews"
 thumbnail: "https://img.youtube.com/vi/usdL4aSFwzI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Makerfield byelection: Burnham’s decisive win sharpens threat to Starmer’s leadership – UK politics live"
     url: "https://www.theguardian.com/politics/live/2026/jun/18/makerfield-byelection-keir-starmer-andy-burnham-robert-kenyon-labour-leadership-reform-aberdeen-arbroath-uk-politics-latest-news-updates"

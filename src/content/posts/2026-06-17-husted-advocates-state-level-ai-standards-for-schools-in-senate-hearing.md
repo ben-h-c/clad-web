@@ -31,6 +31,10 @@ keyMoments:
 videoId: "cWriizdDh1I"
 videoTitle: "Jon Husted: Regulation Of AI In Schools Must Happen At State Level To Cater To Unique Needs"
 thumbnail: "https://img.youtube.com/vi/cWriizdDh1I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Husted leads bill to integrate AI in classrooms"
     url: "https://www.husted.senate.gov/news/press-releases/husted-leads-bill-to-integrate-ai-in-classrooms-prepare-american-students/"

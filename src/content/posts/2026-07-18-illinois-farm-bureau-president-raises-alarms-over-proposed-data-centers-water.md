@@ -40,6 +40,10 @@ keyMoments:
 videoId: "kCmtkXznxAE"
 videoTitle: "Illinois farmers warn data centers could threaten water resources | The Hill"
 thumbnail: "https://img.youtube.com/vi/kCmtkXznxAE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Brooke Rollins"
     slug: "brooke-rollins"

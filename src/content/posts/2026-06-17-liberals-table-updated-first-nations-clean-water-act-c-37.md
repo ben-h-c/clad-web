@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Y41Db7EIIeY"
 videoTitle: "Liberals table newest version of First Nations clean drinking water bill"
 thumbnail: "https://img.youtube.com/vi/Y41Db7EIIeY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Drinking water and wastewater legislation"
     url: "https://www.sac-isc.gc.ca/eng/1697555066364/1697555089256"

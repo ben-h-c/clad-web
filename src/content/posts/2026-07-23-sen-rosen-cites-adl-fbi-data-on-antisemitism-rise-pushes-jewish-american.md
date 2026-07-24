@@ -34,6 +34,10 @@ keyMoments:
 videoId: "_rHerfw2CnQ"
 videoTitle: "Rosen Decries Rise In Antisemitism, Touts Bill To Increase Security Funding For Houses Of Worship"
 thumbnail: "https://img.youtube.com/vi/_rHerfw2CnQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Jacky Rosen"
     slug: "jacky-rosen"

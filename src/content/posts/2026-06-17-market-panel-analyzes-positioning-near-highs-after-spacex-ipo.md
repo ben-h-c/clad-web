@@ -35,6 +35,10 @@ keyMoments:
 videoId: "QCyTlNMVhS8"
 videoTitle: "The market rally's road ahead: How to position near record highs"
 thumbnail: "https://img.youtube.com/vi/QCyTlNMVhS8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX IPO leaves retail investors with too few shares"
     url: "https://www.cnbc.com/2026/06/15/spacex-ipo-leaves-retail-investors-with-too-few-shares-and-a-tough-hold-or-sell-decision.html"

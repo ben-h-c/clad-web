@@ -31,6 +31,10 @@ keyMoments:
 videoId: "9XFh1e6oAp8"
 videoTitle: "Reporter Bluntly Asks Trump: 'So What Is The Plan' In Iran—'Just Keep Bombing Until They Give Up?'"
 thumbnail: "https://img.youtube.com/vi/9XFh1e6oAp8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

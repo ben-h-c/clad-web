@@ -34,6 +34,10 @@ keyMoments:
 videoId: "5cBm2ktpwKg"
 videoTitle: "How the UK social media ban for kids could effect America"
 thumbnail: "https://img.youtube.com/vi/5cBm2ktpwKg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Britain unveils sweeping ban on social media for under-16s"
     url: "https://www.nbcnews.com/world/united-kingdom/keir-starmer-social-media-restrictions-rcna350037"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "DkdM4ZrPObo"
 videoTitle: "Trump denies Iran deal includes $300 billion fund"
 thumbnail: "https://img.youtube.com/vi/DkdM4ZrPObo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Exclusive: Iran deal includes $300 billion fund, more than half of which already committed, source says"
     url: "https://www.reuters.com/business/finance/iran-deal-includes-300-billion-fund-more-than-half-which-already-committed-2026-06-16/"

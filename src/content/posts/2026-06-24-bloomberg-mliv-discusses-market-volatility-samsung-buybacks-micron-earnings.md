@@ -35,6 +35,10 @@ keyMoments:
 videoId: "2-Lpg79QaWQ"
 videoTitle: "Volatility Is Now a Feature, Not a Bug: 3-Minutes MLIV"
 thumbnail: "https://img.youtube.com/vi/2-Lpg79QaWQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Samsung Electronics to Buy Back KRW 10 Trillion in Stock"
     url: "https://news.samsung.com/global/samsung-electronics-to-buy-back-krw-10-trillion-in-stock"

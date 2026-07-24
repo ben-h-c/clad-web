@@ -41,6 +41,10 @@ keyMoments:
 videoId: "95Po6UbIZ_c"
 videoTitle: "Trump's weird flattery makes another awkward moment"
 thumbnail: "https://img.youtube.com/vi/95Po6UbIZ_c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "David McCormick"
     slug: "david-mccormick"

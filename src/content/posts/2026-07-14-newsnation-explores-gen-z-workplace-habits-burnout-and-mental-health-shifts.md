@@ -35,6 +35,10 @@ keyMoments:
 videoId: "C5irXTkgo7c"
 videoTitle: "Gen Z can't bear the 9-5 | Hot Takes with Jesse Weber"
 thumbnail: "https://img.youtube.com/vi/C5irXTkgo7c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Generation Z is Waging a Battle Against Depression, Addiction and Hopelessness"
     url: "https://www.waltonfamilyfoundation.org/stories/foundation/generation-z-is-waging-a-battle-against-depression-addiction-and-hopelessness"

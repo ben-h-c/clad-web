@@ -35,6 +35,10 @@ keyMoments:
 videoId: "DWPAu9b2Lmo"
 videoTitle: "Aid agencies warn of health crisis after Venezuela earthquakes displace millions"
 thumbnail: "https://img.youtube.com/vi/DWPAu9b2Lmo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Aid groups warn Venezuela’s healthcare system is near its limit after earthquakes"
     url: "https://apnews.com/article/venezuela-earthquakes-survivors-rescue-healthcare-aid-workers-de59847a5afb28f799d693501f2385aa"

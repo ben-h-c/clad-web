@@ -35,6 +35,10 @@ keyMoments:
 videoId: "NXQIAIREyPc"
 videoTitle: "'NOT TAKING YOUR JOBS': New studies challenge AI employment fears"
 thumbnail: "https://img.youtube.com/vi/NXQIAIREyPc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. won’t renew USMCA, opening door for negotiations with Canada and Mexico"
     url: "https://www.cnbc.com/2026/07/01/trump-usmca-canada-mexico-trade-treaty.html"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "56H3ZdAhAsM"
 videoTitle: "Iran is LOSING this battle, expert says #shorts"
 thumbnail: "https://img.youtube.com/vi/56H3ZdAhAsM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. Forces Finish Latest Round of Strikes Against Iran"
     url: "https://www.centcom.mil/MEDIA/PUBLIC-RELEASES/Article/4540919/us-forces-finish-latest-round-of-strikes-against-iran/"

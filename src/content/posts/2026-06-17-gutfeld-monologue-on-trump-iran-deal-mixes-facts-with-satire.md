@@ -32,6 +32,10 @@ keyMoments:
 videoId: "vUhgz48Ci-A"
 videoTitle: "Greg Gutfeld: Choose peace… or end up in pieces..."
 thumbnail: "https://img.youtube.com/vi/vUhgz48Ci-A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump Claims Strait Will Be ‘Permanently Toll-Free’ Under Agreement With Iran"
     url: "https://www.nytimes.com/2026/06/14/us/politics/trump-iran-deal-strait-of-hormuz.html"

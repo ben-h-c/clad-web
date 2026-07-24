@@ -36,6 +36,10 @@ keyMoments:
 videoId: "CKBUpSFFWYo"
 videoTitle: "NAR reports shocking U.S. housing shift (this changes everything)"
 thumbnail: "https://img.youtube.com/vi/CKBUpSFFWYo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NAR Existing-Home Sales Report Shows 3.2% Increase in May"
     url: "https://www.nar.realtor/newsroom/nar-existing-home-sales-report-shows-3-2-increase-in-may"

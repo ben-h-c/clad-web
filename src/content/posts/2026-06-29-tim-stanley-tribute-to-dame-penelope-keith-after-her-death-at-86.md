@@ -35,6 +35,10 @@ keyMoments:
 videoId: "diRwQFr_ufE"
 videoTitle: "Tim Stanley pays tribute to The Good Life star Dame Penelope Keith"
 thumbnail: "https://img.youtube.com/vi/diRwQFr_ufE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Good Life actress Dame Penelope Keith dies aged 86"
     url: "https://www.bbc.com/news/articles/c2ey1pjx0z9o"

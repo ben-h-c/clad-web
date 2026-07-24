@@ -35,6 +35,10 @@ keyMoments:
 videoId: "7Qv12Q_u9V4"
 videoTitle: "Displaced families return to destroyed towns in southern Lebanon despite warnings"
 thumbnail: "https://img.youtube.com/vi/7Qv12Q_u9V4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Families return to shattered towns as fragile ceasefire holds in Lebanon"
     url: "https://www.aljazeera.com/amp/gallery/2026/6/16/families-return-to-shattered-towns-as-fragile-ceasefire-holds-in-lebanon"

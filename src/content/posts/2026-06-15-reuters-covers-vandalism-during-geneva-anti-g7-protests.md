@@ -31,6 +31,10 @@ keyMoments:
 videoId: "reI9I1t_TDQ"
 videoTitle: "Tesla set on fire, UN office's windows smashed in anti-G7 march"
 thumbnail: "https://img.youtube.com/vi/reI9I1t_TDQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Protesters set Tesla ablaze, smash UN office's windows in Geneva anti-G7 march | Reuters"
     url: "https://www.reuters.com/world/americas/protesters-smash-windows-set-tesla-ablaze-anti-g7-march-geneva-2026-06-14/"

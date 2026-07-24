@@ -32,6 +32,10 @@ keyMoments:
 videoId: "lQjWU3ephLM"
 videoTitle: "Fed study REVEALS Biden-era illegal immigration TRIGGERED higher housing costs"
 thumbnail: "https://img.youtube.com/vi/lQjWU3ephLM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Impacts of Unauthorized Immigration on U.S. Labor and Housing Markets"
     url: "https://www.dallasfed.org/~/media/documents/research/papers/2026/wp2607.pdf"

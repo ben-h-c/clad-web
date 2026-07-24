@@ -34,6 +34,10 @@ keyMoments:
 videoId: "zED3Qi2FVHE"
 videoTitle: "Analysis: Why were counter-terrorism officers involved in Widdecombe arrest?"
 thumbnail: "https://img.youtube.com/vi/zED3Qi2FVHE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'Nothing to suggest' Ann Widdecombe murder politically motivated"
     url: "https://news.sky.com/story/ann-widdecombe-death-man-28-arrested-on-suspicion-of-murder-in-south-yorkshire-13562690"

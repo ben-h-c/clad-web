@@ -36,6 +36,10 @@ keyMoments:
 videoId: "499mJYpfZ1M"
 videoTitle: "How Gavin Newsom's claims about a DOJ investigation could impact a potential 2028 presidential run"
 thumbnail: "https://img.youtube.com/vi/499mJYpfZ1M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Gov. Gavin Newsom Says Trump Is Investigating Him and His Wife - The New York Times"
     url: "https://www.nytimes.com/2026/06/15/us/newsom-trump-doj-investigation.html"

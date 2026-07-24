@@ -31,6 +31,10 @@ keyMoments:
 videoId: "ARIQ5M0jNmo"
 videoTitle: "Future Headlines: Summer 2026 | Real Time with Bill Maher (HBO)"
 thumbnail: "https://img.youtube.com/vi/ARIQ5M0jNmo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Maine Senate candidate Platner says tattoo recognized as Nazi symbol has been covered"
     url: "https://www.pbs.org/newshour/politics/maine-democrat-platner-on-defense-over-tattoo-takes-page-from-trump-playbook-to-keep-up-senate-bid"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "p6nwhrtELEc"
 videoTitle: "BREAKING: Pirro announces felony indictment in Reflecting Pool vandalism case"
 thumbnail: "https://img.youtube.com/vi/p6nwhrtELEc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Three-time Olympian David “Davey” Hearn indicted in Reflecting Pool case"
     url: "https://www.wbaltv.com/article/update-vandalism-lincoln-memorial-reflecting-pool/71809486"

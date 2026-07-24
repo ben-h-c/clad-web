@@ -41,6 +41,10 @@ keyMoments:
 videoId: "4HH0QO4A1gY"
 videoTitle: "Rep. Walkinshaw: Billionaire Epstein associate needs to answer for NDAs he allegedly signed"
 thumbnail: "https://img.youtube.com/vi/4HH0QO4A1gY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Billionaire Leon Black walks out of Epstein investigation hearing"
     url: "https://www.bbc.com/news/articles/cn948lwyl3jo"

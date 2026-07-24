@@ -31,6 +31,10 @@ keyMoments:
 videoId: "mAmQbS89iZc"
 videoTitle: "Energy secretary Wright on length of war in Iran"
 thumbnail: "https://img.youtube.com/vi/mAmQbS89iZc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Chris Wright"
     slug: "chris-wright"

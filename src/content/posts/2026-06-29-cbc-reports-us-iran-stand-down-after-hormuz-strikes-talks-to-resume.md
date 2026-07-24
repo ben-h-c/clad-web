@@ -39,6 +39,10 @@ keyMoments:
 videoId: "88otZ3mGKbo"
 videoTitle: "U.S. and Iran agree to stop escalation and renew talks, U.S. official says"
 thumbnail: "https://img.youtube.com/vi/88otZ3mGKbo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran and US agree to halt attacks and renew talks, US official says"
     url: "https://www.reuters.com/world/asia-pacific/us-carries-out-fresh-strikes-against-iran-after-tanker-struck-hormuz-escalating-2026-06-27/"

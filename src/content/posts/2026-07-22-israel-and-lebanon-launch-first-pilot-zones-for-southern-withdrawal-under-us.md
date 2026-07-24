@@ -33,6 +33,10 @@ keyMoments:
 videoId: "xOsbPdU_C_k"
 videoTitle: "From towns to zones: Why Israel gives military names to civilian areas"
 thumbnail: "https://img.youtube.com/vi/xOsbPdU_C_k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Launch of First Pilot Zones in Lebanon"
     url: "https://www.state.gov/releases/office-of-the-spokesperson/2026/07/launch-of-first-pilot-zones-in-lebanon"

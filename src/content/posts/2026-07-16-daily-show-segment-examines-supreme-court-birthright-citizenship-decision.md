@@ -35,6 +35,10 @@ keyMoments:
 videoId: "CswGvIho7qE"
 videoTitle: "John Leguizamo on SCOTUS's Birthright Ruling & the Right-Wing Freakout That Ensued | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/CswGvIho7qE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump v. Barbara (06/30/2026)"
     url: "https://www.supremecourt.gov/opinions/25pdf/25-365_4hdj.pdf"

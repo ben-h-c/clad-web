@@ -32,6 +32,10 @@ keyMoments:
 videoId: "Pq2wL9CpLgE"
 videoTitle: "Burnham 'high on rhetoric, but short on trade-offs'"
 thumbnail: "https://img.youtube.com/vi/Pq2wL9CpLgE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What Andy Burnham's first speech as Labour leader tells us"
     url: "https://www.theguardian.com/politics/2026/jul/17/andy-burnham-what-first-speech-as-labour-leader-tells-us"

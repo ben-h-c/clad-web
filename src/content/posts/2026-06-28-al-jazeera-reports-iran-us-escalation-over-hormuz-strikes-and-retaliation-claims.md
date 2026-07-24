@@ -39,6 +39,10 @@ keyMoments:
 videoId: "5MFQXsdsEXE"
 videoTitle: "Iran launches attacks on US military sites in Kuwait and Bahrain after US strikes."
 thumbnail: "https://img.youtube.com/vi/5MFQXsdsEXE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran attacks Bahrain, Kuwait, Jordan in retaliation for US strikes"
     url: "https://www.aljazeera.com/news/2026/6/10/iran-strikes-bahrain-and-jordan-in-retaliation-for-us-attacks-in-hormuz"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "rPM24MQ4VQo"
 videoTitle: "Schumer: \"More questions than answers\" on Iran deal"
 thumbnail: "https://img.youtube.com/vi/rPM24MQ4VQo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Senator Chuck Schumer reacts to announced peace agreement with Iran"
     url: "https://www.youtube.com/watch?v=8M1ihWcB5w4"

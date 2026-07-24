@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Ng6YGKWzY8Q"
 videoTitle: "WTF is Happening With The Housing Market?"
 thumbnail: "https://img.youtube.com/vi/Ng6YGKWzY8Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Foreclosure Activity Rises in Q1 2026 as Market Continues to Normalize"
     url: "https://www.attomdata.com/news/market-trends/foreclosures/q1-and-march-2026-foreclosure-market-report/"

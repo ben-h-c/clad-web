@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ohdM66zrM1I"
 videoTitle: "Scientists create first synthetic cell that can complete life cycle"
 thumbnail: "https://img.youtube.com/vi/ohdM66zrM1I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "World’s first synthetic cell with a complete life cycle could revolutionize biological engineering"
     url: "https://twin-cities.umn.edu/news-events/worlds-first-synthetic-cell-complete-life-cycle-could-revolutionize-biological"

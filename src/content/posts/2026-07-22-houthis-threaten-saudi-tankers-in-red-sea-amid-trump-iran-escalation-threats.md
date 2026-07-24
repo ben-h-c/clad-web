@@ -41,6 +41,10 @@ keyMoments:
 videoId: "aMP1yXLP_tg"
 videoTitle: "Houthis claim they've struck 2 Saudi oil tankers in Red Sea"
 thumbnail: "https://img.youtube.com/vi/aMP1yXLP_tg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Tulsi Gabbard"
     slug: "tulsi-gabbard"

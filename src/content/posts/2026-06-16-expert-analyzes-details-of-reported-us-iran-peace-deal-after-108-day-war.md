@@ -36,6 +36,10 @@ keyMoments:
 videoId: "oQ1Au1K9B-U"
 videoTitle: "What We Know About Deal Suggests Iran War Accomplished Almost No Strategic Benefits To U.S.: Expert"
 thumbnail: "https://img.youtube.com/vi/oQ1Au1K9B-U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What's in the Iran deal Trump says he's ready to sign"
     url: "https://www.axios.com/2026/06/12/iran-deal-mou-strait-open-sanctions-relief"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "ttaFgSkL_Hg"
 videoTitle: "VP JD Vance Grilled On What's Included In Trump's Iran Peace Deal"
 thumbnail: "https://img.youtube.com/vi/ttaFgSkL_Hg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Vance Asked To Confirm Reports Of 'Memorandum Of Understanding' Between US, Iran"
     url: "https://www.youtube.com/watch?v=9pV8IP6k2hg"

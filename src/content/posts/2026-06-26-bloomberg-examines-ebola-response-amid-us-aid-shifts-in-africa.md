@@ -36,6 +36,10 @@ keyMoments:
 videoId: "YBK6RaNz40I"
 videoTitle: "Ebola Outbreak Puts Spotlight on Trump's America First Health Strategy | Bloomberg Next Africa"
 thumbnail: "https://img.youtube.com/vi/YBK6RaNz40I/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Africa CDC and WHO launch joint continental Ebola response plan"
     url: "https://www.who.int/news/item/05-06-2026-africa-cdc-and-who-launch-joint-continental-ebola-response-plan"

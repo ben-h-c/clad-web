@@ -35,6 +35,10 @@ keyMoments:
 videoId: "WeCPWfRlzGY"
 videoTitle: "Vance Says US Is Worried About 'Nuclear Issue' With Iran"
 thumbnail: "https://img.youtube.com/vi/WeCPWfRlzGY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Vance says talks with Iranian officials set 'good foundation' for a deal to end the war"
     url: "https://apnews.com/article/united-states-iran-war-nuclear-negotiations-4bbde727c7095c4ad9da0285ca79f1e1"

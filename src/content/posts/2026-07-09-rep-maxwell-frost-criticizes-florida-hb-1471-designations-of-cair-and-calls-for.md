@@ -38,6 +38,10 @@ keyMoments:
 videoId: "jPNJ0k3i3Dw"
 videoTitle: "1st Gen-Z Congressman Maxwell Frost on Anti-Muslim Law &amp; Challenges Facing His Generation"
 thumbnail: "https://img.youtube.com/vi/jPNJ0k3i3Dw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Ed Case"
     slug: "ed-case"

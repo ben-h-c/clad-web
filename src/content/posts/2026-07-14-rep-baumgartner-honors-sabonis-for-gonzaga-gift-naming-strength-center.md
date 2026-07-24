@@ -34,6 +34,10 @@ keyMoments:
 videoId: "JFixvHIZ3og"
 videoTitle: "Rep. Baumgartner Honors Gonzaga Basketball Legend Domantas Sabonis"
 thumbnail: "https://img.youtube.com/vi/JFixvHIZ3og/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Michael Baumgartner"
     slug: "michael-baumgartner"

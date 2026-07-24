@@ -32,6 +32,10 @@ keyMoments:
 videoId: "DtaVQB9CGQ0"
 videoTitle: "Hakeem Jeffries Calls For Classified Briefing For Congress From The Trump Admin On Iran Deal"
 thumbnail: "https://img.youtube.com/vi/DtaVQB9CGQ0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jeffries demands classified Iran briefing for Congress"
     url: "https://en.yenisafak.com/world/jeffries-demands-classified-iran-briefing-for-congress-3720191"

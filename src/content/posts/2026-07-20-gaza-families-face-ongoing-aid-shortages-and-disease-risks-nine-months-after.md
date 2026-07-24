@@ -38,6 +38,10 @@ keyMoments:
 videoId: "0jScQIV9tFE"
 videoTitle: "‘We are being buried alive,’ a father’s plea from the Gaza Strip"
 thumbnail: "https://img.youtube.com/vi/0jScQIV9tFE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A Guide to the Gaza Peace Deal"
     url: "https://www.cfr.org/articles/guide-trumps-twenty-point-gaza-peace-deal"

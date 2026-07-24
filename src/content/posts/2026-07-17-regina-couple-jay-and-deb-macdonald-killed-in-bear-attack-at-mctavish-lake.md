@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Bl8M-oTg17E"
 videoTitle: "Saskatchewan couple killed in bear attack | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/Bl8M-oTg17E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Regina couple killed in bear attack at McTavish Lake | CBC News"
     url: "https://www.cbc.ca/news/canada/saskatchewan/regina-couple-killed-in-bear-attack-at-mctavish-lake-9.7274434"

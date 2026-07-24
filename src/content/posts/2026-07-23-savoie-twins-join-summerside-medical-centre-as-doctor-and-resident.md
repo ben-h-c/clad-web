@@ -35,6 +35,10 @@ keyMoments:
 videoId: "QI4euaOZuIk"
 videoTitle: "Meet the identical twin sisters who are both doctors at the same clinic"
 thumbnail: "https://img.youtube.com/vi/QI4euaOZuIk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "There's a new doctor in P.E.I. — and her twin sister is working here, too"
     url: "https://www.cbc.ca/player/play/video/9.7280098"

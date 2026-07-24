@@ -35,6 +35,10 @@ keyMoments:
 videoId: "H2IHVmSgePM"
 videoTitle: "'Do You Think We Can Reverse The Trend?': Bruce Westerman Asks USFS Chief About US Wood Production"
 thumbnail: "https://img.youtube.com/vi/H2IHVmSgePM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Meet the Forest Service"
     url: "https://www.fs.usda.gov/about-agency/meet-forest-service"

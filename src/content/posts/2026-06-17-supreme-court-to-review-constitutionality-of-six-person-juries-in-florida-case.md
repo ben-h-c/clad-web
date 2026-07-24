@@ -36,6 +36,10 @@ keyMoments:
 videoId: "RktxzdnsuGY"
 videoTitle: "BREAKING! Supreme Court Grants Immediate Review In Major Constitutional Rights Challenge!"
 thumbnail: "https://img.youtube.com/vi/RktxzdnsuGY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Court agrees to hear three new cases, including on the constitutionality of six-person juries"
     url: "https://www.scotusblog.com/2026/06/court-agrees-to-hear-three-new-cases-including-on-the-constitutionality-of-six-person-juries/"

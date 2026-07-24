@@ -35,6 +35,10 @@ keyMoments:
 videoId: "u2jar90sA7g"
 videoTitle: "Trump-backed candidates easily win Arizona primaries"
 thumbnail: "https://img.youtube.com/vi/u2jar90sA7g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Andy Biggs"
     slug: "andy-biggs"

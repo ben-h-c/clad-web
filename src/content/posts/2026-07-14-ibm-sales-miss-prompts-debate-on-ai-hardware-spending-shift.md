@@ -35,6 +35,10 @@ keyMoments:
 videoId: "K-a_DvoEASo"
 videoTitle: "IBM Falls Most Since At Least 1968 on Sales Miss"
 thumbnail: "https://img.youtube.com/vi/K-a_DvoEASo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "‘We Faltered’: IBM Falls Most Since At Least 1968 on Sales Miss"
     url: "https://www.bloomberg.com/news/articles/2026-07-14/ibm-says-second-quarter-sales-missed-as-customers-pulled-back"

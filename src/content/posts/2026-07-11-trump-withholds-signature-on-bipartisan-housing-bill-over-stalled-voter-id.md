@@ -36,6 +36,10 @@ keyMoments:
 videoId: "hlC7Pyd0P1Q"
 videoTitle: "‘WHAT A MESS!’: Analyst reacts to President Trump’s refusal to sign housing bill"
 thumbnail: "https://img.youtube.com/vi/hlC7Pyd0P1Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says he won't sign housing bill, which would become law automatically"
     url: "https://www.cnbc.com/2026/07/10/trump-housing-bill-save-act-law.html"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "HCnJLf8XOoY"
 videoTitle: "Record heat wave disrupts America 250 celebrations in DC"
 thumbnail: "https://img.youtube.com/vi/HCnJLf8XOoY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Extreme heat, temps over 100° in DC area disrupt July 4 celebrations"
     url: "https://www.nbcwashington.com/news/local/live-updates-extreme-heat-temps-over-100-in-dc-area-disrupt-july-4-celebrations/4125412/"

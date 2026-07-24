@@ -32,6 +32,10 @@ keyMoments:
 videoId: "S34nalF2XkA"
 videoTitle: "Hannity: THEY are driven by 'RESENTMENT'"
 thumbnail: "https://img.youtube.com/vi/S34nalF2XkA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Rep. Dan Goldman addresses Brooklyn coffee shop banning him over his views on Israel"
     url: "https://www.cnn.com/2026/06/23/politics/dan-goldman-poetica-coffee-shop-israel"

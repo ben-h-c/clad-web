@@ -28,6 +28,10 @@ keyMoments:
 videoId: "QTmldpAS5CM"
 videoTitle: "Trump-endorsed Barry Moore wins Republican primary runoff in Alabama Senate race"
 thumbnail: "https://img.youtube.com/vi/QTmldpAS5CM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump-endorsed Rep. Barry Moore wins GOP primary runoff in Alabama Senate race"
     url: "https://www.nbcnews.com/politics/2026-election/alabama-midterms-senate-primary-winner-moore-trump-backed-rcna350027"

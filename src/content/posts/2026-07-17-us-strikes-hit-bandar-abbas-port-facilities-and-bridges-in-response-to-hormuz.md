@@ -33,6 +33,10 @@ keyMoments:
 videoId: "KA7Ko5am0U4"
 videoTitle: "WATCH: Dramatic video shows US airstrikes taking out MAJOR Iranian infrastructure"
 thumbnail: "https://img.youtube.com/vi/KA7Ko5am0U4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US military says it completed latest strikes on Iran, targets included Bandar Abbas"
     url: "https://www.reuters.com/world/middle-east/us-military-says-it-completed-latest-strikes-iran-targets-included-bandar-abbas-2026-07-16/"

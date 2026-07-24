@@ -28,6 +28,10 @@ keyMoments:
 videoId: "Wxhb2maakME"
 videoTitle: "Trump To UAE Sheikh: 'See, When You're That Rich, You Can Speak That Lowly'"
 thumbnail: "https://img.youtube.com/vi/Wxhb2maakME/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "G7 allies scramble to put Ukraine back atop Trump's agenda"
     url: "https://www.npr.org/2026/06/16/g-s1-128325/g7-leaders-summit"

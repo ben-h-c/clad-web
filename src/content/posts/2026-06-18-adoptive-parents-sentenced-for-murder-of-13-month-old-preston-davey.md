@@ -35,6 +35,10 @@ keyMoments:
 videoId: "sj42EnYYI2U"
 videoTitle: "Whole life sentence for teacher who murdered 13-month-old adopted son"
 thumbnail: "https://img.youtube.com/vi/sj42EnYYI2U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Whole-life order given to UK teacher who sexually abused and murdered adopted baby"
     url: "https://www.theguardian.com/uk-news/2026/jun/18/whole-life-order-given-to-uk-teacher-who-sexually-abused-and-murdered-adopted-baby-jamie-varley-preston-davey"

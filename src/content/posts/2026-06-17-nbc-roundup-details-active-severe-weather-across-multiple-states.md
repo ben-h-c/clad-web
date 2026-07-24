@@ -35,6 +35,10 @@ keyMoments:
 videoId: "b0keD1LGKi4"
 videoTitle: "Tornado sirens warn of severe storms in multiple states"
 thumbnail: "https://img.youtube.com/vi/b0keD1LGKi4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Tropical Storm Arthur forms off Texas coast, fueling major flood threat for Gulf Coast states"
     url: "https://www.cnn.com/2026/06/16/weather/texas-south-flash-flood-threat-tropical-rain-arthur-climate"

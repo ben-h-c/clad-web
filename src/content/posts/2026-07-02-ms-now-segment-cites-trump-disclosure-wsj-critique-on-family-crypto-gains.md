@@ -36,6 +36,10 @@ keyMoments:
 videoId: "3-a2FfYEbN0"
 videoTitle: "“SHAMELESS”: Trump SLAMMED for ‘cashing in’ on the Presidency"
 thumbnail: "https://img.youtube.com/vi/3-a2FfYEbN0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump’s annual financial disclosure shows more than $580M in crypto-related income"
     url: "https://www.cnbc.com/2026/06/30/trump-financial-disclosure-released.html"

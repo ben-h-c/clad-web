@@ -34,6 +34,10 @@ keyMoments:
 videoId: "6n9nizStZ4c"
 videoTitle: "Kylian \"Mobutu\" Mbappé: 'Les Bleus' embrace the trend at the World Cup • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/6n9nizStZ4c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "[equipedefrance] Dembélé and teammates jokingly call Mbappé “Mobut”"
     url: "https://www.reddit.com/r/soccer/comments/1uklirt/equipedefrance_demb%C3%A9l%C3%A9_and_teammates_jokingly/"

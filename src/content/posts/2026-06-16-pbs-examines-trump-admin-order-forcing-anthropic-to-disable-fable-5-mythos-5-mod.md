@@ -35,6 +35,10 @@ keyMoments:
 videoId: "gVRlGg8WbXc"
 videoTitle: "Anthropic disables new AI model after White House security directive"
 thumbnail: "https://img.youtube.com/vi/gVRlGg8WbXc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Anthropic to meet with Trump administration over Mythos dispute"
     url: "https://www.cnbc.com/2026/06/15/anthropic-mythos-trump-ai.html"

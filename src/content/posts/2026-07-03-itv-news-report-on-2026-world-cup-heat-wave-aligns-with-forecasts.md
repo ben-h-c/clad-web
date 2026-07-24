@@ -37,6 +37,10 @@ keyMoments:
 videoId: "LbL6HfweP_A"
 videoTitle: "How will extreme heat affect the World Cup knockout games?"
 thumbnail: "https://img.youtube.com/vi/LbL6HfweP_A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A heat wave threatens some of the World Cup's knockout games"
     url: "https://www.npr.org/2026/07/01/nx-s1-5875173/world-cup-heat-wave-dome-philadelphia-new-york-new-jersey"

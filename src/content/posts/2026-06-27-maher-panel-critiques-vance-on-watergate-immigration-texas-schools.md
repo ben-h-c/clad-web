@@ -40,6 +40,10 @@ keyMoments:
 videoId: "F4D0jFRKgig"
 videoTitle: "Overtime with Bill Maher: Sen. Raphael Warnock, Larry Wilmore (HBO)"
 thumbnail: "https://img.youtube.com/vi/F4D0jFRKgig/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "JD Vance says Nixon’s Watergate scandal would be ‘12-hour news story’ today"
     url: "https://www.theguardian.com/us-news/2026/jun/25/jd-vance-watergate-richard-nixon"

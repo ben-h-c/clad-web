@@ -38,6 +38,10 @@ keyMoments:
 videoId: "bmzx5vlHlAo"
 videoTitle: "US strikes southern Iran as tensions rise over Strait of Hormuz and regional attacks"
 thumbnail: "https://img.youtube.com/vi/bmzx5vlHlAo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US launches multiple strikes on Iran, which retaliates"
     url: "https://www.reuters.com/world/middle-east/iran-threatens-block-more-vital-seaways-trump-orders-renewed-iran-blockade-2026-07-15/"

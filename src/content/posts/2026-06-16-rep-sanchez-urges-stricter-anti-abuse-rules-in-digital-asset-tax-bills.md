@@ -32,6 +32,10 @@ keyMoments:
 videoId: "nTCr8f3zM7s"
 videoTitle: "Linda Sánchez: Bitcoin Taxation Must Be Implemented Free Of Loopholes And Inequities"
 thumbnail: "https://img.youtube.com/vi/nTCr8f3zM7s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Full Committee Legislative Hearing on Digital Asset Taxation"
     url: "https://www.congress.gov/event/119th-congress/house-event/119368"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "RgqxmcNmMP0"
 videoTitle: "US Congress LIVE: Trump Camp in Panic as Sheldon Whitehouse Questions IRS on Trump Probe | US News"
 thumbnail: "https://img.youtube.com/vi/RgqxmcNmMP0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "WATCH: Bessent returns to the Hill to face more questions on Trump's IRS deal"
     url: "https://www.pbs.org/newshour/politics/watch-live-bessent-returns-to-the-hill-after-being-questioned-on-trumps-irs-deal-pulte-pick"

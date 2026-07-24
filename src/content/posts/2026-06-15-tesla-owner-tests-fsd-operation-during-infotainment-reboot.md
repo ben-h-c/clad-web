@@ -32,6 +32,10 @@ keyMoments:
 videoId: "pNxGUKCI_0c"
 videoTitle: "Can You Reboot Tesla During FSD? Real Test"
 thumbnail: "https://img.youtube.com/vi/pNxGUKCI_0c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Restarting the Touchscreen - Tesla Service"
     url: "https://service.tesla.com/docs/Public/diy/model3/en_us/GUID-C6EE3503-1D68-455C-8AA3-2D6FF9ADCF5E.html"

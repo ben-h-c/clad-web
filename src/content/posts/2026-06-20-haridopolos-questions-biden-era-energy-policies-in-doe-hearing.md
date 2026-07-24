@@ -39,6 +39,10 @@ keyMoments:
 videoId: "ckX_pRJ_y4Q"
 videoTitle: "'Playing Politics With Energy Is Never The Smart Thing': Haridopolos Torches Biden Energy Policies"
 thumbnail: "https://img.youtube.com/vi/ckX_pRJ_y4Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Strategic Petroleum Reserve (United States)"
     url: "https://en.wikipedia.org/wiki/Strategic_Petroleum_Reserve_(United_States)"

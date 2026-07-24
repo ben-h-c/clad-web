@@ -36,6 +36,10 @@ keyMoments:
 videoId: "S_Pvlk9qIyA"
 videoTitle: "&#39;Help Is On The Way&#39;: Mike Haridopolos Praises Bill, Claims It Will Fix Veterans&#39; Healthcare System"
 thumbnail: "https://img.youtube.com/vi/S_Pvlk9qIyA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Mike Haridopolos"
     slug: "mike-haridopolos"

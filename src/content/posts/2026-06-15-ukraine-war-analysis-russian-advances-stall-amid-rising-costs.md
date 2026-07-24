@@ -36,6 +36,10 @@ keyMoments:
     note: "Hungarian election results confirm Tisza Party victory; Magyar pledged to lift veto on EU aid packages."
 videoId: "T8y7ZIq4jXY"
 thumbnail: "https://img.youtube.com/vi/T8y7ZIq4jXY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russia's Grinding War in Ukraine"
     url: "https://www.csis.org/analysis/russias-grinding-war-ukraine"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "y7EKteLDkt4"
 videoTitle: "Korean Stocks Plunge 9% on Chip Selloff"
 thumbnail: "https://img.youtube.com/vi/y7EKteLDkt4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Korean Stocks Tumble 9% on Chip Selloff, Triggers Trading Halt - Bloomberg"
     url: "https://www.bloomberg.com/news/articles/2026-06-26/korean-stocks-slump-6-as-chipmakers-hit-by-renewed-sellolff"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "JBCUQLjKZRU"
 videoTitle: "'MIND-BOGGLING': Real estate expert SOUNDS OFF on Cali billionaire tax"
 thumbnail: "https://img.youtube.com/vi/JBCUQLjKZRU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ballotpedia: California One-Time Wealth Tax for State-Funded Healthcare, Education, and Food Assistance Programs Initiative (2026)"
     url: "https://ballotpedia.org/California_One-Time_Wealth_Tax_for_State-Funded_Healthcare,_Education,_and_Food_Assistance_Programs_Initiative_(2026)"

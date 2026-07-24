@@ -34,6 +34,10 @@ keyMoments:
 videoId: "11-1qPtcQmE"
 videoTitle: "FBI disrupts attack on UFC fight at the White House, court papers say"
 thumbnail: "https://img.youtube.com/vi/11-1qPtcQmE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FBI disrupts a planned attack on the White House UFC cage-fighting show, court papers say"
     url: "https://www.pbs.org/newshour/nation/fbis-patel-announces-multiple-arrests-connected-to-planned-attacks-targeting-white-house-ufc-show"

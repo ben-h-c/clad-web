@@ -31,6 +31,10 @@ keyMoments:
 videoId: "HCqNFFO_4R8"
 videoTitle: "Ingraham TORCHES Hollywood over anti-America videos #shorts #us #news #hollywood"
 thumbnail: "https://img.youtube.com/vi/HCqNFFO_4R8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Celebrities counter Trump's America 250 rhetoric with 'On Tyranny' reading"
     url: "https://thehill.com/blogs/in-the-know/5953527-sarah-jessica-parker-celebrities-donald-trump-america-250-counterprogram/"

@@ -29,6 +29,10 @@ keyMoments:
 videoId: "Q1IqVY_7mKY"
 videoTitle: "Our financial policy is not keeping pace with the technology of our time."
 thumbnail: "https://img.youtube.com/vi/Q1IqVY_7mKY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Marlin A. Stutzman"
     slug: "marlin-a-stutzman"

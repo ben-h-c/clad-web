@@ -36,6 +36,10 @@ keyMoments:
 videoId: "By3d21IL28I"
 videoTitle: "Players Add Bible Verses To Uniforms On Pride Night | The View"
 thumbnail: "https://img.youtube.com/vi/By3d21IL28I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "MLB issues warning to Giants pitchers who wrote Bible verses on Pride Night caps"
     url: "https://www.nytimes.com/athletic/7364268/2026/06/15/sf-giants-pride-night-caps-bible-verses-mlb-warning/"

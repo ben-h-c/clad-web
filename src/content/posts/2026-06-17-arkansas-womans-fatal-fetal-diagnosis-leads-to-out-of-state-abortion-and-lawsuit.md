@@ -35,6 +35,10 @@ keyMoments:
 videoId: "MkRSbPSuQMA"
 videoTitle: "How a pregnancy complication reshaped an Arkansas woman’s view of abortion bans"
 thumbnail: "https://img.youtube.com/vi/MkRSbPSuQMA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Arkansas - Center for Reproductive Rights"
     url: "https://reproductiverights.org/maps/abortion-laws-by-state/arkansas/"

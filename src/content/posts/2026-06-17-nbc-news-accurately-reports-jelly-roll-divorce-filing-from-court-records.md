@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Pl2zdHjmWl4"
 videoTitle: "Jelly Roll files for divorce after 10 years of marriage"
 thumbnail: "https://img.youtube.com/vi/Pl2zdHjmWl4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jelly Roll’s Divorce Filing Reveals Surprising Date of Separation from Bunnie Xo"
     url: "https://people.com/jelly-roll-divorce-filing-reveals-surprising-date-of-separation-from-bunnie-xo-11999555"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "taRwmod8hp8"
 videoTitle: "'Putin is losing on the battlefield': McFaul says Trump 'needs a strategy' for Russia-Ukraine"
 thumbnail: "https://img.youtube.com/vi/taRwmod8hp8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump Needs a New Ukraine Strategy - by Michael McFaul"
     url: "https://michaelmcfaul.substack.com/p/trump-needs-a-new-ukraine-strategy"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "rsFXMpNTeVQ"
 videoTitle: "President Trump on Canada: \"They need us to survive.\""
 thumbnail: "https://img.youtube.com/vi/rsFXMpNTeVQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

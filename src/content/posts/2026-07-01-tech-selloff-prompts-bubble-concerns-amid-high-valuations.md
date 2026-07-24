@@ -31,6 +31,10 @@ keyMoments:
 videoId: "6AE_CezlLG8"
 videoTitle: "Tech selloff stirs bubble fears in US stock market"
 thumbnail: "https://img.youtube.com/vi/6AE_CezlLG8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "PHLX Semiconductor Index Overview - SOX"
     url: "https://www.marketwatch.com/investing/index/sox"

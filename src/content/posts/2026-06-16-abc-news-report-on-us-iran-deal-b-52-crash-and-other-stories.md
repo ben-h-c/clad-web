@@ -35,6 +35,10 @@ keyMoments:
 videoId: "dB4HkzQpSfM"
 videoTitle: "ABC News Live Prime: June 15, 2026"
 thumbnail: "https://img.youtube.com/vi/dB4HkzQpSfM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US, Iran closing in on one-page memo to end war, officials say"
     url: "https://www.axios.com/2026/05/06/iran-us-deal-one-page-memo"

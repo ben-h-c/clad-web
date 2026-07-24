@@ -34,6 +34,10 @@ keyMoments:
 videoId: "GP7nicCQJ2c"
 videoTitle: "Luigi Mangione's attorneys call report of possible plea deal \"troubling\""
 thumbnail: "https://img.youtube.com/vi/GP7nicCQJ2c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Luigi Mangione’s attorneys discussed possible plea deal with feds ahead of trials: sources"
     url: "https://www.nbcnews.com/news/us-news/luigi-mangiones-attorneys-discussed-possible-plea-deal-feds-ahead-tria-rcna351843"

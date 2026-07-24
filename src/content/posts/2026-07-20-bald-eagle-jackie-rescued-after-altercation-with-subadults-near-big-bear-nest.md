@@ -31,6 +31,10 @@ keyMoments:
 videoId: "o4HMIfWg1zw"
 videoTitle: "Famous bald eagle Jackie rescued after bird fight | The Hill"
 thumbnail: "https://img.youtube.com/vi/o4HMIfWg1zw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fans worry Jackie is Big Bear eagle rescued after fight, found on ground"
     url: "https://www.dailybulletin.com/2026/07/19/fans-worry-jackie-is-big-bear-eagle-rescued-after-fight-found-on-ground/"

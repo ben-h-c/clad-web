@@ -33,6 +33,10 @@ keyMoments:
 videoId: "pnDvC83BNSI"
 videoTitle: "Israeli strike kills family of six as Gaza City home is reduced to rubble"
 thumbnail: "https://img.youtube.com/vi/pnDvC83BNSI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Israeli airstrike kills family of six in Gaza, medics say"
     url: "https://www.reuters.com/world/middle-east/israeli-airstrike-kills-family-six-gaza-medics-say-2026-07-21/"

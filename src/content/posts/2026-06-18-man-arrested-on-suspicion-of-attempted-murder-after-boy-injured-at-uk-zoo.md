@@ -31,6 +31,10 @@ keyMoments:
 videoId: "ttlapjBqV5I"
 videoTitle: "Man arrested for attempted murder after three-year-old boy critically injured by crocodile"
 thumbnail: "https://img.youtube.com/vi/ttlapjBqV5I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Man arrested after boy injured in zoo crocodile enclosure"
     url: "https://www.bbc.com/news/articles/czx50n2vj74o"

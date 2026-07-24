@@ -34,6 +34,10 @@ keyMoments:
 videoId: "BY3StiMqzLw"
 videoTitle: "Delays to talks show complexity of US-Iran deal | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/BY3StiMqzLw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US-Iran peace talks in Switzerland called off, clouding prospects for lasting truce"
     url: "https://www.reuters.com/world/asia-pacific/us-iran-peace-talks-geneva-called-off-clouding-prospects-lasting-truce-2026-06-19/"

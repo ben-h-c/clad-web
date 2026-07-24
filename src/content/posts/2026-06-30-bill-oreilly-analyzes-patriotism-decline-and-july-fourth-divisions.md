@@ -41,6 +41,10 @@ keyMoments:
 videoId: "usRKjUeWZVY"
 videoTitle: "Bill O'Reilly on declining patriotism and the fight over July Fourth | On Balance"
 thumbnail: "https://img.youtube.com/vi/usRKjUeWZVY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "American Pride Slips to New Low"
     url: "https://news.gallup.com/poll/692150/american-pride-slips-new-low.aspx"

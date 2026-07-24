@@ -39,6 +39,10 @@ keyMoments:
 videoId: "Q1DoesO-V8w"
 videoTitle: "Expert reveals 'HUGE OMISSION' in US-Iran peace agreement"
 thumbnail: "https://img.youtube.com/vi/Q1DoesO-V8w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What's inside the Iran deal Trump is close to signing"
     url: "https://www.axios.com/2026/05/24/iran-deal-strait-hormuz-sanctions-nuclear"

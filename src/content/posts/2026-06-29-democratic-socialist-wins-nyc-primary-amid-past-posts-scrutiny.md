@@ -36,6 +36,10 @@ keyMoments:
 videoId: "rscKKtuWQZk"
 videoTitle: "Do Democrats have a 'Democratic Socialist' problem?"
 thumbnail: "https://img.youtube.com/vi/rscKKtuWQZk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Democratic socialists set sights beyond New York after Big Apple romp"
     url: "https://thehill.com/homenews/campaign/5943394-democratic-socialists-momentum-colorado-wisconsin/"

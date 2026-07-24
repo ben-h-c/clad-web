@@ -34,6 +34,10 @@ keyMoments:
 videoId: "8GvRIblFNc4"
 videoTitle: "Paris appeals court ruling could upend Marine Le Pen’s 2027 presidential bid • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/8GvRIblFNc4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How Paris appeals court ruling could upend Marine Le Pen’s 2027 presidential bid"
     url: "https://abcnews.com/International/wireStory/paris-appeals-court-ruling-upend-marine-le-pens-134493389"

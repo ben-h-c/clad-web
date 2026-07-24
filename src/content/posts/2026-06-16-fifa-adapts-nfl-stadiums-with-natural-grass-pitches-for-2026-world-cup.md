@@ -37,6 +37,10 @@ keyMoments:
 videoId: "SyYhZysSer8"
 videoTitle: "How FIFA Turned NFL Stadiums Into World Cup Pitches"
 thumbnail: "https://img.youtube.com/vi/SyYhZysSer8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "World Cup grass in NFL stadiums stirs debate over field surface"
     url: "https://www.espn.com/nfl/story/_/id/49030490/fifa-world-cup-grass-nfl-stadiums-debate-field-surface"

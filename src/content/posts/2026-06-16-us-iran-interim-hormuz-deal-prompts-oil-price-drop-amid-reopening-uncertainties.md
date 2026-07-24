@@ -34,6 +34,10 @@ keyMoments:
 videoId: "QEjxLIaJzG8"
 videoTitle: "What the US-Iran Deal Means for Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/QEjxLIaJzG8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "June 12, 2026 — US and Iran say an agreement is close, ..."
     url: "https://www.cnn.com/2026/06/12/world/live-news/iran-war-trump-israel"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "OV98qouIsfc"
 videoTitle: "Vance reveals why text of US-Iran agreement hasn't been released"
 thumbnail: "https://img.youtube.com/vi/OV98qouIsfc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump may release US-Iran deal before Friday, Vance says"
     url: "https://www.bbc.com/news/articles/ce8mv6l6eezo"

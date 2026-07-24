@@ -36,6 +36,10 @@ keyMoments:
 videoId: "VSLfsVp30Oo"
 videoTitle: "FILIBUSTER SHOWDOWN: GOP rep REVEALS what is STOPPING Trump’s agenda"
 thumbnail: "https://img.youtube.com/vi/VSLfsVp30Oo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "H.R.22 - SAVE Act"
     url: "https://www.congress.gov/bill/119th-congress/house-bill/22"

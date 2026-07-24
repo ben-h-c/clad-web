@@ -34,6 +34,10 @@ keyMoments:
 videoId: "gHZA3zbZaWo"
 videoTitle: "If Congo was a thunderstorm, Mexico will be a hurricane | World Cup reaction"
 thumbnail: "https://img.youtube.com/vi/gHZA3zbZaWo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "England 2-1 Congo DR: Harry Kane saves Three Lions"
     url: "https://www.espn.com/soccer/story/_/id/49236312/england-congo-dr-live-world-cup-2026-latest-updates-commentary-score-result"

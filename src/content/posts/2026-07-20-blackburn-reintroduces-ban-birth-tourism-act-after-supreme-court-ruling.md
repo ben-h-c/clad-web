@@ -36,6 +36,10 @@ keyMoments:
 videoId: "epkGimj9NVQ"
 videoTitle: "'They Admit They're Committing Fraud!': Marsha Blackburn Sounds Off On Birth Tourism Industry"
 thumbnail: "https://img.youtube.com/vi/epkGimj9NVQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Greg Abbott"
     slug: "greg-abbott"

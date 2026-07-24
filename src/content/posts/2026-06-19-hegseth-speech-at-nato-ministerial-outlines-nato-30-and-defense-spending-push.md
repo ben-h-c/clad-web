@@ -38,6 +38,10 @@ keyMoments:
 videoId: "XvrFZ6bG7SU"
 videoTitle: "Pete Hegseth Slams NATO's 'Focus' On 'Gender Equity And Climate Change And Defense Austerity'"
 thumbnail: "https://img.youtube.com/vi/XvrFZ6bG7SU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Remarks by Secretary of War Pete Hegseth at the 2026 NATO Defense Ministerial"
     url: "https://www.war.gov/News/Transcripts/Transcript/Article/4521023/remarks-by-secretary-of-war-pete-hegseth-at-the-2026-nato-defense-ministerial-i/"

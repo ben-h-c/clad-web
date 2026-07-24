@@ -28,6 +28,10 @@ keyMoments:
 videoId: "QKP3mJ6yxFQ"
 videoTitle: "Trump Signals He May Let Congress Review Iran Deal"
 thumbnail: "https://img.youtube.com/vi/QKP3mJ6yxFQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "WATCH: Trump says he 'wouldn't mind' sending Iran deal memo to Congress"
     url: "https://www.pbs.org/newshour/world/watch-trump-says-he-wouldnt-mind-sending-iran-deal-memo-to-congress"

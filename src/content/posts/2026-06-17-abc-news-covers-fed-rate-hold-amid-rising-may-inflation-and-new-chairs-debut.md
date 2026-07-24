@@ -36,6 +36,10 @@ keyMoments:
 videoId: "MV0w-rNc4LM"
 videoTitle: "Stocks close slightly lower on Wall Street after Fed holds rates steady"
 thumbnail: "https://img.youtube.com/vi/MV0w-rNc4LM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fed Holds Rates Steady at Warsh’s First Meeting"
     url: "https://www.cnbc.com/2026/06/17/fed-interest-rate-decision-june-2026.html"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "-oO8CaDFl3E"
 videoTitle: "\"I am not surprised that he may be using the Department of Justice to go after a political enemy.\""
 thumbnail: "https://img.youtube.com/vi/-oO8CaDFl3E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "California Gov. Gavin Newsom says Trump’s Justice Department is investigating him and his wife"
     url: "https://www.chron.com/news/politics/article/california-gov-gavin-newsom-says-trump-s-justice-22306342.php"

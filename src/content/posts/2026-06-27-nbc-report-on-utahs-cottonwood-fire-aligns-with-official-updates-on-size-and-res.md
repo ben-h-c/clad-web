@@ -34,6 +34,10 @@ keyMoments:
 videoId: "1gh-PyZ3k8I"
 videoTitle: "Cottonwood Fire burns more than 70,000 acres in Utah"
 thumbnail: "https://img.youtube.com/vi/1gh-PyZ3k8I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Here’s the latest on the massive Cottonwood Fire burning near Beaver"
     url: "https://www.sltrib.com/news/2026/06/25/heres-latest-utahs-cottonwood-fire/"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "zUmb70z1oe4"
 videoTitle: "Sri Lanka's dengue outbreak strains hospitals as cases double from last year"
 thumbnail: "https://img.youtube.com/vi/zUmb70z1oe4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sri Lanka battles surge in dengue fever, with more than 44,000 cases so far this year"
     url: "https://www.reuters.com/business/healthcare-pharmaceuticals/sri-lanka-battles-surge-dengue-fever-with-more-than-44000-cases-so-far-this-year-2026-06-19/"

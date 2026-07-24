@@ -31,6 +31,10 @@ keyMoments:
 videoId: "4PVlTg0SP6c"
 videoTitle: "A Ukrainian military unit launches long-range drones inside Russia to weaken Russia's war machine"
 thumbnail: "https://img.youtube.com/vi/4PVlTg0SP6c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Inside a secretive Ukrainian team launching deep drone strikes at Russia"
     url: "https://www.npr.org/2026/06/27/g-s1-129704/ukraine-long-range-drones-russia-war"

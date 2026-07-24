@@ -36,6 +36,10 @@ keyMoments:
     note: "Strikes on GLOCs and energy infrastructure are documented as disrupting logistics to Crimea and front lines per ISW and Ukrainian statements."
 videoId: "RJ2YsNjchBc"
 thumbnail: "https://img.youtube.com/vi/RJ2YsNjchBc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ukraine strikes occupied Mariupol port, Russia's key oil refineries"
     url: "https://www.aljazeera.com/news/2026/6/10/ukrainian-drones-strike-sevastopol-museum-and-key-russian-oil-refineries"

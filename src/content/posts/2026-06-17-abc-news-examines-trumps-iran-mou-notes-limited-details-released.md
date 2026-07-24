@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Y463OMT0k_0"
 videoTitle: "Trump touts signed deal with Iran, but reveals few details"
 thumbnail: "https://img.youtube.com/vi/Y463OMT0k_0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump, Iran agree to memorandum of understanding opening Strait of Hormuz: What is in the 60-day deal?"
     url: "https://abcnews.com/Politics/trump-iran-agree-memorandum-understanding-opening-strait-hormuz/story?id=133896143"

@@ -25,6 +25,10 @@ keyMoments:
 videoId: "MZMfzhX269s"
 videoTitle: "World Cup: France and Kylian Mbappé off to flying start in group L • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/MZMfzhX269s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "World Cup: France and Kylian Mbappé off to flying start in group L"
     url: "https://www.france24.com/en/tv-shows/sports/20260617-world-cup-france-and-kylian-mbapp%C3%A9-off-to-flying-start-in-group-l"

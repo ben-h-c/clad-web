@@ -39,6 +39,10 @@ keyMoments:
 videoId: "12yRyE5tSeg"
 videoTitle: " ‘CORRUPT’: Trump discloses ‘staggering’ income from CRYPTO"
 thumbnail: "https://img.youtube.com/vi/12yRyE5tSeg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump’s financial disclosure lists $1.4 billion in crypto earnings, powered largely by meme coins"
     url: "https://www.nbcnews.com/politics/donald-trump/financial-disclosure-1-billion-cryptocurrency-earnings-meme-coins-rcna352497"

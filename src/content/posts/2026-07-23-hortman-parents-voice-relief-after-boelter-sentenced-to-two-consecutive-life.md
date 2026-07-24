@@ -32,6 +32,10 @@ keyMoments:
 videoId: "zPhFZHp4tXw"
 videoTitle: "Melissa Hortman's parents says they're glad 'it's over' after man is sentenced to life in killing"
 thumbnail: "https://img.youtube.com/vi/zPhFZHp4tXw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Vance Boelter Sentenced to Two Consecutive Life Terms Plus 40 Years"
     url: "https://www.justice.gov/usao-mn/pr/vance-boelter-sentenced-two-consecutive-life-terms-plus-40-years-consecutive-stalking"

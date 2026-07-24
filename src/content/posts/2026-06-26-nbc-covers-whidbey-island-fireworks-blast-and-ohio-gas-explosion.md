@@ -34,6 +34,10 @@ keyMoments:
 videoId: "M2slKSSfZAw"
 videoTitle: "House explosions level homes"
 thumbnail: "https://img.youtube.com/vi/M2slKSSfZAw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "3 firefighters injured after fireworks spark massive house explosion on Whidbey Island"
     url: "https://komonews.com/news/local/3-firefighters-injured-after-fireworks-spark-massive-house-explosion-on-whidbey-island-3600-block-smugglers-cove-road-hand-injury-chief-jerry-helm-fireworks"

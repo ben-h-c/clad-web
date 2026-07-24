@@ -34,6 +34,10 @@ keyMoments:
 videoId: "skr1OH3SDvE"
 videoTitle: "Leaked US–Iran deal: What’s in the 14-point plan? | DW News"
 thumbnail: "https://img.youtube.com/vi/skr1OH3SDvE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Read the 14-point draft agreement between the US and Iran"
     url: "https://www.cnn.com/2026/06/17/middleeast/us-iran-war-mou-text-intl"

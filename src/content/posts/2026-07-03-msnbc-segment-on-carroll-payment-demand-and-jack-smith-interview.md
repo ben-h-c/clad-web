@@ -36,6 +36,10 @@ keyMoments:
 videoId: "TRSBQUmcnGQ"
 videoTitle: "Lawrence: Trump cannot survive a federal criminal justice system that works"
 thumbnail: "https://img.youtube.com/vi/TRSBQUmcnGQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "E. Jean Carroll wants her $5M from Trump after Supreme Court appeal fails"
     url: "https://www.baltimoresun.com/2026/07/01/e-jean-carroll-wants-her-5m-from-trump-after-supreme-court-appeal-fails/"

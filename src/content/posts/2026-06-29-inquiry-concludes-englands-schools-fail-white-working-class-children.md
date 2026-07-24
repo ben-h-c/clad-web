@@ -34,6 +34,10 @@ keyMoments:
 videoId: "RnESlONNW9s"
 videoTitle: "White working-class children failed by England's school system, inquiry finds"
 thumbnail: "https://img.youtube.com/vi/RnESlONNW9s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "White working-class children 'failed by schools system'"
     url: "https://www.bbc.co.uk/news/articles/cq51j10q601o"

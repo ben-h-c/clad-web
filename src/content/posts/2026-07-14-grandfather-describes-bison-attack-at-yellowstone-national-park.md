@@ -34,6 +34,10 @@ keyMoments:
 videoId: "c1ML5G0d1bA"
 videoTitle: "Grandfather recounts terrifying bison attack at Yellowstone National Park"
 thumbnail: "https://img.youtube.com/vi/c1ML5G0d1bA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Grandfather recovering from surgery after bison attack at Yellowstone sent him flying"
     url: "https://www.cnn.com/2026/07/13/us/bison-attack-yellowstone"

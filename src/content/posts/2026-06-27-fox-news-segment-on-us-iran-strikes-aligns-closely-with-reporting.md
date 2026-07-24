@@ -34,6 +34,10 @@ keyMoments:
 videoId: "m2RQwMo3YTM"
 videoTitle: "BREAKING: US military launches new strikes on Iran after cargo ship attacks"
 thumbnail: "https://img.youtube.com/vi/m2RQwMo3YTM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US says it struck Iran targets after attack on cargo ship in the strait of Hormuz"
     url: "https://www.theguardian.com/world/2026/jun/26/us-says-it-struck-iran-targets-after-attack-on-cargo-ship-on-the-strait-of-hormuz"

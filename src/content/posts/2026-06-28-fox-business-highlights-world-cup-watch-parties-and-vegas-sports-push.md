@@ -36,6 +36,10 @@ keyMoments:
 videoId: "dhBg5uNTsoM"
 videoTitle: "WATCH PARTY BOOM: World Cup fans bring NEW energy to Vegas"
 thumbnail: "https://img.youtube.com/vi/dhBg5uNTsoM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Vegas Was Once America’s Bargain Vacation. Now It’s a Luxury Destination"
     url: "https://www.wsj.com/business/hospitality/las-vegas-vacation-wealthy-e77c0e63"

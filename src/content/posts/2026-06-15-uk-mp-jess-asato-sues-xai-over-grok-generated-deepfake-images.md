@@ -37,6 +37,10 @@ keyMoments:
 videoId: "5fXkSyBKapc"
 videoTitle: "ELON MUSK Hit With Lawsuit From MP Over GROK AI Abuse"
 thumbnail: "https://img.youtube.com/vi/5fXkSyBKapc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Labour MP sues Elon Musk's xAI company over fake sexualised images"
     url: "https://www.theguardian.com/technology/2026/jun/03/labour-mp-sues-elon-musks-ai-company-over-fake-sexualised-images"

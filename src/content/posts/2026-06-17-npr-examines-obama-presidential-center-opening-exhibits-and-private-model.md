@@ -35,6 +35,10 @@ keyMoments:
 videoId: "c6EwcSlR7PA"
 videoTitle: "The Obama Presidential Center opens Friday in Chicago with a star-studded dedication"
 thumbnail: "https://img.youtube.com/vi/c6EwcSlR7PA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Grand Opening | The Obama Foundation"
     url: "https://www.obama.org/visit/grand-opening/"

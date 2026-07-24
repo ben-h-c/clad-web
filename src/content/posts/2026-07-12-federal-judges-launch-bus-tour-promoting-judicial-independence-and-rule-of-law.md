@@ -32,6 +32,10 @@ keyMoments:
 videoId: "el68Un9_AdQ"
 videoTitle: "Federal judges take a bus tour to spread the message of democracy to communities"
 thumbnail: "https://img.youtube.com/vi/el68Un9_AdQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A road trip to save democracy? These judges say it's worth a shot"
     url: "https://www.usatoday.com/story/news/politics/2026/07/11/judges-road-trip-judicial-independence-trump-administration/90821051007/"

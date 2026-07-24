@@ -35,6 +35,10 @@ keyMoments:
 videoId: "MsyxoUIqopU"
 videoTitle: "US and Iranian Negotiators Begin Talks in Switzerland"
 thumbnail: "https://img.youtube.com/vi/MsyxoUIqopU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: US and Iran to hold high level talks as Lebanon tops agenda"
     url: "https://www.cnn.com/2026/06/21/world/live-news/iran-war-trump-israel-lebanon"

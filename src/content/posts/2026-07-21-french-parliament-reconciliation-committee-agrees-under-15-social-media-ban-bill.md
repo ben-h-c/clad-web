@@ -36,6 +36,10 @@ keyMoments:
 videoId: "54qHz9S4xWw"
 videoTitle: "'It has to work': France nears approval of under-15 social media ban • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/54qHz9S4xWw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "French Parliament's committee approves social media ban for under-15s"
     url: "https://uk.news.yahoo.com/french-parliaments-committee-approves-social-183727744.html"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "FrsZthfIo9M"
 videoTitle: "Warner: ‘I see no path in the short term’ to settle the Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/FrsZthfIo9M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Mark R. Warner"
     slug: "mark-r-warner"

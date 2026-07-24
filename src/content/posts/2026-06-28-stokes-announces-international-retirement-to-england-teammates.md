@@ -29,6 +29,10 @@ keyMoments:
 videoId: "0Y7dL2QeDqo"
 videoTitle: "Moment Stokes announces retirement to England teammates"
 thumbnail: "https://img.youtube.com/vi/0Y7dL2QeDqo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ben Stokes - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Ben_Stokes"

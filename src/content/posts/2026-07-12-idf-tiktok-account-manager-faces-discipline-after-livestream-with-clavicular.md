@@ -32,6 +32,10 @@ keyMoments:
 videoId: "hjoLHmnMD24"
 videoTitle: "Israeli military TikTok staffer investigated after streaming with Clavicular | #AJ shorts"
 thumbnail: "https://img.youtube.com/vi/hjoLHmnMD24/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "IDF Soldier Faces Disciplinary Action After Appearing In Livestream With Controversial US Influencer"
     url: "https://www.i24news.tv/en/news/israel/society/artc-idf-soldier-faces-disciplinary-action-after-appearing-in-livestream-with-controversial-us-influencer"

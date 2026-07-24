@@ -35,6 +35,10 @@ keyMoments:
 videoId: "sgcvywOB2mg"
 videoTitle: "'Putin doesn't care about Russians' quality of life', expert says as pessimism reaches 20-yr high"
 thumbnail: "https://img.youtube.com/vi/sgcvywOB2mg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fuel shortages spread to more parts of Russia as Ukrainian attacks bite"
     url: "https://www.reuters.com/world/fuel-shortages-spread-more-parts-russia-ukrainian-attacks-bite-2026-06-29/"

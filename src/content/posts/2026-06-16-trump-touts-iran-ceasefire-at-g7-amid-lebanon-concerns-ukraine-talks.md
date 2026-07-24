@@ -36,6 +36,10 @@ keyMoments:
 videoId: "roXtqxKSUeA"
 videoTitle: "Trump tries to SPIN Iran deal to world leaders at G7 Summit"
 thumbnail: "https://img.youtube.com/vi/roXtqxKSUeA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "G7 summit live updates: Trump meets with leaders about ..."
     url: "https://apnews.com/live/trump-g7-iran-updates-06-16-2026"

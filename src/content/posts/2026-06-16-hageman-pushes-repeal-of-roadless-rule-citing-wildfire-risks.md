@@ -39,6 +39,10 @@ keyMoments:
 videoId: "1A-OzcGWUT0"
 videoTitle: "Harriet Hageman Sounds The Alarm On 'Ecologically Devastating' Conservation Law In US"
 thumbnail: "https://img.youtube.com/vi/1A-OzcGWUT0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Congresswoman Hageman Blasts Environmental Catastrophe 'Roadless Rule' As 2026 Wildfire Season Begins"
     url: "https://hageman.house.gov/media/press-releases/congresswoman-hageman-blasts-environmental-catastrophe-roadless-rule-2026"

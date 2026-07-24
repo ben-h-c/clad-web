@@ -37,6 +37,10 @@ keyMoments:
 videoId: "2CGq0KyQc1k"
 videoTitle: "Kamala's private calls SPARK questions"
 thumbnail: "https://img.youtube.com/vi/2CGq0KyQc1k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Scoop: Harris reaches out to Mamdani, pro-Palestinian activists in run-up to 2028"
     url: "https://www.axios.com/2026/07/01/harris-mamdani-progressives-2028"

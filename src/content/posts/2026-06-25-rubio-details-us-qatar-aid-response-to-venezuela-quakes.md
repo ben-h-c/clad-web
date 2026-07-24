@@ -34,6 +34,10 @@ keyMoments:
 videoId: "K3d1tBA67Hw"
 videoTitle: "'Other Countries Are Responding As Well': Rubio Says Qatar Offered Assistance In Venezuela"
 thumbnail: "https://img.youtube.com/vi/K3d1tBA67Hw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela Earthquakes Live Updates: At Least 188 Dead as Rescuers Search for Survivors"
     url: "https://www.nytimes.com/live/2026/06/25/world/venezuela-earthquake"

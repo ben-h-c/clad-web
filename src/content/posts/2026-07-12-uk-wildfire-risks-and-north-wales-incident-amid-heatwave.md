@@ -34,6 +34,10 @@ keyMoments:
 videoId: "5mDZuRB3csw"
 videoTitle: "UK facing 'exceptional' risk of wildfires this week"
 thumbnail: "https://img.youtube.com/vi/5mDZuRB3csw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Major incident declared in Wales as wildfires burn across UK"
     url: "https://www.bbc.co.uk/news/articles/cy8w67l642no"

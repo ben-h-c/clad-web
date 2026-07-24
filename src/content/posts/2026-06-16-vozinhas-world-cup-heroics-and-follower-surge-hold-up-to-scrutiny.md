@@ -34,6 +34,10 @@ keyMoments:
 videoId: "q0HcxYSTggI"
 videoTitle: "Cape Verde's goalkeeper Vozinha goes viral after World Cup debut"
 thumbnail: "https://img.youtube.com/vi/q0HcxYSTggI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Cape Verde GK Vozinha stopped World Cup favourites Spain, gained 2m followers"
     url: "https://www.espn.com/soccer/story/_/id/49074487/cape-verde-gk-vozinha-stopped-world-cup-favourites-spain-gained-2m-followers"

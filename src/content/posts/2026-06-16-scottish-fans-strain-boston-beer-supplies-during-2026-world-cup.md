@@ -31,6 +31,10 @@ keyMoments:
 videoId: "eurBAClEWS4"
 videoTitle: "Are Scottish soccer fans drinking all of the beer in Boston?"
 thumbnail: "https://img.youtube.com/vi/eurBAClEWS4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'Tartan Army' drinking Boston taproom out of Samuel Adams Boston Lager"
     url: "https://www.wcvb.com/article/scottish-soccer-fans-boston-lager-taproom/71604992"

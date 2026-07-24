@@ -32,6 +32,10 @@ keyMoments:
 videoId: "-MNsW_1ys6E"
 videoTitle: "Former President Barack Obama and former first lady Michelle Obama speak to ABC News' Robin Roberts"
 thumbnail: "https://img.youtube.com/vi/-MNsW_1ys6E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Barack, Michelle Obama reflect on new presidential center"
     url: "https://abcnews.com/GMA/News/barack-michelle-obama-reflect-new-presidential-center-greatest/story?id=133929295"

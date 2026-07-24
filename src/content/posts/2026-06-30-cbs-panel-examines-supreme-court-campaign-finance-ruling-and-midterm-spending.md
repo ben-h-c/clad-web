@@ -35,6 +35,10 @@ keyMoments:
 videoId: "6XpmOxoPa-U"
 videoTitle: "How Supreme Court's lifting of limits on political party spending could impact midterms"
 thumbnail: "https://img.youtube.com/vi/6XpmOxoPa-U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court sides with GOP, loosens campaign spending rules"
     url: "https://www.washingtonpost.com/politics/2026/06/30/supreme-court-sides-with-gop-loosens-campaign-spending-rules/"

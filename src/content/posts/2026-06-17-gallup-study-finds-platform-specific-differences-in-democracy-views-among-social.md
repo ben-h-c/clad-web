@@ -32,6 +32,10 @@ keyMoments:
 videoId: "oF7-uY0jIt0"
 videoTitle: "Social media users' views on democracy vary by platform, Gallup study reveals"
 thumbnail: "https://img.youtube.com/vi/oF7-uY0jIt0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Pro-Democratic Social Views Vary by Social Media Platform"
     url: "https://news.gallup.com/poll/710702/pro-democratic-social-views-vary-social-media-platform.aspx"

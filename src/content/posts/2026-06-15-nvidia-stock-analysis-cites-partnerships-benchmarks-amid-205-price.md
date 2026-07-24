@@ -37,6 +37,10 @@ keyMoments:
     note: "Announced in Apple security blog and Nvidia statements in early June 2026."
 videoId: "cDLOTt1PWvg"
 thumbnail: "https://img.youtube.com/vi/cDLOTt1PWvg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NVIDIA and SK hynix Announce Multiyear Technology Partnership to Advance Memory for AI Factories"
     url: "https://nvidianews.nvidia.com/news/sk-hynix-ai-factory"

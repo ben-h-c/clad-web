@@ -32,6 +32,10 @@ keyMoments:
 videoId: "apIXsSrZtQw"
 videoTitle: "Kyiv residents call for protection after deadly missile strike"
 thumbnail: "https://img.youtube.com/vi/apIXsSrZtQw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "14 May 2026 Russian strikes on Ukraine - Wikipedia"
     url: "https://en.wikipedia.org/wiki/14_May_2026_Russian_strikes_on_Ukraine"

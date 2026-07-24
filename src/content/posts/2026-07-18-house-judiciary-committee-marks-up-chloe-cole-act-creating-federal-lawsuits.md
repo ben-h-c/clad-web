@@ -38,6 +38,10 @@ keyMoments:
 videoId: "gwUqC0CXb8I"
 videoTitle: "ICYMI: Republicans & Dems Debate Chloe Cole Act, Bill To Crack Down On Gender Treatments For Minors"
 thumbnail: "https://img.youtube.com/vi/gwUqC0CXb8I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "H.R.7651 - Chloe Cole Act of 2026"
     url: "https://www.congress.gov/bill/119th-congress/house-bill/7651"

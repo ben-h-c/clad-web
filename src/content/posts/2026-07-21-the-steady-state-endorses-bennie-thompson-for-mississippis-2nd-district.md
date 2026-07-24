@@ -33,6 +33,10 @@ keyMoments:
 videoId: "F_OwsJYyI8A"
 videoTitle: "The Steady State Endorses Bennie Thompson"
 thumbnail: "https://img.youtube.com/vi/F_OwsJYyI8A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Bennie G. Thompson"
     slug: "bennie-g-thompson"

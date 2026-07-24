@@ -36,6 +36,10 @@ keyMoments:
 videoId: "sQq07QVTOk0"
 videoTitle: "Is this AI's moment of truth? | BBC News"
 thumbnail: "https://img.youtube.com/vi/sQq07QVTOk0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Anthropic raises $65B in Series H funding at $965B post-money valuation"
     url: "https://www.anthropic.com/news/series-h"

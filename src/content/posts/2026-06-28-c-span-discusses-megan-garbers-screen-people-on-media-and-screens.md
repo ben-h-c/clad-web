@@ -35,6 +35,10 @@ keyMoments:
 videoId: "x-G6kdGOde4"
 videoTitle: "After Words: Screen People - How We Entertained Ourselves into a State of Emergency"
 thumbnail: "https://img.youtube.com/vi/x-G6kdGOde4/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Screen People: How We Entertained Ourselves into a State of Emergency"
     url: "https://www.harpercollins.com/products/screen-people-megan-garber"

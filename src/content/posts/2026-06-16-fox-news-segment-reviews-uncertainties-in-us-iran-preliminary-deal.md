@@ -35,6 +35,10 @@ keyMoments:
 videoId: "1Zqzdo88YEY"
 videoTitle: "Guy Benson WARNS of ‘nuclear question’ in US-Iran talks: ‘The whole ball game’"
 thumbnail: "https://img.youtube.com/vi/1Zqzdo88YEY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran War Live Updates: Trump and Iranian Negotiator Sign ..."
     url: "https://www.nytimes.com/live/2026/06/15/world/iran-war-trump-us-deal"

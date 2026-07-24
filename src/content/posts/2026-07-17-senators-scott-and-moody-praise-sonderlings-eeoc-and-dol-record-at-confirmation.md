@@ -33,6 +33,10 @@ keyMoments:
 videoId: "-VvQUJNSu04"
 videoTitle: "Sonderling: Is He The Most Qualified Pick To Lead The Labor Department?"
 thumbnail: "https://img.youtube.com/vi/-VvQUJNSu04/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Ashley Moody"
     slug: "ashley-moody"

@@ -28,6 +28,10 @@ keyMoments:
 videoId: "XMu8sPUcMfQ"
 videoTitle: "Valuasi SpaceX gila banget! Tembus US$2,1 Triliun atau setara Rp37.100 Kuadriliun. #spacex"
 thumbnail: "https://img.youtube.com/vi/XMu8sPUcMfQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX IPO: Market cap tops $2 trillion after shares gain 19%"
     url: "https://www.cnbc.com/2026/06/12/spacex-stock-jumps-2-trillion.html"

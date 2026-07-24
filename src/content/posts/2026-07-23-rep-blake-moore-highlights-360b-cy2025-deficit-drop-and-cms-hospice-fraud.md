@@ -38,6 +38,10 @@ keyMoments:
 videoId: "iAQrDBy_NlU"
 videoTitle: "Blake Moore Leads Special Order On The Federal Deficit And How To Reduce Federal Spending"
 thumbnail: "https://img.youtube.com/vi/iAQrDBy_NlU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Blake D. Moore"
     slug: "blake-d-moore"

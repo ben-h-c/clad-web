@@ -37,6 +37,10 @@ keyMoments:
 videoId: "wP8RThVPZdo"
 videoTitle: "Special education and office for civil rights move out of Dept. of Education purview"
 thumbnail: "https://img.youtube.com/vi/wP8RThVPZdo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump further guts Education Dept. by shifting oversight of special ed, civil rights"
     url: "https://www.npr.org/2026/06/16/nx-s1-5717030/special-ed-civil-rights-education-department"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "X1RvrjpJCBg"
 videoTitle: "“I Don’t Like The PRIDE FLAG!” | Spanish Embassy Unveils Giant Pride Flag in London, Sparks Debate"
 thumbnail: "https://img.youtube.com/vi/X1RvrjpJCBg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Oxfordshire seeks first ban on Union flags in street"
     url: "https://www.telegraph.co.uk/politics/2026/06/17/lib-dem-council-tries-to-ban-flags-on-public-roads/"

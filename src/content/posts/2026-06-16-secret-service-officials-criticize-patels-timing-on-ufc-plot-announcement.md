@@ -37,6 +37,10 @@ keyMoments:
 videoId: "_nwBLW4MLxc"
 videoTitle: "'Don't CHOKE on your OWN SMOKE': Hasty Kash Patel post about UFC terror plot ENRAGES Secret Service"
 thumbnail: "https://img.youtube.com/vi/_nwBLW4MLxc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Kash Patel ‘jumped the gun’ with announcement of UFC plot arrests, sources say"
     url: "https://www.ms.now/news/kash-patel-white-house-ufc-attack-secret-service"

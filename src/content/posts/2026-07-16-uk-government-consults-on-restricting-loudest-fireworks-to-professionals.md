@@ -28,6 +28,10 @@ keyMoments:
 videoId: "6B7FsSs2Usk"
 videoTitle: "Crackdown coming on loud fireworks"
 thumbnail: "https://img.youtube.com/vi/6B7FsSs2Usk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Crackdown on the loudest fireworks to protect families, pets and wildlife"
     url: "https://www.gov.uk/government/news/crackdown-on-the-loudest-fireworks-to-protect-families-pets-and-wildlife"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "3coxjNVpE1E"
 videoTitle: "JD Vance warns Israel officials that attack Trump: 'Only powerful ally' you have left"
 thumbnail: "https://img.youtube.com/vi/3coxjNVpE1E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Vance warns Israel: Don't fight \"only ally\" Trump on Iran deal"
     url: "https://www.axios.com/2026/06/18/vance-israel-only-ally-trump-iran-deal"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "WfysDVgZgc4"
 videoTitle: "Sen. McConnell says he suffered a fall and was unconscious in first statement since hospitalization"
 thumbnail: "https://img.youtube.com/vi/WfysDVgZgc4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mitch McConnell reveals fall led to hospitalization after weeks of silence"
     url: "https://www.theguardian.com/us-news/2026/jul/12/mitch-mcconnell-hospitalization-fall"

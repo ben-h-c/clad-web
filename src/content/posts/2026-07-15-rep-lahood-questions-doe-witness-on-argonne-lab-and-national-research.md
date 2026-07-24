@@ -33,6 +33,10 @@ keyMoments:
 videoId: "7AmbWizJhbo"
 videoTitle: "Rep. LaHood Presses DOE on Protecting U.S. Research from CCP Theft"
 thumbnail: "https://img.youtube.com/vi/7AmbWizJhbo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Darin LaHood"
     slug: "darin-lahood"

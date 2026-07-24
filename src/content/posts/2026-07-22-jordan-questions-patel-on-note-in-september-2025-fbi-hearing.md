@@ -35,6 +35,10 @@ keyMoments:
 videoId: "FwiVcgJot5A"
 videoTitle: "&quot;I DEFENDED YOU.&quot; — Jordan Turns On Patel Live. 47 Seconds Ended The Alliance."
 thumbnail: "https://img.youtube.com/vi/FwiVcgJot5A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Kash Patel"
     slug: "kash-patel"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "S-P6Ll2MjjE"
 videoTitle: "Finland's baby box explained | WORLD OF TRAVEL"
 thumbnail: "https://img.youtube.com/vi/S-P6Ll2MjjE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Maternity package"
     url: "https://en.wikipedia.org/wiki/Maternity_package"

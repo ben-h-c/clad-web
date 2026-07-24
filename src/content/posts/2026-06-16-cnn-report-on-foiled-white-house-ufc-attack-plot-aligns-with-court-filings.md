@@ -35,6 +35,10 @@ keyMoments:
 videoId: "vSeQMhmXZWg"
 videoTitle: "White House attack plot: The 'disturbing' new details"
 thumbnail: "https://img.youtube.com/vi/vSeQMhmXZWg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Feds reveal details of alleged plot to attack White House UFC event with explosive drones"
     url: "https://www.cbsnews.com/news/fbi-disrupts-alleged-plot-targeting-ufc-event-white-house/"

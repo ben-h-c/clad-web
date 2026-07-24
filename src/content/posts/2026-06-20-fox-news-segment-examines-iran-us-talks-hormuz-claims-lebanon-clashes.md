@@ -37,6 +37,10 @@ keyMoments:
 videoId: "aV5oDzawF9A"
 videoTitle: "Iran wants America to 'RESTRAIN ISRAEL,' expert warns"
 thumbnail: "https://img.youtube.com/vi/aV5oDzawF9A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US denies Iran's claim to have closed Strait of Hormuz over Israeli attacks in Lebanon"
     url: "https://www.bbc.com/news/live/c9wq95g0lx2t"

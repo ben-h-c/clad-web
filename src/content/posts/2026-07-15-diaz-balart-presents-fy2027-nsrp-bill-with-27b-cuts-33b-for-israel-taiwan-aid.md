@@ -39,6 +39,10 @@ keyMoments:
 videoId: "9XBLp9Z4a3s"
 videoTitle: "07-15-2026 Diaz-Balart&#39;s Floor Remarks on FY27 NSRP"
 thumbnail: "https://img.youtube.com/vi/9XBLp9Z4a3s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Mario Diaz-Balart"
     slug: "mario-diaz-balart"

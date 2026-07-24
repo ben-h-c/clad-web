@@ -37,6 +37,10 @@ keyMoments:
 videoId: "HzI5o6mwAI0"
 videoTitle: "Knicks Championship Sparks NY Joyfest, UFC Comes to White House & Trump Heads to G7 | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/HzI5o6mwAI0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Closer look at how the Knicks won the 2026 NBA championship | NBA.com"
     url: "https://www.nba.com/news/how-the-knicks-won-the-2026-nba-championship"

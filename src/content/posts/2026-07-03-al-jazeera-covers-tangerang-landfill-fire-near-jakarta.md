@@ -32,6 +32,10 @@ keyMoments:
 videoId: "rRRN7M_5GC0"
 videoTitle: "Indonesia battles landfill fire near Jakarta as helicopters join firefighting effort | #AJ shorts"
 thumbnail: "https://img.youtube.com/vi/rRRN7M_5GC0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Indonesia deploys water-bombing helicopters as Tangerang landfill fire persists"
     url: "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/07/02/indonesia-deploys-water-bombing-helicopters-as-tangerang-landfill-fire-persists"

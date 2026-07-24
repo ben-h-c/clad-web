@@ -34,6 +34,10 @@ keyMoments:
 videoId: "DZkTV8H9qsc"
 videoTitle: "Scottish fans celebrating their team’s World Cup return drank a Samuel Adams taproom dry in Boston"
 thumbnail: "https://img.youtube.com/vi/DZkTV8H9qsc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Scotland's World Cup history, records and 2026 fixtures"
     url: "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/scotland-team-profile-and-history"

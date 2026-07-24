@@ -35,6 +35,10 @@ keyMoments:
 videoId: "FTzZ7FK0rMo"
 videoTitle: "Who is Trump’s new nominee for ICE director?"
 thumbnail: "https://img.youtube.com/vi/FTzZ7FK0rMo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says he is nominating former Oklahoma state trooper Lance Schroyer as ICE director"
     url: "https://www.koco.com/article/trump-nominating-former-oklahoma-trooper-lance-schroyer-ice-director/71757670"

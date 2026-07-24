@@ -28,6 +28,10 @@ keyMoments:
 videoId: "Rv2nImFg1LY"
 videoTitle: "Captured mountain lion set to be released in the Santa Cruz Mountains"
 thumbnail: "https://img.youtube.com/vi/Rv2nImFg1LY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mountain lion captured in Redwood City to be released in Santa Cruz Mountains"
     url: "https://www.nbcbayarea.com/news/local/mountain-lion-redwood-city/4099386/"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "7UwYI-da48M"
 videoTitle: "Argentina fans flood Miami for Cape Verde match"
 thumbnail: "https://img.youtube.com/vi/7UwYI-da48M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Argentina vs Cape Verde World Cup prediction, picks, analysis"
     url: "https://www.usatoday.com/story/sports/soccer/worldcup/2026/07/03/argentina-cape-verde-world-cup-prediction-analysis-odds/90792180007/"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "MexiLlv8eWw"
 videoTitle: "Lawyers “shocked” by lack of answers on “lost Canadian” citizenship recalls"
 thumbnail: "https://img.youtube.com/vi/MexiLlv8eWw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ottawa reverses orders to surrender some 'lost Canadian' citizenship certificates"
     url: "https://vernonmatters.ca/2026/06/22/ottawa-reverses-order-to-surrender-some-lost-canadian-citizenship-certificates/"

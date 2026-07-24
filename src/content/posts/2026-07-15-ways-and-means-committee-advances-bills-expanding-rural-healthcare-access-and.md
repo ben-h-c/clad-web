@@ -35,6 +35,10 @@ keyMoments:
 videoId: "RzLrwBAK9Ug"
 videoTitle: "Health care decisions should be made by patients."
 thumbnail: "https://img.youtube.com/vi/RzLrwBAK9Ug/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

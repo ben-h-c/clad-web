@@ -40,6 +40,10 @@ keyMoments:
 videoId: "2PZ5XOLdf1k"
 videoTitle: "Tech Stocks Selloff After Apple Price Hikes, OpenAI IPO Report | Daybreak Europe 6/26/2026"
 thumbnail: "https://img.youtube.com/vi/2PZ5XOLdf1k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "OpenAI may delay IPO until next year: NYT"
     url: "https://www.youtube.com/watch?v=YXXH7EvEEQM"

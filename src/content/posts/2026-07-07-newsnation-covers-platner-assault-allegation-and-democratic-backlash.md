@@ -34,6 +34,10 @@ keyMoments:
 videoId: "b1iX1cMrV5A"
 videoTitle: "Graham Platner denies sexual assault allegations | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/b1iX1cMrV5A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Platner ‘taking the time to reflect on the best path forward’ in Maine Senate race after assault allegation"
     url: "https://www.newsnationnow.com/politics/platner-taking-the-time-to-reflect-on-the-best-path-forward-in-maine-senate-race-after-assault-allegation/"

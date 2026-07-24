@@ -37,10 +37,10 @@ keyMoments:
 videoId: "3ccbSfeJzQE"
 videoTitle: "Is the U.S more of a threat to the UK than Russia and China?"
 thumbnail: "https://img.youtube.com/vi/3ccbSfeJzQE/maxresdefault.jpg"
-mediaNote: "Split-panel GB News still; anchor on central speaker’s face, avoid side blurs/logo/lower text"
+mediaNote: "talking head face upper-middle"
 thumbFocusY: 28
-thumbFocusX: 50
-mediaStyle: "modular"
+thumbFocusX: 48
+mediaStyle: "overlay"
 citations:
   - title: "US bigger threat to British interests than Russia, say Green voters"
     url: "https://www.telegraph.co.uk/business/2026/07/23/us-bigger-threat-british-interests-than-russia-green-voters/"

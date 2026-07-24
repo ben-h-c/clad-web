@@ -28,6 +28,10 @@ keyMoments:
 videoId: "8Ylhfw3OiNo"
 videoTitle: "‘They’re resilient, like New Yorkers!’: fans flock to see Knicks at NYC parade • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/8Ylhfw3OiNo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Recap: Knicks' championship parade in NYC"
     url: "https://www.nba.com/news/live-updates-new-york-knicks-parade-2026"

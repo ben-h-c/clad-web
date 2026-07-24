@@ -35,6 +35,10 @@ keyMoments:
 videoId: "mAa4f9kEzQY"
 videoTitle: "Attack Targeting UFC White House Event Foiled; Pizza Hut To Be Sold. What You Need to Know - June 16"
 thumbnail: "https://img.youtube.com/vi/mAa4f9kEzQY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump hails Iran deal at G7 summit"
     url: "https://apnews.com/live/g7-summit-trump-updates-06-15-2026"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "_5In-Y7pSkE"
 videoTitle: "What caused Venezuela's earthquakes?"
 thumbnail: "https://img.youtube.com/vi/_5In-Y7pSkE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela Earthquakes Live Updates: At Least 188 Dead"
     url: "https://www.nytimes.com/live/2026/06/25/world/venezuela-earthquake"

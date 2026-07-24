@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Azq22A4xkSw"
 videoTitle: "'Congress Needs To Get Their Act Together': Jason Smith Calls To Address Social Security Solvency"
 thumbnail: "https://img.youtube.com/vi/Azq22A4xkSw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ways and Means Chairman Smith Opening Statement: Joint Hearing with Commissioner of Social Security, Frank J. Bisignano"
     url: "https://waysandmeans.house.gov/2025/06/25/ways-and-means-chairman-smith-opening-statement-joint-hearing-with-commissioner-of-social-security-frank-j-bisignano/"

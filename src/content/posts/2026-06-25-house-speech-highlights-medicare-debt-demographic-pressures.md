@@ -39,6 +39,10 @@ keyMoments:
 videoId: "qy5hkL-Byo0"
 videoTitle: "Kid Climbing in the House of Representatives"
 thumbnail: "https://img.youtube.com/vi/qy5hkL-Byo0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 OASI Trustees Report Summary"
     url: "https://www.ssa.gov/oact/trsum/"

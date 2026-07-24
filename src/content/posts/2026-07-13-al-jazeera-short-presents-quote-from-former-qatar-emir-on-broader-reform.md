@@ -29,6 +29,10 @@ keyMoments:
 videoId: "ez9ycTiTuCg"
 videoTitle: "The late Sheikh Hamad bin Khalifa Al Thani’s legacy on women’s reform | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/ez9ycTiTuCg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Women's Rights in the Middle East and North Africa - Qatar"
     url: "https://www.refworld.org/reference/countryrep/freehou/2005/en/50729"

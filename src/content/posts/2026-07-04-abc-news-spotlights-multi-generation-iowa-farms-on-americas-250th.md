@@ -34,6 +34,10 @@ keyMoments:
 videoId: "RFz5JrM3c2Q"
 videoTitle: "How family-run farms helped build the America we know today"
 thumbnail: "https://img.youtube.com/vi/RFz5JrM3c2Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Faces of Farming: 155 Years of an Iowa Family Legacy"
     url: "https://syngentathrive.com/articles/community-culture/faces-of-farming-155-years-of-an-iowa-family-legacy/"

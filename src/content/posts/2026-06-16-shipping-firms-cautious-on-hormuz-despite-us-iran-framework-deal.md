@@ -34,6 +34,10 @@ keyMoments:
 videoId: "YqcpWVGxdBc"
 videoTitle: "Shipping firms wary on Hormuz transit despite US-Iran deal"
 thumbnail: "https://img.youtube.com/vi/YqcpWVGxdBc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Global shippers cautious on Hormuz transit despite US-Iran deal"
     url: "https://www.reuters.com/business/energy/one-lng-tanker-passes-hormuz-after-us-iran-agree-deal-shippers-stay-cautious-2026-06-15/"

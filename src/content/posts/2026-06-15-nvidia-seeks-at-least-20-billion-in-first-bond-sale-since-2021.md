@@ -31,6 +31,10 @@ keyMoments:
 videoId: "BIk0klh-vgo"
 videoTitle: "Nvidia Looks to Raise $20 Billion in First Bond Sale Since 2021"
 thumbnail: "https://img.youtube.com/vi/BIk0klh-vgo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Nvidia Set to Sell $25 Billion of Bonds, Joining AI Debt Boom"
     url: "https://www.bloomberg.com/news/articles/2026-06-15/nvidia-kicks-off-first-high-grade-bond-offering-since-2021"

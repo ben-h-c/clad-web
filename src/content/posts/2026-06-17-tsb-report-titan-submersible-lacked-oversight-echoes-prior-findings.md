@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ZDXQekq30nw"
 videoTitle: "Titan submersible operated without adequate oversight, TSB report says"
 thumbnail: "https://img.youtube.com/vi/ZDXQekq30nw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Marine transportation safety investigation M23A0169"
     url: "https://www.tsb.gc.ca/eng/enquetes-investigations/marine/2023/m23a0169/m23a0169.html"

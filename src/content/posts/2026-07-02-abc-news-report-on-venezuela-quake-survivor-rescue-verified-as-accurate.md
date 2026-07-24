@@ -30,6 +30,10 @@ keyMoments:
 videoId: "NiUDPrFgmCQ"
 videoTitle: "Rescuers pulled a 43-year-old security guard alive from a collapsed basement after 8 days"
 thumbnail: "https://img.youtube.com/vi/NiUDPrFgmCQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Security guard rescued from collapsed shopping mall 8 days after Venezuela earthquakes"
     url: "https://www.kptv.com/2026/07/02/security-guard-rescued-collapsed-shopping-mall-8-days-after-venezuela-earthquakes/"

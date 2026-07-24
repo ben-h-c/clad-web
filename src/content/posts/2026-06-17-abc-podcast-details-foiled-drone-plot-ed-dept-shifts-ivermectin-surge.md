@@ -34,6 +34,10 @@ keyMoments:
 videoId: "RdwKIG9hcrw"
 videoTitle: "The Alleged Drone Plot Against the White House: Start Here Podcast"
 thumbnail: "https://img.youtube.com/vi/RdwKIG9hcrw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FBI disrupts alleged explosive-drone plot targeting White House UFC event"
     url: "https://www.foxnews.com/politics/fbi-disrupts-alleged-explosive-drone-plot-targeting-white-house-ufc-event-officials-say"

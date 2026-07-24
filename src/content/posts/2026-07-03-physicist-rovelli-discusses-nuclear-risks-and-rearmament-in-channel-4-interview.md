@@ -39,6 +39,10 @@ keyMoments:
 videoId: "pFnrL5fKHps"
 videoTitle: "Carlo Rovelli: Are we sleepwalking towards nuclear war?"
 thumbnail: "https://img.youtube.com/vi/pFnrL5fKHps/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Doomsday Clock - Bulletin of the Atomic Scientists"
     url: "https://thebulletin.org/doomsday-clock/"

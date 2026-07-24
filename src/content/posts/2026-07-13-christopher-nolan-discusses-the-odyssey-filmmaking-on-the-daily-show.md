@@ -37,6 +37,10 @@ keyMoments:
 videoId: "DWABbDtyfeA"
 videoTitle: "Christopher Nolan - “The Odyssey” | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/DWABbDtyfeA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Odyssey (2026 film)"
     url: "https://en.wikipedia.org/wiki/The_Odyssey_(2026_film)"

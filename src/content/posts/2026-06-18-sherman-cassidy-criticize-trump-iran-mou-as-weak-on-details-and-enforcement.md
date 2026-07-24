@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Ug75EG9p2ao"
 videoTitle: "'Unconditional surrender': Trump's Iran deal torched by top Obama nuclear negotiator Wendy Sherman"
 thumbnail: "https://img.youtube.com/vi/Ug75EG9p2ao/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "GOP senator: Trump Iran deal ‘tremendous foreign policy blunder’"
     url: "https://thehill.com/homenews/senate/5928209-cassidy-blasts-trump-iran/"

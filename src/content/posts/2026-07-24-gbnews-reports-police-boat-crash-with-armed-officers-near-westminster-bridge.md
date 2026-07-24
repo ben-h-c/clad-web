@@ -30,10 +30,10 @@ keyMoments:
 videoId: "PwqzUrc7qqU"
 videoTitle: "BREAKING: A police boat carrying ARMED OFFICERS has CRASHED"
 thumbnail: "https://img.youtube.com/vi/PwqzUrc7qqU/maxresdefault.jpg"
-mediaNote: "GBN breaking graphic with inset river scene; focus on the clustered boats/pier in the inset so crop keeps the crash action, not red bars or bottom logo"
-thumbFocusY: 38
-thumbFocusX: 50
-mediaStyle: "modular"
+mediaNote: "Police boats and officers clustered mid-frame on water; keep action upper-middle clear of bottom text"
+thumbFocusY: 28
+thumbFocusX: 48
+mediaStyle: "overlay"
 citations:
   - title: "Boat full of tourists smashes into Westminster Bridge"
     url: "https://www.the-independent.com/news/uk/home-news/westminster-bridge-boat-crash-tourists-london-river-thames-a8991651.html"

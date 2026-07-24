@@ -37,6 +37,10 @@ keyMoments:
 videoId: "rUQC1d0VJ8A"
 videoTitle: "Booze-makers have reason to be in low spirits"
 thumbnail: "https://img.youtube.com/vi/rUQC1d0VJ8A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. Drinking Rate at New Low as Alcohol Concerns Surge"
     url: "https://news.gallup.com/poll/693362/drinking-rate-new-low-alcohol-concerns-surge.aspx"

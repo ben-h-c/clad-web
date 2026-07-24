@@ -35,6 +35,10 @@ keyMoments:
 videoId: "DF0x55eXTow"
 videoTitle: "Trump and the other G7 leaders: What their body language reveals"
 thumbnail: "https://img.youtube.com/vi/DF0x55eXTow/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "52nd G7 summit"
     url: "https://en.wikipedia.org/wiki/52nd_G7_summit"

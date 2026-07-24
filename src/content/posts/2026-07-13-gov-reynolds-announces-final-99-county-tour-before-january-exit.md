@@ -31,6 +31,10 @@ keyMoments:
 videoId: "DMcAfdoeZuE"
 videoTitle: "Gov. Reynolds plans farewell 99-county tour"
 thumbnail: "https://img.youtube.com/vi/DMcAfdoeZuE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Kim Reynolds"
     slug: "kim-reynolds"

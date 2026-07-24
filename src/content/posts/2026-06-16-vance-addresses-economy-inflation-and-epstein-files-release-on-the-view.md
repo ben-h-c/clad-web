@@ -39,6 +39,10 @@ keyMoments:
 videoId: "wSqOfXq6614"
 videoTitle: "JD Vance On State of Economy & Trump Administration’s Handling Of Epstein Files | The View"
 thumbnail: "https://img.youtube.com/vi/wSqOfXq6614/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'The View' Hosts Grill JD Vance on Trump, Epstein & More"
     url: "https://www.tvinsider.com/1270242/the-view-hosts-grill-jd-vance/"

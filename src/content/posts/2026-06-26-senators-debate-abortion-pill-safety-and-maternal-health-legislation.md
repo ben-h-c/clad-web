@@ -37,6 +37,10 @@ keyMoments:
 videoId: "bE7XCo550KM"
 videoTitle: "'Would Roll Back The Clock By 25 Years': Alsobrooks, Hyde-Smith Spar Over Reproductive Care Bills"
 thumbnail: "https://img.youtube.com/vi/bE7XCo550KM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "S.3697 - SAVE Moms and Babies Act of 2026"
     url: "https://www.congress.gov/bill/119th-congress/senate-bill/3697"

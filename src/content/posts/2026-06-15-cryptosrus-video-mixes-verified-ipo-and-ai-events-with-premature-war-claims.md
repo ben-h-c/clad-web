@@ -36,6 +36,10 @@ keyMoments:
 videoId: "_Owt9X5i_Qw"
 videoTitle: "Bitcoin Investors...The War is Finally Over"
 thumbnail: "https://img.youtube.com/vi/_Owt9X5i_Qw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX IPO makes Elon Musk the world's first trillionaire"
     url: "https://www.reuters.com/business/media-telecom/spacex-ipo-makes-elon-musk-worlds-first-trillionaire-2026-06-11/"

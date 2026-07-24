@@ -35,10 +35,10 @@ keyMoments:
 videoId: "SQlhLWrYexM"
 videoTitle: "SpaceX Makes Big Bet on Starship"
 thumbnail: "https://img.youtube.com/vi/SQlhLWrYexM/maxresdefault.jpg"
-mediaNote: "Split Bloomberg graphic: stock panel left, rocket launch right. Anchor on Falcon 9 flame/tower; avoid left ticker and bottom headline bar."
-thumbFocusY: 42
-thumbFocusX: 62
-mediaStyle: "modular"
+mediaNote: "Rocket and exhaust plume upper-middle"
+thumbFocusY: 28
+thumbFocusX: 52
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX Is Turning Away Falcon Customers in Major Bet on Starship"
     url: "https://www.bloomberg.com/news/articles/2026-07-23/spacex-is-turning-away-falcon-customers-in-major-bet-on-starship"

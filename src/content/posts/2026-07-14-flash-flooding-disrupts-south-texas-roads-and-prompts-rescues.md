@@ -34,6 +34,10 @@ keyMoments:
 videoId: "NgWpUrswP6E"
 videoTitle: "Dangerous floods prompt rescues in Texas"
 thumbnail: "https://img.youtube.com/vi/NgWpUrswP6E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Road closures and high-water rescues west of San Antonio due to floods"
     url: "https://www.tpr.org/environment/2026-07-14/road-closures-and-high-water-rescues-west-of-san-antonio-due-to-floods"

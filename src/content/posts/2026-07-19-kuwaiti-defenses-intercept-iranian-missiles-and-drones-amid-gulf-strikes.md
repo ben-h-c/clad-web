@@ -37,6 +37,10 @@ keyMoments:
 videoId: "PXPJbzREB-o"
 videoTitle: "Sirens blare in Kuwait as military says air defences intercept Iranian missiles, drones"
 thumbnail: "https://img.youtube.com/vi/PXPJbzREB-o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "GCC condemns Iran's 'repeated heinous' attacks on Bahrain, Kuwait"
     url: "https://english.alarabiya.net/News/gulf/2026/07/09/gcc-condemns-iran-s-repeated-heinous-attacks-on-bahrain-kuwait"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "AtXD4EFOsCg"
 videoTitle: "Data center noise irks Virginia neighbors: ‘You just want to curse’ | The Hill"
 thumbnail: "https://img.youtube.com/vi/AtXD4EFOsCg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FERC approves central US grid plan for connecting AI data centers"
     url: "https://www.eenews.net/articles/ferc-approves-central-us-grid-plan-for-connecting-ai-data-centers/"

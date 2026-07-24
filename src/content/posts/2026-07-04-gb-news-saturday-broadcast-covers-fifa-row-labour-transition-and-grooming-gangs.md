@@ -38,6 +38,10 @@ keyMoments:
 videoId: "vsPjE9f-oHU"
 videoTitle: "Saturday Morning Live | Saturday 4th July"
 thumbnail: "https://img.youtube.com/vi/vsPjE9f-oHU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FIFA World Cup scheduling updates"
     url: "https://www.fifa.com"

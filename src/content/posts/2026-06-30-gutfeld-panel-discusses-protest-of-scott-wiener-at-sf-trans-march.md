@@ -33,6 +33,10 @@ keyMoments:
 videoId: "dfK3lyBxizY"
 videoTitle: "‘Gutfeld!’: This is BAFFLING"
 thumbnail: "https://img.youtube.com/vi/dfK3lyBxizY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Scott Wiener gets booed, chased from SF Trans March over past Israel support"
     url: "https://sfstandard.com/2026/06/27/scott-wiener-trans-march-israel-gaza-confrontation/"

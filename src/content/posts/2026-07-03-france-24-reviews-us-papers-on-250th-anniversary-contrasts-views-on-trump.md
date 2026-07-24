@@ -35,6 +35,10 @@ keyMoments:
 videoId: "CWruST0_fWk"
 videoTitle: "The USA has survived 250 years but can it survive Donald Trump? • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/CWruST0_fWk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A toast to America at 250, glowing and decaying all at once"
     url: "https://www.washingtonpost.com/opinions/2026/07/02/250th-anniversary-declaration-america-glows-decays/"

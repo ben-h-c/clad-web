@@ -35,6 +35,10 @@ keyMoments:
 videoId: "aW6pmny4o98"
 videoTitle: "Trump Criticizes Israel Over Lebanon at G7 Summit in France"
 thumbnail: "https://img.youtube.com/vi/aW6pmny4o98/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump Says Syria Could Tame Hezbollah Better Than Israel in Lebanon"
     url: "https://www.bloomberg.com/news/articles/2026-06-16/trump-says-syria-would-do-better-at-taming-hezbollah-than-israel"

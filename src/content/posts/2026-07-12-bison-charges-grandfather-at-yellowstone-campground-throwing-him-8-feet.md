@@ -34,6 +34,10 @@ keyMoments:
 videoId: "I7Zd0XE8ick"
 videoTitle: "Bison attacks tourist at Yellowstone National Park"
 thumbnail: "https://img.youtube.com/vi/I7Zd0XE8ick/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Grandfather hospitalized after bison charge sends him flying 8 feet at Yellowstone"
     url: "https://www.nbcnews.com/news/us-news/bison-flips-yellowstone-tourist-8-feet-air-rcna572639"

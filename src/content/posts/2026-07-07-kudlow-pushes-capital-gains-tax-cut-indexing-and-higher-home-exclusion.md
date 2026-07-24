@@ -36,6 +36,10 @@ keyMoments:
 videoId: "bsasvkRj_Gk"
 videoTitle: "Larry Kudlow: We must do this RIGHT NOW"
 thumbnail: "https://img.youtube.com/vi/bsasvkRj_Gk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Topic no. 701, Sale of your home"
     url: "https://www.irs.gov/taxtopics/tc701"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "EGCT1XxVuE0"
 videoTitle: "'This is your captain speaking. What you have just seen, you have not.'"
 thumbnail: "https://img.youtube.com/vi/EGCT1XxVuE0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "List of reported UFO sightings"
     url: "https://en.wikipedia.org/wiki/List_of_reported_UFO_sightings"

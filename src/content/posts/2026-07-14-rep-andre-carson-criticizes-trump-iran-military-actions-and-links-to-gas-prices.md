@@ -36,6 +36,10 @@ keyMoments:
 videoId: "4ss0ZMyyQeI"
 videoTitle: "Rep. André Carson: This war is bogus, it’s unfounded, and it puts us in jeopardy."
 thumbnail: "https://img.youtube.com/vi/4ss0ZMyyQeI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "André Carson"
     slug: "andr-carson"

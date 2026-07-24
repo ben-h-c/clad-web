@@ -31,6 +31,10 @@ keyMoments:
 videoId: "GghfYTgQ_4A"
 videoTitle: "Why the sky turned orange | About That"
 thumbnail: "https://img.youtube.com/vi/GghfYTgQ_4A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Health Effects Attributed to Wildfire Smoke | US EPA"
     url: "https://www.epa.gov/wildfire-smoke-course/health-effects-attributed-wildfire-smoke-0"

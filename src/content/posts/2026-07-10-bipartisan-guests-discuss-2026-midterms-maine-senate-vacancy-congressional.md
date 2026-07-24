@@ -34,6 +34,10 @@ keyMoments:
 videoId: "wWfRLRTatVs"
 videoTitle: "CEASEFIRE PODCAST: Midterm Election Outlook w/ Steve Israel & Steve Stivers"
 thumbnail: "https://img.youtube.com/vi/wWfRLRTatVs/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Graham Platner officially withdraws candidacy for US Senate in Maine"
     url: "https://www.theguardian.com/us-news/2026/jul/10/graham-platner-maine-senate-officially-withdraws"

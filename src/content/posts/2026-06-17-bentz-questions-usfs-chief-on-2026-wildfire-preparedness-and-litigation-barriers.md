@@ -36,6 +36,10 @@ keyMoments:
 videoId: "NHewGkqrPtA"
 videoTitle: "Cliff Bentz Asks USFS Chief Point Blank: 'Are You Prepared For This Fire Season?'"
 thumbnail: "https://img.youtube.com/vi/NHewGkqrPtA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "By the Numbers | US Forest Service"
     url: "https://www.fs.usda.gov/about-agency/newsroom/by-the-numbers"

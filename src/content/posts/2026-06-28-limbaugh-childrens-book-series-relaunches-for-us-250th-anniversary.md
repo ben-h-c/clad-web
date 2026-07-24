@@ -38,6 +38,10 @@ keyMoments:
 videoId: "OPZuyZ807HQ"
 videoTitle: "Rush was on a ‘mission’ to teach history, Kathryn Limbaugh says"
 thumbnail: "https://img.youtube.com/vi/OPZuyZ807HQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Rush Limbaugh - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Rush_Limbaugh"

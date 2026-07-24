@@ -39,6 +39,10 @@ keyMoments:
 videoId: "JqXnokVr0LI"
 videoTitle: "Kemi SHINES as Rees-Mogg is IMPRESSED by Tory Party"
 thumbnail: "https://img.youtube.com/vi/JqXnokVr0LI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "No leadership pressure on Badenoch despite Tory losses"
     url: "https://www.bbc.com/news/articles/cnvp5rqrde3o"

@@ -28,6 +28,10 @@ keyMoments:
 videoId: "CVCy59TSHkM"
 videoTitle: "BREAKING: House Narrowly Defeats Effort To Block Aid For Israel, With 103 Dems Joining Massie"
 thumbnail: "https://img.youtube.com/vi/CVCy59TSHkM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "H. Rept. 119-749 - PROVIDING FOR CONSIDERATION..."
     url: "https://www.congress.gov/committee-report/119th-congress/house-report/749"

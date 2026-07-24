@@ -36,6 +36,10 @@ keyMoments:
 videoId: "jiMSYFoq0Mw"
 videoTitle: "Patrick Christys Tonight Late Edition | Tuesday 7th July"
 thumbnail: "https://img.youtube.com/vi/jiMSYFoq0Mw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Reform UK’s Farage resigns as MP amid funding scandal, forcing by-election"
     url: "https://www.aljazeera.com/news/2026/7/7/reform-uks-farage-resigns-as-mp-amid-funding-scandal-forcing-by-election"

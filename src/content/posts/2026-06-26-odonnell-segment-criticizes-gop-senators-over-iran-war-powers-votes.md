@@ -41,6 +41,10 @@ keyMoments:
 videoId: "FFeKfV-hMFM"
 videoTitle: "Lawrence: Republican 'Cowardly Lions' of the Senate will live the rest of their lives in disgrace"
 thumbnail: "https://img.youtube.com/vi/FFeKfV-hMFM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump, Sen Bill Cassidy clash in shouting match over Iran war powers"
     url: "https://www.foxnews.com/politics/he-named-names-trumps-senate-meeting-explodes-into-shouting-match-over-iran"

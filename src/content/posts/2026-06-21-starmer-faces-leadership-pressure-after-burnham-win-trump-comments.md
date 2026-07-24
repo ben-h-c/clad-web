@@ -41,6 +41,10 @@ keyMoments:
 videoId: "sXz1WryQmSA"
 videoTitle: "Keir Starmer: You cannot carry on like this, for the love of God... GO!' | Nana Akua"
 thumbnail: "https://img.youtube.com/vi/sXz1WryQmSA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Keir Starmer preparing to resign as UK Prime Minister | 7NEWS"
     url: "https://www.youtube.com/watch?v=Fbo3ibm_yOY"

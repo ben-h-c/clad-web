@@ -34,6 +34,10 @@ keyMoments:
 videoId: "TyqKk6PvM9A"
 videoTitle: "Police say suspect is still at large after Wilmington, Delaware, hospital shooting"
 thumbnail: "https://img.youtube.com/vi/TyqKk6PvM9A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Wilmington Hospital Campus Shooting Incident"
     url: "https://news.christianacare.org/2026/06/wilmington-hospital-campus-shooting-incident/"

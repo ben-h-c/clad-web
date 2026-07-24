@@ -27,6 +27,10 @@ keyMoments:
 videoId: "GR9liMk-h1Y"
 videoTitle: "Over 2,700 deaths from hot weather #Heatwave #England #Wales #Climate"
 thumbnail: "https://img.youtube.com/vi/GR9liMk-h1Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "More than 2,700 excess deaths estimated in England and Wales during May and June heatwaves"
     url: "https://www.metoffice.gov.uk/about-us/news-and-media/media-centre/weather-and-climate-news/2026/more-than-2700-excess-deaths-estimated-in-england-and-wales-during-may-and-june-heatwaves"

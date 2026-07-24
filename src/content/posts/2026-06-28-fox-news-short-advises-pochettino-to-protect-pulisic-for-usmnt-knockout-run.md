@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Y1Ak7oL2FGo"
 videoTitle: "Some advice for Coach Pochettino: Keep Pulisic fit! #shorts #foxnews #news #us"
 thumbnail: "https://img.youtube.com/vi/Y1Ak7oL2FGo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What's next for the USMNT at the World Cup?"
     url: "https://floridapolitics.com/archives/804296-whats-next-for-the-usmnt-at-the-world-cup/"

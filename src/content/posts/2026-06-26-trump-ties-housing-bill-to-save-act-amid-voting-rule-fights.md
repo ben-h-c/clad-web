@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Dmnu1BPpaRY"
 videoTitle: "Postmaster shocks with honesty about Trump's anti-mail ballot scheme"
 thumbnail: "https://img.youtube.com/vi/Dmnu1BPpaRY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump keeps sabotaging legislation over the SAVE Act. Here's what's in it"
     url: "https://www.npr.org/2026/06/25/nx-s1-5869577/trump-voting-save-america-act"

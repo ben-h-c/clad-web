@@ -37,6 +37,10 @@ keyMoments:
 videoId: "c33UO9b4fKI"
 videoTitle: "World Cup Watch: Should political activism be allowed?"
 thumbnail: "https://img.youtube.com/vi/c33UO9b4fKI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The People’s Game: Soccer and Human Rights"
     url: "https://www.civilandhumanrights.org/soccer-and-human-rights/"

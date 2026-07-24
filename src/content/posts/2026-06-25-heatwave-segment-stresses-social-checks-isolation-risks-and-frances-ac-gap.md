@@ -32,6 +32,10 @@ keyMoments:
 videoId: "9fJKOL06a5Y"
 videoTitle: "Heatwave: 'A knock on the door makes the difference between life and death' • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/9fJKOL06a5Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "As Europe’s Heat Waves Intensify, France Bickers About Air-Conditioning"
     url: "https://www.nytimes.com/2025/08/12/world/europe/heat-waves-france-air-conditioning.html"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "DO5PkE9Xed0"
 videoTitle: "'Prices Are Up, Up, Up And President Trump Claims Affordability Is A Hoax': Warren Lays Into Trump"
 thumbnail: "https://img.youtube.com/vi/DO5PkE9Xed0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Ed Case"
     slug: "ed-case"

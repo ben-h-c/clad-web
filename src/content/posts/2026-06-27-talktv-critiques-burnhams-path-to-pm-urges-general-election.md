@@ -37,6 +37,10 @@ keyMoments:
 videoId: "uTr0XFCWQhc"
 videoTitle: "‘Burnham Will Be In Trouble Within 48 Hours Of Being Prime Minister'"
 thumbnail: "https://img.youtube.com/vi/uTr0XFCWQhc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Andy_Burnham"

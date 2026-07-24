@@ -34,6 +34,10 @@ keyMoments:
 videoId: "BnCI8aH1baQ"
 videoTitle: "UN says Iran nuclear pledge needs 'very strong' verification • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/BnCI8aH1baQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "IAEA demands verification of Iran nuclear ambitions amid ‘statement war’"
     url: "https://www.aljazeera.com/news/2026/6/26/iaea-demands-strong-verification-of-irans-nuclear-programme"

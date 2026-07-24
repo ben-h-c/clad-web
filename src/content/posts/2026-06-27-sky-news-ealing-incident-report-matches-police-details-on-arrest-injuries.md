@@ -34,6 +34,10 @@ keyMoments:
 videoId: "pLHaz0LB4oE"
 videoTitle: "Man arrested after car collides with multiple pedestrians in West London"
 thumbnail: "https://img.youtube.com/vi/pLHaz0LB4oE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Attempted murder arrest after car hits five pedestrians in west London"
     url: "https://www.itv.com/news/2026-06-27/attempted-murder-arrest-after-car-hits-five-pedestrians-in-west-london"

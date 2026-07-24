@@ -34,6 +34,10 @@ keyMoments:
 videoId: "RjtlEEofW4o"
 videoTitle: "Iran-US signing ceremony in Switzerland cancelled, next steps unclear"
 thumbnail: "https://img.youtube.com/vi/RjtlEEofW4o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US, Iran sign deal ahead of Friday meeting"
     url: "https://www.axios.com/2026/06/17/iran-deal-signing-text-release"

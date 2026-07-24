@@ -37,6 +37,10 @@ keyMoments:
 videoId: "kE7tOXZuSj4"
 videoTitle: "How Trump's billionaires show the danger of his corruption"
 thumbnail: "https://img.youtube.com/vi/kE7tOXZuSj4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court allows Trump to fire FTC commissioner and overturns major restraint on presidential power"
     url: "https://www.scotusblog.com/2026/06/court-allows-trump-to-fire-ftc-commissioner-and-overturns-major-restraint-on-presidential-power/"

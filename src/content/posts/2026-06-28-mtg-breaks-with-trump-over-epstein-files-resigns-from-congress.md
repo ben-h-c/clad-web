@@ -36,6 +36,10 @@ keyMoments:
 videoId: "DbOkYole3VE"
 videoTitle: "MTG's transformation: From Trump loyalist to Trump critic"
 thumbnail: "https://img.youtube.com/vi/DbOkYole3VE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump rescinds support for Marjorie Taylor Greene, marking major political breakup"
     url: "https://www.cnn.com/2025/11/14/politics/trump-rescinds-marjorie-taylor-greene-endorsement-breakup-epstein"

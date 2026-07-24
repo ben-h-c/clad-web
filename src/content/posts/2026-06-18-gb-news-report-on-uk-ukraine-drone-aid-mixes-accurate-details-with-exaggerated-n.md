@@ -35,6 +35,10 @@ keyMoments:
 videoId: "_xAGHKujBC8"
 videoTitle: "Britain's BIGGEST EVER PACKAGE DEAL to Ukraine has been ANNOUNCED"
 thumbnail: "https://img.youtube.com/vi/_xAGHKujBC8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "£750 million package to provide Ukraine with 150,000 drones and boost air defence"
     url: "https://www.gov.uk/government/news/750-million-package-to-provide-ukraine-with-150000-drones-and-boost-air-defence"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Kwe87qe1C68"
 videoTitle: "Ricketts Asks FHA's McMaster About 'Efficiency Improvements' Amid 'Delays' In Bridge & Road Funding"
 thumbnail: "https://img.youtube.com/vi/Kwe87qe1C68/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Hearing to Examine the Federal Highway Administration's Proposed Fiscal Year 2027 Budget"
     url: "https://www.epw.senate.gov/public/index.cfm/2026/6/hearing-to-examine-the-federal-highway-administration-s-proposed-fiscal-year-2027-budget"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "bW3b5qKQP6I"
 videoTitle: "Planet Normal: Labour’s new migration policies will create a ‘Burnham bump’ | Podcast"
 thumbnail: "https://img.youtube.com/vi/bW3b5qKQP6I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Home Secretary's speech on immigration: 5 March 2026"
     url: "https://www.gov.uk/government/speeches/home-secretarys-speech-on-immigration-5-march-2026"

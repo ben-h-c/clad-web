@@ -28,6 +28,10 @@ keyMoments:
 videoId: "Rao3PpyF9g0"
 videoTitle: "Soccer fans spend time with Tim Howard on World Cup field"
 thumbnail: "https://img.youtube.com/vi/Rao3PpyF9g0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Soccer fans spend time with Tim Howard on World Cup field"
     url: "https://apnews.com/video/soccer-fans-spend-time-with-tim-howard-on-world-cup-field-2399d2c76925462e89158c4db219ec0c"

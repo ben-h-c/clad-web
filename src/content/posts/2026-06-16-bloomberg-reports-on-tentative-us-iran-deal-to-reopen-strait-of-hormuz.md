@@ -34,6 +34,10 @@ keyMoments:
 videoId: "CMqVTnf4zmk"
 videoTitle: "Iran Won't 'Get a Dime' of US Taxpayer Money, Vance Says"
 thumbnail: "https://img.youtube.com/vi/CMqVTnf4zmk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US and Iran sign ceasefire agreement, details remain unclear"
     url: "https://www.reuters.com/world/asia-pacific/iran-us-agree-halt-war-reopen-hormuz-sending-oil-prices-tumbling-2026-06-15/"

@@ -30,6 +30,10 @@ keyMoments:
 videoId: "HgjzpTXsNDY"
 videoTitle: "Retired Gen. Keith Kellogg on war in Iran"
 thumbnail: "https://img.youtube.com/vi/HgjzpTXsNDY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

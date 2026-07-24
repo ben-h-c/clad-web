@@ -34,6 +34,10 @@ keyMoments:
 videoId: "tzODujKTJqU"
 videoTitle: "‘It’s Going To Be Unbearably HOT Today' | From Frozen Peas To Wet Towels"
 thumbnail: "https://img.youtube.com/vi/tzODujKTJqU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Red Extreme Heat Warning issued with June temperature records forecast to break - Met Office"
     url: "https://www.metoffice.gov.uk/about-us/news-and-media/media-centre/weather-and-climate-news/2026/red-extreme-heat-warning-issued-with-june-temperature-records-forecast-to-break"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "XjxVDMaSXYw"
 videoTitle: "Luna Asks Expert About 'Potential Locations Of Bodies' In Germany Relating To CIA's MKUltra"
 thumbnail: "https://img.youtube.com/vi/XjxVDMaSXYw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "MK-ULTRA | CIA, LSD, Mind Control, Cold War, & Discovery"
     url: "https://www.britannica.com/topic/MK-ULTRA"

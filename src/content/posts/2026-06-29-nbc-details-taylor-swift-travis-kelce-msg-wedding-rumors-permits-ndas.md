@@ -35,6 +35,10 @@ keyMoments:
 videoId: "rbtCM_3HMx8"
 videoTitle: "Taylor Swift wedding invites were electronic, and could Stevie Nicks be performing?"
 thumbnail: "https://img.youtube.com/vi/rbtCM_3HMx8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "New York Prepares for an Event at M.S.G. Clues Point to You Know Who"
     url: "https://www.nytimes.com/2026/06/24/nyregion/taylor-swift-wedding-madison-square-garden.html"

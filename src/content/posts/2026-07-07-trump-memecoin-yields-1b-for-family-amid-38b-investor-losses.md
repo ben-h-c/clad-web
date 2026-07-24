@@ -36,6 +36,10 @@ keyMoments:
 videoId: "ZjFAdwxN2nQ"
 videoTitle: "‘He’s literally stealing from you’: Trump defends his crypto venture as investors lose money"
 thumbnail: "https://img.youtube.com/vi/ZjFAdwxN2nQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Nearly a Million Investors Lost a Total of $3.8 Billion on Trump Crypto Coin"
     url: "https://www.nytimes.com/2026/07/04/us/politics/trump-coin-crypto-investors-loss.html"

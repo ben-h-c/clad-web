@@ -35,6 +35,10 @@ keyMoments:
 videoId: "a83JgdCxzyE"
 videoTitle: "Pope Leo urges US to welcome immigrants in July 4 appeal"
 thumbnail: "https://img.youtube.com/vi/a83JgdCxzyE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Pope Leo urges US to welcome immigrants in July 4 appeal from Lampedusa"
     url: "https://www.reuters.com/world/europe/pope-leo-marks-us-anniversary-with-migrant-appeal-lampedusa-2026-07-04/"

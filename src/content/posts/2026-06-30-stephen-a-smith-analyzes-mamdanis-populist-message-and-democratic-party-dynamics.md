@@ -37,6 +37,10 @@ keyMoments:
 videoId: "GUnswB3zQ7o"
 videoTitle: "Stephen A. Smith: Democratic socialists sending right message for forgotten voters | CUOMO"
 thumbnail: "https://img.youtube.com/vi/GUnswB3zQ7o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2025 New York City mayoral election"
     url: "https://en.wikipedia.org/wiki/2025_New_York_City_mayoral_election"

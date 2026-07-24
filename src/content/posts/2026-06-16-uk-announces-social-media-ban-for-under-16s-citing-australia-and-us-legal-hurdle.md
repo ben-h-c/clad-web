@@ -35,6 +35,10 @@ keyMoments:
 videoId: "xHNfGJRXZ-U"
 videoTitle: "UK BANS social media for kids UNDER 16 — COMPANIES should DO MORE! Lindsey Granger | RISING"
 thumbnail: "https://img.youtube.com/vi/xHNfGJRXZ-U/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Britain unveils sweeping ban on social media for under-16s"
     url: "https://www.nbcnews.com/world/united-kingdom/keir-starmer-social-media-restrictions-rcna350037"

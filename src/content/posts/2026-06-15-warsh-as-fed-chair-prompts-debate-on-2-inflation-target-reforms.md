@@ -37,6 +37,10 @@ keyMoments:
 videoId: "IjGfh25XCzI"
 videoTitle: "How the Fed will battle inflation with Warsh at the helm"
 thumbnail: "https://img.youtube.com/vi/IjGfh25XCzI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Kevin Warsh Wants the Fed to Think About Inflation Differently"
     url: "https://www.wsj.com/economy/central-banking/kevin-warsh-wants-the-fed-to-think-about-inflation-differently-64272e0a"

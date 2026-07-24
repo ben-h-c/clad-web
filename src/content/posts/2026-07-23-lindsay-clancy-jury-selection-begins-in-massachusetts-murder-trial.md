@@ -36,6 +36,10 @@ keyMoments:
 videoId: "K2bHH5ofoJw"
 videoTitle: "Lindsay Clancy's defense team has a good case, defense attorney says | CUOMO"
 thumbnail: "https://img.youtube.com/vi/K2bHH5ofoJw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Lindsay Clancy trial: Jury selection begins, postpartum psychosis defense expected"
     url: "https://www.newsnationnow.com/crime/mental-illness-lindsay-clancy-trial-analyst/"

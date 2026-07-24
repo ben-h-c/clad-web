@@ -32,6 +32,10 @@ keyMoments:
 videoId: "nTUJPXSM2D0"
 videoTitle: "Chuck Schumer popularity plummets amid calls for new Senate leadership, DSA surge | RISING"
 thumbnail: "https://img.youtube.com/vi/nTUJPXSM2D0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "New York polls are full of warnings for Chuck Schumer"
     url: "https://www.axios.com/2026/04/02/new-york-polls-chuck-schumer-senate-ocasio-cortez"

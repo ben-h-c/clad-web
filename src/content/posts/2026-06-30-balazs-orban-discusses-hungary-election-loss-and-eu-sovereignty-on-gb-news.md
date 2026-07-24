@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ELSecdsHr8U"
 videoTitle: "'NO GOOD LEADERSHIP!' Balázs Orbán SLAMS Britain's Brexit missed opportunities | Miriam Cates"
 thumbnail: "https://img.youtube.com/vi/ELSecdsHr8U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Hungarian parliamentary election"
     url: "https://en.wikipedia.org/wiki/2026_Hungarian_parliamentary_election"

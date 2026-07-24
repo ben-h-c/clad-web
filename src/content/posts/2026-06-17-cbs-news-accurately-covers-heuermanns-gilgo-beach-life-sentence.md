@@ -33,6 +33,10 @@ keyMoments:
 videoId: "_OxQw_tk9Mg"
 videoTitle: "Gilgo Beach serial killer addresses court as he's sentenced to life in prison without parole"
 thumbnail: "https://img.youtube.com/vi/_OxQw_tk9Mg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Rex Heuermann sentenced to life in prison for New York’s Gilgo Beach serial killings"
     url: "https://www.pbs.org/newshour/nation/rex-heuermann-sentenced-to-life-in-prison-for-new-yorks-gilgo-beach-serial-killings"

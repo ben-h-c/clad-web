@@ -36,6 +36,10 @@ keyMoments:
 videoId: "M4NYrtR53KM"
 videoTitle: "Balogun controversy overshadows US World Cup exit"
 thumbnail: "https://img.youtube.com/vi/M4NYrtR53KM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump’s call to Infantino and plot to ‘free’ Balogun that sparked a huge World Cup controversy"
     url: "https://www.nytimes.com/athletic/7424432/2026/07/06/folarin-balogun-donald-trump-gianni-infantino/"

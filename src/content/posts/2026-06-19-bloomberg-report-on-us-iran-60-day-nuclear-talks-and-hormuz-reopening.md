@@ -36,6 +36,10 @@ keyMoments:
 videoId: "EhFgdArkNGE"
 videoTitle: "Vance Delays Deal Signing Trip; US Ends Hormuz Blockade | Horizons Middle East & Africa 6/19/2026"
 thumbnail: "https://img.youtube.com/vi/EhFgdArkNGE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations: []
 ---
 

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "xn0mma3CnVk"
 videoTitle: "Rescued beluga whales travel to U.S. aquariums"
 thumbnail: "https://img.youtube.com/vi/xn0mma3CnVk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "First Rescued Belugas Arrive Safely at Shedd Aquarium"
     url: "https://www.sheddaquarium.org/about-shedd/press-releases/first-rescued-belugas-arrive-safely"

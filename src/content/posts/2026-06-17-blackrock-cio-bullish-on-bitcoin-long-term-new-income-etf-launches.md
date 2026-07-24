@@ -40,6 +40,10 @@ keyMoments:
 videoId: "at3WIe_ugrI"
 videoTitle: "Why BlackRock Thinks Bitcoin Goes to $750k (XRP & TAO news)"
 thumbnail: "https://img.youtube.com/vi/at3WIe_ugrI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "BlackRock's Rick Rieder Says Bitcoin Going Higher Long-Term But Cuts IBIT"
     url: "https://www.tradingview.com/news/stocktwits:10ff80ac1094b:0-blackrock-s-rick-rieder-says-bitcoin-going-higher-long-term-but-cuts-ibit-for-tech-credit-em-debt/"

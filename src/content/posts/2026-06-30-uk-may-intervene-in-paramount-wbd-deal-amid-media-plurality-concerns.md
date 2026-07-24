@@ -32,6 +32,10 @@ keyMoments:
 videoId: "0yri5vEntKk"
 videoTitle: "UK government likely to challenge Paramount takeover of Warner Bros. Discovery • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/0yri5vEntKk/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Paramount-Warner Merger: UK Government “Minded To Intervene”"
     url: "https://deadline.com/2026/06/paramount-warner-merger-uk-government-minded-to-intervene-1236970972/"

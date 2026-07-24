@@ -34,6 +34,10 @@ keyMoments:
 videoId: "FSAW1OzyZSA"
 videoTitle: "Biden-era SAVE plan ending for roughly 7 million student loan borrowers; what can they do? | Sunrise"
 thumbnail: "https://img.youtube.com/vi/FSAW1OzyZSA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. Department of Education Announces Next Steps for Borrowers Enrolled in Unlawful SAVE Plan"
     url: "http://www.ed.gov/about/news/press-release/us-department-of-education-announces-next-steps-borrowers-enrolled-unlawful-save-plan"

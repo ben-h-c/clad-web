@@ -36,6 +36,10 @@ keyMoments:
 videoId: "UkAIuT2PxnA"
 videoTitle: "What the SpaceX IPO Actually Means"
 thumbnail: "https://img.youtube.com/vi/UkAIuT2PxnA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "At SpaceX, AI is burning the cash that Starlink earns"
     url: "https://www.reuters.com/business/finance/spacex-ai-is-burning-cash-that-starlink-earns-2026-04-24/"

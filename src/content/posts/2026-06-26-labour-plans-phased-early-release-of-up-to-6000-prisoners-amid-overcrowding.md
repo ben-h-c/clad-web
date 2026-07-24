@@ -36,6 +36,10 @@ keyMoments:
 videoId: "3QpDW2xyc6c"
 videoTitle: "Matt Goodwin FUMES as Labour are SET TO RELEASE 6000 PRISONERS"
 thumbnail: "https://img.youtube.com/vi/3QpDW2xyc6c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Killers and rapists to be freed early"
     url: "https://www.telegraph.co.uk/news/2026/06/25/killers-rapists-freed-early-first-time-prison-overcrowding/"

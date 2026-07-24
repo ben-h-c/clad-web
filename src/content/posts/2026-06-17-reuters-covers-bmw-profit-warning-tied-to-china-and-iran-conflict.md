@@ -35,6 +35,10 @@ keyMoments:
 videoId: "YXguYFM8_Ho"
 videoTitle: "BMW shares slide on China, Iran war profit warning"
 thumbnail: "https://img.youtube.com/vi/YXguYFM8_Ho/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "BMW shares hit 2020 lows after China weakness and Iran war prompt profit warning"
     url: "https://www.reuters.com/world/china/bmw-shares-plunge-after-china-weakness-iran-war-trigger-profit-warning-2026-06-17/"

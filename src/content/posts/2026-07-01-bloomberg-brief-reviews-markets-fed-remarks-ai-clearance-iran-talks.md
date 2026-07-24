@@ -36,6 +36,10 @@ keyMoments:
 videoId: "wzxQBpwrciU"
 videoTitle: "US Dollar Climbs Ahead of Warsh; Anthropic Restrictions Lifted | Bloomberg Brief 7/1/2026"
 thumbnail: "https://img.youtube.com/vi/wzxQBpwrciU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Kevin Warsh - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Kevin_Warsh"

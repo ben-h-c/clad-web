@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Q7hWHHmFXd0"
 videoTitle: "Trump admin has 'done more damage' to the agency than they seem to understand: Fmr. ICE Director"
 thumbnail: "https://img.youtube.com/vi/Q7hWHHmFXd0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Bennie G. Thompson"
     slug: "bennie-g-thompson"

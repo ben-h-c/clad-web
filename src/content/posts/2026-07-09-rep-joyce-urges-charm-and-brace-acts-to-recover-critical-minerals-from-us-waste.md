@@ -34,6 +34,10 @@ keyMoments:
 videoId: "vtzYx2RokOM"
 videoTitle: "John Joyce: The U.S. Must Bolster Its Critical Mineral Supply To Promote Independence From China"
 thumbnail: "https://img.youtube.com/vi/vtzYx2RokOM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "John Joyce"
     slug: "john-joyce"

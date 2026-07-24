@@ -41,6 +41,10 @@ keyMoments:
 videoId: "7WJvgd_tukk"
 videoTitle: "Trump wielding ‘power for the sake of oppression,’ says former congressman"
 thumbnail: "https://img.youtube.com/vi/7WJvgd_tukk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mideast Live Updates: Vance Heads to Talks as Strait of Hormuz Re-emerges as Point of Tension"
     url: "https://www.nytimes.com/live/2026/06/20/world/iran-trump-israel-lebanon"

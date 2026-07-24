@@ -31,6 +31,10 @@ keyMoments:
 videoId: "6MmNNIm9wxg"
 videoTitle: "Los Angeles warehouse fire sparks toxic smoke fears"
 thumbnail: "https://img.youtube.com/vi/6MmNNIm9wxg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A fire at a cold-storage warehouse in Los Angeles has been burning for days. Here’s what we know"
     url: "https://www.cnn.com/2026/06/22/us/la-warehouse-fire-explainer"

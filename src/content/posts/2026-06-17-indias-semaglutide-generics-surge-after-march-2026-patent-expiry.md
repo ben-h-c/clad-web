@@ -37,6 +37,10 @@ keyMoments:
 videoId: "2zo7_336rnM"
 videoTitle: "India’s weight-loss drug boom | DW News"
 thumbnail: "https://img.youtube.com/vi/2zo7_336rnM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "India's cheap weight-loss drugs could reshape global market - BBC"
     url: "https://www.bbc.com/news/articles/cx2g4411en3o"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "U_PPxBjUS04"
 videoTitle: "Clayton pressed on whether he'd tell Trump hard truths"
 thumbnail: "https://img.youtube.com/vi/U_PPxBjUS04/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

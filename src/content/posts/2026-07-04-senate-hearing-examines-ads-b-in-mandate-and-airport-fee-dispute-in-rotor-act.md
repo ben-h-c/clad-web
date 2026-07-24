@@ -35,6 +35,10 @@ keyMoments:
 videoId: "5DRzWQEy-Hg"
 videoTitle: "'What's The Controversy?': Moran Asks Pilots Association President About ROTOR Act"
 thumbnail: "https://img.youtube.com/vi/5DRzWQEy-Hg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Text - S.2503 - 119th Congress (2025-2026): ROTOR Act"
     url: "https://www.congress.gov/bill/119th-congress/senate-bill/2503/text"

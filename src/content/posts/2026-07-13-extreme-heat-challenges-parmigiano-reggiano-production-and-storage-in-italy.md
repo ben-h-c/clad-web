@@ -38,6 +38,10 @@ keyMoments:
 videoId: "zK3WE70ZR7k"
 videoTitle: "Extreme heat threatens Italy's Parmesan heartland"
 thumbnail: "https://img.youtube.com/vi/zK3WE70ZR7k/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Extreme heat threatens Italy's Parmesan heartland"
     url: "https://www.reuters.com/business/environment/extreme-heat-threatens-italys-parmesan-heartland-2026-07-13/"

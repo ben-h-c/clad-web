@@ -36,6 +36,10 @@ keyMoments:
 videoId: "OSuwsbg4KQA"
 videoTitle: "Jon Ossoff: 'I Have No Interest In Running For President In 2028' And Am Focused On GA Senate Race"
 thumbnail: "https://img.youtube.com/vi/OSuwsbg4KQA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "United States Senate election in Georgia, 2026"
     url: "https://ballotpedia.org/United_States_Senate_election_in_Georgia,_2026"

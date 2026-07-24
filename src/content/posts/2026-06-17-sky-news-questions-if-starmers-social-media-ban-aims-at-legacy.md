@@ -30,6 +30,10 @@ keyMoments:
 videoId: "Dr-h0jZhMKc"
 videoTitle: "Did Keir Starmer implement the social media ban to secure his legacy?"
 thumbnail: "https://img.youtube.com/vi/Dr-h0jZhMKc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Britain Announces Social Media Ban for Children Under 16"
     url: "https://www.nytimes.com/2026/06/15/world/europe/uk-social-media-children.html"

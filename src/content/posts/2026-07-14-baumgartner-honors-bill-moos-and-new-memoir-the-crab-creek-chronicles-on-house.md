@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Is0y1JkIrLo"
 videoTitle: "Rep. Baumgartner Recognizes Bill Moos&#39;s New Book about WSU"
 thumbnail: "https://img.youtube.com/vi/Is0y1JkIrLo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Michael Baumgartner"
     slug: "michael-baumgartner"

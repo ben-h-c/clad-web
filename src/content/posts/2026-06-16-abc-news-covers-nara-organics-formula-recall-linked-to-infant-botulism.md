@@ -30,6 +30,10 @@ keyMoments:
 videoId: "byA55s2sb94"
 videoTitle: "Doctor explains infant botulism after infant formula recall"
 thumbnail: "https://img.youtube.com/vi/byA55s2sb94/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NARA ORGANICS RECALLS ALL LOTS OF NARA INFANT FORMULA BECAUSE OF POSSIBLE HEALTH RISK | FDA"
     url: "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/nara-organics-recalls-all-lots-nara-infant-formula-because-possible-health-risk"

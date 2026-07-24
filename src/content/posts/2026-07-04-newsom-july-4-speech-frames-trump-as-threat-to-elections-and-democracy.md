@@ -34,6 +34,10 @@ keyMoments:
 videoId: "j1griV01gjI"
 videoTitle: "Newsom: \"Do we still have a government that belongs to the people?\""
 thumbnail: "https://img.youtube.com/vi/j1griV01gjI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Governor Gavin Newsom marks Fourth of July with a call for a renewed fight to defend democracy"
     url: "https://www.gov.ca.gov/2026/07/04/governor-gavin-newsom-marks-fourth-of-july-with-a-call-for-a-renewed-fight-to-defend-democracy/"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "iYKWgHgXeFE"
 videoTitle: "TECHNOLOGY: AI continues changing global banking, Barclays CEO says"
 thumbnail: "https://img.youtube.com/vi/iYKWgHgXeFE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "CS Venkatakrishnan - Chief Executive Officer at Barclays"
     url: "https://uk.linkedin.com/in/cs-venkatakrishnan-"

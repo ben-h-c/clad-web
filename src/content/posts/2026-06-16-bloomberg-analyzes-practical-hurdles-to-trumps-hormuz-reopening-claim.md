@@ -38,6 +38,10 @@ keyMoments:
 videoId: "le7AAsXdyrs"
 videoTitle: "Can Trump Really Reopen the Strait of Hormuz by Friday?"
 thumbnail: "https://img.youtube.com/vi/le7AAsXdyrs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US at Odds With Allies Over How Easy It Is to Reopen Hormuz"
     url: "https://www.bloomberg.com/news/articles/2026-06-15/us-at-odds-with-allies-over-how-easy-it-is-to-reopen-hormuz"

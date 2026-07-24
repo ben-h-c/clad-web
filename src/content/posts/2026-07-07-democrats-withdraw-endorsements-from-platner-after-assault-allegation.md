@@ -34,6 +34,10 @@ keyMoments:
 videoId: "WE7G8QZuwVs"
 videoTitle: "Democrats pull endorsements for Graham Platner after sexual assault allegation"
 thumbnail: "https://img.youtube.com/vi/WE7G8QZuwVs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Democrats begin pulling Platner endorsements after Maine candidate faces sexual assault allegation"
     url: "https://apnews.com/article/graham-platner-maine-assault-senate-061e18bdd180928bbcd94b18a52f4ec9"

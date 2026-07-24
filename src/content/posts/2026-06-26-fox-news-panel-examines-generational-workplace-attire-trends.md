@@ -31,6 +31,10 @@ keyMoments:
 videoId: "_da2iLh6sws"
 videoTitle: "Gutfeld: When did men stop wearing these…?"
 thumbnail: "https://img.youtube.com/vi/_da2iLh6sws/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Generational Differences In What Work-Appropriate Attire Means"
     url: "https://www.yourtango.com/self/generational-differences-what-work-appropriate-attire-means"

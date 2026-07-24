@@ -33,6 +33,10 @@ keyMoments:
 videoId: "bpRjhjpofvc"
 videoTitle: "FBI thwarts alleged White House-UFC terror plot, Trump touts Iran deal at G7, more | The Takeout"
 thumbnail: "https://img.youtube.com/vi/bpRjhjpofvc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FBI thwarts alleged terror plot against UFC Freedom 250 event"
     url: "https://www.newsnationnow.com/politics/ufc-250-potential-threat-patel/"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ViJKiKaBp1I"
 videoTitle: "Trump admin. ‘doesn’t care about national security’: Fmr. FBI agent shares criticism of Kash Patel"
 thumbnail: "https://img.youtube.com/vi/ViJKiKaBp1I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Republican Sen. Grassley probing FBI Director Patel’s travel and spending"
     url: "https://www.cnn.com/2026/07/09/politics/grassley-patel-fbi-travel-spending"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "mopNQghwEeA"
 videoTitle: "Nicotine offers cognitive benefits, says Jillian Michaels"
 thumbnail: "https://img.youtube.com/vi/mopNQghwEeA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Cognitive Effects of Nicotine: Recent Progress - PMC"
     url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6018192/"

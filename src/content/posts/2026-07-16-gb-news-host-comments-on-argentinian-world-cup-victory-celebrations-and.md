@@ -33,6 +33,10 @@ keyMoments:
 videoId: "1CQU6CVkVAM"
 videoTitle: "SALTY Tom Harwood ATTACKS the Argentinian CELEBRATIONS!"
 thumbnail: "https://img.youtube.com/vi/1CQU6CVkVAM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "England 1-2 Argentina | FIFA World Cup 2026 Semi-Final"
     url: "https://www.espn.com/soccer/match/_/gameId/760515/argentina-england"

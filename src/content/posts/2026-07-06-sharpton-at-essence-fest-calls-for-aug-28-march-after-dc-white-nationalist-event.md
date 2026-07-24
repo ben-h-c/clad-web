@@ -32,6 +32,10 @@ keyMoments:
 videoId: "JNQy0l1UUa4"
 videoTitle: "Rev. Al Sharpton reacts to white nationalists march in DC at Essence Fest"
 thumbnail: "https://img.youtube.com/vi/JNQy0l1UUa4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "White Nationalists March in Washington Amid 250th Anniversary Celebrations"
     url: "https://www.nytimes.com/2026/07/04/us/white-nationalists-march-in-washington-amid-250th-anniversary-celebrations.html"

@@ -39,6 +39,10 @@ keyMoments:
 videoId: "v3IBIcmXZdA"
 videoTitle: "Moderate Dems PANIC as Mamdani, DSA candidates SURGE: Niall Stanage | RISING"
 thumbnail: "https://img.youtube.com/vi/v3IBIcmXZdA/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Democratic socialists are winning in US cities with message of getting stuff done"
     url: "https://www.theguardian.com/us-news/2026/jun/28/democratic-socialist-mayor-mamdani-wilson"

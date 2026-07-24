@@ -34,6 +34,10 @@ keyMoments:
 videoId: "DWmWsMNdLGc"
 videoTitle: "Latest on US-Iran war"
 thumbnail: "https://img.youtube.com/vi/DWmWsMNdLGc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran war: US launches fresh strikes as Trump vows revenge"
     url: "https://www.dw.com/en/iran-war-us-launches-fresh-strikes-as-trump-vows-revenge/live-78042474"

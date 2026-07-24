@@ -38,6 +38,10 @@ keyMoments:
 videoId: "rvmI3Br-Z20"
 videoTitle: "Investment in data centers to power AI drives up costs for laptops and electricity"
 thumbnail: "https://img.youtube.com/vi/rvmI3Br-Z20/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Global Semiconductor Industry Outlook"
     url: "https://www.deloitte.com/us/en/insights/industry/technology/technology-media-telecom-outlooks/semiconductor-industry-outlook.html"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "krCEHfHtLn0"
 videoTitle: "SpaceX vaults past Microsoft and Amazon in market value"
 thumbnail: "https://img.youtube.com/vi/krCEHfHtLn0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX vaults past Microsoft and Amazon's market value"
     url: "https://www.reuters.com/legal/transactional/spacex-set-surpass-amazons-market-cap-post-ipo-rally-continues-2026-06-16/"

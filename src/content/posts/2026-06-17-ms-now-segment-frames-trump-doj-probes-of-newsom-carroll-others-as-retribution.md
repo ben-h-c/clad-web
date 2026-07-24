@@ -37,6 +37,10 @@ keyMoments:
 videoId: "pL7MYJA81g8"
 videoTitle: "'HIT LIST': Newsom joins growing list of Trump's DOJ investigations | MS NOW Highlights"
 thumbnail: "https://img.youtube.com/vi/pL7MYJA81g8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Newsom Says Trump’s Justice Department Is Investigating Him and His Wife"
     url: "https://www.nytimes.com/2026/06/15/us/newsom-trump-doj-investigation.html"

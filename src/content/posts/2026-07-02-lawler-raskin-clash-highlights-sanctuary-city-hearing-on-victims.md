@@ -35,6 +35,10 @@ keyMoments:
 videoId: "jLHB74fdiP4"
 videoTitle: "Reps. Lawler, Raskin clash in shouting match over sanctuary cities | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/jLHB74fdiP4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What happened to Sheridan Gorman? Loyola student's mom Jessica Gorman speaks during Capitol Hill sanctuary city policies hearing"
     url: "https://abc7chicago.com/post/what-happened-sheridan-gorman-loyola-students-mom-jessica-speaks-during-capitol-hill-sanctuary-city-policies-hearing/19424350/"

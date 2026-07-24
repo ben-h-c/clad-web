@@ -37,6 +37,10 @@ keyMoments:
 videoId: "AAIkUZYlJnU"
 videoTitle: "Europe heatwave swamps hospitals, halts parties • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/AAIkUZYlJnU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Europe on high alert as killer heat set to move east and south"
     url: "https://www.reuters.com/business/environment/europe-high-alert-killer-heat-spreads-2026-06-26/"

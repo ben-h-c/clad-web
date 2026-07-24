@@ -32,6 +32,10 @@ keyMoments:
 videoId: "dYszsbXCd-c"
 videoTitle: "Bedford murder suspect in South African court after wife and kids found dead"
 thumbnail: "https://img.youtube.com/vi/dYszsbXCd-c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Man wanted in UK over murder of wife and two children appears in South African court on gun charges"
     url: "https://news.sky.com/story/man-wanted-in-uk-over-murder-of-wife-and-two-children-appears-in-south-african-court-on-gun-charges-13562934"

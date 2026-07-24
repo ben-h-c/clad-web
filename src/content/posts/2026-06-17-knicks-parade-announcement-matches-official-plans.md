@@ -31,6 +31,10 @@ keyMoments:
 videoId: "3YWb77XyYRM"
 videoTitle: "Mamdani announces historic Knicks ticker-tape parade"
 thumbnail: "https://img.youtube.com/vi/3YWb77XyYRM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mayor Mamdani Announces Ticker-Tape Parade and City Hall Ceremony"
     url: "https://www.nyc.gov/mayors-office/news/2026/06/mayor-mamdani-announces-ticker-tape-parade-and-city-hall-ceremon"

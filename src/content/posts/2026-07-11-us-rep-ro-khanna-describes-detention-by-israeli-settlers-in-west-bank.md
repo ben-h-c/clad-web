@@ -35,6 +35,10 @@ keyMoments:
 videoId: "_YVr_j1O-SI"
 videoTitle: "US Rep Ro Khanna speaks out about being harassed by Israeli settlers"
 thumbnail: "https://img.youtube.com/vi/_YVr_j1O-SI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ro Khanna says he was detained by armed Israeli settlers in West Bank"
     url: "https://thehill.com/homenews/house/5964095-khanna-detained-israeli-settlers/"

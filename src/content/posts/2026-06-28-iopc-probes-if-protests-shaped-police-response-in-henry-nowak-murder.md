@@ -37,6 +37,10 @@ keyMoments:
 videoId: "7WRlLNqJc6Y"
 videoTitle: "Henry Nowak BREAKING: IOPC considering whether migrant hotel protests influenced officers in arrest"
 thumbnail: "https://img.youtube.com/vi/7WRlLNqJc6Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Murder of Henry Nowak"
     url: "https://en.wikipedia.org/wiki/Murder_of_Henry_Nowak"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "EL1PZG5CazM"
 videoTitle: "When will Andy Burnham call a general election?"
 thumbnail: "https://img.youtube.com/vi/EL1PZG5CazM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'Westminster is broken,' says Burnham in first policy speech"
     url: "https://www.itv.com/news/2026-06-28/andy-burnham-labour-leadership-major-speech-proposes-no-10-in-north"

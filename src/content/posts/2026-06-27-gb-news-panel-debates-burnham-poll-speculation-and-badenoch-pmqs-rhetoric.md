@@ -37,6 +37,10 @@ keyMoments:
 videoId: "xoBnXz2di_s"
 videoTitle: "'HYPOCRITICAL PERFORMATIVE OUTRAGE!' | Cristo Foufas WARNS no Burnham bounce will save Labour"
 thumbnail: "https://img.youtube.com/vi/xoBnXz2di_s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Phillipson: Kemi’s right, I am a spiteful class warrior"
     url: "https://www.telegraph.co.uk/politics/2026/06/25/phillipson-kemi-is-right-i-am-a-spiteful-class-warrior/"

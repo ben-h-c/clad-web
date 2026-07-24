@@ -38,6 +38,10 @@ keyMoments:
 videoId: "jGU-2T4h8WY"
 videoTitle: "Tech Stocks Halt S&P 500 Rally | Closing Bell"
 thumbnail: "https://img.youtube.com/vi/jGU-2T4h8WY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Stock Market News, June 15, 2026: U.S. Stocks Jump, Oil Drops on Iran Pact"
     url: "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-06-15-2026"

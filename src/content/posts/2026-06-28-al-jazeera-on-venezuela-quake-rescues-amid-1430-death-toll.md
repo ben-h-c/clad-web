@@ -34,6 +34,10 @@ keyMoments:
 videoId: "UTzOp703jQY"
 videoTitle: "Venezuelans dig for earthquake survivors as death toll rises to 1,430"
 thumbnail: "https://img.youtube.com/vi/UTzOp703jQY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Desperation mounts in Venezuela as the earthquake death toll rises to 1,430"
     url: "https://www.pbs.org/newshour/world/desperation-mounts-in-venezuela-as-the-earthquake-death-toll-rises-to-1430"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "w55Rm0qSOiQ"
 videoTitle: "Iran says the deal to end the war requires Israel to withdraw from Lebanon"
 thumbnail: "https://img.youtube.com/vi/w55Rm0qSOiQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran says the deal to end the war with the US requires Israel to withdraw from Lebanon"
     url: "https://www.azfamily.com/2026/06/16/iran-says-deal-end-war-with-us-requires-israel-withdraw-lebanon/"

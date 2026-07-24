@@ -36,6 +36,10 @@ keyMoments:
 videoId: "TSNpueznCyg"
 videoTitle: "&#39;Politicians Lost In Endless Debate&#39;: Rep Glenn Grothman Slams Democrats Over Illegal Immigration"
 thumbnail: "https://img.youtube.com/vi/TSNpueznCyg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Ed Case"
     slug: "ed-case"

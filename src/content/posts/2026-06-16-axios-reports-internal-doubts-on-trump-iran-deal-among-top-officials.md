@@ -36,6 +36,10 @@ keyMoments:
 videoId: "lGwi-7KoPbk"
 videoTitle: "Top Trump officials doubt Iran’s intentions on ‘deal’: Axios"
 thumbnail: "https://img.youtube.com/vi/lGwi-7KoPbk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "CIA director doubts Iran's intentions on deal, sources say"
     url: "https://www.axios.com/2026/06/15/us-iran-deal-cia-director-ratcliffe"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Hz5Nv4-DAnU"
 videoTitle: "'Heavily intoxicated': Woman says Senate nominee raped her in 2021"
 thumbnail: "https://img.youtube.com/vi/Hz5Nv4-DAnU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Exclusive: Woman who dated Graham Platner says he sexually assaulted her"
     url: "https://www.politico.com/news/2026/07/06/graham-platner-sexual-assault-allegation-00987737"

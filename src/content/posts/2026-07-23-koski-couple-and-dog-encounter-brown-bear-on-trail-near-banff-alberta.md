@@ -33,6 +33,10 @@ keyMoments:
 videoId: "CSTrhzpmB60"
 videoTitle: "Couple on hike has close encounter with a bear"
 thumbnail: "https://img.youtube.com/vi/CSTrhzpmB60/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A couple had a frighteningly close encounter with a bear while walking a trail with their dog just outside of Banff, Alberta, on Sunday, July 19"
     url: "https://www.facebook.com/6abcActionNews/posts/a-couple-had-a-frighteningly-close-encounter-with-a-bear-while-walking-a-trail-w/1585258012966568/"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "oYDD6WGfR3c"
 videoTitle: "Americans celebrate 250 years of Independence Day across the US"
 thumbnail: "https://img.youtube.com/vi/oYDD6WGfR3c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Washington's July 4 parade is off. The fireworks are still on"
     url: "https://www.npr.org/2026/07/04/nx-s1-5882179/washingtons-july-4-heat-cancellations"

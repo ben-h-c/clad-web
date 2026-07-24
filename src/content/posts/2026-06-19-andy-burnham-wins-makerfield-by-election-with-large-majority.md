@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Ge_I45NRfZk"
 videoTitle: "'Tonight could be the turning point': Andy Burnham wins Makerfield by-election"
 thumbnail: "https://img.youtube.com/vi/Ge_I45NRfZk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Race for UK leadership looms after Prime Minister Starmer’s main rival Burnham wins seat in parliament"
     url: "https://www.cnn.com/2026/06/18/uk/makerfield-by-election-results-labour-burnham-reform-intl-hnk"

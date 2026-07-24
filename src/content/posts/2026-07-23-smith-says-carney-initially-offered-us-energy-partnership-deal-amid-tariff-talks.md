@@ -38,6 +38,10 @@ keyMoments:
 videoId: "vR-q-hPHSko"
 videoTitle: "“Hope we can get back”: Carney “initially” offered US a trade deal they favoured, Smith says"
 thumbnail: "https://img.youtube.com/vi/vR-q-hPHSko/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Carney says trade negotiations with US will intensify in wake of new tariffs"
     url: "https://thehill.com/business/5983248-mark-carney-us-canada-trade-negotiations-donald-trump-tariffs/"

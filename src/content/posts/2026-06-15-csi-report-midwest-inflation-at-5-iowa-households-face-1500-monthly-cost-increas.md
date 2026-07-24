@@ -37,6 +37,10 @@ keyMoments:
 videoId: "nTD5pouKEN4"
 videoTitle: "New inflation report shows Iowans paying $1,500 more to maintain 2020 standard of living"
 thumbnail: "https://img.youtube.com/vi/nTD5pouKEN4/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Inflation in the Midwest - May 2026"
     url: "https://www.commonsenseinstituteus.org/ResearchUploads/CSI%20IA_May_2026_Inflation%20Report.pdf"

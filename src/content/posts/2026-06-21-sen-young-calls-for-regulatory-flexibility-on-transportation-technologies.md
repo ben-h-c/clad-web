@@ -34,6 +34,10 @@ keyMoments:
 videoId: "pEPJ0sHupzg"
 videoTitle: "'Our Adversaries Won't Wait For Us To Tie Our Shoes': Young Calls On Congress To Remove Red Tape"
 thumbnail: "https://img.youtube.com/vi/pEPJ0sHupzg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Need for Speed: How Technological Advances are Driving Transportation Innovation"
     url: "https://www.commerce.senate.gov/press/rep/release/the-need-for-speed-how-technological-advances-are-driving-transportation-innovation"

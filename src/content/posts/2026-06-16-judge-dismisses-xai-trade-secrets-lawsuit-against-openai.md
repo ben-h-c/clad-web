@@ -35,6 +35,10 @@ keyMoments:
 videoId: "bE2OgwqZ13c"
 videoTitle: "Federal Judge Dismisses xAI Trade Secrets Lawsuit Against OpenAI"
 thumbnail: "https://img.youtube.com/vi/bE2OgwqZ13c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US judge dismisses Musk's xAI trade secret lawsuit against OpenAI"
     url: "https://www.reuters.com/legal/litigation/openai-wins-dismissal-trade-secret-lawsuit-by-musks-xai-2026-06-15/"

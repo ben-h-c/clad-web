@@ -38,6 +38,10 @@ keyMoments:
 videoId: "6oALA-WhLVI"
 videoTitle: "Ted Cruz says this rising politician is the MOST POWERFUL Democrat"
 thumbnail: "https://img.youtube.com/vi/6oALA-WhLVI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Alexandria Ocasio-Cortez"
     slug: "alexandria-ocasio-cortez"

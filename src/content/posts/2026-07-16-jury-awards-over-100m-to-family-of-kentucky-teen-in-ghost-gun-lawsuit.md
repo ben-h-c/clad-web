@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Z34Q8VPPVYg"
 videoTitle: "Ghost gun company ordered to pay $100M in the death of a Kentucky teen"
 thumbnail: "https://img.youtube.com/vi/Z34Q8VPPVYg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Kentucky jury awards $104M in lawsuit over online ghost gun seller used in Louisville teen's death by suicide"
     url: "https://www.wdrb.com/kentucky-jury-awards-104m-in-lawsuit-over-online-ghost-gun-seller-used-in-louisville-teens/video_6207176c-79b8-5eae-b4fa-c0e8d0dad8bf.html"

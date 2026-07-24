@@ -31,6 +31,10 @@ keyMoments:
 videoId: "N8zUKQUmiaE"
 videoTitle: "'The Odyssey' stars take over London for world premiere"
 thumbnail: "https://img.youtube.com/vi/N8zUKQUmiaE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Odyssey (2026 film)"
     url: "https://en.wikipedia.org/wiki/The_Odyssey_(2026_film)"

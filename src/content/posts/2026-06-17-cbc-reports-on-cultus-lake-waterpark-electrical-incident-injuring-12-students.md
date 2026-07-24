@@ -31,6 +31,10 @@ keyMoments:
 videoId: "jPMETW4Y3_o"
 videoTitle: "What's known about B.C. waterpark 'electrical incident' that injured 12 kids | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/jPMETW4Y3_o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Criminality not suspected after 12 kids sent to hospital in electrical incident at B.C. water park"
     url: "https://www.cbc.ca/news/canada/british-columbia/cultus-lake-injuries-students-9.7237396"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "6wzRMPk2UE4"
 videoTitle: "Labour's new plans to house THOUSANDS of migrants turns Britain into 'shopping channel for asylum'"
 thumbnail: "https://img.youtube.com/vi/6wzRMPk2UE4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mahmood announces new refugee sponsorship route into UK"
     url: "https://www.bbc.com/news/articles/c5yz952dm74o"

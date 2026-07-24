@@ -40,6 +40,10 @@ keyMoments:
 videoId: "zp0Uj2Zxfjs"
 videoTitle: "Gutfeld: Let’s pretend that never happened…"
 thumbnail: "https://img.youtube.com/vi/zp0Uj2Zxfjs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Challenger concedes to democratic socialist Janeese Lewis George in Washington, D.C., mayoral primary"
     url: "https://www.nbcnews.com/politics/2026-election/challenger-concedes-democratic-socialist-janeese-lewis-george-dc-mayor-rcna350458"

@@ -25,6 +25,10 @@ keyMoments:
 videoId: "7dXYwfTrWG4"
 videoTitle: "In the middle of speech, Trump says teleprompters 'aren't working, and here I stand'"
 thumbnail: "https://img.youtube.com/vi/7dXYwfTrWG4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump will visit newly built Theodore Roosevelt Presidential Library in North Dakota’s Badlands"
     url: "https://apnews.com/article/trump-theodore-roosevelt-presidential-library-north-dakota-badlands-c417b491790613193a159c015d2e01f9"

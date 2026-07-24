@@ -35,6 +35,10 @@ keyMoments:
 videoId: "R-PlL6JCNjI"
 videoTitle: "Israel STRIKES Hezbollah after diplomatic BREAKTHROUGH with Lebanon"
 thumbnail: "https://img.youtube.com/vi/R-PlL6JCNjI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. strikes Iran after attack on ship in Strait of Hormuz"
     url: "https://www.cbsnews.com/live-updates/us-iran-war-israel-hezbollah-strait-of-hormuz-peace-deal-talks/"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "VgeCf6DEgjo"
 videoTitle: "Dan Ives on US-Anthropic Talks, AI M&A, Open AI Losses"
 thumbnail: "https://img.youtube.com/vi/VgeCf6DEgjo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ives on the Tech Trade, Anthropic-Pentagon Spat"
     url: "https://www.youtube.com/watch?v=Rd6Cg3GbYbc"

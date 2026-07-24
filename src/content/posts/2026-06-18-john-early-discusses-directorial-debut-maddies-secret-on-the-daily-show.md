@@ -35,6 +35,10 @@ keyMoments:
 videoId: "a4PyKUpiGr0"
 videoTitle: "John Early - Food Influencer Culture Meets 80s TV Movie in “Maddie’s Secret” | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/a4PyKUpiGr0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Maddie's Secret - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Maddie%27s_Secret"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Hj6pE6UJPQw"
 videoTitle: "‘That’s dangerous!’ | Prince Harry High Court case SPARKS press freedom fears"
 thumbnail: "https://img.youtube.com/vi/Hj6pE6UJPQw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Harry loses High Court privacy case against Daily Mail publisher"
     url: "https://www.bbc.com/news/articles/c9324nyqwjno"

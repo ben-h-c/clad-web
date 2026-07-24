@@ -28,6 +28,10 @@ keyMoments:
 videoId: "JLjimemaEOM"
 videoTitle: "Matt Forde impersonates leading politicians, from Keir Starmer to Donald Trump"
 thumbnail: "https://img.youtube.com/vi/JLjimemaEOM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Comedian Matt Forde does impressions of Starmer, Farage, Trump and more"
     url: "https://www.youtube.com/watch?v=bmNPvWLCMmI"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "8Poe_STX9Hw"
 videoTitle: "Fed's First Interest Rate Meeting Under Warsh Begins as Crude Oil Trickles Lower"
 thumbnail: "https://img.youtube.com/vi/8Poe_STX9Hw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman"
     url: "https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm"

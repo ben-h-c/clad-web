@@ -33,6 +33,10 @@ keyMoments:
 videoId: "VsubzT0_ogA"
 videoTitle: "This 65-year-old camp almost lost its last original building. A coffee club saved it"
 thumbnail: "https://img.youtube.com/vi/VsubzT0_ogA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Camp Gencheff - Home"
     url: "https://www.campgencheff.com/"

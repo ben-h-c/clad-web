@@ -32,6 +32,10 @@ keyMoments:
 videoId: "vN4KMDkdhc0"
 videoTitle: "Protests erupt in Ukraine after Zelenskyy sacks Ukraine’s popular defence minister"
 thumbnail: "https://img.youtube.com/vi/vN4KMDkdhc0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Protesters rally in downtown Kyiv as Zelenskyy reshuffles cabinet"
     url: "https://apnews.com/article/russia-ukraine-war-defense-minister-reshuffle-fedorov-88083e4381b1690f5048088d75954d3a"

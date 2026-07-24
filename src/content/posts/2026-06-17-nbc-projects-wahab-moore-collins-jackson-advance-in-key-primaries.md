@@ -38,6 +38,10 @@ keyMoments:
 videoId: "AiC34Lasw04"
 videoTitle: "Sen. Aisha Wahab project to move to runoff in race to replace Swalwell"
 thumbnail: "https://img.youtube.com/vi/AiC34Lasw04/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "California 14th Congressional District Special 2026: Live Election Results"
     url: "https://www.nytimes.com/interactive/2026/us/elections/results-california-us-house-14-special.html"

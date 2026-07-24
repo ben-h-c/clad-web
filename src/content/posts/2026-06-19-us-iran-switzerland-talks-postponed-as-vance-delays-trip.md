@@ -31,6 +31,10 @@ keyMoments:
 videoId: "1kI7ZLUhVGs"
 videoTitle: "US-Iran talks in Geneva postponed"
 thumbnail: "https://img.youtube.com/vi/1kI7ZLUhVGs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Uncertainty hangs over timing of US-Iran peace talks as Switzerland meeting scrapped"
     url: "https://www.reuters.com/world/europe/us-iran-peace-talks-postponed-clouding-prospects-lasting-truce-2026-06-19/"

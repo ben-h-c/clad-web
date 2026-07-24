@@ -38,6 +38,10 @@ keyMoments:
 videoId: "7_iKR3NSLpE"
 videoTitle: "Docusign (DOCU) CFO on Earnings Success & Future AI Endeavors"
 thumbnail: "https://img.youtube.com/vi/7_iKR3NSLpE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Docusign Inc. First Quarter Fiscal Year 2027 Earnings Call Transcript"
     url: "https://s21.q4cdn.com/706790701/files/doc_financials/2027/q1/FINAL-060426-Docusign-Inc-Q1-Fiscal-Year-2027-Earnings-Call-13760337.pdf"

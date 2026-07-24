@@ -35,6 +35,10 @@ keyMoments:
 videoId: "LPXKpKw17PY"
 videoTitle: "US, Iran Halt Attacks After Flare Up; Oil Pares Gains | Horizons Middle East & Africa 6/29/2026"
 thumbnail: "https://img.youtube.com/vi/LPXKpKw17PY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran and US trade blame for attacks, threatening fragile ceasefire"
     url: "https://www.aljazeera.com/news/2026/6/27/iran-and-us-trade-blame-for-attacks-threatening-fragile-ceasefire"

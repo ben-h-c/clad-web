@@ -35,6 +35,10 @@ keyMoments:
 videoId: "loxhEwH5UL8"
 videoTitle: "OceanGate's Titan submersible operated without federal oversight, TSB report says"
 thumbnail: "https://img.youtube.com/vi/loxhEwH5UL8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Titan submersible operated without oversight - Transportation Safety Board of Canada"
     url: "https://www.tsb.gc.ca/eng/medias-media/communiques/marine/2026/m23a0169-20260617.html"

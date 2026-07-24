@@ -37,6 +37,10 @@ keyMoments:
 videoId: "pGZLtyZNJ7A"
 videoTitle: "Trump’s World Cup scandal COLLIDES with his war on birthright citizenship"
 thumbnail: "https://img.youtube.com/vi/pGZLtyZNJ7A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump Asked FIFA to Review U.S. Player’s Suspension. Now He’s Eligible to Play."
     url: "https://www.nytimes.com/2026/07/05/us/politics/trump-fifa-balogun-world-cup.html"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "5EVVEXySmLk"
 videoTitle: "Iran attacks Bahrain and Kuwait following U.S. strikes, threatens peace talks"
 thumbnail: "https://img.youtube.com/vi/5EVVEXySmLk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: Iran targets US military sites in Bahrain and Kuwait"
     url: "https://www.cnn.com/2026/06/28/world/live-news/iran-war-strikes-trump"

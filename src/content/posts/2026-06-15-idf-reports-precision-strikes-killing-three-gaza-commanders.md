@@ -28,6 +28,10 @@ keyMoments:
     note: "Directly from IDF statement corroborated across multiple news outlets"
 videoId: "0LDgSWfx3ac"
 thumbnail: "https://img.youtube.com/vi/0LDgSWfx3ac/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "IDF kills two Palestinian Islamic Jihad commanders, one Hamas commander in precision strikes"
     url: "https://www.jpost.com/israel-news/defense-news/article-899225"

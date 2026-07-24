@@ -38,6 +38,10 @@ keyMoments:
 videoId: "d2jVW4-05B8"
 videoTitle: "“Cast-Iron GUARANTEE Starmer WILL RESIGN!” | Poppy Coburn | Alex Phillips"
 thumbnail: "https://img.youtube.com/vi/d2jVW4-05B8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Reports emerge UK PM Sir Keir Starmer could soon resign"
     url: "https://www.youtube.com/watch?v=tIz5ngsUB7g"

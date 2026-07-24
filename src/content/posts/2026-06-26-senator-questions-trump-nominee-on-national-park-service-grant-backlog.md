@@ -32,6 +32,10 @@ keyMoments:
 videoId: "0gX1F_uop1c"
 videoTitle: "'How Many Grants Are Currently Awaiting Your Review?': Duckworth Grills Trump Nom Over Grants"
 thumbnail: "https://img.youtube.com/vi/0gX1F_uop1c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Political Reviews Are Causing a Huge Grant Backlog at the National Park Service"
     url: "https://www.notus.org/climate-environment/political-reviews-grant-backlog-national-park-service"

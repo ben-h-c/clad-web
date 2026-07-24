@@ -39,6 +39,10 @@ keyMoments:
 videoId: "otagSl7eYMs"
 videoTitle: "Complicit: Bankrolling the Occupation | Al Jazeera Investigates"
 thumbnail: "https://img.youtube.com/vi/otagSl7eYMs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Summary of the Advisory Opinion of 19 July 2024"
     url: "https://www.icj-cij.org/node/204176"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "tugtpr0Zk3M"
 videoTitle: "‘The Five’ on Mamdani’s heat wave AC advice"
 thumbnail: "https://img.youtube.com/vi/tugtpr0Zk3M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NYC Mayor Mamdani tells New Yorkers to set thermostat to 78 degrees"
     url: "https://www.cbsnews.com/newyork/video/nyc-mayor-mamdani-tells-new-yorkers-to-set-thermostat-to-78-degrees/"

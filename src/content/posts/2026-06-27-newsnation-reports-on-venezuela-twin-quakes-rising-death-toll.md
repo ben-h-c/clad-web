@@ -34,6 +34,10 @@ keyMoments:
 videoId: "fAZoX9h-RCw"
 videoTitle: "Venezuela earthquake death toll soars past 900 | Morning in America"
 thumbnail: "https://img.youtube.com/vi/fAZoX9h-RCw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Over 900 killed in Venezuela earthquakes"
     url: "https://www.cnn.com/2026/06/26/world/live-news/venezuela-earthquake-hnk"

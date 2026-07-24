@@ -33,6 +33,10 @@ keyMoments:
 videoId: "_66EItCo1LM"
 videoTitle: "P.E.I. has some of Canada's toughest school bus penalties, so why aren't drivers stopping?"
 thumbnail: "https://img.youtube.com/vi/_66EItCo1LM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "No criminal charges in death of P.E.I. teen struck by tractor-trailer"
     url: "https://www.cbc.ca/news/canada/prince-edward-island/pei-no-charges-laid-teen-struck-by-tractor-trailer-9.7230036"

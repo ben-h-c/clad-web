@@ -37,6 +37,10 @@ keyMoments:
 videoId: "wB_iYXu4hnM"
 videoTitle: "ICE has ‘TURNED THE HEAT UP’: Tom Homan"
 thumbnail: "https://img.youtube.com/vi/wB_iYXu4hnM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Man charged in trooper's death was in U.S. illegally, officials say"
     url: "https://www.wgal.com/article/man-charged-troopers-death-in-us-illegally-officials-say/71820625"

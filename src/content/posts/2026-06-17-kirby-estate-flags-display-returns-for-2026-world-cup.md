@@ -34,6 +34,10 @@ keyMoments:
 videoId: "dsw554Oi1bs"
 videoTitle: "London community unites behind England with flag display"
 thumbnail: "https://img.youtube.com/vi/dsw554Oi1bs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Flags fly high in Kirby estate ahead of World Cup match"
     url: "https://www.bbc.com/news/uk-england-london-63703921"

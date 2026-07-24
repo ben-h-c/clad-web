@@ -36,6 +36,10 @@ keyMoments:
 videoId: "ynBitQevshc"
 videoTitle: "Josh Turek: ‘Iowans are ready for change and the winds of change are here’"
 thumbnail: "https://img.youtube.com/vi/ynBitQevshc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fox News Poll: A close Senate contest is brewing in Iowa"
     url: "https://www.foxnews.com/politics/fox-news-poll-close-senate-contest-brewing-iowa"

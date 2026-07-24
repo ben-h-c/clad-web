@@ -273,13 +273,18 @@ async function resolvePostMedia(args: {
     args.p?.thumbFocusX != null ||
     args.p?.thumbFocusY != null;
   if (hasOverride) {
-    return coerceMediaPresentation({
-      mediaStyle: args.p.mediaStyle,
-      thumbFocusX: args.p.thumbFocusX,
-      thumbFocusY: args.p.thumbFocusY,
-      mediaNote:
-        typeof args.p.mediaNote === "string" ? args.p.mediaNote : "editor override",
-    });
+    // Editor may force modular/text; otherwise coerce keeps overlay.
+    const style = String(args.p.mediaStyle || "overlay").toLowerCase();
+    return coerceMediaPresentation(
+      {
+        mediaStyle: style,
+        thumbFocusX: args.p.thumbFocusX,
+        thumbFocusY: args.p.thumbFocusY,
+        mediaNote:
+          typeof args.p.mediaNote === "string" ? args.p.mediaNote : "editor override",
+      },
+      { allowNonOverlay: style === "modular" || style === "text" }
+    );
   }
   return resolveMediaPresentation({
     apiKey: args.apiKey,

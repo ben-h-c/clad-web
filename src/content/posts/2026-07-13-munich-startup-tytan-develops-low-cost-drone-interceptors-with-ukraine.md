@@ -35,6 +35,10 @@ keyMoments:
 videoId: "3mc_uCBQPEg"
 videoTitle: "Drone warfare: German startup draws on Ukraine's experience | DW News"
 thumbnail: "https://img.youtube.com/vi/3mc_uCBQPEg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The NATO Innovation Fund co-leads €30m Series A for TYTAN"
     url: "https://www.nif.fund/news/the-nato-innovation-fund-co-leads-e30m-series-a-for-tytan-to-build-europes-next-generation-air-defence/"

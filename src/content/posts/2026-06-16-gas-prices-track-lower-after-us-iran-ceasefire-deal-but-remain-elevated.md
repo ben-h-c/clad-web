@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ouVxOZUkA9A"
 videoTitle: "Tracking gas prices after Iran agreement"
 thumbnail: "https://img.youtube.com/vi/ouVxOZUkA9A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Alabama average gas prices"
     url: "https://gasprices.aaa.com/?state=AL"

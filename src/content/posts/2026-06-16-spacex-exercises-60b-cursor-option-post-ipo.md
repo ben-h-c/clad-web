@@ -34,6 +34,10 @@ keyMoments:
 videoId: "BGt5im0Q9-Y"
 videoTitle: "SpaceX Agrees to $60 Billion Cursor Takeover Post-IPO"
 thumbnail: "https://img.youtube.com/vi/BGt5im0Q9-Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX Has Deal for Right to Acquire Cursor for $60 Billion"
     url: "https://www.bloomberg.com/news/articles/2026-04-21/spacex-says-has-agreement-to-acquire-cursor-for-60-billion"

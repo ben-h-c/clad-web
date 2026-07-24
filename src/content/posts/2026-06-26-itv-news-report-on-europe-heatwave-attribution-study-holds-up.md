@@ -31,6 +31,10 @@ keyMoments:
 videoId: "nwzIpxPsy2E"
 videoTitle: "Record heatwave 'impossible' without climate change #weather #heatwave #climatechange"
 thumbnail: "https://img.youtube.com/vi/nwzIpxPsy2E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fossil fuel emissions have rapidly worsened European heatwaves in just a few decades"
     url: "https://www.worldweatherattribution.org/fossil-fuel-emissions-have-rapidly-worsened-european-heatwaves-in-just-a-few-decades/"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "GtFe-fOCiyQ"
 videoTitle: "US official confirms an Iranian drone struck ship in Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/GtFe-fOCiyQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "IRGC drones targeted ships in Strait of Hormuz after signing of US-Iran deal"
     url: "https://www.jpost.com/middle-east/iran-news/article-899643"

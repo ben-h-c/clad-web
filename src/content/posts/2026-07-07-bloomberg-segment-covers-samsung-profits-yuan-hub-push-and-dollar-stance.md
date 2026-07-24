@@ -35,6 +35,10 @@ keyMoments:
 videoId: "QBvojlaoDuE"
 videoTitle: "China Touts Yuan as US Ups Strong Dollar: 3-Minutes MLIV"
 thumbnail: "https://img.youtube.com/vi/QBvojlaoDuE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Samsung Electronics flagged a 19-fold jump in second-quarter operating profit"
     url: "https://www.reuters.com/sustainability/sustainable-finance-reporting/samsung-flags-eight-fold-jump-q1-profit-ai-chip-demand-drives-up-prices-2026-04-06/"

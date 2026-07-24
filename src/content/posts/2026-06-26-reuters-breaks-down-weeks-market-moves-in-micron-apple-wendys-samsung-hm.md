@@ -38,6 +38,10 @@ keyMoments:
 videoId: "oOQIwaNC6Yg"
 videoTitle: "The Week in Numbers: Micron climbs high, Apple raises prices"
 thumbnail: "https://img.youtube.com/vi/oOQIwaNC6Yg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Micron stock jumps 15% as soaring prices from memory crunch lead to quadrupling of revenue"
     url: "https://www.cnbc.com/2026/06/24/micron-mu-earnings-report-q3-2026.html"

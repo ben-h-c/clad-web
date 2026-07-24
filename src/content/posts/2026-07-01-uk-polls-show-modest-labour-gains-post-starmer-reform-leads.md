@@ -35,6 +35,10 @@ keyMoments:
 videoId: "62nfRQjeRw0"
 videoTitle: "‘Labour Won’t SURVIVE' | Burnham NOT READY For No10, Poll Finds"
 thumbnail: "https://img.youtube.com/vi/62nfRQjeRw0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UK's Starmer resigns, paving way for orderly transfer of power"
     url: "https://www.reuters.com/world/uk/uks-starmer-could-set-out-exit-timetable-monday-burnham-waits-wings-2026-06-22/"

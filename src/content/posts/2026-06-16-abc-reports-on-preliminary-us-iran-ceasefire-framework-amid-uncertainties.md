@@ -34,6 +34,10 @@ keyMoments:
 videoId: "HK8d0tz_gbA"
 videoTitle: "US and Iran sign deal to end war, reopen Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/HK8d0tz_gbA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump hails Iran deal at G7 summit"
     url: "https://apnews.com/live/g7-summit-trump-updates-06-15-2026"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "vVEF4LhEXEM"
 videoTitle: "MASSIVE sex abuse lawsuits rock blue state"
 thumbnail: "https://img.youtube.com/vi/vVEF4LhEXEM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "LA County Reaches $4 Billion Tentative Settlement in Thousands of Sexual Abuse Cases"
     url: "https://lacounty.gov/2025/04/04/la-county-reaches-4-billion-tentative-settlement-in-thousands-of-sexual-abuse-cases/"

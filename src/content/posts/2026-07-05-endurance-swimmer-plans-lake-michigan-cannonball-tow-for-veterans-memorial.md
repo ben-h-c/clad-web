@@ -34,6 +34,10 @@ keyMoments:
 videoId: "IKgHOmAw4XE"
 videoTitle: "SWIMMING FOR AMERICA'S HEROES: Towing 250 cannonballs across Lake Michigan"
 thumbnail: "https://img.youtube.com/vi/IKgHOmAw4XE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jim 'The Shark' Dreyer plans 22-mile swim pulling 250 cannonballs"
     url: "https://www.wzzm13.com/article/news/local/jim-the-shark-dreyer-plans-22-mile-swim-pulling-250-cannon-balls-honor-veterans-americas-250th-birthday/69-2c5ab4ec-b1b8-460b-b58f-668221a7a4d6"

@@ -28,6 +28,10 @@ keyMoments:
 videoId: "Y2NyxWJIebw"
 videoTitle: "Karl-Anthony Towns says Knicks championship 'healing' for NYC"
 thumbnail: "https://img.youtube.com/vi/Y2NyxWJIebw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "5 stats that define the New York Knicks' championship run"
     url: "https://www.nba.com/news/5-stats-that-define-new-york-knicks-championship-run"

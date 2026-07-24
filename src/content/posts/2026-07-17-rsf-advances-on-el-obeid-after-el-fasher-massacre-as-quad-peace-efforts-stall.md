@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Ju5S3DoOg4E"
 videoTitle: "Why is no one stopping the killings in Sudan? | DW News"
 thumbnail: "https://img.youtube.com/vi/Ju5S3DoOg4E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "El Fasher massacre - Wikipedia"
     url: "https://en.wikipedia.org/wiki/El_Fasher_massacre"

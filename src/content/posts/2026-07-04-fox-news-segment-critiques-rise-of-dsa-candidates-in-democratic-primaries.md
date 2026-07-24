@@ -36,6 +36,10 @@ keyMoments:
 videoId: "NfIJQvhvq6k"
 videoTitle: "Dem socialism 'WILL NOT WORK' across the country: Expert"
 thumbnail: "https://img.youtube.com/vi/NfIJQvhvq6k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mamdani-Backed Candidates Sweep in NYC Democratic Primaries"
     url: "https://www.nytimes.com/2026/06/24/nyregion/mamdani-politics-influence.html"

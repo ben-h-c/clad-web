@@ -35,6 +35,10 @@ keyMoments:
 videoId: "14Bke2XZ8zs"
 videoTitle: "Texas Tech QB drops NCAA lawsuit for NFL draft"
 thumbnail: "https://img.youtube.com/vi/14Bke2XZ8zs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Brendan Sorsby granted injunction vs. NCAA, eligible to play in 2026 - ESPN"
     url: "https://www.espn.com/college-football/story/_/id/49000177/brendan-sorsby-granted-injunction-vs-ncaa-eligible-play-2026"

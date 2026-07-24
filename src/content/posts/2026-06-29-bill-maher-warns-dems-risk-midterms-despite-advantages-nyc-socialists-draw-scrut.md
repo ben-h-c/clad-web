@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Kj0HlqZ5E28"
 videoTitle: "Bill Maher says Dems 'cannot help but win' midterms, but warns on democratic socialist candidates"
 thumbnail: "https://img.youtube.com/vi/Kj0HlqZ5E28/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Louisiana v. Callais Supreme Court opinion"
     url: "https://www.supremecourt.gov/opinions/25pdf/24-109_21o3.pdf"

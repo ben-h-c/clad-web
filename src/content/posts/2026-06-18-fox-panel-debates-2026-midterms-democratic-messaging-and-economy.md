@@ -37,6 +37,10 @@ keyMoments:
 videoId: "1XfRW56ZpC0"
 videoTitle: "‘The Five’: Dems losing ground as midterms near…"
 thumbnail: "https://img.youtube.com/vi/1XfRW56ZpC0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Latest 2026 Congressional Ballot Polls"
     url: "https://www.nytimes.com/interactive/polls/congressional-vote-2026.html"

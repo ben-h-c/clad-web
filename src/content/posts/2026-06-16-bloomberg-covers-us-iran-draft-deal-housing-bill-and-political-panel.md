@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ANDegDSNt1o"
 videoTitle: "US Draft Deal Includes Financial Incentives for Iran | Balance of Power 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/ANDegDSNt1o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says US-Iran peace deal to be public soon"
     url: "https://www.newsnationnow.com/world/strait-of-hormuz-us-iran-peace-deal/"

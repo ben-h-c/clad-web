@@ -40,6 +40,10 @@ keyMoments:
 videoId: "bXKA_eyqcC4"
 videoTitle: "Greg Gutfeld: They ‘DESPISE’ Musk for this..."
 thumbnail: "https://img.youtube.com/vi/bXKA_eyqcC4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX IPO: Market cap tops $2 trillion after shares gain 19%"
     url: "https://www.cnbc.com/2026/06/12/spacex-stock-jumps-2-trillion.html"

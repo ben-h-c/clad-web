@@ -36,6 +36,10 @@ keyMoments:
 videoId: "7AhhY474ZP0"
 videoTitle: "Trump dismisses Iran payout as Vance points to $300B Gulf-led reconstruction fund"
 thumbnail: "https://img.youtube.com/vi/7AhhY474ZP0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump and Iran say agreement to be signed on Friday"
     url: "https://www.cnn.com/2026/06/15/world/live-news/iran-war-g7-summit"

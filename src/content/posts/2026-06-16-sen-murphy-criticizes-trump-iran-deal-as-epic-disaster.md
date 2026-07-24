@@ -38,6 +38,10 @@ keyMoments:
 videoId: "OZd6WiCiMDg"
 videoTitle: "Chris Murphy Drops The Hammer On Trump After Peace Deal Announced: 'This War Has Been Epic Disaster'"
 thumbnail: "https://img.youtube.com/vi/OZd6WiCiMDg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump calls potential Iran deal critics 'losers' as some Republicans raise concerns"
     url: "https://www.kcra.com/article/trump-calls-critics-iran-deal-losers-some-republicans-raise-concerns/71399132"

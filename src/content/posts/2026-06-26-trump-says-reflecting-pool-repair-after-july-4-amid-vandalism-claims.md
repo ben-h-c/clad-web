@@ -32,6 +32,10 @@ keyMoments:
 videoId: "FHutXOyQDHc"
 videoTitle: "Trump now says the Reflecting Pool will be repaired after July 4"
 thumbnail: "https://img.youtube.com/vi/FHutXOyQDHc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'Permanent repair' to Reflecting Pool to come around July 4, Trump says"
     url: "https://abcnews.com/Politics/permanent-repair-reflecting-pool-july-4-trump/story?id=134137721"

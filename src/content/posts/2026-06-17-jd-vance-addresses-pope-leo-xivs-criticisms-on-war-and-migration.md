@@ -31,6 +31,10 @@ keyMoments:
 videoId: "N-t1b3G9kyI"
 videoTitle: "How does JD Vance process Pope Leo's criticism? #jdvance #shorts #popeleoxiv #religion #politics"
 thumbnail: "https://img.youtube.com/vi/N-t1b3G9kyI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "JD Vance defends Trump amid spat with Pope Leo"
     url: "https://www.theguardian.com/us-news/2026/apr/14/jd-vance-defends-trump-pope-leo-spat"

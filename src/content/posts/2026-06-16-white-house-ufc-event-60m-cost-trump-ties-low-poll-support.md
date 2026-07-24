@@ -39,6 +39,10 @@ keyMoments:
 videoId: "8R6vwvNyMgY"
 videoTitle: "INSANE: White House UFC fight cost taxpayers $60M while Trump MADE MONEY! Lindsey Granger | RISING"
 thumbnail: "https://img.youtube.com/vi/8R6vwvNyMgY/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UFC Freedom 250"
     url: "https://www.ufc.com/event/ufc-freedom-250"

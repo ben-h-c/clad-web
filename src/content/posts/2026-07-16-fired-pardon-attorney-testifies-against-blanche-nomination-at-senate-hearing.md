@@ -40,6 +40,10 @@ keyMoments:
 videoId: "RX3Ct7JHSPc"
 videoTitle: "Fired DOJ lawyer attorney accuses Blanche of enforcing Trump's \"pointless vendettas\""
 thumbnail: "https://img.youtube.com/vi/RX3Ct7JHSPc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Liz Oyer Senate Judiciary letter"
     url: "https://www.lawyeroyer.com/p/my-letter-to-the-senate-judiciary"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "vPcPuah-JDg"
 videoTitle: "Canada's plans for new pipelines risk increasing emissions"
 thumbnail: "https://img.youtube.com/vi/vPcPuah-JDg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Greenhouse gas emissions"
     url: "https://www.canada.ca/en/environment-climate-change/services/environmental-indicators/greenhouse-gas-emissions.html"

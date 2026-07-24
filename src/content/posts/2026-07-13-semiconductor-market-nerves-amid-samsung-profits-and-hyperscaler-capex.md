@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ffLLOBhxxtg"
 videoTitle: "Sectors Up Close: Chip expectations 'impossible to satisfy'"
 thumbnail: "https://img.youtube.com/vi/ffLLOBhxxtg/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Samsung flags 19-fold jump in profit, but shares slump on jitters AI boom may stall"
     url: "https://www.reuters.com/world/asia-pacific/samsung-estimates-19-fold-rise-q2-operating-profit-beating-expectations-2026-07-06/"

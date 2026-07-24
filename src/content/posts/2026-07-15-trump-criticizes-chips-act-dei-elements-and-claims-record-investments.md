@@ -33,6 +33,10 @@ keyMoments:
 videoId: "TGPm_9-rpIQ"
 videoTitle: "Trump: 'If You Weren't Transgender, As An Example, You Didn't Qualify' For Money From The CHIPS Act"
 thumbnail: "https://img.youtube.com/vi/TGPm_9-rpIQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

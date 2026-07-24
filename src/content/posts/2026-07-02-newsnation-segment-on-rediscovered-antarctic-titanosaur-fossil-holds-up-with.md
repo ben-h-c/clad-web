@@ -34,6 +34,10 @@ keyMoments:
 videoId: "rdOTs5_ZmkQ"
 videoTitle: "Antarctica's First Dinosaur Bone Found in a Drawer | Hot Take with Jesse Weber"
 thumbnail: "https://img.youtube.com/vi/rdOTs5_ZmkQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A titanosaurian sauropod dinosaur from the Upper Cretaceous of Antarctica"
     url: "https://www.app.pan.pl/article/item/app013152025.html"

@@ -40,6 +40,10 @@ keyMoments:
 videoId: "bp9LZCcroTY"
 videoTitle: "Iran EXPLODES tensions with cargo ship drone attack #foxnews #news #us #fox"
 thumbnail: "https://img.youtube.com/vi/bp9LZCcroTY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran Attacks Cargo Ship, Testing Trump’s Deal to Reopen Strait"
     url: "https://www.wsj.com/world/middle-east/iran-attacks-cargo-ship-testing-trumps-deal-to-reopen-strait-d3cf454c"

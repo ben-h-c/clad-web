@@ -37,6 +37,10 @@ keyMoments:
 videoId: "PAy_kUJv17c"
 videoTitle: "Trump Asked About Iran Deal: 'How Do You See This Agreement Further Affecting Energy Prices?'"
 thumbnail: "https://img.youtube.com/vi/PAy_kUJv17c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How could the US-Iran deal affect oil prices and the cost of food?"
     url: "https://www.bbc.com/news/articles/cd0p8me2m5do"

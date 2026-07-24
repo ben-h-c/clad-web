@@ -32,6 +32,10 @@ keyMoments:
 videoId: "4uo9Sybydgo"
 videoTitle: "Millions Face Flash Flood Threat in Texas, Gulf States"
 thumbnail: "https://img.youtube.com/vi/4uo9Sybydgo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Governor Abbott Issues Disaster Declaration For Texas Severe Weather"
     url: "https://gov.texas.gov/news/post/governor-abbott-issues-disaster-declaration-for-texas-severe-weather"

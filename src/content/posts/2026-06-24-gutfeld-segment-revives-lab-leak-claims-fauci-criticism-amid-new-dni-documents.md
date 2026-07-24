@@ -38,6 +38,10 @@ keyMoments:
 videoId: "0Dt3lgVInOk"
 videoTitle: "Gutfeld: Just one screw up and boom, millions dead"
 thumbnail: "https://img.youtube.com/vi/0Dt3lgVInOk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Tulsi Gabbard releases declassified COVID-19 documents on Fauci and Wuhan research"
     url: "https://www.dni.gov/index.php/newsroom/press-releases/press-releases-2026/4166-pr-11-26"

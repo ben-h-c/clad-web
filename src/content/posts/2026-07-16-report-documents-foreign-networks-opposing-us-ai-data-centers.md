@@ -35,6 +35,10 @@ keyMoments:
 videoId: "xyzJTdUZpww"
 videoTitle: "New report claims CLEAR CCP influence against AI infrastructure #shorts"
 thumbnail: "https://img.youtube.com/vi/xyzJTdUZpww/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

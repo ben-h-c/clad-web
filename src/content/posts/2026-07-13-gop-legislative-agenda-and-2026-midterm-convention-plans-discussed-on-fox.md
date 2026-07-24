@@ -36,6 +36,10 @@ keyMoments:
 videoId: "3bGFfoMVwKI"
 videoTitle: "GOP faces sudden political SHOCK before high-stakes vote"
 thumbnail: "https://img.youtube.com/vi/3bGFfoMVwKI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Republican National Convention"
     url: "https://en.wikipedia.org/wiki/2026_Republican_National_Convention"

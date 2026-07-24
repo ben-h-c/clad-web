@@ -32,6 +32,10 @@ keyMoments:
 videoId: "KJX2BgIHMYY"
 videoTitle: "Trump Asked: 'Have There Been Any Discussions With Arab Leaders' About Joining The Abraham Accords?"
 thumbnail: "https://img.youtube.com/vi/KJX2BgIHMYY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump asked Muslim leaders to join Abraham Accords after ..."
     url: "https://www.axios.com/2026/05/24/trump-iran-war-israel-muslim-countries-abraham-accords"

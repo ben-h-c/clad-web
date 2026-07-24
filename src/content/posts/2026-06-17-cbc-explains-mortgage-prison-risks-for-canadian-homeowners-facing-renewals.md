@@ -34,6 +34,10 @@ keyMoments:
 videoId: "1kGxZJwjt1A"
 videoTitle: "Why some homeowners are falling into a mortgage payment trap they can't escape | About That"
 thumbnail: "https://img.youtube.com/vi/1kGxZJwjt1A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Financial Stability Report—2026"
     url: "https://www.bankofcanada.ca/wp-content/uploads/2026/05/fsr2026.pdf"

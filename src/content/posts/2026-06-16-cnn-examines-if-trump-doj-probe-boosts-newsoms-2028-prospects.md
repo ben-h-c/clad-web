@@ -36,6 +36,10 @@ keyMoments:
 videoId: "9PeqL3-9yak"
 videoTitle: "Could Trump's DOJ investigation actually help Gavin Newsom?"
 thumbnail: "https://img.youtube.com/vi/9PeqL3-9yak/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Justice Department tax probe includes Gov. Gavin Newsom’s wife | CNN Politics"
     url: "https://edition.cnn.com/2026/06/15/politics/gavin-newsom-trump-justice-department-investigation"

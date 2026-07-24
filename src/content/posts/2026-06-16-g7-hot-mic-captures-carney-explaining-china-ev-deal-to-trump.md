@@ -35,6 +35,10 @@ keyMoments:
 videoId: "8io0R7mfN_M"
 videoTitle: "What are the G7 leaders saying when they think no one is listening? | Power & Politics"
 thumbnail: "https://img.youtube.com/vi/8io0R7mfN_M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Hot mic moment at G7 catches Carney, Trump talking about Chinese EVs"
     url: "https://www.cbc.ca/news/politics/carney-trump-chinese-evs-g7-9.7237002"

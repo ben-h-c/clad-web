@@ -31,6 +31,10 @@ keyMoments:
 videoId: "U9p6lpHos4s"
 videoTitle: "What Typhoon Bavi reveals about extreme storm risks in East Asia | DW News"
 thumbnail: "https://img.youtube.com/vi/U9p6lpHos4s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Typhoon Bavi batters eastern China, threatens days of heavy rain"
     url: "https://www.reuters.com/business/environment/typhoon-bavi-batters-east-china-taiwan-reports-134-injured-2026-07-12/"

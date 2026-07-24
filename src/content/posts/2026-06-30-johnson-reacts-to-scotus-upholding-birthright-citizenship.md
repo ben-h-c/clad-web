@@ -31,6 +31,10 @@ keyMoments:
 videoId: "UIQfCJjHBJ4"
 videoTitle: "Johnson reacts to birthright citizenship ruling"
 thumbnail: "https://img.youtube.com/vi/UIQfCJjHBJ4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court upholds birthright citizenship on constitutional grounds"
     url: "https://www.npr.org/2026/06/30/nx-s1-5839358/birthright-citizenship-decision-scotus-trump"

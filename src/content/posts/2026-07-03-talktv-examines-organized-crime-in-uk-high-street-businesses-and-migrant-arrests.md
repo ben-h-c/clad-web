@@ -33,6 +33,10 @@ keyMoments:
 videoId: "cuga-Zn2vXo"
 videoTitle: "'Organised Crime Has Moved Into The High Street' | 'They're Not Even Hiding It'"
 thumbnail: "https://img.youtube.com/vi/cuga-Zn2vXo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "More than 300 arrests in organised immigration crime crackdown"
     url: "https://www.bbc.com/news/articles/cgev8ey9wrwo"

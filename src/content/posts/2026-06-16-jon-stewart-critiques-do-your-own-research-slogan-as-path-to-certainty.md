@@ -34,6 +34,10 @@ keyMoments:
 videoId: "4OEluie4oVE"
 videoTitle: "#JonStewart explains why MAGA's call to \"do your own research\" isn't about keeping an open mind #FYC"
 thumbnail: "https://img.youtube.com/vi/4OEluie4oVE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Daily Showography of RFK Jr.: Immune to Normal"
     url: "https://www.facebook.com/thedailyshow/videos/robert-f-kennedy-jr-immune-to-normal/1182865436032658/"

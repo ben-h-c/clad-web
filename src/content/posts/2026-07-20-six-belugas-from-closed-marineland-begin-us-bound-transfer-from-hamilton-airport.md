@@ -31,6 +31,10 @@ keyMoments:
 videoId: "CKUEuVYINQ8"
 videoTitle: "‘Emergency rescue’ of Marineland’s remaining belugas has begun"
 thumbnail: "https://img.youtube.com/vi/CKUEuVYINQ8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. government approves emergency rescue of belugas from Marineland in Niagara Falls, Ont."
     url: "https://www.cbc.ca/news/canada/hamilton/marineland-beluga-whales-rescue-emergency-9.7262853"

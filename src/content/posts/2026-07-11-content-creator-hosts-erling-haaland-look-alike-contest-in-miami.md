@@ -32,6 +32,10 @@ keyMoments:
 videoId: "X-dKrIDD8q8"
 videoTitle: "Content creator hosts an Erlign Haaland look-alike contest in Miami"
 thumbnail: "https://img.youtube.com/vi/X-dKrIDD8q8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Girl who went viral for resembling Norway’s Haaland to host lookalike contest in Miami"
     url: "https://www.miaminewtimes.com/arts-culture/girl-who-went-viral-for-resembling-norways-haaland-is-hosting-a-lookalike-contest-in-miami-40565636/"

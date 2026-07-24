@@ -35,6 +35,10 @@ keyMoments:
 videoId: "_0us5o204Co"
 videoTitle: "Africa's biggest dam is running. So why are millions still in the dark? | DW News"
 thumbnail: "https://img.youtube.com/vi/_0us5o204Co/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Grand Ethiopian Renaissance Dam - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Grand_Ethiopian_Renaissance_Dam"

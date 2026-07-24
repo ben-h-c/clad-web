@@ -38,6 +38,10 @@ keyMoments:
 videoId: "JD7-eTOmo00"
 videoTitle: "'Master of distraction': Sen. Coons say Hegseth 'doesn't have a clear strategy' for Iran"
 thumbnail: "https://img.youtube.com/vi/JD7-eTOmo00/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Pete Hegseth"
     slug: "pete-hegseth"

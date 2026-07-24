@@ -33,6 +33,10 @@ keyMoments:
 videoId: "du24PzQN_T8"
 videoTitle: "'Of Course It's A Security Risk': Jim Himes Decries Use Of Trump's New Air Force One Gifted By Qatar"
 thumbnail: "https://img.youtube.com/vi/du24PzQN_T8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump flies on new Air Force One worth $400 million gifted by Qatar"
     url: "https://apnews.com/article/trump-air-force-one-plane-qatar-8eb5da68e95d583b14811f85e62cbcd1"

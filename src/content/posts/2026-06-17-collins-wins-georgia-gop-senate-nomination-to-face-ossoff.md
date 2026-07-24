@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Z4zzde8s3ds"
 videoTitle: "BREAKING: Collins wins GOP nomination for Georgia senate race against Ossoff"
 thumbnail: "https://img.youtube.com/vi/Z4zzde8s3ds/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Rep. Mike Collins wins GOP runoff in Georgia Senate race"
     url: "https://www.nbcnews.com/politics/2026-election/georgia-senate-midterms-primary-winner-collins-rcna350028"

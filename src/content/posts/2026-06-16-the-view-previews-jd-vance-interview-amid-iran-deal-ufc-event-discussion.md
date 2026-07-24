@@ -40,6 +40,10 @@ keyMoments:
 videoId: "Zh73awaI1iQ"
 videoTitle: "Alyssa Farah Griffin Previews 'The View' Interview With Vice Pres. JD Vance"
 thumbnail: "https://img.youtube.com/vi/Zh73awaI1iQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The View Full Broadcast – June 15, 2026"
     url: "https://www.youtube.com/watch?v=kaSeYDxJz0I"

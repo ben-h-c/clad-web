@@ -36,6 +36,10 @@ keyMoments:
 videoId: "_XUY9UlL7iE"
 videoTitle: "Man accused in potential New York City hate crime stabbing"
 thumbnail: "https://img.youtube.com/vi/_XUY9UlL7iE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2 Men Stabbed on Upper West Side in Possible Hate Crime"
     url: "https://www.nytimes.com/2026/07/23/nyregion/nyc-central-park-west-stabbing.html"

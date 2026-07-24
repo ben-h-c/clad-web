@@ -38,6 +38,10 @@ keyMoments:
 videoId: "ok9kJYRoe98"
 videoTitle: "Here are the five things you need to know right now."
 thumbnail: "https://img.youtube.com/vi/ok9kJYRoe98/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Report says UK PM Starmer ready to quit, but source says he is still focused on the job"
     url: "https://www.reuters.com/world/uk/uk-pm-starmer-expected-resign-monday-set-out-orderly-exit-observer-newspaper-2026-06-20/"

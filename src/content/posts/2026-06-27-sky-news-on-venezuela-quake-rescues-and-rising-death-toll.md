@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Kkxod85QnQ8"
 videoTitle: "'Hope diminished' as Venezuela earthquake death toll rises"
 thumbnail: "https://img.youtube.com/vi/Kkxod85QnQ8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela earthquakes death toll climbs as rescue efforts continue"
     url: "https://www.npr.org/2026/06/26/nx-s1-5870651/venezuela-earthquakes-caracas"

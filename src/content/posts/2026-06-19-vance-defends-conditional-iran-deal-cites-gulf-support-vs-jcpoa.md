@@ -32,6 +32,10 @@ keyMoments:
 videoId: "B8CT1sAMZrY"
 videoTitle: "JD Vance Asked If Current Iranian Leadership Will 'Fundamentally' Alter Their Long-Term Behavior"
 thumbnail: "https://img.youtube.com/vi/B8CT1sAMZrY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Vance Issues Blunt Warning to Israel as He Defends Trump’s Deal"
     url: "https://www.nytimes.com/live/2026/06/18/world/iran-war-trump-us-deal"

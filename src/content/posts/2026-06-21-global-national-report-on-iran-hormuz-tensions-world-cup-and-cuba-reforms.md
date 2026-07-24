@@ -35,6 +35,10 @@ keyMoments:
 videoId: "qLY-Hx4woaA"
 videoTitle: "Global National: June 20, 2026 | Iran closes Strait of Hormuz again"
 thumbnail: "https://img.youtube.com/vi/qLY-Hx4woaA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: Iran and US make opposing claims on Strait of Hormuz ahead of talks in Switzerland"
     url: "https://www.cnn.com/2026/06/20/world/live-news/iran-war-trump-israel-lebanon"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "1O_b317JV5Q"
 videoTitle: "Barrett: Cyber security attacks on the Supreme Court have been up"
 thumbnail: "https://img.youtube.com/vi/1O_b317JV5Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Will the mystery of the Dobbs leak ever be solved?"
     url: "https://www.scotusblog.com/2026/03/will-the-mystery-of-the-dobbs-leak-ever-be-solved/"

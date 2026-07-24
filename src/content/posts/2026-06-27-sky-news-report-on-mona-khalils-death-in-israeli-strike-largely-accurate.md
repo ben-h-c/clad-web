@@ -35,6 +35,10 @@ keyMoments:
 videoId: "dKrwBmze2to"
 videoTitle: "Israeli strike kills 'Lebanon's conservation Queen'"
 thumbnail: "https://img.youtube.com/vi/dKrwBmze2to/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Lebanese turtle conservationist Mona Khalil killed by Israeli strike"
     url: "https://www.bbc.com/news/articles/cwylx1vq18zo"

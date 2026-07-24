@@ -31,6 +31,10 @@ keyMoments:
 videoId: "-Ebqa32_TPA"
 videoTitle: "Australian man charged with murder after Thai girl’s body found inside suitcase"
 thumbnail: "https://img.youtube.com/vi/-Ebqa32_TPA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Australian man charged with murder after dead girl found in suitcase in Thailand"
     url: "https://www.bbc.com/news/articles/cd0my5zy821o"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "871iaML0ZEE"
 videoTitle: "ICE officer kills motorist in Maine; the second fatality in a week"
 thumbnail: "https://img.youtube.com/vi/871iaML0ZEE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "ICE officer who fatally shot driver in Maine was ‘fearing for public safety,’ agency says"
     url: "https://apnews.com/article/ice-shooting-maine-immigration-dhs-f26f8c2256aa6f0748582ea4adbb515c"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "KaaLjP-L7mE"
 videoTitle: "Market Talk: Can Burnham revive Britain’s stock market?"
 thumbnail: "https://img.youtube.com/vi/KaaLjP-L7mE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Europe Stocks: current P/E Ratio"
     url: "https://worldperatio.com/area/europe/"

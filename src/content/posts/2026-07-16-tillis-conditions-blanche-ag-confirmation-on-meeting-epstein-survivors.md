@@ -32,6 +32,10 @@ keyMoments:
 videoId: "4ZekTq2nTuw"
 videoTitle: "WATCH: Tillis says he won't vote to confirm Blanche unless nominee meets with Epstein survivors"
 thumbnail: "https://img.youtube.com/vi/4ZekTq2nTuw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Thom Tillis"
     slug: "thom-tillis"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "x-IvqdglyIQ"
 videoTitle: "British prime minister announces ban on social media for kids under 16"
 thumbnail: "https://img.youtube.com/vi/x-IvqdglyIQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Britain unveils sweeping ban on social media for under-16s"
     url: "https://www.nbcnews.com/world/united-kingdom/keir-starmer-social-media-restrictions-rcna350037"

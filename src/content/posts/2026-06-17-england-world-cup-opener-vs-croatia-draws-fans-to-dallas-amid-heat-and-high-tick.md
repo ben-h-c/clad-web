@@ -34,6 +34,10 @@ keyMoments:
 videoId: "4SnzSE_VCIU"
 videoTitle: "England ready for Croatia as thousands of fans arrive in Texas"
 thumbnail: "https://img.youtube.com/vi/4SnzSE_VCIU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "England vs Croatia | First Stage | FIFA World Cup 2026™"
     url: "https://www.fifa.com/en/match-centre/match/17/285023/289273/400021507"

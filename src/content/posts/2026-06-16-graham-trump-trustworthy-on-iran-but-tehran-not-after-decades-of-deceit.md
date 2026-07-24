@@ -33,6 +33,10 @@ keyMoments:
 videoId: "E56P1iKOhD8"
 videoTitle: "Lindsey Graham Asked Straight-Up: Can Trump And Iran Be Trusted To Come To 'A Good Deal?'"
 thumbnail: "https://img.youtube.com/vi/E56P1iKOhD8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump: Iran will suffer 'ultimate consequences' if it reneges on peace deal"
     url: "https://www.foxnews.com/live-news/trump-consequences-iran-peace-deal-nuclear-aspirations-mou-june-16"

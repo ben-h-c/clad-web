@@ -35,6 +35,10 @@ keyMoments:
 videoId: "kJFCtMk-qCA"
 videoTitle: "Trump \"at great risk of losing\" negotiations with Iran, expert says"
 thumbnail: "https://img.youtube.com/vi/kJFCtMk-qCA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. and Iran Reach Agreement to Reopen Strait and Begin Nuclear Talks"
     url: "https://www.nytimes.com/2026/06/14/world/middleeast/us-iran-deal-strait-of-hormuz.html"

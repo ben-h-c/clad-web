@@ -35,6 +35,10 @@ keyMoments:
 videoId: "y5kDp0DPylM"
 videoTitle: "Tom Homan: I’m scared to DEATH…"
 thumbnail: "https://img.youtube.com/vi/y5kDp0DPylM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Alexandria Ocasio-Cortez"
     slug: "alexandria-ocasio-cortez"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "pbhglYA2IPY"
 videoTitle: "Europe's heatwave pushes the most vulnerable to the limit | DW News"
 thumbnail: "https://img.youtube.com/vi/pbhglYA2IPY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Records fall as extreme heat grips Europe"
     url: "https://wmo.int/media/news/records-fall-extreme-heat-grips-europe"

@@ -28,6 +28,10 @@ keyMoments:
 videoId: "3RcGzhbeQpU"
 videoTitle: "\"For your safety, all guests must seek shelter\""
 thumbnail: "https://img.youtube.com/vi/3RcGzhbeQpU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "PRESIDENT DONALD J. TRUMP TO HEADLINE FREEDOM 250'S HISTORIC MOUNT RUSHMORE CELEBRATION"
     url: "https://freedom250.org/media-center/press-release/freedom-250-president-trump-mount-rushmore-celebration"

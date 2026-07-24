@@ -40,6 +40,10 @@ keyMoments:
 videoId: "1KSfwF7JWnU"
 videoTitle: "Stanton Warns Hormuz Closure Hurts Economy"
 thumbnail: "https://img.youtube.com/vi/1KSfwF7JWnU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Greg Stanton"
     slug: "greg-stanton"

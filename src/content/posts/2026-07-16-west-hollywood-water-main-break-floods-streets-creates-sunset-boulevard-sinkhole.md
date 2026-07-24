@@ -34,6 +34,10 @@ keyMoments:
 videoId: "yIZLOJFVtCM"
 videoTitle: "Dangerous waters sweep through West Hollywood "
 thumbnail: "https://img.youtube.com/vi/yIZLOJFVtCM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sunset Strip flooded by ruptured 110-year-old water line, another blow to L.A.'s ancient infrastructure"
     url: "https://www.latimes.com/california/story/2026-07-16/weho-water-main-break"

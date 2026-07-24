@@ -36,6 +36,10 @@ keyMoments:
 videoId: "schoPGyiO7c"
 videoTitle: "Ben Ferguson: AOC was a joke, this is serious"
 thumbnail: "https://img.youtube.com/vi/schoPGyiO7c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Democratic socialists ride wave of momentum in primaries from New York to Colorado"
     url: "https://www.theguardian.com/us-news/2026/jul/01/mamdani-new-york-democratic-socialist"

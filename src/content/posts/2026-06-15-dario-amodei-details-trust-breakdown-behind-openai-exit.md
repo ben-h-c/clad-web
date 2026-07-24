@@ -31,6 +31,10 @@ keyMoments:
 videoId: "i-si8mCvIRo"
 videoTitle: "Beyond OpenAI’s Walls⚡🚀 #inspiration #openai #technology"
 thumbnail: "https://img.youtube.com/vi/i-si8mCvIRo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Anthropic's CEO says why he quit his job at OpenAI to start ..."
     url: "https://finance.yahoo.com/news/anthropic-ceo-says-why-quit-194409797.html"

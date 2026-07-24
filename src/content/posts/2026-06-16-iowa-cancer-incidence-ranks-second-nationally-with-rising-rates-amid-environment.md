@@ -37,6 +37,10 @@ keyMoments:
 videoId: "HtND1E712Os"
 videoTitle: "As cancer rates fall nationally, Iowa sees a troubling rise in diagnoses"
 thumbnail: "https://img.youtube.com/vi/HtND1E712Os/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Incidence Rates - State Cancer Profiles"
     url: "https://statecancerprofiles.cancer.gov/incidencerates/index.php?stateFIPS=00&areatype=state&cancer=001&stage=999&race=00&sex=0&age=001&year=0&type=incd&sortVariableName=rate&sortOrder=desc"

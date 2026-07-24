@@ -34,6 +34,10 @@ keyMoments:
 videoId: "dJ9zL1JbRJc"
 videoTitle: "FBI investigating shooting involving federal agents near U.S.-Canada border in Washington"
 thumbnail: "https://img.youtube.com/vi/dJ9zL1JbRJc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Border Patrol agent shoots, injures person in Blaine near Canadian border"
     url: "https://www.king5.com/article/news/local/fbi-investigating-border-patrol-involved-shooting-blaine/281-9c402f53-10b9-4012-aaab-9d3176f288fe"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "Z73TF4b-L9k"
 videoTitle: "&#39;They&#39;ll Add More Jails&#39;: Carlos Gimenez Claims Democratic Socialists Will Jail Political Dissidents"
 thumbnail: "https://img.youtube.com/vi/Z73TF4b-L9k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Carlos A. Gimenez"
     slug: "carlos-a-gimenez"

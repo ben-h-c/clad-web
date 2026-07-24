@@ -39,6 +39,10 @@ keyMoments:
 videoId: "kiboO5WsapE"
 videoTitle: "Redistricting #lastweektonight"
 thumbnail: "https://img.youtube.com/vi/kiboO5WsapE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Redistricting in Texas ahead of the 2026 elections"
     url: "https://ballotpedia.org/Redistricting_in_Texas_ahead_of_the_2026_elections"

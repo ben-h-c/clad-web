@@ -36,6 +36,10 @@ keyMoments:
 videoId: "QRmGL5c9wsU"
 videoTitle: "HFC Chair Harris on government funding, immigration and redistricting"
 thumbnail: "https://img.youtube.com/vi/QRmGL5c9wsU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Andy Harris"
     slug: "andy-harris"

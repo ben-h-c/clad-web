@@ -35,6 +35,10 @@ keyMoments:
 videoId: "S-TYccqy-Yw"
 videoTitle: "MASSIVE CRACKDOWN: Labor sec drops AGGRESSIVE fraud enforcement BOMBSHELL"
 thumbnail: "https://img.youtube.com/vi/S-TYccqy-Yw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Acting Secretary of Labor Keith Sonderling"
     url: "https://www.dol.gov/agencies/osec/keith-sonderling"

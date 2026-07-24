@@ -34,6 +34,10 @@ keyMoments:
 videoId: "WLEZsLTMR60"
 videoTitle: "Xi pitches China as leader of new global AI order"
 thumbnail: "https://img.youtube.com/vi/WLEZsLTMR60/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "China's Xi to outline AI diplomacy vision at key Shanghai forum"
     url: "https://www.reuters.com/world/china/chinas-xi-outline-ai-diplomacy-vision-key-shanghai-forum-2026-07-16/"

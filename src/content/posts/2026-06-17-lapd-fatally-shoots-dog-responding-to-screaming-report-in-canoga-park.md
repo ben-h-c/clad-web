@@ -33,6 +33,10 @@ keyMoments:
 videoId: "0-nAtrvB5gQ"
 videoTitle: "Dog fatally shot by LAPD after reports of screaming inside an apartment building Saturday #shorts"
 thumbnail: "https://img.youtube.com/vi/0-nAtrvB5gQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Dog fatally shot by LAPD officers in San Fernando Valley after responding to report of 'screaming woman'"
     url: "https://www.cbsnews.com/losangeles/news/canoga-park-jameson-dog-shot-by-lapd/"

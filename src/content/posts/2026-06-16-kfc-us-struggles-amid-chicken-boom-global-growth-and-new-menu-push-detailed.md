@@ -35,6 +35,10 @@ keyMoments:
 videoId: "vwOxJJ80t3k"
 videoTitle: "Why KFC Has Fallen Behind In The U.S."
 thumbnail: "https://img.youtube.com/vi/vwOxJJ80t3k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "KFC's US sales fall behind Raising Cane's, Wingstop"
     url: "https://www.restaurantdive.com/news/kfc-raising-canes-wingstop-us-chicken-market-share/745868/"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "iR_XLS6tOVM"
 videoTitle: "GBN Tonight | Thursday 18th June"
 thumbnail: "https://img.youtube.com/vi/iR_XLS6tOVM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Teacher guilty of abusing and murdering adopted baby boy"
     url: "https://www.bbc.com/news/articles/cvgld0vywpmo"

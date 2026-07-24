@@ -37,6 +37,10 @@ keyMoments:
 videoId: "2dr7qZ2g9f8"
 videoTitle: "Rep. Raskin will force GOP to take a stand against Trump’s ‘MAGA millionaire’ slush fund"
 thumbnail: "https://img.youtube.com/vi/2dr7qZ2g9f8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US judge blocks Trump's executive order restricting mail-in voting"
     url: "https://www.reuters.com/world/us-judge-blocks-trumps-mail-in-voting-executive-order-2026-06-25/"

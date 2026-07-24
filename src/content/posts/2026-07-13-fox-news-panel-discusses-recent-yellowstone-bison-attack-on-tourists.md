@@ -35,6 +35,10 @@ keyMoments:
 videoId: "uBRujGScIbk"
 videoTitle: "Tyrus: Getting hit by a bison is like getting hit by a 'FREIGHT TRAIN'"
 thumbnail: "https://img.youtube.com/vi/uBRujGScIbk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bison attacks tourist at Yellowstone Park"
     url: "https://www.youtube.com/watch?v=6jNugfzptu8"

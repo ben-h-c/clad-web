@@ -35,6 +35,10 @@ keyMoments:
 videoId: "j5kmtvXdfwA"
 videoTitle: "Brian Tyler Cohen on how Democrats can seize power after Trump | CUOMO"
 thumbnail: "https://img.youtube.com/vi/j5kmtvXdfwA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Day After by Brian Tyler Cohen"
     url: "https://www.harpercollins.com/pages/thedayafter"

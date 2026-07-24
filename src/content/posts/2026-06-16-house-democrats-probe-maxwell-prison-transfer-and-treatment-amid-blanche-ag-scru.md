@@ -34,6 +34,10 @@ keyMoments:
 videoId: "fx8yAwZdhp0"
 videoTitle: "House staffers to visit convicted Epstein accomplice Ghislaine Maxwell's prison today"
 thumbnail: "https://img.youtube.com/vi/fx8yAwZdhp0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ghislaine Maxwell moved from Florida to women's prison in Texas"
     url: "https://www.bbc.com/news/articles/czd049y2qymo"

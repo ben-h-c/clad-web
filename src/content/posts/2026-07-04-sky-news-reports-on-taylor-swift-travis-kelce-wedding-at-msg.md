@@ -34,6 +34,10 @@ keyMoments:
 videoId: "-gGSefIPVRo"
 videoTitle: "Taylor and Travis are officially married! Here's what we know"
 thumbnail: "https://img.youtube.com/vi/-gGSefIPVRo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "After weeks of speculation, Taylor Swift, Travis Kelce wed in New York"
     url: "https://www.npr.org/2026/07/03/nx-s1-5877361/taylor-swift-travis-kelce-wedding-msg"

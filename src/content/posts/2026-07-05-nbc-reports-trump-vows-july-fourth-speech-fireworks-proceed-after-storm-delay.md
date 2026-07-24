@@ -35,6 +35,10 @@ keyMoments:
 videoId: "l_nwN811Ebc"
 videoTitle: "Trump says he will speak 'no matter what' on July Fourth"
 thumbnail: "https://img.youtube.com/vi/l_nwN811Ebc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "America’s 250th: Trump to speak after July Fourth events disrupted by severe weather"
     url: "https://www.nbcnews.com/news/us-news/live-blog/america-250-july-4-trump-live-updates-rcna352956"

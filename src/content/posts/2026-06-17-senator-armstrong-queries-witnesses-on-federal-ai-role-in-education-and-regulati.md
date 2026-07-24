@@ -34,6 +34,10 @@ keyMoments:
 videoId: "KoqKtOQ1udg"
 videoTitle: "Alan Armstrong: 'What We Can Do From A Federal Perspective Is Really Critical' With Regulating AI"
 thumbnail: "https://img.youtube.com/vi/KoqKtOQ1udg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Schools and Libraries Cybersecurity Pilot Program"
     url: "https://www.fcc.gov/cybersecurity-pilot-program"

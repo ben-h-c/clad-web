@@ -39,6 +39,10 @@ keyMoments:
 videoId: "LqTbhW98TkM"
 videoTitle: "'What Exactly Did We Get Out Of Trump's Failed War?': Schumer Demands Release Of Iran Deal Details"
 thumbnail: "https://img.youtube.com/vi/LqTbhW98TkM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sen. Chuck Schumer demands details on Donald Trump's ..."
     url: "https://thehill.com/homenews/senate/5924890-schumer-trump-iran-deal/"

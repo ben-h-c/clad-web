@@ -39,6 +39,10 @@ keyMoments:
 videoId: "txt4abf5TXs"
 videoTitle: "With Trump’s Iran War Almost Over, Why Is US Building A Major Military Base Near Gaza Strip? |Israel"
 thumbnail: "https://img.youtube.com/vi/txt4abf5TXs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US building military base on Gaza border with no clear purpose"
     url: "https://www.israelhayom.com/2026/06/10/us-building-military-base-on-gaza-border-with-no-clear-purpose/"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "yV7qZiTFZLg"
 videoTitle: "BREAKING: GOP senator announces bill to end birthright citizenship after SCOTUS ruling"
 thumbnail: "https://img.youtube.com/vi/yV7qZiTFZLg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "S.1351 - Immigration Stabilization Act of 1993"
     url: "https://www.congress.gov/bill/103rd-congress/senate-bill/1351"

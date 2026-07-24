@@ -35,6 +35,10 @@ keyMoments:
 videoId: "DoHxu4zSl3c"
 videoTitle: "Trump: \"Too many people are being killed\" in Lebanon"
 thumbnail: "https://img.youtube.com/vi/DoHxu4zSl3c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Why Trump’s proposal for Syria to fight Hezbollah will send shudders across Lebanon"
     url: "https://www.cnn.com/2026/06/16/world/trump-syria-lebanon-hezbollah-analysis-intl"

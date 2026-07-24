@@ -36,6 +36,10 @@ keyMoments:
 videoId: "750YPqyh8uk"
 videoTitle: "Delhi police fire tear gas, thousands protest Modi government"
 thumbnail: "https://img.youtube.com/vi/750YPqyh8uk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 NEET controversy"
     url: "https://en.wikipedia.org/wiki/2026_NEET_controversy"

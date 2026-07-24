@@ -40,6 +40,10 @@ keyMoments:
 videoId: "zE7lTw8unsg"
 videoTitle: "'BULLY OF THE NEIGHBORHOOD': Netanyahu adviser measures the escalating conflict in Iran"
 thumbnail: "https://img.youtube.com/vi/zE7lTw8unsg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Marco Rubio"
     slug: "marco-rubio"

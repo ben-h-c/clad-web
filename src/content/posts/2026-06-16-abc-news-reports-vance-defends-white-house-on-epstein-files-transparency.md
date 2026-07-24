@@ -31,6 +31,10 @@ keyMoments:
 videoId: "MJhH-7vgt5g"
 videoTitle: "VP Vance says White House has been transparent about Epstein Investigation"
 thumbnail: "https://img.youtube.com/vi/MJhH-7vgt5g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Inside the White House Freakout Over the Epstein Files"
     url: "https://www.nytimes.com/2026/06/10/magazine/trump-epstein-files-white-house-vance-doj.html"

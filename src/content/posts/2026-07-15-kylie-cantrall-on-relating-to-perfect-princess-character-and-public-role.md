@@ -28,6 +28,10 @@ keyMoments:
 videoId: "d6LGu0X0Na8"
 videoTitle: "Kylie Cantrall aims to 'lead by example'"
 thumbnail: "https://img.youtube.com/vi/d6LGu0X0Na8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Kylie Cantrall aims to 'lead by example'"
     url: "https://www.youtube.com/watch?v=d6LGu0X0Na8"

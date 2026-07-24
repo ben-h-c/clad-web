@@ -32,6 +32,10 @@ keyMoments:
 videoId: "vdrgbEx8GAk"
 videoTitle: "'It's Time To Get Up, Dammit!': Joe Biden Sends Message To Americans During Trump Administration"
 thumbnail: "https://img.youtube.com/vi/vdrgbEx8GAk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Biden rallies Democrats, slams Trump at Maryland Democratic Party gala"
     url: "https://marylandmatters.org/2026/06/28/biden-rallies-democrats-slams-trump-at-maryland-democratic-party-gala/"

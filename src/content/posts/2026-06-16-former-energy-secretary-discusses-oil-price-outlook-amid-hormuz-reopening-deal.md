@@ -36,6 +36,10 @@ keyMoments:
 videoId: "AG5cXKG9Fao"
 videoTitle: "Former Energy Secretary predicts ‘DRAMATIC’ price drop if Strait of Hormuz fully reopens"
 thumbnail: "https://img.youtube.com/vi/AG5cXKG9Fao/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Short-Term Energy Outlook"
     url: "https://www.eia.gov/outlooks/steo/"

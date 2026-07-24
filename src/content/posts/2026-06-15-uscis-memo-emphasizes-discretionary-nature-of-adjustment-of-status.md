@@ -35,6 +35,10 @@ keyMoments:
 videoId: "eV0Jc1lxqLk"
 videoTitle: "🚨 JUNE 12 USCIS MEMO UPDATE: This is Worse Than We Expected"
 thumbnail: "https://img.youtube.com/vi/eV0Jc1lxqLk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Policy Memorandum: Adjustment of Status is a Matter of Discretion and Administrative Grace, and an Extraordinary Relief that Permits Applicants to Dispense with the Ordinary Consular Visa Process (PM-602-0199)"
     url: "https://www.uscis.gov/sites/default/files/document/memos/PM-602-0199-AdjustmentOfStatusAndDiscretion-20260521.pdf"

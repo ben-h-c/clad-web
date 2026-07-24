@@ -35,6 +35,10 @@ keyMoments:
 videoId: "WiCg4CsrkY4"
 videoTitle: "Why Apple CEO Tim Cook Says Prices Will Increase"
 thumbnail: "https://img.youtube.com/vi/WiCg4CsrkY4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Exclusive | Apple to Raise Prices Due to Memory Chip Crunch, Tim Cook Says"
     url: "https://www.wsj.com/tech/apple-price-increases-memory-supply-199845b1"

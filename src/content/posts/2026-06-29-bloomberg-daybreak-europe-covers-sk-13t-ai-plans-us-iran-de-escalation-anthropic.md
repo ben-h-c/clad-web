@@ -32,6 +32,10 @@ keyMoments:
 videoId: "VkAyRmGx1UE"
 videoTitle: "South Korea Confirms Over $1 Trillion in AI Spending | Daybreak Europe 6/29/2026"
 thumbnail: "https://img.youtube.com/vi/VkAyRmGx1UE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Samsung, SK Prep Record Spending to Sustain Korea's AI Lead"
     url: "https://www.bloomberg.com/news/articles/2026-06-28/samsung-sk-reportedly-to-invest-1-3-trillion-over-10-years"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "1aXznnQAWac"
 videoTitle: "Paul Mauro: Far-left violence has been ‘EXCUSED’ by the media"
 thumbnail: "https://img.youtube.com/vi/1aXznnQAWac/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Marco Rubio"
     slug: "marco-rubio"

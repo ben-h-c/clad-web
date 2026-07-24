@@ -35,6 +35,10 @@ keyMoments:
 videoId: "dz2GuIBBvPc"
 videoTitle: "Mike Flood Asks Russell Vought: Would CFPB Oversight Be Better If It Weren't Independently Funded?"
 thumbnail: "https://img.youtube.com/vi/dz2GuIBBvPc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

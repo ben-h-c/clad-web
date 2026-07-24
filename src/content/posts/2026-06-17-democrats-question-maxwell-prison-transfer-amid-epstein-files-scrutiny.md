@@ -37,6 +37,10 @@ keyMoments:
 videoId: "O7pq371SVYw"
 videoTitle: "Top Oversight Dem reveals 'critical' info staffers learned while visiting Maxwell's prison"
 thumbnail: "https://img.youtube.com/vi/O7pq371SVYw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ghislaine Maxwell moved to women's prison in Texas"
     url: "https://www.bbc.com/news/articles/czd049y2qymo"

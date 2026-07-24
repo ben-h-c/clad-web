@@ -34,6 +34,10 @@ keyMoments:
 videoId: "RX2okIMCK8Q"
 videoTitle: "Heavy rains kill at least 12 in Ghana floods"
 thumbnail: "https://img.youtube.com/vi/RX2okIMCK8Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Over 7,700 households displaced, seven missing as June records highest monthly rainfall in Ghana's history"
     url: "https://www.graphic.com.gh/news/general-news/over-7-700-households-displaced-seven-missing-as-june-records-highest-monthly-rainfall-in-ghanas-history.html"

@@ -28,6 +28,10 @@ keyMoments:
 videoId: "ZErYgqELlII"
 videoTitle: "China Sentences Official to Death Over $325 Million in Bribes"
 thumbnail: "https://img.youtube.com/vi/ZErYgqELlII/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "China sentences official to death for taking $325m in bribes"
     url: "https://www.bbc.com/news/articles/c33y0n1v1xjo"

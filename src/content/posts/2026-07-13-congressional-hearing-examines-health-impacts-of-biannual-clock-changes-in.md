@@ -36,6 +36,10 @@ keyMoments:
 videoId: "S5id4r3N9_8"
 videoTitle: "Erin Houchin Asks Brett Guthrie: What Are The Health Downsides To Changing The Clock To And From DST"
 thumbnail: "https://img.youtube.com/vi/S5id4r3N9_8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "7 Things to Know About Daylight Saving Time | Johns Hopkins"
     url: "https://publichealth.jhu.edu/2023/7-things-to-know-about-daylight-saving-time"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "YuN3S6qSu7o"
 videoTitle: "Trump says he doesn't want CUSMA, but might sign it"
 thumbnail: "https://img.youtube.com/vi/YuN3S6qSu7o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump threatens not to renew trade deal with Canada, Mexico"
     url: "https://www.cbc.ca/news/politics/trump-cusma-usmca-trade-renew-9.7230164"

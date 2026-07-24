@@ -37,6 +37,10 @@ keyMoments:
 videoId: "T94gOc1xwx4"
 videoTitle: "China Arrests U.S. Citizen 1 Month After Trump Xi Summit | China in Focus"
 thumbnail: "https://img.youtube.com/vi/T94gOc1xwx4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "China Arrests U.S. Scholar on Spying Charge"
     url: "https://www.nytimes.com/2026/06/11/us/politics/china-arrests-us-scholar.html"

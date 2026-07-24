@@ -37,6 +37,10 @@ keyMoments:
 videoId: "eDXL9vnwGys"
 videoTitle: "DIPLOMACY OR DEADLOCK: Iran threatens key shipping lane as Trump touts 'very good meetings'"
 thumbnail: "https://img.youtube.com/vi/eDXL9vnwGys/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran refuses more US talks as Qatar says no high-level meetings are taking place"
     url: "https://www.foxnews.com/live-news/us-iran-doha-qatar-war-peace-talks-hormuz-strait-june-30"

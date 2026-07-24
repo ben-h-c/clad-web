@@ -34,6 +34,10 @@ keyMoments:
 videoId: "WvzX5cJeHhI"
 videoTitle: "Magic moments when TV cameras started rolling decades ago"
 thumbnail: "https://img.youtube.com/vi/WvzX5cJeHhI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Halle Berry becomes first Black woman to win Best Actress Oscar"
     url: "https://www.history.com/this-day-in-history/march-24/halle-berry-first-black-woman-to-win-best-actress-oscar"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "U-ttsVwxVsM"
 videoTitle: "Dealing with Iran is like 'teaching a child how to behave': Former national security adviser"
 thumbnail: "https://img.youtube.com/vi/U-ttsVwxVsM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US releases official agreement with Iran"
     url: "https://www.cnn.com/2026/06/17/middleeast/us-iran-war-mou-text-intl"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "FJ2JQhA51OQ"
 videoTitle: "Pete Hegseth Faces Tough Questions From Chrissy Houlahan In Heated Exchange"
 thumbnail: "https://img.youtube.com/vi/FJ2JQhA51OQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Chrissy Houlahan"
     slug: "chrissy-houlahan"

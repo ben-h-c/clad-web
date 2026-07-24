@@ -36,6 +36,10 @@ keyMoments:
 videoId: "lJSQA8c7yV4"
 videoTitle: "'NOT THE AMERICAN DREAM': Homeownership costs SURGE across the board"
 thumbnail: "https://img.youtube.com/vi/lJSQA8c7yV4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "See How Owning a Home Is Getting More Expensive in Every Way"
     url: "https://www.wsj.com/economy/housing/home-ownership-costs-charts-7fe04eb3"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "7O_XdesiMCE"
 videoTitle: "A wave of Russian missiles and drones kill at least 21 people | DW News"
 thumbnail: "https://img.youtube.com/vi/7O_XdesiMCE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russian attack on Kyiv kills at least 27, injures scores"
     url: "https://www.dw.com/en/russia-launches-attacks-on-kyiv-killing-at-least-27-and-injuring-scores/a-77794194"

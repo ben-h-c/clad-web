@@ -36,6 +36,10 @@ keyMoments:
 videoId: "xbkSJ1nw8XE"
 videoTitle: "'FELONY': Lawmaker pushes CRACKDOWN on birth tourism"
 thumbnail: "https://img.youtube.com/vi/xbkSJ1nw8XE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Texas Lawmaker Calls for Special Session To End Birth Tourism"
     url: "https://texasscorecard.com/state/texas-lawmaker-calls-for-special-session-to-end-birth-tourism/"

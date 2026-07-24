@@ -37,6 +37,10 @@ keyMoments:
 videoId: "iQ94OEnEd7w"
 videoTitle: "5 arrested over plot to attack White House UFC event, DOJ says"
 thumbnail: "https://img.youtube.com/vi/iQ94OEnEd7w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Teen among arrested in plot to attack White House UFC event"
     url: "https://www.espn.com/mma/story/_/id/49081439/fbi-arrests-suspects-planned-attacks-white-house-ufc-event"

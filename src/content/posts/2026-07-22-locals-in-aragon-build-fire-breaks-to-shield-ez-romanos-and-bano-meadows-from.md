@@ -29,6 +29,10 @@ keyMoments:
 videoId: "5mZPitWf_Go"
 videoTitle: "Neighbors unite to protect their town from wildfires in Spain"
 thumbnail: "https://img.youtube.com/vi/5mZPitWf_Go/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A wildfire in Spain's northern Aragón region burned more than ..."
     url: "https://www.facebook.com/Reuters/videos/wildfire-burns-over-38000-acres-in-northern-spain/1341747181469841/"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "fd09t9ZNjK0"
 videoTitle: "The cast of 'The Bear' celebrate the show's final season"
 thumbnail: "https://img.youtube.com/vi/fd09t9ZNjK0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'The Bear' cast and crew reunite at Season 5 premiere in New York City"
     url: "https://abc7ny.com/post/bear-season-5-premiere-held-nyc-ahead-june-25-release-hulu-fx/19305537/"

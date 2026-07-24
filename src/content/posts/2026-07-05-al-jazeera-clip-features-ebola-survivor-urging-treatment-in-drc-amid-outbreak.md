@@ -32,6 +32,10 @@ keyMoments:
 videoId: "X-WWLxAPF3Y"
 videoTitle: "Ebola survivor urges Congolese to seek treatment amid misinformation"
 thumbnail: "https://img.youtube.com/vi/X-WWLxAPF3Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ongoing outbreak in the Democratic Republic of the Congo"
     url: "https://www.afro.who.int/health-topics/ebola-disease/outbreak-drc-26"

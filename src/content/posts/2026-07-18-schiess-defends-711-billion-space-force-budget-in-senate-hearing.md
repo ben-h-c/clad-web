@@ -34,6 +34,10 @@ keyMoments:
 videoId: "7LdlAyBdgNE"
 videoTitle: "'Your Budget's Increasing By 124%...': King Asks Trump Nom About His Agency's Budget Amid Deficit"
 thumbnail: "https://img.youtube.com/vi/7LdlAyBdgNE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Angus S. King, Jr."
     slug: "angus-s-king-jr"

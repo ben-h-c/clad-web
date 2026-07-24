@@ -34,6 +34,10 @@ keyMoments:
 videoId: "NhHYzET0fWU"
 videoTitle: "Dating Apps Have a Growing AI ‘Chatfishing’ Problem"
 thumbnail: "https://img.youtube.com/vi/NhHYzET0fWU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'Chatfishing' is a growing dating concern with AI and it could be keeping you single"
     url: "https://www.unilad.com/technology/chatfishing-dating-concern-ai-keeping-you-single-342079-20251016"

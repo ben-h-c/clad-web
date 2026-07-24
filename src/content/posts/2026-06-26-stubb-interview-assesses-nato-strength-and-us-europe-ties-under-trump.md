@@ -40,6 +40,10 @@ keyMoments:
 videoId: "3ujmR8rJZIU"
 videoTitle: "Stubb: NATO is stronger than ever, despite Trump’s tough talk"
 thumbnail: "https://img.youtube.com/vi/3ujmR8rJZIU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Türkiye to host 2026 NATO Summit in Ankara"
     url: "https://www.nato.int/en/news-and-events/articles/news/2025/08/20/turkiye-to-host-2026-nato-summit-in-ankara"

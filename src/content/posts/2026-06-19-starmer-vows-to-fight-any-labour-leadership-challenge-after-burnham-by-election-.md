@@ -31,6 +31,10 @@ keyMoments:
 videoId: "_nKTwzaf564"
 videoTitle: "Keir Starmer 'ready' for any Labour leadership contest"
 thumbnail: "https://img.youtube.com/vi/_nKTwzaf564/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham wins huge majority in Makerfield byelection, paving way for Starmer leadership challenge"
     url: "https://www.theguardian.com/politics/2026/jun/19/andy-burnham-wins-makerfield-byelection-paving-way-labour-leadership-challenge"

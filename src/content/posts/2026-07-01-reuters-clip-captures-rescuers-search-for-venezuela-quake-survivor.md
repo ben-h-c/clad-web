@@ -25,6 +25,10 @@ keyMoments:
 videoId: "Q51gy6qnahc"
 videoTitle: "Between silence and shouts, rescuers dig for Venezuela quake survivors"
 thumbnail: "https://img.youtube.com/vi/Q51gy6qnahc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Between silence and shouts, rescuers dig for Venezuela twin quake survivors"
     url: "https://www.reuters.com/business/environment/hopes-finding-more-survivors-venezuela-earthquakes-fade-2026-06-30/"

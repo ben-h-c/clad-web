@@ -38,6 +38,10 @@ keyMoments:
 videoId: "m0K-nAQPM1Y"
 videoTitle: "Rebel attacks in northern Mali: Some targets meant as 'diversions', expert says • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/m0K-nAQPM1Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What is the Azawad Liberation Front, part of the Mali attacks?"
     url: "https://www.aljazeera.com/news/2026/4/28/what-is-the-azawad-liberation-front-part-of-the-mali-attacks"

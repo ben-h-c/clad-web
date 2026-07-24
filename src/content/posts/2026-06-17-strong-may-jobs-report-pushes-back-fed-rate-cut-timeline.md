@@ -35,6 +35,10 @@ keyMoments:
 videoId: "TzG0CkRryi4"
 videoTitle: "Experts say strong jobs report threatens chance to see interest rate cut"
 thumbnail: "https://img.youtube.com/vi/TzG0CkRryi4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Goldman Sachs pushes Fed rate-cut call to 2027 on strong US jobs data"
     url: "https://www.reuters.com/business/goldman-sachs-pushes-fed-rate-cut-call-2027-strong-us-jobs-data-2026-06-08/"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "qCdFkFUdibc"
 videoTitle: "White House DENIES US will pay for Iran reconstruction fund: 'FAKE NEWS'"
 thumbnail: "https://img.youtube.com/vi/qCdFkFUdibc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump and Vance virtually sign US-Iran agreement"
     url: "https://edition.cnn.com/2026/06/15/world/live-news/iran-war-g7-summit"

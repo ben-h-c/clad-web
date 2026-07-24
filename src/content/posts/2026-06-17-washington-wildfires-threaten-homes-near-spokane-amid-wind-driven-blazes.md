@@ -34,6 +34,10 @@ keyMoments:
 videoId: "2kvPwmmdRVg"
 videoTitle: "Wildfire emergency in Washington state"
 thumbnail: "https://img.youtube.com/vi/2kvPwmmdRVg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Upriver Fire threatening 500 homes in Spokane Co, no containment"
     url: "https://www.kxly.com/news/upriver-fire-threatening-500-homes-in-spokane-co-no-containment/article_ab448bf2-e3d2-47d5-9017-da1dd237906f.html"

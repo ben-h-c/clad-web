@@ -37,6 +37,10 @@ keyMoments:
 videoId: "7TlV04iWR5A"
 videoTitle: "Marco Rubio Rails Against 'Globalist Bureaucrats' At ICC And 'So-Called International Law'"
 thumbnail: "https://img.youtube.com/vi/7TlV04iWR5A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Marco Rubio"
     slug: "marco-rubio"

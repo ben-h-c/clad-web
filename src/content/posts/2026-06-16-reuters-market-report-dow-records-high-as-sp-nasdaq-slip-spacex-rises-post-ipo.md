@@ -34,6 +34,10 @@ keyMoments:
 videoId: "aRjEB6Ry6ec"
 videoTitle: "Nasdaq and S&P 500 slip while Dow hits record high"
 thumbnail: "https://img.youtube.com/vi/aRjEB6Ry6ec/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Nasdaq and S&P 500 slip while Dow hits record close"
     url: "https://www.reuters.com/business/wall-street-futures-subdued-focus-shifts-fed-spacex-jumps-third-day-2026-06-16/"

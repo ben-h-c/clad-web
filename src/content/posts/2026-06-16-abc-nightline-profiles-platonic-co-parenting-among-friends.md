@@ -35,6 +35,10 @@ keyMoments:
 videoId: "DhTHNJzAMfc"
 videoTitle: "Growing trend of best friends co-parenting and raising kids together"
 thumbnail: "https://img.youtube.com/vi/DhTHNJzAMfc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The 'Platonic Life Partners' Raising a Baby in Flatbush"
     url: "https://www.curbed.com/article/platonic-life-partners-baby-flatbush-duplex-living-arrangements.html"

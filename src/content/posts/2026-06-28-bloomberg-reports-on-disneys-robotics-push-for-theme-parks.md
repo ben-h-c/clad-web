@@ -37,6 +37,10 @@ keyMoments:
 videoId: "DbQhvVk9N2I"
 videoTitle: "Disney Theme Parks Get Robot Upgrade"
 thumbnail: "https://img.youtube.com/vi/DbQhvVk9N2I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Disney’s Parks Revamp Includes Aquatic Robots, Star Wars Food-Truck Droids"
     url: "https://www.bloomberg.com/news/features/2026-06-26/disney-s-parks-revamp-includes-aquatic-robots-star-wars-food-truck-droids"

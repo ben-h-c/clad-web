@@ -31,6 +31,10 @@ keyMoments:
 videoId: "lUC1SzwA3wQ"
 videoTitle: "Advocates, lawmakers cheer birthright citizenship ruling"
 thumbnail: "https://img.youtube.com/vi/lUC1SzwA3wQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump v. Barbara"
     url: "https://en.wikipedia.org/wiki/Trump_v._Barbara"

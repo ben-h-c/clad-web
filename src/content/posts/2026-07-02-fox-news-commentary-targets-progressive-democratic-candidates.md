@@ -35,6 +35,10 @@ keyMoments:
 videoId: "zAmbtq7zfZE"
 videoTitle: "Tomi Lahren: These candidates hate America and are transparent about it"
 thumbnail: "https://img.youtube.com/vi/zAmbtq7zfZE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Colorado's 1st Congressional District primary challenger Melat Kiros"
     url: "https://www.coloradopolitics.com/2025/07/09/denver-democrat-diana-degette-draws-primary-challenge-call-for-new-generation-from-melat-kiros-fa6c7d97-e15d-4a61-823b-f483222ccbea/"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "i4p0BkvuzMc"
 videoTitle: "6 beluga whales begin move from MarineLand to US aquariums"
 thumbnail: "https://img.youtube.com/vi/i4p0BkvuzMc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Dozens of Marineland's beluga whales coming to U.S. through international emergency rescue plan"
     url: "https://www.cbsnews.com/news/marineland-beluga-whales-us-emergency-rescue/"

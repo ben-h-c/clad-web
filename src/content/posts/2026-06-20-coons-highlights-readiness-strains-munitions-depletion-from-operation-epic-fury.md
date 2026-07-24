@@ -37,6 +37,10 @@ keyMoments:
 videoId: "_Mc6NL_ij5U"
 videoTitle: "'Recent Operations Have Strained Readiness': Coons Decries Drained Weapons From Operation Epic Fury"
 thumbnail: "https://img.youtube.com/vi/_Mc6NL_ij5U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. Central Command | Operation Epic Fury"
     url: "https://www.centcom.mil/OPERATIONS-AND-EXERCISES/EPIC-FURY/"

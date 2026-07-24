@@ -30,6 +30,10 @@ keyMoments:
 videoId: "EeL01YYtnhI"
 videoTitle: "Russian missile attack strikes Kyiv, damaging homes and killing one"
 thumbnail: "https://img.youtube.com/vi/EeL01YYtnhI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "1 killed, 16 wounded in an overnight Russian attack on Kyiv"
     url: "https://apnews.com/article/russia-ukraine-attack-ballistic-missiles-ddea9c0a10367fc84b3cb563896102e3"

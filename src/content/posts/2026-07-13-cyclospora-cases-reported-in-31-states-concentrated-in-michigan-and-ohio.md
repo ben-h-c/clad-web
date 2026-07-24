@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ntOhr26LR8I"
 videoTitle: "Diarrhea parasite now in 30+ states: What to know about Cyclospora"
 thumbnail: "https://img.youtube.com/vi/ntOhr26LR8I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Surveillance of Cyclosporiasis - CDC"
     url: "https://www.cdc.gov/cyclosporiasis/php/surveillance/index.html"

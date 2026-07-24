@@ -34,6 +34,10 @@ keyMoments:
 videoId: "8gPep-rNEjA"
 videoTitle: "Paul Gosar: This Is Why Invasive Species Removal Is Crucial To Maintaining Forest Health"
 thumbnail: "https://img.youtube.com/vi/8gPep-rNEjA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What is tamarisk? | U.S. Geological Survey"
     url: "https://www.usgs.gov/faqs/what-tamarisk"

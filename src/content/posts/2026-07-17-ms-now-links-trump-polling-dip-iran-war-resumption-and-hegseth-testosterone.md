@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Myu-S-RSQnw"
 videoTitle: "How it ENDS: Trump polling crash WORSE than Jan. 6 as Dem Socialists TROUNCE MAGA brand"
 thumbnail: "https://img.youtube.com/vi/Myu-S-RSQnw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Pete Hegseth"
     slug: "pete-hegseth"

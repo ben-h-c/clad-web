@@ -37,6 +37,10 @@ keyMoments:
 videoId: "se25o10J9so"
 videoTitle: "DISTURBING: Report On Muslim Grooming Gangs Attacking White Girls Unearths INSIDIOUS Plot | Ep. 1798"
 thumbnail: "https://img.youtube.com/vi/se25o10J9so/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Rape Gang Inquiry Report"
     url: "https://static1.squarespace.com/static/6810978a41bbc42489eafa81/t/6a314bb1151e511944bd4421/1781615537601/The+Rape+Gang+Inquiry+Report.pdf"

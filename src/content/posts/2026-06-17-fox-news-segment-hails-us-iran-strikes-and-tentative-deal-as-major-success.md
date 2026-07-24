@@ -33,6 +33,10 @@ keyMoments:
 videoId: "xceq--QlDOo"
 videoTitle: "Military action against Iran was 'IMMENSELY SUCCESSFUL': US Army Special Forces veteran"
 thumbnail: "https://img.youtube.com/vi/xceq--QlDOo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Iran war"
     url: "https://en.wikipedia.org/wiki/2026_Iran_war"

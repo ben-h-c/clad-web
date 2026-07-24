@@ -36,6 +36,10 @@ keyMoments:
 videoId: "vdsio9WgLQE"
 videoTitle: "'Jesse Watters Primetime' hits the Jersey Shore for summer break #summer #shorts #beach"
 thumbnail: "https://img.youtube.com/vi/vdsio9WgLQE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

@@ -28,6 +28,10 @@ keyMoments:
 videoId: "npF1PXco3uY"
 videoTitle: "US, Iran Make Opposing Statements on Talks"
 thumbnail: "https://img.youtube.com/vi/npF1PXco3uY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump announces meeting with Iran in Qatar despite military skirmishes"
     url: "https://www.aljazeera.com/news/2026/6/29/trump-announces-meeting-with-iran-in-qatar-despite-military-skirmishes"

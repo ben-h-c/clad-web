@@ -31,6 +31,10 @@ keyMoments:
 videoId: "IaT_h3bMUEA"
 videoTitle: "Taxpayer money expected to fund half of Trump's White House ballroom project, Washington Post finds"
 thumbnail: "https://img.youtube.com/vi/IaT_h3bMUEA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Records reveal $600M estimate for Trump’s ballroom project, with half from taxpayers"
     url: "https://www.washingtonpost.com/investigations/2026/06/16/records-reveal-600m-estimate-trumps-ballroom-project-with-half-taxpayers/"

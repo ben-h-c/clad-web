@@ -31,6 +31,10 @@ keyMoments:
 videoId: "WM4HGlKkkqo"
 videoTitle: "What to know as a New York building triggers fears of a collapse"
 thumbnail: "https://img.youtube.com/vi/WM4HGlKkkqo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: NYC high-rise unstable after columns buckle"
     url: "https://www.cnn.com/2026/07/07/us/live-news/nyc-pfizer-building-evacuations"

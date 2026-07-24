@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ktOdBrItAIU"
 videoTitle: "America's 911 crisis: Call center outages make it harder to call for help | The Hill"
 thumbnail: "https://img.youtube.com/vi/ktOdBrItAIU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "911 outages reported in several U.S. states"
     url: "https://bnonews.com/index.php/2026/06/911-outages-reported-in-several-states/"

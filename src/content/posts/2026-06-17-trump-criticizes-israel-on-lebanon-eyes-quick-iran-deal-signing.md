@@ -32,6 +32,10 @@ keyMoments:
 videoId: "x4MmvCHF8EI"
 videoTitle: "Trump says he feels 'very bad' for Lebanon and Israel 'could behave better'"
 thumbnail: "https://img.youtube.com/vi/x4MmvCHF8EI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump ‘not happy’ with Israel’s handling of Hezbollah and Lebanon"
     url: "https://apnews.com/video/trump-not-happy-with-israels-handling-of-hezbollah-and-lebanon-b4c52862161b4304a5e9fc1400edfed7"

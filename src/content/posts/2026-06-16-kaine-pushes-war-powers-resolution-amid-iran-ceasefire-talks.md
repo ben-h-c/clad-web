@@ -35,6 +35,10 @@ keyMoments:
 videoId: "v1MGhSqP9dA"
 videoTitle: "'We Are In Day 100 Plus Of This War': Tim Kaine Makes The Case For Iran War Powers Act"
 thumbnail: "https://img.youtube.com/vi/v1MGhSqP9dA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "S.J.Res.59 - 119th Congress (2025-2026): A joint resolution to direct the removal of United States Armed Forces from hostilities against the Islamic Republic of Iran that have not been authorized by Congress."
     url: "https://www.congress.gov/bill/119th-congress/senate-joint-resolution/59"

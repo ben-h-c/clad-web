@@ -38,6 +38,10 @@ keyMoments:
 videoId: "JAPoVntiuYw"
 videoTitle: "Failed Immigration Policy or Lawless Anger? | Global Eye"
 thumbnail: "https://img.youtube.com/vi/JAPoVntiuYw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "In Belfast, riots and mayhem follow alleged stabbing by Sudanese asylum seeker"
     url: "https://www.washingtonpost.com/world/2026/06/10/belfast-riots-mayhem-follow-alleged-stabbing-by-sudanese-asylum-seeker/"

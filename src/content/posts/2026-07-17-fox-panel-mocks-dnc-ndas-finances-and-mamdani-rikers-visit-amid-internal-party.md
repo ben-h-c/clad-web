@@ -39,6 +39,10 @@ keyMoments:
 videoId: "EX8LXDsbYj0"
 videoTitle: "‘Gutfeld!’: Dems are fighting a different kind of civil war…"
 thumbnail: "https://img.youtube.com/vi/EX8LXDsbYj0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "John Fetterman"
     slug: "john-fetterman"

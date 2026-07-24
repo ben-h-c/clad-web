@@ -35,6 +35,10 @@ keyMoments:
 videoId: "65omQIk6Zws"
 videoTitle: "Labour leadership tensions grow after Burnham by-election win"
 thumbnail: "https://img.youtube.com/vi/65omQIk6Zws/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Labour's Andy Burnham wins a special election, setting up a showdown with Starmer to lead Britain"
     url: "https://www.npr.org/2026/06/19/nx-s1-5864087/labour-andy-burnham-wins-special-election"

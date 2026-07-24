@@ -35,6 +35,10 @@ keyMoments:
 videoId: "AYxcdwUo1gQ"
 videoTitle: "Georgia, Alabama primaries to test Trump's influence | NewsNation"
 thumbnail: "https://img.youtube.com/vi/AYxcdwUo1gQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump’s endorsement is on the line again in pivotal Georgia Senate race. See live runoff results."
     url: "https://www.washingtonpost.com/elections/2026/06/16/georgia-primary-runoff-elections-live-results-collins-dooley-vie-senate/"

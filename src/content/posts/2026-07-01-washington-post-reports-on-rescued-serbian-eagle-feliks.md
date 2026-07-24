@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ygWv27pr40s"
 videoTitle: "Feliks the eagle was rescued from kidnapping in cross-border mission"
 thumbnail: "https://img.youtube.com/vi/ygWv27pr40s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Feliks the eagle is back home in Serbia after a kidnap ordeal in the Middle East"
     url: "https://apnews.com/article/serbia-eagle-poachers-middle-east-migration-flight-a686cbf954125cd1c20ceb6ca9984c8f"

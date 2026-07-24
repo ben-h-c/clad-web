@@ -35,6 +35,10 @@ keyMoments:
 videoId: "EaNxBIbN8qE"
 videoTitle: "Biologist explains orcas' fish-smashing behavior captured in new video"
 thumbnail: "https://img.youtube.com/vi/EaNxBIbN8qE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Watch an orca ram a sunfish so hard that the fish explodes"
     url: "https://www.cnn.com/2026/07/23/science/orcas-ramming-sunfish"

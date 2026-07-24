@@ -37,6 +37,10 @@ keyMoments:
 videoId: "SyGU-lu0VbY"
 videoTitle: "Rep. Grothman: Student Loan Reforms Protect Taxpayers and Students"
 thumbnail: "https://img.youtube.com/vi/SyGU-lu0VbY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Glenn Grothman"
     slug: "glenn-grothman"

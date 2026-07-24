@@ -40,6 +40,10 @@ keyMoments:
 videoId: "6zQ-cg6SC_M"
 videoTitle: "‘Meghan Markle Is NASTY, She’s Terrible' | King Charles Reunite With Harry And Family"
 thumbnail: "https://img.youtube.com/vi/6zQ-cg6SC_M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'Sickening': Prince William set to 'seek legal advice' as Prince Harry and Meghan Markle press ahead with Netflix documentary on Princess Diana"
     url: "https://www.skynews.com.au/lifestyle/celebrity-life/sickening-prince-william-set-to-seek-legal-advice-as-prince-harry-and-meghan-markle-press-ahead-with-netflix-documentary-on-princess-diana-30-years-after-her-death/news-story/9c20264bb4291c45b694db398f0d1460"

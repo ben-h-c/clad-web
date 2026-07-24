@@ -38,6 +38,10 @@ keyMoments:
 videoId: "74Qmhr38Gjg"
 videoTitle: "Doctor explains: Why they&#39;re not required to tell us if McConnell is dead"
 thumbnail: "https://img.youtube.com/vi/74Qmhr38Gjg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Andy Beshear"
     slug: "andy-beshear"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "w8jiiVEW8r4"
 videoTitle: "Nvidia's AI Bubble will POP from these 4 Headwinds"
 thumbnail: "https://img.youtube.com/vi/w8jiiVEW8r4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Is the AI Bubble Going to Pop in 2026? Here's Your Backup Plan."
     url: "https://finance.yahoo.com/news/ai-bubble-going-pop-2026-190500654.html"

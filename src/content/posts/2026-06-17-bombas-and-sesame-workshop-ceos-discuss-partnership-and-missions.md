@@ -34,6 +34,10 @@ keyMoments:
 videoId: "_2P_jlHQgGI"
 videoTitle: "Where socks meet Big Bird: Bombas & Sesame Workshop"
 thumbnail: "https://img.youtube.com/vi/_2P_jlHQgGI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Impact of One Purchased = One Donated"
     url: "https://beebetter.bombas.com/impact"

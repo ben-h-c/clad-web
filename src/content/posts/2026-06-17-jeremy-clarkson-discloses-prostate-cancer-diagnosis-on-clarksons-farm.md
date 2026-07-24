@@ -31,6 +31,10 @@ keyMoments:
 videoId: "5VguZrMZrrg"
 videoTitle: "Jeremy Clarkson reveals cancer diagnosis on farming show. #JeremyClarkson #ClarksonsFarm #BBCNews"
 thumbnail: "https://img.youtube.com/vi/5VguZrMZrrg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jeremy Clarkson announces cancer diagnosis in farm documentary series"
     url: "https://www.bbc.com/news/articles/cqj14q700rko"

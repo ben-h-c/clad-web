@@ -37,6 +37,10 @@ keyMoments:
 videoId: "LGR9Yfh802U"
 videoTitle: "'MAKES US COMPLACENT': Congressman SOUNDS ALARM on FISA reform failures"
 thumbnail: "https://img.youtube.com/vi/LGR9Yfh802U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Spy law on track to lapse after Congress rejects extension"
     url: "https://www.politico.com/news/2026/06/11/spy-law-on-track-to-lapse-after-house-rejects-extension-00958420"

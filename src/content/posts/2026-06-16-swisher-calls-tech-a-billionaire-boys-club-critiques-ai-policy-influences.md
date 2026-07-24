@@ -36,6 +36,10 @@ keyMoments:
 videoId: "OrP814YJvRE"
 videoTitle: "Kara Swisher: \"It's a billionaire boys' club\""
 thumbnail: "https://img.youtube.com/vi/OrP814YJvRE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Kara Swisher on Lack of Diversity in Tech Leadership"
     url: "https://www.youtube.com/watch?v=52iWp9xrKf8"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "H2nsutW3leE"
 videoTitle: "RBC CEO on AI, Jobs, SpaceX IPO, US Trade, Energy Demand"
 thumbnail: "https://img.youtube.com/vi/H2nsutW3leE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "RBC President and CEO Dave McKay - Bloomberg Newsmakers"
     url: "https://www.youtube.com/watch?v=tUClxFLe9QA"

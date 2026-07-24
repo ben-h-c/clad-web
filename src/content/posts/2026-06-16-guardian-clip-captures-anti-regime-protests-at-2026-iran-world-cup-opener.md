@@ -34,6 +34,10 @@ keyMoments:
 videoId: "zaDj8nTi4kU"
 videoTitle: "Anti-regime protests take place outside Iran's first World Cup match"
 thumbnail: "https://img.youtube.com/vi/zaDj8nTi4kU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Anti-regime protests take place outside Iran's first World Cup match"
     url: "https://www.youtube.com/watch?v=zaDj8nTi4kU"

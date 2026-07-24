@@ -32,6 +32,10 @@ keyMoments:
 videoId: "7Ht-ghO1jOA"
 videoTitle: "Curacao fans cheer for history-making World Cup draw against Ecuador"
 thumbnail: "https://img.youtube.com/vi/7Ht-ghO1jOA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Curacao keeper Room shines in historic World Cup draw with Ecuador"
     url: "https://www.reuters.com/sports/soccer/keeper-room-shines-curacao-hold-ecuador-historic-world-cup-draw-2026-06-21/"

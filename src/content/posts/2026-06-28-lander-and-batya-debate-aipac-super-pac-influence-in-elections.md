@@ -31,6 +31,10 @@ keyMoments:
 videoId: "QOaBXddwz6A"
 videoTitle: "Brad Lander, Batya debate AIPAC’s role in US politics | Batya!"
 thumbnail: "https://img.youtube.com/vi/QOaBXddwz6A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NY-10 debate: Goldman, Lander trade attacks on Israel policy and AIPAC"
     url: "https://www.amny.com/news/ny-10-debate-goldman-lander-06162026/"

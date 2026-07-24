@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ZxhGSeSQy9E"
 videoTitle: "Global National: June 27, 2026 | Another 4.8 magnitude quake reported off Venezuela’s northern coast"
 thumbnail: "https://img.youtube.com/vi/ZxhGSeSQy9E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela earthquake live updates"
     url: "https://www.cnn.com/2026/06/26/world/live-news/venezuela-earthquake-hnk"

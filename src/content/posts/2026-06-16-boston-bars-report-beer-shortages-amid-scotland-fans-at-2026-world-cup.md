@@ -31,6 +31,10 @@ keyMoments:
 videoId: "bl4RsPZXOyc"
 videoTitle: "Boston bars run out of beer as Scotland fans descend on city for World Cup"
 thumbnail: "https://img.youtube.com/vi/bl4RsPZXOyc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Beer sales surge in Boston after first home World Cup match"
     url: "https://www.bostonglobe.com/2026/06/15/business/boston-world-cup-scotland-beer/"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "PZcXUwxyw1s"
 videoTitle: "Russian spies considered Mandelson a ‘privileged contact’"
 thumbnail: "https://img.youtube.com/vi/PZcXUwxyw1s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russia targeted Lord Mandelson for decades"
     url: "https://www.telegraph.co.uk/politics/2026/04/19/russia-targeted-mandelson-for-decades/"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "gTeII1ATL0w"
 videoTitle: "🚨There Is Going To Be A Revolution in the U.K. Over The Muslim Rape Gang Inquiry Report"
 thumbnail: "https://img.youtube.com/vi/gTeII1ATL0w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Independent Rape Gang Inquiry Report release"
     url: "https://www.crowdfunder.co.uk/p/the-rape-gang-inquiry-1"

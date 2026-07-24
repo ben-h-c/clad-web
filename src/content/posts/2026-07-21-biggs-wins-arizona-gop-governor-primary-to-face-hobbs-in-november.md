@@ -35,6 +35,10 @@ keyMoments:
 videoId: "btO-b7oIpuY"
 videoTitle: "BREAKING: Biggs to battle Hobbs in Arizona governor showdown"
 thumbnail: "https://img.youtube.com/vi/btO-b7oIpuY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Andy Biggs"
     slug: "andy-biggs"

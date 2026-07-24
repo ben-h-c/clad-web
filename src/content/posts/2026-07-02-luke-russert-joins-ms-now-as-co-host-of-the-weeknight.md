@@ -28,6 +28,10 @@ keyMoments:
 videoId: "zQCabJXCQwE"
 videoTitle: "Tim Russert's son returning to television on MS NOW"
 thumbnail: "https://img.youtube.com/vi/zQCabJXCQwE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Luke Russert Returning To Host New MSNBC Live Events Series"
     url: "https://www.imdb.com/news/ni64360612/"

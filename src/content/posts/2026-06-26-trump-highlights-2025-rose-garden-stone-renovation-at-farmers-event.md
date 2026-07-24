@@ -32,6 +32,10 @@ keyMoments:
 videoId: "htxrZr01GIQ"
 videoTitle: "'We Put A Beautiful Stone That Matches The White House': Trump Lauds His Rose Garden Revamp"
 thumbnail: "https://img.youtube.com/vi/htxrZr01GIQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "In latest White House renovation, Trump replaces Rose Garden grass with stone"
     url: "https://www.npr.org/2025/08/22/nx-s1-5489668/in-latest-white-house-renovation-trump-replaces-rose-garden-grass-with-stone"

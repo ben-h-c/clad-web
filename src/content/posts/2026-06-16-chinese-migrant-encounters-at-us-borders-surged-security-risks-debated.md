@@ -33,6 +33,10 @@ keyMoments:
 videoId: "Kuyb1s9Rqbk"
 videoTitle: "China's ILLEGAL IMMIGRATION and SURVEILLANCE PLOT exposed #shorts"
 thumbnail: "https://img.youtube.com/vi/Kuyb1s9Rqbk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Southwest Land Border Encounters"
     url: "https://www.cbp.gov/newsroom/stats/southwest-land-border-encounters"

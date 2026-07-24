@@ -31,6 +31,10 @@ keyMoments:
 videoId: "IjW64F89gqQ"
 videoTitle: "Andy Burnham vows 'this is the final chance for change' as he makes his by-election victory speech"
 thumbnail: "https://img.youtube.com/vi/IjW64F89gqQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham Wins Makerfield By-Election"
     url: "https://www.nytimes.com/2026/06/18/world/europe/uk-makerfield-election.html"

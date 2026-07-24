@@ -36,6 +36,10 @@ keyMoments:
 videoId: "uOIkq1AeERc"
 videoTitle: "Rick Scott Calls To ABOLISH WEEKENDS"
 thumbnail: "https://img.youtube.com/vi/uOIkq1AeERc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Rick Scott"
     slug: "rick-scott"

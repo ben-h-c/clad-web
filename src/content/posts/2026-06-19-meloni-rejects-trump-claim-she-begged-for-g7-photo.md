@@ -35,6 +35,10 @@ keyMoments:
 videoId: "D4Cap_3vFuU"
 videoTitle: "Italy's Meloni fires back after Trump says she 'begged' for photo | DW News"
 thumbnail: "https://img.youtube.com/vi/D4Cap_3vFuU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump ‘totally fabricated’ claim she begged him for a photo, Italy’s Giorgia Meloni says"
     url: "https://www.nbcnews.com/world/italy/trump-italy-meloni-begged-photo-fabricated-g7-summit-france-rcna350836"

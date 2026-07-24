@@ -36,6 +36,10 @@ keyMoments:
 videoId: "HC8BiLhxWsE"
 videoTitle: "Syria and Iraq sign deal to revive Kirkuk-Baniyas oil pipeline"
 thumbnail: "https://img.youtube.com/vi/HC8BiLhxWsE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iraq signs deals with Western oil firms, including to revive Syria pipeline"
     url: "https://www.aljazeera.com/news/2026/7/17/iraq-signs-deals-with-western-oil-firms-including-to-revive-syria-pipeline"

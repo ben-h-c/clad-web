@@ -40,6 +40,10 @@ keyMoments:
 videoId: "RIilzzImkJc"
 videoTitle: "FULL SPEECH: Former President Joe Biden Delivers Address At Maryland Democrat Event"
 thumbnail: "https://img.youtube.com/vi/RIilzzImkJc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Biden rallies Democrats, slams Trump at Maryland Democratic Party gala"
     url: "https://marylandmatters.org/2026/06/28/biden-rallies-democrats-slams-trump-at-maryland-democratic-party-gala/"

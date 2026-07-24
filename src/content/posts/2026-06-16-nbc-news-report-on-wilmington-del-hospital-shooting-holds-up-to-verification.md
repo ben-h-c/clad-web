@@ -30,6 +30,10 @@ keyMoments:
 videoId: "Y8_fJdqqai4"
 videoTitle: "Two people shot inside Delaware hospital"
 thumbnail: "https://img.youtube.com/vi/Y8_fJdqqai4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2 people shot at Wilmington Hospital in Del., officials say – NBC10 Philadelphia"
     url: "https://www.nbcphiladelphia.com/news/local/police-respond-to-shooting-at-wilmington-hospital-in-delaware/4418401/"

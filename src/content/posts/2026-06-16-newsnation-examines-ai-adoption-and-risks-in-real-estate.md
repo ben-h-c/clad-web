@@ -34,6 +34,10 @@ keyMoments:
 videoId: "20T-hU9UhbY"
 videoTitle: "How AI is Secretly Reshaping the Real Estate Market | Hot Take with Jesse Weber"
 thumbnail: "https://img.youtube.com/vi/20T-hU9UhbY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "AI nearly kiboshes $50M real estate deal: Ryan Serhant"
     url: "https://www.newsnationnow.com/jesse-weber-live/chatgpt-real-estate-deal-advice/"

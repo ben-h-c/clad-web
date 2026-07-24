@@ -32,6 +32,10 @@ keyMoments:
 videoId: "VxY4OOYCpIw"
 videoTitle: "Ebola outbreak could cost Africa up to $3.6 billion"
 thumbnail: "https://img.youtube.com/vi/VxY4OOYCpIw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ebola Outbreak Could Push Nearly One Million More People into Poverty and Cost Africa Billions, warns UN Development Programme"
     url: "https://www.undp.org/press-releases/ebola-outbreak-could-push-nearly-one-million-more-people-poverty-and-cost-africa-billions-warns-un-development-programme"

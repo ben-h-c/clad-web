@@ -29,6 +29,10 @@ keyMoments:
 videoId: "wW6OrlG7Ttk"
 videoTitle: "Every single individual in this country deserves healthcare. Full stop."
 thumbnail: "https://img.youtube.com/vi/wW6OrlG7Ttk/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Maxine Dexter"
     slug: "maxine-dexter"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "LwK5-XXS5sk"
 videoTitle: "US News LIVE: Trump Mocks &quot;Pee-wee Herman Look-Alike&quot; Jon Ossoff At Georgia Trump Accounts Rally"
 thumbnail: "https://img.youtube.com/vi/LwK5-XXS5sk/maxresdefault.jpg"
+mediaNote: "Upper-middle dual faces; Trump action left + Ossoff talking head right"
+thumbFocusY: 28
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Jon Ossoff"
     slug: "jon-ossoff"

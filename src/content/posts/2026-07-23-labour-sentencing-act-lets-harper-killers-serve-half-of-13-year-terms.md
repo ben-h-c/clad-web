@@ -37,6 +37,10 @@ keyMoments:
 videoId: "d4KQXgfjDuo"
 videoTitle: "\"When Do We Get Early Release From This Bloody Government?\" | Fury Over Freeing Criminals Early"
 thumbnail: "https://img.youtube.com/vi/d4KQXgfjDuo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "PC Harper's widow criticises early prisoner release plan as Burnham to review scheme"
     url: "https://www.bbc.co.uk/news/articles/c0ejwedl1gno"

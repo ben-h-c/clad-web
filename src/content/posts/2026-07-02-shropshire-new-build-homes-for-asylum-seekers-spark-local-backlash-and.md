@@ -36,6 +36,10 @@ keyMoments:
 videoId: "FTC2SGu8-y4"
 videoTitle: "'We were NOT told!' Migrant street councillor FUMES at Labour over £250k homes for foreigners"
 thumbnail: "https://img.youtube.com/vi/FTC2SGu8-y4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "New-build homes should not house migrants, says Home Office"
     url: "https://www.bbc.com/news/articles/clyx0p2z9w3o"

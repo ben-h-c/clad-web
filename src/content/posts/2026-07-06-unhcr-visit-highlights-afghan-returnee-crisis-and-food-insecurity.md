@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Vj8IxAH6OYw"
 videoTitle: "UNHCR chief visits Afghanistan as millions of returnees strain fragile economy"
 thumbnail: "https://img.youtube.com/vi/Vj8IxAH6OYw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Afghanistan - Operational Data Portal - UNHCR"
     url: "https://data.unhcr.org/en/country/afg"

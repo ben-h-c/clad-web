@@ -35,6 +35,10 @@ keyMoments:
 videoId: "PLur30L8RuM"
 videoTitle: "Manhunt under way: Widdecombe murder probe latest"
 thumbnail: "https://img.youtube.com/vi/PLur30L8RuM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Police arrest man on suspicion of Ann Widdecombe’s murder"
     url: "https://www.theguardian.com/politics/2026/jul/10/police-investigating-death-of-ann-widdecombe"

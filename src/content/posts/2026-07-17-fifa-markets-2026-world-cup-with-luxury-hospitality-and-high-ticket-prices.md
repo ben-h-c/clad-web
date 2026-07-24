@@ -32,6 +32,10 @@ keyMoments:
 videoId: "__3sM9SZT7M"
 videoTitle: "World Cup: 2026 tournament \"repackaged football as a luxury product\" • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/__3sM9SZT7M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "World Cup sticker shock: The ugly cost of the beautiful game's grand event"
     url: "https://www.espn.com/soccer/story/_/id/48947095/2026-fifa-world-cup-sticker-shock-ugly-cost-beautiful-game-grand-event"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "aQKZOnRIOX4"
 videoTitle: "CRTC asks Big Three to prove fees don’t break rules, or face $10M fine"
 thumbnail: "https://img.youtube.com/vi/aQKZOnRIOX4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Telecom Regulatory Policy CRTC 2026-43"
     url: "https://crtc.gc.ca/eng/archive/2026/2026-43.htm"

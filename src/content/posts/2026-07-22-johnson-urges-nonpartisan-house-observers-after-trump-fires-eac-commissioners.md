@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Z1hXbpLDYlk"
 videoTitle: "Johnson in Committee: Nonpartisan House Observer Program is Critical to Election Integrity"
 thumbnail: "https://img.youtube.com/vi/Z1hXbpLDYlk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "ekB65NFSCzM"
 videoTitle: "SpaceX Scrubs Starship Launch, Chipmakers Suffer Steep Losses | The Opening Trade 7/17/2026"
 thumbnail: "https://img.youtube.com/vi/ekB65NFSCzM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "July 16, 2026 — Qatar, Kuwait fend off fresh attacks, US continues Iran strikes"
     url: "https://www.cnn.com/2026/07/16/world/live-news/iran-war-trump"

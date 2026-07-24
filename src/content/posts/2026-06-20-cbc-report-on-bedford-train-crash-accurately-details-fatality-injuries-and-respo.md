@@ -36,6 +36,10 @@ keyMoments:
 videoId: "xzyFhWrSV5U"
 videoTitle: "One person killed in a train crash north of London, UK | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/xzyFhWrSV5U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bedford train crash latest: Train driver dies and 11 passengers very seriously injured as police declare major incident"
     url: "https://www.bbc.com/news/live/cy8dy2pr8ymt"

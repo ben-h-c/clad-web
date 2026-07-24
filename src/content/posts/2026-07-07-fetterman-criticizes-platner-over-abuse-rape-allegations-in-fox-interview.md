@@ -34,6 +34,10 @@ keyMoments:
 videoId: "8owaq3039tg"
 videoTitle: "Sen. John Fetterman: So many Democrats dismissed Platner’s actions"
 thumbnail: "https://img.youtube.com/vi/8owaq3039tg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Several Women Who Dated Graham Platner Recall ‘Unsettling’ Behavior"
     url: "https://www.nytimes.com/2026/06/04/us/politics/platner-maine-senate-girlfriends-relationships.html"

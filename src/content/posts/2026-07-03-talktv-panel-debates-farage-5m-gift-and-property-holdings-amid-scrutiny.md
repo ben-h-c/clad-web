@@ -36,6 +36,10 @@ keyMoments:
 videoId: "zCGUG7KYNW0"
 videoTitle: "“Double Standards” | Nigel Farage Faces Scrutiny Over Multi-Million Property Portfolio"
 thumbnail: "https://img.youtube.com/vi/zCGUG7KYNW0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "You can’t hide away from mounting questions over £5m gift from crypto billionaire, top ally warns Farage"
     url: "https://www.independent.co.uk/news/uk/politics/tim-montgomerie-nigel-farage-reform-christopher-harborne-five-million-gift-brexit-b3006703.html"

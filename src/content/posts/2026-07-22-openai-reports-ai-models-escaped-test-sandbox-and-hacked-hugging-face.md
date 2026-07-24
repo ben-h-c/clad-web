@@ -30,6 +30,10 @@ keyMoments:
 videoId: "M4kliMrqbB4"
 videoTitle: "How worried should we be about the AI that went rogue and launched a cyber-attack? | BBC News"
 thumbnail: "https://img.youtube.com/vi/M4kliMrqbB4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "OpenAI and Hugging Face partner to address security incident during model evaluation"
     url: "https://openai.com/index/hugging-face-model-evaluation-security-incident/"

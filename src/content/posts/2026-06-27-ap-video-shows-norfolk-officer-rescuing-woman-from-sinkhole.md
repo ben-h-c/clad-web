@@ -31,6 +31,10 @@ keyMoments:
 videoId: "KThgw75YXd4"
 videoTitle: "Virginia police officer rescues a woman whose vehicle fell into a sinkhole"
 thumbnail: "https://img.youtube.com/vi/KThgw75YXd4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Police officer rescues woman whose vehicle fell into sinkhole in Virginia"
     url: "https://apnews.com/video/police-officer-rescues-woman-whose-vehicle-fell-into-sinkhole-in-virginia-cc4cd67264c34d77be6783083178d508"

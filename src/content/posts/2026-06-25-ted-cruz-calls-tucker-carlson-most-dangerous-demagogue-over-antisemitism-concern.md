@@ -37,6 +37,10 @@ keyMoments:
 videoId: "aKbG_xIVUr4"
 videoTitle: "\"Tucker Carlson is the most dangerous demagogue in America.\""
 thumbnail: "https://img.youtube.com/vi/aKbG_xIVUr4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ted Cruz Warns Against Rise of Right-Wing Antisemitism, Calls Tucker Carlson a 'Dangerous Demagogue'"
     url: "https://www.c-span.org/clip/public-affairs-event/ted-cruz-warns-against-rise-of-right-wing-antisemitism-calls-tucker-carlson-a-dangerous-demagogue/5195961"

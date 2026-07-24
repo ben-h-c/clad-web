@@ -34,6 +34,10 @@ keyMoments:
 videoId: "T7o_08zcpF0"
 videoTitle: "Paris's largest outside swimming pool opens early ahead of massive heatwave • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/T7o_08zcpF0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Swimming in Paris and Île-de-France this summer 2026"
     url: "https://www.sortiraparis.com/en/news/in-paris/articles/275883-swimming-in-paris-and-ile-de-france-this-summer-2026-eight-spots-five-of-them-free-in-seine-et-marne"

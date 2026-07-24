@@ -32,6 +32,10 @@ keyMoments:
 videoId: "Hn96wnGKykA"
 videoTitle: "Chancellor Healey Pledges UK Fiscal Buffer"
 thumbnail: "https://img.youtube.com/vi/Hn96wnGKykA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UK Chancellor Healey Pledges Fiscal Buffer in Pitch to the City"
     url: "https://www.bloomberg.com/news/articles/2026-07-23/uk-chancellor-healey-pledges-fiscal-buffer-in-pitch-to-the-city"

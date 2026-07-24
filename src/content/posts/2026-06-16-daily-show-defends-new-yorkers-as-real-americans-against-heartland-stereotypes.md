@@ -33,6 +33,10 @@ keyMoments:
 videoId: "jiiWnZam8_k"
 videoTitle: "New Yorkers aren't the opposite of \"real\" Americans, they ARE real Americans"
 thumbnail: "https://img.youtube.com/vi/jiiWnZam8_k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jon Stewart Calls Trump's UFC White House Event 'God ...'"
     url: "https://au.rollingstone.com/tv/tv-news/jon-stewart-donald-trump-ufc-white-house-event-knicks-win-97039/"

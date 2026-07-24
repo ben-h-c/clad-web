@@ -36,6 +36,10 @@ keyMoments:
 videoId: "GyazBDCuUD4"
 videoTitle: "POLICY EARTHQUAKE: Warsh RESHAPES the Fed in his first meeting"
 thumbnail: "https://img.youtube.com/vi/GyazBDCuUD4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Here are the five big takeaways from Kevin Warsh's first meeting as Fed chairman"
     url: "https://www.cnbc.com/2026/06/17/here-are-the-five-big-takeaways-from-kevin-warshs-first-meeting-as-fed-chairman.html"

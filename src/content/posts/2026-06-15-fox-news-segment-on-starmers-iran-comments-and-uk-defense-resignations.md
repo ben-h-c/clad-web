@@ -37,6 +37,10 @@ keyMoments:
 videoId: "7ehuTv-1GBQ"
 videoTitle: "UK prime minister Starmer issues STUNNING reversal on Iran"
 thumbnail: "https://img.youtube.com/vi/7ehuTv-1GBQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UK defence minister quits, says Starmer not spending enough on military"
     url: "https://www.reuters.com/world/uk/british-defence-minister-healey-resigns-over-defence-spending-2026-06-11/"

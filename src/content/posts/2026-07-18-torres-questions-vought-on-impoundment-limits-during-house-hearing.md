@@ -35,6 +35,10 @@ keyMoments:
 videoId: "tdphT4RV0VQ"
 videoTitle: "&#39;I Don&#39;t Engage In Hypotheticals&#39;: Vought, Torres Trade Blows Over Limits Of Impoundment Powers"
 thumbnail: "https://img.youtube.com/vi/tdphT4RV0VQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Ritchie Torres"
     slug: "ritchie-torres"

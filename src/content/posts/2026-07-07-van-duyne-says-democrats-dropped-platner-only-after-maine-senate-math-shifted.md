@@ -33,6 +33,10 @@ keyMoments:
 videoId: "FL-xj_D2sno"
 videoTitle: "About-face on Platner is not about character, it’s about control: Rep. Van Duyne | National Report"
 thumbnail: "https://img.youtube.com/vi/FL-xj_D2sno/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Beth Van Duyne"
     slug: "beth-van-duyne"

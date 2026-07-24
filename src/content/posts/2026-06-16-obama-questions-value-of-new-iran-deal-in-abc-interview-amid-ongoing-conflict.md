@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Rn0K55vILaA"
 videoTitle: "EXCLUSIVE: Former President Obama reacts to Iran war"
 thumbnail: "https://img.youtube.com/vi/Rn0K55vILaA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Former President Obama on Iran war"
     url: "https://abcnews.com/video/133880803/"

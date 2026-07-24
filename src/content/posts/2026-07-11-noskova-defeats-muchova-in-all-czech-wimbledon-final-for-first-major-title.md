@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Bhz2y46bZN0"
 videoTitle: "Linda Noskova recovers from 2nd-set meltdown to win Wimbledon"
 thumbnail: "https://img.youtube.com/vi/Bhz2y46bZN0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Wimbledon 2026: Linda Noskova beats Karolina Muchova in dramatic all-Czech final"
     url: "https://www.bbc.com/sport/tennis/articles/ce37x57gv49o"

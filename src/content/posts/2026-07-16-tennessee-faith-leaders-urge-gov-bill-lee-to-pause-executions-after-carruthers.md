@@ -34,6 +34,10 @@ keyMoments:
 videoId: "WSrWVnvjv5g"
 videoTitle: "Tennessee faith leaders call on Gov. Bill Lee to pause executions"
 thumbnail: "https://img.youtube.com/vi/WSrWVnvjv5g/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Bill Lee"
     slug: "bill-lee"

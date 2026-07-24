@@ -39,6 +39,10 @@ keyMoments:
 videoId: "LoLdN9Q9hwU"
 videoTitle: "SpaceX IPO Is Troubling Sign for Markets, Chanos Says"
 thumbnail: "https://img.youtube.com/vi/LoLdN9Q9hwU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX IPO Is Troubling Sign for Markets, Chanos Says"
     url: "https://www.bloomberg.com/news/videos/2026-06-12/spacex-ipo-is-troubling-sign-for-markets-chanos-says-video"

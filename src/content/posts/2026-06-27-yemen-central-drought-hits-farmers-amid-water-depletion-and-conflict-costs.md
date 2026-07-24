@@ -35,6 +35,10 @@ keyMoments:
 videoId: "wsoKJydaZos"
 videoTitle: "Central Yemen faces deepening drought: Equipment restrictions block water access for famers"
 thumbnail: "https://img.youtube.com/vi/wsoKJydaZos/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Yemen: Conflict and climate crises push farmers to the breaking point"
     url: "https://www.icrc.org/en/document/yemen-conflict-and-climate-crises-push-farmers-breaking-point"

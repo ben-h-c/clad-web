@@ -33,6 +33,10 @@ keyMoments:
 videoId: "ydWVDdpRCb8"
 videoTitle: "Thai sailors sue ship owners over deadly Strait of Hormuz attack"
 thumbnail: "https://img.youtube.com/vi/ydWVDdpRCb8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Thai court to consider damages sought by crew of ship attacked in Strait of Hormuz"
     url: "https://www.reuters.com/world/asia-pacific/thai-court-consider-damages-sought-by-crew-ship-attacked-strait-hormuz-2026-07-10/"

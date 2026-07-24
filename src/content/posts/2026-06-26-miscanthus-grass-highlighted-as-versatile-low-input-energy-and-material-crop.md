@@ -38,6 +38,10 @@ keyMoments:
 videoId: "ZbB5hZqOSMY"
 videoTitle: "Miscanthus: the supergrass that feeds homes | DW News"
 thumbnail: "https://img.youtube.com/vi/ZbB5hZqOSMY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Les chiffres de la filière française"
     url: "https://france-miscanthus.org/le-miscanthus-en-chiffres/"

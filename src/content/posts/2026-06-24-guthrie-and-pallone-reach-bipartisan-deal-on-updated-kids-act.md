@@ -35,6 +35,10 @@ keyMoments:
 videoId: "XgtKyF87J4k"
 videoTitle: "Pallone Strikes Bipartisan Deal to Keep Kids Safe Online"
 thumbnail: "https://img.youtube.com/vi/XgtKyF87J4k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Brett Guthrie"
     slug: "brett-guthrie"

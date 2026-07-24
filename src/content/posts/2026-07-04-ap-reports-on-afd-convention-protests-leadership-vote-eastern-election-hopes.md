@@ -35,6 +35,10 @@ keyMoments:
 videoId: "J1EVHl3lk6M"
 videoTitle: "Protests as far-right Alternative for Germany holds convention, eyeing gains in regional elections"
 thumbnail: "https://img.youtube.com/vi/J1EVHl3lk6M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Thousands protest in Germany as far-right AfD sets sights on power"
     url: "https://www.reuters.com/world/thousands-protest-germany-against-far-right-afd-2026-07-04/"

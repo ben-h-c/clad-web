@@ -35,6 +35,10 @@ keyMoments:
 videoId: "L1up1PHN_fA"
 videoTitle: "Why are even the Greens pushing for air conditioning? | DW News"
 thumbnail: "https://img.youtube.com/vi/L1up1PHN_fA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Germany news: New heat record at 41.7 degrees Celsius"
     url: "https://www.dw.com/en/germany-news-new-heat-record-at-417-degrees-celsius/live-77733670"

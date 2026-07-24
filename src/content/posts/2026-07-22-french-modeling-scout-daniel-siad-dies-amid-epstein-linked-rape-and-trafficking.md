@@ -36,6 +36,10 @@ keyMoments:
 videoId: "ZagmTaT5IBk"
 videoTitle: "Sex trafficking in fashion: 'Outrageous that French legal system hasn't done anything by now'"
 thumbnail: "https://img.youtube.com/vi/ZagmTaT5IBk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Woman identifies 'rapist' from photo in Epstein files, 36 years later"
     url: "https://www.thetimes.com/world/europe/article/woman-rapist-epstein-files-france-vpfkfvcr8"

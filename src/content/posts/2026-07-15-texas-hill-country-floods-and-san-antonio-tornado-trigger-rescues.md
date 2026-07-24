@@ -34,6 +34,10 @@ keyMoments:
 videoId: "zIB7nNxBaSs"
 videoTitle: "Intense rainfall in Texas sparks life-threatening floods and emergency rescues"
 thumbnail: "https://img.youtube.com/vi/zIB7nNxBaSs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Apartments, shopping areas damaged by tornado on San Antonio's Northwest Side"
     url: "https://www.tpr.org/news/2026-07-15/apartments-shopping-areas-damaged-by-tornado-on-san-antonios-northwest-side"

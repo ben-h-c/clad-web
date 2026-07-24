@@ -31,6 +31,10 @@ keyMoments:
 videoId: "DHo8uywDrow"
 videoTitle: "'UNSURVIVABLE': B-52 bomber crashes after takeoff on US Air Force base in California"
 thumbnail: "https://img.youtube.com/vi/DHo8uywDrow/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US Air Force B-52 bomber crashes after takeoff, killing 8"
     url: "https://www.aljazeera.com/news/2026/6/15/us-air-force-b-52-bomber-crashes-after-takeoff-edwards-air-force-base-says"

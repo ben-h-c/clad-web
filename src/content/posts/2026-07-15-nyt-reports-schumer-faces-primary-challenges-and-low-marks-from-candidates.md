@@ -32,6 +32,10 @@ keyMoments:
 videoId: "ymWBeGNy-yU"
 videoTitle: "Chuck Schumer&#39;s Approval Plummets: NYT Reveals Primary Struggles #shorts"
 thumbnail: "https://img.youtube.com/vi/ymWBeGNy-yU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Charles E. Schumer"
     slug: "charles-e-schumer"

@@ -29,6 +29,10 @@ keyMoments:
 videoId: "zaWR4Qu8PJ0"
 videoTitle: "Secretary of the Interior Doug Burgum and Governor Mark Gordon discuss water, AG and mineral rights"
 thumbnail: "https://img.youtube.com/vi/zaWR4Qu8PJ0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Doug Burgum"
     slug: "doug-burgum"

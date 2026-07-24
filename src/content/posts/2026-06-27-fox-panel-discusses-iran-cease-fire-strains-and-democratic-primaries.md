@@ -35,6 +35,10 @@ keyMoments:
 videoId: "h3J9GdJt4FQ"
 videoTitle: "Trump wants his THREAT CAPABILITY maintained: Expert"
 thumbnail: "https://img.youtube.com/vi/h3J9GdJt4FQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US and Iran 'very close' to deal but 'not there yet', Vance says"
     url: "https://www.bbc.com/news/articles/c87qng40wz9o"

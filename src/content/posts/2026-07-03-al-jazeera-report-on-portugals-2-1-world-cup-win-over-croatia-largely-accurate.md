@@ -36,6 +36,10 @@ keyMoments:
 videoId: "mnpFcqsg3zQ"
 videoTitle: "Ronaldo Leads Portugal to Victory over Croatia"
 thumbnail: "https://img.youtube.com/vi/mnpFcqsg3zQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ronaldo and Ramos send Portugal past Croatia in controversial World Cup win"
     url: "https://www.nytimes.com/athletic/live-blogs/portugal-vs-croatia-live-updates-world-cup-2026-score-result/A350LGuVa3yH/"

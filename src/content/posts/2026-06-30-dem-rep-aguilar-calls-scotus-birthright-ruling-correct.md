@@ -34,6 +34,10 @@ keyMoments:
 videoId: "svvn114itrg"
 videoTitle: "Rep. Pete Aguilar (D-CA) on SCOTUS Birthright Citizenship Ruling: \"This was the right decision.\""
 thumbnail: "https://img.youtube.com/vi/svvn114itrg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump v. Barbara, 609 U.S. ___ (2026)"
     url: "https://en.wikipedia.org/wiki/Trump_v._Barbara"

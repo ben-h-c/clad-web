@@ -38,6 +38,10 @@ keyMoments:
 videoId: "fnSwSWerQX4"
 videoTitle: "Extreme weather affecting millions across U.S."
 thumbnail: "https://img.youtube.com/vi/fnSwSWerQX4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Summit fire’s progress stalls at 2,690 acres amid SoCal heat wave, looming monsoon conditions"
     url: "https://www.latimes.com/california/story/2026-07-10/growing-lucerne-valley-brush-fire-ignites-several-structures"

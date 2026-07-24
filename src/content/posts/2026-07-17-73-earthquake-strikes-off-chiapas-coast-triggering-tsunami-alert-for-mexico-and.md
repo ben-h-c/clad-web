@@ -35,6 +35,10 @@ keyMoments:
 videoId: "nzo7YA9eErA"
 videoTitle: "7.3-magnitude earthquake off Mexican coast triggers tsunami threat in Mexico, Guatemala"
 thumbnail: "https://img.youtube.com/vi/nzo7YA9eErA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Strong quake off Mexican coast rattles Guatemala and El Salvador, but leaves no damage"
     url: "https://www.reuters.com/business/environment/earthquake-shakes-buildings-guatemala-witness-says-2026-07-17/"

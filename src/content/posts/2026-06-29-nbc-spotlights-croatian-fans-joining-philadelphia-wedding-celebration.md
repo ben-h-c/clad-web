@@ -28,6 +28,10 @@ keyMoments:
 videoId: "Nu0hZU0kNd0"
 videoTitle: "Croatia fans crash Philadelphia couple's wedding party"
 thumbnail: "https://img.youtube.com/vi/Nu0hZU0kNd0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Croatia fans crash Philadelphia couple's wedding - ESPN"
     url: "https://www.espn.com/video/clip/_/id/49195851/croatia-fans-crash-philadelphia-couple-wedding"

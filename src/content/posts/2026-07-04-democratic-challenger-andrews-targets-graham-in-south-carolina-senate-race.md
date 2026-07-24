@@ -40,6 +40,10 @@ keyMoments:
 videoId: "8LVUxp_nBEA"
 videoTitle: "New candidate has the best shot yet at booting 'swamp creature' Lindsey Graham"
 thumbnail: "https://img.youtube.com/vi/8LVUxp_nBEA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "United States Senate election in South Carolina, 2026"
     url: "https://ballotpedia.org/United_States_Senate_election_in_South_Carolina,_2026"

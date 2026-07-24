@@ -35,6 +35,10 @@ keyMoments:
 videoId: "EjYdS3Z5YLc"
 videoTitle: "Zelenskiy says G7 leaders agree Russia is losing"
 thumbnail: "https://img.youtube.com/vi/EjYdS3Z5YLc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ukraine's Zelenskiy says G7 leaders discussed further sanctions on Russia"
     url: "https://www.reuters.com/world/europe/ukraines-zelenskiy-says-g7-leaders-discussed-further-sanctions-russia-2026-06-16/"

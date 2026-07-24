@@ -34,6 +34,10 @@ keyMoments:
 videoId: "CqzMFeIiGuE"
 videoTitle: "Hirono Asks Territory Governors If They Are Given 'Meaningful Consultation' By Sea Mining Companies"
 thumbnail: "https://img.youtube.com/vi/CqzMFeIiGuE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "BOEM Proposes Revisions to Regulations Governing Hard Mineral Resources"
     url: "https://perkinscoie.com/insights/blog/boem-proposes-revisions-regulations-governing-hard-mineral-resources-us-outer"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "pZdhFjJgFoM"
 videoTitle: "Dan Meuser Demands End To 'Unfair Wounded Veterans Tax' For Injured, Retired Veterans"
 thumbnail: "https://img.youtube.com/vi/pZdhFjJgFoM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Mike Bost"
     slug: "mike-bost"

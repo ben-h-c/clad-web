@@ -37,6 +37,10 @@ keyMoments:
 videoId: "d5JXJnLU3c4"
 videoTitle: "How coded language spreads on social media | DW News"
 thumbnail: "https://img.youtube.com/vi/d5JXJnLU3c4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "1.300 pedófilos intercambiando pornografía infantil en TikTok: este es el código que les identifica"
     url: "https://maldita.es/investigaciones/20260518/pedofilos-intercambiando-tiktok-codigo/"

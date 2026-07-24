@@ -33,6 +33,10 @@ keyMoments:
 videoId: "pZ9BWJB5aaE"
 videoTitle: "Europe SCRAMBLES to meet defense requirements as Trump set for NATO Summit"
 thumbnail: "https://img.youtube.com/vi/pZ9BWJB5aaE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Defence investment and NATO's 5% commitment"
     url: "https://www.nato.int/en/what-we-do/introduction-to-nato/defence-expenditures-and-natos-5-commitment"

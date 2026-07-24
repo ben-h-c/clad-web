@@ -36,6 +36,10 @@ keyMoments:
 videoId: "sK1VykZsajs"
 videoTitle: "Jacob Rees-Mogg left UNIMPRESSED and UNINSPIRED by Andy Burnham"
 thumbnail: "https://img.youtube.com/vi/sK1VykZsajs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UPDATE: Andy Burnham will not take journalists' question after speech"
     url: "https://global.morningstar.com/en-gb/news/alliance-news/1782723577871473300/update-andy-burnham-will-not-take-journalists-question-after-speech"

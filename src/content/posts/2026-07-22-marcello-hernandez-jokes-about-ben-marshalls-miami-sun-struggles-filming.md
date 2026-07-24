@@ -29,6 +29,10 @@ keyMoments:
 videoId: "KbLIIVxei64"
 videoTitle: "Marcello Hernández on working with fellow 'SNL' actors on new film"
 thumbnail: "https://img.youtube.com/vi/KbLIIVxei64/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Marcello Hernández on working with fellow 'SNL' actors on new film"
     url: "https://apnews.com/video/marcello-hernandez-on-working-with-fellow-snl-actors-on-new-film-52e19c7b2a7646f88588c7eea245cb83"

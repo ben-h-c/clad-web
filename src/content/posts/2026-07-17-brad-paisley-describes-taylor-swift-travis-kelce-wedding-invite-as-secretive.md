@@ -31,6 +31,10 @@ keyMoments:
 videoId: "85BAxDLRzAg"
 videoTitle: "Brad Paisley says Taylor Swift’s wedding invite was a fun 'cat and mouse game'"
 thumbnail: "https://img.youtube.com/vi/85BAxDLRzAg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Brad Paisley and Kimberly Williams-Paisley Got 'Classy' Text Invite to Taylor Swift's Wedding"
     url: "https://www.yahoo.com/entertainment/celebrity/articles/brad-paisley-kimberly-williams-paisley-175234717.html"

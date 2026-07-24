@@ -35,6 +35,10 @@ keyMoments:
 videoId: "E5VEnstI0as"
 videoTitle: "\"We will have to share the water\", as a quarter of small waterways in France run dry • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/E5VEnstI0as/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Britain Nationalizes Its Last Major Steel Mill"
     url: "https://www.nytimes.com/2026/07/16/business/britain-nationalizes-steel-mill.html"

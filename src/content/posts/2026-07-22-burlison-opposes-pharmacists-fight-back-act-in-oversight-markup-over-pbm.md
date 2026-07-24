@@ -33,6 +33,10 @@ keyMoments:
 videoId: "m9vWuMvSEdQ"
 videoTitle: "Burlison: Congress Shouldn&#39;t Set Drug Prices"
 thumbnail: "https://img.youtube.com/vi/m9vWuMvSEdQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Eric Burlison"
     slug: "eric-burlison"

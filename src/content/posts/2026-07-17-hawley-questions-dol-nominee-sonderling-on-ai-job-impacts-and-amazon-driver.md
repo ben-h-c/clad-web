@@ -37,6 +37,10 @@ keyMoments:
 videoId: "1xHwpNPNiGs"
 videoTitle: "Hawley EXPOSES Amazon for Taking Advantage of Their Workers: Hawley to Labor Nom: Keith Sonderling"
 thumbnail: "https://img.youtube.com/vi/1xHwpNPNiGs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Josh Hawley"
     slug: "josh-hawley"

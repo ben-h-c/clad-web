@@ -35,6 +35,10 @@ keyMoments:
 videoId: "nn6BS9i0lJQ"
 videoTitle: "'Rambling, insulting his own Cabinet': Nicolle on TANKING Trump in denial, making a scene on stage"
 thumbnail: "https://img.youtube.com/vi/nn6BS9i0lJQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Read the full text of Trump's preliminary U.S.-Iran agreement to end the war"
     url: "https://www.npr.org/2026/06/18/nx-s1-5863027/us-iran-trump-memorandum-of-understanding-full-text"

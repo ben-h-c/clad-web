@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Rqx2TFGuPxk"
 videoTitle: "Parasite outbreak linked to lettuce spreads across U.S. "
 thumbnail: "https://img.youtube.com/vi/Rqx2TFGuPxk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Surveillance of Cyclosporiasis"
     url: "https://www.cdc.gov/cyclosporiasis/php/surveillance/index.html"

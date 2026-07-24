@@ -36,6 +36,10 @@ keyMoments:
 videoId: "m5qT-8LqDhc"
 videoTitle: "'DON'T GIVE THEM ANY MONEY': Blackburn supports tough Iran conditions"
 thumbnail: "https://img.youtube.com/vi/m5qT-8LqDhc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sen. Marsha Blackburn backs Trump's Iran strategy"
     url: "https://www.youtube.com/watch?v=J7FcdTQneKc"

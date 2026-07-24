@@ -37,6 +37,10 @@ keyMoments:
 videoId: "EaErldTc6tQ"
 videoTitle: "After Trump speech, DHS Secretary Mullin reiterates 2020 election fraud claims, illegal voting"
 thumbnail: "https://img.youtube.com/vi/EaErldTc6tQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "28Aq3OzAqHU"
 videoTitle: "Fight back or back down: How should Canada respond to Trump tariff threat? | Power & Politics"
 thumbnail: "https://img.youtube.com/vi/28Aq3OzAqHU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ontario premier to Trump: Stop wildfire insults and help your friends"
     url: "https://www.politico.com/news/2026/07/20/canada-wildfires-trump-tariffs-01004855"

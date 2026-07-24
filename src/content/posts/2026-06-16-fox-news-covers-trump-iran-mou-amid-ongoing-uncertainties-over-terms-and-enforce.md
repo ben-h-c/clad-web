@@ -37,6 +37,10 @@ keyMoments:
 videoId: "lrzWmOBZyeA"
 videoTitle: "TRUST OR BUST: Netanyahu breaks silence as Trump's Iran deal faces moment of truth"
 thumbnail: "https://img.youtube.com/vi/lrzWmOBZyeA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran war live: Trump says MoU with Tehran signed electronically"
     url: "https://www.aljazeera.com/news/liveblog/2026/6/16/iran-war-live-trump-says-mou-with-tehran-signed-electronically"

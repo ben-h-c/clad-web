@@ -37,6 +37,10 @@ keyMoments:
 videoId: "XSIL9FZiqHs"
 videoTitle: "McEnany: This is one of the single BEST things Trump has done for America"
 thumbnail: "https://img.youtube.com/vi/XSIL9FZiqHs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "USDA Announces FY 2025 State Payment Error Rates in SNAP"
     url: "https://www.usda.gov/about-usda/news/press-releases/2026/06/24/usda-announces-fy-2025-state-payment-error-rates-snap"

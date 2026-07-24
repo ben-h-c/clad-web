@@ -34,6 +34,10 @@ keyMoments:
 videoId: "mrlSFYuIWJs"
 videoTitle: "BREAKING: President Trump Donates Teddy Roosevelt's Medal Of Honor To His Presidential Museum"
 thumbnail: "https://img.youtube.com/vi/mrlSFYuIWJs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "President Trump Visits Theodore Roosevelt Presidential Library"
     url: "https://www.c-span.org/event/america-250/president-trump-visits-theodore-roosevelt-presidential-library/443949"

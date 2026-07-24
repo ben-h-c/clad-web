@@ -32,6 +32,10 @@ keyMoments:
 videoId: "krljVL0jDXM"
 videoTitle: "Reflecting pool visitors react after costly fix"
 thumbnail: "https://img.youtube.com/vi/krljVL0jDXM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Red white and green? DC's Reflecting Pool may not be blue by July 4th"
     url: "https://www.usatoday.com/story/news/nation/2026/06/15/reflecting-pool-algae-green-expert/90556933007/"

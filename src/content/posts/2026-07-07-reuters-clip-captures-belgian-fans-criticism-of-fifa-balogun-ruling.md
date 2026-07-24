@@ -29,6 +29,10 @@ keyMoments:
 videoId: "kgvm7DxKAt0"
 videoTitle: "Belgian fans criticize FIFA decision on US forward Balogun"
 thumbnail: "https://img.youtube.com/vi/kgvm7DxKAt0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Historic World Cup furor at 'incomprehensible' FIFA decision to let U.S. forward Balogun play"
     url: "https://www.npr.org/2026/07/06/g-s1-132108/world-cup-balogun-uefa-fifa-belgum-trump"

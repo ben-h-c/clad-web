@@ -40,6 +40,10 @@ keyMoments:
 videoId: "nq-Kaf_BxO0"
 videoTitle: "My night under fire: Inside a missile attack on Kyiv | BBC News"
 thumbnail: "https://img.youtube.com/vi/nq-Kaf_BxO0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russian strikes kill 11 and damage historic Kyiv cathedral"
     url: "https://www.bbc.com/news/articles/c4gy037gjz3o"

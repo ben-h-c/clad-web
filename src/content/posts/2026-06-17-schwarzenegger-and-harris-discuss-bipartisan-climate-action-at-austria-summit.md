@@ -31,6 +31,10 @@ keyMoments:
 videoId: "TWjhrjYi-1g"
 videoTitle: "Arnold Schwarzenegger Explains Why He Is Working With Kamala Harris To Combat Climate Change"
 thumbnail: "https://img.youtube.com/vi/TWjhrjYi-1g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Renewable Power Generation Costs in 2024"
     url: "https://www.irena.org/Publications/2025/Jun/Renewable-Power-Generation-Costs-in-2024"

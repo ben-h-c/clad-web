@@ -34,6 +34,10 @@ keyMoments:
 videoId: "vyVHJJCbEe8"
 videoTitle: "Kentucky declares state of emergency following flash floods"
 thumbnail: "https://img.youtube.com/vi/vyVHJJCbEe8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "4 dead in Kentucky floods, governor declares state of emergency"
     url: "https://www.cnn.com/2026/06/27/weather/kentucky-flash-flood-emergency-sat"

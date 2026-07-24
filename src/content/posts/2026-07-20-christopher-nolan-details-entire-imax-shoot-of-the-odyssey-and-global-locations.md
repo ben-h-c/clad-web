@@ -35,6 +35,10 @@ keyMoments:
 videoId: "fq0JafD-GXU"
 videoTitle: "How Christopher Nolan shot 'The Odyssey' entirely in IMAX "
 thumbnail: "https://img.youtube.com/vi/fq0JafD-GXU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'The Odyssey' storms the box office with a $264.1M global debut"
     url: "https://abcnews.com/Business/wireStory/nolans-odyssey-storms-box-office-2641-million-global-134894762"

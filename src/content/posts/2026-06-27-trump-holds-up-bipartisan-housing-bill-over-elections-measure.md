@@ -38,6 +38,10 @@ keyMoments:
 videoId: "11SaynecZZ4"
 videoTitle: "‘We need this help’: Mayors stress importance of bipartisan housing bill as Trump refuses to sign it"
 thumbnail: "https://img.youtube.com/vi/11SaynecZZ4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "H.R.6644 - 21st Century ROAD to Housing Act"
     url: "https://www.congress.gov/bill/119th-congress/house-bill/6644"

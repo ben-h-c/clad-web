@@ -34,6 +34,10 @@ keyMoments:
 videoId: "KW7c3KuD8DI"
 videoTitle: "ICE officer struck by car during NJ arrest attempt #shorts #us #news"
 thumbnail: "https://img.youtube.com/vi/KW7c3KuD8DI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Immigration agent fires gun after being hit by vehicle in ..."
     url: "https://abc7ny.com/post/ice-agent-reportedly-fires-shot-during-incident-ocean-county-new-jersey/19302456/"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "5Kzj5FTjAgc"
 videoTitle: "San Diego Comic-Con opens its doors to hundreds of fans"
 thumbnail: "https://img.youtube.com/vi/5Kzj5FTjAgc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Comic-Con 2026"
     url: "https://www.comic-con.org/cc/"

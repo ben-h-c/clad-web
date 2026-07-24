@@ -32,6 +32,10 @@ keyMoments:
 videoId: "W7TomJYLqzk"
 videoTitle: "Trump official says Iran World Cup visa approval 'amazing'"
 thumbnail: "https://img.youtube.com/vi/W7TomJYLqzk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran's Soccer Team Allowed Into U.S. for World Cup, but Some Officials Are Not"
     url: "https://www.nytimes.com/2026/06/05/world/middleeast/world-cup-iran-football-team-visas-war.html"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "OHoTzVGs70A"
 videoTitle: "Mamdani speaks from George Washington's desk"
 thumbnail: "https://img.youtube.com/vi/OHoTzVGs70A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Zohran Mamdani to deliver a speech marking America's 250th birthday"
     url: "https://www.nbcnews.com/politics/politics-news/zohran-mamdani-deliver-speech-marking-americas-250th-birthday-rcna352608"

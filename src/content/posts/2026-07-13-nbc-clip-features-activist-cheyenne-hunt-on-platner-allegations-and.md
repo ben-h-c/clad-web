@@ -32,6 +32,10 @@ keyMoments:
 videoId: "w0txX79nnIs"
 videoTitle: "Social media influencer who helped bring forward Platner allegations: 'The truth is our goal\""
 thumbnail: "https://img.youtube.com/vi/w0txX79nnIs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Democratic Influencer Who Helped Bring Down Graham Platner"
     url: "https://www.wsj.com/politics/policy/the-democratic-influencer-who-helped-bring-down-graham-platner-773a1337"

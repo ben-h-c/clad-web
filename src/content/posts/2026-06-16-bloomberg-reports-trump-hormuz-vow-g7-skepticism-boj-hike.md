@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Y-yt9mk8u-M"
 videoTitle: "Trump Says Hormuz to Reopen Friday But G7 Allies Less Convinced | Daybreak Europe 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/Y-yt9mk8u-M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bank of Japan set to hike rates to 31-year high, drop hawkish signals"
     url: "https://www.reuters.com/business/finance/bank-japan-set-hike-rates-31-year-high-drop-hawkish-signals-2026-06-12/"

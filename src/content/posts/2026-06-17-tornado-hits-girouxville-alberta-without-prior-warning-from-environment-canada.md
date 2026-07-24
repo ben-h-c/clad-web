@@ -31,6 +31,10 @@ keyMoments:
 videoId: "F4I-y1sTrs4"
 videoTitle: "‘No forecasted warning': Tornado strikes parts of northwestern Alberta | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/F4I-y1sTrs4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Tornado touches down in northwestern Alberta village, damaging homes and businesses"
     url: "https://www.theweathernetwork.com/en/news/lifestyle/community/tornado-touches-down-in-northwestern-alberta-village-damaging-homes-and-businesses"

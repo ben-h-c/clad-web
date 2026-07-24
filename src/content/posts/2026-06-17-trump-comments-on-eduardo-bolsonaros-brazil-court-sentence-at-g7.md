@@ -32,6 +32,10 @@ keyMoments:
 videoId: "Zo5rBqcuRHE"
 videoTitle: "'They Play Pretty Tough': Trump Reacts To Prison Sentence For Eduardo Bolsonaro"
 thumbnail: "https://img.youtube.com/vi/Zo5rBqcuRHE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jair Bolsonaro’s son sentenced to four years in jail for seeking US interference"
     url: "https://www.theguardian.com/world/2026/jun/16/brazilian-court-convicts-eduardo-bolsonaro-us-help-father-jair"

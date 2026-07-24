@@ -36,6 +36,10 @@ keyMoments:
 videoId: "7h8gm3DD4T4"
 videoTitle: "‘Harry And Meghan Are ARROGANT’ | ‘They Want All The Privileges Of Being Senior Royals’"
 thumbnail: "https://img.youtube.com/vi/7h8gm3DD4T4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Prince Harry loses legal challenge over security"
     url: "https://www.bbc.com/news/articles/c2kvw2pvw8eo"

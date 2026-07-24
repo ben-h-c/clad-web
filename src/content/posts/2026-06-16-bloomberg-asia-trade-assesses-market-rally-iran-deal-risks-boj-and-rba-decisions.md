@@ -38,6 +38,10 @@ keyMoments:
 videoId: "DpELXHE05L8"
 videoTitle: "Stock Rally Cools Ahead of BOJ, RBA Decisions | The Asia Trade 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/DpELXHE05L8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX stock gains 20% in first full day of trading"
     url: "https://www.cnbc.com/2026/06/15/spacex-stock-record-ipo-debut.html"

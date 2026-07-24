@@ -29,6 +29,10 @@ keyMoments:
 videoId: "pW2k5k2ZTDQ"
 videoTitle: "Sen. John Fetterman says he will leave the Democratic Party if it 'officially' becomes 'anti-Israel'"
 thumbnail: "https://img.youtube.com/vi/pW2k5k2ZTDQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "John Fetterman"
     slug: "john-fetterman"

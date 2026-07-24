@@ -37,6 +37,10 @@ keyMoments:
 videoId: "-NVC0_GrxYQ"
 videoTitle: "JD Vance: ‘Black History Is Not Erased From Public Spaces’ | The View"
 thumbnail: "https://img.youtube.com/vi/-NVC0_GrxYQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "\"The View\" Welcomes Vice President JD Vance LIVE Tuesday 11 am ET/10 am CT & PT"
     url: "https://abc.com/news/15910244-3372-47de-b683-620be09ece9e/category/1138628"

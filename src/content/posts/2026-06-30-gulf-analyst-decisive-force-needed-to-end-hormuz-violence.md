@@ -32,6 +32,10 @@ keyMoments:
 videoId: "K_uIDWDrto8"
 videoTitle: "'Fierce power': Ahmed Khuzaie shares his views on how violence can end in the Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/K_uIDWDrto8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US hammers Iran after Strait of Hormuz shipping attacks"
     url: "https://open.spotify.com/episode/13kpMZCFexx8V4TRZ7UOlL"

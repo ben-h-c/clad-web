@@ -28,6 +28,10 @@ keyMoments:
 videoId: "pF1peCRECTU"
 videoTitle: "WATCH: Mullin says he will enforce the law when it comes to ICE officers who violate rules"
 thumbnail: "https://img.youtube.com/vi/pF1peCRECTU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "WATCH: Senate Democrats challenge Mullin over Homeland Security budget"
     url: "https://www.pbs.org/newshour/politics/watch-live-mullin-testifies-on-dhs-budget-before-senate-appropriations-subcommittee"

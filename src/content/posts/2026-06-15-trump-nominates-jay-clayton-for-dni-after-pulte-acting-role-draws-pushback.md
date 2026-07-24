@@ -37,6 +37,10 @@ keyMoments:
 videoId: "vK6m3pY5g6U"
 videoTitle: "Trump nominating Clayton for DNI to “undermine elections”: Rohde"
 thumbnail: "https://img.youtube.com/vi/vK6m3pY5g6U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What to know about Jay Clayton, Trump's nominee for director of national intelligence"
     url: "https://www.pbs.org/newshour/politics/what-to-know-about-jay-clayton-trumps-nominee-for-director-of-national-intelligence"

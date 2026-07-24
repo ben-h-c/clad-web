@@ -35,6 +35,10 @@ keyMoments:
 videoId: "z2kkDBF21oM"
 videoTitle: "Breaking down the U.S. elimination from the 2026 Men's World Cup"
 thumbnail: "https://img.youtube.com/vi/z2kkDBF21oM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Belgium ends the USA’s World Cup dream with a dominant 4-1 win in the Round of 16"
     url: "https://www.cnn.com/2026/07/06/sport/live-news/usa-belgium-world-cup-score"

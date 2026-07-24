@@ -34,6 +34,10 @@ keyMoments:
 videoId: "_2y3AgWYiiA"
 videoTitle: "Calls mounting to halt sales of type of gun used in deadly Montreal shooting"
 thumbnail: "https://img.youtube.com/vi/_2y3AgWYiiA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Côte-des-Neiges shooting"
     url: "https://en.wikipedia.org/wiki/2026_C%C3%B4te-des-Neiges_shooting"

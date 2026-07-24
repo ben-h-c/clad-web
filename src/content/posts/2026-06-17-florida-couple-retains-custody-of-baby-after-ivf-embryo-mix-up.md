@@ -35,6 +35,10 @@ keyMoments:
 videoId: "EF57lYOcwPA"
 videoTitle: "Inside IVF clinic’s embryo mix-up "
 thumbnail: "https://img.youtube.com/vi/EF57lYOcwPA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Florida couple in IVF clinic's embryo mix-up will keep baby who isn't genetically theirs"
     url: "https://www.nbcnews.com/news/us-news/florida-couple-ivf-embryo-keep-baby-not-genetically-theirs-rcna350253"

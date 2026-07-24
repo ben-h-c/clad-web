@@ -36,6 +36,10 @@ keyMoments:
 videoId: "VUUdHmFzm8g"
 videoTitle: "BREAKING: Trump to nominate ICE director"
 thumbnail: "https://img.youtube.com/vi/VUUdHmFzm8g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says he is nominating former Oklahoma state trooper Lance Schroyer as ICE director"
     url: "https://www.pbs.org/newshour/politics/trump-says-he-is-nominating-former-oklahoma-state-trooper-lance-schroyer-as-ice-director"

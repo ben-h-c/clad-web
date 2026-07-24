@@ -35,6 +35,10 @@ keyMoments:
 videoId: "VReg83KHiJg"
 videoTitle: "Stepbrother jailed as cruise ship murder case explodes | Drop Dead Serious"
 thumbnail: "https://img.youtube.com/vi/VReg83KHiJg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Killing of Anna Kepner - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Killing_of_Anna_Kepner"

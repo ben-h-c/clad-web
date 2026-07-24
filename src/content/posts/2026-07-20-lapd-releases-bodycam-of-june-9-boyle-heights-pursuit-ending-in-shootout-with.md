@@ -35,6 +35,10 @@ keyMoments:
 videoId: "gpLi4y56qXY"
 videoTitle: "WATCH: LAPD bodycam captures DRAMATIC chase, shootout"
 thumbnail: "https://img.youtube.com/vi/gpLi4y56qXY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Man Charged with Attempted Murder of Police Officers, Assault During Car Chase in Los Angeles"
     url: "https://da.lacounty.gov/media/news/man-charged-attempted-murder-police-officers-assault-during-car-chase-los-angeles"

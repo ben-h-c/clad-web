@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ifw37r8uz1o"
 videoTitle: "Cook Stays, Trump Gains Power | Balance of Power 6/29/2026"
 thumbnail: "https://img.youtube.com/vi/ifw37r8uz1o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court expands Trump’s power to fire independent agency officials but lets Lisa Cook remain at Fed"
     url: "https://www.cnn.com/2026/06/29/politics/live-news/supreme-court-issues-opinions"

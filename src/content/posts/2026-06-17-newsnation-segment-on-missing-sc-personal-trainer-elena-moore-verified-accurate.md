@@ -34,6 +34,10 @@ keyMoments:
 videoId: "8LWCvuR1XX8"
 videoTitle: "New footage of Elena Moore widens search area | Jesse Weber Live"
 thumbnail: "https://img.youtube.com/vi/8LWCvuR1XX8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Personal trainer goes missing after leaving gym, search underway: Police"
     url: "https://abcnews.com/US/personal-trainer-missing-after-leaving-gym-search-underway/story?id=133903939"

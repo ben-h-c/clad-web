@@ -36,6 +36,10 @@ keyMoments:
 videoId: "-BBv8Kxk5bw"
 videoTitle: "Two men discover they were switched at birth 38 years ago | CUOMO"
 thumbnail: "https://img.youtube.com/vi/-BBv8Kxk5bw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Grafton hospital sued over alleged 1988 baby switch"
     url: "https://www.valleynewslive.com/2026/07/14/grafton-hospital-sued-over-alleged-1988-baby-switch-discovered-36-years-later/"

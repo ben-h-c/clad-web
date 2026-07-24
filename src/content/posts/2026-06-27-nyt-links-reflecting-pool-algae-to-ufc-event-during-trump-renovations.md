@@ -39,6 +39,10 @@ keyMoments:
 videoId: "pyXi0_sSnvQ"
 videoTitle: "Report ties Trump's GREEN POOL GOOP to his UFC birthday bash"
 thumbnail: "https://img.youtube.com/vi/pyXi0_sSnvQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How the Reflecting Pool Turned Green: Missing ‘Bubblers’ and a Rush Job"
     url: "https://www.nytimes.com/2026/06/26/us/politics/reflecting-pool-trump-algae.html"

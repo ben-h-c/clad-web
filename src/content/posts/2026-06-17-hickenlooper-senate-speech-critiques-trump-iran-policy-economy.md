@@ -40,6 +40,10 @@ keyMoments:
 videoId: "TSKApjg6qBM"
 videoTitle: "Hickenlooper Shreds Iran Deal: The United States Is 'Worse Off Than Where It Was When We Began'"
 thumbnail: "https://img.youtube.com/vi/TSKApjg6qBM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Hickenlooper Statement on Trump's Whiplash on Iran War"
     url: "https://www.hickenlooper.senate.gov/press_releases/hickenlooper-statement-on-trumps-whiplash-on-iran-war/"

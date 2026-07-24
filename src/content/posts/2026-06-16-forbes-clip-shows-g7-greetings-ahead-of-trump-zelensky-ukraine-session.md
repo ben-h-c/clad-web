@@ -25,6 +25,10 @@ keyMoments:
 videoId: "5OupIViJuoY"
 videoTitle: "President Trump And G7 Leaders Participate In A Working Meeting With Ukrainian President Zelensky"
 thumbnail: "https://img.youtube.com/vi/5OupIViJuoY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump to meet with Zelenskyy again at G7, calls on Russia to make a deal"
     url: "https://www.politico.com/news/2026/06/16/trump-zelenskyy-g7-meeting-00963141"

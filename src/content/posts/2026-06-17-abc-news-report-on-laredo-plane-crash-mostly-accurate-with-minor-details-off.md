@@ -36,6 +36,10 @@ keyMoments:
 videoId: "tanelUCfMZ4"
 videoTitle: "1 killed after private plane crashes in Texas"
 thumbnail: "https://img.youtube.com/vi/tanelUCfMZ4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "1 dead after private plane crashes onto Texas road, police say"
     url: "https://abcnews.go.com/US/1-dead-after-private-plane-crashes-texas-road/story?id=133952314"

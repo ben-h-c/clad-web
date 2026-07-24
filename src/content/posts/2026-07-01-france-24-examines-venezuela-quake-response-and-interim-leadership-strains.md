@@ -39,6 +39,10 @@ keyMoments:
 videoId: "nm-4vsxjpYI"
 videoTitle: "‘There will have to be a reckoning’: Venezuela’s natural disaster meets a collapsing infrastructure"
 thumbnail: "https://img.youtube.com/vi/nm-4vsxjpYI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela Government Accused of Politicizing Quake Relief"
     url: "https://www.nytimes.com/2026/06/28/world/americas/venezuela-quake-relief-rodriguez.html"

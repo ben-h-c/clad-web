@@ -38,6 +38,10 @@ keyMoments:
 videoId: "BX_g0UM0UGo"
 videoTitle: "Kenya protesters and activists reported missing after demonstrations"
 thumbnail: "https://img.youtube.com/vi/BX_g0UM0UGo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Hundreds arrested as Kenyans mark the anniversary of deadly protests in 2024"
     url: "https://www.washingtonpost.com/world/2026/06/25/kenya-protests-william-ruto-nairobi/485c5e2e-7057-11f1-8730-e7fd0e2a6404_story.html"

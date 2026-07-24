@@ -35,6 +35,10 @@ keyMoments:
 videoId: "7L6UASreC9w"
 videoTitle: "VIVATECH 2026: Rebuilding business models with AI • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/7L6UASreC9w/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "VivaTech: 2026 Edition"
     url: "https://vivatech.com/"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "e_9BXFfSI48"
 videoTitle: "Why Germany crashed out of the World Cup | DW News"
 thumbnail: "https://img.youtube.com/vi/e_9BXFfSI48/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Germany out with first World Cup penalty shootout loss ever"
     url: "https://www.nytimes.com/athletic/7400918/2026/06/29/germany-penalty-world-cup-breakdown/"

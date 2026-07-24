@@ -33,6 +33,10 @@ keyMoments:
 videoId: "3Vxt809u_Ww"
 videoTitle: "Russia launches deadly attacks on Ukraine ahead of NATO summit"
 thumbnail: "https://img.youtube.com/vi/3Vxt809u_Ww/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russian attacks on Ukraine kill 20 on eve of NATO summit, authorities say"
     url: "https://www.aljazeera.com/news/2026/7/6/russian-attacks-on-ukraine-kill-11-on-eve-of-nato-summit-authorities-say"

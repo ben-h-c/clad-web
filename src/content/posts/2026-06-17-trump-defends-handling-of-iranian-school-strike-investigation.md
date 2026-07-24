@@ -32,6 +32,10 @@ keyMoments:
 videoId: "lAhZiMqT0q8"
 videoTitle: "Trump on school bombing during Iran war that killed over 100 children: 'Nobody did that on purpose'"
 thumbnail: "https://img.youtube.com/vi/lAhZiMqT0q8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "USA/Iran: Those responsible for deadly and unlawful US strike on school that killed over 100 children must be held accountable"
     url: "https://www.amnesty.org/en/latest/news/2026/03/usa-iran-those-responsible-for-deadly-and-unlawful-us-strike-on-school-that-killed-over-100-children-must-be-held-accountable/"

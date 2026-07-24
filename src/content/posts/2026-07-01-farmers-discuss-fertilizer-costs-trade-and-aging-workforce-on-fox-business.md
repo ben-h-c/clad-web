@@ -36,6 +36,10 @@ keyMoments:
 videoId: "JhC2VvTJzMM"
 videoTitle: "'EDUCATION IS NEEDED': Farmers open up about top issues impacting them"
 thumbnail: "https://img.youtube.com/vi/JhC2VvTJzMM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Farm Producers - 2022 Census of Agriculture Highlights"
     url: "https://www.nass.usda.gov/Publications/Highlights/2024/Census22_HL_FarmProducers_FINAL.pdf"

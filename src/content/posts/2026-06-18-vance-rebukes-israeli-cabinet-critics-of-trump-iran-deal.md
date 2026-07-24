@@ -31,6 +31,10 @@ keyMoments:
 videoId: "09MIp83X608"
 videoTitle: "Vance warns Israeli critics over Iran deal: Trump is your ‘only powerful’ ally"
 thumbnail: "https://img.youtube.com/vi/09MIp83X608/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Vance warns Israeli critics over Iran deal: Trump is your ‘only powerful’ ally"
     url: "https://www.reuters.com/world/middle-east/vance-criticizes-israel-freakout-over-iran-deal-new-york-times-interview-2026-06-18/"

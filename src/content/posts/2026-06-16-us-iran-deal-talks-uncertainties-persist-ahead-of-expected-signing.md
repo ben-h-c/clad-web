@@ -36,6 +36,10 @@ keyMoments:
 videoId: "fMBI5JqYPWs"
 videoTitle: "US, Iran Prepare for Deal Signing With Both Claiming Victory"
 thumbnail: "https://img.youtube.com/vi/fMBI5JqYPWs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2025–2026 Iran–United States negotiations"
     url: "https://en.wikipedia.org/wiki/2025%E2%80%932026_Iran%E2%80%93United_States_negotiations"

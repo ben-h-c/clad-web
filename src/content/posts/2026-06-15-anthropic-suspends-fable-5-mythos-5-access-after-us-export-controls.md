@@ -36,6 +36,10 @@ keyMoments:
 videoId: "MDaZ31jx2vQ"
 videoTitle: "Latest Claude AI models suspended after orders from Trump administration • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/MDaZ31jx2vQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Anthropic suspends top AI models after U.S. export control order"
     url: "https://www.nextgov.com/artificial-intelligence/2026/06/anthropic-suspends-top-ai-models-after-us-export-control-order/414173/"

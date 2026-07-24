@@ -31,6 +31,10 @@ keyMoments:
 videoId: "I-8jJ-JC0A4"
 videoTitle: "Trump calls housing affordability bill 'a big yawn'"
 thumbnail: "https://img.youtube.com/vi/I-8jJ-JC0A4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump calls housing bill 'a big yawn,' presses voting curbs"
     url: "https://www.reuters.com/world/us/trump-calls-housing-bill-a-big-yawn-presses-voting-curbs-2026-06-29/"

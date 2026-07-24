@@ -28,6 +28,10 @@ keyMoments:
 videoId: "V0SdnnbsnQ0"
 videoTitle: "Burnham Says He's Accepted Invitation to Form Government"
 thumbnail: "https://img.youtube.com/vi/V0SdnnbsnQ0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What’s next as Andy Burnham takes over as UK’s next prime minister?"
     url: "https://www.aljazeera.com/news/2026/7/20/andy-burnham-to-become-uks-pm-on-monday-what-happens-next"

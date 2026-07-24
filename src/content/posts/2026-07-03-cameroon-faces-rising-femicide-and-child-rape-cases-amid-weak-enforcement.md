@@ -35,6 +35,10 @@ keyMoments:
 videoId: "72UAeKpZHqA"
 videoTitle: "Femicide and child rape in Cameroon: A justice system failing women and girls | DW News"
 thumbnail: "https://img.youtube.com/vi/72UAeKpZHqA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Cameroon: Failed Promise to Reduce Gender-Based Violence"
     url: "https://www.hrw.org/news/2026/06/24/cameroon-failed-promise-to-reduce-gender-based-violence"

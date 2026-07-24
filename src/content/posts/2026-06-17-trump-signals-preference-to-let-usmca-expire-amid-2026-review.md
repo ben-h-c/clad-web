@@ -31,6 +31,10 @@ keyMoments:
 videoId: "tzwU02Pqkcg"
 videoTitle: "Trump says U.S. would \"do better as a country\" without USMCA"
 thumbnail: "https://img.youtube.com/vi/tzwU02Pqkcg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "USMCA Review 2026"
     url: "https://www.csis.org/analysis/usmca-review-2026"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "XD4bDjwiRtY"
 videoTitle: "“Celebrate the journey”: Rev. Al Sharpton on America’s 250th"
 thumbnail: "https://img.youtube.com/vi/XD4bDjwiRtY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "America250"
     url: "https://america250.org/"

@@ -30,6 +30,10 @@ keyMoments:
 videoId: "HuivLNpyGes"
 videoTitle: "India’s salt workers still struggle despite government promises | 101 East #shorts"
 thumbnail: "https://img.youtube.com/vi/HuivLNpyGes/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "India's salt workers: The human cost of the world's most popular seasoning"
     url: "https://www.aljazeera.com/video/101-east/2026/7/18/indias-salt-workers-the-human-cost-of-the-worlds-most-popular-seasoning"

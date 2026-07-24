@@ -34,6 +34,10 @@ keyMoments:
 videoId: "3cTxcrq14H0"
 videoTitle: "Tom Suozzi Asks Experts To Explain The Differences Between Different Kinds Of Cryptocurrency"
 thumbnail: "https://img.youtube.com/vi/3cTxcrq14H0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Full Committee Legislative Hearing on Digital Asset Taxation"
     url: "https://waysandmeans.house.gov/event/full-committee-legislative-hearing-on-digital-asset-taxation/"

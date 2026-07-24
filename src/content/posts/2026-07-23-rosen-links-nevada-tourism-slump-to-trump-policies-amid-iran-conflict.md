@@ -35,6 +35,10 @@ keyMoments:
 videoId: "2xounsioCIY"
 videoTitle: "Rosen says Trump is ignoring Nevada&#39;s struggling economy"
 thumbnail: "https://img.youtube.com/vi/2xounsioCIY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

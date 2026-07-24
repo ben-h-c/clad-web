@@ -32,6 +32,10 @@ keyMoments:
 videoId: "GKmrJWM_zWU"
 videoTitle: "'We Can Thread This Needle': Brad Schneider Demands Bipartisan Work To Regulate Crypto Tax Code"
 thumbnail: "https://img.youtube.com/vi/GKmrJWM_zWU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Full Committee Legislative Hearing on Digital Asset Taxation"
     url: "https://waysandmeans.house.gov/event/full-committee-legislative-hearing-on-digital-asset-taxation/"

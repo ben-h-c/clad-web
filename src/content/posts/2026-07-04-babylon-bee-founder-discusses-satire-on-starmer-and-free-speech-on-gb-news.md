@@ -36,6 +36,10 @@ keyMoments:
 videoId: "za4mlo_8w3k"
 videoTitle: "'We've LOST our sense of HUMOUR!' | Babylon Bee founder on Starmer, Trump and the end of free speech"
 thumbnail: "https://img.youtube.com/vi/za4mlo_8w3k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Prominent Muslim Leader Resigns"
     url: "https://babylonbee.com/news/prominent-muslim-leader-resigns"

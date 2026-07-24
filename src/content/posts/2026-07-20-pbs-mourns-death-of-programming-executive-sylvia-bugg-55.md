@@ -32,6 +32,10 @@ keyMoments:
 videoId: "frkDCpLKBPs"
 videoTitle: "Remembering PBS programming executive Sylvia Bugg"
 thumbnail: "https://img.youtube.com/vi/frkDCpLKBPs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sylvia Bugg Dies: PBS Programming Chief & Longtime Nonfiction TV Exec Was 55"
     url: "https://deadline.com/2026/07/sylvia-bugg-dead-pbs-chief-programmer-1236998554/"

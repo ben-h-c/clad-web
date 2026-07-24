@@ -36,6 +36,10 @@ keyMoments:
 videoId: "9GcYtItlWuQ"
 videoTitle: "The 4 issues that could torpedo peace with Iran | DW News"
 thumbnail: "https://img.youtube.com/vi/9GcYtItlWuQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Read the full text of Trump's preliminary U.S.-Iran agreement to end the war"
     url: "https://www.npr.org/2026/06/18/nx-s1-5863027/us-iran-trump-memorandum-of-understanding-full-text"

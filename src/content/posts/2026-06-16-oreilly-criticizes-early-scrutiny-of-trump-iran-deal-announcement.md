@@ -29,6 +29,10 @@ keyMoments:
 videoId: "VABBUkgEU6o"
 videoTitle: "Bill O’Reilly slams critics of Trump’s Iran agreement | On Balance"
 thumbnail: "https://img.youtube.com/vi/VABBUkgEU6o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bill O'Reilly: Trump has reached point of needing to break Iran or his legacy will be in trouble"
     url: "https://www.newsnationnow.com/world/trump-iran-breaking-point-bill-oreilly/"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "IRrj97K5oaw"
 videoTitle: "4 rescued in BC after charter boat sinks, search suspended for 6 others: RCMP"
 thumbnail: "https://img.youtube.com/vi/IRrj97K5oaw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "6 boaters still missing in Strait of Georgia as search and rescue operation suspended"
     url: "https://www.cbc.ca/news/canada/british-columbia/missing-boaters-richmond-rcmp-9.7252416"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "jg8tvk0bLSw"
 videoTitle: "One dead and 89 injured following train collision in Bedford, UK"
 thumbnail: "https://img.youtube.com/vi/jg8tvk0bLSw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Train driver dies and 89 people injured after two trains collide near Bedford"
     url: "https://www.theguardian.com/uk-news/2026/jun/19/two-trains-collide-bedford"

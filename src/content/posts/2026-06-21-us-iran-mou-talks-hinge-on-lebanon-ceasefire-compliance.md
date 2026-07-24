@@ -35,6 +35,10 @@ keyMoments:
 videoId: "4UmC6Mbb18Y"
 videoTitle: "Can US-Iran talks move forward without a Lebanon ceasefire?"
 thumbnail: "https://img.youtube.com/vi/4UmC6Mbb18Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: Witkoff heading to Switzerland for Iran talks"
     url: "https://www.cnn.com/2026/06/19/world/live-news/iran-war-trump-israel-lebanon"

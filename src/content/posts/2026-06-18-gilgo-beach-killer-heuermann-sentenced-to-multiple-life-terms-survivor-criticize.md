@@ -34,6 +34,10 @@ keyMoments:
 videoId: "-kAQoSO7_Ws"
 videoTitle: "Gilgo Beach killer has been sentenced, but one survivor says justice fell short | CUOMO"
 thumbnail: "https://img.youtube.com/vi/-kAQoSO7_Ws/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "‘I am responsible.’ Takeaways from Gilgo Beach serial killer Rex Heuermann’s sentencing hearing"
     url: "https://www.cnn.com/2026/06/17/us/rex-heuermann-life-sentence"

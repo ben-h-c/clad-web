@@ -35,6 +35,10 @@ keyMoments:
 videoId: "oX6dAZ6PiY4"
 videoTitle: "“STARMER HAS BEEN A FAILURE!” | Politics Editor's BRUTAL Verdict"
 thumbnail: "https://img.youtube.com/vi/oX6dAZ6PiY4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Keir Starmer resigns, Andy Burnham becomes U.K. prime minister"
     url: "https://www.npr.org/2026/07/19/nx-s1-5895993/andy-burnham-prime-minister-keir-starmer"

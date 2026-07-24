@@ -35,6 +35,10 @@ keyMoments:
 videoId: "7VM_3aOJ2-g"
 videoTitle: "Iranian coach says team told to leave U.S. after match: \"They didn't even give us time to recover\""
 thumbnail: "https://img.youtube.com/vi/7VM_3aOJ2-g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran coach vents about travel restrictions after World Cup ..."
     url: "https://www.latimes.com/sports/soccer/story/2026-06-15/iran-new-zealand-world-cup"

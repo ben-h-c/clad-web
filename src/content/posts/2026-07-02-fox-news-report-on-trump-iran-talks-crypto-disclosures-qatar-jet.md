@@ -35,6 +35,10 @@ keyMoments:
 videoId: "J71y-LkJH2o"
 videoTitle: "DEAL OR STRIKE?: Trump weighs military options as Iran talks continue…"
 thumbnail: "https://img.youtube.com/vi/J71y-LkJH2o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump’s annual financial disclosure shows more than $580M in crypto-related income"
     url: "https://www.cnbc.com/2026/06/30/trump-financial-disclosure-released.html"

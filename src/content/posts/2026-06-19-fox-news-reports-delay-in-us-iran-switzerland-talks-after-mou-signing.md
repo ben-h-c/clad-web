@@ -38,6 +38,10 @@ keyMoments:
 videoId: "YUPGNrIMCMY"
 videoTitle: "US-Iran talks DELAYED, Switzerland confirms"
 thumbnail: "https://img.youtube.com/vi/YUPGNrIMCMY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Vance postpones Iran talks trip to Switzerland"
     url: "https://www.axios.com/2026/06/19/us-iran-talks-vance-switzerland-trip-postponed-white-house"

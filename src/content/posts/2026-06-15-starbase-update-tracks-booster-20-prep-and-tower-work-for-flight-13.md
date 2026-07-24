@@ -34,6 +34,10 @@ keyMoments:
 videoId: "7ii_4O-P008"
 videoTitle: "Booster 20 returns for engines ahead of Flight 13 | SpaceX Starbase"
 thumbnail: "https://img.youtube.com/vi/7ii_4O-P008/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Booster 20 (B20) - Starship SpaceX Wiki"
     url: "https://starship-spacex.fandom.com/wiki/Booster_20_(B20)"

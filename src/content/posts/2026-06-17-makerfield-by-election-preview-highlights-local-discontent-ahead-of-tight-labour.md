@@ -32,6 +32,10 @@ keyMoments:
 videoId: "vjvDiBQIEiI"
 videoTitle: "Why UK’s Makerfield by-election matters far beyond one parliamentary seat"
 thumbnail: "https://img.youtube.com/vi/vjvDiBQIEiI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Makerfield by-election"
     url: "https://en.wikipedia.org/wiki/2026_Makerfield_by-election"

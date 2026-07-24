@@ -34,6 +34,10 @@ keyMoments:
 videoId: "8PgOVvMFMvs"
 videoTitle: "Australia to double down on big tech over social media ban on under-16s | DW News"
 thumbnail: "https://img.youtube.com/vi/8PgOVvMFMvs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Assessing early effects of Australia’s Social Media Minimum Age Act on adolescents’ social media use: observational study"
     url: "https://www.bmj.com/content/393/bmj-2026-363695"

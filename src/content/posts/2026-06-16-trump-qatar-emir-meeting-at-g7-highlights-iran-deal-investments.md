@@ -37,6 +37,10 @@ keyMoments:
 videoId: "r_sZV4Rd3gg"
 videoTitle: "Trump meets with emir of Qatar during G7 summit in France"
 thumbnail: "https://img.youtube.com/vi/r_sZV4Rd3gg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: Trump attends second day of G7 summit"
     url: "https://apnews.com/live/trump-g7-iran-updates-06-16-2026"

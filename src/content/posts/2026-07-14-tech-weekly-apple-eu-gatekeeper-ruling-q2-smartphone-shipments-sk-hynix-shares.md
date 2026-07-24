@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Zehm5Gsm40I"
 videoTitle: "Tech Weekly: Apple loses challenge against EU rules"
 thumbnail: "https://img.youtube.com/vi/Zehm5Gsm40I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Apple loses challenges against EU rules to curb Big Tech"
     url: "https://www.reuters.com/world/eu-court-rejects-apples-challenge-against-eu-rules-reining-big-tech-2026-07-08/"

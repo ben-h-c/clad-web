@@ -36,6 +36,10 @@ keyMoments:
 videoId: "0wISZQu6Vvk"
 videoTitle: "'It's A Math Problem': Lindsey Graham Asked About Passing The SAVE America Act"
 thumbnail: "https://img.youtube.com/vi/0wISZQu6Vvk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "JUST IN: Lindsey Graham Takes Multiple Questions On U.S.-Iran Deal, SAVE America Act"
     url: "https://www.youtube.com/watch?v=aMH25CtH9Mk"

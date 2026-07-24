@@ -37,6 +37,10 @@ keyMoments:
 videoId: "SRHni5jIETc"
 videoTitle: "Pastor jailed in Christianity crackdown on 'miracle' release"
 thumbnail: "https://img.youtube.com/vi/SRHni5jIETc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "China releases pastor of Zion Church after Trump's intervention"
     url: "https://www.kiro7.com/news/world/pastor-freed-prison/DKW6VIJK54Z2LBOJZE7BOI6EN4/"

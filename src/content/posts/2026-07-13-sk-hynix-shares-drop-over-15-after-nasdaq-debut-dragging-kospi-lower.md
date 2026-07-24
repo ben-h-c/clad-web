@@ -35,6 +35,10 @@ keyMoments:
 videoId: "DlR7Q1zNi10"
 videoTitle: "SK Hynix shares fall after Nasdaq debut"
 thumbnail: "https://img.youtube.com/vi/DlR7Q1zNi10/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SK Hynix plunges after Nasdaq debut amid profit-taking, diminishing earnings optimism"
     url: "https://www.reuters.com/world/asia-pacific/sk-hynix-shares-fall-much-44-seoul-after-strong-nasdaq-debut-2026-07-13/"

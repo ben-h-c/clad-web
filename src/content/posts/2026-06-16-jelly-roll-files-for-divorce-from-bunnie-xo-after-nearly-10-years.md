@@ -34,6 +34,10 @@ keyMoments:
 videoId: "CMt2LQGQUsY"
 videoTitle: "Jelly Roll and Bunnie Xo are calling it quits."
 thumbnail: "https://img.youtube.com/vi/CMt2LQGQUsY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jelly Roll’s Divorce Filing Reveals Surprising Date of Separation from Bunnie Xo"
     url: "https://people.com/jelly-roll-divorce-filing-reveals-surprising-date-of-separation-from-bunnie-xo-11999555"

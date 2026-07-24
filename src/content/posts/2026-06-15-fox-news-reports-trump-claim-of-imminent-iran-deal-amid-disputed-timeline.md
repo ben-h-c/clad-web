@@ -36,6 +36,10 @@ keyMoments:
 videoId: "erieUL3NrgQ"
 videoTitle: "NEW: Trump promises IMMINENT PEACE DEAL with Iran"
 thumbnail: "https://img.youtube.com/vi/erieUL3NrgQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump promises imminent peace deal with Iran"
     url: "https://www.foxnews.com/video/6398382441112"

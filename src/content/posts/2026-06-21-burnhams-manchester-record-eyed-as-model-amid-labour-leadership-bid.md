@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Qj1Z8juF0Tk"
 videoTitle: "Andy Burnham eyes PM bid using Manchester's record as a national blueprint"
 thumbnail: "https://img.youtube.com/vi/Qj1Z8juF0Tk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham wins U.K. Parliament seat, key step in bid to oust prime minister"
     url: "https://www.washingtonpost.com/world/2026/06/19/andy-burnham-wins-uk-parliament-seat-key-step-bid-oust-prime-minister/"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "cVnHC31aJeE"
 videoTitle: "'We Have A De Facto Leader Of The Unitary Executive Theory': Hoyer Blasts Vought's Actions"
 thumbnail: "https://img.youtube.com/vi/cVnHC31aJeE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russell Vought - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Russell_Vought"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "usCyrPeFG84"
 videoTitle: "Mass crowds gather in Tehran as six-day funeral for killed supreme leader begins | DW News"
 thumbnail: "https://img.youtube.com/vi/usCyrPeFG84/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran: Khamenei's funeral ceremonies officially begin"
     url: "https://www.dw.com/en/iran-dignitaries-arrive-for-ayatollah-khameneis-funeral/a-77816592"

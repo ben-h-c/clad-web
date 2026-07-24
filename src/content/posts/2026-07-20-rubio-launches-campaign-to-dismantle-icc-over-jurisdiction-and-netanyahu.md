@@ -36,6 +36,10 @@ keyMoments:
 videoId: "t-AUSgGhmUs"
 videoTitle: "Rubio Is Absolutely Right To Take A Hammer To The ICC: Steve Forbes"
 thumbnail: "https://img.youtube.com/vi/t-AUSgGhmUs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Marco Rubio"
     slug: "marco-rubio"

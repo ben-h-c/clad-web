@@ -33,6 +33,10 @@ keyMoments:
 videoId: "RblzI8k5Vl0"
 videoTitle: "US CPI falls for the first time since 2020 #shorts #cpi #inflation #warsh #federalreserve"
 thumbnail: "https://img.youtube.com/vi/RblzI8k5Vl0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Consumer Price Index News Release - June 2026"
     url: "https://www.bls.gov/news.release/cpi.nr0.htm"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "PRyVwjBvf9o"
 videoTitle: "‘BOOM’: Trump makes THRILLING new economic pitch to America #shorts"
 thumbnail: "https://img.youtube.com/vi/PRyVwjBvf9o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Donald Trump Speaks at the Great American State Fair"
     url: "https://rollcall.com/factbase/trump/transcript/donald-trump-remarks-great-american-state-fair-june-24-2026/"

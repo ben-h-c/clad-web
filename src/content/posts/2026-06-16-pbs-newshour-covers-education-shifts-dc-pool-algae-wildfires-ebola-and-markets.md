@@ -33,6 +33,10 @@ keyMoments:
 videoId: "jKiK3vtxmtY"
 videoTitle: "News Wrap: Civil rights, special education oversight shifted from Department of Education"
 thumbnail: "https://img.youtube.com/vi/jKiK3vtxmtY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump further guts Education Dept. by shifting oversight of special ed, civil rights"
     url: "https://www.npr.org/2026/06/16/nx-s1-5717030/special-ed-civil-rights-education-department"

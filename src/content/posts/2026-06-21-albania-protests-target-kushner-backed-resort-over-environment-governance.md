@@ -31,6 +31,10 @@ keyMoments:
 videoId: "t0fI0MDVwWU"
 videoTitle: "Thousands in Albania protest Jared Kushner-backed resort plan"
 thumbnail: "https://img.youtube.com/vi/t0fI0MDVwWU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Albania's Rama vows to push on with Kushner-linked luxury resort despite protests"
     url: "https://www.reuters.com/world/albanias-rama-vows-push-with-kushner-linked-luxury-resort-despite-protests-2026-06-08/"

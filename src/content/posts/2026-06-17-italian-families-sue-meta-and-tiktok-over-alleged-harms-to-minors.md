@@ -32,6 +32,10 @@ keyMoments:
 videoId: "7IITQelF54U"
 videoTitle: "Italian parents sue Meta and TikTok over risks to children"
 thumbnail: "https://img.youtube.com/vi/7IITQelF54U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Italian mother takes on Meta, TikTok after daughter's death"
     url: "https://www.reuters.com/business/media-telecom/italian-mother-takes-meta-tiktok-after-daughters-death-2026-06-17/"

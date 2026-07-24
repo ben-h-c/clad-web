@@ -38,6 +38,10 @@ keyMoments:
 videoId: "YXXH7EvEEQM"
 videoTitle: "OpenAI may delay IPO until next year: NYT"
 thumbnail: "https://img.youtube.com/vi/YXXH7EvEEQM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "OpenAI may delay blockbuster IPO to 2027"
     url: "https://finance.yahoo.com/markets/stocks/articles/openai-may-delay-blockbuster-ipo-211919988.html"

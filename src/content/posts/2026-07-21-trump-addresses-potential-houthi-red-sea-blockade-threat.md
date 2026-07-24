@@ -30,6 +30,10 @@ keyMoments:
 videoId: "oPOFf60CsgY"
 videoTitle: "President Trump on Possible Red Sea Blockade"
 thumbnail: "https://img.youtube.com/vi/oPOFf60CsgY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

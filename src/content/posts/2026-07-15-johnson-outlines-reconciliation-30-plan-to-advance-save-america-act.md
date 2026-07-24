@@ -35,6 +35,10 @@ keyMoments:
 videoId: "d5hXqipSuyg"
 videoTitle: "'It Is Important To The American People—Is Important To The Future': Johnson Lauds SAVE America Act"
 thumbnail: "https://img.youtube.com/vi/d5hXqipSuyg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "JD Vance"
     slug: "jd-vance"

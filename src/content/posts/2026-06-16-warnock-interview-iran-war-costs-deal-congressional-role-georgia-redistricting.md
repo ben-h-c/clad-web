@@ -40,6 +40,10 @@ keyMoments:
 videoId: "UvvlxLW7KFU"
 videoTitle: "Sen. Raphael Warnock says \"it's past time for Congress to assert itself\" in Iran war"
 thumbnail: "https://img.youtube.com/vi/UvvlxLW7KFU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "VIDEO: Warnock Votes to Force an End to Iran War"
     url: "https://www.warnock.senate.gov/newsroom/press-releases/video-warnock-votes-to-force-an-end-to-iran-war/"

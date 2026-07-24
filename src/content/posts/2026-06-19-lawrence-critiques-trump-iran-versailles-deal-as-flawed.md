@@ -36,6 +36,10 @@ keyMoments:
 videoId: "H3r0_p_z8PQ"
 videoTitle: "Lawrence: Trump picked the worst place in the world to sign his terrible deal with Iran"
 thumbnail: "https://img.youtube.com/vi/H3r0_p_z8PQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: US and Iran sign initial agreement to end war"
     url: "https://www.cnn.com/2026/06/18/world/live-news/iran-war-trump-israel-lebanon"

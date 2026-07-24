@@ -37,6 +37,10 @@ keyMoments:
 videoId: "I3FxGvGr1v0"
 videoTitle: "\"Iran will never have a nuclear weapon.\""
 thumbnail: "https://img.youtube.com/vi/I3FxGvGr1v0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "President Trump Addresses Nation on War with Iran | Video"
     url: "https://www.c-span.org/program/white-house-event/president-trump-addresses-nation-on-war-with-iran/676697"

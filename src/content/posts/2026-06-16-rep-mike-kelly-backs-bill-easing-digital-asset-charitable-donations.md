@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ugUedPJ5RJc"
 videoTitle: "'We're Missing The Whole Point': Mike Kelly Urges Reforms To Charitable Digital Asset Donations"
 thumbnail: "https://img.youtube.com/vi/ugUedPJ5RJc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Kelly introduces Charitable Deductions for Digital Asset Donations Act | Congressman Mike Kelly"
     url: "https://kelly.house.gov/media/press-releases/kelly-introduces-charitable-deductions-digital-asset-donations-act"

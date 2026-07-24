@@ -35,6 +35,10 @@ keyMoments:
 videoId: "mM_jGy-tpiA"
 videoTitle: "AI Relief Rally Fades While Chinese Economy Stalls | Insight with Haslinda Amin 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/mM_jGy-tpiA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bank of Japan set to hike rates to 31-year high, drop ..."
     url: "https://www.reuters.com/business/finance/bank-japan-set-hike-rates-31-year-high-drop-hawkish-signals-2026-06-12/"

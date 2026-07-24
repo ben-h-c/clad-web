@@ -35,6 +35,10 @@ keyMoments:
 videoId: "eYAYCallSxY"
 videoTitle: "Hannah Waddingham Talks Filming Action-Packed Scenes In New Series"
 thumbnail: "https://img.youtube.com/vi/eYAYCallSxY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ride or Die (2026 TV series) - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Ride_or_Die_(2026_TV_series)"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "3bDlYnOZ5nA"
 videoTitle: "DOJ Sues Virginia Governor Spanberger Over 'Neo-Confederate' Immigration Laws"
 thumbnail: "https://img.youtube.com/vi/3bDlYnOZ5nA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Justice Department Files Complaint Challenging Virginia Mask Ban and Identification Requirements for Federal Officers"
     url: "https://www.justice.gov/opa/pr/justice-department-files-complaint-challenging-virginia-mask-ban-and-identification"

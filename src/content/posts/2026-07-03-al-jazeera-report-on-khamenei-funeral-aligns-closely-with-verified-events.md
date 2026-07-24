@@ -34,6 +34,10 @@ keyMoments:
 videoId: "pVjLWkna0dM"
 videoTitle: "Funeral of Iran's late supreme leader: Coffin of Ayatollah Ali Khamenei on display in Tehran"
 thumbnail: "https://img.youtube.com/vi/pVjLWkna0dM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran Prepares to Bury Supreme Leader, Ayatollah Ali Khamenei, Killed at Iran War’s Outset"
     url: "https://www.nytimes.com/2026/07/02/world/middleeast/iran-funeral-ali-khamenei-preparations.html"

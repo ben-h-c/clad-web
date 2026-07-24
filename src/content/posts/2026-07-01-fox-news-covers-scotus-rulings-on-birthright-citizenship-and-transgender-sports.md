@@ -34,6 +34,10 @@ keyMoments:
 videoId: "liFwq5VRWvs"
 videoTitle: "BIRTHRIGHT BATTLE: Trump order falls at Supreme Court"
 thumbnail: "https://img.youtube.com/vi/liFwq5VRWvs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court strikes down Trump’s order ending birthright citizenship"
     url: "https://www.scotusblog.com/2026/06/supreme-court-strikes-down-trumps-order-ending-birthright-citizenship/"

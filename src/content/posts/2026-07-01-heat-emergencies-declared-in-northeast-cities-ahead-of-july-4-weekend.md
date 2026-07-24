@@ -34,6 +34,10 @@ keyMoments:
 videoId: "RIH8DaNeIGM"
 videoTitle: "Heat emergency forces cities to rework plans for holiday weekend"
 thumbnail: "https://img.youtube.com/vi/RIH8DaNeIGM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Health Department Declares Heat Health Emergency"
     url: "https://www.phila.gov/2026-06-30-health-department-declares-heat-health-emergency-wednesday-july-1-at-11-a-m-through-saturday-july-4-at-8-p-m/"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "xox017v4SjE"
 videoTitle: "Georgia voters casting ballots in GOP Senate and governor runoffs"
 thumbnail: "https://img.youtube.com/vi/xox017v4SjE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump endorses Mike Collins in Georgia Senate runoff"
     url: "https://www.politico.com/news/2026/06/14/trump-endorses-mike-collins-georgia-senate-00961554"

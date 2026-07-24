@@ -35,6 +35,10 @@ keyMoments:
 videoId: "cBWOtw-ofbw"
 videoTitle: "'This ALLOWS ICE to continue vehicle stops': Ex-Acting DHS secretary"
 thumbnail: "https://img.youtube.com/vi/cBWOtw-ofbw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "ICE to resume traffic stops under new body camera policy"
     url: "https://www.foxnews.com/politics/ice-resumes-nationwide-traffic-stops-under-new-policy-requiring-body-cameras"

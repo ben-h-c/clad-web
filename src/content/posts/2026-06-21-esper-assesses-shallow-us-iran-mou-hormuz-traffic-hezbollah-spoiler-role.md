@@ -35,6 +35,10 @@ keyMoments:
 videoId: "2DqWHUGlahU"
 videoTitle: "Former US Defense Secretary Esper: Hezbollah is 'Spoiler' for US-Iran Deal"
 thumbnail: "https://img.youtube.com/vi/2DqWHUGlahU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "With Lebanon ceasefire set, Trump envoy heads to Switzerland for U.S.-Iran talks"
     url: "https://www.reuters.com/world/europe/us-iran-peace-talks-postponed-clouding-prospects-lasting-truce-2026-06-19/"

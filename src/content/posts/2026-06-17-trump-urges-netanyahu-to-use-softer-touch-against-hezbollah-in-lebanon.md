@@ -31,6 +31,10 @@ keyMoments:
 videoId: "2jJH0PaUmLM"
 videoTitle: "Trump says Netanyahu could use 'softer touch' in Lebanon"
 thumbnail: "https://img.youtube.com/vi/2jJH0PaUmLM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says Netanyahu could use 'softer touch' in Lebanon"
     url: "https://www.reuters.com/world/middle-east/trump-says-netanyahu-could-use-softer-touch-lebanon-2026-06-17/"

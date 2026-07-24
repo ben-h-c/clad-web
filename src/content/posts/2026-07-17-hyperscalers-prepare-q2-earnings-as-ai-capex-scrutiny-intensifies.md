@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Fmb2gkEB-Hw"
 videoTitle: "Hyperscaler Earnings Will Dictate: 3-Minutes MLIV"
 thumbnail: "https://img.youtube.com/vi/Fmb2gkEB-Hw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Meta, Microsoft, Amazon, and Alphabet are about to spend a shocking amount of money"
     url: "https://finance.yahoo.com/sectors/technology/article/meta-microsoft-amazon-and-alphabet-are-about-to-spend-a-shocking-amount-of-money-to-dominate-the-ai-era-115359575.html"

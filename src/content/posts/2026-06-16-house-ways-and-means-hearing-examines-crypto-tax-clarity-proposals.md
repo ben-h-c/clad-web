@@ -34,6 +34,10 @@ keyMoments:
 videoId: "32UCx8JZJHY"
 videoTitle: "'Financial Markets Need Need Clear Rules Of The Road': Jason Smith Urges Clarity For Crypto Taxation"
 thumbnail: "https://img.youtube.com/vi/32UCx8JZJHY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Chairman Smith at Digital Asset Legislative Hearing: America Needs Clear Tax Rules to Remain Digital Asset Capital of the World"
     url: "https://waysandmeans.house.gov/2026/06/09/chairman-smith-at-digital-asset-legislative-hearing-america-needs-clear-tax-rules-to-remain-digital-asset-capital-of-the-world/"

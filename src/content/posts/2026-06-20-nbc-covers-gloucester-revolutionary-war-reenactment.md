@@ -28,6 +28,10 @@ keyMoments:
 videoId: "EMr5JwVsG_c"
 videoTitle: "Hundreds participate in Revolutionary War reenactment in Gloucester, Mass."
 thumbnail: "https://img.youtube.com/vi/EMr5JwVsG_c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Historic reenactment recreates Battle of Gloucester"
     url: "https://www.nbcboston.com/news/local/gloucester-ma-stage-fort-park-battle-of-gloucester-reenactment-events/3968494/"

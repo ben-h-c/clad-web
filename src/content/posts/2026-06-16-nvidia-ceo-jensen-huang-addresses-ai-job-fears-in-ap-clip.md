@@ -35,6 +35,10 @@ keyMoments:
 videoId: "SldZdiefXzY"
 videoTitle: "Nvidia CEO Jensen Huang tries to quell fears on future of technology"
 thumbnail: "https://img.youtube.com/vi/SldZdiefXzY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Nvidia CEO: You won't lose your job to AI—you'll 'lose your job to somebody who uses AI'"
     url: "https://www.cnbc.com/2025/05/28/nvidia-ceo-jensen-huang-youll-lose-your-job-to-somebody-who-uses-ai.html"

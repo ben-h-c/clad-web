@@ -37,6 +37,10 @@ keyMoments:
 videoId: "IvljNdkUNjo"
 videoTitle: "CLOCK IS TICKING: Pressure MOUNTS after latest SCOTUS ruling"
 thumbnail: "https://img.youtube.com/vi/IvljNdkUNjo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Justices uphold state law allowing for late-arriving mail-in ballots"
     url: "https://www.scotusblog.com/2026/06/justices-uphold-state-law-allowing-for-late-arriving-mail-in-ballots/"

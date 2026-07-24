@@ -37,6 +37,10 @@ keyMoments:
 videoId: "YPHSeySBv3g"
 videoTitle: "The Future of Forward Guidance Under Fed Chair Warsh"
 thumbnail: "https://img.youtube.com/vi/YPHSeySBv3g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Future of Forward Guidance Under Fed Chair Warsh"
     url: "https://www.bloomberg.com/news/videos/2026-06-16/the-future-of-forward-guidance-under-fed-chair-warsh-video"

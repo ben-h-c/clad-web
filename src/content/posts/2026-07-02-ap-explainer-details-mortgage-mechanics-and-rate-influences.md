@@ -34,6 +34,10 @@ keyMoments:
 videoId: "VBV8bVxLF8s"
 videoTitle: "When is the best time to buy a house? What to know about mortgage rates"
 thumbnail: "https://img.youtube.com/vi/VBV8bVxLF8s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mortgage Calculator"
     url: "https://www.calculator.net/mortgage-calculator.html"

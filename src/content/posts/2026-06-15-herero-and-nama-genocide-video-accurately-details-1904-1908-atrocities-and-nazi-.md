@@ -37,6 +37,10 @@ keyMoments:
 videoId: "PKuycLzY7c4"
 videoTitle: "The African Genocide That Taught Germany How to Build Death Camps"
 thumbnail: "https://img.youtube.com/vi/PKuycLzY7c4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Herero and Nama genocide"
     url: "https://en.wikipedia.org/wiki/Herero_and_Nama_genocide"

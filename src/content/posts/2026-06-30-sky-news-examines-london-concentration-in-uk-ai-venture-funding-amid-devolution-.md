@@ -34,6 +34,10 @@ keyMoments:
 videoId: "v6sznbc4eNQ"
 videoTitle: "Why spreading the AI boom might be harder than Andy Burnham thinks"
 thumbnail: "https://img.youtube.com/vi/v6sznbc4eNQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "AI drives record share of UK venture capital investment"
     url: "https://www.uktech.news/ai/ai-drives-record-share-of-uk-venture-capital-investment-20250703"

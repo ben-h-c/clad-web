@@ -37,6 +37,10 @@ keyMoments:
 videoId: "EQk0spY3nmA"
 videoTitle: "'Know your rules': Sen. Padilla tells voters to counter election intimidation with preparedness"
 thumbnail: "https://img.youtube.com/vi/EQk0spY3nmA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "As Trump & Republicans Wage Assault On Free and Fair Elections, Padilla, Schiff, Senate Democrats, & Elections Experts Prepare to Protect the 2026 Midterms"
     url: "https://www.padilla.senate.gov/newsroom/press-releases/as-trump-republicans-wage-assault-on-free-and-fair-elections-padilla-schiff-senate-democrats-elections-experts-prepare-to-protect-the-2026-midterms/"

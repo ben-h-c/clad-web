@@ -35,6 +35,10 @@ keyMoments:
 videoId: "DynJZuWXD2c"
 videoTitle: "Do social media bans actually protect kids? | The Excerpt"
 thumbnail: "https://img.youtube.com/vi/DynJZuWXD2c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Australia’s Social Media Ban Is Floundering"
     url: "https://www.nytimes.com/2026/06/10/world/australia/australia-social-media-ban-under-16.html"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Zyu_ecRsBV0"
 videoTitle: "Markets 'don't care' about what's in the Iran deal, they just want the war to be over: Greeley"
 thumbnail: "https://img.youtube.com/vi/Zyu_ecRsBV0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. and Iran reach deal but need Trump's final approval, officials say"
     url: "https://www.axios.com/2026/05/28/iran-peace-deal-trump-approval"

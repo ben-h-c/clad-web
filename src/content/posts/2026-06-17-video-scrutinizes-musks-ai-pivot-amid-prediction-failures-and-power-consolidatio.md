@@ -40,6 +40,10 @@ keyMoments:
 videoId: "4SBE39oAKcI"
 videoTitle: "Elon Musk Tried to Stop AI. Now He's Building It."
 thumbnail: "https://img.youtube.com/vi/4SBE39oAKcI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "List of predictions for autonomous Tesla vehicles by Elon Musk"
     url: "https://en.wikipedia.org/wiki/List_of_predictions_for_autonomous_Tesla_vehicles_by_Elon_Musk"

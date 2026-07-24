@@ -35,6 +35,10 @@ keyMoments:
 videoId: "60Yibxsj5Vg"
 videoTitle: "DeepSeek dodges addition to US trade blacklist"
 thumbnail: "https://img.youtube.com/vi/60Yibxsj5Vg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Exclusive: US holds off blacklisting China's DeepSeek, more than 100 firms deemed security risks, sources say"
     url: "https://www.reuters.com/world/china/us-holds-off-blacklisting-chinas-deepseek-more-than-100-firms-deemed-security-2026-06-17/"

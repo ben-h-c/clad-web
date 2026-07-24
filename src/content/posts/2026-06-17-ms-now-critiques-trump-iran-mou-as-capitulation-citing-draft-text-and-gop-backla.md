@@ -37,6 +37,10 @@ keyMoments:
 videoId: "0pIjQBI9Zzk"
 videoTitle: "‘SO BAD!’: MAGA sycophants OPENLY REVOLT against Trump for caving to Iran"
 thumbnail: "https://img.youtube.com/vi/0pIjQBI9Zzk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Exclusive: Iran deal includes $300 billion fund, more than half of which already committed, source says"
     url: "https://www.reuters.com/business/finance/iran-deal-includes-300-billion-fund-more-than-half-which-already-committed-2026-06-16/"

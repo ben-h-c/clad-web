@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ZJjdGGtCkaQ"
 videoTitle: "'Common sense? NOT HERE!' | Darren Grimes EXPOSES litany of ECHR abuse keeping criminals in Britain"
 thumbnail: "https://img.youtube.com/vi/ZJjdGGtCkaQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Criminality: Article 8 ECHR cases (accessible)"
     url: "https://www.gov.uk/government/publications/criminality-guidance-in-article-8-echr-cases/criminality-article-8-echr-cases-accessible"

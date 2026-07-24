@@ -35,6 +35,10 @@ keyMoments:
 videoId: "LHoeo7YwxQw"
 videoTitle: "Elliot Page - “The Odyssey” | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/LHoeo7YwxQw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Odyssey (2026) - IMDb"
     url: "https://www.imdb.com/title/tt33764258/"

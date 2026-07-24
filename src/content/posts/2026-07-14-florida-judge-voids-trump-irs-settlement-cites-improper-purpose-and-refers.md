@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ZnKtO4lpqXg"
 videoTitle: "New: Trump's MAGA crime money plot HALTED; IRS deal BLOCKED: Ari on COURT LOSS"
 thumbnail: "https://img.youtube.com/vi/ZnKtO4lpqXg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Judge rebukes Trump and DOJ over IRS lawsuit, refers lawyer for disciplinary proceedings"
     url: "https://www.cbsnews.com/news/judge-trump-justice-department-irs-lawsuit-anti-weaponization-fund-settlement/"

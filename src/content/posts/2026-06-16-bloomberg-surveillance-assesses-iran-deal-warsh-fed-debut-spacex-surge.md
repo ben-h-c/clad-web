@@ -35,6 +35,10 @@ keyMoments:
 videoId: "rnMu7rqSiE4"
 videoTitle: "Bloomberg Surveillance 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/rnMu7rqSiE4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Warsh's Debut Fed Meeting Sets The Tone For Policy And Possible Hikes"
     url: "https://www.forbes.com/sites/simonmoore/2026/06/15/upcoming-fed-meeting-offers-color-on-warsh-as-chair-potential-hikes/"

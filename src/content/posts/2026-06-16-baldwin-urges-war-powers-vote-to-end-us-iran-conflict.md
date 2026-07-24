@@ -35,6 +35,10 @@ keyMoments:
 videoId: "RzTboRX5pt8"
 videoTitle: "'Listen To Your Constituents And End This War': Tammy Baldwin Calls On GOP To Support War Powers Act"
 thumbnail: "https://img.youtube.com/vi/RzTboRX5pt8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Senator Baldwin, Colleagues Will Force a Vote to End Trump’s Illegal War in Iran"
     url: "https://www.baldwin.senate.gov/news/press-releases/senator-baldwin-colleagues-will-force-a-vote-to-end-trumps-illegal-war-in-iran"

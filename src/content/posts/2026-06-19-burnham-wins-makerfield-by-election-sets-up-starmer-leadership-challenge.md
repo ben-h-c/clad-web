@@ -32,6 +32,10 @@ keyMoments:
 videoId: "ErJWImYNBrE"
 videoTitle: "Labour's Andy Burnham wins UK special election, setting up challenge to Starmer"
 thumbnail: "https://img.youtube.com/vi/ErJWImYNBrE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Labour's Andy Burnham wins a special election, setting up a showdown with Starmer"
     url: "https://apnews.com/article/uk-makerfield-election-burnham-starmer-labour-434ca8a59d57e79590e9a38a31d6573e"

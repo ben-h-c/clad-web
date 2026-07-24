@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Fb-ycdpHxdc"
 videoTitle: "Can US-Iran talks bring 'genuine peace'? | Analysis"
 thumbnail: "https://img.youtube.com/vi/Fb-ycdpHxdc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Vance travels to Switzerland for talks as Iran negotiators arrive"
     url: "https://www.foxnews.com/live-news/us-iran-peace-deal-nuclear-talks-israel-lebanon-conflict-june-20"

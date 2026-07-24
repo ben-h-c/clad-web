@@ -37,6 +37,10 @@ keyMoments:
 videoId: "yVZ0A9H6t9w"
 videoTitle: "LIVE: Trump meets with president of Lebanon | NBC News"
 thumbnail: "https://img.youtube.com/vi/yVZ0A9H6t9w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

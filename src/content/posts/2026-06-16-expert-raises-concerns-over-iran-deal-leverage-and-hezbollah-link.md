@@ -35,6 +35,10 @@ keyMoments:
 videoId: "MdbEwY4btlQ"
 videoTitle: "Iran's desire to keep Hezbollah alive could derail U.S. deal, expert warns"
 thumbnail: "https://img.youtube.com/vi/MdbEwY4btlQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What's in the Iran deal Trump says he's ready to sign"
     url: "https://www.axios.com/2026/06/12/iran-deal-mou-strait-open-sanctions-relief"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "eUgBRSczt-4"
 videoTitle: "'IRAN WAS ON ITS KNEES': Miranda Devine describes Trump's first-term pressure campaign"
 thumbnail: "https://img.youtube.com/vi/eUgBRSczt-4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran Nuclear Deal: Correcting Misconceptions"
     url: "https://armscontrolcenter.org/wp-content/uploads/2016/10/Fact-check-iran-deal-1.pdf"

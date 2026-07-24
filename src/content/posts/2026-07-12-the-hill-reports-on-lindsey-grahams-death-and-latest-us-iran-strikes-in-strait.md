@@ -30,6 +30,10 @@ keyMoments:
 videoId: "UVcOvyFHR1Q"
 videoTitle: "U.S. launches retaliatory strikes against Iran; reaction pours in from Sen. Graham's passing"
 thumbnail: "https://img.youtube.com/vi/UVcOvyFHR1Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: US unleashes biggest round of strikes on Iran in weeks as tensions boil over in Strait of Hormuz"
     url: "https://www.cnn.com/2026/07/12/world/live-news/iran-war-trump"

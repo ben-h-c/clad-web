@@ -35,6 +35,10 @@ keyMoments:
 videoId: "_dQQWbhP6Nc"
 videoTitle: "'We Find Ourselves In A Moment Of Great Uncertainty': Lisa Blunt Rochester Demands Safeguards For AI"
 thumbnail: "https://img.youtube.com/vi/_dQQWbhP6Nc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NEWS: Ranking Member Blunt Rochester and Chair Tuberville Lead Investigation into AI and K-12 Education"
     url: "https://www.bluntrochester.senate.gov/news/press-releases/news-ranking-member-blunt-rochester-and-chair-tuberville-lead-investigation-into-ai-and-k-12-education/"

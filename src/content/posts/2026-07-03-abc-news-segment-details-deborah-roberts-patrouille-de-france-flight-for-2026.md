@@ -34,6 +34,10 @@ keyMoments:
 videoId: "v6J2lrWn5kI"
 videoTitle: "Deborah Roberts got a once-in-a-lifetime chance to fly with the Patrouille de France"
 thumbnail: "https://img.youtube.com/vi/v6J2lrWn5kI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Liberté 250: Watch the Patrouille de France Fly Over the East Coast"
     url: "https://us.diplomatie.gouv.fr/fr/liberte-250-watch-patrouille-de-france-fly-over-east-coast"

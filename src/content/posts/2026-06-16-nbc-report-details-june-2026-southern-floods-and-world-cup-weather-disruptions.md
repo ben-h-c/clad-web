@@ -34,6 +34,10 @@ keyMoments:
 videoId: "TUbFrOqDUgg"
 videoTitle: "Southern states hit by torrential downpours, flash floods"
 thumbnail: "https://img.youtube.com/vi/TUbFrOqDUgg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "England players shelter indoors amid tornado warning in Kansas City"
     url: "https://www.reuters.com/sports/soccer/england-players-shelter-indoors-amid-tornado-warning-kansas-city-2026-06-14/"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "XKFaFWwX8yA"
 videoTitle: "Trump Asked: 'Are There Going To Be Sanctions That Are Going To Be Reimposed On Russia?'"
 thumbnail: "https://img.youtube.com/vi/XKFaFWwX8yA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump signals swift return of sanctions on Russian oil as G7 refocuses on Ukraine"
     url: "https://apnews.com/article/g7-iran-ukraine-trump-macron-zelenskyy-e7fad4eabaae8181f70fa5a0b9e499b2"

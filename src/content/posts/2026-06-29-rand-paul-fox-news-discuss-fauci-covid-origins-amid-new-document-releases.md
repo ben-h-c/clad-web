@@ -40,6 +40,10 @@ keyMoments:
 videoId: "r_sCz_RQgj0"
 videoTitle: "Rand Paul EXPOSES Fauci's alleged role in COVID origins"
 thumbnail: "https://img.youtube.com/vi/r_sCz_RQgj0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Biden pardons Fauci, Milley and members of Jan. 6 panel"
     url: "https://www.npr.org/2025/01/20/nx-s1-5268258/biden-pardons-fauci-milley-and-members-of-jan-6-panel"

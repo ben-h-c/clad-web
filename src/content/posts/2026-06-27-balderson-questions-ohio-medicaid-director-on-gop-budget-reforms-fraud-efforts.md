@@ -35,6 +35,10 @@ keyMoments:
 videoId: "M0kKUe_3ABU"
 videoTitle: "Balderson Asks Ohio Medicaid Director How State Has Benefited From Reforms In GOP Budget"
 thumbnail: "https://img.youtube.com/vi/M0kKUe_3ABU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Working Families Tax Cut Legislation | Medicaid"
     url: "https://www.medicaid.gov/resources-for-states/working-families-tax-cut-legislation"

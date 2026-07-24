@@ -36,6 +36,10 @@ keyMoments:
 videoId: "ic3QauxeX2M"
 videoTitle: "Rare earths independence from China is more than 'number of mines'"
 thumbnail: "https://img.youtube.com/vi/ic3QauxeX2M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mineral Commodity Summaries 2026: Rare Earths"
     url: "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-rare-earths.pdf"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "U8h9Qbxl_ng"
 videoTitle: "How an Irish village is bringing back smartphone-free childhoods"
 thumbnail: "https://img.youtube.com/vi/U8h9Qbxl_ng/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "It Takes A Village Greystones | It Takes A Village | Ireland"
     url: "https://www.ittakesavillagegreystones-delgany.com/"

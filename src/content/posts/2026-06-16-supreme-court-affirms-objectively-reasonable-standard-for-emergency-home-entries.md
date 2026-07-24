@@ -36,6 +36,10 @@ keyMoments:
 videoId: "yY3pR7Njzs8"
 videoTitle: "Supreme Court Delivers 9-0 Unanimous Ruling With Major Nationwide & Constitutional Implications!"
 thumbnail: "https://img.youtube.com/vi/yY3pR7Njzs8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "24-624 Case v. Montana (01/14/2026)"
     url: "https://www.supremecourt.gov/opinions/25pdf/24-624_b07d.pdf"

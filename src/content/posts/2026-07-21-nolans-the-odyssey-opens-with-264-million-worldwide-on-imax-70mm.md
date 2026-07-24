@@ -35,6 +35,10 @@ keyMoments:
 videoId: "FjkGrfUmXkA"
 videoTitle: "Inside the use of 70mm IMAX cameras on \"The Odyssey\""
 thumbnail: "https://img.youtube.com/vi/FjkGrfUmXkA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "‘The Odyssey’ Box Office Shows Audiences Love IMAX 70mm as Much as Christopher Nolan Does"
     url: "https://www.indiewire.com/news/box-office/the-odyssey-box-office-imax-70mm-christopher-nolan-1235206287/"

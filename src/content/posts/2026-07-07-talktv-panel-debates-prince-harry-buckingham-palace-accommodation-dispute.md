@@ -37,6 +37,10 @@ keyMoments:
 videoId: "AMEestE_iKM"
 videoTitle: "Royal DRAMA: King Charles Hits Out At Son Prince Harry Over ‘Constant State Of CHAOS’"
 thumbnail: "https://img.youtube.com/vi/AMEestE_iKM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Buckingham Palace says Prince Harry will not stay at palace"
     url: "https://www.bbc.com/news/articles/c77yykl87yno"

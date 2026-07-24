@@ -34,6 +34,10 @@ keyMoments:
 videoId: "6qWLY_OT6lA"
 videoTitle: "Anna Kepner's stepbrother surrenders to US marshals | Jesse Weber Live"
 thumbnail: "https://img.youtube.com/vi/6qWLY_OT6lA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Timothy Hudson to be detained before trial in Anna Kepner murder – NBC 6 South Florida"
     url: "https://www.nbcmiami.com/news/local/florida-teen-charged-in-stepsisters-cruise-ship-murder-ordered-detained-until-trial/3821346/"

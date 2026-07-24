@@ -33,6 +33,10 @@ keyMoments:
 videoId: "MluxpVbPnCY"
 videoTitle: "Xpeng Is Spending $500M a Year to Beat Tesla FSD #xpeng #tesla #technews"
 thumbnail: "https://img.youtube.com/vi/MluxpVbPnCY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Xpeng spends $500M/year on AI training to beat Tesla FSD"
     url: "https://electrek.co/2026/06/05/xpeng-vla-interview-cvpr-language-poison-tesla-fsd/"

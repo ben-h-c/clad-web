@@ -34,6 +34,10 @@ keyMoments:
 videoId: "yB3LidqgQJM"
 videoTitle: "Man hospitalized after bison charge sends him flying at Yellowstone"
 thumbnail: "https://img.youtube.com/vi/yB3LidqgQJM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Grandfather hospitalized after bison charge sends him flying 8 feet at Yellowstone"
     url: "https://www.nbcnews.com/news/us-news/bison-flips-yellowstone-tourist-8-feet-air-rcna572639"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "4rUq9qme1HU"
 videoTitle: "'THE MASSES ARE COMING': The AI signal that could change everything"
 thumbnail: "https://img.youtube.com/vi/4rUq9qme1HU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Hut 8 shares jump over 30% on news of $9.8 billion AI data center lease"
     url: "https://www.coindesk.com/business/2026/05/06/hut-8-shares-jump-nearly-30-on-news-of-usd9-8-billion-ai-data-center-lease"

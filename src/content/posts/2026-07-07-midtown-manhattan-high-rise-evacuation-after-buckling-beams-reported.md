@@ -31,6 +31,10 @@ keyMoments:
 videoId: "RE4STn7-pcg"
 videoTitle: "NYC highrise at risk​ of collapse, residents evacuated from area"
 thumbnail: "https://img.youtube.com/vi/RE4STn7-pcg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NYC buildings evacuated after construction workers find buckling columns in Midtown East"
     url: "https://abc7ny.com/post/midtown-east-buildings-evacuated-construction-workers-find-buckling-beams-21st-floor-nyc/19463640/"

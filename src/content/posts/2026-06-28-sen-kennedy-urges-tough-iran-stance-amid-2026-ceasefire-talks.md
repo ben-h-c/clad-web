@@ -31,6 +31,10 @@ keyMoments:
 videoId: "4Wl3W5kpRSY"
 videoTitle: "If Iran wants to hit us, we'll hit them back 'TWICE AS HARD': Sen. Kennedy #shorts #news #foxnews"
 thumbnail: "https://img.youtube.com/vi/4Wl3W5kpRSY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US, Iran trade strikes: What to know, will it unravel the MoU?"
     url: "https://www.aljazeera.com/news/2026/6/27/us-iran-trade-strikes-what-to-know-will-it-unravel-the-mou"

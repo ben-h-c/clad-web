@@ -32,6 +32,10 @@ keyMoments:
 videoId: "Jn89usOC6p4"
 videoTitle: "Epstein accuser gets emotional describing pain from DOJ failures in files release"
 thumbnail: "https://img.youtube.com/vi/Jn89usOC6p4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "WATCH: Booker presses for details about Blanche's meeting with Ghislaine Maxwell"
     url: "https://www.youtube.com/watch?v=g_SkTAcZ8Hc"

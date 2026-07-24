@@ -32,6 +32,10 @@ keyMoments:
 videoId: "a-7793BH-TQ"
 videoTitle: "Trump to Offer Iran Financial Boost in Peace Deal | Daybreak Europe 6/17/2026"
 thumbnail: "https://img.youtube.com/vi/a-7793BH-TQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US Set to Offer Iran Broad Financial Gains in Peace Deal"
     url: "https://www.bloomberg.com/news/articles/2026-06-16/us-iran-deal-set-to-offer-iran-broad-financial-gains-to-end-war"

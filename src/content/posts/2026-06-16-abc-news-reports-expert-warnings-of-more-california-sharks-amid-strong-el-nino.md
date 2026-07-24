@@ -34,6 +34,10 @@ keyMoments:
 videoId: "28yOvi5nKtY"
 videoTitle: "Warnings of a shark surge in California this summer"
 thumbnail: "https://img.youtube.com/vi/28yOvi5nKtY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Expert says El Niño could bring new wave of sharks to San Diego"
     url: "https://www.csulb.edu/news/the-media/article/expert-says-el-nino-could-bring-new-wave-of-sharks-to-san-diego"

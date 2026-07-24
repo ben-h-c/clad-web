@@ -28,6 +28,10 @@ keyMoments:
 videoId: "46Y9UhlERZw"
 videoTitle: "9-year-old celebrates Beatles Day"
 thumbnail: "https://img.youtube.com/vi/46Y9UhlERZw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Global Beatles Day"
     url: "https://en.wikipedia.org/wiki/Global_Beatles_Day"

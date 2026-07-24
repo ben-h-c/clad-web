@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Q_L9f6XC_wg"
 videoTitle: "AI Bosses Meet G7 Leaders as US Curbs\nUnsettle Allies"
 thumbnail: "https://img.youtube.com/vi/Q_L9f6XC_wg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Anthropic to meet with Trump administration over Mythos dispute"
     url: "https://www.cnbc.com/2026/06/15/anthropic-mythos-trump-ai.html"

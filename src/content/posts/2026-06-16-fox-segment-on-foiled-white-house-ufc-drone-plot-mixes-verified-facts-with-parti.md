@@ -35,6 +35,10 @@ keyMoments:
 videoId: "IJcf6NZttII"
 videoTitle: "Kayleigh McEnany: This is CHILLING"
 thumbnail: "https://img.youtube.com/vi/IJcf6NZttII/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FBI foiled alleged plot to attack White House UFC event, Kash Patel says"
     url: "https://www.nbcnews.com/politics/trump-administration/fbi-foils-alleged-plot-attack-white-house-ufc-event-patel-says-rcna350248"

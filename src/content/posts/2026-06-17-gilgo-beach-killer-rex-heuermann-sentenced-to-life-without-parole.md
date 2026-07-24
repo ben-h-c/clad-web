@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Zr9GvSWtx78"
 videoTitle: "Relatives of the Gilgo Beach serial killing victims aimed decades of anger at Rex Heuermann"
 thumbnail: "https://img.youtube.com/vi/Zr9GvSWtx78/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "‘I am responsible.’ Takeaways from Gilgo Beach serial killer Rex Heuermann’s sentencing hearing"
     url: "https://www.cnn.com/2026/06/17/us/rex-heuermann-life-sentence"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Hwqo3ciHsLo"
 videoTitle: "'ESCALATING TO DE-ESCALATE': GOP lawmaker says US strikes could force Iran back to the table"
 thumbnail: "https://img.youtube.com/vi/Hwqo3ciHsLo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US Completes 8th Consecutive Night of Strikes Against Iran"
     url: "https://www.centcom.mil/MEDIA/PUBLIC-RELEASES/Article/4549643/us-completes-8th-consecutive-night-of-strikes-against-iran/"

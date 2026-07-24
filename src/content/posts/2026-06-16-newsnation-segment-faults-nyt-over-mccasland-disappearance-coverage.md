@@ -37,6 +37,10 @@ keyMoments:
 videoId: "P6iGPFg4ZO0"
 videoTitle: "Ross Coulthart to New York Times: 'You idiots'"
 thumbnail: "https://img.youtube.com/vi/P6iGPFg4ZO0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Neil McCasland"
     url: "https://en.wikipedia.org/wiki/Neil_McCasland"

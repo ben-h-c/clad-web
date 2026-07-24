@@ -39,6 +39,10 @@ keyMoments:
 videoId: "MR53DmnL2kc"
 videoTitle: "War has arrived on Putin’s doorstep & it's a psychological turning point for Russian civilians"
 thumbnail: "https://img.youtube.com/vi/MR53DmnL2kc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ukraine hits a Moscow oil refinery and other sites in a large-scale drone attack"
     url: "https://www.npr.org/2026/06/18/g-s1-128782/moscow-ukraine-drone-attack-russia-oil-refinery"

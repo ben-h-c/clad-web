@@ -34,6 +34,10 @@ keyMoments:
 videoId: "AChTwVWgO7g"
 videoTitle: "Bionic hand tech could revolutionize robotics"
 thumbnail: "https://img.youtube.com/vi/AChTwVWgO7g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "ABB Robotics and PSYONIC Use Human-Generated Data to Advance Robotic Dexterity"
     url: "https://www.businesswire.com/news/home/20260612749544/en/ABB-Robotics-and-PSYONIC-Use-Human-Generated-Data-to-Advance-Robotic-Dexterity"

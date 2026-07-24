@@ -25,6 +25,10 @@ keyMoments:
 videoId: "c--ZouJtoH4"
 videoTitle: "Thune says he hasn't been briefed on Iran deal"
 thumbnail: "https://img.youtube.com/vi/c--ZouJtoH4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Senate Majority Leader John Thune says he doesn’t yet have enough information to make a judgment about the peace deal"
     url: "https://thehill.com/homenews/senate/5925272-thune-iran-peace-deal/"

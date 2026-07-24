@@ -33,6 +33,10 @@ keyMoments:
 videoId: "KEPkgdS8em0"
 videoTitle: "Rep. Cleaver: Trump&#39;s Housing Snub Was &#39;Bad Advice&#39;"
 thumbnail: "https://img.youtube.com/vi/KEPkgdS8em0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Elizabeth Warren"
     slug: "elizabeth-warren"

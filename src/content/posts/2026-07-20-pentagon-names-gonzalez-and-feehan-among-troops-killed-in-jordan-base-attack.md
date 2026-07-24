@@ -35,6 +35,10 @@ keyMoments:
 videoId: "dIcENQYuLx8"
 videoTitle: "Pentagon releases names of 2 service members killed in Jordan"
 thumbnail: "https://img.youtube.com/vi/dIcENQYuLx8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US military identifies 2 soldiers killed during Iranian strikes in Jordan"
     url: "https://www.cnn.com/2026/07/20/politics/us-military-soldiers-killed-iran-war-jordan"

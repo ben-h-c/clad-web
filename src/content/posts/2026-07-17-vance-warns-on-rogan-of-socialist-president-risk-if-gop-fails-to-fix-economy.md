@@ -36,6 +36,10 @@ keyMoments:
 videoId: "7bP_KDPXWZY"
 videoTitle: "SOCIALIST PRESIDENT: Vance SOUNDS ALARM on America's FUTURE"
 thumbnail: "https://img.youtube.com/vi/7bP_KDPXWZY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Bernard Sanders"
     slug: "bernard-sanders"

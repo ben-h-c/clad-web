@@ -39,6 +39,10 @@ keyMoments:
 videoId: "FMtNPzjSHcI"
 videoTitle: "What we learned from Disclosure Day | Elizabeth Vargas Reports Full Show"
 thumbnail: "https://img.youtube.com/vi/FMtNPzjSHcI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UFO transparency at the heart of Disclosure Forum"
     url: "https://www.newsnationnow.com/space/ufo/ufo-experts-lawmakers-disclosure-forum/"

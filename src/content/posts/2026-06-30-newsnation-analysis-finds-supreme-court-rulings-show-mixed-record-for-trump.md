@@ -32,6 +32,10 @@ keyMoments:
 videoId: "pVq8e-aPPO0"
 videoTitle: "3 Major Supreme Court Rulings Just Dropped — Where Do You Stand? | Hot Take with Jesse Weber"
 thumbnail: "https://img.youtube.com/vi/pVq8e-aPPO0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court strikes down Trump’s order ending birthright citizenship"
     url: "https://www.scotusblog.com/2026/06/supreme-court-strikes-down-trumps-order-ending-birthright-citizenship/"

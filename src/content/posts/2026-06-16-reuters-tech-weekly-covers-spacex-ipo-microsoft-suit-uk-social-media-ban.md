@@ -35,6 +35,10 @@ keyMoments:
 videoId: "qRCgmAJ08EU"
 videoTitle: "Tech Weekly A blockbuster IPO, a sweeping online block"
 thumbnail: "https://img.youtube.com/vi/qRCgmAJ08EU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Musk's SpaceX prices record $75 billion IPO at $135 a share"
     url: "https://www.reuters.com/world/musks-spacex-prices-record-75-billion-ipo-135-share-2026-06-11/"

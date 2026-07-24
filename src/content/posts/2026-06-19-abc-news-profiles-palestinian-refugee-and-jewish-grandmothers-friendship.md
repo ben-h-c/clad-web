@@ -31,6 +31,10 @@ keyMoments:
 videoId: "McUCBBO2LcE"
 videoTitle: "Two women from different walks of life form an unlikely friendship"
 thumbnail: "https://img.youtube.com/vi/McUCBBO2LcE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Watch Woodstock Academy graduate Rania Almashharawi's speech"
     url: "https://www.facebook.com/woodstockctdemocrats/posts/if-you-do-one-thing-today-please-take-ten-minutes-to-watch-rania-almashharawis-s/1330190629288624/"

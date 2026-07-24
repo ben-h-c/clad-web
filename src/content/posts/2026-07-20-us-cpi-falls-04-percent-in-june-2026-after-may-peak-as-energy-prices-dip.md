@@ -32,6 +32,10 @@ keyMoments:
 videoId: "ntfGQmfI8uk"
 videoTitle: "Did US Inflation Peak in May? | Presented by CME Group"
 thumbnail: "https://img.youtube.com/vi/ntfGQmfI8uk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Consumer Price Index Summary - 2026 M06 Results"
     url: "https://www.bls.gov/news.release/cpi.nr0.htm"

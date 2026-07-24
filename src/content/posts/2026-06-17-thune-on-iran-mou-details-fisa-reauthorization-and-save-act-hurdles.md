@@ -37,6 +37,10 @@ keyMoments:
 videoId: "-UGpo8EGnkQ"
 videoTitle: "John Thune: The devil is in the details..."
 thumbnail: "https://img.youtube.com/vi/-UGpo8EGnkQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Senate GOP pressing Trump for text of Iran deal"
     url: "https://thehill.com/homenews/senate/5926207-gop-presses-donald-trump-iran-deal/"

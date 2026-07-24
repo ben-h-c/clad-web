@@ -28,6 +28,10 @@ keyMoments:
 videoId: "7Be4f-AKZJw"
 videoTitle: "WATCH: Asked if Fed considered rate cut, Warsh said committee had 'good family fight'"
 thumbnail: "https://img.youtube.com/vi/7Be4f-AKZJw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fed meeting recap: Warsh announces task forces to overhaul major Federal Reserve operations"
     url: "https://www.cnbc.com/2026/06/17/fed-meeting-today-live-updates.html"

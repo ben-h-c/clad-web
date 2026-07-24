@@ -34,6 +34,10 @@ keyMoments:
 videoId: "CF8JXkGoNDI"
 videoTitle: "What's behind Russia's reported purchase of Indian gas? | DW News"
 thumbnail: "https://img.youtube.com/vi/CF8JXkGoNDI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russia buys gasoline from India to tackle shortages, sources say"
     url: "https://www.reuters.com/business/energy/russia-buys-gasoline-india-tackle-shortages-sources-say-2026-07-01/"

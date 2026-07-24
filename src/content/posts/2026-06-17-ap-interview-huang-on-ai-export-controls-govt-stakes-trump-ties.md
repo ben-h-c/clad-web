@@ -34,6 +34,10 @@ keyMoments:
 videoId: "3BCo8H7WKMo"
 videoTitle: "Nvidia's Jensen Huang discusses AI policy, manufacturing and Trump relationship"
 thumbnail: "https://img.youtube.com/vi/3BCo8H7WKMo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "AP Exclusive: Nvidia's Jensen Huang says society needs 'new ..."
     url: "https://thebusinessjournal.com/nvidia-ceo-jensen-huang-says-society-must-adapt-to-ai/"

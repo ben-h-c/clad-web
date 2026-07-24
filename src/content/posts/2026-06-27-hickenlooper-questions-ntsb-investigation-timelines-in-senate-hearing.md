@@ -31,6 +31,10 @@ keyMoments:
 videoId: "_8VzUlf8f5M"
 videoTitle: "'Does It Really Take That Long?': Hickenlooper Ask Airline CEO About Length Of Crash Investigations"
 thumbnail: "https://img.youtube.com/vi/_8VzUlf8f5M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Investigative Process"
     url: "https://www.ntsb.gov/investigations/process/Pages/default.aspx"

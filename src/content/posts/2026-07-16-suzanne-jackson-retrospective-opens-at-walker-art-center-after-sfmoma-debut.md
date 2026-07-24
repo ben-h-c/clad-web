@@ -32,6 +32,10 @@ keyMoments:
 videoId: "lyUJNZUOzwg"
 videoTitle: "Experimental artist Suzanne Jackson celebrates decades of work in new exhibition"
 thumbnail: "https://img.youtube.com/vi/lyUJNZUOzwg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Suzanne Jackson: What Is Love - Walker Art Center"
     url: "https://www.walkerart.org/whats-on/suzanne-jackson-what-is-love/"

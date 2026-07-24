@@ -36,6 +36,10 @@ keyMoments:
 videoId: "T9s6Ysngyo4"
 videoTitle: "Trump meets with world leaders for key G7 summit talks"
 thumbnail: "https://img.youtube.com/vi/T9s6Ysngyo4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump hails Iran deal as G7 summit begins in Europe"
     url: "https://www.youtube.com/watch?v=CkcIIJE-wx8"

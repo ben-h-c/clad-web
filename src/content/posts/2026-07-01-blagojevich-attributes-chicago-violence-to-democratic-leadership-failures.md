@@ -36,6 +36,10 @@ keyMoments:
 videoId: "nyZPOkmRViI"
 videoTitle: "Rod Blagojevich blames Chicago violence on 'failed leadership' | On Balance"
 thumbnail: "https://img.youtube.com/vi/nyZPOkmRViI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Man charged with killing 18-year-old Loyola student"
     url: "https://abc7chicago.com/post/jose-medina-suspect-accused-death-sheridan-gorman-loyola-student-killed-rogers-park-chicago-shooting-is-due-court/18787149/"

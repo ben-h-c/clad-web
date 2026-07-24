@@ -35,6 +35,10 @@ keyMoments:
 videoId: "kV73eC5hIQU"
 videoTitle: "National Geographic's Museum of Exploration honors America's 'Red, White & Blue'"
 thumbnail: "https://img.youtube.com/vi/kV73eC5hIQU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Red, White & Blue | National Geographic Museum of Exploration"
     url: "https://moe.nationalgeographic.org/en/whats-on/red-white-and-blue"

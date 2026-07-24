@@ -37,6 +37,10 @@ keyMoments:
 videoId: "bL18pEKTnnk"
 videoTitle: "‘NEW FACE’: Mamdani THREATENS takeover over Democratic Party"
 thumbnail: "https://img.youtube.com/vi/bL18pEKTnnk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Clean sweep for Mamdani-backed candidates in New York's Democratic primary"
     url: "https://www.bbc.com/news/articles/clye652m41po"

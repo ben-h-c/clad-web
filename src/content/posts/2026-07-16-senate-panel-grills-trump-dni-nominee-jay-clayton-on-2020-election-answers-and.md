@@ -37,6 +37,10 @@ keyMoments:
 videoId: "aOIrt-NVUwU"
 videoTitle: "DNI Pick Jay Clayton's 'EMBARRASSING' Senate Grilling"
 thumbnail: "https://img.youtube.com/vi/aOIrt-NVUwU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Jon Ossoff"
     slug: "jon-ossoff"

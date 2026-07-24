@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Iqq-QDsD2XE"
 videoTitle: "U.S. and Iran reach a deal. Now what?"
 thumbnail: "https://img.youtube.com/vi/Iqq-QDsD2XE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What's inside the Iran deal Trump is close to signing"
     url: "https://www.axios.com/2026/05/24/iran-deal-strait-hormuz-sanctions-nuclear"

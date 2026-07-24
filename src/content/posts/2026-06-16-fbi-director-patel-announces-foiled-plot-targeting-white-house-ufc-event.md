@@ -32,6 +32,10 @@ keyMoments:
 videoId: "AYwQMdFRsI8"
 videoTitle: "Kash Patel: FBI THWARTED planned attacks targeting UFC WH event; multiple arrests made | RISING"
 thumbnail: "https://img.youtube.com/vi/AYwQMdFRsI8/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FBI foiled alleged plot to attack White House UFC event, Kash Patel says"
     url: "https://www.nbcnews.com/politics/trump-administration/fbi-foils-alleged-plot-attack-white-house-ufc-event-patel-says-rcna350248"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "HsG4qrJqXO0"
 videoTitle: "‘Meghan Markle Wants It All About Her’ | Sussexes Accused of Hijacking the Spotlight"
 thumbnail: "https://img.youtube.com/vi/HsG4qrJqXO0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Prince Harry Steps Out for Invictus Games Event Without Meghan Markle"
     url: "https://people.com/prince-harry-attends-invictus-games-countdown-event-in-uk-without-meghan-markle-12015019"

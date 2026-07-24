@@ -35,6 +35,10 @@ keyMoments:
 videoId: "p5xIyhbtdog"
 videoTitle: "Trump considering sales of U.S. F-35 fighter jets to Turkey"
 thumbnail: "https://img.youtube.com/vi/p5xIyhbtdog/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says he'll consider giving Turkey F-35 jets, adds that US will lift sanctions"
     url: "https://abcnews.com/Politics/trump-hell-giving-turkey-35-jets-adds-us/story?id=134547490"

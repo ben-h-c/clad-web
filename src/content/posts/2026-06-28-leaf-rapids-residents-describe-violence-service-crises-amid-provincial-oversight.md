@@ -37,6 +37,10 @@ keyMoments:
 videoId: "POMMYNVsQEI"
 videoTitle: "“A lot of people are scared”: Residents plead for help after week of violence in Leaf Rapids"
 thumbnail: "https://img.youtube.com/vi/POMMYNVsQEI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Leaf Rapids RCMP investigating a series of escalating incidents"
     url: "https://rcmp.ca/en/manitoba/news/2026/06/4354343"

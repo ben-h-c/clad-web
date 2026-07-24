@@ -30,6 +30,10 @@ keyMoments:
 videoId: "HvPiV8BXrhc"
 videoTitle: "Trump says Iran can access $300 billion fund only if they do 'things right'"
 thumbnail: "https://img.youtube.com/vi/HvPiV8BXrhc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Exclusive: Iran deal includes $300 billion fund, more than half of which already committed, source says"
     url: "https://www.reuters.com/business/finance/iran-deal-includes-300-billion-fund-more-than-half-which-already-committed-2026-06-16/"

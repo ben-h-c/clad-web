@@ -36,6 +36,10 @@ keyMoments:
 videoId: "WhbMYWjkHxc"
 videoTitle: "Chilling ransom note: ‘Hello Savannah. We have your mother, Nancy’ | Drop Dead Serious"
 thumbnail: "https://img.youtube.com/vi/WhbMYWjkHxc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FBI: Nancy Guthrie kidnapping ransom notes were fake"
     url: "https://www.staradvertiser.com/2026/07/01/breaking-news/fbi-says-nancy-guthrie-kidnapping-ransom-notes-were-fake/"

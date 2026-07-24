@@ -40,6 +40,10 @@ keyMoments:
 videoId: "hkZrpOyvY-o"
 videoTitle: "What To Expect From Trump’s Trip To The G7 Summit In France"
 thumbnail: "https://img.youtube.com/vi/hkZrpOyvY-o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "G7 summit, Evian, France, 15-17 June 2026"
     url: "https://www.consilium.europa.eu/en/meetings/international-summit/2026/06/15-17/"

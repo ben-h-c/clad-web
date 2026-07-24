@@ -36,6 +36,10 @@ keyMoments:
 videoId: "RuLlHP65548"
 videoTitle: "3-Cow Gabe Evans Rides Again"
 thumbnail: "https://img.youtube.com/vi/RuLlHP65548/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Gabe Evans"
     slug: "gabe-evans"

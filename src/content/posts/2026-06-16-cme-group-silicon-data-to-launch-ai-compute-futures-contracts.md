@@ -37,6 +37,10 @@ keyMoments:
 videoId: "e-gcm9bL1Vk"
 videoTitle: "Can AI Compute Become The Next Big Futures Market?"
 thumbnail: "https://img.youtube.com/vi/e-gcm9bL1Vk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "CME Group and Silicon Data Partner to Launch First Compute Futures"
     url: "https://www.cmegroup.com/media-room/press-releases/2026/5/12/cme_group_and_silicondatapartnertolaunchfirstcomputefutures.html"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "kLz2_DLeUoU"
 videoTitle: "Rep. Roy Says Stock Trading Ban Is About Trust"
 thumbnail: "https://img.youtube.com/vi/kLz2_DLeUoU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Chip Roy"
     slug: "chip-roy"

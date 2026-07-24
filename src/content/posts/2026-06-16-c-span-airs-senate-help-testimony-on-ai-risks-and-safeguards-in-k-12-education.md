@@ -35,6 +35,10 @@ keyMoments:
 videoId: "1YiR9TUYarY"
 videoTitle: "Education Expert Warns About AI Destroying Learning Process"
 thumbnail: "https://img.youtube.com/vi/1YiR9TUYarY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Future of K-12 Education in the Age of Artificial Intelligence"
     url: "https://www.help.senate.gov/hearings/the-future-of-k-12-education-in-the-age-of-artificial-intelligence"

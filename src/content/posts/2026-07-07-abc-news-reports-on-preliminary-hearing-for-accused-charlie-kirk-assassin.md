@@ -34,6 +34,10 @@ keyMoments:
 videoId: "e7eEXvgLMGY"
 videoTitle: "Charlie Kirk's family faces suspect in key hearing for murder trial"
 thumbnail: "https://img.youtube.com/vi/e7eEXvgLMGY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Alleged Charlie Kirk assassin Tyler Robinson due in court as evidence takes center stage"
     url: "https://www.foxnews.com/live-news/tyler-robinson-court-appearance-07-06-26"

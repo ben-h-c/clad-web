@@ -35,6 +35,10 @@ keyMoments:
 videoId: "k4L8LBbl5CI"
 videoTitle: "Darin LaHood Asks Expert: What Kind Of Stadium Deals Benefit Communities As Opposed To Harming Them?"
 thumbnail: "https://img.youtube.com/vi/k4L8LBbl5CI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Dennis Coates testimony before House Ways and Means Committee"
     url: "https://waysandmeans.house.gov/wp-content/uploads/2026/06/Coates-Ways-and-Means-Testimony.pdf"

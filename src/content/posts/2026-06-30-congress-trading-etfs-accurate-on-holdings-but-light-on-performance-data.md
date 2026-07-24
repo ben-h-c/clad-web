@@ -36,6 +36,10 @@ keyMoments:
 videoId: "uBHHl5ZkVj8"
 videoTitle: "Inside ETFs: Congress members 'should not be investing in stocks'"
 thumbnail: "https://img.youtube.com/vi/uBHHl5ZkVj8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NANC ETF - Subversive ETFs"
     url: "https://subversiveetfs.com/nanc/"

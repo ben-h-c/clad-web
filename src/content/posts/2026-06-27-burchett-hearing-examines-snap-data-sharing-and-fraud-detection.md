@@ -35,6 +35,10 @@ keyMoments:
 videoId: "tOdvmKZZkRA"
 videoTitle: "Tim Burchett Asks Experts How Inter-State Data Sharing Could Reduce SNAP Fraud"
 thumbnail: "https://img.youtube.com/vi/tOdvmKZZkRA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "USDA SNAP Program Integrity Data Team: Preliminary Findings"
     url: "https://www.fna.usda.gov/research/snap/program-integrity-data-preliminary"

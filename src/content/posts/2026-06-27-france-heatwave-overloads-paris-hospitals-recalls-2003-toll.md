@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ymCm8G7gcMw"
 videoTitle: "France: Current heatwave recalls 2003 casualties • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/ymCm8G7gcMw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "France heatwave overwhelms hospitals and forces Pride march delay"
     url: "https://www.rfi.fr/en/france/20260626-france-heatwave-overwhelms-hospitals-and-forces-pride-march-delay"

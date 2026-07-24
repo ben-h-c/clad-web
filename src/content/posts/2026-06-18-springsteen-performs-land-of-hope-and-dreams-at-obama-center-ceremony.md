@@ -31,6 +31,10 @@ keyMoments:
 videoId: "4ERWFgRVlHY"
 videoTitle: "Bruce Springsteen performs at opening of the Obama Presidential Center"
 thumbnail: "https://img.youtube.com/vi/4ERWFgRVlHY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "See Bruce Springsteen Sing 'Land of Hope and Dreams' at Opening of the Obama Presidential Center"
     url: "https://www.rollingstone.com/music/music-news/bruce-springsteen-performance-obama-presidential-center-1235580393/"

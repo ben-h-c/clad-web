@@ -37,6 +37,10 @@ keyMoments:
 videoId: "TM0XhyeaaSY"
 videoTitle: "Chuck Schumer Previews Senate Vote To Permanently Ban Trump's 'Slush Fund' And IRS 'Sweetheart Deal'"
 thumbnail: "https://img.youtube.com/vi/TM0XhyeaaSY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Justice Department Announces Anti-Weaponization Fund"
     url: "https://www.justice.gov/opa/pr/justice-department-announces-anti-weaponization-fund"

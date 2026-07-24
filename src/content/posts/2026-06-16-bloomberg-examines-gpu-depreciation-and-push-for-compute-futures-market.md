@@ -32,6 +32,10 @@ keyMoments:
 videoId: "4sIDwybIsQo"
 videoTitle: "Inside the Race to Build a Compute Futures Market Bigger Than Oil"
 thumbnail: "https://img.youtube.com/vi/4sIDwybIsQo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Carmen Li's Plan to Build a Futures Market for Compute | Odd Lots"
     url: "https://www.bloomberg.com/news/videos/2026-06-15/carmen-li-s-plan-to-build-a-futures-market-for-compute-video"

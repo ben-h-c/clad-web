@@ -35,6 +35,10 @@ keyMoments:
 videoId: "HUINO8-KPps"
 videoTitle: "Germany formally rejects UniCredit's Commerzbank offer"
 thumbnail: "https://img.youtube.com/vi/HUINO8-KPps/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Germany formally rejects UniCredit's Commerzbank offer - agency says"
     url: "https://www.reuters.com/business/finance/germany-rejects-unicredits-commerzbank-offer-agency-says-2026-06-16/"

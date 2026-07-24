@@ -34,6 +34,10 @@ keyMoments:
 videoId: "5lfpq5-oHtw"
 videoTitle: "&#39;Why Do The Democrats Fight Voter ID?&#39;: Virginia Foxx Retorts After Joe Morelle Opposes Voter ID Law"
 thumbnail: "https://img.youtube.com/vi/5lfpq5-oHtw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Virginia Foxx"
     slug: "virginia-foxx"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "rUJoHY00x-U"
 videoTitle: "Australia Grapples with Demographic Shifts: Falling Fertility, Immigration"
 thumbnail: "https://img.youtube.com/vi/rUJoHY00x-U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Births, Australia, 2024"
     url: "https://www.abs.gov.au/statistics/people/population/births-australia/latest-release"

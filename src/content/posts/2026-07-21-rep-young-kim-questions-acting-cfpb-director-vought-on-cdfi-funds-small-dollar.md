@@ -31,6 +31,10 @@ keyMoments:
 videoId: "GXvipux1OhI"
 videoTitle: "Young Kim Asks Russell Vought: How Is The CFPB Actively Trying To Reduce &#39;Consumer Fraud Or Harm?&#39;"
 thumbnail: "https://img.youtube.com/vi/GXvipux1OhI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Russell Vought"
     slug: "russell-vought"

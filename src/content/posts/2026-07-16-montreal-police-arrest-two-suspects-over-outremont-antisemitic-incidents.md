@@ -35,6 +35,10 @@ keyMoments:
 videoId: "iZ_3WETlVQQ"
 videoTitle: "Montreal police arrest 2 suspects in connection with antisemitic attacks"
 thumbnail: "https://img.youtube.com/vi/iZ_3WETlVQQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Montreal police arrest 2 suspects in connection with antisemitic attacks"
     url: "https://www.cbc.ca/news/canada/montreal/montreal-police-arrest-two-suspects-for-hate-crimes-9.7271875"

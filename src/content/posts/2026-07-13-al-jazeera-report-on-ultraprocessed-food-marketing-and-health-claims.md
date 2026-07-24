@@ -38,6 +38,10 @@ keyMoments:
 videoId: "793DfZVxVLA"
 videoTitle: "How Big Food sells ultraprocessed food | The Listening Post"
 thumbnail: "https://img.youtube.com/vi/793DfZVxVLA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Health effects of dietary risks in 195 countries, 1990–2017"
     url: "https://www.thelancet.com/article/S0140-6736(19)30041-8/fulltext"

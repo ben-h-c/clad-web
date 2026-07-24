@@ -32,6 +32,10 @@ keyMoments:
 videoId: "Sa1_TE0s92s"
 videoTitle: "LIVE: Officials announce charges against alleged Minneapolis antifa members"
 thumbnail: "https://img.youtube.com/vi/Sa1_TE0s92s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Operation Metro Surge"
     url: "https://en.wikipedia.org/wiki/Operation_Metro_Surge"

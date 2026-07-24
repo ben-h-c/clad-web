@@ -31,6 +31,10 @@ keyMoments:
 videoId: "hYqIBMrh1-Y"
 videoTitle: "JD Vance: This deal could be TRANSFORMATIVE  #news #foxnews #us #fox"
 thumbnail: "https://img.youtube.com/vi/hYqIBMrh1-Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "JD Vance says Iran deal brings 'new day,' no US taxpayer money used"
     url: "https://www.foxnews.com/media/jd-vance-reveals-details-us-iran-deal-addresses-whether-taxpayer-money-go-tehran"

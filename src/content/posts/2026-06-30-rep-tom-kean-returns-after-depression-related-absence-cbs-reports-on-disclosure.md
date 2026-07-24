@@ -31,6 +31,10 @@ keyMoments:
 videoId: "AYjdqiizj5w"
 videoTitle: "Details on Rep. Tom Kean's return to Congress after he says depression caused months-long absence"
 thumbnail: "https://img.youtube.com/vi/AYjdqiizj5w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Rep. Tom Kean returns to Congress, says depression is why he went missing for months"
     url: "https://www.npr.org/2026/06/30/nx-s1-5876222/tom-kean-new-jersey-congress-depression"

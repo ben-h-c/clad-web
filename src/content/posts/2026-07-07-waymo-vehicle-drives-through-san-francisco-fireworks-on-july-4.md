@@ -33,6 +33,10 @@ keyMoments:
 videoId: "KK_Z0OlBREE"
 videoTitle: "Passengers TERRIFIED as Waymo car drives into live fireworks #shorts #news #foxnews #waymo #viral"
 thumbnail: "https://img.youtube.com/vi/KK_Z0OlBREE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Waymo fleet clogs Presidio after July 4 fireworks"
     url: "https://abc7news.com/post/waymo-fleet-clogs-presidio-july-4-fireworks-leaving-vehicles-stranded-towed/19455862/"

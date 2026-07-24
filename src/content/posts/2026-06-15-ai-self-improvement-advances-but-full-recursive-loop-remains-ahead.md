@@ -37,6 +37,10 @@ keyMoments:
 videoId: "QADKN3hantI"
 videoTitle: "It's Beginning: AI Improves Itself"
 thumbnail: "https://img.youtube.com/vi/QADKN3hantI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "When AI builds itself"
     url: "https://www.anthropic.com/institute/recursive-self-improvement"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "atJdgsS-dlU"
 videoTitle: "Tribe: SCOTUS ruling shows ‘we’re a heartbeat away from repealing' core of 14th Amendment"
 thumbnail: "https://img.youtube.com/vi/atJdgsS-dlU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court upholds birthright citizenship on constitutional grounds"
     url: "https://www.npr.org/2026/06/30/nx-s1-5839358/birthright-citizenship-decision-scotus-trump"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "9ES5j8z-cUw"
 videoTitle: "Why Israel could still derail the Iran-US deal | The Take"
 thumbnail: "https://img.youtube.com/vi/9ES5j8z-cUw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "June 15, 2026 — Trump and Vance virtually sign US-Iran agreement"
     url: "https://edition.cnn.com/2026/06/15/world/live-news/iran-war-g7-summit"

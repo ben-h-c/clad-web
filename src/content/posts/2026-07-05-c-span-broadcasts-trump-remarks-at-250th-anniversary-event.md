@@ -31,6 +31,10 @@ keyMoments:
 videoId: "0mWzHZ0bJy0"
 videoTitle: "Trump: \"Nobody can be like us\""
 thumbnail: "https://img.youtube.com/vi/0mWzHZ0bJy0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "250th Anniversary of the Adoption of the Declaration of Independence"
     url: "https://www.whitehouse.gov/presidential-actions/2026/07/250th-anniversary-of-the-adoption-of-the-declaration-of-independence/"

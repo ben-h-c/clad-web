@@ -35,6 +35,10 @@ keyMoments:
 videoId: "1TLpO3GupiY"
 videoTitle: "Iran War: European Nations See Inevitable Hormuz Fees | Daybreak Europe 7/3/2026"
 thumbnail: "https://img.youtube.com/vi/1TLpO3GupiY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "After U.S.-Iran War, Oman Is Said to Propose Strait of Hormuz Fee Plan"
     url: "https://www.nytimes.com/2026/06/30/world/middleeast/iran-war-oman-strait-hormuz-fee-ships.html"

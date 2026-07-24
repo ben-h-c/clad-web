@@ -32,6 +32,10 @@ keyMoments:
 videoId: "XpRjVOytnWU"
 videoTitle: "Versailles dinner is Macron's 'Trump management', expert says"
 thumbnail: "https://img.youtube.com/vi/XpRjVOytnWU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump sets dinner date at Versailles Palace with Macron after G7 Summit"
     url: "https://fortune.com/2026/06/15/trump-macron-versailles-dinner-g7-iran-deal/"

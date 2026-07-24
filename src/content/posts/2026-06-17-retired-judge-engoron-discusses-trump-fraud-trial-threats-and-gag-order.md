@@ -32,6 +32,10 @@ keyMoments:
 videoId: "MVxa2WEnvV4"
 videoTitle: "Trump trial judge on being the \"most famous judge in America, for a while\" and criticism"
 thumbnail: "https://img.youtube.com/vi/MVxa2WEnvV4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Appeals Court Throws Out Trump's Civil Fraud Penalty"
     url: "https://abc7ny.com/post/appeals-court-throws-massive-civil-fraud-penalty-president-donald-trump/17605416/"

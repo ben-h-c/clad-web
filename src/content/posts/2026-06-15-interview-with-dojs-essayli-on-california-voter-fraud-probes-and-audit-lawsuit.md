@@ -36,6 +36,10 @@ keyMoments:
 videoId: "rW1gCAwDKYQ"
 videoTitle: "Full Interview | First Assistant U.S. Attorney Bill Essayli on DOJ's election investigation"
 thumbnail: "https://img.youtube.com/vi/rW1gCAwDKYQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. DOJ continues elections investigation, fight to audit California's voter rolls"
     url: "https://www.kcra.com/article/us-doj-continues-elections-investigation-fight-to-audit-californias-voter-rolls-ca-politics-360/71573105"

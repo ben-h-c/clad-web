@@ -36,6 +36,10 @@ keyMoments:
 videoId: "ki3Iwjl4rKw"
 videoTitle: "but is it a STOCK MARKET CRASH? - SPY QQQ"
 thumbnail: "https://img.youtube.com/vi/ki3Iwjl4rKw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "85% PROBABILITY FOR THE NEXT MOVE... SPY QQQ"
     url: "https://www.youtube.com/watch?v=aVW8TNAqbEk"

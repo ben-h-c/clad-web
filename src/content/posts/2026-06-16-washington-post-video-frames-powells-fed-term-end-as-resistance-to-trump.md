@@ -37,6 +37,10 @@ keyMoments:
 videoId: "cnE6eTXkrT8"
 videoTitle: "A Washington story with a good ending"
 thumbnail: "https://img.youtube.com/vi/cnE6eTXkrT8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "As Powell Steps Down, the Fed Confronts 'Regime Change'"
     url: "https://www.nytimes.com/2026/05/15/us/politics/jerome-powell-kevin-warsh-federal-reserve.html"

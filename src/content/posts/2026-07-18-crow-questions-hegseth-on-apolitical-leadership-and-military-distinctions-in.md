@@ -36,6 +36,10 @@ keyMoments:
 videoId: "pa-He9gi_cQ"
 videoTitle: "Jason Crow Grills Pete Hegseth Over What Separates America From ISIS"
 thumbnail: "https://img.youtube.com/vi/pa-He9gi_cQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Jason Crow"
     slug: "jason-crow"

@@ -28,6 +28,10 @@ keyMoments:
 videoId: "O1jcDGXE9Dk"
 videoTitle: "'I'm at least somewhat like Mark Twain': Bill Maher receives Twain humor prize"
 thumbnail: "https://img.youtube.com/vi/O1jcDGXE9Dk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bill Maher receives Mark Twain Prize amid uncertainty at Kennedy Center"
     url: "https://www.cnn.com/2026/06/28/politics/bill-maher-mark-twain-award-kennedy-center"

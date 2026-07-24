@@ -32,6 +32,10 @@ keyMoments:
 videoId: "Xgd_bQ4Mscg"
 videoTitle: "Is AI ALIVE? What AI is teaching us about consciousness with Michael Pollan and Chris Hayes"
 thumbnail: "https://img.youtube.com/vi/Xgd_bQ4Mscg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A World Appears by Michael Pollan: 9781984881991"
     url: "https://www.penguinrandomhouse.com/books/646644/a-world-appears-by-michael-pollan/"

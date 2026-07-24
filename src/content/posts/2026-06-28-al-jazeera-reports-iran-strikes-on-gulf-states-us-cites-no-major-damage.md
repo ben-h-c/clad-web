@@ -32,6 +32,10 @@ keyMoments:
 videoId: "HbGKLBHmkao"
 videoTitle: "Gulf countries attacked after US launches second round of strikes on Iran | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/HbGKLBHmkao/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran says it struck US-linked targets in response to US attacks"
     url: "https://www.reuters.com/world/middle-east/iran-says-it-struck-us-linked-targets-response-us-attacks-2026-06-27/"

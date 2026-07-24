@@ -33,6 +33,10 @@ keyMoments:
 videoId: "HIs7GHWRWWw"
 videoTitle: "Dusty Johnson Acknowledges People That Made His Campaign Possible"
 thumbnail: "https://img.youtube.com/vi/HIs7GHWRWWw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Dusty Johnson"
     slug: "dusty-johnson"

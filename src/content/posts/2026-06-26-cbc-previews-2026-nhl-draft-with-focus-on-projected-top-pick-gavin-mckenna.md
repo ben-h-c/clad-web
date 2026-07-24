@@ -34,6 +34,10 @@ keyMoments:
 videoId: "237M8w6xXEw"
 videoTitle: "NHL draft history within reach for Yukon’s Gavin McKenna"
 thumbnail: "https://img.youtube.com/vi/237M8w6xXEw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mock 2026 NHL Draft: 1st-round predictions"
     url: "https://www.nhl.com/news/final-mock-2026-nhl-draft-intrigue-after-first-three-picks"

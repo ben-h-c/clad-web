@@ -36,6 +36,10 @@ keyMoments:
 videoId: "JqBTgqnpERM"
 videoTitle: "Whoa! 'Colbert Dem' TIES Republican in TEXAS Senate race "
 thumbnail: "https://img.youtube.com/vi/JqBTgqnpERM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A Tied Senate Race Gives Democrats a Shot in Deep Red Texas, Poll Finds"
     url: "https://www.nytimes.com/2026/06/30/us/politics/texas-senate-poll-talarico-paxton.html"

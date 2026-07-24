@@ -38,6 +38,10 @@ keyMoments:
 videoId: "cSsadh5tbkg"
 videoTitle: "‘It’s A COUP By The CULT Of Andy Burnham' | ‘Serious THREAT To British Democracy’"
 thumbnail: "https://img.youtube.com/vi/cSsadh5tbkg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Makerfield by-election - Wikipedia"
     url: "https://en.wikipedia.org/wiki/2026_Makerfield_by-election"

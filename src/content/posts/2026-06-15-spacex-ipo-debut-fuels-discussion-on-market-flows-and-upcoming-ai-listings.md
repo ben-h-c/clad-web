@@ -38,6 +38,10 @@ keyMoments:
 videoId: "eNXGiUjKZxQ"
 videoTitle: "What SpaceX's IPO means for OpenAI"
 thumbnail: "https://img.youtube.com/vi/eNXGiUjKZxQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX shares debut after biggest IPO in history"
     url: "https://www.cnn.com/2026/06/12/business/live-news/spacex-goes-public-ipo"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "LiybH4jGA-A"
 videoTitle: "Is this the summer that pushes Europe to adapt to extreme heat? | DW News"
 thumbnail: "https://img.youtube.com/vi/LiybH4jGA-A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "More than 1,300 excess deaths linked to record-breaking Europe heatwave, WHO says"
     url: "https://www.france24.com/en/europe/20260628-more-than-1-300-excess-deaths-linked-to-record-breaking-europe-heatwave-who-says"

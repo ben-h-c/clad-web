@@ -34,6 +34,10 @@ keyMoments:
 videoId: "4RmJ7GNxGkA"
 videoTitle: "3 notes in the Nancy Guthrie kidnapping are fake, FBI says | Jesse Weber Live"
 thumbnail: "https://img.youtube.com/vi/4RmJ7GNxGkA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "EXCLUSIVE: FBI determines Nancy Guthrie kidnapping notes to be fakes, source says"
     url: "https://www.reuters.com/business/media-telecom/fbi-determines-nancy-guthrie-kidnapping-notes-be-fakes-source-says-2026-07-01/"

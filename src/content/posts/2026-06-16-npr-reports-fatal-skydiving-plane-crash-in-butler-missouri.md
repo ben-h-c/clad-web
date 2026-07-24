@@ -34,6 +34,10 @@ keyMoments:
 videoId: "xlbGDSjzz4c"
 videoTitle: "12 killed in Missouri skydiving plane crash"
 thumbnail: "https://img.youtube.com/vi/xlbGDSjzz4c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "12 Killed in Skydiving Plane Crash in Butler, Missouri"
     url: "https://www.nytimes.com/2026/06/14/us/skydiving-plane-crash-butler-missouri.html"

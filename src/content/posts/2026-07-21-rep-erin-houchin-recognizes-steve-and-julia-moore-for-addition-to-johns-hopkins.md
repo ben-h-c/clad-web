@@ -32,6 +32,10 @@ keyMoments:
 videoId: "iiGY0_OOOfg"
 videoTitle: "Steve and Julia Moore Founders Wall"
 thumbnail: "https://img.youtube.com/vi/iiGY0_OOOfg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Erin Houchin"
     slug: "erin-houchin"

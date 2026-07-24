@@ -35,6 +35,10 @@ keyMoments:
 videoId: "xApRti0WPuU"
 videoTitle: "Northern Tornadoes Project investigating severity of Alberta, Saskatchewan tornadoes"
 thumbnail: "https://img.youtube.com/vi/xApRti0WPuU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Soaring number of Alberta tornadoes blamed on 'perfect concoction of ingredients'"
     url: "https://globalnews.ca/news/11961570/soaring-number-alberta-tornadoes-perfect-concoction-of-ingredients/"

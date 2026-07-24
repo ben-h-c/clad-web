@@ -27,6 +27,10 @@ keyMoments:
 videoId: "N_H9ShrVTS4"
 videoTitle: "President Trump describes MOU as 'not final,' threatens to restart bombing #news #iran"
 thumbnail: "https://img.youtube.com/vi/N_H9ShrVTS4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says Iran deal not ‘final,’ threatens to resume bombing ‘if they don’t behave’"
     url: "https://thehill.com/homenews/administration/5927678-trump-iran-deal-not-final/"

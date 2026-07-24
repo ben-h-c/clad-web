@@ -34,6 +34,10 @@ keyMoments:
 videoId: "FKJCumG5xqA"
 videoTitle: "Iran uses Khamenei funeral ceremonies to project unity amid leadership uncertainty: Analysis"
 thumbnail: "https://img.youtube.com/vi/FKJCumG5xqA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran begins six-day funeral for Ayatollah Khamenei nearly four months after his death"
     url: "https://www.cnbc.com/2026/07/04/-khamenei-funeral-procession-route.html"

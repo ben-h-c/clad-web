@@ -35,6 +35,10 @@ keyMoments:
 videoId: "1Fjw9jABBpk"
 videoTitle: "Delaware hospital shooting, FBI foils White House plot | NBC Nightly News with Tom Llamas - June 16"
 thumbnail: "https://img.youtube.com/vi/1Fjw9jABBpk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2 workers reportedly shot inside Wilmington Hospital in Delaware; facility on lockdown"
     url: "https://6abc.com/post/possible-shooting-reported-wilmington-hospital-delaware/19310822/"

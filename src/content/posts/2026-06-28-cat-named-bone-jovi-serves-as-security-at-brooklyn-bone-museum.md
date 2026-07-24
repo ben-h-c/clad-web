@@ -37,6 +37,10 @@ keyMoments:
 videoId: "zBIQ514nb-Q"
 videoTitle: "Cat lands museum security job"
 thumbnail: "https://img.youtube.com/vi/zBIQ514nb-Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Bone Museum"
     url: "https://www.thebonemuseum.org/"

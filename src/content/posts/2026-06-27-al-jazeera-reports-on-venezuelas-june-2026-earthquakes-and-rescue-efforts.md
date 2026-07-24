@@ -37,6 +37,10 @@ keyMoments:
 videoId: "a8mqrduu44w"
 videoTitle: "Venezuela earthquakes aftermath: Desperation mounts as death toll continues to rise"
 thumbnail: "https://img.youtube.com/vi/a8mqrduu44w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Venezuela earthquakes - Wikipedia"
     url: "https://en.wikipedia.org/wiki/2026_Venezuela_earthquakes"

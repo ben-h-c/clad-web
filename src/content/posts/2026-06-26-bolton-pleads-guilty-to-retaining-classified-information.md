@@ -25,6 +25,10 @@ keyMoments:
 videoId: "umUwOnuT6eE"
 videoTitle: "John Bolton—Ex-Trump Adviser—Pleads Guilty To Retaining Classified Information"
 thumbnail: "https://img.youtube.com/vi/umUwOnuT6eE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Former Trump adviser John Bolton pleads guilty in classified files case"
     url: "https://www.washingtonpost.com/national-security/2026/06/26/ex-national-security-adviser-john-bolton-expected-plead-guilty-classified-docs-case/"

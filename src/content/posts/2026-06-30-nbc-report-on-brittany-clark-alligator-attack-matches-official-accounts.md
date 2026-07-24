@@ -31,6 +31,10 @@ keyMoments:
 videoId: "356f6n_jOXI"
 videoTitle: "New details in deadly Florida alligator attack"
 thumbnail: "https://img.youtube.com/vi/356f6n_jOXI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Brittany Clark identified as victim in deadly Florida alligator attack"
     url: "https://www.palmbeachpost.com/story/news/2026/06/30/fatal-alligator-attack-victim-in-florida-identified-as-brittany-clark/90757006007/"

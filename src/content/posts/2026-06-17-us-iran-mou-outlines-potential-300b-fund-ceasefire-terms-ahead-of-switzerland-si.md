@@ -38,6 +38,10 @@ keyMoments:
 videoId: "RF4KBpZ6oL0"
 videoTitle: "US, allies to make plan for $300 bn Iran reconstruction fund • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/RF4KBpZ6oL0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Will a US-Iran deal unlock $300bn in investment fund for Tehran?"
     url: "https://www.aljazeera.com/news/2026/6/16/will-a-us-iran-deal-unlock-300bn-in-investment-fund-for-tehran"

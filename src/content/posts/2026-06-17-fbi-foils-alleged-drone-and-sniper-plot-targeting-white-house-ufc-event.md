@@ -35,6 +35,10 @@ keyMoments:
 videoId: "XW1YMwwbbjo"
 videoTitle: "UFC America 250 White House attack using explosive drones foiled by FBI, 23 arrested says Kash Patel"
 thumbnail: "https://img.youtube.com/vi/XW1YMwwbbjo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Group planned to attack White House UFC event using snipers and drones, FBI says"
     url: "https://www.bbc.com/news/articles/cqx10xlje1lo"

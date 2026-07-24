@@ -38,6 +38,10 @@ keyMoments:
 videoId: "U7sOi8eZ060"
 videoTitle: "'NOT A RETREAT': Israel-Hezbollah ceasefire details REVEALED"
 thumbnail: "https://img.youtube.com/vi/U7sOi8eZ060/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Israel, Hezbollah agree to ceasefire after morning flareup"
     url: "https://www.dw.com/en/israel-hezbollah-agree-to-ceasefire-after-morning-flareup/live-77620493"

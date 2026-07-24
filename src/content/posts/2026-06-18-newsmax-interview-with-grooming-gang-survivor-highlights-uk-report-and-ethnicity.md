@@ -36,6 +36,10 @@ keyMoments:
 videoId: "_xuBD6nd0yQ"
 videoTitle: "UK Rape Gang Survivor speaks out about Pakistani child grooming gang"
 thumbnail: "https://img.youtube.com/vi/_xuBD6nd0yQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "National Audit on Group-based Child Sexual Exploitation and Abuse"
     url: "https://www.gov.uk/government/publications/national-audit-on-group-based-child-sexual-exploitation-and-abuse"

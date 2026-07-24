@@ -35,6 +35,10 @@ keyMoments:
 videoId: "mEROWa2j3RU"
 videoTitle: "'AS FAST AS WE POSSIBLY CAN': Defense giant signals urgency on ramping up production"
 thumbnail: "https://img.youtube.com/vi/mEROWa2j3RU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "GM explores defense manufacturing partnership with Lockheed Martin"
     url: "https://www.cbtnews.com/gm-explores-defense-manufacturing-partnership/"

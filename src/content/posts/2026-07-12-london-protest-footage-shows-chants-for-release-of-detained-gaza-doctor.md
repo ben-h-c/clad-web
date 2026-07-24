@@ -29,6 +29,10 @@ keyMoments:
 videoId: "k6yhyB9g8_I"
 videoTitle: "Protest on London’s Tower Bridge demands release of Dr Hussam Abu Safia | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/k6yhyB9g8_I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "LONDON PROTEST: Hundreds Storm Downing Street to Demand Israel Release Gaza Doctor Abu Safiya"
     url: "https://www.youtube.com/watch?v=V-VJP6sjWgw"

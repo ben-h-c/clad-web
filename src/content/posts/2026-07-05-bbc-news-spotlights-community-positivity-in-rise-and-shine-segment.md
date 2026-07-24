@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Mg1VEaUsdsE"
 videoTitle: "Why feel good stories on the news matter | BBC News"
 thumbnail: "https://img.youtube.com/vi/Mg1VEaUsdsE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "BBC News - Rise and Shine playlist"
     url: "https://www.youtube.com/playlist?list=PL08H3vV1qQvN5vK8vL5vQvN5vK8vL5vQvN"

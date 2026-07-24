@@ -32,6 +32,10 @@ keyMoments:
 videoId: "q3GAZnAUmgo"
 videoTitle: "Trump: Birthright Citizenship Not Meant for 'Rich People From China'"
 thumbnail: "https://img.youtube.com/vi/q3GAZnAUmgo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "United States v. Wong Kim Ark (1898)"
     url: "https://supreme.justice.gov/cases/federal/us/169/649/"

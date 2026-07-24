@@ -30,6 +30,10 @@ keyMoments:
 videoId: "yrkUyaG9_qE"
 videoTitle: "What Obama sees in Mamdani...and why their appearance is turning heads | THE FIGHT FOR 2028"
 thumbnail: "https://img.youtube.com/vi/yrkUyaG9_qE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mayor Zohran Kwame Mamdani and President Barack Obama Visit Early Childhood Education Center in the South Bronx"
     url: "https://www.nyc.gov/mayors-office/news/2026/04/mayor-zohran-kwame-mamdani-and-president-barack-obama-visit-earl"

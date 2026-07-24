@@ -31,6 +31,10 @@ keyMoments:
 videoId: "rQTaaw8Vbws"
 videoTitle: "Corey Feldman hospitalized after medical emergency"
 thumbnail: "https://img.youtube.com/vi/rQTaaw8Vbws/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Corey Feldman hospitalized after in-flight medical emergency"
     url: "https://www.usatoday.com/story/entertainment/celebrities/2026/06/16/corey-feldman-hospitalized-medical-emergency-flight/90567184007/"

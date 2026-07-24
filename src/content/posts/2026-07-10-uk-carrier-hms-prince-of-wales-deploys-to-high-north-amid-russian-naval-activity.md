@@ -38,6 +38,10 @@ keyMoments:
 videoId: "XKAAiskrWtM"
 videoTitle: "Why Britain Sent Its Largest Aircraft Carrier to Hunt Russian Subs | WSJ"
 thumbnail: "https://img.youtube.com/vi/XKAAiskrWtM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Royal Navy Intercepts Russian Patrol Aircraft in Norwegian Sea"
     url: "https://news.usni.org/2026/07/08/royal-navy-intercepts-russian-patrol-aircraft-in-norwegian-sea"

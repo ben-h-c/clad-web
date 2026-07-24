@@ -38,6 +38,10 @@ keyMoments:
 videoId: "UM93o9h2nUc"
 videoTitle: "Ukraine launches drone strikes on Moscow, hitting oil refinery"
 thumbnail: "https://img.youtube.com/vi/UM93o9h2nUc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ukraine Strikes Moscow Refinery in Large-Scale Drone Attack"
     url: "https://www.nytimes.com/2026/06/18/world/europe/moscow-ukraine-drone-attack-fire.html"

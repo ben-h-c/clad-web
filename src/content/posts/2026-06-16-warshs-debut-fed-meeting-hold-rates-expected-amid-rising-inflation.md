@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Htuey-O0n8w"
 videoTitle: "What to know as Kevin Warsh prepares for his first Federal Reserve meeting"
 thumbnail: "https://img.youtube.com/vi/Htuey-O0n8w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "For Warsh as Fed chair, silence may be the point"
     url: "https://www.cnbc.com/2026/06/12/warsh-fed-chair-interest-rates.html"

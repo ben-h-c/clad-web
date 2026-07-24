@@ -38,6 +38,10 @@ keyMoments:
 videoId: "P3-3S7ZpWs8"
 videoTitle: "Iran war costs: Strait of Hormuz REOPENING, price drops will be DELAYED: Rosemary Becchi | RISING"
 thumbnail: "https://img.youtube.com/vi/P3-3S7ZpWs8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. and Iran reach deal to extend ceasefire and open strait"
     url: "https://www.axios.com/2026/06/14/us-iran-ceasefire-extended-hormuz-reopen-trump"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "43rPk71YdQI"
 videoTitle: "Trahan Asks New York Medicaid Director About Cost Of Implementing Admin Costs In Big, Beautiful Bill"
 thumbnail: "https://img.youtube.com/vi/43rPk71YdQI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "GAO-25-108160: Medicaid Demonstrations"
     url: "https://www.gao.gov/assets/gao-25-108160.pdf"

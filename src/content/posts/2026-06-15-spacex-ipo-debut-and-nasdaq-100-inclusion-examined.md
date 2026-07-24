@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Y_3FHFKBEWc"
 videoTitle: "The SpaceX IPO Frenzy Isn&#39;t Over!"
 thumbnail: "https://img.youtube.com/vi/Y_3FHFKBEWc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX surges past $2 trillion in Nasdaq debut, closes ..."
     url: "https://www.reuters.com/legal/transactional/after-record-ipo-musks-spacex-faces-next-test-market-debut-2026-06-12/"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "GtAlo1shAwI"
 videoTitle: "‘Just crazy’: Messi on 2007 baby photo with Spain’s Lamine Yamal"
 thumbnail: "https://img.youtube.com/vi/GtAlo1shAwI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Messi on viral Yamal baby photo: 'Incredible' we're playing in World Cup final"
     url: "https://www.espn.com/soccer/story/_/id/49387821/lionel-messi-viral-lamine-yamal-baby-photo-incredible-playing-world-cup-final"

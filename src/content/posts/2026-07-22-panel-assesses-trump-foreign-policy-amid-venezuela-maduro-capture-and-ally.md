@@ -38,6 +38,10 @@ keyMoments:
 videoId: "cGQE6qlQEos"
 videoTitle: "Trump ‘totally got it WRONG on Iran’: Fmr. State Dept. Vet"
 thumbnail: "https://img.youtube.com/vi/cGQE6qlQEos/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 United States intervention in Venezuela"
     url: "https://en.wikipedia.org/wiki/2026_United_States_intervention_in_Venezuela"

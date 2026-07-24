@@ -40,6 +40,10 @@ keyMoments:
 videoId: "eGFPgc0-IyY"
 videoTitle: "RESILIENCE: Consumer spending holds up after oil shock"
 thumbnail: "https://img.youtube.com/vi/eGFPgc0-IyY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "5-Year Breakeven Inflation Rate (T5YIE) | FRED"
     url: "https://fred.stlouisfed.org/series/T5YIE"

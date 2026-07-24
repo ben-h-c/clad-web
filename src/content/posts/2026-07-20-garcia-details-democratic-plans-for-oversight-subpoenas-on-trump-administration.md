@@ -35,6 +35,10 @@ keyMoments:
 videoId: "HYAr5Y-UKnA"
 videoTitle: "Rep. Garcia calls out Administration | MS Now"
 thumbnail: "https://img.youtube.com/vi/HYAr5Y-UKnA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Robert Garcia"
     slug: "robert-garcia"

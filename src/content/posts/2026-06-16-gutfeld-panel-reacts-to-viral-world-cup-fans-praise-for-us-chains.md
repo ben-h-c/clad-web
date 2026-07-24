@@ -33,6 +33,10 @@ keyMoments:
 videoId: "taHBNnF1W-w"
 videoTitle: "'Gutfeld!': World Cup fans love America"
 thumbnail: "https://img.youtube.com/vi/taHBNnF1W-w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "World Cup Fans Go Viral Reacting to America, Waffle House"
     url: "https://www.thewrap.com/culture-lifestyle/culture/world-cup-fans-europeans-react-america-waffle-house-texas-bbq-viral/"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "lTCp8i6AGW8"
 videoTitle: "MILLION DOLLAR STARTER HOMES: The SHOCKING truth revealed #shorts"
 thumbnail: "https://img.youtube.com/vi/lTCp8i6AGW8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Starter Homes That Cost $1M Have Spread to More Than Half of States - Zillow Research"
     url: "https://www.zillow.com/research/million-dollar-starter-home-36452/"

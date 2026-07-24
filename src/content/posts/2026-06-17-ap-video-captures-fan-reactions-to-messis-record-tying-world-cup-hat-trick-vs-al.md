@@ -31,6 +31,10 @@ keyMoments:
 videoId: "GgH8YFWo8YE"
 videoTitle: "Argentina and Algeria fans react to Messi's World Cup record after hat trick"
 thumbnail: "https://img.youtube.com/vi/GgH8YFWo8YE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Messi nets hat trick to tie Klose record with 16th World Cup goal"
     url: "https://www.espn.com/soccer/story/_/id/49089516/messi-nets-hat-trick-ties-klose-record-1th-world-cup-goal"

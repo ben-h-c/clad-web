@@ -38,6 +38,10 @@ keyMoments:
 videoId: "q_wPTAmCDhQ"
 videoTitle: "Sotomayor &#39;visibly angry&#39; over court&#39;s ruling president can fire independent agency heads"
 thumbnail: "https://img.youtube.com/vi/q_wPTAmCDhQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump v. Slaughter, 25-332 (2026)"
     url: "https://www.supremecourt.gov/opinions/25pdf/25-332_qn12.pdf"

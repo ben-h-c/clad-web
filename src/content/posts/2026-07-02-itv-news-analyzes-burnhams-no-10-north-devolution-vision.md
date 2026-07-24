@@ -32,6 +32,10 @@ keyMoments:
 videoId: "hJMGZ20tfN0"
 videoTitle: "Under Burnham's 'Number 10 North', are mayors or cabinet ministers going to have more power?"
 thumbnail: "https://img.youtube.com/vi/hJMGZ20tfN0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham sets out plans to devolve power to regions with new 'No 10 North' in Manchester"
     url: "https://www.bbc.com/news/live/cgrk4rpxnx7t"

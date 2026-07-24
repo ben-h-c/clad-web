@@ -31,6 +31,10 @@ keyMoments:
 videoId: "kavAt9Jfopc"
 videoTitle: "Search for survivors continues after earthquakes in Venezuela"
 thumbnail: "https://img.youtube.com/vi/kavAt9Jfopc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Search for survivors of Venezuela earthquakes"
     url: "https://www.cnn.com/2026/06/27/world/live-news/venezuela-earthquake-hnk"

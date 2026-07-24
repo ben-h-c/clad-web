@@ -36,6 +36,10 @@ keyMoments:
 videoId: "qJ67krsWupc"
 videoTitle: "'SHOCKING': Outrage over student's antisemitic job interview rejection"
 thumbnail: "https://img.youtube.com/vi/qJ67krsWupc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Antisemitic Cornell student turns down interview because he's 'not interested in working for a Jew'"
     url: "https://nypost.com/2026/06/13/us-news/antisemitic-cornell-student-turns-down-interview-because-hes-not-interested-in-working-for-a-jew/"

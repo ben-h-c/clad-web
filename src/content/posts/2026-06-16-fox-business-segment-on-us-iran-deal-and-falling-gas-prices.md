@@ -38,6 +38,10 @@ keyMoments:
 videoId: "l5BFg3VSe5c"
 videoTitle: "'NO MORE': GOP senator highlights GOALS of US-Iran deal"
 thumbnail: "https://img.youtube.com/vi/l5BFg3VSe5c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran and U.S. reach an initial deal to extend the ceasefire and open the Strait of Hormuz but challenges remain"
     url: "https://www.pbs.org/newshour/world/iran-and-u-s-reach-an-initial-deal-to-extend-the-ceasefire-and-open-the-strait-of-hormuz-but-challenges-remain"

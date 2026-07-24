@@ -37,6 +37,10 @@ keyMoments:
 videoId: "HT1FrbPOPDw"
 videoTitle: "Anthropic Claude | US Order Shuts Down Top AI Models Globally: Should India Worry?"
 thumbnail: "https://img.youtube.com/vi/HT1FrbPOPDw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Statement on the US government directive to suspend access to Fable 5 and Mythos 5"
     url: "https://www.anthropic.com/news/fable-mythos-access"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "XjGaEiEO8gA"
 videoTitle: "Officials deem deadly B-52 crash as 'unsurvivable' #shorts #us #usmilitary #news #b52"
 thumbnail: "https://img.youtube.com/vi/XjGaEiEO8gA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "B-52 plane crashes at Edwards Air Force Base in California"
     url: "https://www.latimes.com/california/story/2026-06-15/b-52-crashes-at-edwards-air-force-base-in-california"

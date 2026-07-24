@@ -35,6 +35,10 @@ keyMoments:
 videoId: "TyLyWci8EnE"
 videoTitle: "Tom Cole Leads House Appropriations Committee Hearing On Preventing Future Government Shutdowns"
 thumbnail: "https://img.youtube.com/vi/TyLyWci8EnE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "House Appropriations Committee Hearing: Funding Lapses: Analyzing Shutdown Reform"
     url: "https://appropriations.house.gov/"

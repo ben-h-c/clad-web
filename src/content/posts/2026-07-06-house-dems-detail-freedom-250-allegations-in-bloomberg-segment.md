@@ -37,6 +37,10 @@ keyMoments:
 videoId: "XcqjtrC2s7U"
 videoTitle: "House Dems Investigate Trump's Running of Freedom 250 | Balance of Power 07/06/2026"
 thumbnail: "https://img.youtube.com/vi/XcqjtrC2s7U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "House Democrats accuse Trump of 'hijacking' America's 250th birthday"
     url: "https://www.npr.org/2026/07/02/nx-s1-5879162/freedom-250-report-house-democrats-controversy"

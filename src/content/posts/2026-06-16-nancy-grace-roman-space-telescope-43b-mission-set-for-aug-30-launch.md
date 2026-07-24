@@ -34,6 +34,10 @@ keyMoments:
 videoId: "lBAuc057pVA"
 videoTitle: "NASA's new $4.3 billion space telescope to launch in August"
 thumbnail: "https://img.youtube.com/vi/lBAuc057pVA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Nancy Grace Roman Space Telescope"
     url: "https://science.nasa.gov/mission/roman-space-telescope/"

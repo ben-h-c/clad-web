@@ -28,6 +28,10 @@ keyMoments:
 videoId: "29lHE-b6Sy0"
 videoTitle: "US burrito chain Chipotle opens first restaurant in Mexico"
 thumbnail: "https://img.youtube.com/vi/29lHE-b6Sy0/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "CHIPOTLE ENTERS MEXICO WITH FIRST RESTAURANT IN NUEVO LEÓN"
     url: "https://newsroom.chipotle.com/2026-07-13-CHIPOTLE-ENTERS-MEXICO-WITH-FIRST-RESTAURANT-IN-NUEVO-LEON"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "AnxpX--7Yh8"
 videoTitle: "Iran War: US Reinstates Hormuz Blockade, Demands 20% Fee | Daybreak Europe 7/14/2026"
 thumbnail: "https://img.youtube.com/vi/AnxpX--7Yh8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham in line to become British PM after securing party support"
     url: "https://www.aljazeera.com/news/2026/7/13/andy-burnham-in-line-to-become-british-pm-after-securing-party-support"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "qLUSoJttypg"
 videoTitle: "Iran warns of full-scale offensive after seventh night of US air strikes"
 thumbnail: "https://img.youtube.com/vi/qLUSoJttypg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran war updates: US launches 7th consecutive night of strikes on Iran"
     url: "https://www.aljazeera.com/news/liveblog/2026/7/16/iran-war-live-us-carries-out-strikes-on-civilian-infrastructure-in-south"

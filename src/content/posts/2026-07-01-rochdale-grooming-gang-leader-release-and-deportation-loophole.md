@@ -38,6 +38,10 @@ keyMoments:
 videoId: "vzwY4f5CQvw"
 videoTitle: "\"He RAPED 30 Children\" | Grooming Gang Ringleader To Be A FREE MAN Tomorrow"
 thumbnail: "https://img.youtube.com/vi/vzwY4f5CQvw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ringleader of Rochdale grooming gang 'cannot be deported'"
     url: "https://www.bbc.com/news/articles/cx2wl6ynn2no"

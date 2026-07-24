@@ -35,6 +35,10 @@ keyMoments:
 videoId: "PM_9IlQhrxk"
 videoTitle: "NTSB to investigate deadly skydiving plane crash in Missouri"
 thumbnail: "https://img.youtube.com/vi/PM_9IlQhrxk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "12 dead after skydiving plane crashes near Butler, Missouri airport"
     url: "https://www.kmbc.com/article/pilot-and-11-passengers-killed-in-plane-crash-in-bulter-mo/71581914"

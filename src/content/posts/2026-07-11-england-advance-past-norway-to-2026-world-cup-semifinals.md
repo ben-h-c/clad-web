@@ -34,6 +34,10 @@ keyMoments:
 videoId: "IwRcVw99bIo"
 videoTitle: "England beat Norway to reach the World Cup semi-finals"
 thumbnail: "https://img.youtube.com/vi/IwRcVw99bIo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Norway vs. England (Jul 11, 2026) Live Score - ESPN"
     url: "https://www.espn.com/soccer/match/_/gameId/760512/england-norway"

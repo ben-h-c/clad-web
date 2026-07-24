@@ -34,6 +34,10 @@ keyMoments:
 videoId: "b-K3L3gxLOM"
 videoTitle: "Tropical Storm Arthur could bring life-threatening flooding as it hits Gulf Coast"
 thumbnail: "https://img.youtube.com/vi/b-K3L3gxLOM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Tropical Storm Arthur forms in the Gulf off Texas, NWS says - ABC News"
     url: "https://abcnews.com/US/tropical-storm-arthur-forms-gulf-off-texas-nws/story?id=133964957"

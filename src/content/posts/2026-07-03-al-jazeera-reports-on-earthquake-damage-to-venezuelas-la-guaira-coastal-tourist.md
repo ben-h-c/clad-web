@@ -31,6 +31,10 @@ keyMoments:
 videoId: "IknMMdtwD2Y"
 videoTitle: "Quakes reduce Venezuela tourist town to rubble, leaving economy in tatters | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/IknMMdtwD2Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Venezuela earthquakes - Wikipedia"
     url: "https://en.wikipedia.org/wiki/2026_Venezuela_earthquakes"

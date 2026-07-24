@@ -38,6 +38,10 @@ keyMoments:
 videoId: "oJ_HC2AshKM"
 videoTitle: "What's behind the Democratic Socialist wave?"
 thumbnail: "https://img.youtube.com/vi/oJ_HC2AshKM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Democratic Socialists of America"
     url: "https://www.dsausa.org/"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "teX6rHgZsEg"
 videoTitle: "At least 117 dead dogs found at California animal rescue"
 thumbnail: "https://img.youtube.com/vi/teX6rHgZsEg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "At least 117 dead dogs found in search at California animal rescue accused of abuse, officials said"
     url: "https://www.nbcnews.com/news/us-news/117-dead-dogs-found-california-animal-rescue-rcna352136"

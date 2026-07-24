@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ZwkX4CblkmQ"
 videoTitle: "Lori Trahan Slams GOP For Introducing 'Toothless Resolution' To Celebrate Anniversary Of BBB"
 thumbnail: "https://img.youtube.com/vi/ZwkX4CblkmQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "All Info - H.Res.1383 - 119th Congress (2025-2026)"
     url: "https://www.govinfo.gov/content/pkg/BILLS-119hres1383ih/pdf/BILLS-119hres1383ih.pdf"

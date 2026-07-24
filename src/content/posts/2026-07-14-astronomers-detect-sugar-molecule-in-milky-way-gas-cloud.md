@@ -31,6 +31,10 @@ keyMoments:
 videoId: "VjB0wLp6l5w"
 videoTitle: "Sugar molecule detected in space"
 thumbnail: "https://img.youtube.com/vi/VjB0wLp6l5w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "First ‘true sugar’ molecule found in space — offering hints to life’s origins"
     url: "https://www.nature.com/articles/d41586-026-02173-5"

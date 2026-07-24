@@ -28,6 +28,10 @@ keyMoments:
 videoId: "0AfadmGRhfg"
 videoTitle: "Karoline Leavitt Discusses How She Balances Work And Motherhood While Raising Two Kids Under Two"
 thumbnail: "https://img.youtube.com/vi/0AfadmGRhfg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "All About Karoline Leavitt's 2 Children"
     url: "https://people.com/all-about-karoline-leavitt-kids-11969206"

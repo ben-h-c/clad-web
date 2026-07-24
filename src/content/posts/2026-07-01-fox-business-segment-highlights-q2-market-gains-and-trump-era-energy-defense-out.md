@@ -36,6 +36,10 @@ keyMoments:
 videoId: "tRE_4AO76oI"
 videoTitle: "TRUMP EFFECT: America is poised for MASSIVE economic comeback"
 thumbnail: "https://img.youtube.com/vi/tRE_4AO76oI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "S&P 500, Nasdaq register best quarter since 2020 despite Iran war"
     url: "https://www.reuters.com/business/us-stock-futures-little-changed-strong-quarter-nears-end-2026-06-30/"

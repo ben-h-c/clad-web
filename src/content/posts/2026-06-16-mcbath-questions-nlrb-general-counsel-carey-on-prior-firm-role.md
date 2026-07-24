@@ -35,6 +35,10 @@ keyMoments:
 videoId: "WSENt-3CkFs"
 videoTitle: "McBath Grills NLRB General Counsel: Does Your Prior Work Representing Corporations Make You Biased?"
 thumbnail: "https://img.youtube.com/vi/WSENt-3CkFs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Former Morgan Lewis Partner Crystal S. Carey Sworn In as NLRB General Counsel"
     url: "https://www.morganlewis.com/news/2026/01/former-morgan-lewis-partner-crystal-s-carey-sworn-in-as-nlrb-general-counsel"

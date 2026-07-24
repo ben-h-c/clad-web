@@ -34,6 +34,10 @@ keyMoments:
 videoId: "f0VdRMEoeOY"
 videoTitle: "World Cup Fever Energizes Boston Ahead of Knockout Stage"
 thumbnail: "https://img.youtube.com/vi/f0VdRMEoeOY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How to Watch the World Cup Today: Schedule, Times, TV, Streaming for Canada vs South Africa"
     url: "https://www.foxsports.com/stories/soccer/how-watch-world-cup-today-schedule-times-tv-streaming-canada-vs-south-africa"

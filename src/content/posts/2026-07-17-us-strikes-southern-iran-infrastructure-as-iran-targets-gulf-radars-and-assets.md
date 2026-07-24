@@ -34,6 +34,10 @@ keyMoments:
 videoId: "VNmz5-tbg1k"
 videoTitle: "Iran attacks middle east region: IRGC says it has targeted US military assets"
 thumbnail: "https://img.youtube.com/vi/VNmz5-tbg1k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran war live: US intensifies southern Iran attacks, killing at least eight"
     url: "https://www.aljazeera.com/news/liveblog/2026/7/16/iran-war-live-us-carries-out-strikes-on-civilian-infrastructure-in-south"

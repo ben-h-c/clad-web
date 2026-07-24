@@ -35,6 +35,10 @@ keyMoments:
 videoId: "qsN3AggVRvM"
 videoTitle: "'Something's REALLY happening here': Unappealing GOP candidates give Dems FIGHTING midterms chance"
 thumbnail: "https://img.youtube.com/vi/qsN3AggVRvM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Jon Ossoff"
     slug: "jon-ossoff"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "2rJsQL-a1DI"
 videoTitle: "Orphanage fire in Algeria kills 11 people, including children, amid heatwave"
 thumbnail: "https://img.youtube.com/vi/2rJsQL-a1DI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fire at orphanage in Algeria kills 11 people, including children"
     url: "https://www.aljazeera.com/news/2026/7/16/fire-at-orphanage-in-algeria-kills-11-people-including-children"

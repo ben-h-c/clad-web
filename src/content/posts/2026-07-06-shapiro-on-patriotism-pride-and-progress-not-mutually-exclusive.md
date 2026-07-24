@@ -31,6 +31,10 @@ keyMoments:
 videoId: "30-AGLMxCuw"
 videoTitle: "Josh Shapiro: We Should All Be Proud Americans, But Acknowledge 'We Have Work To Do' To Improve"
 thumbnail: "https://img.youtube.com/vi/30-AGLMxCuw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Poll: America at 250 is riven with doubt and pessimism"
     url: "https://www.nbcnews.com/politics/politics-news/poll-america-250-riven-doubt-pessimism-glimmers-hope-rcna348912"

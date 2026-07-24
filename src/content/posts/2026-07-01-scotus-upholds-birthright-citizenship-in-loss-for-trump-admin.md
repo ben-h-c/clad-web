@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Dj0UHrIVHoQ"
 videoTitle: "So much losing: Slumping in TX, MAGA spirals over Trump's new failures at Supreme Court"
 thumbnail: "https://img.youtube.com/vi/Dj0UHrIVHoQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court Live Updates: Justices Reject Trump’s Effort to End Birthright Citizenship"
     url: "https://www.nytimes.com/live/2026/06/30/us/birthright-citizenship-supreme-court"

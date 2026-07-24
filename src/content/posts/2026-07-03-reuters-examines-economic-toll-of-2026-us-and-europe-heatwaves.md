@@ -38,6 +38,10 @@ keyMoments:
 videoId: "OkQo_IVa50E"
 videoTitle: "What do heatwaves cost?"
 thumbnail: "https://img.youtube.com/vi/OkQo_IVa50E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Heat Wave Spreads East on Wednesday, Putting Millions More at Risk"
     url: "https://www.nytimes.com/2026/07/01/weather/fourth-of-july-heat-wave-latest-updates.html"

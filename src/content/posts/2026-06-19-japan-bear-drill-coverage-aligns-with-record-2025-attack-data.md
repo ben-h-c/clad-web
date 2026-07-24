@@ -34,6 +34,10 @@ keyMoments:
 videoId: "I7u2knnqHyg"
 videoTitle: "Japan holds drill featuring man in a bear suit after surge of attacks"
 thumbnail: "https://img.youtube.com/vi/I7u2knnqHyg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bear Sightings and Attacks in Japan Jump to Record Highs"
     url: "https://www.nippon.com/en/japan-data/h02784/"

@@ -28,6 +28,10 @@ keyMoments:
 videoId: "uDblvRH1l_g"
 videoTitle: "Bardem sets hands, feet, nose in Hollywood cement"
 thumbnail: "https://img.youtube.com/vi/uDblvRH1l_g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Spanish actor Javier Bardem leaves his mark on Hollywood Boulevard"
     url: "https://www.cp24.com/news/entertainment/2026/06/16/spanish-actor-javier-bardem-leaves-his-mark-on-hollywood-boulevard/"

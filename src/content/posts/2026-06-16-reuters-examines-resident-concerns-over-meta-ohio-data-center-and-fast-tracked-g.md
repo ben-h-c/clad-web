@@ -40,6 +40,10 @@ keyMoments:
 videoId: "uuVOox_r_SI"
 videoTitle: "Ohio residents sound the alarm over AI data center 'threat'"
 thumbnail: "https://img.youtube.com/vi/uuVOox_r_SI/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fast-tracked power plants fuel AI boom, with little public scrutiny"
     url: "https://www.reuters.com/business/energy/fast-tracked-power-plants-fuel-ai-boom-with-little-public-scrutiny-2026-06-16/"

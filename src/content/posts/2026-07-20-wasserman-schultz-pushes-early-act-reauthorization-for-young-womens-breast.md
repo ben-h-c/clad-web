@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Kpv3aNi443k"
 videoTitle: "EARLY Act Passage"
 thumbnail: "https://img.youtube.com/vi/Kpv3aNi443k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Debbie Wasserman Schultz"
     slug: "debbie-wasserman-schultz"

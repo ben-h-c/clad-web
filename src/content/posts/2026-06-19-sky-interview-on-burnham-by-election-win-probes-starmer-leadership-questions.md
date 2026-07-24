@@ -35,6 +35,10 @@ keyMoments:
 videoId: "33-TNo7AMXQ"
 videoTitle: "'You're in denial': Sky's Sophy Ridge presses minister over Starmer's position as PM"
 thumbnail: "https://img.youtube.com/vi/33-TNo7AMXQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Burnham Wins Makerfield By-Election, Clearing Path to Challenge Starmer as UK Prime Minister"
     url: "https://www.nytimes.com/2026/06/18/world/europe/uk-makerfield-election.html"

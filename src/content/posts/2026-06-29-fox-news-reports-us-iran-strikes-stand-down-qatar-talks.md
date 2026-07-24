@@ -36,6 +36,10 @@ keyMoments:
 videoId: "dGRT_Cx8Fw4"
 videoTitle: "White House WARNS Iran: 'Violence will be met with violence'"
 thumbnail: "https://img.youtube.com/vi/dGRT_Cx8Fw4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US and Iran pause strikes but disagree over next steps on talks"
     url: "https://apnews.com/article/iran-us-war-strait-of-hormuz-june-29-2026-d1c0ec8aa84c0e5693b94f0cf0862bab"

@@ -29,6 +29,10 @@ keyMoments:
 videoId: "K5l1lHOOWso"
 videoTitle: "Trump jokes with Egyptian president about meeting Hillary Clinton #shorts #foxnews #trump"
 thumbnail: "https://img.youtube.com/vi/K5l1lHOOWso/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fact check: Did Egypt's Sisi skip 2016 Clinton meeting after Trump encounter?"
     url: "https://www.newsweek.com/fact-check-egypt-sisi-skip-clinton-meeting-2016-trump-10873022"

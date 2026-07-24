@@ -36,6 +36,10 @@ keyMoments:
 videoId: "rNluXzZwJMc"
 videoTitle: "These Factors Led To Graham Platner's Rise: Dem Strategist"
 thumbnail: "https://img.youtube.com/vi/rNluXzZwJMc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Graham Platner officially withdraws candidacy for US Senate in Maine"
     url: "https://www.theguardian.com/us-news/2026/jul/10/graham-platner-maine-senate-officially-withdraws"

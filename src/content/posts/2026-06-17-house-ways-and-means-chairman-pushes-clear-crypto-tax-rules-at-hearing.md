@@ -34,6 +34,10 @@ keyMoments:
 videoId: "9ZeKk48q-tc"
 videoTitle: "'The Digital Asset Status Quo Is Untenable': Jason Smith Stresses Importance Of Clear Crypto Tax Law"
 thumbnail: "https://img.youtube.com/vi/9ZeKk48q-tc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Chairman Smith at Digital Asset Legislative Hearing: America Needs Clear Tax Rules to Remain Digital Asset Capital of the World"
     url: "https://waysandmeans.house.gov/2026/06/09/chairman-smith-at-digital-asset-legislative-hearing-america-needs-clear-tax-rules-to-remain-digital-asset-capital-of-the-world/"

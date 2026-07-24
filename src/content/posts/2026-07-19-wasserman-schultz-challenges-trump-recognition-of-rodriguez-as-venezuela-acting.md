@@ -33,6 +33,10 @@ keyMoments:
 videoId: "I6OyUDjf8GU"
 videoTitle: "Delcy Wasn&#39;t Elected"
 thumbnail: "https://img.youtube.com/vi/I6OyUDjf8GU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Debbie Wasserman Schultz"
     slug: "debbie-wasserman-schultz"

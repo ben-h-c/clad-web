@@ -37,6 +37,10 @@ keyMoments:
 videoId: "RWGS3qeEGmA"
 videoTitle: "Nearly 1,000 hectares burnt in fire near Paris • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/RWGS3qeEGmA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Massive Fontainebleau wildfire near Paris ‘possibly intentional’, interior minister says"
     url: "https://www.france24.com/en/france/20260713-fontainebleau-forest-near-paris-very-virulent-wildfire"

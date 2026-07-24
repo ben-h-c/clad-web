@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Tkq5CM3pHO8"
 videoTitle: "UK counterterrorism police investigating suspected murder of ex-MP Ann Widdecombe"
 thumbnail: "https://img.youtube.com/vi/Tkq5CM3pHO8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Nigel Farage"
     slug: "nigel-farage"

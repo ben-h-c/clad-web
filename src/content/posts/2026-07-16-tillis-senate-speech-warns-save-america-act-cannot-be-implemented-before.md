@@ -34,6 +34,10 @@ keyMoments:
 videoId: "6S8-Qa1QpnQ"
 videoTitle: "Tillis threatens to filibuster 'irresponsible' SAVE America Act in fiery Senate floor speech"
 thumbnail: "https://img.youtube.com/vi/6S8-Qa1QpnQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Thom Tillis"
     slug: "thom-tillis"

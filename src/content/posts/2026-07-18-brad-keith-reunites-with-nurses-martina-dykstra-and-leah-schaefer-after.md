@@ -31,6 +31,10 @@ keyMoments:
 videoId: "l_UIZ2D6GdA"
 videoTitle: "Good News: Man reunites with nurses who saved his life"
 thumbnail: "https://img.youtube.com/vi/l_UIZ2D6GdA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'You're a miracle': Man meets nurse duo who saved his life"
     url: "https://www.yahoo.com/news/us/articles/miracle-man-meets-nurse-duo-020000193.html"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "H-2Xy0SNEl0"
 videoTitle: "Macro Matters: Energy prices 'not too concerning' for US"
 thumbnail: "https://img.youtube.com/vi/H-2Xy0SNEl0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "PPI for final demand declines 0.3% in June 2026"
     url: "https://www.bls.gov/news.release/ppi.nr0.htm"

@@ -39,6 +39,10 @@ keyMoments:
 videoId: "RIKL_GbfhjA"
 videoTitle: "Watch live: Trump meets with Lebanese President Joseph Aoun"
 thumbnail: "https://img.youtube.com/vi/RIKL_GbfhjA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

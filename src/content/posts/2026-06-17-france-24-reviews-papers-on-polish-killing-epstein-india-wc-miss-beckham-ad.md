@@ -35,6 +35,10 @@ keyMoments:
 videoId: "hKdzl5aZMOU"
 videoTitle: "India is once again not participating in the World Cup. Will it ever? • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/hKdzl5aZMOU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russian artist who satirised Putin shot dead in Poland"
     url: "https://www.abc.net.au/news/2026-06-16/semyon-skrepetsky-russian-artist-shot-dead-in-poland/106805960"

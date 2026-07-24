@@ -28,6 +28,10 @@ keyMoments:
 videoId: "ECD-yI6_OPo"
 videoTitle: "UK's Starmer and Norway's Støre shake hands ahead World Cup match"
 thumbnail: "https://img.youtube.com/vi/ECD-yI6_OPo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bjørge Lillelien"
     url: "https://en.wikipedia.org/wiki/Bj%C3%B8rge_Lillelien"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "RaVBwbLHUt0"
 videoTitle: "Iran war: Pakistan announces US-Iran peace deal reached | DW News"
 thumbnail: "https://img.youtube.com/vi/RaVBwbLHUt0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran war: Pakistan announces US-Iran peace deal reached"
     url: "https://www.dw.com/en/iran-war-pakistan-announces-us-iran-peace-deal-reached/live-77540182"

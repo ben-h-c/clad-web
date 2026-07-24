@@ -32,6 +32,10 @@ keyMoments:
 videoId: "haAoKoV-ezk"
 videoTitle: "Extreme heat shuts down the Great American State Fair in DC for a few hours"
 thumbnail: "https://img.youtube.com/vi/haAoKoV-ezk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'Great American State Fair' temporarily shut down for heat"
     url: "https://www.wusa9.com/article/entertainment/events/america-250/great-american-state-fair-national-mall-closed-heat/65-0feeeb5e-cfc7-41be-9de3-b8deeaea9ca5"

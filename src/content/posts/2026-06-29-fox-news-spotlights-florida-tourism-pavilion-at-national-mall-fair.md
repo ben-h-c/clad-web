@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ygfOIWF6qCo"
 videoTitle: "Florida puts tourism on full display at Great American State Fair"
 thumbnail: "https://img.youtube.com/vi/ygfOIWF6qCo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Great American State Fair"
     url: "https://freedom250.org/celebration/the-great-american-state-fair"

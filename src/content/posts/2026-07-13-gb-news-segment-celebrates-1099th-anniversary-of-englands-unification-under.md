@@ -33,6 +33,10 @@ keyMoments:
 videoId: "TOfnmiz9A0Y"
 videoTitle: "Alex Armstrong PROUDLY MARKS England's 1099th birthday"
 thumbnail: "https://img.youtube.com/vi/TOfnmiz9A0Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Birth of England 927AD"
     url: "https://birthofengland.co.uk/"

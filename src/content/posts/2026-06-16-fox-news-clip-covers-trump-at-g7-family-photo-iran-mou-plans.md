@@ -32,6 +32,10 @@ keyMoments:
 videoId: "HBVQvvGZ5S4"
 videoTitle: "WATCH: Trump and G7 leaders take 'family photo'"
 thumbnail: "https://img.youtube.com/vi/HBVQvvGZ5S4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Highlights From the G7: Trump Says Ukraine War Has ‘No Impact’ on U.S."
     url: "https://www.nytimes.com/live/2026/06/16/world/g7-summit-conference-trump-france"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "zaRfxVMVxZM"
 videoTitle: "$3.5 Million Secured for Huntington Road Repaving | LaLota, Smyth &amp; Sorrentino Press Conference"
 thumbnail: "https://img.youtube.com/vi/zaRfxVMVxZM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Nick LaLota"
     slug: "nick-lalota"

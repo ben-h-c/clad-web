@@ -36,6 +36,10 @@ keyMoments:
 videoId: "DR9Mh2QZ39g"
 videoTitle: "Trump demands SAVE America Act included with FISA"
 thumbnail: "https://img.youtube.com/vi/DR9Mh2QZ39g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump ties FISA renewal to his stalled voting bill"
     url: "https://www.axios.com/2026/06/14/trump-fisa-renewal-save-america-act"

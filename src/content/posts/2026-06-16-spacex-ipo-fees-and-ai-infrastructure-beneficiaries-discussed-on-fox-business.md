@@ -36,6 +36,10 @@ keyMoments:
 videoId: "BeHzwOvYOdA"
 videoTitle: "KEY BENEFICIARIRES of the AI gold rush and SpaceX’s launch into the market"
 thumbnail: "https://img.youtube.com/vi/BeHzwOvYOdA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Goldman and Morgan Stanley to Pocket $100 Million Each In SpaceX IPO Fees"
     url: "https://www.wsj.com/livecoverage/spacex-ipo-stock-market-06-12-2026/card/goldman-and-morgan-stanley-to-pocket-100-million-each-in-spacex-ipo-fees-Fi1SR4wYLWW6Qrl6ayYq"

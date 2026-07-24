@@ -33,6 +33,10 @@ keyMoments:
 videoId: "8yk4Agw_LLw"
 videoTitle: "Ted Lieu Plays Audio in Congress — Patel&#39;s Reaction Has Everyone Talking 😳🔥 #shorts"
 thumbnail: "https://img.youtube.com/vi/8yk4Agw_LLw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Kash Patel"
     slug: "kash-patel"

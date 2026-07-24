@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Tnwa7wERIwk"
 videoTitle: "Gatlinburg holds first July 4 parade of 2026"
 thumbnail: "https://img.youtube.com/vi/Tnwa7wERIwk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "July 4th in Gatlinburg TN | Independence Day Parade"
     url: "https://www.gatlinburg.com/events/annual-events/fourth-of-july/"

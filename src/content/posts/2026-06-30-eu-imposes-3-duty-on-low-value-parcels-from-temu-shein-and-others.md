@@ -35,6 +35,10 @@ keyMoments:
 videoId: "P5QO1lQWpZ4"
 videoTitle: "Why Temu and Shein just got more expensive in Europe | DW News"
 thumbnail: "https://img.youtube.com/vi/P5QO1lQWpZ4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "EU introduces €3 customs charge on small parcels to curb cheap Chinese imports"
     url: "https://www.theguardian.com/world/2026/jun/29/eu-introduces-customs-charge-on-small-parcels-to-curb-cheap-chinese-imports"

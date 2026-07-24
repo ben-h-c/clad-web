@@ -35,6 +35,10 @@ keyMoments:
 videoId: "1MYMPYLUbHQ"
 videoTitle: "Five drown in Ohio river during fishing trip"
 thumbnail: "https://img.youtube.com/vi/1MYMPYLUbHQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Air quality improving in Northeast, while wildfire smoke hangs over Midwest"
     url: "https://www.npr.org/2026/07/18/nx-s1-5899009/us-canada-wildfire-smoke"

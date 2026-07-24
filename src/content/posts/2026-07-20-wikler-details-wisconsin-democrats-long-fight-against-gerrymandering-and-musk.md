@@ -36,6 +36,10 @@ keyMoments:
 videoId: "78HSvx217Tg"
 videoTitle: "Ben Wikler - “This Is The Plan” & Taking On Elon Musk In Wisconsin | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/78HSvx217Tg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2025 Wisconsin Supreme Court election"
     url: "https://en.wikipedia.org/wiki/2025_Wisconsin_Supreme_Court_election"

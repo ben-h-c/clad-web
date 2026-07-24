@@ -34,6 +34,10 @@ keyMoments:
 videoId: "DtREVFPawTw"
 videoTitle: "Ten-Man USA Ends 24-Year Wait for World Cup Knockout Win"
 thumbnail: "https://img.youtube.com/vi/DtREVFPawTw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "USMNT beats Bosnia-Herzegovina, 1st World Cup knockout win since '02"
     url: "https://www.espn.com/soccer/story/_/id/49243502/usa-bosnia-herzegovina-2026-fifa-world-cup-knockout-round-32"

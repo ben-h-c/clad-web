@@ -32,6 +32,10 @@ keyMoments:
 videoId: "Tg9ZtUbORXU"
 videoTitle: "Steve Kornacki breaks down Senate primary runoffs in Georgia and Alabama"
 thumbnail: "https://img.youtube.com/vi/Tg9ZtUbORXU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The places to watch in Alabama and Georgia tonight: From the Politics Desk"
     url: "https://www.nbcnews.com/politics/politics-news/places-watch-alabama-georgia-steve-kornacki-politics-desk-rcna350373"

@@ -39,6 +39,10 @@ keyMoments:
 videoId: "OrU58yo3Sx8"
 videoTitle: "If ‘ambiguity’ is allowed in U.S.-Iran deal, it won’t be ‘worth very much’: Fmr. energy secretary"
 thumbnail: "https://img.youtube.com/vi/OrU58yo3Sx8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump and Iran’s president sign initial deal to end war, open Strait of Hormuz and ease sanctions"
     url: "https://www.nbcnews.com/world/iran/strait-hormuz-reopen-us-lift-iran-sanctions-14-point-deal-seeking-end-rcna350513"

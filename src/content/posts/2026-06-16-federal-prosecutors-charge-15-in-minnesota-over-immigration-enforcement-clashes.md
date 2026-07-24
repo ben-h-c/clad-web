@@ -37,6 +37,10 @@ keyMoments:
 videoId: "eR9oh52EONc"
 videoTitle: "LIVE: Federal prosecutors charge 15 people it says impeded agents during Minnesota immigration surge"
 thumbnail: "https://img.youtube.com/vi/eR9oh52EONc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US Attorney for Minnesota charging anti-ICE protesters alleging ties to antifa groups"
     url: "https://www.kaaltv.com/news/us-attorney-for-minnesota-charging-anti-ice-protesters-alleging-ties-to-antifa-groups/"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "-2Ao1BLaA6E"
 videoTitle: "Russell Fry announces campaign for Lindsey Graham’s Senate seat"
 thumbnail: "https://img.youtube.com/vi/-2Ao1BLaA6E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Darline Graham"
     slug: "darline-graham"

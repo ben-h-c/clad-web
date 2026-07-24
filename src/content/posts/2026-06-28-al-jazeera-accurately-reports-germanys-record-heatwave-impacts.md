@@ -34,6 +34,10 @@ keyMoments:
 videoId: "WwhG01sqmxY"
 videoTitle: "Europe heatwave: Germany sees hottest temperature on record"
 thumbnail: "https://img.youtube.com/vi/WwhG01sqmxY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Germany news: New heat record at 41.7 degrees Celsius"
     url: "https://www.dw.com/en/germany-news-new-heat-record-at-417-degrees-celsius/live-77733670"

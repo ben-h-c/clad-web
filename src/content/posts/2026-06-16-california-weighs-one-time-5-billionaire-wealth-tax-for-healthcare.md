@@ -34,6 +34,10 @@ keyMoments:
 videoId: "E0gbRxT8-Qo"
 videoTitle: "Will Billionaires Really Flee a California Wealth Tax?"
 thumbnail: "https://img.youtube.com/vi/E0gbRxT8-Qo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "California Billionaire Tax Act - SEIU UHW"
     url: "https://www.seiu-uhw.org/ca-billionaire-tax-act/"

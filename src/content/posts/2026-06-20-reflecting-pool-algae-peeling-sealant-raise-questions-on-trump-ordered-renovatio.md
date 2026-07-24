@@ -39,6 +39,10 @@ keyMoments:
 videoId: "pjBtwdOafAg"
 videoTitle: "Problems plague Washington’s reflecting pool"
 thumbnail: "https://img.youtube.com/vi/pjBtwdOafAg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump promised clear water. The reflecting pool went green."
     url: "https://www.politico.com/news/2026/06/16/reflecting-pool-green-algae-spreads-00963411"

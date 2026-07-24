@@ -35,6 +35,10 @@ keyMoments:
 videoId: "pMds-fRTOkE"
 videoTitle: "Gutfeld: This is the GREATEST time to be alive"
 thumbnail: "https://img.youtube.com/vi/pMds-fRTOkE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Scott Bessent"
     slug: "scott-bessent"

@@ -28,6 +28,10 @@ keyMoments:
 videoId: "Qc6tMm5adqc"
 videoTitle: "World Cup 2026: France aim for third consecutive final against Spain • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/Qc6tMm5adqc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How to watch France vs Spain: Live stream the 2026 FIFA World Cup Semifinals"
     url: "https://www.foxnews.com/sports/how-watch-france-vs-spain-live-stream-2026-fifa-world-cup-semifinals"

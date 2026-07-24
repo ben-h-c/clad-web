@@ -31,6 +31,10 @@ keyMoments:
 videoId: "vgt_0dleuDY"
 videoTitle: "National pride meets breathable mesh: A look at the design of World Cup uniforms"
 thumbnail: "https://img.youtube.com/vi/vgt_0dleuDY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "All-New Nike Aero-FIT Kit Technology Revealed"
     url: "https://www.footyheadlines.com/2025/10/all-new-nike-aero-fit-kit-technology-revealed-debut-in-2026-world-cup.html"

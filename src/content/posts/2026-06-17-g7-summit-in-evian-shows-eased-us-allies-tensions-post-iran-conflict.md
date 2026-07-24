@@ -39,6 +39,10 @@ keyMoments:
 videoId: "6BdeN628X5c"
 videoTitle: "Smooth G7 summit appears to have given positive lift to ties between US and allies"
 thumbnail: "https://img.youtube.com/vi/6BdeN628X5c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 G7 Summit of Evian"
     url: "https://www.elysee.fr/en/G7evian"

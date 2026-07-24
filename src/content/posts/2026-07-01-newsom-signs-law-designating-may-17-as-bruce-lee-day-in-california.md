@@ -34,6 +34,10 @@ keyMoments:
 videoId: "GeakaJgoiB8"
 videoTitle: "Newsom signs a law officially designating May 17 as Bruce Lee Day"
 thumbnail: "https://img.youtube.com/vi/GeakaJgoiB8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mark your calendar: May 17 is now ‘Bruce Lee Day’ in California"
     url: "https://www.sfchronicle.com/sf/article/california-bruce-lee-day-22327979.php"

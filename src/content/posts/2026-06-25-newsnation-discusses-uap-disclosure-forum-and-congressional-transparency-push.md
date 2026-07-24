@@ -34,6 +34,10 @@ keyMoments:
 videoId: "kiLlRegrMqY"
 videoTitle: "UFO disclosure: The truth about alien life | Hot Take with Jesse Weber"
 thumbnail: "https://img.youtube.com/vi/kiLlRegrMqY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Disclosure Forum 2026: Humanity at the Edge of Discovery"
     url: "https://forum.disclosure.org/"

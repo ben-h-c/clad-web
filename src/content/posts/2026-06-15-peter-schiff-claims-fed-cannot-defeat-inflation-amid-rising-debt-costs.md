@@ -37,6 +37,10 @@ keyMoments:
 videoId: "RfFcKEYn9DY"
 videoTitle: "The Fed Has LOST the Inflation Fight"
 thumbnail: "https://img.youtube.com/vi/RfFcKEYn9DY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Peter Schiff warns inflation could 'skyrocket' without major Fed rate hikes — how to protect your savings"
     url: "https://finance.yahoo.com/economy/policy/articles/peter-schiff-warns-inflation-could-110000701.html"

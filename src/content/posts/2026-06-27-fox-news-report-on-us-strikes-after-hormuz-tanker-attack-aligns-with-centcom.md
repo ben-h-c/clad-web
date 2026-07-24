@@ -34,6 +34,10 @@ keyMoments:
 videoId: "wo-e5qk6YSw"
 videoTitle: "BREAKING: US military launches strikes in the Strait of Hormuz following Iranian attack on tanker"
 thumbnail: "https://img.youtube.com/vi/wo-e5qk6YSw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. military attacks Iranian targets after commercial tanker hit in the Strait of Hormuz"
     url: "https://www.cnbc.com/2026/06/27/tanker-struck-in-strait-of-hormuz-as-us-iran-tensions-escalate.html"

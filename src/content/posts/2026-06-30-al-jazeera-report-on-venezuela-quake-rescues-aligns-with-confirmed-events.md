@@ -34,6 +34,10 @@ keyMoments:
 videoId: "u6lFLKGdu50"
 videoTitle: "Rescuers race to find survivors after Venezuela earthquake as hopes fade"
 thumbnail: "https://img.youtube.com/vi/u6lFLKGdu50/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela quake death toll tops 1400 as rescue efforts continue"
     url: "https://www.reuters.com/world/americas/venezuela-welcomes-1600-foreign-rescuers-urgent-search-quake-survivors-2026-06-27/"

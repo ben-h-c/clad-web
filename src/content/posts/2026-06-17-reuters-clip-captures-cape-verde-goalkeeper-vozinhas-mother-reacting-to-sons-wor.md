@@ -28,6 +28,10 @@ keyMoments:
 videoId: "jyUZneB1IwU"
 videoTitle: "Cape Verde keeper’s mother watches son shine"
 thumbnail: "https://img.youtube.com/vi/jyUZneB1IwU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Priced out of World Cup, Vozinha's mother watches son's heroics from home"
     url: "https://www.reuters.com/sports/soccer/priced-out-world-cup-vozinhas-mother-watches-sons-heroics-home-2026-06-16/"

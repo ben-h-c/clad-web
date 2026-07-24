@@ -34,6 +34,10 @@ keyMoments:
 videoId: "f6rSg0WgnxE"
 videoTitle: "TikTok shut down for kids 14 and under in Florida"
 thumbnail: "https://img.youtube.com/vi/f6rSg0WgnxE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Florida sues TikTok, claiming it violates state child safety law"
     url: "https://www.reuters.com/legal/government/florida-sues-tiktok-claiming-it-violates-state-child-safety-law-2026-06-15/"

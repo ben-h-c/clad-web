@@ -35,6 +35,10 @@ keyMoments:
 videoId: "eiyNRPsNQCA"
 videoTitle: "Trump \"not happy\" with Israel's handling of Hezbollah conflict in Lebanon, worried about Iran deal"
 thumbnail: "https://img.youtube.com/vi/eiyNRPsNQCA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says Israel's Netanyahu must be 'more responsible' on Lebanon"
     url: "https://www.aa.com.tr/en/americas/trump-says-israels-netanyahu-must-be-more-responsible-on-lebanon/3968578"

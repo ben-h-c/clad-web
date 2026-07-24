@@ -40,6 +40,10 @@ keyMoments:
 videoId: "62x1HnpNE3A"
 videoTitle: "\"If In Doubt, Blame Thatcher!\" | Andy Burnham To Blame Margaret Thatcher In First Speech"
 thumbnail: "https://img.youtube.com/vi/62x1HnpNE3A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "If in doubt, blame Thatcher! Burnham to vow to take Britain back to the 1970s"
     url: "https://www.dailymail.com/news/article-15984425/Thatcher-Burnham-Labour-Britain-1970s-Tory-PM-Starmer.html"

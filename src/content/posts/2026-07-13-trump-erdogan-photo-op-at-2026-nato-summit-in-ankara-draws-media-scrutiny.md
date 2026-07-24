@@ -34,6 +34,10 @@ keyMoments:
 videoId: "7_wjrXnVhhY"
 videoTitle: "Trump and Erdogan's photo op in Ankara | The Listening Post"
 thumbnail: "https://img.youtube.com/vi/7_wjrXnVhhY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump's visit a win for Turkey's Erdogan, NATO tensions aside"
     url: "https://www.reuters.com/world/middle-east/trumps-visit-win-turkeys-erdogan-nato-tensions-aside-2026-07-08/"

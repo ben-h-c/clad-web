@@ -37,6 +37,10 @@ keyMoments:
 videoId: "prl1rzpq-SI"
 videoTitle: "Mike Thompson SCREAMS At Scott Bessent: You’re Letting Him Rob The American People"
 thumbnail: "https://img.youtube.com/vi/prl1rzpq-SI/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

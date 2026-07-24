@@ -33,6 +33,10 @@ keyMoments:
 videoId: "OSOE6yxzXSs"
 videoTitle: "Are Democrats reaching working class voters?"
 thumbnail: "https://img.youtube.com/vi/OSOE6yxzXSs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Haley M. Stevens"
     slug: "haley-m-stevens"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "_lEnGFNHyus"
 videoTitle: "Nydia Velázquez Blasts Vought Over &#39;Outrageous&#39; Consideration Of Immigration Status By CFPB"
 thumbnail: "https://img.youtube.com/vi/_lEnGFNHyus/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Nydia M. Velázquez"
     slug: "nydia-m-vel-zquez"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "M7QZdoxvM9E"
 videoTitle: "Oil Tops $100 on War Worries; Trump Resurrects Tariff Wall | The Asia Trade 7/24/2026"
 thumbnail: "https://img.youtube.com/vi/M7QZdoxvM9E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Brent crude oil - Price - Chart - Historical Data"
     url: "https://tradingeconomics.com/commodity/brent-crude-oil"

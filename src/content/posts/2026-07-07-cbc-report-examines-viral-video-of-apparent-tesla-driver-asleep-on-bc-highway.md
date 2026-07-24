@@ -34,6 +34,10 @@ keyMoments:
 videoId: "IdtDnwfDzrE"
 videoTitle: "Woman appears to be asleep at the wheel of self-driving Tesla | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/IdtDnwfDzrE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Video: Tesla driver appears fast asleep behind the wheel on Highway 1 between Golden and Revelstoke"
     url: "https://www.castanet.net/news/Salmon-Arm/623334/Video-Tesla-driver-appears-fast-asleep-behind-the-wheel-on-Highway-1-between-Golden-and-Revelstoke"

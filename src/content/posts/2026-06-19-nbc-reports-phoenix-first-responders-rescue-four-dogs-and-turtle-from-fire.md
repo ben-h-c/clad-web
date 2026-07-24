@@ -31,6 +31,10 @@ keyMoments:
 videoId: "6x7h1F7e3Mk"
 videoTitle: "First responders rescue multiple pets from a fire in an Arizona mobile home"
 thumbnail: "https://img.youtube.com/vi/6x7h1F7e3Mk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Caught on camera: First responders save dogs, turtle from Phoenix house fire"
     url: "https://www.azfamily.com/2026/06/18/caught-camera-first-responders-save-dogs-turtle-phoenix-house-fire/"

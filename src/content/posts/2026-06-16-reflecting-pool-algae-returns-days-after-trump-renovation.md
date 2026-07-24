@@ -33,6 +33,10 @@ keyMoments:
 videoId: "2wiXFABof1w"
 videoTitle: "Newly repainted reflecting pool turns green from algae blooms"
 thumbnail: "https://img.youtube.com/vi/2wiXFABof1w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Algae resurfaces in reflecting pool after multimillion-dollar renovation"
     url: "https://www.politico.com/news/2026/06/12/algae-resurfaces-in-reflecting-pool-multi-million-dollar-renovation-00960609"

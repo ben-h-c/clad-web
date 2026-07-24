@@ -37,6 +37,10 @@ keyMoments:
 videoId: "mGMcB8wInO0"
 videoTitle: "'I'll Have To Talk To Lindsey...': Trump Issues To Warning To Graham Over Iran Deal Skepticism"
 thumbnail: "https://img.youtube.com/vi/mGMcB8wInO0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Graham 'concerned' that Iran views deal with US differently from Trump administration"
     url: "https://thehill.com/homenews/senate/5923946-lindsey-graham-iran-deal/"

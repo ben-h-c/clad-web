@@ -33,6 +33,10 @@ keyMoments:
 videoId: "btNMcvfl04U"
 videoTitle: "'Throw Away The Key': Henry Nowak's Killer Appeals Murder Sentence | Ben Habib FURIOUS"
 thumbnail: "https://img.youtube.com/vi/btNMcvfl04U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Nowak killer's 'unduly lenient' sentence to be reviewed"
     url: "https://www.bbc.com/news/articles/c8721y4341qo"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "Zv8k9q8wOqs"
 videoTitle: "&#39;Dropping To Dangerously Low Levels&#39;: LaLota Asks Vought About WTC Health Program Staffing Cuts"
 thumbnail: "https://img.youtube.com/vi/Zv8k9q8wOqs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Nick LaLota"
     slug: "nick-lalota"

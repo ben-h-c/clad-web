@@ -31,6 +31,10 @@ keyMoments:
 videoId: "A3PISPQ8RLQ"
 videoTitle: "FBI: Plotted attack targeted White House event | DW News"
 thumbnail: "https://img.youtube.com/vi/A3PISPQ8RLQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Five men arrested & charged in plot to attack & kill government officials, others attending Ultimate Fighting Championship at White House"
     url: "https://www.justice.gov/usao-sdoh/pr/five-men-arrested-charged-plot-attack-kill-government-officials-others-attending"

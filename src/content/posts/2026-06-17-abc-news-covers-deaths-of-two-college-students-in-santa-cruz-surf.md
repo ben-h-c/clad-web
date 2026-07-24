@@ -34,6 +34,10 @@ keyMoments:
 videoId: "dwlIrCJp7zY"
 videoTitle: "2 college friends killed after being swept out to sea in rough California surf"
 thumbnail: "https://img.youtube.com/vi/dwlIrCJp7zY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Second woman dies after both were swept into water by rising tide in Santa Cruz County"
     url: "https://www.ksbw.com/article/second-woman-dies-rising-tide-santa-cruz-county/71593298"

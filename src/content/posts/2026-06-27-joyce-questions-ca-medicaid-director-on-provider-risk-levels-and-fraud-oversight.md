@@ -33,6 +33,10 @@ keyMoments:
 videoId: "kPX6xln-jCA"
 videoTitle: "'Are You Missing Fraud?': David Joyce Grills CA Medicaid Director Over Fraud Enforcement"
 thumbnail: "https://img.youtube.com/vi/kPX6xln-jCA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Chairman Joyce Delivers Opening Statement at Subcommittee Hearing"
     url: "https://energycommerce.house.gov/posts/chairman-joyce-delivers-opening-statement-at-subcommittee-on-oversight-and-investigations-hearing-with-state-medicaid-directors"

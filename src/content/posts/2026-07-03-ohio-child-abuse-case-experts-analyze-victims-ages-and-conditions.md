@@ -36,6 +36,10 @@ keyMoments:
 videoId: "YyzuirtuEVg"
 videoTitle: "Ohio child abuse case: What victims' ages could reveal, experts say | CUOMO"
 thumbnail: "https://img.youtube.com/vi/YyzuirtuEVg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Parents, grandparents charged after 16 children rescued from Ohio home: 'pure evil'"
     url: "https://www.wlwt.com/article/adults-arrested-16-children-found-deplorable-conditions-ohio/71792089"

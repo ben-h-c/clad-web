@@ -36,6 +36,10 @@ keyMoments:
 videoId: "ICRtJp3AN1Q"
 videoTitle: "Trump Autopens the Iran Deal, Lands a Res at G7 Summit & Spawns an Algae Conspiracy | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/ICRtJp3AN1Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump projects confidence about Iran deal as he meets global leaders for G7 summit"
     url: "https://apnews.com/live/trump-g7-iran-updates-06-16-2026"

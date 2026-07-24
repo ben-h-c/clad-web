@@ -34,6 +34,10 @@ keyMoments:
 videoId: "0rcc4v6GCy0"
 videoTitle: "#tesla #dayinmylife #giftedpr @tesla"
 thumbnail: "https://img.youtube.com/vi/0rcc4v6GCy0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Rear Trunk"
     url: "https://www.tesla.com/ownersmanual/model3/en_us/GUID-3667D28B-5B3B-49CE-A1C1-3D70AC60D9F6.html"

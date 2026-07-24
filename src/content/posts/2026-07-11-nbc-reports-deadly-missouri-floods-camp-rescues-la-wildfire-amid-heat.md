@@ -35,6 +35,10 @@ keyMoments:
 videoId: "pPJUmcr38rs"
 videoTitle: "Severe storms in the Midwest turn deadly"
 thumbnail: "https://img.youtube.com/vi/pPJUmcr38rs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "1 dead, more than 350 people rescued after flash flooding in southeast Missouri"
     url: "https://www.spokesman.com/stories/2026/jul/11/1-dead-more-than-350-people-rescued-after-flash-fl/"

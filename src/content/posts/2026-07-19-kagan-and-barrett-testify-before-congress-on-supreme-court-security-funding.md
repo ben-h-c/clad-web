@@ -33,6 +33,10 @@ keyMoments:
 videoId: "lDzJ7pOvwZU"
 videoTitle: "🔴නීතියේ ආධිපත්‍යයට තර්ජනයක්? විනිසුරුවරුන්ගේ ආරක්ෂාව ගැන දැඩි අවධානය!"
 thumbnail: "https://img.youtube.com/vi/lDzJ7pOvwZU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Amy Coney Barrett"
     slug: "amy-coney-barrett"

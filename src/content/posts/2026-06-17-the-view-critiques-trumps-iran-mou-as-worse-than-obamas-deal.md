@@ -36,6 +36,10 @@ keyMoments:
 videoId: "rzRaRMOs7vo"
 videoTitle: "Alyssa Farah Griffin On Trump's Iran deal: \"A total surrender\" To The Iranians"
 thumbnail: "https://img.youtube.com/vi/rzRaRMOs7vo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump administration releases preliminary agreement with Iran"
     url: "https://www.npr.org/2026/06/17/nx-s1-5860782/trump-iran-agreement-g7"

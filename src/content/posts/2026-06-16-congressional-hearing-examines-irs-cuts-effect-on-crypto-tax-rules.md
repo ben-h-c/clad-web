@@ -32,6 +32,10 @@ keyMoments:
 videoId: "YLqW_Gtaag4"
 videoTitle: "Don Beyer: The IRS' Staff Cuts Will Negatively Impact Implementation Of Cryptocurrency Tax Law"
 thumbnail: "https://img.youtube.com/vi/YLqW_Gtaag4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Full Committee Legislative Hearing on Digital Asset Taxation"
     url: "https://waysandmeans.house.gov/event/full-committee-legislative-hearing-on-digital-asset-taxation/"

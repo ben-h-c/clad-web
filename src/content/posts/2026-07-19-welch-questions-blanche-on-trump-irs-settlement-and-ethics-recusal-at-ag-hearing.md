@@ -36,6 +36,10 @@ keyMoments:
 videoId: "JFA49yRttHg"
 videoTitle: "Welch EXPOSES Blanche’s SECRET Directive To Stay Off Trump Cases"
 thumbnail: "https://img.youtube.com/vi/JFA49yRttHg/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Peter Welch"
     slug: "peter-welch"

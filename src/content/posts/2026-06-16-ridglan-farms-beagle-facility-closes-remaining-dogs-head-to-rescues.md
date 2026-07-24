@@ -37,6 +37,10 @@ keyMoments:
 videoId: "2Gy7oyd0dWs"
 videoTitle: "Hundreds of dogs rescued as testing facility closes"
 thumbnail: "https://img.youtube.com/vi/2Gy7oyd0dWs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Beagle breeding facility Ridglan Farms to close after dog transfer"
     url: "https://www.wisn.com/article/ridglan-farms-to-close-and-release-beagles-to-rescue-groups/71589545"

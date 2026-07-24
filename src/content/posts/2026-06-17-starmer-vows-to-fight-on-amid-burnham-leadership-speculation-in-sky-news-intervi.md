@@ -36,6 +36,10 @@ keyMoments:
 videoId: "BFMSGe8ZIKk"
 videoTitle: "Starmer responds to Burnham leadership challenge speculation"
 thumbnail: "https://img.youtube.com/vi/BFMSGe8ZIKk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Starmer warns Burnham not to throw UK into ‘chaos’"
     url: "https://www.the-independent.com/news/uk/politics/keir-starmer-leadership-bid-chaos-andy-burnham-makerfield-by-election-b2995869.html"

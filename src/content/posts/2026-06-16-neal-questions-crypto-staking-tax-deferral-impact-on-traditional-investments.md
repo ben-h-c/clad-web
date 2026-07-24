@@ -31,6 +31,10 @@ keyMoments:
 videoId: "4ZNMpizBs0s"
 videoTitle: "Richard Neal: This Is How Adjusting Crypto Taxation Could Impact Retirement Savings For Americans"
 thumbnail: "https://img.youtube.com/vi/4ZNMpizBs0s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Full Committee Legislative Hearing on Digital Asset Taxation"
     url: "https://waysandmeans.house.gov/event/full-committee-legislative-hearing-on-digital-asset-taxation/"

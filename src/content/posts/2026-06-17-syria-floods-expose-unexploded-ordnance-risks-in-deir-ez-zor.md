@@ -31,6 +31,10 @@ keyMoments:
 videoId: "n3wVryH4YEE"
 videoTitle: "Syria floods uncover unexploded ordnance in Deir Az Zor region"
 thumbnail: "https://img.youtube.com/vi/n3wVryH4YEE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UNICEF Syria Humanitarian Situation Report (Euphrates Flooding)"
     url: "https://reliefweb.int/report/syrian-arab-republic/unicef-syria-humanitarian-situation-report-euphrates-flooding-08-june-2026"

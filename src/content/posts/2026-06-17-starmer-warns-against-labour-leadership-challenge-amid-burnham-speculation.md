@@ -34,6 +34,10 @@ keyMoments:
 videoId: "vstbZU5buvM"
 videoTitle: "Starmer sends Burnham and Labour warning over leadership contest. #BBCNews"
 thumbnail: "https://img.youtube.com/vi/vstbZU5buvM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How would a Labour leadership contest work?"
     url: "https://www.bbc.com/news/articles/c3631k30xjlo"

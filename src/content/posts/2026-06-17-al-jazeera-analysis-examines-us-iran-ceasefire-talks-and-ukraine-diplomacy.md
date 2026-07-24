@@ -35,6 +35,10 @@ keyMoments:
 videoId: "eIHQR7Wf0XM"
 videoTitle: "Direct US-Iran talks are essential : Analysis"
 thumbnail: "https://img.youtube.com/vi/eIHQR7Wf0XM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. and Iran reach deal to extend ceasefire and open strait"
     url: "https://www.axios.com/2026/06/14/us-iran-ceasefire-extended-hormuz-reopen-trump"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Jp5BLdIfOxs"
 videoTitle: "Taco Bell's shredded lettuce linked to Cyclospora outbreak"
 thumbnail: "https://img.youtube.com/vi/Jp5BLdIfOxs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Cyclospora Outbreak Linked to Shredded Iceberg Lettuce Served at Taco Bell in 5 States"
     url: "https://www.cdc.gov/cyclosporiasis/outbreaks/07-26/index.html"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "BQivtqrqPHc"
 videoTitle: "US-Iran war: Eerie calm broke by new attacks from Iran on vessels in Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/BQivtqrqPHc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S.-Iran Updates: U.S. launches retaliatory strikes on Iran after commercial ship attacks in Strait of Hormuz"
     url: "https://www.cbsnews.com/live-updates/iran-us-war-strait-of-hormuz-trump-nato/"

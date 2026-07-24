@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Z2iqBQ6Mf50"
 videoTitle: "S.D. Governor Larry Rhoden makes a stop in Siouxland"
 thumbnail: "https://img.youtube.com/vi/Z2iqBQ6Mf50/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Kristi Noem"
     slug: "kristi-noem"

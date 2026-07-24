@@ -35,6 +35,10 @@ keyMoments:
 videoId: "L53wn_T7Tdk"
 videoTitle: "Climate disasters are forcing millions from their homes"
 thumbnail: "https://img.youtube.com/vi/L53wn_T7Tdk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Greenpeace study: Extreme weather displaced 13.6 million in 2025"
     url: "https://www.yahoo.com/news/weather-news/articles/greenpeace-study-extreme-weather-displaced-034129489.html"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Dh9LBCJx5Q8"
 videoTitle: "Swiss collector working with First Nations leaders to repatriate Indigenous artifacts"
 thumbnail: "https://img.youtube.com/vi/Dh9LBCJx5Q8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Swiss collector eager to sell his collection of Indigenous artifacts back to communities"
     url: "https://www.cbc.ca/news/canada/manitoba/vincent-escriba-indigenous-collection-9.7248118"

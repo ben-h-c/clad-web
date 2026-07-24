@@ -31,6 +31,10 @@ keyMoments:
 videoId: "liuBM0Rulgw"
 videoTitle: "How a UK-based company is using AI to help decode team dynamics"
 thumbnail: "https://img.youtube.com/vi/liuBM0Rulgw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "AI use in UK hits 'tipping point' as companies scale up"
     url: "https://www.reuters.com/world/uk/ai-use-uk-hits-tipping-point-companies-scale-up-google-exec-says-2026-06-17/"

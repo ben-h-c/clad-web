@@ -35,6 +35,10 @@ keyMoments:
 videoId: "jzCCdlrYQo8"
 videoTitle: "Colossal Biosciences wants to save the DNA of every endangered species | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/jzCCdlrYQo8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US, Texas biotech firm to build 'Noah's Ark' for endangered species"
     url: "https://www.usatoday.com/story/tech/science/2026/06/27/us-colossal-bioscience-to-build-a-biovault-for-endangered-species/90707532007/"

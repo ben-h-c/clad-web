@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ymRgbY0FaZA"
 videoTitle: "NBC News catches up with astronauts on the U.S. mission to the International Space Station"
 thumbnail: "https://img.youtube.com/vi/ymRgbY0FaZA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Artemis II astronauts describe seeing the far side"
     url: "https://www.nbcnews.com/science/space/artemis-ii-astronauts-interview-space-moon-far-side-nasa-rcna266564"

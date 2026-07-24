@@ -36,6 +36,10 @@ keyMoments:
 videoId: "ILrxmBKIpiY"
 videoTitle: "WATCH: Trump says he doesn’t know if he will sign the bipartisan bill to address housing costs"
 thumbnail: "https://img.youtube.com/vi/ILrxmBKIpiY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "House Speaker Mike Johnson set to send housing bill to Trump on Monday"
     url: "https://www.washingtonpost.com/politics/2026/06/29/house-speaker-mike-johnson-set-send-housing-bill-trump-monday/"

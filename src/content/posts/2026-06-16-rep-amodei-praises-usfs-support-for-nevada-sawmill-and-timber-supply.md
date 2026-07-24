@@ -32,6 +32,10 @@ keyMoments:
 videoId: "NmFouv1dKiU"
 videoTitle: "Mark Amodei Praises 'Phenomenal Effort' BY USFS To Bolster Timber Production In Nevada"
 thumbnail: "https://img.youtube.com/vi/NmFouv1dKiU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Humboldt-Toiyabe National Forest"
     url: "https://www.fs.usda.gov/r04/humboldt-toiyabe"

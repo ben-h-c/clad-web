@@ -34,6 +34,10 @@ keyMoments:
 videoId: "WteFe24khuE"
 videoTitle: "Suga, MMAGuru, &amp; Tim React to UFC White House Card!"
 thumbnail: "https://img.youtube.com/vi/WteFe24khuE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UFC Freedom 250"
     url: "https://www.ufc.com/event/ufc-freedom-250"

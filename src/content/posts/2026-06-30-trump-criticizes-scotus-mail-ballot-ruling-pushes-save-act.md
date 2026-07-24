@@ -38,6 +38,10 @@ keyMoments:
 videoId: "A8bqn6WGw6o"
 videoTitle: "Trump Reacts to Supreme Court Ruling Allowing Mail In Ballots"
 thumbnail: "https://img.youtube.com/vi/A8bqn6WGw6o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Justices uphold state law allowing for late-arriving mail-in ballots"
     url: "https://www.scotusblog.com/2026/06/justices-uphold-state-law-allowing-for-late-arriving-mail-in-ballots/"

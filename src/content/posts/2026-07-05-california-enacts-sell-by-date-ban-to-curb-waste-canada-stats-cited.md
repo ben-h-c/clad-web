@@ -34,6 +34,10 @@ keyMoments:
 videoId: "J1jqoeQRImA"
 videoTitle: "California bans use of consumer ‘sell-by’ dates. Could Canada do the same?"
 thumbnail: "https://img.youtube.com/vi/J1jqoeQRImA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Inspection Services - Food Date Labeling - CDFA"
     url: "https://www.cdfa.ca.gov/is/foodrecovery/fooddatelabeling/"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "XthPr_5KTyg"
 videoTitle: "FIFA to investigate racism towards IShowSpeed at World Cup"
 thumbnail: "https://img.youtube.com/vi/XthPr_5KTyg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FIFA investigating alleged racist abuse involving IShowSpeed during World Cup match"
     url: "https://www.espn.com/soccer/story/_/id/49298356/fifa-investigating-alleged-racist-abuse-involving-ishowspeed-fan-world-cup-match"

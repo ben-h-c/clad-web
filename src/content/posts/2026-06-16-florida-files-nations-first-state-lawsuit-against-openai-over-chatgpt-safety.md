@@ -36,6 +36,10 @@ keyMoments:
 videoId: "GUE6sEjizB4"
 videoTitle: "TECH TITAN SUED: OpenAI CONFRONTS first-of-its-kind state legal challenge"
 thumbnail: "https://img.youtube.com/vi/GUE6sEjizB4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Attorney General James Uthmeier Files First-in-the-Nation State-Led Lawsuit Against OpenAI, CEO Sam Altman for Deceptive Practices and Harms to Floridians"
     url: "https://www.myfloridalegal.com/newsrelease/attorney-general-james-uthmeier-files-first-nation-state-led-lawsuit-against-openai-ceo"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "ubNWkIlFqC8"
 videoTitle: "Carney visits Calgary Stampede as Alberta’s separatist threat looms"
 thumbnail: "https://img.youtube.com/vi/ubNWkIlFqC8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Prime Minister of Canada - About"
     url: "https://www.pm.gc.ca/en/about"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "aEdLRyFl5iY"
 videoTitle: "Fans are in a frenzy for World Cup Panini stickers"
 thumbnail: "https://img.youtube.com/vi/aEdLRyFl5iY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "World Cup 2026 | Match schedule, fixtures, results & standings"
     url: "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/match-schedule-fixtures-results-teams-stadiums"

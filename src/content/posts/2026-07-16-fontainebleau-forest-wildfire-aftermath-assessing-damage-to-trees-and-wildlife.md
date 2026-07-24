@@ -32,6 +32,10 @@ keyMoments:
 videoId: "nK4gjKWQwBA"
 videoTitle: "As the smoke clears, the Fontainebleau forest takes stock of its destruction • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/nK4gjKWQwBA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Wildfires that ravaged historic Fontainebleau forest outside Paris"
     url: "https://www.lemonde.fr/en/france/article/2026/07/14/wildfires-continue-to-ravage-fontainebleau-forest-as-france-marks-bastille-day_6755458_7.html"

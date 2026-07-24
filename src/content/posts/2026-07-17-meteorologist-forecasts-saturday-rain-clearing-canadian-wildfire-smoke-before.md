@@ -31,6 +31,10 @@ keyMoments:
 videoId: "fuwTkIF_z0Q"
 videoTitle: "Rain could clear wildfire smoke before World Cup final"
 thumbnail: "https://img.youtube.com/vi/fuwTkIF_z0Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 FIFA World Cup final - Wikipedia"
     url: "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_final"

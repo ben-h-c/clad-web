@@ -37,6 +37,10 @@ keyMoments:
 videoId: "_WgqvY31fF4"
 videoTitle: "'FAILED IDEAS!’: Sen McCormick exposes the hidden threat facing America's next 50 years"
 thumbnail: "https://img.youtube.com/vi/_WgqvY31fF4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Poverty - Our World in Data"
     url: "https://ourworldindata.org/poverty"

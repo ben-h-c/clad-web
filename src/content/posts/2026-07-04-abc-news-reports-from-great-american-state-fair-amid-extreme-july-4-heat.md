@@ -31,6 +31,10 @@ keyMoments:
 videoId: "54ak9TLwSyo"
 videoTitle: "ABC News visits Great American State Fair on Fourth of July"
 thumbnail: "https://img.youtube.com/vi/54ak9TLwSyo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Great American State Fair - Freedom 250"
     url: "https://freedom250.org/celebration/the-great-american-state-fair"

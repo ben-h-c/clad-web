@@ -41,6 +41,10 @@ keyMoments:
 videoId: "tFs4ioXes3w"
 videoTitle: "Europe says Russia can't win Ukraine war militarily"
 thumbnail: "https://img.youtube.com/vi/tFs4ioXes3w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Nearly half a million Russians killed in Ukraine war, UK spy chief says"
     url: "https://www.theguardian.com/world/2026/may/27/nearly-half-a-million-russians-killed-in-ukraine-war-uk-spy-chief-says"

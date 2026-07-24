@@ -34,6 +34,10 @@ keyMoments:
 videoId: "azsEEljwqoc"
 videoTitle: "Luigi Mangione's attorneys plan to present 'affirmative psychiatric defense'"
 thumbnail: "https://img.youtube.com/vi/azsEEljwqoc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Luigi Mangione to assert psychiatric defense in murder trial of UnitedHealthcare CEO"
     url: "https://www.fox9.com/news/luigi-mangione-assert-psychiatric-defense-murder-trial-unitedhealthcare-ceo"

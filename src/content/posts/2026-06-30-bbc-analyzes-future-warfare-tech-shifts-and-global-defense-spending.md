@@ -39,6 +39,10 @@ keyMoments:
 videoId: "vx1Q-AcHERQ"
 videoTitle: "What is the future of modern warfare? | BBC News"
 thumbnail: "https://img.youtube.com/vi/vx1Q-AcHERQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Defence Expenditure of NATO Countries (2014-2025)"
     url: "https://www.nato.int/content/dam/nato/webready/documents/finance/def-exp-2025-en.pdf"

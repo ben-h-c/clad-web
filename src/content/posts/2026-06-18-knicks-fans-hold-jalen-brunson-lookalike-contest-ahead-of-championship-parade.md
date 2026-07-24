@@ -31,6 +31,10 @@ keyMoments:
 videoId: "IIK5016io34"
 videoTitle: "Dozens of New York Knicks fans compete in a Jalen Brunson lookalike contest"
 thumbnail: "https://img.youtube.com/vi/IIK5016io34/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Knicks fan, 5, wins $5K in Jalen Brunson lookalike contest"
     url: "https://nypost.com/2026/06/17/us-news/knicks-fan-5-wins-5k-in-jalen-brunson-lookalike-contest/"

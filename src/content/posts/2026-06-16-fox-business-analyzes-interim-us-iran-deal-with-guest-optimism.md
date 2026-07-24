@@ -35,6 +35,10 @@ keyMoments:
 videoId: "p5pt4hoKJmw"
 videoTitle: "This is good for Americans, expert says"
 thumbnail: "https://img.youtube.com/vi/p5pt4hoKJmw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran, US agree tentative deal to 'end war': Your questions answered"
     url: "https://www.aljazeera.com/news/2026/6/15/iran-us-agree-tentative-deal-to-end-war-your-questions-answered"

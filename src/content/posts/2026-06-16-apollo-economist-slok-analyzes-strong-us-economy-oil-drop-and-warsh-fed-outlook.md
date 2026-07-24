@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Q9ak3gAXpjs"
 videoTitle: "Apollo Global's Torsten Slok on Fed Chair Kevin Warsh's approach to interest rates"
 thumbnail: "https://img.youtube.com/vi/Q9ak3gAXpjs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "One, Big, Beautiful Bill provisions | Internal Revenue Service"
     url: "https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "W3QL0SErdlM"
 videoTitle: "Tesla Cybercab Details Revealed; Lincoln Seeks China Exemption for Nautilus - Autoline Daily 4319"
 thumbnail: "https://img.youtube.com/vi/W3QL0SErdlM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Tesla Cybercab full specs revealed: 3,113 lbs, 219 HP, 48 kWh"
     url: "https://electrek.co/2026/06/15/tesla-cybercab-epa-specs-curb-weight-battery-motor-power/"

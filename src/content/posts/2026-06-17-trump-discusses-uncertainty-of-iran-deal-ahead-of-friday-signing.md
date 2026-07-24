@@ -32,6 +32,10 @@ keyMoments:
 videoId: "mK14b7gu6G0"
 videoTitle: "Trump: \"You never know with deals\""
 thumbnail: "https://img.youtube.com/vi/mK14b7gu6G0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US, Iran reach preliminary agreement to end war, signing set for Friday"
     url: "https://www.reuters.com/world/asia-pacific/us-iran-reach-peace-deal-signing-set-friday-pakistan-says-2026-06-14/"

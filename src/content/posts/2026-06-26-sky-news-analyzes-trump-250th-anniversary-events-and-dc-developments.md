@@ -40,6 +40,10 @@ keyMoments:
 videoId: "G9MhtlReVso"
 videoTitle: "Can Trump own America's 250th birthday?"
 thumbnail: "https://img.youtube.com/vi/G9MhtlReVso/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump slams NATO over lax participation in Iran war in talk with Mark Rutte"
     url: "https://www.aljazeera.com/news/2026/6/24/trump-slams-nato-over-lax-participation-in-iran-war-in-talk-with-mark-rutte"

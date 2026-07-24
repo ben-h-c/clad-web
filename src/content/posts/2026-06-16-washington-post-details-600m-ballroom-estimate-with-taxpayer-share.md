@@ -36,6 +36,10 @@ keyMoments:
 videoId: "GYni8XopDeg"
 videoTitle: "'Lied to the American people': Nicolle on Trump's ballroom costing taxpayers HUNDREDS OF MILLIONS"
 thumbnail: "https://img.youtube.com/vi/GYni8XopDeg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Records reveal $600M estimate for Trump’s ballroom project, with half from taxpayers - The Washington Post"
     url: "https://www.washingtonpost.com/investigations/2026/06/16/records-reveal-600m-estimate-trumps-ballroom-project-with-half-taxpayers/"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "i8OI8CNdZgU"
 videoTitle: "Dan Loeb: The Lost Art of Short Selling, and Why Stock Picking is Back"
 thumbnail: "https://img.youtube.com/vi/i8OI8CNdZgU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Dan Loeb: The Lost Art of Short Selling, and Why Stock Picking is Back"
     url: "https://www.youtube.com/watch?v=i8OI8CNdZgU"

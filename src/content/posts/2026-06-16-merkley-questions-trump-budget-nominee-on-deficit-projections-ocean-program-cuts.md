@@ -36,6 +36,10 @@ keyMoments:
 videoId: "UDuhl2QcMYs"
 videoTitle: "'Will You Work To Follow The Law?': Merkley Asks Trump Nom About Debt, Deficit Modeling In Budget"
 thumbnail: "https://img.youtube.com/vi/UDuhl2QcMYs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Deputy White House Budget Director Nominee Testifies at Confirmation Hearing"
     url: "https://www.c-span.org/program/senate-committee/deputy-white-house-budget-director-nominee-testifies-at-confirmation-hearing/681104"

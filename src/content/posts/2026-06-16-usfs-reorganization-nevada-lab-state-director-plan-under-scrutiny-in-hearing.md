@@ -38,6 +38,10 @@ keyMoments:
 videoId: "rxo5H2qVTAU"
 videoTitle: "Susie Lee Presses USFS Chief On Office Closures That Would 'Completely Eliminate' Research Facility"
 thumbnail: "https://img.youtube.com/vi/rxo5H2qVTAU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Forest Service Reorganization | US Forest Service"
     url: "https://www.fs.usda.gov/about-agency/reorganization"

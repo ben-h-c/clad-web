@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Vi2HTH4AfdE"
 videoTitle: "WATCH: Rep. Womack questions Supreme Court justices in budget hearing"
 thumbnail: "https://img.youtube.com/vi/Vi2HTH4AfdE/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "WATCH LIVE: Justices Kagan and Barrett testify on Supreme Court budget in House hearing"
     url: "https://www.pbs.org/newshour/politics/watch-live-justices-kagan-and-coney-barrett-testify-on-supreme-court-budget-in-house-hearing"

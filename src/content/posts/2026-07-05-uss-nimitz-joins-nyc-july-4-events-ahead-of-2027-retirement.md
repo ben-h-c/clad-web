@@ -31,6 +31,10 @@ keyMoments:
 videoId: "h9iCKaproDw"
 videoTitle: "WATCH: USS Nimitz marks one of its final Fourth of July celebrations"
 thumbnail: "https://img.youtube.com/vi/h9iCKaproDw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "USS Nimitz - Wikipedia"
     url: "https://en.wikipedia.org/wiki/USS_Nimitz"

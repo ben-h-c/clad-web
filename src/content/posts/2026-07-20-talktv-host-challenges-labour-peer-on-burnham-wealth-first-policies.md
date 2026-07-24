@@ -37,6 +37,10 @@ keyMoments:
 videoId: "uAaAlDuoO4Y"
 videoTitle: "'Name JUST ONE Promise?!’ | Samara Gill Grills Labour Peer on How Burnham Will Create Wealth"
 thumbnail: "https://img.youtube.com/vi/uAaAlDuoO4Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trends in the UK labour share: 1997 to 2023"
     url: "https://www.ons.gov.uk/economy/economicoutputandproductivity/output/articles/trendsintheuklabourshare1997to2023/2024-11-25"

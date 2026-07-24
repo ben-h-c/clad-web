@@ -31,6 +31,10 @@ keyMoments:
 videoId: "I1jbZ04do5s"
 videoTitle: "Teens describe fleeing wildfires by boat"
 thumbnail: "https://img.youtube.com/vi/I1jbZ04do5s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Accommodations filling up as wildfires spur more evacuations in northwestern Ontario"
     url: "https://www.cbc.ca/news/canada/thunder-bay/northwestern-ontario-wildfire-evacuations-update-9.7270565"

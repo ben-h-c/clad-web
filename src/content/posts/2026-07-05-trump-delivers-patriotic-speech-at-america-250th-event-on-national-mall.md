@@ -35,6 +35,10 @@ keyMoments:
 videoId: "qFvJ8S7ejK0"
 videoTitle: "\"An evening for the ages.\" Trump marks America’s 250th with speech"
 thumbnail: "https://img.youtube.com/vi/qFvJ8S7ejK0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fireworks and Trump Speech Cap Independence Day Celebrations"
     url: "https://www.nytimes.com/live/2026/07/04/us/america-250-celebrations-fourth-july"

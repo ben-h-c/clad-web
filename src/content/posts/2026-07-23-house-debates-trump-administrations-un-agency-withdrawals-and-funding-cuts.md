@@ -37,6 +37,10 @@ keyMoments:
 videoId: "qkrd2F-BdY0"
 videoTitle: "US House debates Trump administration's UN funding cuts and future of aid"
 thumbnail: "https://img.youtube.com/vi/qkrd2F-BdY0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Withdrawing the United States from and Ending Funding to Certain United Nations Organizations"
     url: "https://www.whitehouse.gov/presidential-actions/2025/02/withdrawing-the-united-states-from-and-ending-funding-to-certain-united-nations-organizations-and-reviewing-united-states-support-to-all-international-organizations/"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Vha0p7Ge728"
 videoTitle: "'That Is A Bit Absurd': Sanders Calls To Raise Cap On Social Security Contributions Above $184,500"
 thumbnail: "https://img.youtube.com/vi/Vha0p7Ge728/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Contribution and Benefit Base"
     url: "https://www.ssa.gov/oact/cola/cbb.html"

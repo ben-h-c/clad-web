@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Xah0pvYortI"
 videoTitle: "More than 17 million under flood watch from Texas to Mississippi"
 thumbnail: "https://img.youtube.com/vi/Xah0pvYortI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "17 million under flood watch from Texas to Mississippi"
     url: "https://abcnews.com/US/17-million-flood-watch-texas-mississippi/story?id=133914566"

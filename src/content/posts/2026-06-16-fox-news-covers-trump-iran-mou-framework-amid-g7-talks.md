@@ -36,6 +36,10 @@ keyMoments:
 videoId: "si4EmL8MJyI"
 videoTitle: "Iran agreement calls for CEASEFIRE on all fronts despite Hezbollah concerns"
 thumbnail: "https://img.youtube.com/vi/si4EmL8MJyI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "G7 summit live updates: Trump meets with other leaders ..."
     url: "https://apnews.com/live/trump-g7-iran-updates-06-16-2026"

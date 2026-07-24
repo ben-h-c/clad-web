@@ -34,6 +34,10 @@ keyMoments:
 videoId: "4aBx1Cn-qJA"
 videoTitle: "Barack and Michelle Obama at Presidential Center Stakeholder Reception"
 thumbnail: "https://img.youtube.com/vi/4aBx1Cn-qJA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Barack and Michelle Obama at Presidential Center Stakeholder Reception"
     url: "https://www.youtube.com/watch?v=4aBx1Cn-qJA"

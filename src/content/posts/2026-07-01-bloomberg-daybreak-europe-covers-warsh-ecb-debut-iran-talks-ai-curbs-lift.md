@@ -35,6 +35,10 @@ keyMoments:
 videoId: "0AC3MzDKPhg"
 videoTitle: "Kevin Warsh to Speak at Sintra, ECB Warns Inflation Shock Not Over | Daybreak Europe 7/1/2026"
 thumbnail: "https://img.youtube.com/vi/0AC3MzDKPhg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Federal Reserve Chair Warsh Speaks at European Central Bank Forum"
     url: "https://www.c-span.org/event/international-telecasts/federal-reserve-chair-warsh-speaks-at-european-central-bank-forum/444516"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "DsTHOwOjcqI"
 videoTitle: "‘Toy Story 5,’ Knicks parade and more trending culture stories"
 thumbnail: "https://img.youtube.com/vi/DsTHOwOjcqI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Toy Story 5 box office preview"
     url: "https://deadline.com/2026/06/toy-story-5-box-office-preview-1236957843/"

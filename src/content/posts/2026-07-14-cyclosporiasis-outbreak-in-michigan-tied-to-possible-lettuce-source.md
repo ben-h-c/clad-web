@@ -34,6 +34,10 @@ keyMoments:
 videoId: "LJgTx-X3eU8"
 videoTitle: "Doctor shares what to know about cyclosporiasis"
 thumbnail: "https://img.youtube.com/vi/LJgTx-X3eU8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Infectious Disease Outbreaks"
     url: "https://www.michigan.gov/mdhhs/keep-mi-healthy/infectious-diseases/infectious-disease-outbreaks"

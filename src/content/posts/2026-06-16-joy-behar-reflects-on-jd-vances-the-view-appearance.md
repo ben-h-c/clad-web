@@ -36,6 +36,10 @@ keyMoments:
 videoId: "wu7u5nQfrrc"
 videoTitle: "Joy Behar Takes You Inside ‘The View’ Interview With JD Vance | The View"
 thumbnail: "https://img.youtube.com/vi/wu7u5nQfrrc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "JD Vance On The US Economy, Trump Administration’s Handling Of Epstein Files | The View"
     url: "https://www.youtube.com/watch?v=wSqOfXq6614"

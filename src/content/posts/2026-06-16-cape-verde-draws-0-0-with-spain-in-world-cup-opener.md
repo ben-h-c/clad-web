@@ -29,6 +29,10 @@ keyMoments:
 videoId: "fmkcbWuA5bA"
 videoTitle: "Cape Verde shocks with draw against Spain thanks to 40-year-old goalkeeper"
 thumbnail: "https://img.youtube.com/vi/fmkcbWuA5bA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Spain held to 0-0 draw by Cape Verde: Is this World Cup's biggest shock?"
     url: "https://www.nytimes.com/athletic/7359746/2026/06/15/spain-cape-verde-world-cup-result-analysis/"

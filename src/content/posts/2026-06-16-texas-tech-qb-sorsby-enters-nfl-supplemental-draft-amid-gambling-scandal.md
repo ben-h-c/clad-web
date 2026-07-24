@@ -35,6 +35,10 @@ keyMoments:
 videoId: "a1CREIiui6g"
 videoTitle: "Texas Tech QB caught in betting scandal declares for NFL’s supplemental draft | NewsNation"
 thumbnail: "https://img.youtube.com/vi/a1CREIiui6g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Don't expect the Steelers to make a bid for Brendan Sorsby in the NFL's supplemental draft"
     url: "https://www.post-gazette.com/sports/steelers/2026/06/16/sorsby-gambling-supplemental-draft-allar-howard/stories/202606160042"

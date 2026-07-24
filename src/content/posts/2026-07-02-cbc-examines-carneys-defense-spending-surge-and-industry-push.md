@@ -36,6 +36,10 @@ keyMoments:
 videoId: "H9i2oJbICMQ"
 videoTitle: "Canada’s massive military buildup: Part 1 | Front Burner"
 thumbnail: "https://img.youtube.com/vi/H9i2oJbICMQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Prime Minister Carney announces Canada has achieved the NATO 2% defence spending target"
     url: "https://www.pm.gc.ca/en/news/news-releases/2026/03/26/prime-minister-carney-announces-canada-has-achieved-nato-2-defence"

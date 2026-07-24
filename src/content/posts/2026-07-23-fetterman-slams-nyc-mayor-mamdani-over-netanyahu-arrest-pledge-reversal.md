@@ -33,6 +33,10 @@ keyMoments:
 videoId: "3sStvYEKyyo"
 videoTitle: "Sen John Fetterman to Mamdani: You are a mayor, dude"
 thumbnail: "https://img.youtube.com/vi/3sStvYEKyyo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "John Fetterman"
     slug: "john-fetterman"

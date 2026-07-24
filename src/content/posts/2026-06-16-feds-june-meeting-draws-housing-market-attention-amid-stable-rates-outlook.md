@@ -34,6 +34,10 @@ keyMoments:
 videoId: "0y98XVaScF0"
 videoTitle: "Housing market looks for direction as Federal Reserve meets this week"
 thumbnail: "https://img.youtube.com/vi/0y98XVaScF0/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Warsh's Debut Fed Meeting Sets The Tone For Policy And ..."
     url: "https://www.forbes.com/sites/simonmoore/2026/06/15/upcoming-fed-meeting-offers-color-on-warsh-as-chair-potential-hikes/"

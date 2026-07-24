@@ -34,6 +34,10 @@ keyMoments:
 videoId: "cbmkgJulKXc"
 videoTitle: "BREAKING: US deals MAJOR BLOW to IRGC #foxnews #news #us #fox"
 thumbnail: "https://img.youtube.com/vi/cbmkgJulKXc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US military says it completed latest strikes on Iran, targets included Bandar Abbas"
     url: "https://www.reuters.com/world/middle-east/us-military-strikes-irans-qeshm-port-bandar-abbas-fox-news-reporter-says-2026-05-07/"

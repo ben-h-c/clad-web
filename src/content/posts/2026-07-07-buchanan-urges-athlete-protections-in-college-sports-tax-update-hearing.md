@@ -37,6 +37,10 @@ keyMoments:
 videoId: "fzkexYR8Dv8"
 videoTitle: "Vern Buchanan: Student Athletes' Opinions Must Be Considered As Congress Updates Sport Taxation"
 thumbnail: "https://img.youtube.com/vi/fzkexYR8Dv8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What Are the Tax Implications of NIL and College Athlete Compensation?"
     url: "https://www.ntu.org/foundation/detail/what-are-the-tax-implications-of-nil-and-college-athlete-compensation"

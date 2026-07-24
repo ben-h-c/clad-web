@@ -37,6 +37,10 @@ keyMoments:
 videoId: "5wRkSLychAo"
 videoTitle: "242 U.S. cities have $1 million starter homes, Zillow finds"
 thumbnail: "https://img.youtube.com/vi/5wRkSLychAo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A record 242 US cities now have starter homes that cost $1M"
     url: "https://investors.zillowgroup.com/news-and-events/news/news-details/2026/A-record-242-US-cities-now-have-starter-homes-that-cost-1M/default.aspx"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "n1AB4ohgIms"
 videoTitle: "Jeff Currie Says Hormuz Flows May Not Normalize Until End of the Year"
 thumbnail: "https://img.youtube.com/vi/n1AB4ohgIms/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Oil market at 'tank bottoms' in Asia, Europe isn't far behind"
     url: "https://www.cnbc.com/2026/05/25/oil-prices-iran-war-carlyle-currie.html"

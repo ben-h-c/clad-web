@@ -31,6 +31,10 @@ keyMoments:
 videoId: "JLYexH14zS0"
 videoTitle: "Reese Witherspoon reflects on 25th anniversary of 'Legally Blonde'"
 thumbnail: "https://img.youtube.com/vi/JLYexH14zS0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Legally Blonde - Release date July 13, 2001"
     url: "https://en.wikipedia.org/wiki/Legally_Blonde"

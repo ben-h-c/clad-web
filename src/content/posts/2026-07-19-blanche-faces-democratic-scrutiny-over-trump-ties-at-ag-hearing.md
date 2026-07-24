@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Lb-SgwyarKE"
 videoTitle: "‘Has to be the people’s lawyer’: Democrats sound the alarm on Blanche becoming Trump’s AG"
 thumbnail: "https://img.youtube.com/vi/Lb-SgwyarKE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Peter Welch"
     slug: "peter-welch"

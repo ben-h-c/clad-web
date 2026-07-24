@@ -37,6 +37,10 @@ keyMoments:
 videoId: "xunRdiIsicw"
 videoTitle: "France looks to exchange its 'support to Iran deal with increased US support to Ukraine'"
 thumbnail: "https://img.youtube.com/vi/xunRdiIsicw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "After taking Iran deal to G7 summit, Trump eyes ending Ukraine war"
     url: "https://www.reuters.com/world/china/g7-leaders-meet-france-after-us-iran-declare-agreement-end-war-2026-06-15/"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "9_08eSkSfjU"
 videoTitle: "Iran deal on the BRINK after Beirut strike sparks new fears"
 thumbnail: "https://img.youtube.com/vi/9_08eSkSfjU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2025–2026 Iran–United States negotiations"
     url: "https://en.wikipedia.org/wiki/2025%E2%80%932026_Iran%E2%80%93United_States_negotiations"

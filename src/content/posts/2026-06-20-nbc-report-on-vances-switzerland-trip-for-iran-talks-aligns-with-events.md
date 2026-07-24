@@ -34,6 +34,10 @@ keyMoments:
 videoId: "MGZ9fJi0l8I"
 videoTitle: "Vice President JD Vance heads to Switzerland for Iran negotiations"
 thumbnail: "https://img.youtube.com/vi/MGZ9fJi0l8I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Vance travels to Switzerland for talks as Iran negotiators arrive"
     url: "https://www.foxnews.com/live-news/us-iran-peace-deal-nuclear-talks-israel-lebanon-conflict-june-20"

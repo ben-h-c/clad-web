@@ -33,6 +33,10 @@ keyMoments:
 videoId: "f5Q25SwJ35o"
 videoTitle: "'We Can Achieve And Do Great In The Region': Emir Of Qatar Lauds US Cooperation Over Middle East"
 thumbnail: "https://img.youtube.com/vi/f5Q25SwJ35o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fact Sheet: President Donald J. Trump Secures Historic $1.2 Trillion Economic Commitment in Qatar"
     url: "https://www.whitehouse.gov/fact-sheets/2025/05/fact-sheet-president-donald-j-trump-secures-historic-1-2-trillion-economic-commitment-in-qatar/"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "7Ojg8Uc1n84"
 videoTitle: "JD Vance: This is VERY DARK"
 thumbnail: "https://img.youtube.com/vi/7Ojg8Uc1n84/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "JD Vance on terror plot targeting White House UFC event"
     url: "https://www.foxnews.com/video/6398555688112"

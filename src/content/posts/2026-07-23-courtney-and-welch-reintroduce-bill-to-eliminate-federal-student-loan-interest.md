@@ -35,6 +35,10 @@ keyMoments:
 videoId: "1bn8aOcrInc"
 videoTitle: "Courtney, Welch Call on Congress to Pass the Student Loan Interest Elimination Act"
 thumbnail: "https://img.youtube.com/vi/1bn8aOcrInc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Joe Courtney"
     slug: "joe-courtney"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "WWgO-C7_RmI"
 videoTitle: "'It's A Racket!': John Barrasso Decries 'Staggering' Scale Of Medicaid Fraud"
 thumbnail: "https://img.youtube.com/vi/WWgO-C7_RmI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Barrasso: Republicans Won’t Stop Until the Depth of the Minnesota Fraud is Uncovered"
     url: "https://www.barrasso.senate.gov/barrasso-republicans-wont-stop-until-the-depth-of-the-minnesota-fraud-is-uncovered/"

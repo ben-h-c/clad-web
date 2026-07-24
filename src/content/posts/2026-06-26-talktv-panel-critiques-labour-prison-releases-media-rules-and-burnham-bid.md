@@ -34,6 +34,10 @@ keyMoments:
 videoId: "iVP3rOt_1Zk"
 videoTitle: "\"He's Been Picked By Sky And BBC!\" | Andy Burnham Slammed As Labour Chaos Continues"
 thumbnail: "https://img.youtube.com/vi/iVP3rOt_1Zk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Nearly 40,000 prisoners released early under government scheme"
     url: "https://www.bbc.com/news/articles/c93x001ve9ko"

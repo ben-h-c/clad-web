@@ -35,6 +35,10 @@ keyMoments:
 videoId: "yUii5U_mADA"
 videoTitle: "'It's Good, Good, Good': Chuck Grassley Makes The Case For Year-Round E15 Sales"
 thumbnail: "https://img.youtube.com/vi/yUii5U_mADA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Grassley Sets the Record Straight on E15, Presses for Senate Passage of Permanent Legislation"
     url: "https://www.grassley.senate.gov/news/remarks/grassley-sets-the-record-straight-on-e15-presses-for-senate-passage-of-permanent-legislation"

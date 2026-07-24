@@ -35,6 +35,10 @@ keyMoments:
 videoId: "p4JrL78wYYw"
 videoTitle: "What’s The Deal with Mitch McConnell?! - The John Fugelsang Show"
 thumbnail: "https://img.youtube.com/vi/p4JrL78wYYw/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Mitch McConnell"
     slug: "mitch-mcconnell"

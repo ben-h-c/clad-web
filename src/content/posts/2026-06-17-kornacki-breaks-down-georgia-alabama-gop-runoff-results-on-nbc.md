@@ -32,6 +32,10 @@ keyMoments:
 videoId: "CoQJGixRHwo"
 videoTitle: "Watch Steve Kornacki analyze midterm primary election results | Kornacki Cam | NBC News"
 thumbnail: "https://img.youtube.com/vi/CoQJGixRHwo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Steve Kornacki breaks down Senate primary runoffs in Georgia and Alabama"
     url: "https://www.nbcnews.com/video/steve-kornacki-breaks-down-senate-primary-runoffs-in-georgia-and-alabama-265201733563"

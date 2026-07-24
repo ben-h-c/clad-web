@@ -40,6 +40,10 @@ keyMoments:
 videoId: "u9WhQAvY9nw"
 videoTitle: "'It's A Very Simple Change...': Trump Promotes New Nasty Nickname For Democrats"
 thumbnail: "https://img.youtube.com/vi/u9WhQAvY9nw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Agricultural Trade Deficit Tracker"
     url: "https://www.usda.gov/trade-wins"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "Bmn9vT1PcGY"
 videoTitle: "In a new book, Georgia Democrat Sen. Raphael Warnock writes about how faith is applied to politics"
 thumbnail: "https://img.youtube.com/vi/Bmn9vT1PcGY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sen. Warnock's new book calls on U.S. to commit to a greater moral imagination"
     url: "https://www.npr.org/2026/06/16/nx-s1-5670372/sen-warnocks-new-book-calls-on-u-s-to-commit-to-a-greater-moral-imagination"

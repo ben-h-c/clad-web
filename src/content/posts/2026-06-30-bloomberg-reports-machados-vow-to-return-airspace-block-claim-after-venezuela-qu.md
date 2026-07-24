@@ -32,6 +32,10 @@ keyMoments:
 videoId: "GxorXjugaQo"
 videoTitle: "Machado Vows Return to Venezuela, Alleges Regime Blocked Her"
 thumbnail: "https://img.youtube.com/vi/GxorXjugaQo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: Venezuela quake rescue teams listen for signs of life as death toll mounts"
     url: "https://edition.cnn.com/2026/06/28/world/live-news/venezuela-earthquake-hnk"

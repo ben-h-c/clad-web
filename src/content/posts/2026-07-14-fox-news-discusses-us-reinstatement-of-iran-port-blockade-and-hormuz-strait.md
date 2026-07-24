@@ -34,6 +34,10 @@ keyMoments:
 videoId: "rqffjzz1izA"
 videoTitle: "The Iranians refused to negotiate in good faith, retired Marine colonel says"
 thumbnail: "https://img.youtube.com/vi/rqffjzz1izA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

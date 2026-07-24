@@ -36,6 +36,10 @@ keyMoments:
 videoId: "a13mYo_HmfU"
 videoTitle: "FOX Corp. to BUY ROKU, expected to MERGE streaming services | RISING"
 thumbnail: "https://img.youtube.com/vi/a13mYo_HmfU/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fox Corporation to Acquire Roku, Inc."
     url: "https://newsroom.roku.com/news/2026/06/fox-corporation-to-acquire-roku-inc-/ishjvytb-1781489389"

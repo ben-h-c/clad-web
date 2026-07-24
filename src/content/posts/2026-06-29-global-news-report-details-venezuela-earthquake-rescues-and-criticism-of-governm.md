@@ -36,6 +36,10 @@ keyMoments:
 videoId: "KKDzBBy0xXw"
 videoTitle: "Venezuela government under fire for inadequate response to deadly earthquakes"
 thumbnail: "https://img.youtube.com/vi/KKDzBBy0xXw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Venezuela earthquakes - Wikipedia"
     url: "https://en.wikipedia.org/wiki/2026_Venezuela_earthquakes"

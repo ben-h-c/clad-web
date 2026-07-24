@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Gx3YkPP1nXE"
 videoTitle: "‘Deport STRAIGHT away’ | Chris Philp gives SCATHING verdict on Labour’s migration ‘gimmicks’"
 thumbnail: "https://img.youtube.com/vi/Gx3YkPP1nXE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "People crossing the English Channel in small boats"
     url: "https://migrationobservatory.ox.ac.uk/resources/briefings/people-crossing-the-english-channel-in-small-boats/"

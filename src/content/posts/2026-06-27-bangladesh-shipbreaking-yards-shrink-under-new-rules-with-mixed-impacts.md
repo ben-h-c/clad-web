@@ -35,6 +35,10 @@ keyMoments:
 videoId: "yNKXFCZ14NQ"
 videoTitle: "Shipbreaking industry in Bangladesh: transformation causing job losses in Sitakund"
 thumbnail: "https://img.youtube.com/vi/yNKXFCZ14NQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Recycling of ships and the Hong Kong Convention"
     url: "https://www.imo.org/en/mediacentre/hottopics/pages/recycling-of-ships-and-hong-kong-convention.aspx"

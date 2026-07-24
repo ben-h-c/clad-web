@@ -34,6 +34,10 @@ keyMoments:
 videoId: "RJmUkuirqx0"
 videoTitle: "Algeria votes for new parliament with turnout and cost-of-living in focus • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/RJmUkuirqx0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Algerian parliamentary election"
     url: "https://en.wikipedia.org/wiki/2026_Algerian_parliamentary_election"

@@ -40,6 +40,10 @@ keyMoments:
 videoId: "uanV3vHmS38"
 videoTitle: "'NUKE THE FILIBUSTER': GOP rep says there's NO other way"
 thumbnail: "https://img.youtube.com/vi/uanV3vHmS38/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Elissa Slotkin"
     slug: "elissa-slotkin"

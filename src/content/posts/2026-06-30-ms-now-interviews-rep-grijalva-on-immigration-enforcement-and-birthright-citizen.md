@@ -38,6 +38,10 @@ keyMoments:
 videoId: "fhJ2zYzYe88"
 videoTitle: "Key Democrat SLAMS White House: \"NO CLEAR PATH\" for legal immigration"
 thumbnail: "https://img.youtube.com/vi/fhJ2zYzYe88/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Representative Adelita Grijalva | Representing Arizona's 7th District"
     url: "http://grijalva.house.gov/"

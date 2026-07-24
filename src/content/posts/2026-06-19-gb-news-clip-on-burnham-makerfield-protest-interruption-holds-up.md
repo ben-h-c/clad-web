@@ -31,6 +31,10 @@ keyMoments:
 videoId: "NLE5IyPiM-0"
 videoTitle: "WATCH: Andy Burnham EVACUATED from stage after winning Makerfield by-election"
 thumbnail: "https://img.youtube.com/vi/NLE5IyPiM-0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Makerfield by-election"
     url: "https://en.wikipedia.org/wiki/2026_Makerfield_by-election"

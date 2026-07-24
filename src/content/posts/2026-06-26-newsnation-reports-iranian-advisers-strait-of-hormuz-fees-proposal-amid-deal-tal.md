@@ -34,6 +34,10 @@ keyMoments:
 videoId: "n_JMpkBqgDc"
 videoTitle: "Exclusive: Iranian military adviser floats fees for ships using Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/n_JMpkBqgDc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US-Iran deal takeaways: reopening the strait of Hormuz"
     url: "https://www.theguardian.com/world/2026/jun/17/us-iran-deal-trump"

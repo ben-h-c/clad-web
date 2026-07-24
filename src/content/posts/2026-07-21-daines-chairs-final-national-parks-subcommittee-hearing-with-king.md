@@ -35,6 +35,10 @@ keyMoments:
 videoId: "T5vPonbhhXE"
 videoTitle: "&#39;We are co-chairs no matter which way the gavel falls&#39;: Daines marks 22nd hearing with King"
 thumbnail: "https://img.youtube.com/vi/T5vPonbhhXE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Angus S. King, Jr."
     slug: "angus-s-king-jr"

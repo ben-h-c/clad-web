@@ -37,6 +37,10 @@ keyMoments:
 videoId: "LB-ktb4MDQM"
 videoTitle: "‘Long way from being fully open’: John Kirby breaks down status of Hormuz Strait amid disputes"
 thumbnail: "https://img.youtube.com/vi/LB-ktb4MDQM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Hormuz ship crossings spike after U.S.-Iran deal to end war, says marine tracker"
     url: "https://www.thehindu.com/news/international/hormuz-ship-crossings-spike-after-us-iran-deal-to-end-war-says-marine-tracker/article71121705.ece"

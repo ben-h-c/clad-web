@@ -35,6 +35,10 @@ keyMoments:
 videoId: "lqlNMFg1y7Q"
 videoTitle: "Pope Leo Receives Liberty Medal"
 thumbnail: "https://img.youtube.com/vi/lqlNMFg1y7Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Liberty Medal | Constitution Center"
     url: "https://constitutioncenter.org/about/liberty-medal"

@@ -25,6 +25,10 @@ keyMoments:
 videoId: "C4ZCYQWa3zA"
 videoTitle: "Lando Norris wax figure on display at Madame Tussauds"
 thumbnail: "https://img.youtube.com/vi/C4ZCYQWa3zA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Lando Norris at Madame Tussauds London | F1 Champion"
     url: "https://www.madametussauds.com/london/whats-inside/zones/culture-capital/lando-norris/"

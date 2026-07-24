@@ -36,6 +36,10 @@ keyMoments:
 videoId: "PApPd6p6lX0"
 videoTitle: "Georgia families face losing their homes to make way for AI data centers: \"It's theft\""
 thumbnail: "https://img.youtube.com/vi/PApPd6p6lX0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ashley Park – Wansley 500 kV Transmission Line Project"
     url: "https://www.georgiapower.com/about/grid-reliability/grid-improvements/grid-projects/transmission-projects/ashley-park.html"

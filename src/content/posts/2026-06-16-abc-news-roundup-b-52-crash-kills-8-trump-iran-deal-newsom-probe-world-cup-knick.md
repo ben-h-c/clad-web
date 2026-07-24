@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Rdqv306_Gls"
 videoTitle: "8 Dead After B-52 Bomber Crashes; World Cup Goalkeeper Goes Viral. What You Need To Know - June 16"
 thumbnail: "https://img.youtube.com/vi/Rdqv306_Gls/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "8 people died in B-52 bomber crash at US Air Force base in California"
     url: "https://apnews.com/article/b52-crash-california-edwards-air-force-base-ea237a6eec587adbbf9e7a578014ca93"

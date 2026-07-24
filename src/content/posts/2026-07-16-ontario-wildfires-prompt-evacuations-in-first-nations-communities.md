@@ -35,6 +35,10 @@ keyMoments:
 videoId: "X2rQRFiHJuM"
 videoTitle: "Ontario seeks federal help as wildfires force more evacuations"
 thumbnail: "https://img.youtube.com/vi/X2rQRFiHJuM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ontario Wildfire Smoke Moves East - NASA Science"
     url: "https://science.nasa.gov/earth/earth-observatory/ontario-wildfire-smoke-moves-east/"

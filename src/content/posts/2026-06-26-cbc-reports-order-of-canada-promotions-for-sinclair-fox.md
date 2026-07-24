@@ -32,6 +32,10 @@ keyMoments:
 videoId: "_87ztxLo67s"
 videoTitle: "Christine Sinclair, Michael J. Fox promoted to Order of Canada's highest level"
 thumbnail: "https://img.youtube.com/vi/_87ztxLo67s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Christine Sinclair, Michael J. Fox promoted to Order of Canada's highest level"
     url: "https://www.cbc.ca/news/politics/order-of-canada-appointees-2026-9.7249169"

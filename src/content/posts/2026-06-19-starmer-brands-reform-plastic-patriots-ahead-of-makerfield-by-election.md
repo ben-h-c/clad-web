@@ -33,6 +33,10 @@ keyMoments:
 videoId: "g1JJjcVa9D0"
 videoTitle: "\"PLASTIC PATRIOTS!\" Keir Starmer issues rallying cry against Nigel Farage's Reform UK"
 thumbnail: "https://img.youtube.com/vi/g1JJjcVa9D0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Voting intention, 31 May-1 June 2026: Ref 27%, Con 18%, Lab 18%"
     url: "https://yougov.com/en-gb/articles/54882-voting-intention-31-may-1-june-2026-ref-27-con-18-lab-18-grn-15-ld-13"

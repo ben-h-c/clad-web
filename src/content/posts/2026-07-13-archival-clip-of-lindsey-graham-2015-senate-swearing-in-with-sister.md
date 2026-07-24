@@ -25,6 +25,10 @@ keyMoments:
 videoId: "fe-GBz05q8U"
 videoTitle: "FLASHBACK: Lindsey Graham's Sister, Darline Graham Nordone, Participates In His 2015 Swearing-In"
 thumbnail: "https://img.youtube.com/vi/fe-GBz05q8U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump recommends that Lindsey Graham’s sister serve rest of his Senate term"
     url: "https://www.washingtonpost.com/politics/2026/07/13/trump-recommends-lindsey-grahams-sister-serve-rest-his-senate-term/"

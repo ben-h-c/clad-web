@@ -40,6 +40,10 @@ keyMoments:
 videoId: "0rT1nGMtCp0"
 videoTitle: "Lawrence: Trump’s ‘demented’ speech showed how ready he is to interfere in the election"
 thumbnail: "https://img.youtube.com/vi/0rT1nGMtCp0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

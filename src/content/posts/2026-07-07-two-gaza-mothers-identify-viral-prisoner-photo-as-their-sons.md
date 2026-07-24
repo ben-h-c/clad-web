@@ -34,6 +34,10 @@ keyMoments:
 videoId: "vGyonPqo-g0"
 videoTitle: "WARNING - DISTRESSING VIDEO: Two mothers claim son in viral Gaza prisoner photo"
 thumbnail: "https://img.youtube.com/vi/vGyonPqo-g0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Israel hasn't said who its soldiers abused. Two Gaza mothers think it's their son"
     url: "https://www.reuters.com/world/middle-east/israel-hasnt-said-who-its-soldiers-abused-two-gaza-mothers-think-its-their-son-2026-07-04/"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "LtRZn570LM0"
 videoTitle: "Morelle: \"This is a pretext for the president\""
 thumbnail: "https://img.youtube.com/vi/LtRZn570LM0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

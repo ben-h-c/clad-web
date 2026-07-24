@@ -38,6 +38,10 @@ keyMoments:
 videoId: "rHYUD3GgN2k"
 videoTitle: "Senate Republicans say they've spoken with Mitch McConnell as questions remain over his health"
 thumbnail: "https://img.youtube.com/vi/rHYUD3GgN2k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What We Know About Mitch McConnell's Health After Hospitalization"
     url: "https://www.forbes.com/sites/antoniopequenoiv/2026/07/02/mitch-mcconnell-has-been-hospitalized-for-weeks-what-we-know-about-his-health/"

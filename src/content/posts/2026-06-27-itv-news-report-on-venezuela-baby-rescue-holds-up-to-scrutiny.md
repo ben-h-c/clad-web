@@ -33,6 +33,10 @@ keyMoments:
 videoId: "tvIf7IpYVck"
 videoTitle: "Watch the moment 18-day-old baby rescued from rubble in Venezuela"
 thumbnail: "https://img.youtube.com/vi/tvIf7IpYVck/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuelans dig for earthquake survivors as death toll rises to 1,430"
     url: "https://www.aljazeera.com/news/2026/6/27/venezuelans-dig-for-earthquake-survivors-as-72-hour-rescue-window-nears-end"

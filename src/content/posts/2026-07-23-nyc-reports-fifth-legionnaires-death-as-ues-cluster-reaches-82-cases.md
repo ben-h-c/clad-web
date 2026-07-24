@@ -35,6 +35,10 @@ keyMoments:
 videoId: "hvuMi8hqTTI"
 videoTitle: "Fifth person dies in Legionnaires' disease outbreak in Manhattan"
 thumbnail: "https://img.youtube.com/vi/hvuMi8hqTTI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NYC Health Provides Preliminary List of UES Cooling Towers Where Testing Confirms Live Legionella Bacteria"
     url: "https://www.nyc.gov/site/doh/about/press/pr2026/preliminary-list-ues-cooling-towers-confirmed-live-legionella.page"

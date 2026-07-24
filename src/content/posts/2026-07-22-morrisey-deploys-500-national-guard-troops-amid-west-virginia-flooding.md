@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ul6bNUO5fUM"
 videoTitle: "West Virginia governor says some are unaccounted for in flooding"
 thumbnail: "https://img.youtube.com/vi/ul6bNUO5fUM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "National Guard is deployed as flash floods in West Virginia inundate homes and businesses"
     url: "https://fox40.com/news/national/ap-us-news/ap-national-guard-is-deployed-as-flash-floods-in-west-virginia-inundate-homes-and-businesses/"

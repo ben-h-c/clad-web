@@ -31,6 +31,10 @@ keyMoments:
 videoId: "yOGoXx_TOIM"
 videoTitle: "Sony will end physical disc production in January 2028"
 thumbnail: "https://img.youtube.com/vi/yOGoXx_TOIM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Physical disc production ending in January 2028 for new games releasing on PlayStation consoles"
     url: "https://blog.playstation.com/2026/07/01/physical-disc-production-ending-in-january-2028-for-new-games-releasing-on-playstation-consoles/"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "F4mT0CTcBNg"
 videoTitle: "June 27: Dangerous weather, Death toll rises after Venezuela quakes"
 thumbnail: "https://img.youtube.com/vi/F4mT0CTcBNg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela earthquakes live updates: Death toll rises to at least 1,400"
     url: "https://www.cnn.com/2026/06/26/world/live-news/venezuela-earthquake-hnk"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "5vjUisdEgB0"
 videoTitle: "Hostages to escalation? Gulf nations caught between Tehran and Washington | DW News"
 thumbnail: "https://img.youtube.com/vi/5vjUisdEgB0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran Live Updates: After Intense U.S. Strikes, Iran Targets Gulf States and Claims Strait is Closed"
     url: "https://www.nytimes.com/live/2026/07/12/us/iran-war-trump-hormuz"

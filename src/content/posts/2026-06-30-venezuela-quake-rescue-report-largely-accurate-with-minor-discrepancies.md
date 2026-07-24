@@ -36,6 +36,10 @@ keyMoments:
 videoId: "SKaMz_ziGUA"
 videoTitle: "12-year-old rescued in Venezuela"
 thumbnail: "https://img.youtube.com/vi/SKaMz_ziGUA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "12-year-old boy pulled from rubble in Venezuela"
     url: "https://www.cnn.com/2026/06/30/world/video/12-year-old-boy-pulled-from-rubble-in-venezuela-hnk-digvid"

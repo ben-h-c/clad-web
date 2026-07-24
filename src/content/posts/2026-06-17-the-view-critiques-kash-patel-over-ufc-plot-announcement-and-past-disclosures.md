@@ -37,6 +37,10 @@ keyMoments:
 videoId: "0kGCtwyf3cs"
 videoTitle: "Did Patel Disclose UFC Bombing Plot Prematurely? | The View"
 thumbnail: "https://img.youtube.com/vi/0kGCtwyf3cs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FBI arrests 5 in alleged plot to attack White House UFC event"
     url: "https://www.nbcnews.com/politics/trump-administration/fbi-foils-alleged-plot-attack-white-house-ufc-event-patel-says-rcna350248"

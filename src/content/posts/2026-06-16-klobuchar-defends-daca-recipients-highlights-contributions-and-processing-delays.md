@@ -40,6 +40,10 @@ keyMoments:
 videoId: "mtpEt38qVHI"
 videoTitle: "'Minnesota Is Better Because Of Our Dreamers': Amy Klobuchar Throws Support Behind DACA Program"
 thumbnail: "https://img.youtube.com/vi/mtpEt38qVHI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How many DACA recipients are there?"
     url: "https://usafacts.org/answers/how-many-daca-recipients-are-there/country/united-states/"

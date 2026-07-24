@@ -34,6 +34,10 @@ keyMoments:
 videoId: "MTAHVm8Nvwk"
 videoTitle: "Covey: Race To Win Control of House Remains Competitive"
 thumbnail: "https://img.youtube.com/vi/MTAHVm8Nvwk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 CPR House Race ratings | Cook Political Report"
     url: "https://www.cookpolitical.com/ratings/house-race-ratings"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "d8uGr8Z4gXE"
 videoTitle: "Former JAG officer torches Hegseth's \"warrior ethos\": \"A total abomination.\""
 thumbnail: "https://img.youtube.com/vi/d8uGr8Z4gXE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Hegseth: Flu Vaccine Optional"
     url: "https://www.war.gov/News/News-Stories/Article/Article/4464967/hegseth-flu-vaccine-optional/"

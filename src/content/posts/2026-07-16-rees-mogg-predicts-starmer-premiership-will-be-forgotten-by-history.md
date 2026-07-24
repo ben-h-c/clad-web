@@ -33,6 +33,10 @@ keyMoments:
 videoId: "NVaXaGY39OI"
 videoTitle: "Jacob Rees-Mogg: 'I don't think the history books will write about Starmer's premiership at all'"
 thumbnail: "https://img.youtube.com/vi/NVaXaGY39OI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A desperately sentimental last PMQs: Why Starmer won't make the history books"
     url: "https://www.telegraph.co.uk/news/2026/07/15/daily-t-a-desperately-sentimental-last-pmqs-why-starmer-won/"

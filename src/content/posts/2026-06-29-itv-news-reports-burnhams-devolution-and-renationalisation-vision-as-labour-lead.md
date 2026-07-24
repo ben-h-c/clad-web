@@ -34,6 +34,10 @@ keyMoments:
 videoId: "gpUDFYQ9joc"
 videoTitle: "Andy Burnham sets out vision for UK under his leadership"
 thumbnail: "https://img.youtube.com/vi/gpUDFYQ9joc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham sets out plans to devolve power to regions with new 'No 10 North' in Manchester"
     url: "https://www.bbc.com/news/live/cgrk4rpxnx7t"

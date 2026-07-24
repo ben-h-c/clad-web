@@ -34,6 +34,10 @@ keyMoments:
 videoId: "9XovajJZoFI"
 videoTitle: "'We Cannot Create Special Tax Loopholes': Steven Horsford Demands Fair And Stable Crypto Tax Laws"
 thumbnail: "https://img.youtube.com/vi/9XovajJZoFI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Full Committee Legislative Hearing on Digital Asset Taxation"
     url: "https://waysandmeans.house.gov/event/full-committee-legislative-hearing-on-digital-asset-taxation/"

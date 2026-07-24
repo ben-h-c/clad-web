@@ -40,6 +40,10 @@ keyMoments:
 videoId: "s6pD8PdoP-4"
 videoTitle: "ALERT: Trump’s ‘no limits’ claim ignites OUTRAGE as Iran, Epstein & inflation ENGULF WH"
 thumbnail: "https://img.youtube.com/vi/s6pD8PdoP-4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says there are ‘no limits’ to his power"
     url: "https://thehill.com/homenews/administration/5931777-trump-iran-war-power/"

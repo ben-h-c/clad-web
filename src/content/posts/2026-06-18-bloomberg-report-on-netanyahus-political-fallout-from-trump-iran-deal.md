@@ -34,6 +34,10 @@ keyMoments:
 videoId: "uebEbVoWzas"
 videoTitle: "Netanyahu Pays a Political Price for Trump's Iran Deal"
 thumbnail: "https://img.youtube.com/vi/uebEbVoWzas/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: Trump signs hard copy of US-Iran agreement"
     url: "https://www.cnn.com/2026/06/17/world/live-news/iran-war-g7-summit"

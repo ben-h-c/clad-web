@@ -37,6 +37,10 @@ keyMoments:
 videoId: "D-TGJBZIK1I"
 videoTitle: "\"We're Living In A Weird Place!\" | Parents May Be Jailed For Trying To Stop Kids Becoming Trans"
 thumbnail: "https://img.youtube.com/vi/D-TGJBZIK1I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Government pushes forward with conversion practices ban"
     url: "https://www.gov.uk/government/news/government-pushes-forward-with-conversion-practices-ban-to-protect-lgbt-people-from-abuse"

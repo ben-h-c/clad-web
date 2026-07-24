@@ -34,6 +34,10 @@ keyMoments:
 videoId: "A8gF31MWiWc"
 videoTitle: "First Nations leaders want public inquiry into Ontario wildfire response"
 thumbnail: "https://img.youtube.com/vi/A8gF31MWiWc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "First Nations leaders demand wildfire inquiry, accuse Ford government of failures"
     url: "https://barrie360.com/first-nations-leaders-demand-wildfire-inquiry-ford-government-failures/"

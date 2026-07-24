@@ -25,6 +25,10 @@ keyMoments:
 videoId: "h5QvN-nNlKo"
 videoTitle: "Olivia Wilde reacts to England beating Congo in the World Cup"
 thumbnail: "https://img.youtube.com/vi/h5QvN-nNlKo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Olivia Wilde reacts to England win"
     url: "https://apnews.com/video/olivia-wilde-reacts-to-england-win-5b9004eb0f8145a1946e15ebdba9dfb4"

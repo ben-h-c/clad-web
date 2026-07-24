@@ -37,6 +37,10 @@ keyMoments:
 videoId: "xpgX7iNQQHI"
 videoTitle: "Democrats aren't happy with Schumer amid a progressivism surge"
 thumbnail: "https://img.youtube.com/vi/xpgX7iNQQHI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "New York polls are full of warnings for Chuck Schumer"
     url: "https://www.axios.com/2026/04/02/new-york-polls-chuck-schumer-senate-ocasio-cortez"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "TNBZkkvdKPE"
 videoTitle: "Former VP Mike Pence Says We'd be Better Off if U.S. Armed Forces Finished Job in Iran"
 thumbnail: "https://img.youtube.com/vi/TNBZkkvdKPE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Pence cast doubt on possibility of US, Iran peace deal before Trump announced agreement"
     url: "https://thehill.com/policy/international/5923793-mike-pence-iran-deal/"

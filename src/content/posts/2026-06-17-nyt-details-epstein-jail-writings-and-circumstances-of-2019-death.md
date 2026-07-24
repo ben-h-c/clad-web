@@ -34,6 +34,10 @@ keyMoments:
 videoId: "l6qNFbZoiVk"
 videoTitle: "Stunning New York Times report sheds new light on Epstein's final days and death in jail"
 thumbnail: "https://img.youtube.com/vi/l6qNFbZoiVk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Untold Story of Jeffrey Epstein's Death and His Final Days"
     url: "https://www.nytimes.com/interactive/2026/06/16/magazine/jeffrey-epstein-death-final-days.html"

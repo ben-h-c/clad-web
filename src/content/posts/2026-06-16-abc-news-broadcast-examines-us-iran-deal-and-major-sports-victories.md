@@ -36,6 +36,10 @@ keyMoments:
 videoId: "6akH7B1V4qo"
 videoTitle: "LIVE: ABC News Live - Monday, June 15 | ABC News"
 thumbnail: "https://img.youtube.com/vi/6akH7B1V4qo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US, Iran reach deal to extend ceasefire, open strait"
     url: "https://www.axios.com/2026/06/14/us-iran-ceasefire-extended-hormuz-reopen-trump"

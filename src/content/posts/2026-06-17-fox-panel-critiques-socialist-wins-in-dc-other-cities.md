@@ -37,6 +37,10 @@ keyMoments:
 videoId: "6H_GDiy6MHI"
 videoTitle: "Gutfeld: There is NO country that has succeeded under this..."
 thumbnail: "https://img.youtube.com/vi/6H_GDiy6MHI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "DC mayor primary election results: Lewis George leads McDuffie"
     url: "https://www.nbcwashington.com/decision-2026/dc-mayor-primary-election-results-lewis-george-leads-mcduffie-as-vote-count-continues/4118118/"

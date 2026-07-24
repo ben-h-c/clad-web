@@ -34,6 +34,10 @@ keyMoments:
 videoId: "m0xpNAzUL_A"
 videoTitle: "Why recess is important for kids"
 thumbnail: "https://img.youtube.com/vi/m0xpNAzUL_A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trust for Public Land Celebrates Opening of New Community Schoolyard at P.S. 57 Crescent"
     url: "https://www.tpl.org/media-room/trust-for-public-land-celebrates-opening-of-new-community-schoolyard-at-p-s-57-crescent-frederick-douglass-academy-v-middle-school"

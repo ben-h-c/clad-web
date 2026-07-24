@@ -33,6 +33,10 @@ keyMoments:
 videoId: "zdFniCLNZrY"
 videoTitle: "US and Iran exchange strikes after two US soldiers killed in Jordan | BBC News"
 thumbnail: "https://img.youtube.com/vi/zdFniCLNZrY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US renews strikes on Iran after two military personnel killed by Iranian attack"
     url: "https://www.reuters.com/world/asia-pacific/us-renews-strikes-iran-after-two-military-personnel-were-killed-by-iranian-2026-07-18/"

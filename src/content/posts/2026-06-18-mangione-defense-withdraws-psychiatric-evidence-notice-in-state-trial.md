@@ -31,6 +31,10 @@ keyMoments:
 videoId: "KJ_X_bOVAdo"
 videoTitle: "Luigi Mangione's legal team drops psychiatric defense in state murder trial"
 thumbnail: "https://img.youtube.com/vi/KJ_X_bOVAdo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Luigi Mangione's legal team withdraws psychiatric defense in New York murder trial"
     url: "https://www.cbsnews.com/newyork/news/luigi-mangione-legal-team-withdraws-psychiatric-defense/"

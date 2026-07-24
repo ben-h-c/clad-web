@@ -32,6 +32,10 @@ keyMoments:
 videoId: "wFNzubG8yaw"
 videoTitle: "Opposition leader Machado seeks return to Venezuela"
 thumbnail: "https://img.youtube.com/vi/wFNzubG8yaw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela’s Machado Attempts Fast Return Amid Quake Response"
     url: "https://www.bloomberg.com/news/articles/2026-06-28/venezuela-s-machado-plans-quick-return-amid-quake-response"

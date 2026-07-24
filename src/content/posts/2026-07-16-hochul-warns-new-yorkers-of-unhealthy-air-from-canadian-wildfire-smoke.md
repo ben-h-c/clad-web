@@ -35,6 +35,10 @@ keyMoments:
 videoId: "xUP7a2imXIs"
 videoTitle: "Kathy Hochul: &#39;Life Could Be On The Line&#39; As Canada Wildfire Smoke Chokes New York Before FIFA Final"
 thumbnail: "https://img.youtube.com/vi/xUP7a2imXIs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Kathy Hochul"
     slug: "kathy-hochul"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "4_DXtSY5DJ0"
 videoTitle: "South Korea Doubles Down on AI, Chips With Mega Investment | Insight with Haslinda Amin 06/29/2026"
 thumbnail: "https://img.youtube.com/vi/4_DXtSY5DJ0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Samsung, SK Hynix to unveil $1.3 trln investment plan in S.Korea, report says"
     url: "https://m.uk.investing.com/news/stock-market-news/samsung-sk-hynix-to-unveil-13-trln-investment-plan-in-skorea-report-says-4747421"

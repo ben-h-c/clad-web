@@ -36,6 +36,10 @@ keyMoments:
 videoId: "cpP6Y3Guego"
 videoTitle: "HW News - DRAM Companies Hit Trillions of Dollars, Bambu Open Source, NVIDIA Spark Concerns"
 thumbnail: "https://img.youtube.com/vi/cpP6Y3Guego/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Samsung reaches $1 trillion valuation on strong AI demand"
     url: "https://finance.yahoo.com/markets/article/samsung-reaches-1-trillion-valuation-on-strong-ai-demand-130735998.html"

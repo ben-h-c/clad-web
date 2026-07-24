@@ -34,6 +34,10 @@ keyMoments:
 videoId: "OPSUvicNBIQ"
 videoTitle: "Sen. Jon Ossoff (D-GA): \"They are literally the elites they pretend to hate.\""
 thumbnail: "https://img.youtube.com/vi/OPSUvicNBIQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ivanka and Jared’s Island Resort Could Bring Down Albania’s Prime Minister"
     url: "https://www.wired.com/story/ivanka-and-jareds-island-resort-could-bring-down-albanias-prime-minister/"

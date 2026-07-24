@@ -39,6 +39,10 @@ keyMoments:
 videoId: "PrMokU9Ujk8"
 videoTitle: "Speaker Johnson REVEALS the move that could change EVERYTHING"
 thumbnail: "https://img.youtube.com/vi/PrMokU9Ujk8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What's in the Final 21st Century ROAD to Housing Act"
     url: "https://bipartisanpolicy.org/issue-brief/inside-the-deal-whats-in-the-final-21st-century-road-to-housing-act/"

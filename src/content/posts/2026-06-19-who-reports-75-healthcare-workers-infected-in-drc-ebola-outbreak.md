@@ -28,6 +28,10 @@ keyMoments:
 videoId: "bGTjCln9tHU"
 videoTitle: "More than 70 Congo medics infected with Ebola: WHO"
 thumbnail: "https://img.youtube.com/vi/bGTjCln9tHU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "WHO says 75 health workers infected in DR Congo ebola outbreak"
     url: "https://thepeninsulaqatar.com/article/19/06/2026/who-says-75-health-workers-infected-in-dr-congo-ebola-outbreak"

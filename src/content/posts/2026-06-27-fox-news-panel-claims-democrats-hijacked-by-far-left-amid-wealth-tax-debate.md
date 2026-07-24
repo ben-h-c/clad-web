@@ -37,6 +37,10 @@ keyMoments:
 videoId: "5g6K-ihKQ-I"
 videoTitle: "The Democratic Party is getting HIJACKED: Expert"
 thumbnail: "https://img.youtube.com/vi/5g6K-ihKQ-I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Gavin Newsom urges a national 'billionaires' tax' while fighting one in California"
     url: "https://www.theguardian.com/us-news/2026/jun/26/gavin-newsom-national-billionaires-tax"

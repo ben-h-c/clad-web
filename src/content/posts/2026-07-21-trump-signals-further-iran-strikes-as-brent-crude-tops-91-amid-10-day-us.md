@@ -39,6 +39,10 @@ keyMoments:
 videoId: "7QotWOZjzFU"
 videoTitle: "Trump Plays Down Iran Talks | Balance of Power 7/21/2026"
 thumbnail: "https://img.youtube.com/vi/7QotWOZjzFU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Byron Donalds"
     slug: "byron-donalds"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "F50C7XOyiLA"
 videoTitle: "Trump threatens TOLLS on Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/F50C7XOyiLA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US, Iran set for new talks; Trump threatens US tolls in Hormuz if deal not reached in 60 days"
     url: "https://www.timesofisrael.com/us-iran-set-for-new-talks-trump-threatens-us-tolls-in-hormuz-if-deal-not-reached-in-60-days/"

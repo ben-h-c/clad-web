@@ -36,6 +36,10 @@ keyMoments:
 videoId: "YYznv5cPx_0"
 videoTitle: "World's First Trillionaire! | Tesla Time News 636"
 thumbnail: "https://img.youtube.com/vi/YYznv5cPx_0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX shares debut after biggest IPO in history"
     url: "https://www.cnn.com/2026/06/12/business/live-news/spacex-goes-public-ipo"

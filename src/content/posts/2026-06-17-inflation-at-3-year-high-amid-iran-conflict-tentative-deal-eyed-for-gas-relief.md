@@ -35,6 +35,10 @@ keyMoments:
 videoId: "SpGtJkE8VOc"
 videoTitle: "With US inflation surging, will Iran peace deal mean relief for consumers? | Sunrise"
 thumbnail: "https://img.youtube.com/vi/SpGtJkE8VOc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "United States Inflation Rate"
     url: "https://tradingeconomics.com/united-states/inflation-cpi"

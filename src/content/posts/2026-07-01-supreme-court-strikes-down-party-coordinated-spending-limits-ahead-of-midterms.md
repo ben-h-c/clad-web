@@ -39,6 +39,10 @@ keyMoments:
 videoId: "jbuVtS3G2I8"
 videoTitle: "How the Supreme Court just rewrote the rules of politics"
 thumbnail: "https://img.youtube.com/vi/jbuVtS3G2I8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court loosens campaign finance laws"
     url: "https://www.politico.com/news/2026/06/30/campaign-spending-supreme-court-ruling-00980450"

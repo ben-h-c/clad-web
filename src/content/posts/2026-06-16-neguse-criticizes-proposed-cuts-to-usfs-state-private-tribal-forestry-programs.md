@@ -35,6 +35,10 @@ keyMoments:
 videoId: "mdvdcY9h2gQ"
 videoTitle: "'Terrible Mistake': Neguse Decries Proposal To Eliminate USFS State, Private & Tribal Program"
 thumbnail: "https://img.youtube.com/vi/mdvdcY9h2gQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Neguse Joins Bennet, Colorado Delegation in Demanding Information on U.S. Forest Service Staffing"
     url: "https://neguse.house.gov/media/press-releases/neguse-joins-bennet-colorado-delegation-demanding-information-us-forest"

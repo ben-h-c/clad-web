@@ -38,6 +38,10 @@ keyMoments:
 videoId: "eW1az9hK0g4"
 videoTitle: "Psaki: Trump's humiliating disaster on the Mall is his presidency in a nutshell"
 thumbnail: "https://img.youtube.com/vi/eW1az9hK0g4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Why the Great American State Fair Looks So Empty"
     url: "https://www.bloomberg.com/news/articles/2026-07-02/why-trump-s-great-american-state-fair-in-washington-looks-so-empty"

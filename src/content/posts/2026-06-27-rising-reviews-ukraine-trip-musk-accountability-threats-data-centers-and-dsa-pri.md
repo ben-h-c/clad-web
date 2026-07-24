@@ -37,6 +37,10 @@ keyMoments:
 videoId: "tfZTNqZ-fcs"
 videoTitle: "DEMS Want To ARREST Elon Musk?! (Plus: Russia's War UP CLOSE): Robby Soave | RISING"
 thumbnail: "https://img.youtube.com/vi/tfZTNqZ-fcs/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "I went to Ukraine and saw Russia's War with my OWN EYES ..."
     url: "https://www.youtube.com/watch?v=PLBdSD3-W74"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "FRJWIWejGCw"
 videoTitle: "Woman wanted over Monaco bombing 'that targeted Ukrainian tycoon' is named"
 thumbnail: "https://img.youtube.com/vi/FRJWIWejGCw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Who is the Ukrainian tycoon at the center of mysterious Monaco bombing?"
     url: "https://www.cnn.com/2026/07/01/world/who-is-vadym-yermolaiev-monaco-bombing-intl"

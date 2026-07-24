@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ryN1HTcgBGs"
 videoTitle: "Family grieves dog shot by LAPD officer during Knicks celebration"
 thumbnail: "https://img.youtube.com/vi/ryN1HTcgBGs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Family dog shot and killed by LAPD during Knicks celebration at condo in Canoga Park, police say"
     url: "https://abc7.com/post/family-dog-shot-killed-lapd-during-knicks-celebration-condo-canoga-park-police-say/19299441/"

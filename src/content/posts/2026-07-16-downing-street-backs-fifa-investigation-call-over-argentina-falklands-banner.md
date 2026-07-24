@@ -32,6 +32,10 @@ keyMoments:
 videoId: "dXC9a50O8sE"
 videoTitle: "World Cup: Number 10 issues WILD RESPONSE to Argentina over Falklands controversy"
 thumbnail: "https://img.youtube.com/vi/dXC9a50O8sE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Minister hits out at 'entirely inappropriate' Falklands banner"
     url: "https://www.the-independent.com/news/uk/politics/world-cup-argentina-england-malvinas-banner-falkland-islands-downing-street-b3015913.html"

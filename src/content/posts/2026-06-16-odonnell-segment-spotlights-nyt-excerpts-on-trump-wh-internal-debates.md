@@ -40,6 +40,10 @@ keyMoments:
 videoId: "DENBq1mypg0"
 videoTitle: "The Last Word with Lawrence O'Donnell - June 15 | Audio Only"
 thumbnail: "https://img.youtube.com/vi/DENBq1mypg0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Scoop: Trump aides fear Haberman and Swan obtained Situation Room tapes for 'Regime Change'"
     url: "https://www.axios.com/2026/06/14/trump-situation-room-tapes-haberman-swan-regime-change"

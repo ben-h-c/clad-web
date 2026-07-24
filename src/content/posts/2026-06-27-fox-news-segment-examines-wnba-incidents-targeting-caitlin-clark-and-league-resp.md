@@ -40,6 +40,10 @@ keyMoments:
 videoId: "qUngKrHFUIA"
 videoTitle: "Caitlin Clark controversy EXPLODES over player safety concerns"
 thumbnail: "https://img.youtube.com/vi/qUngKrHFUIA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mercury's Thomas suspended 1 game for shot to Clark's throat"
     url: "https://www.espn.com/wnba/story/_/id/49178397/mercury-thomas-suspended-1-game-shot-clark-throat"

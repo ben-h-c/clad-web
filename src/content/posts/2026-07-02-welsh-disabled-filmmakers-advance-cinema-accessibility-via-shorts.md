@@ -31,6 +31,10 @@ keyMoments:
 videoId: "NSTYk428dP4"
 videoTitle: "Meet the filmmakers campaigning to make cinemas more accessible"
 thumbnail: "https://img.youtube.com/vi/NSTYk428dP4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Access Denied - Film Hub Wales"
     url: "https://filmhubwales.org/en/films/access-denied/"

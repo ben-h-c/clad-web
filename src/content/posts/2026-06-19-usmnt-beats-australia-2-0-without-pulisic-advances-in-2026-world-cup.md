@@ -34,6 +34,10 @@ keyMoments:
 videoId: "D3zliCK31Ds"
 videoTitle: "How USMNT adapted without Pulisic to beat Australia and clinch World Cup knockout stage spot"
 thumbnail: "https://img.youtube.com/vi/D3zliCK31Ds/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "World Cup 2026: USA defeats Australia 2-0 to advance to knockout round despite Christian Pulisic absence"
     url: "https://sports.yahoo.com/soccer/breaking-news/article/world-cup-2026-usa-defeats-australia-2-0-to-advance-to-knockout-round-despite-christian-pulisic-absence-210527424.html"

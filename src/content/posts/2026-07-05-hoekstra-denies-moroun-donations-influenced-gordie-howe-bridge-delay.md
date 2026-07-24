@@ -34,6 +34,10 @@ keyMoments:
 videoId: "wPe4WGmMgLU"
 videoTitle: "“Absolutely not”: Hoekstra denies donations are behind postponement of Gordie Howe Bridge"
 thumbnail: "https://img.youtube.com/vi/wPe4WGmMgLU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. ambassador denies donations delayed Gordie Howe Bridge opening"
     url: "https://globalnews.ca/news/11952021/pete-hoekstra-interview-canada/"

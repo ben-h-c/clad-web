@@ -33,6 +33,10 @@ keyMoments:
 videoId: "HNB5a1NNHxg"
 videoTitle: "Alex Armstrong GRILLS 'SLIMY' Sadiq Khan!"
 thumbnail: "https://img.youtube.com/vi/HNB5a1NNHxg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Met Police uncovers 4,000 potential grooming gang cases as Sadiq Khan faces fresh scrutiny"
     url: "https://www.gbnews.com/news/grooming-gangs-met-police-cases-sadiq-khan-london"

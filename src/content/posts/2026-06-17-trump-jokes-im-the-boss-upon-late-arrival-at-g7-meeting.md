@@ -24,6 +24,10 @@ keyMoments:
 videoId: "_zd6u2XVeOA"
 videoTitle: "Trump jokes \"I'm the boss\" after arriving late to G7 meeting | DW News"
 thumbnail: "https://img.youtube.com/vi/_zd6u2XVeOA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Donald Trump Says ‘I’m The Boss’ To G7 Leaders"
     url: "https://www.newsweek.com/donald-trump-says-im-the-boss-g7-summit-france-evian-les-bains-12084051"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "iAGeHDKifpc"
 videoTitle: "Trump insists Iran won't get U.S. funds, but details of agreement still unknown"
 thumbnail: "https://img.youtube.com/vi/iAGeHDKifpc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump in G7 summit in France as he touts signing of Iran memorandum - CBS News"
     url: "https://www.cbsnews.com/news/trump-g7-summit-france-iran-deal/"

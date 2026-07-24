@@ -31,6 +31,10 @@ keyMoments:
 videoId: "xC8Ye4tQJGo"
 videoTitle: "Ghana floods leave trail of dead, missing and thousands displaced"
 thumbnail: "https://img.youtube.com/vi/xC8Ye4tQJGo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Accra floods: 7,761 households displaced, 38,802 affected; 7 missing, 12 dead — Muntaka Mohammed"
     url: "https://www.youtube.com/watch?v=VVAfibjQnTU"

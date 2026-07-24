@@ -33,6 +33,10 @@ keyMoments:
 videoId: "GJSf5-bn3cA"
 videoTitle: "Horrific video captures moment deadly blaze breaks out in Bangkok bar"
 thumbnail: "https://img.youtube.com/vi/GJSf5-bn3cA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fire breaks out at a pub in Bangkok, killing at least 27 people, officials say"
     url: "https://www.npr.org/2026/07/12/g-s1-133238/fire-breaks-out-at-a-pub-in-bangkok-killing-at-least-27-people-officials-say"

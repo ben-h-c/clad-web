@@ -34,6 +34,10 @@ keyMoments:
 videoId: "UjuTANSNHcw"
 videoTitle: "SPECIAL COVERAGE | Canada exits the World Cup after a 3-0 loss to Morocco"
 thumbnail: "https://img.youtube.com/vi/UjuTANSNHcw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Morocco surges by Canada in 3-0 rout: World Cup Round of 16"
     url: "https://sports.yahoo.com/soccer/live/world-cup-2026-bracket-schedule-scores-results-live-updates-round-of-16-130000983.html"

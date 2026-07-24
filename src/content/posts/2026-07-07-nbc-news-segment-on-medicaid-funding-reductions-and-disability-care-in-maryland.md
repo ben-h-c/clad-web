@@ -34,6 +34,10 @@ keyMoments:
 videoId: "QcjE7e05bIg"
 videoTitle: "Looming Medicaid cuts put care for people with disabilities at risk"
 thumbnail: "https://img.youtube.com/vi/QcjE7e05bIg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump’s Medicaid cuts threaten to upend families caring for disabled relatives"
     url: "https://www.nbcnews.com/news/us-news/trump-medicaid-cuts-threaten-caregivers-disabled-family-members-rcna344930"

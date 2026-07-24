@@ -34,6 +34,10 @@ keyMoments:
 videoId: "JkJOKuJVpoM"
 videoTitle: "Goldman's Kaplan on Fed's Warsh and AI Capex Boom"
 thumbnail: "https://img.youtube.com/vi/JkJOKuJVpoM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Watch Goldman's Kaplan on Warsh as Fed Chair, Rates and AI"
     url: "https://www.bloomberg.com/news/videos/2026-05-22/goldman-s-kaplan-on-warsh-as-fed-chair-rates-and-ai-video"

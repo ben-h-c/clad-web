@@ -31,6 +31,10 @@ keyMoments:
 videoId: "yXSDAe35ycQ"
 videoTitle: "‘I will always be proud:’ Family honours Montreal police officer killed in line of duty"
 thumbnail: "https://img.youtube.com/vi/yXSDAe35ycQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Montreal police officer and civilian killed in Côte-des-Neiges shootings"
     url: "https://www.cbc.ca/news/canada/montreal/montreal-police-officer-killed-9.7245303"

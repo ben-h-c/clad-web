@@ -35,6 +35,10 @@ keyMoments:
 videoId: "z_Dqahz234A"
 videoTitle: "Case says shipping interests ‘out to get me’ by funding Keohokalole"
 thumbnail: "https://img.youtube.com/vi/z_Dqahz234A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Ed Case"
     slug: "ed-case"

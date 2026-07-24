@@ -34,6 +34,10 @@ keyMoments:
 videoId: "TRU7TdHykiU"
 videoTitle: "Two teenage boys who raped girls given four years' detention | BBC News"
 thumbnail: "https://img.youtube.com/vi/TRU7TdHykiU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Boy rapists given custody sentences by Court of Appeal"
     url: "https://www.bbc.com/news/articles/cvg53d9p18vo"

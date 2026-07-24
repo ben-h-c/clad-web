@@ -36,6 +36,10 @@ keyMoments:
 videoId: "LYsOMXir1Qc"
 videoTitle: "\"This is Manchester-Ism\" | Andy Burnham To Move Prime Minister's Office Up North"
 thumbnail: "https://img.youtube.com/vi/LYsOMXir1Qc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'This is Manchesterism': Andy Burnham vows to 'do things differently'"
     url: "https://news.sky.com/video/this-is-manchesterism-andy-burnham-vows-to-do-things-differently-13558868"

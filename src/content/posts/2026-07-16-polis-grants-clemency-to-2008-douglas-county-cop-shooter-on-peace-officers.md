@@ -39,6 +39,10 @@ keyMoments:
 videoId: "KrCC5ouXC50"
 videoTitle: "Colorado Governor Jared Polis Free a Cop Shooter?"
 thumbnail: "https://img.youtube.com/vi/KrCC5ouXC50/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Jared Polis"
     slug: "jared-polis"

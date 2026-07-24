@@ -30,6 +30,10 @@ keyMoments:
 videoId: "gZG0s_3MZYQ"
 videoTitle: "'REALLY CRAZY': Bill Maher issues dire warning to Dems after socialists win primaries #usa #shorts"
 thumbnail: "https://img.youtube.com/vi/gZG0s_3MZYQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bill Maher's dire midterm election warning to Dems after 'really crazy' socialists win primaries"
     url: "https://www.foxnews.com/politics/bill-maher-dire-midterm-election-warning-dems-really-crazy-socialists-win-primaries"

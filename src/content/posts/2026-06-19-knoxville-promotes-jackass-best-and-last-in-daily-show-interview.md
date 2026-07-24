@@ -31,6 +31,10 @@ keyMoments:
 videoId: "uL9fPAvZgMY"
 videoTitle: "Johnny Knoxville - \"Jackass: Best and Last\" | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/uL9fPAvZgMY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jackass: Best and Last - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Jackass:_Best_and_Last"

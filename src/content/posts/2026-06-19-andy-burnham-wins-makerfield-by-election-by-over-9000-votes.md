@@ -31,6 +31,10 @@ keyMoments:
 videoId: "mP5izvxjp1o"
 videoTitle: "Andy Burnham wins Makerfield by-election | BBC News"
 thumbnail: "https://img.youtube.com/vi/mP5izvxjp1o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham decisively wins Makerfield by-election"
     url: "https://www.politico.eu/article/andy-burnham-decisively-wins-makerfield-by-election/"

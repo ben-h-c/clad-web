@@ -36,6 +36,10 @@ keyMoments:
 videoId: "qR3kr9jZhrc"
 videoTitle: "US-Iran Deal Details Emerge; Bonds Rally Ahead of Fed | Horizons Middle East & Africa 6/17/2026"
 thumbnail: "https://img.youtube.com/vi/qR3kr9jZhrc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US, Iran Prepare for Deal Signing as Financial Details Emerge"
     url: "https://www.bloomberg.com/news/articles/2026-06-16/us-and-iran-prepare-for-deal-signing-with-both-claiming-victory"

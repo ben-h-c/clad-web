@@ -30,6 +30,10 @@ keyMoments:
 videoId: "rEXTEgOaDyc"
 videoTitle: "'It's A Common Sense Bill': Mario Díaz-Balart Praises Bill To Fund National Security Programs"
 thumbnail: "https://img.youtube.com/vi/rEXTEgOaDyc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "President Trump Signs Chairman Díaz-Balart's FY26 National Security, Department of State, and Related Programs Bill into Law"
     url: "http://mariodiazbalart.house.gov/media-center/press-releases/president-trump-signs-chairman-diaz-balarts-fy26-national-security"

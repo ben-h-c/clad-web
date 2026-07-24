@@ -34,6 +34,10 @@ keyMoments:
 videoId: "JMnGNQOnSQQ"
 videoTitle: "Prince George to attend Eton College from September. #UKRoyals #BBCNews"
 thumbnail: "https://img.youtube.com/vi/JMnGNQOnSQQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Prince George to attend Eton College from September"
     url: "https://www.bbc.com/news/articles/clyx4jd9kkdo"

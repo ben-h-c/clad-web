@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Di-8jcLktxc"
 videoTitle: "Second Amendment Clash: Court Strips Gun Rights After Repeat DUIs | The Center Square Daily"
 thumbnail: "https://img.youtube.com/vi/Di-8jcLktxc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Washington high court: State will strip gun rights after two DUIs in seven years"
     url: "https://www.thecentersquare.com/washington/article_8cf0427c-0068-48c6-b97e-3ebe1c9941f3.html"

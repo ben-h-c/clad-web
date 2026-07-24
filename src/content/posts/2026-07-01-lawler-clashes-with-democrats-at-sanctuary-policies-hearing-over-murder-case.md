@@ -36,6 +36,10 @@ keyMoments:
 videoId: "CEs2YSspzAY"
 videoTitle: "Rep Mike Lawler: These 'idiots' don't grasp this..."
 thumbnail: "https://img.youtube.com/vi/CEs2YSspzAY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Lawler Slams Democrats for Dismissing Sheridan Gorman's Murder..."
     url: "https://lawler.house.gov/news/documentsingle.aspx?DocumentID=6145"

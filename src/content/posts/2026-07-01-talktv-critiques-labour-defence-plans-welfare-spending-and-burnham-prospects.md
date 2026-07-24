@@ -40,6 +40,10 @@ keyMoments:
 videoId: "DD2eRCZTizE"
 videoTitle: "‘Burnham Will HIT Brits With Taxes’ | ‘He Will FAIL On Defence’ | ‘Britain In Tatters’"
 thumbnail: "https://img.youtube.com/vi/DD2eRCZTizE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UK defence spending - House of Commons Library"
     url: "https://commonslibrary.parliament.uk/research-briefings/cbp-8175/"

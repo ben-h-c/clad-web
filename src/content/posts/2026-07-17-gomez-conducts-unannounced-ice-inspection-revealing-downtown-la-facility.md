@@ -31,6 +31,10 @@ keyMoments:
 videoId: "3b6HVmNryoo"
 videoTitle: "Rep. Gomez exposes ICE detainee transfer"
 thumbnail: "https://img.youtube.com/vi/3b6HVmNryoo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Jimmy Gomez"
     slug: "jimmy-gomez"

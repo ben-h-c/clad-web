@@ -39,6 +39,10 @@ keyMoments:
 videoId: "Ecvcr2D1Unk"
 videoTitle: "Michael Guest Highlights Importance Of Northern Border Security As Drug Seizures Hit 'Record Levels'"
 thumbnail: "https://img.youtube.com/vi/Ecvcr2D1Unk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Subcommittee Chairmen Guest, Pfluger Open Joint Hearing on Northern Border Security"
     url: "https://homeland.house.gov/2026/06/30/subcommittee-chairmen-guest-pfluger-open-joint-hearing-on-northern-border-security/"

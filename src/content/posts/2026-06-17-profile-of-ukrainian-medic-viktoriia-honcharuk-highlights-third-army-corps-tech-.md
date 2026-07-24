@@ -33,6 +33,10 @@ keyMoments:
 videoId: "Cjg344FQhFA"
 videoTitle: "Ukraine's Viktoriia Honcharuk: From Wall Street banker to combat medic • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/Cjg344FQhFA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "About Corps — The Third Army Corps"
     url: "https://ab3.army/en/about/"

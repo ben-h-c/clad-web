@@ -31,6 +31,10 @@ keyMoments:
 videoId: "GwD124mCaoc"
 videoTitle: "Jeremy Allen White sad to say goodbye to 'The Bear'"
 thumbnail: "https://img.youtube.com/vi/GwD124mCaoc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Bear season 4"
     url: "https://en.wikipedia.org/wiki/The_Bear_season_4"

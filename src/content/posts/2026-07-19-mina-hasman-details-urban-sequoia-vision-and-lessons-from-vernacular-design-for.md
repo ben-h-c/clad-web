@@ -37,6 +37,10 @@ keyMoments:
 videoId: "a1R7Hf8GH3g"
 videoTitle: "Why the smartest cities will look like forests | Talk to Al Jazeera"
 thumbnail: "https://img.youtube.com/vi/a1R7Hf8GH3g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "At COP26, SOM Unveils Urban Sequoia"
     url: "https://www.som.com/news/at-cop26-som-unveils-urban-sequoia-a-proposal-to-transform-the-built-environment-into-a-network-for-absorbing-carbon/"

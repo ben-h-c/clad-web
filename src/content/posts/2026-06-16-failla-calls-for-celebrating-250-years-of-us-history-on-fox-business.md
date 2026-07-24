@@ -34,6 +34,10 @@ keyMoments:
 videoId: "0ShQCYTEp1E"
 videoTitle: "Jimmy Failla: We SHOULD be celebrating this #shorts"
 thumbnail: "https://img.youtube.com/vi/0ShQCYTEp1E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jimmy Failla reveals what people 'get wrong' about ..."
     url: "https://www.foxbusiness.com/video/6398564287112"

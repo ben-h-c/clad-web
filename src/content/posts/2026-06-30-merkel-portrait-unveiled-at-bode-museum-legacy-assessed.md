@@ -34,6 +34,10 @@ keyMoments:
 videoId: "3SXznoK1Nn8"
 videoTitle: "Angela Merkel’s official portrait revealed — and it says a lot | DW News"
 thumbnail: "https://img.youtube.com/vi/3SXznoK1Nn8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Merkel unveils official portrait for German chancellery"
     url: "https://today.rtl.lu/entertainment/news/merkel-unveils-official-portrait-for-german-chancellery-1586807499"

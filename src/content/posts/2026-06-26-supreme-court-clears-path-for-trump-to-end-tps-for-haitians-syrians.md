@@ -35,6 +35,10 @@ keyMoments:
 videoId: "dXHntbyX-04"
 videoTitle: "Thousands of Haitians and Syrians could lose deportation protection after the Supreme Court ruling"
 thumbnail: "https://img.youtube.com/vi/dXHntbyX-04/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump can begin deportations of Syrian, Haitian TPS holders, Supreme Court says"
     url: "https://www.npr.org/2026/06/25/nx-s1-5844292/supreme-court-syrian-haitian-tps"

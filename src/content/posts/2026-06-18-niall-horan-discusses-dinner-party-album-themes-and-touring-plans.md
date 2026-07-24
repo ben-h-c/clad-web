@@ -35,6 +35,10 @@ keyMoments:
 videoId: "zW9f87c42RI"
 videoTitle: "Niall Horan breaks down his new ‘Dinner Party’ album | AP interview"
 thumbnail: "https://img.youtube.com/vi/zW9f87c42RI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Dinner Party (album) - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Dinner_Party_(album)"

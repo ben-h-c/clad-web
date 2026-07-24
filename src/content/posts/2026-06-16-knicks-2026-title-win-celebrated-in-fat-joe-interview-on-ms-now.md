@@ -34,6 +34,10 @@ keyMoments:
 videoId: "K4LyTBhu2aA"
 videoTitle: "'Dream come true': See Fat Joe's VICTORY LAP FOR KNICKS with Ari on 'The Beat'"
 thumbnail: "https://img.youtube.com/vi/K4LyTBhu2aA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 NBA playoffs: Schedule, scores, news and highlights"
     url: "https://www.espn.com/nba/story/_/id/48419498/nba-playoffs-2026-play-finals-schedule-scores-news-highlights-bracket-dates"

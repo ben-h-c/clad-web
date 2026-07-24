@@ -32,6 +32,10 @@ keyMoments:
 videoId: "eVoSp64dYiI"
 videoTitle: "5,700 deaths in France after series of heat waves"
 thumbnail: "https://img.youtube.com/vi/eVoSp64dYiI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "France records more than 5,700 excess deaths during June heatwave"
     url: "https://www.theguardian.com/world/2026/jul/22/france-recorded-more-than-5700-excess-deaths-during-june-heatwave"

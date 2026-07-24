@@ -33,6 +33,10 @@ keyMoments:
 videoId: "miofIeqNTaU"
 videoTitle: "Abdul El-Sayed Blasts Potential Senate Opponent Mike Rogers As 'Corporate Shill'"
 thumbnail: "https://img.youtube.com/vi/miofIeqNTaU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Senate candidate Mike Rogers didn't make millions as a pharma lobbyist, El-Sayed claims"
     url: "https://www.politifact.com/factchecks/2026/jul/02/abdul-el-sayed/mike-rogers-14-million-pharma-lobbyist-michigan/"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "q0fKHjJNYt0"
 videoTitle: "Israel strikes Southern Lebanon despite ceasefire as tensions rise"
 thumbnail: "https://img.youtube.com/vi/q0fKHjJNYt0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Israel–Lebanon ceasefire"
     url: "https://en.wikipedia.org/wiki/2026_Israel%E2%80%93Lebanon_ceasefire"

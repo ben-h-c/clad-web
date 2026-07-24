@@ -28,6 +28,10 @@ keyMoments:
 videoId: "2YczQajOj2A"
 videoTitle: "Man exhausted from battling rushing floodwaters rescued by New Mexico police #shorts"
 thumbnail: "https://img.youtube.com/vi/2YczQajOj2A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "New video shows NMSP rescuing man from arroyo"
     url: "https://www.kob.com/new-mexico/albuquerque-metro/new-video-shows-nmsp-rescuing-man-from-arroyo/"

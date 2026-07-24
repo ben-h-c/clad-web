@@ -31,6 +31,10 @@ keyMoments:
 videoId: "jM2648Knvo8"
 videoTitle: "France fans revel in dazzling victory over Sweden"
 thumbnail: "https://img.youtube.com/vi/jM2648Knvo8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "France 3-0 Sweden | Match report and highlights"
     url: "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/france-sweden-review-highlights"

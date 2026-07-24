@@ -38,6 +38,10 @@ keyMoments:
 videoId: "UPEiBaQeHl4"
 videoTitle: "Cory Mills Leads House Foreign Affairs Committee Hearing On Haitian Gangs"
 thumbnail: "https://img.youtube.com/vi/UPEiBaQeHl4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Cory Mills"
     slug: "cory-mills"

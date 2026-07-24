@@ -36,6 +36,10 @@ keyMoments:
 videoId: "nQokhJW5kAs"
 videoTitle: "FED WATCH: The change Kevin Warsh reportedly wants MOST…"
 thumbnail: "https://img.youtube.com/vi/nQokhJW5kAs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Warsh to be sworn in as Fed Chair on May 22"
     url: "https://www.consumerfinancemonitor.com/2026/05/21/warsh-to-be-sworn-in-as-fed-chair-on-may-22/"

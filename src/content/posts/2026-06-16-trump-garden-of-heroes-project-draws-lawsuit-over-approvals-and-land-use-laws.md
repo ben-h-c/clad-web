@@ -39,6 +39,10 @@ keyMoments:
 videoId: "muMesGebQXo"
 videoTitle: "Trump’s ‘Garden of Heroes’ vision faces legal and political roadblocks"
 thumbnail: "https://img.youtube.com/vi/muMesGebQXo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "New lawsuit challenges Trump’s planned 'National Garden of American Heroes'"
     url: "https://abcnews.com/US/new-lawsuit-challenges-trumps-planned-national-garden-american/story?id=133900129"

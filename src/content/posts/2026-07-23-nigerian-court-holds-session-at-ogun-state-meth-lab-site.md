@@ -35,6 +35,10 @@ keyMoments:
 videoId: "5XCl16QQxFg"
 videoTitle: "Court visits jungle lab at center of Nigeria's biggest meth bust"
 thumbnail: "https://img.youtube.com/vi/5XCl16QQxFg/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NDLEA Busts Nigeria’s Largest Meth Lab"
     url: "https://www.facebook.com/AriseTVNews/videos/ndlea-busts-nigerias-largest-meth-labthe-national-drug-law-enforcement-agency-ha/912361618527388/"

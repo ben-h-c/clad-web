@@ -36,6 +36,10 @@ keyMoments:
 videoId: "jc46JyoKxTQ"
 videoTitle: "Ryan Holiday's Juneteenth Reading List"
 thumbnail: "https://img.youtube.com/vi/jc46JyoKxTQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Booker T. Washington - Hampton University"
     url: "https://home.hamptonu.edu/about/2025/05/21/booker-t-washington/"

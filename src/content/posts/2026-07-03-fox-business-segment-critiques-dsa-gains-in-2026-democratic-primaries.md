@@ -37,6 +37,10 @@ keyMoments:
 videoId: "_x1wWdOrxJg"
 videoTitle: "When you play STUPID games, you win STUPID prizes: Rep Wesley Hunt"
 thumbnail: "https://img.youtube.com/vi/_x1wWdOrxJg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Democratic Socialists of America 2021 Member Survey"
     url: "https://www.dsanorthstar.org/uploads/1/1/8/2/118222942/2021_member_survey_gdc_report.pdf"

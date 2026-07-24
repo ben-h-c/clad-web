@@ -32,6 +32,10 @@ keyMoments:
 videoId: "AESF2KuVjkY"
 videoTitle: "Trump's push for SAVE Act drives Congress into standoff"
 thumbnail: "https://img.youtube.com/vi/AESF2KuVjkY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "H.R.22 - SAVE Act"
     url: "https://www.congress.gov/bill/119th-congress/house-bill/22"

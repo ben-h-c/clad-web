@@ -31,6 +31,10 @@ keyMoments:
 videoId: "x3ygiDg694I"
 videoTitle: "WATCH: Democracy is frustrating, slow, inefficient, but also precious, Obama says"
 thumbnail: "https://img.youtube.com/vi/x3ygiDg694I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "President Obama's remarks from the 2024 Democracy Forum"
     url: "https://www.obama.org/democracy-forum-2024/president-obama-remarks/"

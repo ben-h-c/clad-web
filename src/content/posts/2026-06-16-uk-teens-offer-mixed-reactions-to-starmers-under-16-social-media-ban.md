@@ -34,6 +34,10 @@ keyMoments:
 videoId: "czQ_88C9ie8"
 videoTitle: "UK teens react to Starmer's social media ban for under-16s"
 thumbnail: "https://img.youtube.com/vi/czQ_88C9ie8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Social media to be banned for under-16s in landmark government move to give kids their childhood back"
     url: "https://www.gov.uk/government/news/social-media-to-be-banned-for-under-16s-in-landmark-government-move-to-givekids-their-childhood-back"

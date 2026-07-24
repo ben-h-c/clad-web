@@ -31,6 +31,10 @@ keyMoments:
 videoId: "KE-uZbTx-dE"
 videoTitle: "Seattle aquarium sea otters snack on World Cup-themed treats"
 thumbnail: "https://img.youtube.com/vi/KE-uZbTx-dE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sea otter - Seattle Aquarium"
     url: "https://www.seattleaquarium.org/animal/sea-otter/"

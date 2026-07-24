@@ -34,6 +34,10 @@ keyMoments:
 videoId: "pubUJJbLwyg"
 videoTitle: "Justices Kagan and Barrett testify about security threats"
 thumbnail: "https://img.youtube.com/vi/pubUJJbLwyg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live Updates: Supreme Court Justices Barrett and Kagan Testify Before Congress on Security"
     url: "https://www.nytimes.com/live/2026/07/14/us/supreme-court-kagan-barrett"

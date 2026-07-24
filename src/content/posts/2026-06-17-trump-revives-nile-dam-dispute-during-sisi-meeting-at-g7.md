@@ -33,6 +33,10 @@ keyMoments:
 videoId: "n27mDJggsgI"
 videoTitle: "'The Nile Is Getting A Little Emptier': Trump Discusses Ethiopian Nile Dam With Egypt's Sisi"
 thumbnail: "https://img.youtube.com/vi/n27mDJggsgI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump signals fresh push to resolve GERD dispute in meeting with El-Sisi"
     url: "https://www.egypttoday.com/Article/1/147831/Trump-signals-fresh-push-to-resolve-GERD-dispute-in-meeting"

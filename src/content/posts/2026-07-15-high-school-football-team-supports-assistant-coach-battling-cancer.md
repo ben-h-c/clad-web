@@ -31,6 +31,10 @@ keyMoments:
 videoId: "clY_liyv0Us"
 videoTitle: "Good News: High school football team surprises coach as he battles cancer"
 thumbnail: "https://img.youtube.com/vi/clY_liyv0Us/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "University Christian football players surprise assistant coach during his fight against cancer"
     url: "https://www.news4jax.com/video/news/2026/07/15/university-christian-football-players-surprise-assistant-coach-during-his-fight-against-cancer/"

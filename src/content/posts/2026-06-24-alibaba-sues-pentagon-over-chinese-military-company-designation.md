@@ -35,6 +35,10 @@ keyMoments:
 videoId: "q89QuQuQDrc"
 videoTitle: "Alibaba sues US over charge it's linked to Chinese military"
 thumbnail: "https://img.youtube.com/vi/q89QuQuQDrc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Alibaba sues US for being linked to Chinese military"
     url: "https://www.reuters.com/legal/litigation/alibaba-sues-us-department-defense-branding-it-chinese-military-company-2026-06-23/"

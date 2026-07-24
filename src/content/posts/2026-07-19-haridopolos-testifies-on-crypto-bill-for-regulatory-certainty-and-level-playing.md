@@ -33,6 +33,10 @@ keyMoments:
 videoId: "e_1b4Scmy1k"
 videoTitle: "“Certainty and Stability” | Haridopolos on Why Clear Rules Keep Jobs and Capital in America"
 thumbnail: "https://img.youtube.com/vi/e_1b4Scmy1k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Mike Haridopolos"
     slug: "mike-haridopolos"

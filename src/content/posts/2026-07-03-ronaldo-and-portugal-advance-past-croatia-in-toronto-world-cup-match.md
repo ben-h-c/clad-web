@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Wjxfg4DDV1g"
 videoTitle: "Cristiano Ronaldo thanks Toronto fans after Portugal beats Croatia to advance in World Cup"
 thumbnail: "https://img.youtube.com/vi/Wjxfg4DDV1g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Portugal defeats Croatia 2-1 after wild 2nd half of soccer in Toronto"
     url: "https://www.cbc.ca/sports/livestory/fifa-world-cup-2026-portugal-croatia-toronto-9.7256369"

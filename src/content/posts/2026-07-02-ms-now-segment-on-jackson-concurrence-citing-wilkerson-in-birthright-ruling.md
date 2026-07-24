@@ -36,6 +36,10 @@ keyMoments:
 videoId: "xqC0TlzW6UQ"
 videoTitle: "Isabel Wilkerson: Justice Jackson's concurrence reflects the legacy of Reconstruction"
 thumbnail: "https://img.youtube.com/vi/xqC0TlzW6UQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Birthright citizenship: “We break no new ground today”"
     url: "https://www.scotusblog.com/2026/06/birthright-citizenship-we-break-no-new-ground-today/"

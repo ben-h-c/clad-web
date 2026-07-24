@@ -35,6 +35,10 @@ keyMoments:
 videoId: "q__zwynOL80"
 videoTitle: "New fires erupt in Utah as wind carries flames across homes"
 thumbnail: "https://img.youtube.com/vi/q__zwynOL80/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Utah declares emergency, limits fireworks ahead of July Fourth as crews battle largest U.S. wildfire"
     url: "https://www.cnn.com/2026/06/27/us/utah-fourth-of-july-fireworks-fire"

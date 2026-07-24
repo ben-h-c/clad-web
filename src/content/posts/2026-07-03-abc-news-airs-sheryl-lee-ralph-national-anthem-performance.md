@@ -28,6 +28,10 @@ keyMoments:
 videoId: "0qfISqcdv54"
 videoTitle: "Sheryl Lee Ralph delivers a powerful rendition of the Star-Spangled Banner. TONIGHT at 10p on ABC."
 thumbnail: "https://img.youtube.com/vi/0qfISqcdv54/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations: []
 ---
 

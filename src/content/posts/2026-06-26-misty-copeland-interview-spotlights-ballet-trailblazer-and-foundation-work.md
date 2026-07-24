@@ -36,6 +36,10 @@ keyMoments:
 videoId: "vMyU41o-otI"
 videoTitle: "Great Americans: A conversation with Misty Copeland"
 thumbnail: "https://img.youtube.com/vi/vMyU41o-otI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Misty Copeland to Retire from American Ballet Theatre"
     url: "https://www.abt.org/misty-copeland-to-retire-from-abt/"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "dqz4wtAXW1k"
 videoTitle: "'1 in 4 graduates makes less money than someone who didn't go to university'"
 thumbnail: "https://img.youtube.com/vi/dqz4wtAXW1k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "New analysis shows students who choose to learn more..."
     url: "https://www.universitiesuk.ac.uk/latest/news/new-analysis-shows-students-who-choose"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "2LK-wnBeFjU"
 videoTitle: "'I'm For Border Security': Cuellar Asks Mullin To Visit Loredo Amid Dispute Over Border Fence"
 thumbnail: "https://img.youtube.com/vi/2LK-wnBeFjU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Laredo among safest cities in the country, FBI reports"
     url: "https://www.kgns.tv/2025/08/25/laredo-among-safest-cities-country-fbi-reports/"

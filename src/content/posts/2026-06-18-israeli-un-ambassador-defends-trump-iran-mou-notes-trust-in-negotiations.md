@@ -32,6 +32,10 @@ keyMoments:
 videoId: "kO0pU0RZWVQ"
 videoTitle: "Israeli Ambassador To The UN Responds To Trump's Iran Peace Deal Amid Criticism"
 thumbnail: "https://img.youtube.com/vi/kO0pU0RZWVQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US and Iran sign initial agreement to end war but tougher talks lie ahead"
     url: "https://www.cnn.com/2026/06/18/world/live-news/iran-war-trump-israel-lebanon"

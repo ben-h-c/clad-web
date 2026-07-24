@@ -34,6 +34,10 @@ keyMoments:
 videoId: "rDgaegFclOI"
 videoTitle: "Rare American artifacts head to auction for America's 250th birthday"
 thumbnail: "https://img.youtube.com/vi/rDgaegFclOI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "America at 250: Important Artifacts and Documents of History"
     url: "https://onlineonly.christies.com/s/america-250-important-artifacts-documents-history/4053"

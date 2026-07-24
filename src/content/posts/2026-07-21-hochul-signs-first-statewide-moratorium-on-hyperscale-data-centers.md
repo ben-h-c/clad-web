@@ -30,6 +30,10 @@ keyMoments:
 videoId: "bSJZX9yvjGY"
 videoTitle: "Data Centers Moratorium | Kathy Hochul - ABC News Live"
 thumbnail: "https://img.youtube.com/vi/bSJZX9yvjGY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Kathy Hochul"
     slug: "kathy-hochul"

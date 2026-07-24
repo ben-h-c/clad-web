@@ -34,6 +34,10 @@ keyMoments:
 videoId: "yyPmyyTKHj8"
 videoTitle: "Venezuela: Two weeks after the earthquakes, rescuers hunt for last signs of life • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/yyPmyyTKHj8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Untold casualties and humanitarian needs: What to know a week from Venezuela's quakes"
     url: "https://www.npr.org/2026/07/01/nx-s1-5877369/venezuela-earthquakes-updates"

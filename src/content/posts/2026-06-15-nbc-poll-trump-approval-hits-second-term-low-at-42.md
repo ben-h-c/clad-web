@@ -33,6 +33,10 @@ keyMoments:
 videoId: "J4rK0QuqxV8"
 videoTitle: "NBC News Poll Shows Trump’s Declining Job Approval"
 thumbnail: "https://img.youtube.com/vi/J4rK0QuqxV8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Poll: Democrats maintain an edge in the fight for Congress as Trump gets poor marks"
     url: "https://www.nbcnews.com/politics/2026-election/poll-democrats-maintain-edge-fight-congress-trump-gets-poor-marks-rcna348913"

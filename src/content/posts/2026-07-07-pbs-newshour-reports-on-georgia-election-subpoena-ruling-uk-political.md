@@ -36,6 +36,10 @@ keyMoments:
 videoId: "sJNXwTAOB1w"
 videoTitle: "News Wrap: Judge rejects Trump's attempt to collect Georgia election worker info"
 thumbnail: "https://img.youtube.com/vi/sJNXwTAOB1w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Federal judge rejects Trump administration effort to get names of 2020 election workers in Fulton County"
     url: "https://www.nbcnews.com/politics/justice-department/federal-judge-rejects-trump-administration-effort-get-names-2020-elect-rcna353389"

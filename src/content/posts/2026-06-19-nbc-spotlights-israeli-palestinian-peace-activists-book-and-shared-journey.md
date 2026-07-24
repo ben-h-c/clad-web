@@ -34,6 +34,10 @@ keyMoments:
 videoId: "jiPpBmLh_eM"
 videoTitle: "Israeli and Palestinian activists turn personal grief into message of peace"
 thumbnail: "https://img.youtube.com/vi/jiPpBmLh_eM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "An Israeli and a Palestinian work together for Mideast peace"
     url: "https://www.npr.org/2026/04/14/g-s1-111652/aziz-abu-sarah-maoz-inon-future-is-peace-book"

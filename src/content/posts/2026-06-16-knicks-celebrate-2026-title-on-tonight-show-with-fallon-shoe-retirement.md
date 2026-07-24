@@ -31,6 +31,10 @@ keyMoments:
 videoId: "dgFUu_W8lGQ"
 videoTitle: "Knicks retire Jimmy Fallon's lucky shoe"
 thumbnail: "https://img.youtube.com/vi/dgFUu_W8lGQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Closer look at how the Knicks won the 2026 NBA championship"
     url: "https://www.nba.com/news/how-the-knicks-won-the-2026-nba-championship"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ZAZhesZZHSk"
 videoTitle: "A German mayor fights to save this tiny Spanish village | Focus on Europe"
 thumbnail: "https://img.youtube.com/vi/ZAZhesZZHSk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Spain: Saving a dying village"
     url: "https://www.dw.com/en/spain-saving-a-dying-village/video-77527571"

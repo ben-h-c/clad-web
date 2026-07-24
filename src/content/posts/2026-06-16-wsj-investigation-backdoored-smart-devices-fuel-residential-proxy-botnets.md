@@ -35,6 +35,10 @@ keyMoments:
 videoId: "apEPPKYgLL0"
 videoTitle: "The Hidden Backdoors Inside Millions of Smart Devices | WSJ"
 thumbnail: "https://img.youtube.com/vi/apEPPKYgLL0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How Millions of Digital Home Devices Are Secretly Powering Cyberattacks"
     url: "https://www.wsj.com/tech/cybersecurity/how-millions-of-digital-home-devices-are-secretly-powering-cyberattacks-8fd73584"

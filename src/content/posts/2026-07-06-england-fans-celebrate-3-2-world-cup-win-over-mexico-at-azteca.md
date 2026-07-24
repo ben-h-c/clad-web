@@ -34,6 +34,10 @@ keyMoments:
 videoId: "kYj3NxrnA_Y"
 videoTitle: "Late night, big win: England fans celebrate World Cup triumph"
 thumbnail: "https://img.youtube.com/vi/kYj3NxrnA_Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "England end Mexico's World Cup with best win on foreign soil in their history - ESPN"
     url: "https://www.espn.com/soccer/story/_/id/49283101/england-end-mexico-world-cup-best-win-foreign-soil-their-history"

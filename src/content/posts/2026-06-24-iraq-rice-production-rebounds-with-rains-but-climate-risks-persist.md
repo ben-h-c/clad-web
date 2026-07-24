@@ -35,6 +35,10 @@ keyMoments:
 videoId: "-KiQwqgDYSw"
 videoTitle: "Iraq rice production rebounds as drought ends, but future uncertain"
 thumbnail: "https://img.youtube.com/vi/-KiQwqgDYSw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iraq's rice production rebounds as drought ends, but future uncertain"
     url: "https://www.devdiscourse.com/article/science-environment/3939408-iraq-rice-production-rebounds-as-drought-ends-but-future-uncertain"

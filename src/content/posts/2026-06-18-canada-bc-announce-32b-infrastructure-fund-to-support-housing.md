@@ -34,6 +34,10 @@ keyMoments:
 videoId: "mfSdHAXjVEw"
 videoTitle: "Ottawa investing $1.6B over 10 years toward housing in B.C."
 thumbnail: "https://img.youtube.com/vi/mfSdHAXjVEw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Canada and British Columbia forge new partnership to accelerate homebuilding, lower costs, and build new local infrastructure"
     url: "https://www.pm.gc.ca/en/news/news-releases/2026/06/18/canada-and-british-columbia-forge-new-partnership-accelerate"

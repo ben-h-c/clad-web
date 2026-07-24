@@ -33,6 +33,10 @@ keyMoments:
 videoId: "cvwLN6tkA58"
 videoTitle: "Johnson Asked About Max Miller, Cory Mills Allegations: Why Would The GOP Keep Them In Conference?"
 thumbnail: "https://img.youtube.com/vi/cvwLN6tkA58/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Cory Mills"
     slug: "cory-mills"

@@ -40,6 +40,10 @@ keyMoments:
 videoId: "1mYm1gw4S5k"
 videoTitle: "Senator Warren on Iran Deal, Fed's Warsh and SpaceX IPO"
 thumbnail: "https://img.youtube.com/vi/1mYm1gw4S5k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran War: Warren Calls For Congress to Block Reckless War in Iran, Investigate Civilian Harm"
     url: "https://www.warren.senate.gov/newsroom/videos/watch/iran-war-warren-calls-for-congress-to-block-reckless-war-in-iran-investigate-civilian-harm"

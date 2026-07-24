@@ -35,6 +35,10 @@ keyMoments:
 videoId: "1Au_Q3fuh0w"
 videoTitle: "Israeli settlers seize Palestinian's West Bank home"
 thumbnail: "https://img.youtube.com/vi/1Au_Q3fuh0w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "In the West Bank, Israeli settlers take over Palestinian's dream home"
     url: "https://www.reuters.com/world/middle-east/west-bank-israeli-settlers-take-over-palestinians-dream-home-2026-07-03/"

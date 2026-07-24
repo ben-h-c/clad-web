@@ -36,6 +36,10 @@ keyMoments:
 videoId: "u8Hidre5JtU"
 videoTitle: "Man fatally shot by ICE officer in Houston"
 thumbnail: "https://img.youtube.com/vi/u8Hidre5JtU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "ICE says agent shot and killed Houston driver, FBI investigating"
     url: "https://www.houstonchronicle.com/news/houston-texas/article/fbi-magnolia-park-dhs-22336272.php"

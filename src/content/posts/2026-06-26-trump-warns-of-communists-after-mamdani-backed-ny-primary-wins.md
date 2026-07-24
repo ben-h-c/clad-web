@@ -36,6 +36,10 @@ keyMoments:
 videoId: "V7KUnMRMiIg"
 videoTitle: "Trump declares 'communists have made their move,' vows to confront them | RISING"
 thumbnail: "https://img.youtube.com/vi/V7KUnMRMiIg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump declares 'communists have made their move,' vows to confront them | RISING"
     url: "https://thehill.com/video/trump-declares-communists-have-made-their-move-vows-to-confront-them-rising/11919210/"

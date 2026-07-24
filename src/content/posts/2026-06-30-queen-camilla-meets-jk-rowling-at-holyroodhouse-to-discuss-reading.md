@@ -32,6 +32,10 @@ keyMoments:
 videoId: "-sGfWSCFQ84"
 videoTitle: "Queen Camilla meets with JK Rowling"
 thumbnail: "https://img.youtube.com/vi/-sGfWSCFQ84/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Queen Camilla Meets with J.K. Rowling at the Palace of Holyroodhouse"
     url: "https://www.townandcountrymag.com/society/tradition/a71782115/queen-camilla-jk-rowling-palace-of-holyroodhouse/"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "vey4Rnid1QU"
 videoTitle: "Did a Secret \"Stargate\" in Iran Cause Trump's Endless War? Josh Johnson Finds Out | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/vey4Rnid1QU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Richard Nephew biography and Iran work"
     url: "https://www.brookings.edu/people/richard-nephew/"

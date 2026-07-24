@@ -32,6 +32,10 @@ keyMoments:
 videoId: "abc6k7HQtEA"
 videoTitle: "Three weeks after Venezuela's earthquakes, survivors face an uncertain future"
 thumbnail: "https://img.youtube.com/vi/abc6k7HQtEA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Venezuela earthquakes"
     url: "https://en.wikipedia.org/wiki/2026_Venezuela_earthquakes"

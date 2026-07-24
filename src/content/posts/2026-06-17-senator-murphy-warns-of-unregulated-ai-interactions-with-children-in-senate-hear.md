@@ -35,6 +35,10 @@ keyMoments:
 videoId: "UhhwEEyD1oM"
 videoTitle: "Chris Murphy Sounds The Alarm On 'Completely Unregulated Interactions' Between Children And AI"
 thumbnail: "https://img.youtube.com/vi/UhhwEEyD1oM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Thinking—Fast, Slow, and Artificial: How AI is Reshaping Human Reasoning"
     url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6097646"

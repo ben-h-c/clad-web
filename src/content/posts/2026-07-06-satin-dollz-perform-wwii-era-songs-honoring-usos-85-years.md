@@ -32,6 +32,10 @@ keyMoments:
 videoId: "xrmcOHysEKQ"
 videoTitle: "The Satin Dollz honor USO's 85 years with WWII songs | Morning in America"
 thumbnail: "https://img.youtube.com/vi/xrmcOHysEKQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "THE SATIN DOLLZ: USA"
     url: "https://www.thesatindollz.com/"

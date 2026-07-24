@@ -28,6 +28,10 @@ keyMoments:
 videoId: "lcLeNgLWPvM"
 videoTitle: "5.6 magnitude earthquake hits Peru"
 thumbnail: "https://img.youtube.com/vi/lcLeNgLWPvM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Earthquake of magnitude 5.6 strikes central Peru, EMSC says"
     url: "https://www.reuters.com/business/environment/earthquake-magnitude-56-strikes-central-peru-emsc-says-2026-07-19/"

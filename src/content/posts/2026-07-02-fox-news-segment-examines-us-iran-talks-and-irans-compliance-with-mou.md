@@ -35,6 +35,10 @@ keyMoments:
 videoId: "_ExXbYtdO9c"
 videoTitle: "Iran is not cooperating AT ALL, expert warns"
 thumbnail: "https://img.youtube.com/vi/_ExXbYtdO9c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran to open ‘communication channel’ on MoU with US after talks in Qatar"
     url: "https://www.aljazeera.com/news/2026/7/1/iran-to-open-communication-channel-on-mou-with-us-after-talks-in-qatar"

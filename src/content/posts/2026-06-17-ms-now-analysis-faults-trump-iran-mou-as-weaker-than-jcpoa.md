@@ -36,6 +36,10 @@ keyMoments:
 videoId: "hTj8RnFKD6c"
 videoTitle: "'Not as good as the Obama-era deal': What we know so far about the Iran deal"
 thumbnail: "https://img.youtube.com/vi/hTj8RnFKD6c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "From JCPOA exit to the 2026 deal: How US-Iran ties soured under Trump"
     url: "https://www.aljazeera.com/news/2026/6/16/from-jcpoa-exit-to-the-2026-deal-how-us-iran-ties-soured-under-trump"

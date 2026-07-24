@@ -35,6 +35,10 @@ keyMoments:
 videoId: "7GFvM-KcX08"
 videoTitle: "Andy Burnham ATTACKS 'HMO Britain' in by-election victory speech as he pitches for Labour leadership"
 thumbnail: "https://img.youtube.com/vi/7GFvM-KcX08/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham wins Makerfield by-election"
     url: "https://www.bbc.com/news/articles/c4gy72kmg1mo"

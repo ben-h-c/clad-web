@@ -32,6 +32,10 @@ keyMoments:
 videoId: "wOLFxivDkf8"
 videoTitle: "Morgan Griffith Asks Congressional Research Service Director About Political Leaning Of AI Results"
 thumbnail: "https://img.youtube.com/vi/wOLFxivDkf8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Are AI chatbots like ChatGPT politically biased? We tested them."
     url: "https://www.washingtonpost.com/technology/interactive/2026/06/24/are-ai-chatbots-like-chatgpt-politically-biased-we-tested-them/"

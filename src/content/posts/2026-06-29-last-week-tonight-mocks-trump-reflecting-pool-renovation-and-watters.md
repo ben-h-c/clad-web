@@ -36,6 +36,10 @@ keyMoments:
 videoId: "tsLKSaGj6pY"
 videoTitle: "Trump's Reflecting Pool Renos #lastweektonight"
 thumbnail: "https://img.youtube.com/vi/tsLKSaGj6pY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Dead ducks add to Trump’s reflecting pool drama"
     url: "https://www.politico.com/news/2026/06/23/dead-ducks-trump-reflecting-pool-00972529"

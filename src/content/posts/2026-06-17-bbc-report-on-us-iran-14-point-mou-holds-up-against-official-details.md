@@ -35,6 +35,10 @@ keyMoments:
 videoId: "dnxss0fn9m4"
 videoTitle: "US and Iran peace plan full details  - end to hostilities “on all fronts” | BBC News"
 thumbnail: "https://img.youtube.com/vi/dnxss0fn9m4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US releases official agreement with Iran. Read the 14-point text"
     url: "https://www.cnn.com/2026/06/17/middleeast/us-iran-war-mou-text-intl"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "UDGrvgFM3yc"
 videoTitle: "Labour's tactical voting machine proves it can stop Reform's rise, says Carol Vorderman"
 thumbnail: "https://img.youtube.com/vi/UDGrvgFM3yc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Burnham Wins Makerfield By-Election, Clearing Path to Challenge Starmer"
     url: "https://www.nytimes.com/2026/06/18/world/europe/uk-makerfield-election.html"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "QNckN9s3t7s"
 videoTitle: "Oil Slides Below $80 as Iran Breakthrough Takes Shape | Insight with Haslinda Amin 06/17/2026"
 thumbnail: "https://img.youtube.com/vi/QNckN9s3t7s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Read the 14-Point Draft Memorandum Between the US and Iran"
     url: "https://news.bgov.com/bloomberg-government-news/read-the-14-point-draft-memorandum-between-the-us-and-iran"

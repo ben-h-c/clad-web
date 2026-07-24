@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Gcr1cs0Ypa4"
 videoTitle: "NYPD memo details Taylor Swift wedding plans "
 thumbnail: "https://img.youtube.com/vi/Gcr1cs0Ypa4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "N.Y.P.D. Memo Outlines Taylor Swift Wedding Events at the Garden"
     url: "https://www.nytimes.com/2026/07/01/nyregion/taylor-swift-wedding-police-roads.html"

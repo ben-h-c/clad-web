@@ -33,6 +33,10 @@ keyMoments:
 videoId: "C90-Zd621-A"
 videoTitle: "Moore sold AT&amp;T while Khanna was buying it — stock has since dropped"
 thumbnail: "https://img.youtube.com/vi/C90-Zd621-A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Ro Khanna"
     slug: "ro-khanna"

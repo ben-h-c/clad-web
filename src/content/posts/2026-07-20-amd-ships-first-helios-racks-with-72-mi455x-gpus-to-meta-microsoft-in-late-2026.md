@@ -39,6 +39,10 @@ keyMoments:
 videoId: "8cO9OTjk5H0"
 videoTitle: "Helios Is AMD’s First AI System To Rival Nvidia Vera Rubin — We Got An Exclusive, First Look"
 thumbnail: "https://img.youtube.com/vi/8cO9OTjk5H0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "AMD Helios Rackscale Solution"
     url: "https://www.amd.com/en/products/rackscale-solutions/helios.html"

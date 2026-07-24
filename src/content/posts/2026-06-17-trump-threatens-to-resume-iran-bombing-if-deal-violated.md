@@ -24,6 +24,10 @@ keyMoments:
 videoId: "blOQfxDmrVM"
 videoTitle: "Trump Says Back to Bombing Iran If They Violate Deal"
 thumbnail: "https://img.youtube.com/vi/blOQfxDmrVM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump goes after critics who want a more comprehensive deal with Iran"
     url: "https://www.politico.com/news/2026/06/17/trump-attacks-skeptics-who-want-a-more-comprehensive-deal-with-iran-00965720"

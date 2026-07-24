@@ -35,6 +35,10 @@ keyMoments:
 videoId: "S0OiT5GOXaY"
 videoTitle: "Scranton's Train Set: Last Week Tonight with John Oliver (Bonus Segments)"
 thumbnail: "https://img.youtube.com/vi/S0OiT5GOXaY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "John Oliver gifts 'irresponsibly large' train set to Scranton TV station"
     url: "https://6abc.com/post/john-oliver-gifts-irresponsibly-large-train-set-to-scranton-tv-station/2444227/"

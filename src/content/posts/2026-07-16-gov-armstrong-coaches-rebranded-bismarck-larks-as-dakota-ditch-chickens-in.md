@@ -34,6 +34,10 @@ keyMoments:
 videoId: "fjxea87AkQU"
 videoTitle: "Gov. Kelly Armstrong steps in as guest coach for Bismarck Larks"
 thumbnail: "https://img.youtube.com/vi/fjxea87AkQU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Kelly Armstrong"
     slug: "kelly-armstrong"

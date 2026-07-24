@@ -39,6 +39,10 @@ keyMoments:
 videoId: "Qjgmrx_93Dk"
 videoTitle: "Trump LOST Iran War: See humiliation of war policy from Right, Left & Center"
 thumbnail: "https://img.youtube.com/vi/Qjgmrx_93Dk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The U.S. Loses Its War Against Iran"
     url: "https://www.nationalreview.com/the-morning-jolt/the-u-s-loses-its-war-against-iran/"

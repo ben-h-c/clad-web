@@ -33,6 +33,10 @@ keyMoments:
 videoId: "xWlZcam3XyM"
 videoTitle: "Search for missing Calgary child stretches into day 6"
 thumbnail: "https://img.youtube.com/vi/xWlZcam3XyM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Update #6: Missing child - Parker"
     url: "https://newsroom.calgary.ca/update-6-missing-child---parker/"

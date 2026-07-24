@@ -31,6 +31,10 @@ keyMoments:
 videoId: "WwL5_PCdWME"
 videoTitle: "Grief, anger surge in Venezuela as families search quake rubble"
 thumbnail: "https://img.youtube.com/vi/WwL5_PCdWME/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "La Guaira: Families calling out to loved ones trapped in rubble by Venezuela quakes"
     url: "https://www.bbc.com/news/articles/cp8l451420zo"

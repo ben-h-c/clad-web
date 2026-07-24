@@ -33,6 +33,10 @@ keyMoments:
 videoId: "fY97ODJPHdw"
 videoTitle: "‘Can’t Let Criminals On Our Streets' | PM Reviews Prison Early Release Scheme After Backlash"
 thumbnail: "https://img.youtube.com/vi/fY97ODJPHdw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "PC Harper’s widow brands killers’ early release ‘deplorable’ as Andy Burnham to review scheme"
     url: "https://www.independent.co.uk/news/uk/politics/andy-burnham-prisoner-early-release-scheme-andrew-harper-b3019412.html"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Lru-k-rlwso"
 videoTitle: "Explosive anti-ICE attack targets NYC federal building | CUOMO Full Show"
 thumbnail: "https://img.youtube.com/vi/Lru-k-rlwso/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trial Begins for Lindsay Clancy, Charged With Murdering Her 3 Children"
     url: "https://www.nytimes.com/2026/07/20/us/lindsey-clancy-murder-trial-duxbury-ma.html"

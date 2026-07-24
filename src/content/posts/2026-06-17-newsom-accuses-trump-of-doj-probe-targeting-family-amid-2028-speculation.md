@@ -34,6 +34,10 @@ keyMoments:
 videoId: "F52LBxSjw6s"
 videoTitle: "California governor accuses Trump of targeting his wife and family | DW News"
 thumbnail: "https://img.youtube.com/vi/F52LBxSjw6s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Gov. Gavin Newsom Says Trump Is Investigating Him and His Wife"
     url: "https://www.nytimes.com/2026/06/15/us/newsom-trump-doj-investigation.html"

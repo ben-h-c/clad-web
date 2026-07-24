@@ -35,6 +35,10 @@ keyMoments:
 videoId: "lKXRYZwHWcU"
 videoTitle: "Tech Volatility Spills Into Asia | The Asia Trade 6/26/2026"
 thumbnail: "https://img.youtube.com/vi/lKXRYZwHWcU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran strikes cargo ship in Strait of Hormuz"
     url: "https://abcnews.com/video/134217612/"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "NJYnIRybrj8"
 videoTitle: "Iran reports civilian casualties as US strikes disrupt daily life | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/NJYnIRybrj8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Casualties of the 2026 Iran war - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Casualties_of_the_2026_Iran_war"

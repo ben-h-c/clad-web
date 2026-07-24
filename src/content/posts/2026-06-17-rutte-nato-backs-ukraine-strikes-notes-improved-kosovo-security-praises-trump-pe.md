@@ -35,6 +35,10 @@ keyMoments:
 videoId: "gRjiBQ6zz6c"
 videoTitle: "Rutte Asked: Does NATO Want Ukraine To Keep Pressure On Russia Up Or Hold Back Talks?"
 thumbnail: "https://img.youtube.com/vi/gRjiBQ6zz6c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "G7 leaders' statement on geopolitical issues: 17 June 2026"
     url: "https://www.gov.uk/government/news/g7-leaders-statement-on-geopolitical-issues-17-june-2026"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "CnfX5MSx5Xk"
 videoTitle: "How horses can help sexual assault survivors heal"
 thumbnail: "https://img.youtube.com/vi/CnfX5MSx5Xk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How horses helped an N.B. woman trust and heal after trauma"
     url: "https://www.cbc.ca/news/canada/new-brunswick/therapy-animals-horses-9.7240145"

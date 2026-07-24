@@ -33,6 +33,10 @@ keyMoments:
 videoId: "bLjh33AHp7Q"
 videoTitle: "Nancy Guthrie ransom letter writer is 'ringmaster,' media like 'circus dogs': Criminologist | CUOMO"
 thumbnail: "https://img.youtube.com/vi/bLjh33AHp7Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What Do the Alleged Ransom Notes in Nancy Guthrie's Disappearance Case Say?"
     url: "https://people.com/nancy-guthrie-disappearance-ransom-notes-what-to-know-11903790"

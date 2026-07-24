@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Tx5OteM_YPY"
 videoTitle: "Lebanon-Israel talks ‘not going very well’ amid ceasefire and withdrawal dispute: Analysis"
 thumbnail: "https://img.youtube.com/vi/Tx5OteM_YPY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Netanyahu vows IDF to remain in south Lebanon 'for as long as necessary,' says 'senior official'"
     url: "https://www.timesofisrael.com/liveblog_entry/netanyahu-vows-idf-to-remain-in-south-lebanon-for-as-long-as-necessary-says-senior-official/"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "HfLzcNKKYuA"
 videoTitle: "Astronauts are doing a space walk to repair robotic arm on the ISS"
 thumbnail: "https://img.youtube.com/vi/HfLzcNKKYuA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Astronauts Ready for Tuesday Spacewalk to Repair Canadarm2 Robotic Arm"
     url: "https://www.nasa.gov/blogs/spacestation/2026/06/29/astronauts-ready-for-tuesday-spacewalk-to-repair-canadarm2-robotic-arm/"

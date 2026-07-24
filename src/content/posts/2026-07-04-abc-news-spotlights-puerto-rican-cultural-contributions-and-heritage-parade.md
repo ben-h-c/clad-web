@@ -35,6 +35,10 @@ keyMoments:
 videoId: "N1ZbGv0UWJE"
 videoTitle: "Celebrating Puerto Rican heritage in America"
 thumbnail: "https://img.youtube.com/vi/N1ZbGv0UWJE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Anthony Ramos named king of 2026 Puerto Rican Day Parade"
     url: "https://www.usatoday.com/videos/news/2026/06/03/anthony-ramos-named-king-of-2026-puerto-rican-day-parade/90173863007/"

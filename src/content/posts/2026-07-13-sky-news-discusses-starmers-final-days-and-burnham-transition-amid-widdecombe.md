@@ -36,6 +36,10 @@ keyMoments:
 videoId: "dRoFtUHJmWc"
 videoTitle: "What does Keir Starmer’s last week look like?"
 thumbnail: "https://img.youtube.com/vi/dRoFtUHJmWc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Keir Starmer announces resignation as UK prime minister"
     url: "https://www.bbc.com/news/articles/cdxd00lg599o"

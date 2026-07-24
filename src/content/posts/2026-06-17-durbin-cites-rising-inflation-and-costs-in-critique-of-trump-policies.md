@@ -35,6 +35,10 @@ keyMoments:
 videoId: "EqamStcn50s"
 videoTitle: "'Another Broken Promise': Dick Durbin Skewers Trump After Inflation Hits Three-Year High"
 thumbnail: "https://img.youtube.com/vi/EqamStcn50s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Consumer Price Index Summary - May 2026"
     url: "https://www.bls.gov/news.release/cpi.nr0.htm"

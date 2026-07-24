@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ElaZpFDXzK8"
 videoTitle: "California Gov. Gavin Newsom says Department of Justice is investigating him and his wife"
 thumbnail: "https://img.youtube.com/vi/ElaZpFDXzK8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Gavin Newsom says DOJ is investigating him and his wife and blames Trump"
     url: "https://www.nbcnews.com/politics/justice-department/gavin-newsom-says-trumps-justice-department-investigating-wife-rcna350167"

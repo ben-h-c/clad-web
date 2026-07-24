@@ -37,6 +37,10 @@ keyMoments:
 videoId: "z0CNKUxNT6E"
 videoTitle: "Israeli Drone Strike Bureij Camp: Deadly Drone Strike Hits Central Gaza Civilians| NewsX World"
 thumbnail: "https://img.youtube.com/vi/z0CNKUxNT6E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US and Iran have agreed to wording of a deal to end their war, Pakistan's prime minister says"
     url: "https://apnews.com/article/iran-us-ceasefire-hezbollah-israel-12-june-2026-7085e386e1c40ee6cfe634210970143f"

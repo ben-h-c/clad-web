@@ -35,6 +35,10 @@ keyMoments:
 videoId: "rCJJw4fYnp8"
 videoTitle: "The Close 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/rCJJw4fYnp8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "S&P 500 Index Overview - SPX"
     url: "https://www.marketwatch.com/investing/index/spx"

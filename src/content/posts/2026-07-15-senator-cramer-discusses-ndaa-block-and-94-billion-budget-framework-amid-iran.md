@@ -34,6 +34,10 @@ keyMoments:
 videoId: "QEDpOuFeym8"
 videoTitle: "Senator Cramer Joins Tony Perkins on &quot;Washington Watch&quot;"
 thumbnail: "https://img.youtube.com/vi/QEDpOuFeym8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Kevin Cramer"
     slug: "kevin-cramer"

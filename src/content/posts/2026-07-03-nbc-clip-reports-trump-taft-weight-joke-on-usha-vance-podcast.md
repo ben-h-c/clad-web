@@ -31,6 +31,10 @@ keyMoments:
 videoId: "vk4bKF9P-a4"
 videoTitle: "Trump jokes about Taft's weight on Usha Vance's podcast"
 thumbnail: "https://img.youtube.com/vi/vk4bKF9P-a4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump reads a children’s book on Usha Vance’s podcast, then riffs on past presidents and himself"
     url: "https://apnews.com/article/trump-storytime-usha-vance-riffs-presidents-children-book-704aeba94c3ed2ff8167b5f1d7f445c5"

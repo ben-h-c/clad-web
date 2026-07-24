@@ -37,6 +37,10 @@ keyMoments:
 videoId: "92sUIoon46g"
 videoTitle: "Trump Mount Rushmore speech labels communism 'mortal threat' ahead of midterms"
 thumbnail: "https://img.youtube.com/vi/92sUIoon46g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Black Book of Communism: Crimes, Terror, Repression"
     url: "https://www.amazon.com/Black-Book-Communism-Crimes-Repression/dp/0674076087"

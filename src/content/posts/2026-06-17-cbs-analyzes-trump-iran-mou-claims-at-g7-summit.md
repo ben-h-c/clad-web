@@ -31,6 +31,10 @@ keyMoments:
 videoId: "jg11AL-hTl4"
 videoTitle: "Takeaways from Trump news conference on Iran deal"
 thumbnail: "https://img.youtube.com/vi/jg11AL-hTl4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump and Vance virtually sign US-Iran agreement"
     url: "https://edition.cnn.com/2026/06/15/world/live-news/iran-war-g7-summit"

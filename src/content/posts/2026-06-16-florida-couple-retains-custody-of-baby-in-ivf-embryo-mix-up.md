@@ -34,6 +34,10 @@ keyMoments:
 videoId: "hJua2S0bBrI"
 videoTitle: "How custody agreement was reached in IVF mix-up"
 thumbnail: "https://img.youtube.com/vi/hJua2S0bBrI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Custody agreement reached for Florida baby at center of IVF mix-up, court documents say"
     url: "https://www.clickorlando.com/news/local/2026/06/15/custody-agreement-reached-for-florida-baby-at-center-of-ivf-mix-up-court-documents-say/"

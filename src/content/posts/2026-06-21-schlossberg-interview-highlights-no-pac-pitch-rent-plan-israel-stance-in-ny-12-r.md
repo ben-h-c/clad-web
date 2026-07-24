@@ -40,6 +40,10 @@ keyMoments:
 videoId: "rdPtb9jkMLY"
 videoTitle: "\"They call me 'No-PAC Jack'\": Schlossberg on why he is DIFFERENT than the other NY-12 candidates"
 thumbnail: "https://img.youtube.com/vi/rdPtb9jkMLY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Emerson College Polling: New York City 2026 Congressional Polling"
     url: "https://emersoncollegepolling.com/new-york-city-2026-congressional-polling-ny-07-ny-10-ny-12/"

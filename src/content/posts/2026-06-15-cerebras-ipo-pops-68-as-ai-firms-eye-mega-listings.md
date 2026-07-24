@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Mh3aaxlPGk4"
 videoTitle: "Trillion‑Dollar AI IPO Wave: SpaceX, OpenAI, Anthropic | Numbers Scream Ep. 25"
 thumbnail: "https://img.youtube.com/vi/Mh3aaxlPGk4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The PermaBull's Blind Spot: What The Cerebras IPO Tells Us About The Super-IPO Season Ahead"
     url: "https://www.forbes.com/sites/shivaramrajgopal/2026/05/21/the-permabulls-blind-spot-what-the-cerebras-ipo-tells-us-about-the-super-ipo-season-ahead/"

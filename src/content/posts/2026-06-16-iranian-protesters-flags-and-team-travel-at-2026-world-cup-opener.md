@@ -35,6 +35,10 @@ keyMoments:
 videoId: "g8LXnnaBGRg"
 videoTitle: "Iranian World Cup protesters call for regime change, criticize pre-revolutionary flag ban | RISING"
 thumbnail: "https://img.youtube.com/vi/g8LXnnaBGRg/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran and New Zealand play out entertaining World Cup ..."
     url: "https://www.nytimes.com/athletic/live-blogs/iran-vs-new-zealand-live-updates-world-cup-2026-score-result/RHCEosMUwyft/"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "PkNtlYpZ6mY"
 videoTitle: "‘PEACE PRESIDENT’: Steve Scalise lauds Trump’s MAJOR Iran victory"
 thumbnail: "https://img.youtube.com/vi/PkNtlYpZ6mY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2025–2026 Iran–United States negotiations - Wikipedia"
     url: "https://en.wikipedia.org/wiki/2025–2026_Iran–United_States_negotiations"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "5fHM876G-hc"
 videoTitle: "Rep. Jared Huffman on why Congress members don&#39;t take Christian Nationalism seriously"
 thumbnail: "https://img.youtube.com/vi/5fHM876G-hc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Jared Huffman"
     slug: "jared-huffman"

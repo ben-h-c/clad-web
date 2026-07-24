@@ -37,6 +37,10 @@ keyMoments:
 videoId: "6Uqst1CTF-I"
 videoTitle: "Rep. Joe Morelle on Trump’s Doubts About US Elections"
 thumbnail: "https://img.youtube.com/vi/6Uqst1CTF-I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump Administration Fires Members of Independent Election Group"
     url: "https://www.nytimes.com/2026/07/10/us/politics/trump-fires-election-assistance-commission-members.html"

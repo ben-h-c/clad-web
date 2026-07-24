@@ -33,6 +33,10 @@ keyMoments:
 videoId: "RESA7JblM6I"
 videoTitle: "Supreme Court rules against Rastafarian inmate in religious freedom case"
 thumbnail: "https://img.youtube.com/vi/RESA7JblM6I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court rules former inmate cannot sue prison guards who cut his dreadlocks"
     url: "https://www.bbc.com/news/articles/cx247v39r1no"

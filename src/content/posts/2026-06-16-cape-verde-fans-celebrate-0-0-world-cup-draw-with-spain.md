@@ -28,6 +28,10 @@ keyMoments:
 videoId: "1cwsAq-fCDo"
 videoTitle: "Cape Verde fans swell with pride after draw against Spain"
 thumbnail: "https://img.youtube.com/vi/1cwsAq-fCDo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Cape Verde frustrate Spain on stunning World Cup debut as Vozinha stars"
     url: "https://www.reuters.com/sports/soccer/spain-stunned-0-0-draw-with-world-cup-debutants-cape-verde-2026-06-15/"

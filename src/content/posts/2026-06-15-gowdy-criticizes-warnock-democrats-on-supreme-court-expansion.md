@@ -38,6 +38,10 @@ keyMoments:
 videoId: "aZ2bVvVjcTc"
 videoTitle: "Gowdy TORCHES Dems' calls to add Supreme Court justices"
 thumbnail: "https://img.youtube.com/vi/aZ2bVvVjcTc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sen. Raphael Warnock Says Packing The Supreme Court, Imposing Term Limits 'On The Table'"
     url: "https://www.thegatewaypundit.com/2026/06/sen-raphael-warnock-says-packing-supreme-court-imposing/"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "YTq4zKvY0GQ"
 videoTitle: "USA TODAY explains what a 'super' El Niño could bring to the U.S."
 thumbnail: "https://img.youtube.com/vi/YTq4zKvY0GQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "El Niño / Southern Oscillation (ENSO)"
     url: "https://www.ncei.noaa.gov/access/monitoring/enso/"

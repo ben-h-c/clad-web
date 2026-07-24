@@ -40,6 +40,10 @@ keyMoments:
 videoId: "XIkNvupZLps"
 videoTitle: "‘NO DOUBT’: Iran was ‘encouraging’ Hezbollah to strike Israel: Ex-CIA station chief"
 thumbnail: "https://img.youtube.com/vi/XIkNvupZLps/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ballistic missile program of Iran"
     url: "https://en.wikipedia.org/wiki/Ballistic_missile_program_of_Iran"

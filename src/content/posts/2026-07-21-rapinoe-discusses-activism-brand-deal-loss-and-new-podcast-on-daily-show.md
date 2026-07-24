@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ZraX7ApS1s8"
 videoTitle: "Megan Rapinoe on Activism, Life Post-Soccer & New Podcast “Why Are You Like This” | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/ZraX7ApS1s8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Megan Rapinoe Is Launching Her Own Interview Podcast, ‘Why Are You Like This?’"
     url: "https://variety.com/2026/digital/news/megan-rapinoe-podcast-why-are-you-like-this-vox-media-1236815838/"

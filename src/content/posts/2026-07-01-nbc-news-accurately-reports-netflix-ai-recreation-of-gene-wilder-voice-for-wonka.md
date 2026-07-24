@@ -32,6 +32,10 @@ keyMoments:
 videoId: "ngBaIr6qEQo"
 videoTitle: "Netflix recreates Gene Wilder’s voice using AI"
 thumbnail: "https://img.youtube.com/vi/ngBaIr6qEQo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Netflix Recreates Gene Wilder’s Voice Using AI For ‘The Golden Ticket’"
     url: "https://deadline.com/2026/06/netflix-gene-wilder-voice-ai-premiere-date-golden-ticket-1236970711/"

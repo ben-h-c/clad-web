@@ -40,6 +40,10 @@ keyMoments:
 videoId: "HI9FKnOS7-E"
 videoTitle: "Laura Ingraham: THEY are making this as 'DANGEROUS' as possible..."
 thumbnail: "https://img.youtube.com/vi/HI9FKnOS7-E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "AbolishICE Resources - Democratic Socialists of America"
     url: "https://www.dsausa.org/organize/abolish_ice_end_muslimban_resources/"

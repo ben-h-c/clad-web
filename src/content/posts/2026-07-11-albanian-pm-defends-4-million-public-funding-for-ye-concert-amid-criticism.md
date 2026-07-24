@@ -33,6 +33,10 @@ keyMoments:
 videoId: "CMUR5BAgjSY"
 videoTitle: "Ye concert: Albanian PM defends paying €4 ​million in state money to host divisive rapper | DW News"
 thumbnail: "https://img.youtube.com/vi/CMUR5BAgjSY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Albania's PM defends $4.56 million public funding for Kanye West concert"
     url: "https://www.nbcnews.com/world/europe/albanias-pm-defends-456-million-public-funding-kanye-west-concert-rcna353520"

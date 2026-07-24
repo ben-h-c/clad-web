@@ -36,6 +36,10 @@ keyMoments:
 videoId: "aRX-fzcV-Gg"
 videoTitle: "'Various Scandals Have Also Plagued The Court': DeLauro Calls To Rebuild Reputation Of SCOTUS"
 thumbnail: "https://img.youtube.com/vi/aRX-fzcV-Gg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ranking Member DeLauro Opening Statement at Supreme Court Hearing"
     url: "https://democrats-appropriations.house.gov/news/statements/ranking-member-delauro-opening-statement-supreme-court-hearing"

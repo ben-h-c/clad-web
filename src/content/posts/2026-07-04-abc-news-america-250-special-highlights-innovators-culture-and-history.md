@@ -35,6 +35,10 @@ keyMoments:
 videoId: "o2-GjgIpDA0"
 videoTitle: "Dreamers & Innovators"
 thumbnail: "https://img.youtube.com/vi/o2-GjgIpDA0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Artemis II Mission Overview"
     url: "https://www.nasa.gov/mission/artemis-ii/"

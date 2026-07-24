@@ -34,6 +34,10 @@ keyMoments:
 videoId: "lG_bMmTpWFI"
 videoTitle: "US-Iran MoU at risk as Hormuz skirmishes test diplomacy: Ex-US ambassador"
 thumbnail: "https://img.youtube.com/vi/lG_bMmTpWFI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S.-Iran Agreement Includes Strait of Hormuz, Lebanon ... - The New York Times"
     url: "https://www.nytimes.com/2026/06/17/us/politics/us-iran-agreement-deal-text.html"

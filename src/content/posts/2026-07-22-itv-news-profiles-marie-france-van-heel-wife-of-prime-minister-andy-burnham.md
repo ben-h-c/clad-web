@@ -39,6 +39,10 @@ keyMoments:
 videoId: "isaKHphLnKg"
 videoTitle: "Who is Andy Burnham's wife Marie-France van Heel?"
 thumbnail: "https://img.youtube.com/vi/isaKHphLnKg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Who is Marie-France van Heel, Andy Burnham's wife?"
     url: "https://www.bbc.com/news/articles/c75y4q61eevo"

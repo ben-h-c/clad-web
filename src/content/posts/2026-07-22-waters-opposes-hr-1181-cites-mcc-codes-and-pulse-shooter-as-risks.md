@@ -37,6 +37,10 @@ keyMoments:
 videoId: "bojJZ-cmfd4"
 videoTitle: "Maxine Waters Blasts Bill, Says It Will 'Make It Easier For Mass Shooters' To Stockpile Guns"
 thumbnail: "https://img.youtube.com/vi/bojJZ-cmfd4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Maxine Waters"
     slug: "maxine-waters"

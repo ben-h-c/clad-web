@@ -34,6 +34,10 @@ keyMoments:
 videoId: "F_09BHpUpXQ"
 videoTitle: "Out of control wildfire causes evacuations in Nova Scotia's Eastern Shore"
 thumbnail: "https://img.youtube.com/vi/F_09BHpUpXQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mandatory evacuation order issued for Mooseland Road wildfire"
     url: "https://www.cbc.ca/news/canada/nova-scotia/jacket-lake-wildfire-rural-halifax-mooseland-road-9.7273148"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "8kCGniv-KVY"
 videoTitle: "Justice Department Charges Eight Tren de Aragua Members"
 thumbnail: "https://img.youtube.com/vi/8kCGniv-KVY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Designating Cartels and Other Organizations as Foreign Terrorist Organizations"
     url: "https://www.whitehouse.gov/presidential-actions/2025/01/designating-cartels-and-other-organizations-as-foreign-terrorist-organizations-and-specially-designated-global-terrorists/"

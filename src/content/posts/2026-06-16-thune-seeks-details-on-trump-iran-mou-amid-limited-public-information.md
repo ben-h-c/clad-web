@@ -31,6 +31,10 @@ keyMoments:
 videoId: "nXnBCb8jTvA"
 videoTitle: "Thune: 'We're All Hoping To Get more Information' About Trump's Iran Memorandum Of Understanding"
 thumbnail: "https://img.youtube.com/vi/nXnBCb8jTvA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Senate GOP pressing Trump for text of Iran deal"
     url: "https://thehill.com/homenews/senate/5926207-gop-presses-donald-trump-iran-deal/"

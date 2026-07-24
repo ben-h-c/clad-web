@@ -35,6 +35,10 @@ keyMoments:
 videoId: "yKwedkYPNg4"
 videoTitle: "&#39;Where Is The Bottleneck?&#39;: Glenn Grothman Asks Witness About Increasing Number Of Trades Jobs"
 thumbnail: "https://img.youtube.com/vi/yKwedkYPNg4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Glenn Grothman"
     slug: "glenn-grothman"

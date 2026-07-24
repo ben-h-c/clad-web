@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Iy-m85dIwkU"
 videoTitle: "Gracie the giraffe found after escaping her enclosure in Texas"
 thumbnail: "https://img.youtube.com/vi/Iy-m85dIwkU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Gracie the Giraffe, who went missing after wandering off a Texas ranch, is finally found"
     url: "https://apnews.com/article/giraffe-escape-texas-gracie-d2b4195738c484d562758c5b24e9e4a9"

@@ -28,6 +28,10 @@ keyMoments:
 videoId: "CzPNsoPyRpk"
 videoTitle: "Albania: 'We need courageous people' to combat greed and corruption • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/CzPNsoPyRpk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2025 Rule of Law brief: Albania"
     url: "https://transparency.eu/2025-rule-of-law-brief-albania/"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "6_Y3NXbmKQo"
 videoTitle: "Senegal's 'plastic man' helps raise awareness about plastic pollution • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/6_Y3NXbmKQo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Turning Plastic Waste into Opportunity in Senegal"
     url: "https://verra.org/case-studies/deekali-plastic-recycling-project/"

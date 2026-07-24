@@ -38,6 +38,10 @@ keyMoments:
 videoId: "9fC2YT9M57c"
 videoTitle: "The Strait of Hormuz standoff that could reignite the Iran War"
 thumbnail: "https://img.youtube.com/vi/9fC2YT9M57c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Lindsey Graham, Republican Senator and Trump Ally, Dies From ‘Sudden Illness’"
     url: "https://www.nytimes.com/2026/07/12/us/politics/lindsey-graham-dead.html"

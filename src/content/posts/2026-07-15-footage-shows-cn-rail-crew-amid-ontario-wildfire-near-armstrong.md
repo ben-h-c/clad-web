@@ -31,6 +31,10 @@ keyMoments:
 videoId: "BfFzjG9v9_c"
 videoTitle: "Video shows a train crew surrounded by intense flames in Canada"
 thumbnail: "https://img.youtube.com/vi/BfFzjG9v9_c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Canada wildfires leaves train 'encased in flames' as smoke from drifts towards US"
     url: "https://www.bbc.com/news/articles/clyjnnrp2k7o"

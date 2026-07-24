@@ -33,6 +33,10 @@ keyMoments:
 videoId: "tvSqr44MFgA"
 videoTitle: "Kimmit: Renewed US-Iran fighting could reignite wider regional conflict"
 thumbnail: "https://img.youtube.com/vi/tvSqr44MFgA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US and Iran threaten return to war after fiercest exchange since truce"
     url: "https://www.theguardian.com/world/2026/jul/08/iran-us-war-ceasefire-peace-agreement-strikes-strait-of-hormuz"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "5jWKzaKT5qU"
 videoTitle: "'TIP OF THE ICEBERG': New York GOP lawmaker says Medicaid probe is just beginning"
 thumbnail: "https://img.youtube.com/vi/5jWKzaKT5qU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US sues New York health officials over alleged fraud in Medicaid homecare program"
     url: "https://www.reuters.com/legal/litigation/us-sues-new-york-health-officials-over-alleged-fraud-medicaid-homecare-program-2026-06-16/"

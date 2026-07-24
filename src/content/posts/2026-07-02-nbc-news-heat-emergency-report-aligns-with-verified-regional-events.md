@@ -34,6 +34,10 @@ keyMoments:
 videoId: "AvZPomlqtkA"
 videoTitle: "Life-threatening heat emergency"
 thumbnail: "https://img.youtube.com/vi/AvZPomlqtkA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Heat-related injuries reported as crowds gather to see historic steam locomotive"
     url: "https://6abc.com/post/heat-related-injuries-reported-berks-county-pa-crowds-gather-see-historic-steam-locomotive-big-boy/19437280/"

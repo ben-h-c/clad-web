@@ -31,6 +31,10 @@ keyMoments:
 videoId: "kkbUttoMW1E"
 videoTitle: "Eight killed in B-52 crash at California base"
 thumbnail: "https://img.youtube.com/vi/kkbUttoMW1E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US Air Force B-52 bomber crashes after takeoff, killing 8"
     url: "https://www.aljazeera.com/news/2026/6/15/us-air-force-b-52-bomber-crashes-after-takeoff-edwards-air-force-base-says"

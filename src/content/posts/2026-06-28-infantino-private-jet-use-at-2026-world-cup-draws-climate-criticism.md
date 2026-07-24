@@ -35,6 +35,10 @@ keyMoments:
 videoId: "n7ovyOitmAA"
 videoTitle: "FIFA World Cup: Infantino's private jet travel fuels criticism | DW News"
 thumbnail: "https://img.youtube.com/vi/n7ovyOitmAA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Infantino's World Cup dash on a private jet sparks climate backlash over 500 tons of CO2"
     url: "https://sports.yahoo.com/articles/infantinos-world-cup-dash-private-105000197.html"

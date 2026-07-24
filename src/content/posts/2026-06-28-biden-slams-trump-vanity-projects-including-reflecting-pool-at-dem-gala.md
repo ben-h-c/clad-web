@@ -37,6 +37,10 @@ keyMoments:
 videoId: "QMjFWNlXRNw"
 videoTitle: "'What A Loser!': Biden Rips Trump Over 'Narcissism And Incompetence' With Reflecting Pool Renovation"
 thumbnail: "https://img.youtube.com/vi/QMjFWNlXRNw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'What a loser': Biden blasts Trump's Reflecting Pool, arch construction"
     url: "https://www.usatoday.com/story/news/politics/2026/06/28/biden-trump-reflecting-pool-kennedy-center/90730303007/"

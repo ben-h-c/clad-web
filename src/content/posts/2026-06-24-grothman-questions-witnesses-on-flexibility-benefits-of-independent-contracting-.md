@@ -32,6 +32,10 @@ keyMoments:
 videoId: "NYUaZg9ctkU"
 videoTitle: "Glenn Grothman Presses Healthcare Professionals On Benefits Of Independent Contracting For Nurses"
 thumbnail: "https://img.youtube.com/vi/NYUaZg9ctkU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "EXAMINING BIDEN'S WAR ON INDEPENDENT CONTRACTORS"
     url: "https://www.congress.gov/event/118th-congress/house-event/LC72564/text"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "O9YEkttyOuU"
 videoTitle: "Eternal Founder Eyes Wellness Device Launch"
 thumbnail: "https://img.youtube.com/vi/O9YEkttyOuU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Eternal Founder Eyes Wellness Device Launch"
     url: "https://www.bloomberg.com/news/videos/2026-07-15/eternal-founder-eyes-wellness-device-launch-video"

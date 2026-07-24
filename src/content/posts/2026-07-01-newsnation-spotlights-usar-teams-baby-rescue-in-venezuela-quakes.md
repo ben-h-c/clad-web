@@ -34,6 +34,10 @@ keyMoments:
 videoId: "28mY9aWa-4w"
 videoTitle: "Inside the Venezuela earthquake rescue that saved a baby’s life | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/28mY9aWa-4w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela earthquake: Anger grows as people rescue their own"
     url: "https://www.cnn.com/2026/07/01/americas/venezuela-earthquake-search-rescue-anger-latam-intl"

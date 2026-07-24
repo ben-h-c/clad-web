@@ -37,6 +37,10 @@ keyMoments:
 videoId: "qoYXDo90CIY"
 videoTitle: "“Now OR NEVER for The King To See Grandchildren” | Meghan And Kids Won’t Join Harry On UK Visit"
 thumbnail: "https://img.youtube.com/vi/qoYXDo90CIY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Prince Harry will not bring Meghan and children on London trip amid dispute over security arrangements"
     url: "https://www.cnn.com/2026/07/04/uk/prince-harry-meghan-uk-visit-intl"

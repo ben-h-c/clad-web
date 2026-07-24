@@ -31,6 +31,10 @@ keyMoments:
 videoId: "-mnv4XqxcRE"
 videoTitle: "Rex Heuermann to be sentenced in New York’s Gilgo Beach serial killings"
 thumbnail: "https://img.youtube.com/vi/-mnv4XqxcRE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Rex Heuermann to be sentenced in New York's Gilgo Beach serial killings"
     url: "https://abc7ny.com/post/rex-heuermann-sentenced-new-yorks-gilgo-beach-serial-killings/19314233/"

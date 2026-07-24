@@ -34,6 +34,10 @@ keyMoments:
 videoId: "jBJQAMUWIFA"
 videoTitle: "Venezuela earthquakes death toll surpasses 1,900 as hopes of finding survivors fade"
 thumbnail: "https://img.youtube.com/vi/jBJQAMUWIFA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: Venezuela earthquake aftershocks reignite fears"
     url: "https://www.cnn.com/2026/06/29/world/live-news/venezuela-earthquake-hnk"

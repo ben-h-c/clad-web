@@ -31,6 +31,10 @@ keyMoments:
 videoId: "2gcUg6LOcvM"
 videoTitle: "Republicans in Congress back Trump, but they still want to see more about the new Iran deal"
 thumbnail: "https://img.youtube.com/vi/2gcUg6LOcvM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US and Iran agree deal to end war as Trump says Strait of Hormuz to reopen"
     url: "https://www.bbc.com/news/articles/c39yvvy273ko"

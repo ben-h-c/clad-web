@@ -37,6 +37,10 @@ keyMoments:
 videoId: "bFcD-drE0lE"
 videoTitle: "'They were best friends': Top Oversight Dem on Ex-Barclays CEO being questioned on Epstein"
 thumbnail: "https://img.youtube.com/vi/bFcD-drE0lE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Robert Garcia"
     slug: "robert-garcia"

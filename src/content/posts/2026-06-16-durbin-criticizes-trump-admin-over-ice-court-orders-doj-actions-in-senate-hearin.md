@@ -36,6 +36,10 @@ keyMoments:
 videoId: "N0lMmPHgvjE"
 videoTitle: "'ICE Had Violated Over 100 Court Orders': Durbin Torches Trump Admin For 'Violating' Court Orders"
 thumbnail: "https://img.youtube.com/vi/N0lMmPHgvjE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Durbin Delivers Opening Statement During Senate Judiciary Committee Nominations Hearing"
     url: "https://www.judiciary.senate.gov/press/dem/releases/durbin-delivers-opening-statement-during-senate-judiciary-committee-nominations-hearing"

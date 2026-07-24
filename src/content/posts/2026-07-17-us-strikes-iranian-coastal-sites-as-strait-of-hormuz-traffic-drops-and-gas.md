@@ -35,6 +35,10 @@ keyMoments:
 videoId: "cYwaYfNumCU"
 videoTitle: "Gas prices rise as U.S. and Iran escalate attacks"
 thumbnail: "https://img.youtube.com/vi/cYwaYfNumCU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

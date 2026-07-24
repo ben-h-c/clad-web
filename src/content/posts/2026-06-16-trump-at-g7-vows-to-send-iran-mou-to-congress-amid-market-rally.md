@@ -35,6 +35,10 @@ keyMoments:
 videoId: "vQcVfNg74h4"
 videoTitle: "Trump on Iran deal: \"I will send it to Congress\""
 thumbnail: "https://img.youtube.com/vi/vQcVfNg74h4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump questions Lindsey Graham's skepticism on Iran deal"
     url: "https://thehill.com/homenews/administration/5926213-trump-graham-iran-deal-skepticism/"

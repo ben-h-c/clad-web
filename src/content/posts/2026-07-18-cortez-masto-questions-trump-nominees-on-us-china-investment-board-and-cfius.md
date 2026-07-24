@@ -35,6 +35,10 @@ keyMoments:
 videoId: "t2kMP9zln-M"
 videoTitle: "'What Do You Think About That?': Cortez Masto Asks Trump Official About Chinese Investment In The US"
 thumbnail: "https://img.youtube.com/vi/t2kMP9zln-M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Catherine Cortez Masto"
     slug: "catherine-cortez-masto"

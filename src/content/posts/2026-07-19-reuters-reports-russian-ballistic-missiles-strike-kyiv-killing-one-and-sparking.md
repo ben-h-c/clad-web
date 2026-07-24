@@ -27,6 +27,10 @@ keyMoments:
 videoId: "ur7u2DOX30c"
 videoTitle: "Russia batters Kyiv in major ballistic missile attack"
 thumbnail: "https://img.youtube.com/vi/ur7u2DOX30c/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russian missiles strike Kyiv killing one, wounding 13"
     url: "https://www.reuters.com/world/europe/russian-ballistic-missiles-rock-kyiv-one-killed-officials-say-2026-07-19/"

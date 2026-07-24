@@ -41,6 +41,10 @@ keyMoments:
 videoId: "Ah8wkfW5URY"
 videoTitle: "Albanian PM Rama opens up about Kushner-linked tourism project"
 thumbnail: "https://img.youtube.com/vi/Ah8wkfW5URY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Albania approves luxury resort project linked to Jared Kushner’s company"
     url: "https://www.reuters.com/business/albania-approves-luxury-resort-project-linked-jared-kushners-company-2025-01-16/"

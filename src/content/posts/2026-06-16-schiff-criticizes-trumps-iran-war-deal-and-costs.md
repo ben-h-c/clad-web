@@ -36,6 +36,10 @@ keyMoments:
 videoId: "akErrcKnXOI"
 videoTitle: "'Those Billions You Paid At The Pump Are Going To Go To Iran': Adam Schiff Shreds Trump's Iran Deal"
 thumbnail: "https://img.youtube.com/vi/akErrcKnXOI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sen. Schiff on Trump Administration's New Letter Claiming ..."
     url: "https://www.schiff.senate.gov/news/press-releases/statement-sen-schiff-on-trump-administrations-new-letter-claiming-iran-war-is-terminated/"

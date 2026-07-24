@@ -31,6 +31,10 @@ keyMoments:
 videoId: "5nELO7ZqVf8"
 videoTitle: "Feds hand over evidence in Renee Good and Alex Pretti killings to Minnesota prosecutors"
 thumbnail: "https://img.youtube.com/vi/5nELO7ZqVf8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Prosecutors get long-withheld evidence on fatal shootings of Renée Good and Alex Pretti"
     url: "https://www.theguardian.com/us-news/2026/jul/13/renee-good-alex-pretti-minnesota-evidence"

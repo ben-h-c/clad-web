@@ -37,6 +37,10 @@ keyMoments:
 videoId: "fpKwrinS0Fw"
 videoTitle: "South Africa braces for mass anti-immigration protests | DW News"
 thumbnail: "https://img.youtube.com/vi/fpKwrinS0Fw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Thousands seek way out as South Africa braces for anti-immigrant protests"
     url: "https://www.reuters.com/world/africa/thousands-seek-way-out-south-africa-braces-anti-immigrant-protests-2026-06-26/"

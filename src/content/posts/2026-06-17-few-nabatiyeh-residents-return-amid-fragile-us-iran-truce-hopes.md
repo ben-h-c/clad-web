@@ -34,6 +34,10 @@ keyMoments:
 videoId: "0X4I3qv7_Lc"
 videoTitle: "Few residents return to Nabatiyeh, Lebanon after a US-Iran truce"
 thumbnail: "https://img.youtube.com/vi/0X4I3qv7_Lc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Lebanon war"
     url: "https://en.wikipedia.org/wiki/2026_Lebanon_war"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Dt3ZTu1qSxY"
 videoTitle: "BREAKING NEWS: Jon Ossoff Torches Trump, Mike Collins Over Iran War, Affordability, And More"
 thumbnail: "https://img.youtube.com/vi/Dt3ZTu1qSxY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sen. Ossoff Statement on Iran"
     url: "https://www.ossoff.senate.gov/press-releases/sen-ossoff-statement-on-iran/"

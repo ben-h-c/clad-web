@@ -36,6 +36,10 @@ keyMoments:
 videoId: "8VduhuK5mV4"
 videoTitle: "US-Iran Deal Details Emerge in 14-Point Memorandum | The Pulse 6/17/2026"
 thumbnail: "https://img.youtube.com/vi/8VduhuK5mV4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Experts react: The US and Iran just announced an interim peace deal"
     url: "https://www.atlanticcouncil.org/dispatches/experts-react-the-us-and-iran-just-announced-an-interim-peace-deal-heres-what-we-know-so-far/"

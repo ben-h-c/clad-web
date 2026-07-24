@@ -30,6 +30,10 @@ keyMoments:
 videoId: "XSXvoOGTVdU"
 videoTitle: "G7 Group Photo"
 thumbnail: "https://img.youtube.com/vi/XSXvoOGTVdU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "President Trump Participates in a Group Photo with World Leaders at G7 Summit"
     url: "https://www.c-span.org/program/white-house-event/president-trump-participates-in-group-photo-with-world-leaders-at-g7-summit/681128"

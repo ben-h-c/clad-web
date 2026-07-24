@@ -38,6 +38,10 @@ keyMoments:
 videoId: "iirh2WlZnbA"
 videoTitle: "The New Geopolitics of Health w/ Rep. Ami Bera | Hill Nation Summit"
 thumbnail: "https://img.youtube.com/vi/iirh2WlZnbA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Ami Bera"
     slug: "ami-bera"

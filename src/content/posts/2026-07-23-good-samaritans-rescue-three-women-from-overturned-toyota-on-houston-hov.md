@@ -32,6 +32,10 @@ keyMoments:
 videoId: "JYu-frWn43A"
 videoTitle: "Heroic Houston highway rescue"
 thumbnail: "https://img.youtube.com/vi/JYu-frWn43A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Car falls from HOV lane onto Southwest Freeway northbound at Beltway 8 in Houston"
     url: "https://www.khou.com/article/traffic/crash-shuts-down-southwest-freeway-northbound-at-beltway-8-in-houston-hov/285-ae2b03cb-7999-4b2a-af54-d68ce4129094"

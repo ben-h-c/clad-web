@@ -34,6 +34,10 @@ keyMoments:
 videoId: "2A5HW5kVW1c"
 videoTitle: "Protests staged outside Iran's World Cup opener in Los Angeles"
 thumbnail: "https://img.youtube.com/vi/2A5HW5kVW1c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran 2-2 New Zealand (Jun 15, 2026) Final Score - ESPN"
     url: "https://www.espn.com/soccer/match/_/gameId/760427/new-zealand-iran"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "OlQl9WJkKJI"
 videoTitle: "Will there ever be an agreement between the Gulf States and Iran?"
 thumbnail: "https://img.youtube.com/vi/OlQl9WJkKJI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UAE to unlock frozen Iranian funds amid US ceasefire push"
     url: "https://www.aljazeera.com/news/2026/6/12/uae-to-unlock-frozen-iranian-funds-amid-us-ceasefire-push"

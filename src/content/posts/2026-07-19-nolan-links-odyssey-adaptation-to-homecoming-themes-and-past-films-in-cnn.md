@@ -31,6 +31,10 @@ keyMoments:
 videoId: "XgixiP62NZ8"
 videoTitle: "'The Odyssey': Why Nolan keeps making films on men returning home"
 thumbnail: "https://img.youtube.com/vi/XgixiP62NZ8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Odyssey (2026 film)"
     url: "https://en.wikipedia.org/wiki/The_Odyssey_(2026_film)"

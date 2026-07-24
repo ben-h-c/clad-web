@@ -31,6 +31,10 @@ keyMoments:
 videoId: "9aDS94CAlCs"
 videoTitle: "Zelensky denies Russian capture of key eastern city • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/9aDS94CAlCs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russian defence ministry says its forces captured Kostiantynivka in eastern Ukraine"
     url: "https://www.reuters.com/business/aerospace-defense/russian-defence-ministry-says-its-forces-captured-kostiantynivka-eastern-ukraine-2026-07-03/"

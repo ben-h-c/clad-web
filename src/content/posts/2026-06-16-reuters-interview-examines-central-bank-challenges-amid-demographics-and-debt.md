@@ -35,6 +35,10 @@ keyMoments:
 videoId: "i-Xywaun1E8"
 videoTitle: "Why central bankers face an inflation reckoning"
 thumbnail: "https://img.youtube.com/vi/i-Xywaun1E8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Unanchored Central Banker: Demography, Fiscal Instability, and an Erosion of the Central Bank's Inflation-Fighting Ability"
     url: "https://unanchoredcentralbanker.com/"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Hk74kf0kSxs"
 videoTitle: "Moolenaar Ask Witness How Congress Can 'Raise The Cost' Of CCP's Malign Influence Efforts In The US"
 thumbnail: "https://img.youtube.com/vi/Hk74kf0kSxs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Anthropic accuses Alibaba of campaign to extract AI capabilities"
     url: "https://www.cnbc.com/2026/06/24/anthropic-alibaba-distillation-campaign.html"

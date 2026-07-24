@@ -32,6 +32,10 @@ keyMoments:
 videoId: "zrbpGk8TBW0"
 videoTitle: "Border collies Ben and Sally guard World Cup pitches in Toronto"
 thumbnail: "https://img.youtube.com/vi/zrbpGk8TBW0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "No wild goose chase: Two dogs keep birds off World Cup training pitch in Toronto"
     url: "https://www.reuters.com/sports/soccer/no-wild-goose-chase-two-dogs-keep-birds-off-world-cup-training-pitch-toronto-2026-06-25/"

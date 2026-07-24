@@ -28,6 +28,10 @@ keyMoments:
 videoId: "V10-tdGF4HE"
 videoTitle: "Prada plays a part in designing NASA’s lunar mission spacesuits"
 thumbnail: "https://img.youtube.com/vi/V10-tdGF4HE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Prada and Axiom Space | PRADA"
     url: "https://www.prada.com/us/en/pradasphere/special-projects/2024/prada-axiom.html"

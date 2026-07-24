@@ -35,6 +35,10 @@ keyMoments:
 videoId: "JYP9Q_C3nx8"
 videoTitle: "Are GLP-1s miracle drugs? Dr. Oz weighs in | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/JYP9Q_C3nx8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fact Sheet: President Donald J. Trump Announces Major Developments in Bringing Most Favored Nation Pricing to American Patients"
     url: "https://www.whitehouse.gov/fact-sheets/2025/11/fact-sheet-president-donald-j-trump-announces-major-developments-in-bringing-most-favored-nation-pricing-to-american-patients/"

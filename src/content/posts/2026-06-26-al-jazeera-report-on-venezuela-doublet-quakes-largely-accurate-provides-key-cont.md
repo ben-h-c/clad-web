@@ -36,6 +36,10 @@ keyMoments:
 videoId: "5gYQezP_8k4"
 videoTitle: "Everything we know so far about the deadly earthquakes in Venezuela"
 thumbnail: "https://img.youtube.com/vi/5gYQezP_8k4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "June 24-25, 2026 — Venezuela rocked by 7.5 and 7.2 magnitude earthquakes"
     url: "https://www.cnn.com/2026/06/24/weather/live-news/venezuela-earthquake-puerto-rico-tsunami"

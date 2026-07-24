@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Goj0YGXeDso"
 videoTitle: "Water in Reflecting Pool turns green from algae"
 thumbnail: "https://img.youtube.com/vi/Goj0YGXeDso/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Algae Is Turning the Reflecting Pool Green. Again."
     url: "https://www.nytimes.com/2026/06/15/climate/reflecting-pool-algae-green.html"

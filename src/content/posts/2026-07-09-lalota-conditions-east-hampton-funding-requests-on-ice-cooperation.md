@@ -34,6 +34,10 @@ keyMoments:
 videoId: "-T2vJNXQbCk"
 videoTitle: "Nick LaLota Is Witholding Federal Funding"
 thumbnail: "https://img.youtube.com/vi/-T2vJNXQbCk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Nick LaLota"
     slug: "nick-lalota"

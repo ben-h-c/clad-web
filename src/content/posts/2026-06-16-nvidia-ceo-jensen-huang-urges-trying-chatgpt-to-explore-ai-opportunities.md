@@ -28,6 +28,10 @@ keyMoments:
 videoId: "r78r14q6KoA"
 videoTitle: "Nvidia CEO Jensen Huang encourages engaging with AI: 'Open up ChatGPT'"
 thumbnail: "https://img.youtube.com/vi/r78r14q6KoA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Nvidia CEO Jensen Huang on his favorite AI chatbot: I use ChatGPT daily but…"
     url: "https://timesofindia.indiatimes.com/technology/tech-news/nvidia-ceo-jensen-huang-on-his-favorite-ai-chatbot-i-use-chatgpt-daily-but-/articleshow/123998356.cms"

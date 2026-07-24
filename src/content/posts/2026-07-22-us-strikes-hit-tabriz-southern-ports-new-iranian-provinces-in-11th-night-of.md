@@ -36,6 +36,10 @@ keyMoments:
 videoId: "GLz52IY2GzI"
 videoTitle: "US military carries out 11th consecutive night of air attacks against Iranian targets"
 thumbnail: "https://img.youtube.com/vi/GLz52IY2GzI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What is Iran’s Pickaxe Mountain, the facility buried 100 meters under a mountain?"
     url: "https://www.cnn.com/2026/07/22/middleeast/iran-pickaxe-mountain-nuclear-site-explainer-intl-hnk"

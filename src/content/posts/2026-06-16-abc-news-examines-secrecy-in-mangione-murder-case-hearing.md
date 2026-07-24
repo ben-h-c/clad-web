@@ -34,6 +34,10 @@ keyMoments:
 videoId: "PKg9EDeQj-4"
 videoTitle: "Luigi Mangione back in court after judge's secret hearing"
 thumbnail: "https://img.youtube.com/vi/PKg9EDeQj-4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Judge in Luigi Mangione case holds secret hearing despite press objections"
     url: "https://www.theguardian.com/us-news/2026/jun/03/luigi-mangione-secret-sealed-hearing"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Ut0UT1LqJq0"
 videoTitle: "US-Iran deal: ‘Disastrous,’ or wait and see? | Batya!"
 thumbnail: "https://img.youtube.com/vi/Ut0UT1LqJq0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Does Trump have to submit the Iran memorandum of understanding to Congress?"
     url: "https://www.aljazeera.com/news/2026/6/19/does-trump-have-to-submit-the-iran-memorandum-of-understanding-to-congress"

@@ -40,6 +40,10 @@ keyMoments:
 videoId: "alkWVq5aYw0"
 videoTitle: "Meet the Press Full Episode — June 14"
 thumbnail: "https://img.youtube.com/vi/alkWVq5aYw0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says 'I love the inflation' as Iran war continues to spike prices"
     url: "https://www.nbcnews.com/meet-the-press/video/trump-says-i-love-the-inflation-as-iran-war-continues-to-spike-prices-264901701655"

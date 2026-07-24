@@ -32,6 +32,10 @@ keyMoments:
 videoId: "hYoADwfFJEc"
 videoTitle: "Could Venezuela's deadly earthquakes harm its redevelopment? | Global News Podcast"
 thumbnail: "https://img.youtube.com/vi/hYoADwfFJEc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela declares state of emergency after deadly twin earthquakes"
     url: "https://www.theguardian.com/world/2026/jun/25/earthquake-venezuela-caracas-tremors-aftershocks"

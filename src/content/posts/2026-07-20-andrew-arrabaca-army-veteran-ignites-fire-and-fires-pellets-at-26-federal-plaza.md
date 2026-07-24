@@ -35,6 +35,10 @@ keyMoments:
 videoId: "2quVdeq5ing"
 videoTitle: "FBI: Former soldier set off incendiary outside New York City federal building"
 thumbnail: "https://img.youtube.com/vi/2quVdeq5ing/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Veteran Was Targeting ICE in Attack on Federal Building, Authorities Say"
     url: "https://www.nytimes.com/2026/07/20/nyregion/nyc-explosion-federal-plaza-manhattan.html"

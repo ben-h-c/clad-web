@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Z_IrmMow5TY"
 videoTitle: "'TRIPLE WIN': Trump's done something that no president's done before, Burgum says #shorts"
 thumbnail: "https://img.youtube.com/vi/Z_IrmMow5TY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Doug Burgum Claims Trump Won The Iran War Outright"
     url: "https://www.mediaite.com/media/tv/doug-burgum-claims-trump-won-the-iran-war-outright-despite-no-firm-nuke-deal/"

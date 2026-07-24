@@ -34,6 +34,10 @@ keyMoments:
 videoId: "HkCrhLf-ksY"
 videoTitle: "7 Natural Wonders of America': Redwood National and State Parks"
 thumbnail: "https://img.youtube.com/vi/HkCrhLf-ksY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Coast Redwood - NPS"
     url: "https://www.nps.gov/articles/000/coast-redwood.htm"

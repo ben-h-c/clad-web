@@ -35,6 +35,10 @@ keyMoments:
 videoId: "gQeIfiTvyjA"
 videoTitle: "Blight: Thomas's dissent reflects 'an ideology in search of a history'"
 thumbnail: "https://img.youtube.com/vi/gQeIfiTvyjA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jackson rebukes Thomas over his birthright citizenship dissent"
     url: "https://thehill.com/regulation/court-battles/5948630-justice-jackson-clarence-thomas/"

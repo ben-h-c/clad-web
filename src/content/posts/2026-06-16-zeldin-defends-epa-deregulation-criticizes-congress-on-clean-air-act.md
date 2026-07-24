@@ -31,6 +31,10 @@ keyMoments:
 videoId: "QHcc0vZ1s0I"
 videoTitle: "Lee Zeldin gets fired up about ‘morally bankrupt’ members of Congress"
 thumbnail: "https://img.youtube.com/vi/QHcc0vZ1s0I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "POLITICO's Energy Summit"
     url: "https://www.politico.com/events/2026/06/10/politicos-energy-summit-00001645"

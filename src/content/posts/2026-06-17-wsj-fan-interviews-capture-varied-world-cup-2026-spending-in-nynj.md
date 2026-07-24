@@ -31,6 +31,10 @@ keyMoments:
 videoId: "8GAe2_T27dw"
 videoTitle: "How Much Did Fans Spend on the FIFA World Cup?"
 thumbnail: "https://img.youtube.com/vi/8GAe2_T27dw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "World Cup 2026: How much will it cost to attend"
     url: "https://www.nytimes.com/athletic/7314930/2026/06/02/world-cup-2026-cost-calculator-dollars/"

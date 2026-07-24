@@ -40,6 +40,10 @@ keyMoments:
 videoId: "TcZ-feuZPLY"
 videoTitle: "Harris: 'Bureaucracy & Government Is Overwhelming In Its Ability To Slow Down Innovation & Progress'"
 thumbnail: "https://img.youtube.com/vi/TcZ-feuZPLY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Efforts to Regulate California Data Centers Falter—For Now"
     url: "https://www.mayerbrown.com/en/insights/publications/2025/12/efforts-to-regulate-california-data-centers-falter-for-now"

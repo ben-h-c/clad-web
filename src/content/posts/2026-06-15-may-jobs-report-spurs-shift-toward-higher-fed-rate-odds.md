@@ -40,6 +40,10 @@ keyMoments:
 videoId: "6-DLp3g9jqk"
 videoTitle: "It’s Official: The Fed is Now 72% More Likely to RAISE Rates"
 thumbnail: "https://img.youtube.com/vi/6-DLp3g9jqk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Employment Situation Summary - 2026 M05 Results"
     url: "https://www.bls.gov/news.release/empsit.nr0.htm"

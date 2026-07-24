@@ -31,6 +31,10 @@ keyMoments:
 videoId: "U6LDJxlYL60"
 videoTitle: "Pole dancer floods her apartment"
 thumbnail: "https://img.youtube.com/vi/U6LDJxlYL60/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Dance pole hits sprinkler flooding Houston apartment"
     url: "https://www.fox26houston.com/news/houston-woman-floods-apartment-after-dance-pole-hits-fire-sprinkler-amid-practice"

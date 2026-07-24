@@ -35,6 +35,10 @@ keyMoments:
 videoId: "mn3v94iwORQ"
 videoTitle: "Is Democratic socialist Janeese Lewis George ready to be DC's Zohran Mamdani? | Sunrise"
 thumbnail: "https://img.youtube.com/vi/mn3v94iwORQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "D.C. mayor primary election live results"
     url: "https://www.washingtonpost.com/elections/2026/06/16/dc-mayor-primary-election-live-results-democrats-vie-replace-bowser/"

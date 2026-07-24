@@ -36,6 +36,10 @@ keyMoments:
 videoId: "KPlrdNjTw28"
 videoTitle: "The market MISREAD this, expert reveals"
 thumbnail: "https://img.youtube.com/vi/KPlrdNjTw28/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Federal Reserve Board - News & Events"
     url: "https://www.federalreserve.gov/newsevents.htm"

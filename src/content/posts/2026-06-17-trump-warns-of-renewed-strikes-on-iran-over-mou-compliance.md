@@ -35,6 +35,10 @@ keyMoments:
 videoId: "j58wDmPuz0Y"
 videoTitle: "Trump says U.S. may bomb Iran again if Iran does not abide by agreement"
 thumbnail: "https://img.youtube.com/vi/j58wDmPuz0Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says U.S., Iran Close to Deal"
     url: "https://www.armscontrol.org/act/2026-06/news/trump-says-us-iran-close-deal"

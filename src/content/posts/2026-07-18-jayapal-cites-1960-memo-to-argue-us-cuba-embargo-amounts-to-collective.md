@@ -37,6 +37,10 @@ keyMoments:
 videoId: "TyDHjkOiyOM"
 videoTitle: "The collective punishment of the Cuban people is wrong"
 thumbnail: "https://img.youtube.com/vi/TyDHjkOiyOM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Pramila Jayapal"
     slug: "pramila-jayapal"

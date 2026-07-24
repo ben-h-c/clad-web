@@ -32,6 +32,10 @@ keyMoments:
 videoId: "Zz5ncSjz5CU"
 videoTitle: "Strickland Questions Former FEMA Administrator on Politicization of Non-Disaster Grant Programs"
 thumbnail: "https://img.youtube.com/vi/Zz5ncSjz5CU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Marilyn Strickland"
     slug: "marilyn-strickland"

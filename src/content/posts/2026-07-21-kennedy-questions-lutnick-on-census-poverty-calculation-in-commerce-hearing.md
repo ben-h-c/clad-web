@@ -37,6 +37,10 @@ keyMoments:
 videoId: "_Px6AkfyHjw"
 videoTitle: "John Kennedy DESTROYS Howard Lutnick Over America&#39;s $1.4 Trillion Poverty Disaster!!!"
 thumbnail: "https://img.youtube.com/vi/_Px6AkfyHjw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Howard Lutnick"
     slug: "howard-lutnick"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "9ZKDLS6eZXM"
 videoTitle: "Moral Clarity‼️🔥🔥 #usa #america #israel #palestine #iran #politics #congress #uk #nyc #newyork"
 thumbnail: "https://img.youtube.com/vi/9ZKDLS6eZXM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Application of the Convention on the Prevention and Punishment of the Crime of Genocide in the Gaza Strip (South Africa v. Israel)"
     url: "https://www.icj-cij.org/case/192"

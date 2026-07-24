@@ -33,6 +33,10 @@ keyMoments:
 videoId: "BY5wgcNGf1o"
 videoTitle: "Thune threatens to fund government through reconciliation"
 thumbnail: "https://img.youtube.com/vi/BY5wgcNGf1o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "John Thune"
     slug: "john-thune"

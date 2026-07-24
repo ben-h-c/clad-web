@@ -34,6 +34,10 @@ keyMoments:
 videoId: "IUfS35eVbEc"
 videoTitle: "Redistricting push may give Republicans an edge in midterms, report finds"
 thumbnail: "https://img.youtube.com/vi/IUfS35eVbEc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Republicans won the redistricting battle. Now voters will decide whether they win Congress"
     url: "https://www.pbs.org/newshour/politics/republicans-won-the-redistricting-battle-now-voters-will-decide-whether-they-win-congress"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "UyFqn3Bn9RE"
 videoTitle: "Full Episode: TODAY Show - June 16"
 thumbnail: "https://img.youtube.com/vi/UyFqn3Bn9RE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "G7 summit live updates: Trump meets with leaders about ..."
     url: "https://apnews.com/live/trump-g7-iran-updates-06-16-2026"

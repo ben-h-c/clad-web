@@ -40,6 +40,10 @@ keyMoments:
 videoId: "5zsxEktLeq0"
 videoTitle: "The Late Show Live | Saturday 27th June"
 thumbnail: "https://img.youtube.com/vi/5zsxEktLeq0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "England 2-0 Panama: World Cup 2026 reaction"
     url: "https://www.espn.com/soccer/story/_/id/49199409/england-panama-live-world-cup-2026-latest-updates-commentary-score-result"

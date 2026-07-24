@@ -38,6 +38,10 @@ keyMoments:
 videoId: "7CF__O1Hma0"
 videoTitle: "Iran closing Strait of Hormuz over deadly Israeli attacks on Lebanon"
 thumbnail: "https://img.youtube.com/vi/7CF__O1Hma0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran closes Strait of Hormuz over ceasefire violations, state media reports"
     url: "https://www.nbcnews.com/now/video/iran-closes-strait-of-hormuz-over-ceasefire-violations-state-media-reports-265420869526"

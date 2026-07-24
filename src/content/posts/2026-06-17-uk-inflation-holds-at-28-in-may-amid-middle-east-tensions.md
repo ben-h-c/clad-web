@@ -35,6 +35,10 @@ keyMoments:
 videoId: "5iqcvglUXgI"
 videoTitle: "Rate of inflation remains flat despite expectations: What's behind it?"
 thumbnail: "https://img.youtube.com/vi/5iqcvglUXgI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Consumer price inflation, UK: May 2026"
     url: "https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/may2026"

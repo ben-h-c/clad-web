@@ -34,6 +34,10 @@ keyMoments:
 videoId: "yXTQ0EBd5J0"
 videoTitle: "One dead and 11 very seriously injured in Bedford train crash | BBC News"
 thumbnail: "https://img.youtube.com/vi/yXTQ0EBd5J0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Bedford train collision"
     url: "https://en.wikipedia.org/wiki/2026_Bedford_train_collision"

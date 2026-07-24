@@ -35,6 +35,10 @@ keyMoments:
 videoId: "nCSII5fCHsw"
 videoTitle: "SpaceX Soars in 3rd Day of Trading, Set to Overtake Amazon| Bloomberg Businessweek Daily 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/nCSII5fCHsw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX IPO leaves retail investors with too few shares and a tough hold-or-sell decision"
     url: "https://www.cnbc.com/2026/06/15/spacex-ipo-leaves-retail-investors-with-too-few-shares-and-a-tough-hold-or-sell-decision.html"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "fTdtwwi5BVs"
 videoTitle: "England held to a goalless draw against Ghana | Analysis"
 thumbnail: "https://img.youtube.com/vi/fTdtwwi5BVs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "England's scoreless draw to Ghana exposes World Cup run worries"
     url: "https://www.espn.com/soccer/story/_/id/49157690/england-scoreless-draw-ghana-exposes-world-cup-run-worries"

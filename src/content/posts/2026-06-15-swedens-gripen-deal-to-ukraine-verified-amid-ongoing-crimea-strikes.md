@@ -39,6 +39,10 @@ keyMoments:
 videoId: "6BfCTzpQtAs"
 videoTitle: "Why Ukraine's new Gripen fighter jets completely rip up Putin's air playbook | Battle Plans Exposed"
 thumbnail: "https://img.youtube.com/vi/6BfCTzpQtAs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sweden to sell Gripen E/F fighter aircraft to Ukraine"
     url: "https://www.government.se/press-releases/2026/05/sweden-to-sell-gripen-ef-fighter-aircraft-to-ukraine/"

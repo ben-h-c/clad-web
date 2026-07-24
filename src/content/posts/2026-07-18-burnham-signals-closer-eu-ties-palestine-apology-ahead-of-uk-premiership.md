@@ -37,6 +37,10 @@ keyMoments:
 videoId: "GCI0Crp2l7k"
 videoTitle: "UK's next prime minister: Burnham lines up foreign policy agenda"
 thumbnail: "https://img.youtube.com/vi/GCI0Crp2l7k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham, a mayor from England’s north, is poised to become Britain’s next prime minister"
     url: "https://apnews.com/article/andy-burnham-profile-uk-prime-minister-d9b573820fc8eda4975d8c67d60b2a28"

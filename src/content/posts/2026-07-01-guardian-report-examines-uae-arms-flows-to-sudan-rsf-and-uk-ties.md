@@ -35,6 +35,10 @@ keyMoments:
 videoId: "L-n6xt0_sg0"
 videoTitle: "Why the UK is accused of allowing the UAE to fuel war in Sudan"
 thumbnail: "https://img.youtube.com/vi/L-n6xt0_sg0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sudan: Advanced Chinese weaponry provided by UAE identified in breach of arms embargo"
     url: "https://www.amnesty.org/en/latest/news/2025/05/sudan-advanced-chinese-weaponry-provided-by-uae-identified-in-breach-of-arms-embargo-new-investigation/"

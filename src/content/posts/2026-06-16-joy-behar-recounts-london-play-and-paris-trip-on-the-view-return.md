@@ -35,6 +35,10 @@ keyMoments:
 videoId: "FosNugHQbcg"
 videoTitle: "Joy Behar Returns To 'The View' After European Trip | The View"
 thumbnail: "https://img.youtube.com/vi/FosNugHQbcg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Joy Behar steps back from 'The View' as she takes her play to London"
     url: "https://www.latimes.com/entertainment-arts/business/story/2026-05-28/joy-behar-steps-back-from-the-view-what-to-know"

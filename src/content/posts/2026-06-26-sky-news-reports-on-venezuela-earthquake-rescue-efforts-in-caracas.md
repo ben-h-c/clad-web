@@ -31,6 +31,10 @@ keyMoments:
 videoId: "fz5slt_r2qc"
 videoTitle: "Rescue workers search for survivors in Caracas as number of deaths rise after Venezuela earthquakes"
 thumbnail: "https://img.youtube.com/vi/fz5slt_r2qc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela earthquakes latest: Hundreds killed and around 50,000 reported missing"
     url: "https://news.sky.com/story/venezuela-earthquake-live-high-casualties-feared-after-back-to-back-tremors-hit-south-american-country-13557399"

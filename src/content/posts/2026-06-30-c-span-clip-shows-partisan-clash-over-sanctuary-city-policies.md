@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Ow8cbZnHOZw"
 videoTitle: "Shouting Match at Sanctuary City Hearing"
 thumbnail: "https://img.youtube.com/vi/Ow8cbZnHOZw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mayors Testify at Hearing on Sanctuary Cities, Part 1"
     url: "https://www.c-span.org/program/house-committee/mayors-testify-at-hearing-on-sanctuary-cities-part-1/656393"

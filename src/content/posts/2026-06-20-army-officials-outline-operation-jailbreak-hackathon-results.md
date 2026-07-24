@@ -34,6 +34,10 @@ keyMoments:
 videoId: "psYl08yZOxU"
 videoTitle: "'This Is A Little Bit Of A Culture Clash': Cramer Asks Army Official About Army Hackathon"
 thumbnail: "https://img.youtube.com/vi/psYl08yZOxU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Army advances historic, first 'Right to Integrate' hackathon"
     url: "https://www.army.mil/article/292898/army_advances_historic_first_right_to_integrate_hackathon_accelerating_data_sharing_on_the_battlefield"

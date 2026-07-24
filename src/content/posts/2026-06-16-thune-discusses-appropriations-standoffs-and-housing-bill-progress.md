@@ -32,6 +32,10 @@ keyMoments:
 videoId: "DhR1Xnv6zDU"
 videoTitle: "Thune Asked: 'Do You See Yourself Staring Down The Likelihood Of Another One Or Two Or More CRs?'"
 thumbnail: "https://img.youtube.com/vi/DhR1Xnv6zDU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Senate eyes vote on updated housing affordability legislation"
     url: "https://www.politico.com/live-updates/2026/06/15/congress/senate-housing-affordability-bill-00962103"

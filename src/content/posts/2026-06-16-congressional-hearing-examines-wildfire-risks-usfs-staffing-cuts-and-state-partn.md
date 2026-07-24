@@ -38,6 +38,10 @@ keyMoments:
 videoId: "IDN7fCfVltE"
 videoTitle: "Emily Randall Asks USFS Chief: 'Do You Believe That Climate Change Is Making Wildfires More Severe?'"
 thumbnail: "https://img.youtube.com/vi/IDN7fCfVltE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Randall Presses U.S. Forest Chief on Wildfire Preparedness as Trump Closes 57 of 77 Research Labs"
     url: "https://randall.house.gov/media/press-releases/randall-presses-us-forest-chief-wildfire-preparedness-trump-closes-57-77"

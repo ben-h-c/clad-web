@@ -32,6 +32,10 @@ keyMoments:
 videoId: "8LPDyZY6I7Y"
 videoTitle: "#WorldCup? Not today: #NewYork is celebrating the #Knicks • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/8LPDyZY6I7Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Highlights from the New York Knicks NBA championship parade"
     url: "https://www.cnn.com/2026/06/18/us/live-news/knicks-championship-parade-new-york-city"

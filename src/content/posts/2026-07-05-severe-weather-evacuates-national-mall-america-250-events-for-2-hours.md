@@ -32,6 +32,10 @@ keyMoments:
 videoId: "swA_UTQQ8zI"
 videoTitle: "Severe weather at DC's America 250 celebration prompts 2-hour evacuation"
 thumbnail: "https://img.youtube.com/vi/swA_UTQQ8zI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "National Mall to reopen after weather evacuation at July 4 celebrations"
     url: "https://www.wusa9.com/article/entertainment/events/america-250/severe-weather-prompts-evacuation-alert-national-mall-july-4-celebrations-freedom-250-salute-to-america/65-319d59fb-829f-4169-9452-c884fafafe19"

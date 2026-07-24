@@ -37,6 +37,10 @@ keyMoments:
 videoId: "VVtit7Jtd_0"
 videoTitle: "'A Larger Agenda To Dehumanize Black And Brown People': Randall Rips Birthright Citizenship Attacks"
 thumbnail: "https://img.youtube.com/vi/VVtit7Jtd_0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

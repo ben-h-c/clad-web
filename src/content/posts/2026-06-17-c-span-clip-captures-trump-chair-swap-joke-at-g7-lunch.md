@@ -30,6 +30,10 @@ keyMoments:
 videoId: "0OEJjKwhDFg"
 videoTitle: "President Trump Chair Swap"
 thumbnail: "https://img.youtube.com/vi/0OEJjKwhDFg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "President Trump Chair Swap"
     url: "https://www.youtube.com/watch?v=0OEJjKwhDFg"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "pT1lnbS4xEA"
 videoTitle: "Michael Gove on Brexit, a decade on"
 thumbnail: "https://img.youtube.com/vi/pT1lnbS4xEA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Statistics on UK-EU trade"
     url: "https://commonslibrary.parliament.uk/research-briefings/cbp-7851/"

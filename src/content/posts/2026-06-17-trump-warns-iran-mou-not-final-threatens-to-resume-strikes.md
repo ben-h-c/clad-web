@@ -28,6 +28,10 @@ keyMoments:
 videoId: "8tojE6icQS4"
 videoTitle: "'If I don't like it, we'll go back to shooting,' Trump on Iran deal"
 thumbnail: "https://img.youtube.com/vi/8tojE6icQS4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump on Iran deal: 'If I don't like it, we'll go back to shooting'"
     url: "https://www.reuters.com/world/middle-east/g7-leaders-demand-ceasefire-lebanon-welcome-iran-deal-2026-06-17/"

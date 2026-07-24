@@ -36,6 +36,10 @@ keyMoments:
 videoId: "f2paZA3_1FU"
 videoTitle: "What would it look like to end the Iran war? Rep. Moulton shares how Dems are pushing back"
 thumbnail: "https://img.youtube.com/vi/f2paZA3_1FU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Pete Hegseth"
     slug: "pete-hegseth"

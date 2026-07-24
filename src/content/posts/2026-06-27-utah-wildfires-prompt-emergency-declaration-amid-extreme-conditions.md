@@ -36,6 +36,10 @@ keyMoments:
 videoId: "ddr3G_WmdZs"
 videoTitle: "Utah declares state of emergency over wildfires"
 thumbnail: "https://img.youtube.com/vi/ddr3G_WmdZs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Utah declares emergency, limits fireworks ahead of July Fourth as crews battle largest U.S. wildfire"
     url: "https://www.cbsnews.com/news/utah-cottonwood-wildfire-emergency-fireworks/"

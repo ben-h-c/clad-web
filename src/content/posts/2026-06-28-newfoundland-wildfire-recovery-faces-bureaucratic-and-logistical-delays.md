@@ -34,6 +34,10 @@ keyMoments:
 videoId: "FU5RjVAdohM"
 videoTitle: "Newfoundland and Labrador residents experience delays as they rebuild after wildfire"
 thumbnail: "https://img.youtube.com/vi/FU5RjVAdohM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Public Advisory: Update on Wildfires - News Releases"
     url: "https://www.gov.nl.ca/releases/2025/jps/0808n02/"

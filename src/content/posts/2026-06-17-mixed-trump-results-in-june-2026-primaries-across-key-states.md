@@ -34,6 +34,10 @@ keyMoments:
 videoId: "clpF10u-4AA"
 videoTitle: "Mixed results for Trump in \"key battleground state\" as primaries continue ahead of midterms"
 thumbnail: "https://img.youtube.com/vi/clpF10u-4AA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Georgia results: Collins will face Sen. Ossoff; Trump's pick loses governor runoff"
     url: "https://www.npr.org/2026/06/16/nx-s1-5860795/georgia-election-senate-governor-results-trump"

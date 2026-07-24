@@ -35,6 +35,10 @@ keyMoments:
 videoId: "i4vv4V-DUMs"
 videoTitle: "Reporter Asks Trump Point Blank: 'Are You Frustrated With Netanyahu?'"
 thumbnail: "https://img.youtube.com/vi/i4vv4V-DUMs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump tells Netanyahu 'be responsible with Lebanon, let Syria handle Hezbollah' at G7"
     url: "https://www.euronews.com/my-europe/2026/06/16/trump-tells-netanyahu-be-responsible-with-lebanon-let-syria-handle-hezbollah-at-g7"

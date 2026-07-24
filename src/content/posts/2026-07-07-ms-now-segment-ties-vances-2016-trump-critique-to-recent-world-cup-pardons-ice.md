@@ -37,6 +37,10 @@ keyMoments:
 videoId: "y2aH7TR4Zvc"
 videoTitle: "Lawrence: JD Vance’s old accusation of Trump being ‘cultural heroin’ was on display this weekend"
 thumbnail: "https://img.youtube.com/vi/y2aH7TR4Zvc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump Asked FIFA to Review U.S. Player’s Suspension"
     url: "https://www.nytimes.com/2026/07/05/us/trump-fifa-balogun-world-cup.html"

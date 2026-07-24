@@ -32,6 +32,10 @@ keyMoments:
 videoId: "pRf84IAU7EM"
 videoTitle: "Service Beyond the Uniform: Rep. Matt Van Epps’ Journey to Congress"
 thumbnail: "https://img.youtube.com/vi/pRf84IAU7EM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Matt Van Epps"
     slug: "matt-van-epps"

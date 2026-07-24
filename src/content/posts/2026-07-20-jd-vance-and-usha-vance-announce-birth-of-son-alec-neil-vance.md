@@ -29,6 +29,10 @@ keyMoments:
 videoId: "m9Nwuzky9o0"
 videoTitle: "HISTORY MADE: Vance family welcomes baby boy #shorts #us #news #foxnews"
 thumbnail: "https://img.youtube.com/vi/m9Nwuzky9o0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "JD Vance"
     slug: "jd-vance"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "fr9_8LmeysA"
 videoTitle: "US Tech Rebounds, Traders On Yen Intervention Watch  | The Asia Trade 6/30/2026"
 thumbnail: "https://img.youtube.com/vi/fr9_8LmeysA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bloomberg Asia Markets Coverage"
     url: "https://www.bloomberg.com/markets/asia"

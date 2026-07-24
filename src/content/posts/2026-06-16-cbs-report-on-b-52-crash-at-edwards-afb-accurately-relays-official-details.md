@@ -34,6 +34,10 @@ keyMoments:
 videoId: "IQcY6577g04"
 videoTitle: "Edwards Air Force Base official says B-52 jet crashed immediately after takeoff, deemed unsurvivable"
 thumbnail: "https://img.youtube.com/vi/IQcY6577g04/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "B-52 crashes at Edwards Air Force Base"
     url: "https://www.edwards.af.mil/News/Display/Article/4517897/b-52-crashes-at-edwards-air-force-base/"

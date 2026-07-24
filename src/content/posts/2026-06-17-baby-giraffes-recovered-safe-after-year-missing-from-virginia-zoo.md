@@ -31,6 +31,10 @@ keyMoments:
 videoId: "oxyH3ptd3Iw"
 videoTitle: "Baby giraffes found after disappearing for over a year"
 thumbnail: "https://img.youtube.com/vi/oxyH3ptd3Iw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Baby giraffes found safe after disappearing from Natural Bridge Zoo"
     url: "https://www.wdbj7.com/2026/06/16/baby-giraffes-found-safe-after-disappearing-natural-bridge-zoo/"

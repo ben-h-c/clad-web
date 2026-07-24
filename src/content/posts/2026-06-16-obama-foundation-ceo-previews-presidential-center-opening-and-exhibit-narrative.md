@@ -31,6 +31,10 @@ keyMoments:
 videoId: "cCEIYZQs1Gs"
 videoTitle: "Obama Foundation CEO on presidential center opening"
 thumbnail: "https://img.youtube.com/vi/cCEIYZQs1Gs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Grand Opening | The Obama Foundation"
     url: "https://www.obama.org/visit/grand-opening/"

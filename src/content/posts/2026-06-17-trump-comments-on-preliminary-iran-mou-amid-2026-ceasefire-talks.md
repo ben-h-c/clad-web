@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Ck1DKXnaQLo"
 videoTitle: "Trump defends Iran deal: 'I didn't want to see economic catastrophe'"
 thumbnail: "https://img.youtube.com/vi/Ck1DKXnaQLo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Latest on U.S.-Iran deal as Trump says text will be released"
     url: "https://www.youtube.com/watch?v=f2LG5z77Q8s"

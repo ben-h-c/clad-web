@@ -31,6 +31,10 @@ keyMoments:
 videoId: "gGLYiqV2LJU"
 videoTitle: "Trump meets with Zelenskyy during G7 summit in France"
 thumbnail: "https://img.youtube.com/vi/gGLYiqV2LJU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "G7 allies scramble to put Ukraine back atop Trump's agenda"
     url: "https://www.npr.org/2026/06/16/g-s1-128325/g7-leaders-summit"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "aMJmApI7iNE"
 videoTitle: "Marjorie Taylor Greene talks life after split with Trump and building a new party"
 thumbnail: "https://img.youtube.com/vi/aMJmApI7iNE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Former Voice of America Employee Sentenced for Making Threats Against Rep. Marjorie Taylor Greene"
     url: "https://www.justice.gov/usao-dc/pr/former-voice-america-employee-sentenced-making-threats-against-rep-marjorie-taylor"

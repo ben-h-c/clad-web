@@ -34,6 +34,10 @@ keyMoments:
 videoId: "EpkP8Vc7NNM"
 videoTitle: "Is Russia's control over Crimea under threat?"
 thumbnail: "https://img.youtube.com/vi/EpkP8Vc7NNM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Exclusive: Ukraine's drone commander wants to cut Crimea off from Russia"
     url: "https://www.reuters.com/world/europe/ukraines-drone-commander-wants-cut-crimea-off-russia-2026-06-11/"

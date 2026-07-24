@@ -35,6 +35,10 @@ keyMoments:
 videoId: "oBG39Kiaf2U"
 videoTitle: "Chile: Storms leave five dead as floods devastate regions under state of catastrophe."
 thumbnail: "https://img.youtube.com/vi/oBG39Kiaf2U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "At least three killed and hundreds displaced by heavy rain in Chile"
     url: "https://www.aljazeera.com/news/2026/7/17/at-least-three-killed-and-hundreds-displaced-by-heavy-rain-in-chile"

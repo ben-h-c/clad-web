@@ -35,6 +35,10 @@ keyMoments:
 videoId: "2gWN9rvmopc"
 videoTitle: "'It Is An Incredible Situation': Historian Breaks Down Events Leading To Keir Starmer's Resignation"
 thumbnail: "https://img.youtube.com/vi/2gWN9rvmopc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Keir Starmer announces resignation as prime minister and Labour leader"
     url: "https://www.bbc.com/news/articles/cdxd00lg599o"

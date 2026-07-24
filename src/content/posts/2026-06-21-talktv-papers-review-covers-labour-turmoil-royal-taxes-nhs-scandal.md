@@ -40,6 +40,10 @@ keyMoments:
 videoId: "3B_2U7doKQo"
 videoTitle: "Phil Dave | 21-Jun-26"
 thumbnail: "https://img.youtube.com/vi/3B_2U7doKQo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NHS maternity units often cover up harmful errors"
     url: "https://www.theguardian.com/society/2026/feb/26/nhs-england-maternity-cover-up-childbirth-report"

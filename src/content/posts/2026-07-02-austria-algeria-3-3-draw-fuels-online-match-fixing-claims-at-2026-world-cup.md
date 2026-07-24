@@ -37,6 +37,10 @@ keyMoments:
 videoId: "gK6c4Pd3Lwc"
 videoTitle: "Austria-Algeria draw sparks World Cup match fixing allegations online • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/gK6c4Pd3Lwc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Algeria 3-3 Austria (Jun 27, 2026) Game Analysis - ESPN"
     url: "https://www.espn.com/soccer/report/_/gameId/760484"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "hEWgj_P5rp0"
 videoTitle: "RFK Jr. overrules experts to keep hantavirus cruise ship passenger in quarantine"
 thumbnail: "https://img.youtube.com/vi/hEWgj_P5rp0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A federal medical reviewer said she could go home. RFK Jr. said no."
     url: "https://www.healthbeat.org/2026/06/16/kennedy-signs-hantavirus-quarantine-order-overruling-medical-review/"

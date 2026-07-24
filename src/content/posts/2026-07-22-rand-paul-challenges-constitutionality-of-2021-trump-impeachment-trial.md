@@ -38,6 +38,10 @@ keyMoments:
 videoId: "-0FzXfeZ3hc"
 videoTitle: "EPIC! Rand Paul Leaves The Entire Congress SPEECHLESS With Brilliant SPEECH! "
 thumbnail: "https://img.youtube.com/vi/-0FzXfeZ3hc/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Bernard Sanders"
     slug: "bernard-sanders"

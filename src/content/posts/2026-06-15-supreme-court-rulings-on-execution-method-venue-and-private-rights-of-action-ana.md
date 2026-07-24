@@ -36,6 +36,10 @@ keyMoments:
     note: "Opinionated extrapolation; Abouammo applies to charged conduct but no specific pending indictments referenced"
 videoId: "aRNvKT9RA7s"
 thumbnail: "https://img.youtube.com/vi/aRNvKT9RA7s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Court denies Alabama's request to allow execution using nitrogen gas"
     url: "https://www.scotusblog.com/2026/06/court-denies-alabamas-request-to-allow-execution-using-nitrogen-gas/"

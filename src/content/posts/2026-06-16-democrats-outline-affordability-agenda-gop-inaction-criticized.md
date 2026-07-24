@@ -32,6 +32,10 @@ keyMoments:
 videoId: "pWe15cTIkt0"
 videoTitle: "“They want to see that their financial struggle is a priority,” | Batya!"
 thumbnail: "https://img.youtube.com/vi/pWe15cTIkt0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jeffries: First bill of Dem majority would tackle affordability"
     url: "https://www.politico.com/live-updates/2026/06/08/congress/house-dems-first-bill-00953688"

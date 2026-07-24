@@ -31,6 +31,10 @@ keyMoments:
 videoId: "lyqIW3oOmsc"
 videoTitle: "Formal apology to victims of forced adoption"
 thumbnail: "https://img.youtube.com/vi/lyqIW3oOmsc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Starmer to formally apologise to victims of forced adoptions"
     url: "https://www.bbc.com/news/articles/c20yq332018o"

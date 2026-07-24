@@ -34,6 +34,10 @@ keyMoments:
 videoId: "5dpTrjEhg7c"
 videoTitle: "‘A shame’ to hear Jeffries speak out against impeaching Trump as top priority: N.Y. House candidate"
 thumbnail: "https://img.youtube.com/vi/5dpTrjEhg7c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "New York's 12th Congressional District"
     url: "https://ballotpedia.org/New_York%27s_12th_Congressional_District"

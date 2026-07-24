@@ -25,6 +25,10 @@ keyMoments:
 videoId: "8QD6bJ380RQ"
 videoTitle: "Trump says his address on elections will be 'really big'"
 thumbnail: "https://img.youtube.com/vi/8QD6bJ380RQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump to assert voting machine vulnerabilities in Thursday speech"
     url: "https://www.reuters.com/world/us/trumps-give-speech-about-foreign-interference-2020-election-ms-now-reports-2026-07-13/"

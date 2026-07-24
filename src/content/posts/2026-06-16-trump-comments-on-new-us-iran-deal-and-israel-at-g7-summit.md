@@ -33,6 +33,10 @@ keyMoments:
 videoId: "d7ffsu7H2k0"
 videoTitle: "Trump defends US-Iran deal, weighs in on Israel at G7 summit"
 thumbnail: "https://img.youtube.com/vi/d7ffsu7H2k0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "G7 summit live updates: Trump meets with leaders about ..."
     url: "https://apnews.com/live/trump-g7-iran-updates-06-16-2026"

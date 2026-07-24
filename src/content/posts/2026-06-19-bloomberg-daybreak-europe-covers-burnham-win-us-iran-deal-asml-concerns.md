@@ -35,6 +35,10 @@ keyMoments:
 videoId: "AVZI-zCGnPA"
 videoTitle: "Andy Burnham Wins Election In Threat to UK Prime Minister Keir Starmer | Daybreak Europe 6/19/2026"
 thumbnail: "https://img.youtube.com/vi/AVZI-zCGnPA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Burnham Wins Makerfield By-Election, Clearing Path to Challenge Starmer as UK Prime Minister"
     url: "https://www.nytimes.com/2026/06/18/world/europe/uk-makerfield-election.html"

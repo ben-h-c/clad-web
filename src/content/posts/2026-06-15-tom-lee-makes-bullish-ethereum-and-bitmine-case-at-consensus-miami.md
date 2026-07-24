@@ -37,6 +37,10 @@ keyMoments:
 videoId: "kqpng6-WQE0"
 videoTitle: "Tom Lee's Case for $22,000 Ethereum"
 thumbnail: "https://img.youtube.com/vi/kqpng6-WQE0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Tom Lee's Bitmine (BMNR) bought $237 million worth of ..."
     url: "https://www.coindesk.com/business/2026/05/26/bitmine-made-its-largest-eth-purchase-this-year-despite-tom-lee-s-slowdown-suggestion"

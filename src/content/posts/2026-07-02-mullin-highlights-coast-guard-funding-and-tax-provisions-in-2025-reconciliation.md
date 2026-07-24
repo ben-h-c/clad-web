@@ -37,6 +37,10 @@ keyMoments:
 videoId: "mI0tHMgzt1Q"
 videoTitle: "'What Good Government Actually Looks Like': Markwayne Mullin Celebrates Passage Of BBB"
 thumbnail: "https://img.youtube.com/vi/mI0tHMgzt1Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. Coast Guard receives historic investment to rebuild under President Trump’s One Big Beautiful Bill"
     url: "https://www.news.uscg.mil/Press-Releases/Article/4235481/us-coast-guard-receives-historic-investment-to-rebuild-under-president-trumps-o/"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "lYale2bQnk8"
 videoTitle: "Poland's role in NATO: Warsaw an increasingly key member of the alliance"
 thumbnail: "https://img.youtube.com/vi/lYale2bQnk8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NATO must spend 5% of GDP on defence by 2030, Poland says"
     url: "https://www.reuters.com/world/nato-must-spend-5-gdp-defence-by-2030-poland-says-2026-05-06/"

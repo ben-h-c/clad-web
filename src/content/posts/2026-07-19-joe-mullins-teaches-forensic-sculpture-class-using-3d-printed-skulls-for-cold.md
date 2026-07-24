@@ -31,6 +31,10 @@ keyMoments:
 videoId: "EiKw0zFRJ14"
 videoTitle: "Forensic artists play key role in identifying missing people"
 thumbnail: "https://img.youtube.com/vi/EiKw0zFRJ14/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NamUs: Home"
     url: "https://namus.nij.ojp.gov/"

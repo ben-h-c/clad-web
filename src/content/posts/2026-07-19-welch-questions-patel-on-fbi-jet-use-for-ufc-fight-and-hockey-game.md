@@ -32,6 +32,10 @@ keyMoments:
 videoId: "hUhZho-diEg"
 videoTitle: "“You Used an FBI Jet for UFC Fights?” Peter Welch Asks"
 thumbnail: "https://img.youtube.com/vi/hUhZho-diEg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Kash Patel"
     slug: "kash-patel"

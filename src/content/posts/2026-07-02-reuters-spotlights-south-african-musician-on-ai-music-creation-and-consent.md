@@ -34,6 +34,10 @@ keyMoments:
 videoId: "WzRIryRHQgk"
 videoTitle: "South African musician prompts questions over AI and creativity"
 thumbnail: "https://img.youtube.com/vi/WzRIryRHQgk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Will AI mean the death of music, or herald a new era of creativity?"
     url: "https://www.reuters.com/lifestyle/will-ai-mean-death-music-or-herald-new-era-creativity-2024-02-01/"

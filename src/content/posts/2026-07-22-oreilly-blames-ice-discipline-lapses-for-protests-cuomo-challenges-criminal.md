@@ -37,6 +37,10 @@ keyMoments:
 videoId: "y8yhdSqHBQk"
 videoTitle: "Bill O’Reilly: ICE’s lack of discipline to blame for allegations and protests | CUOMO"
 thumbnail: "https://img.youtube.com/vi/y8yhdSqHBQk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "CBP Enforcement Statistics"
     url: "https://www.cbp.gov/newsroom/stats/cbp-enforcement-statistics"

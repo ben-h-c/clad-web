@@ -37,6 +37,10 @@ keyMoments:
 videoId: "aARWWnzU65g"
 videoTitle: "Israel, Lebanon sign historic deal – But Hezbollah rejects it | DW News"
 thumbnail: "https://img.youtube.com/vi/aARWWnzU65g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Joint Statement of the United States, Republic of Lebanon, and State of Israel"
     url: "https://www.state.gov/releases/office-of-the-spokesperson/2026/06/joint-statement-of-the-united-states-of-america-republic-of-lebanon-and-state-of-israel-on-the-latest-high-level-trilateral-meeting"

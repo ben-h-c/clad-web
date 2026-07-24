@@ -36,6 +36,10 @@ keyMoments:
 videoId: "VSDEWjyffG4"
 videoTitle: "A week of strikes shatters hope of a lasting US-Iran peace deal • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/VSDEWjyffG4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "July 13, 2026 - US resumes strikes while Iran says it struck two tankers in Strait of Hormuz"
     url: "https://www.cnn.com/2026/07/13/world/live-news/iran-war-trump"

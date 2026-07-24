@@ -30,6 +30,10 @@ keyMoments:
 videoId: "n1zGajIAn20"
 videoTitle: "Anti-immigration protests in South Africa"
 thumbnail: "https://img.youtube.com/vi/n1zGajIAn20/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Anti-immigration protests intensify in South Africa"
     url: "https://www.reuters.com/video/watch/idRW702510072026RP1/"

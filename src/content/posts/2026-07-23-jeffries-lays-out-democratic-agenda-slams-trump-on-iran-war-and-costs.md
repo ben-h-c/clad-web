@@ -38,6 +38,10 @@ keyMoments:
 videoId: "CX9WH0aovLk"
 videoTitle: "House Democrats outline agenda as midterm elections loom"
 thumbnail: "https://img.youtube.com/vi/CX9WH0aovLk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Hakeem S. Jeffries"
     slug: "hakeem-s-jeffries"

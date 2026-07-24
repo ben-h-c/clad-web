@@ -34,6 +34,10 @@ keyMoments:
 videoId: "2yWcVj4Bch0"
 videoTitle: "NJ teen's family 'satisfied' by decision ahead of murder trial: Attorney | Jesse Weber Live"
 thumbnail: "https://img.youtube.com/vi/2yWcVj4Bch0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NJ teen accused of killing 2 girls in hit-and-run to be tried as adult"
     url: "https://www.newsnationnow.com/us-news/northeast/vincent-battiloro-tried-as-adult-murder/"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "MOpFn-BUwP0"
 videoTitle: "MSF warns dangerous gaps persist in Ebola response"
 thumbnail: "https://img.youtube.com/vi/MOpFn-BUwP0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "DRC: MSF warns dangerous gaps persist in Ebola disease response"
     url: "https://www.msf.org/drc-msf-warns-dangerous-gaps-persist-ebola-disease-response"

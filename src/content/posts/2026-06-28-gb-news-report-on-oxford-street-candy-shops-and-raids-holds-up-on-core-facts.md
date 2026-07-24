@@ -37,6 +37,10 @@ keyMoments:
 videoId: "TUBYA0Z1rh0"
 videoTitle: "Staff turn 'incredibly AGGRESSIVE' as £80,000 of ILLEGAL products found in 'dodgy' sweet shop raid"
 thumbnail: "https://img.youtube.com/vi/TUBYA0Z1rh0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Oxford Street candy shop raided after tourist charged £900"
     url: "https://www.bbc.com/news/articles/cg5q92npm64o"

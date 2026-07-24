@@ -35,6 +35,10 @@ keyMoments:
 videoId: "AEwKDk1SJUc"
 videoTitle: "EXCLUSIVE: Fmr. VP Mike Pence: America has \"no greater ally\" than Israel"
 thumbnail: "https://img.youtube.com/vi/AEwKDk1SJUc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Pence says 'YOLO caucus' should 'follow their conscience'"
     url: "https://thehill.com/homenews/administration/5926384-mike-pence-trump-administration-republican-lawmakers/"

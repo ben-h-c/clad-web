@@ -33,6 +33,10 @@ keyMoments:
 videoId: "B-dJUH9M67E"
 videoTitle: "&#39;It Took Weeks!&#39;: Emily Randall Blasts Delays To Mail In Rural Parts Of Washington"
 thumbnail: "https://img.youtube.com/vi/B-dJUH9M67E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Emily Randall"
     slug: "emily-randall"

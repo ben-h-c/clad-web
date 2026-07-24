@@ -35,6 +35,10 @@ keyMoments:
 videoId: "CjKBgdHoRm4"
 videoTitle: "Maritime security expert weighs U.S.-Iran deal's impact on global shipping"
 thumbnail: "https://img.youtube.com/vi/CjKBgdHoRm4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. and Iran announce an initial deal to end the war and reopen the Strait of Hormuz"
     url: "https://www.npr.org/2026/06/15/nx-s1-5858590/us-iran-deal-updates"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "_RvK46Un1Zc"
 videoTitle: "NY Knick Miles McBride on the team's historic title run: 'It's been a blessing'"
 thumbnail: "https://img.youtube.com/vi/_RvK46Un1Zc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 NBA Finals - NBA.com"
     url: "https://www.nba.com/playoffs/2026/nba-finals"

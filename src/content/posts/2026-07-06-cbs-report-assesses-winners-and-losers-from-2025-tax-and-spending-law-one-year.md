@@ -38,6 +38,10 @@ keyMoments:
 videoId: "1F7fZ5xxfco"
 videoTitle: "How Trump's \"One Big Beautiful Bill Act\" is affecting Americans, 1 year later"
 thumbnail: "https://img.youtube.com/vi/1F7fZ5xxfco/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "One Big Beautiful Bill Act - Wikipedia"
     url: "https://en.wikipedia.org/wiki/One_Big_Beautiful_Bill_Act"

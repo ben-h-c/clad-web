@@ -39,6 +39,10 @@ keyMoments:
 videoId: "-PY5FIBNEDk"
 videoTitle: "Trump meets G7 leaders after HISTORIC Iran deal"
 thumbnail: "https://img.youtube.com/vi/-PY5FIBNEDk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "G7 summit live updates: Trump meets with leaders about ..."
     url: "https://apnews.com/live/trump-g7-iran-updates-06-16-2026"

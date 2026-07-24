@@ -33,6 +33,10 @@ keyMoments:
 videoId: "9WAOVcoLCWs"
 videoTitle: "Democrats have &#39;NO SHAME&#39; after pushing Graham Platner: Rep. Mike Haridopolos"
 thumbnail: "https://img.youtube.com/vi/9WAOVcoLCWs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Bernard Sanders"
     slug: "bernard-sanders"

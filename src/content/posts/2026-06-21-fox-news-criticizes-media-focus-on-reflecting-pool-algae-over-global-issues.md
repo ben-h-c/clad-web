@@ -36,6 +36,10 @@ keyMoments:
 videoId: "WxbddTEeDgU"
 videoTitle: "Liberal media BLASTED for focusing on reflecting pool while Trump addresses world conflicts"
 thumbnail: "https://img.youtube.com/vi/WxbddTEeDgU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says vandals used chemicals to damage newly renovated reflecting pool near Lincoln Memorial"
     url: "https://www.foxnews.com/politics/trump-says-vandals-used-chemicals-damage-newly-renovated-reflecting-pool-lincoln-memorial"

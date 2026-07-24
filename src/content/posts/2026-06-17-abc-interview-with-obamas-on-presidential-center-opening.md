@@ -35,6 +35,10 @@ keyMoments:
 videoId: "X0a4GHqOlOg"
 videoTitle: "ABC News exclusive interview with the Obamas"
 thumbnail: "https://img.youtube.com/vi/X0a4GHqOlOg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Grand Opening | The Obama Foundation"
     url: "https://www.obama.org/visit/grand-opening/"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "SnpBz8eiC5U"
 videoTitle: "World Cup 2026: Canadian pride on full display after 1-0 win over South Africa"
 thumbnail: "https://img.youtube.com/vi/SnpBz8eiC5U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "South Africa 0-1 Canada (28 Jun, 2026) Final Score"
     url: "https://africa.espn.com/football/match/_/gameId/760486"

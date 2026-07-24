@@ -34,6 +34,10 @@ keyMoments:
 videoId: "UTJ9s0K4EBA"
 videoTitle: "'I joined the Parisian canal revolt'"
 thumbnail: "https://img.youtube.com/vi/UTJ9s0K4EBA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "To Escape the Heat, Parisians Jump into an Old Industrial Canal"
     url: "https://www.nytimes.com/2026/06/25/world/europe/paris-canal-swimming-heatwave-france.html"

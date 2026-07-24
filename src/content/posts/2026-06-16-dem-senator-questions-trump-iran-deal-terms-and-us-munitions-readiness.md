@@ -40,6 +40,10 @@ keyMoments:
 videoId: "jZlHjoCCXVE"
 videoTitle: "'No real path to get the enriched uranium': Top Dem on Senate Intel Cmte. on Iran deal"
 thumbnail: "https://img.youtube.com/vi/jZlHjoCCXVE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Statement of Sen. Warner on Military Action in Iran"
     url: "https://www.warner.senate.gov/newsroom/press-releases/statement-of-sen-warner-on-military-action-in-iran/"

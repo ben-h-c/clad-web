@@ -37,6 +37,10 @@ keyMoments:
 videoId: "R56zmRyRveU"
 videoTitle: "'Total capitulation!': Sen. Kelly blasts Trump's tentative Iran deal as a 'nonstarter'"
 thumbnail: "https://img.youtube.com/vi/R56zmRyRveU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump derails confirmation process for Jay Clayton as US intelligence chief"
     url: "https://www.theguardian.com/us-news/2026/jun/17/trump-halts-jay-clayton-dni-nomination"

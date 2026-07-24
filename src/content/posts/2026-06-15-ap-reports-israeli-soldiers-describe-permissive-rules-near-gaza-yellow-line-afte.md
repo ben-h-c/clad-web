@@ -35,6 +35,10 @@ keyMoments:
 videoId: "zz2OoBRajfo"
 videoTitle: "'To call it a ceasefire is a joke,' Israeli soldiers reveal grim Gaza reality"
 thumbnail: "https://img.youtube.com/vi/zz2OoBRajfo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Israeli soldiers share rare accounts from Gaza with AP"
     url: "https://apnews.com/article/gaza-war-yellow-line-israeli-soldiers-8a6cb8e91ba454ddc80a6335e7466451"

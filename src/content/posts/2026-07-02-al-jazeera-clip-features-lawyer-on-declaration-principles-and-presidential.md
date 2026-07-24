@@ -33,6 +33,10 @@ keyMoments:
 videoId: "IeCvBGekBAc"
 videoTitle: "Lawyer takes Trump to Task over Unchecked Presidential Powers | AJ Shorts"
 thumbnail: "https://img.youtube.com/vi/IeCvBGekBAc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Declaration of Independence: A Transcription"
     url: "https://www.archives.gov/founding-docs/declaration-transcript"

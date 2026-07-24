@@ -34,6 +34,10 @@ keyMoments:
 videoId: "T2bzV0FmcjI"
 videoTitle: "Why are Republicans in Congress starting to break with Donald Trump?"
 thumbnail: "https://img.youtube.com/vi/T2bzV0FmcjI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "More Republicans are breaking with Trump. Is it enough?"
     url: "https://www.theguardian.com/us-news/2026/jun/06/republicans-trump-midterms"

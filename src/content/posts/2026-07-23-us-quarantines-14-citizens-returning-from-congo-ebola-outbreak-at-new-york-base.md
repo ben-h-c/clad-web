@@ -32,6 +32,10 @@ keyMoments:
 videoId: "t6KhvrSkcYk"
 videoTitle: "US quarantined citizens after Congo return, sources say"
 thumbnail: "https://img.youtube.com/vi/t6KhvrSkcYk/maxresdefault.jpg"
+mediaNote: "talking head face upper-middle"
+thumbFocusY: 28
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Ed Case"
     slug: "ed-case"

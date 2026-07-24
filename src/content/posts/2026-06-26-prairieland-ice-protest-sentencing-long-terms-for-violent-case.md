@@ -39,6 +39,10 @@ keyMoments:
 videoId: "ncD66jfeSVc"
 videoTitle: "ICE protesters sentenced to up to 100 years in prison by Trump-appointed judge"
 thumbnail: "https://img.youtube.com/vi/ncD66jfeSVc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Leader of Antifa Cell Members in North Texas Sentenced to 100 Years in Prison for Terrorist Attack on ICE Facility"
     url: "https://www.justice.gov/opa/pr/leader-antifa-cell-members-north-texas-sentenced-100-years-prison-terrorist-attack-ice"

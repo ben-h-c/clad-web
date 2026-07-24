@@ -32,6 +32,10 @@ keyMoments:
 videoId: "muBRWpdYr_c"
 videoTitle: "‘It had to come down’: Trump’s name is taken off the Kennedy Center"
 thumbnail: "https://img.youtube.com/vi/muBRWpdYr_c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Kennedy Center removes Trump's name from building"
     url: "https://www.washingtonpost.com/style/2026/06/12/kennedy-center-removes-trumps-name-building/"

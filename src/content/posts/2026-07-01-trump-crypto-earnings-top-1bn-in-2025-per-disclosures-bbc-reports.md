@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Kei0niPpy2o"
 videoTitle: "President Trump made more than $1bn from crypto in first year back in office | BBC News"
 thumbnail: "https://img.youtube.com/vi/Kei0niPpy2o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump’s Financial Disclosure Released: Here’s What The President Made In 2025"
     url: "https://www.forbes.com/sites/antoniopequenoiv/2026/06/30/trumps-financial-disclosure-major-crypto-moves-made-him-over-1-billion-in-2025/"

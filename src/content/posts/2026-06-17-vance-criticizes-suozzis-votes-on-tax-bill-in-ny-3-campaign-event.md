@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Iqj0hsCFxas"
 videoTitle: "'Suozzi, What Are You Doing My Man?!': JD Vance Trashes Tom Suozzi Over Votes On Taxes"
 thumbnail: "https://img.youtube.com/vi/Iqj0hsCFxas/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'Kick crazy Tom Suozzi the hell out of Washington,' Vance ..."
     url: "https://weartv.com/news/nation-world/vance-set-to-make-announcement-on-long-island-about-crackdown-on-fraud-and-crime-bethpage-new-york-public-safety-agenda-waste-abuse-financial-schemes-white-house-president-donald-trump"

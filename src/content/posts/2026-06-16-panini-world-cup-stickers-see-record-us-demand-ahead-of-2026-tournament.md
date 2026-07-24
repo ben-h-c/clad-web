@@ -34,6 +34,10 @@ keyMoments:
 videoId: "advzSzw445U"
 videoTitle: "A World Cup tradition catches on in the U.S.: Panini sticker collecting"
 thumbnail: "https://img.youtube.com/vi/advzSzw445U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Panini stickers, a World Cup tradition, sees biggest demand yet in the U.S."
     url: "https://www.npr.org/2026/06/05/nx-s1-5844319/world-cup-2026-panini-stickers-album"

@@ -40,6 +40,10 @@ keyMoments:
 videoId: "gxAENzGpNrg"
 videoTitle: "'He's so disrespectful': Sen. Rosen says 'every day' Hegseth shows 'how unqualified he is'"
 thumbnail: "https://img.youtube.com/vi/gxAENzGpNrg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Pete Hegseth"
     slug: "pete-hegseth"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "zCFap6Xzk28"
 videoTitle: "Sen. Whitehouse to Greer on who pays cost of tariffs"
 thumbnail: "https://img.youtube.com/vi/zCFap6Xzk28/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "cbHCWdZ7WAU"
 videoTitle: "‘Britain Can FORCE Pakistan To Take This Criminal Back’ | Rape Gang Leader Freed"
 thumbnail: "https://img.youtube.com/vi/cbHCWdZ7WAU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ringleader of Rochdale grooming gang 'cannot be deported'"
     url: "https://www.bbc.com/news/articles/cx2wl6ynn2no"

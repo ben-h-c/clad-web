@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Jx-cGyB65Y8"
 videoTitle: "“This War Is RAGING ON” | Zelensky Sacks Army Chief After Days of Protests | Ukraine VS Russia"
 thumbnail: "https://img.youtube.com/vi/Jx-cGyB65Y8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Pete Hegseth"
     slug: "pete-hegseth"

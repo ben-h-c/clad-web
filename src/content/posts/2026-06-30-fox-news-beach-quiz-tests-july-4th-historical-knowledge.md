@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ssobOEVfElg"
 videoTitle: "'Jesse Watters Primetime' quizzes beachgoers about July 4th"
 thumbnail: "https://img.youtube.com/vi/ssobOEVfElg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "America250"
     url: "https://america250.org/"

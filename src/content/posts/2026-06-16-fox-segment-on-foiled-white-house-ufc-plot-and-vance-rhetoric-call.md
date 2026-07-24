@@ -35,6 +35,10 @@ keyMoments:
 videoId: "8tmfe1BvgJ4"
 videoTitle: "'TONE IT DOWN': JD Vance urges political leaders to lower the temperature"
 thumbnail: "https://img.youtube.com/vi/8tmfe1BvgJ4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FBI foils explosive-drone, sniper-fire terror plot targeting White House UFC fight"
     url: "https://www.timesofisrael.com/fbi-foils-explosive-drone-sniper-fire-terror-plot-targeting-white-house-ufc-fight/"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "rcop5UOIe5o"
 videoTitle: "Marco Rubio Asked About 'Prominent' GOP Senators Favoring Him Leading Iran Talks Over Vance"
 thumbnail: "https://img.youtube.com/vi/rcop5UOIe5o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

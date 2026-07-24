@@ -31,6 +31,10 @@ keyMoments:
 videoId: "D2Kmkwa3Lp4"
 videoTitle: "New video shows aftermath of fatal teen stabbing at a Texas track meet"
 thumbnail: "https://img.youtube.com/vi/D2Kmkwa3Lp4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Texas teen who fatally stabbed track athlete at school meet found guilty and sentenced to prison"
     url: "https://apnews.com/article/texas-teen-stabbing-trial-5fe1c24f7ca92f1586b12e8cf8601316"

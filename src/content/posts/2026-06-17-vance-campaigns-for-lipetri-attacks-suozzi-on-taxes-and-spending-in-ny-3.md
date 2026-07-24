@@ -34,6 +34,10 @@ keyMoments:
 videoId: "rg2FAm3INjw"
 videoTitle: "'Kick Crazy Tom Suozzi The Hell Out Of Washington!': JD Vance Tears Into New York Democrat"
 thumbnail: "https://img.youtube.com/vi/rg2FAm3INjw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "New York's 3rd Congressional District election, 2026"
     url: "https://ballotpedia.org/New_York%27s_3rd_Congressional_District_election,_2026"

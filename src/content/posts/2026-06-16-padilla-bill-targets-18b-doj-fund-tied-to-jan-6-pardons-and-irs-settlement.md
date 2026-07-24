@@ -40,6 +40,10 @@ keyMoments:
 videoId: "wA8PTPdD3hY"
 videoTitle: "'This Fight Is Not Over': Alex Padilla Introduces Bill To Block DOJ's $1.8 Billion 'Slush Fund'"
 thumbnail: "https://img.youtube.com/vi/wA8PTPdD3hY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "S.3582 - No Rewards for January 6 Rioters Act"
     url: "https://www.congress.gov/bill/119th-congress/senate-bill/3582"

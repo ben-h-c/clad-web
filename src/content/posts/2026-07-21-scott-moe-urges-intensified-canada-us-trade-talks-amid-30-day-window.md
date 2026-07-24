@@ -34,6 +34,10 @@ keyMoments:
 videoId: "hhmdaUkR8HU"
 videoTitle: "Premier Moe: ‘It’s time for us to intensify our negotiations’ | Power & Politics"
 thumbnail: "https://img.youtube.com/vi/hhmdaUkR8HU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S.–Canada Tariffs: Timeline of Key Dates and Documents"
     url: "https://www.blakes.com/insights/us-canada-tariffs-timeline-of-key-dates-and-documents/"

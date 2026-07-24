@@ -37,6 +37,10 @@ keyMoments:
 videoId: "SCezvV2h-HQ"
 videoTitle: "Sen. Padilla reacts to report WH considered suspending habeas corpus for undocumented immigrants"
 thumbnail: "https://img.youtube.com/vi/SCezvV2h-HQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Frustrated by Courts, Trump Weighed Suspending a Constitutional Right"
     url: "https://www.nytimes.com/2026/06/15/us/politics/trump-scharf-habeas-corpus-insurrection-act.html"

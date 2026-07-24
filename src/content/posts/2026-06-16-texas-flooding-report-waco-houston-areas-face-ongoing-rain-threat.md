@@ -34,6 +34,10 @@ keyMoments:
 videoId: "V3lloI-6mpE"
 videoTitle: "Parts of Texas bracing for more rain after flooding"
 thumbnail: "https://img.youtube.com/vi/V3lloI-6mpE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Dangerous flooding ongoing in Texas, with flash flood risks ..."
     url: "https://abcnews.com/US/dangerous-flooding-ongoing-texas-flash-flood-risks-region/story?id=133880461"

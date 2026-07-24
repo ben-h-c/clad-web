@@ -35,6 +35,10 @@ keyMoments:
 videoId: "onPMWGA5ewI"
 videoTitle: "It's Fed day: What we're expecting from Kevin Warsh’s first meeting as chair | Reuters Morning Bid"
 thumbnail: "https://img.youtube.com/vi/onPMWGA5ewI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Warsh Faces Tenuous Balancing Act in First Fed Meeting as Chairman"
     url: "https://www.nytimes.com/2026/06/16/business/warsh-fed-chair.html"

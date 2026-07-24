@@ -40,6 +40,10 @@ keyMoments:
 videoId: "BipfxlL3qZU"
 videoTitle: "Who really won the UFC fight at the White House? Trump and his allies"
 thumbnail: "https://img.youtube.com/vi/BipfxlL3qZU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UFC Freedom 250"
     url: "https://www.ufc.com/event/ufc-freedom-250"

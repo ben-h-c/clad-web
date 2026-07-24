@@ -38,6 +38,10 @@ keyMoments:
 videoId: "4D6UvmPAhbo"
 videoTitle: "Meta is building $13B AI data centre in Alberta; what does it mean for Canada?"
 thumbnail: "https://img.youtube.com/vi/4D6UvmPAhbo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Meta to build $13 billion data centre in Alberta, largest outside the U.S."
     url: "https://globalnews.ca/news/11958562/meta-sturgeon-county-data-centre-groundbreaking/"

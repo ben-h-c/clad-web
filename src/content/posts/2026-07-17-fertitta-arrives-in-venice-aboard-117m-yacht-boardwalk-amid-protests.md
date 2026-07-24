@@ -32,6 +32,10 @@ keyMoments:
 videoId: "D1WpTwEk74Y"
 videoTitle: "Venice protesters rally against US ambassador’s superyacht tour | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/D1WpTwEk74Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Billionaire U.S. ambassador greeted by protests in Venice on latest stop of super yacht diplomacy tour"
     url: "https://www.nbcnews.com/world/italy/billionaire-us-ambassador-fertitta-protests-venice-super-yacht-tour-rcna588014"

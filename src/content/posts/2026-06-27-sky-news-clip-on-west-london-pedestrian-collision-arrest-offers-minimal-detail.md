@@ -26,6 +26,10 @@ keyMoments:
 videoId: "F9yQ0DU5CZE"
 videoTitle: "Man arrested after car collides with multiple pedestrians in West London"
 thumbnail: "https://img.youtube.com/vi/F9yQ0DU5CZE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Man arrested on suspicion of attempted murder after car collides with multiple pedestrians"
     url: "https://news.sky.com/story/man-arrested-on-suspicion-of-attempted-murder-after-car-collides-with-multiple-pedestrians-13558389"

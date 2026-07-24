@@ -31,6 +31,10 @@ keyMoments:
 videoId: "ah2XxvUKK4A"
 videoTitle: "Luke Combs, Lainey Wilson and other stars celebrate Alan Jackson at his final concert"
 thumbnail: "https://img.youtube.com/vi/ah2XxvUKK4A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Official Alan Jackson Website"
     url: "https://www.alanjackson.com/welcome"

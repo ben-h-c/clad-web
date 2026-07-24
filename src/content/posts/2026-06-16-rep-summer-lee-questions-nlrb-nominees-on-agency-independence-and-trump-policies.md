@@ -37,6 +37,10 @@ keyMoments:
 videoId: "gvY3VXie_i0"
 videoTitle: "Summer Lee Rails Against Trump Administration's 'Unconscionable Attacks On Workers'"
 thumbnail: "https://img.youtube.com/vi/gvY3VXie_i0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Rep. Summer Lee Secures Admission from NLRB Chairman That White House Liaison Would Threaten Agency Independence"
     url: "https://summerlee.house.gov/newsroom/press-releases/rep-summer-lee-secures-admission-from-nlrb-chairman-that-white-house-liaison-would-threaten-agency-independence"

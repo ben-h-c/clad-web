@@ -36,6 +36,10 @@ keyMoments:
 videoId: "ksN9IcrZ8EI"
 videoTitle: "'Sound of freedom': Navy declines punishing Blue Angel pilots for low flyover | RISING"
 thumbnail: "https://img.youtube.com/vi/ksN9IcrZ8EI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Pete Hegseth"
     slug: "pete-hegseth"

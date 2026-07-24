@@ -36,6 +36,10 @@ keyMoments:
 videoId: "20TSZt2xjvo"
 videoTitle: "Trump on AI data centers: Electricity bills 'will actually come down' amid ratepayer pledge"
 thumbnail: "https://img.youtube.com/vi/20TSZt2xjvo/maxresdefault.jpg"
+mediaNote: "talking head upper-middle; keep face clear of bottom text third"
+thumbFocusY: 28
+thumbFocusX: 48
+mediaStyle: "overlay"
 politicians:
   - name: "Chris Wright"
     slug: "chris-wright"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "BUGEk8nHsHE"
 videoTitle: "United States 250 anniversary: Immigration that helped define a nation"
 thumbnail: "https://img.youtube.com/vi/BUGEk8nHsHE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Madeleine Albright - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Madeleine_Albright"

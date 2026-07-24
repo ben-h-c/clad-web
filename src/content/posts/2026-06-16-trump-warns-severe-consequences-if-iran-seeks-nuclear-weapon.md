@@ -31,6 +31,10 @@ keyMoments:
 videoId: "61Pf-zdfc-8"
 videoTitle: "Trump: 'Hell will rain down' if Tehran develops nuclear weapons"
 thumbnail: "https://img.youtube.com/vi/61Pf-zdfc-8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump: Iran deal says 'loud and clear' that Tehran won't have nuclear weapon"
     url: "https://www.reuters.com/world/middle-east/trump-iran-deal-says-loud-clear-that-tehran-wont-have-nuclear-weapon-2026-06-16/"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "mDE6K5JHTZs"
 videoTitle: "NASA astronauts spacewalk to fix robotic arm"
 thumbnail: "https://img.youtube.com/vi/mDE6K5JHTZs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Astronauts Repair Canadarm2 Robotic Arm and Complete Spacewalk - NASA"
     url: "https://www.nasa.gov/blogs/spacestation/2026/06/30/astronauts-repair-canadarm2-robotic-arm-and-complete-spacewalk/"

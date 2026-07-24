@@ -37,6 +37,10 @@ keyMoments:
 videoId: "3LA_9dQi52A"
 videoTitle: "Levin: Iran’s leaders aren’t hiding what they want"
 thumbnail: "https://img.youtube.com/vi/3LA_9dQi52A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A Look at the Text of the Agreement Between the United States and Iran"
     url: "https://www.nytimes.com/2026/06/17/us/politics/us-iran-agreement-deal-text.html"

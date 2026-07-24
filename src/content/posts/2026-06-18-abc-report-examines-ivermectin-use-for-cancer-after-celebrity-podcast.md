@@ -37,6 +37,10 @@ keyMoments:
 videoId: "nO3QqB6K6L0"
 videoTitle: "Some cancer patients turn to ivermectin despite lack of evidence it works"
 thumbnail: "https://img.youtube.com/vi/nO3QqB6K6L0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ivermectin-Benzimidazole Prescribing Following Celebrity Endorsement"
     url: "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2848862"

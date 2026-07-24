@@ -40,6 +40,10 @@ keyMoments:
 videoId: "bXnh96Zs0Vg"
 videoTitle: "‘CCP sees value in USA&#39;s suffering’: Rep Kim backs Trump&#39;s push to shut China’s ‘POISON PIPELINE’"
 thumbnail: "https://img.youtube.com/vi/bXnh96Zs0Vg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Young Kim"
     slug: "young-kim"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "M8moiJ8ab94"
 videoTitle: "Death toll rises from Venezuelan earthquakes as help arrives from US"
 thumbnail: "https://img.youtube.com/vi/M8moiJ8ab94/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: Death toll climbs to over 1,400 in Venezuela quakes"
     url: "https://www.cnn.com/2026/06/27/world/live-news/venezuela-earthquake-hnk"

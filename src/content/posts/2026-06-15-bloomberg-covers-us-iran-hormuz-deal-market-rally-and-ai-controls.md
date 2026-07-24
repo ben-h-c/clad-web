@@ -38,6 +38,10 @@ keyMoments:
 videoId: "HADJFOWcVyM"
 videoTitle: "Stocks and Bonds Rally on US-Iran Deal | The Opening Trade 6/15/2026"
 thumbnail: "https://img.youtube.com/vi/HADJFOWcVyM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. and Iran announce a deal to end the war, reopen the Strait of Hormuz"
     url: "https://www.npr.org/2026/06/15/nx-s1-5858590/us-iran-deal-updates"

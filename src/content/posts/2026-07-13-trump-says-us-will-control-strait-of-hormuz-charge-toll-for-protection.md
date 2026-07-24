@@ -35,6 +35,10 @@ keyMoments:
 videoId: "nAeh7ih96YM"
 videoTitle: "Trump: US will 'take over' Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/nAeh7ih96YM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says US will become ‘guardian’ of Strait of Hormuz and collect tolls"
     url: "https://www.aljazeera.com/news/2026/7/13/trump-says-us-will-become-guardian-of-strait-of-hormuz-and-collect-tolls"

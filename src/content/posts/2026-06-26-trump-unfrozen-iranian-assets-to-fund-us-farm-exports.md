@@ -25,6 +25,10 @@ keyMoments:
 videoId: "JcfnRHVZEJw"
 videoTitle: "US to buy farm goods with unfrozen Iranian assets: Trump"
 thumbnail: "https://img.youtube.com/vi/JcfnRHVZEJw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump: Iran’s Money Will Be Spent on Buying Corn and Soybeans from the U.S."
     url: "https://iranwire.com/en/news/154112-trump-irans-money-will-be-spent-on-buying-corn-and-soybeans-from-the-us/"

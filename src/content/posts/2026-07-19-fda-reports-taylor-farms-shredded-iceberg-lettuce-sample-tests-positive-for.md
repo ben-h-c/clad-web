@@ -34,6 +34,10 @@ keyMoments:
 videoId: "F5P5JrQUMw4"
 videoTitle: "Iceberg lettuce sample from Taylor Farms tests positive for cyclosporiasis parasite"
 thumbnail: "https://img.youtube.com/vi/F5P5JrQUMw4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Cyclospora Outbreak Linked to Iceberg Lettuce in 5 States"
     url: "https://www.cdc.gov/cyclosporiasis/outbreaks/07-26/index.html"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "E_N1b37Th2o"
 videoTitle: "How Josh Kerr is training to break the mile world record"
 thumbnail: "https://img.youtube.com/vi/E_N1b37Th2o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Mile World Record Has Stood Since 1999. Josh Kerr Is Going to Try to Take It Down."
     url: "https://www.runnersworld.com/news/a70871674/josh-kerr-mile-record-attempt/"

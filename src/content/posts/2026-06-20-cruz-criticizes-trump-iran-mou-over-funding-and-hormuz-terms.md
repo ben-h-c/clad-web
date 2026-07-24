@@ -33,6 +33,10 @@ keyMoments:
 videoId: "98WAnPXasQo"
 videoTitle: "Ted Cruz: Trump 'Is Getting Poor Advice' On Iran After MOU Released"
 thumbnail: "https://img.youtube.com/vi/98WAnPXasQo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Cruz: ‘Giving billions of dollars to lunatics’ in Iran ‘is not a good idea’"
     url: "https://thehill.com/homenews/5929040-cruz-iran-deal/"

@@ -39,6 +39,10 @@ keyMoments:
 videoId: "uiySUl0-50k"
 videoTitle: "Trump threatens Tehran after U.S. troops killed in attacks "
 thumbnail: "https://img.youtube.com/vi/uiySUl0-50k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. fires on Iran after deadly attack in Jordan"
     url: "https://www.npr.org/2026/07/18/nx-s1-5899039/us-troops-killed-missing-iran-jordan"

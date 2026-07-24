@@ -37,6 +37,10 @@ keyMoments:
 videoId: "cD3qI8l0tw0"
 videoTitle: "Patrick Christys launches a BLISTERING ATTACK against Andy Burnham over immigration stance"
 thumbnail: "https://img.youtube.com/vi/cD3qI8l0tw0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham says his Makerfield by-election win could be turning point"
     url: "https://www.bbc.com/news/articles/c4gy72kmg1mo"

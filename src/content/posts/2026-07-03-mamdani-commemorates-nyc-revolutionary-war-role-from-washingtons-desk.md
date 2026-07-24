@@ -34,6 +34,10 @@ keyMoments:
 videoId: "WQoVjnuv_f0"
 videoTitle: "Mamdani on NYC's role in American Revolution"
 thumbnail: "https://img.youtube.com/vi/WQoVjnuv_f0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Battle of Long Island"
     url: "https://en.wikipedia.org/wiki/Battle_of_Long_Island"

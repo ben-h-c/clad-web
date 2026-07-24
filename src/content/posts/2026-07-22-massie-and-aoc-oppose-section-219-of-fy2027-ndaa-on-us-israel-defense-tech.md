@@ -37,6 +37,10 @@ keyMoments:
 videoId: "omXsYxH1er8"
 videoTitle: "Thomas Massie &amp; AOC Team Up Against U.S.-Israel Military Alliance"
 thumbnail: "https://img.youtube.com/vi/omXsYxH1er8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Alexandria Ocasio-Cortez"
     slug: "alexandria-ocasio-cortez"

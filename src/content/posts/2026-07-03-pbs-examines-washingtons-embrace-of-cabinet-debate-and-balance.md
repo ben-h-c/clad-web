@@ -34,6 +34,10 @@ keyMoments:
 videoId: "fB8VweKJaZE"
 videoTitle: "Why George Washington believed in the strength of differing viewpoints"
 thumbnail: "https://img.youtube.com/vi/fB8VweKJaZE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How a 22-year-old George Washington learned how to lead from a series of mistakes"
     url: "https://theconversation.com/how-a-22-year-old-george-washington-learned-how-to-lead-from-a-series-of-mistakes-in-the-pennsylvania-wilderness-274466"

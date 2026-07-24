@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ru-OH1VS0DM"
 videoTitle: "Ukraine launches 40-day drone strike campaign to pressure Russia to end war | DW News"
 thumbnail: "https://img.youtube.com/vi/ru-OH1VS0DM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ukraine launches 40-day operation to ‘pressure Russia to end the war’"
     url: "https://www.euronews.com/my-europe/2026/06/26/ukraine-launches-40-day-operation-to-pressure-russia-to-end-the-war"

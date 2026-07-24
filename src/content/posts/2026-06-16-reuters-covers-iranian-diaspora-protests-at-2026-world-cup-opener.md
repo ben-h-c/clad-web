@@ -31,6 +31,10 @@ keyMoments:
 videoId: "_JZNhF1L0eg"
 videoTitle: "Hundreds protest Iranian government at World Cup opener"
 thumbnail: "https://img.youtube.com/vi/_JZNhF1L0eg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Protesters call on FIFA to kick Iran out of World Cup, citing regime involvement"
     url: "https://www.reuters.com/sports/soccer/protesters-call-fifa-kick-iran-out-world-cup-citing-regime-involvement-2026-06-10/"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Au_BCBYRLHk"
 videoTitle: "California high-speed rail on track for big changes"
 thumbnail: "https://img.youtube.com/vi/Au_BCBYRLHk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Project Overview - California High Speed Rail"
     url: "https://hsr.ca.gov/project-overview/"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "ym5eWLaD7_E"
 videoTitle: "Trump Says Strait of Hormuz Will Reopen 'Completely' Friday"
 thumbnail: "https://img.youtube.com/vi/ym5eWLaD7_E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says the Strait of Hormuz will be 'completely open' ..."
     url: "https://www.nbcnews.com/now/video/trump-says-the-strait-of-hormuz-will-be-completely-open-by-friday-265105989583"

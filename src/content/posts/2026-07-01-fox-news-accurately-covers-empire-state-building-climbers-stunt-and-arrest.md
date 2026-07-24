@@ -37,6 +37,10 @@ keyMoments:
 videoId: "voRSFrCpHVw"
 videoTitle: "ENGAGEMENT to ARREST: Couple scales Empire State building spire"
 thumbnail: "https://img.youtube.com/vi/voRSFrCpHVw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Daredevil couple climbs to top of Empire State Building with pro-peace banner, gets engaged"
     url: "https://abc7ny.com/post/2-people-climb-top-empire-state-building-pro-peace-banner/19429181/"

@@ -40,6 +40,10 @@ keyMoments:
 videoId: "WbrJSJJ7rV0"
 videoTitle: "How is Trump's Iran deal different from Obama's?"
 thumbnail: "https://img.youtube.com/vi/WbrJSJJ7rV0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US partially lifts Iran oil sanctions amid ‘encouraging’ talks"
     url: "https://www.aljazeera.com/news/2026/6/22/us-partially-lifts-iran-oil-sanctions-amid-encouraging-talks"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "6WvuMKdHYJM"
 videoTitle: "Mike Crapo Leads Senate Finance Committee Business Meeting On Pending Nominations"
 thumbnail: "https://img.youtube.com/vi/6WvuMKdHYJM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Mike Crapo"
     slug: "mike-crapo"

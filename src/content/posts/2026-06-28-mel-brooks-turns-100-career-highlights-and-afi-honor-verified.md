@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Iqf82N3YSOc"
 videoTitle: "Mel Brooks at 100 has no plans to retire"
 thumbnail: "https://img.youtube.com/vi/Iqf82N3YSOc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "AFI Names Mel Brooks' BLAZING SADDLES as the Funniest Film of All Time"
     url: "https://www.broadwayworld.com/bwwtv/article/AFI-Names-Mel-Brooks-BLAZING-SADDLES-as-the-Funniest-Film-of-All-Time-20260626"

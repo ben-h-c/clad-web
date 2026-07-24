@@ -34,6 +34,10 @@ keyMoments:
 videoId: "6GZLmuwEo88"
 videoTitle: "SpaceX achieves record $2T IPO making Elon Musk first trillionaire #SpaceX #IPO #Wealth"
 thumbnail: "https://img.youtube.com/vi/6GZLmuwEo88/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX IPO makes Elon Musk the world's first trillionaire"
     url: "https://www.reuters.com/business/media-telecom/spacex-ipo-makes-elon-musk-worlds-first-trillionaire-2026-06-11/"

@@ -40,6 +40,10 @@ keyMoments:
 videoId: "K0j2sr6wJBw"
 videoTitle: "Inside the coordinated strategy to radically reshape US immigration"
 thumbnail: "https://img.youtube.com/vi/K0j2sr6wJBw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump signs immigration bill with billions for ICE"
     url: "https://www.npr.org/2026/06/09/nx-s1-5851664/house-reconciliation-vote-immigration-enforcement-ice-border-patrol"

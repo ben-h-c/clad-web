@@ -31,6 +31,10 @@ keyMoments:
 videoId: "iMyYS7hIDf8"
 videoTitle: "UN procures 10,000 body bags as search operations continue following Venezuela’s twin earthquakes"
 thumbnail: "https://img.youtube.com/vi/iMyYS7hIDf8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela quake death toll nears 1,500 as rescue work goes on"
     url: "https://www.reuters.com/business/environment/thirty-three-people-rescued-thousands-still-missing-after-venezuela-quakes-2026-06-28/"

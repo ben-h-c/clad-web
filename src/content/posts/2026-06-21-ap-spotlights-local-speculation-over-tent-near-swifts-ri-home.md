@@ -31,6 +31,10 @@ keyMoments:
 videoId: "DyHQLy217xA"
 videoTitle: "In Taylor Swift’s beach town, every clue becomes a wedding rumor"
 thumbnail: "https://img.youtube.com/vi/DyHQLy217xA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "In Taylor Swift's beach town, every clue becomes a wedding rumor"
     url: "https://apnews.com/video/in-taylor-swifts-beach-town-every-clue-becomes-a-wedding-rumor-242c353c70884a9f836bdeacaa9c9621"

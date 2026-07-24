@@ -38,6 +38,10 @@ keyMoments:
 videoId: "ktEsOBgToWY"
 videoTitle: "ASML CEO on AI Demand, Data Centers in Space and Musk's Terafab"
 thumbnail: "https://img.youtube.com/vi/ktEsOBgToWY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Anthropic's export ban 'should not be discriminatory,' Commission says"
     url: "https://www.euronews.com/my-europe/2026/06/14/us-export-controls-on-anthropic-should-not-be-discriminatory-eu-commission-warns"

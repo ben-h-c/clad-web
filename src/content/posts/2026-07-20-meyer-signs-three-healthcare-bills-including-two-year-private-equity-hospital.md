@@ -33,6 +33,10 @@ keyMoments:
 videoId: "kHc1x_d8ghE"
 videoTitle: "Delaware Governor Matt Meyer signs trio of healthcare bills aimed at lowering costs, expanding"
 thumbnail: "https://img.youtube.com/vi/kHc1x_d8ghE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Matt Meyer"
     slug: "matt-meyer"

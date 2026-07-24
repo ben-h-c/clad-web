@@ -36,6 +36,10 @@ keyMoments:
 videoId: "efxtXcLGedg"
 videoTitle: "WH Says Trump Will Release Election Integrity 'Findings' in Speech | Balance of Power 7/16/2026"
 thumbnail: "https://img.youtube.com/vi/efxtXcLGedg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

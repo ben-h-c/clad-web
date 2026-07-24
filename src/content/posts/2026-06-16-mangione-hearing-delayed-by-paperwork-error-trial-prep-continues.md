@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Odmw-7O5pdQ"
 videoTitle: "Luigi Mangione court hearing delayed due to clerical error"
 thumbnail: "https://img.youtube.com/vi/Odmw-7O5pdQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Luigi Mangione Court Hearing Delayed After Prosecutor’s Mistake"
     url: "https://www.yahoo.com/news/us/articles/luigi-mangione-court-hearing-delayed-175917404.html"

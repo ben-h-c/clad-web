@@ -31,6 +31,10 @@ keyMoments:
 videoId: "lZSAop2-UH8"
 videoTitle: "JD Vance Responds To Controversial Past Comments About Democrats | The View"
 thumbnail: "https://img.youtube.com/vi/lZSAop2-UH8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Vance calls his 'childless cat ladies' comment 'one of the dumbest things I ever said'"
     url: "https://www.nbcnews.com/politics/jd-vance/vance-cat-ladies-comment-dumbest-things-book-rcna349325"

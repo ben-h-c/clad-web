@@ -34,6 +34,10 @@ keyMoments:
 videoId: "A3EfCHc7soI"
 videoTitle: "Socialism and Marxism are on the move!"
 thumbnail: "https://img.youtube.com/vi/A3EfCHc7soI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Ed Case"
     slug: "ed-case"

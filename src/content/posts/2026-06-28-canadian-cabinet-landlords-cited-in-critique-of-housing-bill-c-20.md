@@ -36,6 +36,10 @@ keyMoments:
 videoId: "JhCPofM70pA"
 videoTitle: "Canadian government accused of bias against renters in signature housing legislation"
 thumbnail: "https://img.youtube.com/vi/JhCPofM70pA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Brief on Bill C-20, Build Canada Homes Act"
     url: "https://www.chrc-ccdp.gc.ca/resources/publications/brief-bill-c-20-build-canada-homes-act-federal-housing-advocate"

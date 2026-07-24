@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Z06lHdkHRn4"
 videoTitle: "Britain's Newsroom | Friday 3rd July"
 thumbnail: "https://img.youtube.com/vi/Z06lHdkHRn4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham offers a blueprint for his premiership"
     url: "https://www.bbc.com/news/articles/cpq3yy48zglo"

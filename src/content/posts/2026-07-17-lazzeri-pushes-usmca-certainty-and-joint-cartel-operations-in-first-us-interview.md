@@ -35,6 +35,10 @@ keyMoments:
 videoId: "cYuhBoX-dAw"
 videoTitle: "Mexico’s New Ambassador on ‘Balance of Power’"
 thumbnail: "https://img.youtube.com/vi/cYuhBoX-dAw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'It's constant work': Mexico's new ambassador navigates a high-stakes moment with Washington"
     url: "https://www.politico.com/news/2026/07/15/its-constant-work-mexicos-new-ambassador-navigates-a-high-stakes-moment-with-washington-00997387"

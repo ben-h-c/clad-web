@@ -29,6 +29,10 @@ keyMoments:
 videoId: "SW7v7I2LxT4"
 videoTitle: "Albania protests escalate | DW News"
 thumbnail: "https://img.youtube.com/vi/SW7v7I2LxT4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Kushner Island? Why a planned resort has provoked protests in Albania"
     url: "https://www.aljazeera.com/news/2026/6/5/why-the-kushners-plan-to-build-an-albanian-resort-has-sparked-protests"

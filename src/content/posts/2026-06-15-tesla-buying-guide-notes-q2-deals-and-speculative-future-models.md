@@ -39,6 +39,10 @@ keyMoments:
 videoId: "lAZjZlW2vcc"
 videoTitle: "Tesla Finally Has NEW Models Launching Soon!"
 thumbnail: "https://img.youtube.com/vi/lAZjZlW2vcc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Current Offers"
     url: "https://www.tesla.com/current-offers"

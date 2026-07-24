@@ -34,6 +34,10 @@ keyMoments:
 videoId: "u0JFd10bY-w"
 videoTitle: "World Cup fans are living the American dream"
 thumbnail: "https://img.youtube.com/vi/u0JFd10bY-w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How Trader Joe's Tote Bag Became A Global Status Symbol"
     url: "https://www.forbes.com/sites/kianbakhtiari/2026/01/20/how-trader-joes-tote-bag-became-a-global-status-symbol/"

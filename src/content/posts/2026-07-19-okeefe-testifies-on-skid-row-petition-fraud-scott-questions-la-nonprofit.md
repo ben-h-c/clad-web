@@ -38,6 +38,10 @@ keyMoments:
 videoId: "T47PU7XFQbk"
 videoTitle: "James O&#39;Keefe Testifies Before Senate | Rick Scott Questions LA Nonprofit Claims | Fraud Allegations"
 thumbnail: "https://img.youtube.com/vi/T47PU7XFQbk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Rick Scott"
     slug: "rick-scott"

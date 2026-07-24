@@ -37,6 +37,10 @@ keyMoments:
 videoId: "S8tEHMyRD2I"
 videoTitle: "BREAKING: 'What's He Going To Be Lord Khan Of?' | FURY As Sir Sadiq Gets Peerage"
 thumbnail: "https://img.youtube.com/vi/S8tEHMyRD2I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Keir Starmer set to make Sadiq Khan a lord"
     url: "https://www.ft.com/content/6ea06de7-dae8-4711-931d-012159730e4f"

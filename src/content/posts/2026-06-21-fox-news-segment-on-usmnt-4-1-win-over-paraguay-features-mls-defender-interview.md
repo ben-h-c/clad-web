@@ -35,6 +35,10 @@ keyMoments:
 videoId: "b65Y789JeN4"
 videoTitle: "'GREAT START': MLS player praises US World Cup win over Paraguay"
 thumbnail: "https://img.youtube.com/vi/b65Y789JeN4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "USA 4-1 Paraguay (Jun 12, 2026) Final Score"
     url: "https://www.espn.com/soccer/match/_/gameId/760417/paraguay-united-states"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "4BysPRhvgXA"
 videoTitle: "Covid Inquiry finds almost £10bn of PPE was wasted"
 thumbnail: "https://img.youtube.com/vi/4BysPRhvgXA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Inquiry announces fifth report publication date 'Procurement' (Module 5)"
     url: "https://covid19.public-inquiry.uk/news/inquiry-announces-fifth-report-publication-date-procurement-module-5/"

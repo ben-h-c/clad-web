@@ -36,6 +36,10 @@ keyMoments:
 videoId: "eCKrNgwgDHQ"
 videoTitle: "Samsung Slumps After Earnings; Tanker Hit in Hormuz Before NATO Summit | Daybreak Europe 7/7/2026"
 thumbnail: "https://img.youtube.com/vi/eCKrNgwgDHQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Samsung likely to post 18-fold jump in profit on surging AI demand for memory"
     url: "https://www.reuters.com/world/asia-pacific/samsung-likely-post-18-fold-jump-profit-surging-ai-demand-memory-2026-07-05/"

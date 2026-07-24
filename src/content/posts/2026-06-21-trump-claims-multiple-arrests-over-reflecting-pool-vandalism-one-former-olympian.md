@@ -32,6 +32,10 @@ keyMoments:
 videoId: "hQJZo_zQkv0"
 videoTitle: "Trump: 'Multiple arrests' at Lincoln Memorial Reflecting Pool | Morning in America"
 thumbnail: "https://img.youtube.com/vi/hQJZo_zQkv0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The blue paint is peeling off the Reflecting Pool - The Washington Post"
     url: "https://www.washingtonpost.com/style/2026/06/19/blue-paint-is-peeling-off-reflecting-pool/"

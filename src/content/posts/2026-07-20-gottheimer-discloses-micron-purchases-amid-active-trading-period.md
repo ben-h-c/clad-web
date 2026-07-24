@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Pb1L8AIDE1I"
 videoTitle: "46 Trades in 90 Days. Josh Gottheimer Bought Micron. 48% Alpha. He Sits on Intel."
 thumbnail: "https://img.youtube.com/vi/Pb1L8AIDE1I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Josh Gottheimer"
     slug: "josh-gottheimer"

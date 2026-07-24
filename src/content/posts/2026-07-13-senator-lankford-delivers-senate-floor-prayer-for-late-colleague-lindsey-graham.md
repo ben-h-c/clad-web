@@ -31,6 +31,10 @@ keyMoments:
 videoId: "hJR64slzLuk"
 videoTitle: "James Lankford Delivers Senate Floor Prayer For Lindsey Graham"
 thumbnail: "https://img.youtube.com/vi/hJR64slzLuk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Lindsey Graham"
     slug: "lindsey-graham"

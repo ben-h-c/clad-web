@@ -34,6 +34,10 @@ keyMoments:
 videoId: "CIDVIUK1lFU"
 videoTitle: "Supreme Court hands Trump TWO MAJOR WINS"
 thumbnail: "https://img.youtube.com/vi/CIDVIUK1lFU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Court allows Trump administration to end removal protections for Syrian and Haitian nationals"
     url: "https://www.scotusblog.com/2026/06/supreme-court-allows-trump-administration-to-end-removal-protections-for-syrian-and-haitian-nati/"

@@ -30,6 +30,10 @@ keyMoments:
 videoId: "VMFqjVqgxMQ"
 videoTitle: "Suspect at large in deadly Wilmington hospital shooting"
 thumbnail: "https://img.youtube.com/vi/VMFqjVqgxMQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Suspect at large as one person killed in Delaware hospital shooting"
     url: "https://www.theguardian.com/us-news/2026/jun/16/delaware-hospital-shooting-wilmington"

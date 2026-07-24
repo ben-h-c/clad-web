@@ -34,6 +34,10 @@ keyMoments:
 videoId: "_zkU0U_gMd4"
 videoTitle: "8 killed in B-52 bomber crash at Edwards Air Force Base"
 thumbnail: "https://img.youtube.com/vi/_zkU0U_gMd4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "B-52 crashes at Edwards Air Force Base"
     url: "https://www.edwards.af.mil/News/Display/Article/4517897/b-52-crashes-at-edwards-air-force-base/"

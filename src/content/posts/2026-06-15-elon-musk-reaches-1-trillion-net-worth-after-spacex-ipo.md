@@ -26,6 +26,10 @@ keyMoments:
 videoId: "BloQqoUINHM"
 videoTitle: "🚨BREAKING: Elon Musk Becomes the World&#39;s First Trillionaire #elonmusk #spacex #trillionaire"
 thumbnail: "https://img.youtube.com/vi/BloQqoUINHM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Elon Musk's stratospheric rise to trillionaire status - in charts"
     url: "https://www.bbc.com/news/articles/c4gyp523ly8o"

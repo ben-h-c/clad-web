@@ -34,6 +34,10 @@ keyMoments:
 videoId: "aYbjsSwzzZU"
 videoTitle: "Minionese? A Minion LANGUAGE?! What’s Going On?"
 thumbnail: "https://img.youtube.com/vi/aYbjsSwzzZU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Minions & Monsters - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Minions_%26_Monsters"

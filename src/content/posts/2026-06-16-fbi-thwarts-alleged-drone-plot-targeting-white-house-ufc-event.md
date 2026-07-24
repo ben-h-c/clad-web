@@ -38,6 +38,10 @@ keyMoments:
 videoId: "n7kiY5JuSbA"
 videoTitle: "White House attack thwarted: Arrests made for drone plot at UFC fight"
 thumbnail: "https://img.youtube.com/vi/n7kiY5JuSbA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Secret Service, FBI stop drone plot targeting UFC event at White House"
     url: "https://wjla.com/news/local/fbi-stops-drone-plot-targeting-ufc-event-at-white-house-washington-dc-donald-trump-kash-patel"

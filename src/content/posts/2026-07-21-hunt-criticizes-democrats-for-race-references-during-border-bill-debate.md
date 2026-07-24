@@ -33,6 +33,10 @@ keyMoments:
 videoId: "kCBgqXdNXDQ"
 videoTitle: "'White, White, White': Hunt Brutally Mocks Democrats Invoking Race During Debate On Border Bill"
 thumbnail: "https://img.youtube.com/vi/kCBgqXdNXDQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Chip Roy"
     slug: "chip-roy"

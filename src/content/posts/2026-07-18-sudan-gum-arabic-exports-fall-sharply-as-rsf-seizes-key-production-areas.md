@@ -37,6 +37,10 @@ keyMoments:
 videoId: "8SyKMB1eL1s"
 videoTitle: "Sudan export at risk: Conflict has disrupted production of Gum Arabic"
 thumbnail: "https://img.youtube.com/vi/8SyKMB1eL1s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What does Sudan's crisis mean for the gum arabic industry?"
     url: "https://www.aljazeera.com/news/2023/7/11/what-does-sudan-crisis-mean-for-the-gum-arabic-industry"

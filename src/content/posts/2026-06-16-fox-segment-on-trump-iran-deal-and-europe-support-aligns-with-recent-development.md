@@ -35,6 +35,10 @@ keyMoments:
 videoId: "NFCTp5uiAFU"
 videoTitle: "BREAKTHROUGH: Europe appears to get behind Trump's Iran deal"
 thumbnail: "https://img.youtube.com/vi/NFCTp5uiAFU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. and Iran reach deal but need Trump's final approval, officials say"
     url: "https://www.axios.com/2026/05/28/iran-peace-deal-trump-approval"

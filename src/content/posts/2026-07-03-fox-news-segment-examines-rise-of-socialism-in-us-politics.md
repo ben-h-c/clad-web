@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Bsy-DdFFB38"
 videoTitle: "Socialism NEVER worked: Enes Kanter Freedom"
 thumbnail: "https://img.youtube.com/vi/Bsy-DdFFB38/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2021 DSA Member Survey GDC Report"
     url: "https://www.dsanorthstar.org/uploads/1/1/8/2/118222942/2021_member_survey_gdc_report.pdf"

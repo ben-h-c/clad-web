@@ -34,6 +34,10 @@ keyMoments:
 videoId: "E6K7GYLlU7I"
 videoTitle: "Cape Verdean diaspora describes Vozinha's impact in World Cup draw vs Spain"
 thumbnail: "https://img.youtube.com/vi/E6K7GYLlU7I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Cape Verde's Vozinha: 'Dream has come true' after 40-year-old makes seven saves, earns draw vs Spain"
     url: "https://www.espn.com/soccer/story/_/id/49074930/cape-verde-vozinha-spain-dream-come-true-reaction-goalless-draw-point"

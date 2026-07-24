@@ -34,6 +34,10 @@ keyMoments:
 videoId: "NI2Yx3KXNB0"
 videoTitle: "Georgia's 5th president says the country is \"far from a democracy\" amid Russia's influence"
 thumbnail: "https://img.youtube.com/vi/NI2Yx3KXNB0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The 2026 Mark Palmer Prize: Honoring H.E. Salome Zourabichvili"
     url: "https://freedomhouse.org/event/2026-mark-palmer-prize-honoring-he-salome-zourabichvili"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "BWCkc3KhMl0"
 videoTitle: "Remembering Alan Greenspan and Andrea Mitchell's joint Meet the Press interview (2007)"
 thumbnail: "https://img.youtube.com/vi/BWCkc3KhMl0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Alan Greenspan - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Alan_Greenspan"

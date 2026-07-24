@@ -35,6 +35,10 @@ keyMoments:
 videoId: "uVER-Mj2bQU"
 videoTitle: "Reporter Asks John Thune: Have Any Of Trump Admin's Objectives Of Iran War Been Met In Peace Deal?"
 thumbnail: "https://img.youtube.com/vi/uVER-Mj2bQU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "In the Dark on U.S.-Iran Deal, Senators Refrain From ..."
     url: "https://www.nytimes.com/2026/06/15/world/middleeast/senate-iran-deal-trump.html"

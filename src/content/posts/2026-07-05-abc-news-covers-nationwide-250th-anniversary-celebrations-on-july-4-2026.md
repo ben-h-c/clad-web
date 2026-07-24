@@ -34,6 +34,10 @@ keyMoments:
 videoId: "CK5-h7vVih4"
 videoTitle: "Americans gather to celebrate the historic 250th birthday of our nation"
 thumbnail: "https://img.youtube.com/vi/CK5-h7vVih4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NYC's Parade of Ships will be largest maritime gathering ..."
     url: "https://abc7ny.com/post/sail4th-250-parade-ships-nyc-will-largest-maritime-gathering-american-history/19413907/"

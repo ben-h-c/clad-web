@@ -34,6 +34,10 @@ keyMoments:
 videoId: "f14z1Y3GX6g"
 videoTitle: "THE MOMENT SEN. THOM TILLIS ASKED FOR PROOF OF DOGE&#39;S BILLIONS IN SAVINGS"
 thumbnail: "https://img.youtube.com/vi/f14z1Y3GX6g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Ed Case"
     slug: "ed-case"

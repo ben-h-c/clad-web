@@ -31,6 +31,10 @@ keyMoments:
 videoId: "K2pY1chFH40"
 videoTitle: "How Kansas City is using the World Cup to try to become the U.S. soccer capital"
 thumbnail: "https://img.youtube.com/vi/K2pY1chFH40/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FIFA World Cup 2026 Kansas City Matches"
     url: "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/usa/kansas-city"

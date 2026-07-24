@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ndFUeu_3ua4"
 videoTitle: "Forbes: This does NOT cause inflation"
 thumbnail: "https://img.youtube.com/vi/ndFUeu_3ua4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Forbes: This does NOT cause inflation"
     url: "https://www.youtube.com/watch?v=ndFUeu_3ua4"

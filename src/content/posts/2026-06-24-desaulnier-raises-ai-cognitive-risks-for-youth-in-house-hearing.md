@@ -35,6 +35,10 @@ keyMoments:
 videoId: "iLkkEVqkmMA"
 videoTitle: "'We've Got To Slow It Down': Mark DeSaulnier Demands More Research Into AI's Impact On Development"
 thumbnail: "https://img.youtube.com/vi/iLkkEVqkmMA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UC to consider reinstating SAT, ACT tests after faculty say students are deficient in math"
     url: "https://www.latimes.com/california/story/2026-06-11/uc-sat-act-test-requirement-admissions-reconsider"

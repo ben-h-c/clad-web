@@ -37,6 +37,10 @@ keyMoments:
 videoId: "HIakMWXPfTA"
 videoTitle: "Wesley Hunt SHUTS DOWN Jasmine Crockett Race Debate #shorts"
 thumbnail: "https://img.youtube.com/vi/HIakMWXPfTA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Byron Donalds"
     slug: "byron-donalds"

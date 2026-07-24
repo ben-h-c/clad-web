@@ -38,6 +38,10 @@ keyMoments:
 videoId: "1o4eht_wsDA"
 videoTitle: "Survivors speak out against UK early prison release scheme"
 thumbnail: "https://img.youtube.com/vi/1o4eht_wsDA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Nearly 40,000 prisoners released early under government scheme"
     url: "https://www.bbc.com/news/articles/c93x001ve9ko"

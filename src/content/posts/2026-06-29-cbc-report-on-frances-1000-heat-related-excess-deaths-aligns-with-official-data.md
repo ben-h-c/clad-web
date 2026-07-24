@@ -31,6 +31,10 @@ keyMoments:
 videoId: "rAirLHc7eyk"
 videoTitle: "France reports 1,000 additional deaths from extreme heat wave"
 thumbnail: "https://img.youtube.com/vi/rAirLHc7eyk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "France Recorded 1,000 Excess Deaths During Heat Wave, Officials Say"
     url: "https://www.nytimes.com/2026/06/29/world/europe/france-heat-wave-excess-deaths.html"

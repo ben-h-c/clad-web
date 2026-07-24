@@ -32,6 +32,10 @@ keyMoments:
 videoId: "mHlJPhgqoPA"
 videoTitle: "Adrian Smith Gives Scott Bessent the Floor to Defend Trump’s Investments!"
 thumbnail: "https://img.youtube.com/vi/mHlJPhgqoPA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Adrian Smith"
     slug: "adrian-smith"

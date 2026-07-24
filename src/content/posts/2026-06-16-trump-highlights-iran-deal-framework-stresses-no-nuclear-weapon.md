@@ -36,6 +36,10 @@ keyMoments:
 videoId: "ZTTLqwjzmnI"
 videoTitle: "'Iran Will Never Have A Nuclear Weapon': Trump Boasts Details Of Peace Deal With Iran"
 thumbnail: "https://img.youtube.com/vi/ZTTLqwjzmnI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says Iran will 'never have nuclear weapon' under deal - BBC News"
     url: "https://www.bbc.com/news/live/c98247ml02qt"

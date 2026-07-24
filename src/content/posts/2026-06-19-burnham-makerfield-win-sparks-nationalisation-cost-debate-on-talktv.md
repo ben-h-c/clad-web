@@ -37,6 +37,10 @@ keyMoments:
 videoId: "S8x840c1m2Y"
 videoTitle: "\"200 BILLION Pounds?!\" | The Andy Burnham Nationalisation Row EXPLODES"
 thumbnail: "https://img.youtube.com/vi/S8x840c1m2Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham wins huge majority in Makerfield byelection"
     url: "https://www.theguardian.com/politics/2026/jun/19/andy-burnham-wins-makerfield-byelection-paving-way-labour-leadership-challenge"

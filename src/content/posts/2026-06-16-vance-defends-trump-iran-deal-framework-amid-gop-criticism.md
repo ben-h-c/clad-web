@@ -36,6 +36,10 @@ keyMoments:
 videoId: "WI5RghBUwe0"
 videoTitle: "VP JD Vance Responds To Critics Of President Trump's Iran Peace Deal"
 thumbnail: "https://img.youtube.com/vi/WI5RghBUwe0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Tapper presses VP Vance on specifics of Iran agreement as text remains undisclosed"
     url: "https://www.cnn.com/2026/06/15/world/video/jd-vance-president-trump-iran-war-lead-jake-tapper"

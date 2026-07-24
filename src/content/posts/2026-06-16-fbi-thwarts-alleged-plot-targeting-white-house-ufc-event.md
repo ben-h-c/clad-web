@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ycnpJN3iF2A"
 videoTitle: "FBI says it stopped an alleged plot to attack UFC event at the White House"
 thumbnail: "https://img.youtube.com/vi/ycnpJN3iF2A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FBI disrupts alleged plot targeting White House UFC event, sources say"
     url: "https://www.cbsnews.com/news/fbi-disrupts-alleged-plot-targeting-ufc-event-white-house/"

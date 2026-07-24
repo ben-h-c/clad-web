@@ -36,6 +36,10 @@ keyMoments:
 videoId: "A3BSXhifEOc"
 videoTitle: "'HUGE RED FLAG': Inside the Trump vs Newsom battle"
 thumbnail: "https://img.youtube.com/vi/A3BSXhifEOc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Newsom's Wife Rakes In $3.7 MILLION From Her Own 'Gender Justice' Charity"
     url: "https://californiaglobe.com/fr/newsoms-wife-rakes-in-3-7-million-from-her-own-gender-justice-charity/"

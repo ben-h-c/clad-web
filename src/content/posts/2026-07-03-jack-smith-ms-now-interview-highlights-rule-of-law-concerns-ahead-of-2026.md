@@ -36,6 +36,10 @@ keyMoments:
 videoId: "WSE4LsF3XH0"
 videoTitle: "‘DIRE WARNING’: What Jack Smith revealed in BOMBSHELL Interview with MS NOW"
 thumbnail: "https://img.youtube.com/vi/WSE4LsF3XH0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jack Smith (lawyer) - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Jack_Smith_(lawyer)"

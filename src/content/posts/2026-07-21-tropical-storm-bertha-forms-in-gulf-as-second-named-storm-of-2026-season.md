@@ -35,6 +35,10 @@ keyMoments:
 videoId: "CAbxEygbj5s"
 videoTitle: "Path tracker: Tropical Storm Bertha forms in the Gulf"
 thumbnail: "https://img.youtube.com/vi/CAbxEygbj5s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Atlantic hurricane season - Wikipedia"
     url: "https://en.wikipedia.org/wiki/2026_Atlantic_hurricane_season"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "0008hB7u10M"
 videoTitle: "Georgia father teaching boys to be responsible men | Morning in America"
 thumbnail: "https://img.youtube.com/vi/0008hB7u10M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Our Team - The X for Boys"
     url: "https://thexforboys.org/our-team"

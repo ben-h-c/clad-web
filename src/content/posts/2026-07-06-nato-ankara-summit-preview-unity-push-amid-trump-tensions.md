@@ -35,6 +35,10 @@ keyMoments:
 videoId: "3_HhxL52OvE"
 videoTitle: "Can NATO leaders bridge tensions with Trump?"
 thumbnail: "https://img.youtube.com/vi/3_HhxL52OvE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Overview - 2026 NATO Summit in Ankara"
     url: "https://www.nato.int/en/news-and-events/events/2026/07/overview---2026-nato-summit-in-ankara-"

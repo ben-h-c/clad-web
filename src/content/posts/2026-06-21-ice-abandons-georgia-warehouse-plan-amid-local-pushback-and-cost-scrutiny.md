@@ -35,6 +35,10 @@ keyMoments:
 videoId: "lYl8i2siCtM"
 videoTitle: "“Help us!” 10,000-bed ICE facility rattles Trump-friendly Georgia town"
 thumbnail: "https://img.youtube.com/vi/lYl8i2siCtM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "ICE Spent $700 Million on 7 Warehouses. Now It Wants to Get Rid of Them."
     url: "https://www.nytimes.com/2026/06/18/us/politics/ice-warehouses-immigration.html"

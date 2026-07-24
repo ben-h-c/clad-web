@@ -33,6 +33,10 @@ keyMoments:
 videoId: "WDDMcgfwSWo"
 videoTitle: "\"Stop Being Such Killjoys!\" | Councils Slammed For Banning St George's Cross During World Cup"
 thumbnail: "https://img.youtube.com/vi/WDDMcgfwSWo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Oxfordshire council seeks injunction over flags tied to lamp-posts across county"
     url: "https://www.theguardian.com/uk-news/2026/jun/18/oxfordshire-council-seeks-injunction-over-flags-tied-to-lamp-posts-across-county"

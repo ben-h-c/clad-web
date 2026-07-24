@@ -35,6 +35,10 @@ keyMoments:
 videoId: "m9vj2HUEtzw"
 videoTitle: "LIVE: Mike Collins speaks after winning Georgia Republican Senate runoff"
 thumbnail: "https://img.youtube.com/vi/m9vj2HUEtzw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Georgia Rep. Collins will challenge Ossoff in high-profile Senate matchup"
     url: "https://www.npr.org/2026/06/16/nx-s1-5860795/georgia-election-senate-governor-results-trump"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "2D1kbk8Be2I"
 videoTitle: "Pardons for sale? Trump Rocked by SWAMP BOMBSHELL (Ari x DOJ Vet Weissmann) "
 thumbnail: "https://img.youtube.com/vi/2D1kbk8Be2I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Clemency Grants by President Donald J. Trump (2025-Present)"
     url: "https://www.justice.gov/pardon/clemency-grants-president-donald-j-trump-2025-present"

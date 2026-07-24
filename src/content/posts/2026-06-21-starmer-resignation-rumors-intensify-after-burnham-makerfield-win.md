@@ -37,6 +37,10 @@ keyMoments:
 videoId: "iCt7QKAJ9jQ"
 videoTitle: "Keir Starmer to RESIGN TOMORROW? Allies signal PM is STEPPING DOWN after Burnham's Makerfield win"
 thumbnail: "https://img.youtube.com/vi/iCt7QKAJ9jQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Report says UK PM Starmer ready to quit, but source says he is still focused on the job"
     url: "https://www.reuters.com/world/uk/uk-pm-starmer-expected-resign-monday-set-out-orderly-exit-observer-newspaper-2026-06-20/"

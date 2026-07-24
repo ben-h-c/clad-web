@@ -34,6 +34,10 @@ keyMoments:
 videoId: "G7X4E82DcWQ"
 videoTitle: "Qatar in mourning: Father emir laid to rest in capital Doha"
 thumbnail: "https://img.youtube.com/vi/G7X4E82DcWQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Funeral prayers held for Qatar’s Father Emir Sheikh Hamad in Doha"
     url: "https://www.aljazeera.com/news/2026/7/12/funeral-prayers-held-for-qatars-father-emir-sheikh-hamad-in-doha"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "PwxbB1EJP8c"
 videoTitle: "Rescue efforts turn to recovery as aftershocks shake Venezuela | AJ Shorts"
 thumbnail: "https://img.youtube.com/vi/PwxbB1EJP8c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela earthquakes updates: At least 188 killed, 1,500 injured"
     url: "https://www.aljazeera.com/news/liveblog/2026/6/25/venezuela-earthquakes-live-two-powerful-quakes-shake-s-american-country"

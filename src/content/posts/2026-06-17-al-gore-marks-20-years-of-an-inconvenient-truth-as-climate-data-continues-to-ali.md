@@ -38,6 +38,10 @@ keyMoments:
 videoId: "FW2KvxN8dUA"
 videoTitle: "Former VP Al Gore marks 20 years since ‘An Inconvenient Truth’"
 thumbnail: "https://img.youtube.com/vi/FW2KvxN8dUA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trends in CO2 - NOAA Global Monitoring Laboratory"
     url: "https://gml.noaa.gov/ccgg/trends/"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "aTN_3zNC_bM"
 videoTitle: "Stephen Miller urges allies to help US crush left-wing ‘political terrorism’"
 thumbnail: "https://img.youtube.com/vi/aTN_3zNC_bM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Marco Rubio"
     slug: "marco-rubio"

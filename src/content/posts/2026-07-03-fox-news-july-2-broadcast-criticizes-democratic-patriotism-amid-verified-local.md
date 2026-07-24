@@ -37,6 +37,10 @@ keyMoments:
 videoId: "PA9t0mDy6QM"
 videoTitle: "Fox News Highlights - July 2nd, 2026"
 thumbnail: "https://img.youtube.com/vi/PA9t0mDy6QM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Poll: Majority of Americans are proud but worry about direction of the country"
     url: "https://www.npr.org/2026/07/01/nx-s1-5869563/american-pride-poll"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "9SljU_5wiIw"
 videoTitle: "'Depleting This Vital Water Source!': Gabe Vasquez Blasts DHS Over Border Wall Drilling In Well"
 thumbnail: "https://img.youtube.com/vi/9SljU_5wiIw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Gabe Vasquez"
     slug: "gabe-vasquez"

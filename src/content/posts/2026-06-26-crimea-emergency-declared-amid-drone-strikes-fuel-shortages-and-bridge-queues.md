@@ -31,6 +31,10 @@ keyMoments:
 videoId: "KkEBtkIdVYI"
 videoTitle: "State of emergency declared in Crimea after drone attacks by Ukraine"
 thumbnail: "https://img.youtube.com/vi/KkEBtkIdVYI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "State of emergency declared in Crimea and Sevastopol"
     url: "https://en.apa.az/cis-countries/state-of-emergency-declared-in-crimea-and-sevastopol-513391"

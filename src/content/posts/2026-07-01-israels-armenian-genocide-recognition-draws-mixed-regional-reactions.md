@@ -35,6 +35,10 @@ keyMoments:
 videoId: "7N-IXj2ZUWQ"
 videoTitle: "PM Pashinyas warned Armenia does not wish to engage with 'weaponization' of the 1915 genocide"
 thumbnail: "https://img.youtube.com/vi/7N-IXj2ZUWQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Israel moves to formally recognize Armenian WWI deaths as a genocide"
     url: "https://www.npr.org/2026/06/29/g-s1-130772/israel-armenian-wwi-deaths-genocide"

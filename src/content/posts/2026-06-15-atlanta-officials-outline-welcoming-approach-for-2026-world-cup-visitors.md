@@ -30,6 +30,10 @@ keyMoments:
     note: "Atlanta hosts eight matches total, starting with group-stage games featuring teams including Spain, Cabo Verde, South Africa, Czechia, Saudi Arabia, Morocco, Haiti and Uzbekistan."
 videoId: "p6kX7C8wq3M"
 thumbnail: "https://img.youtube.com/vi/p6kX7C8wq3M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "World Cup Atlanta 2026 | FIFA World Cup 26 Atlanta™ | Official Site"
     url: "https://atlantafwc26.com/"

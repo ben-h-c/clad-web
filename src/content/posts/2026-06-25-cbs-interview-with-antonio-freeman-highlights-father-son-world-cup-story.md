@@ -32,6 +32,10 @@ keyMoments:
 videoId: "MeHUEyk7LBs"
 videoTitle: "Antonio Freeman, father of USMNT player Alex Freeman, opens up about World Cup"
 thumbnail: "https://img.youtube.com/vi/MeHUEyk7LBs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Football vs. fútbol: Who is the best Freeman? Dad Antonio salutes son Alex"
     url: "https://www.nbcnews.com/news/us-news/antonio-freeman-alex-freeman-fifa-world-cup-us-mens-national-team-rcna351285"

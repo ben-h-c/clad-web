@@ -31,6 +31,10 @@ keyMoments:
 videoId: "j1wYxwFC9RI"
 videoTitle: "Jalen Brunson On Why He Took A Significant Pay Cut On His Contract"
 thumbnail: "https://img.youtube.com/vi/j1wYxwFC9RI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jalen Brunson admits that he does not regret getting a massive pay cut on his contract"
     url: "https://sports.yahoo.com/articles/jalen-brunson-admits-does-not-030520124.html"

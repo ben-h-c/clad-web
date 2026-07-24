@@ -37,6 +37,10 @@ keyMoments:
 videoId: "oZTo80-sBTw"
 videoTitle: "When an email brings federal agents to your door | DW News"
 thumbnail: "https://img.youtube.com/vi/oZTo80-sBTw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "ICE officer fatally shoots man while conducting traffic stop in Houston"
     url: "https://www.cnn.com/2026/07/07/us/houston-ice-shooting-death"

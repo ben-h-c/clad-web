@@ -27,6 +27,10 @@ keyMoments:
 videoId: "keYK13fBKkA"
 videoTitle: "Ukraine struggles against Russian ballistic missiles | DW News"
 thumbnail: "https://img.youtube.com/vi/keYK13fBKkA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump grants Kyiv Patriots licences: What’s next in the Russia-Ukraine war?"
     url: "https://www.aljazeera.com/news/2026/7/10/trump-grants-kyiv-patriots-licences-whats-next-in-the-russia-ukraine-war"

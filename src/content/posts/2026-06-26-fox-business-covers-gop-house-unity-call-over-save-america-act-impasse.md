@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ILrlQKhkodU"
 videoTitle: "Trump URGES Republican unity as House drama intensifies"
 thumbnail: "https://img.youtube.com/vi/ILrlQKhkodU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "GOP leaders cancel Friday votes as House agenda hangs in balance"
     url: "https://www.politico.com/live-updates/2026/06/25/congress/no-house-votes-friday-00975820"

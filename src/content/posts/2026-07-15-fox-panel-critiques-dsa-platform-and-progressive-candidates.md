@@ -36,6 +36,10 @@ keyMoments:
 videoId: "FLWht1XCSMQ"
 videoTitle: "‘The Five’: Democrats versus the all-you-can-eat socialist buffet"
 thumbnail: "https://img.youtube.com/vi/FLWht1XCSMQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Haley M. Stevens"
     slug: "haley-m-stevens"

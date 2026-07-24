@@ -36,6 +36,10 @@ keyMoments:
 videoId: "NERoSmuqBLM"
 videoTitle: "Police in Greece on patrol in Roma settlements"
 thumbnail: "https://img.youtube.com/vi/NERoSmuqBLM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "New survey maps Greece's Roma population"
     url: "https://www.ekathimerini.com/in-depth/1282790/new-survey-maps-greeces-roma-population/"

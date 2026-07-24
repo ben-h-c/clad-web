@@ -35,6 +35,10 @@ keyMoments:
 videoId: "uUC6OCqI3vs"
 videoTitle: "Ron Baron on his $25B SpaceX stake: We're going to make hundreds of billions of dollars"
 thumbnail: "https://img.youtube.com/vi/uUC6OCqI3vs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ron Baron bought $1 billion of SpaceX shares in IPO, lifting stake to $25 billion"
     url: "https://www.cnbc.com/2026/06/15/ron-baron-bought-1-billion-of-spacex-shares-in-ipo-lifting-stake-to-25-billion.html"

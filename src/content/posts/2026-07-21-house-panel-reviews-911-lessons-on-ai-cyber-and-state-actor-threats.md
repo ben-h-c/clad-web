@@ -37,6 +37,10 @@ keyMoments:
 videoId: "_e7wf1ct7vI"
 videoTitle: "🔴LIVE: Pete Hegseth, Gen. Caine &amp; Brooke Rollins Testify on Iran War | Trump&#39;s Budget Request | N18G"
 thumbnail: "https://img.youtube.com/vi/_e7wf1ct7vI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "CISA Advisory on Volt Typhoon"
     url: "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-129a"

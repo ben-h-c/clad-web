@@ -39,6 +39,10 @@ keyMoments:
 videoId: "OqXNmO-6c3k"
 videoTitle: "New Rule: America Is Ours | Real Time with Bill Maher (HBO)"
 thumbnail: "https://img.youtube.com/vi/OqXNmO-6c3k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "America250 Official Site"
     url: "https://america250.org/"

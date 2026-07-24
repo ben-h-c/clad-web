@@ -38,6 +38,10 @@ keyMoments:
 videoId: "uh6xw2aB0_Y"
 videoTitle: "Trump says Iran deal 'all signed,' but details remain unclear"
 thumbnail: "https://img.youtube.com/vi/uh6xw2aB0_Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump and Iran reach tentative deal to end war, reopen ..."
     url: "https://www.nbcnews.com/world/iran/live-blog/live-updates-trump-iran-deal-end-war-reopen-hormuz-markets-israel-rcna350076"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "StwOZY2MuHc"
 videoTitle: "JUST IN: Illinois Gov. JB Pritzker Participates In Fireside Chat At Global Quantum Forum In Chicago"
 thumbnail: "https://img.youtube.com/vi/StwOZY2MuHc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "JB Pritzker"
     slug: "jb-pritzker"

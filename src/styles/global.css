@@ -2810,8 +2810,9 @@ html.theme-dark .peek-pop__panel {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: var(--thumb-focus, center 28%);
+  object-position: var(--thumb-focus, 50% 32%);
   display: block;
+  transform: none;
   /* Drop CSS filters on thumbs — they re-composite during scroll */
 }
 
@@ -9727,12 +9728,12 @@ html.clad-app section.charts.home-app-only {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Per-post focus from publish-time still analysis (thumbFocusX/Y) */
-  object-position: var(--thumb-focus, center 28%);
+  /* Per-post focus (thumbFocusX/Y) — no CSS scale (that caused “random zoom”). */
+  object-position: var(--thumb-focus, 50% 32%);
   display: block;
-  transform: scale(1.05);
-  filter: saturate(1.08) contrast(1.05) brightness(0.96);
-  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: none;
+  filter: saturate(1.04) contrast(1.02);
+  transition: filter 0.35s ease;
 }
 .report-card--media .report-card__media-scrim {
   position: absolute;
@@ -9880,7 +9881,8 @@ html.clad-app .report-card--media .report-card__hold-hint {
 }
 @media (hover: hover) and (pointer: fine) {
   .report-card--media:hover .report-card__media-bg img {
-    transform: scale(1.09);
+    /* Subtle brighten only — never scale (reads as accidental zoom). */
+    filter: saturate(1.08) contrast(1.04) brightness(1.02);
   }
   .report-card--media:hover .report-card__headline {
     text-decoration: underline;

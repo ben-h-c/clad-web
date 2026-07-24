@@ -36,6 +36,10 @@ keyMoments:
 videoId: "RVfdZ-aKQhg"
 videoTitle: "Trump made billions since taking office — corruption or noise? | Katie Pavlich Tonight"
 thumbnail: "https://img.youtube.com/vi/RVfdZ-aKQhg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump Pulled In at Least $2 Billion After Returning to the White House"
     url: "https://www.nytimes.com/2026/06/30/us/politics/trump-financial-disclosure-crypto-windfall.html"

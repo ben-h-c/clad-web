@@ -36,6 +36,10 @@ keyMoments:
 videoId: "EysDtxpCoq0"
 videoTitle: "THE REAL DEAL: ‘Tangible steps’ in a peace deal with Iran are necessary, says Sen McCormick"
 thumbnail: "https://img.youtube.com/vi/EysDtxpCoq0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Experts react: The US and Iran just announced an interim peace deal"
     url: "https://www.atlanticcouncil.org/dispatches/experts-react-the-us-and-iran-just-announced-an-interim-peace-deal-heres-what-we-know-so-far/"

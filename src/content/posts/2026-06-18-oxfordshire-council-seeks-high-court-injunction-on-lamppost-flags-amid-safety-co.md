@@ -41,6 +41,10 @@ keyMoments:
 videoId: "_2ssINe1HYw"
 videoTitle: "‘They HATE our country’ | SCATHING reaction to Oxfordshire Council’s bid to BAN the England flag"
 thumbnail: "https://img.youtube.com/vi/_2ssINe1HYw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Oxfordshire council seeks injunction over flags tied to lamp-posts across county"
     url: "https://www.theguardian.com/uk-news/2026/jun/18/oxfordshire-council-seeks-injunction-over-flags-tied-to-lamp-posts-across-county"

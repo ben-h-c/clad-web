@@ -33,6 +33,10 @@ keyMoments:
 videoId: "eCfDRw_uQL4"
 videoTitle: "South Carolina braces for BATTLE over Graham's Senate seat"
 thumbnail: "https://img.youtube.com/vi/eCfDRw_uQL4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Lindsey Graham, Republican Senator and Trump Ally, Dies From ‘Sudden Illness’"
     url: "https://www.nytimes.com/2026/07/12/us/politics/lindsey-graham-dead.html"

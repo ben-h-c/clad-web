@@ -37,6 +37,10 @@ keyMoments:
 videoId: "FaTTkp0Lzik"
 videoTitle: "Oil markets fluctuate as tensions between U.S. and Iran flare"
 thumbnail: "https://img.youtube.com/vi/FaTTkp0Lzik/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Oil settles at multi-week high as US-Iran truce buckles"
     url: "https://www.reuters.com/business/energy/us-oil-prices-jump-after-us-military-launches-strikes-against-iran-2026-07-07/"

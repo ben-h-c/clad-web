@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Fnu06QoN6RY"
 videoTitle: "Mekai Curtus on playing a young 50 Cent for final season of ‘Power Book III’"
 thumbnail: "https://img.youtube.com/vi/Fnu06QoN6RY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Power Book III: Raising Kanan (TV Series 2021–2026)"
     url: "https://www.imdb.com/title/tt11761176/"

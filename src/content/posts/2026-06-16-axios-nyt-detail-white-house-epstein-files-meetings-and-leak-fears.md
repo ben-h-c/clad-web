@@ -36,6 +36,10 @@ keyMoments:
 videoId: "m0-Br3kb8B4"
 videoTitle: "Trump team fears LEAK of Epstein Situation Room tapes: Report"
 thumbnail: "https://img.youtube.com/vi/m0-Br3kb8B4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Inside the White House Freakout Over the Epstein Files"
     url: "https://www.nytimes.com/2026/06/10/magazine/trump-epstein-files-white-house-vance-doj.html"

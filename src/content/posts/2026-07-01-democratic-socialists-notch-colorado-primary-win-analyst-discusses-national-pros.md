@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Jjrd7VsSQ4s"
 videoTitle: "Democratic socialists rake in another win in Colorado, where are they looking at next?"
 thumbnail: "https://img.youtube.com/vi/Jjrd7VsSQ4s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "In Colorado primaries, a democratic socialist wins; Bennet's governor bid ends"
     url: "https://www.npr.org/2026/07/01/nx-s1-5872791/kiros-colorado-democratic-socialist-weiser-bennet-primaries"

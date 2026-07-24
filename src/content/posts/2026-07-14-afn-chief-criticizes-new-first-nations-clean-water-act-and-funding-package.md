@@ -34,6 +34,10 @@ keyMoments:
 videoId: "YsVIYLBIpsw"
 videoTitle: "AFN national chief calls Ottawa’s updated Clean Water Act ‘disappointing’"
 thumbnail: "https://img.youtube.com/vi/YsVIYLBIpsw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Minister Gull-Masty introduces legislation to support access to clean drinking water in First Nations communities and announces historic funding commitment"
     url: "https://www.canada.ca/en/indigenous-services-canada/news/2026/06/minister-gull-masty-introduces-legislation-to-support-access-to-clean-drinking-water-in-first-nations-communities-and-announces-historic-funding-co.html"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "BrNO6SOpwDs"
 videoTitle: "Ontario wildfires: Doug Ford criticized for emergency preparedness"
 thumbnail: "https://img.youtube.com/vi/BrNO6SOpwDs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ontario Wildfire Smoke Moves East - NASA Science"
     url: "https://science.nasa.gov/earth/earth-observatory/ontario-wildfire-smoke-moves-east/"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "sladf0FVU9Y"
 videoTitle: "Mike DeWine says Ohio should abolish the death penalty: Not a 'deterrent to murder'"
 thumbnail: "https://img.youtube.com/vi/sladf0FVU9Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Republican Gov. Mike DeWine says Ohio should abolish the death penalty, saying it is not a deterrent"
     url: "https://apnews.com/article/death-penalty-ohio-dewine-6210d7fbcecde9fe88657a76521e90fe"

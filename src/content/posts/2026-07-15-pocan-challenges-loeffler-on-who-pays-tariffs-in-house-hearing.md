@@ -30,6 +30,10 @@ keyMoments:
 videoId: "gQSg6iujP9k"
 videoTitle: "Pocan calls SBA chief&#39;s tariff claim &quot;complete BS&quot;"
 thumbnail: "https://img.youtube.com/vi/gQSg6iujP9k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Kelly Loeffler"
     slug: "kelly-loeffler"

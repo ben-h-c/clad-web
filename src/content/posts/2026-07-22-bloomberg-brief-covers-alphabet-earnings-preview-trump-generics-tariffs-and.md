@@ -39,6 +39,10 @@ keyMoments:
 videoId: "K2zVXTzHTWk"
 videoTitle: "Stocks Fall Ahead of Alphabet Results; Trump's Generic Drugs Tariff Plan | Bloomberg Brief 07/22/26"
 thumbnail: "https://img.youtube.com/vi/K2zVXTzHTWk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bloomberg Brief 07/22/26"
     url: "https://www.youtube.com/watch?v=K2zVXTzHTWk"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Dfod59uaCkM"
 videoTitle: "Grooming Gangs: How did it happen?"
 thumbnail: "https://img.youtube.com/vi/Dfod59uaCkM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "First batch of grooming gang cases returned to police to reinvestigate"
     url: "https://news.sky.com/story/first-batch-of-grooming-gang-cases-returned-to-police-to-reinvestigate-13554588"

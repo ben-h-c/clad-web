@@ -40,6 +40,10 @@ keyMoments:
 videoId: "iokInGPBwUY"
 videoTitle: "Vice President JD Vance talks US-Iran agreement"
 thumbnail: "https://img.youtube.com/vi/iokInGPBwUY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Vance says Iran agreement has been digitally signed, but remains vague on key issues"
     url: "https://www.goodmorningamerica.com/news/story/vance-iran-agreement-digitally-signed-remains-vague-key-133880794"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "xbrIccuNro4"
 videoTitle: "\"The Last Chance For Labour!\" | Inside The New Government's Reform Agenda"
 thumbnail: "https://img.youtube.com/vi/xbrIccuNro4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham’s first Labour cabinet: who’s in and who’s out?"
     url: "https://www.theguardian.com/politics/2026/jul/20/andy-burnham-labour-cabinet-profiles"

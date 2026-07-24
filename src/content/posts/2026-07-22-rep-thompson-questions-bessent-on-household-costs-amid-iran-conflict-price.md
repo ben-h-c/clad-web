@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Neo2ydnwldg"
 videoTitle: "Rep. Thompson CALLS OUT Bessent&#39;s &#39;Golden Age&#39; Economy in Heated Hearing"
 thumbnail: "https://img.youtube.com/vi/Neo2ydnwldg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

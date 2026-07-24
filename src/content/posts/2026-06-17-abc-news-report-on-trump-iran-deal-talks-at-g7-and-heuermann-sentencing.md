@@ -31,6 +31,10 @@ keyMoments:
 videoId: "XryTbsi_-Gk"
 videoTitle: "Trump Discusses Iran Deal; New York Serial Killer Sentenced. What You Need to Know- June 17"
 thumbnail: "https://img.youtube.com/vi/XryTbsi_-Gk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump denies U.S. will put 'any money' into Iran, as he meets allies at G7 summit"
     url: "https://www.cnbc.com/2026/06/16/trump-g7-summit-iran-zelenskyy-macron.html"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Xo_sJ0jMFDM"
 videoTitle: "Gilgo Beach serial killer receives maximum sentence. #BBCNews"
 thumbnail: "https://img.youtube.com/vi/Xo_sJ0jMFDM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Gilgo Beach serial killings - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Gilgo_Beach_serial_killings"

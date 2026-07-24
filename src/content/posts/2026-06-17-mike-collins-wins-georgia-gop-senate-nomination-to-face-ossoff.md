@@ -30,6 +30,10 @@ keyMoments:
 videoId: "bSrIrDET2qw"
 videoTitle: "Mike Collins wins Georgia GOP Senate nomination, will face Jon Ossoff"
 thumbnail: "https://img.youtube.com/vi/bSrIrDET2qw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump-backed Collins wins Georgia GOP Senate nomination"
     url: "https://www.npr.org/2026/06/16/nx-s1-5860795/georgia-election-senate-governor-results-trump"

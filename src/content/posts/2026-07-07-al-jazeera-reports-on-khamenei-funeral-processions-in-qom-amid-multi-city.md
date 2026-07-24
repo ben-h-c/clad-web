@@ -35,6 +35,10 @@ keyMoments:
 videoId: "I8cje6EFq9Y"
 videoTitle: "Body of Iran’s slain Supreme Leader Ali Khamenei arrives in Qom"
 thumbnail: "https://img.youtube.com/vi/I8cje6EFq9Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Body of Iran’s slain Supreme Leader Ali Khamenei arrives in Qom"
     url: "https://www.aljazeera.com/news/2026/7/6/body-of-irans-slain-supreme-leader-ali-khamenei-arrives-in-qom"

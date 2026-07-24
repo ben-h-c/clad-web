@@ -34,6 +34,10 @@ keyMoments:
 videoId: "uYgroEj5m00"
 videoTitle: "Will Ukraine become an EU member? | Inside Story"
 thumbnail: "https://img.youtube.com/vi/uYgroEj5m00/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "EU and Ukraine open first accession negotiations cluster"
     url: "https://www.consilium.europa.eu/en/press/press-releases/2026/06/15/eu-and-ukraine-open-first-accession-negotiations-cluster/"

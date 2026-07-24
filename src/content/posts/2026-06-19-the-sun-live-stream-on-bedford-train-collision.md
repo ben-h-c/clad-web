@@ -25,6 +25,10 @@ keyMoments:
 videoId: "slpTcM1kd1M"
 videoTitle: "LIVE: Two trains crash in horror rush hour smash as passengers left ‘bloodied & seriously injured’"
 thumbnail: "https://img.youtube.com/vi/slpTcM1kd1M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Two trains crash in horror rush hour smash as passengers left ‘bloodied & seriously injured’"
     url: "https://www.the-sun.com/news/16541114/two-trains-crash-bedford-passengers-injured/"

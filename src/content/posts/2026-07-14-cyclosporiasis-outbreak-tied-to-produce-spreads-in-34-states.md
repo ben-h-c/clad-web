@@ -34,6 +34,10 @@ keyMoments:
 videoId: "OMEsFeuXOsE"
 videoTitle: "An 'explosive' diarrhea illness is spreading across the U.S. Here's how to protect yourself."
 thumbnail: "https://img.youtube.com/vi/OMEsFeuXOsE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Surveillance of Cyclosporiasis | CDC"
     url: "https://www.cdc.gov/cyclosporiasis/php/surveillance/index.html"

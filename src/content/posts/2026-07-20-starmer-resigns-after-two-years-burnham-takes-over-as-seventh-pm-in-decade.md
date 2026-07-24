@@ -38,6 +38,10 @@ keyMoments:
 videoId: "XnvWButSH_M"
 videoTitle: "What is outgoing Prime Minister Keir Starmer's legacy? • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/XnvWButSH_M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Keir Starmer resigns, Andy Burnham becomes U.K. prime minister"
     url: "https://www.npr.org/2026/07/19/nx-s1-5895993/andy-burnham-prime-minister-keir-starmer"

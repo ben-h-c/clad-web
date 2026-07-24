@@ -35,6 +35,10 @@ keyMoments:
 videoId: "1DcmFvD5wwc"
 videoTitle: "Israel's special relationship with US 'seems to have melted into a pretty bad break-up'"
 thumbnail: "https://img.youtube.com/vi/1DcmFvD5wwc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran war live: Trump says ‘back to dropping bombs’ if Iran ‘misbehaves’"
     url: "https://www.aljazeera.com/news/liveblog/2026/6/17/iran-war-live-israel-kills-four-in-lebanon-as-trump-criticises-netanyahu"

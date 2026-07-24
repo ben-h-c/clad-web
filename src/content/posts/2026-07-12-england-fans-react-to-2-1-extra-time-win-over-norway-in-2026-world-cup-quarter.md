@@ -34,6 +34,10 @@ keyMoments:
 videoId: "FcorVHTWMIs"
 videoTitle: "England fans react to win over Norway"
 thumbnail: "https://img.youtube.com/vi/FcorVHTWMIs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jude Bellingham Scores Twice To Send England To World Cup Semifinals Over Norway"
     url: "https://www.foxsports.com/stories/soccer/england-vs-norway-highlights-jude-bellingham-brace-2026-world-cup"

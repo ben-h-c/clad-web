@@ -35,6 +35,10 @@ keyMoments:
 videoId: "nEKi8ADdKGI"
 videoTitle: "When will it rain again?"
 thumbnail: "https://img.youtube.com/vi/nEKi8ADdKGI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Drought, heatwaves and hosepipe bans - when and where will it rain"
     url: "https://www.itv.com/news/2026-07-23/drought-heatwaves-and-hosepipe-bans-when-and-where-will-it-rain"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "t-fYgo3ZjxY"
 videoTitle: "AI, digitization could sharpen biodiversity extinction fight"
 thumbnail: "https://img.youtube.com/vi/t-fYgo3ZjxY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "State of the World's Plants & Fungi"
     url: "https://www.kew.org/science/state-of-the-worlds-plants-and-fungi"

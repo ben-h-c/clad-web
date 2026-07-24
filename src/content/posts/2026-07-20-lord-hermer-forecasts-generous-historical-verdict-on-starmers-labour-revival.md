@@ -33,6 +33,10 @@ keyMoments:
 videoId: "TuKXuYTj1tM"
 videoTitle: "History will be \"VERY GENEROUS\" to Keir Starmer, says friend Lord Hermer"
 thumbnail: "https://img.youtube.com/vi/TuKXuYTj1tM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sir Keir Starmer's premiership in six charts"
     url: "https://www.bbc.com/news/articles/cp8p9qellmqo"

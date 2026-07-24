@@ -35,6 +35,10 @@ keyMoments:
 videoId: "TwR5f1Rc8EM"
 videoTitle: "Labour turns to Andy Burnham for a reset | DW News"
 thumbnail: "https://img.youtube.com/vi/TwR5f1Rc8EM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham declared leader of UK's Labour Party"
     url: "https://apnews.com/article/andy-burnham-uk-labour-party-leadership-eba3703e98f3f9790f74f2cd7ee4cee1"

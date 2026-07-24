@@ -40,6 +40,10 @@ keyMoments:
 videoId: "SGW1MQiiWgo"
 videoTitle: "Ten years of Brexit: Full interview with Vote Leave architect"
 thumbnail: "https://img.youtube.com/vi/SGW1MQiiWgo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Statistics on UK-EU trade - House of Commons Library"
     url: "https://commonslibrary.parliament.uk/research-briefings/cbp-7851/"

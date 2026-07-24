@@ -31,6 +31,10 @@ keyMoments:
 videoId: "sHzwQrKU3lQ"
 videoTitle: "Aisha Wahab advances to California Congressional runoff"
 thumbnail: "https://img.youtube.com/vi/sHzwQrKU3lQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Democrat Aisha Wahab advances in California special election to replace former US Rep. Eric Swalwell"
     url: "https://www.nbcbayarea.com/news/local/special-election-eric-swalwell-congressional-district-14/4099770/"

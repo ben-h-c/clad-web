@@ -35,6 +35,10 @@ keyMoments:
 videoId: "7PCmly-QBwg"
 videoTitle: "Salt workers return to Senegal's Pink Lake after years of disruption"
 thumbnail: "https://img.youtube.com/vi/7PCmly-QBwg/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Senegalese researchers say Lake Retba returns to pink hue after 2022 flooding"
     url: "https://english.news.cn/20250929/2b3b9615330b4655938cbc4e5c3f914f/c.html"

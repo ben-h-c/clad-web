@@ -37,6 +37,10 @@ keyMoments:
 videoId: "tzBdwKxLMzU"
 videoTitle: "NEW DETAILS emerge after secret Fauci files are declassified"
 thumbnail: "https://img.youtube.com/vi/tzBdwKxLMzU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "COVID-19 Release DNI Gabbard 6-18 Part-1"
     url: "https://www.dni.gov/files/documents/Newsroom/Reports%20and%20Pubs/COVID-19_Release_DNI_Gabbard_6-18_Part-1.pdf"

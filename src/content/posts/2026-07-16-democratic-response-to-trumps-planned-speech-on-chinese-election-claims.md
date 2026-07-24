@@ -33,6 +33,10 @@ keyMoments:
 videoId: "_6LeqE7h22A"
 videoTitle: "\"Donald Trump in the Conspirator-in-Chief\""
 thumbnail: "https://img.youtube.com/vi/_6LeqE7h22A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

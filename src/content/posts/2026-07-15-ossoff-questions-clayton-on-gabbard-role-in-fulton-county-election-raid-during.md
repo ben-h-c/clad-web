@@ -34,6 +34,10 @@ keyMoments:
 videoId: "M16RWfjZ_fk"
 videoTitle: "Ossoff SPARS with Clayton: 'Your answers lack credibility, your testimony lacks credibility!'"
 thumbnail: "https://img.youtube.com/vi/M16RWfjZ_fk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Jon Ossoff"
     slug: "jon-ossoff"

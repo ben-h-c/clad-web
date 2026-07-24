@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ddfz5VTzyck"
 videoTitle: "Rep. Gillen Questions Former FEMA Chief on Nonprofit Security Grant Deadlines and Flood Resiliency"
 thumbnail: "https://img.youtube.com/vi/ddfz5VTzyck/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Laura Gillen"
     slug: "laura-gillen"

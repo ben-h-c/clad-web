@@ -34,6 +34,10 @@ keyMoments:
 videoId: "iENDdILRhPY"
 videoTitle: "\"Founding Fathers\" in Boston"
 thumbnail: "https://img.youtube.com/vi/iENDdILRhPY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Founding Fathers in Boston | C-SPAN"
     url: "https://www.youtube.com/watch?v=iENDdILRhPY"

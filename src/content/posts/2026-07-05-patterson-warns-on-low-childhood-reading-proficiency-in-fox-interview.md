@@ -31,6 +31,10 @@ keyMoments:
 videoId: "CP47K6Cxh2k"
 videoTitle: "‘THIS IS A DISASTER’: Author drops STARK warning about childhood reading"
 thumbnail: "https://img.youtube.com/vi/CP47K6Cxh2k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "49 Adult Literacy Statistics and Facts for 2026"
     url: "https://www.nu.edu/blog/49-adult-literacy-statistics-and-facts/"

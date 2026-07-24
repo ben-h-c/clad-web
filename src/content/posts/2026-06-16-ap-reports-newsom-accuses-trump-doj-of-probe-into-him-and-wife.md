@@ -35,6 +35,10 @@ keyMoments:
 videoId: "iNxLD49JR9E"
 videoTitle: "Gavin Newsom says Justice Department is investigating him and his wife"
 thumbnail: "https://img.youtube.com/vi/iNxLD49JR9E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Governor Gavin Newsom Statement on Donald Trump’s Weaponized DOJ Investigation"
     url: "https://www.gov.ca.gov/2026/06/15/governor-gavin-newsom-statement-on-donald-trumps-weaponized-doj-investigation/"

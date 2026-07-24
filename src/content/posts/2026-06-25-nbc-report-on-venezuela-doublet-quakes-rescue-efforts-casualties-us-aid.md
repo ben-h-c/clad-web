@@ -36,6 +36,10 @@ keyMoments:
 videoId: "MfKtkI9zn60"
 videoTitle: "Rescuers race to uncover survivors after deadly double earthquakes hit Venezuela"
 thumbnail: "https://img.youtube.com/vi/MfKtkI9zn60/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: Massive search and rescue effort underway after Venezuela quakes kill at least 188 people"
     url: "https://www.cnn.com/2026/06/24/weather/live-news/venezuela-earthquake-puerto-rico-tsunami"

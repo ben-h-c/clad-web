@@ -37,6 +37,10 @@ keyMoments:
 videoId: "XEvZP6txHZU"
 videoTitle: "Jalen Brunson On Historic New York Knicks Win & His Emotional Moment With His Father | The View"
 thumbnail: "https://img.youtube.com/vi/XEvZP6txHZU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The 2026 NBA Finals prove historically clutch as Knicks win 3rd championship"
     url: "https://www.nba.com/news/2026-nba-finals-prove-historically-clutch"

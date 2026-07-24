@@ -36,6 +36,10 @@ keyMoments:
 videoId: "BBrfDvoPy6U"
 videoTitle: "We're making the US the 'crypto CAPITAL of the world': SEC chairman"
 thumbnail: "https://img.youtube.com/vi/BBrfDvoPy6U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Paul S. Atkins - SEC.gov"
     url: "https://www.sec.gov/about/sec-commissioners/paul-s-atkins"

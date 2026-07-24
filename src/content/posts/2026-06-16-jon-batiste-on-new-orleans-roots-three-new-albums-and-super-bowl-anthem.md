@@ -35,6 +35,10 @@ keyMoments:
 videoId: "6RH6gqCuA40"
 videoTitle: "All Access with Linsey Davis: Jon Batiste"
 thumbnail: "https://img.youtube.com/vi/6RH6gqCuA40/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jon Batiste Announces 'Black Mozart' and Monk Albums"
     url: "https://www.offbeat.com/news/jon-batiste-announces-black-mozart-and-monk-albums/"

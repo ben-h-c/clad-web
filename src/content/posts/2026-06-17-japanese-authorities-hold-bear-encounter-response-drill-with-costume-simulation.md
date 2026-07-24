@@ -27,6 +27,10 @@ keyMoments:
 videoId: "XgQkgWpiyZE"
 videoTitle: "Man in bear costume chased in Japanese bear sighting drill"
 thumbnail: "https://img.youtube.com/vi/XgQkgWpiyZE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Man dons bear costume in Japan Police animal attack drill"
     url: "https://www.bbc.com/news/videos/cn0z0k42djgo"

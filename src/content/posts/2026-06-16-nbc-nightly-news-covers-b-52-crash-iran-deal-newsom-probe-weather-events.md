@@ -35,6 +35,10 @@ keyMoments:
 videoId: "YLnnSRE-8iQ"
 videoTitle: "NBC Nightly News Full Episode - June 15"
 thumbnail: "https://img.youtube.com/vi/YLnnSRE-8iQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Eight Crew Believed Dead After B-52 Crashes at Base, Officials Say"
     url: "https://www.nytimes.com/2026/06/15/us/b-52-crash-edwards-air-force-base-california.html"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "hsYyBI42Qg0"
 videoTitle: "South Korea to ease civilian restrictions near North border"
 thumbnail: "https://img.youtube.com/vi/hsYyBI42Qg0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "South Korea to shift civilian restricted line at border with North Korea"
     url: "https://www.reuters.com/world/asia-pacific/south-korea-shift-civilian-restricted-line-border-with-north-korea-2026-06-17/"

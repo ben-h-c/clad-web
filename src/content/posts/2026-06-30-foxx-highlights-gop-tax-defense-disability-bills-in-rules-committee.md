@@ -33,6 +33,10 @@ keyMoments:
 videoId: "T1vXD2C4sMg"
 videoTitle: "Virginia Foxx Praises GOP-Backed Bills About Taxes, Veterans, Defense, And More"
 thumbnail: "https://img.youtube.com/vi/T1vXD2C4sMg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "H.R.8800 - National Defense Authorization Act for Fiscal Year 2027"
     url: "https://www.congress.gov/bill/119th-congress/house-bill/8800"

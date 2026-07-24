@@ -39,6 +39,10 @@ keyMoments:
 videoId: "jpYv1Ib1v1Q"
 videoTitle: "How (un)productive was Blanche's meeting with Epstein survivors? | Debate roundup"
 thumbnail: "https://img.youtube.com/vi/jpYv1Ib1v1Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "John Cornyn"
     slug: "john-cornyn"

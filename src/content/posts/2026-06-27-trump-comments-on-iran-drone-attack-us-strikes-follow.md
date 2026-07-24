@@ -31,6 +31,10 @@ keyMoments:
 videoId: "JZxg3yZI5YU"
 videoTitle: "Trump bombs Iran after drone hits cargo ship as Tehran blasts 'brutal attack'"
 thumbnail: "https://img.youtube.com/vi/JZxg3yZI5YU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US strikes Iran after attack on cargo ship"
     url: "https://www.bbc.com/news/articles/ckg590wqxwpo"

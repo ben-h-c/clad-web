@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Xt_UIbSV0d0"
 videoTitle: "SpaceX IPO Hype? Don&#39;t Invest Blindly! Do This Instead #shorts"
 thumbnail: "https://img.youtube.com/vi/Xt_UIbSV0d0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Exclusive: SpaceX plans to set IPO price at $135 per share, targeting record $75 billion raise, source says"
     url: "https://www.reuters.com/business/media-telecom/spacex-plans-raise-75-billion-ipo-135-per-share-source-says-2026-06-03/"

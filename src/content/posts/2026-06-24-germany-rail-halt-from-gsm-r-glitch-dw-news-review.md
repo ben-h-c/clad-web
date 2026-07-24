@@ -28,6 +28,10 @@ keyMoments:
 videoId: "aWUbj55Wh5A"
 videoTitle: "Germany rail network halted nationwide | DW News"
 thumbnail: "https://img.youtube.com/vi/aWUbj55Wh5A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Deutsche Bahn halts trains nationwide amid IT meltdown"
     url: "https://www.dw.com/en/deutsche-bahn-halts-trains-across-germany-due-to-malfunctioning-radio-system/a-77682758"

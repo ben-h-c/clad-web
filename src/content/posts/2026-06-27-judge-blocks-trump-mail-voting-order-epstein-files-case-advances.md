@@ -36,6 +36,10 @@ keyMoments:
 videoId: "VFy0L2nboOI"
 videoTitle: "Federal judge blocks Trump's election order, former prosecutor explains what's next"
 thumbnail: "https://img.youtube.com/vi/VFy0L2nboOI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Federal judge blocks key pillars of Trump executive order restricting mail voting in 2026 election"
     url: "https://www.votebeat.org/national/2026/06/25/trump-election-overhaul-mail-voting-executive-order-blocked-talwani-usps-dhs/"

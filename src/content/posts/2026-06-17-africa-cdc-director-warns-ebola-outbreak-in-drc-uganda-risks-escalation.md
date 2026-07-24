@@ -31,6 +31,10 @@ keyMoments:
 videoId: "fFsre4yd9KE"
 videoTitle: "Ebola: The worst is still to come | DW News"
 thumbnail: "https://img.youtube.com/vi/fFsre4yd9KE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ebola Outbreak: Current Situation"
     url: "https://www.cdc.gov/ebola/situation-summary/index.html"

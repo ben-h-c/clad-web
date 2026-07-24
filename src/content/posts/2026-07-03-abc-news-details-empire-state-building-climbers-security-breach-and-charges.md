@@ -34,6 +34,10 @@ keyMoments:
 videoId: "q8gzBa560qo"
 videoTitle: "New details in daredevil couple's security breach to climb Empire State Building"
 thumbnail: "https://img.youtube.com/vi/q8gzBa560qo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Who climbed the Empire State Building? Here's what we know."
     url: "https://www.cbsnews.com/newyork/news/empire-state-building-climbers-ivan-kuznetsov-angela-nikolau/"

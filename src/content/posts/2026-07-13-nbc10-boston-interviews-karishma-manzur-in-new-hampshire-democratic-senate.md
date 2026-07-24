@@ -35,6 +35,10 @@ keyMoments:
 videoId: "P8tZ2I9TMzk"
 videoTitle: "Who is Karishma Manzur? Meet the Democrat challenging Rep. Chris Pappas"
 thumbnail: "https://img.youtube.com/vi/P8tZ2I9TMzk/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Chris Pappas"
     slug: "chris-pappas"

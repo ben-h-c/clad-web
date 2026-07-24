@@ -37,6 +37,10 @@ keyMoments:
 videoId: "mhgtenWF-KI"
 videoTitle: "What's inside the U.S.-Iran deal announced by Trump"
 thumbnail: "https://img.youtube.com/vi/mhgtenWF-KI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US and Iran 'very close' to deal but 'not there yet', Vance says"
     url: "https://www.bbc.com/news/articles/c87qng40wz9o"

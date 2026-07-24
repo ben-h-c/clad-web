@@ -34,6 +34,10 @@ keyMoments:
 videoId: "fQO7twP0p_U"
 videoTitle: "Venezuela quakes final death toll expected to be 'much higher' • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/fQO7twP0p_U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Venezuela earthquakes"
     url: "https://en.wikipedia.org/wiki/2026_Venezuela_earthquakes"

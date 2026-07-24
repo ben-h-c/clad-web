@@ -33,6 +33,10 @@ keyMoments:
 videoId: "nWz8wzzY2D4"
 videoTitle: "“He Doesn’t CARE About Illegal Migration' | Andy Burnham Ignores Asylum Issue In Speech"
 thumbnail: "https://img.youtube.com/vi/nWz8wzzY2D4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UK’s likely next leader Andy Burnham to unveil economic, devolution plans"
     url: "https://www.aljazeera.com/news/2026/6/29/uks-likely-next-leader-andy-burnham-to-unveil-economic-devolution-agenda"

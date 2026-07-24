@@ -39,6 +39,10 @@ keyMoments:
 videoId: "lthUx874M6A"
 videoTitle: "Dick Durbin: 'It's Long Overdue' For Congress To Pass The DREAM Act"
 thumbnail: "https://img.youtube.com/vi/lthUx874M6A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Durbin Reflects on 14th Anniversary of DACA"
     url: "https://www.durbin.senate.gov/newsroom/press-releases/durbin-reflects-on-14th-anniversary-of-daca-calls-on-congress-to-finally-provide-a-pathway-to-citizenship-for-dreamers"

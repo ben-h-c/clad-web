@@ -28,6 +28,10 @@ keyMoments:
 videoId: "xOT9zEfgKzc"
 videoTitle: "Toronto: Air ranked among world's worst as wildfire smoke chokes city • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/xOT9zEfgKzc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Wildfires in Ontario make Toronto air quality worst in world"
     url: "https://www.theguardian.com/world/2026/jul/15/wildfires-in-ontario-make-toronto-canada-air-quality-worst-in-world"

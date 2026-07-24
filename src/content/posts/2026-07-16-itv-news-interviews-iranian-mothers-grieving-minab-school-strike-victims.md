@@ -33,6 +33,10 @@ keyMoments:
 videoId: "3P7RdnUOcGw"
 videoTitle: "Iranian mothers share horror of seeing children killed by American missile"
 thumbnail: "https://img.youtube.com/vi/3P7RdnUOcGw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Minab school attack - Wikipedia"
     url: "https://en.wikipedia.org/wiki/2026_Minab_school_attack"

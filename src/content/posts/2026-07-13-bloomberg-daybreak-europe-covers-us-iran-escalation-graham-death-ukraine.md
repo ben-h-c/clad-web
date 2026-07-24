@@ -38,6 +38,10 @@ keyMoments:
 videoId: "9ti-HefDmHE"
 videoTitle: "Fresh US-Iran Strikes Threaten Ceasefire; TMSC Sales Surge | Daybreak Europe 7/13/2026"
 thumbnail: "https://img.youtube.com/vi/9ti-HefDmHE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Lindsey Graham, Republican Senator and Trump Ally, Dies From ‘Sudden Illness’"
     url: "https://www.nytimes.com/2026/07/12/us/politics/lindsey-graham-dead.html"

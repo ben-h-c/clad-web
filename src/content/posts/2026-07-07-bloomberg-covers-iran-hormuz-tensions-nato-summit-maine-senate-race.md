@@ -36,6 +36,10 @@ keyMoments:
 videoId: "nU4dz0Wsdds"
 videoTitle: "Iran: To Take 'Decisive Actions' to Protect Interests | Balance of Power 07/07/2026"
 thumbnail: "https://img.youtube.com/vi/nU4dz0Wsdds/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US revokes Iran oil waiver after Hormuz attacks"
     url: "https://www.al-monitor.com/originals/2026/07/us-revokes-iran-oil-waiver-after-hormuz-attacks"

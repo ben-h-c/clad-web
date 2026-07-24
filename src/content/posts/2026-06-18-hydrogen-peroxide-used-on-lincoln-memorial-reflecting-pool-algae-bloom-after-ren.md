@@ -33,6 +33,10 @@ keyMoments:
 videoId: "JQMZ0Z5wLTA"
 videoTitle: "Crews seen pouring hydrogen peroxide into Lincoln Memorial reflecting pool to kill algae"
 thumbnail: "https://img.youtube.com/vi/JQMZ0Z5wLTA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Crews battle algae bloom in Washington's newly repainted Reflecting Pool"
     url: "https://www.reuters.com/world/us/crews-battle-algae-bloom-washingtons-newly-repainted-reflecting-pool-2026-06-16/"

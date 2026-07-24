@@ -33,6 +33,10 @@ keyMoments:
 videoId: "s8WPMoeZID4"
 videoTitle: "Boozman Presses VA on Failure to Establish Oncology Program Partnership with UAMS"
 thumbnail: "https://img.youtube.com/vi/s8WPMoeZID4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "John Boozman"
     slug: "john-boozman"

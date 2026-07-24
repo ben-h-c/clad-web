@@ -32,6 +32,10 @@ keyMoments:
 videoId: "tIwGwTyRL6w"
 videoTitle: "Trump claims China STOLE 220 million US voter files | On Balance"
 thumbnail: "https://img.youtube.com/vi/tIwGwTyRL6w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

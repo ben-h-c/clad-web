@@ -31,6 +31,10 @@ keyMoments:
 videoId: "JQqssK9T-wg"
 videoTitle: "President Trump on Thwarted Attack at White House During UFC fight: \"I haven't heard about it.\""
 thumbnail: "https://img.youtube.com/vi/JQqssK9T-wg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FBI foiled alleged plot to attack White House UFC event, Patel says"
     url: "https://www.nbcnews.com/politics/trump-administration/fbi-foils-alleged-plot-attack-white-house-ufc-event-patel-says-rcna350248"

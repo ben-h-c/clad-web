@@ -37,6 +37,10 @@ keyMoments:
 videoId: "DFEUrXQKhPc"
 videoTitle: "How Ivanka Trump island resort plan helped spark mass protests in Albania"
 thumbnail: "https://img.youtube.com/vi/DFEUrXQKhPc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "‘We want a new Albania’: protests against Jared Kushner-backed resort turn anger on government"
     url: "https://www.theguardian.com/world/2026/jun/22/albania-protests-jared-kushner-ivanka-trump-resort-sazan-island-anger-government"

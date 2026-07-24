@@ -33,6 +33,10 @@ keyMoments:
 videoId: "RHuCFWYUBJc"
 videoTitle: "'TOTAL NARCISSIST': Kennedy disses Newsom #gavinnewsom #shorts #politics #politicalnews"
 thumbnail: "https://img.youtube.com/vi/RHuCFWYUBJc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Gavin Newsom"
     slug: "gavin-newsom"

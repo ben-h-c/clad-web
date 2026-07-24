@@ -28,6 +28,10 @@ keyMoments:
 videoId: "r8JzdBqiRCY"
 videoTitle: "Meet Merlin the duck: Mexico's unofficial World Cup mascot"
 thumbnail: "https://img.youtube.com/vi/r8JzdBqiRCY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Merlin the duck: From Mexico City streets to World Cup stardom"
     url: "https://www.reuters.com/sports/soccer/merlin-duck-mexico-city-streets-world-cup-stardom-2026-06-17/"

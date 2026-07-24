@@ -37,6 +37,10 @@ keyMoments:
 videoId: "p1sPBpGkIEI"
 videoTitle: "'The Five': Bernie Sanders, Zohran Mamdani flexing socialist muscles for New York comrades"
 thumbnail: "https://img.youtube.com/vi/p1sPBpGkIEI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Zohran Mamdani, Bernie Sanders challenge Democratic establishment"
     url: "https://www.foxnews.com/video/6398882182112"

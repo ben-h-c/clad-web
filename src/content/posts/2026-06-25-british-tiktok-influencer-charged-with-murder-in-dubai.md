@@ -35,6 +35,10 @@ keyMoments:
 videoId: "SudP1eHTMDQ"
 videoTitle: "“The Truth Will Be TOLD!” | British Influencer Facing Death Penalty After Dubai Murder Arrest"
 thumbnail: "https://img.youtube.com/vi/SudP1eHTMDQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "TikTok star from Kent faces death penalty for Dubai murder"
     url: "https://www.bbc.com/news/articles/cwy0p813jn7o"

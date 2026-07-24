@@ -35,6 +35,10 @@ keyMoments:
 videoId: "2p_vjJQKOsg"
 videoTitle: "John Lewis Day of Action"
 thumbnail: "https://img.youtube.com/vi/2p_vjJQKOsg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Mike Thompson"
     slug: "mike-thompson"

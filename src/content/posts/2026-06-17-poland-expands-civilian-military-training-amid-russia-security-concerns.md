@@ -34,6 +34,10 @@ keyMoments:
 videoId: "7OgrpImawjo"
 videoTitle: "Polish civilians take army training course amid spectre of war with Russia • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/7OgrpImawjo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Poland to offer military training to all its citizens"
     url: "https://www.dw.com/en/poland-to-offer-military-training-to-all-its-citizens/a-74646603"

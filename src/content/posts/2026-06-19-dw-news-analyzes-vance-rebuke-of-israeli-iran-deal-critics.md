@@ -35,6 +35,10 @@ keyMoments:
 videoId: "W_2SgxiZ1JU"
 videoTitle: "JD Vance's rebuke of Israeli critics reveals cracks in US-Israel special relationship | DW News"
 thumbnail: "https://img.youtube.com/vi/W_2SgxiZ1JU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "JD Vance tells Iran deal critics in Israel: Trump is your only ally left in the world"
     url: "https://www.theguardian.com/us-news/2026/jun/19/jd-vance-israel-iran-deal-critics"

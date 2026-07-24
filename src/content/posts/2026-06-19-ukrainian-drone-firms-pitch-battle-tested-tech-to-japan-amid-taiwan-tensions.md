@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Td8cYK3ntuk"
 videoTitle: "Ukraine’s drone makers aim to stop Taiwan invasion"
 thumbnail: "https://img.youtube.com/vi/Td8cYK3ntuk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ukrainian drone makers target Asia as Taiwan tensions spur demand"
     url: "https://www.reuters.com/world/china/ukrainian-drone-makers-target-asia-taiwan-tensions-spur-demand-2026-06-19/"

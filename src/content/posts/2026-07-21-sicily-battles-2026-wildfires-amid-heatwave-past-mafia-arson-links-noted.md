@@ -36,6 +36,10 @@ keyMoments:
 videoId: "-9I7qO7-L9s"
 videoTitle: "Sicily battles wildfires, its history of Mafia sparking flames resurfaces"
 thumbnail: "https://img.youtube.com/vi/-9I7qO7-L9s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UC Berkeley study uncovers the mafia’s role in Italy’s wildfire crisis"
     url: "https://ls.berkeley.edu/news/uc-berkeley-study-uncovers-mafia%E2%80%99s-role-italy%E2%80%99s-wildfire-crisis"

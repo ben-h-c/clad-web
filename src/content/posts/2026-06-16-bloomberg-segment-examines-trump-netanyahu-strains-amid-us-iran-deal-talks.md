@@ -35,6 +35,10 @@ keyMoments:
 videoId: "fqauR2FCRuY"
 videoTitle: "Where the US, Iran and Israel Stand on a Peace Deal"
 thumbnail: "https://img.youtube.com/vi/fqauR2FCRuY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump’s agreement with Iran is the moment Netanyahu has been dreading"
     url: "https://www.cnn.com/2026/06/15/middleeast/trump-netanyahu-iran-agreement-latam-intl"

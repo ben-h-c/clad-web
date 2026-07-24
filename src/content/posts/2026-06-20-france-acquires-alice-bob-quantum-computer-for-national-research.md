@@ -31,6 +31,10 @@ keyMoments:
 videoId: "aWb6PJByrBw"
 videoTitle: "Quantum deal boosts France's sovereignty, Alice and Bob COO says"
 thumbnail: "https://img.youtube.com/vi/aWb6PJByrBw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "France Acquires Alice & Bob Cat-Qubit Quantum Computer for National Research Infrastructure"
     url: "https://thequantuminsider.com/2026/06/17/france-acquires-alice-and-bob-cat-qubit-quantum-computer-for-national-research-infrastructure/"

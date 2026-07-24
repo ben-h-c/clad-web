@@ -34,6 +34,10 @@ keyMoments:
 videoId: "3pY0O8sKVPU"
 videoTitle: "S&P 500: The Failed Breakout That Could Crash the Market 15-20%"
 thumbnail: "https://img.youtube.com/vi/3pY0O8sKVPU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Failed Breakout That Could Crash the Market 15-20%"
     url: "https://www.youtube.com/watch?v=3pY0O8sKVPU"

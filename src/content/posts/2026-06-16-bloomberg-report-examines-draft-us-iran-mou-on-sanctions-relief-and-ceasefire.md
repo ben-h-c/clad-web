@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ePKH1JVDNzA"
 videoTitle: "US Set to Offer Iran Broad Financial Gains in Deal to End War"
 thumbnail: "https://img.youtube.com/vi/ePKH1JVDNzA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran Pushes Differing Versions of Deal as U.S. Sticks to Timeline"
     url: "https://www.bloomberg.com/news/articles/2026-06-14/iran-pushes-differing-versions-of-deal-as-us-sticks-to-timeline"

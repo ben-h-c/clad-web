@@ -34,6 +34,10 @@ keyMoments:
 videoId: "_Qzg7rVdrjA"
 videoTitle: "Big pharma taps UK playbook to pressure Europe on drug prices"
 thumbnail: "https://img.youtube.com/vi/_Qzg7rVdrjA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Pfizer CEO warns German investment at risk over drug pricing policies"
     url: "https://www.reuters.com/world/pfizer-ceo-warns-german-investment-risk-over-drug-pricing-policies-2026-06-10/"

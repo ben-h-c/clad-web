@@ -35,6 +35,10 @@ keyMoments:
 videoId: "aXg-xRlXJKM"
 videoTitle: "Montreal man wants answers after his racial profiling case gets dropped"
 thumbnail: "https://img.youtube.com/vi/aXg-xRlXJKM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "South Shore man calls for probe into Quebec human rights commission after racial profiling complaint closed"
     url: "https://montreal.citynews.ca/2026/06/16/probe-human-rights-racial-profiling-complaint/"

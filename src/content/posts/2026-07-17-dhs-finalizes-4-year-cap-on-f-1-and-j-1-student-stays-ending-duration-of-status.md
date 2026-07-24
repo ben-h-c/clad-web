@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ONXytyxMyoM"
 videoTitle: "US Student Visa Rules Tighten With New 4-Year Limit"
 thumbnail: "https://img.youtube.com/vi/ONXytyxMyoM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump Administration Finalizes Limits on Student Visas"
     url: "https://www.insidehighered.com/news/government/2026/07/16/trump-administration-finalizes-limits-student-visas"

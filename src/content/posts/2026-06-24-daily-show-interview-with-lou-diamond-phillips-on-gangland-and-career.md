@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Lv7O9yuDjcY"
 videoTitle: "Lou Diamond Phillips - Honoring Indigenous Talent in “Gangland” | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/Lv7O9yuDjcY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Gangland (2025) - Rotten Tomatoes"
     url: "https://www.rottentomatoes.com/m/gangland_2025"

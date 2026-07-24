@@ -34,6 +34,10 @@ keyMoments:
 videoId: "QTxAV6isAFI"
 videoTitle: "Argentina defeats England 2-1 to advance to World Cup final"
 thumbnail: "https://img.youtube.com/vi/QTxAV6isAFI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Lionel Messi fuels Argentina’s stunning late rally past England into World Cup final"
     url: "https://sports.yahoo.com/soccer/live/england-vs-argentina-world-cup-2026-score-result-schedule-live-updates-150000908.html"

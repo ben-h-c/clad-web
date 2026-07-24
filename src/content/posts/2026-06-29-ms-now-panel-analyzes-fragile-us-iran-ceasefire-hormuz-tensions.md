@@ -36,6 +36,10 @@ keyMoments:
 videoId: "zLcqTmKvZCc"
 videoTitle: "'Not a good situation for us': 4-star General says Iran 'not going to cave' on Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/zLcqTmKvZCc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fragile US-Iran ceasefire strained, Bahrain and Kuwait targeted by Tehran"
     url: "https://www.cnn.com/2026/06/28/world/live-news/iran-war-strikes-trump"

@@ -28,6 +28,10 @@ keyMoments:
 videoId: "IvW2eknusBM"
 videoTitle: "Trump says he hasn't been briefed on planned attack on White House UFC fight"
 thumbnail: "https://img.youtube.com/vi/IvW2eknusBM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FBI thwarted attack targeting UFC event at White House, director says"
     url: "https://www.washingtonpost.com/politics/2026/06/16/fbi-thwarted-attack-targeting-ufc-event-white-house-director-says/"

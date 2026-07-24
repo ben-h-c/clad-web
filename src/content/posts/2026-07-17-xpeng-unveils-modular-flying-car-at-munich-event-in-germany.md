@@ -33,6 +33,10 @@ keyMoments:
 videoId: "le4F5Qxje_Q"
 videoTitle: "Chinese company XPeng debuts its flying car in Germany"
 thumbnail: "https://img.youtube.com/vi/le4F5Qxje_Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "China's Xpeng debuts flying car in Germany"
     url: "https://apnews.com/video/chinas-xpeng-debuts-flying-car-in-germany-8a67e649e7db49e698005f6754390df7"

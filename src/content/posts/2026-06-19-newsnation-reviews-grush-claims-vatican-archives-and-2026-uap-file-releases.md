@@ -36,6 +36,10 @@ keyMoments:
 videoId: "GusqeGXELNM"
 videoTitle: "UFO disclosure movement and new attention from media and government | Backscroll"
 thumbnail: "https://img.youtube.com/vi/GusqeGXELNM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "No UFO records in Vatican archives despite whistleblower claims"
     url: "https://www.newsnationnow.com/religion/ufo-crash-records-vatican-archives-david-grusch-whistleblower/"

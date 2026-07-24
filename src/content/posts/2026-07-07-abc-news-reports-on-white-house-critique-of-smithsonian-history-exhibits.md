@@ -32,6 +32,10 @@ keyMoments:
 videoId: "JDLYm-NHass"
 videoTitle: "White House accuses Smithsonian of presenting 'a radical view of American history'"
 thumbnail: "https://img.youtube.com/vi/JDLYm-NHass/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "In scathing report, White House accuses Smithsonian of presenting 'a radical view of American history'"
     url: "https://abcnews.go.com/Politics/scathing-report-white-house-accuses-smithsonian-presenting-radical/story?id=134515705"

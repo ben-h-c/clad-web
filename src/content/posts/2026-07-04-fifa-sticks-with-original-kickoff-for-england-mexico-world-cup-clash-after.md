@@ -33,6 +33,10 @@ keyMoments:
 videoId: "5PUwYt7OxrE"
 videoTitle: "FIFA forced into major U-TURN as England prepare to face Mexico at the Azteca"
 thumbnail: "https://img.youtube.com/vi/5PUwYt7OxrE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mexico vs. England World Cup kickoff time unchanged after talks"
     url: "https://www.espn.com/soccer/story/_/id/49260497/mexico-vs-england-world-cup-clash-brought-forward-six-hours-sources"

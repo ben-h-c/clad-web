@@ -28,6 +28,10 @@ keyMoments:
 videoId: "_R7D4HS3T0c"
 videoTitle: "\"I would prefer the prime minister to take a decision on his own terms,\" Streeting said. #BBCNews"
 thumbnail: "https://img.youtube.com/vi/_R7D4HS3T0c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Streeting says he would be prepared to trigger leadership contest as early as next week"
     url: "https://www.bbc.com/news/articles/c4gyeg2207yo"

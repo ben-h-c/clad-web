@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Kw3SWz3ZThM"
 videoTitle: "La Voix on EastEnders, Strictly and a surprise Kate Garraway moment #eastenders #strictly #lavoix"
 thumbnail: "https://img.youtube.com/vi/Kw3SWz3ZThM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "EastEnders reveals \"nerve-wracking\" improvised scenes in La Voix Pride episode"
     url: "https://www.digitalspy.com/soaps/eastenders/a71761460/eastenders-improvised-scenes-la-voix-pride-episode/"

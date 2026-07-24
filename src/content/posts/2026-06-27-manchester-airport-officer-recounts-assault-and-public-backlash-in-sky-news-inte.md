@@ -31,6 +31,10 @@ keyMoments:
 videoId: "zpTyLuU14XE"
 videoTitle: "'I don't understand why': Manchester police officer assaulted in airport speaks to Sky News"
 thumbnail: "https://img.youtube.com/vi/zpTyLuU14XE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Man who punched female police officers at Manchester Airport jailed"
     url: "https://www.bbc.com/news/articles/c1my31rr1vno"

@@ -40,6 +40,10 @@ keyMoments:
 videoId: "UbhWRIs8zX4"
 videoTitle: "Carville issues STARK warning to Dems: 'This is a bridge too far'"
 thumbnail: "https://img.youtube.com/vi/UbhWRIs8zX4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "James Carville says socialist Democrat shouldn't be in the party"
     url: "https://www.foxnews.com/media/james-carville-says-socialist-dem-shouldnt-democratic-party-calls-views-bridge-far"

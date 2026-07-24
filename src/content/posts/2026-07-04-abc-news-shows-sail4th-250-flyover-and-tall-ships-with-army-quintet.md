@@ -32,6 +32,10 @@ keyMoments:
 videoId: "bDUVbTysZ4s"
 videoTitle: "World-renowned U.S. Army Brass Quintet performs as military aircraft take to the skies over NYC."
 thumbnail: "https://img.youtube.com/vi/bDUVbTysZ4s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sail4th 250: Home"
     url: "https://sail4th.org/"

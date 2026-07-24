@@ -34,6 +34,10 @@ keyMoments:
 videoId: "bVE9HNY7x08"
 videoTitle: "Growing number of women having children in their 40s"
 thumbnail: "https://img.youtube.com/vi/bVE9HNY7x08/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Births: Final Data for 2023 - CDC National Vital Statistics Reports"
     url: "https://stacks.cdc.gov/view/cdc/174576/cdc_174576_DS1.pdf"

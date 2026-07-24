@@ -39,6 +39,10 @@ keyMoments:
 videoId: "dZmNJX3xCm4"
 videoTitle: "Trump touts deal with Iran to end war sending oil prices plummeting"
 thumbnail: "https://img.youtube.com/vi/dZmNJX3xCm4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump hails Iran deal at G7 summit"
     url: "https://apnews.com/live/g7-summit-trump-updates-06-15-2026"

@@ -28,6 +28,10 @@ keyMoments:
 videoId: "3PvuMypgATY"
 videoTitle: "WATCH: Warsh says Fed doesn't have a major 'effect on particular prices'"
 thumbnail: "https://img.youtube.com/vi/3PvuMypgATY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Fed Explained - Monetary Policy"
     url: "https://www.federalreserve.gov/aboutthefed/fedexplained/monetary-policy.htm"

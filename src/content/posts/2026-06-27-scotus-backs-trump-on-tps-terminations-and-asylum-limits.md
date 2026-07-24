@@ -41,6 +41,10 @@ keyMoments:
 videoId: "uKRbtWoW05Y"
 videoTitle: "‘Fear of cultural replacement at the heart of MAGA’: SCOTUS rules against protections for migrants"
 thumbnail: "https://img.youtube.com/vi/uKRbtWoW05Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Court allows Trump administration to end removal protections for Syrian and Haitian nationals"
     url: "https://www.scotusblog.com/2026/06/supreme-court-allows-trump-administration-to-end-removal-protections-for-syrian-and-haitian-nati/"

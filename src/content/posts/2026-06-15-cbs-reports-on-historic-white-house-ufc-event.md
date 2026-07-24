@@ -34,6 +34,10 @@ keyMoments:
 videoId: "xie6g0rgvZ0"
 videoTitle: "Trump hosts &quot;surreal&quot; UFC fights at White House and makes history"
 thumbnail: "https://img.youtube.com/vi/xie6g0rgvZ0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump's UFC fights bring historic spectacle to White House"
     url: "https://www.npr.org/2026/06/14/nx-s1-5854962/trump-ufc-white-house-fights"

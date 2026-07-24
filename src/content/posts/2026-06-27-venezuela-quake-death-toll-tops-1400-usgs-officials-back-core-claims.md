@@ -37,6 +37,10 @@ keyMoments:
 videoId: "-2naAvdZV_E"
 videoTitle: "Death toll in Venezuela quakes tops 1,400 as rescue ramps up"
 thumbnail: "https://img.youtube.com/vi/-2naAvdZV_E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Venezuela earthquakes"
     url: "https://en.wikipedia.org/wiki/2026_Venezuela_earthquakes"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "1zVbjKwv7pk"
 videoTitle: "Sen. Thune on FISA and DNI Nominee"
 thumbnail: "https://img.youtube.com/vi/1zVbjKwv7pk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Senate tees up Jay Clayton DNI nomination as FISA talks stall"
     url: "https://www.krqe.com/hill-politics/this-week-on-the-hill-senate-tees-up-clayton-dni-nomination-as-fisa-talks-stall/"

@@ -29,6 +29,10 @@ keyMoments:
 videoId: "NHN-HZQcWHo"
 videoTitle: "American citizen urges federal immigration officials to release his wife facing deportation #shorts"
 thumbnail: "https://img.youtube.com/vi/NHN-HZQcWHo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "\"It rips my heart apart\": U.S. military veteran calls on ICE to release wife"
     url: "https://www.cbsnews.com/news/military-veteran-calls-on-ice-release-wife-wilmer-trujillo-arelys-barahona-martinez/"

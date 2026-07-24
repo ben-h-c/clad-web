@@ -37,6 +37,10 @@ keyMoments:
 videoId: "yxnCWP7UjWY"
 videoTitle: "U.S. strikes Iran in response to drone attack that violated ceasefire: Trump | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/yxnCWP7UjWY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US strikes Iran after Strait of Hormuz cargo ship attack as ceasefire tensions escalate"
     url: "https://www.foxnews.com/live-news/iran-drone-strait-of-hormuz-israel-lebanon-conflict-june-26-2026"

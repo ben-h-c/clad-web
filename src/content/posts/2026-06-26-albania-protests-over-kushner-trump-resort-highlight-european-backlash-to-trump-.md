@@ -36,6 +36,10 @@ keyMoments:
 videoId: "DYCuYmYeJlY"
 videoTitle: "Protests in Albania grow over Ivanka Trump and Jared Kushner's development there"
 thumbnail: "https://img.youtube.com/vi/DYCuYmYeJlY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Albanians are protesting a real estate deal with ties to Jared Kushner & Ivanka Trump"
     url: "https://www.npr.org/2026/06/23/nx-s1-5867614/albanians-are-protesting-a-real-estate-deal-with-ties-to-jared-kushner-ivanka-trump"

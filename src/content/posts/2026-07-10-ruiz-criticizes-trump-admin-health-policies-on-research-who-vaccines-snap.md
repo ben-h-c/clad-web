@@ -36,6 +36,10 @@ keyMoments:
 videoId: "2qNaNhMpc3Q"
 videoTitle: "Congressman and ER doctor Raúl Ruiz says Trump is making America sicker"
 thumbnail: "https://img.youtube.com/vi/2qNaNhMpc3Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Cost of the Trump Administration's Attacks on Research Funding"
     url: "https://www.brennancenter.org/our-work/research-reports/cost-trump-administrations-attacks-research-funding"

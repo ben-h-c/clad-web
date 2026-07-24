@@ -37,6 +37,10 @@ keyMoments:
 videoId: "UH70O0UbE6Q"
 videoTitle: "Reporter Asks Jon Ossoff: If Democrats Retake House And Senate, Should They Move To Impeach Trump?"
 thumbnail: "https://img.youtube.com/vi/UH70O0UbE6Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sen. Jon Ossoff signals support for Trump impeachment"
     url: "https://www.nbcnews.com/politics/congress/sen-jon-ossoff-signals-support-trump-impeachment-rcna203126"

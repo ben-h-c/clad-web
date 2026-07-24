@@ -34,6 +34,10 @@ keyMoments:
 videoId: "OLHoZDI5Imw"
 videoTitle: "Alberta man charged with sex crimes against minors while out on bail | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/OLHoZDI5Imw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Alberta man charged with sex crimes involving minors while out on bail"
     url: "https://www.cbc.ca/news/canada/edmonton/joseph-kidd-charged-sex-crimes-grande-prairie-rcmp-9.7249109"

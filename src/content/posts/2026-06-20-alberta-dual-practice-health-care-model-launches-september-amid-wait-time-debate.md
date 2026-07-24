@@ -34,6 +34,10 @@ keyMoments:
 videoId: "pPIePT4CAE0"
 videoTitle: "Alberta to launch controversial “dual practice” health care this fall"
 thumbnail: "https://img.youtube.com/vi/pPIePT4CAE0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Eligible doctors in Alberta can work in both public, private systems starting this fall"
     url: "https://www.cbc.ca/news/canada/edmonton/eligible-doctors-in-alberta-can-work-in-both-public-private-systems-starting-this-fall-9.7240331"

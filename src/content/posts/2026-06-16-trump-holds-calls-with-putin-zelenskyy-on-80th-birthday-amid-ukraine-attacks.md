@@ -39,6 +39,10 @@ keyMoments:
 videoId: "ltN80ZD3zpI"
 videoTitle: "Trump speaks separately with Zelenskyy, Putin as war rages on between Russia and Ukraine"
 thumbnail: "https://img.youtube.com/vi/ltN80ZD3zpI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump holds phone calls with Putin and Zelensky on birthday"
     url: "https://www.cnn.com/2026/06/14/europe/trump-putin-phone-call-birthday"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "GWV2qQ4Pgu4"
 videoTitle: "‘Starmer Wants Burnham To FAIL’ | ‘He Gave Him No Time To Plan By Quitting’"
 thumbnail: "https://img.youtube.com/vi/GWV2qQ4Pgu4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Starmer Announces Resignation; Burnham Wins Key Endorsement"
     url: "https://www.nytimes.com/live/2026/06/22/world/uk-keir-starmer-resign"

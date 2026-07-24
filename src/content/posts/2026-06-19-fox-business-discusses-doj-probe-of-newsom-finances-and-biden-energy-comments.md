@@ -40,6 +40,10 @@ keyMoments:
 videoId: "pFmfD9fOX74"
 videoTitle: "‘SMELLS BAD’: Federal investigation into Newsom FUELS integrity concerns"
 thumbnail: "https://img.youtube.com/vi/pFmfD9fOX74/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sources: DOJ investigations into Gov. Gavin Newsom tied to wife’s finances, nonprofits"
     url: "https://www.yahoo.com/news/politics/articles/sources-doj-investigation-gov-gavin-185156279.html"

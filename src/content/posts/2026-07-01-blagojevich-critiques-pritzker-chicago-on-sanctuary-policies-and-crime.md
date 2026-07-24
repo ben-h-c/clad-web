@@ -37,6 +37,10 @@ keyMoments:
 videoId: "x_vrVSTwqYQ"
 videoTitle: "Former Illinois Gov. Rod Blagojevich slams current Illinois politics"
 thumbnail: "https://img.youtube.com/vi/x_vrVSTwqYQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sheridan Gorman murder: Man charged pleads not guilty"
     url: "https://abc7chicago.com/post/sheridan-gorman-killed-suspected-killer-jose-medina-pleads-not-guilty-faces-victims-parents-tom-jessica-court/18997502/"

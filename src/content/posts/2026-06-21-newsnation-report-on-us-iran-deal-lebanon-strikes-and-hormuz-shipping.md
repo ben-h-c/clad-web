@@ -34,6 +34,10 @@ keyMoments:
 videoId: "__dCYRS9Ly0"
 videoTitle: "Israeli strikes in Lebanon risk negotiations between US and Iran |Elizabeth Vargas Reports Full Show"
 thumbnail: "https://img.youtube.com/vi/__dCYRS9Ly0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: US and Iran to hold high level talks as Lebanon tops agenda"
     url: "https://www.cnn.com/2026/06/21/world/live-news/iran-war-trump-israel-lebanon"

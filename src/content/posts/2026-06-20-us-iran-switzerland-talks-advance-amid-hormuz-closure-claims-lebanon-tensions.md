@@ -38,6 +38,10 @@ keyMoments:
 videoId: "YdRP4BiTJ5g"
 videoTitle: "US and Iran prepare for crucial talks in Switzerland"
 thumbnail: "https://img.youtube.com/vi/YdRP4BiTJ5g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: Iran and US make opposing claims on Strait of Hormuz ahead of talks in Switzerland"
     url: "https://www.cnn.com/2026/06/20/world/live-news/iran-war-trump-israel-lebanon"

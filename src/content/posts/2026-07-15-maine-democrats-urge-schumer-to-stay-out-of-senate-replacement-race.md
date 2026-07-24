@@ -34,6 +34,10 @@ keyMoments:
 videoId: "2PVsVbHyByQ"
 videoTitle: "Maine Democrats Tell Schumer: &quot;Stay Out Of Our Race!&quot; #shorts"
 thumbnail: "https://img.youtube.com/vi/2PVsVbHyByQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Alexandria Ocasio-Cortez"
     slug: "alexandria-ocasio-cortez"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "wcePgoXyers"
 videoTitle: "Lawrence: White House effectively says NYT reporters must have tapes of Situation Room meeting"
 thumbnail: "https://img.youtube.com/vi/wcePgoXyers/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Regime Change | Book by Maggie Haberman, Jonathan Swan"
     url: "https://www.simonandschuster.com/books/Regime-Change/Maggie-Haberman/9781668067246"

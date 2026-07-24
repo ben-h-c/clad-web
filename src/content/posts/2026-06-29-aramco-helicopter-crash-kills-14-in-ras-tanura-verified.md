@@ -32,6 +32,10 @@ keyMoments:
 videoId: "l7nXE_cEYTs"
 videoTitle: "Saudi Aramco helicopter crash kills 14: report"
 thumbnail: "https://img.youtube.com/vi/l7nXE_cEYTs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Saudi Aramco helicopter crash kills 14 nationals"
     url: "https://www.reuters.com/world/saudi-aramco-helicopter-crash-kills-14-state-new-agency-says-2026-06-28/"

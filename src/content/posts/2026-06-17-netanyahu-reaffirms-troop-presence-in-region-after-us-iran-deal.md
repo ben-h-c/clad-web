@@ -35,6 +35,10 @@ keyMoments:
 videoId: "b_NevbTTiGI"
 videoTitle: "Netanyahu Vows Troops Stay Across Region Despite New Iran Agreement | NewsX World"
 thumbnail: "https://img.youtube.com/vi/b_NevbTTiGI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Netanyahu declares victory over Iran – and rules out withdrawal from Lebanon"
     url: "https://www.theguardian.com/world/live/2026/jun/15/iran-us-peace-deal-live-updates-trump-israel-lebanon-hormuz-nuclear-program-europe-response"

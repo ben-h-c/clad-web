@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Mk7A5vQTOH4"
 videoTitle: "Farewell, #Scotland: #Boston won’t forget the #TartanArmy • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/Mk7A5vQTOH4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Farewell, Scotland: Boston won’t forget the Tartan Army - France 24"
     url: "https://www.france24.com/en/farewell-scotland-boston-won-t-forget-the-tartan-army"

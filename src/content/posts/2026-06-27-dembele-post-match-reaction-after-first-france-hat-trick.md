@@ -31,6 +31,10 @@ keyMoments:
 videoId: "ViFVF3tIcQs"
 videoTitle: "#WorldCup: #Dembélé reacts to scoring first hat-trick for #France • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/ViFVF3tIcQs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Dembele scores hat-trick as France beat Norway 4-1 at World Cup 2026"
     url: "https://www.aljazeera.com/sports/2026/6/26/dembele-scores-hat-trick-as-france-beat-norway-4-1-at-world-cup-2026"

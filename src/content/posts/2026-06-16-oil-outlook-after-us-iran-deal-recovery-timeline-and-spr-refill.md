@@ -36,6 +36,10 @@ keyMoments:
 videoId: "6CgHMNdkrhE"
 videoTitle: "OIL OUTLOOK: What’s next for prices after US-Iran deal?"
 thumbnail: "https://img.youtube.com/vi/6CgHMNdkrhE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Oil and gas supplies could take months to return to normal after Iran deal to open Strait of Hormuz"
     url: "https://apnews.com/article/iran-war-trump-deal-oil-supply-strait-of-hormuz-42bdd71d5afa6fb5ac5d0c3e7857de6c"

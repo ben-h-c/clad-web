@@ -28,6 +28,10 @@ keyMoments:
 videoId: "Vk4L_OKwhTA"
 videoTitle: "Trump jokes that he’s blaming JD Vance if the Iran deal signing 'doesn't work out'"
 thumbnail: "https://img.youtube.com/vi/Vk4L_OKwhTA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says he likes idea of blaming Vance if Iran deal doesn't work out"
     url: "https://www.cnbc.com/2026/06/17/trump-vance-iran-deal-nuclear-g7.html"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "LHkMitI0jAg"
 videoTitle: "'TRUTH BOMB': Justice Thomas calls out 'lie' in landmark opinion"
 thumbnail: "https://img.youtube.com/vi/LHkMitI0jAg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Court rules that states can exclude transgender athletes from girls’ and women’s sports teams"
     url: "https://www.scotusblog.com/2026/06/court-rules-that-states-can-exclude-transgender-athletes-from-girls-and-womens-sports-teams/"

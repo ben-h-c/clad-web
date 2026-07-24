@@ -35,6 +35,10 @@ keyMoments:
 videoId: "20Al7Nn7Qco"
 videoTitle: "Six beluga whales moved from shuttered Canadian theme park | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/20Al7Nn7Qco/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'Emergency rescue' of Marineland's beluga whales to U.S. aquariums has begun"
     url: "https://www.cbc.ca/news/canada/hamilton/marineland-transport-belugas-rescue-9.7276986"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "s5O94oncGmo"
 videoTitle: "Russia's biggest ever attacks hit Kyiv, but is it Ukraine that has the advantage | DW News"
 thumbnail: "https://img.youtube.com/vi/s5O94oncGmo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russia bombards Kyiv in one of war's biggest strikes, at least 21 people killed"
     url: "https://www.reuters.com/world/russian-drones-attack-ukrainian-capital-set-central-district-hotel-fire-2026-07-01/"

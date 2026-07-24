@@ -35,6 +35,10 @@ keyMoments:
 videoId: "qoKfSPZLAMc"
 videoTitle: "How We Revealed Costs of Damage from Iranian Strikes at a U.S. Base"
 thumbnail: "https://img.youtube.com/vi/qoKfSPZLAMc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How Iran Devastated an American Naval Base—and Caused a U.S. Recalculation"
     url: "https://www.wsj.com/world/middle-east/iran-us-naval-base-bahrain-e87bbca3"

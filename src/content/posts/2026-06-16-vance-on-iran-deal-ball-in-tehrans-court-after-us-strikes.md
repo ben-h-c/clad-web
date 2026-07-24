@@ -37,6 +37,10 @@ keyMoments:
 videoId: "cBUSryTErBg"
 videoTitle: "Vance: The ball is in the Iranians' court… #shorts #foxnews #news #us"
 thumbnail: "https://img.youtube.com/vi/cBUSryTErBg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "JD Vance: Iran doesn't get a 'dime' from anyone if they don't change their behavior | Fox News Video"
     url: "https://www.foxnews.com/video/6398504556112"

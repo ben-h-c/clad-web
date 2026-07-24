@@ -41,6 +41,10 @@ keyMoments:
 videoId: "dIcltL5ijCg"
 videoTitle: "'ONE-PARTY STATE': Californians raise questions over 'Golden State' politics"
 thumbnail: "https://img.youtube.com/vi/dIcltL5ijCg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "California Retail Gas Price (Monthly)"
     url: "https://ycharts.com/indicators/california_retail_price_of_gasoline_monthly"

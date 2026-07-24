@@ -32,6 +32,10 @@ keyMoments:
 videoId: "7AvEYk08Jfo"
 videoTitle: "Spencer Pratt says he has recordings of Bass or Raman. Does he?"
 thumbnail: "https://img.youtube.com/vi/7AvEYk08Jfo/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Spencer Pratt says he has recordings of Bass or Raman. ... Does he?"
     url: "https://www.youtube.com/watch?v=7AvEYk08Jfo"

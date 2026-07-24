@@ -32,6 +32,10 @@ keyMoments:
 videoId: "1lVZ7RA_Opk"
 videoTitle: "Dan Meuser Praises Bill, Claims It Will Uplift And Support Small Community Banks"
 thumbnail: "https://img.youtube.com/vi/1lVZ7RA_Opk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Andy Barr"
     slug: "andy-barr"

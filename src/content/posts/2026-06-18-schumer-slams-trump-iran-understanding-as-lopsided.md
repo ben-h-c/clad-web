@@ -33,6 +33,10 @@ keyMoments:
 videoId: "qzpPFfbeBR4"
 videoTitle: "Sen. Chuck Schumer says Iran ‘took Trump to the cleaners’"
 thumbnail: "https://img.youtube.com/vi/qzpPFfbeBR4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Leader Schumer Floor Remarks On Trump's Deal With Iran"
     url: "https://www.democrats.senate.gov/news/press-releases/leader-schumer-floor-remarks-on-trumps-deal-with-iran-that-leaves-americans-paying-the-price-for-his-incompetence"

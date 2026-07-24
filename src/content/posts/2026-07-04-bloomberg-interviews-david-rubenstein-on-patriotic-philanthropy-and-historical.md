@@ -35,6 +35,10 @@ keyMoments:
 videoId: "kEftIvXnrwg"
 videoTitle: "David Rubenstein's Belief in 'Patriotic Philanthropy'"
 thumbnail: "https://img.youtube.com/vi/kEftIvXnrwg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Philanthropist David Rubenstein Donates $7.5 Million to Repair Damage to Washington Monument"
     url: "https://www.doi.gov/news/pressreleases/Philanthropist-David-Rubenstein-Donates-7-pt-5-Million-to-Repair-Damage-to-Washington-Monument"

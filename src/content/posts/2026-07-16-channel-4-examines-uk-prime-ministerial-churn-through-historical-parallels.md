@@ -35,6 +35,10 @@ keyMoments:
 videoId: "98ANzo01XBA"
 videoTitle: "Why 7 prime ministers in 10 years is nothing new for the UK | FourSight"
 thumbnail: "https://img.youtube.com/vi/98ANzo01XBA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Past Prime Ministers - GOV.UK"
     url: "https://www.gov.uk/government/history/past-prime-ministers"

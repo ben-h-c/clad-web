@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Ro5OynV6sHk"
 videoTitle: "Mexican fans say they feel excluded from World Cup in their country"
 thumbnail: "https://img.youtube.com/vi/Ro5OynV6sHk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "World Cup 2026 match schedule - FIFA"
     url: "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/match-schedule-fixtures-results-teams-stadiums"

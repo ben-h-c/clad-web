@@ -35,6 +35,10 @@ keyMoments:
 videoId: "wCI0219GEnY"
 videoTitle: "Jesse Watters: These critics are VICIOUS! #jessewatters #shorts #barackobama #obama"
 thumbnail: "https://img.youtube.com/vi/wCI0219GEnY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Obama Presidential Center’s Lackluster Displays"
     url: "https://www.wsj.com/arts-culture/history/the-obama-presidential-centers-lackluster-displays-9a5f619b"

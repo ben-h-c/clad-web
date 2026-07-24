@@ -34,6 +34,10 @@ keyMoments:
 videoId: "kWQkjZD-H3I"
 videoTitle: "Europe heatwave: How record temperatures have affected farming"
 thumbnail: "https://img.youtube.com/vi/kWQkjZD-H3I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Europe's deadly heatwave breaks German record and halts public events"
     url: "https://www.bbc.com/news/articles/cx2knzzwprgo"

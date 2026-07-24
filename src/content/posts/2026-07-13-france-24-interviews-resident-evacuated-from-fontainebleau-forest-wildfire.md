@@ -34,6 +34,10 @@ keyMoments:
 videoId: "8Im5KrEmYEg"
 videoTitle: "'It's a monster': FRANCE 24 speaks to resident evacuated due to the Fontainebleau fire • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/8Im5KrEmYEg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fontainebleau fire has decimated 5% of the forest, authorities say"
     url: "https://www.france24.com/en/fontainebleau-fire-has-decimated-5-of-the-forest-authorities-say"

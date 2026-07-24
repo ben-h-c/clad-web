@@ -37,6 +37,10 @@ keyMoments:
 videoId: "kSdrUvJIoJc"
 videoTitle: "Joe Biden on Trump: \"What a loser.\""
 thumbnail: "https://img.youtube.com/vi/kSdrUvJIoJc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Reflecting Pool renovation, a massive White House ballroom and a triumphal arch: Here's how Trump is remaking D.C."
     url: "https://www.cbsnews.com/news/trump-dc-reflecting-pool-renovation-white-house-ballroom-triumphal-arch/"

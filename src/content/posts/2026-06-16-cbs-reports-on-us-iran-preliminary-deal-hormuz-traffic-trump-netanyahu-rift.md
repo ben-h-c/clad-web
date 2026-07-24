@@ -40,6 +40,10 @@ keyMoments:
 videoId: "xX0EWTm3ciw"
 videoTitle: "World awaits U.S.-Iran nuclear negotiations as some Strait of Hormuz traffic resumes"
 thumbnail: "https://img.youtube.com/vi/xX0EWTm3ciw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "June 14, 2026 — US and Iran reach agreement that includes opening Strait of Hormuz"
     url: "https://www.cnn.com/2026/06/14/world/live-news/iran-war-trump-israel"

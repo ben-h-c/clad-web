@@ -33,6 +33,10 @@ keyMoments:
 videoId: "Z-gFqQUQUmI"
 videoTitle: "Exclusive: OpenAI Spent $34 Billion In 2025, With Losses Up 8X | Better Offline"
 thumbnail: "https://img.youtube.com/vi/Z-gFqQUQUmI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Exclusive: OpenAI Losses Increased Nearly 8X in 2025, With Spending Hitting $34 Billion"
     url: "https://www.wheresyoured.at/exclusive-openai-financials/"

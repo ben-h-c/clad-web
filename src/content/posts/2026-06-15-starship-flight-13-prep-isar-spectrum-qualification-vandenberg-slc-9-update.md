@@ -37,6 +37,10 @@ keyMoments:
 videoId: "HqmIhnjNkoo"
 videoTitle: "SpaceX ready for Starship Ship 40 Firing in Days —Progressing Fast Towards Launch!"
 thumbnail: "https://img.youtube.com/vi/HqmIhnjNkoo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Gwynne Shotwell, President of SpaceX, provided ..."
     url: "https://www.facebook.com/SpaceXFP/photos/gwynne-shotwell-president-of-spacex-provided-the-following-updates-regarding-sta/1049183694296353/"

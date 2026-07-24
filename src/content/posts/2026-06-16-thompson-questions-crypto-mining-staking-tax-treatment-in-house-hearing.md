@@ -31,6 +31,10 @@ keyMoments:
 videoId: "td-U33wIlF8"
 videoTitle: "Mike Thompson: Congress Must Ensure Fair Tax Liability For Crypto Transactions"
 thumbnail: "https://img.youtube.com/vi/td-U33wIlF8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ways and Means Hears From Tax, Crypto Experts on Digital Asset Proposals"
     url: "https://tax.thomsonreuters.com/news/ways-and-means-hears-from-tax-crypto-experts-on-digital-asset-proposals/"

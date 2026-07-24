@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ad1xcZU-Uz8"
 videoTitle: "Vessels from around the world participate in parade of tall ships up  Hudson River"
 thumbnail: "https://img.youtube.com/vi/ad1xcZU-Uz8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NYC to host America’s 250th birthday celebrations in 2026 with massive ship parade"
     url: "https://sail4th.org/news/nyc-to-host-americas-250th-birthday-celebrations-in-2026-with-massive-ship-parade"

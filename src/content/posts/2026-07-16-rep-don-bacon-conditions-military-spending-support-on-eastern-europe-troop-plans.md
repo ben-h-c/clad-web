@@ -35,6 +35,10 @@ keyMoments:
 videoId: "EKrtNQbNOr4"
 videoTitle: "Rep. Bacon &#39;supportive&#39; of military spending boost"
 thumbnail: "https://img.youtube.com/vi/EKrtNQbNOr4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Don Bacon"
     slug: "don-bacon"

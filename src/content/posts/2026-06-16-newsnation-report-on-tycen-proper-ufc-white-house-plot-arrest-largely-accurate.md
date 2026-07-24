@@ -38,6 +38,10 @@ keyMoments:
 videoId: "h_3W6DsRwog"
 videoTitle: "White House UFC fight terror plot suspect identified"
 thumbnail: "https://img.youtube.com/vi/h_3W6DsRwog/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Five men arrested & charged in plot to attack & kill government officials and others attending UFC event at the White House"
     url: "https://www.justice.gov/usao-sdoh/pr/five-men-arrested-charged-plot-attack-kill-government-officials-others-attending"

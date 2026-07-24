@@ -28,6 +28,10 @@ keyMoments:
 videoId: "KTDCNBmlHIs"
 videoTitle: "Why is NVIDIA so hard to compete with?"
 thumbnail: "https://img.youtube.com/vi/KTDCNBmlHIs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NVIDIA-Verified Agent Skills Provide Capability Governance for AI Agents"
     url: "https://developer.nvidia.com/blog/nvidia-verified-agent-skills-provide-capability-governance-for-ai-agents/"

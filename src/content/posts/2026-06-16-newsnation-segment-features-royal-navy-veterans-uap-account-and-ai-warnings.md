@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Y62KInNHZAY"
 videoTitle: "Royal Navy sailor says UAP encounter triggered downloads from nonhuman intelligence | Reality Check"
 thumbnail: "https://img.youtube.com/vi/Y62KInNHZAY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Royal Navy sailor says UAP encounter triggered downloads from nonhuman intelligence | Reality Check"
     url: "https://www.newsnationnow.com/podcasts-newsnation/royal-navy-sailor-says-uap-encounter-triggered-downloads-from-nonhuman-intelligence-reality-check/"

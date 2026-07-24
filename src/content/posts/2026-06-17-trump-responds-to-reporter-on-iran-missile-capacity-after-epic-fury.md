@@ -34,6 +34,10 @@ keyMoments:
 videoId: "zjZAFkpl3uY"
 videoTitle: "'What Are They Keeping?': Trump Fires Back At Reporter For Saying Iran Is Keeping Missile Capacity"
 thumbnail: "https://img.youtube.com/vi/zjZAFkpl3uY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Epic Fury Quelled for Now, Objectives Accomplished, U.S. Forces Remain Ready"
     url: "https://www.war.gov/News/News-Stories/Article/Article/4454276/epic-fury-quelled-for-now-objectives-accomplished-us-forces-remain-ready/"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "_ZiStHPEoNs"
 videoTitle: "JD Vance joins ‘The Five’"
 thumbnail: "https://img.youtube.com/vi/_ZiStHPEoNs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "June 15, 2026 — Trump and Vance virtually sign US-Iran agreement"
     url: "https://edition.cnn.com/2026/06/15/world/live-news/iran-war-g7-summit"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "WkLRHFoxdUE"
 videoTitle: "Inside the funeral of Supreme Leader Ayatollah Ali Khamenei"
 thumbnail: "https://img.youtube.com/vi/WkLRHFoxdUE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Huge crowds turn out in Tehran for funeral of Supreme Leader Ayatollah Ali Khamenei"
     url: "https://www.nbcnews.com/world/iran/huge-crowds-turn-tehran-funeral-supreme-leader-ayatollah-ali-khamenei-rcna352915"

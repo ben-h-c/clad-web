@@ -33,6 +33,10 @@ keyMoments:
 videoId: "0A8k9z22B0Q"
 videoTitle: "'Break the habit of a lifetime!' | FURIOUS row breaks out on GB News"
 thumbnail: "https://img.youtube.com/vi/0A8k9z22B0Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UK to reduce aid to 0.3% of gross national income from 2027"
     url: "https://commonslibrary.parliament.uk/uk-to-reduce-aid-to-0-3-of-gross-national-income-from-2027/"

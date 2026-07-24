@@ -34,6 +34,10 @@ keyMoments:
 videoId: "lMJeudP_7jA"
 videoTitle: "A right-wing backlash surges in Latin America as crime fears fuel Bukele-style crackdowns"
 thumbnail: "https://img.youtube.com/vi/lMJeudP_7jA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A far-right backlash is surging in Latin America as crime fears fuel Bukele-style crackdowns"
     url: "https://apnews.com/article/latin-america-crime-immigration-backlash-politics-a4c4534f11ba474c9df3ba5ca492b4b1"

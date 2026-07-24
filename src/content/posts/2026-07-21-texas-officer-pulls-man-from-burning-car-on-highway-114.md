@@ -32,6 +32,10 @@ keyMoments:
 videoId: "oFRrGIF76AY"
 videoTitle: "Texas officer rescues a man whose car catches on fire on the highway"
 thumbnail: "https://img.youtube.com/vi/oFRrGIF76AY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Texas officer rescues man after car catches fire on the highway"
     url: "https://apnews.com/video/southlake-officer-rescues-man-after-car-catches-fire-on-highway-3f8ee8485c8744d7b94ddfad939d85ed"

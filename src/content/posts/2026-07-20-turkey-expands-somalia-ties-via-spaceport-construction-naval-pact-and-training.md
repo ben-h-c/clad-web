@@ -37,6 +37,10 @@ keyMoments:
 videoId: "hNsR9zeDeq4"
 videoTitle: "How Turkey quietly became a power broker in Africa | DW News"
 thumbnail: "https://img.youtube.com/vi/hNsR9zeDeq4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Turkey eyes defence, security boost in Somalia spaceport"
     url: "https://somaliatoday.com/news/turkey-eyes-defence-security-boost-in-somalia-spaceport-plan-2026-02-26/"

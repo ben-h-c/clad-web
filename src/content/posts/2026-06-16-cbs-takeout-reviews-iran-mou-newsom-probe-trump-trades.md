@@ -37,6 +37,10 @@ keyMoments:
 videoId: "a6hQO2oUY2A"
 videoTitle: "U.S. and Iran sign preliminary deal, Gavin Newsom says he's under investigation, more | The Takeout"
 thumbnail: "https://img.youtube.com/vi/a6hQO2oUY2A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US, Iran reach deal to extend ceasefire, open strait"
     url: "https://www.axios.com/2026/06/14/us-iran-ceasefire-extended-hormuz-reopen-trump"

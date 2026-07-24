@@ -31,6 +31,10 @@ keyMoments:
 videoId: "MtXduAQ_xd0"
 videoTitle: "Meteor streaks across the skies over several states"
 thumbnail: "https://img.youtube.com/vi/MtXduAQ_xd0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Events in 2026 4372-2026 - American Meteor Society"
     url: "https://fireball.amsmeteors.org/members/imo_view/event/2026/4372"

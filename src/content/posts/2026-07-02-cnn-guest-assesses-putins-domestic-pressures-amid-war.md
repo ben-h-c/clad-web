@@ -39,6 +39,10 @@ keyMoments:
 videoId: "HcJhCx-voM0"
 videoTitle: "Russian ex-official on Putin's (un)popularity at home: 'Something is brewing'"
 thumbnail: "https://img.youtube.com/vi/HcJhCx-voM0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russian economy on the brink of recession"
     url: "https://thinktank.4freerussia.org/economics/russian-economy-on-the-brink-of-recession/"

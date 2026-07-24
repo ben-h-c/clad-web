@@ -35,6 +35,10 @@ keyMoments:
 videoId: "HXcFHvNgveo"
 videoTitle: "Young Kim Asks Kevin Warsh: How Will The Federal Reserve Work With Congress To Lower Consumer Costs?"
 thumbnail: "https://img.youtube.com/vi/HXcFHvNgveo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

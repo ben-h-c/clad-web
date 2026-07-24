@@ -36,6 +36,10 @@ keyMoments:
 videoId: "2mPOxmFAh_c"
 videoTitle: "US probing possible Russian link to Iran hit on CIA facilities"
 thumbnail: "https://img.youtube.com/vi/2mPOxmFAh_c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "EXCLUSIVE: Iran strikes on CIA facilities prompt questions about possible Russian role"
     url: "https://www.reuters.com/world/middle-east/iran-strikes-cia-facilities-prompt-questions-about-possible-russian-role-2026-07-22/"

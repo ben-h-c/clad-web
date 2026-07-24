@@ -35,6 +35,10 @@ keyMoments:
 videoId: "CSraN99dcIU"
 videoTitle: "Mike Lee Questions OMB Nominee About Uniform Guidance Reforms To Combat Waste, Fraud, And Abuse"
 thumbnail: "https://img.youtube.com/vi/CSraN99dcIU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Regulation for Federal Financial Assistance"
     url: "https://www.federalregister.gov/documents/2026/05/29/2026-10817/regulation-for-federal-financial-assistance"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "RJWVHMrv9GI"
 videoTitle: "Israel bulldozes Palestinian homes  in East Jerusalem | BBC News"
 thumbnail: "https://img.youtube.com/vi/RJWVHMrv9GI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Palestinian anger at rise in Israeli demolitions in East Jerusalem"
     url: "https://www.bbc.com/news/articles/cewpwjr9rj4o"

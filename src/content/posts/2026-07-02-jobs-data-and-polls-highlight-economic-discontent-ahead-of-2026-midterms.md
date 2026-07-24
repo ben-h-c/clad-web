@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Rl8490IMxo0"
 videoTitle: "“There are no easy answers to inflation”: Insana on economic frustrations ahead of the midterms"
 thumbnail: "https://img.youtube.com/vi/Rl8490IMxo0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Employment Situation - June 2026"
     url: "https://www.bls.gov/news.release/empsit.nr0.htm"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "4HtAHgk7wx8"
 videoTitle: "Ex-elected official warns of wake up call to establishment Dems amid socialist candidate rise"
 thumbnail: "https://img.youtube.com/vi/4HtAHgk7wx8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "New Report Highlights Disastrous Effects of 2019 'Housing Stability and Tenant Protection Act'"
     url: "https://www.rebny.com/press-release/new-report-highlights-disastrous-effects-of-2019-housing-stability-and/"

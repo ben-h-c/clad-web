@@ -40,6 +40,10 @@ keyMoments:
 videoId: "rjQ7eoQeFkM"
 videoTitle: "“He Offered Me Drugs” | Talk Reporter ‘ATTACKED’ In Central London By ‘Migrant Men’"
 thumbnail: "https://img.youtube.com/vi/rjQ7eoQeFkM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Keir Starmer makes Sadiq Khan a peer in the House of Lords"
     url: "https://www.theguardian.com/politics/2026/jul/16/keir-starmer-makes-sadiq-khan-a-peer-in-the-house-of-lords"

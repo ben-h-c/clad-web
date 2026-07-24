@@ -34,6 +34,10 @@ keyMoments:
 videoId: "tE5m2NL52To"
 videoTitle: "Virginia Governor Spanberger Gets Emotional During Gun Violence Prevention Event"
 thumbnail: "https://img.youtube.com/vi/tE5m2NL52To/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "HISTORIC VICTORY FOR GUN SAFETY: Former Moms Demand Action Volunteer, Virginia Governor Abigail Spanberger, Signs Massive Slate of Gun Safety Legislation Into Law"
     url: "https://www.everytown.org/press/historic-victory-for-gun-safety-former-moms-demand-action-volunteer-virginia-governor-abigail-spanberger-signs-massive-slate-of-gun-safety-legislation-into-law-solidifying-virginia-as-a-national-l/"

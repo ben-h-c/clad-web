@@ -34,6 +34,10 @@ keyMoments:
 videoId: "4Q74uEF54XA"
 videoTitle: "'I'm A Fan Of Beautiful Places': Trump Explains His Decision To Attend Versailles Dinner During G7"
 thumbnail: "https://img.youtube.com/vi/4Q74uEF54XA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Macron to host Trump for dinner at Versailles after G7 summit"
     url: "https://www.pbs.org/newshour/world/macron-to-host-trump-for-dinner-at-versailles-after-g7-summit"

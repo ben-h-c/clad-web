@@ -35,6 +35,10 @@ keyMoments:
 videoId: "mdUJNZGItE8"
 videoTitle: "Teen shark attack in Alabama inspires start of a national alert system"
 thumbnail: "https://img.youtube.com/vi/mdUJNZGItE8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Shark attack on Alabama teen inspires the start of a national alert system"
     url: "https://apnews.com/article/shark-bite-phone-alerts-lulu-gribbin-law-fcb885b39c352c08eb7ca1fe9aa7cff7"

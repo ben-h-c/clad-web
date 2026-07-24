@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Fyi7LypBOak"
 videoTitle: "This Is What Happens Next To Haitian & Syrian TPS Holders After Trump's SCOTUS Victory"
 thumbnail: "https://img.youtube.com/vi/Fyi7LypBOak/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Court allows Trump administration to end removal protections for Syrian and Haitian nationals"
     url: "https://www.scotusblog.com/2026/06/supreme-court-allows-trump-administration-to-end-removal-protections-for-syrian-and-haitian-nati/"

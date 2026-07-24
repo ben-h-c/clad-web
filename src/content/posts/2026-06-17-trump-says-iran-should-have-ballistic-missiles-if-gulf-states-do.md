@@ -32,6 +32,10 @@ keyMoments:
 videoId: "BXWSsM71kOI"
 videoTitle: "Trump says it’s ‘unfair’ for Iran to lack ballistic missiles"
 thumbnail: "https://img.youtube.com/vi/BXWSsM71kOI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump: unfair for Iran to lack ballistic missiles if other countries have them"
     url: "https://www.reuters.com/world/middle-east/trump-unfair-iran-lack-ballistic-missiles-if-other-countries-have-them-2026-06-17/"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "8BJG9Ywxf84"
 videoTitle: "SpaceX IPO in Focus as Iran Fears Ease | The Asia Trade 6/12/2026"
 thumbnail: "https://img.youtube.com/vi/8BJG9Ywxf84/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Exclusive: SpaceX plans to set IPO price at $135 per share, targeting record $75 billion raise, source says"
     url: "https://www.reuters.com/business/media-telecom/spacex-plans-raise-75-billion-ipo-135-per-share-source-says-2026-06-03/"

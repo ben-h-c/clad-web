@@ -34,6 +34,10 @@ keyMoments:
 videoId: "TE4Ox0LboJ8"
 videoTitle: "Secret Service agent on Vance detail under investigation for allegedly leaking information"
 thumbnail: "https://img.youtube.com/vi/TE4Ox0LboJ8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "JD Vance"
     slug: "jd-vance"

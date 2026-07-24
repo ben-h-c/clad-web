@@ -34,6 +34,10 @@ keyMoments:
 videoId: "EAO7hYuz0Ck"
 videoTitle: "Nissan CEO says it still makes sense to build cars in US"
 thumbnail: "https://img.youtube.com/vi/EAO7hYuz0Ck/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How Nissan cut tariff costs by $2.3 billion with its America-first strategy"
     url: "https://www.autonews.com/nissan/an-nissan-slashes-23b-in-tariff-costs-with-made-in-usa-push-0511/"

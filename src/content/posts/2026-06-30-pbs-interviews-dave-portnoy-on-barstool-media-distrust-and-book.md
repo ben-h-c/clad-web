@@ -33,6 +33,10 @@ keyMoments:
 videoId: "OfJVOpFUOeA"
 videoTitle: "Dave Portnoy and Amna Nawaz discuss media and controversies on 'Settle In'"
 thumbnail: "https://img.youtube.com/vi/OfJVOpFUOeA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Can Dave Portnoy be canceled?"
     url: "https://www.pbs.org/newshour/podcasts/settle-in-with-pbs-news/can-dave-portnoy-be-canceled"

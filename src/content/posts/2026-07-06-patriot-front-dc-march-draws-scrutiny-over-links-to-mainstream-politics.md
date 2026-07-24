@@ -40,6 +40,10 @@ keyMoments:
 videoId: "slaRLAC948o"
 videoTitle: "'Straight up Nazis': Author slams masked white supremacist group marching through D.C."
 thumbnail: "https://img.youtube.com/vi/slaRLAC948o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Masked Patriot Front white nationalists stage July 4 march through DC"
     url: "https://www.reuters.com/world/us/masked-patriot-front-white-nationalists-stage-july-4-march-through-dc-2026-07-04/"

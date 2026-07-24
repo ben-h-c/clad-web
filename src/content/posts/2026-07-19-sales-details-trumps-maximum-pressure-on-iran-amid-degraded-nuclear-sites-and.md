@@ -34,6 +34,10 @@ keyMoments:
 videoId: "yrpv4LtWpX8"
 videoTitle: "Iran's nuclear situation is significantly DEGRADED: Former ambassador"
 thumbnail: "https://img.youtube.com/vi/yrpv4LtWpX8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Reconstructing Iran's Nuclear Baseline"
     url: "https://www.lawfaremedia.org/article/reconstructing-iran-s-nuclear-baseline"

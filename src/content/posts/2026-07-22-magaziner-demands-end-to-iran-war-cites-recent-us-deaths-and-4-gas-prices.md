@@ -35,6 +35,10 @@ keyMoments:
 videoId: "WM0eKC6zero"
 videoTitle: "'It's Time To Put The Adults Back In Charge': Seth Magaziner Demands End To Iran War"
 thumbnail: "https://img.youtube.com/vi/WM0eKC6zero/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

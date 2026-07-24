@@ -34,6 +34,10 @@ keyMoments:
 videoId: "rmYpK9f57aQ"
 videoTitle: "Germany’s government announces reform package to jump-start the economy | DW News"
 thumbnail: "https://img.youtube.com/vi/rmYpK9f57aQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "German coalition agrees on sweeping reform package in key breakthrough"
     url: "https://www.aljazeera.com/news/2026/7/2/german-coalition-agrees-on-sweeping-reform-package-in-key-breakthrough"

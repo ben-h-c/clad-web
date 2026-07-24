@@ -31,6 +31,10 @@ keyMoments:
 videoId: "F1o1SaYxhC4"
 videoTitle: "Supreme Court rejects Trump's bid to overturn E. Jean Carroll verdict"
 thumbnail: "https://img.youtube.com/vi/F1o1SaYxhC4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court Lets $5 Million Sex Abuse Verdict Against Trump Stand"
     url: "https://www.nytimes.com/2026/06/29/us/politics/supreme-court-trump-sexual-assault.html"

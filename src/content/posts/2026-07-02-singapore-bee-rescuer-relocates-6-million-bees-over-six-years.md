@@ -35,6 +35,10 @@ keyMoments:
 videoId: "MW7WaSU-MrI"
 videoTitle: "Singapore's bee rescuer gives unwanted hives a second chance"
 thumbnail: "https://img.youtube.com/vi/MW7WaSU-MrI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Relocating 6 million Singapore bees and counting, one nest at a time"
     url: "https://www.reuters.com/world/asia-pacific/relocating-6-million-singapore-bees-counting-one-nest-time-2026-07-02/"

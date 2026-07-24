@@ -31,6 +31,10 @@ keyMoments:
 videoId: "AXzpN9wV-oQ"
 videoTitle: "Liberty Lights celebrates America's 250th through lasers, lights, music and dance"
 thumbnail: "https://img.youtube.com/vi/AXzpN9wV-oQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "DISNEY ENTERTAINMENT TELEVISION PRESENTS A 24-HOUR MULTIPLATFORM BROADCAST"
     url: "https://www.detpress.com/abcnews/pressrelease/disney-entertainment-television-presents-a-24-hour-multiplatform-broadcast-and-primetime-special-on-the-countrys-250th-anniversary-as-part-of-disney-celebrates-america/"

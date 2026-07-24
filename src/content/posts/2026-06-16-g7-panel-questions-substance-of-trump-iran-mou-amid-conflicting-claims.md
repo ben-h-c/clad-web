@@ -37,6 +37,10 @@ keyMoments:
 videoId: "J4d_h2Rw7V8"
 videoTitle: "Will G7 summit reveal Trump as a 'reality TV' president?"
 thumbnail: "https://img.youtube.com/vi/J4d_h2Rw7V8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump hails Iran deal as G7 summit begins in Europe"
     url: "https://www.youtube.com/watch?v=CkcIIJE-wx8"

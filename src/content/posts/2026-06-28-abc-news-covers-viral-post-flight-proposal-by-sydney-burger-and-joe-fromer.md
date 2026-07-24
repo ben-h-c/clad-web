@@ -34,6 +34,10 @@ keyMoments:
 videoId: "XIpMJ738uOY"
 videoTitle: "'What is wrong with you?' Couple's marriage proposal goes viral"
 thumbnail: "https://img.youtube.com/vi/XIpMJ738uOY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Couple speaks out after wedding proposal following Italy vacation goes viral"
     url: "https://abcnews.com/GMA/Living/couple-speaks-after-wedding-proposal-italy-vacation-viral/story?id=134202020"

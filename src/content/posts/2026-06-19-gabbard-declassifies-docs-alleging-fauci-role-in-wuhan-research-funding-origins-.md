@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ryT1mupps_s"
 videoTitle: "Tulsi Gabbard DROPS COVID docs, alleges Fauci LIED, FUNDED Wuhan lab with taxpayer dollars | RISING"
 thumbnail: "https://img.youtube.com/vi/ryT1mupps_s/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fauci Funded Wuhan Lab Research That Sparked COVID | ODNI"
     url: "https://www.dni.gov/index.php/newsroom/press-releases/press-releases-2026/4166-pr-11-26"

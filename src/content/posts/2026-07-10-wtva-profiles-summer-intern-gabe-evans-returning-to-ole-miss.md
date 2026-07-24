@@ -32,6 +32,10 @@ keyMoments:
 videoId: "_3qOiGxqZEE"
 videoTitle: "Interview: Meet WTVA summer interim Gabe Evans"
 thumbnail: "https://img.youtube.com/vi/_3qOiGxqZEE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Gabe Evans"
     slug: "gabe-evans"

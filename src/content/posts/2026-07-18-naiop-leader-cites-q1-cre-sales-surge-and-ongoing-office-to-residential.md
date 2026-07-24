@@ -37,6 +37,10 @@ keyMoments:
 videoId: "CHaT6prBhZw"
 videoTitle: "Commercial real estate expert says THIS is ‘ALWAYS’ the signal of a down cycle"
 thumbnail: "https://img.youtube.com/vi/CHaT6prBhZw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Q1 2026 U.S. Office Market Report"
     url: "https://www.cbre.com/insights/figures/q1-2026-us-office-market-report"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "nmK35J97dwA"
 videoTitle: "PRIME DAY: Amazon SUPERCHARGES shopping with Alexa+"
 thumbnail: "https://img.youtube.com/vi/nmK35J97dwA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Amazon.com | Prime Day 2026"
     url: "https://www.amazon.com/primeday"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "aUxWgRQOdtA"
 videoTitle: "Trump Describes Plan For AI Data Centers To Produce Their Own Electricity Apart From Main Grid"
 thumbnail: "https://img.youtube.com/vi/aUxWgRQOdtA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says he has told big tech companies to build their own power plants"
     url: "https://www.reuters.com/business/energy/trump-says-he-has-told-big-tech-companies-build-their-own-power-plants-2026-02-25/"

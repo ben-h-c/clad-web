@@ -27,6 +27,10 @@ keyMoments:
 videoId: "xX6ST9_duwQ"
 videoTitle: "Eleven years ago today, American politics changed forever #foxnews #shorts #trump"
 thumbnail: "https://img.youtube.com/vi/xX6ST9_duwQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Donald Trump 2016 presidential campaign"
     url: "https://en.wikipedia.org/wiki/Donald_Trump_2016_presidential_campaign"

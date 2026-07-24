@@ -41,6 +41,10 @@ keyMoments:
 videoId: "4FsJLq3uCHo"
 videoTitle: "Lawrence: Republican Senator Sheehy just made Donald Trump Iran's ‘dope’"
 thumbnail: "https://img.youtube.com/vi/4FsJLq3uCHo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Few in US say Iran war was worth it; Trump approval ties lowest of term, Reuters/Ipsos poll finds"
     url: "https://www.reuters.com/world/middle-east/few-us-say-iran-war-was-worth-it-trump-approval-ties-lowest-term-reutersipsos-2026-06-23/"

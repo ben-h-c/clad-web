@@ -34,6 +34,10 @@ keyMoments:
 videoId: "7ho4gTl-jVw"
 videoTitle: "Toy Story 5 might be the best installment since the original"
 thumbnail: "https://img.youtube.com/vi/7ho4gTl-jVw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Toy Story 5 (2026) - Disney"
     url: "https://movies.disney.com/toy-story-5"

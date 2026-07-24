@@ -34,6 +34,10 @@ keyMoments:
 videoId: "RhSVYVTwyKg"
 videoTitle: "CONNIVING KAMALA: Is Harris sabotaging Gavin Newsom’s presidential run?"
 thumbnail: "https://img.youtube.com/vi/RhSVYVTwyKg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "California Gov. Gavin Newsom says DOJ is investigating him and his wife"
     url: "https://www.washingtonpost.com/national-security/2026/06/15/california-gov-gavin-newsom-says-doj-is-investigating-him-his-wife/"

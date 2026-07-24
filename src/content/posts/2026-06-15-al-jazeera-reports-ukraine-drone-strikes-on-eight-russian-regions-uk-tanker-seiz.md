@@ -35,6 +35,10 @@ keyMoments:
 videoId: "UW2H43s6m9w"
 videoTitle: "Ukraine strikes eight Russian regions as pressure campaign intensifies, analyst says"
 thumbnail: "https://img.youtube.com/vi/UW2H43s6m9w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ukraine strikes eight Russian regions as pressure campaign intensifies, analyst says"
     url: "https://www.youtube.com/watch?v=UW2H43s6m9w"

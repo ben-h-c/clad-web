@@ -32,6 +32,10 @@ keyMoments:
 videoId: "GsfaHxZWDbc"
 videoTitle: "BREAKING: Andy Burnham WINS Makerfield by-election as Keir Starmer braces for leadership challenge"
 thumbnail: "https://img.youtube.com/vi/GsfaHxZWDbc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Makerfield by-election - Wikipedia"
     url: "https://en.wikipedia.org/wiki/2026_Makerfield_by-election"

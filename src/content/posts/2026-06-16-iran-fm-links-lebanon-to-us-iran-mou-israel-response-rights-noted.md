@@ -35,6 +35,10 @@ keyMoments:
 videoId: "btDXcS7xpLM"
 videoTitle: "Iranian FM says ‘ANY ATTACK’ on Lebanon is a violation of US agreement #foxnews #news #shorts #iran"
 thumbnail: "https://img.youtube.com/vi/btDXcS7xpLM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran says Israeli occupation in Lebanon would breach US deal"
     url: "https://www.aljazeera.com/video/newsfeed/2026/6/16/iran-says-israeli-occupation-in-lebanon-would-breach-us-deal"

@@ -28,6 +28,10 @@ keyMoments:
 videoId: "0KusicAgGfs"
 videoTitle: "Kagan and Barrett give advice to young people"
 thumbnail: "https://img.youtube.com/vi/0KusicAgGfs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Justices Kagan & Barrett Testify on Supreme Court's 2027 Budget Request"
     url: "https://www.c-span.org/event/house-committee/justices-kagan-barrett-testify-on-supreme-courts-2027-budget-request/444990"

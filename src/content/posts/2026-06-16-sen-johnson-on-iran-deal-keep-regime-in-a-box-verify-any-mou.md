@@ -40,6 +40,10 @@ keyMoments:
 videoId: "r4mpe0UcUzk"
 videoTitle: "Sen. Johnson: US Must Keep Iran ‘In a Box’"
 thumbnail: "https://img.youtube.com/vi/r4mpe0UcUzk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Watch Sen. Ron Johnson on Iran Costs, DHS Funding, SAVE Act - Bloomberg"
     url: "https://www.bloomberg.com/news/videos/2026-03-18/sen-ron-johnson-on-iran-costs-dhs-funding-save-act-video"

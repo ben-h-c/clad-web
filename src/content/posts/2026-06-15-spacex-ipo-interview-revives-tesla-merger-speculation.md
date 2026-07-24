@@ -37,6 +37,10 @@ keyMoments:
 videoId: "hxP7gvkOsN8"
 videoTitle: "Tesla Merger with Spacex? A New Clue!"
 thumbnail: "https://img.youtube.com/vi/hxP7gvkOsN8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX COO Shotwell: Tesla deal makes 'Elon's life a little easier'"
     url: "https://www.cnbc.com/2026/06/12/spacex-coo-shotwell-tesla-deal-makes-elons-life-a-little-easier.html"

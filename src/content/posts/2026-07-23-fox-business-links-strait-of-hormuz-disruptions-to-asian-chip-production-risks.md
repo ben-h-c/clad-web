@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ElzPU9KIIOU"
 videoTitle: "There is a 'PROBLEM' if chipmakers can't get oil from the Middle East, expert says"
 thumbnail: "https://img.youtube.com/vi/ElzPU9KIIOU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Middle East war threatens Taiwan chip industry: Bloomberg"
     url: "https://www.taipeitimes.com/News/taiwan/archives/2026/03/18/2003854053"

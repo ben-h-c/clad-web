@@ -38,6 +38,10 @@ keyMoments:
 videoId: "rJ9AlcC7AJc"
 videoTitle: "Huge Surprise in Job Numbers, How bad is Inflation and SpaceX IPO Economic update 13 June 2026"
 thumbnail: "https://img.youtube.com/vi/rJ9AlcC7AJc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Employment Situation Summary - 2026 M05 Results"
     url: "https://www.bls.gov/news.release/empsit.nr0.htm"

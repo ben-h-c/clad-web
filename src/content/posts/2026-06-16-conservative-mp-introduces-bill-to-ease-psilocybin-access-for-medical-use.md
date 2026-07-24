@@ -34,6 +34,10 @@ keyMoments:
 videoId: "WUjBFFCAseI"
 videoTitle: "Conservative MP tables magic mushroom legislation | Power & Politics"
 thumbnail: "https://img.youtube.com/vi/WUjBFFCAseI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "PsyCan Welcomes Bill C-286, Thomas’ Bill, to Create a Clearer Regulated Pathway for Medical Psilocybin Access"
     url: "https://www.globenewswire.com/news-release/2026/06/16/3312940/0/en/PsyCan-Welcomes-Bill-C-286-Thomas-Bill-to-Create-a-Clearer-Regulated-Pathway-for-Medical-Psilocybin-Access.html"

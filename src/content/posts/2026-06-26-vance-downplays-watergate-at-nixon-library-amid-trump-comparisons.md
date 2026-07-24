@@ -38,6 +38,10 @@ keyMoments:
 videoId: "vaTPEqp_kHk"
 videoTitle: "WH CRIME? JD Vance's UNHINGED Trump defense embraces NIXON'S illegal WATERGATE?! "
 thumbnail: "https://img.youtube.com/vi/vaTPEqp_kHk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "JD Vance says Nixon’s Watergate scandal would be ‘12-hour news story’ today"
     url: "https://www.theguardian.com/us-news/2026/jun/25/jd-vance-watergate-richard-nixon"

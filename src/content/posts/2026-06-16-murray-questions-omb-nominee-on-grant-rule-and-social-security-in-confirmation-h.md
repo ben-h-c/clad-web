@@ -35,6 +35,10 @@ keyMoments:
 videoId: "HtBNTSxXXDw"
 videoTitle: "'That Is A Very Concerning Proposed Rule...': Murray Grills Trump Nom Over Limiting 'Cronyism'"
 thumbnail: "https://img.youtube.com/vi/HtBNTSxXXDw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Murray Grills Deputy OMB Director Nominee Hal Duncan, Sounds Alarm on Proposed OMB Rule to Politicize All Federal Grants and on Republican Attacks on Social Security"
     url: "https://www.murray.senate.gov/murray-grills-deputy-omb-director-nominee-hal-duncan-sounds-alarm-on-proposed-omb-rule-to-politicize-all-federal-grants-and-on-republican-attacks-on-social-security/"

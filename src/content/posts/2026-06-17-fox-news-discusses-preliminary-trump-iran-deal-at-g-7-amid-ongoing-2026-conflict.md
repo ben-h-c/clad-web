@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Lmb7XJtPgi8"
 videoTitle: "Peter Doocy: This is a BIG deal"
 thumbnail: "https://img.youtube.com/vi/Lmb7XJtPgi8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "G7 Summit Live Updates: After G7 Leaders Praise U.S.-Iran Deal, Trump Threatens Iran Again"
     url: "https://www.nytimes.com/live/2026/06/17/world/g7-summit-trump-france"

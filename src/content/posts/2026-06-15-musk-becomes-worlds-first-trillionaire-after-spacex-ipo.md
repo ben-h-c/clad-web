@@ -29,6 +29,10 @@ keyMoments:
 videoId: "CujogXaza8I"
 videoTitle: "Elon Musk Just Became The World&#39;s First Trillionaire! 🚀💰#elonmusk  #spacex  #tesla #shorts"
 thumbnail: "https://img.youtube.com/vi/CujogXaza8I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX IPO makes Elon Musk the world's first trillionaire"
     url: "https://www.reuters.com/business/media-telecom/spacex-ipo-makes-elon-musk-worlds-first-trillionaire-2026-06-11/"

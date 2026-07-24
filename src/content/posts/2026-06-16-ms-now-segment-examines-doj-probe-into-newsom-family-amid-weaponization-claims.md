@@ -37,6 +37,10 @@ keyMoments:
 videoId: "dnEeB56kT_E"
 videoTitle: "DOJ's reputation has been 'so tarnished' under Trump it 'undermines' legitimacy of cases: Brennan"
 thumbnail: "https://img.youtube.com/vi/dnEeB56kT_E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Newsom says DOJ conducting baseless investigation of him and his wife at Trump's direction"
     url: "https://www.latimes.com/politics/story/2026-06-15/newsom-trump-doj-investigation"

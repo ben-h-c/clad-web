@@ -36,6 +36,10 @@ keyMoments:
 videoId: "LV9KnekuOtk"
 videoTitle: "‘Starmer Is A TRAITOR’ | ‘He Left Blackhole In Defence Budget Over Beef With Andy Burnham’"
 thumbnail: "https://img.youtube.com/vi/LV9KnekuOtk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UK’s Starmer announces 300-billion-pound defence investment plan"
     url: "https://www.aljazeera.com/economy/2026/6/30/uks-starmer-announces-300-billion-pound-defence-investment-plan"

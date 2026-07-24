@@ -37,6 +37,10 @@ keyMoments:
 videoId: "4SqNcMBFbdA"
 videoTitle: "Pete Hegseth says U.S. is \"already doing things I can't talk about\" to reopen Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/4SqNcMBFbdA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Transcript: Defense Secretary Pete Hegseth on \"Face the Nation\""
     url: "https://www.cbsnews.com/news/pete-hegseth-defense-secretary-face-the-nation-transcript-06-14-2026/"

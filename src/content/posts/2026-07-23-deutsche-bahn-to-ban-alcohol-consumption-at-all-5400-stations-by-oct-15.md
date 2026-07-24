@@ -39,6 +39,10 @@ keyMoments:
 videoId: "jIlFe88G_SU"
 videoTitle: "Germany bans alcohol at train stations | DW News"
 thumbnail: "https://img.youtube.com/vi/jIlFe88G_SU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "German railway to ban consuming alcohol at all its stations, with some exemptions"
     url: "https://apnews.com/article/germany-railway-stations-alcohol-ban-f8ed391e13136272722431d38833461e"

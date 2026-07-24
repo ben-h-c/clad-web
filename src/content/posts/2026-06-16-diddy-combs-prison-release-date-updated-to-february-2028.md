@@ -34,6 +34,10 @@ keyMoments:
 videoId: "7GvXyo_Tfs8"
 videoTitle: "Sean ‘Diddy’ Combs’ 2028 president release date updated"
 thumbnail: "https://img.youtube.com/vi/7GvXyo_Tfs8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sean 'Diddy' Combs release date moved up, federal records show"
     url: "https://ktla.com/news/sean-diddy-combs-release-date-moved-up-federal-records-show-2/"

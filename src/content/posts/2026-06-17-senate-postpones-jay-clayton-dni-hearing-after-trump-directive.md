@@ -31,6 +31,10 @@ keyMoments:
 videoId: "ukNuhauhJnA"
 videoTitle: "Jay Clayton's DNI confirmation hearing postponed"
 thumbnail: "https://img.youtube.com/vi/ukNuhauhJnA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Senate delays Jay Clayton’s nomination for intel director after Trump post"
     url: "https://www.nbcnews.com/politics/donald-trump/trump-delays-jay-clayton-nomination-intel-director-fisa-save-america-rcna350470"

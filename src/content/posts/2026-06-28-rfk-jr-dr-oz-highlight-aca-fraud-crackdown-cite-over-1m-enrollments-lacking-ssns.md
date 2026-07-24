@@ -36,6 +36,10 @@ keyMoments:
 videoId: "zM9UF1mdcrQ"
 videoTitle: "Dr. Oz And RFK Jr Send Direct Message To Medicare Fraudsters: 'Run Because We Are Going To Find You'"
 thumbnail: "https://img.youtube.com/vi/zM9UF1mdcrQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Obamacare recipients include more than 1M without Social Security numbers, Dr. Oz, RFK Jr. reveal"
     url: "https://nypost.com/2026/06/28/us-news/1-million-people-without-social-security-numbers-enrolled-in-obamacare-rfk-jr/"

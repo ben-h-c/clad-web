@@ -28,6 +28,10 @@ keyMoments:
 videoId: "Af-Btzcg8Ps"
 videoTitle: "Bus passengers put their feet up as heavy rain inundates vehicle"
 thumbnail: "https://img.youtube.com/vi/Af-Btzcg8Ps/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bus passengers put their feet up as heavy rain inundates vehicle"
     url: "https://abcnews.com/US/video/bus-passengers-put-feet-heavy-rain-inundates-vehicle-134566837"

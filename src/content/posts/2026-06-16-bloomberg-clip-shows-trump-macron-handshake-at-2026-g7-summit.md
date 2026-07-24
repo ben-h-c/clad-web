@@ -24,6 +24,10 @@ keyMoments:
 videoId: "Ex-i6RuPGVQ"
 videoTitle: "Trump, Macron Meet on Sidelines of G7 in France"
 thumbnail: "https://img.youtube.com/vi/Ex-i6RuPGVQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "G7 Summit Evian Live: Trump Says Hormuz Will Open ... - Bloomberg"
     url: "https://www.bloomberg.com/news/live-blog/2026-06-15/g7-summit-evian-france-live-updates"

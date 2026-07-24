@@ -32,6 +32,10 @@ keyMoments:
 videoId: "zkpNUMv-QuU"
 videoTitle: "Comms Expert: DSA's Messaging Formula Is 'The Exact Same Thing In Reverse' As Trump's In 2016"
 thumbnail: "https://img.youtube.com/vi/zkpNUMv-QuU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2025 New York City mayoral election"
     url: "https://en.wikipedia.org/wiki/2025_New_York_City_mayoral_election"

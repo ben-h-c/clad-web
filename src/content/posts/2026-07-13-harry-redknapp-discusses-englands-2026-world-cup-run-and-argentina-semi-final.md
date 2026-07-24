@@ -34,6 +34,10 @@ keyMoments:
 videoId: "0QB8nMYFiBo"
 videoTitle: "Harry Redknapp's Argentina Verdict: 'They're NOT GREAT... We Can Beat Them'"
 thumbnail: "https://img.youtube.com/vi/0QB8nMYFiBo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "World Cup 2026: England boss Thomas Tuchel 'not happy with the performance'"
     url: "https://www.bbc.com/sport/football/articles/c7vy25lqll6o"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "rNSpJEmSOO8"
 videoTitle: "TDS Celebrates Its 30th with a Look Back at Three Decades of News Coverage | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/rNSpJEmSOO8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Daily Show at 30"
     url: "https://www.vanityfair.com/story/the-daily-show-30th-anniversary"

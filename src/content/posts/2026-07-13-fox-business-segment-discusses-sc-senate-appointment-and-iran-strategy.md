@@ -35,6 +35,10 @@ keyMoments:
 videoId: "WcR76n4zz5E"
 videoTitle: "Gingrich: They WILL BREAK soon..."
 thumbnail: "https://img.youtube.com/vi/WcR76n4zz5E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Who is Darline Graham Nordone? Lindsey Graham's sister appointed to serve out his term in the Senate"
     url: "https://www.yahoo.com/news/politics/article/who-is-darline-graham-nordone-lindsey-grahams-sister-appointed-to-serve-out-his-term-in-the-senate-200804172.html"

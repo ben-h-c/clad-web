@@ -35,6 +35,10 @@ keyMoments:
 videoId: "RTtg8lF6lWc"
 videoTitle: "LIVE: Canada’s Mark Carney speaks to the media at G7 summit in France"
 thumbnail: "https://img.youtube.com/vi/RTtg8lF6lWc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "G7 leaders pose for \"family photo\" at summit in Évian-les-Bains, France"
     url: "https://www.nytimes.com/2026/06/16/world/europe/who-are-g7-leaders.html"

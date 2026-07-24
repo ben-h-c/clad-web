@@ -36,6 +36,10 @@ keyMoments:
 videoId: "_-MO49kQy6g"
 videoTitle: "\"They Have Opened Pandora's BOX!\" | King Charles Reveals £12.9 Million Tax Bill in Historic First"
 thumbnail: "https://img.youtube.com/vi/_-MO49kQy6g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Royal family core funding set to almost double to £100 million a year"
     url: "https://www.the-independent.com/news/uk/home-news/monarchy-funding-sovereign-grant-royal-family-b3003165.html"

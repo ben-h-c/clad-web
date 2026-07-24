@@ -31,6 +31,10 @@ keyMoments:
 videoId: "3Z5D9_UnZCY"
 videoTitle: "Midnight Til Morning have upgraded their live show (but not their dancing)"
 thumbnail: "https://img.youtube.com/vi/3Z5D9_UnZCY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Midnight 'Til Morning - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Midnight_%27Til_Morning"

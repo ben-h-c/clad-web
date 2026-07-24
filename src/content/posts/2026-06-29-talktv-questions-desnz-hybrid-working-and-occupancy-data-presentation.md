@@ -35,6 +35,10 @@ keyMoments:
 videoId: "BrNkGbwytwg"
 videoTitle: "“DISHONESTY How Government Present This!” | Ed Miliband Lets Staff Work From Home Most of the Week"
 thumbnail: "https://img.youtube.com/vi/BrNkGbwytwg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Is DESNZ's HQ the government's most crowded office?"
     url: "https://www.civilserviceworld.com/in-depth/article/governments-most-overcrowded-office-what-has-desnz-done-to-address-concerns-about-its-london-hq"

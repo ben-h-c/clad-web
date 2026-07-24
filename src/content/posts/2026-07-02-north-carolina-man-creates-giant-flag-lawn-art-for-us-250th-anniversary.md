@@ -32,6 +32,10 @@ keyMoments:
 videoId: "vEKiKQ-yMPo"
 videoTitle: "North Carolina resident creates lawn art for America's 250th"
 thumbnail: "https://img.youtube.com/vi/vEKiKQ-yMPo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "North Carolina yard art celebrates America 250 with giant flag display"
     url: "https://www.wxii12.com/article/north-carolina-giant-flag-display-july-4-america-250-wxii/71798141"

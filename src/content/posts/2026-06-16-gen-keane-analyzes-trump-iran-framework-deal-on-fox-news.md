@@ -37,6 +37,10 @@ keyMoments:
 videoId: "_cquMJSQyDQ"
 videoTitle: "Gen Keane: Action ‘WILL BE TAKEN’ if Iran doesn’t adhere to this..."
 thumbnail: "https://img.youtube.com/vi/_cquMJSQyDQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jack Keane weighs in on Trump's US-Iran peace deal amid negotiations"
     url: "https://www.foxnews.com/video/6398462636112"

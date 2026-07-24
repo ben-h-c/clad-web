@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ntKC7k8XYxI"
 videoTitle: "Watters: Boy, are the Iranians desperate"
 thumbnail: "https://img.youtube.com/vi/ntKC7k8XYxI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S., Iran expected to \"electronically\" sign agreement ..."
     url: "https://www.axios.com/2026/06/13/us-iran-deal-pakistan-signing"

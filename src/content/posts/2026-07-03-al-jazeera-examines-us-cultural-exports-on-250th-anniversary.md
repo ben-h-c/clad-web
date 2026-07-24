@@ -38,6 +38,10 @@ keyMoments:
 videoId: "T81EqZYmrtw"
 videoTitle: "US 250: America’s global cultural power from jazz to Hollywood"
 thumbnail: "https://img.youtube.com/vi/T81EqZYmrtw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Walt Disney Market Cap"
     url: "https://companiesmarketcap.com/walt-disney/marketcap/"

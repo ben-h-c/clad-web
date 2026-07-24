@@ -40,6 +40,10 @@ keyMoments:
 videoId: "s08bcqfj-HM"
 videoTitle: "WATCH: Trump unveils new Air Force One plane gifted by Qatar at Joint Base Andrews"
 thumbnail: "https://img.youtube.com/vi/s08bcqfj-HM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump unveils new Air Force One, a $400 million plane gifted by Qatar"
     url: "https://www.cbsnews.com/news/air-force-one-new-plane-trump-qatar/"

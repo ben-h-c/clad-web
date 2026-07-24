@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ii9RtOBO9fM"
 videoTitle: "EXPLAINER: Has Donald Trump turned against Israel?"
 thumbnail: "https://img.youtube.com/vi/ii9RtOBO9fM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "“Without Me, There Would Be No Israel,” Trump Says as Israel Remains in Lebanon"
     url: "https://truthout.org/articles/without-me-there-would-be-no-israel-trump-says-as-israel-remains-in-lebanon/"

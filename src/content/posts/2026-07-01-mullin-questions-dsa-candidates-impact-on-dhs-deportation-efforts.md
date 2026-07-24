@@ -36,6 +36,10 @@ keyMoments:
 videoId: "K2fY44gQD40"
 videoTitle: "Reporter To Mullin: Are You Concerned That 'Newest Crop' Of DSA Candidates May Affect DHS' Work?"
 thumbnail: "https://img.youtube.com/vi/K2fY44gQD40/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Darializa Avila Chevalier on Housing, Immigration, & Her Run"
     url: "https://nyeditorialboard.substack.com/p/darializa-avila-chevalier-on-housing"

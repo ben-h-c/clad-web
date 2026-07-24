@@ -38,6 +38,10 @@ keyMoments:
 videoId: "3SmTJgJZvXA"
 videoTitle: "'Using Kids As Bait, Ripping Apart Families, Murdering American Citizens': McGarvey Blasts ICE"
 thumbnail: "https://img.youtube.com/vi/3SmTJgJZvXA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Morgan McGarvey"
     slug: "morgan-mcgarvey"

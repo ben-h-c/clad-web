@@ -37,6 +37,10 @@ keyMoments:
 videoId: "zG78A8-lTow"
 videoTitle: "Iran, US trade attacks in the Strait of Hormuz: Navigating the 'Guardian Angel' route • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/zG78A8-lTow/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US and Iran give shipowners conflicting Hormuz orders"
     url: "https://www.ft.com/content/5c8617a7-36ea-4ea0-b2fb-73ef15d96cee"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "jq8vdLqlqqY"
 videoTitle: "New student loan rules could limit funding for some graduate programs"
 thumbnail: "https://img.youtube.com/vi/jq8vdLqlqqY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Navigating Uncertainty After Federal Court Stays Department of Education's Narrowed Definition"
     url: "https://www.duanemorris.com/alerts/navigating_uncertainty_after_federal_court_stays_department_educations_narrowed_definition_0626.html"

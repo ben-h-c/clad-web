@@ -31,6 +31,10 @@ keyMoments:
 videoId: "7K_FTns2HVM"
 videoTitle: "Caleb Hammer explains Gen Z"
 thumbnail: "https://img.youtube.com/vi/7K_FTns2HVM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Gen Z and Millennial Survey"
     url: "https://www.deloitte.com/global/en/issues/work/genz-millennial-survey.html"

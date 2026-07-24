@@ -34,6 +34,10 @@ keyMoments:
 videoId: "HsAftgngpiY"
 videoTitle: "Viral 'Benadryl challenge' is sending teenagers to the hospital | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/HsAftgngpiY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Britain unveils sweeping ban on social media for under-16s"
     url: "https://www.nbcnews.com/world/united-kingdom/keir-starmer-social-media-restrictions-rcna350037"

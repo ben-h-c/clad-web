@@ -27,6 +27,10 @@ keyMoments:
 videoId: "FUAagMBwaqQ"
 videoTitle: "Trump Takes Center Stage at G7 Family Photo"
 thumbnail: "https://img.youtube.com/vi/FUAagMBwaqQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "52nd G7 summit"
     url: "https://en.wikipedia.org/wiki/52nd_G7_summit"

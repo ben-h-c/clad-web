@@ -34,6 +34,10 @@ keyMoments:
 videoId: "T8CeAOneK10"
 videoTitle: "Russia claims capture of Kostiantynivka as battle for eastern Ukraine intensifies"
 thumbnail: "https://img.youtube.com/vi/T8CeAOneK10/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Zelenskiy denies Russian capture of key eastern city Kostiantynivka"
     url: "https://www.reuters.com/business/aerospace-defense/ukraine-denies-russian-capture-key-eastern-city-kostiantynivka-2026-07-04/"

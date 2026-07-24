@@ -33,6 +33,10 @@ keyMoments:
 videoId: "NiEtul5cFu0"
 videoTitle: "Trump: \"Tonight, our country is stronger … than ever before\""
 thumbnail: "https://img.youtube.com/vi/NiEtul5cFu0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "United States GDP Growth Rate"
     url: "https://tradingeconomics.com/united-states/gdp-growth"

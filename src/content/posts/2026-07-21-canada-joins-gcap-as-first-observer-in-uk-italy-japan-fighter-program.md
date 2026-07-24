@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Teg5950dU4Y"
 videoTitle: "Canada joins next-gen European fighter jet program as observer"
 thumbnail: "https://img.youtube.com/vi/Teg5950dU4Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Canada joins next-generation fighter jet programme as first Observer Nation"
     url: "https://www.gov.uk/government/news/canada-joins-next-generation-fighter-jet-programme-as-first-observer-nation"

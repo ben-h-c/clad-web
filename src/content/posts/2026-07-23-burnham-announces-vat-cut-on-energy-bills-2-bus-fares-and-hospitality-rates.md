@@ -38,6 +38,10 @@ keyMoments:
 videoId: "RW24KeDgbQ0"
 videoTitle: "“I’m Absolutely TERRIFIED Of” Andy Burnham’s Government"
 thumbnail: "https://img.youtube.com/vi/RW24KeDgbQ0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham takes the reins as U.K.'s 7th prime minister in a decade"
     url: "https://www.cbsnews.com/news/andy-burnham-new-uk-prime-minister-7th-in-decade-after-keir-starmer/"

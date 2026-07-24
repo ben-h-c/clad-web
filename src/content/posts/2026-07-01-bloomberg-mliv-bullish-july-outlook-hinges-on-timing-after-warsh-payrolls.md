@@ -35,6 +35,10 @@ keyMoments:
 videoId: "A5eV6zR4Fz4"
 videoTitle: "Bullish July Is Just a Matter of Timing: 3-Minutes MLIV"
 thumbnail: "https://img.youtube.com/vi/A5eV6zR4Fz4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Kevin Warsh to Speak at Sintra, ECB Warns Inflation Shock Not Over"
     url: "https://www.youtube.com/watch?v=0AC3MzDKPhg"

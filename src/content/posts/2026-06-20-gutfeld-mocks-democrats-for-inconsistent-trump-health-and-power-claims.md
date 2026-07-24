@@ -38,6 +38,10 @@ keyMoments:
 videoId: "YXwgcSStrR0"
 videoTitle: "'Gutfeld!': Another tired Dem playing the Trump card..."
 thumbnail: "https://img.youtube.com/vi/YXwgcSStrR0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trust in Media at New Low of 28% in U.S."
     url: "https://news.gallup.com/poll/695762/trust-media-new-low.aspx"

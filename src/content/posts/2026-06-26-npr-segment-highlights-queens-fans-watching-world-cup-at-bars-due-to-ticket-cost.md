@@ -36,6 +36,10 @@ keyMoments:
 videoId: "ckSAGvP5iHs"
 videoTitle: "N.Y. and N.J. are hosting the World Cup. The real party is happening at bars across the city"
 thumbnail: "https://img.youtube.com/vi/ckSAGvP5iHs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FIFA World Cup 2026™ NYNJ: Home"
     url: "https://nynjfwc26.com/"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "uLzMjVt5HKo"
 videoTitle: "MLB warns players against writing Bible verses on their hats during Pride month"
 thumbnail: "https://img.youtube.com/vi/uLzMjVt5HKo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The MLB warning to Giants pitchers for Bible verses on Pride hats"
     url: "https://www.usatoday.com/story/sports/mlb/giants/2026/06/15/the-mlb-warning-to-giants-pitchers-for-bible-verses-on-pride-hats/90567190007/"

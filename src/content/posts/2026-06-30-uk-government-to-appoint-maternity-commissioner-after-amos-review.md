@@ -28,6 +28,10 @@ keyMoments:
 videoId: "6SdhXrlweDM"
 videoTitle: "Maternity commissioner to be appointed"
 thumbnail: "https://img.youtube.com/vi/6SdhXrlweDM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "England to get powerful maternity commissioner after ‘shocking’ failings"
     url: "https://www.theguardian.com/politics/2026/jun/30/england-maternity-commissioner-shocking-failings-amos-review"

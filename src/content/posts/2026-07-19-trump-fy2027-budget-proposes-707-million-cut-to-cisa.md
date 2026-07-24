@@ -35,6 +35,10 @@ keyMoments:
 videoId: "I7Q9CHEugBY"
 videoTitle: "Energy Chris Wright responds to President Trump cutting key cybersecurity funding"
 thumbnail: "https://img.youtube.com/vi/I7Q9CHEugBY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Chris Wright"
     slug: "chris-wright"

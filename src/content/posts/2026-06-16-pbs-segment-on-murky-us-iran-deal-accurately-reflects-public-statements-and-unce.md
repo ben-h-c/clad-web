@@ -38,6 +38,10 @@ keyMoments:
 videoId: "zHXq--O2Wa0"
 videoTitle: "Questions linger over U.S.-Iran deal as details remain murky"
 thumbnail: "https://img.youtube.com/vi/zHXq--O2Wa0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump hails Iran deal as G7 summit begins in Europe"
     url: "https://www.pbs.org/newshour/show/trump-hails-iran-deal-as-g7-summit-begins-in-europe"

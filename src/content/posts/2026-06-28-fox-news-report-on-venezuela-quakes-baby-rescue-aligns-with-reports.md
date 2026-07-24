@@ -34,6 +34,10 @@ keyMoments:
 videoId: "vJQlfI2ixxM"
 videoTitle: "MIRACLE in Venezuela: U.S. rescuers pull baby, mom from earthquake rubble"
 thumbnail: "https://img.youtube.com/vi/vJQlfI2ixxM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela Live Updates: Window to Find Earthquake Survivors Narrows as Death Toll Tops 1,400"
     url: "https://www.nytimes.com/live/2026/06/27/world/venezuela-earthquake"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "pNCu8u8aTYA"
 videoTitle: "Latest CPI Report Is a Huge Relief for Investors, Says Santos of JPM Asset Management"
 thumbnail: "https://img.youtube.com/vi/pNCu8u8aTYA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Consumer Price Index Summary - 2026 M06 Results"
     url: "https://www.bls.gov/news.release/cpi.nr0.htm"

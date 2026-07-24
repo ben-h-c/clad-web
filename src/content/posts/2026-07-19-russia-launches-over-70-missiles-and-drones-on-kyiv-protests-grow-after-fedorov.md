@@ -34,6 +34,10 @@ keyMoments:
 videoId: "GDbEWlKAdJ8"
 videoTitle: "Millions in Kyiv 'didn't have time to seek shelter' ahead of Russian attack • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/GDbEWlKAdJ8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russia bombards Kyiv in deadliest strike this year, killing at least 30"
     url: "https://www.reuters.com/world/russian-drones-attack-ukrainian-capital-set-central-district-hotel-fire-2026-07-01/"

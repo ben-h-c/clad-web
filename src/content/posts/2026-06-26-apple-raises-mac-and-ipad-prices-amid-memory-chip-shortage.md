@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ziPTv3L1PNs"
 videoTitle: "Apple hikes prices as memory chip costs skyrocket"
 thumbnail: "https://img.youtube.com/vi/ziPTv3L1PNs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Apple Shares Sink After Price Hikes Hit iPads and Macs"
     url: "https://www.bloomberg.com/news/articles/2026-06-25/apple-raises-mac-and-ipad-prices-to-counter-memory-shortages"

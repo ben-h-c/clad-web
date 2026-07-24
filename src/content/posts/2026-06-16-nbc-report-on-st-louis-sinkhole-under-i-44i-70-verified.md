@@ -31,6 +31,10 @@ keyMoments:
 videoId: "ijV6fWbL7p0"
 videoTitle: "Sinkhole shuts down a St. Louis interstate"
 thumbnail: "https://img.youtube.com/vi/ijV6fWbL7p0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Updates on the Sinkhole Near 1-44 and North Broadway Ahead of Monday Morning Commute"
     url: "https://www.stlouis-mo.gov/government/departments/public-safety/emergency-management/news/updates-sinkhole-ahead-of-monday-morning-commute.cfm"

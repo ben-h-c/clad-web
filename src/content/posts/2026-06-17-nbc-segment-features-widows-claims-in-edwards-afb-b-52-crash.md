@@ -35,6 +35,10 @@ keyMoments:
 videoId: "adZ3zi0NdPA"
 videoTitle: "Wife of engineer killed in B-52 crash speaks out"
 thumbnail: "https://img.youtube.com/vi/adZ3zi0NdPA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "8 crew members killed in B-52 bomber crash at California’s Edwards Air Force Base"
     url: "https://www.cnn.com/2026/06/15/us/b-52-crash-edwards-california"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "nekS3sdCVGk"
 videoTitle: "King Charles III will move out of Buckingham Palace after $487 million refurbishment"
 thumbnail: "https://img.youtube.com/vi/nekS3sdCVGk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "King and Queen will not live in Buckingham Palace after renovations"
     url: "https://www.bbc.com/news/articles/cdr4z5rxympo"

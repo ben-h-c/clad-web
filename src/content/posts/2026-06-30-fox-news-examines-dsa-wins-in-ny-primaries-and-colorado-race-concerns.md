@@ -33,6 +33,10 @@ keyMoments:
 videoId: "spLo0lqtkNE"
 videoTitle: "Democratic socialists stage 'hard-left' insurgency in NY primary"
 thumbnail: "https://img.youtube.com/vi/spLo0lqtkNE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mamdani-backed democratic socialists win big in New York"
     url: "https://www.usatoday.com/story/opinion/columnist/2026/06/26/mamdani-democratic-socialists-new-york-warning/90690699007/"

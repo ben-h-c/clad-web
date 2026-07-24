@@ -34,6 +34,10 @@ keyMoments:
 videoId: "akuwV5Bm6qU"
 videoTitle: "Trump ‘not happy’ with Israel’s handling of Hezbollah and Lebanon"
 thumbnail: "https://img.youtube.com/vi/akuwV5Bm6qU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump: I'm 'not happy' with how Israel has fought Hezbollah; Syria should do so instead"
     url: "https://www.timesofisrael.com/liveblog_entry/trump-im-not-happy-with-how-israel-has-fought-hezbollah-syria-should-do-so-instead/"

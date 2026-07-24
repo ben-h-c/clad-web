@@ -34,6 +34,10 @@ keyMoments:
 videoId: "IXj-q13O42A"
 videoTitle: "CEASEFIRE STRAINED: Tensions simmering as US retaliates against Iran after Strait of Hormuz attack"
 thumbnail: "https://img.youtube.com/vi/IXj-q13O42A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. strikes Iran after attack on commercial vessel in Strait of Hormuz"
     url: "https://www.nbcnews.com/meet-the-press/video/u-s-strikes-iran-after-attack-on-commercial-vessel-in-strait-of-hormuz-265759301628"

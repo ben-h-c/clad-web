@@ -35,6 +35,10 @@ keyMoments:
 videoId: "7_1Fx9Dw6K4"
 videoTitle: "Lindsay Clancy trial: Tragedy, postpartum psychosis and the law | Serving Justice"
 thumbnail: "https://img.youtube.com/vi/7_1Fx9Dw6K4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trial begins for mom who says postpartum issues led her to kill 3 children"
     url: "https://abcnews.com/US/wireStory/trial-begins-massachusetts-mom-postpartum-issues-led-kill-134909810"

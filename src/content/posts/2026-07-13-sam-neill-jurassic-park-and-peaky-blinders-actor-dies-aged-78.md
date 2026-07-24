@@ -31,6 +31,10 @@ keyMoments:
 videoId: "ncWyqfWOAO0"
 videoTitle: "Sam Neill, star of Jurassic Park, dies aged 78 | BBC News"
 thumbnail: "https://img.youtube.com/vi/ncWyqfWOAO0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sam Neill - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Sam_Neill"

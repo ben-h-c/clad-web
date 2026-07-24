@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Y2vzNgpawUY"
 videoTitle: "Vance touts Iranian peace plan #foxnews #news #us #fox"
 thumbnail: "https://img.youtube.com/vi/Y2vzNgpawUY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Skeptical Republicans demand details of US-Iran outline peace deal"
     url: "https://www.theguardian.com/world/2026/jun/16/jd-vance-details-us-iran-agreement-scepticism-republicans"

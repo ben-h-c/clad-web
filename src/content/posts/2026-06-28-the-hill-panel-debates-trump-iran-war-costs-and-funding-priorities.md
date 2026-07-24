@@ -34,6 +34,10 @@ keyMoments:
 videoId: "v5ETjq7WN2U"
 videoTitle: "Is Trump playing with fire with the cost of war? | The Hill Sunday"
 thumbnail: "https://img.youtube.com/vi/v5ETjq7WN2U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump denies campaign push to finish endless wars: 'I didn't promise anything'"
     url: "https://thehill.com/homenews/administration/5913750-trump-denies-endless-wars/"

@@ -25,6 +25,10 @@ keyMoments:
 videoId: "sn-S_sAuZlU"
 videoTitle: "World Cup: Cristiano Ronaldo answers critics as Portugal get back on track • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/sn-S_sAuZlU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ronaldo 'very positive' as Portugal head for World Cup"
     url: "https://www.france24.com/en/live-news/20260612-ronaldo-very-positive-as-portugal-head-for-world-cup"

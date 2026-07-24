@@ -33,6 +33,10 @@ keyMoments:
 videoId: "Iu88SLwrI0c"
 videoTitle: "What We Know About Suspected ICE Agent In Maine Shooting—Amid Reports Of Abuse And Mental Illness"
 thumbnail: "https://img.youtube.com/vi/Iu88SLwrI0c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "ICE officer in Maine shooting has history of violent behavior, family and records say"
     url: "https://apnews.com/article/ice-david-brouillette-johan-guerrero-maine-shooting-dbc30d6d59e2a95fb470afc188e125c6"

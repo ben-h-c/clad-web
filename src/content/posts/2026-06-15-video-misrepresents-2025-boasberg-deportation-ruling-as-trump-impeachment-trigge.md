@@ -35,6 +35,10 @@ keyMoments:
 videoId: "tez61p7D68Y"
 videoTitle: "Judge’s Stunning Ruling Sparks New Impeachment Debate Across Washington!"
 thumbnail: "https://img.youtube.com/vi/tez61p7D68Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Appeals court orders judge to end contempt investigation of deportation flights"
     url: "https://www.pbs.org/newshour/nation/appeals-court-orders-judge-to-end-contempt-investigation-of-deportation-flights"

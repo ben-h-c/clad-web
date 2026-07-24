@@ -35,6 +35,10 @@ keyMoments:
 videoId: "LUNTpse8eBo"
 videoTitle: "UN warns of worst displacement crisis in occupied West Bank since 1967"
 thumbnail: "https://img.youtube.com/vi/LUNTpse8eBo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Middle East, including the Palestinian Question - Security Council Report"
     url: "https://www.securitycouncilreport.org/whatsinblue/2026/06/the-middle-east-including-the-palestinian-question-briefing-and-consultations-24.php"

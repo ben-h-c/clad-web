@@ -38,6 +38,10 @@ keyMoments:
 videoId: "w6EAd-_6D-0"
 videoTitle: "ABC World News Tonight with David Muir Full Broadcast - June 15, 2026"
 thumbnail: "https://img.youtube.com/vi/w6EAd-_6D-0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Video shows aftermath of B-52 bomber crash at California’s Edwards Air Force Base | CNN"
     url: "https://www.cnn.com/2026/06/15/us/video/edwards-air-force-base-b52-bomber-crash-digvid"

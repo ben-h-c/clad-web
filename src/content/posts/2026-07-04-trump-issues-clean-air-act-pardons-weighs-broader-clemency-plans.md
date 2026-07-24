@@ -37,6 +37,10 @@ keyMoments:
 videoId: "PyuMPSxTzYg"
 videoTitle: "Trump's corruption, weak morals raise concern about expected 'pardoning blitz'"
 thumbnail: "https://img.youtube.com/vi/PyuMPSxTzYg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "President Trump poised to pardon slate of people convicted of emissions and clean air-related violations"
     url: "https://www.facebook.com/CBSNews/posts/president-trump-is-poised-to-pardon-a-slate-of-people-convicted-of-emissions-and/1434411418550698/"

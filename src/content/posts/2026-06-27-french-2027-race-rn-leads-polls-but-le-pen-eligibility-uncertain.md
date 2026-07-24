@@ -35,6 +35,10 @@ keyMoments:
 videoId: "3QL8Kz5LRgE"
 videoTitle: "French 2027 presidential election: Can the RN win? • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/3QL8Kz5LRgE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Opinion polling for the 2027 French presidential election"
     url: "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2027_French_presidential_election"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "G3DXrxwXUBk"
 videoTitle: "Lawrence: Trump's describing his so-called Iran deal the only way he knows how. With nonstop lying."
 thumbnail: "https://img.youtube.com/vi/G3DXrxwXUBk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What's in the Iran deal Trump says he's ready to sign"
     url: "https://www.axios.com/2026/06/12/iran-deal-mou-strait-open-sanctions-relief"

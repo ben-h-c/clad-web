@@ -34,6 +34,10 @@ keyMoments:
 videoId: "UKTp3JPn8c8"
 videoTitle: "The psychology behind World Cup penalty shootouts"
 thumbnail: "https://img.youtube.com/vi/UKTp3JPn8c8/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "World Cup penalty spot becomes football's newest classroom"
     url: "https://www.reuters.com/sports/soccer/world-cup-penalty-spot-becomes-footballs-newest-classroom-2026-07-03/"

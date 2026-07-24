@@ -36,6 +36,10 @@ keyMoments:
 videoId: "zkZL3eg-dA8"
 videoTitle: "President Trump: \"Russia should make a deal.\""
 thumbnail: "https://img.youtube.com/vi/zkZL3eg-dA8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump urges Russia to 'make a deal' with Ukraine to end war"
     url: "https://www.scmp.com/news/world/europe/article/3357323/trump-urges-russia-make-deal-ukraine-after-meeting-zelensky-g7-summit"

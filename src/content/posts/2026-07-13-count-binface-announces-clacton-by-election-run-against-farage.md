@@ -31,6 +31,10 @@ keyMoments:
 videoId: "KNF2SHirqq0"
 videoTitle: "Electoral Dysfunction: Why is Count Binface standing against Nigel Farage?"
 thumbnail: "https://img.youtube.com/vi/KNF2SHirqq0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Count Binface: The intergalactic warrior who could upend Britain's strangest election"
     url: "https://www.npr.org/2026/07/10/nx-s1-5887550/count-binface-the-intergalactic-warrior-who-could-upend-britains-strangest-election"

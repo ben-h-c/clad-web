@@ -30,6 +30,10 @@ keyMoments:
 videoId: "loXUfirndyU"
 videoTitle: "Andy Burnham says he is ready to become PM"
 thumbnail: "https://img.youtube.com/vi/loXUfirndyU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham to pledge to be 'unashamedly Labour' in first speech as party leader"
     url: "https://www.itv.com/news/2026-07-16/burnham-to-pledge-to-be-unashamedly-labour-in-first-speech-as-party-leader"

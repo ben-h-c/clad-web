@@ -31,6 +31,10 @@ keyMoments:
 videoId: "fBld4HiEb9U"
 videoTitle: "Nobody's happy with Brexit, story of two businessmen brothers"
 thumbnail: "https://img.youtube.com/vi/fBld4HiEb9U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A decade on from Brexit vote, divided brothers are both disappointed"
     url: "https://www.reuters.com/world/uk/decade-brexit-vote-divided-brothers-are-both-disappointed-2026-06-16/"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "H5vE9lOgPQE"
 videoTitle: "'Are These Athletes Getting Shut Out Of Money?': Mike Carey Asks Expert About Int'l Athlete Payments"
 thumbnail: "https://img.youtube.com/vi/H5vE9lOgPQE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "International Student-Athletes in the Post-House NIL Era"
     url: "https://www.munckwilson.com/news-insights/international-student-athletes-in-the-post-house-nil-era/"

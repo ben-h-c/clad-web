@@ -35,6 +35,10 @@ keyMoments:
 videoId: "LMc4Ho_0Otk"
 videoTitle: "Chip Stocks Tumble on AI Anxiety | The Close 7/7/2026"
 thumbnail: "https://img.youtube.com/vi/LMc4Ho_0Otk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bloomberg Markets: The Close"
     url: "https://www.bloomberg.com/live"

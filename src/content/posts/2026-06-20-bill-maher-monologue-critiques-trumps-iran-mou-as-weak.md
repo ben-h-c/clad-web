@@ -32,6 +32,10 @@ keyMoments:
 videoId: "nWVtaeqe8e0"
 videoTitle: "Monologue: The Emperor Has No Close | Real Time with Bill Maher (HBO)"
 thumbnail: "https://img.youtube.com/vi/nWVtaeqe8e0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump Put His Own Interests Above All in the Iran Deal"
     url: "https://www.nytimes.com/2026/06/19/opinion/iran-israel-us-war-deal.html"

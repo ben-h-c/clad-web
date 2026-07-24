@@ -35,6 +35,10 @@ keyMoments:
 videoId: "oUYEgwFDEJ4"
 videoTitle: "'THE CEILING IS A LOT LOWER': What changes after Hormuz reopens?"
 thumbnail: "https://img.youtube.com/vi/oUYEgwFDEJ4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US and Iran reach agreement but key questions remain"
     url: "https://edition.cnn.com/2026/06/15/world/live-news/iran-war-g7-summit"

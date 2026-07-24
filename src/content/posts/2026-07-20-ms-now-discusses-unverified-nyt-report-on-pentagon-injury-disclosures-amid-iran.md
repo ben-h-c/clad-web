@@ -36,6 +36,10 @@ keyMoments:
 videoId: "M2CC3YDHoBw"
 videoTitle: "NYT: Defense Dept. withheld information on dozens of military injuries in Iran"
 thumbnail: "https://img.youtube.com/vi/M2CC3YDHoBw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump vows 'total victory' over iran within weeks as ..."
     url: "https://www.foxnews.com/live-news/trump-israel-iran-war-strikes-hormuz-june-8"

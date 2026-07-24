@@ -35,6 +35,10 @@ keyMoments:
 videoId: "wORUMZgK8KQ"
 videoTitle: "Growing outrage over hard foul against Caitlin Clark"
 thumbnail: "https://img.youtube.com/vi/wORUMZgK8KQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Caitlin Clark-Alyssa Thomas incident: Mercury coach rejects ‘cheap shot’ claims"
     url: "https://www.nytimes.com/athletic/7402537/2026/06/27/caitlin-clark-alyssa-thomas-mercury-coach-response-wnba/"

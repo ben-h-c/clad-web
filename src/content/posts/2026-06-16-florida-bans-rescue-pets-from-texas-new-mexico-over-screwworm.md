@@ -31,6 +31,10 @@ keyMoments:
 videoId: "6zrKqgrR9ZE"
 videoTitle: "Screwworm prompts Florida to ban rescue pets from Texas, New Mexico"
 thumbnail: "https://img.youtube.com/vi/6zrKqgrR9ZE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Following Additional New World Screwworm Detections in Texas and New Mexico, Commissioner Wilton Simpson Strengthens and Extends Emergency Rule Protecting Florida"
     url: "https://www.fdacs.gov/News-Events/Press-Releases/2026-Press-Releases/Following-Additional-New-World-Screwworm-Detections-in-Texas-and-New-Mexico-Commissioner-Wilton-Simpson-Strengthens-and-Extends-Emergency-Rule-Pro"

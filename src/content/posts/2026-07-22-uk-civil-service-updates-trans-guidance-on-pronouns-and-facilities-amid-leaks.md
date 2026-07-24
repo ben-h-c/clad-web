@@ -36,6 +36,10 @@ keyMoments:
 videoId: "-_xLhx373zY"
 videoTitle: "“Who’s A Man And Who’s A Woman?” | Pronoun Row Erupts Over \"CRAZY\" Trans Guidance"
 thumbnail: "https://img.youtube.com/vi/-_xLhx373zY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trans guidance for civil servants must stay secret, ministers say"
     url: "https://www.telegraph.co.uk/politics/2026/07/18/trans-guidance-civil-servants-stay-secret-ministers-say/"

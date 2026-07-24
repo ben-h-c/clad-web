@@ -34,6 +34,10 @@ keyMoments:
 videoId: "U1kEOfTUHzw"
 videoTitle: "WATCH: Warsh on first-time homebuyers and mortgage rates right now"
 thumbnail: "https://img.youtube.com/vi/U1kEOfTUHzw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "WATCH LIVE: Fed chair Kevin Warsh testifies on monetary policy in House hearing"
     url: "https://www.pbs.org/newshour/amp/politics/watch-live-fed-chair-kevin-warsh-testifies-on-monetary-policy-in-house-hearing"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "dwTDMvqXIpE"
 videoTitle: "Mike Collins: Jon Ossoff Has Never Cracked 50% in Georgia"
 thumbnail: "https://img.youtube.com/vi/dwTDMvqXIpE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Jon Ossoff"
     slug: "jon-ossoff"

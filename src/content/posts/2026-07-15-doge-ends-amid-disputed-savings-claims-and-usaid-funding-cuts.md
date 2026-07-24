@@ -40,6 +40,10 @@ keyMoments:
 videoId: "xZzwY1W5UK4"
 videoTitle: "What DOGE saved, and what it cost | By the Numbers"
 thumbnail: "https://img.youtube.com/vi/xZzwY1W5UK4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "DOGE won't get a closing report detailing savings"
     url: "https://wtop.com/government/2026/07/the-true-impact-of-the-trump-administrations-efforts-to-gut-the-federal-government-may-never-be-known/"

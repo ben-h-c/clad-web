@@ -32,6 +32,10 @@ keyMoments:
 videoId: "okNhFINmH8A"
 videoTitle: "&#39;Why do you think America First mentality is wrong?&#39;: Burlison presses Smithsonian Museum Director"
 thumbnail: "https://img.youtube.com/vi/okNhFINmH8A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Eric Burlison"
     slug: "eric-burlison"

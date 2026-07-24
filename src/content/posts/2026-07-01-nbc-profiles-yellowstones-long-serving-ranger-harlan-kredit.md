@@ -37,6 +37,10 @@ keyMoments:
 videoId: "5xEyofPTKQs"
 videoTitle: "Great Americans: A conversation with Harlan Kredit"
 thumbnail: "https://img.youtube.com/vi/5xEyofPTKQs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ranger Celebrates 50th Year In Yellowstone; Longest-Serving In Yellowstone History"
     url: "https://cowboystatedaily.com/2022/07/25/ranger-celebrates-50th-year-in-yellowstone-longest-serving-in-yellowstone-history/"

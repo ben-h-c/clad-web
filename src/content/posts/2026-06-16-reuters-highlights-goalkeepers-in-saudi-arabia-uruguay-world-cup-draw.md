@@ -25,6 +25,10 @@ keyMoments:
 videoId: "ysnmF02f1Ig"
 videoTitle: "Goalkeepers in spotlight at World Cup"
 thumbnail: "https://img.youtube.com/vi/ysnmF02f1Ig/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Goalkeepers at fault as Uruguayan persistence and Saudi patience go in vain"
     url: "https://www.reuters.com/sports/soccer/goalkeepers-fault-uruguayan-persistence-saudi-patience-go-vain-2026-06-16/"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "1l_QROFQWug"
 videoTitle: "UN reports decline in cross-border fire in southern Lebanon"
 thumbnail: "https://img.youtube.com/vi/1l_QROFQWug/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "World News in Brief: Reduced violence in Lebanon, shortages..."
     url: "https://news.un.org/en/story/2026/06/1167733"

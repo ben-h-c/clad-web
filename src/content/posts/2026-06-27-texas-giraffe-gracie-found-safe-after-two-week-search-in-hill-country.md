@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ntRTT2WLpR4"
 videoTitle: "Missing Texas giraffe found: Sheriff gives major update | The Hill"
 thumbnail: "https://img.youtube.com/vi/ntRTT2WLpR4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Gracie the giraffe found 'fat and happy,' Real County Sheriff Johnson says"
     url: "https://news4sanantonio.com/news/local/gracie-the-giraffe-found-fat-and-happy-real-county-sheriff-johnson-says"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "woizPOGdv2g"
 videoTitle: "Hurd Asks Wright: 'What Do You See, Mr. Secretary, As The Greatest Risk' To Grid Reliability?"
 thumbnail: "https://img.youtube.com/vi/woizPOGdv2g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "DOE Report on Evaluating U.S. Grid Reliability and Security"
     url: "https://www.energy.gov/sites/default/files/2025-07/DOE%20Final%20EO%20Report%20%28FINAL%20JULY%207%29_0.pdf"

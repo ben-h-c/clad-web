@@ -37,6 +37,10 @@ keyMoments:
 videoId: "tNaPMrzruBo"
 videoTitle: "Iranian regime ‘cannot be trusted,’ Rep Rich McCormick says"
 thumbnail: "https://img.youtube.com/vi/tNaPMrzruBo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says $300B fund to rebuild Iran is ‘Fake News’"
     url: "https://thehill.com/homenews/administration/5925541-trump-iran-300b-funding/"

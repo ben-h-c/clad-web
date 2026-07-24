@@ -36,6 +36,10 @@ keyMoments:
 videoId: "-AUDQo-bius"
 videoTitle: "Americans 'hate, hate, hate these new tariffs' as Trump piles on more"
 thumbnail: "https://img.youtube.com/vi/-AUDQo-bius/maxresdefault.jpg"
+mediaNote: "Talking head face/gesture upper-right, keep chart readable left"
+thumbFocusY: 28
+thumbFocusX: 72
+mediaStyle: "overlay"
 citations:
   - title: "Learning Resources, Inc. v. Trump Supreme Court opinion"
     url: "https://www.supremecourt.gov/opinions/25pdf/24-1287_4gcj.pdf"

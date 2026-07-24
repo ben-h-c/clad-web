@@ -35,6 +35,10 @@ keyMoments:
 videoId: "9KfzL8shE5k"
 videoTitle: "Troy Downing Asks USFS Chief About Importance Of State And Local Partnerships In Forest Management"
 thumbnail: "https://img.youtube.com/vi/9KfzL8shE5k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Today in the House Committee on Natural Resources GOP hearing I questioned US Forest Service Chief Tom Schultz"
     url: "https://www.facebook.com/reptroydowning/videos/today-in-the-house-committee-on-natural-resources-gop-hearing-i-questioned-us-fo/2086493568949244/"

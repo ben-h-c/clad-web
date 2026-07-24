@@ -28,6 +28,10 @@ keyMoments:
 videoId: "LMxjtbyOJTk"
 videoTitle: "Iran toll in Hormuz would set 'dangerous precedent' says Rubio"
 thumbnail: "https://img.youtube.com/vi/LMxjtbyOJTk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Marco Rubio"
     slug: "marco-rubio"

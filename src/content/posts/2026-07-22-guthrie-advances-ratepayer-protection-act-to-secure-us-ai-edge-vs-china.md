@@ -36,6 +36,10 @@ keyMoments:
 videoId: "O_tOcBJHg1w"
 videoTitle: "This is what the US NEEDS to win the AI battle, GOP rep reveals"
 thumbnail: "https://img.youtube.com/vi/O_tOcBJHg1w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Brett Guthrie"
     slug: "brett-guthrie"

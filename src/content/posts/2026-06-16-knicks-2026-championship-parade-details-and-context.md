@@ -38,6 +38,10 @@ keyMoments:
 videoId: "6UmGin4twH8"
 videoTitle: "New York Knicks parade: What we know so far"
 thumbnail: "https://img.youtube.com/vi/6UmGin4twH8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Recap: Knicks win the 2026 NBA championship"
     url: "https://www.nba.com/news/live-updates-2026-nba-finals-game-5-knicks-seek-first-title-since-1973"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "kpi0aPogAt4"
 videoTitle: "PEACE IN PIECES?: US-Iran talks postponed amid Israel-Hezbollah tensions"
 thumbnail: "https://img.youtube.com/vi/kpi0aPogAt4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: Witkoff heading to Switzerland for Iran talks"
     url: "https://www.cnn.com/2026/06/19/world/live-news/iran-war-trump-israel-lebanon"

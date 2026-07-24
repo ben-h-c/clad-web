@@ -37,6 +37,10 @@ keyMoments:
 videoId: "8VZkG5-gcGY"
 videoTitle: "Boris Johnson on Brexit, Partygate and advice he'd give Andy Burnham"
 thumbnail: "https://img.youtube.com/vi/8VZkG5-gcGY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russian Blood and Treasure: The Ballooning Costs of Putin's War"
     url: "https://www.csis.org/analysis/russian-blood-and-treasure-ballooning-costs-putins-war"

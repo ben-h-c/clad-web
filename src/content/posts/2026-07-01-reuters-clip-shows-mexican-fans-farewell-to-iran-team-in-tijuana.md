@@ -28,6 +28,10 @@ keyMoments:
 videoId: "kX66Dn_GIuE"
 videoTitle: "Mexicans bid Iran team farewell after World Cup exit"
 thumbnail: "https://img.youtube.com/vi/kX66Dn_GIuE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mexicans bid Iran soccer team warm farewell after World Cup exit"
     url: "https://www.reuters.com/video/watch/idRW404401072026RP1/?chan=sports&location=channel-item"

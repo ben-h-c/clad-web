@@ -34,6 +34,10 @@ keyMoments:
 videoId: "gobkokhM6d0"
 videoTitle: "TSMC posts record revenue in second quarter on AI demand"
 thumbnail: "https://img.youtube.com/vi/gobkokhM6d0/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "TSMC 2026 Monthly Revenue"
     url: "https://investor.tsmc.com/english/monthly-revenue/2026"

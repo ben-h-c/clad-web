@@ -35,6 +35,10 @@ keyMoments:
 videoId: "eOmtWbcDj2Q"
 videoTitle: "Elon Musk is the definition of the American dream: Vivek Ramaswamy"
 thumbnail: "https://img.youtube.com/vi/eOmtWbcDj2Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Vivek Ramaswamy: Elon Musk is the definition of the American dream | Fox News Video"
     url: "https://www.foxnews.com/video/6398504333112"

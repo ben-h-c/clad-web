@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ulNNlDHxHcQ"
 videoTitle: "'Relatable': Hit horror film 'Obsession' is resonating with girlfriends globally • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/ulNNlDHxHcQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Obsession (2025 film) - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Obsession_(2025_film)"

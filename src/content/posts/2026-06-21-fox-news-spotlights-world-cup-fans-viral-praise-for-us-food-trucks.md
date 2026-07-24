@@ -37,6 +37,10 @@ keyMoments:
 videoId: "aVATDMhKhx4"
 videoTitle: "Ranch dressing and trucks: World Cup fans document travels in the US"
 thumbnail: "https://img.youtube.com/vi/aVATDMhKhx4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "World Cup visitors are discovering America — one Waffle House and side of ranch dressing at a time"
     url: "https://www.yahoo.com/news/article/world-cup-visitors-are-discovering-america--one-waffle-house-and-side-of-ranch-dressing-at-a-time-173216165.html"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "kwDCaFiPk1M"
 videoTitle: "Michael Jackson accusers given new trial date by California judge | Jesse Weber Live"
 thumbnail: "https://img.youtube.com/vi/kwDCaFiPk1M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Michael Jackson’s Abuse Accusers Get New 2028 Trial Date"
     url: "https://www.rollingstone.com/music/music-news/michael-jackson-leaving-neverland-abuse-accusers-trial-date-1235576701/"

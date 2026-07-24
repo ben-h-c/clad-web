@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ueXMgU4amrk"
 videoTitle: "Kevin McCarthy: This isn’t just a Republican view…"
 thumbnail: "https://img.youtube.com/vi/ueXMgU4amrk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Kevin McCarthy backs Trump's push to pressure Senate on SAVE America Act"
     url: "https://www.foxnews.com/politics/mccarthy-says-trump-use-everything-he-can-force-senate-action-save-america-act"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "E7Q3MXl31iU"
 videoTitle: "Amid Iran war deal, Trump addresses oil prices and blames Democrats for 'affordability crisis'"
 thumbnail: "https://img.youtube.com/vi/E7Q3MXl31iU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US, Iran agree on deal to end war, sending oil prices lower"
     url: "https://www.foxnews.com/live-news/us-iran-peace-agreement-trump-israel-june-15"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "9AbN8E5xBaM"
 videoTitle: "Gutfeld: Now they’re not even bothering to hide it…"
 thumbnail: "https://img.youtube.com/vi/9AbN8E5xBaM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Far-left surge: Mamdani-backed candidates oust Dem establishment"
     url: "https://www.foxnews.com/politics/far-left-surge-mamdani-backed-candidates-oust-democratic-establishment"

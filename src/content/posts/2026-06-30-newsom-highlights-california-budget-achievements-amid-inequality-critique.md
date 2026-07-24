@@ -39,6 +39,10 @@ keyMoments:
 videoId: "oguWakbca1I"
 videoTitle: "Newsom Bemoans 'Radical Imbalance Of Fortunes In America' While Promoting His California Budget"
 thumbnail: "https://img.youtube.com/vi/oguWakbca1I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Governor Newsom Signs Historic Balanced State Budget"
     url: "https://www.gov.ca.gov/2026/06/29/signedbudget/"

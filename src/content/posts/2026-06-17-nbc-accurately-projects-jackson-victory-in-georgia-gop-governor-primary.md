@@ -31,6 +31,10 @@ keyMoments:
 videoId: "5rANDe6WUVM"
 videoTitle: "Billionaire Rick Jackson defeats Trump-backed Burt Jones in Georgia GOP governor's primary"
 thumbnail: "https://img.youtube.com/vi/5rANDe6WUVM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Billionaire Rick Jackson defeats Trump-backed Lt. Gov. Burt Jones"
     url: "https://www.nbcnews.com/politics/2026-election/georgia-governor-midterm-primary-election-winner-jackson-rcna350030"

@@ -39,6 +39,10 @@ keyMoments:
 videoId: "Q2OOFJJ5L6g"
 videoTitle: "Keir Starmer reveals moment he decided to step down | BBC News"
 thumbnail: "https://img.youtube.com/vi/Q2OOFJJ5L6g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2024 United Kingdom general election"
     url: "https://en.wikipedia.org/wiki/2024_United_Kingdom_general_election"

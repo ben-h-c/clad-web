@@ -35,6 +35,10 @@ keyMoments:
 videoId: "52iWp9xrKf8"
 videoTitle: "Kara Swisher on Lack of Diversity in Tech Leadership"
 thumbnail: "https://img.youtube.com/vi/52iWp9xrKf8/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "David Sacks's 11th-Hour Plea Led to Trump's Backtrack on AI Executive Order"
     url: "https://www.wsj.com/politics/policy/david-sacks-trump-ai-executive-order-6019242d"

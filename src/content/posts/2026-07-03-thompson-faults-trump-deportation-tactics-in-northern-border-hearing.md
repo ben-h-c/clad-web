@@ -39,6 +39,10 @@ keyMoments:
 videoId: "MkZjYS90DW8"
 videoTitle: "'Yielded Nothing But Chaos': Bennie Thompson Decries Trump's 'Cruel Mass Deportation Agenda'"
 thumbnail: "https://img.youtube.com/vi/MkZjYS90DW8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "As ICE Arrests Increased, a Higher Portion Had No U.S. Criminal Record"
     url: "https://www.factcheck.org/2026/01/as-ice-arrests-increased-a-higher-portion-had-no-u-s-criminal-record/"

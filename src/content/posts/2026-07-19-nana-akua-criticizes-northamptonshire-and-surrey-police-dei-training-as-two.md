@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ZRbQCTmZrqE"
 videoTitle: "'Two-tier TOSH!' Nana Akua SLATES 'ridiculous' police indoctrination: 'How about SOLVING crime?'"
 thumbnail: "https://img.youtube.com/vi/ZRbQCTmZrqE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Police made to write 'reflective essays' on racism as part of DEI training"
     url: "https://www.telegraph.co.uk/news/2026/07/18/police-made-write-reflective-essays-racism-foi-dei/"

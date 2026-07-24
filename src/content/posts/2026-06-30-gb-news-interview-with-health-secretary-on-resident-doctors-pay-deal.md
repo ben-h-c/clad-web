@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Gh0xHgW8i3I"
 videoTitle: "‘Anything in return?’ | Health Secretary GRILLED on enabling ‘cycle of strikes’ of resident doctors"
 thumbnail: "https://img.youtube.com/vi/Gh0xHgW8i3I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Resident doctors in England accept pay deal and end strikes"
     url: "https://www.bbc.co.uk/news/articles/cwy01n5z48qo"

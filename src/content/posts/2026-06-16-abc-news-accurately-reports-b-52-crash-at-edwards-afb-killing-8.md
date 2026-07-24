@@ -34,6 +34,10 @@ keyMoments:
 videoId: "JJYVQL2H_YE"
 videoTitle: "8 killed in California Air Force B-52 bomber crash"
 thumbnail: "https://img.youtube.com/vi/JJYVQL2H_YE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "8 crew members dead after B-52 bomber crashes at California’s Edwards Air Force Base"
     url: "https://www.cnn.com/2026/06/15/us/b-52-crash-edwards-california"

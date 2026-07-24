@@ -37,6 +37,10 @@ keyMoments:
 videoId: "SuQlvVID-j8"
 videoTitle: "JD Vance says Iran deal is 'already bearing real fruits' for Americans"
 thumbnail: "https://img.youtube.com/vi/SuQlvVID-j8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Vance says U.S. isn’t giving Iran ‘a cent’ as he defends Trump peace deal"
     url: "https://www.cnbc.com/2026/06/18/vance-iran-war-memo-oil-gas.html"

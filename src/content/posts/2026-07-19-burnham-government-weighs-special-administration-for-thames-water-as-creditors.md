@@ -35,6 +35,10 @@ keyMoments:
 videoId: "xQqfUVypgeg"
 videoTitle: "Could Thames Water be taken into public ownership?"
 thumbnail: "https://img.youtube.com/vi/xQqfUVypgeg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Thames Water moves step closer to nationalisation after government objects to rescue deal"
     url: "https://www.bbc.com/news/articles/cly089d0wl7o"

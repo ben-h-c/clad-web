@@ -29,6 +29,10 @@ keyMoments:
 videoId: "v500GZLtbRE"
 videoTitle: "Trump says U.S. is going to hit Iran hard tonight and tomorrow"
 thumbnail: "https://img.youtube.com/vi/v500GZLtbRE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US launches strikes on Iran for a second night"
     url: "https://edition.cnn.com/2026/07/12/world/live-news/iran-war-trump"

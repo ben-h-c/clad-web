@@ -35,6 +35,10 @@ keyMoments:
 videoId: "KZFzDViGC8Y"
 videoTitle: "Buchanan Speaks on Passage of Sunshine Protection Act"
 thumbnail: "https://img.youtube.com/vi/KZFzDViGC8Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Vern Buchanan"
     slug: "vern-buchanan"

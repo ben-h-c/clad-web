@@ -30,6 +30,10 @@ keyMoments:
 videoId: "EvZINp0LSO8"
 videoTitle: "Schumer Asked About Jay Clayton's Experience: 'Is That Enough Of A Qualification For Someone?'"
 thumbnail: "https://img.youtube.com/vi/EvZINp0LSO8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "WATCH LIVE: Jay Clayton testifies at confirmation hearing for national intelligence director"
     url: "https://www.pbs.org/newshour/amp/politics/watch-live-jay-clayton-testifies-at-confirmation-hearing-for-national-intelligence-director"

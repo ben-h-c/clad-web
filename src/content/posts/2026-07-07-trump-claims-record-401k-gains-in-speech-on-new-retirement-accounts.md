@@ -29,6 +29,10 @@ keyMoments:
 videoId: "SxZwcwYp4-M"
 videoTitle: "'Biggest Rise In History': Trump Brags About Rise In 401k Values Since Taking Office"
 thumbnail: "https://img.youtube.com/vi/SxZwcwYp4-M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fact-checking Trump's claims about 401(k) gains during his second term"
     url: "https://www.pbs.org/newshour/economy/fact-checking-trumps-claims-about-401k-gains-during-his-second-term"

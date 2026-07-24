@@ -41,6 +41,10 @@ keyMoments:
 videoId: "dEZEkgvS-wM"
 videoTitle: "Elon Musk ROCKED By Colossal Legal Blow As Alarming Data Center Reality Crashes Down"
 thumbnail: "https://img.youtube.com/vi/dEZEkgvS-wM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Southaven Residents Sue xAI Over Noise Concerns"
     url: "https://www.mississippifreepress.org/southaven-residents-sue-xai-alleging-near-constant-noise-from-gas-turbines-is-causing-harm/"

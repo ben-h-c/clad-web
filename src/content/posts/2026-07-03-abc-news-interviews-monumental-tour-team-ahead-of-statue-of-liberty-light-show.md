@@ -35,6 +35,10 @@ keyMoments:
 videoId: "1JVgLabi81U"
 videoTitle: "The team behind the Statue of Liberty light show"
 thumbnail: "https://img.youtube.com/vi/1JVgLabi81U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Monumental Tour at the Eiffel Tower"
     url: "https://www.toureiffel.paris/en/news/events/monumental-tour-eiffel-tower"

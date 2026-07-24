@@ -35,6 +35,10 @@ keyMoments:
 videoId: "c_mWg81KM8s"
 videoTitle: "Oil Holds Below $80 as Iran Peace Deal Details Emerge | The Asia Trade 6/17/2026"
 thumbnail: "https://img.youtube.com/vi/c_mWg81KM8s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. and Iran announce an initial deal to end the war and reopen the Strait of Hormuz"
     url: "https://www.npr.org/2026/06/15/nx-s1-5858590/us-iran-deal-updates"

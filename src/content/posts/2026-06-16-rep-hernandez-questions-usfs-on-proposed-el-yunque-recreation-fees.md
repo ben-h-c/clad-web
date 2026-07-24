@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Rier3hnfwCQ"
 videoTitle: "Pablo Hernández Grills USFS Chief On Proposal To Create Entrance Fee For Puerto Rico National Park"
 thumbnail: "https://img.youtube.com/vi/Rier3hnfwCQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Resident Commissioner Pablo José Hernández Protests Fees at El Yunque"
     url: "https://puertoricoreport.com/resident-commissioner-pablo-jose-hernandez-protests-fees-at-el-yunque/"

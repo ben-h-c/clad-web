@@ -40,6 +40,10 @@ keyMoments:
 videoId: "VRdZpzJRKMI"
 videoTitle: "🚨Van Hollen DESTROYS Kash Patel In Explosive Senate Showdown Over FBI Accountability!"
 thumbnail: "https://img.youtube.com/vi/VRdZpzJRKMI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Chris Van Hollen"
     slug: "chris-van-hollen"

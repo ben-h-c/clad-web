@@ -28,6 +28,10 @@ keyMoments:
 videoId: "pIXUfQsmi68"
 videoTitle: "‘Thanks be to God’: Pope on interim US-Iran peace deal"
 thumbnail: "https://img.youtube.com/vi/pIXUfQsmi68/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Pope Leo says 'thanks be to God' for interim US-Iran peace deal"
     url: "https://www.reuters.com/world/europe/pope-leo-says-thanks-be-god-interim-us-iran-peace-deal-2026-06-16/"

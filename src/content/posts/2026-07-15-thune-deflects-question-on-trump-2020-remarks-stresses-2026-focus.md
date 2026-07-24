@@ -30,6 +30,10 @@ keyMoments:
 videoId: "sm-5HcpQblE"
 videoTitle: "Reporter Asks John Thune: Would You Encourage Trump Not To Claim The 2020 Election Was Stolen?"
 thumbnail: "https://img.youtube.com/vi/sm-5HcpQblE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Jon Ossoff"
     slug: "jon-ossoff"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "d1DQQXjdkN8"
 videoTitle: "Rep. Kweisi Mfume (Maryland–7th) | 119th United States Congress"
 thumbnail: "https://img.youtube.com/vi/d1DQQXjdkN8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Kweisi Mfume"
     slug: "kweisi-mfume"

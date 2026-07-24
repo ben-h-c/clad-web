@@ -32,6 +32,10 @@ keyMoments:
 videoId: "2rS-xG2XMhY"
 videoTitle: "Behind the scenes: Waiting for the U.K.’s newest prime minister"
 thumbnail: "https://img.youtube.com/vi/2rS-xG2XMhY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Prime Minister of the United Kingdom"
     url: "https://en.wikipedia.org/wiki/Prime_Minister_of_the_United_Kingdom"

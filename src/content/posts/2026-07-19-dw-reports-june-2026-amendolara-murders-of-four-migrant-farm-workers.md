@@ -37,6 +37,10 @@ keyMoments:
 videoId: "1cddH9jSaFA"
 videoTitle: "The story behind the murder of four foreign farm workers in Italy | Focus on Europe"
 thumbnail: "https://img.youtube.com/vi/1cddH9jSaFA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Four migrant workers reportedly burned alive in their car in attack in Italy"
     url: "https://www.theguardian.com/world/2026/jun/03/migrant-workers-burned-alive-in-car-in-italy"

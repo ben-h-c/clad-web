@@ -29,6 +29,10 @@ keyMoments:
 videoId: "DDBvX7uOwzA"
 videoTitle: "Trump Asked: How Can We Make Sure The Strait Of Hormuz Stays Open In The Future?"
 thumbnail: "https://img.youtube.com/vi/DDBvX7uOwzA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says the Strait of Hormuz will be 'completely open' by Friday"
     url: "https://www.nbcnews.com/now/video/trump-says-the-strait-of-hormuz-will-be-completely-open-by-friday-265105989583"

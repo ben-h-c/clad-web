@@ -38,6 +38,10 @@ keyMoments:
 videoId: "1RSDXQK3Fe0"
 videoTitle: "Ship Attack Clouds Hormuz Outlook; Tech Stocks Selloff | Horizons Middle East & Africa 6/26/2026"
 thumbnail: "https://img.youtube.com/vi/1RSDXQK3Fe0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Cargo Ship Hit In Strait Of Hormuz; US Officials Blame Iran"
     url: "https://timesofindia.indiatimes.com/videos/international/cargo-ship-hit-in-strait-of-hormuz-us-officials-blame-iran-tensions-soar-watch/videoshow/132005393.cms"

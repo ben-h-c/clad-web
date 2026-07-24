@@ -38,6 +38,10 @@ keyMoments:
 videoId: "6xuLyjAZkdA"
 videoTitle: "QUASH HIM! Press fights & takes Trump TO COURT to stop subpoena 'abuse' of power vs NYT"
 thumbnail: "https://img.youtube.com/vi/6xuLyjAZkdA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Times Journalists Subpoenaed as Trump Escalates Pressure on the Media"
     url: "https://www.nytimes.com/2026/07/11/business/media/new-york-times-trump-subpoenas.html"

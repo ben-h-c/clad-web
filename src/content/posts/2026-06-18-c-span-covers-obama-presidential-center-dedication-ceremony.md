@@ -35,6 +35,10 @@ keyMoments:
 videoId: "uRloSI_H6Fs"
 videoTitle: "Obama Presidential Center Grand Opening Ceremony"
 thumbnail: "https://img.youtube.com/vi/uRloSI_H6Fs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Obama Presidential Center Grand Opening"
     url: "https://www.obama.org/visit/grand-opening/"

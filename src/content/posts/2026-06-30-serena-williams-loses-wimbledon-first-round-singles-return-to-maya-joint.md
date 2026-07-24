@@ -31,6 +31,10 @@ keyMoments:
 videoId: "2mney5uK50c"
 videoTitle: "Serena Williams loses in first round at Wimbledon"
 thumbnail: "https://img.youtube.com/vi/2mney5uK50c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Serena Williams falls to Maya Joint in 1st singles match in nearly 4 years"
     url: "https://www.espn.com/tennis/story/_/id/49229361/serena-williams-falls-maya-joint-1st-singles-match-nearly-4-years"

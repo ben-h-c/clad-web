@@ -29,6 +29,10 @@ keyMoments:
 videoId: "Hm-Xo5NigqA"
 videoTitle: "There’s a reason why NY, California lead the country in migration: Zeldin #shorts"
 thumbnail: "https://img.youtube.com/vi/Hm-Xo5NigqA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Lee Zeldin"
     slug: "lee-zeldin"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "9-6OkSLruuE"
 videoTitle: "Idaho abortion trial: Doctors split on when the law allows intervention"
 thumbnail: "https://img.youtube.com/vi/9-6OkSLruuE/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "At Idaho abortion trial, doctors split on when the law allows intervention"
     url: "https://www.ktvb.com/article/news/local/capitol-watch/idahos-own-witnesses-describe-gap-abortion-law-doctors-challenge-continues/277-36ca05c8-fb54-40fa-a758-3a72d976c5df"

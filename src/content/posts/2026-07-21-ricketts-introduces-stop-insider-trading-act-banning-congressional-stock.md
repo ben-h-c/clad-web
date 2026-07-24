@@ -34,6 +34,10 @@ keyMoments:
 videoId: "MKAELwDd4FE"
 videoTitle: "Ricketts Champions His Stop Insider Trading Act on Senate Floor"
 thumbnail: "https://img.youtube.com/vi/MKAELwDd4FE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Bryan Steil"
     slug: "bryan-steil"

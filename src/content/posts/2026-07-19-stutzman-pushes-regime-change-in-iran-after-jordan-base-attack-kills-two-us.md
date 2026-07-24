@@ -34,6 +34,10 @@ keyMoments:
 videoId: "-XagmGl6n6o"
 videoTitle: "Rep. Marlin Stutzman Urges Tougher Iran Strategy"
 thumbnail: "https://img.youtube.com/vi/-XagmGl6n6o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Marlin A. Stutzman"
     slug: "marlin-a-stutzman"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "E93etFigObo"
 videoTitle: "Does ANOTHER ‘pause’ in Iran, U.S. fighting over Strait of Hormuz really mean anything?"
 thumbnail: "https://img.youtube.com/vi/E93etFigObo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US and Iran pause strikes but disagree over next steps on talks"
     url: "https://apnews.com/article/iran-us-war-strait-of-hormuz-june-29-2026-d1c0ec8aa84c0e5693b94f0cf0862bab"

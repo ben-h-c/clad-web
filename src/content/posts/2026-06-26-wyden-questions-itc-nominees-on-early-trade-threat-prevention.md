@@ -31,6 +31,10 @@ keyMoments:
 videoId: "QpVuY10GxBY"
 videoTitle: "'The Government Usually Gets There Too Late': Ron Wyden Asks Nominees About Preventing Trade Threats"
 thumbnail: "https://img.youtube.com/vi/QpVuY10GxBY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Wyden Statement at Finance Committee Hearing on ITC Nominees"
     url: "https://www.finance.senate.gov/ranking-members-news/wyden-statement-at-finance-committee-hearing-on-itc-nominees"

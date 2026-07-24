@@ -40,6 +40,10 @@ keyMoments:
 videoId: "RRkp8byQn3Y"
 videoTitle: "Iranians ‘won’t be fooled’ by US talks, analyst warns of catastrophic ‘third war’"
 thumbnail: "https://img.youtube.com/vi/RRkp8byQn3Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mourners Chant ‘Revenge’ at Funeral Prayers for Iran’s Slain Supreme Leader"
     url: "https://www.nytimes.com/2026/07/05/world/middleeast/iran-funeral-supreme-leader.html"

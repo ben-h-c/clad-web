@@ -34,6 +34,10 @@ keyMoments:
 videoId: "UIpMKMwU1Iw"
 videoTitle: "Violent shootout between Florida deputies and gunman"
 thumbnail: "https://img.youtube.com/vi/UIpMKMwU1Iw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2 Hillsborough deputies hurt, suspect killed in Ruskin shooting"
     url: "https://www.nbcmiami.com/news/local/2-florida-deputies-hospitalized-suspect-killed-in-shootout-near-tampa-sheriff-says/3834880/"

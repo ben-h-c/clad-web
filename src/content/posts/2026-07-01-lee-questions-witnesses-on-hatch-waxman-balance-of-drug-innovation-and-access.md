@@ -35,6 +35,10 @@ keyMoments:
 videoId: "O7p9W22Le8M"
 videoTitle: "Laurel Lee: Medical Innovation Can And Must Co-Exist With Accessible Lifesaving Medication In The US"
 thumbnail: "https://img.youtube.com/vi/O7p9W22Le8M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "40 Years of Hatch-Waxman: What is the Hatch-Waxman Act?"
     url: "https://phrma.org/blog/40-years-of-hatch-waxman-what-is-the-hatch-waxman-act"

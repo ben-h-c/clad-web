@@ -37,6 +37,10 @@ keyMoments:
 videoId: "seqZuAWZyd0"
 videoTitle: "‘Andy Burnham Is No Better Than Starmer’ | Britain Will ‘Keep Struggling’"
 thumbnail: "https://img.youtube.com/vi/seqZuAWZyd0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Burnham Wins Makerfield By-Election, Clearing Path to Challenge Starmer"
     url: "https://www.nytimes.com/2026/06/18/world/europe/uk-makerfield-election.html"

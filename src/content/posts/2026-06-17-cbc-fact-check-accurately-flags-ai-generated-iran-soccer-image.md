@@ -37,6 +37,10 @@ keyMoments:
 videoId: "_5VlHk7fUCg"
 videoTitle: "Fact check: Is this Iranian soccer player real or AI?"
 thumbnail: "https://img.youtube.com/vi/_5VlHk7fUCg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran’s World Cup players wear pins for victims of deadly school strike"
     url: "https://apnews.com/article/world-cup-iran-minab-school-pins-88d3815a5bf605398001099a4db77f74"

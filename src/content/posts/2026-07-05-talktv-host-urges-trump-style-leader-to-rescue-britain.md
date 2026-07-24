@@ -37,6 +37,10 @@ keyMoments:
 videoId: "vBZIV_nG3Mg"
 videoTitle: "'UK Needs A Donald Trump Style Leader' | US President Attacks Communism In Independence Day Speech"
 thumbnail: "https://img.youtube.com/vi/vBZIV_nG3Mg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Revealed: Nigel Farage secretly funded by convicted criminal"
     url: "https://www.thetimes.com/uk/politics/article/revealed-nigel-farage-secretly-funded-by-convicted-criminal-j0brtrlnk"

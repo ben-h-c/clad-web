@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Aptc93W0EEk"
 videoTitle: "Your retirement benefits could be in TROUBLE — Here's the new timeline"
 thumbnail: "https://img.youtube.com/vi/Aptc93W0EEk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trustees Report Summary"
     url: "https://www.ssa.gov/oact/trsum/"

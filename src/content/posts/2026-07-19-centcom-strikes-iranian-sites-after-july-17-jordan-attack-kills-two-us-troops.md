@@ -35,6 +35,10 @@ keyMoments:
 videoId: "8ePGpBOFDxc"
 videoTitle: "US launches new airstrikes on Iran after confirming troop deaths • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/8ePGpBOFDxc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US says two military personnel killed by Iranian attack in Jordan"
     url: "https://www.reuters.com/world/middle-east/iran-renews-attacks-gulf-states-after-another-night-us-strikes-2026-07-18/"

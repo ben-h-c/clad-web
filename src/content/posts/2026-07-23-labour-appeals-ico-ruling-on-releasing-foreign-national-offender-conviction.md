@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Nsmb6LicJ00"
 videoTitle: "‘Don’t Be An Apologist For Migrants' | Labour Block Report Revealing Migrant Crimes By Nationality"
 thumbnail: "https://img.youtube.com/vi/Nsmb6LicJ00/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The migrant crime cover up"
     url: "https://thecritic.co.uk/the-migrant-crime-cover-up/"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "FFF44oRqGaQ"
 videoTitle: "Iran under a new leader: Questions about how Iran has changed after the war"
 thumbnail: "https://img.youtube.com/vi/FFF44oRqGaQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Iranian supreme leader election"
     url: "https://en.wikipedia.org/wiki/2026_Iranian_supreme_leader_election"

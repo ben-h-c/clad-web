@@ -32,6 +32,10 @@ keyMoments:
 videoId: "wzWOjpMMrpE"
 videoTitle: "The Rule of Law 'Crisis' Under Trump"
 thumbnail: "https://img.youtube.com/vi/wzWOjpMMrpE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Erosion of the rule of law in Trump's second term"
     url: "https://brightlinewatch.org/erosion-of-the-rule-of-law-in-trumps-second-term/"

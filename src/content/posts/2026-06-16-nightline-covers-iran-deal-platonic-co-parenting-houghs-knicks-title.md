@@ -35,6 +35,10 @@ keyMoments:
 videoId: "_GYxnf1AkTs"
 videoTitle: "Nightline Full Broadcast — Monday, June 15, 2026"
 thumbnail: "https://img.youtube.com/vi/_GYxnf1AkTs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Video What specifics to look for in US-Iran deal to end war"
     url: "https://abcnews.com/video/133899941/"

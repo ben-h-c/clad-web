@@ -34,6 +34,10 @@ keyMoments:
 videoId: "cSa4DS291-8"
 videoTitle: "UFC suspect's mother called police about firearm purchases"
 thumbnail: "https://img.youtube.com/vi/cSa4DS291-8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FBI disrupts a planned attack on the White House UFC show"
     url: "https://www.pbs.org/newshour/nation/fbis-patel-announces-multiple-arrests-connected-to-planned-attacks-targeting-white-house-ufc-show"

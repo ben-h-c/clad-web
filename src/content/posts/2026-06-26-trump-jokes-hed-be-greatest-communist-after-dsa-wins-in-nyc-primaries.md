@@ -31,6 +31,10 @@ keyMoments:
 videoId: "JWxZwZWWFmo"
 videoTitle: "Trump jokes that he'd be 'the greatest communist in history' after democratic socialists win in NYC"
 thumbnail: "https://img.youtube.com/vi/JWxZwZWWFmo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Democratic socialists cemented power in New York. Next, the rest of the country?"
     url: "https://www.politico.com/news/2026/06/24/democratic-socialists-new-york-2028-presidential-00973341"

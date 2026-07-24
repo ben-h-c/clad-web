@@ -35,6 +35,10 @@ keyMoments:
 videoId: "93VhhukLWfI"
 videoTitle: "Armed Russian ships test Western sanctions in the Baltic Sea | DW News"
 thumbnail: "https://img.youtube.com/vi/93VhhukLWfI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Estonia releases images of Russian civilian vessel armed with machine guns"
     url: "https://news.err.ee/1610067208/estonia-releases-images-of-russian-civilian-vessel-armed-with-machine-guns"

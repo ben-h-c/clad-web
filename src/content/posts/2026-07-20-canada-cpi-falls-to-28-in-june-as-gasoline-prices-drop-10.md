@@ -36,6 +36,10 @@ keyMoments:
 videoId: "SbfxtnwXIgw"
 videoTitle: "Inflation slows to 2.8 per cent in June, as gasoline prices fall"
 thumbnail: "https://img.youtube.com/vi/SbfxtnwXIgw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Daily — Consumer Price Index, June 2026"
     url: "https://www150.statcan.gc.ca/n1/daily-quotidien/260720/dq260720a-eng.htm"

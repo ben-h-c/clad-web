@@ -33,6 +33,10 @@ keyMoments:
 videoId: "1au70fviNzQ"
 videoTitle: "Rep. Cleo Fields (Louisiana–6th) | 119th United States Congress"
 thumbnail: "https://img.youtube.com/vi/1au70fviNzQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Cleo Fields"
     slug: "cleo-fields"

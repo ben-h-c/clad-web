@@ -31,6 +31,10 @@ keyMoments:
 videoId: "lH454uTHvaM"
 videoTitle: "Tammy Duckworth Blasts Trump Over Military IVF"
 thumbnail: "https://img.youtube.com/vi/lH454uTHvaM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

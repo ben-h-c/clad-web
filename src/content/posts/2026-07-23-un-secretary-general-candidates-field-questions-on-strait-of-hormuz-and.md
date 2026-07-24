@@ -36,6 +36,10 @@ keyMoments:
 videoId: "lhgE7niQx8k"
 videoTitle: "UN Secretary-General candidates debate global crises and the future of the organisation"
 thumbnail: "https://img.youtube.com/vi/lhgE7niQx8k/maxresdefault.jpg"
+mediaNote: "center trio faces upper-middle; avoid bottom text third"
+thumbFocusY: 28
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Global Town Hall Meeting with Candidates for Post of Secretary-General"
     url: "https://media.un.org/avlibrary/en/asset/d167/d1671128"

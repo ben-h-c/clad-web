@@ -38,6 +38,10 @@ keyMoments:
 videoId: "gBDQmoGPKu8"
 videoTitle: "Ruiz TORCHES RFK Jr. Over Vaccine Policies, Claims Trump Has &#39;Benched&#39; Him"
 thumbnail: "https://img.youtube.com/vi/gBDQmoGPKu8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Raul Ruiz"
     slug: "raul-ruiz"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "oEaIBtcHAe4"
 videoTitle: "France Is Against Iran Imposing Any Tolls to Pass Through Hormuz"
 thumbnail: "https://img.youtube.com/vi/oEaIBtcHAe4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What is Europe's plan to secure the Strait of Hormuz?"
     url: "https://www.dw.com/en/iran-war-europe-defense-mission-strait-of-hormuz-france-uk/a-76911137"

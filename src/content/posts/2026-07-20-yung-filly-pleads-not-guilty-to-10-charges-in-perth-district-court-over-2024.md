@@ -34,6 +34,10 @@ keyMoments:
 videoId: "UDTVAgr-hAE"
 videoTitle: "YouTuber Yung Filly appears in Australian court #YungFilly #Perth #Australia #Court"
 thumbnail: "https://img.youtube.com/vi/UDTVAgr-hAE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "YouTuber Yung Filly appears in Australian court over rape allegations"
     url: "https://www.theguardian.com/australia-news/2026/jul/20/yung-filly-australia-court-youtuber-rape-allegations-ntwnfb"

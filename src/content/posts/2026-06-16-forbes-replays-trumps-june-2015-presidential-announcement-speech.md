@@ -38,6 +38,10 @@ keyMoments:
 videoId: "YElM4vzXAGc"
 videoTitle: "FLASHBACK: Donald Trump Launches His First Bid For The Presidency On This Date In 2015"
 thumbnail: "https://img.youtube.com/vi/YElM4vzXAGc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Here's Donald Trump's Presidential Announcement Speech"
     url: "https://time.com/3923128/donald-trump-announcement-speech/"

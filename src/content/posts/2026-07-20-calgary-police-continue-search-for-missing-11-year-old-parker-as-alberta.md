@@ -35,6 +35,10 @@ keyMoments:
 videoId: "7CmlAiARP0Q"
 videoTitle: "Search for missing Calgary boy prompts call for Amber Alert review"
 thumbnail: "https://img.youtube.com/vi/7CmlAiARP0Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Search for missing Calgary boy prompts concerns over when Amber Alerts are issued"
     url: "https://globalnews.ca/news/11972472/search-for-missing-calgary-boy-amber-alert-concerns/"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "J9mxt1XD_S0"
 videoTitle: "LIVE: ABC News Live - Thursday, July 2 | ABC News"
 thumbnail: "https://img.youtube.com/vi/J9mxt1XD_S0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "ABC News Live transcript and video coverage of Empire State Building incident"
     url: "https://abcnews.go.com/Live"

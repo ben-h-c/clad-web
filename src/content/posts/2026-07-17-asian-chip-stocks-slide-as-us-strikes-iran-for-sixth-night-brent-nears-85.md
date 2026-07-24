@@ -35,6 +35,10 @@ keyMoments:
 videoId: "s1n_H9bW3Pk"
 videoTitle: "Chip Selloff Deepens as Oil Climbs | Horizons Middle East & Africa 7/17/2026"
 thumbnail: "https://img.youtube.com/vi/s1n_H9bW3Pk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

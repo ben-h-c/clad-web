@@ -35,6 +35,10 @@ keyMoments:
 videoId: "pbfEm8PD0Zc"
 videoTitle: "Why is Ukraine targeting Russia's version of Amazon?"
 thumbnail: "https://img.youtube.com/vi/pbfEm8PD0Zc/maxresdefault.jpg"
+mediaNote: "center upper fireball and warehouse roofline; keep flames in frame, exclude lower cars/people"
+thumbFocusY: 28
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ukraine hits more warehouses of Russia's top online retailer"
     url: "https://www.reuters.com/world/europe/russias-largest-online-retailer-says-warehouses-attacked-again-several-injured-2026-07-22/"

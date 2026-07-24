@@ -36,6 +36,10 @@ keyMoments:
 videoId: "yBq8SOUXe9w"
 videoTitle: "Who Makes Out Better in Deal: Iran or the US?"
 thumbnail: "https://img.youtube.com/vi/yBq8SOUXe9w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. and Iran Have Reached a Deal to Stop Fighting, Reopen the Strait of Hormuz"
     url: "https://www.wsj.com/world/middle-east/iran-threatens-to-pull-out-of-talks-after-israel-strikes-beiruts-outskirts-d0390e22"

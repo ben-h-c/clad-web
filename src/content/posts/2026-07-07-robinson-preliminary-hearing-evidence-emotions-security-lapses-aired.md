@@ -34,6 +34,10 @@ keyMoments:
 videoId: "6j1AjO6iuz8"
 videoTitle: "Will Tyler Robinson face trial? What the hearing revealed | CUOMO"
 thumbnail: "https://img.youtube.com/vi/6j1AjO6iuz8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Charlie Kirk’s widow faces his accused killer in court for the first time as prosecutors start presenting evidence"
     url: "https://www.cnn.com/2026/07/06/us/charlie-kirk-tyler-robinson-hearing"

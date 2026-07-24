@@ -36,6 +36,10 @@ keyMoments:
 videoId: "A6xj3lFDTAc"
 videoTitle: "Dave Portnoy delivers BLISTERING response to Mamdani"
 thumbnail: "https://img.youtube.com/vi/A6xj3lFDTAc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Official Site of NYC Mayor Zohran Mamdani"
     url: "https://www.nyc.gov/mayors-office"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "pE3xNxxtBxE"
 videoTitle: "Socialism 101 — 'Rules for thee, not for me': Rep Anna Paulina Luna"
 thumbnail: "https://img.youtube.com/vi/pE3xNxxtBxE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mayor Mamdani Expands Emergency Heat Measures"
     url: "https://www.nyc.gov/mayors-office/news/2026/07/mayor-mamdani-expands-emergency-heat-measures-to-protect-new-yor"

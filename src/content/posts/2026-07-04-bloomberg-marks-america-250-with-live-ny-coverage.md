@@ -36,6 +36,10 @@ keyMoments:
 videoId: "LMbcUFqJSp0"
 videoTitle: "Bloomberg This Weekend Celebrates America 250"
 thumbnail: "https://img.youtube.com/vi/LMbcUFqJSp0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Declaration of Independence"
     url: "https://www.archives.gov/founding-docs/declaration"

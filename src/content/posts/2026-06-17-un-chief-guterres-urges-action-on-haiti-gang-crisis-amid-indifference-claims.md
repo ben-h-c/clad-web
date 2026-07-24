@@ -32,6 +32,10 @@ keyMoments:
 videoId: "_PtQ_FYjdyw"
 videoTitle: "UN chief blames global indifference for Haiti crisis"
 thumbnail: "https://img.youtube.com/vi/_PtQ_FYjdyw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Haiti is facing a deepening crisis"
     url: "https://www.facebook.com/UN.News.Centre/videos/haiti-is-facing-a-deepening-crisis-gang-violence-has-forced-about-15-million-peo/1493446509246020/"

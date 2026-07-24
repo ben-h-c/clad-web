@@ -28,6 +28,10 @@ keyMoments:
 videoId: "OB_BXWr3u48"
 videoTitle: "China's puppy preschools thrive as pet owners splurge"
 thumbnail: "https://img.youtube.com/vi/OB_BXWr3u48/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "China's pet owners splurge on preschools to pamper puppies"
     url: "https://www.reuters.com/world/asia-pacific/chinas-pet-owners-splurge-preschools-pamper-puppies-2026-06-15/"

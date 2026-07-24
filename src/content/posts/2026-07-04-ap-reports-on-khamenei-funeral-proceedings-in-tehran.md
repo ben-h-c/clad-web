@@ -34,6 +34,10 @@ keyMoments:
 videoId: "7kNI-nNZziU"
 videoTitle: "Iran begins dayslong funeral for Supreme Leader Ayatollah Ali Khamenei"
 thumbnail: "https://img.youtube.com/vi/7kNI-nNZziU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Khamenei lies in state in Tehran as Iran begins week of funeral ceremonies"
     url: "https://www.reuters.com/world/middle-east/irans-slain-leader-khamenei-laid-state-tehran-week-mass-funeral-events-2026-07-03/"

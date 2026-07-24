@@ -36,6 +36,10 @@ keyMoments:
 videoId: "jS0AMmkT7sE"
 videoTitle: "EXCLUSIVE: Obama reveals favorite exhibit from his Presidential Center ahead of grand opening"
 thumbnail: "https://img.youtube.com/vi/jS0AMmkT7sE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Grand Opening | The Obama Foundation"
     url: "https://www.obama.org/visit/grand-opening/"

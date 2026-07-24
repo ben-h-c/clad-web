@@ -34,6 +34,10 @@ keyMoments:
 videoId: "M3hpcRTprbw"
 videoTitle: "Why England v Argentina means more than just football"
 thumbnail: "https://img.youtube.com/vi/M3hpcRTprbw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Argentina Eyes the Falklands Again"
     url: "https://time.com/article/2026/04/25/falkland-islands-javier-milei-trump/"

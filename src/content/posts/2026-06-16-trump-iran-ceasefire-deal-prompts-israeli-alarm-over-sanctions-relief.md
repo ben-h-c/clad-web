@@ -36,6 +36,10 @@ keyMoments:
 videoId: "6SMGky8PwFI"
 videoTitle: "Israel NOT HAPPY with Iran deal as Trump TEASES details coming SOON: Report | RISING"
 thumbnail: "https://img.youtube.com/vi/6SMGky8PwFI/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Israel Is Alarmed by Trump's Deal With Iran"
     url: "https://www.wsj.com/world/middle-east/israel-iran-deal-lebanon-581695ac"

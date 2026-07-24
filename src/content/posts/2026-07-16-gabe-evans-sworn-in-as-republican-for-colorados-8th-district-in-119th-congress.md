@@ -32,6 +32,10 @@ keyMoments:
 videoId: "FoxOuoBjZBc"
 videoTitle: "Rep. Gabe Evans (Colorado–8th) | 119th United States Congress"
 thumbnail: "https://img.youtube.com/vi/FoxOuoBjZBc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Gabe Evans"
     slug: "gabe-evans"

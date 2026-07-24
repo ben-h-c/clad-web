@@ -28,6 +28,10 @@ keyMoments:
 videoId: "4vhz6ijtqPU"
 videoTitle: "Brandon Gill Honors 19-Year-Old Isabella Gonzalez After She Was Killed In Action During Iran Strikes"
 thumbnail: "https://img.youtube.com/vi/4vhz6ijtqPU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Brandon Gill"
     slug: "brandon-gill"

@@ -41,6 +41,10 @@ keyMoments:
 videoId: "T9fu58a0Z5o"
 videoTitle: "US Congress LIVE: Lawmaker Flags Trump’s $1.6B Scam, Rips GOP Anti-Fraud Push Amid Fraudster Pardons"
 thumbnail: "https://img.youtube.com/vi/T9fu58a0Z5o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Clemency Grants by President Donald J. Trump (2025- ...)"
     url: "https://www.justice.gov/pardon/clemency-grants-president-donald-j-trump-2025-present"

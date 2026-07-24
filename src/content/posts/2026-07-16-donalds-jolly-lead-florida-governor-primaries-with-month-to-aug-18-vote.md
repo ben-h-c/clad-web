@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Gm_Zcyy_dkg"
 videoTitle: "Donalds, Jolly hold the inside track as Florida governor’s race enters final primary stretch"
 thumbnail: "https://img.youtube.com/vi/Gm_Zcyy_dkg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Byron Donalds"
     slug: "byron-donalds"

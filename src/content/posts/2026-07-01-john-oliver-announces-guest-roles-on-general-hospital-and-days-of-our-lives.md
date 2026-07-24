@@ -35,6 +35,10 @@ keyMoments:
 videoId: "3wq8fb-ud-Q"
 videoTitle: "Soap Operas Update"
 thumbnail: "https://img.youtube.com/vi/3wq8fb-ud-Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "John Oliver scores dream job: Soap opera gigs on 'General Hospital' and ‘Days of Our Lives’"
     url: "https://www.latimes.com/entertainment-arts/tv/story/2026-06-28/john-oliver-general-hospital-guest-appearance"

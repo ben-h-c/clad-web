@@ -40,6 +40,10 @@ keyMoments:
 videoId: "LGddXdHuVbA"
 videoTitle: "Venezuela earthquake death toll rises to 4,333 as families search rubble for loved ones"
 thumbnail: "https://img.youtube.com/vi/LGddXdHuVbA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Venezuela earthquakes"
     url: "https://en.wikipedia.org/wiki/2026_Venezuela_earthquakes"

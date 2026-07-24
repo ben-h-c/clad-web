@@ -37,6 +37,10 @@ keyMoments:
 videoId: "CF1ymErPaXM"
 videoTitle: "Rep. Dina Titus Discusses Prediction Markets, Online Betting and Regulation"
 thumbnail: "https://img.youtube.com/vi/CF1ymErPaXM/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Dina Titus"
     slug: "dina-titus"

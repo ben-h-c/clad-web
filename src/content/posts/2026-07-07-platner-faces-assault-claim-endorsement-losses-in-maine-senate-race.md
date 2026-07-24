@@ -34,6 +34,10 @@ keyMoments:
 videoId: "5elNuzt7sKs"
 videoTitle: "Graham Platner loses key endorsement amid sexual assault allegation"
 thumbnail: "https://img.youtube.com/vi/5elNuzt7sKs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Exclusive: Woman who dated Graham Platner says he sexually assaulted her"
     url: "https://www.politico.com/news/2026/07/06/graham-platner-sexual-assault-allegation-00987737"

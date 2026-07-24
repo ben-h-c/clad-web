@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ibTCRaTdSyM"
 videoTitle: "Democratic socialist defeats longtime US longtime incumbent in Colorado"
 thumbnail: "https://img.youtube.com/vi/ibTCRaTdSyM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Colorado's 1st Congressional District election, 2026 (June 30 Democratic primary)"
     url: "https://ballotpedia.org/Colorado%27s_1st_Congressional_District_election,_2026_(June_30_Democratic_primary)"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "YyUxaPevolQ"
 videoTitle: "Huffman Presses Forest Service Chief On Proposal To Transfer Fire Functions To Interior Department"
 thumbnail: "https://img.youtube.com/vi/YyUxaPevolQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "USDA issues Wildland Fire Feasibility Study Request for Quotes"
     url: "https://www.fs.usda.gov/about-agency/newsroom/releases/usda-issues-wildland-fire-feasibility-study-request-quotes"

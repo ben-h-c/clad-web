@@ -32,6 +32,10 @@ keyMoments:
 videoId: "slUpN9ZUQHQ"
 videoTitle: "Rep. Matt Van Epps: Answering the Call from the Battlefield to Congress"
 thumbnail: "https://img.youtube.com/vi/slUpN9ZUQHQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Matt Van Epps"
     slug: "matt-van-epps"

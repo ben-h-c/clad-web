@@ -37,6 +37,10 @@ keyMoments:
 videoId: "7BNXyzUzZEs"
 videoTitle: "Alphabet Beats on Cloud Sales, Tesla’s Profit Disappoints"
 thumbnail: "https://img.youtube.com/vi/7BNXyzUzZEs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Google (GOOG) Q2 2026 earnings report: Live updates"
     url: "https://www.cnbc.com/2026/07/22/google-earnings-q2-goog-live-updates.html"

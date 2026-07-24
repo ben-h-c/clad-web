@@ -39,6 +39,10 @@ keyMoments:
 videoId: "oboSCVimCVA"
 videoTitle: "$30,000 Tesla Ramps Up Production Before Launch | It's Almost Here"
 thumbnail: "https://img.youtube.com/vi/oboSCVimCVA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FSD v14.3.4 (2026.14.6.10): Cybertruck gets Actually Smart Summon, Tesla adds new destination parking options, more"
     url: "https://www.teslaoracle.com/2026/06/13/fsd-v14-3-6-2026-14-6-10-cybertruck-gets-actually-smart-summon-tesla-adds-new-destination-parking-options-more/"

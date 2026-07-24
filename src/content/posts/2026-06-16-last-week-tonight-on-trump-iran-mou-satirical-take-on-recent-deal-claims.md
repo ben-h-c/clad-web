@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ipjz8u0QwAA"
 videoTitle: "Trump & Iran Peace Deal #lastweektonight"
 thumbnail: "https://img.youtube.com/vi/ipjz8u0QwAA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran war live: Trump says MoU with Tehran signed electronically"
     url: "https://www.aljazeera.com/news/liveblog/2026/6/16/iran-war-live-trump-says-mou-with-tehran-signed-electronically"

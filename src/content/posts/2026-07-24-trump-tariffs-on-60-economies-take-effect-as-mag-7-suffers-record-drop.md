@@ -39,9 +39,9 @@ keyMoments:
 videoId: "3asLR-51hwE"
 videoTitle: "Stocks Waver after Tech Selloff; Trump Rebuilds Tariffs | Bloomberg Brief 07/24/2026"
 thumbnail: "https://img.youtube.com/vi/3asLR-51hwE/maxresdefault.jpg"
-mediaNote: "Primary anchor face on left; crop off right-side Bloomberg Brief title art and keep focus above bottom scrim"
-thumbFocusY: 26
-thumbFocusX: 28
+mediaNote: "talking head face upper-middle"
+thumbFocusY: 28
+thumbFocusX: 45
 mediaStyle: "overlay"
 citations:
   - title: "U.S. proposes fresh tariffs on 60 economies over forced labor"

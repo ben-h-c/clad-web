@@ -26,6 +26,10 @@ keyMoments:
 videoId: "Mw1Y03E4BSI"
 videoTitle: "Luigi Mangione was a 'temperature check,' 'Luigista' argues"
 thumbnail: "https://img.youtube.com/vi/Mw1Y03E4BSI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Killing of Brian Thompson"
     url: "https://en.wikipedia.org/wiki/Killing_of_Brian_Thompson"

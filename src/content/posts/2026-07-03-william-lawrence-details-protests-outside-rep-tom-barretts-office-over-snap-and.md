@@ -36,6 +36,10 @@ keyMoments:
 videoId: "VcKrWrzgzc0"
 videoTitle: "Why William Lawrence camped out in front of US Rep. Tom Barrett&#39;s office"
 thumbnail: "https://img.youtube.com/vi/VcKrWrzgzc0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Tom Barrett"
     slug: "tom-barrett"

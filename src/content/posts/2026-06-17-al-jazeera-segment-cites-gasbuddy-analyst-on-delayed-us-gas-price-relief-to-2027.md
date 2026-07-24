@@ -31,6 +31,10 @@ keyMoments:
 videoId: "ENwzzkPsjgw"
 videoTitle: "Analysts predict no US petrol price drop until 2027"
 thumbnail: "https://img.youtube.com/vi/ENwzzkPsjgw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Short-Term Energy Outlook"
     url: "https://www.eia.gov/outlooks/steo/"

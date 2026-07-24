@@ -31,6 +31,10 @@ keyMoments:
 videoId: "HzinM17Kv78"
 videoTitle: "Still watching?: CEO says you shouldn’t give up on Netflix yet"
 thumbnail: "https://img.youtube.com/vi/HzinM17Kv78/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Netflix - 24 Year Stock Price History"
     url: "https://www.macrotrends.net/stocks/charts/NFLX/netflix/stock-price-history"

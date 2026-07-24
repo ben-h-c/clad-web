@@ -31,6 +31,10 @@ keyMoments:
 videoId: "BPnFf3XlB-Y"
 videoTitle: "Sen. Michael Bennet (D-CO) Concession Speech in Governor Primary"
 thumbnail: "https://img.youtube.com/vi/BPnFf3XlB-Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Phil Weiser defeats Michael Bennet in Democratic primary for Colorado governor"
     url: "https://www.denverpost.com/2026/06/30/colorado-governor-democrats-election-results/"

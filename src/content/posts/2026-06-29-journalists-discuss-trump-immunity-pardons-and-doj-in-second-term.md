@@ -32,6 +32,10 @@ keyMoments:
 videoId: "AojloyKDc8w"
 videoTitle: "Swan and Haberman on the limits of Trump's power"
 thumbnail: "https://img.youtube.com/vi/AojloyKDc8w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump v. United States, 603 U.S. ___ (2024)"
     url: "https://www.supremecourt.gov/opinions/23pdf/23-939_e2pg.pdf"

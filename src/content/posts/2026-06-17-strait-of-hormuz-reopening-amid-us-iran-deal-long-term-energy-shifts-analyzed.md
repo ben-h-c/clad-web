@@ -35,6 +35,10 @@ keyMoments:
 videoId: "epcLYSQsAZM"
 videoTitle: "How the Strait of Hormuz blockade has forever changed the world's energy trade"
 thumbnail: "https://img.youtube.com/vi/epcLYSQsAZM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US-Iran ‘peace deal’ announced; Trump says Strait of Hormuz reopening"
     url: "https://www.aljazeera.com/news/2026/6/14/us-iran-ceasefire-deal-announced-trump-says-strait-of-hormuz-reopening"

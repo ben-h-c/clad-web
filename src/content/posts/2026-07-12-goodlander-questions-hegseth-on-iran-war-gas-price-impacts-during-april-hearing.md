@@ -33,6 +33,10 @@ keyMoments:
 videoId: "fpP7T4hPSgc"
 videoTitle: "Pete Hegseth Faces Goodlander&#39;s Toughest Questions Yet #congress #shorts #youtubeshorts"
 thumbnail: "https://img.youtube.com/vi/fpP7T4hPSgc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Maggie Goodlander"
     slug: "maggie-goodlander"

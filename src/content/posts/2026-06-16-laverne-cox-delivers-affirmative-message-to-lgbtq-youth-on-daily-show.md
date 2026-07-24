@@ -32,6 +32,10 @@ keyMoments:
 videoId: "cfYXVhkz9Nc"
 videoTitle: "@lavernecox reminds young LGBTQ+ people that they are divine, beautiful, and worthy"
 thumbnail: "https://img.youtube.com/vi/cfYXVhkz9Nc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Laverne Cox - “Transcendent” & Protecting Trans Rights | The Daily Show"
     url: "https://www.youtube.com/watch?v=XX572u5gtRM"

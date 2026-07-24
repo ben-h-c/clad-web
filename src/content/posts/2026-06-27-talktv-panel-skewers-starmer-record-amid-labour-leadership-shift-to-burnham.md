@@ -37,6 +37,10 @@ keyMoments:
 videoId: "pM0pic5oPeE"
 videoTitle: "“We Don’t Trust HER!”  | Kevin O’Sullivan’s Biggest Moments Of The Week"
 thumbnail: "https://img.youtube.com/vi/pM0pic5oPeE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Starmer Announces Resignation; Burnham Wins Key Endorsement"
     url: "https://www.nytimes.com/live/2026/06/22/world/uk-keir-starmer-resign"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "CgADtztxioo"
 videoTitle: "Iran plays in World Cup amid Trump's peace negotiations to end war, Mullin warns of border threats"
 thumbnail: "https://img.youtube.com/vi/CgADtztxioo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran’s World Cup camp in Tijuana unfolds under armed guard and political shadow"
     url: "https://www.theguardian.com/football/2026/jun/11/iran-world-cup-tijuana-security-camp-mexico"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "bAo5Nv7FZtU"
 videoTitle: "Demolitions of mosques in India: Five mosques demolished in Uttar Pradesh state"
 thumbnail: "https://img.youtube.com/vi/bAo5Nv7FZtU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US rights group condemns wave of mosque demolitions in India"
     url: "https://www.muslimnetwork.tv/us-rights-group-condemns-wave-of-mosque-demolitions-in-india/"

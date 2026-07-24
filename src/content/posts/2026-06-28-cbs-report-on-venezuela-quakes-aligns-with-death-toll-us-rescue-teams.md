@@ -34,6 +34,10 @@ keyMoments:
 videoId: "re30-bB7QVc"
 videoTitle: "U.S. earthquake relief aid arrives in Venezuela"
 thumbnail: "https://img.youtube.com/vi/re30-bB7QVc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela Live Updates: Window to Find Earthquake Survivors Narrows as Death Toll Tops 1,400"
     url: "https://www.nytimes.com/live/2026/06/27/world/venezuela-earthquake"

@@ -40,6 +40,10 @@ keyMoments:
 videoId: "t12foV8K_3A"
 videoTitle: "Why didn't Trump like the housing bill? 'He wasn't the center of attention': Max Rose"
 thumbnail: "https://img.youtube.com/vi/t12foV8K_3A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What Are the Paths Forward for the Housing Bill After Trump Refused to Sign It?"
     url: "https://www.nytimes.com/2026/06/25/us/politics/trump-housing-bill-scenarios.html"

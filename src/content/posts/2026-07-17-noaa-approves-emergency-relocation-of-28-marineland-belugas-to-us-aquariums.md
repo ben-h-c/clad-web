@@ -32,6 +32,10 @@ keyMoments:
 videoId: "poZmAtxglA4"
 videoTitle: "Dozens of Marineland's baluga whales coming to U.S. through global emergency rescue plan #shorts"
 thumbnail: "https://img.youtube.com/vi/poZmAtxglA4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Dozens of Marineland's beluga whales coming to U.S. through international emergency rescue plan"
     url: "https://www.cbsnews.com/news/marineland-beluga-whales-us-emergency-rescue/"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "QShy9dgpPlg"
 videoTitle: "18 killed in Russian strikes on Ukraine"
 thumbnail: "https://img.youtube.com/vi/QShy9dgpPlg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "At least 18 killed in Kyiv as Zelenskyy warns of ‘massive Russian strike’"
     url: "https://www.aljazeera.com/news/2026/7/2/kyiv-attacked-after-ukraines-zelenskyy-warns-of-massive-russian-strike"

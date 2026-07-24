@@ -34,6 +34,10 @@ keyMoments:
 videoId: "1l68P05QHQc"
 videoTitle: "Venezuela earthquakes: Race against time to recover bodies before demolition"
 thumbnail: "https://img.youtube.com/vi/1l68P05QHQc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Death toll of Venezuela earthquakes rises to 2,645"
     url: "https://www.reuters.com/world/americas/death-toll-venezuela-earthquakes-rises-2645-2026-07-03/"

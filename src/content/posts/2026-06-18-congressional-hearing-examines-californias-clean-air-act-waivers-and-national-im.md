@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Xkbk1QK6ulU"
 videoTitle: "Randy Weber Asks Expert: How Do California's Waiver Authorities Impact US Fuel Emission Standards?"
 thumbnail: "https://img.youtube.com/vi/Xkbk1QK6ulU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "California and the Clean Air Act (CAA) Waiver"
     url: "https://www.congress.gov/crs-product/R48168"

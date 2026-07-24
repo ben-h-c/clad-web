@@ -30,6 +30,10 @@ keyMoments:
 videoId: "d-AQxW1d_k8"
 videoTitle: "French Senate approves youth social-media ban"
 thumbnail: "https://img.youtube.com/vi/d-AQxW1d_k8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "French Senate passes bill that would ban children under 15 from social media"
     url: "https://therecord.media/french-senate-passes-bill-child-ban-social-media"

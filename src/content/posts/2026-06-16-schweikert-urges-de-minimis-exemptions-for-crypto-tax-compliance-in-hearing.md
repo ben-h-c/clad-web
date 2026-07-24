@@ -34,6 +34,10 @@ keyMoments:
 videoId: "-I0Aq7eHKB8"
 videoTitle: "'We Don't Want To Create A Lot Of Noise': David Schweikert Urges Streamlined Digital Asset Taxation"
 thumbnail: "https://img.youtube.com/vi/-I0Aq7eHKB8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Four Key Moments: Hearing on Making America the Crypto Capital of the World"
     url: "https://waysandmeans.house.gov/2025/07/21/four-key-moments-hearing-on-making-america-the-crypto-capital-of-the-world/"

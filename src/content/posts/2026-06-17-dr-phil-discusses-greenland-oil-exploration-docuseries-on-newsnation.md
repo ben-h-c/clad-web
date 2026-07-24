@@ -32,6 +32,10 @@ keyMoments:
 videoId: "KjuK7U-2K3M"
 videoTitle: "Dr. Phil talks new Greenland oil docuseries | Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/KjuK7U-2K3M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Dr. Phil will explore risky race to tap billions in Greenland oil"
     url: "https://www.newsnationnow.com/vargasreports/dr-phil-explore-billions-greenland-oil/"

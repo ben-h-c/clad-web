@@ -36,6 +36,10 @@ keyMoments:
 videoId: "2ligWsZg014"
 videoTitle: "Iran strikes INTENSIFY as Kuwait intercepts BARRAGE of missiles, drones"
 thumbnail: "https://img.youtube.com/vi/2ligWsZg014/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US bombs Iran for ninth consecutive night as Hormuz tensions escalate"
     url: "https://www.aljazeera.com/news/2026/7/20/us-bombs-iran-for-ninth-consecutive-night-as-hormuz-tensions-escalate"

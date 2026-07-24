@@ -31,6 +31,10 @@ keyMoments:
 videoId: "SRjUjkCSbZ0"
 videoTitle: "Middle East expert on U.S.-Iran deal"
 thumbnail: "https://img.youtube.com/vi/SRjUjkCSbZ0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What's in the Iran deal Trump says he's ready to sign"
     url: "https://www.axios.com/2026/06/12/iran-deal-mou-strait-open-sanctions-relief"

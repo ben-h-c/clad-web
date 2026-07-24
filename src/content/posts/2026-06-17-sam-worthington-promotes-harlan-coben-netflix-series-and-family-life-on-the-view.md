@@ -35,6 +35,10 @@ keyMoments:
 videoId: "LWmTwfolTnI"
 videoTitle: "Sam Worthington On Fatherhood And New Thriller Series 'I Will Find You' | The View"
 thumbnail: "https://img.youtube.com/vi/LWmTwfolTnI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "I Will Find You (miniseries)"
     url: "https://en.wikipedia.org/wiki/I_Will_Find_You_(miniseries)"

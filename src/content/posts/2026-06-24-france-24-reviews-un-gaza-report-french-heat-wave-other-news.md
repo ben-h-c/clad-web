@@ -36,6 +36,10 @@ keyMoments:
 videoId: "XlkwXYYzRO4"
 videoTitle: "'Genocide': UN reports says Israel 'deliberately killed Palestinian children' • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/XlkwXYYzRO4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Israel continues to commit genocide... by deliberately targeting Palestinian children | OHCHR"
     url: "https://www.ohchr.org/en/press-releases/2026/06/israel-continues-commit-genocide-and-other-atrocity-crimes-deliberately"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "AuR7p9Z903I"
 videoTitle: "Iran EXPOSED for Strait of Hormuz 'EXTORTION' PLOT"
 thumbnail: "https://img.youtube.com/vi/AuR7p9Z903I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump scraps his Hormuz shipping charge idea but presses ahead with an Iran blockade"
     url: "https://www.npr.org/2026/07/14/nx-s1-5893257/us-iran-updates"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "fe1vBXxSzBE"
 videoTitle: "RBC President: We still need to hire to replace aging workforce"
 thumbnail: "https://img.youtube.com/vi/fe1vBXxSzBE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Retirement Wave Reshaping the Labor Market"
     url: "https://www.sbam.org/the-retirement-wave-reshaping-the-labor-market/"

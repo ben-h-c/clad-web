@@ -35,6 +35,10 @@ keyMoments:
 videoId: "vxuTzdI_oSA"
 videoTitle: "Stocks Slide As Tech Jitters Return | Open Interest 6/26/2026"
 thumbnail: "https://img.youtube.com/vi/vxuTzdI_oSA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "OpenAI Leans Toward Holding Up I.P.O. Until Next Year"
     url: "https://www.nytimes.com/2026/06/25/technology/openai-ipo-artificial-intelligence.html"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "s8ZLZWAq4iY"
 videoTitle: "Trump Calls Bipartisan Housing Bill 'A Big Yawn' | Balance of Power 06/29/2026"
 thumbnail: "https://img.youtube.com/vi/s8ZLZWAq4iY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court of the United States Opinions"
     url: "https://www.supremecourt.gov/opinions/"

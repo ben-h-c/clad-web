@@ -35,6 +35,10 @@ keyMoments:
 videoId: "MBivvQN3nX4"
 videoTitle: "New investigation raises questions around Uber and Lyft pricing methods"
 thumbnail: "https://img.youtube.com/vi/MBivvQN3nX4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "On Uber and Lyft, different prices for the same ride raise questions about how fares are calculated"
     url: "https://www.nbcnews.com/business/consumer/uber-lyft-pricing-consumer-reports-rcna349712"

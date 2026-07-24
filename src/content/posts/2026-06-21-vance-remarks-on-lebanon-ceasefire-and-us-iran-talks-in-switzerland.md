@@ -30,6 +30,10 @@ keyMoments:
 videoId: "KCTTUi_IJD8"
 videoTitle: "FULL Q AND A: JD Vance Takes Questions From Reporters Before U.S.-Pakistan-Qatar-Iran Talks Begin"
 thumbnail: "https://img.youtube.com/vi/KCTTUi_IJD8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: US and Iran hold high level talks as Lebanon ..."
     url: "https://www.cnn.com/2026/06/21/world/live-news/iran-war-trump-israel-lebanon"

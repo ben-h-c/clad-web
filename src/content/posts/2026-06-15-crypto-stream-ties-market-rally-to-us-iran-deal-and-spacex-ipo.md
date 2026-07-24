@@ -40,6 +40,10 @@ keyMoments:
 videoId: "Vvl2mmgR5Sk"
 videoTitle: "Bitcoin Bulls Are Waking Up"
 thumbnail: "https://img.youtube.com/vi/Vvl2mmgR5Sk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S., Iran signal peace deal near as Tehran claims victory"
     url: "https://www.reuters.com/world/middle-east/trump-says-iran-war-deal-close-strait-hormuz-tensions-linger-2026-06-12/"

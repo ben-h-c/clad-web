@@ -33,6 +33,10 @@ keyMoments:
 videoId: "VCFN0GatHyg"
 videoTitle: "Alberta's finance minister shuts down reports referendum could cost up to $130M"
 thumbnail: "https://img.youtube.com/vi/VCFN0GatHyg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Alberta’s October referendum could cost taxpayers up to $130M: expert"
     url: "https://www.ctvnews.ca/calgary/article/albertas-october-referendum-could-cost-taxpayers-up-to-130m-expert/"

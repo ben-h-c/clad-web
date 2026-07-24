@@ -32,6 +32,10 @@ keyMoments:
 videoId: "gA_IFhgWINY"
 videoTitle: "'Who Won The 2020 Election?': Richard Blumenthal Shows Zero Mercy To Top DOJ Nominee"
 thumbnail: "https://img.youtube.com/vi/gA_IFhgWINY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "PN933 - Nomination of Don Richard Berthiaume Jr."
     url: "https://www.congress.gov/nomination/119th-congress/933"

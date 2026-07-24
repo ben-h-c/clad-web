@@ -37,6 +37,10 @@ keyMoments:
 videoId: "wQlDPrhD9pQ"
 videoTitle: "&#39;Biden is not President right now&#39;:  Rep. Simon clashes with witness over DEI and unaffordability"
 thumbnail: "https://img.youtube.com/vi/wQlDPrhD9pQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Lateefah Simon"
     slug: "lateefah-simon"

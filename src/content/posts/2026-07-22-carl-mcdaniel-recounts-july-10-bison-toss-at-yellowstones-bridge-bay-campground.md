@@ -31,6 +31,10 @@ keyMoments:
 videoId: "u9Hkz3AhG0U"
 videoTitle: "Man tossed by Yellowstone bison is speaking out"
 thumbnail: "https://img.youtube.com/vi/u9Hkz3AhG0U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Grandfather recovering from surgery after bison attack at Yellowstone sent him flying"
     url: "https://www.cnn.com/2026/07/13/us/bison-attack-yellowstone"

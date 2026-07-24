@@ -40,6 +40,10 @@ keyMoments:
 videoId: "uJvTvEotybc"
 videoTitle: "Todd Blanche Questioned About How He'll End 'Weaponization' Of The Department Of Justice By Mike Lee"
 thumbnail: "https://img.youtube.com/vi/uJvTvEotybc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Mike Lee"
     slug: "mike-lee"

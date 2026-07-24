@@ -34,6 +34,10 @@ keyMoments:
 videoId: "3cS2FZcoWPM"
 videoTitle: "Multi-billion dollar plan sparks Albania's 'Flamingo Revolution' | DW News"
 thumbnail: "https://img.youtube.com/vi/3cS2FZcoWPM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A look at the Albanian island where a Kushner-Trump resort plan has sparked protests"
     url: "https://www.pbs.org/newshour/show/a-look-at-the-albanian-island-where-a-kushner-trump-resort-plan-has-sparked-protests"

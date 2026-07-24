@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Nm5cEmaSXHo"
 videoTitle: "Trump threatens a federal takeover of Washington, D.C. ahead of its mayoral primary"
 thumbnail: "https://img.youtube.com/vi/Nm5cEmaSXHo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump threatens to 'take back' DC if democratic socialist is elected as mayor"
     url: "https://thehill.com/homenews/campaign/5921587-trump-dc-takeover-democratic-socialist-mayoral-race/"

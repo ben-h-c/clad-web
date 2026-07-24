@@ -29,6 +29,10 @@ keyMoments:
 videoId: "mq1rInM5bhQ"
 videoTitle: "D4vd's trial continues"
 thumbnail: "https://img.youtube.com/vi/mq1rInM5bhQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Possible bloodstains were detected at D4vd’s home, law enforcement testify"
     url: "https://www.theguardian.com/us-news/2026/jul/22/d4vd-murder-case-financial-motivation"

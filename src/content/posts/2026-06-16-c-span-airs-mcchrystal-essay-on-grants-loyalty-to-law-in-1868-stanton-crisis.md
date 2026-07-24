@@ -32,6 +32,10 @@ keyMoments:
 videoId: "iegIDeEJIN4"
 videoTitle: "In Pursuit - America 250: Stanley McCrystal on Ulysses Grant"
 thumbnail: "https://img.youtube.com/vi/iegIDeEJIN4/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "More Perfect Launches In Pursuit, Inviting Americans To Draw Wisdom From Our Past And The Presidency To Shape Our Future"
     url: "https://inpursuit.substack.com/p/more-perfect-launches-in-pursuit"

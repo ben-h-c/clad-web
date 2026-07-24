@@ -40,6 +40,10 @@ keyMoments:
 videoId: "4cPm2AF-ZsU"
 videoTitle: "Andy & Anderson quiz Andy's parents about American statistics—it gets awkward"
 thumbnail: "https://img.youtube.com/vi/4cPm2AF-ZsU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "32% of Americans have a tattoo, including 22% who have more than one"
     url: "https://www.pewresearch.org/short-reads/2023/08/15/32-of-americans-have-a-tattoo-including-22-who-have-more-than-one/"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "1rywuKymkEo"
 videoTitle: "Trump meeting with Indian PM Narendra Modi at G7 Summit"
 thumbnail: "https://img.youtube.com/vi/1rywuKymkEo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Can a Trump-Modi Meeting Reset U.S.-India Relations?"
     url: "https://www.nytimes.com/2026/06/16/world/asia/trump-modi-meeting-g7.html"

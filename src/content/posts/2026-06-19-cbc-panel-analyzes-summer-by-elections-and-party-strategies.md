@@ -35,6 +35,10 @@ keyMoments:
 videoId: "TN1PdUEDqmY"
 videoTitle: "What does summer hold for the federal parties? | Power & Politics"
 thumbnail: "https://img.youtube.com/vi/TN1PdUEDqmY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mark Carney - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Mark_Carney"

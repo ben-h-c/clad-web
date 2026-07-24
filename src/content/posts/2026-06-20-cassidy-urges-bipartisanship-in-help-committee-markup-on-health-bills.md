@@ -36,6 +36,10 @@ keyMoments:
 videoId: "cG3a5WC0gQA"
 videoTitle: "Bill Cassidy: Here's What I Want My Legacy To Be As My Senate Term Expires"
 thumbnail: "https://img.youtube.com/vi/cG3a5WC0gQA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Chairman Cassidy Delivers Remarks Before HELP Committee Vote on Bills Improving American Families’ Access to Quality, Affordable Health Care"
     url: "https://www.help.senate.gov/rep/newsroom/press/chairman-cassidy-delivers-remarks-before-help-committee-vote-on-bills-improving-american-families-access-to-quality-affordable-health-care"

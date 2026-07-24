@@ -33,6 +33,10 @@ keyMoments:
 videoId: "xnkE1lkPHqE"
 videoTitle: "DC has a new look— here's what Americans think... #dc #shorts #washingtondc #american #trump"
 thumbnail: "https://img.youtube.com/vi/xnkE1lkPHqE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'Residual algae' coats part of newly opened Reflecting Pool"
     url: "https://www.cnn.com/2026/06/10/politics/algae-reflecting-pool-trump"

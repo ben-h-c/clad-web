@@ -31,6 +31,10 @@ keyMoments:
 videoId: "SbNeX5e5Gpc"
 videoTitle: "UK's Burnham Says He's Laid Out Clear Priorities"
 thumbnail: "https://img.youtube.com/vi/SbNeX5e5Gpc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham declared leader of UK's Labour Party"
     url: "https://apnews.com/article/andy-burnham-uk-labour-party-leadership-eba3703e98f3f9790f74f2cd7ee4cee1"

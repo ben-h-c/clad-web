@@ -28,6 +28,10 @@ keyMoments:
 videoId: "dzvyshMrvmU"
 videoTitle: "Pit crew demo at White House \"Grand Prix Showcase\""
 thumbnail: "https://img.youtube.com/vi/dzvyshMrvmU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump to host top IndyCar drivers at the White House ahead of D.C. Grand Prix"
     url: "https://www.nbcnews.com/politics/white-house/trump-hosts-indycar-drivers-white-house-dc-grand-prix-alex-palou-rcna563527"

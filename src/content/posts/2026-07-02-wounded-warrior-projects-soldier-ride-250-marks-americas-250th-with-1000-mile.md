@@ -34,6 +34,10 @@ keyMoments:
 videoId: "RaPqtFbMEEg"
 videoTitle: "Wounded Warrior Project veterans cycle 1,000 MILES to celebrate America's 250th"
 thumbnail: "https://img.youtube.com/vi/RaPqtFbMEEg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Soldier Ride 250 Celebrates 250 Years of American Independence"
     url: "https://newsroom.woundedwarriorproject.org/Soldier-Ride-250-Celebrating-250-Years-of-American-Independence"

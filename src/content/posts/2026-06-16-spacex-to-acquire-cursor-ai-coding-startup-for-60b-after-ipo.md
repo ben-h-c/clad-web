@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ROBBm9JR8uk"
 videoTitle: "SpaceX Agrees to Buy AI Startup Cursor for $60 Billion Days After Going Public"
 thumbnail: "https://img.youtube.com/vi/ROBBm9JR8uk/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX obtains right to buy AI start-up Cursor for $60bn"
     url: "https://www.ft.com/content/d23bd03a-92ac-4e81-8460-3b867a833860"

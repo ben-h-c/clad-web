@@ -34,6 +34,10 @@ keyMoments:
 videoId: "DWYme1FvXTM"
 videoTitle: "Could Wimbledon's new AI app features replace sports commentators?"
 thumbnail: "https://img.youtube.com/vi/DWYme1FvXTM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Wimbledon and IBM Introduce New AI-Powered Fan Experiences for The Championships 2026"
     url: "https://newsroom.ibm.com/2026-06-22-wimbledon-and-ibm-introduce-new-ai-powered-fan-experiences-and-modernized-digital-platforms-for-the-championships-2026"

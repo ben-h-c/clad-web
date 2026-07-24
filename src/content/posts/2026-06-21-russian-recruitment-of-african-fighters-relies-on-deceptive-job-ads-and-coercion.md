@@ -38,6 +38,10 @@ keyMoments:
 videoId: "rVTOJy_DIqw"
 videoTitle: "How Putin is luring war recruits with fake job ads & forcing them to sign contracts at gunpoint"
 thumbnail: "https://img.youtube.com/vi/rVTOJy_DIqw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russia's Deceptive War Recruitment Scheme Ensnares Africans"
     url: "https://africacenter.org/spotlight/russia-deceptive-war-recruitment-ensnares-africans/"

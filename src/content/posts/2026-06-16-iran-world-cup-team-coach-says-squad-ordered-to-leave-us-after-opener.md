@@ -28,6 +28,10 @@ keyMoments:
 videoId: "QLXHUYyKpZc"
 videoTitle: "Iran World Cup Team Ordered to Leave US After First Match"
 thumbnail: "https://img.youtube.com/vi/QLXHUYyKpZc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'Oppressed' Iran forced to leave U.S. after New Zealand draw"
     url: "https://www.espn.com/soccer/story/_/id/49078938/iran-forced-leave-us-new-zealand-draw"

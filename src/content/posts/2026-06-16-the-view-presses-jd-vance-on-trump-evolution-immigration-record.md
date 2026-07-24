@@ -36,6 +36,10 @@ keyMoments:
 videoId: "CEDAm8mDiMc"
 videoTitle: "JD Vance Addresses His Past Comments About Donald Trump | The View"
 thumbnail: "https://img.youtube.com/vi/CEDAm8mDiMc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump's Final Numbers"
     url: "https://www.factcheck.org/2021/10/trumps-final-numbers/"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "qsL0uBTOdiA"
 videoTitle: "What does Burnham mean for Kemi, Nigel, Ed and Zack?"
 thumbnail: "https://img.youtube.com/vi/qsL0uBTOdiA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Burnham pledges devolution and discipline if he becomes UK prime minister"
     url: "https://www.aljazeera.com/news/2026/6/29/burnham-pledges-devolution-and-discipline-if-he-becomes-uk-prime-minister"

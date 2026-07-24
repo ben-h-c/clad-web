@@ -35,6 +35,10 @@ keyMoments:
 videoId: "b0XxRP2vFfU"
 videoTitle: "US, Iran offer conflicting accounts of ceasefire deal"
 thumbnail: "https://img.youtube.com/vi/b0XxRP2vFfU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump declares US-Iran peace deal 'all signed' as G7 ..."
     url: "https://www.theguardian.com/world/2026/jun/15/trump-declares-us-iran-peace-deal-all-signed-g7"

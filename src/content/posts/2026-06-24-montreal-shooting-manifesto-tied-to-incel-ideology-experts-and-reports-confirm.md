@@ -35,6 +35,10 @@ keyMoments:
 videoId: "-yc1d9an7R0"
 videoTitle: "Montreal shooting suspect manifesto aligns with incel movement, experts say"
 thumbnail: "https://img.youtube.com/vi/-yc1d9an7R0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Suspect in Fatal Montreal Shooting Left Behind Manifesto Linked to Incel Ideology"
     url: "https://people.com/montreal-shooting-suspect-left-incel-manifesto-12005320"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "jqxRBjQG1X0"
 videoTitle: "Anne Hathaway Shares How Being A Mom And Wife Influenced Her role In 'The Odyssey'"
 thumbnail: "https://img.youtube.com/vi/jqxRBjQG1X0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Odyssey (2026) - IMDb"
     url: "https://www.imdb.com/title/tt33764258/"

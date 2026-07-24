@@ -37,6 +37,10 @@ keyMoments:
 videoId: "UPVU0BhAoo4"
 videoTitle: "JD Vance: Political violence in US is ‘out-of-control’..."
 thumbnail: "https://img.youtube.com/vi/UPVU0BhAoo4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Five men arrested & charged in plot to attack & kill government officials and others attending UFC Freedom 250 event"
     url: "https://www.justice.gov/usao-sdoh/pr/five-men-arrested-charged-plot-attack-kill-government-officials-others-attending"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "uQ_NZraGf_w"
 videoTitle: "Novak Djokovic Joins General Atlantic in His Wall Street Debut"
 thumbnail: "https://img.youtube.com/vi/uQ_NZraGf_w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Novak Djokovic Joins General Atlantic as Global Strategic Advisor"
     url: "https://www.generalatlantic.com/media-article/novak-djokovic-joins-general-atlantic-as-global-strategic-advisor/"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "y5ZmUKU-70g"
 videoTitle: "Pat Harrigan on the Future of War at #INDOPAC"
 thumbnail: "https://img.youtube.com/vi/y5ZmUKU-70g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Pat Harrigan"
     slug: "pat-harrigan"

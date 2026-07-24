@@ -34,6 +34,10 @@ keyMoments:
 videoId: "9B4z6rwL1ts"
 videoTitle: "Law enforcement enlists public’s help in finding suspect in string of shootings"
 thumbnail: "https://img.youtube.com/vi/9B4z6rwL1ts/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Police: Suspect at-large in I-70/I-670 shootings also wanted for car shooting in KCK"
     url: "https://www.kctv5.com/2026/06/18/police-suspect-at-large-i-70i-670-shootings-wanted-car-shooting-kck/"

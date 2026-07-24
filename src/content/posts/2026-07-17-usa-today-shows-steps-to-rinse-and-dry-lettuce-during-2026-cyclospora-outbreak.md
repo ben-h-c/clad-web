@@ -31,6 +31,10 @@ keyMoments:
 videoId: "pQ3YOecUSRc"
 videoTitle: "How to properly clean your lettuce amid cyclospora outbreak. USA TODAY demos."
 thumbnail: "https://img.youtube.com/vi/pQ3YOecUSRc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Cyclospora Outbreak Linked to Shredded Iceberg Lettuce Served at Taco Bell in 5 States"
     url: "https://www.cdc.gov/cyclosporiasis/outbreaks/07-26/index.html"

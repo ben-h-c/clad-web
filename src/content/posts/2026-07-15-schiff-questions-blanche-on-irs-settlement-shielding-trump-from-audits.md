@@ -37,6 +37,10 @@ keyMoments:
 videoId: "aAZEx4gKlms"
 videoTitle: "WATCH: Schiff grills Blanche on Trump tax settlement"
 thumbnail: "https://img.youtube.com/vi/aAZEx4gKlms/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump gets tax protection, but DOJ fund is dead: Blanche"
     url: "https://www.cnbc.com/2026/06/02/doj-fund-trump-todd-blanche.html"

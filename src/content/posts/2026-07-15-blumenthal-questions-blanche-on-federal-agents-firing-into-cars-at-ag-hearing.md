@@ -28,6 +28,10 @@ keyMoments:
 videoId: "lxWaQqwzruc"
 videoTitle: "WATCH: Sen. Blumenthal asks Blanche whether federal agents should fire their weapons into cars"
 thumbnail: "https://img.youtube.com/vi/lxWaQqwzruc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Watch Live: Todd Blanche, Trump's Attorney General Pick ..."
     url: "https://www.nytimes.com/live/2026/07/15/us/todd-blanche-hearing-attorney-general"

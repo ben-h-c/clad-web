@@ -37,6 +37,10 @@ keyMoments:
 videoId: "sNJCmBx13zc"
 videoTitle: "Trump caves to pushback again; another humiliation in court"
 thumbnail: "https://img.youtube.com/vi/sNJCmBx13zc/maxresdefault.jpg"
+mediaNote: "Dual talking-heads split; hold upper-middle on both faces"
+thumbFocusY: 28
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump administration drops demand that Penn hand over list of Jewish employees"
     url: "https://thehill.com/homenews/education/5987145-penn-subpoena-trump-eeoc/"

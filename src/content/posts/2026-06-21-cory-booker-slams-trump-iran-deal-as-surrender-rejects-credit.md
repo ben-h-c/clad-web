@@ -36,6 +36,10 @@ keyMoments:
 videoId: "lb0-fxz0wBk"
 videoTitle: "Cory Booker reacts to Democrat giving Trump 'credit' for Iran deal"
 thumbnail: "https://img.youtube.com/vi/lb0-fxz0wBk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "‘Iran is coming out of this better off, and we are far, far worse off’: Sen. Booker denounces Trump Iran agreement"
     url: "https://www.cnn.com/2026/06/19/politics/video/inside-politics-senator-cory-booker-iran-deal"

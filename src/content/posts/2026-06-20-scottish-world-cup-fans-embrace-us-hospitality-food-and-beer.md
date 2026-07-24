@@ -34,6 +34,10 @@ keyMoments:
 videoId: "2BVoP9w36bM"
 videoTitle: "American hospitality has been incredible: Scottish soccer content creator | NewsNation Live"
 thumbnail: "https://img.youtube.com/vi/2BVoP9w36bM/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Scottish World Cup fans are drinking Boston dry"
     url: "https://www.newsnationnow.com/us-news/sports/world-cup/scottish-world-cup-drinking-boston/"

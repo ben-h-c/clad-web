@@ -39,6 +39,10 @@ keyMoments:
 videoId: "ThBmfHegp50"
 videoTitle: "Gutfeld: NO ONE else brings this up…"
 thumbnail: "https://img.youtube.com/vi/ThBmfHegp50/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Nick Shirley uncovered alleged California fraud with help of DOGE’s ‘Big Balls’"
     url: "https://nypost.com/2026/04/29/us-news/influencer-nick-shirley-uncovered-california-fraud-with-help-of-doge-teenager/"

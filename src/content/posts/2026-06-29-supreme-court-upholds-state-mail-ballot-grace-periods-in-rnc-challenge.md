@@ -35,6 +35,10 @@ keyMoments:
 videoId: "cjxPFx_2uWw"
 videoTitle: "Why the Supreme Court allowing states to count mail-in ballots that arrive late is significant"
 thumbnail: "https://img.youtube.com/vi/cjxPFx_2uWw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Justices uphold state law allowing for late-arriving mail-in ballots"
     url: "https://www.scotusblog.com/2026/06/justices-uphold-state-law-allowing-for-late-arriving-mail-in-ballots/"

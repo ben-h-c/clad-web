@@ -31,6 +31,10 @@ keyMoments:
 videoId: "NrsoiC_p-ys"
 videoTitle: "Trump-backed candidate wins GOP Senate runoff in Louisiana"
 thumbnail: "https://img.youtube.com/vi/NrsoiC_p-ys/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Julia Letlow, Lifted by Trump, Wins Republican Senate Runoff in Louisiana"
     url: "https://www.nytimes.com/2026/06/27/us/louisiana-senate-republican-runoff-results.html"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "swNJct1_038"
 videoTitle: "Raul Castro's grandson gives first U.S. news interview"
 thumbnail: "https://img.youtube.com/vi/swNJct1_038/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Castro heir wants a Trump deal: his exclusive first US interview"
     url: "https://www.usatoday.com/story/news/world/2026/07/06/castro-grandson-trump-deal-cuba-exclusive/90784545007/"

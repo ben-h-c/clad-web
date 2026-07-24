@@ -34,6 +34,10 @@ keyMoments:
 videoId: "UPG2GDOtJJU"
 videoTitle: "Why is Venezuela prone to earthquakes? #Venezuela #Earthquake #BBCNews"
 thumbnail: "https://img.youtube.com/vi/UPG2GDOtJJU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Rescuers race to find Venezuela quake survivors"
     url: "https://www.bbc.com/news/articles/c4gyjgreg1ro"

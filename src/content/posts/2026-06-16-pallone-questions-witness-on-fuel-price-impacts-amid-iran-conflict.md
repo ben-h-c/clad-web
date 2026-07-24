@@ -37,6 +37,10 @@ keyMoments:
 videoId: "46FUzP90U-0"
 videoTitle: "Frank Pallone Asks Witness: How Are Higher Fuel Prices 'Rippling Through Our Economy?'"
 thumbnail: "https://img.youtube.com/vi/46FUzP90U-0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Pallone Blasts Republicans for Ignoring Skyrocketing Gas Prices, Pushing Bills that Undermine the Clean Air Act"
     url: "https://democrats-energycommerce.house.gov/media/press-releases/pallone-blasts-republicans-ignoring-skyrocketing-gas-prices-pushing-bills"

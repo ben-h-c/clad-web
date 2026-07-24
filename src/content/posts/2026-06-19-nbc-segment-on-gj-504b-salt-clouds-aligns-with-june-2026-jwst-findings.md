@@ -31,6 +31,10 @@ keyMoments:
 videoId: "HWPB5vIYcSs"
 videoTitle: "Scientists discover salty clouds around pink planet"
 thumbnail: "https://img.youtube.com/vi/HWPB5vIYcSs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Famous 'Pink Planet' harbors a salty surprise"
     url: "https://phys.org/news/2026-06-famous-pink-planet-harbors-salty.html"

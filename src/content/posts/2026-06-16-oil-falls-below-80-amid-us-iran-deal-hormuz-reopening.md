@@ -35,6 +35,10 @@ keyMoments:
 videoId: "A-cqte0Mmkg"
 videoTitle: "Oil Falls Below $80 For First Time in More Than Three Months"
 thumbnail: "https://img.youtube.com/vi/A-cqte0Mmkg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "WTI Crude Oil Futures Contracts | Oilprice.com"
     url: "https://oilprice.com/futures/wti"

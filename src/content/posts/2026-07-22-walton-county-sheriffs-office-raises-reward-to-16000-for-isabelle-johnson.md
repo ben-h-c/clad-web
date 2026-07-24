@@ -35,6 +35,10 @@ keyMoments:
 videoId: "RiORToFUnuU"
 videoTitle: "Florida authorities search for suspected murderer"
 thumbnail: "https://img.youtube.com/vi/RiORToFUnuU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Woman accused of killing man found in shallow grave still on the run"
     url: "https://abcnews.com/US/woman-accused-killing-man-found-shallow-grave-run/story?id=134785583"

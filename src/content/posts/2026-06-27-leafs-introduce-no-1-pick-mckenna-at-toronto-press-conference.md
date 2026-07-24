@@ -34,6 +34,10 @@ keyMoments:
 videoId: "kZqG5ASTPtw"
 videoTitle: "Chayka recalls meeting McKenna in Whitehorse at 11 p.m. to \"full sun\" as Leafs introduce pick | FULL"
 thumbnail: "https://img.youtube.com/vi/kZqG5ASTPtw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "McKenna selected No. 1 by Maple Leafs in 2026 NHL Draft"
     url: "https://www.nhl.com/news/gavin-mckenna-drafted-no-1-overall-by-toronto-maple-leafs-in-2026-nhl-draft"

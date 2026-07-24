@@ -34,6 +34,10 @@ keyMoments:
 videoId: "OICZJw6rOuo"
 videoTitle: "DOJ on mission to end in-state tuition for undocumented students in latest lawsuits"
 thumbnail: "https://img.youtube.com/vi/OICZJw6rOuo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Department of Justice Files Complaints Against Massachusetts and Rhode Island Challenging State Laws that Provide In-State Tuition to Illegal Aliens"
     url: "https://www.justice.gov/opa/pr/department-justice-files-complaints-against-massachusetts-and-rhode-island-challenging-state"

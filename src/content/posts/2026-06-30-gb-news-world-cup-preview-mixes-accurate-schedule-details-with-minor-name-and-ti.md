@@ -38,6 +38,10 @@ keyMoments:
 videoId: "rBYBMiPwwd0"
 videoTitle: "Missed the World Cup? Here's the LATEST"
 thumbnail: "https://img.youtube.com/vi/rBYBMiPwwd0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How to Watch Ivory Coast vs. Norway: TV Channel, Live Stream, Time"
     url: "https://www.foxsports.com/stories/soccer/ivory-coast-vs-norway-how-to-watch-tv-channel-live-stream-2026-fifa-world-cup-round-of-32"

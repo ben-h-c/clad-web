@@ -36,6 +36,10 @@ keyMoments:
 videoId: "I7rb9X-7Srs"
 videoTitle: "'MPs NOT WILLING To Save British Girls From Being Raped' | 'WHY Can't We Deport Him?!'"
 thumbnail: "https://img.youtube.com/vi/I7rb9X-7Srs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Rochdale grooming gang ringleader cannot be deported, victims told"
     url: "https://www.theguardian.com/uk-news/2026/jun/30/rochdale-grooming-gang-ringleader-cannot-be-deported-victims-told"

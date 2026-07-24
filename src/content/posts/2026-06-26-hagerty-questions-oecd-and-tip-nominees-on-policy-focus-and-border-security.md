@@ -36,6 +36,10 @@ keyMoments:
 videoId: "07oamRzs280"
 videoTitle: "Hagerty Asks OECD Nom About Keeping Group Focused On 'Pro-Competition And Pro-Growth Policies'"
 thumbnail: "https://img.youtube.com/vi/07oamRzs280/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Treasury official who clashed with White House likely to move to OECD post"
     url: "https://www.washingtonpost.com/business/2026/04/28/white-house-trump-treasury-john-hurley-oecd-role/"

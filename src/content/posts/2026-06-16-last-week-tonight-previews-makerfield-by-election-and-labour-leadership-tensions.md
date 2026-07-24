@@ -34,6 +34,10 @@ keyMoments:
 videoId: "OD17jrheh9E"
 videoTitle: "UK Election & Makerfield #lastweektonight"
 thumbnail: "https://img.youtube.com/vi/OD17jrheh9E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Makerfield by-election"
     url: "https://en.wikipedia.org/wiki/2026_Makerfield_by-election"

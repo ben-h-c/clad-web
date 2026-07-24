@@ -39,6 +39,10 @@ keyMoments:
 videoId: "zBhBMYqSehM"
 videoTitle: "Rashida Tlaib Calls Netanyahu 'Genocidal Maniac' Promoting Lebanon War Powers Resolution"
 thumbnail: "https://img.youtube.com/vi/zBhBMYqSehM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Lebanon: 12 children killed, maimed daily, despite Hezbollah-Israel truce"
     url: "https://news.un.org/en/story/2026/06/1167736"

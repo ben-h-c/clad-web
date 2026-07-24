@@ -37,6 +37,10 @@ keyMoments:
 videoId: "J1XS5XyhXlI"
 videoTitle: "“Keir Starmer’s Leaving Party!” | Prime Minister Expected To Step Down Tomorrow!"
 thumbnail: "https://img.youtube.com/vi/J1XS5XyhXlI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Keir Starmer expected to announce departure as prime minister on Monday"
     url: "https://www.theguardian.com/politics/2026/jun/21/keir-starmer-expected-to-announce-departure-as-prime-minister-on-monday"

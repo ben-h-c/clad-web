@@ -34,6 +34,10 @@ keyMoments:
 videoId: "dLNDa5QguwQ"
 videoTitle: "Outbreak source was found — but it may not be over: Ex-CDC director | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/dLNDa5QguwQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Ed Case"
     slug: "ed-case"

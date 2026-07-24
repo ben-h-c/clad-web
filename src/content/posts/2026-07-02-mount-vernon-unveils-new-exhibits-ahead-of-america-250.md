@@ -35,6 +35,10 @@ keyMoments:
 videoId: "vW69ICZ21cs"
 videoTitle: "PRESIDENTIAL PIONEER: Mount Vernon celebrates the life and legacy of George Washington"
 thumbnail: "https://img.youtube.com/vi/vW69ICZ21cs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "America 250 | George Washington's Mount Vernon"
     url: "https://www.mountvernon.org/250"

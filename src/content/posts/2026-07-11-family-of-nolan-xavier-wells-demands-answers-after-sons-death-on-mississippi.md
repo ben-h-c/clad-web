@@ -35,6 +35,10 @@ keyMoments:
 videoId: "uQgglO25uxE"
 videoTitle: "Family seeks answers in death of Nolan Xavier Wells"
 thumbnail: "https://img.youtube.com/vi/uQgglO25uxE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Nolan Wells’ body was found after a July 4 boat trip. His death has fueled speculation, grief and racial tension"
     url: "https://www.cnn.com/2026/07/09/us/nolan-xavier-wells-what-we-know"

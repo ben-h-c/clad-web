@@ -34,6 +34,10 @@ keyMoments:
 videoId: "-fW98g-dgLA"
 videoTitle: "Australia’s cocaine wars: Contract killings, arson, & kidnap plots | Meanwhile in Asia"
 thumbnail: "https://img.youtube.com/vi/-fW98g-dgLA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UNODC World Drug Report 2026: Oceania"
     url: "https://www.unodc.org/unodc/en/wdr/2026/oceania.html"

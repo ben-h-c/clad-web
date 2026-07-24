@@ -35,6 +35,10 @@ keyMoments:
 videoId: "QyD4Nq3L758"
 videoTitle: "New report reveals deadliest design flaws that doomed the Titan submersible | About That"
 thumbnail: "https://img.youtube.com/vi/QyD4Nq3L758/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Marine transportation safety investigation M23A0169"
     url: "https://www.tsb.gc.ca/eng/enquetes-investigations/marine/2023/m23a0169/m23a0169.html"

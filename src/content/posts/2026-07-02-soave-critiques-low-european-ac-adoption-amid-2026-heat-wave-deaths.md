@@ -36,6 +36,10 @@ keyMoments:
 videoId: "s2ThAwPmVAc"
 videoTitle: "Stubborn Europeans refuse to get air conditioning, suffer in heat wave: Robby Soave | RISING"
 thumbnail: "https://img.youtube.com/vi/s2ThAwPmVAc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Europe's heatwave 'linked to 1300 deaths' as more records broken"
     url: "https://www.bbc.com/news/articles/cn4d2vv935lo"

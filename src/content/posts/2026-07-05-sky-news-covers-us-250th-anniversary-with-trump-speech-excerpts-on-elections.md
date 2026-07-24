@@ -35,6 +35,10 @@ keyMoments:
 videoId: "47H-RPMFhKQ"
 videoTitle: "'America is back': US celebrates 250th anniversary"
 thumbnail: "https://img.youtube.com/vi/47H-RPMFhKQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "United States Semiquincentennial"
     url: "https://en.wikipedia.org/wiki/United_States_Semiquincentennial"

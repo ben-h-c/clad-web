@@ -31,6 +31,10 @@ keyMoments:
 videoId: "JxOVByrr4mw"
 videoTitle: "Trump on USMCA trade pact: 'I'd rather have it terminated'"
 thumbnail: "https://img.youtube.com/vi/JxOVByrr4mw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says US might not renew North America trade deal"
     url: "https://www.reuters.com/world/trump-says-he-might-not-renew-usmca-2026-06-10/"

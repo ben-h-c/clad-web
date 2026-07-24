@@ -32,6 +32,10 @@ keyMoments:
 videoId: "q-D3ywrgHUM"
 videoTitle: "&#39;An Important Win For Sanity In California&#39;: Kiley Touts &#39;Newsom&#39;s Ban On Gas Cars&#39; Being Overturned"
 thumbnail: "https://img.youtube.com/vi/q-D3ywrgHUM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Kevin Kiley"
     slug: "kevin-kiley"

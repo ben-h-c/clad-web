@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Kt1PPuzMGww"
 videoTitle: "&quot;When was your gender revealed?&quot; · Nancy Mace questions Smithsonian director Dr. Anthea Hartig"
 thumbnail: "https://img.youtube.com/vi/Kt1PPuzMGww/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Nancy Mace"
     slug: "nancy-mace"

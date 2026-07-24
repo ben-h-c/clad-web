@@ -37,6 +37,10 @@ keyMoments:
 videoId: "UsHT8WmbuVw"
 videoTitle: "‘Thuggish And DEEPLY Unpleasant Party’ | Restore UK Voters Urged To Think AGAIN"
 thumbnail: "https://img.youtube.com/vi/UsHT8WmbuVw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Burnham Wins Makerfield By-Election, Clearing Path to Challenge Starmer"
     url: "https://www.nytimes.com/2026/06/18/world/europe/uk-makerfield-election.html"

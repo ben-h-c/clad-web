@@ -37,6 +37,10 @@ keyMoments:
 videoId: "yDos_yl3gXs"
 videoTitle: "Kash Patel FREEZES As Raskin Plays His Own Epstein Words Back At Him — &quot;PUT ON YOUR BIG BOY PANTS&quot;"
 thumbnail: "https://img.youtube.com/vi/yDos_yl3gXs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Jamie Raskin"
     slug: "jamie-raskin"

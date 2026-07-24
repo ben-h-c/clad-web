@@ -34,6 +34,10 @@ keyMoments:
 videoId: "XvnbG_6F5tI"
 videoTitle: "US, Iran exchange new strikes following commercial ship attack | Morning in America"
 thumbnail: "https://img.youtube.com/vi/XvnbG_6F5tI/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US strikes Iran after Strait of Hormuz cargo ship attack as ceasefire tensions escalate"
     url: "https://www.foxnews.com/live-news/iran-drone-strait-of-hormuz-israel-lebanon-conflict-june-26-2026"

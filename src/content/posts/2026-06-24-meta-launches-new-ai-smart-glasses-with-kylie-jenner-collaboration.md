@@ -34,6 +34,10 @@ keyMoments:
 videoId: "bX4l1lQvqco"
 videoTitle: "Kylie Jenner collabs with Meta on new AI Smart Glasses collection"
 thumbnail: "https://img.youtube.com/vi/bX4l1lQvqco/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Meta AI Glasses: Ray-Ban Meta & Oakley Meta"
     url: "https://www.meta.com/ai-glasses/"

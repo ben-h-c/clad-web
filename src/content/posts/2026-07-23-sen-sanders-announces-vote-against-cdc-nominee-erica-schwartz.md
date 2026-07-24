@@ -35,6 +35,10 @@ keyMoments:
 videoId: "0WGgKsOHNag"
 videoTitle: "Sen. Sanders to vote against CDC director nominee Schwartz"
 thumbnail: "https://img.youtube.com/vi/0WGgKsOHNag/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Bernard Sanders"
     slug: "bernard-sanders"

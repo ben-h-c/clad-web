@@ -35,6 +35,10 @@ keyMoments:
 videoId: "m1urjOsarjQ"
 videoTitle: "Can US and Israel weaken Iran's influence over Hezbollah?"
 thumbnail: "https://img.youtube.com/vi/m1urjOsarjQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US and Iran negotiators head to Doha, but meeting uncertain"
     url: "https://www.reuters.com/world/middle-east/mediators-set-up-de-escalation-channels-ahead-us-iran-talks-source-says-2026-06-29/"

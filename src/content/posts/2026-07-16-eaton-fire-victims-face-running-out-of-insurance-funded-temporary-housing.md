@@ -36,6 +36,10 @@ keyMoments:
 videoId: "F31w8B7RFyY"
 videoTitle: "Temporary housing money for L.A. fire victims running out"
 thumbnail: "https://img.youtube.com/vi/F31w8B7RFyY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Eaton Fire - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Eaton_Fire"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "bVmb2ImlQv8"
 videoTitle: "Why Queen Camilla is the key to reuniting William and Harry | The Royal T"
 thumbnail: "https://img.youtube.com/vi/bVmb2ImlQv8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "King Charles hosts Harry and Meghan at country home"
     url: "https://www.cnn.com/2026/07/10/uk/charles-harry-meghan-gloustershire-intl-latam"

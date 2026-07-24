@@ -32,6 +32,10 @@ keyMoments:
 videoId: "sabP7Ex1-Xw"
 videoTitle: "Dr. Ilyasah Shabazz on unity, Malcolm X's impact, Black contributions for America 250"
 thumbnail: "https://img.youtube.com/vi/sabP7Ex1-Xw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Organization of Afro-American Unity - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Organization_of_Afro-American_Unity"

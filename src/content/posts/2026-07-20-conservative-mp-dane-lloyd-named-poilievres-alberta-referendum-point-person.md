@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ynWvMEerjpE"
 videoTitle: "MP Dane Lloyd tapped as Conservative Party lead on Alberta referendum | Power & Politics"
 thumbnail: "https://img.youtube.com/vi/ynWvMEerjpE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Alberta independence referendum"
     url: "https://en.wikipedia.org/wiki/2026_Alberta_independence_referendum"

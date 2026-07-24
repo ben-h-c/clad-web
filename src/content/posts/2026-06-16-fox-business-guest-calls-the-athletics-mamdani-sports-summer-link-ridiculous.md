@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Ffi5BjDZd2w"
 videoTitle: "'RIDICULOUS': Devine TEARS into The Athletic over Mamdani sport win attribution #shorts"
 thumbnail: "https://img.youtube.com/vi/Ffi5BjDZd2w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 NBA Finals - Wikipedia"
     url: "https://en.wikipedia.org/wiki/2026_NBA_Finals"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "TpptAqTD-bE"
 videoTitle: "Johnson in Committee: The Trump Administration Is Trying to Rewrite Our History"
 thumbnail: "https://img.youtube.com/vi/TpptAqTD-bE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Julie Johnson"
     slug: "julie-johnson"

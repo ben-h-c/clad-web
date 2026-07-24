@@ -33,6 +33,10 @@ keyMoments:
 videoId: "wnL7IN-8Cm0"
 videoTitle: "Chuck Edwards Abandoned North Carolina"
 thumbnail: "https://img.youtube.com/vi/wnL7IN-8Cm0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Chuck Edwards"
     slug: "chuck-edwards"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Y1GIOrcQHjg"
 videoTitle: "G7 leaders walk on eggshells around Trump | Reuters World News"
 thumbnail: "https://img.youtube.com/vi/Y1GIOrcQHjg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Death rate in ICE immigrant detention centers more than doubles under Trump, Reuters analysis finds"
     url: "https://www.straitstimes.com/world/death-rate-in-ice-immigrant-detention-centers-more-than-doubles-under-trump-reuters-analysis-finds"

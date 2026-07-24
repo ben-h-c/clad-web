@@ -39,6 +39,10 @@ keyMoments:
 videoId: "3HhN46zLMnc"
 videoTitle: "Latino support for Trump shrinks, with business owners focused on economy"
 thumbnail: "https://img.youtube.com/vi/3HhN46zLMnc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2024 United States presidential election in Texas - Wikipedia"
     url: "https://en.wikipedia.org/wiki/2024_United_States_presidential_election_in_Texas"

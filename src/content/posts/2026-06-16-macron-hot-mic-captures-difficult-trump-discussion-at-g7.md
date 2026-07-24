@@ -25,6 +25,10 @@ keyMoments:
 videoId: "j11ieUyYprc"
 videoTitle: "Macron Reveals ‘Difficult’ Trump Meeting on Hot Mic"
 thumbnail: "https://img.youtube.com/vi/j11ieUyYprc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "European leaders urge Trump to host Zelenskyy-Putin talks"
     url: "https://www.theguardian.com/world/2026/jun/16/g7-summit-european-leaders-urge-trump-to-host-zelenskyy-putin-talks"

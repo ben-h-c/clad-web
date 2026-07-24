@@ -35,6 +35,10 @@ keyMoments:
 videoId: "60ahfYNc0Wk"
 videoTitle: "Vibe Check: Divorce drama, TV farewells and viral debates"
 thumbnail: "https://img.youtube.com/vi/60ahfYNc0Wk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jelly Roll divorces Bunnie XO after nearly 10 years of marriage"
     url: "https://www.usatoday.com/story/entertainment/celebrities/2026/06/15/jelly-roll-divorce-bunnie-xo/90567339007/"

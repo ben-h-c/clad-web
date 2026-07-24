@@ -34,6 +34,10 @@ keyMoments:
 videoId: "nHh1hQKzY5U"
 videoTitle: "The level of DEPRAVITY is OFF the charts: Retired FBI agent"
 thumbnail: "https://img.youtube.com/vi/nHh1hQKzY5U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Five men arrested, charged in alleged plot to attack UFC event at White House"
     url: "https://www.nytimes.com/athletic/7368128/2026/06/17/ufc-white-house-alleged-attack-arrests/"

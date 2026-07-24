@@ -34,6 +34,10 @@ keyMoments:
 videoId: "HLin9Qm6fHs"
 videoTitle: "Pitch-side at New Jersey's Metlife Stadium ahead of final England group game against Panama"
 thumbnail: "https://img.youtube.com/vi/HLin9Qm6fHs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "About MetLife Stadium"
     url: "https://www.metlifestadium.com/stadium/about-metlife-stadium"

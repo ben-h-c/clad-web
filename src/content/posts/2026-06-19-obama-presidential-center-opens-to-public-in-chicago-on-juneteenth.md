@@ -31,6 +31,10 @@ keyMoments:
 videoId: "ZZpCGGoRPGc"
 videoTitle: "Barack and Michelle Obama greet visitors at opening of his presidential center in Chicago"
 thumbnail: "https://img.youtube.com/vi/ZZpCGGoRPGc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Grand Opening | The Obama Foundation"
     url: "https://www.obama.org/visit/grand-opening/"

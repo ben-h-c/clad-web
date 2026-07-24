@@ -41,6 +41,10 @@ keyMoments:
 videoId: "sGkUbkE1uiQ"
 videoTitle: "&#39;A Corrupt Kleptocrat...&#39;: Bernie Sanders Brutally Destroys Trump In Explosive Speech In Texas"
 thumbnail: "https://img.youtube.com/vi/sGkUbkE1uiQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Bernard Sanders"
     slug: "bernard-sanders"

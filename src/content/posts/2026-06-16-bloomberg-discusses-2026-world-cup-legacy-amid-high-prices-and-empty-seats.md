@@ -36,6 +36,10 @@ keyMoments:
 videoId: "pDw3flIN5MU"
 videoTitle: "What Will Be The Legacy of the 2026 World Cup?"
 thumbnail: "https://img.youtube.com/vi/pDw3flIN5MU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What is the legacy of the 2026 World Cup"
     url: "https://www.facebook.com/bloombergbusiness/videos/what-is-the-legacy-of-the-2026-world-cup-expensive-tickets-or-finally-growing-so/1028171399649733/"

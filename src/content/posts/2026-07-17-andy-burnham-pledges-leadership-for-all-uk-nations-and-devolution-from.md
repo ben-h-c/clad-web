@@ -28,6 +28,10 @@ keyMoments:
 videoId: "6vJ2nPkXP-w"
 videoTitle: "Andy Burnham: I will be a leader for EVERYONE"
 thumbnail: "https://img.youtube.com/vi/6vJ2nPkXP-w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham sets out plans to devolve power to regions with new 'No 10 North' in Manchester"
     url: "https://www.bbc.com/news/articles/cpq3yy48zglo"

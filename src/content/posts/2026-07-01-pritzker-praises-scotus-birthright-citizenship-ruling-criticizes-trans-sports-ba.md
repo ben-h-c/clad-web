@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Xt-9Lm_XIn8"
 videoTitle: "'Surprisingly, They Made The Right Ruling': JB Pritzker Reacts To Birthright Citizenship Ruling"
 thumbnail: "https://img.youtube.com/vi/Xt-9Lm_XIn8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court strikes down Trump’s order ending birthright citizenship"
     url: "https://www.scotusblog.com/2026/06/supreme-court-strikes-down-trumps-order-ending-birthright-citizenship/"

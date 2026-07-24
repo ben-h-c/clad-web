@@ -37,6 +37,10 @@ keyMoments:
 videoId: "tUClxFLe9QA"
 videoTitle: "RBC President and CEO Dave McKay | Bloomberg Newsmakers"
 thumbnail: "https://img.youtube.com/vi/tUClxFLe9QA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How to Play the SpaceX IPO from Canada"
     url: "https://yonatanbrunshtein.substack.com/p/how-to-play-the-spacex-ipo-from-canada"

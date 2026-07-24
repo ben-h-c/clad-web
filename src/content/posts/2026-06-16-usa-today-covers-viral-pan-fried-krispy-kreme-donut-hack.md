@@ -25,6 +25,10 @@ keyMoments:
 videoId: "egMAmP43wfE"
 videoTitle: "Krispy Kreme trend ignites reheating hack"
 thumbnail: "https://img.youtube.com/vi/egMAmP43wfE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Was it crispy? 'Seinfeld' actor sparks Krispy Kreme hack"
     url: "https://www.usatoday.com/story/money/food/2026/06/16/krispy-kreme-crispy/90573864007/"

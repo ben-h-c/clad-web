@@ -34,6 +34,10 @@ keyMoments:
 videoId: "dBi0AMZ_7SA"
 videoTitle: "Horse carriage tragedy in NYC’s Central Park"
 thumbnail: "https://img.youtube.com/vi/dBi0AMZ_7SA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "18-Year-Old Dies in Fall From Horse Carriage in Central Park"
     url: "https://www.nytimes.com/2026/06/17/nyregion/horse-carriage-central-park-injury.html"

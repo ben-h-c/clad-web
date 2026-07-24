@@ -34,6 +34,10 @@ keyMoments:
 videoId: "k_uRxpAjiA8"
 videoTitle: "Pence on Iran deal: \"I have concerns\""
 thumbnail: "https://img.youtube.com/vi/k_uRxpAjiA8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Pence cast doubt on possibility of US, Iran peace deal ..."
     url: "https://thehill.com/policy/international/5923793-mike-pence-iran-deal/"

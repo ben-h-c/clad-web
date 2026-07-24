@@ -37,6 +37,10 @@ keyMoments:
 videoId: "z2uzWEIQB7E"
 videoTitle: "Iran war enters perilous new phase, with more US troops dead | DW News"
 thumbnail: "https://img.youtube.com/vi/z2uzWEIQB7E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Robin Wright profile - Wilson Center"
     url: "https://www.wilsoncenter.org/person/robin-wright"

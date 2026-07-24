@@ -34,6 +34,10 @@ keyMoments:
 videoId: "A-VskwEu8u4"
 videoTitle: "How much hiking gear do you really need?"
 thumbnail: "https://img.youtube.com/vi/A-VskwEu8u4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mount Hollywood Trail - AllTrails"
     url: "https://www.alltrails.com/trail/us/california/mount-hollywood-trail"

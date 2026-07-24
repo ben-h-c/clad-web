@@ -31,6 +31,10 @@ keyMoments:
 videoId: "bb2qPymMhO0"
 videoTitle: "Pennsylvania police investigating burglary at Saquon Barkley's home"
 thumbnail: "https://img.youtube.com/vi/bb2qPymMhO0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Police in Chester County investigating burglary at Saquon Barkley's home"
     url: "https://6abc.com/post/police-chester-county-investigating-burglary-saquon-barkleys-home/19534731/"

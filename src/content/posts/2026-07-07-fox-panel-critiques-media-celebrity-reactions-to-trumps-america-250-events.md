@@ -39,6 +39,10 @@ keyMoments:
 videoId: "2gm_u0ey_5I"
 videoTitle: "Tyrus: THIS drives me 'ABSOLUTELY INSANE'"
 thumbnail: "https://img.youtube.com/vi/2gm_u0ey_5I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Opinion | Trump Ruined the Fourth of July for Me"
     url: "https://www.nytimes.com/2026/07/03/opinion/fourth-of-july-trump-washington-dc.html"

@@ -27,6 +27,10 @@ keyMoments:
 videoId: "rTZFT3g7fv8"
 videoTitle: "Maren Morris responds to reports that she'll be at Taylor Swift's wedding"
 thumbnail: "https://img.youtube.com/vi/rTZFT3g7fv8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live Updates: Taylor Swift and Travis Kelce’s Star-Studded Wedding Festivities Underway at M.S.G."
     url: "https://www.nytimes.com/live/2026/07/03/style/taylor-swift-wedding-travis-kelce"

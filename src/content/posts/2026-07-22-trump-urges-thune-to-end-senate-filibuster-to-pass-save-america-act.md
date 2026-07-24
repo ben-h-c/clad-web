@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Da8o-TRmM_k"
 videoTitle: "Trump ERUPTS At Thune: &quot;The Senate Is Where Bills Go To Die!&quot; Over SAVE America Act | APT"
 thumbnail: "https://img.youtube.com/vi/Da8o-TRmM_k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

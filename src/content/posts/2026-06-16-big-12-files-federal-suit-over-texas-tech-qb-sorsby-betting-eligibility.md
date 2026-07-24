@@ -35,6 +35,10 @@ keyMoments:
 videoId: "LiiZoVRaEhI"
 videoTitle: "Texas Tech QB betting case sparks national debate"
 thumbnail: "https://img.youtube.com/vi/LiiZoVRaEhI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Brendan Sorsby case: Big 12 pursuing legal action against Texas Tech, Texas AG"
     url: "https://www.cbssports.com/college-football/news/big-12-legal-action-brendan-sorsby-texas-tech-texas-attorney-general/"

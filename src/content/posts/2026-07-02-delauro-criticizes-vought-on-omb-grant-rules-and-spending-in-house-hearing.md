@@ -37,6 +37,10 @@ keyMoments:
 videoId: "cgm8H5myG44"
 videoTitle: "'You Have Hijacked Billions': Rosa DeLauro Blasts Russell Vought Over Handling Of Taxpayer Dollars"
 thumbnail: "https://img.youtube.com/vi/cgm8H5myG44/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Regulation for Federal Financial Assistance"
     url: "https://www.federalregister.gov/documents/2026/05/29/2026-10817/regulation-for-federal-financial-assistance"

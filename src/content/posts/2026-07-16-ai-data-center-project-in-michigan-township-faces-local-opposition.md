@@ -35,6 +35,10 @@ keyMoments:
 videoId: "qXg7IILG_Gk"
 videoTitle: "AI data centers divide communities, scramble midterm playbooks"
 thumbnail: "https://img.youtube.com/vi/qXg7IILG_Gk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Building the infrastructure for the Intelligence Age in Michigan | OpenAI"
     url: "https://openai.com/index/stargate-michigan-data-center/"

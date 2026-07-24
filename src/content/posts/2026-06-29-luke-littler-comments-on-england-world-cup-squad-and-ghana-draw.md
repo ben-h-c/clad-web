@@ -31,6 +31,10 @@ keyMoments:
 videoId: "jk42JwCtxto"
 videoTitle: "Luke Littler's advice for England World Cup squad #england #football #darts"
 thumbnail: "https://img.youtube.com/vi/jk42JwCtxto/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "England 0-0 Ghana (Jun 23, 2026) Final Score"
     url: "https://www.espn.com/soccer/match/_/gameId/760458/ghana-england"

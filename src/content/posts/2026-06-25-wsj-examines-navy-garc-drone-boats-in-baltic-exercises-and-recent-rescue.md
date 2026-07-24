@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ana-CKfvIwg"
 videoTitle: "The Navy’s New Drone Boats Can Be Controlled From Anywhere on Earth | WSJ Equipped"
 thumbnail: "https://img.youtube.com/vi/ana-CKfvIwg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What to Know About Drone-Boat Maker Behind Iran Helicopter Crew Rescue"
     url: "https://www.wsj.com/tech/what-to-know-about-drone-boat-maker-behind-iran-helicopter-crew-rescue-aa55d445"

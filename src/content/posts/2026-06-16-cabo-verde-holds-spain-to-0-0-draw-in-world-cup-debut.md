@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Q7fuqDtdF7Q"
 videoTitle: "Underdog Cabo Verde shocks Spain with 0-0 draw in historic World Cup debut"
 thumbnail: "https://img.youtube.com/vi/Q7fuqDtdF7Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Cabo Verde stun Spain on day of draws | Review & highlights"
     url: "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/matchday-5-round-up-review-highlights"

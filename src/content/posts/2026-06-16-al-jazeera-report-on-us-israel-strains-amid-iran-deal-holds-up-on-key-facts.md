@@ -38,6 +38,10 @@ keyMoments:
 videoId: "M6eunqiS0o4"
 videoTitle: "US-Israel relations: New fractures in congressional support for Israel"
 thumbnail: "https://img.youtube.com/vi/M6eunqiS0o4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. Aid to Israel in Four Charts"
     url: "https://www.cfr.org/articles/us-aid-israel-four-charts"

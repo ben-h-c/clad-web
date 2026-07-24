@@ -34,6 +34,10 @@ keyMoments:
 videoId: "sUXScce_HHg"
 videoTitle: "‘The Five’: Obama says he 'obviously' has room in Trump's head..."
 thumbnail: "https://img.youtube.com/vi/sUXScce_HHg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Barack Obama says Trump gives him a ‘room in his head’"
     url: "https://www.ms.now/news/obama-trump-all-the-smoke-podcast"

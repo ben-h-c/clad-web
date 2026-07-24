@@ -39,6 +39,10 @@ keyMoments:
 videoId: "wtlpyMG86C8"
 videoTitle: "Biden slams Trumps for Reflecting Pool renovations #shorts"
 thumbnail: "https://img.youtube.com/vi/wtlpyMG86C8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "White House State Ballroom"
     url: "https://en.wikipedia.org/wiki/White_House_State_Ballroom"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "0uYyjUgFC70"
 videoTitle: "‘I see fear’: The Weeknight reacts to white nationalists marching through D.C."
 thumbnail: "https://img.youtube.com/vi/0uYyjUgFC70/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Photos show hundreds of masked Patriot Front white nationalists marching in DC"
     url: "https://www.reuters.com/pictures/photos-show-hundreds-masked-patriot-front-white-nationalists-marching-dc-2026-07-04/CXD4DEPRZZPLLKKPKCZFSHVXO4"

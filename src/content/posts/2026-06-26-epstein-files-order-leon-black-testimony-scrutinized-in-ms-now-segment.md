@@ -33,6 +33,10 @@ keyMoments:
 videoId: "vUgPXssdl1Y"
 videoTitle: "BREAKING! 47's Epstein CRISIS back with blockbuster testimony: Insider sent Epstein $170M STORMS OUT"
 thumbnail: "https://img.youtube.com/vi/vUgPXssdl1Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Judge orders DOJ to turn over some unredacted Epstein files"
     url: "https://abcnews.go.com/Politics/judge-orders-doj-turn-unredacted-epstein-files/story?id=134228532"

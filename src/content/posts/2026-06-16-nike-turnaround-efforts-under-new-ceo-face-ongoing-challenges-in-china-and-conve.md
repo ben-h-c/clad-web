@@ -35,6 +35,10 @@ keyMoments:
 videoId: "llspQoPX2rQ"
 videoTitle: "Why Nike Keeps Stumbling"
 thumbnail: "https://img.youtube.com/vi/llspQoPX2rQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NIKE, Inc. Announces Return of Long-Time Nike Veteran Elliott Hill as President & CEO"
     url: "https://about.nike.com/en/newsroom/releases/nike-inc-announces-return-of-long-time-nike-veteran-elliott-hill-as-president-and-ceo"

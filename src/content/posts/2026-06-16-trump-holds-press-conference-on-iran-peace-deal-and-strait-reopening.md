@@ -36,6 +36,10 @@ keyMoments:
 videoId: "qUpEYJDTRZg"
 videoTitle: "President Trump Takes Question After Question From Reporters On The Iran Peace Deal"
 thumbnail: "https://img.youtube.com/vi/qUpEYJDTRZg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. and Iran reach deal but need Trump's final approval, officials say"
     url: "https://www.axios.com/2026/05/28/iran-peace-deal-trump-approval"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "isVr8QBail8"
 videoTitle: "Trump and Georgia Gov. Brian Kemp back opposing candidates in GOP Senate primary"
 thumbnail: "https://img.youtube.com/vi/isVr8QBail8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "United States Senate election in Georgia, 2026"
     url: "https://ballotpedia.org/United_States_Senate_election_in_Georgia,_2026"

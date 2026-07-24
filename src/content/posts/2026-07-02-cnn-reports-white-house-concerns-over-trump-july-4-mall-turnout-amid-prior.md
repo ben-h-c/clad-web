@@ -40,6 +40,10 @@ keyMoments:
 videoId: "SW_E_mERXrU"
 videoTitle: "WH is worried about crowd size for Trump’s July 4th event"
 thumbnail: "https://img.youtube.com/vi/SW_E_mERXrU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump ‘livid’ over crowd size at National Mall state fair, report says"
     url: "https://www.the-independent.com/news/world/americas/us-politics/trump-crowd-size-state-fair-national-mall-250-b3006937.html"

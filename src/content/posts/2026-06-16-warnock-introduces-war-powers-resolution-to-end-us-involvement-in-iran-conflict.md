@@ -40,6 +40,10 @@ keyMoments:
 videoId: "Rf7MvhjUdk0"
 videoTitle: "JUST IN: Raphael Warnock Decries 'Failed War' With Iran, Introduces Another War Powers Resolution"
 thumbnail: "https://img.youtube.com/vi/Rf7MvhjUdk0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Text - S.J.Res.172 - 119th Congress (2025-2026): A joint resolution to direct the removal of United States Armed Forces from hostilities within or against the Islamic Republic of Iran"
     url: "https://www.congress.gov/bill/119th-congress/senate-joint-resolution/172/text"

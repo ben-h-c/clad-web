@@ -36,6 +36,10 @@ keyMoments:
 videoId: "zCPHhKhrTek"
 videoTitle: "Medical School Deans Face Tough Questions from Congressman Mark Harris"
 thumbnail: "https://img.youtube.com/vi/zCPHhKhrTek/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Mark Harris"
     slug: "mark-harris"

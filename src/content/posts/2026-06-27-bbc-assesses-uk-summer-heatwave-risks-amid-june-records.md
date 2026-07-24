@@ -37,6 +37,10 @@ keyMoments:
 videoId: "mFHf6NKHeJw"
 videoTitle: "Will the UK be in for a summer of serial heatwaves? #Weather #Heatwave #BBCNews"
 thumbnail: "https://img.youtube.com/vi/mFHf6NKHeJw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Third consecutive day of a new June temperature record - Met Office"
     url: "https://www.metoffice.gov.uk/about-us/news-and-media/media-centre/weather-and-climate-news/2026/third-consecutive-day-of-a-new-june-temperature-record-with-end-of-heatwave-in-sight"

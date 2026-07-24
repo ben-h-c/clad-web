@@ -31,6 +31,10 @@ keyMoments:
 videoId: "UNTqJvOOoQE"
 videoTitle: "Mamdani says he may still try to arrest Netanyahu in NYC"
 thumbnail: "https://img.youtube.com/vi/UNTqJvOOoQE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "John Fetterman"
     slug: "john-fetterman"

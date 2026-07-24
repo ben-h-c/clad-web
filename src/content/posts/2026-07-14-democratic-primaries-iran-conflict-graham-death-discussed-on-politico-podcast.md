@@ -37,6 +37,10 @@ keyMoments:
 videoId: "LWS4UBkCCl4"
 videoTitle: "Is the Democratic establishment clapping back?"
 thumbnail: "https://img.youtube.com/vi/LWS4UBkCCl4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

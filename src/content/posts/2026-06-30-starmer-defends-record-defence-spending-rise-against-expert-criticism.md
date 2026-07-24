@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Oe0fYZ97wa8"
 videoTitle: "Is the PM ignoring calls from experts to further increase defence spending?"
 thumbnail: "https://img.youtube.com/vi/Oe0fYZ97wa8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UK defence spending"
     url: "https://www.instituteforgovernment.org.uk/explainer/uk-defence-spending"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "da66IRlIQmM"
 videoTitle: "Private video"
 thumbnail: "https://img.youtube.com/vi/da66IRlIQmM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Hezbollah support endures in south Lebanon as ceasefire fails to stop war with Israel"
     url: "https://www.bbc.com/news/articles/c9d3g6deljyo"

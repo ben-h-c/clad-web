@@ -37,6 +37,10 @@ keyMoments:
 videoId: "EfANHst9FQ0"
 videoTitle: "Heat wave scorches Europe with record-breaking temperatures"
 thumbnail: "https://img.youtube.com/vi/EfANHst9FQ0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "France records its hottest-ever day"
     url: "https://apnews.com/article/heat-wave-france-europe-climate-change-record-81c341900166135de6cbc0f49156477b"

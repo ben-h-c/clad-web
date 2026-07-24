@@ -31,6 +31,10 @@ keyMoments:
 videoId: "TW50tlt-Ejs"
 videoTitle: "Israeli researchers unearth 1,700-year-old marble busts"
 thumbnail: "https://img.youtube.com/vi/TW50tlt-Ejs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'Once-in-a-lifetime discovery': 1700-year-old Roman busts found in Israel"
     url: "https://www.haaretz.com/archaeology/2026-06-15/ty-article/once-in-a-lifetime-discovery-1-700-year-old-roman-busts-found-in-israel/0000019e-ca1a-d43d-a39f-ee7f127a0000"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "exwtmAi7G04"
 videoTitle: "Trump: We Run Out Of Oil Reserves In 'About Four Weeks' If We Kept Bombing Iran"
 thumbnail: "https://img.youtube.com/vi/exwtmAi7G04/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'We Run Out of Reserves in About 4 Weeks': Why Donald Trump Had to Take the Iran Deal"
     url: "https://nationalsecurityjournal.org/we-run-out-of-reserves-in-about-4-weeks-why-donald-trump-had-to-take-the-iran-deal/"

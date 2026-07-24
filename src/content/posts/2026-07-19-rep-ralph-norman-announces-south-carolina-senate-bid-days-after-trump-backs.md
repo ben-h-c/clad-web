@@ -31,6 +31,10 @@ keyMoments:
 videoId: "7UnL7Ko6WGo"
 videoTitle: "Rep. Ralph Norman Enters South Carolina Senate Race After Trump&#39;s Endorsement News"
 thumbnail: "https://img.youtube.com/vi/7UnL7Ko6WGo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Darline Graham"
     slug: "darline-graham"

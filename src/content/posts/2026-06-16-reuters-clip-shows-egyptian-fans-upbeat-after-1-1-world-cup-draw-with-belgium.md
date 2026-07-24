@@ -28,6 +28,10 @@ keyMoments:
 videoId: "byb1WPm9VlE"
 videoTitle: "Egypt fans optimistic after draw against Belgium in World Cup opener"
 thumbnail: "https://img.youtube.com/vi/byb1WPm9VlE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Belgium 1-1 Egypt (Jun 15, 2026) Final Score"
     url: "https://www.espn.com/soccer/match/_/gameId/760426/egypt-belgium"

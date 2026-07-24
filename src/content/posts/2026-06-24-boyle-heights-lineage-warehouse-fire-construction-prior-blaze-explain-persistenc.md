@@ -35,6 +35,10 @@ keyMoments:
 videoId: "4q8PW4dG0dQ"
 videoTitle: "Why a warehouse in LA has been burning for days, why it could get worse #shorts"
 thumbnail: "https://img.youtube.com/vi/4q8PW4dG0dQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Health concerns mount as Boyle Heights warehouse fire stretches into a week"
     url: "https://www.latimes.com/environment/story/2026-06-23/health-concerns-as-boyle-heights-warehouse-fire-stretches-into-week"

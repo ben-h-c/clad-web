@@ -40,6 +40,10 @@ keyMoments:
 videoId: "KQPMupuqLpk"
 videoTitle: "Tom Homan Touts 'Record Numbers Of Arrests And Deportations' Since Trump Took Office"
 thumbnail: "https://img.youtube.com/vi/KQPMupuqLpk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "DHS Sets the Stage for Another Historic, Record-Breaking Year Under President Trump"
     url: "https://www.dhs.gov/news/2026/01/20/dhs-sets-stage-another-historic-record-breaking-year-under-president-trump"

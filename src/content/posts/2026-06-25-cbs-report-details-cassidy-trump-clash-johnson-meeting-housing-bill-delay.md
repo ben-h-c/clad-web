@@ -33,6 +33,10 @@ keyMoments:
 videoId: "5z4ifBYphCU"
 videoTitle: "Trump to meet with House Speaker Mike Johnson a day after fiery GOP meeting"
 thumbnail: "https://img.youtube.com/vi/5z4ifBYphCU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Louisiana senator who voted to convict Trump loses Republican primary"
     url: "https://www.npr.org/2026/05/16/nx-s1-5824533/bill-cassidy-lost-louisiana-primary-letlow-trump"

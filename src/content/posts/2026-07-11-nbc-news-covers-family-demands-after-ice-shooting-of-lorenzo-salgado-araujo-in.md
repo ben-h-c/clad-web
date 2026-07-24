@@ -35,6 +35,10 @@ keyMoments:
 videoId: "DmS_jrshgg4"
 videoTitle: "Sons of migrant killed by ICE in Texas demand answers"
 thumbnail: "https://img.youtube.com/vi/DmS_jrshgg4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Migrants who saw man killed by ICE in Houston say he did not ram officers"
     url: "https://www.washingtonpost.com/immigration/2026/07/10/migrants-who-saw-man-killed-by-ice-houston-say-he-did-not-ram-officers/"

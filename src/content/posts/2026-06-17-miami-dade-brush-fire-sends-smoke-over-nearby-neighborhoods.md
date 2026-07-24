@@ -30,6 +30,10 @@ keyMoments:
 videoId: "PK4BZlwi9KI"
 videoTitle: "Brush fire sends smoke over Miami neighborhood"
 thumbnail: "https://img.youtube.com/vi/PK4BZlwi9KI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Large Miami-area wildfire causing far-reaching smoke"
     url: "https://www.usatoday.com/story/news/weather/2026/06/16/florida-wildfire-miami-dade-county-traffic-power-outage/90569098007/"

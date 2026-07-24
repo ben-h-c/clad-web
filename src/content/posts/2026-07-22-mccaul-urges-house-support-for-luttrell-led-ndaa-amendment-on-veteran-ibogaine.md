@@ -37,6 +37,10 @@ keyMoments:
 videoId: "C7pz5YWeti4"
 videoTitle: "McCaul Urges House to Support NDAA Amendment Led by Luttrell to Increase Veteran Access to Ibogaine"
 thumbnail: "https://img.youtube.com/vi/C7pz5YWeti4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Michael T. McCaul"
     slug: "michael-t-mccaul"

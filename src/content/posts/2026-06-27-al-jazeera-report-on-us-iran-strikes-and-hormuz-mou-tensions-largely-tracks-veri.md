@@ -34,6 +34,10 @@ keyMoments:
 videoId: "6TR-sGo93Ks"
 videoTitle: "US confirms new strikes on Iran as fragile Hormuz agreement teeters amid escalating tensions"
 thumbnail: "https://img.youtube.com/vi/6TR-sGo93Ks/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US strikes Iran after Strait of Hormuz cargo ship attack as ceasefire tensions escalate"
     url: "https://www.foxnews.com/live-news/iran-drone-strait-of-hormuz-israel-lebanon-conflict-june-26-2026"

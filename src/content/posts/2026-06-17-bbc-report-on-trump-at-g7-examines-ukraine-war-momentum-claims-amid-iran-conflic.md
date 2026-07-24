@@ -39,6 +39,10 @@ keyMoments:
 videoId: "W0z55lKz4WA"
 videoTitle: "Trump tells leaders 'I'm the boss' - after claim he's changed position on Ukraine | BBC News"
 thumbnail: "https://img.youtube.com/vi/W0z55lKz4WA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Highlights From the G7: Trump Says Ukraine War Has ‘No Impact’ on U.S."
     url: "https://www.nytimes.com/live/2026/06/16/world/g7-summit-conference-trump-france"

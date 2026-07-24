@@ -35,6 +35,10 @@ keyMoments:
 videoId: "-BOxCb1Bp80"
 videoTitle: "Clean water bill has funding First Nations need: Indigenous services minister | Power & Politics"
 thumbnail: "https://img.youtube.com/vi/-BOxCb1Bp80/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Liberal government tables First Nations clean drinking water legislation"
     url: "https://www.cbc.ca/news/politics/first-nations-water-bill-9.7237099"

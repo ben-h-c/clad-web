@@ -31,6 +31,10 @@ keyMoments:
 videoId: "-5hgodIcjkE"
 videoTitle: "Mayor of Kelley's Island, Ohio, on record 13 inches of rain"
 thumbnail: "https://img.youtube.com/vi/-5hgodIcjkE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Kelleys Island recovering after nearly 16 inches of rain floods roads, pump room"
     url: "https://www.wtol.com/article/news/local/significant-rainfall-floods-roadways-on-kelleys-island-officials-request-residents-conserve-water-usage-use-caution/512-fba68648-aec4-40e7-8aea-4aa8ebd2518a"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "XvAbSjfiNJw"
 videoTitle: "DEMOCRATIC DIVIDE: Here's the latest chapter in the Democratic civil war"
 thumbnail: "https://img.youtube.com/vi/XvAbSjfiNJw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Alexandria Ocasio-Cortez"
     slug: "alexandria-ocasio-cortez"

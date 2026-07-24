@@ -34,6 +34,10 @@ keyMoments:
 videoId: "nA5ENZv47R8"
 videoTitle: "U.S.-Iran peace agreement threatened as both countries trade strikes"
 thumbnail: "https://img.youtube.com/vi/nA5ENZv47R8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. Strikes Iran in Retaliation for Attack on Vessel in Strait of Hormuz"
     url: "https://www.nytimes.com/2026/06/26/world/middleeast/strait-of-hormuz-iran-attack.html"

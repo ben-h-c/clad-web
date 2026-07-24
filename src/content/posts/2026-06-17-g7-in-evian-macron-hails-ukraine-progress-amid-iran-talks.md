@@ -37,6 +37,10 @@ keyMoments:
 videoId: "4qW__WkyETg"
 videoTitle: "G7 summit hailed a success by Macron thanks to developments on Ukraine and Iran • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/4qW__WkyETg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "G7 promises to support Ukraine and sanction Russia in joint declaration"
     url: "https://www.politico.eu/article/g7-promises-ukraine-support-sanctions-russia-joint-declaration/"

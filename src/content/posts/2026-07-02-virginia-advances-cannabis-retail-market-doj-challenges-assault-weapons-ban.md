@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ew-uw9Vt6rs"
 videoTitle: "Virginia lawmakers push ahead with marijuana market; DOJ opposes assault weapons ban | Sunrise"
 thumbnail: "https://img.youtube.com/vi/ew-uw9Vt6rs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Virginia to allow recreational marijuana to be sold in retail stores beginning in 2027"
     url: "https://www.nbcwashington.com/news/local/virginia-to-allow-recreational-marijuana-to-be-sold-in-retail-stores-beginning-in-2027/4123472/"

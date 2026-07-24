@@ -32,6 +32,10 @@ keyMoments:
 videoId: "nZkqUMOJWKY"
 videoTitle: "Matt Damon On His Physical Transformation For 'The Odyssey'"
 thumbnail: "https://img.youtube.com/vi/nZkqUMOJWKY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Matt Damon's most unforgettable movie transformations"
     url: "https://www.usatoday.com/picture-gallery/entertainment/movies/2026/07/16/matt-damon-physical-transformations-movies/90945905007/"

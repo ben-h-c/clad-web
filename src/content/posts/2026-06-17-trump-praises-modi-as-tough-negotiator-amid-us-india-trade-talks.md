@@ -35,6 +35,10 @@ keyMoments:
 videoId: "9n5zr9B8G0A"
 videoTitle: "Trump Says India's Modi Is a 'Tough Negotiator'"
 thumbnail: "https://img.youtube.com/vi/9n5zr9B8G0A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fact Sheet: The United States and India Announce Historic Trade Deal"
     url: "https://www.whitehouse.gov/fact-sheets/2026/02/fact-sheet-the-united-states-and-india-announce-historic-trade-deal/"

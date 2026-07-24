@@ -32,6 +32,10 @@ keyMoments:
 videoId: "WxKJpBMUV2o"
 videoTitle: "Is Toronto pushing out its homeless population for the World Cup? | DW News"
 thumbnail: "https://img.youtube.com/vi/WxKJpBMUV2o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Union Station security targeting homeless people, group says"
     url: "https://www.cp24.com/local/toronto/2026/05/27/union-station-security-targeting-homeless-people-ahead-of-world-cup-toronto-group/"

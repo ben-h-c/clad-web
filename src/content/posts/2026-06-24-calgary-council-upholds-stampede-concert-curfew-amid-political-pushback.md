@@ -34,6 +34,10 @@ keyMoments:
 videoId: "jtvsjkeJgus"
 videoTitle: "Why Calgary is wrangling in late night Stampede noise"
 thumbnail: "https://img.youtube.com/vi/jtvsjkeJgus/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Calgary council votes to keep new Stampede noise rules"
     url: "https://calgaryherald.com/news/council-debates-urgent-motion-to-scale-back-stampede-tent-noise-limits"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "qacpZaJLHWw"
 videoTitle: "'Close Calls Should Not Simply Be Viewed As Warnings': Moran Calls For Better Airspace Safety"
 thumbnail: "https://img.youtube.com/vi/qacpZaJLHWw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Aviation Subcommittee Chairman Moran Leads Hearing to Examine Recent Close Calls & Efforts to Ensure Safety"
     url: "https://www.commerce.senate.gov/press/rep/release/aviation-subcommittee-chairman-moran-leads-hearing-to-examine-recent-close-calls-efforts-to-ensure-safety/"

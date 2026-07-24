@@ -34,6 +34,10 @@ keyMoments:
 videoId: "w1yPw4TsD3c"
 videoTitle: "NBCUniversal to be split from Comcast"
 thumbnail: "https://img.youtube.com/vi/w1yPw4TsD3c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NBCUniversal to be split from Comcast in latest media shakeup"
     url: "https://www.reuters.com/business/media-telecom/comcast-spin-off-nbcuniversal-sky-into-separate-companies-2026-06-29/"

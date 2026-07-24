@@ -32,6 +32,10 @@ keyMoments:
 videoId: "t5meZziTlGE"
 videoTitle: "Old soccer jerseys find an eco-friendly second life"
 thumbnail: "https://img.youtube.com/vi/t5meZziTlGE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "This is FC88: Upcycling Experts in Sports"
     url: "https://www.thisisfc88.com/"

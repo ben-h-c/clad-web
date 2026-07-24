@@ -32,6 +32,10 @@ keyMoments:
 videoId: "HZ_SnOa2sm0"
 videoTitle: "Iran World Cup team ordered out of US right after opener"
 thumbnail: "https://img.youtube.com/vi/HZ_SnOa2sm0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran World Cup team ordered out of US right after opener, coach says"
     url: "https://thehill.com/policy/sports-gaming/5925843-iran-world-cup-travel-issues/"

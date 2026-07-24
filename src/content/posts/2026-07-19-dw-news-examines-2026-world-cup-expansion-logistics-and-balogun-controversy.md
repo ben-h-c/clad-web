@@ -39,6 +39,10 @@ keyMoments:
 videoId: "0bMdkD4ebYM"
 videoTitle: "2026 World Cup: The tournament that changed football forever | DW News"
 thumbnail: "https://img.youtube.com/vi/0bMdkD4ebYM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FIFA World Cup 2026 hosts, cities, dates"
     url: "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/fifa-world-cup-2026-hosts-cities-dates-usa-mexico-canada"

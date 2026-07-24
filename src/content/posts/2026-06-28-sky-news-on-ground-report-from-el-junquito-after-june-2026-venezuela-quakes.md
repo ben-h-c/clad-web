@@ -31,6 +31,10 @@ keyMoments:
 videoId: "wRQnFgxXHc0"
 videoTitle: "How a Venezuelan town is coping after deadly earthquakes"
 thumbnail: "https://img.youtube.com/vi/wRQnFgxXHc0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "June 24-25, 2026 — Venezuela rocked by 7.5 and 7.2 magnitude earthquakes"
     url: "https://www.cnn.com/2026/06/24/weather/live-news/venezuela-earthquake-puerto-rico-tsunami"

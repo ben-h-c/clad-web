@@ -38,6 +38,10 @@ keyMoments:
 videoId: "LQBrLcaq-PM"
 videoTitle: "How Ukraine’s scaled-up precision strikes will push Russians in a winter of paralysis | Ben Hodges"
 thumbnail: "https://img.youtube.com/vi/LQBrLcaq-PM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russian Offensive Campaign Assessment, June 23, 2026"
     url: "https://understandingwar.org/research/russia-ukraine/russian-offensive-campaign-assessment-june-23-2026"

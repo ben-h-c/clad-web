@@ -34,6 +34,10 @@ keyMoments:
 videoId: "57LvocDJwFc"
 videoTitle: "“We Should Be DRILLING!\" | Ed Miliband's North Sea U-Turn? | Major Energy Shift Explained"
 thumbnail: "https://img.youtube.com/vi/57LvocDJwFc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UK must back North Sea oil and gas drilling, says trade body"
     url: "https://www.bbc.com/news/articles/c4g8x7q4l8go"

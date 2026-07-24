@@ -35,6 +35,10 @@ keyMoments:
 videoId: "O7hCORnefFU"
 videoTitle: "Rare fin whale spotted off coast of BC"
 thumbnail: "https://img.youtube.com/vi/O7hCORnefFU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "VIDEO: ‘Fin-nomenal’ rare behemoth whale surfaces in Greater Victoria waters"
     url: "https://saanichnews.com/2026/07/03/video-fin-nomenal-rare-behemoth-whale-surfaces-in-greater-victoria-waters/"

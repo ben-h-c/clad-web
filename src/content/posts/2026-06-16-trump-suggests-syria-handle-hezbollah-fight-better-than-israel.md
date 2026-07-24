@@ -36,6 +36,10 @@ keyMoments:
 videoId: "-x1Ca1yOUQU"
 videoTitle: "Trump says Syria would do a 'better job' of 'taking care of Hezbollah' than Israel"
 thumbnail: "https://img.youtube.com/vi/-x1Ca1yOUQU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says Syria would do a better job than Israel of 'taking care of Hezbollah' – video"
     url: "https://www.theguardian.com/us-news/video/2026/jun/16/trump-says-syria-would-do-a-better-job-of-taking-care-of-hezbollah-than-israel-video"

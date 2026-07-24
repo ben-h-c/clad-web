@@ -35,6 +35,10 @@ keyMoments:
 videoId: "cbzYA8g9DFg"
 videoTitle: "U.S. monitoring Chinese activity in South China Sea"
 thumbnail: "https://img.youtube.com/vi/cbzYA8g9DFg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. monitoring Chinese activity in South China Sea around disputed shoal"
     url: "https://www.cbsnews.com/news/u-s-monitoring-chinese-activity-in-south-china-sea-around-disputed-shoal/"

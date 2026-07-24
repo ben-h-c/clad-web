@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Bd1uQwbGmmg"
 videoTitle: "'Hard to know what to believe': Questions mount about what's inside Trump's tentative Iran deal"
 thumbnail: "https://img.youtube.com/vi/Bd1uQwbGmmg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "WATCH: Trump predicts 'great things' from Iran deal as he meets with French president Macron at G7"
     url: "https://www.pbs.org/newshour/world/watch-trump-predicts-great-things-from-iran-deal-as-he-meets-with-french-president-macron-at-g7"

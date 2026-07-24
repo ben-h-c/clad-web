@@ -40,6 +40,10 @@ keyMoments:
 videoId: "-YbMrpOaBqk"
 videoTitle: "'End of an Era': Facing an increasingly adversarial US, Europe embraces proactive defence strategy"
 thumbnail: "https://img.youtube.com/vi/-YbMrpOaBqk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says the US and Iran have signed a deal to end the war - as it happened"
     url: "https://www.reuters.com/world/iran-war-live-trump-says-us-tehran-have-reached-peace-deal-2026-06-15/"

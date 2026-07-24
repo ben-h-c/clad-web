@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Beg5bvkMgVc"
 videoTitle: "John Thune Discusses The Relationship Lindsey Graham Had With President Trump"
 thumbnail: "https://img.youtube.com/vi/Beg5bvkMgVc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

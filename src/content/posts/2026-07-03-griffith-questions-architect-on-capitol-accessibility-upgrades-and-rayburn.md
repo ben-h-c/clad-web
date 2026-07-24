@@ -31,6 +31,10 @@ keyMoments:
 videoId: "BUII9U1rIcU"
 videoTitle: "'I've Seen Houses Built Faster': Morgan Griffith Calls Out Capitol Architect For Wait On Renovations"
 thumbnail: "https://img.youtube.com/vi/BUII9U1rIcU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Top Takeaways from Full Committee Hearing with The Architect of the Capitol"
     url: "https://cha.house.gov/2026/6/top-takeaways-from-full-committee-hearing-with-the-architect-of-the-capitol"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "yhezAbGyTn4"
 videoTitle: "South Korea bets big on AI with nearly a trillion dollars of investment • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/yhezAbGyTn4/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "South Korea says Samsung and SK Hynix investing in AI, semiconductor mega-projects"
     url: "https://www.cnbc.com/2026/06/29/samsung-sk-hynix-reported-1point3-reported-trillion-spending-plans.html"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "wZ6vOq1tZDA"
 videoTitle: "Duck wearing Mexico jersey becomes viral sensation"
 thumbnail: "https://img.youtube.com/vi/wZ6vOq1tZDA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Meet Merlin the duck, a Mexico City streetside regular turned World Cup mascot"
     url: "https://www.pbs.org/newshour/world/meet-merlin-the-duck-a-mexico-city-streetside-regular-turned-world-cup-mascot"

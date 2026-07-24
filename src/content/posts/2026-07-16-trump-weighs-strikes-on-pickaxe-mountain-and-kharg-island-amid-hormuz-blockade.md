@@ -38,6 +38,10 @@ keyMoments:
 videoId: "TOV231srn1k"
 videoTitle: "6 DAYS IN: Trump considers expanding Iran strikes"
 thumbnail: "https://img.youtube.com/vi/TOV231srn1k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What is Iran's Pickaxe Mountain, the mystery site Trump warns he'll attack"
     url: "https://www.aljazeera.com/news/2026/7/14/what-is-irans-pickaxe-mountain-the-mystery-site-trump-warns-hell-attack"

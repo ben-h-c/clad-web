@@ -34,6 +34,10 @@ keyMoments:
 videoId: "xIhctevKGUg"
 videoTitle: "Conjoined twins separated with the help of AI | BBC News"
 thumbnail: "https://img.youtube.com/vi/xIhctevKGUg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Conjoined twins separated with help of AI"
     url: "https://www.bbc.com/news/videos/cj0g9qyq68jo"

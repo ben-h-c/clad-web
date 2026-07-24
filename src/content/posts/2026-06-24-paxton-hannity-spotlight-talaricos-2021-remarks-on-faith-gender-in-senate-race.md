@@ -37,6 +37,10 @@ keyMoments:
 videoId: "TfuQHeGK5bI"
 videoTitle: "This does NOT reflect Texas values: Ken Paxton"
 thumbnail: "https://img.youtube.com/vi/TfuQHeGK5bI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "James Talarico - Wikipedia"
     url: "https://en.wikipedia.org/wiki/James_Talarico"

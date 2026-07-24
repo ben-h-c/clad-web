@@ -31,6 +31,10 @@ keyMoments:
 videoId: "y7RvQEXD-d0"
 videoTitle: "Mayor Mamdani hints at Taylor Swift wedding in NYC"
 thumbnail: "https://img.youtube.com/vi/y7RvQEXD-d0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The price tag behind Taylor Swift’s rumored wedding bash at Madison Square Garden"
     url: "https://www.cnn.com/2026/07/01/business/taylor-swift-travis-kelce-wedding-madison-square-garden-cost"

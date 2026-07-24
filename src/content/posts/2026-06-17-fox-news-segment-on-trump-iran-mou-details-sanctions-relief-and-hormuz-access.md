@@ -35,6 +35,10 @@ keyMoments:
 videoId: "mQpNnjYvXcQ"
 videoTitle: "Iran could CASH IN BIG TIME if nation meets obligations of US deal"
 thumbnail: "https://img.youtube.com/vi/mQpNnjYvXcQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What's in the Iran deal Trump says he's ready to sign"
     url: "https://www.axios.com/2026/06/12/iran-deal-mou-strait-open-sanctions-relief"

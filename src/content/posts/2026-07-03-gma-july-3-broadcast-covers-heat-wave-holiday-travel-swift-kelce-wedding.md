@@ -40,6 +40,10 @@ keyMoments:
 videoId: "KXQ4WqJ0vtM"
 videoTitle: "Good Morning America Full Broadcast - Friday, July 3"
 thumbnail: "https://img.youtube.com/vi/KXQ4WqJ0vtM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Blistering Heat Puts Damper on Some Fourth of July Events"
     url: "https://www.nytimes.com/2026/07/03/weather/us-weather-heat-wave.html"

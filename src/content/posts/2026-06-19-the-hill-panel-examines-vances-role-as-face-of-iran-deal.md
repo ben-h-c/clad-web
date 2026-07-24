@@ -36,6 +36,10 @@ keyMoments:
 videoId: "D_tzWLUVs68"
 videoTitle: "JD Vance has become the face of the Iran peace deal. Does that help or hurt him in 2028?"
 thumbnail: "https://img.youtube.com/vi/D_tzWLUVs68/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Vance says U.S. isn’t giving Iran ‘a cent’ as he defends Trump peace deal"
     url: "https://www.cnbc.com/2026/06/18/vance-iran-war-memo-oil-gas.html"

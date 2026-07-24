@@ -28,6 +28,10 @@ keyMoments:
 videoId: "8R1LgAZPz_c"
 videoTitle: "Alabama Gov. Kay Ivey Delivers Remarks For July 4, America250"
 thumbnail: "https://img.youtube.com/vi/8R1LgAZPz_c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "America250"
     url: "https://america250.org/"

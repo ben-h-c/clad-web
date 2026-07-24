@@ -36,6 +36,10 @@ keyMoments:
 videoId: "v2fp_o4-JUw"
 videoTitle: "GOP PAC slams Texas Democrat James Talarico over 'hates America' comments about American flag"
 thumbnail: "https://img.youtube.com/vi/v2fp_o4-JUw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "James Talarico slammed for calling American flag 'complicated symbol'"
     url: "https://www.foxnews.com/politics/james-talarico-slammed-calling-american-flag-complicated-symbol-ahead-independence-day"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "jPtOdEhQBtU"
 videoTitle: "BREAKING: US launches “series of strikes” on Iran after ships attacked in strait of Hormuz |BBC News"
 thumbnail: "https://img.youtube.com/vi/jPtOdEhQBtU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran and US agree to halt attacks and renew talks"
     url: "https://www.reuters.com/world/asia-pacific/us-carries-out-fresh-strikes-against-iran-after-tanker-struck-hormuz-escalating-2026-06-27/"

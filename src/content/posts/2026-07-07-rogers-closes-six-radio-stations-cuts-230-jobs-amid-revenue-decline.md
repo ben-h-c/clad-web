@@ -34,6 +34,10 @@ keyMoments:
 videoId: "7EPSMTXOgpA"
 videoTitle: "Rogers cuts hundreds of jobs, closes radio stations across Canada | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/7EPSMTXOgpA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Rogers cuts six radio stations, 230 jobs amid declining revenues"
     url: "https://www.junonews.com/p/rogers-cuts-six-radio-stations-230"

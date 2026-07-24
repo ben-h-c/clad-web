@@ -36,6 +36,10 @@ keyMoments:
 videoId: "CtJdnabSHsY"
 videoTitle: "Minnesota prosecutors obtain key evidence in Renée Good & Alex Pretti killings"
 thumbnail: "https://img.youtube.com/vi/CtJdnabSHsY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Who was Johan Sebastián Durán Guerrero, the man killed by ICE in Biddeford?"
     url: "https://www.pressherald.com/2026/07/14/who-is-joan-sebastian-guerrero-the-man-killed-by-ice-in-biddeford/"

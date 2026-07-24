@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Zrf2CLoy2o0"
 videoTitle: "Why England's World Cup could run out of gas in Mexico City"
 thumbnail: "https://img.youtube.com/vi/Zrf2CLoy2o0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How England v Mexico will be impacted by altitude"
     url: "https://www.bbc.com/sport/football/articles/c4gy0v05qyro"

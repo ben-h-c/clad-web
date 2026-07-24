@@ -32,6 +32,10 @@ keyMoments:
 videoId: "1OEbAiYQJNQ"
 videoTitle: "Paint appears to be peeling away from the reflecting pool amid an ongoing algae bloom."
 thumbnail: "https://img.youtube.com/vi/1OEbAiYQJNQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Some of the Lincoln Memorial Reflecting Pool liner appears to be falling apart - ABC News"
     url: "https://abcnews.com/Politics/lincoln-memorial-reflecting-pool-liner-appears-falling-apart/story?id=134002251"

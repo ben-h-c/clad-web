@@ -34,6 +34,10 @@ keyMoments:
 videoId: "pcnBgTmO6sc"
 videoTitle: "Hannity: They want to OVERTHROW our country from within #shorts #foxnews #news #fox"
 thumbnail: "https://img.youtube.com/vi/pcnBgTmO6sc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "DSA Program - Democratic Socialists of America"
     url: "https://program.dsausa.org/"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "61KhUfili60"
 videoTitle: "True Crime Vault: All American Murder"
 thumbnail: "https://img.youtube.com/vi/61KhUfili60/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Appeals court orders hearing as convicted killer A.J. Armstrong seeks new trial"
     url: "https://www.houstonpublicmedia.org/articles/court/2025/11/07/535504/aj-armstrong-murder-trial-appeals-court-hearing/"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "CdsTuErwm5k"
 videoTitle: "GIANT CRYPTO NEWS HAPPENING NOW! (Major Clarity Act News)"
 thumbnail: "https://img.youtube.com/vi/CdsTuErwm5k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Pakistan PM says US and Iran reach peace deal after talks"
     url: "https://www.reuters.com/world/asia-pacific/pakistan-pm-says-us-iran-reach-peace-deal-after-talks-2026-06-14/"

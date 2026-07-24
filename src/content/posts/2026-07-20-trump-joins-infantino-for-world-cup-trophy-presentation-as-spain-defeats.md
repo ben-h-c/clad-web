@@ -37,6 +37,10 @@ keyMoments:
 videoId: "zvLPs1D_mDY"
 videoTitle: "Boos and a linger on stage: Inside Trump's appearance at the World Cup final"
 thumbnail: "https://img.youtube.com/vi/zvLPs1D_mDY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

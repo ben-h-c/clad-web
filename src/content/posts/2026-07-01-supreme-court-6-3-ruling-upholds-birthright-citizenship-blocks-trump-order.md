@@ -34,6 +34,10 @@ keyMoments:
 videoId: "NjVSeMDiT6U"
 videoTitle: "Inside the ruling that blocked Trump on birthright citizenship"
 thumbnail: "https://img.youtube.com/vi/NjVSeMDiT6U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court Live Updates: Justices Reject Trump’s Effort to End Birthright Citizenship"
     url: "https://www.nytimes.com/live/2026/06/30/us/birthright-citizenship-supreme-court"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ZOtI4mAd5pA"
 videoTitle: "A turtle DNA database is the first of its kind effort to try to keep them from extinction"
 thumbnail: "https://img.youtube.com/vi/ZOtI4mAd5pA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "ShellBank Project – Global Marine Turtle Genetic Database"
     url: "https://shellbankproject.org/"

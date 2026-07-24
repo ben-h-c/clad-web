@@ -37,6 +37,10 @@ keyMoments:
 videoId: "HBvtBW1-Mgw"
 videoTitle: "Steve Scalise: Let Democratic Candidates Battle Over Who 'Hates This Country The Most'"
 thumbnail: "https://img.youtube.com/vi/HBvtBW1-Mgw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "One, Big, Beautiful Bill provisions"
     url: "https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions"

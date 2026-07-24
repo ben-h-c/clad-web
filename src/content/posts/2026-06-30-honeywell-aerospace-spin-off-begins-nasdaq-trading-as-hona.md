@@ -38,6 +38,10 @@ keyMoments:
 videoId: "mKqyowVlo9o"
 videoTitle: "Honeywell Aerospace BETS BIG on defense and space growth"
 thumbnail: "https://img.youtube.com/vi/mKqyowVlo9o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Honeywell Board of Directors Approves Spin-Off of Honeywell Aerospace"
     url: "https://investor.honeywell.com/news-releases/news-release-details/honeywell-board-directors-approves-spin-honeywell-aerospace"

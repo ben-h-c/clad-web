@@ -38,6 +38,10 @@ keyMoments:
 videoId: "hPfl0Kpv1HM"
 videoTitle: "StatCan faces trust, reliability challenges from significant amount of Canadians"
 thumbnail: "https://img.youtube.com/vi/hPfl0Kpv1HM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Diagnosing the Data Quality Crisis"
     url: "https://www.desjardins.com/en/savings-investment/economic-studies/canada-declining-us-data-quality-25-june-2026.html"

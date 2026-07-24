@@ -35,6 +35,10 @@ keyMoments:
 videoId: "TrC-MQNEKvI"
 videoTitle: "Will Colombia Elect a Far-Right President? | DW News"
 thumbnail: "https://img.youtube.com/vi/TrC-MQNEKvI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Colombia presidential runoff pits leftist senator against pro-Trump rival"
     url: "https://www.bbc.com/news/articles/cvgqv8q1ndpo"

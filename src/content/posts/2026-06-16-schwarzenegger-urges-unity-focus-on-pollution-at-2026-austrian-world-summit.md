@@ -36,6 +36,10 @@ keyMoments:
 videoId: "gEyys35uz-Y"
 videoTitle: "Arnold Schwarzenegger urges UNITY and INCLUSION at Austrian World Summit on Climate"
 thumbnail: "https://img.youtube.com/vi/gEyys35uz-Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Speakers - AUSTRIAN WORLD SUMMIT"
     url: "https://www.austrianworldsummit.com/speakers/"

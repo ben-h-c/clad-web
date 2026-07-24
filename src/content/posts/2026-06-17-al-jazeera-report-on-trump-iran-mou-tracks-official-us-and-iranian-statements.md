@@ -37,6 +37,10 @@ keyMoments:
 videoId: "P6zKY3Enla4"
 videoTitle: "Trump signs memorandum to end war on Iran: White House"
 thumbnail: "https://img.youtube.com/vi/P6zKY3Enla4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran war live: Trump, Pezeshkian sign US-Iran MoU to end war"
     url: "https://www.aljazeera.com/news/liveblog/2026/6/17/iran-war-live-israel-kills-four-in-lebanon-as-trump-criticises-netanyahu"

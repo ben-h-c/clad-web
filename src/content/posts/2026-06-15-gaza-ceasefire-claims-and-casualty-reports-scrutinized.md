@@ -39,6 +39,10 @@ keyMoments:
     note: "Widely reported June 2026 incident in Hebron involving Sam Fahd Abu Haikal; IDF investigation acknowledged."
 videoId: "ZrYpwxp3LCc"
 thumbnail: "https://img.youtube.com/vi/ZrYpwxp3LCc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Gaza peace plan"
     url: "https://en.wikipedia.org/wiki/Gaza_peace_plan"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "N7Py3aelU_U"
 videoTitle: "US President Trump meets with ‘fan of America' Iraqi PM Ali al-Zaidi | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/N7Py3aelU_U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump meets with Iraq prime minister at White House, vows ‘a lot of deals’"
     url: "https://www.aljazeera.com/news/2026/7/14/trump-meets-with-iraq-prime-minister-at-white-house-vows-a-lot-of-deals"

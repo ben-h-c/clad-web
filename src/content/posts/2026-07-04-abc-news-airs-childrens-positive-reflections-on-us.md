@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Q_2Pfmc4iTc"
 videoTitle: "Children share one word that describes the U.S."
 thumbnail: "https://img.youtube.com/vi/Q_2Pfmc4iTc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Children share one word that describes the U.S. | ABC News"
     url: "https://www.youtube.com/watch?v=Q_2Pfmc4iTc"

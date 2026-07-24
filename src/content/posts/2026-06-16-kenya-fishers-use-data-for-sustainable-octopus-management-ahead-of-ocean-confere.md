@@ -35,6 +35,10 @@ keyMoments:
 videoId: "dxEwmaKDvtM"
 videoTitle: "Kenya coastal fishers turn to data to manage dwindling catches"
 thumbnail: "https://img.youtube.com/vi/dxEwmaKDvtM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mombasa, Kenya: 2026 - Our Ocean, Our Heritage, Our Future - Our Ocean Conference"
     url: "https://www.ouroceanconference.org/conferences/mombasa-2026/"

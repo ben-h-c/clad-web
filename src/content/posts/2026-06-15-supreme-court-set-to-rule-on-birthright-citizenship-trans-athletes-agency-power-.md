@@ -38,6 +38,10 @@ keyMoments:
 videoId: "S0z2R9BxTnQ"
 videoTitle: "US Supreme Court to rule on several cases this month | ChicagoLIVE"
 thumbnail: "https://img.youtube.com/vi/S0z2R9BxTnQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court Arguments Wrap in Landmark Challenge to Trump Birthright Citizenship Executive Order"
     url: "https://www.aclu-nh.org/press-releases/supreme-court-arguments-wrap-in-landmark-challenge-to-trump-birthright-citizenship-executive-order/"

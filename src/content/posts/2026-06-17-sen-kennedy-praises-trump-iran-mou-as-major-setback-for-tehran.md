@@ -35,6 +35,10 @@ keyMoments:
 videoId: "9q8i2HIHm3c"
 videoTitle: "Sen Kennedy: If you don’t know, SHUT UP!"
 thumbnail: "https://img.youtube.com/vi/9q8i2HIHm3c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran, Israel voice caveats on deal ahead of expected signing ceremony"
     url: "https://www.cbsnews.com/live-updates/iran-war-us-trump-peace-deal-agreed-israel/"

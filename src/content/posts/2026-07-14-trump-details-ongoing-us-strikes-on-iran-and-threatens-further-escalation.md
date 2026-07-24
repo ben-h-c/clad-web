@@ -35,6 +35,10 @@ keyMoments:
 videoId: "CfCMZk70-_w"
 videoTitle: "President Trump vows to target power plants, bridges if Iran doesn't make a deal"
 thumbnail: "https://img.youtube.com/vi/CfCMZk70-_w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

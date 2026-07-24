@@ -34,6 +34,10 @@ keyMoments:
 videoId: "uumc98BTCVI"
 videoTitle: "Ontario, Alberta push for 3,300km east-west oil pipeline"
 thumbnail: "https://img.youtube.com/vi/uumc98BTCVI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ford, Smith unveil plan for new ‘Northern Shield’ oil pipeline between Alberta and Ontario"
     url: "https://www.cbc.ca/news/canada/calgary/bakx-northern-shield-ontario-alberta-oil-9.7259820"

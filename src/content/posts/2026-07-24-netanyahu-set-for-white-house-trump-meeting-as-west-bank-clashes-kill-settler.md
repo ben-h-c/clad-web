@@ -34,10 +34,10 @@ keyMoments:
 videoId: "-chyQlv-zK8"
 videoTitle: "Deadly clashes in the occupied West Bank • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/-chyQlv-zK8/maxresdefault.jpg"
-mediaNote: "Split-screen FRANCE 24 still with dense chyron and logos; anchor on right-side soldiers (main action) rather than left talking head or bottom text"
+mediaNote: "upper-middle faces: reporter left + soldiers right action"
 thumbFocusY: 28
-thumbFocusX: 72
-mediaStyle: "modular"
+thumbFocusX: 55
+mediaStyle: "overlay"
 citations:
   - title: "Trump to meet Netanyahu at the White House on Tuesday amid Iran escalation"
     url: "https://www.axios.com/2026/07/24/trump-netanyahu-white-house-iran"

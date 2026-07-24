@@ -39,6 +39,10 @@ keyMoments:
 videoId: "k1g8ZZay55U"
 videoTitle: "Kash Patel Said “No Names Exist”… Then Thomas Massie Dropped the Receipts"
 thumbnail: "https://img.youtube.com/vi/k1g8ZZay55U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Kash Patel"
     slug: "kash-patel"

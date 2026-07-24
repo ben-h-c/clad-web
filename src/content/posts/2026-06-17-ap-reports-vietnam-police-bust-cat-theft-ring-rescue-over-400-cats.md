@@ -34,6 +34,10 @@ keyMoments:
 videoId: "SYWYI7-kRSU"
 videoTitle: "Police rescue hundreds of cats from being eaten in Vietnam with bust of major animal theft ring"
 thumbnail: "https://img.youtube.com/vi/SYWYI7-kRSU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Hundreds of cats stolen for food in Vietnam rescued by police"
     url: "https://www.bbc.com/news/articles/c20yzm58vk3o"

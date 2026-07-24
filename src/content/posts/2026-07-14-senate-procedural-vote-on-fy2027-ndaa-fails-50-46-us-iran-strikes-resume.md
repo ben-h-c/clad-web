@@ -30,6 +30,10 @@ keyMoments:
 videoId: "eWEt8mStefw"
 videoTitle: "BREAKING NEWS: NDAA Fails To Advance In The Senate As U.S. And Iran Resume Strikes"
 thumbnail: "https://img.youtube.com/vi/eWEt8mStefw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SASC Completes Markup of National Defense Authorization Act for Fiscal Year 2027"
     url: "https://www.armed-services.senate.gov/press-releases/sasc-completes-markup-of-national-defense-authorization-act-for-fiscal-year-2027"

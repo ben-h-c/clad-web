@@ -35,6 +35,10 @@ keyMoments:
 videoId: "CsfK1820crY"
 videoTitle: "Thousands flock back to south Lebanon despite Israeli strikes amid US-Iran deal • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/CsfK1820crY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump criticizes Israel's tactics in Lebanon, says it is killing civilians"
     url: "https://www.reuters.com/world/middle-east/trump-criticizes-israels-tactics-lebanon-says-it-is-killing-civilians-2026-06-16/"

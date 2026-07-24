@@ -32,6 +32,10 @@ keyMoments:
 videoId: "lTD6hptyUSo"
 videoTitle: "Tornados spotted in multiple states as fires hit others"
 thumbnail: "https://img.youtube.com/vi/lTD6hptyUSo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Dangerous flooding from Tropical Storm Arthur, first of the Atlantic season, threatens Gulf Coast"
     url: "https://apnews.com/article/tropical-storm-arthur-gulf-america-texas-louisiana-08542f7d4005057e14602b1f07f39ae7"

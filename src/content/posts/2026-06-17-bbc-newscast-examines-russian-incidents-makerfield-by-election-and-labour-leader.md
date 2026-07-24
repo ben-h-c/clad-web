@@ -38,6 +38,10 @@ keyMoments:
 videoId: "vzy4-f4VxeI"
 videoTitle: "What do Russian proxy attacks mean for the UK? We ask the UK prime minister | BBC Newscast"
 thumbnail: "https://img.youtube.com/vi/vzy4-f4VxeI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Makerfield by-election"
     url: "https://en.wikipedia.org/wiki/2026_Makerfield_by-election"

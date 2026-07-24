@@ -28,6 +28,10 @@ keyMoments:
 videoId: "tKL0Pn8luy4"
 videoTitle: "Prince Harry does goat yoga at a summer festival in the UK"
 thumbnail: "https://img.youtube.com/vi/tKL0Pn8luy4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Prince Harry’s 'goated' moment at UK summer festival"
     url: "https://apnews.com/video/prince-harry-joins-in-goat-yoga-session-at-summer-festival-during-uk-visit-e04d62893fb14effaf1d8c3a739a7aba"

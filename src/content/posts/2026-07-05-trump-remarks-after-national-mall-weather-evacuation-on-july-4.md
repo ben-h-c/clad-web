@@ -32,6 +32,10 @@ keyMoments:
 videoId: "KLIFBD4uQwI"
 videoTitle: "Trump thanks people for evacuating and returning for remarks"
 thumbnail: "https://img.youtube.com/vi/KLIFBD4uQwI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Crowds Evacuated as Storms Menace Washington Ahead of Trump Speech"
     url: "https://www.nytimes.com/2026/07/04/us/politics/national-mall-evacuated-storms.html"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "jLICvWE7w2Q"
 videoTitle: "The IPO Comeback: Why Tech Giants Are Finally Going Public | All-In Liquidity IPO Panel"
 thumbnail: "https://img.youtube.com/vi/jLICvWE7w2Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Cerebras stock slides after near-70% surge in biggest IPO of 2026"
     url: "https://finance.yahoo.com/markets/article/cerebras-stock-slides-after-near-70-surge-in-biggest-ipo-of-2026-130757084.html"

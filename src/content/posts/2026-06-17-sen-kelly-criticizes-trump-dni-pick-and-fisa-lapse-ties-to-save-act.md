@@ -33,6 +33,10 @@ keyMoments:
 videoId: "ntROMJeLs0c"
 videoTitle: "'This Has Become A Complete Debacle': Mark Kelly Shreds Trump Over Pulte Nomination, FISA Expiration"
 thumbnail: "https://img.youtube.com/vi/ntROMJeLs0c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FISA 702, a key U.S. spy tool, has lapsed. Now what?"
     url: "https://www.npr.org/2026/06/12/nx-s1-5856291/fisa-702-surveillance-expiration-bill-pulte"

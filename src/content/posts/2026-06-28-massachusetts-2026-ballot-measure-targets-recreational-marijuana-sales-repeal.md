@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Nch46xtwxPw"
 videoTitle: "Massachusetts reconsiders legalizing weed on the ballot this Fall"
 thumbnail: "https://img.youtube.com/vi/Nch46xtwxPw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Massachusetts Eliminate Recreational Marijuana Sales and Allow Limited Possession Initiative (2026)"
     url: "https://ballotpedia.org/Massachusetts_Eliminate_Recreational_Marijuana_Sales_and_Allow_Limited_Possession_Initiative_(2026)"

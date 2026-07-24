@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Maq8wbFDyG0"
 videoTitle: "Alberta, Ottawa and the Oil Sands Alliance reach agreement on Pathways Project"
 thumbnail: "https://img.youtube.com/vi/Maq8wbFDyG0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Agreement reached on multibillion-dollar Pathways carbon capture and storage project"
     url: "https://www.cbc.ca/news/canada/edmonton/alberta-ottawa-pathways-oilsands-carbon-capture-9.7268392"

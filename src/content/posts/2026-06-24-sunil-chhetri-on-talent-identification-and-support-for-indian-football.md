@@ -30,6 +30,10 @@ keyMoments:
 videoId: "_navPrcEaCs"
 videoTitle: "Indian Football: Sunil Chhetri demands greater support for the sport | 101 East #shorts"
 thumbnail: "https://img.youtube.com/vi/_navPrcEaCs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "India's football icon, Sunil Chhetri, says the country's governing body lacks a clear vision for the sport"
     url: "https://www.facebook.com/101East/videos/indias-football-icon-sunil-chhetri-says-the-countrys-governing-body-lacks-a-clea/1376526407628664/"

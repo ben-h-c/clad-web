@@ -39,6 +39,10 @@ keyMoments:
 videoId: "tv5lA7-XZ_w"
 videoTitle: "Torsten Slok Shows Us How AI Is Eating the Entire US Economy | Odd Lots"
 thumbnail: "https://img.youtube.com/vi/tv5lA7-XZ_w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The impact of AI on the economy and financial markets"
     url: "https://www.apollo.com/content/dam/apolloaem/pdf/daily-spark/2026/may/28/OddLots_ImpactOfAI_v2.pdf"

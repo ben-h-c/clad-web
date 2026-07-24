@@ -28,6 +28,10 @@ keyMoments:
 videoId: "w1XS4xTx0SE"
 videoTitle: "How New York's 'Little Egypt' celebrates the World Cup"
 thumbnail: "https://img.youtube.com/vi/w1XS4xTx0SE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "In New York’s Astoria neighbourhood, Arab nations unite in World Cup joy"
     url: "https://www.aljazeera.com/sports/2026/6/25/in-new-yorks-astoria-neighbourhood-arab-nations-unite-in-world-cup-joy"

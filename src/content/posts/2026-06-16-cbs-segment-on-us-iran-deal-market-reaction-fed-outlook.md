@@ -36,6 +36,10 @@ keyMoments:
 videoId: "ChXIloZ_HsM"
 videoTitle: "Stocks soar on news of U.S., Iran peace deal"
 thumbnail: "https://img.youtube.com/vi/ChXIloZ_HsM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Initial deal to end US-Iran war moves toward formal signing despite lingering questions"
     url: "https://apnews.com/article/iran-us-war-oil-june-15-2026-77406473da38c6c126818610a219dc20"

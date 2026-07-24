@@ -39,6 +39,10 @@ keyMoments:
 videoId: "P5e72N-9hDY"
 videoTitle: "BREAKING NEWS: Chuck Schumer Absolutely Torches Trump, Cabinet After U.S.-Iran Deal Announced"
 thumbnail: "https://img.youtube.com/vi/P5e72N-9hDY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sen. Schumer Calls on President Trump to Brief Congress on Details of Iran Deal"
     url: "https://www.c-span.org/clip/us-senate/sen-schumer-calls-on-president-trump-to-brief-congress-on-details-of-iran-deal/5201555"

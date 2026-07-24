@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Az8WNssS4jg"
 videoTitle: "Train crash: What could have gone wrong?"
 thumbnail: "https://img.youtube.com/vi/Az8WNssS4jg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Nine people in critical condition among 100 injured in fatal Bedford train crash"
     url: "https://www.bbc.com/news/live/cy8dy2pr8ymt"

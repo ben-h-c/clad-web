@@ -34,6 +34,10 @@ keyMoments:
 videoId: "4myplT-wDo0"
 videoTitle: "BREAKING: FBI says incendiary device deployed in NYC #shorts #news #breakingnews #FBI #NYC"
 thumbnail: "https://img.youtube.com/vi/4myplT-wDo0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FBI New York Field Office"
     url: "https://www.fbi.gov/contact-us/field-offices/newyork"

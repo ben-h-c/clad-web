@@ -32,6 +32,10 @@ keyMoments:
 videoId: "QpOmiNPnPU4"
 videoTitle: "Jelly Roll's Split, Beckham Family Feud and Tyra vs. Netflix | Jesse Weber Live"
 thumbnail: "https://img.youtube.com/vi/QpOmiNPnPU4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jelly Roll Files For Divorce From Bunnie XO"
     url: "https://www.tmz.com/2026/06/15/jelly-roll-bunnie-xo-divorce/"

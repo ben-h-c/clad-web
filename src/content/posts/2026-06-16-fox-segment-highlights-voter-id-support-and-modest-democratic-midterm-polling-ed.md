@@ -35,6 +35,10 @@ keyMoments:
 videoId: "R5tJhvP3uCM"
 videoTitle: "Voters are ‘DEMANDING’ secure elections by enabling Voter ID: Rep Randy Fine"
 thumbnail: "https://img.youtube.com/vi/R5tJhvP3uCM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Americans Endorse Both Early Voting and Voter Verification"
     url: "https://news.gallup.com/poll/652523/americans-endorse-early-voting-voter-verification.aspx"

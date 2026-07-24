@@ -31,6 +31,10 @@ keyMoments:
 videoId: "q_-toWvzwEc"
 videoTitle: "'Give Them Some Guidance': Tim Kaine Asks Experts To Give Teachers Advice On Using AI In Classrooms"
 thumbnail: "https://img.youtube.com/vi/q_-toWvzwEc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Senate Panel Examines AI in K-12 Education"
     url: "https://www.c-span.org/event/senate-committee/senate-panel-examines-ai-in-k-12-education/444126"

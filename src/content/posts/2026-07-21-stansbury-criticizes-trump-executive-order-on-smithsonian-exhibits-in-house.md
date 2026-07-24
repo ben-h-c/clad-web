@@ -38,6 +38,10 @@ keyMoments:
 videoId: "fXq6Q_hKOqY"
 videoTitle: "🚨 &quot;DOES NOT BELONG TO HIM!&quot; Melanie Stansbury Hammers Trump Over Attack on Smithsonian!"
 thumbnail: "https://img.youtube.com/vi/fXq6Q_hKOqY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "JD Vance"
     slug: "jd-vance"

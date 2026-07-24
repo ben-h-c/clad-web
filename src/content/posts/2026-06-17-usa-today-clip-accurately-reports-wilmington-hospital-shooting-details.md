@@ -28,6 +28,10 @@ keyMoments:
 videoId: "I90CW6rpE_I"
 videoTitle: "1 dead, 1 injured after shooting at Wilmington hospital in Delaware"
 thumbnail: "https://img.youtube.com/vi/I90CW6rpE_I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "VIDEO | Suspect arrested, 1 dead, 1 injured after shooting at Wilmington Hospital"
     url: "https://www.wdel.com/news/video-suspect-arrested-1-dead-1-injured-after-shooting-at-wilmington-hospital/article_a49bbf68-cf0d-4b3f-ab93-aba5e526dbfd.html"

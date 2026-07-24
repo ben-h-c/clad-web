@@ -31,6 +31,10 @@ keyMoments:
 videoId: "CBGmr9twRLA"
 videoTitle: "Gov. Stein spotlights electrical workforce development in NC at Cleveland County summer academy"
 thumbnail: "https://img.youtube.com/vi/CBGmr9twRLA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Josh Stein"
     slug: "josh-stein"

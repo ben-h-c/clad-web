@@ -37,6 +37,10 @@ keyMoments:
 videoId: "LIVGZoUN9D0"
 videoTitle: "SpaceX IPO: Here's What Retail Investors Need To Know"
 thumbnail: "https://img.youtube.com/vi/LIVGZoUN9D0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Musk's SpaceX prices record $75 billion IPO at $135 a share"
     url: "https://www.reuters.com/world/musks-spacex-prices-record-75-billion-ipo-135-share-2026-06-11/"

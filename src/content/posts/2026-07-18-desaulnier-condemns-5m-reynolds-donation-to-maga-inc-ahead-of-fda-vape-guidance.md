@@ -35,6 +35,10 @@ keyMoments:
 videoId: "3p8Hlzv7HO4"
 videoTitle: "'Blatant Pay-For-Play': DeSaulnier Accuses Trump Of Corruption Over Big Tobacco Donation To MAGA Inc"
 thumbnail: "https://img.youtube.com/vi/3p8Hlzv7HO4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Mark DeSaulnier"
     slug: "mark-desaulnier"

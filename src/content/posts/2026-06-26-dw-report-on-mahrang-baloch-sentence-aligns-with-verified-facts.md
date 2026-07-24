@@ -36,6 +36,10 @@ keyMoments:
 videoId: "enG0nQ_Q4js"
 videoTitle: "Sentenced to life in prison — Mahrang Baloch's fight for justice  | DW News"
 thumbnail: "https://img.youtube.com/vi/enG0nQ_Q4js/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Pakistani rights activist Mahrang Baloch sentenced to life in prison"
     url: "https://www.reuters.com/world/asia-pacific/pakistani-rights-activist-mahrang-baloch-sentenced-life-prison-2026-06-24/"

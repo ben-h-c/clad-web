@@ -32,6 +32,10 @@ keyMoments:
 videoId: "E3T-rHFGBUY"
 videoTitle: "Fetterman calls Graham Platner a \"total dirtbag\" in wake of sexual assault allegation"
 thumbnail: "https://img.youtube.com/vi/E3T-rHFGBUY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Woman alleges Graham Platner raped her in 2021 while they were dating, which he denies"
     url: "https://www.cnn.com/2026/07/06/us/graham-platner-racicot-allegation-maine-invs"

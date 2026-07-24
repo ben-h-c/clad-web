@@ -33,6 +33,10 @@ keyMoments:
 videoId: "5kQ32yHTy6g"
 videoTitle: "$750B could cure cancer, diabetes, Alzheimer's, advocate says | CUOMO"
 thumbnail: "https://img.youtube.com/vi/5kQ32yHTy6g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "About the American Center for Cures"
     url: "https://theamericancenterforcures.org/about"

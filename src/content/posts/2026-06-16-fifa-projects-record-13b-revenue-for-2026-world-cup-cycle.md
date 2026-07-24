@@ -38,6 +38,10 @@ keyMoments:
 videoId: "bJrIGbkEDps"
 videoTitle: "Who’s Really Paying for This Year’s World Cup?"
 thumbnail: "https://img.youtube.com/vi/bJrIGbkEDps/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Revised budget 2023-2026"
     url: "https://inside.fifa.com/official-documents/annual-report/2024/financials/revised-2023-2026-budget"

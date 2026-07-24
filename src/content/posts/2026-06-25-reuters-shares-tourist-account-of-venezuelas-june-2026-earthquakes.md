@@ -30,6 +30,10 @@ keyMoments:
 videoId: "Gr6t8ap2HqU"
 videoTitle: "Tourist recounts 'intense and violent' Venezuela quakes"
 thumbnail: "https://img.youtube.com/vi/Gr6t8ap2HqU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuelans search rubble for survivors after 2 strong quakes kill at least 188"
     url: "https://apnews.com/article/venezuela-earthquake-caracas-rodriguez-aid-0a62e6fc9feb5202a750c4fbb11a6aec"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "RK74_9qukBI"
 videoTitle: "Karolina Wydra - Emmy-Nominated Role in “Pluribus” | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/RK74_9qukBI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Emmy Nominee Rhea Seehorn On 'Pluribus' Season 2 & ..."
     url: "https://deadline.com/2026/07/pluribus-season-2-rhea-seehorn-karolina-wydra-running-1236976070/"

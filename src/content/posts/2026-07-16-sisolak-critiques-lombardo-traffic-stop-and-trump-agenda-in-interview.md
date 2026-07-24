@@ -38,6 +38,10 @@ keyMoments:
 videoId: "AsjNxysEYhM"
 videoTitle: "Former Nevada Governor Steve Sisolak Responds To Joe Lombardo Traffic Stop"
 thumbnail: "https://img.youtube.com/vi/AsjNxysEYhM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Joe Lombardo"
     slug: "joe-lombardo"

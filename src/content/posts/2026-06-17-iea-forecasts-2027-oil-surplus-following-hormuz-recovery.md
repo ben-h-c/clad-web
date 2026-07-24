@@ -35,6 +35,10 @@ keyMoments:
 videoId: "OrjhklS1ta0"
 videoTitle: "IEA sees oil surplus in 2027 after Hormuz reopening"
 thumbnail: "https://img.youtube.com/vi/OrjhklS1ta0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "IEA sees gradual Hormuz recovery tipping into significant 2027 surplus"
     url: "https://www.reuters.com/business/energy/iea-sees-gradual-hormuz-recovery-tipping-into-significant-2027-surplus-2026-06-17/"

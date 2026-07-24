@@ -34,6 +34,10 @@ keyMoments:
 videoId: "pcXb0AjNGHw"
 videoTitle: "Iran launches strikes on Bahrain, Kuwait and threatens halt to talks after US strikes"
 thumbnail: "https://img.youtube.com/vi/pcXb0AjNGHw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran attacks Bahrain and Kuwait following US strikes and threatens to halt talks"
     url: "https://apnews.com/article/iran-us-israel-war-hormuz-strait-june-28-2026-1132d316545db2cddb3928b6e7840f51"

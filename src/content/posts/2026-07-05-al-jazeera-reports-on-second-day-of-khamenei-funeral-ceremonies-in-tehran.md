@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ZyFlp6UGpXA"
 videoTitle: "Huge crowds pour into Tehran for funeral ceremonies for Iran’s slain leader Ali Khamenei"
 thumbnail: "https://img.youtube.com/vi/ZyFlp6UGpXA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran begins six-day funeral for Ayatollah Khamenei nearly four months after his death"
     url: "https://www.cnbc.com/2026/07/04/-khamenei-funeral-procession-route.html"

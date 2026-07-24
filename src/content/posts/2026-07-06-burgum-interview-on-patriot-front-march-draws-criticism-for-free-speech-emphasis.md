@@ -36,6 +36,10 @@ keyMoments:
 videoId: "sRzZ7z7uMFI"
 videoTitle: "Dana Bash PRESSES Doug Burgum as he DEFLECTS on Patriot Front march: Lindsey Granger | RISING"
 thumbnail: "https://img.youtube.com/vi/sRzZ7z7uMFI/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "White Nationalists March in Washington Amid 250th Anniversary Celebrations"
     url: "https://www.nytimes.com/2026/07/04/us/white-nationalists-march-in-washington-amid-250th-anniversary-celebrations.html"

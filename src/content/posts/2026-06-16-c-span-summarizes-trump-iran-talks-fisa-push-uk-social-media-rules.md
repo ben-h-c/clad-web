@@ -38,6 +38,10 @@ keyMoments:
 videoId: "GwdpLEywjSc"
 videoTitle: "Washington Today (6/15/26): Trump Claims Iran Agreement Is Close; Senate Eyes FISA Extension"
 thumbnail: "https://img.youtube.com/vi/GwdpLEywjSc/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What's in the Iran deal Trump says he's ready to sign"
     url: "https://www.axios.com/2026/06/12/iran-deal-mou-strait-open-sanctions-relief"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "EC5BqlOWWxA"
 videoTitle: "Trump touts Iran peace deal at G7 Summit in France, Schumer and Kennedy cast doubts"
 thumbnail: "https://img.youtube.com/vi/EC5BqlOWWxA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump arrives in France for G7 leaders summit, touting peace deal with Iran"
     url: "https://www.npr.org/2026/06/15/nx-s1-5859257/trump-arrives-in-france-for-g7-leaders-summit-touting-peace-deal-with-iran"

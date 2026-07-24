@@ -31,6 +31,10 @@ keyMoments:
 videoId: "vS-zDDzl4Is"
 videoTitle: "International soccer fans embrace U.S. culture during the World Cup"
 thumbnail: "https://img.youtube.com/vi/vS-zDDzl4Is/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "World Cup fans experience shock of U.S. culture"
     url: "https://www.nbcnews.com/video/shorts/world-cup-fans-experience-shock-of-u-s-culture-265098309614"

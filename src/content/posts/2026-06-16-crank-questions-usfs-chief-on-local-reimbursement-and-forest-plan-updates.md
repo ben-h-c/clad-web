@@ -35,6 +35,10 @@ keyMoments:
 videoId: "K6OAjwm6-wY"
 videoTitle: "'Are There Better Ways?': Jeff Crank Presses USFS Chief On Local Reimbursement For Forest Management"
 thumbnail: "https://img.youtube.com/vi/K6OAjwm6-wY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "H.R.471 - 119th Congress (2025-2026): Fix Our Forests Act"
     url: "https://www.congress.gov/bill/119th-congress/house-bill/471"

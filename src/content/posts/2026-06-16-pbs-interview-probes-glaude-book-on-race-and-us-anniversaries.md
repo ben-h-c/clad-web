@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Pwauw8ErIpw"
 videoTitle: "New book explores America's history of celebrating freedom while excluding millions"
 thumbnail: "https://img.youtube.com/vi/Pwauw8ErIpw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "America, U.S.A. by Eddie S. Glaude Jr."
     url: "https://www.penguinrandomhouse.com/books/673832/america-usa-by-eddie-s-glaude-jr/"

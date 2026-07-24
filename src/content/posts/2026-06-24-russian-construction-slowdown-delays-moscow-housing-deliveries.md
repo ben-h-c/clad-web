@@ -34,6 +34,10 @@ keyMoments:
 videoId: "-5suBEzMt98"
 videoTitle: "Russian building downturn leaves Moscow apartment buyers in limbo"
 thumbnail: "https://img.youtube.com/vi/-5suBEzMt98/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Russian building downturn leaves Moscow apartment buyers in limbo"
     url: "https://www.reuters.com/world/russian-building-downturn-leaves-moscow-apartment-buyers-limbo-2026-06-23/"

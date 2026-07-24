@@ -38,6 +38,10 @@ keyMoments:
 videoId: "NVt4Ra5D_QY"
 videoTitle: "BREAKING: Mitch McConnell BREAKS SILENCE on hospitalization"
 thumbnail: "https://img.youtube.com/vi/NVt4Ra5D_QY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "McConnell Has Been Hospitalized for 3 Weeks, and Aides Won't Say Why"
     url: "https://www.nytimes.com/2026/07/06/us/politics/mitch-mcconell-health-hospitalization.html"

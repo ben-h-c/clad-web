@@ -36,6 +36,10 @@ keyMoments:
 videoId: "dHv8hRGY74g"
 videoTitle: "'The Social Security Financial Outlook Deteriorated Due To Trump Policies': Larson Rips Trump Admin"
 thumbnail: "https://img.youtube.com/vi/dHv8hRGY74g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trustees Report Summary"
     url: "https://www.ssa.gov/oact/trsum/"

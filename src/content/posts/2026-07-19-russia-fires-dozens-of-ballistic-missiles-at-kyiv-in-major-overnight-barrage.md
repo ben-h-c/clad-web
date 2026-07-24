@@ -37,6 +37,10 @@ keyMoments:
 videoId: "pLvEloAs3YI"
 videoTitle: "Russia launches largest missile barrage at Ukraine's Kyiv since start of war"
 thumbnail: "https://img.youtube.com/vi/pLvEloAs3YI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ukraine strikes 20 Russian vessels | Russia-Ukraine war"
     url: "https://www.aljazeera.com/video/newsfeed/2026/7/15/ukraine-strikes-20-russian-vessels"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "BbzEjdUR0cs"
 videoTitle: "Why have so many people died from the Venezuelan earthquake?"
 thumbnail: "https://img.youtube.com/vi/BbzEjdUR0cs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Venezuela earthquakes - Wikipedia"
     url: "https://en.wikipedia.org/wiki/2026_Venezuela_earthquakes"

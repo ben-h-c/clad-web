@@ -36,6 +36,10 @@ keyMoments:
 videoId: "AXDD0BUN0sU"
 videoTitle: "President Trump on Unfreezing Iran Funds"
 thumbnail: "https://img.youtube.com/vi/AXDD0BUN0sU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump: ‘We are not investing any money in Iran’"
     url: "https://thehill.com/homenews/administration/5925825-trump-denies-iran-investment-300-billion-fund/"

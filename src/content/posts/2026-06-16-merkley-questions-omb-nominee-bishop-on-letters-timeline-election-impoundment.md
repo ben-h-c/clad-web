@@ -35,6 +35,10 @@ keyMoments:
 videoId: "lI7Rrb8cY5c"
 videoTitle: "'Do You Believe The 2020 Election Was Rigged?': Jeff Merkley Grills Top Trump Nominee"
 thumbnail: "https://img.youtube.com/vi/lI7Rrb8cY5c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "THE NOMINATION OF THE HONORABLE DAN BISHOP, OF NORTH CAROLINA, TO BE DEPUTY DIRECTOR OF THE OFFICE OF MANAGEMENT AND BUDGET"
     url: "https://www.congress.gov/event/119th-congress/senate-event/LC74363/text"

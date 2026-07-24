@@ -32,6 +32,10 @@ keyMoments:
 videoId: "pMrLEgDL--w"
 videoTitle: "Tomi Lahren predicts Trump will attend July 4th Mount Rushmore celebration #trump #shorts #fireworks"
 thumbnail: "https://img.youtube.com/vi/pMrLEgDL--w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump will attend July 3 Mount Rushmore fireworks display"
     url: "https://southdakotasearchlight.com/2026/06/25/trump-will-attend-july-3-mount-rushmore-fireworks-display/"

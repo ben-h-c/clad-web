@@ -33,6 +33,10 @@ keyMoments:
 videoId: "YedrgYhgBvE"
 videoTitle: "Virginia Foxx Accuses Dems Of Using &#39;Fear-Mongering Tactics&#39; Around Voter ID Legislation"
 thumbnail: "https://img.youtube.com/vi/YedrgYhgBvE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Virginia Foxx"
     slug: "virginia-foxx"

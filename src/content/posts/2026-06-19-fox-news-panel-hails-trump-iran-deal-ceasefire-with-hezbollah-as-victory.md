@@ -38,6 +38,10 @@ keyMoments:
 videoId: "c43dW4dOOlg"
 videoTitle: "McEnany: Trump is declaring VICTORY"
 thumbnail: "https://img.youtube.com/vi/c43dW4dOOlg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: Israel and Hezbollah agree to renew ceasefire after conflict threatens to derail US-Iran talks"
     url: "https://www.cnn.com/2026/06/19/world/live-news/iran-war-trump-israel-lebanon"

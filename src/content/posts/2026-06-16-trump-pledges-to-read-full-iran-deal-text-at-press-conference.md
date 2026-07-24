@@ -32,6 +32,10 @@ keyMoments:
 videoId: "fEHV8qyNhHY"
 videoTitle: "Trump says he’ll hold press conference to read Iran deal 'word for word' once released"
 thumbnail: "https://img.youtube.com/vi/fEHV8qyNhHY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "President Trump vows to hold a press conference ..."
     url: "https://x.com/FoxNews/status/2066865698442182768"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "icjuj-RULf0"
 videoTitle: "'People Who Spied On Trump Campaign Are Now...': Massie Shakes Congress With Bombshell Revelation"
 thumbnail: "https://img.youtube.com/vi/icjuj-RULf0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Opinion | Jim Jordan: Congress can protect rights and deal with foreign threats without violating Americans’ rights"
     url: "https://www.washingtonpost.com/opinions/2025/04/16/congress-constitution-surveillance-jim-jordan/"

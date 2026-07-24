@@ -36,6 +36,10 @@ keyMoments:
 videoId: "RY3POQM89cY"
 videoTitle: "CAPITOL HILL: GOP lawmaker says there's a lot of work to do"
 thumbnail: "https://img.youtube.com/vi/RY3POQM89cY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Thom Tillis"
     slug: "thom-tillis"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "nF2S2P3gmIQ"
 videoTitle: "The rise of socialism among Democratic candidates | DATA NERDS"
 thumbnail: "https://img.youtube.com/vi/nF2S2P3gmIQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Democratic socialist Janeese Lewis George on track to win DC mayoral primary"
     url: "https://www.politico.com/news/2026/06/18/lewis-george-dc-mayor-primary-00966879"

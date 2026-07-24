@@ -37,6 +37,10 @@ keyMoments:
 videoId: "QmrItjBQY9o"
 videoTitle: "Ben Shapiro SHREDS Jerry Nadler &amp; Smug Dems Live in Fiery Congress Hearing!!!"
 thumbnail: "https://img.youtube.com/vi/QmrItjBQY9o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Jim Jordan"
     slug: "jim-jordan"

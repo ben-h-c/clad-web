@@ -39,6 +39,10 @@ keyMoments:
 videoId: "8JCw719G_dY"
 videoTitle: "Carlos Giménez Asks Expert About U.S. Companies Operating In China Cooperating With CCP, PLA"
 thumbnail: "https://img.youtube.com/vi/8JCw719G_dY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "PRC National Intelligence Law (as amended in 2018)"
     url: "https://www.chinalawtranslate.com/en/national-intelligence-law-of-the-p-r-c-2017/"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "cLD02uBJNds"
 videoTitle: "Tesla Just Killed The CyberSUV You Were Imagining"
 thumbnail: "https://img.youtube.com/vi/cLD02uBJNds/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Tesla Fourth Quarter and Full Year 2024 Update"
     url: "https://digitalassets.tesla.com/tesla-contents/image/upload/IR/TSLA-Q4-2024-Update.pdf"

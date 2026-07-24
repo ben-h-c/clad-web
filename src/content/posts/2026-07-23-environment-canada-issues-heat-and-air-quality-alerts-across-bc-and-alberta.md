@@ -36,6 +36,10 @@ keyMoments:
 videoId: "iOVaH4jVgQ8"
 videoTitle: "BC, Prairies under air quality and heat alerts"
 thumbnail: "https://img.youtube.com/vi/iOVaH4jVgQ8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Extreme heat, wildfire smoke prompt weather warnings across B.C."
     url: "https://www.cbc.ca/news/canada/british-columbia/heat-smoke-weather-warnings-b-c-9.7279560"

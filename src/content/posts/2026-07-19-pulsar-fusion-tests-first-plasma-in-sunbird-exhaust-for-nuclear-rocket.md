@@ -34,6 +34,10 @@ keyMoments:
 videoId: "X__TjCQChk8"
 videoTitle: "The nuclear fusion rocket that could take humans to Mars faster | BBC News"
 thumbnail: "https://img.youtube.com/vi/X__TjCQChk8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "In a World's First, Pulsar Fusion Demonstrates Its “Sunbird” Nuclear Fusion Rocket's “First Plasma”"
     url: "https://finance.yahoo.com/sectors/technology/articles/world-first-pulsar-fusion-demonstrates-190000525.html"

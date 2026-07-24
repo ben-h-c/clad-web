@@ -28,6 +28,10 @@ keyMoments:
 videoId: "fm9bN1ByWis"
 videoTitle: "Riders stuck after power outage at Great Escape theme park in New York"
 thumbnail: "https://img.youtube.com/vi/fm9bN1ByWis/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Partial power outage at The Great Escape stops rides"
     url: "https://www.news10.com/news/warren-county/partial-power-outage-at-the-great-escape-stops-rides/"

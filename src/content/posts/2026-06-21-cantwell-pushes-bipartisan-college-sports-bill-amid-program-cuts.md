@@ -35,6 +35,10 @@ keyMoments:
 videoId: "MM0WqODa4-Y"
 videoTitle: "'College Athletics Are In Crisis': Maria Cantwell Calls For Changes To NIL Deals"
 thumbnail: "https://img.youtube.com/vi/MM0WqODa4-Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Cantwell, Cruz, Coons & Schmitt Release Bipartisan Bill to Stabilize College Sports"
     url: "https://www.commerce.senate.gov/press/dem/release/cantwell-cruz-schmitt-coons-release-bipartisan-bill-to-stabilize-college-sports-protect-athletes-and-expand-revenue-sharing/"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "fYOuWIcyTlE"
 videoTitle: "Three dead in about a week from ICE encounters"
 thumbnail: "https://img.youtube.com/vi/fYOuWIcyTlE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Man fleeing immigration officers in Florida is struck and killed by tractor trailer"
     url: "https://apnews.com/article/man-killed-semi-truck-ice-florida-8e65b1ca2eab051392afc316972c92eb"

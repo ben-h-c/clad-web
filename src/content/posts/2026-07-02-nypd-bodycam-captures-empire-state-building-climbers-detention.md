@@ -29,6 +29,10 @@ keyMoments:
 videoId: "HDncN64aFWU"
 videoTitle: "NYPD bodycam shows Empire State Building activists being detained"
 thumbnail: "https://img.youtube.com/vi/HDncN64aFWU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bodycam shows NYPD confronting two Empire State Building climbers"
     url: "https://www.cnn.com/2026/07/01/us/video/empire-state-climbers-nypd-bodycam"

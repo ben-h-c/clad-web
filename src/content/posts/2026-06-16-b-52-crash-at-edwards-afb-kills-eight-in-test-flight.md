@@ -31,6 +31,10 @@ keyMoments:
 videoId: "GXG9WU3NqZA"
 videoTitle: "B-52 bomber crash at US Air Force base in California kills 8"
 thumbnail: "https://img.youtube.com/vi/GXG9WU3NqZA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Eight dead after B-52 bomber crashes at California military base"
     url: "https://apnews.com/article/b52-crash-california-edwards-air-force-base-ea237a6eec587adbbf9e7a578014ca93"

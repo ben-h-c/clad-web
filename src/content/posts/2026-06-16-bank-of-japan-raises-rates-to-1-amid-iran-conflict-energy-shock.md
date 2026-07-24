@@ -38,6 +38,10 @@ keyMoments:
 videoId: "aNo4UKB1WbA"
 videoTitle: "Bank of Japan raises interest rates to 31-year high"
 thumbnail: "https://img.youtube.com/vi/aNo4UKB1WbA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bank of Japan raises interest rates to 31-year high in widely expected move"
     url: "https://www.reuters.com/world/asia-pacific/bank-japan-set-raise-rates-31-year-high-vow-further-increases-2026-06-15/"

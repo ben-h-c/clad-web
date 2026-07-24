@@ -35,6 +35,10 @@ keyMoments:
 videoId: "oX437yqH5NY"
 videoTitle: "Macron hosts Trump and Zelenskyy as G7 leaders discuss Ukraine"
 thumbnail: "https://img.youtube.com/vi/oX437yqH5NY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "G7 leaders open summit talks in France on Ukraine and the Middle East"
     url: "https://www.npr.org/2026/06/16/g-s1-128325/g7-leaders-summit"

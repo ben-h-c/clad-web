@@ -36,6 +36,10 @@ keyMoments:
 videoId: "2WnihL_6x2k"
 videoTitle: "‘Ed Miliband Will DESTROY Our Economy’ | Andy Burnham Set To Become PM ‘For WORSE’"
 thumbnail: "https://img.youtube.com/vi/2WnihL_6x2k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Britain Is About to Get a New Leader. Here’s How the Transition Works."
     url: "https://www.nytimes.com/2026/07/17/world/europe/burnham-prime-minister-explainer.html"

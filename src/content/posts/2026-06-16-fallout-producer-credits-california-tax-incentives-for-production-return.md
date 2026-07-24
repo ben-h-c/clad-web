@@ -34,6 +34,10 @@ keyMoments:
 videoId: "urULxTf4aLk"
 videoTitle: "'Fallout' producer lauds tax breaks for luring show to Hollywood"
 thumbnail: "https://img.youtube.com/vi/urULxTf4aLk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Governor Newsom announces next round of film and TV tax credits; hit series ‘Baywatch’ returning to California"
     url: "https://www.gov.ca.gov/2025/11/20/governor-newsom-announces-next-round-of-film-and-tv-tax-credits-hit-series-baywatch-returning-to-california/"

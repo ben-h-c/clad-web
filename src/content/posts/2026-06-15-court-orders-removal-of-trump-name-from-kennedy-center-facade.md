@@ -32,6 +32,10 @@ keyMoments:
 videoId: "ttlxSFphAgM"
 videoTitle: "Trump’s Name Removed from Kennedy Center After Court Order, Victory for Congress | NewsX"
 thumbnail: "https://img.youtube.com/vi/ttlxSFphAgM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Kennedy Center removes Trump's name from building"
     url: "https://www.washingtonpost.com/style/2026/06/12/kennedy-center-removes-trumps-name-building/"

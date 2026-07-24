@@ -36,6 +36,10 @@ keyMoments:
 videoId: "vCLh_wXMHU0"
 videoTitle: "Rep. Gwen Moore on the Iran War and Congressional News of the Day"
 thumbnail: "https://img.youtube.com/vi/vCLh_wXMHU0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Gwen Moore"
     slug: "gwen-moore"

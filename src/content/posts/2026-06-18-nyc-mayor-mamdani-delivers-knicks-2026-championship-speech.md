@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Wc_kt7Y0zP4"
 videoTitle: "Mamdani Celebrates the New York Knicks"
 thumbnail: "https://img.youtube.com/vi/Wc_kt7Y0zP4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 NBA Finals - Knicks defeat Spurs 4-1"
     url: "https://en.wikipedia.org/wiki/2026_NBA_Finals"

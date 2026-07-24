@@ -41,6 +41,10 @@ keyMoments:
 videoId: "9Aar-3Dp94U"
 videoTitle: "'Operation epic failure': Trump & Hegseth blasted by Rep. Jeffries as Iran war death toll climbs"
 thumbnail: "https://img.youtube.com/vi/9Aar-3Dp94U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "W1XkBXuNCN8"
 videoTitle: "We have 'NO TIME' to waste, we MUST win the AI race: Charles Payne"
 thumbnail: "https://img.youtube.com/vi/W1XkBXuNCN8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. Data Center Power Consumption Map by State (2026)"
     url: "https://www.electricchoice.com/datacenters/"

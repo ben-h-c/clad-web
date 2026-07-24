@@ -27,6 +27,10 @@ keyMoments:
 videoId: "6sRJN2TaWkg"
 videoTitle: "G7 summit: Trump, Macron, Modi and other world leaders discuss economy"
 thumbnail: "https://img.youtube.com/vi/6sRJN2TaWkg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "G7 summit: World leaders attend session to discuss economy"
     url: "https://www.youtube.com/watch?v=6sRJN2TaWkg"

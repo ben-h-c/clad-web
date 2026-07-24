@@ -36,6 +36,10 @@ keyMoments:
 videoId: "KZKYZJ9ndTs"
 videoTitle: "AI boom fuels massive investment surge across tech, energy and materials sectors"
 thumbnail: "https://img.youtube.com/vi/KZKYZJ9ndTs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jeetu Patel - President & Chief Product Officer at Cisco"
     url: "https://newsroom.cisco.com/c/r/newsroom/en/us/executives/jeetu-patel.html"

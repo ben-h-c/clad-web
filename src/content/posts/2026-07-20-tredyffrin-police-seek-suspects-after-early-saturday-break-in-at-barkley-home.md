@@ -32,6 +32,10 @@ keyMoments:
 videoId: "7z6WUd_ZQ9M"
 videoTitle: "Investigation underway after break-in at home of Philadelphia Eagles' Saquon Barkley"
 thumbnail: "https://img.youtube.com/vi/7z6WUd_ZQ9M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Saquon Barkley’s Pennsylvania Home Broken into While the NFL Star and His Family Were Inside"
     url: "https://people.com/saquon-barkley-home-broken-into-while-the-nfl-star-and-his-family-were-inside-12022215"

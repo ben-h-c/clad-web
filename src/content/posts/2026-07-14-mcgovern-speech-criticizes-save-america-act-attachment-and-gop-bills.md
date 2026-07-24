@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Zroz83VSToI"
 videoTitle: "'Even Republicans Know It Is A Disaster!': Jim McGovern Rails Against SAVE America Act"
 thumbnail: "https://img.youtube.com/vi/Zroz83VSToI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

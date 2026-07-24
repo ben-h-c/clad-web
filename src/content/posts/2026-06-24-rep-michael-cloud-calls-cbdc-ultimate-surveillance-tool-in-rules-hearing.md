@@ -29,6 +29,10 @@ keyMoments:
 videoId: "hwJmjQIcrDc"
 videoTitle: "Michael Cloud Decries Central Bank Digital Currency As 'Ultimate Surveillance Tool'"
 thumbnail: "https://img.youtube.com/vi/hwJmjQIcrDc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "H. Rept. 119-92 - ANTI-CBDC SURVEILLANCE STATE ACT"
     url: "https://www.congress.gov/committee-report/119th-congress/house-report/92/1"

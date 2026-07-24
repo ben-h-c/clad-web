@@ -37,6 +37,10 @@ keyMoments:
 videoId: "romH2coH-8o"
 videoTitle: "Three brothers in Zambia navigate life after they lost their parents to AIDS"
 thumbnail: "https://img.youtube.com/vi/romH2coH-8o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Trump Administration's Foreign Aid Review: Status of PEPFAR"
     url: "https://www.kff.org/global-health-policy/the-trump-administrations-foreign-aid-review-status-of-pepfar/"

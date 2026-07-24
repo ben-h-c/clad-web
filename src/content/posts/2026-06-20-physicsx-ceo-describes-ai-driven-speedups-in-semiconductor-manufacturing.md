@@ -32,6 +32,10 @@ keyMoments:
 videoId: "YrDgrrPpLwo"
 videoTitle: "PhysicsX CEO on #ai breakthroughs in manufacturing #tech"
 thumbnail: "https://img.youtube.com/vi/YrDgrrPpLwo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Startup PhysicsX Hits $2.4 Billion Valuation to Provide AI for Manufacturing"
     url: "https://www.bloomberg.com/news/articles/2026-06-08/startup-physicsx-hits-2-4-billion-valuation-to-provide-ai-for-manufacturing"

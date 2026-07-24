@@ -35,6 +35,10 @@ keyMoments:
 videoId: "pYzHtDylimI"
 videoTitle: "Will Trump pardon Andrew and Tristan Tate? Brothers are facing rape and trafficking charges"
 thumbnail: "https://img.youtube.com/vi/pYzHtDylimI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "JD Vance"
     slug: "jd-vance"

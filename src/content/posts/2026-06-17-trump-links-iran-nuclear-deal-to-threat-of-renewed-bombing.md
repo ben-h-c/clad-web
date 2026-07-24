@@ -33,6 +33,10 @@ keyMoments:
 videoId: "w5TFhEcwrfk"
 videoTitle: "\"It should be permanently, but if it's not permanently, we will bomb them.\""
 thumbnail: "https://img.youtube.com/vi/w5TFhEcwrfk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump Threatens Iran and Then Pulls Back, All in the Same Day"
     url: "https://www.nytimes.com/2026/05/18/us/politics/trump-iran-strikes.html"

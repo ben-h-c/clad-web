@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Ll5dfua30bo"
 videoTitle: "Fox Corp. to buy video streaming giant Roku for $22 billion"
 thumbnail: "https://img.youtube.com/vi/Ll5dfua30bo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fox to Buy Roku at $22 Billion Value in Streaming Video Push"
     url: "https://www.bloomberg.com/news/articles/2026-06-15/fox-to-buy-roku-at-22-billion-value-in-streaming-video-push"

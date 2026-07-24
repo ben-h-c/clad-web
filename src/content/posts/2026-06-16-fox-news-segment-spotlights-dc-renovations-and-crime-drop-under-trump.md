@@ -37,6 +37,10 @@ keyMoments:
 videoId: "XNd88MIaEiI"
 videoTitle: "'Jesse Watters Primetime' checks out DC's major facelift under Trump"
 thumbnail: "https://img.youtube.com/vi/XNd88MIaEiI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump working to clean 'filthy' Lincoln Memorial Reflecting Pool, blames Biden for maintenance delays"
     url: "https://www.foxnews.com/politics/trump-working-clean-filthy-lincoln-memorial-reflecting-pool-blames-biden-maintenance-delays"

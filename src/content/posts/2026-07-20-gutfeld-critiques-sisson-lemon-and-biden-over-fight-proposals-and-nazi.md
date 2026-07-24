@@ -37,6 +37,10 @@ keyMoments:
 videoId: "uD37Bv26d18"
 videoTitle: "Greg Gutfeld: This is their idea of a debate..."
 thumbnail: "https://img.youtube.com/vi/uD37Bv26d18/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iceberg lettuce recall grows to 27 states amid parasite concern"
     url: "https://www.nbcnews.com/nightly-news/video/iceberg-lettuce-recall-grows-to-27-states-amid-parasite-concern-266923077847"

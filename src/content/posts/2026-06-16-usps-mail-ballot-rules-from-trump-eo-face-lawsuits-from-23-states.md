@@ -40,6 +40,10 @@ keyMoments:
 videoId: "he89xvf2j34"
 videoTitle: "Could the U.S. Post Office RIG the midterm elections for Trump?"
 thumbnail: "https://img.youtube.com/vi/he89xvf2j34/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ensuring Citizenship Verification and Integrity in Federal Elections"
     url: "https://www.whitehouse.gov/presidential-actions/2026/03/ensuring-citizenship-verification-and-integrity-in-federal-elections/"

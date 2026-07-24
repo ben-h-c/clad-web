@@ -37,6 +37,10 @@ keyMoments:
 videoId: "FyH3A47KZUE"
 videoTitle: "President Trump is trying to push back on this, GOP senator says"
 thumbnail: "https://img.youtube.com/vi/FyH3A47KZUE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "President Trump is non-traditional in how he does ..."
     url: "https://www.foxbusiness.com/video/6398494556112"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "wgUYiupomMM"
 videoTitle: "Israeli strikes kill 18 in Lebanon, U.S.-Iran talks postponed"
 thumbnail: "https://img.youtube.com/vi/wgUYiupomMM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Lebanon hostilities escalate, weighing on US-Iran deal"
     url: "https://www.reuters.com/world/middle-east/israel-steps-up-lebanon-attacks-with-strikes-that-kill-15-2026-06-19/"

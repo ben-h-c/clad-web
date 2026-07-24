@@ -30,6 +30,10 @@ keyMoments:
 videoId: "JZe3cNa0kwQ"
 videoTitle: "Don Bacon: US is threatening two NATO countries #Shorts"
 thumbnail: "https://img.youtube.com/vi/JZe3cNa0kwQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Don Bacon"
     slug: "don-bacon"

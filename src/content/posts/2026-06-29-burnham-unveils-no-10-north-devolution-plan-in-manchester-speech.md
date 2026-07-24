@@ -33,6 +33,10 @@ keyMoments:
 videoId: "Eh4guWVWrlg"
 videoTitle: "Andy Burnham to launch Number 10 NORTH!?"
 thumbnail: "https://img.youtube.com/vi/Eh4guWVWrlg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Burnham to set out regional devolution plans in first major speech since Westminster return"
     url: "https://www.bbc.com/news/live/cgrk4rpxnx7t"

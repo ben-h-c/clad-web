@@ -31,6 +31,10 @@ keyMoments:
 videoId: "oZukMUCmTyM"
 videoTitle: "The mother of one of this year's World Cup's breakout stars will now be able to travel to the U.S."
 thumbnail: "https://img.youtube.com/vi/oZukMUCmTyM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Visa costs kept her from seeing her son’s star World Cup moment. Now she’s going."
     url: "https://www.washingtonpost.com/sports/2026/06/17/visa-costs-kept-her-seeing-her-sons-star-world-cup-moment-now-shes-going/"

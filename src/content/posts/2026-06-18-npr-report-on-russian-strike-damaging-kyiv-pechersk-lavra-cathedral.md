@@ -34,6 +34,10 @@ keyMoments:
 videoId: "_ObO7dAPsew"
 videoTitle: "Russian strikes have left cultural scars across Ukraine"
 thumbnail: "https://img.youtube.com/vi/_ObO7dAPsew/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Drone strikes one of Ukraine’s key Christian and cultural sites"
     url: "https://www.npr.org/2026/06/15/nx-s1-5858862/drone-strikes-one-of-ukraines-key-christian-and-cultural-sites"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "PLaL-kv4a7A"
 videoTitle: "Will Trump Split From Israel Over the Gaza Genocide? Israeli Journalist on Netanyahu’s War Crimes"
 thumbnail: "https://img.youtube.com/vi/PLaL-kv4a7A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Tucker Carlson: Gideon Levy on Gaza, Netanyahu’s War Crimes, and US Support"
     url: "https://tuckercarlson.com/tucker-show-gideon-levy-061226"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "QSjuMk4H0lY"
 videoTitle: "Makerfield: The future of British politics being decided by 77 thousand people"
 thumbnail: "https://img.youtube.com/vi/QSjuMk4H0lY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Makerfield by-election"
     url: "https://en.wikipedia.org/wiki/2026_Makerfield_by-election"

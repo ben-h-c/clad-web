@@ -40,6 +40,10 @@ keyMoments:
 videoId: "9uc_6ZmCT9A"
 videoTitle: "Hayes Asks NLRB Chair About Corporations Going 'Beyond Free Speech' To Discourage Unionization"
 thumbnail: "https://img.youtube.com/vi/9uc_6ZmCT9A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "General Counsel Announces Case Reallocation Initiative to Tackle Historic Backlog"
     url: "https://www.nlrb.gov/news-outreach/news-story/general-counsel-announces-case-reallocation-initiative-to-tackle-historic"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "VwHW4a1HAis"
 videoTitle: "Kamlager-Dove CHALLENGES Rubio Over $1.8 Billion Slush Fund!!"
 thumbnail: "https://img.youtube.com/vi/VwHW4a1HAis/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Marco Rubio"
     slug: "marco-rubio"

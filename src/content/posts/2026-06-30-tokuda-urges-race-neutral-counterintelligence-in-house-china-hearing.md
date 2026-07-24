@@ -31,6 +31,10 @@ keyMoments:
 videoId: "xmn8go_aCNA"
 videoTitle: "'We Need To Start To Learn': Jill Tokuda Demands Race-Neutral Methods To Deter Chinese Influence"
 thumbnail: "https://img.youtube.com/vi/xmn8go_aCNA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "ODNI Report on Best Practices to Protect Privacy, Civil Liberties... of Americans of Chinese Descent"
     url: "https://www.dni.gov/files/CLPT/documents/ODNI_Report_on_Best_Practices_to_Protect_Privacy_Civil_Liberties_and_Civil_Rights_of_Americans_of_Chinese_Descent_in_ConductOof_US_Intelligence_Activities_May_2022.pdf"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "oa2S81Ljm40"
 videoTitle: "'Discuss The Factors': Owens Asks NLRB Head When Student Athletes Should Be Classified As Employees"
 thumbnail: "https://img.youtube.com/vi/oa2S81Ljm40/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NLRB General Counsel Jennifer Abruzzo Issues Memo on Employee Status of Players at Academic Institutions"
     url: "https://www.nlrb.gov/news-outreach/news-story/nlrb-general-counsel-jennifer-abruzzo-issues-memo-on-employee-status-of"

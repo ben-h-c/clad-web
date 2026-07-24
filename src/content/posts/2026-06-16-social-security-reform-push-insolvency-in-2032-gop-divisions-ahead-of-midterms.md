@@ -36,6 +36,10 @@ keyMoments:
 videoId: "pDZvRWDU7Cs"
 videoTitle: "Will Social Security go broke? Republicans grapple with reform ahead of midterms"
 thumbnail: "https://img.youtube.com/vi/pDZvRWDU7Cs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trustees Report Summary"
     url: "https://www.ssa.gov/oact/trsum/"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "gHbfOI7vh2M"
 videoTitle: "A Boise Physician is Filing a Lawsuit Against Two of Idaho's Abortion Bans"
 thumbnail: "https://img.youtube.com/vi/gHbfOI7vh2M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Federal trial starts for Idaho doctor seeking medical exemptions to abortion ban"
     url: "https://idahocapitalsun.com/2026/06/08/federal-trial-starts-for-idaho-doctor-seeking-medical-exemptions-to-abortion-ban/"

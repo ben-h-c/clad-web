@@ -36,6 +36,10 @@ keyMoments:
 videoId: "bmUrE76JfbU"
 videoTitle: "Inside the US–Iran talks: Qatar’s growing diplomatic role"
 thumbnail: "https://img.youtube.com/vi/bmUrE76JfbU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Talks on implementing US-Iran deal still planned in Switzerland Friday: Bern"
     url: "https://www.france24.com/en/live-news/20260618-talks-on-implementing-us-iran-deal-still-planned-in-switzerland-friday-bern"

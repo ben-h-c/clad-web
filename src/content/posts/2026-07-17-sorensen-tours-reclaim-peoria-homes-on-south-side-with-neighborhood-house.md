@@ -34,6 +34,10 @@ keyMoments:
 videoId: "MzA32BBQVag"
 videoTitle: "Congressman Eric Sorensen and Peoria non-profit leaders speak on affordable housing initiatives"
 thumbnail: "https://img.youtube.com/vi/MzA32BBQVag/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Eric Sorensen"
     slug: "eric-sorensen"

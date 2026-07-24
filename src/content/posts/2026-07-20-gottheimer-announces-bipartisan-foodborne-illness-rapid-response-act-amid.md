@@ -38,6 +38,10 @@ keyMoments:
 videoId: "MIsTwLgJ5JI"
 videoTitle: "WATCH: Cyclospora update | Congressman Josh Gottheimer announces new federal actions | NBC New York"
 thumbnail: "https://img.youtube.com/vi/MIsTwLgJ5JI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Don Bacon"
     slug: "don-bacon"

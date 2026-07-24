@@ -28,6 +28,10 @@ keyMoments:
 videoId: "zCvxgF6oc84"
 videoTitle: "Ivory Coast fans celebrate as team reaches World Cup knockout stage"
 thumbnail: "https://img.youtube.com/vi/zCvxgF6oc84/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 World Cup: Ecuador beats Group E winner Germany to reach knockout round, where they'll be joined by first-timer Ivory Coast"
     url: "https://sports.yahoo.com/soccer/breaking-news/article/2026-world-cup-ecuador-beats-group-e-winner-germany-to-reach-knockout-round-where-theyll-be-joined-by-first-timer-ivory-coast-221316028.html"

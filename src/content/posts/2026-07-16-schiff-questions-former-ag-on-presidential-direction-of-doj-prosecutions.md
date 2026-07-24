@@ -33,6 +33,10 @@ keyMoments:
 videoId: "eF7xMVPgsyI"
 videoTitle: "Sen. Schiff questions former AG if Trump can tell AG to prosecute enemies"
 thumbnail: "https://img.youtube.com/vi/eF7xMVPgsyI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Adam B. Schiff"
     slug: "adam-b-schiff"

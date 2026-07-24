@@ -35,6 +35,10 @@ keyMoments:
 videoId: "-0ZzxMGevRw"
 videoTitle: "ASML Raises Outlook, Plans Capacity Hike"
 thumbnail: "https://img.youtube.com/vi/-0ZzxMGevRw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "ASML Raises Outlook, Plans More EUV Capacity"
     url: "https://www.eetimes.com/asml-raises-outlook-plans-more-euv-capacity/"

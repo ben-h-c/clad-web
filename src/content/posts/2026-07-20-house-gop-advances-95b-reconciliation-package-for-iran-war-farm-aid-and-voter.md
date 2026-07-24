@@ -40,6 +40,10 @@ keyMoments:
 videoId: "Hh4eOo5bqBc"
 videoTitle: "&#39;Apparently There&#39;s Always More Money For War&#39;: Mary Gay Scanlon And Morgan McGarvey Blast GOP Bill"
 thumbnail: "https://img.youtube.com/vi/Hh4eOo5bqBc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Mary Gay Scanlon"
     slug: "mary-gay-scanlon"

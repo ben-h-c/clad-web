@@ -32,6 +32,10 @@ keyMoments:
 videoId: "jpP9fwSbmt4"
 videoTitle: "Swedish minister brings baby to E.U. Council meeting"
 thumbnail: "https://img.youtube.com/vi/jpP9fwSbmt4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Swedish minister brings baby to EU meeting, a first for the bloc"
     url: "https://www.reuters.com/world/swedish-minister-brings-baby-eu-meeting-first-bloc-2026-06-25/"

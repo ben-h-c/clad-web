@@ -34,6 +34,10 @@ keyMoments:
 videoId: "_Ji3xnAuRHg"
 videoTitle: "Latest news on Iran deal as Israel and Hezbollah appear to reach ceasefire"
 thumbnail: "https://img.youtube.com/vi/_Ji3xnAuRHg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Israel, Hezbollah agree to ceasefire after morning flareup"
     url: "https://www.dw.com/en/israel-hezbollah-agree-to-ceasefire-after-morning-flareup/live-77620493"

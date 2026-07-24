@@ -31,6 +31,10 @@ keyMoments:
 videoId: "pRbESFTp7UY"
 videoTitle: "Nvidia CEO Jensen Huang says society needs 'new social norms' in age of AI"
 thumbnail: "https://img.youtube.com/vi/pRbESFTp7UY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "AP Exclusive: Nvidia’s Jensen Huang says society needs ‘new social norms’ in the age of AI"
     url: "https://apnews.com/article/nvidea-huang-artificial-intelligence-8334abcbc6ed8d3d7889b640ec6fa05b"

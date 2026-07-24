@@ -35,6 +35,10 @@ keyMoments:
 videoId: "rv9fmwCLQzI"
 videoTitle: "Markets, not politicians, will decide oil and gas flows once Hormuz reopens, analyst says"
 thumbnail: "https://img.youtube.com/vi/rv9fmwCLQzI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Amid regional conflict, the Strait of Hormuz remains critical to global oil and natural gas flows"
     url: "https://www.eia.gov/todayinenergy/detail.php?id=65504"

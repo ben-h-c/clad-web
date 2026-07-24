@@ -32,6 +32,10 @@ keyMoments:
 videoId: "ynBeeJU1VlE"
 videoTitle: "GB News panel BASH \"PIECE OF FILTH\" who ESCAPED police custody"
 thumbnail: "https://img.youtube.com/vi/ynBeeJU1VlE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Urgent manhunt launched after Sudanese prisoner who attacked two women escapes custody"
     url: "https://www.gbnews.com/news/manchester-news-manhunt-sudanese-prisoner-marwan-jumaa-escape"

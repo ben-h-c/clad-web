@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Na2g58KkSiQ"
 videoTitle: "Ukraine is winning the war with Russia, but Putin is taking a dangerous step"
 thumbnail: "https://img.youtube.com/vi/Na2g58KkSiQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ukraine Is Winning — for Now at Least"
     url: "https://www.bloomberg.com/opinion/articles/2026-06-12/ukraine-s-drones-are-beating-russia-for-now-at-least"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "4p9m6NjH2jk"
 videoTitle: "How Elon Musk's USAID cuts triggered an HIV crisis | People & Power Documentary"
 thumbnail: "https://img.youtube.com/vi/4p9m6NjH2jk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. Department of State: America First Global Health Strategy - bilateral agreements with Nigerian, Cameroon and Mozambique"
     url: "https://www.eatg.org/hiv-news/u-s-department-of-state-america-first-global-health-strategy-bilateral-agreements-with-nigerian-cameroon-and-mozambique/"

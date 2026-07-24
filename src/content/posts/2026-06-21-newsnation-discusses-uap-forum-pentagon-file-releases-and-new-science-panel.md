@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ef5l8QLGf1M"
 videoTitle: "UAP disclosure forum in DC meant to advance the cause: Ross Coulthart | NewsNation Prime"
 thumbnail: "https://img.youtube.com/vi/ef5l8QLGf1M/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump creates UFO panel to be advised by Harvard's Avi Loeb"
     url: "https://nypost.com/2026/06/20/us-news/cosmic-council-trump-creates-ufo-panel-to-be-advised-by-harvards-avi-loeb/"

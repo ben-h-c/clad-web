@@ -38,6 +38,10 @@ keyMoments:
 videoId: "yvYCzh0BcmM"
 videoTitle: "EXCLUSIVE: Barack Obama in his own words | MS NOW FULL INTERVIEW"
 thumbnail: "https://img.youtube.com/vi/yvYCzh0BcmM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Grand Opening | The Obama Foundation"
     url: "https://www.obama.org/visit/grand-opening/"

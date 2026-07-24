@@ -32,6 +32,10 @@ keyMoments:
 videoId: "o8RUilGsX14"
 videoTitle: "'Not Taking Their Duty Seriously': Michelle Fischbach Blasts Senate For Not Taking Up Approps Bills"
 thumbnail: "https://img.youtube.com/vi/o8RUilGsX14/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Michelle Fischbach"
     slug: "michelle-fischbach"

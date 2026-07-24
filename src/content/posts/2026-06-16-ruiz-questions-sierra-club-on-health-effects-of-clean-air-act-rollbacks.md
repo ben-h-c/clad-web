@@ -39,6 +39,10 @@ keyMoments:
 videoId: "Gw3gYwJvdPI"
 videoTitle: "'What Would That Mean?': Ruiz Asks Sierra Club Rep. About Impact Of Rollback Of Clean Air Act Rules"
 thumbnail: "https://img.youtube.com/vi/Gw3gYwJvdPI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Congress Pushes Vehicle Emissions Rollbacks"
     url: "https://legis1.com/news/vehicle-emissions-rollback-congress-pushes-to"

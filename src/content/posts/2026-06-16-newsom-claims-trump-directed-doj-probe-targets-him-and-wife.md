@@ -36,6 +36,10 @@ keyMoments:
 videoId: "cxovRbxu1DQ"
 videoTitle: "Gov. Gavin Newsom says DOJ is investigating him"
 thumbnail: "https://img.youtube.com/vi/cxovRbxu1DQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Governor Gavin Newsom Statement on Donald Trump’s Weaponized DOJ Investigation"
     url: "https://www.gov.ca.gov/2026/06/15/governor-gavin-newsom-statement-on-donald-trumps-weaponized-doj-investigation/"

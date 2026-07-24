@@ -33,6 +33,10 @@ keyMoments:
 videoId: "nu-p_9yPKZE"
 videoTitle: "Signing of Iran MOU Isn't Fully Priced: 3-Minutes MLIV"
 thumbnail: "https://img.youtube.com/vi/nu-p_9yPKZE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US, Iran reach preliminary agreement to end war, signing set for Friday"
     url: "https://edition.cnn.com/2026/06/15/world/live-news/iran-war-g7-summit"

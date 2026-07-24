@@ -32,6 +32,10 @@ keyMoments:
 videoId: "RwLUo2lrUsU"
 videoTitle: "Pastor takes a photo of what may be the 5 adults who drowned in Ohio"
 thumbnail: "https://img.youtube.com/vi/RwLUo2lrUsU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "‘The last picture’: A passing boater’s photograph may be the 5 adults who drowned in Ohio"
     url: "https://www.mainlinemedianews.com/2026/07/22/pastor-photo-last-image-scioto-river-drownings/"

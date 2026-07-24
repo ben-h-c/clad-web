@@ -31,6 +31,10 @@ keyMoments:
 videoId: "TkFOMspJXOA"
 videoTitle: "Tim Moore | How I Made It | intro"
 thumbnail: "https://img.youtube.com/vi/TkFOMspJXOA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Tim Moore"
     slug: "tim-moore"

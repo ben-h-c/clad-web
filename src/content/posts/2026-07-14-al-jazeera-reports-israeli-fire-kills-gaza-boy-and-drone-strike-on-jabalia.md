@@ -34,6 +34,10 @@ keyMoments:
 videoId: "fodTldW-8cA"
 videoTitle: "Israeli forces open fire on displaced people in Gaza, killing 9-year-old boy"
 thumbnail: "https://img.youtube.com/vi/fodTldW-8cA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Death toll in Gaza since 'ceasefire' with Israel goes past 1000"
     url: "https://www.aljazeera.com/news/2026/6/17/death-toll-in-gaza-since-ceasefire-with-israel-goes-past-1000"

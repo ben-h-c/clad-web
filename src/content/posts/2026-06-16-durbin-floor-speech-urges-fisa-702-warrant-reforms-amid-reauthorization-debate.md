@@ -35,6 +35,10 @@ keyMoments:
 videoId: "q8yQPqyCq54"
 videoTitle: "'Been Abused For Way Too Long': Dick Durbin Calls For 'Reasonable Reforms' To FISA Section 702"
 thumbnail: "https://img.youtube.com/vi/q8yQPqyCq54/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Durbin Calls For Reforms To FISA Section 702 Ahead Of Its Expiration Next Month"
     url: "https://www.judiciary.senate.gov/press/dem/releases/durbin-calls-for-reforms-to-fisa-section-702-ahead-of-its-expiration-next-month"

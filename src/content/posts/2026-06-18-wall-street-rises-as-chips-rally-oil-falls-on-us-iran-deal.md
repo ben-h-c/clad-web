@@ -35,6 +35,10 @@ keyMoments:
 videoId: "cQ-PIsw0fR8"
 videoTitle: "Wall Street ends higher on boost from chips, Iran optimism"
 thumbnail: "https://img.youtube.com/vi/cQ-PIsw0fR8/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Stock Market Today (June 18, 2026)"
     url: "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-18-2026"

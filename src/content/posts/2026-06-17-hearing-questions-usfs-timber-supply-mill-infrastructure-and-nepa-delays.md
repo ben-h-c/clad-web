@@ -36,6 +36,10 @@ keyMoments:
 videoId: "mwS44Bjr0o0"
 videoTitle: "Tom Tiffany: This Is Why USFS Must Focus On Opening New Wood Mills And Wood Processing Facilities"
 thumbnail: "https://img.youtube.com/vi/mwS44Bjr0o0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Forest Products Cut and Sold from the National Forest System"
     url: "https://www.fs.usda.gov/managing-land/forest-management/products/cut-sold"

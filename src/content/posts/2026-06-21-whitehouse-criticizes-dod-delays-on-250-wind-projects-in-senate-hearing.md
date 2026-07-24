@@ -34,6 +34,10 @@ keyMoments:
 videoId: "wi3EyT5EVLU"
 videoTitle: "'The Idea Is Preposterous': Whitehouse Blasts Pentagon For Holding Up Approvals For Wind Projects"
 thumbnail: "https://img.youtube.com/vi/wi3EyT5EVLU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "250+ onshore wind projects stalled as Pentagon freezes permitting"
     url: "https://www.canarymedia.com/articles/wind/wind-projects-stalled-pentagon-permitting"

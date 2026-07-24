@@ -31,6 +31,10 @@ keyMoments:
 videoId: "PXF8YOSUaW4"
 videoTitle: "Fans react to US World Cup loss against Belgium after red card drama. #WorldCup #BBCNews"
 thumbnail: "https://img.youtube.com/vi/PXF8YOSUaW4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. loses to Belgium 4-1; Balogun plays after Trump calls FIFA"
     url: "https://www.cnbc.com/2026/07/05/trump-fifa-balogun-world-cup-red-card-suspension.html"

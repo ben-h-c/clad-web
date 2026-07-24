@@ -33,6 +33,10 @@ keyMoments:
 videoId: "DoIVKncwdQs"
 videoTitle: "When homeownership seems too difficult, young people look to socialism: Caroline Sunshine"
 thumbnail: "https://img.youtube.com/vi/DoIVKncwdQs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Image of Capitalism Slips to 54% in U.S."
     url: "https://news.gallup.com/poll/694835/image-capitalism-slips.aspx"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "hEHmQnVnLlw"
 videoTitle: "🚨@KidRock Drops TRUTH BOMB: John James is the BEST choice for Governor! 🇺🇸"
 thumbnail: "https://img.youtube.com/vi/hEHmQnVnLlw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Gretchen Whitmer"
     slug: "gretchen-whitmer"

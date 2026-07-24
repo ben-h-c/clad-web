@@ -35,6 +35,10 @@ keyMoments:
 videoId: "VNPckefw-MA"
 videoTitle: "Yoshiki at 60: 'I wanted to stick out' | AP interview"
 thumbnail: "https://img.youtube.com/vi/VNPckefw-MA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Yoshiki Is on the 2025 TIME100 List"
     url: "https://time.com/collections/100-most-influential-people-2025/7273761/yoshiki/"

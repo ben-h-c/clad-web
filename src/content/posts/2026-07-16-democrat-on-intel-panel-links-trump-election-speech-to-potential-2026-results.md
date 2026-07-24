@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Lzx6_svXFsg"
 videoTitle: "Top Intel Cmte. Dem: Trump’s speech was about ‘setting the stage’ to reject midterm election results"
 thumbnail: "https://img.youtube.com/vi/Lzx6_svXFsg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

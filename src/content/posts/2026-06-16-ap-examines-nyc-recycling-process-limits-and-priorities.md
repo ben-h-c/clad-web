@@ -34,6 +34,10 @@ keyMoments:
 videoId: "bRj2w7LV0cI"
 videoTitle: "Should you recycle? Here's how it really works"
 thumbnail: "https://img.youtube.com/vi/bRj2w7LV0cI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sunset Park Material Recovery Facility"
     url: "https://en.wikipedia.org/wiki/Sunset_Park_Material_Recovery_Facility"

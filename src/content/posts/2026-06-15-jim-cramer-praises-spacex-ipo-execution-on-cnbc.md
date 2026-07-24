@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ZmMAK3pZjvk"
 videoTitle: "Jim Cramer on SpaceX IPO: Can't recall a deal done as well as this one"
 thumbnail: "https://img.youtube.com/vi/ZmMAK3pZjvk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jim Cramer says SpaceX's blockbuster IPO could have major implications for the week ahead"
     url: "https://www.cnbc.com/2026/06/12/jim-cramer-spacex-ipo-implications-week-ahead.html"

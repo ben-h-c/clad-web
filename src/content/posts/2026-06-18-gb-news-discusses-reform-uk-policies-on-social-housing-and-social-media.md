@@ -36,6 +36,10 @@ keyMoments:
 videoId: "kbxx61cAsfQ"
 videoTitle: "Stop giving social housing to foreigners - Michael Murphy"
 thumbnail: "https://img.youtube.com/vi/kbxx61cAsfQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Farage says Reform government would force foreign nationals to leave social tenancies or face deportation"
     url: "https://www.housingtoday.co.uk/news/farage-says-reform-government-would-force-foreign-nationals-to-leave-social-tenancies-or-face-deportation/5142727.article"

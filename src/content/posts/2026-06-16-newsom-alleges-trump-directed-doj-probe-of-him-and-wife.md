@@ -32,6 +32,10 @@ keyMoments:
 videoId: "7phgVt2IYmU"
 videoTitle: "Newsom Says Trump Directed DOJ to Investigate Him and His Wife"
 thumbnail: "https://img.youtube.com/vi/7phgVt2IYmU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Gavin Newsom says Trump's DOJ is investigating him and his wife"
     url: "https://www.politico.com/news/2026/06/15/gavin-newsom-says-trump-investigating-him-wife-00962403"

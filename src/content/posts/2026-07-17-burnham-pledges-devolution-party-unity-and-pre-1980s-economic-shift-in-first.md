@@ -32,6 +32,10 @@ keyMoments:
 videoId: "gIxkbRku0sA"
 videoTitle: "Burnham sets out 1970s vision for Britain"
 thumbnail: "https://img.youtube.com/vi/gIxkbRku0sA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham Becomes Labour Leader and Is Set to Be Britain’s Prime Minister"
     url: "https://www.nytimes.com/live/2026/07/17/world/uk-burnham-starmer-labour"

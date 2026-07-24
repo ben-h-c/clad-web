@@ -24,6 +24,10 @@ keyMoments:
 videoId: "B00qZGLwUaY"
 videoTitle: "Texas plane crash | DW News"
 thumbnail: "https://img.youtube.com/vi/B00qZGLwUaY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "1 killed when small plane crashes on Texas highway"
     url: "https://apnews.com/article/texas-plane-crash-9d1eb45ec3c4482f2362ec3a39693a82"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "MklWmY_gnWU"
 videoTitle: "FLASHBACK: Trump Brings Fireworks Back To Mount Rushmore At Controversial July 4th Celebration"
 thumbnail: "https://img.youtube.com/vi/MklWmY_gnWU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mount Rushmore Fireworks Celebration"
     url: "https://en.wikipedia.org/wiki/Mount_Rushmore_Fireworks_Celebration"

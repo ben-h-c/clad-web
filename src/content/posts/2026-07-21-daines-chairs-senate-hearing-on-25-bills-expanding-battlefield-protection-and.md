@@ -35,6 +35,10 @@ keyMoments:
 videoId: "-mp4yswe_Mo"
 videoTitle: "Steve Daines Leads Senate Energy Committee Hearing On Pending Legislation"
 thumbnail: "https://img.youtube.com/vi/-mp4yswe_Mo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Steve Daines"
     slug: "steve-daines"

@@ -28,6 +28,10 @@ keyMoments:
 videoId: "YP0Sg4MXsAw"
 videoTitle: "Inde Navarrette says 'Obsession' unlocked newfound confidence"
 thumbnail: "https://img.youtube.com/vi/YP0Sg4MXsAw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Inde Navarrette - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Inde_Navarrette"

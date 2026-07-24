@@ -28,6 +28,10 @@ keyMoments:
 videoId: "mFYINM6rSk8"
 videoTitle: "Neymar trains with Brazil teammates"
 thumbnail: "https://img.youtube.com/vi/mFYINM6rSk8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Neymar returns to action for limited training with Brazil at the World Cup"
     url: "https://www.thetelegraph.com/sports/article/neymar-returns-to-action-for-limited-training-22308660.php"

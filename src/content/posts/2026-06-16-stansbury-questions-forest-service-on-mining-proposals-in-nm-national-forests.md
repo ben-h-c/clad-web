@@ -36,6 +36,10 @@ keyMoments:
 videoId: "HUL6125tMYk"
 videoTitle: "'There Are Other Places To Mine': Stansbury Decries Proposals To Open National Forests To Mining"
 thumbnail: "https://img.youtube.com/vi/HUL6125tMYk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Protect our forests and sacred sites! Yesterday we faced off ..."
     url: "https://www.facebook.com/RepStansbury/videos/protect-our-forests-and-sacred-sites-yesterday-we-faced-off-with-forest-service-/2138192883391259/"

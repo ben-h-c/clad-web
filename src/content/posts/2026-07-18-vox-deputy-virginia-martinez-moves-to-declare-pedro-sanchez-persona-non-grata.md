@@ -40,6 +40,10 @@ keyMoments:
 videoId: "VKQ0ye_7ai0"
 videoTitle: "Spain in REVOLT as 1.3 MILLION migrants FLOOD coast and prosecutors LOCK UP 'corrupt' politicians"
 thumbnail: "https://img.youtube.com/vi/VKQ0ye_7ai0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "José Ángel Antelo y Virginia Martínez propondrán declarar a Pedro Sánchez 'persona non grata' en la Región de Murcia"
     url: "https://www.elmundo.es/murcia/2026/07/07/6a4cc36bfdddff195c8b45a8.html"

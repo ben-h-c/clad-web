@@ -36,6 +36,10 @@ keyMoments:
 videoId: "QQUvJJLpSUA"
 videoTitle: "Trump-Infantino: is this the World Cup that BROKE FIFA?"
 thumbnail: "https://img.youtube.com/vi/QQUvJJLpSUA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'I didn't think it was a foul': Trump says he asked FIFA president for review of Balogun red card"
     url: "https://www.cnn.com/2026/07/06/politics/trump-red-card-fifa-world-cup-balogun"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "YU4SjGWaLCA"
 videoTitle: "‘He cannot accept a loss’: Inside Trump’s voter overhaul obsession that could backfire on the GOP"
 thumbnail: "https://img.youtube.com/vi/YU4SjGWaLCA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump cancels signing of bipartisan housing bill ahead of tense meeting with GOP senators"
     url: "https://www.cnbc.com/2026/06/24/trump-cancels-housing-bill-signing-save-america-act.html"

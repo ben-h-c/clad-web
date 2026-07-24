@@ -34,6 +34,10 @@ keyMoments:
 videoId: "aQ6hs0MMAfM"
 videoTitle: "Is Israel's Lebanon offensive threatening a fragile US–Iran thaw? | DW News"
 thumbnail: "https://img.youtube.com/vi/aQ6hs0MMAfM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran says the initial deal to end the war with the US requires Israel to withdraw from Lebanon"
     url: "https://apnews.com/article/iran-us-war-israel-lebanon-oil-june-16-2026-d79458506c46e3f4a78aef0f9d8b9250"

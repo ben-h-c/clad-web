@@ -34,6 +34,10 @@ keyMoments:
 videoId: "b_E13rwWmnc"
 videoTitle: "South Korea rolls out plan to tackle youth suicide crisis"
 thumbnail: "https://img.youtube.com/vi/b_E13rwWmnc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Korea plans AI warning system to halve teen suicide rate by 2035"
     url: "https://www.koreaherald.com/article/10767489"

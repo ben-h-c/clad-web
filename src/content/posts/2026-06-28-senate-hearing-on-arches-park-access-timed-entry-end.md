@@ -35,6 +35,10 @@ keyMoments:
 videoId: "6RxsS-ChUFQ"
 videoTitle: "'Can You Walk Us Through?': Curtis Asks Trump Nom About Improving Arches National Park Experience"
 thumbnail: "https://img.youtube.com/vi/6RxsS-ChUFQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Arches National Park does not require timed entry for 2026"
     url: "https://www.nps.gov/arch/learn/news/news02182026.htm"

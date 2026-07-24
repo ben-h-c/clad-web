@@ -36,6 +36,10 @@ keyMoments:
 videoId: "T4HqNvTXmLw"
 videoTitle: "Watters: Trump lands in France with a gift…  #foxnews #news #us #fox #media"
 thumbnail: "https://img.youtube.com/vi/T4HqNvTXmLw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump hails Iran deal at G7 summit"
     url: "https://apnews.com/live/g7-summit-trump-updates-06-15-2026"

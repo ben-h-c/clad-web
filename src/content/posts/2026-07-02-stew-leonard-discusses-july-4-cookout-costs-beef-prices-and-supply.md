@@ -35,6 +35,10 @@ keyMoments:
 videoId: "y9YULxuI-nA"
 videoTitle: "'THERE'S PLENTY OF FOOD': Stew Leonard says shoppers should not fear shortages"
 thumbnail: "https://img.youtube.com/vi/y9YULxuI-nA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fourth of July Cookout Costs Reflect Inflation"
     url: "https://www.fb.org/market-intel/fourth-of-july-cookout-costs-reflect-inflation"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "FUCg8WpyKps"
 videoTitle: "Trump says US-Iran MoU ‘very strong’, Iranian leaders ‘want to sign’"
 thumbnail: "https://img.youtube.com/vi/FUCg8WpyKps/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. officials say Iran pact signed, Hormuz traffic will rise significantly"
     url: "https://www.reuters.com/world/middle-east/trump-vance-irans-parliament-speaker-signed-mou-2026-06-15/"

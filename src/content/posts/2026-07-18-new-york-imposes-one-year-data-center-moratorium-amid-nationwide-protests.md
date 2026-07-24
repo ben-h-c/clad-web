@@ -35,6 +35,10 @@ keyMoments:
 videoId: "v5FLUty1LYI"
 videoTitle: "Backlash growing against AI data centers"
 thumbnail: "https://img.youtube.com/vi/v5FLUty1LYI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

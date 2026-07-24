@@ -34,6 +34,10 @@ keyMoments:
 videoId: "N_yUfp-tp0Q"
 videoTitle: "Watch rescuers' joy at finding Venezuelan earthquake survivors"
 thumbnail: "https://img.youtube.com/vi/N_yUfp-tp0Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "June 24-25, 2026 — Venezuela rocked by 7.5 and 7.2 magnitude earthquakes"
     url: "https://www.cnn.com/2026/06/24/weather/live-news/venezuela-earthquake-puerto-rico-tsunami"

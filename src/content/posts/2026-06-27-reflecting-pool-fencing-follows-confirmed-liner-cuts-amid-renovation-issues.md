@@ -36,6 +36,10 @@ keyMoments:
 videoId: "dlwxPOGmuxQ"
 videoTitle: "Reflecting Pool SEALED OFF with fences after vandalism #foxnews #news #us #fox"
 thumbnail: "https://img.youtube.com/vi/dlwxPOGmuxQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Reflecting Pool liner was cut with a sharp knife or razor, National Park Service says"
     url: "https://www.pbs.org/newshour/politics/reflecting-pool-liner-was-cut-with-a-sharp-knife-or-razor-national-park-service-says"

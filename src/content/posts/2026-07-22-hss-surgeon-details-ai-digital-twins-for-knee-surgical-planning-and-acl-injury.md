@@ -36,6 +36,10 @@ keyMoments:
 videoId: "-yBdDPA4_Lw"
 videoTitle: "'THE ULTIMATE PHYSICIAN EXTENDER': AI expands doctors' capabilities in patient care"
 thumbnail: "https://img.youtube.com/vi/-yBdDPA4_Lw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Significant Gift Funds Development of the HSS Digital Twin Platform"
     url: "https://news.hss.edu/significant-gift-funds-development-of-the-hss-digital-twin-platform-for-optimizing-orthopedic-care/"

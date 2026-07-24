@@ -35,6 +35,10 @@ keyMoments:
 videoId: "eqarPe3sZrY"
 videoTitle: "Rubio: Iran is 'BEGGING EVERY DAY'"
 thumbnail: "https://img.youtube.com/vi/eqarPe3sZrY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

@@ -39,6 +39,10 @@ keyMoments:
 videoId: "RZL_TctrNco"
 videoTitle: "UK & Makerfield Election: Last Week Tonight with John Oliver (HBO)"
 thumbnail: "https://img.youtube.com/vi/RZL_TctrNco/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Makerfield by-election"
     url: "https://en.wikipedia.org/wiki/2026_Makerfield_by-election"

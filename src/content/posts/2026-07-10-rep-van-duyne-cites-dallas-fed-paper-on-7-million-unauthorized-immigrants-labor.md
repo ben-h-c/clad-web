@@ -38,6 +38,10 @@ keyMoments:
 videoId: "TDCQP8OJCxw"
 videoTitle: "Rep. Beth Van Duyne discusses impacts of illegal immigration, visa fraud and upcoming job fair"
 thumbnail: "https://img.youtube.com/vi/TDCQP8OJCxw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Beth Van Duyne"
     slug: "beth-van-duyne"

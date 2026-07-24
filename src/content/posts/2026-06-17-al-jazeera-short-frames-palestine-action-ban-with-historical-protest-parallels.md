@@ -36,6 +36,10 @@ keyMoments:
 videoId: "pwLBG3juuZA"
 videoTitle: "How past 'terrorist' movements are often judged right by history | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/pwLBG3juuZA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UK Court of Appeal upholds ban on Palestine Action as ‘terrorist’ group"
     url: "https://www.aljazeera.com/news/2026/6/15/uk-court-says-proscribing-palestine-action-as-terrorist-group-was-lawful"

@@ -28,6 +28,10 @@ keyMoments:
 videoId: "rlRXqE09WcQ"
 videoTitle: "JD Vance asks for prayers before he goes on 'The View'"
 thumbnail: "https://img.youtube.com/vi/rlRXqE09WcQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "JD Vance To Guest On ABC's 'The View' In VP's First Appearance On Show"
     url: "https://deadline.com/2026/06/jd-vance-to-guest-the-view-abc-1236953661/"

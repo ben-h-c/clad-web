@@ -39,6 +39,10 @@ keyMoments:
 videoId: "M_rA8-q6fAY"
 videoTitle: "Mike Johnson has victorious week in the House, but Senate roadblocks loom"
 thumbnail: "https://img.youtube.com/vi/M_rA8-q6fAY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "John Thune"
     slug: "john-thune"

@@ -39,6 +39,10 @@ keyMoments:
 videoId: "X8Tmq7WfaYo"
 videoTitle: "'Is That True?': JD Vance Asked If Trump's Iran Peace Deal Includes Unfreezing Of Iranian Assets"
 thumbnail: "https://img.youtube.com/vi/X8Tmq7WfaYo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Tapper presses VP Vance on specifics of Iran agreement as text remains undisclosed"
     url: "https://www.cnn.com/2026/06/15/world/video/jd-vance-president-trump-iran-war-lead-jake-tapper"

@@ -30,6 +30,10 @@ keyMoments:
 videoId: "0RMNX3ggT84"
 videoTitle: "Mike Collins wins GOP Senate runoff in Georgia, setting up race against Democrat Jon Ossoff"
 thumbnail: "https://img.youtube.com/vi/0RMNX3ggT84/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Georgia Rep. Collins will challenge Ossoff in high-profile Senate matchup"
     url: "https://www.npr.org/2026/06/16/nx-s1-5860795/georgia-election-senate-governor-results-trump"

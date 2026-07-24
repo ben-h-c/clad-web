@@ -33,6 +33,10 @@ keyMoments:
 videoId: "t4dHcxkXcAk"
 videoTitle: "'Children Can't Find Their Parents': Rashida Tlaib Calls For Easier Immigrant Detainee Search"
 thumbnail: "https://img.youtube.com/vi/t4dHcxkXcAk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Tlaib Introduces Bill Requiring DHS to Maintain Timely Locator System for ICE and CBP Detainees"
     url: "https://tlaib.house.gov/posts/tlaib-introduces-bill-requiring-dhs-to-maintain-timely-locator-system-for-ice-and-cbp-detainees"

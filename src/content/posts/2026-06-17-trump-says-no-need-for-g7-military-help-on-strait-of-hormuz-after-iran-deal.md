@@ -33,6 +33,10 @@ keyMoments:
 videoId: "RKqxlK6oyFw"
 videoTitle: "Reporter Asks Trump: Did You Ask Japan, G7 Nations To Send Military Force To The Strait Of Homuz?"
 thumbnail: "https://img.youtube.com/vi/RKqxlK6oyFw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says he's asked 'about 7' countries to join coalition to police Iran's Strait of Hormuz"
     url: "https://apnews.com/article/iran-iraq-us-trump-march-15-2026-9bbed3c906146844be08fdfd02595754"

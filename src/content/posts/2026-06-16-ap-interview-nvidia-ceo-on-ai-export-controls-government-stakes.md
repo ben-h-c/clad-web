@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Zg-SosGJK90"
 videoTitle: "AP talks to Nvidia CEO Jensen Huang"
 thumbnail: "https://img.youtube.com/vi/Zg-SosGJK90/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "AP Exclusive: Nvidia's Jensen Huang says society needs 'new social norms' in the age of AI"
     url: "https://apnews.com/article/nvidia-artificial-intelligence-infrastructure-9bf560fa2365e4d6b57804438cda579e"

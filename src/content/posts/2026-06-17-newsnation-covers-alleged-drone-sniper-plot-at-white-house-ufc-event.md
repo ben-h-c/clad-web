@@ -34,6 +34,10 @@ keyMoments:
 videoId: "xj4TiOPkfOI"
 videoTitle: "Drones FIRST, then snipers — Inside the UFC White House terror plot"
 thumbnail: "https://img.youtube.com/vi/xj4TiOPkfOI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Teen among arrested in plot to attack White House UFC event"
     url: "https://www.espn.com/mma/story/_/id/49081439/fbi-arrests-suspects-planned-attacks-white-house-ufc-event"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "iMzvVkjJwBA"
 videoTitle: "Bill Maher on receiving the Mark Twain Prize for American Humor and his Catholic upbringing"
 thumbnail: "https://img.youtube.com/vi/iMzvVkjJwBA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bill Maher - 27th Mark Twain Prize"
     url: "https://www.kennedy-center.org/news-room/press-release-landing-page/bill-maher-27-mark-twain-prize/"

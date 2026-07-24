@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Z2hKqGqGTDQ"
 videoTitle: "UK's Andy Burnham speech highlights after by-election win; reaction from Keir Starmer and Londoners"
 thumbnail: "https://img.youtube.com/vi/Z2hKqGqGTDQ/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Burnham Wins Makerfield By-Election, Clearing Path to Challenge Starmer as UK Prime Minister"
     url: "https://www.nytimes.com/2026/06/18/world/europe/uk-makerfield-election.html"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "fN3Gh6pH6jY"
 videoTitle: "Turkish opposition leader Özel to form new party to challenge Erdogan | DW News"
 thumbnail: "https://img.youtube.com/vi/fN3Gh6pH6jY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Turkey's opposition leader to form new party to challenge Erdogan"
     url: "https://www.reuters.com/world/turkeys-ousted-opposition-leader-says-he-is-forming-new-party-2026-07-21/"

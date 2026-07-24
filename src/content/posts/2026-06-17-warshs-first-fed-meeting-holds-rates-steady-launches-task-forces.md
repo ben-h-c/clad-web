@@ -34,6 +34,10 @@ keyMoments:
 videoId: "3qlLjfhfcvQ"
 videoTitle: "Warsh announces plan to reshape Federal Reserve"
 thumbnail: "https://img.youtube.com/vi/3qlLjfhfcvQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Here are the five big takeaways from Kevin Warsh's first meeting as Fed chairman"
     url: "https://www.cnbc.com/2026/06/17/here-are-the-five-big-takeaways-from-kevin-warshs-first-meeting-as-fed-chairman.html"

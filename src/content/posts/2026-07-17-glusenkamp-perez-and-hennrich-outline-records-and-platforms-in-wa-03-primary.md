@@ -33,6 +33,10 @@ keyMoments:
 videoId: "k-YZxQ68AzM"
 videoTitle: "Gluesenkamp Perez faces Democratic and Republican challengers in WA-03 primary"
 thumbnail: "https://img.youtube.com/vi/k-YZxQ68AzM/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Marie Gluesenkamp Perez - Congress.gov"
     url: "https://www.congress.gov/member/marie-perez/G000600"

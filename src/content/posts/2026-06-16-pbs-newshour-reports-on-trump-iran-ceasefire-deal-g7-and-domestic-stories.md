@@ -36,6 +36,10 @@ keyMoments:
 videoId: "HcSS5vz1PQ8"
 videoTitle: "PBS News Hour full episode, June 15, 2026"
 thumbnail: "https://img.youtube.com/vi/HcSS5vz1PQ8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump hails Iran deal as G7 summit begins in Europe"
     url: "https://www.pbs.org/newshour/show/trump-hails-iran-deal-as-g7-summit-begins-in-europe"

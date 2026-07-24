@@ -38,6 +38,10 @@ keyMoments:
 videoId: "3J74ubLTwBc"
 videoTitle: "BREAKING NEWS: Hakeem Jeffries Speaks To Reporters As Voters Head To Polls For New York Primaries"
 thumbnail: "https://img.youtube.com/vi/3J74ubLTwBc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Hakeem S. Jeffries"
     slug: "hakeem-s-jeffries"

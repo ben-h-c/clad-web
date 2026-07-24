@@ -34,6 +34,10 @@ keyMoments:
     note: "Widely reported; Poland secured exemptions and Hungary has refused participation"
 videoId: "CilYWeF3ZGI"
 thumbnail: "https://img.youtube.com/vi/CilYWeF3ZGI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Pact on Migration and Asylum"
     url: "https://home-affairs.ec.europa.eu/policies/migration-and-asylum/pact-migration-and-asylum_en"

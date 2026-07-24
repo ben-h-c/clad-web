@@ -36,6 +36,10 @@ keyMoments:
 videoId: "ZIQWMpAUCFo"
 videoTitle: "Breaking: Trump LOSES midterm ballot case at Supreme Court in FINAL BLOW to 2026 plot"
 thumbnail: "https://img.youtube.com/vi/ZIQWMpAUCFo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US supreme court rules Trump’s firing of Lisa Cook from Fed was unconstitutional"
     url: "https://www.theguardian.com/us-news/2026/jun/29/supreme-court-trump-lisa-cook-ruling"

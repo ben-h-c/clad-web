@@ -35,6 +35,10 @@ keyMoments:
 videoId: "7bEYZWwqwA8"
 videoTitle: "Frustrations grow over police shooting in Wisconsin"
 thumbnail: "https://img.youtube.com/vi/7bEYZWwqwA8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Wisconsin mayor calls for calm after deadly police shooting"
     url: "https://abcnews.com/US/wisconsin-officer-fatally-shoots-man-struggle-incident-captured/story?id=135001955"

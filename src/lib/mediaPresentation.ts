@@ -1,15 +1,15 @@
 /**
- * Per-post media presentation for home/app strip cards.
+ * Per-post media framing for home/app strip cards.
  *
- * YouTube stills vary wildly — talking heads, lower-thirds, split screens,
- * logo cards. A single CSS crop makes some tiles look zoomed on noise.
- * Presentation is decided at publish (approve / manual publish) by inspecting
- * the still, then stored on the post so each card frames itself.
+ * Policy (post-2026-07-24 correction):
+ *  - If a still exists → always full-bleed **overlay** (image + text scrim).
+ *  - Individualization is the **focus point only** (where cover crops).
+ *  - modular/text are reserved for true failures (no thumb / explicit editor override).
  *
- * Fields (all optional; legacy posts fall back to overlay + center 28%):
+ * Fields (optional; legacy → overlay + center upper):
  *   mediaStyle  — overlay | modular | text
- *   thumbFocusX / thumbFocusY — 0–100 object-position anchors
- *   mediaNote   — short pipeline rationale (not shown in UI)
+ *   thumbFocusX / thumbFocusY — 0–100 object-position anchors (clamped to safe band)
+ *   mediaNote   — pipeline rationale (not shown)
  */
 import { thumbnailUrl } from "./youtube.ts";
 
@@ -26,19 +26,31 @@ export interface MediaPresentation {
   mediaNote?: string;
 }
 
+/** Safe default: full-bleed, slightly upper-center (talking heads / news frames). */
 export const DEFAULT_MEDIA: MediaPresentation = {
   mediaStyle: "overlay",
   thumbFocusX: 50,
-  thumbFocusY: 28,
+  thumbFocusY: 32,
 };
 
-// Multimodal chat models (grok-4.5 / 4.3 accept image_url content parts).
+// Multimodal chat models (grok-4.5 accepts image_url content parts).
 const VISION_MODEL = "grok-4.5";
 
-function clampPct(n: unknown, fallback: number): number {
+/** Horizontal band kept away from dead side-margins that feel like "random zoom". */
+const FOCUS_X_MIN = 28;
+const FOCUS_X_MAX = 72;
+/** Vertical band: upper third of frame, above bottom text scrim. */
+const FOCUS_Y_MIN = 18;
+const FOCUS_Y_MAX = 42;
+
+function clamp(n: unknown, min: number, max: number, fallback: number): number {
   const v = typeof n === "number" ? n : Number(n);
   if (!Number.isFinite(v)) return fallback;
-  return Math.max(0, Math.min(100, Math.round(v)));
+  return Math.max(min, Math.min(max, Math.round(v)));
+}
+
+function clampPct(n: unknown, fallback: number): number {
+  return clamp(n, 0, 100, fallback);
 }
 
 export function normalizeMediaStyle(v: unknown): MediaStyle | undefined {
@@ -47,15 +59,35 @@ export function normalizeMediaStyle(v: unknown): MediaStyle | undefined {
   return (MEDIA_STYLES as readonly string[]).includes(s) ? (s as MediaStyle) : undefined;
 }
 
+/**
+ * Safe focus for cover crops — never stick to far edges (reads as random zoom).
+ */
+export function safeFocus(
+  x: unknown,
+  y: unknown
+): { thumbFocusX: number; thumbFocusY: number } {
+  return {
+    thumbFocusX: clamp(x, FOCUS_X_MIN, FOCUS_X_MAX, DEFAULT_MEDIA.thumbFocusX),
+    thumbFocusY: clamp(y, FOCUS_Y_MIN, FOCUS_Y_MAX, DEFAULT_MEDIA.thumbFocusY),
+  };
+}
+
 /** Merge partial frontmatter / API values onto safe defaults. */
 export function coerceMediaPresentation(
-  partial?: Partial<MediaPresentation> | null
+  partial?: Partial<MediaPresentation> | null,
+  opts?: { allowNonOverlay?: boolean }
 ): MediaPresentation {
   if (!partial) return { ...DEFAULT_MEDIA };
+  const focus = safeFocus(partial.thumbFocusX, partial.thumbFocusY);
+  let style = normalizeMediaStyle(partial.mediaStyle) ?? DEFAULT_MEDIA.mediaStyle;
+  // Prefer overlay unless editor explicitly allows modular/text, or no still path.
+  if (!opts?.allowNonOverlay && (style === "modular" || style === "text")) {
+    style = "overlay";
+  }
   return {
-    mediaStyle: normalizeMediaStyle(partial.mediaStyle) ?? DEFAULT_MEDIA.mediaStyle,
-    thumbFocusX: clampPct(partial.thumbFocusX, DEFAULT_MEDIA.thumbFocusX),
-    thumbFocusY: clampPct(partial.thumbFocusY, DEFAULT_MEDIA.thumbFocusY),
+    mediaStyle: style,
+    thumbFocusX: focus.thumbFocusX,
+    thumbFocusY: focus.thumbFocusY,
     mediaNote:
       typeof partial.mediaNote === "string" && partial.mediaNote.trim()
         ? partial.mediaNote.trim().slice(0, 200)
@@ -65,12 +97,13 @@ export function coerceMediaPresentation(
 
 /** CSS `object-position` from stored focus percentages. */
 export function objectPositionCss(p: Pick<MediaPresentation, "thumbFocusX" | "thumbFocusY">): string {
-  return `${clampPct(p.thumbFocusX, 50)}% ${clampPct(p.thumbFocusY, 28)}%`;
+  const f = safeFocus(p.thumbFocusX, p.thumbFocusY);
+  return `${f.thumbFocusX}% ${f.thumbFocusY}%`;
 }
 
 /**
  * Resolve presentation for a still. Uses vision when XAI key + image URL
- * are available; otherwise returns a conservative default.
+ * are available; always returns overlay when a still exists.
  */
 export async function resolveMediaPresentation(args: {
   apiKey?: string;
@@ -97,7 +130,11 @@ export async function resolveMediaPresentation(args: {
       imageUrl,
       headline: args.headline ?? "",
     });
-    return decided;
+    // Force overlay whenever we have art — modular was dropping images on the feed.
+    return {
+      ...decided,
+      mediaStyle: "overlay",
+    };
   } catch (e) {
     console.error("mediaPresentation vision failed:", (e as Error)?.message ?? e);
     return { ...DEFAULT_MEDIA, mediaNote: "default (vision failed)" };
@@ -110,35 +147,27 @@ async function analyzeStillWithVision(args: {
   headline: string;
 }): Promise<MediaPresentation> {
   const system = `You are the photo editor for Clad, a news report-card site.
-You choose how ONE video still should appear as a mobile feed card.
+Every card is a FULL-BLEED image with headline text over the BOTTOM third (dark scrim).
+Your ONLY job: pick where object-fit:cover should anchor so the main subject stays visible.
 
-Card layout context:
-- Portrait-ish tile (~3:4 on phones), image fills the card, headline sits in the BOTTOM third over a dark scrim.
-- object-fit: cover crops aggressively — the focus point is the only part that stays reliably visible.
-- Bad crops zoom on tickers, lower-thirds, empty sky, network bugs, or the wrong half of a split screen.
-
-Return ONLY JSON (no markdown) matching:
+Return ONLY JSON (no markdown):
 {
-  "mediaStyle": "overlay" | "modular" | "text",
-  "thumbFocusX": number,  // 0=left … 100=right; where the subject lives
+  "thumbFocusX": number,  // 0=left … 100=right
   "thumbFocusY": number,  // 0=top … 100=bottom
-  "mediaNote": string     // <= 120 chars, why
+  "mediaNote": string     // <= 100 chars
 }
 
-Style rules:
-- "overlay" — strong photo subject (face, scene, event). Prefer this when the image will look good with bottom text.
-- "modular" — still is usable as a small top thumb but BAD for full-bleed overlay: dense chyron/text, messy multi-panel, heavy graphics that fight overlaid type, or subject only works in a 16:9 letterbox.
-- "text" — still is useless or confusing as art: black frame, pure logo card, pure text slide, extreme blur, or content that would mislead about the story.
-
-Focus rules:
-- Anchor on the primary human face or main action, not logos/tickers.
-- For talking heads, prefer ~40–55 X and ~18–35 Y (face upper-center).
-- Avoid putting focus on the bottom 35% (that area is covered by the text scrim on overlay cards).
-- If split-screen, pick the half that matches the headline's main subject.`;
+Rules:
+- Prefer faces / primary action in the upper-middle of the frame.
+- Typical talking-head: X 40–60, Y 22–35.
+- Split-screen: pick the half matching the headline subject (still X 30–70).
+- NEVER put focus in the bottom 40% (covered by text).
+- NEVER put focus at extreme edges (0–15 or 85–100) — that reads as random zoom.
+- Do NOT invent mediaStyle. Image is always shown full-bleed.`;
 
   const userText = args.headline
-    ? `Headline for this report: ${args.headline}\nPick presentation + focus for the attached still.`
-    : "Pick presentation + focus for the attached still.";
+    ? `Headline: ${args.headline}\nPick focus only for the attached still.`
+    : "Pick focus only for the attached still.";
 
   const res = await fetch("https://api.x.ai/v1/chat/completions", {
     method: "POST",
@@ -148,8 +177,8 @@ Focus rules:
     },
     body: JSON.stringify({
       model: VISION_MODEL,
-      temperature: 0.15,
-      max_tokens: 220,
+      temperature: 0.1,
+      max_tokens: 160,
       response_format: { type: "json_object" },
       messages: [
         { role: "system", content: system },
@@ -158,7 +187,7 @@ Focus rules:
           content: [
             {
               type: "image_url",
-              image_url: { url: args.imageUrl, detail: "high" },
+              image_url: { url: args.imageUrl, detail: "low" },
             },
             { type: "text", text: userText },
           ],
@@ -184,14 +213,17 @@ Focus rules:
   }
 
   return coerceMediaPresentation({
-    mediaStyle: parsed?.mediaStyle,
+    mediaStyle: "overlay",
     thumbFocusX: parsed?.thumbFocusX,
     thumbFocusY: parsed?.thumbFocusY,
     mediaNote: typeof parsed?.mediaNote === "string" ? parsed.mediaNote : undefined,
   });
 }
 
-/** Read presentation fields from post frontmatter / content data. */
+/**
+ * Read presentation from post frontmatter.
+ * Thumb present → always treat as overlay for rendering (fixes bad modular backfill).
+ */
 export function mediaFromPostData(d: {
   mediaStyle?: string | null;
   thumbFocusX?: number | null;
@@ -199,28 +231,22 @@ export function mediaFromPostData(d: {
   mediaNote?: string | null;
   thumbnail?: string | null;
 }): MediaPresentation {
-  // Explicit text style wins even without a thumb.
-  const style = normalizeMediaStyle(d.mediaStyle);
-  if (style === "text") {
-    return coerceMediaPresentation({
+  const hasThumb = !!(d.thumbnail && String(d.thumbnail).trim());
+  if (!hasThumb) {
+    return {
       mediaStyle: "text",
-      thumbFocusX: d.thumbFocusX ?? 50,
-      thumbFocusY: d.thumbFocusY ?? 50,
+      thumbFocusX: 50,
+      thumbFocusY: 50,
       mediaNote: d.mediaNote ?? undefined,
-    });
+    };
   }
-  // Partial fields from newer posts; legacy → defaults.
-  if (
-    style != null ||
-    typeof d.thumbFocusX === "number" ||
-    typeof d.thumbFocusY === "number"
-  ) {
-    return coerceMediaPresentation({
-      mediaStyle: style,
-      thumbFocusX: d.thumbFocusX ?? undefined,
-      thumbFocusY: d.thumbFocusY ?? undefined,
-      mediaNote: d.mediaNote ?? undefined,
-    });
-  }
-  return { ...DEFAULT_MEDIA };
+
+  // Always overlay when art exists — ignore stored modular/text from bad backfill.
+  const focus = safeFocus(d.thumbFocusX, d.thumbFocusY);
+  return {
+    mediaStyle: "overlay",
+    thumbFocusX: focus.thumbFocusX,
+    thumbFocusY: focus.thumbFocusY,
+    mediaNote: d.mediaNote ?? undefined,
+  };
 }

@@ -29,6 +29,10 @@ keyMoments:
 videoId: "kHfwhAAvbHw"
 videoTitle: "Iran fans hail World Cup draw with New Zealand as political win"
 thumbnail: "https://img.youtube.com/vi/kHfwhAAvbHw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran and New Zealand play out entertaining World Cup ..."
     url: "https://www.nytimes.com/athletic/live-blogs/iran-vs-new-zealand-live-updates-world-cup-2026-score-result/RHCEosMUwyft/"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "LHuWWXj-UJM"
 videoTitle: "Turkey detains 209 in anti-terror operations ahead of NATO summit"
 thumbnail: "https://img.youtube.com/vi/LHuWWXj-UJM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Turkey detains 209 in anti-terror raids as security tightened ahead of NATO summit"
     url: "https://www.reuters.com/world/turkey-detains-209-anti-terror-raids-security-tightened-ahead-nato-summit-2026-06-23/"

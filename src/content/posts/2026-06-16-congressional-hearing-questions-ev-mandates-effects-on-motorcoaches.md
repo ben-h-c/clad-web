@@ -33,6 +33,10 @@ keyMoments:
 videoId: "wFku0IfwgTc"
 videoTitle: "'Who's Going To Incur That Increased Cost?': Joyce Asks Bus Association CEO About EV Mandates"
 thumbnail: "https://img.youtube.com/vi/wFku0IfwgTc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ferguson Testifies Before Congress in Support of Bipartisan Bus Idling Legislation"
     url: "https://www.buses.org/news/ferguson-testifies-before-congress-in-support-of-bipartisan-bus-idling-legislation/"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "4X82EGqaS28"
 videoTitle: "Dan Bongino: He is an IMBECILE"
 thumbnail: "https://img.youtube.com/vi/4X82EGqaS28/maxresdefault.jpg"
+mediaNote: "Talking-head face upper-middle; keep eyes/nose in safe zone above text overlay"
+thumbFocusY: 28
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Alexandria Ocasio-Cortez"
     slug: "alexandria-ocasio-cortez"

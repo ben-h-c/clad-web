@@ -40,6 +40,10 @@ keyMoments:
 videoId: "jRdWEhEUIAE"
 videoTitle: "Nobody Noticed What Changed Between America and China"
 thumbnail: "https://img.youtube.com/vi/jRdWEhEUIAE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Scott Kennedy's Publications | Chinese Business and Economics"
     url: "https://www.csis.org/programs/chinese-business-and-economics/scott-kennedys-publications"

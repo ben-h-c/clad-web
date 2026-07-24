@@ -35,6 +35,10 @@ keyMoments:
 videoId: "UMXQqCE3MoY"
 videoTitle: "Rep. Andrea Salinas Calls on Trump to Restore SNAP Benefits"
 thumbnail: "https://img.youtube.com/vi/UMXQqCE3MoY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Andrea Salinas"
     slug: "andrea-salinas"

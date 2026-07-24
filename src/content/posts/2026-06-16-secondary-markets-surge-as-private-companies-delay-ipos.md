@@ -35,6 +35,10 @@ keyMoments:
 videoId: "V0lFjTWx36I"
 videoTitle: "Why Secondary Markets Are Eating the IPO | All-In Liquidity Secondary Markets Panel"
 thumbnail: "https://img.youtube.com/vi/V0lFjTWx36I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Why Secondary Markets Are Eating the IPO | All-In Liquidity Secondary Markets Panel"
     url: "https://www.youtube.com/watch?v=V0lFjTWx36I"

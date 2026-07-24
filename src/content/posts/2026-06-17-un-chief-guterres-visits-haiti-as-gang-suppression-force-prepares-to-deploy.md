@@ -34,6 +34,10 @@ keyMoments:
 videoId: "F0aLl379Qwc"
 videoTitle: "UN chief visits Haiti ahead of new gang suppression force deployment • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/F0aLl379Qwc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UN chief visits Haiti, where a new 'gang-suppression force' will be deployed"
     url: "https://www.npr.org/2026/06/17/g-s1-128536/un-chief-visits-haiti"

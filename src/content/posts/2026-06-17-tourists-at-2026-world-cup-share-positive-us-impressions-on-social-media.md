@@ -34,6 +34,10 @@ keyMoments:
 videoId: "W70JNDCcOdw"
 videoTitle: "What tourists flocking to U.S. for World Cup are finding surprising about America"
 thumbnail: "https://img.youtube.com/vi/W70JNDCcOdw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The USA is a FIFA World Cup hit as visitors from around the globe love Americana"
     url: "https://www.foxnews.com/outkick-sports/usa-fifa-world-cup-hit-visitors-around-globe-love-americana"

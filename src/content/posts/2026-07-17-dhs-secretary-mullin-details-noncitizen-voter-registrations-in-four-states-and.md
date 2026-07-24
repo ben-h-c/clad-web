@@ -32,6 +32,10 @@ keyMoments:
 videoId: "jLrXmM2Jnrs"
 videoTitle: "DHS Secretary Markwayne Mullin on Election Security"
 thumbnail: "https://img.youtube.com/vi/jLrXmM2Jnrs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Markwayne Mullin to announce election security crackdown after Post reveals DHS IDs 275K noncitizens"
     url: "https://nypost.com/2026/07/17/us-news/markwayne-mullin-to-announce-election-security-crackdown-after-post-reveals-dhs-ids-275k-noncitizens-registered-to-vote/"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "gefbU2yLANQ"
 videoTitle: "'Policy Of Stupidity And Cruelty': Richard Blumenthal Tears Into Trump Admin.'s DACA Rulings"
 thumbnail: "https://img.youtube.com/vi/gefbU2yLANQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Senator Blumenthal Delivers Remarks on the 14th Anniversary of DACA"
     url: "https://www.youtube.com/watch?v=QmZpQ7dPPmc"

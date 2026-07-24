@@ -36,6 +36,10 @@ keyMoments:
 videoId: "miM7BRYDw5Q"
 videoTitle: "Sadiq Khan appointed to House of Lords"
 thumbnail: "https://img.youtube.com/vi/miM7BRYDw5Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sadiq Khan - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Sadiq_Khan"

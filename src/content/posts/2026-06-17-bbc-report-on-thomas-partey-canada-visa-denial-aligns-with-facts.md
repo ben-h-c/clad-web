@@ -31,6 +31,10 @@ keyMoments:
 videoId: "fiU6-AWF7Kw"
 videoTitle: "Ghana's Partey misled Canadian officials over rape arrest. #BBCNews"
 thumbnail: "https://img.youtube.com/vi/fiU6-AWF7Kw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ghana appeal Canada's denial of Thomas Partey World Cup visa"
     url: "https://www.espn.com/soccer/story/_/id/49083053/ghana-appeal-canada-denial-partey-world-cup-visa"

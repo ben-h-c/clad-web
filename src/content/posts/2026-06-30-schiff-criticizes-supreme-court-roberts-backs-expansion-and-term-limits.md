@@ -40,6 +40,10 @@ keyMoments:
 videoId: "HPJZy6d2AQ4"
 videoTitle: "Adam Schiff Asked: 'Do You Agree That The Court Should Be Expanded?'"
 thumbnail: "https://img.youtube.com/vi/HPJZy6d2AQ4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Justices uphold state law allowing for late-arriving mail-in ballots"
     url: "https://www.scotusblog.com/2026/06/justices-uphold-state-law-allowing-for-late-arriving-mail-in-ballots/"

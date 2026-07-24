@@ -36,6 +36,10 @@ keyMoments:
 videoId: "MmZMgF4ADH0"
 videoTitle: "The outstanding Supreme Court cases you need to know about before its term ends"
 thumbnail: "https://img.youtube.com/vi/MmZMgF4ADH0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The most important cases yet to be decided"
     url: "https://www.scotusblog.com/2026/06/the-most-important-cases-yet-to-be-decided/"

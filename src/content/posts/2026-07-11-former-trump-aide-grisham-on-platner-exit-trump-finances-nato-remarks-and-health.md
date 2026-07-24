@@ -39,6 +39,10 @@ keyMoments:
 videoId: "0X5HVp5Y_cc"
 videoTitle: "‘He’s DECLINING’: Fmr. Trump official on new questions on Trump’s health after NATO gaffes"
 thumbnail: "https://img.youtube.com/vi/0X5HVp5Y_cc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Graham Platner drops out of Maine's Senate race following sexual assault allegations"
     url: "https://www.wmtw.com/article/graham-platner-drops-out-maine-senate-race/71855483"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "bSSyE_7eFQk"
 videoTitle: "New Caledonia votes: High stakes in France's Pacific territory • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/bSSyE_7eFQk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "United Nations list of non-self-governing territories"
     url: "https://en.wikipedia.org/wiki/United_Nations_list_of_non-self-governing_territories"

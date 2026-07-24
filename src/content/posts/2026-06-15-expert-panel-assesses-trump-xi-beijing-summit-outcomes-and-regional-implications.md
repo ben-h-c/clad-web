@@ -36,6 +36,10 @@ keyMoments:
 videoId: "AirmTeqNZSg"
 videoTitle: "Reading the Beijing Summit: What the Trump-Xi Meeting Means for Washington, Beijing, and Seoul"
 thumbnail: "https://img.youtube.com/vi/AirmTeqNZSg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fact Sheet: President Donald J. Trump Secures Historic Deals with China Delivering for American Workers, Farmers and Industry"
     url: "https://www.whitehouse.gov/fact-sheets/2026/05/fact-sheet-president-donald-j-trump-secures-historic-deals-with-china-delivering-for-american-workers-farmers-and-industry/"

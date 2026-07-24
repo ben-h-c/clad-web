@@ -37,6 +37,10 @@ keyMoments:
 videoId: "xYQeVng50uY"
 videoTitle: "SpaceX Nears $3 Trillion in Value | Open Interest 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/xYQeVng50uY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX set to overtake Microsoft, Amazon as stock soars"
     url: "https://financialpost.com/investing/spacex-set-to-overtake-microsoft-amazon"

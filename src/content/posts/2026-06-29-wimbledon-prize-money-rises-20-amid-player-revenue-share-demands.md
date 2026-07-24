@@ -35,6 +35,10 @@ keyMoments:
 videoId: "B6wwEaDHwRY"
 videoTitle: "Why are players threatening to strike at Wimbledon?"
 thumbnail: "https://img.youtube.com/vi/B6wwEaDHwRY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Prize Money and Finance - The Championships Wimbledon"
     url: "https://www.wimbledon.com/en_GB/the_championships/prize_money_and_finance"

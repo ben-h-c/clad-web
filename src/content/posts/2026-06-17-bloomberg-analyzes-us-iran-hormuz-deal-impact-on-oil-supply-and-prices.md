@@ -31,6 +31,10 @@ keyMoments:
 videoId: "vM2y9bkDTEM"
 videoTitle: "Oil Prices Fall as US-Iran Deal Set to Add Wave of Supply"
 thumbnail: "https://img.youtube.com/vi/vM2y9bkDTEM/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump Claims Strait Will Be ‘Permanently Toll-Free’ Under Agreement With Iran"
     url: "https://www.nytimes.com/2026/06/14/us/politics/trump-iran-deal-strait-of-hormuz.html"

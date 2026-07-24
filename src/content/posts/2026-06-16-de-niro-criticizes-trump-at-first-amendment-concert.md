@@ -36,6 +36,10 @@ keyMoments:
 videoId: "cIyoGz9Zv1c"
 videoTitle: "De Niro: \"I want to love my country again\""
 thumbnail: "https://img.youtube.com/vi/cIyoGz9Zv1c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Celebrities and Activists Gather at Concert Celebrating First Amendment"
     url: "https://www.c-span.org/program/public-affairs-event/celebrities-and-activists-gather-at-concert-celebrating-first-amendment/680999"

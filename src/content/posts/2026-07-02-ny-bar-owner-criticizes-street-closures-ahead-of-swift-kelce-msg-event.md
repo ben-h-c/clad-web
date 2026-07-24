@@ -31,6 +31,10 @@ keyMoments:
 videoId: "n4RhJYhO28Q"
 videoTitle: "New York bar owner on street closures for Swift-Kelce wedding"
 thumbnail: "https://img.youtube.com/vi/n4RhJYhO28Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: Taylor Swift and Travis Kelce’s expected wedding celebration"
     url: "https://www.cnn.com/2026/07/02/entertainment/live-news/taylor-swift-travis-kelce-wedding"

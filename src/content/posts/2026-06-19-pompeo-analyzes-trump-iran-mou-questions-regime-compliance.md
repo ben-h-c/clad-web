@@ -36,6 +36,10 @@ keyMoments:
 videoId: "0T5O-gmCqnI"
 videoTitle: "This PROVES the regime is ‘FRACTURED’: Mike Pompeo"
 thumbnail: "https://img.youtube.com/vi/0T5O-gmCqnI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: Vance no longer traveling to Switzerland for Iran talks"
     url: "https://www.cnn.com/2026/06/18/world/live-news/iran-war-trump-israel-lebanon"

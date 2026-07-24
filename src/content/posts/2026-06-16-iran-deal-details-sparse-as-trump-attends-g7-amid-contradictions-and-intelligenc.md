@@ -36,6 +36,10 @@ keyMoments:
 videoId: "m53fm7zU6fA"
 videoTitle: "Trump faces MAJOR questions about Iran agreement at G7 Summit"
 thumbnail: "https://img.youtube.com/vi/m53fm7zU6fA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "WATCH: Trump predicts 'great things' from Iran deal as he meets with French president Macron at G7"
     url: "https://www.pbs.org/newshour/world/watch-trump-predicts-great-things-from-iran-deal-as-he-meets-with-french-president-macron-at-g7"

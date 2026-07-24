@@ -33,6 +33,10 @@ keyMoments:
 videoId: "aQogYsldeRo"
 videoTitle: "How Trump’s new 50% tariffs could affect the Canadian economy; explained"
 thumbnail: "https://img.youtube.com/vi/aQogYsldeRo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US International Trade Commission DataWeb"
     url: "https://dataweb.usitc.gov/"

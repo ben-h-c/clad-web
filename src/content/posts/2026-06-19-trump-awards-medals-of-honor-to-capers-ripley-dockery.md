@@ -29,6 +29,10 @@ keyMoments:
 videoId: "754CZrbF3_k"
 videoTitle: "Trump awards three Medals of Honor to Vietnam, Afghanistan veterans"
 thumbnail: "https://img.youtube.com/vi/754CZrbF3_k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Three Medals of Honor Awarded to Vietnam and Afghanistan Veterans"
     url: "https://www.nytimes.com/2026/06/18/us/politics/trump-medals-of-honor.html"

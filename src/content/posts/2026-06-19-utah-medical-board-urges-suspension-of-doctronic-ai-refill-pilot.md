@@ -34,6 +34,10 @@ keyMoments:
 videoId: "uQNk2acomv4"
 videoTitle: "AI vs. Your Doctor: Who Should Approve Your Refills?"
 thumbnail: "https://img.youtube.com/vi/uQNk2acomv4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Utah doctors call for suspension of AI prescribing pilot"
     url: "https://www.fiercehealthcare.com/ai-and-machine-learning/utah-medical-licensing-board-urges-state-shut-down-doctronic-ai-prescribing"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "wqSisJC_uOM"
 videoTitle: "Nike battles Adidas for World Cup boost"
 thumbnail: "https://img.youtube.com/vi/wqSisJC_uOM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Elliott Hill - President and Chief Executive Officer, NIKE, Inc."
     url: "https://about.nike.com/en/company/people/elliott-hill"

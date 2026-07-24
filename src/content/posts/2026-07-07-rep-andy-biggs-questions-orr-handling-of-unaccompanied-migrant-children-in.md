@@ -40,6 +40,10 @@ keyMoments:
 videoId: "Ni5vBPai6o4"
 videoTitle: "'Put Hundreds Of Thousands Of Children In Danger': Andy Biggs Rails Against Biden's Border Policies"
 thumbnail: "https://img.youtube.com/vi/Ni5vBPai6o4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Hearing Wrap Up: ORR Director Fails to Answer Questions about 85,000 Lost Unaccompanied Alien Children"
     url: "https://oversight.house.gov/release/hearing-wrap-up-orr-director-fails-to-answer-questions-about-85000-lost-unaccompanied-alien-children-flawed-vetting-of-sponsors-and-more"

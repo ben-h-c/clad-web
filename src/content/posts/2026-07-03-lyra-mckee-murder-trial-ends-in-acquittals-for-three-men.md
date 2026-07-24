@@ -31,6 +31,10 @@ keyMoments:
 videoId: "WUQ2KY_ZfDM"
 videoTitle: "How the Lyra McKee trial unfolded"
 thumbnail: "https://img.youtube.com/vi/WUQ2KY_ZfDM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Three men found not guilty of murdering journalist Lyra McKee"
     url: "https://www.thejournal.ie/lyra-mckee-shooting-verdict-derry-7089630-Jul2026/"

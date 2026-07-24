@@ -36,6 +36,10 @@ keyMoments:
 videoId: "weuqlcYI5Gg"
 videoTitle: "Carney, Trump caught talking trade on hot mic at G7 summit"
 thumbnail: "https://img.youtube.com/vi/weuqlcYI5Gg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Carney, Trump heard talking Chinese EVs on hot mic at the G7 summit"
     url: "https://www.ctvnews.ca/world/trumps-tariffs/article/carney-trump-heard-talking-chinese-evs-on-hot-mic-at-the-g7-summit/"

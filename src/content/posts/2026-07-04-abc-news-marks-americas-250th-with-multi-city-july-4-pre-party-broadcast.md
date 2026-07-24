@@ -34,6 +34,10 @@ keyMoments:
 videoId: "NVc9UaMDj9g"
 videoTitle: "Pre-Party across America"
 thumbnail: "https://img.youtube.com/vi/NVc9UaMDj9g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Taylor Swift, Travis Kelce are married: All the details"
     url: "https://abcnews.com/GMA/Culture/taylor-swift-travis-kelces-2nd-wedding-event-expected/story?id=134426168"

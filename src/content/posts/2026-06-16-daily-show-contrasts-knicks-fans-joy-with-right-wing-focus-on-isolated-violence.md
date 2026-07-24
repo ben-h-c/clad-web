@@ -32,6 +32,10 @@ keyMoments:
 videoId: "MQ21AcUOZzg"
 videoTitle: "The right-wing media paints New York's joyous Knicks celebration as an orgy of chaos and violence"
 thumbnail: "https://img.youtube.com/vi/MQ21AcUOZzg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "1 Shot and 4 Stabbed in Midtown Manhattan During Knicks Celebration"
     url: "https://www.nytimes.com/2026/06/14/nyregion/knicks-nba-celebrations-msg-nyc-shooting.html"

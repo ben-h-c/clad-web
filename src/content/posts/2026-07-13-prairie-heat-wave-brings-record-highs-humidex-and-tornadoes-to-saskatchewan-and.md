@@ -35,6 +35,10 @@ keyMoments:
 videoId: "_ekRQS4ARrI"
 videoTitle: "Saskatchewan, Manitoba swelter under record-breaking heat"
 thumbnail: "https://img.youtube.com/vi/_ekRQS4ARrI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Heat wave fuels record-tying 10 tornadoes in Saskatchewan"
     url: "https://globalnews.ca/news/11962319/heat-warnings-expand-canada/"

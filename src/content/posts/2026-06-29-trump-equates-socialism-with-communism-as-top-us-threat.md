@@ -33,6 +33,10 @@ keyMoments:
 videoId: "wuKIRSFpMgg"
 videoTitle: "Trump calls socialism the ‘BIGGEST THREAT to our nation’ #shorts #foxnews #news #us"
 thumbnail: "https://img.youtube.com/vi/wuKIRSFpMgg/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Communism is greatest threat to U.S., Trump says"
     url: "https://spectrumlocalnews.com/us/snplus/politics/2026/06/26/trump-faith-and-freedom-communist-threat"

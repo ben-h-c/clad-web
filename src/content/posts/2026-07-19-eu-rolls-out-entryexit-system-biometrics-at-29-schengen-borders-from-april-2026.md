@@ -37,6 +37,10 @@ keyMoments:
 videoId: "yf9oUvHnR4M"
 videoTitle: "What you need to know about Europe's Entry Exit System. #BBCNews"
 thumbnail: "https://img.youtube.com/vi/yf9oUvHnR4M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What is the EES? - EES - Travel to Europe - European Union"
     url: "https://travel-europe.europa.eu/ees/what-is-the-ees"

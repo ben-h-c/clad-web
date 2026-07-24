@@ -36,6 +36,10 @@ keyMoments:
 videoId: "cYm6x4tcm6Y"
 videoTitle: "'Their Sacrifice Was Not Meaningless': Brian Mast Reads Names Of Service Members Killed In Iran War"
 thumbnail: "https://img.youtube.com/vi/cYm6x4tcm6Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Brian J. Mast"
     slug: "brian-j-mast"

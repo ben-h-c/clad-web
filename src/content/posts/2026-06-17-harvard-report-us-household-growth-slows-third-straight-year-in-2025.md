@@ -34,6 +34,10 @@ keyMoments:
 videoId: "3sRgwkqGHiw"
 videoTitle: "Household growth fell for third straight year in 2025, study finds"
 thumbnail: "https://img.youtube.com/vi/3sRgwkqGHiw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The State of the Nation's Housing 2026"
     url: "https://www.jchs.harvard.edu/state-nations-housing-2026"

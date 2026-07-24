@@ -40,6 +40,10 @@ keyMoments:
 videoId: "giL9vlsFcUY"
 videoTitle: "Grok 5 vs Claude — The $1 Trillion Battle for the Future of AI"
 thumbnail: "https://img.youtube.com/vi/giL9vlsFcUY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Dario Amodei - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Dario_Amodei"

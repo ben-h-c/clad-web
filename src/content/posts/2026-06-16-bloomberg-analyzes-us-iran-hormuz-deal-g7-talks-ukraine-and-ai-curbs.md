@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ExFjDAiop8U"
 videoTitle: "Short-Term Iran Deal to Pave Way for More Talks | Balance of Power 06/15/2026"
 thumbnail: "https://img.youtube.com/vi/ExFjDAiop8U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US, Iran Reach Hormuz Deal | Balance of Power 6/15/2026"
     url: "https://www.youtube.com/watch?v=Q4j3P95AwEI"

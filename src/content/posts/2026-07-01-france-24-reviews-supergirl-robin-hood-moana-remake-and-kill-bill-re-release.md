@@ -38,6 +38,10 @@ keyMoments:
 videoId: "oYexcPpvjA0"
 videoTitle: "Robin Hood, Supergirl, The Rock: The superheroes are back in cinema • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/oYexcPpvjA0/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supergirl (2026 film)"
     url: "https://en.wikipedia.org/wiki/Supergirl_(2026_film)"

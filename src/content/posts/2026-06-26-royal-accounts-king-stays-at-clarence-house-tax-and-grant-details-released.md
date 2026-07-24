@@ -37,6 +37,10 @@ keyMoments:
 videoId: "KWfQN_mIW9k"
 videoTitle: "Buckingham Palace is a 'soulless Edwardian hotel' - no wonder the royals flee it | Hugo Vickers"
 thumbnail: "https://img.youtube.com/vi/KWfQN_mIW9k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "King and Queen will not live in Buckingham Palace after refurbishment"
     url: "https://www.bbc.co.uk/news/articles/cdr4z5rxympo"

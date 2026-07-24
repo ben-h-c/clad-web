@@ -37,6 +37,10 @@ keyMoments:
 videoId: "Stop2UMAcss"
 videoTitle: "GRAPHIC WARNING: Dozens killed, scores injured in Bangkok's deadly pub fire"
 thumbnail: "https://img.youtube.com/vi/Stop2UMAcss/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bangkok pub fire kills 27, officials say emergency exits were obstructed"
     url: "https://www.reuters.com/world/asia-pacific/bangkok-pub-fire-kills-least-27-people-ap-reports-2026-07-12/"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "T7MzZj9owYk"
 videoTitle: "'Goblintimacy' dating trend embraces authenticity"
 thumbnail: "https://img.youtube.com/vi/T7MzZj9owYk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'Goblintimacy' is a dating trend that flips all the rules. Be careful."
     url: "https://www.usatoday.com/story/life/health-wellness/2026/06/15/goblintimacy-dating-trend/90494407007/"

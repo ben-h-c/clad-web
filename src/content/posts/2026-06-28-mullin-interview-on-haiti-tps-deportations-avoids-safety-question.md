@@ -36,6 +36,10 @@ keyMoments:
 videoId: "99R-SWWB-BU"
 videoTitle: "Markwayne Mullin Asked: Is It Safe Enough In Haiti To Deport Former TPS Holders Back?"
 thumbnail: "https://img.youtube.com/vi/99R-SWWB-BU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Court allows Trump administration to end removal protections for Syrian and Haitian nationals"
     url: "https://www.scotusblog.com/2026/06/supreme-court-allows-trump-administration-to-end-removal-protections-for-syrian-and-haitian-nati/"

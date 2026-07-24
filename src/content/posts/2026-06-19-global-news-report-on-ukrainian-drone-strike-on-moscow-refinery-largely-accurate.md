@@ -34,6 +34,10 @@ keyMoments:
 videoId: "javmn5_gkoY"
 videoTitle: "Russia-Ukraine war: Overnight strike from Kyiv pummels major Russian oil refinery"
 thumbnail: "https://img.youtube.com/vi/javmn5_gkoY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Moscow oil refinery struck in Ukraine’s biggest air raid on city since start of war"
     url: "https://www.theguardian.com/world/2026/jun/18/moscow-oil-refinery-on-fire-ukraine-drone-stikes"

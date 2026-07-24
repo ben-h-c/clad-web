@@ -29,6 +29,10 @@ keyMoments:
 videoId: "BG0-tAT_Fmw"
 videoTitle: "New York Haitians decry Supreme Court ruling"
 thumbnail: "https://img.youtube.com/vi/BG0-tAT_Fmw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Court allows Trump administration to end removal protections for Syrian and Haitian nationals"
     url: "https://www.scotusblog.com/2026/06/supreme-court-allows-trump-administration-to-end-removal-protections-for-syrian-and-haitian-nati/"

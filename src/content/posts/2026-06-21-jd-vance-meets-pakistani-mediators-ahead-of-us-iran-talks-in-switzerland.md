@@ -28,6 +28,10 @@ keyMoments:
 videoId: "Jp7_fZqXeX0"
 videoTitle: "JD Vance meets Pakistan delegation before Iran talks in Switzerland"
 thumbnail: "https://img.youtube.com/vi/Jp7_fZqXeX0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Vance arrives in Switzerland for US-Iran talks"
     url: "https://www.aljazeera.com/news/2026/6/21/vance-arrives-in-switzerland-for-us-iran-talks"

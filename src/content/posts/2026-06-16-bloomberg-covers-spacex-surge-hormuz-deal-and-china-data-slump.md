@@ -35,6 +35,10 @@ keyMoments:
 videoId: "F6uX_GHDDm8"
 videoTitle: "SpaceX Shares Surge, US & Iran Prepare for Deal Signing | The Opening Trade 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/F6uX_GHDDm8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SpaceX stock gains 20% in first full day of trading"
     url: "https://www.cnbc.com/2026/06/15/spacex-stock-record-ipo-debut.html"

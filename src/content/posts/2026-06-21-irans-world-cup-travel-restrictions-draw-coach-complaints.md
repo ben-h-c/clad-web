@@ -39,6 +39,10 @@ keyMoments:
 videoId: "ExMIWFFQ_Sc"
 videoTitle: "2026 World Cup: Iran's football coach says US travel rules continue to disrupt preparations"
 thumbnail: "https://img.youtube.com/vi/ExMIWFFQ_Sc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran to complain to FIFA over World Cup travel restrictions"
     url: "https://www.espn.com/soccer/story/_/id/49120177/iran-fifa-complaint-world-cup-travel-usa"

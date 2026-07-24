@@ -34,6 +34,10 @@ keyMoments:
 videoId: "WqkRj9yOvj4"
 videoTitle: "REMARKABLE RESULT: Pennsylvania town ERASES 100% of DEBT without raising taxes"
 thumbnail: "https://img.youtube.com/vi/WqkRj9yOvj4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SLIPPERY ROCK BOROUGH HAS OFFICIALLY ELIMINATED 100% OF PUBLIC DEBT"
     url: "https://www.facebook.com/JondavidLongo/posts/slippery-rock-borough-has-officially-eliminated-100-of-public-debtwhen-i-took-of/1451263813474945/"

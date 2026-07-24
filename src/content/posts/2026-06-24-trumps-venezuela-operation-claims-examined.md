@@ -33,6 +33,10 @@ keyMoments:
 videoId: "fQRke8MVMkc"
 videoTitle: "Trump claims US recouped Venezuela war costs 28 times over | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/fQRke8MVMkc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 United States intervention in Venezuela"
     url: "https://en.wikipedia.org/wiki/2026_United_States_intervention_in_Venezuela"

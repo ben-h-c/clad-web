@@ -31,6 +31,10 @@ keyMoments:
 videoId: "CEK4aafttYQ"
 videoTitle: "Shell unveils a concept EV designed to charge in under 10 minutes"
 thumbnail: "https://img.youtube.com/vi/CEK4aafttYQ/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Our Triple 10 Challenge Concept Car Unveiled"
     url: "https://www.shell.com/business-customers/industrial-lubricants-and-specialty-fluids-for-business/thermal-management-for-evs.html"

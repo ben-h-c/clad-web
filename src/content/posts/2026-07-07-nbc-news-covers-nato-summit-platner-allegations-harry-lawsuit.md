@@ -36,6 +36,10 @@ keyMoments:
 videoId: "zvVeLJk_vwI"
 videoTitle: "Ukraine, Iran & Greenland at NATO; Will Maine Senate Candidate Graham Platner Drop Out? | July 7"
 thumbnail: "https://img.youtube.com/vi/zvVeLJk_vwI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What to know about NATO's summit in Turkey"
     url: "https://www.pbs.org/newshour/world/what-to-know-about-natos-summit-in-turkey"

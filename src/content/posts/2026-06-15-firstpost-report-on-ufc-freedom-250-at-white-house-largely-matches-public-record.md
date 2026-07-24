@@ -35,6 +35,10 @@ keyMoments:
 videoId: "AeCSmAw2QiQ"
 videoTitle: "Leaked Screenshots: Trump’s UFC Event at White House Was ‘Rigged’ |  Firstpost America | N18G"
 thumbnail: "https://img.youtube.com/vi/AeCSmAw2QiQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Donald Trump celebrates 80th birthday with UFC show on White House lawn"
     url: "https://apnews.com/article/trump-80th-ufc-white-house-724c875d7a7cbfed087e179e8f689ec0"

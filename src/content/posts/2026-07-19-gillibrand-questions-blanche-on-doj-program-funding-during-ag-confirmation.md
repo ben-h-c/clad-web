@@ -38,6 +38,10 @@ keyMoments:
 videoId: "D9RBzW65zpo"
 videoTitle: "Kirsten Gillibrand GRILLS Acting AG Todd Blanche — “No, No, No!” During Explosive Hearing"
 thumbnail: "https://img.youtube.com/vi/D9RBzW65zpo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Kirsten E. Gillibrand"
     slug: "kirsten-e-gillibrand"

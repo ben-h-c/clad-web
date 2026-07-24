@@ -34,6 +34,10 @@ keyMoments:
 videoId: "JvPb4dAVL4w"
 videoTitle: "Fact check: Child trafficking on Vinted? | DW News"
 thumbnail: "https://img.youtube.com/vi/JvPb4dAVL4w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Rumor that Vinted users are selling children is flooding social media. Here's what we know"
     url: "https://www.snopes.com/news/2026/06/26/vinted-child-trafficking/"

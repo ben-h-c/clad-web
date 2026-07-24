@@ -27,6 +27,10 @@ keyMoments:
 videoId: "QkQm9PSUv70"
 videoTitle: "Gaza’s aid truck drivers protest the killing of their colleagues"
 thumbnail: "https://img.youtube.com/vi/QkQm9PSUv70/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "IDF accused of 'field execution' of Palestinian driver bringing aid into Gaza"
     url: "https://www.theguardian.com/world/2026/jul/09/idf-accused-of-field-execution-of-palestinian-driver-bringing-aid-into-gaza"

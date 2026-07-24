@@ -35,6 +35,10 @@ keyMoments:
 videoId: "irpdZGsljb0"
 videoTitle: "Would be 'SHOCKED' if AOC doesn't run in 2028: Podcast host"
 thumbnail: "https://img.youtube.com/vi/irpdZGsljb0/maxresdefault.jpg"
+mediaNote: "AOC face and raised hand upper-middle; avoid podium/logo"
+thumbFocusY: 28
+thumbFocusX: 52
+mediaStyle: "overlay"
 politicians:
   - name: "Alexandria Ocasio-Cortez"
     slug: "alexandria-ocasio-cortez"

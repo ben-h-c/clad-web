@@ -34,6 +34,10 @@ keyMoments:
 videoId: "gWArZAkdYWw"
 videoTitle: "Doctors urge Canadians to be proactive about heart health after man's undiagnosed cardiac arrest"
 thumbnail: "https://img.youtube.com/vi/gWArZAkdYWw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Heart disease: Monitoring - Canada.ca"
     url: "https://www.canada.ca/en/public-health/services/diseases/heart-health/heart-diseases-conditions/surveillance-heart-diseases-conditions.html"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "2JgJ1MRhntg"
 videoTitle: "Microsoft in the race to build the ultimate supercomputer | BBC News | BBC News"
 thumbnail: "https://img.youtube.com/vi/2JgJ1MRhntg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Introducing Majorana 2"
     url: "https://news.microsoft.com/source/features/innovation/majorana-2-microsoft-discovery-agentic-ai/"

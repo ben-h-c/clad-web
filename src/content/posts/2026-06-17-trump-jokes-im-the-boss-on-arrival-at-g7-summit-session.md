@@ -24,6 +24,10 @@ keyMoments:
 videoId: "piY5ZdP3htc"
 videoTitle: "'I'm the boss', Trump says at G7 table"
 thumbnail: "https://img.youtube.com/vi/piY5ZdP3htc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'I'm the boss', Trump says at G7, as he warms to Ukraine's war aims"
     url: "https://www.reuters.com/world/china/g7-leaders-tackle-reliance-china-critical-minerals-2026-06-17/"

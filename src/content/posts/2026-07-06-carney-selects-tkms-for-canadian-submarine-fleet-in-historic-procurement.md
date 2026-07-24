@@ -35,6 +35,10 @@ keyMoments:
 videoId: "7-qm-EwFC_A"
 videoTitle: "Carney chooses German submarines for Canadian navy fleet"
 thumbnail: "https://img.youtube.com/vi/7-qm-EwFC_A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Canada picks German company TKMS to build new fleet of submarines"
     url: "https://www.bbc.com/news/articles/cn4ddppz3jqo"

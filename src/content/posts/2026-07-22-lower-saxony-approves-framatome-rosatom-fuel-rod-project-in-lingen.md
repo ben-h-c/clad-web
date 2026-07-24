@@ -35,6 +35,10 @@ keyMoments:
 videoId: "F-I4J8gGPzA"
 videoTitle: "Germany approves joint venture with Russia's Rosatom despite Ukraine war | DW News"
 thumbnail: "https://img.youtube.com/vi/F-I4J8gGPzA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Germany Approves Controversial French-Russian Nuclear Fuel Project"
     url: "https://www.kyivpost.com/post/80845"

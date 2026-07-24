@@ -34,6 +34,10 @@ keyMoments:
 videoId: "-D5XrFQHCuE"
 videoTitle: "American rower Kelsey Pfendler speaks out after making history"
 thumbnail: "https://img.youtube.com/vi/-D5XrFQHCuE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How Kelsey Pfendler Rowed Solo from California to Hawaii"
     url: "https://www.outsideonline.com/outdoor-adventure/water-activities/solo-row-california-hawaii-kelsey-pfendler/"

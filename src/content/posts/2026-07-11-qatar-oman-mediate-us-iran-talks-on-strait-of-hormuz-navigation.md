@@ -33,6 +33,10 @@ keyMoments:
 videoId: "ZuzCHDOYqQo"
 videoTitle: "Mediators push US-Iran talks in Qatar and Oman to avert escalation | AJ Shorts"
 thumbnail: "https://img.youtube.com/vi/ZuzCHDOYqQo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US, Iran talks conclude in Doha, focused on Strait of Hormuz"
     url: "https://www.reuters.com/world/asia-pacific/us-iran-enter-technical-talks-secure-peace-deal-restart-shipping-2026-07-01/"

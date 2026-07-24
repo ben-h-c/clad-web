@@ -35,6 +35,10 @@ keyMoments:
 videoId: "sY5uhDPts7I"
 videoTitle: "'They Do Not Get To Negotiate': Mike Waltz Calls For Full, 'Irreversible' Demilitarization Of Hamas"
 thumbnail: "https://img.youtube.com/vi/sY5uhDPts7I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What is Security Council Resolution 2803, and what does it mean?"
     url: "https://www.chathamhouse.org/2025/11/what-security-council-resolution-2803-and-what-does-it-mean-trump-gaza-plan"

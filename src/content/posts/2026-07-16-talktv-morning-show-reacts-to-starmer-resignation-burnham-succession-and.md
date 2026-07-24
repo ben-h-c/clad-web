@@ -38,6 +38,10 @@ keyMoments:
 videoId: "hqI1dkrRrKU"
 videoTitle: "\"It Never Quite Worked For Him!\" | Starmer Pledges ‘Wholehearted Support’ To Burnham In Final PMQs"
 thumbnail: "https://img.youtube.com/vi/hqI1dkrRrKU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Argentina stun England with late comeback to reach World Cup final"
     url: "https://www.nytimes.com/athletic/live-blogs/england-vs-argentina-live-updates-world-cup-2026-score-result-messi/tuuzBVEioXgR/"

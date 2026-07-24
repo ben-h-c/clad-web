@@ -31,6 +31,10 @@ keyMoments:
 videoId: "ALsCqMt0bXo"
 videoTitle: "Baby’s 1st negotiation: Swedish minister brings 3-month-old baby to EU council meeting 👶🍼"
 thumbnail: "https://img.youtube.com/vi/ALsCqMt0bXo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Swedish minister brings baby to EU meeting, a first for the bloc"
     url: "https://www.reuters.com/world/swedish-minister-brings-baby-eu-meeting-first-bloc-2026-06-25/"

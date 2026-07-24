@@ -39,6 +39,10 @@ keyMoments:
 videoId: "F7IO84n3uaU"
 videoTitle: "How Dems could win back WH for a generation: See the CRASH scenario haunting Trump (Sorkin x Melber)"
 thumbnail: "https://img.youtube.com/vi/F7IO84n3uaU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US Big Tech Ratchets Up AI Spending Past $700 Billion This Year"
     url: "https://www.bloomberg.com/news/articles/2026-04-30/us-big-tech-ratchets-up-ai-spending-past-700-billion-this-year"

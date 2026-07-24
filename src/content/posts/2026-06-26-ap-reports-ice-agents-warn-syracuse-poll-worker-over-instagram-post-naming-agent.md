@@ -33,6 +33,10 @@ keyMoments:
 videoId: "MuN7H9Kl-cM"
 videoTitle: "Election worker says ICE officers confronted her over social media post"
 thumbnail: "https://img.youtube.com/vi/MuN7H9Kl-cM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Federal agents track down Syracuse woman, demand she remove Instagram post about ICE"
     url: "https://www.syracuse.com/news/2026/06/federal-agents-track-down-syracuse-woman-demand-she-remove-instagram-post-about-ice.html"

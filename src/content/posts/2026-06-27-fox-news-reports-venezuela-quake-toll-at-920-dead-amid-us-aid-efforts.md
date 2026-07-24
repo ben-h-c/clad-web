@@ -34,6 +34,10 @@ keyMoments:
 videoId: "dCyKlGC_UPQ"
 videoTitle: "JUST IN: At least 920 dead, 51k missing after Venezuela earthquakes"
 thumbnail: "https://img.youtube.com/vi/dCyKlGC_UPQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Over 900 killed in Venezuela earthquakes - CNN"
     url: "https://www.cnn.com/2026/06/26/world/live-news/venezuela-earthquake-hnk"

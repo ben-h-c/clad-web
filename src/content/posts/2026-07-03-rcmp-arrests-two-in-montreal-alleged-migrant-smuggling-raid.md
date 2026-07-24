@@ -31,6 +31,10 @@ keyMoments:
 videoId: "NuFrVsh3sIM"
 videoTitle: "2 arrested in RCMP raid of alleged migrant smuggling house in Montreal"
 thumbnail: "https://img.youtube.com/vi/NuFrVsh3sIM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "RCMP arrests two people in Montreal in connection with an alleged people smuggling ring"
     url: "https://globalnews.ca/video/11950807/rcmp-arrests-two-people-in-montreal-in-connection-with-an-alleged-people-smuggling-ring/"

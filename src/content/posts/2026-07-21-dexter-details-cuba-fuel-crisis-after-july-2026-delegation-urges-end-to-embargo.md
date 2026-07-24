@@ -35,6 +35,10 @@ keyMoments:
 videoId: "16GFAxaBdL4"
 videoTitle: "Dexter: Our Country is Intentionally Suffocating the People of Cuba"
 thumbnail: "https://img.youtube.com/vi/16GFAxaBdL4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Maxine Dexter"
     slug: "maxine-dexter"

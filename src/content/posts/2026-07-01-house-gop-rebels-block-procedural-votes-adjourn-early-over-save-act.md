@@ -35,6 +35,10 @@ keyMoments:
 videoId: "zTfaVmDExrY"
 videoTitle: "House members head to vacation early as rebels freeze votes on the floor"
 thumbnail: "https://img.youtube.com/vi/zTfaVmDExrY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Rep. Luna blocks House floor over SAVE Act as Scalise pushes to move agenda"
     url: "https://www.newsnationnow.com/politics/paulina-luna-steve-scalise-save-act/"

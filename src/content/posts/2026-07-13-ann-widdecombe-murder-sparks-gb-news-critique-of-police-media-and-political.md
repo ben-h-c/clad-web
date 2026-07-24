@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ifci1Du8O_M"
 videoTitle: "‘Nobody feels safe’ | Ann Widdecombe's murder is a ‘damning indictment’ of policing in Britain"
 thumbnail: "https://img.youtube.com/vi/ifci1Du8O_M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Suspect in former U.K. minister’s killing rearrested on suspicion of terror"
     url: "https://www.nbcnews.com/world/united-kingdom/ann-widdecombe-death-uk-counterterrorism-police-probe-rcna587264"

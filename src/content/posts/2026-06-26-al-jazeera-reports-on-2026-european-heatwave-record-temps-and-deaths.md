@@ -34,6 +34,10 @@ keyMoments:
 videoId: "j_7mCUKBl4k"
 videoTitle: "Deadly heatwave grips Europe as temperatures top 40°C and deaths rise across the continent"
 thumbnail: "https://img.youtube.com/vi/j_7mCUKBl4k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 European heatwaves"
     url: "https://en.wikipedia.org/wiki/2026_European_heatwaves"

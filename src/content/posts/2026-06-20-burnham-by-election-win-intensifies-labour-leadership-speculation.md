@@ -37,6 +37,10 @@ keyMoments:
 videoId: "tEqlKTDNCis"
 videoTitle: "Burnham By-Election Win Paves Way For Starmer Ouster"
 thumbnail: "https://img.youtube.com/vi/tEqlKTDNCis/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Burnham Wins Makerfield By-Election, Clearing Path to Challenge Starmer as UK Prime Minister"
     url: "https://www.nytimes.com/2026/06/18/world/europe/uk-makerfield-election.html"

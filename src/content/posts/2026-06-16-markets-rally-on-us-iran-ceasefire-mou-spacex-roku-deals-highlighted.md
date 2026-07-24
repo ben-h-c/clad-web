@@ -39,6 +39,10 @@ keyMoments:
 videoId: "Beda_DPZg6s"
 videoTitle: "US-Iran Deal Sends Stocks Higher, SpaceX Gains  | Closing Bell"
 thumbnail: "https://img.youtube.com/vi/Beda_DPZg6s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran and U.S. reach an initial deal to extend the ceasefire ..."
     url: "https://www.pbs.org/newshour/world/iran-and-u-s-reach-an-initial-deal-to-extend-the-ceasefire-and-open-the-strait-of-hormuz-but-challenges-remain"

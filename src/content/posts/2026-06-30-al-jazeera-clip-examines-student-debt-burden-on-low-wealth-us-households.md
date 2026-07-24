@@ -35,6 +35,10 @@ keyMoments:
 videoId: "4p7_llgPN50"
 videoTitle: "US education faces ‘a crisis for low-wealth students’ | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/4p7_llgPN50/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Student Loan Debt Statistics [2026]"
     url: "https://educationdata.org/student-loan-debt-statistics"

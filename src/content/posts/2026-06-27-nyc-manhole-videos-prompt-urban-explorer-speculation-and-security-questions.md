@@ -36,6 +36,10 @@ keyMoments:
 videoId: "RP7Y6Pw7_j4"
 videoTitle: "Manhole mystery grips NYC: Why are groups entering the city's sewers? | The Truth of the Matter"
 thumbnail: "https://img.youtube.com/vi/RP7Y6Pw7_j4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Men who climbed out of a Brooklyn sewer manhole believed to be 'treasure hunters,' sources say"
     url: "https://www.cbsnews.com/newyork/news/brooklyn-sewer-manhole-video-urban-explorers/"

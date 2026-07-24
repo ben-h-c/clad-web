@@ -36,6 +36,10 @@ keyMoments:
 videoId: "r_kn_ZoyO74"
 videoTitle: "Trump meets with emir of Qatar during G7 summit in France"
 thumbnail: "https://img.youtube.com/vi/r_kn_ZoyO74/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump meets with G7 leaders, Zelenskyy after U.S.-Iran ..."
     url: "https://www.nbcnews.com/politics/donald-trump/live-blog/live-updates-trump-g7-summit-us-iran-deal-hormuz-ukraine-russia-rcna350193"

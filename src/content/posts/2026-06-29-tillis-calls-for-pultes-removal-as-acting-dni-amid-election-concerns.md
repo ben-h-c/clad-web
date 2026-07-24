@@ -36,6 +36,10 @@ keyMoments:
 videoId: "DPyVxNSksCs"
 videoTitle: "'He Needs To Get Out': Thom Tillis Rails Against Bill Pulte As DNI Pick"
 thumbnail: "https://img.youtube.com/vi/DPyVxNSksCs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bill Pulte assumes role of US acting director of national intelligence"
     url: "https://www.theguardian.com/us-news/2026/jun/19/bill-pulte-acting-director-national-intelligence"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "nCyopMa0doo"
 videoTitle: "DEVELOPING: US launches NEW wave of strikes on Iran, hits KEY target"
 thumbnail: "https://img.youtube.com/vi/nCyopMa0doo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

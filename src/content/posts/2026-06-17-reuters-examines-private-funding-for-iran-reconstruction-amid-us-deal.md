@@ -34,6 +34,10 @@ keyMoments:
 videoId: "RQIAFCL2twY"
 videoTitle: "Who is going to pay for the reconstruction of Iran?"
 thumbnail: "https://img.youtube.com/vi/RQIAFCL2twY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Exclusive: Iran deal includes $300 billion fund, more than half of which already committed, source says"
     url: "https://www.reuters.com/business/finance/iran-deal-includes-300-billion-fund-more-than-half-which-already-committed-2026-06-16/"

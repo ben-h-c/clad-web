@@ -35,6 +35,10 @@ keyMoments:
 videoId: "IuEk-BdIVgw"
 videoTitle: "Lindsey Graham's Death Prompts Bipartisan Outpouring of Condolences. What You Need To Know - July 13"
 thumbnail: "https://img.youtube.com/vi/IuEk-BdIVgw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sen. Lindsey Graham dies at 71 after 'brief and sudden illness'"
     url: "https://www.nbcnews.com/politics/politics-news/sen-lindsey-graham-dies-71-brief-sudden-illness-rcna552722"

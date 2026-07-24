@@ -37,6 +37,10 @@ keyMoments:
 videoId: "QAhVY_K9ZNA"
 videoTitle: "'SHOOTING UP LIKE A ROCKET': Trump touts EXPLOSIVE stock market rally"
 thumbnail: "https://img.youtube.com/vi/QAhVY_K9ZNA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What's in the Iran deal Trump says he's ready to sign"
     url: "https://www.axios.com/2026/06/12/iran-deal-mou-strait-open-sanctions-relief"

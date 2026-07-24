@@ -38,6 +38,10 @@ keyMoments:
 videoId: "4t9y_0tdZyk"
 videoTitle: "Residents fear cancer cluster in this New Jersey waterfront neighborhood | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/4t9y_0tdZyk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "New cancer cluster feared in N.J. neighborhood"
     url: "https://www.nj.com/news/2026/04/new-cancer-cluster-feared-in-nj-neighborhood.html"

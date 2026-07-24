@@ -36,6 +36,10 @@ keyMoments:
 videoId: "JCLN9psHjxY"
 videoTitle: "JUST IN: FBI disrupted alleged terror plot targeting White House UFC event"
 thumbnail: "https://img.youtube.com/vi/JCLN9psHjxY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FBI arrests 5 people in connection with drone attack plot against White House UFC Freedom 250 event"
     url: "https://nypost.com/2026/06/16/us-news/fbi-arrests-5-people-in-connection-with-drone-attack-plot-against-white-house-ufc-freedom-250-event/"

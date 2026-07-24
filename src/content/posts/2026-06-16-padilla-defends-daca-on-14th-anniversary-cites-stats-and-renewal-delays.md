@@ -39,6 +39,10 @@ keyMoments:
 videoId: "36dkjPxCix0"
 videoTitle: "'They Deserve An Opportunity To Continue To Be Part Of This Country': Alex Padilla Defends DACA"
 thumbnail: "https://img.youtube.com/vi/36dkjPxCix0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Senator Padilla Delivers Remarks on the 14th Anniversary of DACA"
     url: "https://www.youtube.com/watch?v=iTZIHejJS2k"

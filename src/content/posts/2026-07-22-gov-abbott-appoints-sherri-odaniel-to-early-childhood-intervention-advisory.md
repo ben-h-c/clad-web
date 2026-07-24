@@ -32,6 +32,10 @@ keyMoments:
 videoId: "QYH96Y1cUWs"
 videoTitle: "Texas Governor Greg Abbott appoints local woman to ESC advisory committee"
 thumbnail: "https://img.youtube.com/vi/QYH96Y1cUWs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Greg Abbott"
     slug: "greg-abbott"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "MztWzOZLPaU"
 videoTitle: "Sudan's RSF accused of crimes against humanity, ethnic cleansing in el-Fasher"
 thumbnail: "https://img.youtube.com/vi/MztWzOZLPaU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sudan: RSF atrocities in El Fasher ‘a stain on the conscience of humanity’ – new report"
     url: "https://www.amnesty.org/en/latest/news/2026/07/sudan-rsf-atrocities-in-el-fasher-a-stain-on-the-conscience-of-humanity-new-report/"

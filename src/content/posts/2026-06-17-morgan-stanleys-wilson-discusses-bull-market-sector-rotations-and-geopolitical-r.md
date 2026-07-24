@@ -36,6 +36,10 @@ keyMoments:
 videoId: "ITpqKPi_tH4"
 videoTitle: "Morgan Stanley's Wilson Says Investors Looking Past War"
 thumbnail: "https://img.youtube.com/vi/ITpqKPi_tH4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Morgan Stanley boosts S&P 500 target to 8,000"
     url: "https://www.marketwatch.com/story/the-stock-market-doesnt-need-fed-cuts-says-morgan-stanley-as-it-ratchets-s-p-500-view-higher-d39742b0"

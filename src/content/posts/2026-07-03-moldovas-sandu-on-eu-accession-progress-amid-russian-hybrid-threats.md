@@ -38,6 +38,10 @@ keyMoments:
 videoId: "cZAG3oBKgvQ"
 videoTitle: "'We hope the member states will recognise our effort' to join the EU: Moldova's President Maia Sandu"
 thumbnail: "https://img.youtube.com/vi/cZAG3oBKgvQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Enlargement: EU and Moldova reach a milestone in accession talks"
     url: "https://www.consilium.europa.eu/en/press/press-releases/2026/06/15/enlargement-eu-and-moldova-reach-a-milestone-in-accession-talks-with-opening-of-the-first-negotiation-cluster/"

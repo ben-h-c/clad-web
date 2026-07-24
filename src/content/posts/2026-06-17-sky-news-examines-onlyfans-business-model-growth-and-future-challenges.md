@@ -37,6 +37,10 @@ keyMoments:
 videoId: "WOL6GHwBWFs"
 videoTitle: "The business of OnlyFans explained"
 thumbnail: "https://img.youtube.com/vi/WOL6GHwBWFs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "OnlyFans 2024 Financials: Gross Revenue $7.2 Billion, up 9%"
     url: "https://variety.com/2025/digital/news/onlyfans-fiscal-2024-revenue-earnings-1236495750/"

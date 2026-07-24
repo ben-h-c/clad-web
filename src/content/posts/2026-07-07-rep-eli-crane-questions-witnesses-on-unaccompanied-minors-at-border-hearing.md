@@ -38,6 +38,10 @@ keyMoments:
 videoId: "14iDAkkOdIs"
 videoTitle: "'Interesting, Isn't It?': Eli Crane Calls Out Democrats For Not Attending Border Security Hearing"
 thumbnail: "https://img.youtube.com/vi/14iDAkkOdIs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "House Homeland Security Committee hearing on migrant children"
     url: "https://homeland.house.gov/hearing/trafficked-exploited-and-missing-migrant-children-victims-of-the-biden-harris-administration/"

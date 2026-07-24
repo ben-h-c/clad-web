@@ -36,6 +36,10 @@ keyMoments:
 videoId: "bgGO0TisHvw"
 videoTitle: "Trump orders retaliatory airstrikes against Iran"
 thumbnail: "https://img.youtube.com/vi/bgGO0TisHvw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. strikes Iran after Trump accuses Tehran of ceasefire violation in Strait of Hormuz"
     url: "https://www.cnbc.com/2026/06/26/us-strikes-iran-strait-of-hormuz-ceasefire.html"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "xH-yAy8_yB4"
 videoTitle: "Jon Stewart on Lindsey Graham's Death & America's Geriatric Political Class | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/xH-yAy8_yB4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Lindsey Graham"
     slug: "lindsey-graham"

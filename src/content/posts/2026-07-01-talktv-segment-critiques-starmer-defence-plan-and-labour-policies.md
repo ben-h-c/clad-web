@@ -36,6 +36,10 @@ keyMoments:
 videoId: "9Te4y_gyMZ0"
 videoTitle: "\"People Don’t HATE Starmer Enough\" | \"This Country Is Being BETRAYED\""
 thumbnail: "https://img.youtube.com/vi/9Te4y_gyMZ0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Starmer leaves Burnham with £5bn defence black hole"
     url: "https://www.telegraph.co.uk/news/2026/06/30/sir-keir-starmer-cut-107bn-with-defence-investment-plan/"

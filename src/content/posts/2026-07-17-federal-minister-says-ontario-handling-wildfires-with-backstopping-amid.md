@@ -32,6 +32,10 @@ keyMoments:
 videoId: "WtmmLvQQk_U"
 videoTitle: "Ontario wildfires: Feds say province is “apparently capable” of handling current situation"
 thumbnail: "https://img.youtube.com/vi/WtmmLvQQk_U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ontario seeks federal support for evacuations as wildfires devastate remote Canadian towns"
     url: "https://www.reuters.com/business/environment/ontario-asks-federal-support-wildfire-evacuations-smoke-spreads-2026-07-16/"

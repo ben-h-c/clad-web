@@ -35,6 +35,10 @@ keyMoments:
 videoId: "B3FOAi8GX1g"
 videoTitle: "The AI hacking wave is here"
 thumbnail: "https://img.youtube.com/vi/B3FOAi8GX1g/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Phishing with AI is cybersecurity's new hook"
     url: "https://www.mckinsey.com/featured-insights/week-in-charts/phishing-with-ai-is-cybersecuritys-new-hook"

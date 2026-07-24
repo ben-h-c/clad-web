@@ -30,6 +30,10 @@ keyMoments:
 videoId: "g9zvRlmqVLk"
 videoTitle: "'Use it or lose it', says Sunbed Vigilante #gmb #sunbed #holiday"
 thumbnail: "https://img.youtube.com/vi/g9zvRlmqVLk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How hotels are stopping the 'dawn dash' for sunbeds after payout win"
     url: "https://www.bbc.com/news/articles/c99l17m2ep9o"

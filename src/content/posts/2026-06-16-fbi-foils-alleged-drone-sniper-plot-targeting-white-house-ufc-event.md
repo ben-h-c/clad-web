@@ -36,6 +36,10 @@ keyMoments:
 videoId: "k66iM_WlMzw"
 videoTitle: "FBI stops drone-and-sniper plot that almost ruined UFC Freedom 250 at White House"
 thumbnail: "https://img.youtube.com/vi/k66iM_WlMzw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FBI disrupts plot targeting UFC event at White House with explosive drones: Sources"
     url: "https://abcnews.com/US/fbi-disrupts-plot-targeting-ufc-event-sources/story?id=133915057"

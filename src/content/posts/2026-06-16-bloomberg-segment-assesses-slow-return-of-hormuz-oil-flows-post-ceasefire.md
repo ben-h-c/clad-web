@@ -31,6 +31,10 @@ keyMoments:
 videoId: "9nbf6CLi5GI"
 videoTitle: "Hormuz Oil Flows May Not Normalize Until End of Year"
 thumbnail: "https://img.youtube.com/vi/9nbf6CLi5GI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jeff Currie Says Hormuz Flows May Not Normalize Until End of the Year"
     url: "https://www.bloomberg.com/news/videos/2026-06-16/currie-hormuz-flows-may-not-normalize-until-year-s-end-video"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "O4vx9eQFW7E"
 videoTitle: "Venezuelan president says she has faith rescuers will find survivors of earthquakes | BBC News"
 thumbnail: "https://img.youtube.com/vi/O4vx9eQFW7E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela Quake Survivors Grows More Urgent"
     url: "https://www.nytimes.com/live/2026/06/25/world/venezuela-earthquake"

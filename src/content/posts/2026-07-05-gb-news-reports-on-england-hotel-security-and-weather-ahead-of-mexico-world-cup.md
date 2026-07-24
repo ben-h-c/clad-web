@@ -36,6 +36,10 @@ keyMoments:
 videoId: "z8ewQWTuLYU"
 videoTitle: "WATCH: Ben Leo CONFRONTS Mexico fans over England SABOTAGE with fireworks and band music overnight"
 thumbnail: "https://img.youtube.com/vi/z8ewQWTuLYU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mexico vs. England kick-off time to stay as planned despite FIFA talks"
     url: "https://www.nytimes.com/athletic/7419752/2026/07/03/england-mexico-kick-off-fifa-world-cup/"

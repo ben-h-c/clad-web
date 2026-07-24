@@ -31,6 +31,10 @@ keyMoments:
 videoId: "-E2PCsF6JLE"
 videoTitle: "WATCH: Blanche says he is not friends with President Trump"
 thumbnail: "https://img.youtube.com/vi/-E2PCsF6JLE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Todd Blanche downplays Trump alliance in confirmation hearing"
     url: "https://www.theguardian.com/us-news/2026/jul/15/todd-blanche-confirmation-hearing-attorney-general"

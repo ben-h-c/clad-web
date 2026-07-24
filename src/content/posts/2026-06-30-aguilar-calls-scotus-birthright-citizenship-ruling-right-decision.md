@@ -31,6 +31,10 @@ keyMoments:
 videoId: "RirjuQ8anvw"
 videoTitle: "Pete Aguilar: Supreme Court's Ruling On Birthright Citizenship Was The 'Right Decision'"
 thumbnail: "https://img.youtube.com/vi/RirjuQ8anvw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court strikes down Trump birthright citizenship order"
     url: "https://apnews.com/article/supreme-court-birthright-citizenship-trump-immigration-c73cf0c70bb550ebf0a55fafddbd935c"

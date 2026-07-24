@@ -34,6 +34,10 @@ keyMoments:
 videoId: "WRe57fc6u6E"
 videoTitle: "The search is on to find cause of parasite that has sickened over 3000 "
 thumbnail: "https://img.youtube.com/vi/WRe57fc6u6E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Surveillance of Cyclosporiasis"
     url: "https://www.cdc.gov/cyclosporiasis/php/surveillance/index.html"

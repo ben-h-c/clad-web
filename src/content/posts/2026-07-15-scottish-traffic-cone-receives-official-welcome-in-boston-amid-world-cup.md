@@ -35,6 +35,10 @@ keyMoments:
 videoId: "-tPkIDI3MpM"
 videoTitle: "Why a traffic cone got a hero’s welcome in Boston"
 thumbnail: "https://img.youtube.com/vi/-tPkIDI3MpM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Glasgow Traffic Cone Welcomed as a Token Of Hospitality and Friendship Between Scotland and Massachusetts During the 2026 Fifa World Cup"
     url: "https://www.boston.gov/news/glasgow-traffic-cone-welcomed-token-hospitality-and-friendship-between-scotland-and"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "j3v2-rdl9D8"
 videoTitle: "The Mystery Behind Beijing’s Skyscraper Plane Crash"
 thumbnail: "https://img.youtube.com/vi/j3v2-rdl9D8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A plane crashed into a tower in Beijing but China is not saying what happened"
     url: "https://www.the-star.co.ke/news/world/2026-07-01-plane-crashed-into-a-tower-in-beijing-but-china-is-not-saying-what-happened"

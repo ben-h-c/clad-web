@@ -34,6 +34,10 @@ keyMoments:
 videoId: "90GF8JOYQT0"
 videoTitle: "CPA examines Trump's $1.4 billion crypto income"
 thumbnail: "https://img.youtube.com/vi/90GF8JOYQT0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump reports over $1.4 billion in income from crypto ventures"
     url: "https://www.reuters.com/world/us/trump-reports-more-than-14-billion-income-crypto-ventures-2026-06-30/"

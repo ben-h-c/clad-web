@@ -31,6 +31,10 @@ keyMoments:
 videoId: "BJwSzGiDGss"
 videoTitle: "Britt Lower - “I Will Find You” | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/BJwSzGiDGss/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Harlan Coben's New Netflix Thriller Officially Arrives in Less Than 48 Hours"
     url: "https://collider.com/netflix-harlan-coben-mystery-series-i-will-find-you-premiere-date-june-18-2026/"

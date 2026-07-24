@@ -32,6 +32,10 @@ keyMoments:
 videoId: "tkynNycaJp8"
 videoTitle: "HHS defends holding hantavirus cruise ship passenger in quarantine"
 thumbnail: "https://img.youtube.com/vi/tkynNycaJp8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Kennedy Orders Woman to Stay in Hantavirus Quarantine, Despite C.D.C. Recommendation"
     url: "https://www.nytimes.com/2026/06/15/health/hantavirus-quarantine-kennedy.html"

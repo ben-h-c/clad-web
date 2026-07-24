@@ -34,6 +34,10 @@ keyMoments:
 videoId: "0umrMuUClC4"
 videoTitle: "Bill Maris: How Google Could Crush AI Competitors, Why Small Funds Win, and AI's Atari Stage"
 thumbnail: "https://img.youtube.com/vi/0umrMuUClC4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bill Maris: How Google Could Crush AI Competitors, Why Small Funds Win, and AI's Atari Stage"
     url: "https://www.youtube.com/watch?v=0umrMuUClC4"

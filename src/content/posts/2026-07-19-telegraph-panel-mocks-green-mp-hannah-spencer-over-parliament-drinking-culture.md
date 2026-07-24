@@ -33,6 +33,10 @@ keyMoments:
 videoId: "4Pz3TTGnrio"
 videoTitle: "Is Hannah Spencer Westminster's resident fun sponge?"
 thumbnail: "https://img.youtube.com/vi/4Pz3TTGnrio/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Hannah Spencer - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Hannah_Spencer"

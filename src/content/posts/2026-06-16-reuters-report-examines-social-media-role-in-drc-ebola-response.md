@@ -31,6 +31,10 @@ keyMoments:
 videoId: "S3fcGcvrwws"
 videoTitle: "Congolese influencers raise Ebola awareness through social media"
 thumbnail: "https://img.youtube.com/vi/S3fcGcvrwws/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Epidemic of Ebola Disease caused by Bundibugyo virus in the Democratic Republic of the Congo and Uganda determined a public health emergency of international concern"
     url: "https://www.who.int/news/item/17-05-2026-epidemic-of-ebola-disease-in-the-democratic-republic-of-the-congo-and-uganda-determined-a-public-health-emergency-of-international-concern"

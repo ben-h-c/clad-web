@@ -35,6 +35,10 @@ keyMoments:
 videoId: "n6VhO3yPxcc"
 videoTitle: "WATCH: Rep. Cloud questions American History museum director in Smithsonian oversight hearing"
 thumbnail: "https://img.youtube.com/vi/n6VhO3yPxcc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Michael Cloud"
     slug: "michael-cloud"

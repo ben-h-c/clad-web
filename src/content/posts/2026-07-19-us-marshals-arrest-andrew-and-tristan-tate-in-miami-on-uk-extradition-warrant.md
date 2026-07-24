@@ -35,6 +35,10 @@ keyMoments:
 videoId: "XxIpsb2ciKI"
 videoTitle: "Andrew Tate and his brother arrested in Miami, US Marshals service tells AP"
 thumbnail: "https://img.youtube.com/vi/XxIpsb2ciKI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Social media influencers Andrew and Tristan Tate arrested in Miami, US Marshals Service tells AP"
     url: "https://apnews.com/article/tate-brothers-social-influencers-arrest-82b6638219839dcf653c09309da66f16"

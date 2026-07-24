@@ -34,6 +34,10 @@ keyMoments:
 videoId: "n7IoQJLUfgI"
 videoTitle: "Did the CIA drop ticks over Cuba?"
 thumbnail: "https://img.youtube.com/vi/n7IoQJLUfgI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Weaponized ticks: Investigation ordered into whether insects were used as biological weapons"
     url: "https://www.cnn.com/2019/07/17/politics/lyme-disease-amendment-investigation"

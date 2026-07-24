@@ -37,6 +37,10 @@ keyMoments:
 videoId: "kvLrZJW3MoE"
 videoTitle: "Moskowitz Dares Pam Bondi to Read His &quot;Burn Book&quot; Her Response Stuns Congress."
 thumbnail: "https://img.youtube.com/vi/kvLrZJW3MoE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Howard Lutnick"
     slug: "howard-lutnick"

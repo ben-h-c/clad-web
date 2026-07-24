@@ -35,6 +35,10 @@ keyMoments:
 videoId: "gRYZeZkhmS8"
 videoTitle: "State Department BLOCKS NYC advisor from meeting with Iran envoy #foxnews #news"
 thumbnail: "https://img.youtube.com/vi/gRYZeZkhmS8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A Top Mamdani Official Tried to Meet with Iran"
     url: "https://www.city-journal.org/article/new-york-office-for-international-affairs-commissioner-ana-maria-archila-iran"

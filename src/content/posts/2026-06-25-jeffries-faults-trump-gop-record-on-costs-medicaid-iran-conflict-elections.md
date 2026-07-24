@@ -37,6 +37,10 @@ keyMoments:
 videoId: "TVLV2KRqBfg"
 videoTitle: "Rep. Jeffries Says Trump & GOP Have Failed America and Will Cheat to Win in November"
 thumbnail: "https://img.youtube.com/vi/TVLV2KRqBfg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "House passes reconciliation bill with massive Medicaid cuts"
     url: "https://www.healthcaredive.com/news/house-passes-reconciliation-bill-medicaid-healthcare/748697/"

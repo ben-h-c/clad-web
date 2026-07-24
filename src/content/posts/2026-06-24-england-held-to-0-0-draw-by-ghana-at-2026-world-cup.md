@@ -31,6 +31,10 @@ keyMoments:
 videoId: "_R2z9nQkkTY"
 videoTitle: "England fans slam 'awful' World Cup draw against Ghana"
 thumbnail: "https://img.youtube.com/vi/_R2z9nQkkTY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "England 0-0 Ghana (Jun 23, 2026) Final Score"
     url: "https://www.espn.com/soccer/match/_/gameId/760458/ghana-england"

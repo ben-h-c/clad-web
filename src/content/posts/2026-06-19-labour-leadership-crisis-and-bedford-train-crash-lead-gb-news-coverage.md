@@ -36,6 +36,10 @@ keyMoments:
 videoId: "OaJ2Kjs4dOw"
 videoTitle: "Patrick Christys Tonight Late Edition | Friday 19th June"
 thumbnail: "https://img.youtube.com/vi/OaJ2Kjs4dOw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham wins Makerfield by-election"
     url: "https://www.bbc.com/news/videos/c20ynlkrkzko"

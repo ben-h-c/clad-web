@@ -36,6 +36,10 @@ keyMoments:
 videoId: "HO0ZAL7YhPU"
 videoTitle: "\"Everything Harry & Meghan Touch Turns To SH*T!\" | Megyn Kelly"
 thumbnail: "https://img.youtube.com/vi/HO0ZAL7YhPU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Inside Meghan and Harry's Falling Out With Netflix"
     url: "https://variety.com/2026/film/news/meghan-markle-harry-netflix-partnership-struggling-1236690802/"

@@ -29,6 +29,10 @@ keyMoments:
 videoId: "8vNGT6yEnig"
 videoTitle: "India tunnel collapse kills 10 as toxic gases hamper rescue | AJ Shorts"
 thumbnail: "https://img.youtube.com/vi/8vNGT6yEnig/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "India tunnel collapse at a hydropower project kills 10 as 17 remain missing"
     url: "https://www.aljazeera.com/news/2026/7/21/india-tunnel-collapse-at-a-hydropower-project-kills-10-as-17-remain-missing"

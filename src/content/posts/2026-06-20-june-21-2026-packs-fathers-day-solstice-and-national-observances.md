@@ -37,6 +37,10 @@ keyMoments:
 videoId: "DCDLbpjOd04"
 videoTitle: "Father's Day isn't the only thing happening. June 21 is jam-packed"
 thumbnail: "https://img.youtube.com/vi/DCDLbpjOd04/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Father's Day, summer solstice and more all fall on June 21"
     url: "https://www.usatoday.com/story/news/nation/2026/06/20/june-21-2026-fathers-day-summer-solstice/90604891007/"

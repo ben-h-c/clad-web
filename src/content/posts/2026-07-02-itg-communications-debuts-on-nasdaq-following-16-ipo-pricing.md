@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ftCymrGHFOg"
 videoTitle: "The proceeds of this IPO are going to be an 'EXCITING RIDE': ITG CEO"
 thumbnail: "https://img.youtube.com/vi/ftCymrGHFOg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "ITG, Inc. Announces Pricing of Initial Public Offering"
     url: "https://www.globenewswire.com/news-release/2026/06/30/3320247/0/en/itg-inc-announces-pricing-of-initial-public-offering.html"

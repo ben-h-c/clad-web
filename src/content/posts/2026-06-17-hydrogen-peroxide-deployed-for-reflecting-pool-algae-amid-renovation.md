@@ -31,6 +31,10 @@ keyMoments:
 videoId: "LNKRxQj6gBI"
 videoTitle: "Workers combat DC's Reflecting Pool algae with hydrogen peroxide"
 thumbnail: "https://img.youtube.com/vi/LNKRxQj6gBI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Hydrogen Peroxide Poured Into Green Reflecting Pool After Trump’s $14 Million Renovation"
     url: "https://www.forbes.com/sites/zacharyfolk/2026/06/16/hydrogen-peroxide-poured-into-green-reflecting-pool-after-trumps-14-million-renovation/"

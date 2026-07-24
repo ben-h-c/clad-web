@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ykCglIRkwYw"
 videoTitle: "Top Team USA star to play in World Cup match after Trump weighs in on controversial penalty"
 thumbnail: "https://img.youtube.com/vi/ykCglIRkwYw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FIFA statement on Balogun availability"
     url: "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/usa-folarin-balogun-available-belgium"

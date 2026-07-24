@@ -39,6 +39,10 @@ keyMoments:
 videoId: "T6of_JcwkfU"
 videoTitle: "DHS warns threat level is the highest ever ahead of World Cup"
 thumbnail: "https://img.youtube.com/vi/T6of_JcwkfU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "DHS secretary details security measures for FIFA World Cup, America250"
     url: "https://www.foxnews.com/video/6398388933112"

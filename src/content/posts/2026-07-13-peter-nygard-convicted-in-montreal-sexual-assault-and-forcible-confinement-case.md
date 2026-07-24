@@ -34,6 +34,10 @@ keyMoments:
 videoId: "HERAhmVTrIA"
 videoTitle: "Peter Nygard found guilty of sexual assault, forcible confinement in Montreal"
 thumbnail: "https://img.youtube.com/vi/HERAhmVTrIA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Peter Nygard found guilty in Montreal sexual assault case"
     url: "https://www.bbc.com/news/articles/cy5vxd9ve16o"

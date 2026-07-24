@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Wdl0HgCv0aA"
 videoTitle: "SK Chairman Says He Has 'Much, Much Bigger' Plans for US"
 thumbnail: "https://img.youtube.com/vi/Wdl0HgCv0aA/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SK Chairman Promises 'Much, Much Bigger' US Investment Plan"
     url: "https://www.bloomberg.com/news/articles/2026-07-10/sk-chairman-says-he-has-much-much-bigger-us-investment-plan"

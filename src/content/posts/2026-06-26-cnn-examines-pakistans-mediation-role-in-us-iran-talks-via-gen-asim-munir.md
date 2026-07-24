@@ -35,6 +35,10 @@ keyMoments:
 videoId: "CrKpXis-Xe8"
 videoTitle: "The Pakistani general who brought Trump & Iran together"
 thumbnail: "https://img.youtube.com/vi/CrKpXis-Xe8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Nuclear inspectors and frozen assets: What Iran and US can’t agree on"
     url: "https://www.aljazeera.com/news/2026/6/23/what-the-us-and-iran-agreed-and-disagreed-on-first-day-of-talks"

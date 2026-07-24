@@ -31,6 +31,10 @@ keyMoments:
 videoId: "VhLy5-BX8Rg"
 videoTitle: "VIRAL MOMENT: Hot Mic Catches Macron Talking To Zelensky About President Trump"
 thumbnail: "https://img.youtube.com/vi/VhLy5-BX8Rg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Macron tells Zelensky he had ‘difficult’ meeting with Trump ahead of Ukraine talks as duo caught in hot mic moment"
     url: "https://nypost.com/2026/06/16/us-news/macron-says-he-had-a-difficult-meeting-with-president-trump/"

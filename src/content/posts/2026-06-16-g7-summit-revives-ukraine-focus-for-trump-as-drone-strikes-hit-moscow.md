@@ -38,6 +38,10 @@ keyMoments:
 videoId: "7CXf9w7JFZU"
 videoTitle: "G7 summit puts Ukraine war back on Trump’s agenda | DW News"
 thumbnail: "https://img.youtube.com/vi/7CXf9w7JFZU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says he will push for peace in Ukraine after meeting Zelenskyy at G7"
     url: "https://www.aljazeera.com/news/2026/6/16/g7-leaders-meet-in-france-with-iran-and-ukraine-high-on-agenda"

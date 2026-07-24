@@ -41,6 +41,10 @@ keyMoments:
 videoId: "T7NGfRbw3rE"
 videoTitle: "‘Burnham Will RAISE Your Taxes' | ‘Immigration Will WORSEN’ | ‘This Is Undemocratic Coup’"
 thumbnail: "https://img.youtube.com/vi/T7NGfRbw3rE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham to pledge ‘good growth in every postcode’ in devolution plan"
     url: "https://www.theguardian.com/politics/2026/jun/28/andy-burnham-to-pledge-good-growth-in-every-postcode-in-devolution-plan"

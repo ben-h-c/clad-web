@@ -36,6 +36,10 @@ keyMoments:
 videoId: "DNQjzITQOK0"
 videoTitle: "Schumer: \"Trump's taking America's national security hostage\""
 thumbnail: "https://img.youtube.com/vi/DNQjzITQOK0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Foreign surveillance program set to expire after Democrats reject short-term renewal"
     url: "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-congress-fisa-doj-ufc-2026-primary-elections-dhs-live-updates-rcna349535"

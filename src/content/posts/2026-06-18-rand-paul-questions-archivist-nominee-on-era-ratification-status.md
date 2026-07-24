@@ -31,6 +31,10 @@ keyMoments:
 videoId: "PmpL_gksjBg"
 videoTitle: "Rand Paul Asks U.S. Archivist Nominee: Do You Believe The Equal Rights Amendment Has Passed?"
 thumbnail: "https://img.youtube.com/vi/PmpL_gksjBg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "What Comes Next for the Equal Rights Amendment?"
     url: "https://www.americanprogress.org/article/what-comes-next-for-the-equal-rights-amendment/"

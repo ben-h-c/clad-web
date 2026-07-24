@@ -35,6 +35,10 @@ keyMoments:
 videoId: "FnY5NJkcRow"
 videoTitle: "Steven Guilbeault on his split with Mark Carney | The Current"
 thumbnail: "https://img.youtube.com/vi/FnY5NJkcRow/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Steven Guilbeault Resigns From Cabinet After Carney Signs Alberta Pipeline Deal"
     url: "https://energynow.ca/2025/11/steven-guilbeault-resigns-from-cabinet-after-carney-signs-alberta-pipeline-deal/"

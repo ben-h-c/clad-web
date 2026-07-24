@@ -31,6 +31,10 @@ keyMoments:
 videoId: "oS_Mfu9AI5o"
 videoTitle: "Iran School Bombing: The Search for Truth"
 thumbnail: "https://img.youtube.com/vi/oS_Mfu9AI5o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Minab school attack - Wikipedia"
     url: "https://en.wikipedia.org/wiki/2026_Minab_school_attack"

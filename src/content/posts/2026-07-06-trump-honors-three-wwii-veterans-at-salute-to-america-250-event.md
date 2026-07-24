@@ -31,6 +31,10 @@ keyMoments:
 videoId: "gdxsxpPEe2Q"
 videoTitle: "'They Are The Greatest Generation': Trump Honors WWII Veterans For Their Sacrifices"
 thumbnail: "https://img.youtube.com/vi/gdxsxpPEe2Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "President Trump honored military veterans during his 'Salute to America 250' address"
     url: "https://www.facebook.com/FoxNews/posts/president-trump-honored-military-veterans-during-his-salute-to-america-250-addre/1471468481509676/"

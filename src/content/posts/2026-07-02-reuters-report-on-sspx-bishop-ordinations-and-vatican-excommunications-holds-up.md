@@ -34,6 +34,10 @@ keyMoments:
 videoId: "NAkr6_P3GGQ"
 videoTitle: "Who are the SSPX and why were they excommunicated?"
 thumbnail: "https://img.youtube.com/vi/NAkr6_P3GGQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SSPX ordains four new bishops in defiance of Pope Leo and the Vatican"
     url: "https://www.americamagazine.org/vatican-dispatch/2026/07/01/sspx-ordains-four-new-bishops-in-defiance-of-pope-leo-and-the-vatican/"

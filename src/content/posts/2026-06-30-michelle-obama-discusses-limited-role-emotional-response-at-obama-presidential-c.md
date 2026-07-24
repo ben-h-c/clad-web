@@ -37,6 +37,10 @@ keyMoments:
 videoId: "A49ARyahKC8"
 videoTitle: "MS NOW EXCLUSIVE: Michelle Obama on wanting the Obama Presidential Center to be 'Barack’s show’"
 thumbnail: "https://img.youtube.com/vi/A49ARyahKC8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Grand Opening | The Obama Foundation"
     url: "https://www.obama.org/visit/grand-opening/"

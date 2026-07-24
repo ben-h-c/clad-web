@@ -36,6 +36,10 @@ keyMoments:
 videoId: "IrRtvb1xQWY"
 videoTitle: "'Very Often People Resort To Name Calling': Dan Meuser Rips Dems Over Criticism Of Russell Vought"
 thumbnail: "https://img.youtube.com/vi/IrRtvb1xQWY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Russell Vought"
     slug: "russell-vought"

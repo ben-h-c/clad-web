@@ -34,6 +34,10 @@ keyMoments:
 videoId: "sgxLH8N6eCM"
 videoTitle: "Scary flooding hammers states along Gulf Coast, creates treacherous conditions"
 thumbnail: "https://img.youtube.com/vi/sgxLH8N6eCM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Rain along Gulf Coast could become the first named storm of Atlantic hurricane season"
     url: "https://www.ualrpublicradio.org/npr-news/2026-06-16/rain-along-gulf-coast-could-become-the-first-named-storm-of-atlantic-hurricane-season"

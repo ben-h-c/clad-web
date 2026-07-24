@@ -37,6 +37,10 @@ keyMoments:
 videoId: "iACVkeTO65c"
 videoTitle: "'We have to be hypervigilant' about what deniers do in 'aftermath' of an election: Charen"
 thumbnail: "https://img.youtube.com/vi/iACVkeTO65c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Donald Trump's 2012 Election Tweetstorm Resurfaces"
     url: "https://abcnews.com/Politics/donald-trumps-2012-election-tweetstorm-resurfaces-popular-electoral/story?id=43431536"

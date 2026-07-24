@@ -36,6 +36,10 @@ keyMoments:
 videoId: "2dbmDF5Rw04"
 videoTitle: "Miraculous rescues after deadly Venezuela earthquakes"
 thumbnail: "https://img.youtube.com/vi/2dbmDF5Rw04/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "International aid heads to Venezuela after deadly earthquake"
     url: "https://www.reuters.com/world/americas/international-aid-heads-venezuela-after-deadly-earthquake-2026-06-25/"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Tp6wJyKG6yE"
 videoTitle: "'You Received A Threatening Letter...': Hunt Asks California Sheriff About Clash With CA AG, Newsom"
 thumbnail: "https://img.youtube.com/vi/Tp6wJyKG6yE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sanctuary New York Released Nearly 7,000 Criminal Illegal Aliens Including Murderers, Terrorists, and Sexual Predators"
     url: "https://www.dhs.gov/news/2025/12/01/sanctuary-new-york-released-nearly-7000-criminal-illegal-aliens-including-murderers"

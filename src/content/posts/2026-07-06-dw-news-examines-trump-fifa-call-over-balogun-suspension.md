@@ -36,6 +36,10 @@ keyMoments:
 videoId: "gxmzSnXA4ZM"
 videoTitle: "Did FIFA lift Balogun's match suspension after a Trump phone call? | DW News"
 thumbnail: "https://img.youtube.com/vi/gxmzSnXA4ZM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump called FIFA president to review Folarin Balogun's red card"
     url: "https://www.foxnews.com/sports/trump-called-fifa-president-review-folarin-balogun-red-card-usa-belgium-match"

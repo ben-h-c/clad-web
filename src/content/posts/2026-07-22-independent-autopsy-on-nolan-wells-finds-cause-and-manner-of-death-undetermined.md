@@ -34,6 +34,10 @@ keyMoments:
 videoId: "SLcB-yAQs8U"
 videoTitle: "Independent autopsy finds Nolan Wells' cause of death to be 'undetermined'"
 thumbnail: "https://img.youtube.com/vi/SLcB-yAQs8U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Nolan Wells’ independent autopsy results in 'undetermined' cause and manner of death"
     url: "https://www.nbcnews.com/news/us-news/nolan-wells-independent-autopsy-results-undetermined-cause-manner-deat-rcna588578"

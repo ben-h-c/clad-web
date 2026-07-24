@@ -35,6 +35,10 @@ keyMoments:
 videoId: "DQFZovfF4jo"
 videoTitle: "Firefighter recalls boat rescue: 'My instinct was to go' | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/DQFZovfF4jo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Off-duty Midlothian firefighter saves children after July 4 boat accident"
     url: "https://www.fox4news.com/news/off-duty-midlothian-firefighter-saves-children-after-july-4-boat-accident"

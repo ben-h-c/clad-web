@@ -32,6 +32,10 @@ keyMoments:
 videoId: "BmV_an8d0f4"
 videoTitle: "AFL-CIO won’t endorse for governor in blow to McKee"
 thumbnail: "https://img.youtube.com/vi/BmV_an8d0f4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Dan McKee"
     slug: "dan-mckee"

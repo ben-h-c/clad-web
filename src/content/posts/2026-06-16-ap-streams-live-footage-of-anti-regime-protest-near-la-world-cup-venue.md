@@ -31,6 +31,10 @@ keyMoments:
 videoId: "ZinZvnZBMtA"
 videoTitle: "LIVE: Protesters demonstrate against Iran's government in Los Angeles"
 thumbnail: "https://img.youtube.com/vi/ZinZvnZBMtA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Protests and watch parties await Iran's World Cup match"
     url: "https://apnews.com/article/iran-protest-world-cup-0ebcfd4931c65d9a51090290ca9d7805"

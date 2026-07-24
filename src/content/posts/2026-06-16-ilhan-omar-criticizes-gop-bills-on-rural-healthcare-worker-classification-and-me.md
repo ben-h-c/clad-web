@@ -33,6 +33,10 @@ keyMoments:
 videoId: "tkXtZC9v-F0"
 videoTitle: "Ilhan Omar: Funding Cuts In Republicans' Budget Threaten 'Financial Stability' Of Rural Healthcare"
 thumbnail: "https://img.youtube.com/vi/tkXtZC9v-F0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Workforce Protections Ranking Member Omar Opening Remarks at Hearing on Misclassifying Rural Health Care Providers"
     url: "https://omar.house.gov/media/press-releases/workforce-protections-ranking-member-omar-opening-remarks-hearing"

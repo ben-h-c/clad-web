@@ -35,6 +35,10 @@ keyMoments:
 videoId: "QgR0lYu7x1I"
 videoTitle: "Could a new study help find Nancy Guthrie?"
 thumbnail: "https://img.youtube.com/vi/QgR0lYu7x1I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Corpses leave clues behind in the soil long after they're gone"
     url: "https://news.asu.edu/20260306-science-and-technology-corpses-leave-clues-behind-soil-long-after-theyre-gone"

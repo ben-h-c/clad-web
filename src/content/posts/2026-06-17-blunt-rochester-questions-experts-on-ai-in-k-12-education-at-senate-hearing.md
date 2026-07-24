@@ -34,6 +34,10 @@ keyMoments:
 videoId: "hc8ealjkuXc"
 videoTitle: "'Are There Things That Only We Could Do?': Blunt Rochester Asks Experts About Needed Action On AI"
 thumbnail: "https://img.youtube.com/vi/hc8ealjkuXc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Generative AI in Delaware Education"
     url: "https://education.delaware.gov/educators/academic-support/standards-and-instruction/digital-de/instructional-resources/ai-in-delaware-education/generative-ai/"

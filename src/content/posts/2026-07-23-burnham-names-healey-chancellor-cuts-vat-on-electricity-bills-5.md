@@ -38,6 +38,10 @@ keyMoments:
 videoId: "zP3r42BL754"
 videoTitle: "Planet Normal: Andy and the Backstabbers make their debut to the Country | Podcast"
 thumbnail: "https://img.youtube.com/vi/zP3r42BL754/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham becomes Britain’s new prime minister"
     url: "https://www.theguardian.com/news/video/2026/jul/20/andy-burnham-becomes-britains-new-prime-minister-the-latest"

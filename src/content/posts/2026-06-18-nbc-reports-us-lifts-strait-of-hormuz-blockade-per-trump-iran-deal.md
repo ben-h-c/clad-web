@@ -37,6 +37,10 @@ keyMoments:
 videoId: "f3Z42vucWoM"
 videoTitle: "U.S. lifts naval blockade of the Strait of Hormuz and Iranian ports"
 thumbnail: "https://img.youtube.com/vi/f3Z42vucWoM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 United States naval blockade of Iran - Wikipedia"
     url: "https://en.wikipedia.org/wiki/2026_United_States_naval_blockade_of_Iran"

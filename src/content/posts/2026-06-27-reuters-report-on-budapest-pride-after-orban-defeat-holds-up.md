@@ -28,6 +28,10 @@ keyMoments:
 videoId: "XmwqIlQzZQo"
 videoTitle: "Thousands march in Budapest's first Pride since Orban's fall"
 thumbnail: "https://img.youtube.com/vi/XmwqIlQzZQo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Thousands of Hungarians join first Budapest Pride march since Orban's defeat"
     url: "https://www.reuters.com/business/media-telecom/thousands-hungarians-join-first-budapest-pride-march-since-orbans-defeat-2026-06-27/"

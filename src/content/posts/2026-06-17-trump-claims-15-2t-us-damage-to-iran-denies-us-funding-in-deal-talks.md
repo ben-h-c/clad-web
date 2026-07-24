@@ -36,6 +36,10 @@ keyMoments:
 videoId: "JzcCQqTbO0I"
 videoTitle: "'Somebody's Going To Have To Help Them Out': Trump Says US Did $1.5-2 Trillion Of Damage To Iran"
 thumbnail: "https://img.youtube.com/vi/JzcCQqTbO0I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump says US strikes caused $1.5–2 trillion damage to Iran"
     url: "https://mezha.net/eng/bukvy/54d3f145_trump_says_us/"

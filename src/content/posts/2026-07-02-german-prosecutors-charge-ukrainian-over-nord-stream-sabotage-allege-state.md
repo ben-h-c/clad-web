@@ -34,6 +34,10 @@ keyMoments:
 videoId: "HXy4wMdE1Hc"
 videoTitle: "BREAKING: German prosecutors say Ukraine ordered Nord Stream pipeline sabotage | DW News"
 thumbnail: "https://img.youtube.com/vi/HXy4wMdE1Hc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "German prosecutors charge Ukrainian suspect over Nord Stream explosions"
     url: "https://www.aljazeera.com/news/2026/7/2/german-prosecutors-charge-ukrainian-suspect-over-nord-stream-explosions"

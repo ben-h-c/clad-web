@@ -34,6 +34,10 @@ keyMoments:
 videoId: "qUyz37tIFRw"
 videoTitle: "Despite Ottawa deal, B.C. still against pipeline, says Eby | Power & Politics"
 thumbnail: "https://img.youtube.com/vi/qUyz37tIFRw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fed. and B.C. Govts Announce Multi-Billion-Dollar Resource Deal – July 2, 2026"
     url: "https://www.cpac.ca/headline-politics/episode/fed-and-bc-govts-announce-multi-billion-dollar-resource-deal--july-2-2026?id=a35c6623-ccaa-4352-b8cd-9fdbd55ea50e"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Z3644HvlFmE"
 videoTitle: "US-Iran talks still planned despite strikes, Trump admin official says"
 thumbnail: "https://img.youtube.com/vi/Z3644HvlFmE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US strikes Iran after Strait of Hormuz cargo ship attack as ceasefire tensions escalate"
     url: "https://www.foxnews.com/live-news/iran-drone-strait-of-hormuz-israel-lebanon-conflict-june-26-2026"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "UeHAYZfZ45w"
 videoTitle: "White nationalist groups now working on recruiting girls #shorts"
 thumbnail: "https://img.youtube.com/vi/UeHAYZfZ45w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "White nationalist groups have attracted young men around the U.S. Now, they're recruiting girls"
     url: "https://www.cbsnews.com/news/white-nationalist-groups-recruiting-girls-youth/"

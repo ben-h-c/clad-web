@@ -35,6 +35,10 @@ keyMoments:
 videoId: "bIrQqTEkCyg"
 videoTitle: "Nolan Wells' preliminary independent autopsy results read by attorney Ben Crump"
 thumbnail: "https://img.youtube.com/vi/bIrQqTEkCyg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Family of Nolan Xavier Wells Retains Attorney Ben Crump"
     url: "https://bencrump.com/press/family-of-nolan-xavier-wells-retains-attorney-ben-crump-after-18-year-old-found-dead-following-fourth-of-july-trip-to-horn-island/"

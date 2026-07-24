@@ -34,6 +34,10 @@ keyMoments:
 videoId: "VK6nNiIaZYA"
 videoTitle: "Cruise ship killing: Judge orders stepbrother be taken into US Marshals' custody"
 thumbnail: "https://img.youtube.com/vi/VK6nNiIaZYA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Killing of Anna Kepner"
     url: "https://en.wikipedia.org/wiki/Killing_of_Anna_Kepner"

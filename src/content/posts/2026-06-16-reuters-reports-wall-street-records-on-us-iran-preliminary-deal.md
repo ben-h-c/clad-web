@@ -38,6 +38,10 @@ keyMoments:
 videoId: "k7nfznVGcZE"
 videoTitle: "Wall Street rallies, Dow ends with record on US-Iran deal"
 thumbnail: "https://img.youtube.com/vi/k7nfznVGcZE/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Wall Street rallies, Dow ends with record on US-Iran deal, oil price slide"
     url: "https://www.reuters.com/business/wall-st-futures-advance-over-1-markets-cheer-iran-deal-2026-06-15/"

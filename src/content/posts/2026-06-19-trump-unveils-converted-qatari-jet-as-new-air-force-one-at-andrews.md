@@ -34,6 +34,10 @@ keyMoments:
 videoId: "LZRB9ZoYf3s"
 videoTitle: "Trump unveils the new Air Force One, a converted Qatari jet"
 thumbnail: "https://img.youtube.com/vi/LZRB9ZoYf3s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "President Donald Trump unveils the new Air Force One, a converted Qatari jet"
     url: "https://apnews.com/article/trump-air-force-one-qatar-5d6997dba287d70749b736067c8a337b"

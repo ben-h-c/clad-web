@@ -34,6 +34,10 @@ keyMoments:
 videoId: "bs5dD56-drM"
 videoTitle: "Morning News NOW Full Episode – June 16"
 thumbnail: "https://img.youtube.com/vi/bs5dD56-drM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "G7 summit live updates: Trump meets with leaders about ..."
     url: "https://apnews.com/live/trump-g7-iran-updates-06-16-2026"

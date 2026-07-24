@@ -37,6 +37,10 @@ keyMoments:
 videoId: "kF0r26HXRS4"
 videoTitle: "China unveils humanoid AI 'companion robots' to ease loneliness"
 thumbnail: "https://img.youtube.com/vi/kF0r26HXRS4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UBTech’s lifelike humanoid robots built for companionship arriving in homes across China"
     url: "https://www.scmp.com/tech/tech-trends/article/3358884/ubtechs-lifelike-humanoid-robots-built-companionship-arriving-homes-across-china"

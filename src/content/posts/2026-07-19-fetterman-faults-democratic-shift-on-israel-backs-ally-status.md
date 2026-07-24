@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ulBa2cErxNU"
 videoTitle: "'Israel Is Our Important Key Ally': Fetterman Criticizes Dems For Becoming 'Hostile' Toward Israel"
 thumbnail: "https://img.youtube.com/vi/ulBa2cErxNU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "John Fetterman"
     slug: "john-fetterman"

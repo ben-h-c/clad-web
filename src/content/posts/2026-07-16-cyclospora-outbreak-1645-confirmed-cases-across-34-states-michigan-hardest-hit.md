@@ -34,6 +34,10 @@ keyMoments:
 videoId: "raSQ5tAqnQs"
 videoTitle: "The Mysterious Parasite Spreading Across 34 States — How to Stay Safe | Hot Take with Jesse Weber"
 thumbnail: "https://img.youtube.com/vi/raSQ5tAqnQs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Ed Case"
     slug: "ed-case"

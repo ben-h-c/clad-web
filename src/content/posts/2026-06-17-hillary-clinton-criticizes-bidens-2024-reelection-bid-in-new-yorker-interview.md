@@ -37,6 +37,10 @@ keyMoments:
 videoId: "5kZIvlT-TTI"
 videoTitle: "Hillary Clinton blasts Joe Biden for 2024 re-election campaign | RISING"
 thumbnail: "https://img.youtube.com/vi/5kZIvlT-TTI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Hillary Clinton Says Biden’s Re-election Bid Was a ‘Terrible Mistake’"
     url: "https://www.nytimes.com/2026/06/16/us/politics/clinton-biden-reelection-terrible-mistake.html"

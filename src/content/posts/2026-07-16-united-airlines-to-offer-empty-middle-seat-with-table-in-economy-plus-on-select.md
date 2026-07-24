@@ -35,6 +35,10 @@ keyMoments:
 videoId: "mgK64uti6g8"
 videoTitle: "An empty middle seat is the latest perk United Airlines will offer on some flights"
 thumbnail: "https://img.youtube.com/vi/mgK64uti6g8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "United Launches Another Economy Class Innovation: Economy Plus Seats With Extra Elbow Room"
     url: "https://united.mediaroom.com/2026-07-14-United-Launches-Another-Economy-Class-Innovation-Economy-Plus-Seats-With-Extra-Elbow-Room"

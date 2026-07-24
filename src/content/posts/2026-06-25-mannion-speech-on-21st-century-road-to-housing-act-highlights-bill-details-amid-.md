@@ -34,6 +34,10 @@ keyMoments:
 videoId: "fzVEygu0ZfE"
 videoTitle: "John Mannion Urges Trump To Sign 21st Century ROAD To Housing Act Into Law"
 thumbnail: "https://img.youtube.com/vi/fzVEygu0ZfE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "H.R.6644 - 21st Century ROAD to Housing Act"
     url: "https://www.congress.gov/bill/119th-congress/house-bill/6644"

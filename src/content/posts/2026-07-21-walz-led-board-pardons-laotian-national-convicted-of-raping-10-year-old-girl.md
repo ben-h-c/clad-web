@@ -38,6 +38,10 @@ keyMoments:
 videoId: "1l85sG_KjTM"
 videoTitle: "Gutfeld: This seems like a key fact to leave out…?"
 thumbnail: "https://img.youtube.com/vi/1l85sG_KjTM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Tim Walz"
     slug: "tim-walz"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "zb6TM7dRjos"
 videoTitle: "Governor Bob Ferguson twists economic data to paint rosy picture"
 thumbnail: "https://img.youtube.com/vi/zb6TM7dRjos/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Bob Ferguson"
     slug: "bob-ferguson"

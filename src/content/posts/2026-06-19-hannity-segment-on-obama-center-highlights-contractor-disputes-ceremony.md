@@ -36,6 +36,10 @@ keyMoments:
 videoId: "pisHk2yCYSc"
 videoTitle: "Hannity: He STILL yearns for the spotlight..."
 thumbnail: "https://img.youtube.com/vi/pisHk2yCYSc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Subcontractors say they’re owed millions, face financial ruin, after helping build Obama Presidential Center"
     url: "https://www.foxnews.com/politics/subcontractors-say-theyre-owed-millions-face-financial-ruin-helping-build-obama-presidential-center"

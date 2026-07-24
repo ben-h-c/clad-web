@@ -32,6 +32,10 @@ keyMoments:
 videoId: "hRkYYpif1FI"
 videoTitle: "VP Vance Defends Letting Iran Keep its Arsenal of Ballistic Missiles"
 thumbnail: "https://img.youtube.com/vi/hRkYYpif1FI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump signs and defends his Iran deal, criticizes longtime ally Israel as G-7 ends"
     url: "https://www.washingtonpost.com/politics/2026/06/17/trump-defends-iran-deal-white-house-unveils-details/"

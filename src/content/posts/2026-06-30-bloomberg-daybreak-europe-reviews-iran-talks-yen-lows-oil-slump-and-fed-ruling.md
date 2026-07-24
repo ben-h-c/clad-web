@@ -39,6 +39,10 @@ keyMoments:
 videoId: "ukNcH_TJpRM"
 videoTitle: "Iran Says it Will Control Hormuz & Has No Plans to Meet US in Qatar | Daybreak Europe 6/30/2026"
 thumbnail: "https://img.youtube.com/vi/ukNcH_TJpRM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran war updates: Trump announces Qatar talks; Tehran says nothing planned"
     url: "https://www.aljazeera.com/news/liveblog/2026/6/29/iran-war-live-tehran-insists-on-control-of-hormuz-amid-reports-of-us-talks"

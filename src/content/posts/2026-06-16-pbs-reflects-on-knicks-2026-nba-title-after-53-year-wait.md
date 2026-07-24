@@ -34,6 +34,10 @@ keyMoments:
 videoId: "-D40MKvQQDM"
 videoTitle: "Monica McNutt reflects on the decades-long wait for a Knicks championship"
 thumbnail: "https://cladfacts.com/generated/2026-06-16-pbs-reflects-on-knicks-2026-nba-title-after-53-year-wait.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The 2026 NBA Finals prove historically clutch as Knicks win 3rd championship"
     url: "https://www.nba.com/news/2026-nba-finals-prove-historically-clutch"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "3vPmfYgym9g"
 videoTitle: "Trump DOJ Indicts 8 Student Protestors Over Israel"
 thumbnail: "https://img.youtube.com/vi/3vPmfYgym9g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Department of Justice indicts eight conspirators who threatened University of Michigan officials, businesses, and the Jewish Federation"
     url: "https://www.justice.gov/usao-edmi/pr/department-justice-indicts-eight-conspirators-who-threatened-university-michigan"

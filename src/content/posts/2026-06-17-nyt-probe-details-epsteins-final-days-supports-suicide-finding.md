@@ -34,6 +34,10 @@ keyMoments:
 videoId: "1Wisyk18pho"
 videoTitle: "New details in Jeffrey Epstein’s death"
 thumbnail: "https://img.youtube.com/vi/1Wisyk18pho/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Untold Story of Jeffrey Epstein’s Death and His Final Days in Jail"
     url: "https://www.nytimes.com/interactive/2026/06/16/magazine/jeffrey-epstein-death-final-days.html"

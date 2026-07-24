@@ -38,6 +38,10 @@ keyMoments:
 videoId: "PK595OfXU94"
 videoTitle: "Rescue crews racing to find survivors in Venezuela after earthquakes"
 thumbnail: "https://img.youtube.com/vi/PK595OfXU94/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela earthquakes: International rescue teams join the search for survivors as death toll surpasses 1,400"
     url: "https://news.un.org/en/story/2026/06/1167825"

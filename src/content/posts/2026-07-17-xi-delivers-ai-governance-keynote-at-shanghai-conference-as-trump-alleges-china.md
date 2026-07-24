@@ -36,6 +36,10 @@ keyMoments:
 videoId: "vTCwTxGQlUo"
 videoTitle: "Could Xi's Vision for AI Clash With Trump's? | Insight with Haslinda Amin 7/17/2026"
 thumbnail: "https://img.youtube.com/vi/vTCwTxGQlUo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Xi delivers keynote speech at 2026 World AI Conference"
     url: "http://en.people.cn/n3/2026/0717/c90000-20478855.html"

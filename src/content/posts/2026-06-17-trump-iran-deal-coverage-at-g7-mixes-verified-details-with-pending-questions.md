@@ -37,6 +37,10 @@ keyMoments:
 videoId: "NpSwp-z_h20"
 videoTitle: "Trump DEFENDS Iran deal, reveals few new details as G7 wraps up"
 thumbnail: "https://img.youtube.com/vi/NpSwp-z_h20/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump’s Iran agreement dominates G7 but big questions remain"
     url: "https://www.npr.org/2026/06/17/nx-s1-5860782/trumps-iran-agreement-dominates-g7-but-big-questions-remain"

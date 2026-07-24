@@ -34,6 +34,10 @@ keyMoments:
 videoId: "OtT6SCoe-HI"
 videoTitle: "7.15.26 | Rep. Van Drew Supports Hereford Inlet Project"
 thumbnail: "https://img.youtube.com/vi/OtT6SCoe-HI/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Hereford Inlet to Cape May Inlet, NJ"
     url: "https://www.nap.usace.army.mil/Missions/Factsheets/Fact-Sheet-Article-View/Article/490818/hereford-inlet-to-cape-may-inlet-nj/"

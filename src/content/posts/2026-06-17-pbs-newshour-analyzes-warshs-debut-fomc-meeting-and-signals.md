@@ -35,6 +35,10 @@ keyMoments:
 videoId: "iMQhUATjAOk"
 videoTitle: "What Warsh’s first meeting as Fed chair signals"
 thumbnail: "https://img.youtube.com/vi/iMQhUATjAOk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Here are the five big takeaways from Kevin Warsh’s first meeting as Fed chairman"
     url: "https://www.cnbc.com/2026/06/17/here-are-the-five-big-takeaways-from-kevin-warshs-first-meeting-as-fed-chairman.html"

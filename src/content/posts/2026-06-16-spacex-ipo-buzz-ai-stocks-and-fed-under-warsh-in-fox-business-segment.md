@@ -36,6 +36,10 @@ keyMoments:
 videoId: "3fufm6yJ09k"
 videoTitle: "'Elon Musk driver’ still fueling investor demand despite Tesla volatility: Strategist"
 thumbnail: "https://img.youtube.com/vi/3fufm6yJ09k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Exclusive: SpaceX plans to set IPO price at $135 per share, targeting record $75 billion raise, source says"
     url: "https://www.reuters.com/business/media-telecom/spacex-plans-raise-75-billion-ipo-135-per-share-source-says-2026-06-03/"

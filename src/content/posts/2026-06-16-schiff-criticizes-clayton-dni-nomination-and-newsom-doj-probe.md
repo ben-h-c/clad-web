@@ -37,6 +37,10 @@ keyMoments:
 videoId: "--oi02MDlm8"
 videoTitle: "'This is deliberate': Sen. Schiff slams Trump DOJ probe into CA Gov. Newsom "
 thumbnail: "https://img.youtube.com/vi/--oi02MDlm8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "STATEMENT: Sen. Schiff on President Trump's Nomination of Jay Clayton as Director of National Intelligence"
     url: "https://www.schiff.senate.gov/news/press-releases/statement-sen-schiff-on-president-trumps-nomination-of-jay-clayton-as-director-of-national-intelligence/"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "_bZ2SGKFhhc"
 videoTitle: "Trump VOWS to reopen Strait of Hormuz as oil price plunge"
 thumbnail: "https://img.youtube.com/vi/_bZ2SGKFhhc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'Let the oil flow': Trump confirms US-Iran peace deal and reopening of Strait of Hormuz"
     url: "https://www.youtube.com/watch?v=_mJ1lkLB_Xc"

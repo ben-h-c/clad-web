@@ -26,6 +26,10 @@ keyMoments:
 videoId: "5LZOhEGG-_o"
 videoTitle: "Brandi Carlile performs 'America the Beautiful' at the Statue of Liberty"
 thumbnail: "https://img.youtube.com/vi/5LZOhEGG-_o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Brandi Carlile performs 'America the Beautiful' at the Statue of Liberty"
     url: "https://www.youtube.com/watch?v=5LZOhEGG-_o"

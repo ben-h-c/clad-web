@@ -36,6 +36,10 @@ keyMoments:
 videoId: "EpFLve9quwo"
 videoTitle: "Gilgo Beach serial killer Rex Heuermann sentenced to multiple life terms at emotional hearing"
 thumbnail: "https://img.youtube.com/vi/EpFLve9quwo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Rex Heuermann sentenced to life in prison for New York's Gilgo Beach serial killings"
     url: "https://www.pbs.org/newshour/nation/rex-heuermann-sentenced-to-life-in-prison-for-new-yorks-gilgo-beach-serial-killings"

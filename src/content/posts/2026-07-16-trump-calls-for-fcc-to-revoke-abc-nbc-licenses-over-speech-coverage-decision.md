@@ -32,6 +32,10 @@ keyMoments:
 videoId: "wQy-VXtctOI"
 videoTitle: "Trump slams ABC, NBC for not carrying election interference speech"
 thumbnail: "https://img.youtube.com/vi/wQy-VXtctOI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

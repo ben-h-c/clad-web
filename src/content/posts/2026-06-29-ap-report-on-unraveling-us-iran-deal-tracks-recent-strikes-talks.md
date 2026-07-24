@@ -38,6 +38,10 @@ keyMoments:
 videoId: "zxzcvH3f8jk"
 videoTitle: "US-Iran preliminary agreement unravels after fresh exchanges"
 thumbnail: "https://img.youtube.com/vi/zxzcvH3f8jk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US and Iran sign initial deal to end war, ease sanctions ..."
     url: "https://apnews.com/article/iran-us-israel-war-oil-deal-june-17-2026-19652f4611b704c0a991bf1f5bc9a4b9"

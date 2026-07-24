@@ -31,6 +31,10 @@ keyMoments:
 videoId: "BCO_Fy3ukAA"
 videoTitle: "'What Have You Learned From Your Time As A Judge?': Grassley Probes Trump Judicial Nom"
 thumbnail: "https://img.youtube.com/vi/BCO_Fy3ukAA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Daniel D. Domenico - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Daniel_D._Domenico"

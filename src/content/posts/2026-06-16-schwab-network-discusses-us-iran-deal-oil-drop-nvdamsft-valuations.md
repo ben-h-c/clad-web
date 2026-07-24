@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Xxq0MQl2WT0"
 videoTitle: "NVDA & MSFT Buys After Pullback, Fog Clears on Interest Rate Outlook"
 thumbnail: "https://img.youtube.com/vi/Xxq0MQl2WT0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. and Iran reach initial deal to end war, reopen Strait of Hormuz"
     url: "https://www.npr.org/2026/06/15/nx-s1-5858590/us-iran-deal-updates"

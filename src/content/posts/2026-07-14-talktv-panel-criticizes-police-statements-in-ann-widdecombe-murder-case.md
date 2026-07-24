@@ -36,6 +36,10 @@ keyMoments:
 videoId: "4_vpkbHD5ms"
 videoTitle: "“They Made Themselves Look STUPID” | Police Officer BLASTED Over Ann Widdecombe’s Murder"
 thumbnail: "https://img.youtube.com/vi/4_vpkbHD5ms/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ann Widdecombe suspect not known to Prevent as counter-terrorism police take over investigation"
     url: "https://www.bbc.co.uk/news/articles/c0mydjl12mwo"

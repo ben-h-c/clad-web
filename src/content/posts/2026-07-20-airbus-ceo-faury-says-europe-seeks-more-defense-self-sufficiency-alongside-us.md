@@ -33,6 +33,10 @@ keyMoments:
 videoId: "74TmVp6wDiw"
 videoTitle: "Airbus CEO: Europe is working to become more self-sufficient in defense"
 thumbnail: "https://img.youtube.com/vi/74TmVp6wDiw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Airbus CEO 'not necessarily optimistic' on European defence cooperation"
     url: "https://www.reuters.com/business/aerospace-defense/airbus-ceo-not-necessarily-optimistic-european-defence-cooperation-2026-07-03/"

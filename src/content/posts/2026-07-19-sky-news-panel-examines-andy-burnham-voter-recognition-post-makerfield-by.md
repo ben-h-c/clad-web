@@ -36,6 +36,10 @@ keyMoments:
 videoId: "PXfjxyMAVcY"
 videoTitle: "Do voters know who Andy Burnham is?"
 thumbnail: "https://img.youtube.com/vi/PXfjxyMAVcY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham will be Britain’s seventh leader in a decade. Can he buck the trend?"
     url: "https://www.cnn.com/2026/07/17/uk/andy-burnham-labour-leader-uk-intl"

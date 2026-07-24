@@ -32,6 +32,10 @@ keyMoments:
 videoId: "BQmko1knL5E"
 videoTitle: "'Keir Starmer's defence speech was the ultimate form of gaslighting'"
 thumbnail: "https://img.youtube.com/vi/BQmko1knL5E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Politics latest: PM announces £15bn defence plan"
     url: "https://news.sky.com/story/politics-latest-burnham-starmer-labour-tories-badenoch-farage-12593360"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "1KXxtG9DqFY"
 videoTitle: "'I Don't Want To See Us Send A Penny To The Ayatollah': Ted Cruz Gives Blunt Take On U.S.-Iran Deal"
 thumbnail: "https://img.youtube.com/vi/1KXxtG9DqFY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran deal includes $300 billion fund, more than half of which already committed, source says"
     url: "https://www.reuters.com/business/finance/iran-deal-includes-300-billion-fund-more-than-half-which-already-committed-2026-06-16/"

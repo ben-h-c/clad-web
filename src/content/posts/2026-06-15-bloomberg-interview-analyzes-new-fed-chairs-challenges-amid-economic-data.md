@@ -33,6 +33,10 @@ keyMoments:
     note: "Reflects typical FOMC diversity; specific names and current stances not independently verified in segment."
 videoId: "ZUFxUb35X2M"
 thumbnail: "https://img.youtube.com/vi/ZUFxUb35X2M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Monetary policy decisions - European Central Bank"
     url: "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp260611~4d41bd5e83.en.html"

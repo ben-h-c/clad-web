@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ahyPF63ZsU8"
 videoTitle: "Tanker struck in Hormuz as Iran and US trade attacks"
 thumbnail: "https://img.youtube.com/vi/ahyPF63ZsU8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Tanker struck in Strait of Hormuz as U.S.-Iran tensions escalate"
     url: "https://www.cnbc.com/2026/06/27/tanker-struck-in-strait-of-hormuz-as-us-iran-tensions-escalate.html"

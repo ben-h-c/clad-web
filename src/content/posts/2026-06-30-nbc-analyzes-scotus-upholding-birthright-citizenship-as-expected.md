@@ -31,6 +31,10 @@ keyMoments:
 videoId: "6ZeXKAD6hsY"
 videoTitle: "SCOTUS birthright citizenship ruling not unexpected, NBC News' senior legal correspondent says"
 thumbnail: "https://img.youtube.com/vi/6ZeXKAD6hsY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court appears likely to side against Trump on birthright citizenship"
     url: "https://www.scotusblog.com/2026/04/supreme-court-appears-likely-to-side-against-trump-on-birthright-citizenship/"

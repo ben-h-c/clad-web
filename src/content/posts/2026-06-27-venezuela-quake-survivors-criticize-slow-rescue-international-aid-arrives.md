@@ -34,6 +34,10 @@ keyMoments:
 videoId: "nZKcm02Bq1U"
 videoTitle: "Venezuela: Survivors say rescue effort too slow • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/nZKcm02Bq1U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "June 24-25, 2026 — Venezuela rocked by 7.5 and 7.2 magnitude earthquakes"
     url: "https://www.cnn.com/2026/06/24/weather/live-news/venezuela-earthquake-puerto-rico-tsunami"

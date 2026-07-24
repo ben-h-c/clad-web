@@ -30,6 +30,10 @@ keyMoments:
 videoId: "eppc54UOZdk"
 videoTitle: "Trump Is Bursting America’s $100 Billion Grad School Bubble"
 thumbnail: "https://img.youtube.com/vi/eppc54UOZdk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump Is Bursting America's $100 Billion Grad School Bubble"
     url: "https://www.bloomberg.com/news/videos/2026-07-08/trump-is-bursting-america-s-100-billion-grad-school-bubble"

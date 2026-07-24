@@ -31,6 +31,10 @@ keyMoments:
 videoId: "ZRrioSWMN9A"
 videoTitle: "EMT recounts saving man's life at New York Knicks parade: 'This is NYC at its finest' | CUOMO"
 thumbnail: "https://img.youtube.com/vi/ZRrioSWMN9A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Chaotic moment Knicks fans climb structure to save reveler from apparent overdose during championship parade"
     url: "https://nypost.com/2026/06/19/us-news/moment-knicks-fans-climb-structure-to-save-reveler-from-apparent-overdose-during-championship-parade/"

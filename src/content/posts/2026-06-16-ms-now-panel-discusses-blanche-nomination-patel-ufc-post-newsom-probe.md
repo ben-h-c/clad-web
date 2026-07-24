@@ -40,6 +40,10 @@ keyMoments:
 videoId: "XeYzWOYQc8g"
 videoTitle: "BREAKING: Secret Service angry with Patel over UFC arrest post"
 thumbnail: "https://img.youtube.com/vi/XeYzWOYQc8g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "President Trump says he will nominate Todd Blanche to ..."
     url: "https://abc7news.com/post/todd-blanche-attorney-general-nomination-president-donald-trump-says-he-will-nominate-former-personal-lawyer-serve-ag/19234093/"

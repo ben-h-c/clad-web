@@ -36,6 +36,10 @@ keyMoments:
 videoId: "a3AqCB46id8"
 videoTitle: "France seal hard-earned win against Senegal, Messi scores hat-trick for Argentina • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/a3AqCB46id8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "France vs Senegal (16 Jun, 2026) Final Score"
     url: "https://www.espn.co.uk/football/match/_/gameId/760432/senegal-france"

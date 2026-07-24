@@ -36,6 +36,10 @@ keyMoments:
 videoId: "4rURY4UVnyM"
 videoTitle: "Sen John Kennedy: We have ‘bombed the crap’ out of Iran #shorts #news #foxnews #us"
 thumbnail: "https://img.youtube.com/vi/4rURY4UVnyM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Iran war - Wikipedia"
     url: "https://en.wikipedia.org/wiki/2026_Iran_war"

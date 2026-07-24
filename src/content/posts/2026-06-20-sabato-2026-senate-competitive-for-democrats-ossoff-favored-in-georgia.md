@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Wyo4nXhXU2A"
 videoTitle: "Senate is ‘very competitive’ but Democrats need things to ‘fall just right’: Larry Sabato"
 thumbnail: "https://img.youtube.com/vi/Wyo4nXhXU2A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sabato's Crystal Ball 2026 Senate Race Ratings"
     url: "https://centerforpolitics.org/crystalball/2026-senate/"

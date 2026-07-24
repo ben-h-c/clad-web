@@ -36,6 +36,10 @@ keyMoments:
 videoId: "KIAhz7InPNk"
 videoTitle: "Homes 'like ovens' in a country where buildings are made to lock heat in"
 thumbnail: "https://img.youtube.com/vi/KIAhz7InPNk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Number of UK homes overheating soars to 80% in a decade, study finds"
     url: "https://www.theguardian.com/environment/2025/apr/16/uk-homes-overheating-soars-study"

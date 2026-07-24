@@ -37,6 +37,10 @@ keyMoments:
 videoId: "lqhMsAveGCI"
 videoTitle: "'They Have No Credibility!': Hakeem Jeffries Slams SCOTUS For Decisions On Voting Maps And More"
 thumbnail: "https://img.youtube.com/vi/lqhMsAveGCI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court allows Alabama Republicans to use map that eliminates majority-Black district"
     url: "https://thegrio.com/2026/06/02/supreme-court-allows-alabama-republicans-to-use-map-that-eliminates-majority-black-district/"

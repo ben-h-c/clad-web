@@ -35,6 +35,10 @@ keyMoments:
 videoId: "uJmzs1fDECk"
 videoTitle: "Iran Deal Points to Steeper Yield Curves: 3-Minutes MLIV"
 thumbnail: "https://img.youtube.com/vi/uJmzs1fDECk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "As US, Iran announce framework deal to end war, Trump's ..."
     url: "https://www.lemonde.fr/en/international/article/2026/06/15/iran-us-announce-framework-deal-to-end-war_6754486_4.html"

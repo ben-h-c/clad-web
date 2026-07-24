@@ -36,6 +36,10 @@ keyMoments:
 videoId: "6N-VlRcttcQ"
 videoTitle: "Trump Says Netanyahu Should Be More Responsible With Lebanon"
 thumbnail: "https://img.youtube.com/vi/6N-VlRcttcQ/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump Says Syria Better Than Israel at Fighting Hezbollah"
     url: "https://www.bloomberg.com/news/articles/2026-06-16/trump-says-syria-would-do-better-at-taming-hezbollah-than-israel"

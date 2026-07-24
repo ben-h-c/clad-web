@@ -35,6 +35,10 @@ keyMoments:
 videoId: "W4lhsLk-Ovs"
 videoTitle: "G7 leaders gather as Iran deal shifts global focus"
 thumbnail: "https://img.youtube.com/vi/W4lhsLk-Ovs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US, Iran Edge Toward Interim Deal Signing Close to G7 ..."
     url: "https://www.bloomberg.com/news/articles/2026-06-12/us-and-iran-nearing-a-peace-deal-around-g7-meeting-next-week"

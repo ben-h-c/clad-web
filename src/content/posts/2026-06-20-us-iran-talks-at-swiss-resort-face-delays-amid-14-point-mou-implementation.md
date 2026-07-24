@@ -35,6 +35,10 @@ keyMoments:
 videoId: "CMENUyMumIA"
 videoTitle: "Inside the high-security US-Iran talks in Switzerland"
 thumbnail: "https://img.youtube.com/vi/CMENUyMumIA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US-Iran talks to kick off Sunday in Switzerland, says Pakistan"
     url: "https://www.aljazeera.com/news/2026/6/20/us-iran-talks-to-kick-off-sunday-in-switzerland-says"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "aS6-mUrlFDc"
 videoTitle: "Argentina see off spirited Cape Verde to qualify for World Cup last 16 • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/aS6-mUrlFDc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Argentina survive Cape Verde scare to reach World Cup last 16"
     url: "https://www.france24.com/en/live-news/20260704-argentina-survive-cape-verde-scare-to-reach-world-cup-last-16"

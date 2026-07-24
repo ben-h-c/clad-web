@@ -28,6 +28,10 @@ keyMoments:
 videoId: "B-17_EPhcbg"
 videoTitle: "Ebola deaths in Congo top 500 as health workers threaten to strike"
 thumbnail: "https://img.youtube.com/vi/B-17_EPhcbg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ebola disease outbreak in the Democratic Republic of the Congo and Uganda"
     url: "https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda"

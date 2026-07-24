@@ -38,6 +38,10 @@ keyMoments:
 videoId: "-duJPH_mE-s"
 videoTitle: "G7 Allies Question Trump's Hormuz Optimism; Stocks Waver | Horizons Middle East & Africa 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/-duJPH_mE-s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bank of Japan Poised to Raise Rates to 31-Year High"
     url: "https://www.wsj.com/economy/central-banking/bank-of-japan-poised-to-raise-rates-to-31-year-high-740f396f"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "mpddQjwGGt0"
 videoTitle: "Iran Avoids Shared US Photo at Summit"
 thumbnail: "https://img.youtube.com/vi/mpddQjwGGt0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "JD Vance takes part in meeting between U.S., Pakistan, Qatar and Iran"
     url: "https://www.youtube.com/watch?v=tlsFF-CIrRM"

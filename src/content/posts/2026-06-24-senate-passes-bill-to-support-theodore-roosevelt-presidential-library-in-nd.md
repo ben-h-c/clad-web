@@ -34,6 +34,10 @@ keyMoments:
 videoId: "w1brjK6Fxqs"
 videoTitle: "John Hoeven Celebrates Opening Of Theodore Roosevelt Presidential Library In North Dakota"
 thumbnail: "https://img.youtube.com/vi/w1brjK6Fxqs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "S.675 - Theodore Roosevelt Presidential Library Museum Artifacts Act"
     url: "https://www.congress.gov/bill/119th-congress/senate-bill/675"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "k4TKc0F9X5M"
 videoTitle: "Trump Says Tech Companies Will 'Fund Or Build' Energy Infrastructure Required By Data Center Demands"
 thumbnail: "https://img.youtube.com/vi/k4TKc0F9X5M/maxresdefault.jpg"
+mediaNote: "Talking-head face upper-middle; keep eyes/nose in safe zone clear of bottom text third"
+thumbFocusY: 28
+thumbFocusX: 48
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

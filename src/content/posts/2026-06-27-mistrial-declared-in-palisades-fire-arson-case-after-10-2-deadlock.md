@@ -34,6 +34,10 @@ keyMoments:
 videoId: "cDx5mmEiEck"
 videoTitle: "Jonathan Rinderknecht 'happy' after mistrial in Palisades trial: Attorney | Jesse Weber Live"
 thumbnail: "https://img.youtube.com/vi/cDx5mmEiEck/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mistrial declared in Palisades fire arson case - Los Angeles Times"
     url: "https://www.latimes.com/california/story/2026-06-26/jonathan-rinderknecht-verdict-palisades-fire"

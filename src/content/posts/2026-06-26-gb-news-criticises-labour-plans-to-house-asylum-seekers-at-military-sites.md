@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Zb9z9I0I8EA"
 videoTitle: "'Same crisis, different postcode' | Ben Leo FUMES over Labour moving migrants to military bases"
 thumbnail: "https://img.youtube.com/vi/Zb9z9I0I8EA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Charities condemn ‘arrogant’ plans to house asylum seekers at former military sites"
     url: "https://www.theguardian.com/uk-news/2026/jun/25/charities-condemn-arrogant-plans-to-house-asylum-seekers-at-former-military-sites"

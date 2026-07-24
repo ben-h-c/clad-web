@@ -28,6 +28,10 @@ keyMoments:
 videoId: "E0n4yxFdqxw"
 videoTitle: "BREAKING: Senate Democrats' Iran War Powers Resolution Fails Once Again Despite 4 GOP Defections"
 thumbnail: "https://img.youtube.com/vi/E0n4yxFdqxw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Roll Call Vote 119 th Congress - 2 nd Session"
     url: "https://www.senate.gov/legislative/LIS/roll_call_votes/vote1192/vote_119_2_00129.htm"

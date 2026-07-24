@@ -36,6 +36,10 @@ keyMoments:
 videoId: "ZUYU3DGkt6w"
 videoTitle: "Cuomo: JD Vance lying about terms of US-Iran peace deal | CUOMO"
 thumbnail: "https://img.youtube.com/vi/ZUYU3DGkt6w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Live updates: JD Vance defends Iran deal as Donald Trump takes flak for it"
     url: "https://thehill.com/homenews/administration/5928696-vance-briefs-media-trump-iran/"

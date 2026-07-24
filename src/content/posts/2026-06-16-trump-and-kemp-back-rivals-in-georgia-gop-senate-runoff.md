@@ -34,6 +34,10 @@ keyMoments:
 videoId: "8b7HJ1Z92hg"
 videoTitle: "Trump, Kemp choose opposing candidates in Georgia Republican Senate runoff election"
 thumbnail: "https://img.youtube.com/vi/8b7HJ1Z92hg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump endorses Rep. Mike Collins in Georgia Senate race"
     url: "https://www.nbcnews.com/politics/2026-election/trump-endorses-rep-mike-collins-georgia-senate-race-rcna350000"

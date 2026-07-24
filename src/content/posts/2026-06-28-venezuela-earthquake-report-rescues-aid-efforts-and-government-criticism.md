@@ -34,6 +34,10 @@ keyMoments:
 videoId: "I_9Siaxgfi8"
 videoTitle: "Venezuela earthquake: Hope in the rubble | DW News"
 thumbnail: "https://img.youtube.com/vi/I_9Siaxgfi8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Venezuela earthquakes"
     url: "https://en.wikipedia.org/wiki/2026_Venezuela_earthquakes"

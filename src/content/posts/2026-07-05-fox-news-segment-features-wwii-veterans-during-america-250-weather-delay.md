@@ -31,6 +31,10 @@ keyMoments:
 videoId: "wICsr8NTWmU"
 videoTitle: "103-year-old World War II veteran shares what gives him STRENGTH"
 thumbnail: "https://img.youtube.com/vi/wICsr8NTWmU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "103-year-old World War II veteran describes what America's 250th birthday means to him"
     url: "https://www.foxnews.com/video/6400233348112"

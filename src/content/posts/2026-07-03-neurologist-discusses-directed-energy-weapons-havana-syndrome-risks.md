@@ -36,6 +36,10 @@ keyMoments:
 videoId: "eSieBWqIUkA"
 videoTitle: "Neurologist warns directed energy weapon tech \"can be weaponized\" | Katie Pavlich Tonight"
 thumbnail: "https://img.youtube.com/vi/eSieBWqIUkA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "New intelligence fuels analysis 'Havana Syndrome' possibly caused by foreign weapon"
     url: "https://www.cnn.com/2025/01/10/politics/new-evidence-havana-syndrome"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "FyUhAUks9KU"
 videoTitle: "Surfside, Fla., condo collapse family member reacts to new report | Jesse Weber Live"
 thumbnail: "https://img.youtube.com/vi/FyUhAUks9KU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NIST Releases Technical Findings on What Caused the 2021 Partial Collapse of Champlain Towers South"
     url: "https://www.nist.gov/news-events/news/2026/06/nist-releases-technical-findings-what-caused-2021-partial-collapse"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Ifd0g9uxVKs"
 videoTitle: "US declines CUSMA trade deal renewal with Canada, Mexico"
 thumbnail: "https://img.youtube.com/vi/Ifd0g9uxVKs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US declines to extend North American trade deal, starting clock to end it while seeking changes"
     url: "https://www.reuters.com/world/americas/us-canada-mexico-review-trade-pact-likely-putting-it-into-limbo-trump-demands-2026-07-01/"

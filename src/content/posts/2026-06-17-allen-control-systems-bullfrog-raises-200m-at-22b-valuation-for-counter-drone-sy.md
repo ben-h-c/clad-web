@@ -35,6 +35,10 @@ keyMoments:
 videoId: "gNsHwtgB6As"
 videoTitle: "DRONE DEFENSE: The growing threat FUELING this billion-dollar BOOM"
 thumbnail: "https://img.youtube.com/vi/gNsHwtgB6As/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Allen Control Systems Raises $200 Million Series B at $2.2 Billion Post-Money Valuation"
     url: "https://www.businesswire.com/news/home/20260526638233/en/"

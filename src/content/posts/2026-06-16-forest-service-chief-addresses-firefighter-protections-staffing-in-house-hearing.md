@@ -37,6 +37,10 @@ keyMoments:
 videoId: "vuCT6ABGRFE"
 videoTitle: "Maxine Dexter Asks Forest Service Chief About Ways To Increase Protections For Firefighters"
 thumbnail: "https://img.youtube.com/vi/vuCT6ABGRFE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Huffman, Dexter Expose USDA Official’s Conflicts of Interest as GOP Chairman Shuts Down Ethics Question"
     url: "https://democrats-naturalresources.house.gov/media/press-releases/huffman-dexter-expose-usda-officials-conflicts-of-interest-as-gop-chairman-shuts-down-ethics-question"

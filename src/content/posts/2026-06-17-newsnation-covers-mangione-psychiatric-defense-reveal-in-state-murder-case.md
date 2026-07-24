@@ -34,6 +34,10 @@ keyMoments:
 videoId: "OgHLGAlpgjI"
 videoTitle: "Luigi Mangione pivoting to a psychiatric defense"
 thumbnail: "https://img.youtube.com/vi/OgHLGAlpgjI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Luigi Mangione will argue a psychiatric defense in state murder trial"
     url: "https://www.cnn.com/2026/06/17/us/luigi-mangione-murder-trial-psychiatric-defense"

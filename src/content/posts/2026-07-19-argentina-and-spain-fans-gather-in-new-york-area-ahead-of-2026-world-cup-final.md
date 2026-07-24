@@ -32,6 +32,10 @@ keyMoments:
 videoId: "i7flXZG9eSM"
 videoTitle: "Argentina and Spain fans descend on New York for World Cup final"
 thumbnail: "https://img.youtube.com/vi/i7flXZG9eSM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Argentina, Spain and their stars Lionel Messi and Lamine Yamal meet in World Cup final"
     url: "https://www.npr.org/2026/07/19/nx-s1-5899071/2026-world-cup-fifa-argentina-spain-final-championship"

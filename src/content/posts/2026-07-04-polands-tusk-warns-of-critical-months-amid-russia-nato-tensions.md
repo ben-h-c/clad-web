@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Cjtt9-OOgK4"
 videoTitle: "NATO member Poland warns of ‘critical months’ ahead as Russia threat grows | DW News"
 thumbnail: "https://img.youtube.com/vi/Cjtt9-OOgK4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Polish PM warns critical months ahead in face of Russian threat"
     url: "https://www.bbc.com/news/articles/cj0gp88q4l4o"

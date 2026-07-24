@@ -30,6 +30,10 @@ keyMoments:
 videoId: "yRNJka4Kx0E"
 videoTitle: "Vanilla Ice: We're supposed to 'bring people together'"
 thumbnail: "https://img.youtube.com/vi/yRNJka4Kx0E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Vanilla Ice reflects on performing at America 250 event"
     url: "https://www.foxnews.com/video/6399565178112"

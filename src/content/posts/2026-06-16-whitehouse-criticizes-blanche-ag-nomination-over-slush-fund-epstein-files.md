@@ -37,6 +37,10 @@ keyMoments:
 videoId: "mqauDsbVCfY"
 videoTitle: "'Stinking piece of baggage': Sen. Whitehouse says GOP may want to 'steer clear' of Blanche"
 thumbnail: "https://img.youtube.com/vi/mqauDsbVCfY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sen. Whitehouse and Lawrence Rip Todd Blanche's AG Nomination"
     url: "https://www.youtube.com/watch?v=E7LwQ49RD0g"

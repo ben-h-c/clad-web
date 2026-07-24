@@ -34,6 +34,10 @@ keyMoments:
 videoId: "_hRqRmt966M"
 videoTitle: "G7 explained: what it is, who is in it, and what it does"
 thumbnail: "https://img.youtube.com/vi/_hRqRmt966M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The history of the G7"
     url: "https://www.bundesregierung.de/breg-en/service/archive/archive/the-history-of-the-g7-397438"

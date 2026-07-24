@@ -36,6 +36,10 @@ keyMoments:
 videoId: "k4bi55466LU"
 videoTitle: "'Puke green': Visitors disappointed with algae-filled Lincoln reflecting pool after $14M renovation"
 thumbnail: "https://img.youtube.com/vi/k4bi55466LU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Green algae return to reflecting pool days into Trump’s renovation"
     url: "https://thehill.com/homenews/administration/5925515-reflecting-pool-algae-returns/"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "I7MKkDHKt2A"
 videoTitle: "DOJ's Harmeet Dhillon calls for investigation into MLB over anti-Christian discrimination"
 thumbnail: "https://img.youtube.com/vi/I7MKkDHKt2A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "DOJ launches probe into MLB after Giants Pride Night hat debacle"
     url: "https://localnewsmatters.org/2026/06/20/doj-launches-probe-into-mlb-after-giants-pride-night-hat-debacle/"

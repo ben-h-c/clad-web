@@ -34,6 +34,10 @@ keyMoments:
 videoId: "qbDKzLvFqLw"
 videoTitle: "Fact-checking the Trump administration's claims about birthright citizenship • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/qbDKzLvFqLw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Supreme Court strikes down Trump’s order ending birthright citizenship"
     url: "https://www.scotusblog.com/2026/06/supreme-court-strikes-down-trumps-order-ending-birthright-citizenship/"

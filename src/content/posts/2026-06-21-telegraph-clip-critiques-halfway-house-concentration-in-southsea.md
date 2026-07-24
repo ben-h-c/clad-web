@@ -37,6 +37,10 @@ keyMoments:
 videoId: "QiAg5bAcNfA"
 videoTitle: "'Nothing angers me more than seeing young guys dossing around doing nothing in halfway houses'"
 thumbnail: "https://img.youtube.com/vi/QiAg5bAcNfA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Crackheads on Elm Grove"
     url: "https://www.reddit.com/r/Portsmouth/comments/1j4yl2g/crackheads_on_elm_grove/"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "pmJQBCZZTbE"
 videoTitle: "Ex-DOJ officials reflect on Trump's transformation of the institution"
 thumbnail: "https://img.youtube.com/vi/pmJQBCZZTbE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Attorney general signs 14 memos to implement Trump priorities"
     url: "https://www.npr.org/2025/02/05/g-s1-46698/attorney-general-memos-weaponization-trump"

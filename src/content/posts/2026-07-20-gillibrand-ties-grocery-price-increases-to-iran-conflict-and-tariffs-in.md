@@ -38,6 +38,10 @@ keyMoments:
 videoId: "p3wc3W-m-ls"
 videoTitle: "Sen. Gillibrand on Grocery Costs and War in Iran"
 thumbnail: "https://img.youtube.com/vi/p3wc3W-m-ls/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

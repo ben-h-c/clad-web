@@ -35,6 +35,10 @@ keyMoments:
 videoId: "6nOVv-zqsCo"
 videoTitle: "Pimco Sees Fed on Hold for Rest of Year"
 thumbnail: "https://img.youtube.com/vi/6nOVv-zqsCo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Moving From Cuts to Caution: Fed Enters 2026 in Wait-and-See Mode | PIMCO"
     url: "https://www.pimco.com/us/en/insights/moving-from-cuts-to-caution-fed-enters-2026-in-wait-and-see-mode"

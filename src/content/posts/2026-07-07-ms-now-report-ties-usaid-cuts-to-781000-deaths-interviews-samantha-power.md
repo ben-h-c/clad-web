@@ -37,6 +37,10 @@ keyMoments:
 videoId: "pkFFOY0eVpE"
 videoTitle: "Trump & Musk’s aid cuts are costing lives, former USAID boss Samantha Power says"
 thumbnail: "https://img.youtube.com/vi/pkFFOY0eVpE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Tracking Anticipated Deaths from USAID Funding Cuts | SPH"
     url: "https://www.bu.edu/sph/news/articles/2025/tracking-anticipated-deaths-from-usaid-funding-cuts/"

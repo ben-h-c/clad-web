@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Jp72ZXndy80"
 videoTitle: "David Sedaris shares who he'd like to roast"
 thumbnail: "https://img.youtube.com/vi/Jp72ZXndy80/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "David Sedaris Meets the Pope"
     url: "https://www.newyorker.com/magazine/2024/09/09/david-sedaris-meets-pope-francis"

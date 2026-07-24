@@ -35,6 +35,10 @@ keyMoments:
 videoId: "E1_aRW9XgaA"
 videoTitle: "What Palestine Action's losses in court tell us about the threat to protest in the UK"
 thumbnail: "https://img.youtube.com/vi/E1_aRW9XgaA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Palestine Action ban is lawful, Court of Appeal rules"
     url: "https://www.bbc.com/news/articles/c4gy927jx88o"

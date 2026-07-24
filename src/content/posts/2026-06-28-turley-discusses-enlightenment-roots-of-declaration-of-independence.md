@@ -34,6 +34,10 @@ keyMoments:
 videoId: "sSLR1ufAkFo"
 videoTitle: "Jonathan Turley: This was the first enlightenment revolution"
 thumbnail: "https://img.youtube.com/vi/sSLR1ufAkFo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "America250"
     url: "https://america250.org/"

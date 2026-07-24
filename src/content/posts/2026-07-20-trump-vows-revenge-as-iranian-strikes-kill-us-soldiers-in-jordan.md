@@ -35,6 +35,10 @@ keyMoments:
 videoId: "ts4qz1tlLSg"
 videoTitle: "How recent killings of U.S. soldiers could affect the war with Iran"
 thumbnail: "https://img.youtube.com/vi/ts4qz1tlLSg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US military identifies 2 soldiers killed during Iranian strikes in Jordan"
     url: "https://www.cnn.com/2026/07/20/us/video/cnn-sitroom-us-soldiers-killed-iran-war"

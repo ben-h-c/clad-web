@@ -34,6 +34,10 @@ keyMoments:
 videoId: "kFO1gL3-FH8"
 videoTitle: "Search for survivors in Venezuela as earthquakes' death toll climbs"
 thumbnail: "https://img.youtube.com/vi/kFO1gL3-FH8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'The floor under me was shaking': American tourist recounts escaping death in Venezuela quakes"
     url: "https://abcnews.com/International/strong-71-magnitude-earthquake-recorded-coast-venezuela/story?id=134185994"

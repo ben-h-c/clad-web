@@ -25,6 +25,10 @@ keyMoments:
 videoId: "nkx7DUzxySk"
 videoTitle: "Algae forms in the Reflecting Pool after $14M repair project"
 thumbnail: "https://img.youtube.com/vi/nkx7DUzxySk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Algae forms in the Reflecting Pool. It’s ‘residual,’ Trump officials say"
     url: "https://www.washingtonpost.com/style/power/2026/06/11/algae-forms-reflecting-pool-its-residual-trump-officials-say/"

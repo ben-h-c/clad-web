@@ -35,6 +35,10 @@ keyMoments:
 videoId: "PTZft9quqD0"
 videoTitle: "Market Talk: Warsh ‘will tread carefully’ at Fed meeting"
 thumbnail: "https://img.youtube.com/vi/PTZft9quqD0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Japan raises interest rate to highest for 31 years"
     url: "https://www.bbc.com/news/articles/cjdgl213dpzo"

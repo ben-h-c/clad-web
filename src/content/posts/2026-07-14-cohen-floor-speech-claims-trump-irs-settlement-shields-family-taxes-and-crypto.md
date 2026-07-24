@@ -38,6 +38,10 @@ keyMoments:
 videoId: "XneaE6ZHmOo"
 videoTitle: "&#39;He&#39;s Stealing From You And Me!&#39;: Steve Cohen Torches Trump Over IRS Settlement Deal"
 thumbnail: "https://img.youtube.com/vi/XneaE6ZHmOo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Steve Cohen"
     slug: "steve-cohen"

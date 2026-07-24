@@ -36,6 +36,10 @@ keyMoments:
 videoId: "KRYvZoG-e8I"
 videoTitle: "Incoming Chief of Space Operations Solidifies Commitment to Grand Forks and UND"
 thumbnail: "https://img.youtube.com/vi/KRYvZoG-e8I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Incoming Chief of Space Operations Solidifies Commitment to Grand Forks and UND"
     url: "https://www.cramer.senate.gov/news/press-releases/incoming-chief-of-space-operations-solidifies-commitment-to-grand-forks-and-und"

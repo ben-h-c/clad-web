@@ -31,6 +31,10 @@ keyMoments:
 videoId: "SSUzRs0KdmE"
 videoTitle: "How can the young take control if the old still hold all the power?"
 thumbnail: "https://img.youtube.com/vi/SSUzRs0KdmE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2024 Presidential Election Voting and Registration Tables"
     url: "https://www.census.gov/newsroom/press-releases/2025/2024-presidential-election-voting-registration-tables.html"

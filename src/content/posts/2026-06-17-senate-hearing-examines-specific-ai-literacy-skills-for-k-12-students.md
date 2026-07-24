@@ -31,6 +31,10 @@ keyMoments:
 videoId: "kz9mxVLfWM8"
 videoTitle: "Jim Banks Presses Expert On 'Specific Skills' Teachers Should Be Focusing On With AI Education"
 thumbnail: "https://img.youtube.com/vi/kz9mxVLfWM8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Future of K-12 Education in the Age of Artificial Intelligence"
     url: "https://www.help.senate.gov/hearings/the-future-of-k-12-education-in-the-age-of-artificial-intelligence"

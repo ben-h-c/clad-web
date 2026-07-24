@@ -35,6 +35,10 @@ keyMoments:
 videoId: "CUiIUuaTx8g"
 videoTitle: "June 16, 2026"
 thumbnail: "https://img.youtube.com/vi/CUiIUuaTx8g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran and US reach interim deal to reopen Strait of Hormuz and extend ceasefire"
     url: "https://www.youtube.com/watch?v=Ren4L2Fcr-k"

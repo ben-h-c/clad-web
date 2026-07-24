@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Z1LBVqpQfIQ"
 videoTitle: "Tensions escalate over the Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/Z1LBVqpQfIQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US Central Command: U.S. Strikes Iran in Response to Attack on Commercial Vessel"
     url: "https://www.centcom.mil/MEDIA/PUBLIC-RELEASES/Article/4528341/us-strikes-iran-in-response-to-attack-on-commercial-vessel/"

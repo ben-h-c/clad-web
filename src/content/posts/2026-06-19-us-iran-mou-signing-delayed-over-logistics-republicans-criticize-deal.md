@@ -36,6 +36,10 @@ keyMoments:
 videoId: "dglEIHOfTJU"
 videoTitle: "Formal signing of US-Iran MOU delayed, White House cites “logistical issues”"
 thumbnail: "https://img.youtube.com/vi/dglEIHOfTJU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran war: Switzerland talks called off, Vance stays in US"
     url: "https://www.dw.com/en/iran-war-switzerland-talks-called-off-vance-stays-in-us/live-77620493"

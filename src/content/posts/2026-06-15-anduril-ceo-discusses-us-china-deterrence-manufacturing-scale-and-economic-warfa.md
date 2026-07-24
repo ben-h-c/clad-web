@@ -35,6 +35,10 @@ keyMoments:
 videoId: "phJLzt6NogM"
 videoTitle: "In conversation with Brian Schrimpf: Live from FF Global 2026"
 thumbnail: "https://img.youtube.com/vi/phJLzt6NogM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Anduril Open to Building Weapons Hub Outside US, CEO Says"
     url: "https://www.bloomberg.com/news/videos/2026-06-11/anduril-open-to-building-weapons-hub-outside-us-ceo-video"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "iWOr6kd9Qx4"
 videoTitle: "Palisades Fire trial ends in mistrial; defense attorney speaks out | Jesse Weber Live Full Show"
 thumbnail: "https://img.youtube.com/vi/iWOr6kd9Qx4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mistrial declared in trial over deadly and destructive Palisades Fire"
     url: "https://www.nbcnews.com/news/us-news/pacific-palisades-fire-jury-verdict-rcna351208"

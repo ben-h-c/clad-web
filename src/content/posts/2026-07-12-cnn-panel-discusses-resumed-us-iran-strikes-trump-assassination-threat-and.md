@@ -34,6 +34,10 @@ keyMoments:
 videoId: "-c0-H6uNxKM"
 videoTitle: "Iran strikes resume as Trump assassination plot exposed | Debate roundup"
 thumbnail: "https://img.youtube.com/vi/-c0-H6uNxKM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Israel shared intelligence with US of Iranian plot to assassinate Trump, sources say"
     url: "https://www.cnn.com/2026/07/09/politics/trump-assassination-plot-iran-israel"

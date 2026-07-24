@@ -31,6 +31,10 @@ keyMoments:
 videoId: "F8V3qMn7YWI"
 videoTitle: "Could grocery property controls be driving up food prices? Competition probe expands"
 thumbnail: "https://img.youtube.com/vi/F8V3qMn7YWI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Competition Bureau advances investigation into Sobeys' use of property controls across Canada"
     url: "https://www.canada.ca/en/competition-bureau/news/2026/06/competition-bureau-advances-investigation-into-sobeys-use-of-property-controls-across-canada.html"

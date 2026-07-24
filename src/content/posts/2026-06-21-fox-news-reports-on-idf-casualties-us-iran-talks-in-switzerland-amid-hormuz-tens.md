@@ -31,6 +31,10 @@ keyMoments:
 videoId: "rH-qOudI5ME"
 videoTitle: "5 IDF soldiers KILLED by Hezbollah"
 thumbnail: "https://img.youtube.com/vi/rH-qOudI5ME/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Five IDF soldiers die in Hezbollah attacks in Lebanon after ..."
     url: "https://www.jpost.com/israel-news/article-899975"

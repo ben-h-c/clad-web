@@ -33,6 +33,10 @@ keyMoments:
 videoId: "W74-jgtwz3E"
 videoTitle: "Escalating tensions between the US and Iran as ceasefire collapses"
 thumbnail: "https://img.youtube.com/vi/W74-jgtwz3E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. and Iran exchange intensifying fire across Mideast, threatening ceasefire deal"
     url: "https://www.npr.org/2026/07/10/g-s1-132927/us-iran-war"

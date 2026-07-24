@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ak-cBax9Pi0"
 videoTitle: "Alex Armstrong Tonight Late Edition | Saturday 27th June"
 thumbnail: "https://img.youtube.com/vi/ak-cBax9Pi0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Met could be forced to reopen thousands of grooming gang cases"
     url: "https://www.telegraph.co.uk/news/2026/06/27/met-police-may-need-to-reopen-4000-grooming-gang-cases/"

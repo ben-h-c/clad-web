@@ -37,6 +37,10 @@ keyMoments:
 videoId: "K9H_z11pu_Q"
 videoTitle: "Hope in the next generation as America turns 250"
 thumbnail: "https://img.youtube.com/vi/K9H_z11pu_Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump's Great American State Fair is a fabulous flop | Opinion"
     url: "https://www.usatoday.com/story/opinion/columnist/2026/06/30/great-american-state-fair-trump-attendance/90741971007/"

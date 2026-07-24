@@ -34,6 +34,10 @@ keyMoments:
 videoId: "hGHIwA1iVRQ"
 videoTitle: "Tom Hanks and Tim Allen reflect on 30 years of \"Toy Story\""
 thumbnail: "https://img.youtube.com/vi/hGHIwA1iVRQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Toy Story - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Toy_Story"

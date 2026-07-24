@@ -39,6 +39,10 @@ keyMoments:
 videoId: "vGoZzs0KZWw"
 videoTitle: "The real reason King Charles and Prince William will never move into Buckingham Palace | The Royal T"
 thumbnail: "https://img.youtube.com/vi/vGoZzs0KZWw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "King Charles reveals tax bill, rejects Buckingham Palace"
     url: "https://www.youtube.com/watch?v=rJtUzwl4zxk"

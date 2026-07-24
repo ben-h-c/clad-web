@@ -34,6 +34,10 @@ keyMoments:
 videoId: "lyp0I8SpFRQ"
 videoTitle: "2 boys, father dead in Ottawa murder-suicide, police say | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/lyp0I8SpFRQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2 children found dead in Ottawa home in murder-suicide: police"
     url: "https://www.ctvnews.ca/ottawa/article/2-children-found-dead-in-ottawa-home-in-murder-suicide-police/"

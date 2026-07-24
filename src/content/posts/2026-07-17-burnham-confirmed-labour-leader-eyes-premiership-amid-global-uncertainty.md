@@ -35,6 +35,10 @@ keyMoments:
 videoId: "QJByVu8X5L0"
 videoTitle: "What will Donald Trump and other world leaders make of Andy Burnham? | BBC News"
 thumbnail: "https://img.youtube.com/vi/QJByVu8X5L0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham declared leader of UK's Labour Party"
     url: "https://apnews.com/article/andy-burnham-uk-labour-party-leadership-eba3703e98f3f9790f74f2cd7ee4cee1"

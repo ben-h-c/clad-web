@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Zg8ah5Rwd6Y"
 videoTitle: "Air quality warnings across multiple states as Canadian wildfires burn"
 thumbnail: "https://img.youtube.com/vi/Zg8ah5Rwd6Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Maps show Canadian wildfire smoke descending on US, spreading from Great Lakes to New England"
     url: "https://abcnews.com/US/canadian-wildfire-smoke-descends-us-spreading-great-lakes/story?id=134774391"

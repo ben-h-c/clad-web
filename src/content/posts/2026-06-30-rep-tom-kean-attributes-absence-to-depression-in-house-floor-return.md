@@ -31,6 +31,10 @@ keyMoments:
 videoId: "5-T7rOOLhCc"
 videoTitle: "US Rep. Tom Kean attributes months-long absence to depression"
 thumbnail: "https://img.youtube.com/vi/5-T7rOOLhCc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US Representative Tom Kean attributes months-long absence to depression"
     url: "https://www.reuters.com/world/us/us-representative-tom-kean-attributes-months-long-absence-depression-2026-06-30/"

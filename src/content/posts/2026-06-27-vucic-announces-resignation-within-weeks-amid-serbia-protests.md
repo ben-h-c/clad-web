@@ -31,6 +31,10 @@ keyMoments:
 videoId: "JWgQmKZi4VY"
 videoTitle: "Serbian president says he will resign within weeks"
 thumbnail: "https://img.youtube.com/vi/JWgQmKZi4VY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Serbia’s President Aleksandar Vucic says will resign within ‘weeks’"
     url: "https://www.aljazeera.com/news/2026/6/27/serbias-president-aleksandar-vucic-says-will-resign-within-weeks"

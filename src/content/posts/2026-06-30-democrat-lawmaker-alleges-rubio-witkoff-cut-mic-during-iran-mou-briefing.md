@@ -37,6 +37,10 @@ keyMoments:
 videoId: "k9IICbv8RkM"
 videoTitle: "Rep. Dean: Trump team call 'cut my mic' over Iran questions to Rubio, Witkoff"
 thumbnail: "https://img.youtube.com/vi/k9IICbv8RkM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US-Iran memorandum of understanding in full"
     url: "https://www.bbc.com/news/articles/c4gy700j0eko"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "ZLDx6IkdYKU"
 videoTitle: "Grooming Gang COVER-UP: 'These Men Faced NO Consequence'"
 thumbnail: "https://img.youtube.com/vi/ZLDx6IkdYKU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Baroness Casey warns grooming survivors are 'still being failed'"
     url: "https://www.bbc.com/news/articles/cly7jjq8nr1o"

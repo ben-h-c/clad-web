@@ -31,6 +31,10 @@ keyMoments:
 videoId: "UiHDGdidDZg"
 videoTitle: "Tommy Tuberville Demands Measures To Ensure 'AI Strengthens Education Instead Of Weaken It'"
 thumbnail: "https://img.youtube.com/vi/UiHDGdidDZg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Future of K-12 Education in the Age of Artificial Intelligence"
     url: "https://www.help.senate.gov/hearings/the-future-of-k-12-education-in-the-age-of-artificial-intelligence"

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "TW0oaz_CF3E"
 videoTitle: "Stanford Economist: The AI Risk Almost Nobody Is Talking About | Erik Brynjolfsson"
 thumbnail: "https://img.youtube.com/vi/TW0oaz_CF3E/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Generative AI at Work"
     url: "https://www.nber.org/papers/w31161"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "c5HN4YKWMGg"
 videoTitle: "Milwaukee latest city to ban ICE masks: Is it legal?"
 thumbnail: "https://img.youtube.com/vi/c5HN4YKWMGg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "DOJ warns Milwaukee officials over ICE mask ban"
     url: "https://www.wisn.com/article/doj-warns-milwaukee-officials-over-ice-mask-ban/71899819"

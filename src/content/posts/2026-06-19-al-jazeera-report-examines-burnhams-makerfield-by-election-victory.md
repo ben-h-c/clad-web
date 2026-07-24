@@ -35,6 +35,10 @@ keyMoments:
 videoId: "AtvmPV07wlQ"
 videoTitle: "Andy Burnham wins key UK by-election, paving way to challenge Keir Starmer"
 thumbnail: "https://img.youtube.com/vi/AtvmPV07wlQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Burnham Wins Makerfield By-Election, Clearing Path to Challenge Starmer"
     url: "https://www.nytimes.com/2026/06/18/world/europe/uk-makerfield-election.html"

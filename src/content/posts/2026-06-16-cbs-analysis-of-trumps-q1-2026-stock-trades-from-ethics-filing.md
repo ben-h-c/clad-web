@@ -35,6 +35,10 @@ keyMoments:
 videoId: "fNjNFhZ-luk"
 videoTitle: "Tracking Trump's 3,600 stock trades in the past 3 months"
 thumbnail: "https://img.youtube.com/vi/fNjNFhZ-luk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Explore Trump's 3600 stock trades from the first 3 months of 2026"
     url: "https://www.cbsnews.com/projects/2026/trump-stock-trades/"

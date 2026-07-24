@@ -31,6 +31,10 @@ keyMoments:
 videoId: "kh_15BYuB9I"
 videoTitle: "NATO Ambassador: Any F-35 Deal With Turkey Will Be 'In The American People's Interest'"
 thumbnail: "https://img.youtube.com/vi/kh_15BYuB9I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US NATO Ambassador says Türkiye F-35 deal 'can happen' if S-400 is scrapped"
     url: "https://www.turkiyetoday.com/region/us-nato-ambassador-says-turkiye-f-35-deal-can-happen-if-s-400-is-scrapped-3223772"

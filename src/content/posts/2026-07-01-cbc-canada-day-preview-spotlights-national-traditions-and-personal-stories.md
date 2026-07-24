@@ -27,6 +27,10 @@ keyMoments:
 videoId: "WCo6uRc2NMI"
 videoTitle: "Celebrate Canada Day 2026 LIVE with CBC | Preview"
 thumbnail: "https://img.youtube.com/vi/WCo6uRc2NMI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Canada Day"
     url: "https://en.wikipedia.org/wiki/Canada_Day"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "WR3QfKrm0Ok"
 videoTitle: "Cop who rescued woman in crisis on Brooklyn Bridge was on his 3rd day with unit"
 thumbnail: "https://img.youtube.com/vi/WR3QfKrm0Ok/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Hero NYPD cop recounts high-wire rescue of woman threatening to jump from Brooklyn Bridge"
     url: "https://www.nydailynews.com/2026/07/14/hero-nypd-cop-recounts-high-wire-rescue-of-woman-threatening-to-jump-from-brooklyn-bridge/"

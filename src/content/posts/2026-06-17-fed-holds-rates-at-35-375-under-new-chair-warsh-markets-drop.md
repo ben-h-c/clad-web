@@ -35,6 +35,10 @@ keyMoments:
 videoId: "XCHGvN2nXRo"
 videoTitle: "Dow falls after Fed holds interest rates steady"
 thumbnail: "https://img.youtube.com/vi/XCHGvN2nXRo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Fed holds rates steady, pares down statement to remove cutting bias"
     url: "https://www.cnbc.com/2026/06/17/fed-interest-rate-decision-june-2026.html"

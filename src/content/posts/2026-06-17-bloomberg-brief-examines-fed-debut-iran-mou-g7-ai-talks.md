@@ -35,6 +35,10 @@ keyMoments:
 videoId: "wz08lh916Lw"
 videoTitle: "Stocks Rise Ahead of Fed Decision; US-Iran MOU Details; G7 Summit | Bloomberg Brief 6/17/2026"
 thumbnail: "https://img.youtube.com/vi/wz08lh916Lw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Kevin Warsh takes oath of office as chairman"
     url: "https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm"

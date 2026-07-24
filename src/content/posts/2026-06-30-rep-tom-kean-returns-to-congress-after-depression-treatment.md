@@ -31,6 +31,10 @@ keyMoments:
 videoId: "fof8QrXNzoc"
 videoTitle: "Rep. Tom Kean of New Jersey returns to Congress, explains he was being treated for depression"
 thumbnail: "https://img.youtube.com/vi/fof8QrXNzoc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Republican Rep. Tom Kean Jr. will return to the House on June 30"
     url: "https://www.facebook.com/cnnpolitics/posts/republican-rep-tom-kean-jr-will-return-to-the-house-on-june-30-a-spokesperson-to/1362846349035179/"

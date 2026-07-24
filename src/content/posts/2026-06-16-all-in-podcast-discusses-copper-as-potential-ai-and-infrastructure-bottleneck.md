@@ -40,6 +40,10 @@ keyMoments:
 videoId: "xTO1aQ_m44I"
 videoTitle: "Dan Dreyfus: The Next AI Bottleneck is Copper"
 thumbnail: "https://img.youtube.com/vi/xTO1aQ_m44I/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "How much copper has been found in the world?"
     url: "https://www.usgs.gov/faqs/how-much-copper-has-been-found-world"

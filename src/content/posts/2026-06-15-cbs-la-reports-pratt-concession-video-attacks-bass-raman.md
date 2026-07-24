@@ -35,6 +35,10 @@ keyMoments:
 videoId: "J6nvg6oIG64"
 videoTitle: "Spencer Pratt attacks former LA mayoral opponents in concession video"
 thumbnail: "https://img.youtube.com/vi/J6nvg6oIG64/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Former Los Angeles mayoral candidate Spencer Pratt releases video, saying he's moving to the \"next, more interesting phase\" - CBS Los Angeles"
     url: "https://www.cbsnews.com/losangeles/news/spencer-pratt-video-former-la-mayor-candidate/"

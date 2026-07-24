@@ -36,6 +36,10 @@ keyMoments:
 videoId: "OK3x0gr0LCg"
 videoTitle: "'SPOILT BRAT!' Watch Nana Akua BLAST Prince Harry 'TANTRUM' as UK visit in DOUBT amid protection row"
 thumbnail: "https://img.youtube.com/vi/OK3x0gr0LCg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Prince Harry loses legal challenge over security"
     url: "https://www.bbc.com/news/articles/c2kvw2pvw8eo"

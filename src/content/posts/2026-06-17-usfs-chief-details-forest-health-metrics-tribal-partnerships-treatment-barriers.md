@@ -31,6 +31,10 @@ keyMoments:
 videoId: "M7L4ITWOdu0"
 videoTitle: "Jeff Hurd Asks USFS Chief: 'What's The Single Most Important Bottleneck' Preventing Forest Treatment"
 thumbnail: "https://img.youtube.com/vi/M7L4ITWOdu0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Forest Ecosystem Health Indicators"
     url: "https://research.fs.usda.gov/sites/default/files/2024-07/wo-17827_forest_service_forest_ecosystem_health_indicators_508.pdf"

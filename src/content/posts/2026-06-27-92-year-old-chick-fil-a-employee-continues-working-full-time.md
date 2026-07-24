@@ -34,6 +34,10 @@ keyMoments:
 videoId: "cmYxFcdUsF0"
 videoTitle: "92-year-old Chick-fil-A employee says he doesn't plan to quit anytime soon"
 thumbnail: "https://img.youtube.com/vi/cmYxFcdUsF0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "92-year-old Chick-fil-A worker has no plans to retire"
     url: "https://www.kwtx.com/2026/06/23/chick-fil-a-employee-says-its-his-pleasure-keep-working-92-years-old/"

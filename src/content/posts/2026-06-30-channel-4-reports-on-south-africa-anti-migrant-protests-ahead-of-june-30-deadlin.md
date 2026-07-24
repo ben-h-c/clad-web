@@ -34,6 +34,10 @@ keyMoments:
 videoId: "GHPfs_XtJI4"
 videoTitle: "Anti-immigration protests in South Africa"
 thumbnail: "https://img.youtube.com/vi/GHPfs_XtJI4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "South Africa's Police on High Alert for Anti-Migrant Protests"
     url: "https://www.youtube.com/watch?v=B8q58w-N49c"

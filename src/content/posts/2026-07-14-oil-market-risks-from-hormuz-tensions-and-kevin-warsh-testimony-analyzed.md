@@ -34,6 +34,10 @@ keyMoments:
 videoId: "t5N1n4cQv6Y"
 videoTitle: "Warsh to Move Markets More Than He Wants: 3-Minutes MLIV"
 thumbnail: "https://img.youtube.com/vi/t5N1n4cQv6Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

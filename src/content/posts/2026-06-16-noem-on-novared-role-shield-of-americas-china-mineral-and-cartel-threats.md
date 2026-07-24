@@ -40,6 +40,10 @@ keyMoments:
 videoId: "u3-LEFi_fZg"
 videoTitle: "CARTEL CRACKDOWN: China has a plan to ‘KILL OUR COUNTRY,’ Noem says"
 thumbnail: "https://img.youtube.com/vi/u3-LEFi_fZg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Secretary Kristi L. Noem Joins NovaRed Mining Advisory Board"
     url: "https://www.newsfilecorp.com/release/301409/Secretary-Kristi-L.-Noem-Joins-NovaRed-Mining-Advisory-Board"

@@ -32,6 +32,10 @@ keyMoments:
 videoId: "W7AqGsbvwWQ"
 videoTitle: "Texas town protests Amazon delivery 'drone highway'"
 thumbnail: "https://img.youtube.com/vi/W7AqGsbvwWQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Richardson neighbors protest Amazon Prime Air drones over their homes – NBC 5 Dallas-Fort Worth"
     url: "https://www.nbcdfw.com/news/local/richardson-sick-drone-highway-above-homes/4036131/"

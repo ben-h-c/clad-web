@@ -36,6 +36,10 @@ keyMoments:
 videoId: "SiP1yYt2ECY"
 videoTitle: "Chipmakers are thriving because they're 'paid UPFRONT': DA Davidson's Gil Luria"
 thumbnail: "https://img.youtube.com/vi/SiP1yYt2ECY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Micron tops $700 billion market cap, stock extends rally amid AI-driven memory demand"
     url: "https://finance.yahoo.com/markets/stocks/article/micron-tops-700-billion-market-cap-stock-extends-rally-amid-ai-driven-memory-demand-143946062.html"

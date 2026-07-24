@@ -39,6 +39,10 @@ keyMoments:
 videoId: "We7PX0nzHq4"
 videoTitle: "Why is Antifa back in the spotlight? | The Global Story"
 thumbnail: "https://img.youtube.com/vi/We7PX0nzHq4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Marco Rubio"
     slug: "marco-rubio"

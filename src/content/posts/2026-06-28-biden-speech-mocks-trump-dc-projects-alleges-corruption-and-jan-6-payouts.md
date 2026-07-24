@@ -40,6 +40,10 @@ keyMoments:
 videoId: "_TDhC_llUow"
 videoTitle: "Trump “hired his own pool guy to fix the Reflecting Pool”: Biden slams Trump as “loser”"
 thumbnail: "https://img.youtube.com/vi/_TDhC_llUow/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Biden rips Trump over Reflecting Pool, other DC projects: ‘What a loser’"
     url: "https://thehill.com/homenews/administration/5944394-biden-criticizes-trump-renovations/"

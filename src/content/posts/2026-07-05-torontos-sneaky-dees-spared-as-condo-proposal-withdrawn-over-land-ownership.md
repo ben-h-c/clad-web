@@ -34,6 +34,10 @@ keyMoments:
 videoId: "SXhQkfLzRNQ"
 videoTitle: "Toronto's iconic 'Sneaky Dee's' saved after proposed development abruptly scrapped"
 thumbnail: "https://img.youtube.com/vi/SXhQkfLzRNQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Developer abruptly abandons high-rise condo proposal that threatened to demolish Sneaky Dee’s"
     url: "https://www.cp24.com/local/toronto/2026/07/04/developer-abruptly-abandons-high-rise-condo-proposal-that-threatened-to-demolish-sneaky-dees/"

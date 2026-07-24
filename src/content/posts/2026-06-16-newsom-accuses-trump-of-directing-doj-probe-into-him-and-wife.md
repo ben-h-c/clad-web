@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Uprly2GtS9k"
 videoTitle: "Newsom says he's on Trump's 'hit list'"
 thumbnail: "https://img.youtube.com/vi/Uprly2GtS9k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Newsom accuses Trump of directing politically motivated investigation | Reuters"
     url: "https://www.reuters.com/world/newsom-says-trump-has-directed-justice-department-investigate-him-2026-06-15/"

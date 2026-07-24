@@ -32,6 +32,10 @@ keyMoments:
 videoId: "GhKTTQxhXk4"
 videoTitle: "Jodey Arrington Earns A Laugh From Foxx When He Suggests They &#39;May Be Wearing Mr. McGovern Down&#39;"
 thumbnail: "https://img.youtube.com/vi/GhKTTQxhXk4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "James P. McGovern"
     slug: "james-p-mcgovern"

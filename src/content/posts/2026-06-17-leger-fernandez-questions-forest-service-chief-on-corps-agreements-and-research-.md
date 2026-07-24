@@ -33,6 +33,10 @@ keyMoments:
 videoId: "n8LKhR-RR7k"
 videoTitle: "WATCH: Leger Fernandez Doesn't Let Up On Trump's Forest Service Chief Over Manual He Signed"
 thumbnail: "https://img.youtube.com/vi/n8LKhR-RR7k/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Meet Tom Schultz, 21st Chief of the Forest Service"
     url: "https://www.fs.usda.gov/inside-fs/leadership/meet-tom-schultz-21st-chief-forest-service"

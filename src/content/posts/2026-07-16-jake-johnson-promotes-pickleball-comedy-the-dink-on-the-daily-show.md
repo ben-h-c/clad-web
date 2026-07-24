@@ -32,6 +32,10 @@ keyMoments:
 videoId: "XXYlrpOAvU0"
 videoTitle: "Jake Johnson - “The Dink” | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/XXYlrpOAvU0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Josh Green"
     slug: "josh-green"

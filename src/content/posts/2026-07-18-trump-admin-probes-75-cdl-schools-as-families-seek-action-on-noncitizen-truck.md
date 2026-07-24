@@ -40,6 +40,10 @@ keyMoments:
 videoId: "njPpXh8pjpc"
 videoTitle: "HEARTBREAKING: Child needs more surgery YEARS after illegal trucker allegedly hit her"
 thumbnail: "https://img.youtube.com/vi/njPpXh8pjpc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Crash report released in fatal I-71 crash that killed 21-year-old Toby Forsythe"
     url: "https://abc6onyourside.com/news/local/crash-report-released-in-fatal-i-71-crash-that-killed-21-year-old-toby-forsythe-honda-accord-bekhzod-asrarov-semi-truck-driver-ohio-state-highway-patrol-state-route-56-us-route-323-big-el-llc-federal-motor-carrier-safety-administration-dash-cam-trucking"

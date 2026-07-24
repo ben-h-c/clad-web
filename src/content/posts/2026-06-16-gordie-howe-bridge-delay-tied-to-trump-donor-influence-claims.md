@@ -35,6 +35,10 @@ keyMoments:
 videoId: "iLdvv7iJjEU"
 videoTitle: "Why we can't have nice things: Trump's corruption"
 thumbnail: "https://img.youtube.com/vi/iLdvv7iJjEU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump administration delays opening of Gordie Howe bridge on eve of ribbon cutting"
     url: "https://www.theglobeandmail.com/business/article-gordie-howe-bridge-delay-windsor-trump-administration/"

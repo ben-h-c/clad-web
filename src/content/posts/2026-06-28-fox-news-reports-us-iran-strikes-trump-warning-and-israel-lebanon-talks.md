@@ -37,6 +37,10 @@ keyMoments:
 videoId: "J_hjlh0WOas"
 videoTitle: "Trump teases complete military ANNIHILATION of Iran amid strikes"
 thumbnail: "https://img.youtube.com/vi/J_hjlh0WOas/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US launches more strikes on Iranian sites"
     url: "https://www.cnn.com/2026/06/27/world/live-news/iran-war-strikes-trump"

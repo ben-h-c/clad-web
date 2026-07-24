@@ -37,6 +37,10 @@ keyMoments:
 videoId: "E9Srvm8rqhE"
 videoTitle: "'About 500,000 Children Have Died As A Result!': Jeff Merkley Torches Trump Admin's Gutting Of USAID"
 thumbnail: "https://img.youtube.com/vi/E9Srvm8rqhE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Merkley Opening Statement at Duncan Nomination Hearing"
     url: "https://www.budget.senate.gov/ranking-member/newsroom/press/merkley-opening-statement-at-duncan-nomination-hearing"

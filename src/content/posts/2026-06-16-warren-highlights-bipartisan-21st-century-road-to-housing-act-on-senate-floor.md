@@ -37,6 +37,10 @@ keyMoments:
 videoId: "o1XUz0Wzerc"
 videoTitle: "'The Biggest Housing Bill In More Than 30 Years': Elizabeth Warren Touts 'Historic' Housing Bill"
 thumbnail: "https://img.youtube.com/vi/o1XUz0Wzerc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Scott, Warren Release 21st Century ROAD to Housing Act Legislative Package to Boost Housing Supply and Bring Down Costs"
     url: "https://www.banking.senate.gov/newsroom/minority/scott-warren-release-21st-century-road-to-housing-act-legislative-package-to-boost-housing-supply-and-bring-down-costs"

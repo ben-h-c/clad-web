@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ErJHbuUKDgw"
 videoTitle: "Anthropic alleges Chinese AI firm is stealing its technology"
 thumbnail: "https://img.youtube.com/vi/ErJHbuUKDgw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Claude Mythos Preview System Card - Anthropic"
     url: "https://www-cdn.anthropic.com/08ab9158070959f88f296514c21b7facce6f52bc.pdf"

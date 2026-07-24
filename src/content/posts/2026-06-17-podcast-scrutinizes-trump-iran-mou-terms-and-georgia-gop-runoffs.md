@@ -34,6 +34,10 @@ keyMoments:
 videoId: "zSxaYThADOA"
 videoTitle: "Who is really winning in the Iran deal?"
 thumbnail: "https://img.youtube.com/vi/zSxaYThADOA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump and Vance virtually sign US-Iran agreement"
     url: "https://www.cnn.com/2026/06/15/world/live-news/iran-war-g7-summit"

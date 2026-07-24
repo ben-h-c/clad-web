@@ -32,6 +32,10 @@ keyMoments:
 videoId: "cux87cgv3lw"
 videoTitle: "‘Gutfeld!’: I hate this SO much"
 thumbnail: "https://img.youtube.com/vi/cux87cgv3lw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Gen Z going on 'practice dates' with people they don't like"
     url: "https://nypost.com/2026/06/05/lifestyle/gen-z-going-on-practice-dates-with-people-they-dont-like/"

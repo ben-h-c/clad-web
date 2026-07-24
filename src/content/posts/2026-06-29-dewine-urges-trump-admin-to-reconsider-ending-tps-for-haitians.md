@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Qz5ayb4-8DE"
 videoTitle: "Mike DeWine: 'I Would Hope The Trump Administration Would Reconsider' Deporting Haitian Immigrants"
 thumbnail: "https://img.youtube.com/vi/Qz5ayb4-8DE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump's TPS policy is a 'job killer' and bad for Ohio, Gov. DeWine says"
     url: "https://www.pbs.org/newshour/show/trumps-tps-policy-is-a-job-killer-and-bad-for-ohio-gov-dewine-says"

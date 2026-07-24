@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Cy7EJox7MHc"
 videoTitle: "Trump Kicks Off UFC Cage Match at White House"
 thumbnail: "https://img.youtube.com/vi/Cy7EJox7MHc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump hosts UFC fights on White House lawn"
     url: "https://www.bbc.com/news/articles/c892xnwg5vlo"

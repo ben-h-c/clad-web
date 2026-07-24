@@ -34,6 +34,10 @@ keyMoments:
 videoId: "BIWDY1y0hYw"
 videoTitle: "Former NBA players indicted in gambling scheme"
 thumbnail: "https://img.youtube.com/vi/BIWDY1y0hYw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Former NBA players Malik Beasley, Ed Davis indicted on illegal sports gambling charges - The Athletic"
     url: "https://www.nytimes.com/athletic/7405670/2026/06/29/malik-beasley-indicted-sports-gambling/"

@@ -36,6 +36,10 @@ keyMoments:
 videoId: "9Pdf6d6E4eA"
 videoTitle: "Conflict, displacement and Ebola in DRC: Outbreak exposes a deeper humanitarian crisis"
 thumbnail: "https://img.youtube.com/vi/9Pdf6d6E4eA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Epidemic of Ebola Disease caused by Bundibugyo virus in the Democratic Republic of the Congo and Uganda determined a public health emergency of international concern"
     url: "https://www.who.int/news/item/17-05-2026-epidemic-of-ebola-disease-in-the-democratic-republic-of-the-congo-and-uganda-determined-a-public-health-emergency-of-international-concern"

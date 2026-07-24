@@ -31,6 +31,10 @@ keyMoments:
 videoId: "9zrnLT98RjY"
 videoTitle: "Delta CEO says oil prices will stay “sticky for longer”"
 thumbnail: "https://img.youtube.com/vi/9zrnLT98RjY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Delta Q2 earnings top estimates, reinstates full-year guidance as fuel prices bite"
     url: "https://finance.yahoo.com/markets/stocks/article/delta-q2-earnings-top-estimates-reinstates-full-year-guidance-as-fuel-prices-bite-175815467.html"

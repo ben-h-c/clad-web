@@ -32,6 +32,10 @@ keyMoments:
 videoId: "jv_0HTgOXTM"
 videoTitle: "Trump Reports at Least $1.4B in 2025 Crypto Earnings | Balance of Power 07/01/2026"
 thumbnail: "https://img.youtube.com/vi/jv_0HTgOXTM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump’s income topped $2 billion in 2025, boosted by crypto, coin ventures"
     url: "https://www.washingtonpost.com/politics/2026/06/30/trump-earned-over-1-billion-cryptocurrency-coin-ventures-last-year/"

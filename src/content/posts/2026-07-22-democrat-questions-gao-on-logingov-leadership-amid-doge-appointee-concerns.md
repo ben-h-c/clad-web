@@ -35,6 +35,10 @@ keyMoments:
 videoId: "-4OOJuSvd_M"
 videoTitle: "&#39;Would It Be Very Concerning To You...&#39;: Randall Asks GAO Official About DOGE&#39;s Work At Login.gov"
 thumbnail: "https://img.youtube.com/vi/-4OOJuSvd_M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "GSA Needs to Address Fraud Threats and Technical Issues"
     url: "https://www.gao.gov/products/gao-26-109261"

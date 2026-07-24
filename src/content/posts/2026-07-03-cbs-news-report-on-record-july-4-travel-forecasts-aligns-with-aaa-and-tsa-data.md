@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Ru_pA4ghZhA"
 videoTitle: "Record number of July 4th travelers expected despite higher gas prices, airfares"
 thumbnail: "https://img.youtube.com/vi/Ru_pA4ghZhA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "72.2 Million Americans Expected to Travel over July 4th Week – AAA Newsroom"
     url: "https://newsroom.aaa.com/2026/06/72-2-million-americans-expected-to-travel-over-july-4th-week/"

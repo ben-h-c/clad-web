@@ -36,6 +36,10 @@ keyMoments:
 videoId: "9mnWLw1-efg"
 videoTitle: "Iran’s ballistic missiles not mentioned in agreement but Trump says they ‘have to have some’"
 thumbnail: "https://img.youtube.com/vi/9mnWLw1-efg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US releases official agreement with Iran. Read the 14-point text"
     url: "https://www.cnn.com/2026/06/17/middleeast/us-iran-war-mou-text-intl"

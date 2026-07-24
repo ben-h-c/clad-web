@@ -37,6 +37,10 @@ keyMoments:
 videoId: "2RnakVffJGg"
 videoTitle: "Kamala Harris Asked Point Blank: If You Were President, Does That War With Iran Even Happen?"
 thumbnail: "https://img.youtube.com/vi/2RnakVffJGg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2026 Iran war"
     url: "https://en.wikipedia.org/wiki/2026_Iran_war"

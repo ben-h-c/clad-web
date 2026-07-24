@@ -36,6 +36,10 @@ keyMoments:
 videoId: "11CBbWWpwDY"
 videoTitle: "Germany's heatwave plan under fire | DW News"
 thumbnail: "https://img.youtube.com/vi/11CBbWWpwDY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Temperature records shattered in Europe as deadly heatwave moves east"
     url: "https://www.reuters.com/business/environment/germany-poland-poised-soaring-temperatures-heatwave-moves-east-2026-06-27/"

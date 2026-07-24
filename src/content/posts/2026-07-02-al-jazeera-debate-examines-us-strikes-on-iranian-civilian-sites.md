@@ -35,6 +35,10 @@ keyMoments:
 videoId: "8QXy0IpQ3Sk"
 videoTitle: "Did the US commit war crimes in Iran? | Head to Head"
 thumbnail: "https://img.youtube.com/vi/8QXy0IpQ3Sk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Was the Attack on an Iranian Primary School a War Crime?"
     url: "https://reliefweb.int/report/iran-islamic-republic/was-attack-iranian-primary-school-war-crime"

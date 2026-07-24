@@ -34,6 +34,10 @@ keyMoments:
 videoId: "QOI0MCz3NXs"
 videoTitle: "Meet the team tailoring spacesuits for lunar astronauts"
 thumbnail: "https://img.youtube.com/vi/QOI0MCz3NXs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Prada and Axiom Space: a collaboration exploring the design of next-generation spacesuits"
     url: "https://www.prada.com/us/en/pradasphere/special-projects/2024/prada-axiom.html"

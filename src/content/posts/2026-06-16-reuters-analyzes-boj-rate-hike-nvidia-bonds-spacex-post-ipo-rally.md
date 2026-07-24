@@ -35,6 +35,10 @@ keyMoments:
 videoId: "tMlKD41S5DE"
 videoTitle: "What does Japan’s biggest rate hike in 30 years mean for markets? | Reuters Morning Bid"
 thumbnail: "https://img.youtube.com/vi/tMlKD41S5DE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "BOJ set to raise key rate to 1.0% in June, 1.25% by year-end: Reuters poll"
     url: "https://www.reuters.com/world/asia-pacific/boj-set-raise-key-rate-10-june-125-by-year-end-2026-06-10/"

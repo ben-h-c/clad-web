@@ -38,6 +38,10 @@ keyMoments:
 videoId: "MJXk5omCsTw"
 videoTitle: "Why BookTok blew up over 'Hot Girls Read' trademark | Top Comment Podcast"
 thumbnail: "https://img.youtube.com/vi/MJXk5omCsTw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Allie Rose Co & The 'Hot Girls Read' Trademark Drama"
     url: "https://www.marieclaire.com.au/life/entertainment/allie-rose-co-hot-girls-read-trademark/"

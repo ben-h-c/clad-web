@@ -34,6 +34,10 @@ keyMoments:
 videoId: "ARmaeh1b8HE"
 videoTitle: "Freight train derailment near Philadelphia sparks hazmat scare"
 thumbnail: "https://img.youtube.com/vi/ARmaeh1b8HE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Residents shelter-in-place after freight train derails in Bensalem Twp., Pa."
     url: "https://www.nbcphiladelphia.com/news/local/freight-train-derails-in-bensalem-township-pennsylvania/4425510/"

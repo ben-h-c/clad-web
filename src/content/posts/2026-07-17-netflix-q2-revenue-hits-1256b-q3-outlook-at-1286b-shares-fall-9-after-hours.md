@@ -36,6 +36,10 @@ keyMoments:
 videoId: "U54kp0L-qqU"
 videoTitle: "Netflix earnings forecast disappoints Wall Street, shares tumble"
 thumbnail: "https://img.youtube.com/vi/U54kp0L-qqU/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Netflix stock falls as earnings forecast disappoints, company says it will give fewer engagement updates"
     url: "https://www.cnbc.com/2026/07/16/netflix-nflx-earnings-q2-2026.html"

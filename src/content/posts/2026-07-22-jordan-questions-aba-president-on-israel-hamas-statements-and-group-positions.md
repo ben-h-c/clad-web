@@ -35,6 +35,10 @@ keyMoments:
 videoId: "Nt4pk30bQao"
 videoTitle: "SHOCK MOMENT: ABA President Won&#39;t Answer When Asked If She Wants Israel Or Hamas To Win By Jordan"
 thumbnail: "https://img.youtube.com/vi/Nt4pk30bQao/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Jim Jordan"
     slug: "jim-jordan"

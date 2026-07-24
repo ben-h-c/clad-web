@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Q3jNIqckGP8"
 videoTitle: "Argentina fans rejoice as Messi delivers hat-trick victory"
 thumbnail: "https://img.youtube.com/vi/Q3jNIqckGP8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "A magical Lionel Messi hat-trick as Argentina beat Algeria"
     url: "https://www.nytimes.com/athletic/7367934/2026/06/16/lionel-messi-argentina-algeria-result/"

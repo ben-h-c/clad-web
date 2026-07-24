@@ -25,6 +25,10 @@ keyMoments:
 videoId: "Fnb1nFu_vpg"
 videoTitle: "Will Curry Barker create an 'Obsession' sequel?"
 thumbnail: "https://img.youtube.com/vi/Fnb1nFu_vpg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "‘Obsession’ is a sensation. Everyone, including Curry Barker, is trying to figure out what it means"
     url: "https://apnews.com/article/obsession-curry-barker-youtube-b90a552212501352e2a9167e09a4b73a"

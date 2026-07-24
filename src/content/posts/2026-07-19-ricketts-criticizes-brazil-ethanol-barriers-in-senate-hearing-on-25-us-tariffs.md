@@ -35,6 +35,10 @@ keyMoments:
 videoId: "oF1jgMdHCvo"
 videoTitle: "“Completely Unacceptable” – Ricketts Hits Brazil’s Ethanol Barriers &amp; New 25% Tariff"
 thumbnail: "https://img.youtube.com/vi/oF1jgMdHCvo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Pete Ricketts"
     slug: "pete-ricketts"

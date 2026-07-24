@@ -34,6 +34,10 @@ keyMoments:
 videoId: "To7ws_sXYxM"
 videoTitle: "Schismatic Catholic society sees six bishops excommunicated by Pope • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/To7ws_sXYxM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "SSPX ordains four new bishops in defiance of Pope Leo"
     url: "https://www.americamagazine.org/vatican-dispatch/2026/07/01/sspx-ordains-four-new-bishops-in-defiance-of-pope-leo-and-the-vatican/"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "9GLymuCcwI8"
 videoTitle: "Wildfire is a 'risk we need to learn to live with': B.C. fire chief"
 thumbnail: "https://img.youtube.com/vi/9GLymuCcwI8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "357 homes on evacuation order, due to West Kelowna wildfire, able to return home"
     url: "https://kelownacapnews.com/2026/06/16/wildfire-reported-in-west-kelowna/"

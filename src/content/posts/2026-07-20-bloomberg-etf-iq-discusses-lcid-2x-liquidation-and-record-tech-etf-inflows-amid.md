@@ -35,6 +35,10 @@ keyMoments:
 videoId: "NQRVtjyksQ8"
 videoTitle: "ETF IQ 7/20/2026"
 thumbnail: "https://img.youtube.com/vi/NQRVtjyksQ8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "DTCC Tokenization Pilot Update"
     url: "https://www.dtcc.com/news/2026/tokenization"

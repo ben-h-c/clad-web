@@ -36,6 +36,10 @@ keyMoments:
 videoId: "t50vnDdmrPo"
 videoTitle: "Trump uses new election task force to push conspiracy theories: 'UNPRECEDENTED'"
 thumbnail: "https://img.youtube.com/vi/t50vnDdmrPo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "White House task force aims to boost Trump’s election claims with declassified intelligence documents"
     url: "https://www.nbcnews.com/politics/white-house/white-house-task-force-gathers-intelligence-documents-seeking-amplify-rcna350731"

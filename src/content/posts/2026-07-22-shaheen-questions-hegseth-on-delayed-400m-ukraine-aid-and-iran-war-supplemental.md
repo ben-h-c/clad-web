@@ -37,6 +37,10 @@ keyMoments:
 videoId: "CyG0mg_BIvE"
 videoTitle: "‘I Want You To Answer My Question!’: Shaheen Leaves Hegseth Scrambling Over Trump’s Iran Spending"
 thumbnail: "https://img.youtube.com/vi/CyG0mg_BIvE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Jeanne Shaheen"
     slug: "jeanne-shaheen"

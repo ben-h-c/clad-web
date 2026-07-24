@@ -37,6 +37,10 @@ keyMoments:
 videoId: "b2h95MJLBVE"
 videoTitle: "Bedford train collision: What we know so far"
 thumbnail: "https://img.youtube.com/vi/b2h95MJLBVE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bedford train crash latest: One dead and several injured as police declare major incident"
     url: "https://www.bbc.com/news/live/cy8dy2pr8ymt"

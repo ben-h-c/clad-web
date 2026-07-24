@@ -31,6 +31,10 @@ keyMoments:
 videoId: "CuP8ilAIzTU"
 videoTitle: "Will Hawkish Fed Generate Dollar Tailwind? | Presented by CME Group"
 thumbnail: "https://img.youtube.com/vi/CuP8ilAIzTU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Summary of Economic Projections, June 17, 2026"
     url: "https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260617.pdf"

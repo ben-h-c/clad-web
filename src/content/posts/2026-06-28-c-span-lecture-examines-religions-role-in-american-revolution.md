@@ -34,6 +34,10 @@ keyMoments:
 videoId: "nf8GwzYjGYE"
 videoTitle: "Lectures in History: Religion & The American Revolution"
 thumbnail: "https://img.youtube.com/vi/nf8GwzYjGYE/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The pulpit and the patriot: How religion fueled the American Revolution"
     url: "https://source.washu.edu/2026/02/the-pulpit-and-the-patriot-how-religion-fueled-the-american-revolution/"

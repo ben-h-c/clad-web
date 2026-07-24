@@ -35,6 +35,10 @@ keyMoments:
 videoId: "OTnUoAae-Mw"
 videoTitle: "OUTLOOK: Van Eck says AI remains a multi-year investment trend"
 thumbnail: "https://img.youtube.com/vi/OTnUoAae-Mw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "VanEck Semiconductor ETF (SMH) Overview"
     url: "https://www.vaneck.com/us/en/investments/semiconductor-etf-smh/"

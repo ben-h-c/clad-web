@@ -34,6 +34,10 @@ keyMoments:
 videoId: "HZBlaPPMIBg"
 videoTitle: "Katie Britt To Epstein Survivor: Did You Ever Sit Down With Merrick Garland During Biden Era?"
 thumbnail: "https://img.youtube.com/vi/HZBlaPPMIBg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Katie Boyd Britt"
     slug: "katie-boyd-britt"

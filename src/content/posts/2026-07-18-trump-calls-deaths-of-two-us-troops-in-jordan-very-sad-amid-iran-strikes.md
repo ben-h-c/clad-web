@@ -34,6 +34,10 @@ keyMoments:
 videoId: "HyNman02Bas"
 videoTitle: "'Very sad': Trump responds to death of 2 troops in Jordan"
 thumbnail: "https://img.youtube.com/vi/HyNman02Bas/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

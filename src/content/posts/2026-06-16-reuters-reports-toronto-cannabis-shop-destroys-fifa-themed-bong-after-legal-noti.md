@@ -32,6 +32,10 @@ keyMoments:
 videoId: "c8C1yRF9Asc"
 videoTitle: "Toronto pot shop rides high over FIFA legal notice"
 thumbnail: "https://img.youtube.com/vi/c8C1yRF9Asc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Toronto cannabis shop rides high over FIFA legal notice"
     url: "https://www.reuters.com/sports/soccer/toronto-cannabis-shop-rides-high-over-fifa-legal-notice-2026-06-15/"

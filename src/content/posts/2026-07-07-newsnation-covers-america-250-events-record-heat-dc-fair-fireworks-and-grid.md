@@ -40,6 +40,10 @@ keyMoments:
 videoId: "I0chkQ7G6r0"
 videoTitle: "250-year celebration: Mount Rushmore, Great American State Fair and record heat | Vargas Full Show"
 thumbnail: "https://img.youtube.com/vi/I0chkQ7G6r0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "In Mount Rushmore speech, Trump veers from U.S. exceptionalism to warnings about communism"
     url: "https://www.npr.org/2026/07/04/g-s1-132025/mount-rushmore-speech-trump-july-4-250"

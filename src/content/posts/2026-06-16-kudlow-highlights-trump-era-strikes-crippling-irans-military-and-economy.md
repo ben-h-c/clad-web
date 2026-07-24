@@ -35,6 +35,10 @@ keyMoments:
 videoId: "cxnbkAUzp7s"
 videoTitle: "Larry Kudlow: Let's NOT forget this..."
 thumbnail: "https://img.youtube.com/vi/cxnbkAUzp7s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2025 United States strikes on Iranian nuclear sites"
     url: "https://en.wikipedia.org/wiki/2025_United_States_strikes_on_Iranian_nuclear_sites"

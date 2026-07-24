@@ -34,6 +34,10 @@ keyMoments:
 videoId: "LhK2fX2K7OI"
 videoTitle: "'Radical overhaul' and clear supply plan needed for future pandemics, finds COVID inquiry"
 thumbnail: "https://img.youtube.com/vi/LhK2fX2K7OI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Procurement (Module 5) - UK Covid-19 Inquiry"
     url: "https://covid19.public-inquiry.uk/modules/procurement-module-5/"

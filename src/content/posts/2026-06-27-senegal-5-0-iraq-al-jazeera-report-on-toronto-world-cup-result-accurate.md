@@ -32,6 +32,10 @@ keyMoments:
 videoId: "ok9ef4s7swA"
 videoTitle: "Senegal crush Iraq 5–0 as World Cup knockout hopes hang in the balance"
 thumbnail: "https://img.youtube.com/vi/ok9ef4s7swA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Senegal vs. Iraq | FIFA World Cup 2026"
     url: "https://www.fifa.com/en/match-centre/match/17/285023/289273/400021493"

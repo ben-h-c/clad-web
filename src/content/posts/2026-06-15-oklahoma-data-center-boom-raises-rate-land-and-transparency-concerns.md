@@ -39,6 +39,10 @@ keyMoments:
 videoId: "aXUMhSAN08g"
 videoTitle: "Is Big Tech Taking Over Rural Oklahoma?"
 thumbnail: "https://img.youtube.com/vi/aXUMhSAN08g/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Google announces new $9 billion investment in Oklahoma"
     url: "https://blog.google/company-news/inside-google/company-announcements/google-american-innovation-oklahoma/"

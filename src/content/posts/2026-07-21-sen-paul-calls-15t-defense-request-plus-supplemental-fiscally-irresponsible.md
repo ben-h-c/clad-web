@@ -36,6 +36,10 @@ keyMoments:
 videoId: "S2V-xpLneiM"
 videoTitle: "Sen. Paul: Increasing military spending is \"irresponsible\" #shorts #iran #iranwar #funding #defense"
 thumbnail: "https://img.youtube.com/vi/S2V-xpLneiM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Rand Paul"
     slug: "rand-paul"

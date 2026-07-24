@@ -35,6 +35,10 @@ keyMoments:
 videoId: "sukncU5cABA"
 videoTitle: "Gen Jack Keane: This is ABSURDITY!"
 thumbnail: "https://img.youtube.com/vi/sukncU5cABA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "US says Iran nuclear talks begin after framework deal signing"
     url: "https://www.aljazeera.com/video/newsfeed/2026/6/16/us-says-iran-nuclear-talks-begin-after-framework-deal-signing"

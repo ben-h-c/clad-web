@@ -36,6 +36,10 @@ keyMoments:
 videoId: "v7r9PYsFrCE"
 videoTitle: "Deadly, record heatwave continues to grip Europe"
 thumbnail: "https://img.youtube.com/vi/v7r9PYsFrCE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Deadly European heatwave claims hundreds of lives"
     url: "https://www.itv.com/news/2026-06-25/france-europe-heatwave-extreme-temperatures-deaths-records"

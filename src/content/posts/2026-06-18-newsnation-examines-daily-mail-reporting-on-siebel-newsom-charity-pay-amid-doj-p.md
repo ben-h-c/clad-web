@@ -36,6 +36,10 @@ keyMoments:
 videoId: "AQiTnnLsMAA"
 videoTitle: "DOJ investigates Jennifer Siebel Newsom’s taxes after allegations surface | Katie Pavlich Tonight"
 thumbnail: "https://img.youtube.com/vi/AQiTnnLsMAA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Gavin Newsom's wife and her firm pocketed $3.7M from her 'gender stereotypes' charity"
     url: "https://www.dailymail.co.uk/news/article-15571437/gavin-newsom-jennifer-siebel-newsom-charity-pay.html"

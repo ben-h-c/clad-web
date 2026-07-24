@@ -37,6 +37,10 @@ keyMoments:
 videoId: "ofoSIGh758M"
 videoTitle: "Political strategists on midterms"
 thumbnail: "https://img.youtube.com/vi/ofoSIGh758M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mamdani-backed candidates sweep Democratic primaries in New York City"
     url: "https://www.theguardian.com/us-news/2026/jun/23/new-york-primary-results-house"

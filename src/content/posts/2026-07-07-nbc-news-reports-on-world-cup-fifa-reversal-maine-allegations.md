@@ -35,6 +35,10 @@ keyMoments:
 videoId: "DCU53xfRBfo"
 videoTitle: "Hallie Jackson NOW - July 6 | NBC News NOW"
 thumbnail: "https://img.youtube.com/vi/DCU53xfRBfo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Balogun to start for U.S. vs. Belgium after Trump defends call to FIFA"
     url: "https://www.cnbc.com/2026/07/05/trump-fifa-balogun-world-cup-red-card-suspension.html"

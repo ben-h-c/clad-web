@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Yai7pzLXUzQ"
 videoTitle: "Massie Demands Ethics Committee Publicly Release Records Relating To Payments Over Sexual Harassment"
 thumbnail: "https://img.youtube.com/vi/Yai7pzLXUzQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "H.Res.1100 - Directing the Committee on Ethics to preserve and publicly release records..."
     url: "https://www.congress.gov/bill/119th-congress/house-resolution/1100"

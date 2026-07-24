@@ -35,6 +35,10 @@ keyMoments:
 videoId: "oVlTNqC5gHo"
 videoTitle: "Iranian Americans protest outside stadium at Iran's FIFA World Cup match"
 thumbnail: "https://img.youtube.com/vi/oVlTNqC5gHo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iranian-Americans protest against Iran team at World Cup"
     url: "https://www.bbc.com/news/videos/cm20yglrgjlo"

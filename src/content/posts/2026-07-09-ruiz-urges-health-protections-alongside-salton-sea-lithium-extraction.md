@@ -36,6 +36,10 @@ keyMoments:
 videoId: "TqWrUtNUR4A"
 videoTitle: "Raul Ruiz Pushes Bold Plan To Secure America&#39;s Energy And Critical Minerals"
 thumbnail: "https://img.youtube.com/vi/TqWrUtNUR4A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Raul Ruiz"
     slug: "raul-ruiz"

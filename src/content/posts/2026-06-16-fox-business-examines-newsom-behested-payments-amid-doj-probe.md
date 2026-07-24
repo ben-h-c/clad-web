@@ -36,6 +36,10 @@ keyMoments:
 videoId: "5ffeiG82Z5Y"
 videoTitle: "MILLIONS in donations spark FRESH questions for Gavin Newsom"
 thumbnail: "https://img.youtube.com/vi/5ffeiG82Z5Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Gavin Newsom faces scrutiny over millions in donor payments to nonprofit run by wife, report says"
     url: "https://www.foxbusiness.com/video/6398561976112"

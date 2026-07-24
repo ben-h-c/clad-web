@@ -35,6 +35,10 @@ keyMoments:
 videoId: "KtDAH2YI73M"
 videoTitle: "Flash floods threaten several Southern states"
 thumbnail: "https://img.youtube.com/vi/KtDAH2YI73M/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Odds increase for tropical trouble as life-threatening flood ..."
     url: "https://www.foxweather.com/live-news/live-updates-life-threatening-flash-flood-threat-targets-texas-louisiana-amid-tropical-trouble"

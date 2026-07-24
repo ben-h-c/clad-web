@@ -36,6 +36,10 @@ keyMoments:
 videoId: "wWkKXKhsm6Y"
 videoTitle: "Van Duyne remarks at the Small Business Committee on How AI is Shaping the Future of Small Business"
 thumbnail: "https://img.youtube.com/vi/wWkKXKhsm6Y/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Beth Van Duyne"
     slug: "beth-van-duyne"

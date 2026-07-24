@@ -37,6 +37,10 @@ keyMoments:
 videoId: "M5Ap6Ai3ZUg"
 videoTitle: "EXCLUSIVE: Kash Patel may have used $1 MILLION in taxpayer funds to pay off MAGA-loyal FBI henchmen"
 thumbnail: "https://img.youtube.com/vi/M5Ap6Ai3ZUg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Ranking Member Raskin Launches Investigation Into Kash Patel’s Misuse of FBI Funds for Unlawful Bonus Payments to Inner Circle"
     url: "https://democrats-judiciary.house.gov/media-center/press-releases/ranking-member-raskin-launches-investigation-into-kash-patel-s-misuse-of-fbi-funds-for-unlawful-bonus-payments-to-inner-circle"

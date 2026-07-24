@@ -31,6 +31,10 @@ keyMoments:
 videoId: "5jwZ__VaQIk"
 videoTitle: "Infamous WWII-era 'Death Railway' station resurfaces after decades underwater"
 thumbnail: "https://img.youtube.com/vi/5jwZ__VaQIk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Resurfaced Death Railway offers rare glimpse into dark historyーNHK WORLD-JAPAN NEWS"
     url: "https://www.youtube.com/watch?v=Nv4cnAejChg"

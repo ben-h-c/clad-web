@@ -36,6 +36,10 @@ keyMoments:
 videoId: "jqE1WrgY8PY"
 videoTitle: "Being a sports fan is good for you and the country, expert says"
 thumbnail: "https://img.youtube.com/vi/jqE1WrgY8PY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Arthur Brooks: The Knicks Just Made the Case for Sports Fandom"
     url: "https://www.thefp.com/p/arthur-brooks-the-knicks-just-made"

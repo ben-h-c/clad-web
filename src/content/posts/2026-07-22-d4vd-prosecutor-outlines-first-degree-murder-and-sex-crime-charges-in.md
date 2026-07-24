@@ -29,6 +29,10 @@ keyMoments:
 videoId: "e55e_TWHiqQ"
 videoTitle: "Singer D4vd in court for teen murder case"
 thumbnail: "https://img.youtube.com/vi/e55e_TWHiqQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "D4vd faces judge in preliminary hearing on murder charges"
     url: "https://www.youtube.com/watch?v=Su5HMnZg7W8"

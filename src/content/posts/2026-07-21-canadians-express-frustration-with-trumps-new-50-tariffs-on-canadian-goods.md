@@ -36,6 +36,10 @@ keyMoments:
 videoId: "poIO2xwzOL4"
 videoTitle: "Canadians react to new US tariffs. #BBCNews"
 thumbnail: "https://img.youtube.com/vi/poIO2xwzOL4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump imposes 50% tariffs on Canadian goods"
     url: "https://www.npr.org/2026/07/21/nx-s1-5901905/trump-imposes-tariffs-canadian-goods"

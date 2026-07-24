@@ -31,6 +31,10 @@ keyMoments:
 videoId: "JhR9FND8N8A"
 videoTitle: "Trump on whether the Iran deal will be signed Friday: 'You never know'"
 thumbnail: "https://img.youtube.com/vi/JhR9FND8N8A/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "U.S. and Iran reach deal to end the Mideast war, with agreement set to be signed Friday"
     url: "https://www.cnbc.com/2026/06/14/us-iran-war-peace-deal.html"

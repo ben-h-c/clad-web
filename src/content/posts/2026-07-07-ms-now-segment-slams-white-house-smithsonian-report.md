@@ -37,6 +37,10 @@ keyMoments:
 videoId: "DjgPO-ZN_ko"
 videoTitle: "'Shocking and GALLING': Nicolle SLAMS Trump White House for BIZARRE attacks on Smithsonian"
 thumbnail: "https://img.youtube.com/vi/DjgPO-ZN_ko/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Saving America’s Story: How Ideological Capture at the Smithsonian Institution’s National Museum of American History Erases Our Heritage"
     url: "https://www.whitehouse.gov/wp-content/uploads/2026/07/Smithsonian-Report-Saving-Americas-Story.pdf"

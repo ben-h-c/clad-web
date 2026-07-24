@@ -31,6 +31,10 @@ keyMoments:
 videoId: "JRWkCWF1DSs"
 videoTitle: "'Is There Overlap?': Lee Asks Trump Judicial Nom About Major Questions, Non-Delegation Doctrines"
 thumbnail: "https://img.youtube.com/vi/JRWkCWF1DSs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "INS v. Chadha, 462 U.S. 919 (1983)"
     url: "https://supreme.justia.com/cases/federal/us/462/919/"

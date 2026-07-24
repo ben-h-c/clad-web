@@ -29,6 +29,10 @@ keyMoments:
 videoId: "BA2VEGXrmVE"
 videoTitle: "'What am I looking at?': Meet Jimothy, the unusually round raccoon"
 thumbnail: "https://img.youtube.com/vi/BA2VEGXrmVE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Seattle's Round Raccoon 'Jimothy' Goes Viral After 5 Million Views"
     url: "https://people.com/seattle-short-spine-raccoon-jimothy-goes-viral-after-5-million-views-12021835"

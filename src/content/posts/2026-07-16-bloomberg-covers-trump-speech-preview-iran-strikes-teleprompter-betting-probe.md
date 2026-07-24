@@ -35,6 +35,10 @@ keyMoments:
 videoId: "X4MuZl7Ev6o"
 videoTitle: "WH Teleprompter Op Makes More Than $90K on Kalshi | Balance of Power 07/16/2026"
 thumbnail: "https://img.youtube.com/vi/X4MuZl7Ev6o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

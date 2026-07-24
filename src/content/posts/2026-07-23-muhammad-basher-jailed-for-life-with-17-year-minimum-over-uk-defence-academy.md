@@ -34,6 +34,10 @@ keyMoments:
 videoId: "GvpOic_uEq8"
 videoTitle: "Man who plotted defence base terror attack with Manchester synagogue killer jailed"
 thumbnail: "https://img.youtube.com/vi/GvpOic_uEq8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Manchester synagogue attacker named as Jihad Al-Shamie"
     url: "https://www.bbc.com/news/articles/cpd93x0ql0do"

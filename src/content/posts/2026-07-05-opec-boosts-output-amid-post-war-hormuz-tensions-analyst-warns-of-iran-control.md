@@ -36,6 +36,10 @@ keyMoments:
 videoId: "cvG9_gKGdSU"
 videoTitle: "Iran tightening grip on Hormuz as global shipping risks grow, analyst says"
 thumbnail: "https://img.youtube.com/vi/cvG9_gKGdSU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "OPEC+ likely to raise oil output targets from August again, sources say"
     url: "https://www.reuters.com/business/energy/opec-likely-raise-oil-output-targets-august-again-sources-say-2026-07-01/"

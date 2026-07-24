@@ -35,6 +35,10 @@ keyMoments:
 videoId: "wl6lLOzCuUc"
 videoTitle: "BREAKING: Chuck Schumer Introduces Bill To Legally Ban DOJ 'MAGA Slush Fund', Then Hagerty Blocks It"
 thumbnail: "https://img.youtube.com/vi/wl6lLOzCuUc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Justice Department Announces Anti-Weaponization Fund"
     url: "https://www.justice.gov/opa/pr/justice-department-announces-anti-weaponization-fund"

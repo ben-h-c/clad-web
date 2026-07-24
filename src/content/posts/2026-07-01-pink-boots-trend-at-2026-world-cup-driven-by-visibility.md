@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Z_EK7mbldUM"
 videoTitle: "Why pink football boots are everywhere at the 2026 FIFA World Cup"
 thumbnail: "https://img.youtube.com/vi/Z_EK7mbldUM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Wondered why there are so many pink cleats at the World Cup?"
     url: "https://www.cnn.com/2026/06/22/sport/world-cup-pink-boots-cleats-nike-adidas-spt-intl"

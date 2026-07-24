@@ -37,6 +37,10 @@ keyMoments:
 videoId: "4yhTRgItMCk"
 videoTitle: "Rep. Cole’s Weekly Chat | Week of 7.13.26"
 thumbnail: "https://img.youtube.com/vi/4yhTRgItMCk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Susan M. Collins"
     slug: "susan-m-collins"

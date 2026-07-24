@@ -34,6 +34,10 @@ keyMoments:
 videoId: "U51p-VLCUc0"
 videoTitle: "'That's Quite Embarrassing': Joyce Beatty Clowns Russell Vought After He Fails To Name OMWI Director"
 thumbnail: "https://img.youtube.com/vi/U51p-VLCUc0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Joyce Beatty"
     slug: "joyce-beatty"

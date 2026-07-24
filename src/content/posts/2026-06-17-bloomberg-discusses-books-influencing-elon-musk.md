@@ -31,6 +31,10 @@ keyMoments:
 videoId: "nQeHqWmys3Y"
 videoTitle: "The Books That Influenced SpaceX Founder Elon Musk"
 thumbnail: "https://img.youtube.com/vi/nQeHqWmys3Y/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Elon Musk Recommends 12 Books that Changed his Life"
     url: "https://fs.blog/elon-musk-book-recommendations/"

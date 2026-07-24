@@ -37,6 +37,10 @@ keyMoments:
 videoId: "3m-H8VVhVjI"
 videoTitle: "“We See This REPEATEDLY!” | Teacher Jailed for Life After Murdering Adopted Baby"
 thumbnail: "https://img.youtube.com/vi/3m-H8VVhVjI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Teacher sentenced to whole life order over death and sexual abuse of adopted baby"
     url: "https://news.sky.com/story/couple-found-guilty-over-death-of-their-adopted-baby-preston-davey-13554376"

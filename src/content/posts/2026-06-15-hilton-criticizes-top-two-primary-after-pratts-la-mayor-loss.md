@@ -33,6 +33,10 @@ keyMoments:
 videoId: "iIh2bFSbvkQ"
 videoTitle: "Steve Hilton SLAMS California Election System for Spencer Pratt’s Loss"
 thumbnail: "https://img.youtube.com/vi/iIh2bFSbvkQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Los Angeles Mayor Primary 2026 Live Results"
     url: "https://www.nbcnews.com/politics/2026-primary-elections/los-angeles-mayor-results"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "AtWRf3ycxow"
 videoTitle: "Gazans watch World Cup amid ruins, drones and fear"
 thumbnail: "https://img.youtube.com/vi/AtWRf3ycxow/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Gazans displaced by war watch World Cup from the ruins"
     url: "https://www.reuters.com/sports/gazans-displaced-by-war-watch-world-cup-ruins-2026-06-16/"

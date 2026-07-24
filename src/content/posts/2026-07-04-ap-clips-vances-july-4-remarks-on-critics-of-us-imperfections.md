@@ -28,6 +28,10 @@ keyMoments:
 videoId: "ZDLV3Xil_L8"
 videoTitle: "JD Vance says 'loud voices' will speak of America's imperfections on 250th"
 thumbnail: "https://img.youtube.com/vi/ZDLV3Xil_L8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "JD Vance hits out at critics of America's 'imperfections' on US 250th anniversary"
     url: "https://www.firstpost.com/world/jd-vance-hits-out-at-critics-of-americas-imperfections-on-us-250th-anniversary-14028913.html"

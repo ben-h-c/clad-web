@@ -36,6 +36,10 @@ keyMoments:
 videoId: "OSABwSQB_bQ"
 videoTitle: "Trump: Interim Deal to be Signed in Next 48 Hours | Balance of Power 6/17/2026"
 thumbnail: "https://img.youtube.com/vi/OSABwSQB_bQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Bloomberg Balance of Power"
     url: "https://www.bloomberg.com"

@@ -38,6 +38,10 @@ keyMoments:
 videoId: "CYx16RuPGYE"
 videoTitle: "Deadly heat without AC: What Europe must learn before next summer  | DW News"
 thumbnail: "https://img.youtube.com/vi/CYx16RuPGYE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Heat claims more than 175,000 lives annually in Europe"
     url: "https://news.un.org/en/story/2024/08/1152766"

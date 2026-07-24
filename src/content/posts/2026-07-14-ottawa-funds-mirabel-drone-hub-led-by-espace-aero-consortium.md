@@ -34,6 +34,10 @@ keyMoments:
 videoId: "sD9aA-pTRSk"
 videoTitle: "Quebec will be home to a new facility for military drone research"
 thumbnail: "https://img.youtube.com/vi/sD9aA-pTRSk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Minister McGuinty announces new drone production in Quebec"
     url: "https://www.canada.ca/en/department-national-defence/news/2026/07/minister-mcguinty-announces-new-drone-production-in-quebec.html"

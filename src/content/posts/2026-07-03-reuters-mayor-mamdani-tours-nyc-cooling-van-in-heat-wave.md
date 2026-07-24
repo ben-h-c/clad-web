@@ -31,6 +31,10 @@ keyMoments:
 videoId: "Hs0lnz1quu0"
 videoTitle: "Mayor Mamdani tours cooling van amid dangerous NY heat"
 thumbnail: "https://img.youtube.com/vi/Hs0lnz1quu0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Mayor Mamdani Activates Unprecedented Heat Emergency Plan"
     url: "https://www.nyc.gov/mayors-office/news/2026/06/mayor-mamdani-activates-unprecedented-heat-emergency-plan"

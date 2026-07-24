@@ -31,6 +31,10 @@ keyMoments:
 videoId: "irJ5delrJYU"
 videoTitle: "Mexicans bid Iran soccer team warm farewell after World Cup exit"
 thumbnail: "https://img.youtube.com/vi/irJ5delrJYU/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Heartbroken Iran exit World Cup amid silver lining of Mexican hospitality"
     url: "https://www.aljazeera.com/sports/2026/6/30/heartbroken-iran-exit-world-cup-amid-silver-lining-of-mexican-hospitality"

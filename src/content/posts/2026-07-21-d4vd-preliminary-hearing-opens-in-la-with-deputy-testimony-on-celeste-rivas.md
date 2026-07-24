@@ -36,6 +36,10 @@ keyMoments:
 videoId: "wKLRwGL8KQA"
 videoTitle: "D4VD preliminary hearing begins in Los Angeles"
 thumbnail: "https://img.youtube.com/vi/wKLRwGL8KQA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Murder suspect d4vd’s preliminary hearing underway as prosecutors detail 14-year-old girl’s death"
     url: "https://www.cnn.com/2026/04/18/us/d4vd-celeste-rivas-hernandez-investigation-hearing"

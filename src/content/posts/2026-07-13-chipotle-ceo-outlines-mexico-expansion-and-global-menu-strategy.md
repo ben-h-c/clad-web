@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Ik0zyQ3UxPQ"
 videoTitle: "Chipotle CEO on expanding into Mexico"
 thumbnail: "https://img.youtube.com/vi/Ik0zyQ3UxPQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Chipotle to expand in Mexico amid Trump tariffs"
     url: "https://www.cnbc.com/2025/04/21/chipotle-to-expand-in-mexico-amid-trump-tariffs.html"

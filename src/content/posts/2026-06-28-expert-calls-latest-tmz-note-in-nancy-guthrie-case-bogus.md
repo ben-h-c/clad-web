@@ -34,6 +34,10 @@ keyMoments:
 videoId: "S1JiYx881dE"
 videoTitle: "Latest Guthrie kidnapping note 'bogus', cold case researcher says | NewsNation Live"
 thumbnail: "https://img.youtube.com/vi/S1JiYx881dE/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "New twist in the Nancy Guthrie kidnapping case"
     url: "https://www.cnn.com/2026/06/27/us/video/new-twist-in-the-nancy-guthrie-kidnapping-case"

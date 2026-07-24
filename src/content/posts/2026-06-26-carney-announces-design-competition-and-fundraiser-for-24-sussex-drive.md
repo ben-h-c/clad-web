@@ -34,6 +34,10 @@ keyMoments:
 videoId: "HbAA0DNFQBU"
 videoTitle: "Carney announces national design competition for 24 Sussex Drive"
 thumbnail: "https://img.youtube.com/vi/HbAA0DNFQBU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "24 Sussex Drive | National Capital Commission"
     url: "https://ncc-ccn.gc.ca/places/24-sussex-drive"

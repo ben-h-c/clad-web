@@ -37,6 +37,10 @@ keyMoments:
 videoId: "QEqqOQHXWIA"
 videoTitle: "FBI says it thwarted plot against White House UFC event"
 thumbnail: "https://img.youtube.com/vi/QEqqOQHXWIA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Group planned to attack White House UFC event using snipers and drones, FBI says"
     url: "https://www.bbc.com/news/articles/cqx10xlje1lo"

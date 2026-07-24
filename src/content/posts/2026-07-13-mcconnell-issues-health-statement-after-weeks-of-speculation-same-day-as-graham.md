@@ -35,6 +35,10 @@ keyMoments:
 videoId: "y1m3RCAWnWM"
 videoTitle: "Mitch McConnell finally BREAKS SILENCE, but more answers NEEDED: Lindsey Granger | RISING"
 thumbnail: "https://img.youtube.com/vi/y1m3RCAWnWM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "McConnell says after weeks of speculation that hospitalization was due to a fall"
     url: "https://www.cnn.com/2026/07/12/politics/mitch-mcconnell-hospital-announcement"

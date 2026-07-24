@@ -35,6 +35,10 @@ keyMoments:
 videoId: "GDchXiQ-cSw"
 videoTitle: "Afghanistan malnutrition: UN warns 3.7 million children are at risk"
 thumbnail: "https://img.youtube.com/vi/GDchXiQ-cSw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Afghanistan in crisis: Drought, malnutrition and a worsening humanitarian situation"
     url: "https://news.un.org/en/story/2026/06/1167774"

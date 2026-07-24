@@ -36,6 +36,10 @@ keyMoments:
 videoId: "iy8UBugv1A8"
 videoTitle: "Bill Browder: 'They Want Ryan Cornelius To Die In Prison' | 'WHERE Was Starmer?'"
 thumbnail: "https://img.youtube.com/vi/iy8UBugv1A8/maxresdefault.jpg"
+mediaNote: "Center talking-head face upper-middle; avoid bottom text bar and side edges"
+thumbFocusY: 28
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "UN Experts Urge UAE: Free UK Businessman Ryan Cornelius"
     url: "https://www.miragenews.com/un-experts-urge-uae-free-uk-businessman-ryan-1716013/"

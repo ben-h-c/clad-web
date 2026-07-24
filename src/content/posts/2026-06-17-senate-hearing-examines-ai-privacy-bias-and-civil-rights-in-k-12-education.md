@@ -33,6 +33,10 @@ keyMoments:
 videoId: "MXXQ-VCYM0Q"
 videoTitle: "Lisa Blunt Rochester Asks Experts: How Should Congress Look At Civil Rights Issues Around AI?"
 thumbnail: "https://img.youtube.com/vi/MXXQ-VCYM0Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "PowerSchool Data Breach: What Happened and What to Do"
     url: "https://www.security.org/identity-theft/breach/powerschool/"

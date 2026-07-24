@@ -33,6 +33,10 @@ keyMoments:
     note: "Plausible thesis supported by efficiency trends, but lacks specific margin or cost-curve data from company disclosures."
 videoId: "7RDK84LLL2U"
 thumbnail: "https://img.youtube.com/vi/7RDK84LLL2U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Exclusive: OpenAI lays groundwork for juggernaut IPO at up to $1 trillion valuation"
     url: "https://www.reuters.com/business/openai-lays-groundwork-juggernaut-ipo-up-1-trillion-valuation-2025-10-29/"

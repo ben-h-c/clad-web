@@ -31,6 +31,10 @@ keyMoments:
 videoId: "H7oJPLlNYJM"
 videoTitle: "DDHQ Data Nerds track and analyze elections in Georgia, Alabama and Oklahoma"
 thumbnail: "https://img.youtube.com/vi/H7oJPLlNYJM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Billionaire Rick Jackson defeats Trump-backed Burt Jones for the GOP nomination in Georgia governor’s race"
     url: "https://www.nbcnews.com/politics/2026-election/georgia-governor-midterm-primary-election-winner-jackson-rcna350030"

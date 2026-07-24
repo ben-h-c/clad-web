@@ -35,6 +35,10 @@ keyMoments:
 videoId: "oY5oOj7__iE"
 videoTitle: "Bishop Barber calls for '100 days of mobilization' to protect voting access "
 thumbnail: "https://img.youtube.com/vi/oY5oOj7__iE/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Griffin Concedes to Riggs, Ending Six-Month Dispute Over North Carolina Supreme Court Election"
     url: "https://statecourtreport.org/our-work/analysis-opinion/griffin-concedes-riggs-ending-six-month-dispute-over-north-carolina"

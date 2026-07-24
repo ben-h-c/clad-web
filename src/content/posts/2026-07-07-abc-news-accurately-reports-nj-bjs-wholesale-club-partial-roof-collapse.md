@@ -31,6 +31,10 @@ keyMoments:
 videoId: "iW66oFjMG3Q"
 videoTitle: "Roof of BJ's Wholesale Club store partially collapses during heavy rain"
 thumbnail: "https://img.youtube.com/vi/iW66oFjMG3Q/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "NJ flooding and storms cause roof collapse at BJ's Wholesale Club in Ocean Township on Route 35"
     url: "https://abc7ny.com/post/nj-flooding-storms-cause-roof-collapse-bjs-wholesale-club-ocean-township-route-25/19458264/"

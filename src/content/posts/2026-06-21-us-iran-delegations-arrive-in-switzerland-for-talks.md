@@ -25,6 +25,10 @@ keyMoments:
 videoId: "E1kqy9MkMDU"
 videoTitle: "US-Iran delegations arrive as talks begin in Switzerland | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/E1kqy9MkMDU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Middle East live: US-Iran talks to begin in Switzerland"
     url: "https://www.theguardian.com/world/live/2026/jun/21/iran-us-israel-war-middle-east-lebanon-peace-talks-switzerland-vance-trump-strait-of-hormuz-latest-news-updates"

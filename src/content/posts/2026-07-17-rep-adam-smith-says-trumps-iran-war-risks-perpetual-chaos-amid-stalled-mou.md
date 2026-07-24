@@ -36,6 +36,10 @@ keyMoments:
 videoId: "1Gs0xB-uVzk"
 videoTitle: "Donald Trump’s war in Iran is creating 'perpetual global chaos': Rep. Adam Smith"
 thumbnail: "https://img.youtube.com/vi/1Gs0xB-uVzk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Adam Smith"
     slug: "adam-smith"

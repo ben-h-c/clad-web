@@ -31,6 +31,10 @@ keyMoments:
 videoId: "REEYidouZEI"
 videoTitle: "Jelly Roll divorces Bunnie XO after nearly 10 years of marriage"
 thumbnail: "https://img.youtube.com/vi/REEYidouZEI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Jelly Roll Files For Divorce From Bunnie XO"
     url: "https://www.tmz.com/2026/06/15/jelly-roll-bunnie-xo-divorce/"

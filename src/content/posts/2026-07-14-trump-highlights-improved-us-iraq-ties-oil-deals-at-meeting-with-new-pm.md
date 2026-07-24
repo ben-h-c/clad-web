@@ -31,6 +31,10 @@ keyMoments:
 videoId: "esIJ2cwx63U"
 videoTitle: "Trump says US relationship with Iraq went from being 'not so good' to 'outstanding'"
 thumbnail: "https://img.youtube.com/vi/esIJ2cwx63U/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iraq's new prime minister must sell Iraq to a skeptical Washington"
     url: "https://www.atlanticcouncil.org/dispatches/iraqs-new-prime-minister-must-sell-iraq-to-a-skeptical-washington/"

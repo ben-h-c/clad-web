@@ -38,6 +38,10 @@ keyMoments:
 videoId: "nKPuT20n5YU"
 videoTitle: "How Kansas City is preparing for the World Cup spotlight"
 thumbnail: "https://img.youtube.com/vi/nKPuT20n5YU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Matches - FIFA World Cup 26™ Kansas City"
     url: "https://kansascityfwc26.com/matches/"

@@ -33,6 +33,10 @@ keyMoments:
 videoId: "HhVXxT34Wk0"
 videoTitle: "Bernie Sanders, AOC rally support for progressive Democrat in Michigan"
 thumbnail: "https://img.youtube.com/vi/HhVXxT34Wk0/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Alexandria Ocasio-Cortez"
     slug: "alexandria-ocasio-cortez"

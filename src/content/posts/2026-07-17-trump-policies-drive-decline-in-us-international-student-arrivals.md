@@ -36,6 +36,10 @@ keyMoments:
 videoId: "xdJb7VcqIfU"
 videoTitle: "How Trump Is Reshaping Student Migration #education"
 thumbnail: "https://img.youtube.com/vi/xdJb7VcqIfU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Brand America Is Losing Its Hold on International Students"
     url: "https://www.bloomberg.com/graphics/2026-fading-american-dream/"

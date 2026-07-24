@@ -34,6 +34,10 @@ keyMoments:
 videoId: "oavK4VzZYJo"
 videoTitle: "Piers Morgan Challenges Danny Danon On Flotilla Activists Allegedly Abused By Israeli Forces"
 thumbnail: "https://img.youtube.com/vi/oavK4VzZYJo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Far-right Israeli minister condemned for taunting flotilla activists"
     url: "https://www.bbc.com/news/articles/clyp32weyn8o"

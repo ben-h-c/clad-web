@@ -34,6 +34,10 @@ keyMoments:
 videoId: "lD0VZn2IODg"
 videoTitle: "China flexes its nuclear missile tech | DW News"
 thumbnail: "https://img.youtube.com/vi/lD0VZn2IODg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "China's SLBM Test Underscores the Importance of a Ballistic Missile Launch Notification Agreement"
     url: "https://www.csis.org/analysis/chinas-slbm-test-underscores-importance-ballistic-missile-launch-notification-agreement"

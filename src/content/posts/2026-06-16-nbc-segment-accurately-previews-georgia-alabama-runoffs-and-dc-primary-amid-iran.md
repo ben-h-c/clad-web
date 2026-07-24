@@ -35,6 +35,10 @@ keyMoments:
 videoId: "hltQ3qv39tg"
 videoTitle: "Kornacki: Voters in Georgia and Alabama set to weigh in on Trump-backed candidates"
 thumbnail: "https://img.youtube.com/vi/hltQ3qv39tg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Could Trump’s last-minute endorsement prevail in Georgia’s high-stakes Senate race?"
     url: "https://abcnews.com/Politics/trumps-minute-endorsement-prevail-georgias-high-stakes-senate/story?id=133829876"

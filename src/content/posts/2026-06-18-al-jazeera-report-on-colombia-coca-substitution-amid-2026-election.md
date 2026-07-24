@@ -35,6 +35,10 @@ keyMoments:
 videoId: "tPN8iueyQhQ"
 videoTitle: "Coca production in Colombia: Coca crop shift faces uncertain future after election"
 thumbnail: "https://img.youtube.com/vi/tPN8iueyQhQ/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Continuity or change? What to know about Colombia’s run-off election"
     url: "https://www.aljazeera.com/news/2026/6/18/continuity-or-change-what-to-know-about-colombias-run-off-election"

@@ -31,6 +31,10 @@ keyMoments:
 videoId: "V0WvPOubqCI"
 videoTitle: "Tradition HOA rescinds firearm rule after challenge from Florida attorney general"
 thumbnail: "https://img.youtube.com/vi/V0WvPOubqCI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Florida attorney general issues warning to Port St. Lucie HOA over firearms ban"
     url: "https://cbs12.com/news/local/florida-news-attorney-general-james-uthmeier-tradition-community-association-inc-issues-warning-to-port-st-lucie-hoa-over-firearms-ban-parks-trails-recreation-spaces-gathering-facilities-open-conceal-carry-residents-reaction-right-to-bear-arms-2nd"

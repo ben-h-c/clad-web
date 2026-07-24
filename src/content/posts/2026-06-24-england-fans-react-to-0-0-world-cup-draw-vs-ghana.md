@@ -31,6 +31,10 @@ keyMoments:
 videoId: "VFEJEPvTpR4"
 videoTitle: "England fans react to the The Three Lions' goalless Ghana draw"
 thumbnail: "https://img.youtube.com/vi/VFEJEPvTpR4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "England 0-0 Ghana: Three Lions held to goalless draw"
     url: "https://www.bbc.co.uk/sport/football/live/cx2j74xqy7jt"

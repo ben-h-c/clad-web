@@ -31,6 +31,10 @@ keyMoments:
 videoId: "WZfQ--mLhUs"
 videoTitle: "LIVE: Fans in Paris watch France play Senegal in World Cup"
 thumbnail: "https://img.youtube.com/vi/WZfQ--mLhUs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "France vs Senegal | First Stage | FIFA World Cup 2026™"
     url: "https://www.fifa.com/en/match-centre/match/17/285023/289273/400021490"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "Oka433Z1u-s"
 videoTitle: "Why African nations' success at the World Cup shouldn't be a 'surprise'"
 thumbnail: "https://img.youtube.com/vi/Oka433Z1u-s/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Africa's World Cup success leaves Asia looking for answers"
     url: "https://www.bbc.com/sport/football/articles/c2ey1pwkz3wo"

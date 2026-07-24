@@ -35,6 +35,10 @@ keyMoments:
 videoId: "YDc6NTIvmZM"
 videoTitle: "Madonna, Justin Bieber, BTS and Shakira perform at the World Cup final"
 thumbnail: "https://img.youtube.com/vi/YDc6NTIvmZM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "FIFA World Cup 2026 Final Halftime Show announcement"
     url: "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/madonna-shakira-bts-co-headline-historic-final-halftime-show"

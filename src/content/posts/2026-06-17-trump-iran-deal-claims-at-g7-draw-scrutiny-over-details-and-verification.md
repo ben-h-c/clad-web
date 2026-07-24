@@ -36,6 +36,10 @@ keyMoments:
 videoId: "lTAEHPfJ_fo"
 videoTitle: "LIVE: Trump holds press conference at G7 summit | NBC News"
 thumbnail: "https://img.youtube.com/vi/lTAEHPfJ_fo/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump administration releases preliminary agreement with Iran"
     url: "https://www.npr.org/2026/06/17/nx-s1-5860782/trumps-iran-agreement-dominates-g7-but-big-questions-remain"

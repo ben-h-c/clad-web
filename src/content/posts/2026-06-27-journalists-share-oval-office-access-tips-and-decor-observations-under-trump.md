@@ -34,6 +34,10 @@ keyMoments:
 videoId: "aVpPkGZrAxk"
 videoTitle: "What is it like to ask the president a question in the Oval Office?"
 thumbnail: "https://img.youtube.com/vi/aVpPkGZrAxk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Before and after: Trump's extreme goldening of the Oval Office"
     url: "https://www.theguardian.com/us-news/2025/sep/01/trump-oval-office-gold-before-after-decor-white-house-makeover"

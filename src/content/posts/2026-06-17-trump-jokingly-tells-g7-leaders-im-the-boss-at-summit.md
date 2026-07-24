@@ -24,6 +24,10 @@ keyMoments:
 videoId: "b93S_5iswFY"
 videoTitle: "'I'm the boss,' Trump says as he enters G7 meeting before sitting by France's Macron, UK's Starmer"
 thumbnail: "https://img.youtube.com/vi/b93S_5iswFY/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "'I AM THE BOSS...': Trump Declares At G7 As Macron Tries To Start Meeting, Sparks Laughter"
     url: "https://www.youtube.com/watch?v=AWHK7GduLCA"

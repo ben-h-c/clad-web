@@ -38,6 +38,10 @@ keyMoments:
 videoId: "72D3w1rAiBA"
 videoTitle: "Jamie Raskin UNLOADS On Trump In EXPLOSIVE Hearing - Congress Falls Silent"
 thumbnail: "https://img.youtube.com/vi/72D3w1rAiBA/hqdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Jamie Raskin"
     slug: "jamie-raskin"

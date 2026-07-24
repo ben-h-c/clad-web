@@ -34,6 +34,10 @@ keyMoments:
 videoId: "wc237dXfybg"
 videoTitle: "New analysis shows what's missing from the Epstein files"
 thumbnail: "https://img.youtube.com/vi/wc237dXfybg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Congressional Bill H.R. 4405 Signed into Law"
     url: "https://www.whitehouse.gov/briefings-statements/2025/11/congressional-bill-h-r-4405-signed-into-law/"

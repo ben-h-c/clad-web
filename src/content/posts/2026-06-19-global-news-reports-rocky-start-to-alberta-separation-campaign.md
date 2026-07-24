@@ -37,6 +37,10 @@ keyMoments:
 videoId: "rgSxlkU1Qfc"
 videoTitle: "Danielle Smith appeals for unity as Alberta referendum campaign gets off to rocky start"
 thumbnail: "https://img.youtube.com/vi/rgSxlkU1Qfc/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Sundre cancels parade, citing 'overwhelming' harassment after pro-Alberta float disallowed"
     url: "https://www.cbc.ca/news/canada/calgary/sundre-alberta-separation-rodeo-float-9.7237160"

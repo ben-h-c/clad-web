@@ -31,6 +31,10 @@ keyMoments:
 videoId: "R6r40vLI3-o"
 videoTitle: "Trump hails invention of air conditioning during speech"
 thumbnail: "https://img.youtube.com/vi/R6r40vLI3-o/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Willis Carrier - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Willis_Carrier"

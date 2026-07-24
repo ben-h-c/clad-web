@@ -36,6 +36,10 @@ keyMoments:
 videoId: "KixYt9OVXj4"
 videoTitle: "Hegseth Faces Grilling on Costs as Iran War Widens | Balance of Power 07/21/2026"
 thumbnail: "https://img.youtube.com/vi/KixYt9OVXj4/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Mark R. Warner"
     slug: "mark-r-warner"

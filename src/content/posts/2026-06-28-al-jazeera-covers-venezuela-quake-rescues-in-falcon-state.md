@@ -34,6 +34,10 @@ keyMoments:
 videoId: "QTDvkjWCWqs"
 videoTitle: "Venezuela Earthquake: Rescue Teams Race Against Time After Deadly Quakes"
 thumbnail: "https://img.youtube.com/vi/QTDvkjWCWqs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela races to rescue hundreds trapped in rubble after two major earthquakes"
     url: "https://www.reuters.com/business/environment/thousands-feared-dead-after-two-major-earthquakes-strike-venezuela-2026-06-25/"

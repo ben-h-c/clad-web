@@ -34,6 +34,10 @@ keyMoments:
 videoId: "7LOqK2UbzNs"
 videoTitle: "Britain's £5bn energy debt... | This is Why"
 thumbnail: "https://img.youtube.com/vi/7LOqK2UbzNs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Debt and arrears indicators"
     url: "https://www.ofgem.gov.uk/data/debt-and-arrears-indicators"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "vJGDSxZGdkI"
 videoTitle: "Trump Says Syria Better Than Israel at Fighting Hezbollah"
 thumbnail: "https://img.youtube.com/vi/vJGDSxZGdkI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump Says Syria Better Than Israel at Fighting Hezbollah"
     url: "https://www.bloomberg.com/news/articles/2026-06-16/trump-says-syria-would-do-better-at-taming-hezbollah-than-israel"

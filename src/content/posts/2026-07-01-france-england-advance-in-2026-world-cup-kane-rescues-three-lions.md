@@ -35,6 +35,10 @@ keyMoments:
 videoId: "-WJVjePZkPA"
 videoTitle: "Kane rescues England after DR Congo scare • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/-WJVjePZkPA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "France 3-0 Sweden: Kylian Mbappé hits sixth goal at 2026 World Cup"
     url: "https://www.espn.com/soccer/story/_/id/49227768/france-sweden-live-world-cup-2026-latest-updates-commentary-score-result"

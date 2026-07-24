@@ -29,6 +29,10 @@ keyMoments:
 videoId: "DuLpoelBFUw"
 videoTitle: "DHS congressional hearing ERUPTS in fiery clash #shorts #us #news #foxnews #politics"
 thumbnail: "https://img.youtube.com/vi/DuLpoelBFUw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump administration family separation policy - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Trump_administration_family_separation_policy"

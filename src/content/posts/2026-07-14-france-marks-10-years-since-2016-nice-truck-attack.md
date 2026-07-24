@@ -38,6 +38,10 @@ keyMoments:
 videoId: "fpOgO3drOuM"
 videoTitle: "France marks 10 years since Nice terror attack • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/fpOgO3drOuM/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "2016 Nice truck attack"
     url: "https://en.wikipedia.org/wiki/2016_Nice_truck_attack"

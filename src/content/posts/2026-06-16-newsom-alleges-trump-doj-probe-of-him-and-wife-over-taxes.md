@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Dz61ypTySlk"
 videoTitle: "Newsom says DOJ is investigating him and his wife"
 thumbnail: "https://img.youtube.com/vi/Dz61ypTySlk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Gavin Newsom says Trump's DOJ is investigating him and his wife"
     url: "https://www.politico.com/news/2026/06/15/gavin-newsom-says-trump-investigating-him-wife-00962403"

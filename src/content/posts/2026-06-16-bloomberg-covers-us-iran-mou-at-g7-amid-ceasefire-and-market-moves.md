@@ -39,6 +39,10 @@ keyMoments:
 videoId: "v38LY7Dnb9w"
 videoTitle: "US, Iran Prepare to Sign Deal | Balance of Power 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/v38LY7Dnb9w/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Trump may release US-Iran deal before Friday, Vance says"
     url: "https://www.bbc.com/news/articles/ce8mv6l6eezo"

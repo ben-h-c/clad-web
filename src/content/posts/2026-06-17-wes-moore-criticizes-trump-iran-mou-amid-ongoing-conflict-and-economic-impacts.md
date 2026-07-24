@@ -40,6 +40,10 @@ keyMoments:
 videoId: "jYoN3vamtHs"
 videoTitle: "‘There is no peace’: Gov. Wes Moore blasts Trump’s 'memorandum of understanding' with Iran"
 thumbnail: "https://img.youtube.com/vi/jYoN3vamtHs/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran war day 109: Tehran, Washington, sign MoU electronically"
     url: "https://www.aljazeera.com/news/2026/6/16/iran-war-day-109-tehran-washington-sign-mou-electronically"

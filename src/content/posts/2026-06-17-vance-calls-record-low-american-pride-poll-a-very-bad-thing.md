@@ -31,6 +31,10 @@ keyMoments:
 videoId: "QJne9ixVxBk"
 videoTitle: "JD Vance: This is a 'very, very bad thing'"
 thumbnail: "https://img.youtube.com/vi/QJne9ixVxBk/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "American Pride Slips to New Low"
     url: "https://news.gallup.com/poll/692150/american-pride-slips-new-low.aspx"

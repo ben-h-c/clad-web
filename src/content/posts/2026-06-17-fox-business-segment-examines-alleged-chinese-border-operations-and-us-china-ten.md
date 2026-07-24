@@ -37,6 +37,10 @@ keyMoments:
 videoId: "U_tVpQIgxVU"
 videoTitle: "'COORDINATED ATTACKS': Chinese FUNNELING OPERATION uncovered inside US"
 thumbnail: "https://img.youtube.com/vi/U_tVpQIgxVU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Noem warns of 'coordinated' effort to funnel Chinese nationals into US"
     url: "https://www.foxbusiness.com/politics/noem-warns-coordinated-effort-funnel-chinese-nationals-us"

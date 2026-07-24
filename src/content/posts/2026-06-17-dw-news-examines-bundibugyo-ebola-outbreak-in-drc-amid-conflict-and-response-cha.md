@@ -34,6 +34,10 @@ keyMoments:
 videoId: "4PIZygHpglI"
 videoTitle: "Ebola outbreak is on track to be the worst ever | DW News"
 thumbnail: "https://img.youtube.com/vi/4PIZygHpglI/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Epidemic of Ebola Disease caused by Bundibugyo virus in the Democratic Republic of the Congo and Uganda"
     url: "https://www.who.int/news/item/17-05-2026-epidemic-of-ebola-disease-in-the-democratic-republic-of-the-congo-and-uganda-determined-a-public-health-emergency-of-international-concern"

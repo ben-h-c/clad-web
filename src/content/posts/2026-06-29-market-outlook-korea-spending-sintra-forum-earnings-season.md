@@ -38,6 +38,10 @@ keyMoments:
 videoId: "hmGAyg4Qjao"
 videoTitle: "Sintra Has Catalyst Potential This Week: 3-Minutes MLIV"
 thumbnail: "https://img.youtube.com/vi/hmGAyg4Qjao/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Samsung readies $648 billion bet, report says, as AI boom drives chip expansion"
     url: "https://www.reuters.com/world/asia-pacific/samsung-invest-1000-trillion-won-south-korea-media-report-says-2026-06-25/"

@@ -34,6 +34,10 @@ keyMoments:
 videoId: "SmYRAdZIqkA"
 videoTitle: "Chris Stapleton and The Smashing Pumpkins to headline America250 L.A. concert, Queen Latifah to host"
 thumbnail: "https://img.youtube.com/vi/SmYRAdZIqkA/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "America's Block Party - America250"
     url: "https://america250.org/americas-block-party/"

@@ -37,6 +37,10 @@ keyMoments:
 videoId: "XJH5YSo1ifg"
 videoTitle: "‘I STAND By It!' Nicholas Kristof DOUBLES DOWN on NYT Israel Brutality Report - With Eric Weinstein"
 thumbnail: "https://img.youtube.com/vi/XJH5YSo1ifg/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Silence That Meets the Rape of Palestinians"
     url: "https://www.nytimes.com/2026/05/11/opinion/israel-palestinians-sexual-violence.html"

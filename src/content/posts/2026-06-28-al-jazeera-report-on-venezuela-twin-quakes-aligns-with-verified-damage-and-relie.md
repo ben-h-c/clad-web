@@ -31,6 +31,10 @@ keyMoments:
 videoId: "h8o1bR-Ti4c"
 videoTitle: "Earthquake leaves thousands homeless as rescue and relief efforts strain in Caracas"
 thumbnail: "https://img.youtube.com/vi/h8o1bR-Ti4c/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Venezuela Live Updates: Window to Find Earthquake Survivors Narrows as Death Toll Tops 1,400"
     url: "https://www.nytimes.com/live/2026/06/27/world/venezuela-earthquake"

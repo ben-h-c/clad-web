@@ -32,6 +32,10 @@ keyMoments:
 videoId: "QAPU-GA43dw"
 videoTitle: "DHS Secretary Mullin to illegal voters: \"We will find you\""
 thumbnail: "https://img.youtube.com/vi/QAPU-GA43dw/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 politicians:
   - name: "Ed Case"
     slug: "ed-case"

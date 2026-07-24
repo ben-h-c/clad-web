@@ -36,6 +36,10 @@ keyMoments:
 videoId: "Lkp4Xmi-KqU"
 videoTitle: "'We've got to be prepared to reprioritise': UK's PM holds first cabinet meeting • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/Lkp4Xmi-KqU/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "VAT to be cut from household electricity bills in October"
     url: "https://www.bbc.com/news/articles/cjwxll8jyz8o"

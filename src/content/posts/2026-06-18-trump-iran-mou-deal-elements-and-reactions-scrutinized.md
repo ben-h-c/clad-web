@@ -39,6 +39,10 @@ keyMoments:
 videoId: "LVXsEhmHx84"
 videoTitle: "President Trump demanded unconditional surrender, but this is what we got instead"
 thumbnail: "https://img.youtube.com/vi/LVXsEhmHx84/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Read the full text of Trump's preliminary U.S.-Iran agreement to end the war"
     url: "https://www.npr.org/2026/06/18/nx-s1-5863027/us-iran-trump-memorandum-of-understanding-full-text"

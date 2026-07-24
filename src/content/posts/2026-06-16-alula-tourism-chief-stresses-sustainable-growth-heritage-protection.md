@@ -31,6 +31,10 @@ keyMoments:
 videoId: "-1wPGYqygC8"
 videoTitle: "AlUla tourism chief on bringing in visitors — but not too many"
 thumbnail: "https://img.youtube.com/vi/-1wPGYqygC8/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "The Royal Commission for AlUla | RCU Initiatives"
     url: "https://www.rcu.gov.sa/en/strategic-initiatives"

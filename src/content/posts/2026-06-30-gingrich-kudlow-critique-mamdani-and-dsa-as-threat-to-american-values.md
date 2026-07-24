@@ -36,6 +36,10 @@ keyMoments:
 videoId: "FbKGqgQWD24"
 videoTitle: "Gingrich: This is a ‘DISASTROUS, VERY DANGEROUS’ movement"
 thumbnail: "https://img.youtube.com/vi/FbKGqgQWD24/maxresdefault.jpg"
+mediaNote: "default overlay framing"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Zohran Mamdani for New York City Mayor"
     url: "https://socialists.nyc/zohran-mayor-nyc-dsa/"
