@@ -1,4 +1,8 @@
 ---
+/**
+ * Report card — media-tile (image + scrim + overlay type) for strip cards when
+ * a still exists; modular layout for bars / no-thumb fallbacks.
+ */
 import Verdict from "~/components/Verdict.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
@@ -32,15 +36,11 @@ const source = d.sourceTitle ?? (() => {
   }
 })();
 const thumb = displayableThumb(d.thumbnail);
-// hqdefault onerror fallback applies only when the displayed image is itself a
-// YouTube still (maxres 404s for some videos). Owned /generated/ art must never
-// fall back to a video still — that's the imagery-policy escape hatch closing.
 const isYtStill = !!thumb && /^https:\/\/(img\.youtube\.com|i\.ytimg\.com)\//.test(thumb);
 const hq = d.videoId && isYtStill
   ? `https://img.youtube.com/vi/${d.videoId}/hqdefault.jpg`
   : null;
 
-// Lean as a compact "% direction" label.
 const ENUM_TO_SCORE: Record<string, number> = {
   left: -80, "center-left": -40, center: 0, "center-right": 40, right: 80, none: 0,
 };
@@ -48,12 +48,22 @@ const leanScore = typeof d.leanScore === "number"
   ? d.leanScore
   : d.politicalLean ? ENUM_TO_SCORE[d.politicalLean] ?? 0 : null;
 
-// Card / hold-preview body: article summary (not grade rationale).
+const leanCompact =
+  leanScore === null
+    ? null
+    : leanScore === 0
+      ? "Center"
+      : leanScore < 0
+        ? `${Math.abs(leanScore)}% L`
+        : `${Math.abs(leanScore)}% R`;
+
 const blurb = d.summary;
+const useMedia = variant === "card" && !!thumb;
 
 const cardClass = [
   "report-card",
   `report-card--${variant}`,
+  useMedia ? "report-card--media" : "",
   peek ? "report-card--peek" : "",
 ].filter(Boolean).join(" ");
 ---
@@ -64,78 +74,124 @@ const cardClass = [
   aria-expanded={peek ? "false" : undefined}
 >
   <a class="report-card__link" href={`/posts/${post.id}/`} draggable="false">
-    {thumb && (
-      <div class="report-card__thumb">
-        <img
-          src={thumb}
-          alt={`Video: ${d.headline}`}
-          width="320"
-          height="180"
-          loading="lazy"
-          decoding="async"
-          onerror={hq ? `this.onerror=null;this.src='${hq}'` : undefined}
-        />
-      </div>
-    )}
-    <div class="report-card__body">
-      {sample && <span class="sample-badge small-caps report-card__detail">Today's free sample</span>}
+    {useMedia ? (
+      <>
+        <div class="report-card__media-bg" aria-hidden="true">
+          <img
+            src={thumb!}
+            alt=""
+            width="640"
+            height="360"
+            loading="lazy"
+            decoding="async"
+            onerror={hq ? `this.onerror=null;this.src='${hq}'` : undefined}
+          />
+        </div>
+        <div class="report-card__media-scrim" aria-hidden="true"></div>
+        <div class="report-card__media-body">
+          {sample && <span class="sample-badge sample-badge--on-media small-caps">Today's free sample</span>}
 
-      {/* Compact grade chip — visible only while peeked (collapsed). */}
-      {peek && !showLocked && isBroadcast && d.letterGrade && (
-        <div class="report-card__peek-row" aria-hidden="true">
-          <LetterGrade grade={d.letterGrade} size="badge" />
-          {leanScore !== null && (
-            <span class="report-card__peek-lean">
-              {leanScore === 0 ? "Center" : leanScore < 0 ? `${Math.abs(leanScore)}% L` : `${leanScore}% R`}
-            </span>
-          )}
-        </div>
-      )}
-      {peek && showLocked && (
-        <div class="report-card__peek-row report-card__peek-row--locked" aria-hidden="true">
-          <span class="report-card__peek-lock grade-lock">Unlock free</span>
-        </div>
-      )}
-      {peek && !showLocked && !isBroadcast && d.verdict && (
-        <div class="report-card__peek-row" aria-hidden="true">
-          <Verdict verdict={d.verdict} />
-        </div>
-      )}
-
-      {/* Full scoreband / verdict — expanded detail (or always when not peek). */}
-      <div class="report-card__detail">
-        {showLocked ? (
-          <div class="scoreband scoreband--locked">
-            <span class="grade-lock">
-              Grade &amp; lean — <a href="/register/">Unlock free</a>
-            </span>
+          <div class="report-card__media-chips">
+            {showLocked ? (
+              <span class="report-card__chip report-card__chip--lock grade-lock">Unlock free</span>
+            ) : isBroadcast && d.letterGrade ? (
+              <>
+                <span class="report-card__chip report-card__chip--grade">
+                  <LetterGrade grade={d.letterGrade} size="badge" />
+                </span>
+                {leanCompact && (
+                  <span class="report-card__chip report-card__chip--lean">{leanCompact}</span>
+                )}
+              </>
+            ) : d.verdict ? (
+              <span class="report-card__chip"><Verdict verdict={d.verdict} /></span>
+            ) : null}
           </div>
-        ) : isBroadcast && d.letterGrade ? (
-          <div class="scoreband">
-            <div class="scoreband__grade">
-              <LetterGrade grade={d.letterGrade} size="card" />
-              <span class="scoreband__cap small-caps">Grade</span>
+
+          <h3 class="report-card__headline">{d.headline}</h3>
+          <p class="report-card__meta">
+            {shortDate(d.publishedAt)}
+            {source ? ` · ${source}` : ""}
+          </p>
+          {blurb && <p class="report-card__summary">{blurb}</p>}
+        </div>
+      </>
+    ) : (
+      <>
+        {thumb && (
+          <div class="report-card__thumb">
+            <img
+              src={thumb}
+              alt={`Video: ${d.headline}`}
+              width="320"
+              height="180"
+              loading="lazy"
+              decoding="async"
+              onerror={hq ? `this.onerror=null;this.src='${hq}'` : undefined}
+            />
+          </div>
+        )}
+        <div class="report-card__body">
+          {sample && <span class="sample-badge small-caps report-card__detail">Today's free sample</span>}
+
+          {peek && !showLocked && isBroadcast && d.letterGrade && (
+            <div class="report-card__peek-row" aria-hidden="true">
+              <LetterGrade grade={d.letterGrade} size="badge" />
+              {leanScore !== null && (
+                <span class="report-card__peek-lean">
+                  {leanScore === 0 ? "Center" : leanScore < 0 ? `${Math.abs(leanScore)}% L` : `${Math.abs(leanScore)}% R`}
+                </span>
+              )}
             </div>
-            {leanScore !== null && (
-              <div class="scoreband__bias">
-                <PoliticalLean score={leanScore} />
-              </div>
-            )}
-          </div>
-        ) : d.verdict ? (
-          <div class="report-card__titlerow"><Verdict verdict={d.verdict} /></div>
-        ) : null}
-      </div>
+          )}
+          {peek && showLocked && (
+            <div class="report-card__peek-row report-card__peek-row--locked" aria-hidden="true">
+              <span class="report-card__peek-lock grade-lock">Unlock free</span>
+            </div>
+          )}
+          {peek && !showLocked && !isBroadcast && d.verdict && (
+            <div class="report-card__peek-row" aria-hidden="true">
+              <Verdict verdict={d.verdict} />
+            </div>
+          )}
 
-      <h3 class="report-card__headline">{d.headline}</h3>
-      <p class="report-card__meta">{shortDate(d.publishedAt)}</p>
-      {blurb && <p class="report-card__summary report-card__detail">{blurb}</p>}
-    </div>
+          <div class="report-card__detail">
+            {showLocked ? (
+              <div class="scoreband scoreband--locked">
+                <span class="grade-lock">
+                  Grade &amp; lean — <a href="/register/">Unlock free</a>
+                </span>
+              </div>
+            ) : isBroadcast && d.letterGrade ? (
+              <div class="scoreband">
+                <div class="scoreband__grade">
+                  <LetterGrade grade={d.letterGrade} size="card" />
+                  <span class="scoreband__cap small-caps">Grade</span>
+                </div>
+                {leanScore !== null && (
+                  <div class="scoreband__bias">
+                    <PoliticalLean score={leanScore} />
+                  </div>
+                )}
+              </div>
+            ) : d.verdict ? (
+              <div class="report-card__titlerow"><Verdict verdict={d.verdict} /></div>
+            ) : null}
+          </div>
+
+          <h3 class="report-card__headline">{d.headline}</h3>
+          <p class="report-card__meta">{shortDate(d.publishedAt)}</p>
+          {blurb && <p class="report-card__summary report-card__detail">{blurb}</p>}
+        </div>
+      </>
+    )}
   </a>
-  <p class="report-card__source report-card__detail">
-    {isBroadcast && <span aria-hidden="true">▶ </span>}Source:{" "}
-    <a href={d.sourceUrl} rel="noopener noreferrer" target="_blank">{source}</a>
-  </p>
+  {!useMedia && (
+    <p class="report-card__source report-card__detail">
+      {isBroadcast && <span aria-hidden="true">▶ </span>}Source:{" "}
+      <a href={d.sourceUrl} rel="noopener noreferrer" target="_blank">{source}</a>
+    </p>
+  )}
   {peek && (
     <p class="report-card__hold-hint small-caps" aria-hidden="true">Hold for preview</p>
   )}

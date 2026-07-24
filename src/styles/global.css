@@ -2250,9 +2250,12 @@ html.masthead-menu-open .masthead__menu-list {
   display: flex;
 }
 /*
- * Uniform card height for horizontal article rows:
- * hard max + line-clamped copy so long summaries can’t tower over neighbors.
+ * Horizontal Breaking / Front Page cards — media tiles fill a fixed height.
  */
+.hero-strip {
+  --hero-card-max-h: 22rem;
+  --hero-summary-lines: 3;
+}
 .hero-strip .report-card,
 .hero-strip .breaking-group {
   height: 100%;
@@ -2262,64 +2265,58 @@ html.masthead-menu-open .masthead__menu-list {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.hero-strip .report-card--media {
+  min-height: var(--hero-card-max-h);
+  max-height: var(--hero-card-max-h);
+  border-radius: 16px;
 }
 .hero-strip .report-card__link {
   flex: 1 1 auto;
   min-height: 0;
-  justify-content: flex-start;
+  height: 100%;
   overflow: hidden;
 }
-.hero-strip .report-card__thumb {
-  flex: 0 0 auto;
-  width: 100%;
-}
-.hero-strip .report-card__body {
-  flex: 1 1 auto;
-  min-width: 0;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+.hero-strip .report-card--media .report-card__link {
+  min-height: 100%;
+  justify-content: flex-end;
 }
 .hero-strip .report-card__headline {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
-  /* room for up to 3 lines; shorter titles just leave less space below */
-  flex: 0 0 auto;
 }
-.hero-strip .report-card__meta {
-  flex: 0 0 auto;
-}
-.hero-strip .report-card__summary {
+.hero-strip .report-card--media .report-card__summary {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: var(--hero-summary-lines, 9);
+  -webkit-line-clamp: var(--hero-summary-lines, 3);
   overflow: hidden;
-  flex: 0 1 auto;
-  min-height: 0;
   margin: 0;
-  line-height: 1.45;
-}
-.hero-strip .report-card__detail {
-  flex: 0 0 auto;
+  line-height: 1.4;
 }
 .hero-strip .report-card__source {
-  flex: 0 0 auto;
-  margin-top: auto;
+  display: none;
+}
+.hero-strip .report-card__hold-hint {
+  display: none;
+}
+html.clad-app .hero-strip .report-card__hold-hint {
+  display: block;
 }
 @media (min-width: 768px) {
   .hero-strip {
-    --hero-card-max-h: 40rem;
-    --hero-summary-lines: 9;
+    --hero-card-max-h: 24rem;
+    --hero-summary-lines: 3;
   }
 }
 @media (min-width: 1024px) {
   .hero-strip {
-    /* iPad / wide: show a full-looking blurb (~9 lines), still capped */
-    --hero-card-max-h: 42rem;
-    --hero-summary-lines: 10;
+    --hero-card-max-h: 25rem;
+    --hero-summary-lines: 4;
   }
 }
 
