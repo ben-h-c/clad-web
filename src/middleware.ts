@@ -46,6 +46,8 @@ const PUBLIC_API = (path: string) =>
   path === "/api/subscribe" ||
   // Same-origin Wikimedia portrait proxy for politician cards / race board.
   path.startsWith("/api/politician-photo/") ||
+  // Public ballot share cards (summary only; no auth secrets).
+  path.startsWith("/api/ballot/") ||
   // Subscribable .ics of the scheduled daybook (home calendar → "Ahead").
   // Carries only scheduled events — no grade, factuality or lean values —
   // so it is public and shared-cacheable by construction.
@@ -93,7 +95,7 @@ function applySecurityHeaders(path: string, response: Response) {
   if (!isEmbed) {
     response.headers.set("X-Frame-Options", "SAMEORIGIN");
   }
-  // Report-only CSP first — allows measuring breakage without blocking OAuth/inline.
+  // Enforcing CSP (inline scripts used site-wide; Stripe / Turnstile / YouTube allowed).
   // Embeds intentionally omit frame-ancestors so third-party sites can iframe the SVG.
   const csp = isEmbed
     ? "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; base-uri 'none'"
@@ -103,14 +105,15 @@ function applySecurityHeaders(path: string, response: Response) {
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
         "font-src 'self' https://fonts.gstatic.com data:",
         "img-src 'self' data: blob: https:",
-        "connect-src 'self' https://api.stripe.com https://*.cladfacts.com https://cladfacts.com",
-        "frame-src 'self' https://js.stripe.com https://challenges.cloudflare.com https://www.youtube.com https://youtube.com",
+        "connect-src 'self' https://api.stripe.com https://api.x.ai https://*.cladfacts.com https://cladfacts.com https://accounts.google.com https://appleid.apple.com",
+        "frame-src 'self' https://js.stripe.com https://challenges.cloudflare.com https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com",
         "frame-ancestors 'self'",
         "base-uri 'self'",
-        "form-action 'self'",
+        "form-action 'self' https://accounts.google.com https://appleid.apple.com",
         "object-src 'none'",
+        "upgrade-insecure-requests",
       ].join("; ");
-  response.headers.set("Content-Security-Policy-Report-Only", csp);
+  response.headers.set("Content-Security-Policy", csp);
   return response;
 }
 
@@ -213,12 +216,29 @@ export const onRequest = defineMiddleware(async (context, next) => {
     );
   }
 
+  // Soft rate-limit failed admin basic-auth attempts per IP (shared credential surface).
+  const adminIp =
+    context.request.headers.get("CF-Connecting-IP") ||
+    context.request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    "unknown";
+
   const ok = checkBasicAuth(
     context.request.headers.get("authorization"),
     env.ADMIN_USER,
     env.ADMIN_PASSWORD
   );
-  if (!ok) return unauthorized();
+  if (!ok) {
+    if (env.FACTCHECK_LIMITER) {
+      const { success } = await env.FACTCHECK_LIMITER.limit({ key: `admin-auth:${adminIp}` });
+      if (!success) {
+        return new Response("Too many attempts. Try again later.", {
+          status: 429,
+          headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" },
+        });
+      }
+    }
+    return unauthorized();
+  }
 
   return next();
 });

@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import CollapsibleSection from "~/components/CollapsibleSection.astro";
@@ -27,7 +27,7 @@ const access = await getAccess(Astro.request.headers);
 const reveal = access.fullAccess;
 const locked = !reveal;
 
-const all = await getCollection("posts", (p) => !p.data.draft);
+const all = await publishedPostsSorted();
 const election = await getElectionWithPublishedDates(DEFAULT_ELECTION_ID, env.AGENTS);
 const board = maskRaceLeaders(
   await buildRaceBoardLive(

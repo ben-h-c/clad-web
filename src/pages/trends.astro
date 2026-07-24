@@ -1,11 +1,11 @@
 ---
-import { getCollection } from "astro:content";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
 import NetworkCharts from "~/components/NetworkCharts.astro";
 import CoverageLeanBar from "~/components/CoverageLeanBar.astro";
-import { buildTrends, leanLabel, leanColor, sentimentColor, sentimentLabel } from "~/lib/trends";
+import { buildTrends, buildTrendsCached, leanLabel, leanColor, sentimentColor, sentimentLabel } from "~/lib/trends";
 import { getSentiments } from "~/lib/agents";
 import { gpaToGrade } from "~/lib/topics";
 import { slugify } from "~/lib/slug";
@@ -20,12 +20,12 @@ Astro.response.headers.set("Cache-Control", "no-store");
 const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
 
-const posts = await getCollection("posts", (p) => !p.data.draft);
+const posts = await publishedPostsSorted();
 // Social-media sentiment (KV, scanner-scored) — Premium like grade/lean, so
 // the KV read is skipped for restricted readers and the sentiment analytics
 // simply don't exist in their report.
 const sentiments = locked ? {} : await getSentiments(env.AGENTS);
-const report = buildTrends(posts, sentiments);
+const report = locked ? buildTrendsCached(posts as any) : buildTrends(posts as any, sentiments);
 const { weeks, callouts, topics, networks, maxCount, totalPosts, weekSpan, busiest } = report;
 
 const CHART_H = 170; // px

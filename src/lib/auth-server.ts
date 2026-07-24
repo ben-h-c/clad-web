@@ -169,6 +169,13 @@ export function getAuth() {
       expiresIn: 60 * 60 * 24 * 14, // 14 days
       updateAge: 60 * 60 * 24, // refresh at most daily
     },
+    user: {
+      changeEmail: {
+        enabled: true,
+        // Send confirmation to current email when verified; new email gets verification link.
+        sendChangeEmailConfirmation: true,
+      },
+    },
     emailAndPassword: {
       enabled: true,
       // Verification requires Resend; until that's configured, allow sign-in so

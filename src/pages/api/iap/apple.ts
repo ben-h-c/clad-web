@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { getSessionUser } from "~/lib/user-data";
+import { getAccess } from "~/lib/access";
 import { getAppleSubscriptionStatus, iapConfigured } from "~/lib/apple-iap";
 
 export const prerender = false;
@@ -14,7 +15,8 @@ export const prerender = false;
 export const POST: APIRoute = async ({ request, clientAddress }) => {
   if (!(await iapConfigured())) return json({ error: "In-app purchase is not configured." }, 503);
 
-  const user = await getSessionUser(request.headers);
+  const access = await getAccess(request.headers);
+  const user = access.user ?? (await getSessionUser(request.headers));
   if (!user) return json({ error: "Sign in required." }, 401);
 
   // Rate-limit outbound Apple API amplification per user.

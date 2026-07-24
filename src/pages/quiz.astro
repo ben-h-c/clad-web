@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ExploreNext from "~/components/ExploreNext.astro";
@@ -24,7 +24,7 @@ const today = `${y}-${pad(m)}-${pad(d)}`;
 const yesterdayParts = nyDateParts(new Date(Date.now() - 24 * 60 * 60 * 1000));
 const yesterday = `${yesterdayParts.y}-${pad(yesterdayParts.m)}-${pad(yesterdayParts.d)}`;
 
-const posts = await getCollection("posts", (p) => !p.data.draft);
+const posts = await publishedPostsSorted();
 const questions = pickQuizQuestions(posts, today);
 
 const shareTags = (await getShareTags(env.AGENTS))?.tags ?? {};

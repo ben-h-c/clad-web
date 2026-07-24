@@ -17,18 +17,19 @@ function materialize(posts: Post[]): void {
   const sorted = posts
     .slice()
     .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
-  // Freeze shallowly so callers don't accidentally mutate.
-  cachedSorted = Object.freeze(sorted);
+  // Do not Object.freeze — callers may .sort() / .filter in place (legacy pages).
+  // Treat as immutable by convention; never mutate entries' data.
+  cachedSorted = sorted;
   cachedIds = new Set(sorted.map((p) => p.id));
   cachedById = new Map(sorted.map((p) => [p.id, p]));
 }
 
 /** Full sorted list of non-draft posts (newest first). */
-export async function publishedPostsSorted(): Promise<readonly Post[]> {
-  if (cachedSorted) return cachedSorted;
+export async function publishedPostsSorted(): Promise<Post[]> {
+  if (cachedSorted) return cachedSorted as Post[];
   const posts = await getCollection("posts", (p) => !p.data.draft);
   materialize(posts);
-  return cachedSorted!;
+  return cachedSorted as Post[];
 }
 
 /** O(1) id membership. */

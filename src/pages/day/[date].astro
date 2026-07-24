@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
@@ -24,9 +24,7 @@ if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return new Response(null, { stat
 const parsed = new Date(`${date}T00:00:00Z`);
 if (Number.isNaN(parsed.valueOf())) return new Response(null, { status: 404 });
 
-const all = (await getCollection("posts", (p) => !p.data.draft)).sort(
-  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
-);
+const all = await publishedPostsSorted();
 const dayPosts = postsForDay(all, date);
 if (dayPosts.length === 0) return new Response(null, { status: 404 });
 

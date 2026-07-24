@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ReportCard from "~/components/ReportCard.astro";
 import { getAccess } from "~/lib/access";
@@ -63,7 +63,7 @@ const locked = !access.fullAccess;
 
 // sampleUnlockedId re-sorts its input internally, so `all` needn't be sorted;
 // sort only the matched band instead of the whole ~2530-post collection.
-const all = await getCollection("posts", (p) => !p.data.draft);
+const all = await publishedPostsSorted();
 const matching = all
   .filter((p) => p.data.letterGrade === grade)
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());

@@ -1,12 +1,12 @@
 ---
-import { getCollection } from "astro:content";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { shortDate } from "~/lib/dateline";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "public, max-age=300");
 
-const all = await getCollection("posts", (p) => !p.data.draft);
+const all = await publishedPostsSorted();
 const corrections = all
   .filter((p) => !!p.data.correctionOf)
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())

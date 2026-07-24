@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
-import { getCollection } from "astro:content";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 import { addFlag, type FlagAspect } from "~/lib/agents";
 import { getAccess } from "~/lib/access";
 
@@ -54,7 +54,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 
   // Confirm the post exists (don't store flags for bogus ids) and capture the
   // grade/lean as it stands now.
-  const posts = await getCollection("posts", (q) => !q.data.draft);
+  const posts = await publishedPostsSorted();
   const post = posts.find((q) => q.id === postId);
   if (!post) return json({ error: "Post not found" }, 404);
 

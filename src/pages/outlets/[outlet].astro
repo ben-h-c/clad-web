@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ReportCard from "~/components/ReportCard.astro";
@@ -30,7 +30,7 @@ const locked = !access.fullAccess;
 const param = Astro.params.outlet ?? "";
 // Filter to this outlet first, then sort only the matching subset — sorting the
 // full ~2530-post collection just to keep one outlet's handful was wasteful.
-const posts = (await getCollection("posts", (p) => !p.data.draft))
+const posts = (await publishedPostsSorted())
   .filter((p) => slugify((p.data.sourceTitle ?? "").trim()) === param)
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 if (posts.length === 0) return new Response("Not found", { status: 404 });

@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import GradeBoard from "~/components/GradeBoard.astro";
@@ -31,7 +31,7 @@ const start = weekStartUTC(parsed);
 if (iso(start) !== stamp) return Astro.redirect(`/week/${iso(start)}/`, 301);
 const end = start + WEEK_MS;
 
-const all = (await getCollection("posts", (p) => !p.data.draft))
+const all = (await publishedPostsSorted())
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 const week = all.filter((p) => {
   const t = p.data.publishedAt.valueOf();

@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { nyDateParts, shortDate } from "~/lib/dateline";
 
@@ -13,7 +13,7 @@ if (!Number.isInteger(year) || !Number.isInteger(month) || month < 1 || month > 
   return new Response(null, { status: 404 });
 }
 
-const all = await getCollection("posts", (p) => !p.data.draft);
+const all = await publishedPostsSorted();
 const monthPosts = all
   .filter((p) => {
     const { y, m } = nyDateParts(p.data.publishedAt);

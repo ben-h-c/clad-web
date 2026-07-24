@@ -50,24 +50,20 @@ function gradeTier(grade: string | undefined): string {
   return "bad";
 }
 
+// Marketing carousel for signed-out visitors: never emit real grades/lean
+// (hard anon invariant). Show unlock chrome instead.
 const slides = posts
-  .filter((p) => p.data.letterGrade)
+  .filter((p) => p.data.letterGrade || p.data.headline)
   .slice(0, 6)
   .map((p) => {
-    const lean = leanOf(p.data);
     return {
       id: p.id,
       headline: p.data.headline,
       summary: p.data.summary,
-      grade: p.data.letterGrade as string,
-      tier: gradeTier(p.data.letterGrade),
-      lean,
-      leanLabel: leanLabel(lean),
-      leanPos: leanPos(lean),
       source: p.data.sourceTitle ?? "Source",
       date: shortDate(p.data.publishedAt),
       thumb: displayableThumb(p.data.thumbnail),
-      href: `/posts/${p.id}/`,
+      href: `/register/`,
     };
   });
 
@@ -147,22 +143,11 @@ const multi = slides.length > 1;
                       <div class="guest-hero__media guest-hero__media--empty" aria-hidden="true"></div>
                     )}
                     <div class="guest-hero__card-body">
-                      <div class="guest-hero__score">
-                        <span class={`guest-hero__grade grade--${s.tier}`}>{s.grade}</span>
+                      <div class="guest-hero__score guest-hero__score--locked">
+                        <span class="guest-hero__grade guest-hero__grade--lock">Grade</span>
                         <div class="guest-hero__lean">
                           <span class="guest-hero__lean-label small-caps">Political lean</span>
-                          <span class="guest-hero__lean-value">{s.leanLabel}</span>
-                          <div class="guest-hero__lean-track" aria-hidden="true">
-                            <span class="guest-hero__lean-end">L</span>
-                            <span class="guest-hero__lean-bar">
-                              <span class="guest-hero__lean-center"></span>
-                              <span
-                                class="guest-hero__lean-marker"
-                                style={`left:${s.leanPos}%`}
-                              ></span>
-                            </span>
-                            <span class="guest-hero__lean-end">R</span>
-                          </div>
+                          <span class="guest-hero__lean-value">Unlock free</span>
                         </div>
                       </div>
                       <h3 class="guest-hero__card-title">{s.headline}</h3>

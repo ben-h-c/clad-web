@@ -248,6 +248,19 @@ const planLabel =
       <p class="account-card__desc">
         Manage your password, sessions, and a copy of the data we store for this account.
       </p>
+      <form id="email-form" class="prefs" style="margin-bottom:1.25rem">
+        <label class="del-acct__label">
+          New email address
+          <input type="email" id="email-new" autocomplete="email" required maxlength="254" placeholder={user.email} />
+        </label>
+        <div class="account-actions">
+          <button type="submit" class="auth-submit secondary">Change email</button>
+          <span id="email-status" class="auth-status" role="status"></span>
+        </div>
+        <p class="account-card__desc" style="margin-top:0.5rem;font-size:0.88rem">
+          We'll email a confirmation link. Your current address stays active until you verify.
+        </p>
+      </form>
       {hasPassword && (
         <form id="password-form" class="prefs" style="margin-bottom:1.25rem">
           <label class="del-acct__label">
@@ -274,8 +287,7 @@ const planLabel =
         <span id="sessions-status" class="auth-status" role="status"></span>
       </div>
       <p class="account-card__desc" style="margin-top:0.75rem;font-size:0.9rem">
-        “Sign out other devices” keeps this browser signed in. Change email is available
-        via support for now (re-verification required).
+        “Sign out other devices” keeps this browser signed in.
       </p>
     </section>
 
@@ -511,6 +523,31 @@ const planLabel =
       });
 
       // --- Sign out ---
+      // --- Email change ---
+      const emailForm = document.getElementById("email-form");
+      if (emailForm) {
+        emailForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const st = document.getElementById("email-status");
+          setStatus(st, "info", "Sending…");
+          try {
+            const res = await fetch("/api/me/email", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                newEmail: document.getElementById("email-new").value,
+              }),
+            });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok) throw new Error(data.error || "Could not change email.");
+            document.getElementById("email-new").value = "";
+            setStatus(st, "info", data.message || "Check your inbox to confirm.");
+          } catch (err) {
+            setStatus(st, "error", String(err.message || err));
+          }
+        });
+      }
+
       // --- Password change ---
       const pwForm = document.getElementById("password-form");
       if (pwForm) {

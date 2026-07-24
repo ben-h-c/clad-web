@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { nyDateParts } from "~/lib/dateline";
 
@@ -8,7 +8,7 @@ export const prerender = false;
 // Month-by-month archive index (Eastern calendar, matching the masthead).
 // Every post is reachable by date browsing — a stable crawl path for the
 // long tail that KV-curated strips and topic clusters don't provide.
-const all = await getCollection("posts", (p) => !p.data.draft);
+const all = await publishedPostsSorted();
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",

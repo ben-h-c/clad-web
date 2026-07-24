@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { getCollection } from "astro:content";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 import { getAccess } from "~/lib/access";
 import { searchPosts } from "~/lib/search";
 
@@ -11,7 +11,7 @@ export const GET: APIRoute = async ({ request }) => {
   const url = new URL(request.url);
 
   const locked = !(await getAccess(request.headers)).fullAccess;
-  const posts = await getCollection("posts", (p) => !p.data.draft);
+  const posts = await publishedPostsSorted();
 
   const { total, results } = searchPosts(
     posts,

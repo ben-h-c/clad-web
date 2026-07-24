@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { getCollection } from "astro:content";
+import { publishedPostIdSet } from "~/lib/publishedPosts";
 import { env } from "cloudflare:workers";
 import { getAccess, hasPremiumFeatures } from "~/lib/access";
 import {
@@ -44,7 +44,8 @@ export const GET: APIRoute = async ({ request }) => {
   const slug = new URL(request.url).searchParams.get("slug")?.trim() ?? "";
   if (!validSlug(slug)) return jsonResponse({ error: "Invalid post" }, 400);
 
-  const user = await getSessionUser(request.headers);
+  // Prefer user from getAccess (single session resolve).
+  const user = access.user ?? (await getSessionUser(request.headers));
   const [comments, tally, mine] = await Promise.all([
     listCommentsForPost(slug),
     getCommentTally(slug),
@@ -105,8 +106,8 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   if (body.length > 2000) return jsonResponse({ error: "Comment is too long." }, 400);
 
   // The post must exist and be published.
-  const posts = await getCollection("posts", (q) => !q.data.draft);
-  if (!posts.some((q) => q.id === slug)) {
+  const ids = await publishedPostIdSet();
+  if (!ids.has(slug)) {
     return jsonResponse({ error: "Post not found" }, 404);
   }
 

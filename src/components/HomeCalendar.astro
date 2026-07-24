@@ -8,9 +8,9 @@
  * Coming up: separate card under the calendar — daybook events for the next
  * three calendar days (today + 2), collapsible.
  *
- * GATING: letter grades stay account-gated. Political lean is public so free
- * visitors default to lean colouring (with Volume as an alternate). Grade
- * encoding is withheld until sign-in.
+ * GATING: letter grades AND political lean stay account-gated for anonymous
+ * (hard platform invariant). Free visitors default to volume colouring;
+ * lean/grade encodings unlock after sign-in.
  */
 import {
   buildCalendarEvents,
@@ -30,7 +30,7 @@ interface Props {
   /** Earliest / latest day carrying reports — bounds the month nav. */
   first?: string | null;
   last?: string | null;
-  /** True for anonymous / restricted readers: no letter grades (lean stays public). */
+  /** True for anonymous / restricted readers: no letter grades or lean labels. */
   locked?: boolean;
   class?: string;
 }
@@ -90,17 +90,24 @@ const clientEvents = events.map((e) => ({
 
     <div class="home-cal__encodings" role="group" aria-label="Colour the month by">
       {!locked && (
-        <button type="button" class="home-cal__enc" data-cal-enc="grade" aria-pressed="false">Grade</button>
+        <>
+          <button type="button" class="home-cal__enc" data-cal-enc="grade" aria-pressed="false">Grade</button>
+          <button type="button" class="home-cal__enc is-on" data-cal-enc="lean" aria-pressed="true">Lean</button>
+        </>
       )}
-      <button type="button" class="home-cal__enc is-on" data-cal-enc="lean" aria-pressed="true">Lean</button>
-      <button type="button" class="home-cal__enc" data-cal-enc="volume" aria-pressed="false">Volume</button>
+      <button
+        type="button"
+        class={`home-cal__enc${locked ? " is-on" : ""}`}
+        data-cal-enc="volume"
+        aria-pressed={locked ? "true" : "false"}
+      >Volume</button>
     </div>
     {locked && (
       <div class="home-cal__preview-badge" aria-label="Free calendar preview">
         <span class="home-cal__preview-dot" aria-hidden="true"></span>
         <span class="home-cal__preview-label">Free preview</span>
         <span class="home-cal__preview-sep" aria-hidden="true">·</span>
-        <span class="home-cal__preview-mode">Political lean unlocked</span>
+        <span class="home-cal__preview-mode">Sign in for grade &amp; lean</span>
       </div>
     )}
 
@@ -232,9 +239,8 @@ const clientEvents = events.map((e) => ({
     const minMonth = root.dataset.minMonth || "";
     const maxMonth = root.dataset.maxMonth || "";
     let month = root.dataset.month || today.slice(0, 7);
-    // Lean is the default for everyone (free preview + signed-in). Grade is
-    // only offered when unlocked. Must match the button with `is-on` above.
-    let enc: "grade" | "lean" | "volume" = "lean";
+    // Locked → volume only (no grade/lean disclosure). Signed-in → lean default.
+    let enc: "grade" | "lean" | "volume" = locked ? "volume" : "lean";
 
     const labelEl = root.querySelector("[data-cal-month-label]");
     const gridEl = root.querySelector("[data-cal-grid]");
@@ -359,10 +365,10 @@ const clientEvents = events.map((e) => ({
           `<img src="${escapeHtml(r.thumb)}" alt="" width="96" height="54" loading="lazy" decoding="async" referrerpolicy="no-referrer">` +
           `</span>`
         : `<span class="home-cal__story-thumb home-cal__story-thumb--empty" aria-hidden="true"></span>`;
-      const pill = r.grade
+      const pill = !locked && r.grade
         ? `<span class="home-cal__pill home-cal__pill--${band}">${escapeHtml(r.grade)}</span>`
         : "";
-      const lean = r.lean != null ? leanSpectrumHtml(r.lean, true) : "";
+      const lean = !locked && r.lean != null ? leanSpectrumHtml(r.lean, true) : "";
       return (
         `<li class="home-cal__story">` +
         `<a class="home-cal__story-link" href="/posts/${encodeURIComponent(r.slug)}/">` +
@@ -563,8 +569,8 @@ const clientEvents = events.map((e) => ({
             (sum.grade ? `<span class="small-caps">Day average</span>` : "") +
             scoreBits.join("") +
             `</div></div>` +
-            (sum.avgLean != null ? leanSpectrumHtml(sum.avgLean) : "") +
-            (sum.lean
+            (!locked && sum.avgLean != null ? leanSpectrumHtml(sum.avgLean) : "") +
+            (!locked && sum.lean
               ? `<div class="home-cal__splitblock">` +
                 `<span class="home-cal__splitlabel small-caps">Coverage split</span>` +
                 splitBarHtml(sum.lean) +

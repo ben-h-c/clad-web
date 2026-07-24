@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ReportCard from "~/components/ReportCard.astro";
@@ -18,7 +18,7 @@ const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
 
 const sections = await getDiscover(env.AGENTS);
-const all = await getCollection("posts", (p) => !p.data.draft);
+const all = await publishedPostsSorted();
 const byId = new Map(all.map((p) => [p.id, p]));
 const resolved = sections
   .map((s) => ({ ...s, posts: s.ids.map((id) => byId.get(id)).filter((p) => p !== undefined) }))

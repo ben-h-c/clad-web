@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ReportCard from "~/components/ReportCard.astro";
 import PaywallPanel from "~/components/PaywallPanel.astro";
@@ -18,7 +18,7 @@ export const prerender = false;
 const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
 
-const all = (await getCollection("posts", (p) => !p.data.draft))
+const all = (await publishedPostsSorted())
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 
 // Lanes draw from the last two weeks of coverage, anchored to the newest

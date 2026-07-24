@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ReportCard from "~/components/ReportCard.astro";
 import { getAccess } from "~/lib/access";
@@ -12,9 +12,7 @@ Astro.response.headers.set("Cache-Control", "private, no-store");
 const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
 
-const posts = (await getCollection("posts", (p) => !p.data.draft)).sort(
-  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
-);
+const posts = await publishedPostsSorted();
 const PER_PAGE = 30;
 const shown = posts.slice(0, 150);
 

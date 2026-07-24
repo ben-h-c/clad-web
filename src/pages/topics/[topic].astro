@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ReportCard from "~/components/ReportCard.astro";
@@ -20,7 +20,7 @@ Astro.response.headers.set("Cache-Control", "no-store");
 const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
 
-const all = await getCollection("posts", (p) => !p.data.draft);
+const all = await publishedPostsSorted();
 // Social-media sentiment (KV, scanner-scored) — Premium like grade/lean; the
 // read is skipped for restricted readers so the value never reaches their HTML.
 const sentiments = locked ? {} : await getSentiments(env.AGENTS);

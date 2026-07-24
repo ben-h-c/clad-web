@@ -26,9 +26,11 @@ export interface Access {
   tier: Tier;
   fullAccess: boolean;
   signedIn: boolean;
+  /** Resolved session user when signed in (avoids a second getSession). */
+  user?: import("./user-data.ts").SessionUser | null;
 }
 
-const ANON: Access = { tier: "anon", fullAccess: false, signedIn: false };
+const ANON: Access = { tier: "anon", fullAccess: false, signedIn: false, user: null };
 
 export async function getAccess(headers: Headers): Promise<Access> {
   try {
@@ -50,13 +52,13 @@ async function resolveAccess(headers: Headers): Promise<Access> {
   // emailVerified for full access. Social logins are auto-verified.
   // When RESEND is unset, Better Auth cannot verify — do not lock everyone out.
   if (env.RESEND_API_KEY && !user.emailVerified) {
-    return { tier: "anon", fullAccess: false, signedIn: true };
+    return { tier: "anon", fullAccess: false, signedIn: true, user };
   }
 
   // Billing off: skip dead subscription table reads (C1). Every verified
   // signed-in user has full access; paid tier is indistinguishable in UI.
   if (!BILLING_ENABLED) {
-    return { tier: "free", fullAccess: true, signedIn: true };
+    return { tier: "free", fullAccess: true, signedIn: true, user };
   }
 
   const now = Date.now();
@@ -82,11 +84,11 @@ async function resolveAccess(headers: Headers): Promise<Access> {
     new Date(apple.expiresAt).getTime() > now;
 
   if (stripeActive || appleActive) {
-    return { tier: "paid", fullAccess: true, signedIn: true };
+    return { tier: "paid", fullAccess: true, signedIn: true, user };
   }
 
   // Registration unlocks the full scoreboard. Payment is optional / future.
-  return { tier: "free", fullAccess: true, signedIn: true };
+  return { tier: "free", fullAccess: true, signedIn: true, user };
 }
 
 /**
