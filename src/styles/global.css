@@ -9670,11 +9670,15 @@ html.clad-app section.charts.home-app-only {
     font-size: 0.86rem;
     box-sizing: border-box;
   }
-  .breaking-story .breaking-hero {
-    min-height: clamp(16rem, 62vw, 20rem);
+  .breaking-story .breaking-hero.breaking-hero--bleed {
+    min-height: clamp(16.5rem, 68vw, 22rem);
   }
   .breaking-hero__title {
     font-size: 1.4rem;
+  }
+  .breaking-hero__content {
+    padding-left: max(0.9rem, env(safe-area-inset-left, 0px));
+    padding-right: max(0.9rem, env(safe-area-inset-right, 0px));
   }
 }
 
