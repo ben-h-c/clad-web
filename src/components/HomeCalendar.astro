@@ -136,13 +136,13 @@ const clientEvents = events.map((e) => ({
     )}
   </div>
 
-  {/* Separate card: daybook peek for today through today+2. Expanded by default. */}
-  <div class="home-cal__coming is-open" data-cal-coming>
+  {/* Separate card: daybook peek for today through today+2. Collapsed by default. */}
+  <div class="home-cal__coming" data-cal-coming>
     <button
       type="button"
       class="home-cal__coming-toggle"
       data-cal-coming-toggle
-      aria-expanded="true"
+      aria-expanded="false"
       aria-controls="home-cal-coming-panel"
       id="home-cal-coming-toggle"
     >
