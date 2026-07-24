@@ -8,7 +8,8 @@
  * Prioritizes people with the fewest graded appearances, rotating a cursor so
  * over months the whole roster gets attention (not just household names).
  *
- * YouTube search costs 100 quota units each — keep maxPoliticiansPerRun modest.
+ * YouTube search costs 100 quota units each — keep maxPoliticiansPerRun small
+ * and run more often (see agents.ts cron) so the 12m runner timeout is not hit.
  */
 import { generateBroadcastReport } from "../src/lib/broadcast.ts";
 import { validateCitations } from "../src/lib/citations.ts";
@@ -124,10 +125,11 @@ export async function runPoliticianProfileBuilder(agent) {
   if (!xaiKey) return { ok: false, message: "XAI_API_KEY not set" };
 
   const c = agent.config || {};
-  const maxPeople = Math.min(Number(c.maxPoliticiansPerRun) || 30, 40);
-  const maxDraftsTotal = Math.min(Number(c.maxPublishesPerRun) || 24, 32);
-  const maxDraftsEach = Math.min(Number(c.maxDraftsPerPolitician) || 2, 3);
-  const maxPhotos = Math.min(Number(c.maxPhotoLookupsPerRun) || 150, 200);
+  // Defaults match agents.ts — small batches; runner hard-caps at 12 min.
+  const maxPeople = Math.min(Number(c.maxPoliticiansPerRun) || 12, 20);
+  const maxDraftsTotal = Math.min(Number(c.maxPublishesPerRun) || 10, 16);
+  const maxDraftsEach = Math.min(Number(c.maxDraftsPerPolitician) || 1, 2);
+  const maxPhotos = Math.min(Number(c.maxPhotoLookupsPerRun) || 60, 100);
   const withinHours = Number(c.publishedWithinHours) || 720;
   const minTarget = Math.min(Math.max(Number(c.minAppearancesTarget) || 3, 1), 10);
 

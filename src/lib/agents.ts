@@ -300,13 +300,15 @@ export const DEFAULT_REGISTRY: Registry = {
       kind: "politician-profile-builder",
       name: "Politician Profile Builder (coverage + photos)",
       enabled: true,
-      // Three daily passes — under-covered seats, portraits, and mention depth.
-      cron: "0 2,10,18 * * *",
+      // Smaller batches more often — avoid 12m runner timeout on heavy YT/Grok days.
+      // Every 3 hours (8×/day); ~12 people per pass advances the roster faster than
+      // three 30-person runs that die at 720s.
+      cron: "20 */3 * * *",
       config: {
-        maxPoliticiansPerRun: 30,
-        maxDraftsPerPolitician: 2,
-        maxPublishesPerRun: 24,
-        maxPhotoLookupsPerRun: 150,
+        maxPoliticiansPerRun: 12,
+        maxDraftsPerPolitician: 1,
+        maxPublishesPerRun: 10,
+        maxPhotoLookupsPerRun: 60,
         // 30 days of YT search for people under 3 appearances.
         publishedWithinHours: 720,
         // Target depth: each officeholder should accumulate ≥3 graded mentions.
