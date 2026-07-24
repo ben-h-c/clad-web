@@ -1,4 +1,8 @@
 ---
+/**
+ * Home / list topic card — media tile when a still exists (image + bottom scrim +
+ * overlaid type), plain elevated card as fallback.
+ */
 import { displayableThumb } from "~/lib/imagePolicy";
 import LetterGrade from "~/components/LetterGrade.astro";
 import type { TopicAgg } from "~/lib/topics";
@@ -15,34 +19,55 @@ function leanLabel(s: number | null): string | null {
 }
 const lean = locked ? null : leanLabel(topic.avgLean);
 const thumb = displayableThumb(topic.thumbnail);
+
+const metaParts: string[] = [];
+if (topic.todayCount > 0) {
+  metaParts.push(`${topic.todayCount} today`);
+  metaParts.push(`${topic.count} ${topic.count === 1 ? "report" : "reports"}`);
+} else if (topic.recentCount > 0) {
+  metaParts.push(`${topic.recentCount} recent`);
+  metaParts.push(`${topic.count} ${topic.count === 1 ? "report" : "reports"}`);
+} else {
+  metaParts.push(`${topic.count} ${topic.count === 1 ? "report" : "reports"}`);
+}
+if (lean) metaParts.push(lean);
+const meta = metaParts.join(" · ");
+
+const rowClass = [
+  "topic-row",
+  thumb ? "topic-row--media" : "topic-row--plain",
+].join(" ");
 ---
-<a class="topic-row" href={`/topics/${topic.slug}/`}>
-  {thumb && (
-    <span class="topic-row__thumb">
-      <img
-        src={thumb}
-        alt=""
-        loading="lazy"
-        decoding="async"
-        width="88"
-        height="50"
-        onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')"
-      />
-    </span>
-  )}
-  <span class="topic-row__body">
+<a class={rowClass} href={`/topics/${topic.slug}/`}>
+  {thumb ? (
+    <>
+      <span class="topic-row__bg" aria-hidden="true">
+        <img
+          src={thumb}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          width="640"
+          height="360"
+          onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')"
+        />
+      </span>
+      <span class="topic-row__scrim" aria-hidden="true"></span>
+    </>
+  ) : null}
+
+  <span class="topic-row__content">
+    {topic.todayCount > 0 && (
+      <span class="topic-row__hot small-caps">Hot today</span>
+    )}
     <span class="topic-row__name">{topic.display}</span>
-    <span class="topic-row__meta">
-      {topic.todayCount > 0
-        ? `${topic.todayCount} today · ${topic.count} ${topic.count === 1 ? "report" : "reports"}`
-        : topic.recentCount > 0
-          ? `${topic.recentCount} recent · ${topic.count} ${topic.count === 1 ? "report" : "reports"}`
-          : `${topic.count} ${topic.count === 1 ? "report" : "reports"}`}
-      {lean && ` · ${lean}`}
-    </span>
+    <span class="topic-row__meta">{meta}</span>
   </span>
+
   {!locked && topic.avgGrade && (
-    <span class="topic-row__grade"><LetterGrade grade={topic.avgGrade} size="card" /></span>
+    <span class="topic-row__grade">
+      <LetterGrade grade={topic.avgGrade} size="card" />
+    </span>
   )}
   {locked && (
     <span class="topic-row__grade grade-lock">
