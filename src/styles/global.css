@@ -5718,7 +5718,8 @@ html.theme-dark .admin-nav__compact-panel {
     display: none;
   }
   .hero-strip__item {
-    flex-basis: clamp(12.5rem, 80%, 16rem);
+    /* Keep cards wide enough that 16:9 stills stay legible on phones */
+    flex-basis: clamp(16.5rem, 86%, 20.5rem);
   }
   .scoreband {
     gap: 0.6rem;
