@@ -34,8 +34,8 @@ keyMoments:
 videoId: "sD9aA-pTRSk"
 videoTitle: "Quebec will be home to a new facility for military drone research"
 thumbnail: "https://img.youtube.com/vi/sD9aA-pTRSk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

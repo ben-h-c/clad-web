@@ -39,8 +39,8 @@ keyMoments:
 videoId: "gN3rxDup-k8"
 videoTitle: "The NEW GLP-1 Side Effect Nobody Saw Coming | Hot Take with Jesse Weber"
 thumbnail: "https://img.youtube.com/vi/gN3rxDup-k8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

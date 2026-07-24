@@ -35,8 +35,8 @@ keyMoments:
 videoId: "mAa4f9kEzQY"
 videoTitle: "Attack Targeting UFC White House Event Foiled; Pizza Hut To Be Sold. What You Need to Know - June 16"
 thumbnail: "https://img.youtube.com/vi/mAa4f9kEzQY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

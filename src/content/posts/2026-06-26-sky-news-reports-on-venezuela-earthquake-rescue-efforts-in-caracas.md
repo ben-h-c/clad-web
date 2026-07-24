@@ -31,8 +31,8 @@ keyMoments:
 videoId: "fz5slt_r2qc"
 videoTitle: "Rescue workers search for survivors in Caracas as number of deaths rise after Venezuela earthquakes"
 thumbnail: "https://img.youtube.com/vi/fz5slt_r2qc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

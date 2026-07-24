@@ -38,8 +38,8 @@ keyMoments:
 videoId: "A8bqn6WGw6o"
 videoTitle: "Trump Reacts to Supreme Court Ruling Allowing Mail In Ballots"
 thumbnail: "https://img.youtube.com/vi/A8bqn6WGw6o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

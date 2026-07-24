@@ -34,8 +34,8 @@ keyMoments:
 videoId: "pPIePT4CAE0"
 videoTitle: "Alberta to launch controversial “dual practice” health care this fall"
 thumbnail: "https://img.youtube.com/vi/pPIePT4CAE0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "1cddH9jSaFA"
 videoTitle: "The story behind the murder of four foreign farm workers in Italy | Focus on Europe"
 thumbnail: "https://img.youtube.com/vi/1cddH9jSaFA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "GtAlo1shAwI"
 videoTitle: "‘Just crazy’: Messi on 2007 baby photo with Spain’s Lamine Yamal"
 thumbnail: "https://img.youtube.com/vi/GtAlo1shAwI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

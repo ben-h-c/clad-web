@@ -34,8 +34,8 @@ keyMoments:
 videoId: "E6K7GYLlU7I"
 videoTitle: "Cape Verdean diaspora describes Vozinha's impact in World Cup draw vs Spain"
 thumbnail: "https://img.youtube.com/vi/E6K7GYLlU7I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

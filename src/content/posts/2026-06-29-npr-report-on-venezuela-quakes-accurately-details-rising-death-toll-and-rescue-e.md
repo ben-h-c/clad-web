@@ -31,8 +31,8 @@ keyMoments:
 videoId: "kavAt9Jfopc"
 videoTitle: "Search for survivors continues after earthquakes in Venezuela"
 thumbnail: "https://img.youtube.com/vi/kavAt9Jfopc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

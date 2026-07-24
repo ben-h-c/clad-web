@@ -34,8 +34,8 @@ keyMoments:
 videoId: "bX4l1lQvqco"
 videoTitle: "Kylie Jenner collabs with Meta on new AI Smart Glasses collection"
 thumbnail: "https://img.youtube.com/vi/bX4l1lQvqco/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

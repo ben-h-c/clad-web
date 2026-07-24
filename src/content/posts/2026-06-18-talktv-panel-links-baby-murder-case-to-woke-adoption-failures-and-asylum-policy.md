@@ -37,8 +37,8 @@ keyMoments:
 videoId: "3m-H8VVhVjI"
 videoTitle: "“We See This REPEATEDLY!” | Teacher Jailed for Life After Murdering Adopted Baby"
 thumbnail: "https://img.youtube.com/vi/3m-H8VVhVjI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

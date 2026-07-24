@@ -38,8 +38,8 @@ keyMoments:
 videoId: "JAPoVntiuYw"
 videoTitle: "Failed Immigration Policy or Lawless Anger? | Global Eye"
 thumbnail: "https://img.youtube.com/vi/JAPoVntiuYw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

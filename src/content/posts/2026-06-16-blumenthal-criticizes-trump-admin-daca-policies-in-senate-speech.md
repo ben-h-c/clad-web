@@ -36,8 +36,8 @@ keyMoments:
 videoId: "gefbU2yLANQ"
 videoTitle: "'Policy Of Stupidity And Cruelty': Richard Blumenthal Tears Into Trump Admin.'s DACA Rulings"
 thumbnail: "https://img.youtube.com/vi/gefbU2yLANQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

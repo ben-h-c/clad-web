@@ -39,8 +39,8 @@ keyMoments:
 videoId: "d7lq2wlx9Ec"
 videoTitle: "Maria Cantwell Demands CMS Stop Use Of WISeR AI Model To Deny Care To Medicare Patients"
 thumbnail: "https://img.youtube.com/vi/d7lq2wlx9Ec/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

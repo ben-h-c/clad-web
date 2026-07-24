@@ -32,8 +32,8 @@ keyMoments:
 videoId: "p6nwhrtELEc"
 videoTitle: "BREAKING: Pirro announces felony indictment in Reflecting Pool vandalism case"
 thumbnail: "https://img.youtube.com/vi/p6nwhrtELEc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -41,8 +41,8 @@ keyMoments:
 videoId: "3ajQdwQBnWQ"
 videoTitle: "LIVE: Rep. Ro Khanna takes voters’ questions in July virtual town hall"
 thumbnail: "https://img.youtube.com/vi/3ajQdwQBnWQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

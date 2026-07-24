@@ -37,8 +37,8 @@ keyMoments:
 videoId: "uD37Bv26d18"
 videoTitle: "Greg Gutfeld: This is their idea of a debate..."
 thumbnail: "https://img.youtube.com/vi/uD37Bv26d18/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

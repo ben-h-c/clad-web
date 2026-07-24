@@ -36,8 +36,8 @@ keyMoments:
 videoId: "O_tOcBJHg1w"
 videoTitle: "This is what the US NEEDS to win the AI battle, GOP rep reveals"
 thumbnail: "https://img.youtube.com/vi/O_tOcBJHg1w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

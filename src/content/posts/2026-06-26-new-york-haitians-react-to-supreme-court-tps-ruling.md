@@ -29,8 +29,8 @@ keyMoments:
 videoId: "BG0-tAT_Fmw"
 videoTitle: "New York Haitians decry Supreme Court ruling"
 thumbnail: "https://img.youtube.com/vi/BG0-tAT_Fmw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

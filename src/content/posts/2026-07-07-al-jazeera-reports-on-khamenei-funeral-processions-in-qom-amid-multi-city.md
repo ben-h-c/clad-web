@@ -35,8 +35,8 @@ keyMoments:
 videoId: "I8cje6EFq9Y"
 videoTitle: "Body of Iran’s slain Supreme Leader Ali Khamenei arrives in Qom"
 thumbnail: "https://img.youtube.com/vi/I8cje6EFq9Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

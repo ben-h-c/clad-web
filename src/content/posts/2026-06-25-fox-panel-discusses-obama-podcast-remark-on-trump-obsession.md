@@ -34,8 +34,8 @@ keyMoments:
 videoId: "sUXScce_HHg"
 videoTitle: "‘The Five’: Obama says he 'obviously' has room in Trump's head..."
 thumbnail: "https://img.youtube.com/vi/sUXScce_HHg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

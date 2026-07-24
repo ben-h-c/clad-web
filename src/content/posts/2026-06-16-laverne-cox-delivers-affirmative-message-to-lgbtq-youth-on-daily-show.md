@@ -32,8 +32,8 @@ keyMoments:
 videoId: "cfYXVhkz9Nc"
 videoTitle: "@lavernecox reminds young LGBTQ+ people that they are divine, beautiful, and worthy"
 thumbnail: "https://img.youtube.com/vi/cfYXVhkz9Nc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

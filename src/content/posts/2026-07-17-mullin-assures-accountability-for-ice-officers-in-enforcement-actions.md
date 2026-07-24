@@ -29,8 +29,8 @@ keyMoments:
 videoId: "8T845aOw-jM"
 videoTitle: "Mullin Asked To Assure That ICE Officers Will Be Held To Account For Breaking Use Of Force Policy"
 thumbnail: "https://img.youtube.com/vi/8T845aOw-jM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

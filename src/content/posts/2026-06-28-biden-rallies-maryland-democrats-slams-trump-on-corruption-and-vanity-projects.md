@@ -40,8 +40,8 @@ keyMoments:
 videoId: "RIilzzImkJc"
 videoTitle: "FULL SPEECH: Former President Joe Biden Delivers Address At Maryland Democrat Event"
 thumbnail: "https://img.youtube.com/vi/RIilzzImkJc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

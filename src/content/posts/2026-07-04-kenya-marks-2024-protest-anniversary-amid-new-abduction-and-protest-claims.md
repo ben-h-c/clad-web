@@ -38,8 +38,8 @@ keyMoments:
 videoId: "BX_g0UM0UGo"
 videoTitle: "Kenya protesters and activists reported missing after demonstrations"
 thumbnail: "https://img.youtube.com/vi/BX_g0UM0UGo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

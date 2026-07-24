@@ -36,8 +36,8 @@ keyMoments:
 videoId: "dETa0ltMLVs"
 videoTitle: "&#39;Veterans should not pay the price&#39;: Scanlon slams Trump for &#39;using&#39; veterans&#39; money in Iran war"
 thumbnail: "https://img.youtube.com/vi/dETa0ltMLVs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

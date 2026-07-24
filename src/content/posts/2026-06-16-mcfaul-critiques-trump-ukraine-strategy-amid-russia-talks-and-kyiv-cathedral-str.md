@@ -35,8 +35,8 @@ keyMoments:
 videoId: "taRwmod8hp8"
 videoTitle: "'Putin is losing on the battlefield': McFaul says Trump 'needs a strategy' for Russia-Ukraine"
 thumbnail: "https://img.youtube.com/vi/taRwmod8hp8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "Vha0p7Ge728"
 videoTitle: "'That Is A Bit Absurd': Sanders Calls To Raise Cap On Social Security Contributions Above $184,500"
 thumbnail: "https://img.youtube.com/vi/Vha0p7Ge728/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

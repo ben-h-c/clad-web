@@ -37,8 +37,8 @@ keyMoments:
 videoId: "ElzPU9KIIOU"
 videoTitle: "There is a 'PROBLEM' if chipmakers can't get oil from the Middle East, expert says"
 thumbnail: "https://img.youtube.com/vi/ElzPU9KIIOU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "GXG9WU3NqZA"
 videoTitle: "B-52 bomber crash at US Air Force base in California kills 8"
 thumbnail: "https://img.youtube.com/vi/GXG9WU3NqZA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

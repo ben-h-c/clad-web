@@ -35,8 +35,8 @@ keyMoments:
 videoId: "RK74_9qukBI"
 videoTitle: "Karolina Wydra - Emmy-Nominated Role in “Pluribus” | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/RK74_9qukBI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

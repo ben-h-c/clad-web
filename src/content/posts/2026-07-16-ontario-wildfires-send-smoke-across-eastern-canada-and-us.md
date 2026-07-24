@@ -34,8 +34,8 @@ keyMoments:
 videoId: "65oIPRt8_C0"
 videoTitle: "Orange skies and toxic air: Ontario wildfires spread smoke across North America | DW News"
 thumbnail: "https://img.youtube.com/vi/65oIPRt8_C0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

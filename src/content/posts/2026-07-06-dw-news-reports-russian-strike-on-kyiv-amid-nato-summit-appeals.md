@@ -35,8 +35,8 @@ keyMoments:
 videoId: "7O_XdesiMCE"
 videoTitle: "A wave of Russian missiles and drones kill at least 21 people | DW News"
 thumbnail: "https://img.youtube.com/vi/7O_XdesiMCE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

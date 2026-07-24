@@ -40,10 +40,10 @@ politicians:
   - name: "Dan Newhouse"
     slug: "dan-newhouse"
 thumbnail: "https://img.youtube.com/vi/4bd2qPHt_Ak/hqdefault.jpg"
-mediaStyle: "modular"
-thumbFocusX: 18
-thumbFocusY: 28
-mediaNote: "Multi-panel headshots + dense bottom chyron; focus left on Newhouse per headline"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "16:9 band default"
 citations:
   - title: "McConnell's absence creates new farm bill roadblock"
     url: "https://www.eenews.net/articles/mcconnells-absence-creates-new-farm-bill-roadblock/"

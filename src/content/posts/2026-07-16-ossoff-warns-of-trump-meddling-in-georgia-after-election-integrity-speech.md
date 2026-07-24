@@ -33,8 +33,8 @@ keyMoments:
 videoId: "e8xTI_jlO28"
 videoTitle: "’The only way is victory’: Trump's speech sparks urgent warning from Sen. Ossoff"
 thumbnail: "https://img.youtube.com/vi/e8xTI_jlO28/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

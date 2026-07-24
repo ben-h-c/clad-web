@@ -36,8 +36,8 @@ keyMoments:
 videoId: "cvG9_gKGdSU"
 videoTitle: "Iran tightening grip on Hormuz as global shipping risks grow, analyst says"
 thumbnail: "https://img.youtube.com/vi/cvG9_gKGdSU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

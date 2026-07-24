@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Bd1uQwbGmmg"
 videoTitle: "'Hard to know what to believe': Questions mount about what's inside Trump's tentative Iran deal"
 thumbnail: "https://img.youtube.com/vi/Bd1uQwbGmmg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -30,8 +30,8 @@ keyMoments:
 videoId: "EeL01YYtnhI"
 videoTitle: "Russian missile attack strikes Kyiv, damaging homes and killing one"
 thumbnail: "https://img.youtube.com/vi/EeL01YYtnhI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

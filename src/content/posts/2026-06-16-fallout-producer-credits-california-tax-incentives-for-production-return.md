@@ -34,8 +34,8 @@ keyMoments:
 videoId: "urULxTf4aLk"
 videoTitle: "'Fallout' producer lauds tax breaks for luring show to Hollywood"
 thumbnail: "https://img.youtube.com/vi/urULxTf4aLk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

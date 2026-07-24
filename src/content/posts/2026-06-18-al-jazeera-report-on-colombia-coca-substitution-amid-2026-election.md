@@ -35,8 +35,8 @@ keyMoments:
 videoId: "tPN8iueyQhQ"
 videoTitle: "Coca production in Colombia: Coca crop shift faces uncertain future after election"
 thumbnail: "https://img.youtube.com/vi/tPN8iueyQhQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

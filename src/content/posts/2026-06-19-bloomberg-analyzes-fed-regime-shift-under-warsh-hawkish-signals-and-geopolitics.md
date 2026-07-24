@@ -32,8 +32,8 @@ keyMoments:
 videoId: "KV5LHt70XLg"
 videoTitle: "It's a Regime-Shift for US Real Yields: 3-Minutes MLIV"
 thumbnail: "https://img.youtube.com/vi/KV5LHt70XLg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

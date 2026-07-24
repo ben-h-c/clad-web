@@ -28,8 +28,8 @@ keyMoments:
 videoId: "CVCy59TSHkM"
 videoTitle: "BREAKING: House Narrowly Defeats Effort To Block Aid For Israel, With 103 Dems Joining Massie"
 thumbnail: "https://img.youtube.com/vi/CVCy59TSHkM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

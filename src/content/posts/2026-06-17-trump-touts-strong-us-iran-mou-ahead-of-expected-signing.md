@@ -32,8 +32,8 @@ keyMoments:
 videoId: "FUCg8WpyKps"
 videoTitle: "Trump says US-Iran MoU ‘very strong’, Iranian leaders ‘want to sign’"
 thumbnail: "https://img.youtube.com/vi/FUCg8WpyKps/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

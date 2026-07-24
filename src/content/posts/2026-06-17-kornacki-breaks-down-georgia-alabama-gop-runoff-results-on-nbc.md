@@ -32,8 +32,8 @@ keyMoments:
 videoId: "CoQJGixRHwo"
 videoTitle: "Watch Steve Kornacki analyze midterm primary election results | Kornacki Cam | NBC News"
 thumbnail: "https://img.youtube.com/vi/CoQJGixRHwo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

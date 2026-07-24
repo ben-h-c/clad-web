@@ -34,8 +34,8 @@ keyMoments:
 videoId: "YTq4zKvY0GQ"
 videoTitle: "USA TODAY explains what a 'super' El Niño could bring to the U.S."
 thumbnail: "https://img.youtube.com/vi/YTq4zKvY0GQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

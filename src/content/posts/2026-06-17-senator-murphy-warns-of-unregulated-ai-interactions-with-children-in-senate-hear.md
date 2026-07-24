@@ -35,8 +35,8 @@ keyMoments:
 videoId: "UhhwEEyD1oM"
 videoTitle: "Chris Murphy Sounds The Alarm On 'Completely Unregulated Interactions' Between Children And AI"
 thumbnail: "https://img.youtube.com/vi/UhhwEEyD1oM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

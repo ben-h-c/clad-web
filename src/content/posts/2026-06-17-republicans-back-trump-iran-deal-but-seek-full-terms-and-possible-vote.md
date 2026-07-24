@@ -31,8 +31,8 @@ keyMoments:
 videoId: "2gcUg6LOcvM"
 videoTitle: "Republicans in Congress back Trump, but they still want to see more about the new Iran deal"
 thumbnail: "https://img.youtube.com/vi/2gcUg6LOcvM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

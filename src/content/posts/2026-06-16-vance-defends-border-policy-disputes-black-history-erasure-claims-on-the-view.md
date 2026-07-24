@@ -37,8 +37,8 @@ keyMoments:
 videoId: "-NVC0_GrxYQ"
 videoTitle: "JD Vance: ‘Black History Is Not Erased From Public Spaces’ | The View"
 thumbnail: "https://img.youtube.com/vi/-NVC0_GrxYQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

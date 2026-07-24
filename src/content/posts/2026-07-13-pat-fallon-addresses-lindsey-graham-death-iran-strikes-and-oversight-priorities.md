@@ -37,8 +37,8 @@ keyMoments:
 videoId: "LdyeP0T5AJk"
 videoTitle: "You cannot trust the IRGC: Rep. Pat Fallon"
 thumbnail: "https://img.youtube.com/vi/LdyeP0T5AJk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

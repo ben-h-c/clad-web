@@ -35,8 +35,8 @@ keyMoments:
 videoId: "XgtKyF87J4k"
 videoTitle: "Pallone Strikes Bipartisan Deal to Keep Kids Safe Online"
 thumbnail: "https://img.youtube.com/vi/XgtKyF87J4k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

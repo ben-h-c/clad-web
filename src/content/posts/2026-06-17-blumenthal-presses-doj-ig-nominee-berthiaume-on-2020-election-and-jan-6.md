@@ -32,8 +32,8 @@ keyMoments:
 videoId: "gA_IFhgWINY"
 videoTitle: "'Who Won The 2020 Election?': Richard Blumenthal Shows Zero Mercy To Top DOJ Nominee"
 thumbnail: "https://img.youtube.com/vi/gA_IFhgWINY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

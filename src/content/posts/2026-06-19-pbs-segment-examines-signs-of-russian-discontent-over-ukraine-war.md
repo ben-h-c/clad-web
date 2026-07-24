@@ -37,8 +37,8 @@ keyMoments:
 videoId: "_92WZ3Up0Nw"
 videoTitle: "Why some Russians are breaking with Putin as Ukraine war drags on"
 thumbnail: "https://img.youtube.com/vi/_92WZ3Up0Nw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "TaEq5dnVFwo"
 videoTitle: "Extended interview: Sen. Raphael Warnock on Iran, Georgia redistricting and faith in America"
 thumbnail: "https://img.youtube.com/vi/TaEq5dnVFwo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

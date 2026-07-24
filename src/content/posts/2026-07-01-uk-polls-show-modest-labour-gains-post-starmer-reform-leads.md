@@ -35,8 +35,8 @@ keyMoments:
 videoId: "62nfRQjeRw0"
 videoTitle: "‘Labour Won’t SURVIVE' | Burnham NOT READY For No10, Poll Finds"
 thumbnail: "https://img.youtube.com/vi/62nfRQjeRw0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

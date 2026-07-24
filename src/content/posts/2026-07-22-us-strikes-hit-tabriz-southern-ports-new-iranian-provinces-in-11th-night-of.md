@@ -36,8 +36,8 @@ keyMoments:
 videoId: "GLz52IY2GzI"
 videoTitle: "US military carries out 11th consecutive night of air attacks against Iranian targets"
 thumbnail: "https://img.youtube.com/vi/GLz52IY2GzI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -39,8 +39,8 @@ keyMoments:
 videoId: "3HhN46zLMnc"
 videoTitle: "Latino support for Trump shrinks, with business owners focused on economy"
 thumbnail: "https://img.youtube.com/vi/3HhN46zLMnc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

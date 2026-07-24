@@ -34,8 +34,8 @@ keyMoments:
 videoId: "BGt5im0Q9-Y"
 videoTitle: "SpaceX Agrees to $60 Billion Cursor Takeover Post-IPO"
 thumbnail: "https://img.youtube.com/vi/BGt5im0Q9-Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "7Ojg8Uc1n84"
 videoTitle: "JD Vance: This is VERY DARK"
 thumbnail: "https://img.youtube.com/vi/7Ojg8Uc1n84/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "8Im5KrEmYEg"
 videoTitle: "'It's a monster': FRANCE 24 speaks to resident evacuated due to the Fontainebleau fire • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/8Im5KrEmYEg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

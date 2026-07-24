@@ -35,8 +35,8 @@ keyMoments:
 videoId: "kpi0aPogAt4"
 videoTitle: "PEACE IN PIECES?: US-Iran talks postponed amid Israel-Hezbollah tensions"
 thumbnail: "https://img.youtube.com/vi/kpi0aPogAt4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

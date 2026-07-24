@@ -39,8 +39,8 @@ keyMoments:
 videoId: "uiySUl0-50k"
 videoTitle: "Trump threatens Tehran after U.S. troops killed in attacks "
 thumbnail: "https://img.youtube.com/vi/uiySUl0-50k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

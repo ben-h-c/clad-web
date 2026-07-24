@@ -36,8 +36,8 @@ keyMoments:
 videoId: "2ligWsZg014"
 videoTitle: "Iran strikes INTENSIFY as Kuwait intercepts BARRAGE of missiles, drones"
 thumbnail: "https://img.youtube.com/vi/2ligWsZg014/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

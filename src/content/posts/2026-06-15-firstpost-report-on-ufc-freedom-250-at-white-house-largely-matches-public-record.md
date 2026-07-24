@@ -35,8 +35,8 @@ keyMoments:
 videoId: "AeCSmAw2QiQ"
 videoTitle: "Leaked Screenshots: Trump’s UFC Event at White House Was ‘Rigged’ |  Firstpost America | N18G"
 thumbnail: "https://img.youtube.com/vi/AeCSmAw2QiQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

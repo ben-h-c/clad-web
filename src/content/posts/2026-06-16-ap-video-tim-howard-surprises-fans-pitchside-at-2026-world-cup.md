@@ -28,8 +28,8 @@ keyMoments:
 videoId: "Rao3PpyF9g0"
 videoTitle: "Soccer fans spend time with Tim Howard on World Cup field"
 thumbnail: "https://img.youtube.com/vi/Rao3PpyF9g0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

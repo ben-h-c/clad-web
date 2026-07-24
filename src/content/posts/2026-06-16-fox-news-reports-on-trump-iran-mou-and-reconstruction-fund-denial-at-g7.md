@@ -35,8 +35,8 @@ keyMoments:
 videoId: "qCdFkFUdibc"
 videoTitle: "White House DENIES US will pay for Iran reconstruction fund: 'FAKE NEWS'"
 thumbnail: "https://img.youtube.com/vi/qCdFkFUdibc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

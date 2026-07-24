@@ -36,9 +36,9 @@ keyMoments:
 videoId: "9YxENdkKKXc"
 videoTitle: "Britain SLAPPED with fresh tariffs as Donald Trump ESCALATES trade war | REACTION"
 thumbnail: "https://img.youtube.com/vi/9YxENdkKKXc/maxresdefault.jpg"
-mediaNote: "Talking head: Trump face upper-middle"
-thumbFocusY: 28
-thumbFocusX: 48
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 citations:
   - title: "Trump threatens tariffs on 60 trading partners including UK ..."

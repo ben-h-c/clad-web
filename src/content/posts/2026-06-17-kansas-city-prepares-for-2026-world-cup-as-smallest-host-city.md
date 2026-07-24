@@ -31,8 +31,8 @@ keyMoments:
 videoId: "K2pY1chFH40"
 videoTitle: "How Kansas City is using the World Cup to try to become the U.S. soccer capital"
 thumbnail: "https://img.youtube.com/vi/K2pY1chFH40/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "8io0R7mfN_M"
 videoTitle: "What are the G7 leaders saying when they think no one is listening? | Power & Politics"
 thumbnail: "https://img.youtube.com/vi/8io0R7mfN_M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

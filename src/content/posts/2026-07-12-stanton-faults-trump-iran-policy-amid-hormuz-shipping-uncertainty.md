@@ -40,8 +40,8 @@ keyMoments:
 videoId: "1KSfwF7JWnU"
 videoTitle: "Stanton Warns Hormuz Closure Hurts Economy"
 thumbnail: "https://img.youtube.com/vi/1KSfwF7JWnU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

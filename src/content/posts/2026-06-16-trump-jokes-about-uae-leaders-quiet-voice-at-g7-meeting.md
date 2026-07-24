@@ -28,8 +28,8 @@ keyMoments:
 videoId: "Wxhb2maakME"
 videoTitle: "Trump To UAE Sheikh: 'See, When You're That Rich, You Can Speak That Lowly'"
 thumbnail: "https://img.youtube.com/vi/Wxhb2maakME/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "gdxsxpPEe2Q"
 videoTitle: "'They Are The Greatest Generation': Trump Honors WWII Veterans For Their Sacrifices"
 thumbnail: "https://img.youtube.com/vi/gdxsxpPEe2Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

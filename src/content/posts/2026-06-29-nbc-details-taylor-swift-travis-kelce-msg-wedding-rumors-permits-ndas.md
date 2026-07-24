@@ -35,8 +35,8 @@ keyMoments:
 videoId: "rbtCM_3HMx8"
 videoTitle: "Taylor Swift wedding invites were electronic, and could Stevie Nicks be performing?"
 thumbnail: "https://img.youtube.com/vi/rbtCM_3HMx8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

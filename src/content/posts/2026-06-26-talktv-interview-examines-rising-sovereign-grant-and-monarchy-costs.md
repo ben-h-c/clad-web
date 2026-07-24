@@ -36,8 +36,8 @@ keyMoments:
 videoId: "_-MO49kQy6g"
 videoTitle: "\"They Have Opened Pandora's BOX!\" | King Charles Reveals £12.9 Million Tax Bill in Historic First"
 thumbnail: "https://img.youtube.com/vi/_-MO49kQy6g/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

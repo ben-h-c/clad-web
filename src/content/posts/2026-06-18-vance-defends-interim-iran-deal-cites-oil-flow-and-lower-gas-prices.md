@@ -37,8 +37,8 @@ keyMoments:
 videoId: "SuQlvVID-j8"
 videoTitle: "JD Vance says Iran deal is 'already bearing real fruits' for Americans"
 thumbnail: "https://img.youtube.com/vi/SuQlvVID-j8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

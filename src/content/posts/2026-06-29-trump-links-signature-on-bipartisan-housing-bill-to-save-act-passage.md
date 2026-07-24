@@ -36,8 +36,8 @@ keyMoments:
 videoId: "ILrxmBKIpiY"
 videoTitle: "WATCH: Trump says he doesn’t know if he will sign the bipartisan bill to address housing costs"
 thumbnail: "https://img.youtube.com/vi/ILrxmBKIpiY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

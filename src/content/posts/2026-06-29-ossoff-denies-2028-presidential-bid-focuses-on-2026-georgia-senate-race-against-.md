@@ -36,8 +36,8 @@ keyMoments:
 videoId: "OSuwsbg4KQA"
 videoTitle: "Jon Ossoff: 'I Have No Interest In Running For President In 2028' And Am Focused On GA Senate Race"
 thumbnail: "https://img.youtube.com/vi/OSuwsbg4KQA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

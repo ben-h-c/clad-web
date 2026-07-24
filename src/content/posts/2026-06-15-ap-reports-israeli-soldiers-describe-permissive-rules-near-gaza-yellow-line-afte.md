@@ -35,8 +35,8 @@ keyMoments:
 videoId: "zz2OoBRajfo"
 videoTitle: "'To call it a ceasefire is a joke,' Israeli soldiers reveal grim Gaza reality"
 thumbnail: "https://img.youtube.com/vi/zz2OoBRajfo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

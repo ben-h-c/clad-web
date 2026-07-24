@@ -37,8 +37,8 @@ keyMoments:
 videoId: "w8jiiVEW8r4"
 videoTitle: "Nvidia's AI Bubble will POP from these 4 Headwinds"
 thumbnail: "https://img.youtube.com/vi/w8jiiVEW8r4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

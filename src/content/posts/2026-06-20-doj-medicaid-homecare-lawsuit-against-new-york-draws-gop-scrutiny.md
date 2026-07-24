@@ -32,8 +32,8 @@ keyMoments:
 videoId: "5jWKzaKT5qU"
 videoTitle: "'TIP OF THE ICEBERG': New York GOP lawmaker says Medicaid probe is just beginning"
 thumbnail: "https://img.youtube.com/vi/5jWKzaKT5qU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

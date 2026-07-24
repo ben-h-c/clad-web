@@ -40,8 +40,8 @@ keyMoments:
 videoId: "4cPm2AF-ZsU"
 videoTitle: "Andy & Anderson quiz Andy's parents about American statistics—it gets awkward"
 thumbnail: "https://img.youtube.com/vi/4cPm2AF-ZsU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

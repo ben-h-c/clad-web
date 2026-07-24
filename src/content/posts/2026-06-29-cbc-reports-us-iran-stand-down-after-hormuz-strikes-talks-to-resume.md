@@ -39,8 +39,8 @@ keyMoments:
 videoId: "88otZ3mGKbo"
 videoTitle: "U.S. and Iran agree to stop escalation and renew talks, U.S. official says"
 thumbnail: "https://img.youtube.com/vi/88otZ3mGKbo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

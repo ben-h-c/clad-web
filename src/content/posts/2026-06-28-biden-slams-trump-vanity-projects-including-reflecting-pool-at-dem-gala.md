@@ -37,8 +37,8 @@ keyMoments:
 videoId: "QMjFWNlXRNw"
 videoTitle: "'What A Loser!': Biden Rips Trump Over 'Narcissism And Incompetence' With Reflecting Pool Renovation"
 thumbnail: "https://img.youtube.com/vi/QMjFWNlXRNw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

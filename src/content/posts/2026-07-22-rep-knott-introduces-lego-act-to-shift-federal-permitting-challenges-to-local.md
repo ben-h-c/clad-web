@@ -37,8 +37,8 @@ politicians:
 thumbnail: "https://img.youtube.com/vi/4O2OVlJqaEg/hqdefault.jpg"
 mediaStyle: "overlay"
 thumbFocusX: 50
-thumbFocusY: 28
-mediaNote: "Strong talking-head of Rep. Knott; anchor on face upper-center above lower-third"
+thumbFocusY: 40
+mediaNote: "16:9 band default"
 citations:
   - title: "H.R.9653 - Limiting Excessive Government Obstruction Act"
     url: "https://www.congress.gov/bill/119th-congress/house-bill/9653"

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "BFMSGe8ZIKk"
 videoTitle: "Starmer responds to Burnham leadership challenge speculation"
 thumbnail: "https://img.youtube.com/vi/BFMSGe8ZIKk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

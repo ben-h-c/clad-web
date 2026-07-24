@@ -37,8 +37,8 @@ keyMoments:
 videoId: "LB-ktb4MDQM"
 videoTitle: "‘Long way from being fully open’: John Kirby breaks down status of Hormuz Strait amid disputes"
 thumbnail: "https://img.youtube.com/vi/LB-ktb4MDQM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

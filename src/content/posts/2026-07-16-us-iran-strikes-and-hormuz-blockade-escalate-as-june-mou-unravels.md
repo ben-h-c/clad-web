@@ -36,8 +36,8 @@ keyMoments:
 videoId: "VSDEWjyffG4"
 videoTitle: "A week of strikes shatters hope of a lasting US-Iran peace deal • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/VSDEWjyffG4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

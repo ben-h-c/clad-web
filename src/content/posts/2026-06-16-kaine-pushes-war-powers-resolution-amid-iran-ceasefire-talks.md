@@ -35,8 +35,8 @@ keyMoments:
 videoId: "v1MGhSqP9dA"
 videoTitle: "'We Are In Day 100 Plus Of This War': Tim Kaine Makes The Case For Iran War Powers Act"
 thumbnail: "https://img.youtube.com/vi/v1MGhSqP9dA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

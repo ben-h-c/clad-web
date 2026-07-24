@@ -35,8 +35,8 @@ keyMoments:
 videoId: "llspQoPX2rQ"
 videoTitle: "Why Nike Keeps Stumbling"
 thumbnail: "https://img.youtube.com/vi/llspQoPX2rQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

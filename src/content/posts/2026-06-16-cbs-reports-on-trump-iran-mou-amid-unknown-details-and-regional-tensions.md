@@ -34,8 +34,8 @@ keyMoments:
 videoId: "iAGeHDKifpc"
 videoTitle: "Trump insists Iran won't get U.S. funds, but details of agreement still unknown"
 thumbnail: "https://img.youtube.com/vi/iAGeHDKifpc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

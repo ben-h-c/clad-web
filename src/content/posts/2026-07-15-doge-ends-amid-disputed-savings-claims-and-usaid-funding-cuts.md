@@ -40,8 +40,8 @@ keyMoments:
 videoId: "xZzwY1W5UK4"
 videoTitle: "What DOGE saved, and what it cost | By the Numbers"
 thumbnail: "https://img.youtube.com/vi/xZzwY1W5UK4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

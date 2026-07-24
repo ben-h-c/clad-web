@@ -38,8 +38,8 @@ keyMoments:
 videoId: "vsPjE9f-oHU"
 videoTitle: "Saturday Morning Live | Saturday 4th July"
 thumbnail: "https://img.youtube.com/vi/vsPjE9f-oHU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

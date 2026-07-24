@@ -36,8 +36,8 @@ keyMoments:
 videoId: "ki3Iwjl4rKw"
 videoTitle: "but is it a STOCK MARKET CRASH? - SPY QQQ"
 thumbnail: "https://img.youtube.com/vi/ki3Iwjl4rKw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

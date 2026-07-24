@@ -38,8 +38,8 @@ keyMoments:
 videoId: "rU660OmtgU8"
 videoTitle: "&#39;You used our troops for votes&#39;: Sen. Duckworth&#39;s explosive attack on Trump, GOP over IVF promise"
 thumbnail: "https://img.youtube.com/vi/rU660OmtgU8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

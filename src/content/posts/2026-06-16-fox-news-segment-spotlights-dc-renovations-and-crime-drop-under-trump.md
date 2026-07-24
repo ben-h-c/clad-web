@@ -37,8 +37,8 @@ keyMoments:
 videoId: "XNd88MIaEiI"
 videoTitle: "'Jesse Watters Primetime' checks out DC's major facelift under Trump"
 thumbnail: "https://img.youtube.com/vi/XNd88MIaEiI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

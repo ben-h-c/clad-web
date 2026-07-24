@@ -36,8 +36,8 @@ keyMoments:
 videoId: "iOVaH4jVgQ8"
 videoTitle: "BC, Prairies under air quality and heat alerts"
 thumbnail: "https://img.youtube.com/vi/iOVaH4jVgQ8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

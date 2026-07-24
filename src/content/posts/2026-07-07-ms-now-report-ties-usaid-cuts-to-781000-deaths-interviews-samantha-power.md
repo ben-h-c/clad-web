@@ -37,8 +37,8 @@ keyMoments:
 videoId: "pkFFOY0eVpE"
 videoTitle: "Trump & Musk’s aid cuts are costing lives, former USAID boss Samantha Power says"
 thumbnail: "https://img.youtube.com/vi/pkFFOY0eVpE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

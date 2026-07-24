@@ -36,8 +36,8 @@ keyMoments:
 videoId: "m53fm7zU6fA"
 videoTitle: "Trump faces MAJOR questions about Iran agreement at G7 Summit"
 thumbnail: "https://img.youtube.com/vi/m53fm7zU6fA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

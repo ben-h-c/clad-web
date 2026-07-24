@@ -36,8 +36,8 @@ keyMoments:
 videoId: "xdJb7VcqIfU"
 videoTitle: "How Trump Is Reshaping Student Migration #education"
 thumbnail: "https://img.youtube.com/vi/xdJb7VcqIfU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

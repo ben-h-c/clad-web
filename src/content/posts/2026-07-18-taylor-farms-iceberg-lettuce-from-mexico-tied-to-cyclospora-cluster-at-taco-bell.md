@@ -34,8 +34,8 @@ keyMoments:
 videoId: "dLNDa5QguwQ"
 videoTitle: "Outbreak source was found — but it may not be over: Ex-CDC director | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/dLNDa5QguwQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

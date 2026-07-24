@@ -34,8 +34,8 @@ keyMoments:
 videoId: "ru-OH1VS0DM"
 videoTitle: "Ukraine launches 40-day drone strike campaign to pressure Russia to end war | DW News"
 thumbnail: "https://img.youtube.com/vi/ru-OH1VS0DM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

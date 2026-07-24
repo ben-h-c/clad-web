@@ -35,8 +35,8 @@ keyMoments:
 videoId: "wTNZgJ7ZD9s"
 videoTitle: "Sean Hannity tells Bernie Sanders to ‘lead by example’ #shorts #foxnews #news #fox"
 thumbnail: "https://img.youtube.com/vi/wTNZgJ7ZD9s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

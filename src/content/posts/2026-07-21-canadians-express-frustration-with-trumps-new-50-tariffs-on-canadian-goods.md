@@ -36,8 +36,8 @@ keyMoments:
 videoId: "poIO2xwzOL4"
 videoTitle: "Canadians react to new US tariffs. #BBCNews"
 thumbnail: "https://img.youtube.com/vi/poIO2xwzOL4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

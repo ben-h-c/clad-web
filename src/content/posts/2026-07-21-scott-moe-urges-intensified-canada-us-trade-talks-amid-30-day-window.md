@@ -34,8 +34,8 @@ keyMoments:
 videoId: "hhmdaUkR8HU"
 videoTitle: "Premier Moe: ‘It’s time for us to intensify our negotiations’ | Power & Politics"
 thumbnail: "https://img.youtube.com/vi/hhmdaUkR8HU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

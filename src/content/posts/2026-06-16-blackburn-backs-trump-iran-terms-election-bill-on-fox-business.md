@@ -36,8 +36,8 @@ keyMoments:
 videoId: "m5qT-8LqDhc"
 videoTitle: "'DON'T GIVE THEM ANY MONEY': Blackburn supports tough Iran conditions"
 thumbnail: "https://img.youtube.com/vi/m5qT-8LqDhc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

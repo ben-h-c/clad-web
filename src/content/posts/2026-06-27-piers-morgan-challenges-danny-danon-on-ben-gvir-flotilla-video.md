@@ -34,8 +34,8 @@ keyMoments:
 videoId: "oavK4VzZYJo"
 videoTitle: "Piers Morgan Challenges Danny Danon On Flotilla Activists Allegedly Abused By Israeli Forces"
 thumbnail: "https://img.youtube.com/vi/oavK4VzZYJo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

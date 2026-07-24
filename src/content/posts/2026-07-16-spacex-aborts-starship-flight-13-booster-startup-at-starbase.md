@@ -34,8 +34,8 @@ keyMoments:
 videoId: "hLRt_8Xs5jE"
 videoTitle: "LIVE: SpaceX launch Starship's 13th test flight from Texas"
 thumbnail: "https://img.youtube.com/vi/hLRt_8Xs5jE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

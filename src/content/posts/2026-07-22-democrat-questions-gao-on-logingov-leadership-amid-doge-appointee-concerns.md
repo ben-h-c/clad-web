@@ -35,8 +35,8 @@ keyMoments:
 videoId: "-4OOJuSvd_M"
 videoTitle: "&#39;Would It Be Very Concerning To You...&#39;: Randall Asks GAO Official About DOGE&#39;s Work At Login.gov"
 thumbnail: "https://img.youtube.com/vi/-4OOJuSvd_M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

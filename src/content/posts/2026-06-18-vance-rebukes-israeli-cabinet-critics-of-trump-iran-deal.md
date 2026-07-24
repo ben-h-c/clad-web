@@ -31,8 +31,8 @@ keyMoments:
 videoId: "09MIp83X608"
 videoTitle: "Vance warns Israeli critics over Iran deal: Trump is your ‘only powerful’ ally"
 thumbnail: "https://img.youtube.com/vi/09MIp83X608/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

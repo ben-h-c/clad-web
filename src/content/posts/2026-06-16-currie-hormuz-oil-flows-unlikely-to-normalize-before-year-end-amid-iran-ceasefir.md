@@ -34,8 +34,8 @@ keyMoments:
 videoId: "n1AB4ohgIms"
 videoTitle: "Jeff Currie Says Hormuz Flows May Not Normalize Until End of the Year"
 thumbnail: "https://img.youtube.com/vi/n1AB4ohgIms/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

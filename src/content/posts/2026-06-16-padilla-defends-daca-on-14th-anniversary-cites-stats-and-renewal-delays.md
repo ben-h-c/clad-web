@@ -39,8 +39,8 @@ keyMoments:
 videoId: "36dkjPxCix0"
 videoTitle: "'They Deserve An Opportunity To Continue To Be Part Of This Country': Alex Padilla Defends DACA"
 thumbnail: "https://img.youtube.com/vi/36dkjPxCix0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

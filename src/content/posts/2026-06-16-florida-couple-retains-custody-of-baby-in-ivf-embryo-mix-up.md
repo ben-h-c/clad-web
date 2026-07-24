@@ -34,8 +34,8 @@ keyMoments:
 videoId: "hJua2S0bBrI"
 videoTitle: "How custody agreement was reached in IVF mix-up"
 thumbnail: "https://img.youtube.com/vi/hJua2S0bBrI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

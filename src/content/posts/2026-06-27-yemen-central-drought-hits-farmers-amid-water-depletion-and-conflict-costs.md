@@ -35,8 +35,8 @@ keyMoments:
 videoId: "wsoKJydaZos"
 videoTitle: "Central Yemen faces deepening drought: Equipment restrictions block water access for famers"
 thumbnail: "https://img.youtube.com/vi/wsoKJydaZos/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

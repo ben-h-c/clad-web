@@ -36,8 +36,8 @@ keyMoments:
 videoId: "B3jCr-ANZJc"
 videoTitle: "Can Dems bring grocery prices DOWN? Delivering on affordability | Prove It! with Batya"
 thumbnail: "https://img.youtube.com/vi/B3jCr-ANZJc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

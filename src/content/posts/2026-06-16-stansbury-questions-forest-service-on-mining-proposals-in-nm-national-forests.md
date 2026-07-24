@@ -36,8 +36,8 @@ keyMoments:
 videoId: "HUL6125tMYk"
 videoTitle: "'There Are Other Places To Mine': Stansbury Decries Proposals To Open National Forests To Mining"
 thumbnail: "https://img.youtube.com/vi/HUL6125tMYk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

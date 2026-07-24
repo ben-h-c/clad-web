@@ -33,8 +33,8 @@ keyMoments:
 videoId: "E6CUjCVWYZ0"
 videoTitle: "YouTube still recommends eating disorder videos to teens, research finds. #BBCNews"
 thumbnail: "https://img.youtube.com/vi/E6CUjCVWYZ0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

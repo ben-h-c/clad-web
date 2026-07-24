@@ -28,8 +28,8 @@ keyMoments:
 videoId: "8tojE6icQS4"
 videoTitle: "'If I don't like it, we'll go back to shooting,' Trump on Iran deal"
 thumbnail: "https://img.youtube.com/vi/8tojE6icQS4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

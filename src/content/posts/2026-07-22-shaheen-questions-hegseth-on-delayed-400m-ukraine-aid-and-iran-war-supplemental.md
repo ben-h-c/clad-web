@@ -37,8 +37,8 @@ keyMoments:
 videoId: "CyG0mg_BIvE"
 videoTitle: "‘I Want You To Answer My Question!’: Shaheen Leaves Hegseth Scrambling Over Trump’s Iran Spending"
 thumbnail: "https://img.youtube.com/vi/CyG0mg_BIvE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

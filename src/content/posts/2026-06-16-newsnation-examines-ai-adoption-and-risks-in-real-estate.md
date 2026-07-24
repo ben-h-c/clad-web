@@ -34,8 +34,8 @@ keyMoments:
 videoId: "20T-hU9UhbY"
 videoTitle: "How AI is Secretly Reshaping the Real Estate Market | Hot Take with Jesse Weber"
 thumbnail: "https://img.youtube.com/vi/20T-hU9UhbY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

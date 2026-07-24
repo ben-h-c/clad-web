@@ -31,8 +31,8 @@ keyMoments:
 videoId: "WR3QfKrm0Ok"
 videoTitle: "Cop who rescued woman in crisis on Brooklyn Bridge was on his 3rd day with unit"
 thumbnail: "https://img.youtube.com/vi/WR3QfKrm0Ok/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Qj1Z8juF0Tk"
 videoTitle: "Andy Burnham eyes PM bid using Manchester's record as a national blueprint"
 thumbnail: "https://img.youtube.com/vi/Qj1Z8juF0Tk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

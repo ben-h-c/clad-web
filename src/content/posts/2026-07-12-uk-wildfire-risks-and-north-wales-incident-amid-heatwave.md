@@ -34,8 +34,8 @@ keyMoments:
 videoId: "5mDZuRB3csw"
 videoTitle: "UK facing 'exceptional' risk of wildfires this week"
 thumbnail: "https://img.youtube.com/vi/5mDZuRB3csw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

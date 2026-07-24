@@ -37,8 +37,8 @@ keyMoments:
 videoId: "0y28p0jqPro"
 videoTitle: "Senators John Fetterman and Dave McCormick: Bipartisanship, Money in DC, Datacenters, Graham Platner"
 thumbnail: "https://img.youtube.com/vi/0y28p0jqPro/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "ziPTv3L1PNs"
 videoTitle: "Apple hikes prices as memory chip costs skyrocket"
 thumbnail: "https://img.youtube.com/vi/ziPTv3L1PNs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

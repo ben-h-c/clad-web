@@ -31,8 +31,8 @@ keyMoments:
 videoId: "IaT_h3bMUEA"
 videoTitle: "Taxpayer money expected to fund half of Trump's White House ballroom project, Washington Post finds"
 thumbnail: "https://img.youtube.com/vi/IaT_h3bMUEA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

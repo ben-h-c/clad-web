@@ -35,8 +35,8 @@ keyMoments:
 videoId: "B6wwEaDHwRY"
 videoTitle: "Why are players threatening to strike at Wimbledon?"
 thumbnail: "https://img.youtube.com/vi/B6wwEaDHwRY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

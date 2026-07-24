@@ -31,8 +31,8 @@ keyMoments:
 videoId: "ttlapjBqV5I"
 videoTitle: "Man arrested for attempted murder after three-year-old boy critically injured by crocodile"
 thumbnail: "https://img.youtube.com/vi/ttlapjBqV5I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

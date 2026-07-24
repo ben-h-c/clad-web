@@ -35,8 +35,8 @@ keyMoments:
 videoId: "1zVbjKwv7pk"
 videoTitle: "Sen. Thune on FISA and DNI Nominee"
 thumbnail: "https://img.youtube.com/vi/1zVbjKwv7pk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

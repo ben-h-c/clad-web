@@ -36,8 +36,8 @@ keyMoments:
 videoId: "CKBUpSFFWYo"
 videoTitle: "NAR reports shocking U.S. housing shift (this changes everything)"
 thumbnail: "https://img.youtube.com/vi/CKBUpSFFWYo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

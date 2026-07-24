@@ -35,8 +35,8 @@ keyMoments:
 videoId: "l_nwN811Ebc"
 videoTitle: "Trump says he will speak 'no matter what' on July Fourth"
 thumbnail: "https://img.youtube.com/vi/l_nwN811Ebc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

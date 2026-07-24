@@ -35,8 +35,8 @@ keyMoments:
 videoId: "6EgQ0a5lwNY"
 videoTitle: "Top Ten News: 2026 Post Session Recap"
 thumbnail: "https://img.youtube.com/vi/6EgQ0a5lwNY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "miM7BRYDw5Q"
 videoTitle: "Sadiq Khan appointed to House of Lords"
 thumbnail: "https://img.youtube.com/vi/miM7BRYDw5Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

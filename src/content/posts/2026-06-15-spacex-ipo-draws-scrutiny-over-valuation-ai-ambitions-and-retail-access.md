@@ -39,8 +39,8 @@ keyMoments:
 videoId: "jNAAG3Ma5K8"
 videoTitle: "The SpaceX IPO Is Wild"
 thumbnail: "https://img.youtube.com/vi/jNAAG3Ma5K8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -30,8 +30,8 @@ keyMoments:
 videoId: "brHxBaelv8s"
 videoTitle: "Luigi Mangione to assert psychiatric defense at UnitedHealthcare CEO murder trail | NEWSNATION"
 thumbnail: "https://img.youtube.com/vi/brHxBaelv8s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

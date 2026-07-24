@@ -35,8 +35,8 @@ keyMoments:
 videoId: "tez61p7D68Y"
 videoTitle: "Judge’s Stunning Ruling Sparks New Impeachment Debate Across Washington!"
 thumbnail: "https://img.youtube.com/vi/tez61p7D68Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "WI5RghBUwe0"
 videoTitle: "VP JD Vance Responds To Critics Of President Trump's Iran Peace Deal"
 thumbnail: "https://img.youtube.com/vi/WI5RghBUwe0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

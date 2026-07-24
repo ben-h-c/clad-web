@@ -32,8 +32,8 @@ keyMoments:
 videoId: "4QpVj24-DS0"
 videoTitle: "Feds aim to finalize ASEAN-Canada free-trade deal \"this year\": Anand"
 thumbnail: "https://img.youtube.com/vi/4QpVj24-DS0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

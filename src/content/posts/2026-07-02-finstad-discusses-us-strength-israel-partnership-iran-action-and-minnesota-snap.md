@@ -45,10 +45,10 @@ politicians:
   - name: "Tim Walz"
     slug: "tim-walz"
 thumbnail: "https://img.youtube.com/vi/qbfjzW4s3oI/maxresdefault.jpg"
-mediaStyle: "modular"
-thumbFocusX: 48
-thumbFocusY: 28
-mediaNote: "Multi-panel show graphic with dense left text and bottom logo; crop to Finstad face as headline subject"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "16:9 band default"
 citations:
   - title: "Minnesota experiences increase in SNAP payment errors"
     url: "https://www.kttc.com/2026/06/26/minnesota-experiences-increase-snap-payment-errors-new-federal-report-says/"

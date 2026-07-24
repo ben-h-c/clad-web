@@ -34,8 +34,8 @@ keyMoments:
 videoId: "DtREVFPawTw"
 videoTitle: "Ten-Man USA Ends 24-Year Wait for World Cup Knockout Win"
 thumbnail: "https://img.youtube.com/vi/DtREVFPawTw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

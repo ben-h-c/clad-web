@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Z06lHdkHRn4"
 videoTitle: "Britain's Newsroom | Friday 3rd July"
 thumbnail: "https://img.youtube.com/vi/Z06lHdkHRn4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

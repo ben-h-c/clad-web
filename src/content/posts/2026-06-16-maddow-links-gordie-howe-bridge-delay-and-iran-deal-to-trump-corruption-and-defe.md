@@ -38,8 +38,8 @@ keyMoments:
 videoId: "ZLEqcbz1Qy0"
 videoTitle: "The Rachel Maddow Show - June 15 | Audio Only"
 thumbnail: "https://img.youtube.com/vi/ZLEqcbz1Qy0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

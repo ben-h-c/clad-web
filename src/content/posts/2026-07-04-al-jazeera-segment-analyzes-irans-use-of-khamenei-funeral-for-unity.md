@@ -34,8 +34,8 @@ keyMoments:
 videoId: "FKJCumG5xqA"
 videoTitle: "Iran uses Khamenei funeral ceremonies to project unity amid leadership uncertainty: Analysis"
 thumbnail: "https://img.youtube.com/vi/FKJCumG5xqA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

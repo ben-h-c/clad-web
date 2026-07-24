@@ -37,8 +37,8 @@ keyMoments:
 videoId: "ytvgsAKD5kg"
 videoTitle: "Massive Russian air assault on Kyiv kills at least 27"
 thumbnail: "https://img.youtube.com/vi/ytvgsAKD5kg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

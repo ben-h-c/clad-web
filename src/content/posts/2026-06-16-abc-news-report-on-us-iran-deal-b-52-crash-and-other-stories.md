@@ -35,8 +35,8 @@ keyMoments:
 videoId: "dB4HkzQpSfM"
 videoTitle: "ABC News Live Prime: June 15, 2026"
 thumbnail: "https://img.youtube.com/vi/dB4HkzQpSfM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

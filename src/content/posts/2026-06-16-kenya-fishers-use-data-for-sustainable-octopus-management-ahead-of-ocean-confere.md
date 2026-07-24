@@ -35,8 +35,8 @@ keyMoments:
 videoId: "dxEwmaKDvtM"
 videoTitle: "Kenya coastal fishers turn to data to manage dwindling catches"
 thumbnail: "https://img.youtube.com/vi/dxEwmaKDvtM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

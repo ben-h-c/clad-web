@@ -35,8 +35,8 @@ keyMoments:
 videoId: "d5hXqipSuyg"
 videoTitle: "'It Is Important To The American People—Is Important To The Future': Johnson Lauds SAVE America Act"
 thumbnail: "https://img.youtube.com/vi/d5hXqipSuyg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "7WRlLNqJc6Y"
 videoTitle: "Henry Nowak BREAKING: IOPC considering whether migrant hotel protests influenced officers in arrest"
 thumbnail: "https://img.youtube.com/vi/7WRlLNqJc6Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

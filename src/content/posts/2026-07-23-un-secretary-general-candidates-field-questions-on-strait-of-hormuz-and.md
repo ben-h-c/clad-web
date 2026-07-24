@@ -36,8 +36,8 @@ keyMoments:
 videoId: "lhgE7niQx8k"
 videoTitle: "UN Secretary-General candidates debate global crises and the future of the organisation"
 thumbnail: "https://img.youtube.com/vi/lhgE7niQx8k/maxresdefault.jpg"
-mediaNote: "center trio faces upper-middle; avoid bottom text third"
-thumbFocusY: 28
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

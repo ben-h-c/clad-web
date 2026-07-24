@@ -32,8 +32,8 @@ keyMoments:
 videoId: "N7Py3aelU_U"
 videoTitle: "US President Trump meets with ‘fan of America' Iraqi PM Ali al-Zaidi | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/N7Py3aelU_U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

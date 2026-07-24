@@ -39,8 +39,8 @@ keyMoments:
 videoId: "pFnrL5fKHps"
 videoTitle: "Carlo Rovelli: Are we sleepwalking towards nuclear war?"
 thumbnail: "https://img.youtube.com/vi/pFnrL5fKHps/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "v-NNEhlgAUo"
 videoTitle: "'He Corrupts Pretty Much Whatever He Touches': Hickenlooper Slams Trump, Likens Him To King Midas"
 thumbnail: "https://img.youtube.com/vi/v-NNEhlgAUo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "ii9RtOBO9fM"
 videoTitle: "EXPLAINER: Has Donald Trump turned against Israel?"
 thumbnail: "https://img.youtube.com/vi/ii9RtOBO9fM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

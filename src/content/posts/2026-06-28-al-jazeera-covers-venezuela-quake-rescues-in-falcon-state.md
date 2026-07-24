@@ -34,8 +34,8 @@ keyMoments:
 videoId: "QTDvkjWCWqs"
 videoTitle: "Venezuela Earthquake: Rescue Teams Race Against Time After Deadly Quakes"
 thumbnail: "https://img.youtube.com/vi/QTDvkjWCWqs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

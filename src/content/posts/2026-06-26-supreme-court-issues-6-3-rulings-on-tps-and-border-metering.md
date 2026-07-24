@@ -34,8 +34,8 @@ keyMoments:
 videoId: "CIDVIUK1lFU"
 videoTitle: "Supreme Court hands Trump TWO MAJOR WINS"
 thumbnail: "https://img.youtube.com/vi/CIDVIUK1lFU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

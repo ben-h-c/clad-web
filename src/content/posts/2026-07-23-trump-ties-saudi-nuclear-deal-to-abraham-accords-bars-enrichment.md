@@ -36,9 +36,9 @@ keyMoments:
 videoId: "qUWJQHD2yco"
 videoTitle: "Trump reveals NEW terms in Saudi Arabia nuclear deal"
 thumbnail: "https://img.youtube.com/vi/qUWJQHD2yco/maxresdefault.jpg"
-mediaNote: "Upper-middle faces of Trump and Saudi leader during handshake; avoid lower third and edges"
-thumbFocusY: 28
-thumbFocusX: 55
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"

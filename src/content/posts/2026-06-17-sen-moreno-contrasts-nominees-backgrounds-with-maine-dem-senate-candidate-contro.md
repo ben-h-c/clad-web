@@ -35,8 +35,8 @@ keyMoments:
 videoId: "ka7naMR2o8k"
 videoTitle: "Sen. Moreno Asks Nominees IF They Have a Nazi Tattoo"
 thumbnail: "https://img.youtube.com/vi/ka7naMR2o8k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

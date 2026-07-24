@@ -32,8 +32,8 @@ keyMoments:
 videoId: "HZ_SnOa2sm0"
 videoTitle: "Iran World Cup team ordered out of US right after opener"
 thumbnail: "https://img.youtube.com/vi/HZ_SnOa2sm0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

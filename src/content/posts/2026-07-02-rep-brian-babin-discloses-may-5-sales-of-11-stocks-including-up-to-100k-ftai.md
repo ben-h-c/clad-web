@@ -38,10 +38,10 @@ politicians:
   - name: "Brian Babin"
     slug: "brian-babin"
 thumbnail: "https://img.youtube.com/vi/V3XND-yjue0/maxresdefault.jpg"
-mediaStyle: "modular"
-thumbFocusX: 22
-thumbFocusY: 28
-mediaNote: "Split graphic; anchor on Babin’s face left, avoid dense right-side text for thumb"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "16:9 band default"
 citations:
   - title: "Representative Brian Babin Has Filed a New Financial Disclosure"
     url: "https://www.moomoo.com/news/post/71773958/representative-brian-babin-has-filed-a-new-financial-disclosure-here"

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "GwD124mCaoc"
 videoTitle: "Jeremy Allen White sad to say goodbye to 'The Bear'"
 thumbnail: "https://img.youtube.com/vi/GwD124mCaoc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

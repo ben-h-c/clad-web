@@ -32,8 +32,8 @@ keyMoments:
 videoId: "JDLYm-NHass"
 videoTitle: "White House accuses Smithsonian of presenting 'a radical view of American history'"
 thumbnail: "https://img.youtube.com/vi/JDLYm-NHass/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "I1jbZ04do5s"
 videoTitle: "Teens describe fleeing wildfires by boat"
 thumbnail: "https://img.youtube.com/vi/I1jbZ04do5s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

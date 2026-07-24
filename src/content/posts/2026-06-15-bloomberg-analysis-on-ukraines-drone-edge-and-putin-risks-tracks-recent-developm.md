@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Na2g58KkSiQ"
 videoTitle: "Ukraine is winning the war with Russia, but Putin is taking a dangerous step"
 thumbnail: "https://img.youtube.com/vi/Na2g58KkSiQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

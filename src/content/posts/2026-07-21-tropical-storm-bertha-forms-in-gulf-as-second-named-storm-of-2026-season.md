@@ -35,8 +35,8 @@ keyMoments:
 videoId: "CAbxEygbj5s"
 videoTitle: "Path tracker: Tropical Storm Bertha forms in the Gulf"
 thumbnail: "https://img.youtube.com/vi/CAbxEygbj5s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

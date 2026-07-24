@@ -34,8 +34,8 @@ keyMoments:
 videoId: "3cS2FZcoWPM"
 videoTitle: "Multi-billion dollar plan sparks Albania's 'Flamingo Revolution' | DW News"
 thumbnail: "https://img.youtube.com/vi/3cS2FZcoWPM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

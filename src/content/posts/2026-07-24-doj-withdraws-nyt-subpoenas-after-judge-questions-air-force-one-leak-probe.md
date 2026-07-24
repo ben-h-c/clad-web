@@ -36,9 +36,9 @@ keyMoments:
 videoId: "AFkNf1x_gwg"
 videoTitle: "DOJ withdraws New York Times journalist subpoenas over Air Force One reporting"
 thumbnail: "https://img.youtube.com/vi/AFkNf1x_gwg/maxresdefault.jpg"
-mediaNote: "Trump face/gesture upper-right; keep AF1 stairs; avoid bottom third text overlay"
-thumbFocusY: 28
-thumbFocusX: 65
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 citations:
   - title: "Justice Department agrees to withdraw subpoenas of New York Times journalists"

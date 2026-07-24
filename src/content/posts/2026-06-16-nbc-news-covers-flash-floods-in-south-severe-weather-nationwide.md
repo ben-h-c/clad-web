@@ -35,8 +35,8 @@ keyMoments:
 videoId: "KtDAH2YI73M"
 videoTitle: "Flash floods threaten several Southern states"
 thumbnail: "https://img.youtube.com/vi/KtDAH2YI73M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

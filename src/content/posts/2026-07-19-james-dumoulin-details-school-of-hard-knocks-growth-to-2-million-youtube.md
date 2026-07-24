@@ -35,8 +35,8 @@ keyMoments:
 videoId: "PAnzIv0l7yA"
 videoTitle: "School of Hard Knocks' James Dumoulin gives business advice to the younger generation"
 thumbnail: "https://img.youtube.com/vi/PAnzIv0l7yA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

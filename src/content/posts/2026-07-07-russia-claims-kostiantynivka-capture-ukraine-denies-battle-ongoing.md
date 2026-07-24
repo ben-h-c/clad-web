@@ -34,8 +34,8 @@ keyMoments:
 videoId: "T8CeAOneK10"
 videoTitle: "Russia claims capture of Kostiantynivka as battle for eastern Ukraine intensifies"
 thumbnail: "https://img.youtube.com/vi/T8CeAOneK10/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

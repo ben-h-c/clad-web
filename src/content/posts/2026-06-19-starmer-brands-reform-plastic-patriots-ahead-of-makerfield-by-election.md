@@ -33,8 +33,8 @@ keyMoments:
 videoId: "g1JJjcVa9D0"
 videoTitle: "\"PLASTIC PATRIOTS!\" Keir Starmer issues rallying cry against Nigel Farage's Reform UK"
 thumbnail: "https://img.youtube.com/vi/g1JJjcVa9D0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

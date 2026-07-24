@@ -34,8 +34,8 @@ keyMoments:
 videoId: "jtvsjkeJgus"
 videoTitle: "Why Calgary is wrangling in late night Stampede noise"
 thumbnail: "https://img.youtube.com/vi/jtvsjkeJgus/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

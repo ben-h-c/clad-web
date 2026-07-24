@@ -34,8 +34,8 @@ keyMoments:
 videoId: "hsYyBI42Qg0"
 videoTitle: "South Korea to ease civilian restrictions near North border"
 thumbnail: "https://img.youtube.com/vi/hsYyBI42Qg0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

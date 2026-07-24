@@ -35,8 +35,8 @@ keyMoments:
 videoId: "MM0WqODa4-Y"
 videoTitle: "'College Athletics Are In Crisis': Maria Cantwell Calls For Changes To NIL Deals"
 thumbnail: "https://img.youtube.com/vi/MM0WqODa4-Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

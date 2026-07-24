@@ -37,8 +37,8 @@ keyMoments:
 videoId: "PA9t0mDy6QM"
 videoTitle: "Fox News Highlights - July 2nd, 2026"
 thumbnail: "https://img.youtube.com/vi/PA9t0mDy6QM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

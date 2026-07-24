@@ -35,8 +35,8 @@ keyMoments:
 videoId: "9LZed2aISvY"
 videoTitle: "America 250: Revolutionary Reenactors"
 thumbnail: "https://img.youtube.com/vi/9LZed2aISvY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

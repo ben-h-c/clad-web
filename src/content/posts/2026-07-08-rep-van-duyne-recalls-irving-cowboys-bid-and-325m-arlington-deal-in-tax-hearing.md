@@ -36,8 +36,8 @@ keyMoments:
 videoId: "0ShykVu9r9c"
 videoTitle: "&#39;They Made The Cities Compete&#39;: Beth Van Duyne Demands Greater Accountability For Sports Teams"
 thumbnail: "https://img.youtube.com/vi/0ShykVu9r9c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

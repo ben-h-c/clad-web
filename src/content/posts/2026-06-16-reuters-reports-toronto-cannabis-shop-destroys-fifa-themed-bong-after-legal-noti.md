@@ -32,8 +32,8 @@ keyMoments:
 videoId: "c8C1yRF9Asc"
 videoTitle: "Toronto pot shop rides high over FIFA legal notice"
 thumbnail: "https://img.youtube.com/vi/c8C1yRF9Asc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

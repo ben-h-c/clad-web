@@ -35,8 +35,8 @@ keyMoments:
 videoId: "60Yibxsj5Vg"
 videoTitle: "DeepSeek dodges addition to US trade blacklist"
 thumbnail: "https://img.youtube.com/vi/60Yibxsj5Vg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

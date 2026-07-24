@@ -36,8 +36,8 @@ keyMoments:
 videoId: "yvsXT1EnogI"
 videoTitle: "JUST IN: Leaked details reveal NEW info on US-Iran peace deal"
 thumbnail: "https://img.youtube.com/vi/yvsXT1EnogI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

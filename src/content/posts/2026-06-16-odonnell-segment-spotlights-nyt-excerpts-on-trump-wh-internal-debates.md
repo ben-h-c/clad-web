@@ -40,8 +40,8 @@ keyMoments:
 videoId: "DENBq1mypg0"
 videoTitle: "The Last Word with Lawrence O'Donnell - June 15 | Audio Only"
 thumbnail: "https://img.youtube.com/vi/DENBq1mypg0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

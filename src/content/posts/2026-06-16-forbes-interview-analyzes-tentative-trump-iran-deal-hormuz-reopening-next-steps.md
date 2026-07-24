@@ -35,8 +35,8 @@ keyMoments:
 videoId: "WWp63KCIjgE"
 videoTitle: "What Happens Next With Trump's Iran Peace Deal? Retired Rear Admiral Explains"
 thumbnail: "https://img.youtube.com/vi/WWp63KCIjgE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

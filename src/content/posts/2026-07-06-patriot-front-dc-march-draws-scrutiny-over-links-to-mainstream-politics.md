@@ -40,8 +40,8 @@ keyMoments:
 videoId: "slaRLAC948o"
 videoTitle: "'Straight up Nazis': Author slams masked white supremacist group marching through D.C."
 thumbnail: "https://img.youtube.com/vi/slaRLAC948o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

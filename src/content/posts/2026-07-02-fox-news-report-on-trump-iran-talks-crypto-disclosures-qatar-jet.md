@@ -35,8 +35,8 @@ keyMoments:
 videoId: "J71y-LkJH2o"
 videoTitle: "DEAL OR STRIKE?: Trump weighs military options as Iran talks continue…"
 thumbnail: "https://img.youtube.com/vi/J71y-LkJH2o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

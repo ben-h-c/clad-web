@@ -35,8 +35,8 @@ keyMoments:
 videoId: "9KfzL8shE5k"
 videoTitle: "Troy Downing Asks USFS Chief About Importance Of State And Local Partnerships In Forest Management"
 thumbnail: "https://img.youtube.com/vi/9KfzL8shE5k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

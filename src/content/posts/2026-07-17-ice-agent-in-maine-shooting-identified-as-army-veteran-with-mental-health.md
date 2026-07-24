@@ -33,8 +33,8 @@ keyMoments:
 videoId: "Iu88SLwrI0c"
 videoTitle: "What We Know About Suspected ICE Agent In Maine Shooting—Amid Reports Of Abuse And Mental Illness"
 thumbnail: "https://img.youtube.com/vi/Iu88SLwrI0c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

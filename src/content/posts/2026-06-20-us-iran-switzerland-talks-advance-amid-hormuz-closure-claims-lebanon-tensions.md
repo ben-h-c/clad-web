@@ -38,8 +38,8 @@ keyMoments:
 videoId: "YdRP4BiTJ5g"
 videoTitle: "US and Iran prepare for crucial talks in Switzerland"
 thumbnail: "https://img.youtube.com/vi/YdRP4BiTJ5g/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

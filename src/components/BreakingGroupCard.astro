@@ -1,8 +1,7 @@
 ---
 /**
- * Developing-story group card — presentation follows the newest member that
- * has a still (per-post mediaStyle + focus), so group tiles stay coherent with
- * the lead report's publish-time framing.
+ * Developing-story group card — same 16:9 photo band + type panel as ReportCard
+ * so strip tiles never portrait-zoom landscape stills.
  */
 import { displayableThumb } from "~/lib/imagePolicy";
 import {
@@ -50,28 +49,27 @@ const leanCompact =
         ? `${Math.abs(avgLean)}% L`
         : `${Math.abs(avgLean)}% R`;
 
-const wantOverlay = !!thumb && media.mediaStyle === "overlay";
-const wantModular = !!thumb && media.mediaStyle === "modular";
+const wantMedia = !!thumb && media.mediaStyle !== "text";
 const cardClass = [
   "report-card",
   "report-card--card",
   "report-card--group",
-  wantOverlay ? "report-card--media" : "",
-  media.mediaStyle === "text" ? "report-card--text" : "",
+  wantMedia ? "report-card--media" : "",
+  !wantMedia ? "report-card--text" : "",
   peek ? "report-card--peek" : "",
 ].filter(Boolean).join(" ");
 ---
 <article
   class={cardClass}
   data-peek={peek ? "true" : undefined}
-  data-media-style={media.mediaStyle}
+  data-media-style={wantMedia ? "band" : "text"}
   aria-expanded={peek ? "false" : undefined}
-  style={wantOverlay || wantModular ? `--thumb-focus: ${focusStyle}` : undefined}
+  style={wantMedia ? `--thumb-focus: ${focusStyle}` : undefined}
 >
   <a class="report-card__link" href={`/breaking/${slug}/`} draggable="false">
-    {wantOverlay ? (
+    {wantMedia ? (
       <>
-        <div class="report-card__media-bg" aria-hidden="true">
+        <div class="report-card__photo">
           <img
             src={thumb!}
             alt=""
@@ -83,7 +81,6 @@ const cardClass = [
             onerror={hqFallback ? `this.onerror=null;this.src='https://img.youtube.com/vi/${hqFallback}/hqdefault.jpg'` : undefined}
           />
         </div>
-        <div class="report-card__media-scrim" aria-hidden="true"></div>
         <div class="report-card__media-body">
           <span class="report-card__grouptag report-card__grouptag--media small-caps">
             {members.length} reports
@@ -111,30 +108,16 @@ const cardClass = [
       </>
     ) : (
       <div class="report-card__body">
-        {wantModular && (
-          <div class="report-card__thumb">
-            <img
-              src={thumb!}
-              alt=""
-              width="320"
-              height="180"
-              loading="lazy"
-              decoding="async"
-              style={`object-position: ${focusStyle}`}
-              onerror={hqFallback ? `this.onerror=null;this.src='https://img.youtube.com/vi/${hqFallback}/hqdefault.jpg'` : undefined}
-            />
-          </div>
-        )}
         <p class="report-card__kicker small-caps">
           Developing{topic ? ` · ${topic}` : ""} · {members.length} reports
         </p>
         {!locked && avgGrade && (
           <div class="report-card__media-chips" style="margin:0.25rem 0 0.35rem">
-            <span class="report-card__chip report-card__chip--grade" style="background:var(--card);color:inherit;border-color:var(--rule)">
+            <span class="report-card__chip report-card__chip--grade">
               <LetterGrade grade={avgGrade} size="badge" />
             </span>
             {leanCompact && (
-              <span class="report-card__chip report-card__chip--lean" style="background:var(--card);color:inherit;border-color:var(--rule)">{leanCompact}</span>
+              <span class="report-card__chip report-card__chip--lean">{leanCompact}</span>
             )}
           </div>
         )}

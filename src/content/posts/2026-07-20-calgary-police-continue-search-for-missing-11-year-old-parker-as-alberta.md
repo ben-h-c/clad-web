@@ -35,8 +35,8 @@ keyMoments:
 videoId: "7CmlAiARP0Q"
 videoTitle: "Search for missing Calgary boy prompts call for Amber Alert review"
 thumbnail: "https://img.youtube.com/vi/7CmlAiARP0Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

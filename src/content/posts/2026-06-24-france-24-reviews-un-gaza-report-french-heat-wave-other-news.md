@@ -36,8 +36,8 @@ keyMoments:
 videoId: "XlkwXYYzRO4"
 videoTitle: "'Genocide': UN reports says Israel 'deliberately killed Palestinian children' • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/XlkwXYYzRO4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

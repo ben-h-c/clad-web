@@ -37,8 +37,8 @@ keyMoments:
 videoId: "IjGfh25XCzI"
 videoTitle: "How the Fed will battle inflation with Warsh at the helm"
 thumbnail: "https://img.youtube.com/vi/IjGfh25XCzI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

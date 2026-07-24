@@ -34,8 +34,8 @@ keyMoments:
 videoId: "I_9Siaxgfi8"
 videoTitle: "Venezuela earthquake: Hope in the rubble | DW News"
 thumbnail: "https://img.youtube.com/vi/I_9Siaxgfi8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

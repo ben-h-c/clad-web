@@ -31,8 +31,8 @@ keyMoments:
 videoId: "i-si8mCvIRo"
 videoTitle: "Beyond OpenAI’s Walls⚡🚀 #inspiration #openai #technology"
 thumbnail: "https://img.youtube.com/vi/i-si8mCvIRo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

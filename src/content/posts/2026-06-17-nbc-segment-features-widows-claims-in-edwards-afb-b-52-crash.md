@@ -35,8 +35,8 @@ keyMoments:
 videoId: "adZ3zi0NdPA"
 videoTitle: "Wife of engineer killed in B-52 crash speaks out"
 thumbnail: "https://img.youtube.com/vi/adZ3zi0NdPA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

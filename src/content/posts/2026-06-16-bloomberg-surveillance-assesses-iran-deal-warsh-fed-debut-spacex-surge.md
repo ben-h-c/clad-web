@@ -35,8 +35,8 @@ keyMoments:
 videoId: "rnMu7rqSiE4"
 videoTitle: "Bloomberg Surveillance 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/rnMu7rqSiE4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

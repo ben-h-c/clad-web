@@ -31,8 +31,8 @@ keyMoments:
 videoId: "Iy-m85dIwkU"
 videoTitle: "Gracie the giraffe found after escaping her enclosure in Texas"
 thumbnail: "https://img.youtube.com/vi/Iy-m85dIwkU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

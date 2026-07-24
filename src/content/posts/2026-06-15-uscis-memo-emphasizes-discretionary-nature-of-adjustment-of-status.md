@@ -35,8 +35,8 @@ keyMoments:
 videoId: "eV0Jc1lxqLk"
 videoTitle: "🚨 JUNE 12 USCIS MEMO UPDATE: This is Worse Than We Expected"
 thumbnail: "https://img.youtube.com/vi/eV0Jc1lxqLk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

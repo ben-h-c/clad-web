@@ -35,8 +35,8 @@ keyMoments:
 videoId: "yUii5U_mADA"
 videoTitle: "'It's Good, Good, Good': Chuck Grassley Makes The Case For Year-Round E15 Sales"
 thumbnail: "https://img.youtube.com/vi/yUii5U_mADA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

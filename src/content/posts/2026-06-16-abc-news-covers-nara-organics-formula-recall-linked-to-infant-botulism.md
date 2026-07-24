@@ -30,8 +30,8 @@ keyMoments:
 videoId: "byA55s2sb94"
 videoTitle: "Doctor explains infant botulism after infant formula recall"
 thumbnail: "https://img.youtube.com/vi/byA55s2sb94/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

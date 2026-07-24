@@ -35,8 +35,8 @@ keyMoments:
 videoId: "sY5uhDPts7I"
 videoTitle: "'They Do Not Get To Negotiate': Mike Waltz Calls For Full, 'Irreversible' Demilitarization Of Hamas"
 thumbnail: "https://img.youtube.com/vi/sY5uhDPts7I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

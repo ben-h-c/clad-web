@@ -34,8 +34,8 @@ keyMoments:
 videoId: "8owaq3039tg"
 videoTitle: "Sen. John Fetterman: So many Democrats dismissed Platner’s actions"
 thumbnail: "https://img.youtube.com/vi/8owaq3039tg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

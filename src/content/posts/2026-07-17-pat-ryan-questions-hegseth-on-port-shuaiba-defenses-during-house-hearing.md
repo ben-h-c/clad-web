@@ -37,8 +37,8 @@ keyMoments:
 videoId: "FYuVtEZzSZw"
 videoTitle: "Pat Ryan Grills Hegseth Over Deadly Kuwait Drone Strike: “Are You Calling These Soldiers Liars?”"
 thumbnail: "https://img.youtube.com/vi/FYuVtEZzSZw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

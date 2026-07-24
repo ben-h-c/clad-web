@@ -31,8 +31,8 @@ keyMoments:
 videoId: "4Wl3W5kpRSY"
 videoTitle: "If Iran wants to hit us, we'll hit them back 'TWICE AS HARD': Sen. Kennedy #shorts #news #foxnews"
 thumbnail: "https://img.youtube.com/vi/4Wl3W5kpRSY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

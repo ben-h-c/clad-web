@@ -1,11 +1,10 @@
 ---
 /**
- * Report card — presentation is per-post (mediaStyle + thumb focus from
- * publish-time still analysis), not a site-wide crop:
- *   overlay  → full-bleed image + scrim + overlay type
- *   modular  → top thumb + body (when still is busy / text-heavy)
- *   text     → no still (unusable art)
- * Legacy posts without media fields default to overlay + center 28%.
+ * Report card — editorial layout:
+ *   media (default when still exists): 16:9 photo band + type panel below
+ *     (never portrait full-bleed cover — that randomly zooms YouTube stills)
+ *   text: no still
+ * Bar lists stay compact modular.
  */
 import Verdict from "~/components/Verdict.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
@@ -67,16 +66,16 @@ const leanCompact =
 
 const blurb = d.summary;
 const media = mediaFromPostData(d);
-// Bar lists stay modular; strip cards honor per-post style.
-const wantOverlay = variant === "card" && !!thumb && media.mediaStyle === "overlay";
-const wantModularThumb = !!thumb && media.mediaStyle !== "text" && !wantOverlay;
+// Strip/card with art → 16:9 photo band. Never full-card portrait cover.
+const wantMedia = variant === "card" && !!thumb && media.mediaStyle !== "text";
+const wantBarThumb = variant === "bar" && !!thumb && media.mediaStyle !== "text";
 const focusStyle = objectPositionCss(media);
 
 const cardClass = [
   "report-card",
   `report-card--${variant}`,
-  wantOverlay ? "report-card--media" : "",
-  media.mediaStyle === "text" ? "report-card--text" : "",
+  wantMedia ? "report-card--media" : "",
+  !thumb || media.mediaStyle === "text" ? "report-card--text" : "",
   peek ? "report-card--peek" : "",
 ].filter(Boolean).join(" ");
 ---
@@ -84,14 +83,15 @@ const cardClass = [
   class={cardClass}
   data-sample-unlocked={sample ? "true" : undefined}
   data-peek={peek ? "true" : undefined}
-  data-media-style={media.mediaStyle}
+  data-media-style={wantMedia ? "band" : media.mediaStyle}
   aria-expanded={peek ? "false" : undefined}
-  style={wantOverlay || wantModularThumb ? `--thumb-focus: ${focusStyle}` : undefined}
+  style={wantMedia || wantBarThumb ? `--thumb-focus: ${focusStyle}` : undefined}
 >
   <a class="report-card__link" href={`/posts/${post.id}/`} draggable="false">
-    {wantOverlay ? (
+    {wantMedia ? (
       <>
-        <div class="report-card__media-bg" aria-hidden="true">
+        {/* Fixed 16:9 photo band — matches YouTube stills; no portrait zoom */}
+        <div class="report-card__photo">
           <img
             src={thumb!}
             alt=""
@@ -103,7 +103,6 @@ const cardClass = [
             onerror={hq ? `this.onerror=null;this.src='${hq}'` : undefined}
           />
         </div>
-        <div class="report-card__media-scrim" aria-hidden="true"></div>
         <div class="report-card__media-body">
           {sample && <span class="sample-badge sample-badge--on-media small-caps">Today's free sample</span>}
 
@@ -134,7 +133,7 @@ const cardClass = [
       </>
     ) : (
       <>
-        {wantModularThumb && (
+        {wantBarThumb && (
           <div class="report-card__thumb">
             <img
               src={thumb!}
@@ -203,7 +202,7 @@ const cardClass = [
       </>
     )}
   </a>
-  {!wantOverlay && (
+  {!wantMedia && (
     <p class="report-card__source report-card__detail">
       {isBroadcast && <span aria-hidden="true">▶ </span>}Source:{" "}
       <a href={d.sourceUrl} rel="noopener noreferrer" target="_blank">{source}</a>

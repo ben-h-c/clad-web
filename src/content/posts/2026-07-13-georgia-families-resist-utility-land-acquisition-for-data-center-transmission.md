@@ -36,8 +36,8 @@ keyMoments:
 videoId: "PApPd6p6lX0"
 videoTitle: "Georgia families face losing their homes to make way for AI data centers: \"It's theft\""
 thumbnail: "https://img.youtube.com/vi/PApPd6p6lX0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

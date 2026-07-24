@@ -37,8 +37,8 @@ keyMoments:
 videoId: "62XmjQjnfsI"
 videoTitle: "‘What’s WRONG With The Left?' | Radical Left-Wing ‘Celebrates' Ann’s Death"
 thumbnail: "https://img.youtube.com/vi/62XmjQjnfsI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

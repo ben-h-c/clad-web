@@ -34,8 +34,8 @@ keyMoments:
 videoId: "KfNre5wa-PA"
 videoTitle: "Authorities search for suspect after Monaco explosion"
 thumbnail: "https://img.youtube.com/vi/KfNre5wa-PA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

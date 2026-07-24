@@ -34,8 +34,8 @@ keyMoments:
 videoId: "UjuTANSNHcw"
 videoTitle: "SPECIAL COVERAGE | Canada exits the World Cup after a 3-0 loss to Morocco"
 thumbnail: "https://img.youtube.com/vi/UjuTANSNHcw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

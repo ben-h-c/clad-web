@@ -36,8 +36,8 @@ keyMoments:
 videoId: "cxovRbxu1DQ"
 videoTitle: "Gov. Gavin Newsom says DOJ is investigating him"
 thumbnail: "https://img.youtube.com/vi/cxovRbxu1DQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "q_-toWvzwEc"
 videoTitle: "'Give Them Some Guidance': Tim Kaine Asks Experts To Give Teachers Advice On Using AI In Classrooms"
 thumbnail: "https://img.youtube.com/vi/q_-toWvzwEc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "VBV8bVxLF8s"
 videoTitle: "When is the best time to buy a house? What to know about mortgage rates"
 thumbnail: "https://img.youtube.com/vi/VBV8bVxLF8s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

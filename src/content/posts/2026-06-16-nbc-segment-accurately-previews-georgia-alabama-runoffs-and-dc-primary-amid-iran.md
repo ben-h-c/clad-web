@@ -35,8 +35,8 @@ keyMoments:
 videoId: "hltQ3qv39tg"
 videoTitle: "Kornacki: Voters in Georgia and Alabama set to weigh in on Trump-backed candidates"
 thumbnail: "https://img.youtube.com/vi/hltQ3qv39tg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

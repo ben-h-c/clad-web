@@ -37,8 +37,8 @@ keyMoments:
 videoId: "f3Z42vucWoM"
 videoTitle: "U.S. lifts naval blockade of the Strait of Hormuz and Iranian ports"
 thumbnail: "https://img.youtube.com/vi/f3Z42vucWoM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

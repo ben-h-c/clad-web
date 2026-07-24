@@ -36,8 +36,8 @@ keyMoments:
 videoId: "DzBR20GMqaU"
 videoTitle: "ICYMI: Pete Sessions Leads House Oversight Committee Hearing On Fraud Threats And Fraud Landscape"
 thumbnail: "https://img.youtube.com/vi/DzBR20GMqaU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

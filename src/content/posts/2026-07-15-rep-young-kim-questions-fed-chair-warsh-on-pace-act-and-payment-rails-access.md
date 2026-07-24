@@ -35,8 +35,8 @@ keyMoments:
 videoId: "HXcFHvNgveo"
 videoTitle: "Young Kim Asks Kevin Warsh: How Will The Federal Reserve Work With Congress To Lower Consumer Costs?"
 thumbnail: "https://img.youtube.com/vi/HXcFHvNgveo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

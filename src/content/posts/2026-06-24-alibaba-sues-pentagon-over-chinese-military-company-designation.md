@@ -35,8 +35,8 @@ keyMoments:
 videoId: "q89QuQuQDrc"
 videoTitle: "Alibaba sues US over charge it's linked to Chinese military"
 thumbnail: "https://img.youtube.com/vi/q89QuQuQDrc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

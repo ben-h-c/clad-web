@@ -31,8 +31,8 @@ keyMoments:
 videoId: "30-AGLMxCuw"
 videoTitle: "Josh Shapiro: We Should All Be Proud Americans, But Acknowledge 'We Have Work To Do' To Improve"
 thumbnail: "https://img.youtube.com/vi/30-AGLMxCuw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

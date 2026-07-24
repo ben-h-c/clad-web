@@ -31,8 +31,8 @@ keyMoments:
 videoId: "nXnBCb8jTvA"
 videoTitle: "Thune: 'We're All Hoping To Get more Information' About Trump's Iran Memorandum Of Understanding"
 thumbnail: "https://img.youtube.com/vi/nXnBCb8jTvA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

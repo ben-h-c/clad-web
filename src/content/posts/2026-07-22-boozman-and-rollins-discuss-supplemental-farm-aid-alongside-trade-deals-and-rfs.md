@@ -40,8 +40,8 @@ keyMoments:
 videoId: "MD6lKwMDd1E"
 videoTitle: "Boozman Urges Action for Greater Support For Farmers"
 thumbnail: "https://img.youtube.com/vi/MD6lKwMDd1E/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

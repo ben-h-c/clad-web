@@ -37,8 +37,8 @@ keyMoments:
 videoId: "gK6c4Pd3Lwc"
 videoTitle: "Austria-Algeria draw sparks World Cup match fixing allegations online • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/gK6c4Pd3Lwc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

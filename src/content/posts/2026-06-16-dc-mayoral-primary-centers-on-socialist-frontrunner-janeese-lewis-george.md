@@ -36,8 +36,8 @@ keyMoments:
 videoId: "l1nm9ntdyOQ"
 videoTitle: "DC Dems POISED to NOMINATE Democratic SOCIALIST Janeese Lewis George for MAYOR | RISING"
 thumbnail: "https://img.youtube.com/vi/l1nm9ntdyOQ/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

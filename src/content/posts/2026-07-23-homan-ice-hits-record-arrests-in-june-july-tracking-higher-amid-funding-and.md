@@ -36,8 +36,8 @@ keyMoments:
 videoId: "pqvoRPC5Iqk"
 videoTitle: "Homan says ICE is 'deportation-maxxing,' set for record arrests in July | Katie Pavlich Tonight"
 thumbnail: "https://img.youtube.com/vi/pqvoRPC5Iqk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

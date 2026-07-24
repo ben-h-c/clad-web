@@ -34,8 +34,8 @@ keyMoments:
 videoId: "vJQlfI2ixxM"
 videoTitle: "MIRACLE in Venezuela: U.S. rescuers pull baby, mom from earthquake rubble"
 thumbnail: "https://img.youtube.com/vi/vJQlfI2ixxM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

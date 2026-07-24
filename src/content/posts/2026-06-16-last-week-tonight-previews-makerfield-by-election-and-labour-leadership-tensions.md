@@ -34,8 +34,8 @@ keyMoments:
 videoId: "OD17jrheh9E"
 videoTitle: "UK Election & Makerfield #lastweektonight"
 thumbnail: "https://img.youtube.com/vi/OD17jrheh9E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

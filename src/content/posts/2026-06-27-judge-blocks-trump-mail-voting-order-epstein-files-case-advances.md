@@ -36,8 +36,8 @@ keyMoments:
 videoId: "VFy0L2nboOI"
 videoTitle: "Federal judge blocks Trump's election order, former prosecutor explains what's next"
 thumbnail: "https://img.youtube.com/vi/VFy0L2nboOI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

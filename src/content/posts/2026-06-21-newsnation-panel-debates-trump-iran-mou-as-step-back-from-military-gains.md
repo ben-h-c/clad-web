@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Ut0UT1LqJq0"
 videoTitle: "US-Iran deal: ‘Disastrous,’ or wait and see? | Batya!"
 thumbnail: "https://img.youtube.com/vi/Ut0UT1LqJq0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

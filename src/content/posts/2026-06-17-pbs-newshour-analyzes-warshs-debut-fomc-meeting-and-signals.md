@@ -35,8 +35,8 @@ keyMoments:
 videoId: "iMQhUATjAOk"
 videoTitle: "What Warsh’s first meeting as Fed chair signals"
 thumbnail: "https://img.youtube.com/vi/iMQhUATjAOk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

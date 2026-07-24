@@ -36,8 +36,8 @@ keyMoments:
 videoId: "wKLRwGL8KQA"
 videoTitle: "D4VD preliminary hearing begins in Los Angeles"
 thumbnail: "https://img.youtube.com/vi/wKLRwGL8KQA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "0wISZQu6Vvk"
 videoTitle: "'It's A Math Problem': Lindsey Graham Asked About Passing The SAVE America Act"
 thumbnail: "https://img.youtube.com/vi/0wISZQu6Vvk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

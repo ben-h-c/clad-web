@@ -34,8 +34,8 @@ keyMoments:
 videoId: "GvpOic_uEq8"
 videoTitle: "Man who plotted defence base terror attack with Manchester synagogue killer jailed"
 thumbnail: "https://img.youtube.com/vi/GvpOic_uEq8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

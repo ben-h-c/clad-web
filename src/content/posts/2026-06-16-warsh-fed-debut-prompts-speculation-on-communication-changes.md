@@ -37,8 +37,8 @@ keyMoments:
 videoId: "YPHSeySBv3g"
 videoTitle: "The Future of Forward Guidance Under Fed Chair Warsh"
 thumbnail: "https://img.youtube.com/vi/YPHSeySBv3g/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

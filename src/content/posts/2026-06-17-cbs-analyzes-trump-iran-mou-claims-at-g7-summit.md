@@ -31,8 +31,8 @@ keyMoments:
 videoId: "jg11AL-hTl4"
 videoTitle: "Takeaways from Trump news conference on Iran deal"
 thumbnail: "https://img.youtube.com/vi/jg11AL-hTl4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

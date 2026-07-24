@@ -35,9 +35,9 @@ keyMoments:
 videoId: "QxyeIS8exJg"
 videoTitle: "Passengers, pilot survive fiery seaplane crash off Washington state coast"
 thumbnail: "https://img.youtube.com/vi/QxyeIS8exJg/maxresdefault.jpg"
-mediaNote: "burning seaplane wreckage and flames upper-middle"
-thumbFocusY: 32
-thumbFocusX: 62
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 citations:
   - title: "Kenmore Air seaplane crashes near Sucia Island; all 11 aboard rescued"

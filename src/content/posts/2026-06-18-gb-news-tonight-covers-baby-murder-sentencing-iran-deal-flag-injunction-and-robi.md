@@ -37,8 +37,8 @@ keyMoments:
 videoId: "iR_XLS6tOVM"
 videoTitle: "GBN Tonight | Thursday 18th June"
 thumbnail: "https://img.youtube.com/vi/iR_XLS6tOVM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

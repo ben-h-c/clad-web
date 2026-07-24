@@ -33,8 +33,8 @@ keyMoments:
 videoId: "miofIeqNTaU"
 videoTitle: "Abdul El-Sayed Blasts Potential Senate Opponent Mike Rogers As 'Corporate Shill'"
 thumbnail: "https://img.youtube.com/vi/miofIeqNTaU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

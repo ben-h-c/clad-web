@@ -32,8 +32,8 @@ keyMoments:
 videoId: "jpP9fwSbmt4"
 videoTitle: "Swedish minister brings baby to E.U. Council meeting"
 thumbnail: "https://img.youtube.com/vi/jpP9fwSbmt4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

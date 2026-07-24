@@ -34,8 +34,8 @@ keyMoments:
 videoId: "4RmJ7GNxGkA"
 videoTitle: "3 notes in the Nancy Guthrie kidnapping are fake, FBI says | Jesse Weber Live"
 thumbnail: "https://img.youtube.com/vi/4RmJ7GNxGkA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -33,8 +33,8 @@ keyMoments:
 videoId: "nWz8wzzY2D4"
 videoTitle: "“He Doesn’t CARE About Illegal Migration' | Andy Burnham Ignores Asylum Issue In Speech"
 thumbnail: "https://img.youtube.com/vi/nWz8wzzY2D4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

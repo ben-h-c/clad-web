@@ -35,8 +35,8 @@ keyMoments:
 videoId: "vHX1X1VLk10"
 videoTitle: "Iran closes Strait of Hormuz over ceasefire violations, state media reports"
 thumbnail: "https://img.youtube.com/vi/vHX1X1VLk10/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

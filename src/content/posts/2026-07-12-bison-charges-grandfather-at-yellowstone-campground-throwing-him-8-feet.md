@@ -34,8 +34,8 @@ keyMoments:
 videoId: "I7Zd0XE8ick"
 videoTitle: "Bison attacks tourist at Yellowstone National Park"
 thumbnail: "https://img.youtube.com/vi/I7Zd0XE8ick/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

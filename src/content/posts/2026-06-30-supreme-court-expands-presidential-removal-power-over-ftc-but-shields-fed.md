@@ -37,8 +37,8 @@ keyMoments:
 videoId: "kE7tOXZuSj4"
 videoTitle: "How Trump's billionaires show the danger of his corruption"
 thumbnail: "https://img.youtube.com/vi/kE7tOXZuSj4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

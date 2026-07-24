@@ -38,8 +38,8 @@ keyMoments:
 videoId: "sn0qQHJcMag"
 videoTitle: "Good Morning America: News to start your day | June 16"
 thumbnail: "https://img.youtube.com/vi/sn0qQHJcMag/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

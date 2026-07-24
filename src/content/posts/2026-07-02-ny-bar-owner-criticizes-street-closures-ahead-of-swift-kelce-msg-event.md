@@ -31,8 +31,8 @@ keyMoments:
 videoId: "n4RhJYhO28Q"
 videoTitle: "New York bar owner on street closures for Swift-Kelce wedding"
 thumbnail: "https://img.youtube.com/vi/n4RhJYhO28Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

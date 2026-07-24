@@ -40,8 +40,8 @@ keyMoments:
 videoId: "KXQ4WqJ0vtM"
 videoTitle: "Good Morning America Full Broadcast - Friday, July 3"
 thumbnail: "https://img.youtube.com/vi/KXQ4WqJ0vtM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

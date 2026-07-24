@@ -39,8 +39,8 @@ keyMoments:
 videoId: "nm-4vsxjpYI"
 videoTitle: "‘There will have to be a reckoning’: Venezuela’s natural disaster meets a collapsing infrastructure"
 thumbnail: "https://img.youtube.com/vi/nm-4vsxjpYI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

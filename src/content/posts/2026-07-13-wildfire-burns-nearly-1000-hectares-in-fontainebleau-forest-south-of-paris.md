@@ -37,8 +37,8 @@ keyMoments:
 videoId: "RWGS3qeEGmA"
 videoTitle: "Nearly 1,000 hectares burnt in fire near Paris • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/RWGS3qeEGmA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

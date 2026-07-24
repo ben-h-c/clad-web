@@ -34,8 +34,8 @@ keyMoments:
 videoId: "VK6nNiIaZYA"
 videoTitle: "Cruise ship killing: Judge orders stepbrother be taken into US Marshals' custody"
 thumbnail: "https://img.youtube.com/vi/VK6nNiIaZYA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "gHZA3zbZaWo"
 videoTitle: "If Congo was a thunderstorm, Mexico will be a hurricane | World Cup reaction"
 thumbnail: "https://img.youtube.com/vi/gHZA3zbZaWo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

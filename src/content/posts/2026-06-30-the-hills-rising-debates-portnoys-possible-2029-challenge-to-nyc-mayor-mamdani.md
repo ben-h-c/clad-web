@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Cz3sr5ulQHk"
 videoTitle: "Dave Portnoy floats CHALLENGING Mamdani in 2029 | RISING"
 thumbnail: "https://img.youtube.com/vi/Cz3sr5ulQHk/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

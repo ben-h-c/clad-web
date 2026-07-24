@@ -35,8 +35,8 @@ keyMoments:
 videoId: "wF2iPjfAXko"
 videoTitle: "'Dear God': Stephen Lynch Calls Trump's Kennedy Center Changes 'Stolen Valor'"
 thumbnail: "https://img.youtube.com/vi/wF2iPjfAXko/maxresdefault.jpg"
-mediaNote: "split talking-heads; center between faces, upper-middle"
-thumbFocusY: 28
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

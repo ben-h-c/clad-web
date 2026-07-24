@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Jjrd7VsSQ4s"
 videoTitle: "Democratic socialists rake in another win in Colorado, where are they looking at next?"
 thumbnail: "https://img.youtube.com/vi/Jjrd7VsSQ4s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

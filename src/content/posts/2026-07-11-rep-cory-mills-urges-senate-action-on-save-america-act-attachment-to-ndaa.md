@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Eh1ovy1FjGg"
 videoTitle: "Rep. Cory Mills: Why the Senate Must Pass the SAVE America Act NOW"
 thumbnail: "https://img.youtube.com/vi/Eh1ovy1FjGg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

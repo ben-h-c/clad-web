@@ -36,8 +36,8 @@ keyMoments:
 videoId: "cG3a5WC0gQA"
 videoTitle: "Bill Cassidy: Here's What I Want My Legacy To Be As My Senate Term Expires"
 thumbnail: "https://img.youtube.com/vi/cG3a5WC0gQA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

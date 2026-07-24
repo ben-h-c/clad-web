@@ -32,8 +32,8 @@ keyMoments:
 videoId: "oDoJivgzU_4"
 videoTitle: "Trump admits he 'DIDN'T LIKE' timing of Israel's Lebanon attack #shorts #US #Israel #Iran #foxnews"
 thumbnail: "https://img.youtube.com/vi/oDoJivgzU_4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

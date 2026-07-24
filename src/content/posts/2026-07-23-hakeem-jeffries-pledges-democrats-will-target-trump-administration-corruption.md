@@ -38,8 +38,8 @@ keyMoments:
 videoId: "LfGuc8s3fOk"
 videoTitle: "Hakeem Jeffries Asked If Democrats' Anti-Corruption Agenda Includes Corporations"
 thumbnail: "https://img.youtube.com/vi/LfGuc8s3fOk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

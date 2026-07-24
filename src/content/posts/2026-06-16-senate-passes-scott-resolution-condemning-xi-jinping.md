@@ -37,8 +37,8 @@ keyMoments:
 videoId: "G_gL_t3CnTc"
 videoTitle: "Rick Scott's Resolution To Condemn China's Xi Jinping Passes Senate With Unanimous Consent"
 thumbnail: "https://img.youtube.com/vi/G_gL_t3CnTc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

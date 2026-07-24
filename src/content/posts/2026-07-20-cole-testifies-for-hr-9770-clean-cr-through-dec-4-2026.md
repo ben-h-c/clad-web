@@ -39,8 +39,8 @@ keyMoments:
 videoId: "ouytHogdGjA"
 videoTitle: "&#39;Reckless And Irresponsible&#39;: Tom Cole Swipes At Dems Over Previous Government Shutdown"
 thumbnail: "https://img.youtube.com/vi/ouytHogdGjA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "b_NevbTTiGI"
 videoTitle: "Netanyahu Vows Troops Stay Across Region Despite New Iran Agreement | NewsX World"
 thumbnail: "https://img.youtube.com/vi/b_NevbTTiGI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

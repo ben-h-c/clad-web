@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Dh9LBCJx5Q8"
 videoTitle: "Swiss collector working with First Nations leaders to repatriate Indigenous artifacts"
 thumbnail: "https://img.youtube.com/vi/Dh9LBCJx5Q8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

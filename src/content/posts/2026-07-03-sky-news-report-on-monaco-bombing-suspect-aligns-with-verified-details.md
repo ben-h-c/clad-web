@@ -34,8 +34,8 @@ keyMoments:
 videoId: "FRJWIWejGCw"
 videoTitle: "Woman wanted over Monaco bombing 'that targeted Ukrainian tycoon' is named"
 thumbnail: "https://img.youtube.com/vi/FRJWIWejGCw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

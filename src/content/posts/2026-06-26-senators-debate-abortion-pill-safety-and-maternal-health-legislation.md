@@ -37,8 +37,8 @@ keyMoments:
 videoId: "bE7XCo550KM"
 videoTitle: "'Would Roll Back The Clock By 25 Years': Alsobrooks, Hyde-Smith Spar Over Reproductive Care Bills"
 thumbnail: "https://img.youtube.com/vi/bE7XCo550KM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,10 +38,10 @@ politicians:
   - name: "Brittany Pettersen"
     slug: "brittany-pettersen"
 thumbnail: "https://img.youtube.com/vi/orVorPNLFnM/maxresdefault.jpg"
-mediaStyle: "modular"
-thumbFocusX: 75
-thumbFocusY: 28
-mediaNote: "Split-screen + dense lower text fights overlay; crop to right-side speaker face for thumb"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "16:9 band default"
 citations:
   - title: "21st Century ROAD to Housing Act Becomes Law"
     url: "https://financialservices.house.gov/news/documentsingle.aspx?DocumentID=411189"

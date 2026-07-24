@@ -32,8 +32,8 @@ keyMoments:
 videoId: "FHutXOyQDHc"
 videoTitle: "Trump now says the Reflecting Pool will be repaired after July 4"
 thumbnail: "https://img.youtube.com/vi/FHutXOyQDHc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "dbI4_UzNBmU"
 videoTitle: "'Flouting The Clean Air Act Entirely': Scott Peters Rails Against xAI Data Centers' Emissions"
 thumbnail: "https://img.youtube.com/vi/dbI4_UzNBmU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

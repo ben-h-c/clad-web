@@ -40,8 +40,8 @@ keyMoments:
 videoId: "LGddXdHuVbA"
 videoTitle: "Venezuela earthquake death toll rises to 4,333 as families search rubble for loved ones"
 thumbnail: "https://img.youtube.com/vi/LGddXdHuVbA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

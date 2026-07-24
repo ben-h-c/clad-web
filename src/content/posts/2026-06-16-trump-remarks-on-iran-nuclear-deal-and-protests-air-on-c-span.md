@@ -37,8 +37,8 @@ keyMoments:
 videoId: "I3FxGvGr1v0"
 videoTitle: "\"Iran will never have a nuclear weapon.\""
 thumbnail: "https://img.youtube.com/vi/I3FxGvGr1v0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

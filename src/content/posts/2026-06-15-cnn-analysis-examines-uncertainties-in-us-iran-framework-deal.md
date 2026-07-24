@@ -36,8 +36,8 @@ keyMoments:
 videoId: "kdoZsNcb7qk"
 videoTitle: "Iran 'deal': Ex-NATO commander reveals ‘the bad news’"
 thumbnail: "https://img.youtube.com/vi/kdoZsNcb7qk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

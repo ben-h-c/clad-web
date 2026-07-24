@@ -34,8 +34,8 @@ keyMoments:
 videoId: "iNeICzRXYtk"
 videoTitle: "An Edmonton school bus driver is prime minister in exile of East Turkistan"
 thumbnail: "https://img.youtube.com/vi/iNeICzRXYtk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

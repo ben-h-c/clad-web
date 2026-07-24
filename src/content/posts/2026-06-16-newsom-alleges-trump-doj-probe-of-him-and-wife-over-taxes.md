@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Dz61ypTySlk"
 videoTitle: "Newsom says DOJ is investigating him and his wife"
 thumbnail: "https://img.youtube.com/vi/Dz61ypTySlk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -30,8 +30,8 @@ keyMoments:
 videoId: "bSJZX9yvjGY"
 videoTitle: "Data Centers Moratorium | Kathy Hochul - ABC News Live"
 thumbnail: "https://img.youtube.com/vi/bSJZX9yvjGY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

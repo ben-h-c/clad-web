@@ -35,8 +35,8 @@ keyMoments:
 videoId: "zZr0bALMjoE"
 videoTitle: "Scientists race for a new Ebola vaccine: The most promising candidates against strain"
 thumbnail: "https://img.youtube.com/vi/zZr0bALMjoE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

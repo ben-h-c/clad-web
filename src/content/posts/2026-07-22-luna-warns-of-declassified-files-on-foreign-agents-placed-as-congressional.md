@@ -35,8 +35,8 @@ keyMoments:
 videoId: "K11JN5MWZEg"
 videoTitle: "Luna Warned About Foreign Agents in Congress — Then Cammack Said 3 Words"
 thumbnail: "https://img.youtube.com/vi/K11JN5MWZEg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

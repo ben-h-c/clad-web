@@ -35,8 +35,8 @@ keyMoments:
 videoId: "pYzHtDylimI"
 videoTitle: "Will Trump pardon Andrew and Tristan Tate? Brothers are facing rape and trafficking charges"
 thumbnail: "https://img.youtube.com/vi/pYzHtDylimI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

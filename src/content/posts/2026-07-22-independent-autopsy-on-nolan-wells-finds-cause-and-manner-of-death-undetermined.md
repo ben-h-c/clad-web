@@ -34,8 +34,8 @@ keyMoments:
 videoId: "SLcB-yAQs8U"
 videoTitle: "Independent autopsy finds Nolan Wells' cause of death to be 'undetermined'"
 thumbnail: "https://img.youtube.com/vi/SLcB-yAQs8U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

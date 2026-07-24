@@ -34,8 +34,8 @@ keyMoments:
 videoId: "5dpTrjEhg7c"
 videoTitle: "‘A shame’ to hear Jeffries speak out against impeaching Trump as top priority: N.Y. House candidate"
 thumbnail: "https://img.youtube.com/vi/5dpTrjEhg7c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

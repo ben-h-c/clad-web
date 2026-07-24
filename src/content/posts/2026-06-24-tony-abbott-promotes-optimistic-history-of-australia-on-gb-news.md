@@ -40,8 +40,8 @@ keyMoments:
 videoId: "CjVO1Kc73JA"
 videoTitle: "Tony Abbott: How Australia went from a convict colony to a prosperous, democratic superpower"
 thumbnail: "https://img.youtube.com/vi/CjVO1Kc73JA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

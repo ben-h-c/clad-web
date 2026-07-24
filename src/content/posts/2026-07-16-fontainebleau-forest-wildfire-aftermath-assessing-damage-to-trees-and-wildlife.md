@@ -32,8 +32,8 @@ keyMoments:
 videoId: "nK4gjKWQwBA"
 videoTitle: "As the smoke clears, the Fontainebleau forest takes stock of its destruction • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/nK4gjKWQwBA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

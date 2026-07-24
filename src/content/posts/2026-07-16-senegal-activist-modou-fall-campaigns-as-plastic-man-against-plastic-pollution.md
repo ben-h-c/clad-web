@@ -34,8 +34,8 @@ keyMoments:
 videoId: "6_Y3NXbmKQo"
 videoTitle: "Senegal's 'plastic man' helps raise awareness about plastic pollution • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/6_Y3NXbmKQo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -39,8 +39,8 @@ keyMoments:
 videoId: "PrMokU9Ujk8"
 videoTitle: "Speaker Johnson REVEALS the move that could change EVERYTHING"
 thumbnail: "https://img.youtube.com/vi/PrMokU9Ujk8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "IHsfCKbuMKw"
 videoTitle: "'Look At How Bad They Are Behaving': Karoline Leavitt Accuses Iran Of Violating MoU With US"
 thumbnail: "https://img.youtube.com/vi/IHsfCKbuMKw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

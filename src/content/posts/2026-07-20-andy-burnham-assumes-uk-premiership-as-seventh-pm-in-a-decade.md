@@ -32,8 +32,8 @@ keyMoments:
 videoId: "2rS-xG2XMhY"
 videoTitle: "Behind the scenes: Waiting for the U.K.’s newest prime minister"
 thumbnail: "https://img.youtube.com/vi/2rS-xG2XMhY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

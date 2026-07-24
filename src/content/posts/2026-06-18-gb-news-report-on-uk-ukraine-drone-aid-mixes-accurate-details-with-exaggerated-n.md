@@ -35,8 +35,8 @@ keyMoments:
 videoId: "_xAGHKujBC8"
 videoTitle: "Britain's BIGGEST EVER PACKAGE DEAL to Ukraine has been ANNOUNCED"
 thumbnail: "https://img.youtube.com/vi/_xAGHKujBC8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

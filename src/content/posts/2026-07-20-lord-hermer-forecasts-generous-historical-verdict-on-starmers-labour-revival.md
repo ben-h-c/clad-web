@@ -33,8 +33,8 @@ keyMoments:
 videoId: "TuKXuYTj1tM"
 videoTitle: "History will be \"VERY GENEROUS\" to Keir Starmer, says friend Lord Hermer"
 thumbnail: "https://img.youtube.com/vi/TuKXuYTj1tM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

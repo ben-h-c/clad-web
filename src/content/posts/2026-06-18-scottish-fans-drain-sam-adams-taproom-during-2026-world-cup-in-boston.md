@@ -34,8 +34,8 @@ keyMoments:
 videoId: "DZkTV8H9qsc"
 videoTitle: "Scottish fans celebrating their team’s World Cup return drank a Samuel Adams taproom dry in Boston"
 thumbnail: "https://img.youtube.com/vi/DZkTV8H9qsc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

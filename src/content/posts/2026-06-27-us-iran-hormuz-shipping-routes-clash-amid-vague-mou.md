@@ -37,8 +37,8 @@ keyMoments:
 videoId: "zG78A8-lTow"
 videoTitle: "Iran, US trade attacks in the Strait of Hormuz: Navigating the 'Guardian Angel' route • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/zG78A8-lTow/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

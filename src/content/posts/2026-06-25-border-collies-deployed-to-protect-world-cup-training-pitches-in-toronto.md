@@ -32,8 +32,8 @@ keyMoments:
 videoId: "zrbpGk8TBW0"
 videoTitle: "Border collies Ben and Sally guard World Cup pitches in Toronto"
 thumbnail: "https://img.youtube.com/vi/zrbpGk8TBW0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

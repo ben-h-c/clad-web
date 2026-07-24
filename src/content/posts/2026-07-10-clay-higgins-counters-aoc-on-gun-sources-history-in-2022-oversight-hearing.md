@@ -36,8 +36,8 @@ keyMoments:
 videoId: "8_6nCbEE3cU"
 videoTitle: "Pissed-Off Army Veteran Clay Higgins UTTERLY DESTROYS AOC Over Her Dumb Take On Gun "
 thumbnail: "https://img.youtube.com/vi/8_6nCbEE3cU/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

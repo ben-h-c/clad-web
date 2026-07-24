@@ -33,8 +33,8 @@ keyMoments:
 videoId: "IkvAKTq-3Mc"
 videoTitle: "US has no legal right to charge ships in the Strait of Hormuz, says Marc Weller"
 thumbnail: "https://img.youtube.com/vi/IkvAKTq-3Mc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "RuLlHP65548"
 videoTitle: "3-Cow Gabe Evans Rides Again"
 thumbnail: "https://img.youtube.com/vi/RuLlHP65548/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

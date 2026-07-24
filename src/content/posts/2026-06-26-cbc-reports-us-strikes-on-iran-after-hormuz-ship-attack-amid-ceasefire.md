@@ -37,8 +37,8 @@ keyMoments:
 videoId: "yxnCWP7UjWY"
 videoTitle: "U.S. strikes Iran in response to drone attack that violated ceasefire: Trump | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/yxnCWP7UjWY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

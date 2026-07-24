@@ -31,8 +31,8 @@ keyMoments:
 videoId: "SSUzRs0KdmE"
 videoTitle: "How can the young take control if the old still hold all the power?"
 thumbnail: "https://img.youtube.com/vi/SSUzRs0KdmE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

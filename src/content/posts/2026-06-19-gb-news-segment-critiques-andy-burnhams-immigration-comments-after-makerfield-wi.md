@@ -37,8 +37,8 @@ keyMoments:
 videoId: "cD3qI8l0tw0"
 videoTitle: "Patrick Christys launches a BLISTERING ATTACK against Andy Burnham over immigration stance"
 thumbnail: "https://img.youtube.com/vi/cD3qI8l0tw0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

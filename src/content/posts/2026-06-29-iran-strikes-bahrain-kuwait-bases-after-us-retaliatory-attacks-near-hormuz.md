@@ -34,8 +34,8 @@ keyMoments:
 videoId: "pcXb0AjNGHw"
 videoTitle: "Iran launches strikes on Bahrain, Kuwait and threatens halt to talks after US strikes"
 thumbnail: "https://img.youtube.com/vi/pcXb0AjNGHw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

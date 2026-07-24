@@ -35,8 +35,8 @@ keyMoments:
 videoId: "DlR7Q1zNi10"
 videoTitle: "SK Hynix shares fall after Nasdaq debut"
 thumbnail: "https://img.youtube.com/vi/DlR7Q1zNi10/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

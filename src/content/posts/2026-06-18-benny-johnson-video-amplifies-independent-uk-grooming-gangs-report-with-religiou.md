@@ -37,8 +37,8 @@ keyMoments:
 videoId: "gTeII1ATL0w"
 videoTitle: "🚨There Is Going To Be A Revolution in the U.K. Over The Muslim Rape Gang Inquiry Report"
 thumbnail: "https://img.youtube.com/vi/gTeII1ATL0w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

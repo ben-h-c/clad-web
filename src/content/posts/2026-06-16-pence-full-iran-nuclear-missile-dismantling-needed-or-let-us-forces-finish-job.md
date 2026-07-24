@@ -33,8 +33,8 @@ keyMoments:
 videoId: "TNBZkkvdKPE"
 videoTitle: "Former VP Mike Pence Says We'd be Better Off if U.S. Armed Forces Finished Job in Iran"
 thumbnail: "https://img.youtube.com/vi/TNBZkkvdKPE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

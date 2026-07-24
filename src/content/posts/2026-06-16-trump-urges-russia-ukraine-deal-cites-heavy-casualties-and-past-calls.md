@@ -36,8 +36,8 @@ keyMoments:
 videoId: "zkZL3eg-dA8"
 videoTitle: "President Trump: \"Russia should make a deal.\""
 thumbnail: "https://img.youtube.com/vi/zkZL3eg-dA8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

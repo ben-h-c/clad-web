@@ -31,8 +31,8 @@ keyMoments:
 videoId: "IjW64F89gqQ"
 videoTitle: "Andy Burnham vows 'this is the final chance for change' as he makes his by-election victory speech"
 thumbnail: "https://img.youtube.com/vi/IjW64F89gqQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

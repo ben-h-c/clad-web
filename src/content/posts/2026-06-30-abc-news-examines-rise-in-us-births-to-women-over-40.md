@@ -34,8 +34,8 @@ keyMoments:
 videoId: "bVE9HNY7x08"
 videoTitle: "Growing number of women having children in their 40s"
 thumbnail: "https://img.youtube.com/vi/bVE9HNY7x08/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

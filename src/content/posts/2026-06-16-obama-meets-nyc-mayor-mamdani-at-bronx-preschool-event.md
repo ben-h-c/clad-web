@@ -30,8 +30,8 @@ keyMoments:
 videoId: "yrkUyaG9_qE"
 videoTitle: "What Obama sees in Mamdani...and why their appearance is turning heads | THE FIGHT FOR 2028"
 thumbnail: "https://img.youtube.com/vi/yrkUyaG9_qE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

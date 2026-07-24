@@ -37,8 +37,8 @@ keyMoments:
 videoId: "rgSxlkU1Qfc"
 videoTitle: "Danielle Smith appeals for unity as Alberta referendum campaign gets off to rocky start"
 thumbnail: "https://img.youtube.com/vi/rgSxlkU1Qfc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

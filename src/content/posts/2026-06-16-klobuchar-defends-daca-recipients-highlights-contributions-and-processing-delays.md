@@ -40,8 +40,8 @@ keyMoments:
 videoId: "mtpEt38qVHI"
 videoTitle: "'Minnesota Is Better Because Of Our Dreamers': Amy Klobuchar Throws Support Behind DACA Program"
 thumbnail: "https://img.youtube.com/vi/mtpEt38qVHI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -33,8 +33,8 @@ keyMoments:
 videoId: "2D1kbk8Be2I"
 videoTitle: "Pardons for sale? Trump Rocked by SWAMP BOMBSHELL (Ari x DOJ Vet Weissmann) "
 thumbnail: "https://img.youtube.com/vi/2D1kbk8Be2I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

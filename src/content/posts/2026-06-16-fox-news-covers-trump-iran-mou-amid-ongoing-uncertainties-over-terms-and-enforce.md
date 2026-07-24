@@ -37,8 +37,8 @@ keyMoments:
 videoId: "lrzWmOBZyeA"
 videoTitle: "TRUST OR BUST: Netanyahu breaks silence as Trump's Iran deal faces moment of truth"
 thumbnail: "https://img.youtube.com/vi/lrzWmOBZyeA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

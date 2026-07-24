@@ -40,8 +40,8 @@ keyMoments:
 videoId: "2Q7Dmfqv5fY"
 videoTitle: "Bitcoin Holders - What's Coming Is Worse Than 1929 Depression | Macro Position Trader Jason Pizzino"
 thumbnail: "https://img.youtube.com/vi/2Q7Dmfqv5fY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

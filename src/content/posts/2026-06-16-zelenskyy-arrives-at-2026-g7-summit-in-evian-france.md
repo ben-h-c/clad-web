@@ -31,8 +31,8 @@ keyMoments:
 videoId: "cc8OeaNx3B4"
 videoTitle: "Ukraine's Zelenskyy Arrives at G7 Summit in France"
 thumbnail: "https://img.youtube.com/vi/cc8OeaNx3B4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

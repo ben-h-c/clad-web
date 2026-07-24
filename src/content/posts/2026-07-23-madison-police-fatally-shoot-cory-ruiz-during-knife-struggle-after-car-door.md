@@ -35,8 +35,8 @@ keyMoments:
 videoId: "7bEYZWwqwA8"
 videoTitle: "Frustrations grow over police shooting in Wisconsin"
 thumbnail: "https://img.youtube.com/vi/7bEYZWwqwA8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

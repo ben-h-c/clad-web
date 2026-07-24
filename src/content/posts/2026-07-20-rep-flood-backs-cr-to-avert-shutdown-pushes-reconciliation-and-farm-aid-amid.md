@@ -37,8 +37,8 @@ keyMoments:
 videoId: "VCHuDf1O8E0"
 videoTitle: "Rep. Flood Says Shutdown Is &#39;Not in America’s Interest&#39;"
 thumbnail: "https://img.youtube.com/vi/VCHuDf1O8E0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "6zrKqgrR9ZE"
 videoTitle: "Screwworm prompts Florida to ban rescue pets from Texas, New Mexico"
 thumbnail: "https://img.youtube.com/vi/6zrKqgrR9ZE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

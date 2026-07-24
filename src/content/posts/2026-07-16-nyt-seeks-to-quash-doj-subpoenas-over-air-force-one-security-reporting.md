@@ -38,8 +38,8 @@ keyMoments:
 videoId: "6xuLyjAZkdA"
 videoTitle: "QUASH HIM! Press fights & takes Trump TO COURT to stop subpoena 'abuse' of power vs NYT"
 thumbnail: "https://img.youtube.com/vi/6xuLyjAZkdA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

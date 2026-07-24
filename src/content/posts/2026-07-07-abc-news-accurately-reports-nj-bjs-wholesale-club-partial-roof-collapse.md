@@ -31,8 +31,8 @@ keyMoments:
 videoId: "iW66oFjMG3Q"
 videoTitle: "Roof of BJ's Wholesale Club store partially collapses during heavy rain"
 thumbnail: "https://img.youtube.com/vi/iW66oFjMG3Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

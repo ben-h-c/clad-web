@@ -31,8 +31,8 @@ keyMoments:
 videoId: "4yCRGaLAK5U"
 videoTitle: "JUST IN: Trump Says Family Of Fallen Soldier Flew With Him On Air Force One After Dignified Transfer"
 thumbnail: "https://img.youtube.com/vi/4yCRGaLAK5U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

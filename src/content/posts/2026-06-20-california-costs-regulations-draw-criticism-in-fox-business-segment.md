@@ -41,8 +41,8 @@ keyMoments:
 videoId: "dIcltL5ijCg"
 videoTitle: "'ONE-PARTY STATE': Californians raise questions over 'Golden State' politics"
 thumbnail: "https://img.youtube.com/vi/dIcltL5ijCg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

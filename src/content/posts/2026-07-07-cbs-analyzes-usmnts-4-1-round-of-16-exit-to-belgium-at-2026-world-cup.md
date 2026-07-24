@@ -35,8 +35,8 @@ keyMoments:
 videoId: "z2kkDBF21oM"
 videoTitle: "Breaking down the U.S. elimination from the 2026 Men's World Cup"
 thumbnail: "https://img.youtube.com/vi/z2kkDBF21oM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

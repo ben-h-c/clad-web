@@ -37,8 +37,8 @@ keyMoments:
 videoId: "ntKC7k8XYxI"
 videoTitle: "Watters: Boy, are the Iranians desperate"
 thumbnail: "https://img.youtube.com/vi/ntKC7k8XYxI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

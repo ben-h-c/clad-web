@@ -35,8 +35,8 @@ keyMoments:
 videoId: "52iWp9xrKf8"
 videoTitle: "Kara Swisher on Lack of Diversity in Tech Leadership"
 thumbnail: "https://img.youtube.com/vi/52iWp9xrKf8/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

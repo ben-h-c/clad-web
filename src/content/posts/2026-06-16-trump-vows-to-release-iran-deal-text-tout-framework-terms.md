@@ -36,8 +36,8 @@ keyMoments:
 videoId: "EZUi3f5Ge5o"
 videoTitle: "Trump to release Iran deal text in \"couple of days\""
 thumbnail: "https://img.youtube.com/vi/EZUi3f5Ge5o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

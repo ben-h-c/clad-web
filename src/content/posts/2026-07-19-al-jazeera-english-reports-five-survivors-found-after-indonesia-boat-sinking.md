@@ -28,8 +28,8 @@ keyMoments:
 videoId: "TZ4CQaXnsgw"
 videoTitle: "Five passengers found drifting days after boat sinks in Indonesia"
 thumbnail: "https://img.youtube.com/vi/TZ4CQaXnsgw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations: []

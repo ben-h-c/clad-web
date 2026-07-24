@@ -34,8 +34,8 @@ keyMoments:
     note: "Widely reported; Poland secured exemptions and Hungary has refused participation"
 videoId: "CilYWeF3ZGI"
 thumbnail: "https://img.youtube.com/vi/CilYWeF3ZGI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

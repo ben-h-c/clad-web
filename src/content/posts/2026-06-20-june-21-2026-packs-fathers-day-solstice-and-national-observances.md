@@ -37,8 +37,8 @@ keyMoments:
 videoId: "DCDLbpjOd04"
 videoTitle: "Father's Day isn't the only thing happening. June 21 is jam-packed"
 thumbnail: "https://img.youtube.com/vi/DCDLbpjOd04/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

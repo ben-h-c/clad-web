@@ -33,8 +33,8 @@ keyMoments:
 videoId: "wnL7IN-8Cm0"
 videoTitle: "Chuck Edwards Abandoned North Carolina"
 thumbnail: "https://img.youtube.com/vi/wnL7IN-8Cm0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

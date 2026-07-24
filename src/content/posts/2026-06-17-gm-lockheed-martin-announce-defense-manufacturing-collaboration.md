@@ -35,8 +35,8 @@ keyMoments:
 videoId: "mEROWa2j3RU"
 videoTitle: "'AS FAST AS WE POSSIBLY CAN': Defense giant signals urgency on ramping up production"
 thumbnail: "https://img.youtube.com/vi/mEROWa2j3RU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

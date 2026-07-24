@@ -28,8 +28,8 @@ keyMoments:
     note: "Directly from IDF statement corroborated across multiple news outlets"
 videoId: "0LDgSWfx3ac"
 thumbnail: "https://img.youtube.com/vi/0LDgSWfx3ac/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

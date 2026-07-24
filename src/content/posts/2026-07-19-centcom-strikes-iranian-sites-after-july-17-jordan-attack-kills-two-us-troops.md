@@ -35,8 +35,8 @@ keyMoments:
 videoId: "8ePGpBOFDxc"
 videoTitle: "US launches new airstrikes on Iran after confirming troop deaths • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/8ePGpBOFDxc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

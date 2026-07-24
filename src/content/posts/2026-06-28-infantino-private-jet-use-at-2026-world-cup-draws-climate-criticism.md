@@ -35,8 +35,8 @@ keyMoments:
 videoId: "n7ovyOitmAA"
 videoTitle: "FIFA World Cup: Infantino's private jet travel fuels criticism | DW News"
 thumbnail: "https://img.youtube.com/vi/n7ovyOitmAA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "ELSecdsHr8U"
 videoTitle: "'NO GOOD LEADERSHIP!' Balázs Orbán SLAMS Britain's Brexit missed opportunities | Miriam Cates"
 thumbnail: "https://img.youtube.com/vi/ELSecdsHr8U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

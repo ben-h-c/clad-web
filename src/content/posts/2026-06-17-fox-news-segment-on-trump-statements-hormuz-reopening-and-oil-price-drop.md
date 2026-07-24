@@ -37,8 +37,8 @@ keyMoments:
 videoId: "_bZ2SGKFhhc"
 videoTitle: "Trump VOWS to reopen Strait of Hormuz as oil price plunge"
 thumbnail: "https://img.youtube.com/vi/_bZ2SGKFhhc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

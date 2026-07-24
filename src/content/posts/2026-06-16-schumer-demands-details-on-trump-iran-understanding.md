@@ -39,8 +39,8 @@ keyMoments:
 videoId: "LqTbhW98TkM"
 videoTitle: "'What Exactly Did We Get Out Of Trump's Failed War?': Schumer Demands Release Of Iran Deal Details"
 thumbnail: "https://img.youtube.com/vi/LqTbhW98TkM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

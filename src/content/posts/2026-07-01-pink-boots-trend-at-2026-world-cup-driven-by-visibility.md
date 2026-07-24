@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Z_EK7mbldUM"
 videoTitle: "Why pink football boots are everywhere at the 2026 FIFA World Cup"
 thumbnail: "https://img.youtube.com/vi/Z_EK7mbldUM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

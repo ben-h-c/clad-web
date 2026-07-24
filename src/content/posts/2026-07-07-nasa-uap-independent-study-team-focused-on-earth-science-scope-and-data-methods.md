@@ -29,8 +29,8 @@ keyMoments:
 videoId: "qQv2bzewSyQ"
 videoTitle: "NASA studied whether UAP was worth looking at, not UAP itself"
 thumbnail: "https://img.youtube.com/vi/qQv2bzewSyQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

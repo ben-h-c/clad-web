@@ -37,8 +37,8 @@ keyMoments:
 videoId: "TyDHjkOiyOM"
 videoTitle: "The collective punishment of the Cuban people is wrong"
 thumbnail: "https://img.youtube.com/vi/TyDHjkOiyOM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

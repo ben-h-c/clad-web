@@ -37,8 +37,8 @@ keyMoments:
 videoId: "kF0r26HXRS4"
 videoTitle: "China unveils humanoid AI 'companion robots' to ease loneliness"
 thumbnail: "https://img.youtube.com/vi/kF0r26HXRS4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

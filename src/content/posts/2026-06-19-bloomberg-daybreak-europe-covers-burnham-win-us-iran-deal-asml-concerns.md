@@ -35,8 +35,8 @@ keyMoments:
 videoId: "AVZI-zCGnPA"
 videoTitle: "Andy Burnham Wins Election In Threat to UK Prime Minister Keir Starmer | Daybreak Europe 6/19/2026"
 thumbnail: "https://img.youtube.com/vi/AVZI-zCGnPA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

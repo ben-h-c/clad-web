@@ -31,8 +31,8 @@ keyMoments:
 videoId: "Ow8cbZnHOZw"
 videoTitle: "Shouting Match at Sanctuary City Hearing"
 thumbnail: "https://img.youtube.com/vi/Ow8cbZnHOZw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

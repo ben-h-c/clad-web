@@ -37,8 +37,8 @@ keyMoments:
 videoId: "51r3DyTd7V8"
 videoTitle: "John Bolton says Trump deal very bad for the US, Israel and Gulf Arab countries | DW News"
 thumbnail: "https://img.youtube.com/vi/51r3DyTd7V8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

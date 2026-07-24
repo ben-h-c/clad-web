@@ -30,8 +30,8 @@ keyMoments:
 videoId: "0RMNX3ggT84"
 videoTitle: "Mike Collins wins GOP Senate runoff in Georgia, setting up race against Democrat Jon Ossoff"
 thumbnail: "https://img.youtube.com/vi/0RMNX3ggT84/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

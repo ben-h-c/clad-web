@@ -36,8 +36,8 @@ keyMoments:
 videoId: "tIrfmVLa2o4"
 videoTitle: "Trump Says That Russia Should Make a Deal With Ukraine"
 thumbnail: "https://img.youtube.com/vi/tIrfmVLa2o4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

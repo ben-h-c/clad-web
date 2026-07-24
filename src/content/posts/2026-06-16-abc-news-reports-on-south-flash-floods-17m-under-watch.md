@@ -38,8 +38,8 @@ keyMoments:
 videoId: "Xah0pvYortI"
 videoTitle: "More than 17 million under flood watch from Texas to Mississippi"
 thumbnail: "https://img.youtube.com/vi/Xah0pvYortI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

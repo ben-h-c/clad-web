@@ -35,8 +35,8 @@ keyMoments:
 videoId: "sukncU5cABA"
 videoTitle: "Gen Jack Keane: This is ABSURDITY!"
 thumbnail: "https://img.youtube.com/vi/sukncU5cABA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

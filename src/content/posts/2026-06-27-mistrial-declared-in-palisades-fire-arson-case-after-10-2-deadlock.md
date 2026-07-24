@@ -34,8 +34,8 @@ keyMoments:
 videoId: "cDx5mmEiEck"
 videoTitle: "Jonathan Rinderknecht 'happy' after mistrial in Palisades trial: Attorney | Jesse Weber Live"
 thumbnail: "https://img.youtube.com/vi/cDx5mmEiEck/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

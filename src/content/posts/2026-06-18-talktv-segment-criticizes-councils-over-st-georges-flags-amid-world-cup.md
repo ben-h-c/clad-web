@@ -33,8 +33,8 @@ keyMoments:
 videoId: "WDDMcgfwSWo"
 videoTitle: "\"Stop Being Such Killjoys!\" | Councils Slammed For Banning St George's Cross During World Cup"
 thumbnail: "https://img.youtube.com/vi/WDDMcgfwSWo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -33,8 +33,8 @@ keyMoments:
 videoId: "KEPkgdS8em0"
 videoTitle: "Rep. Cleaver: Trump&#39;s Housing Snub Was &#39;Bad Advice&#39;"
 thumbnail: "https://img.youtube.com/vi/KEPkgdS8em0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "68NuPpjzA70"
 videoTitle: "Exclusive: Infiltrating Myanmar’s scam syndicates | 101 East Documentary"
 thumbnail: "https://img.youtube.com/vi/68NuPpjzA70/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

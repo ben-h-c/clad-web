@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Mi2aacHDf00"
 videoTitle: "Shockoe Institute explores enduring impact of slavery and how to expand freedom today"
 thumbnail: "https://img.youtube.com/vi/Mi2aacHDf00/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

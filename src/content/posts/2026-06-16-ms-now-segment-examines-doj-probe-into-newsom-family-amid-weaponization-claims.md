@@ -37,8 +37,8 @@ keyMoments:
 videoId: "dnEeB56kT_E"
 videoTitle: "DOJ's reputation has been 'so tarnished' under Trump it 'undermines' legitimacy of cases: Brennan"
 thumbnail: "https://img.youtube.com/vi/dnEeB56kT_E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "HCnJLf8XOoY"
 videoTitle: "Record heat wave disrupts America 250 celebrations in DC"
 thumbnail: "https://img.youtube.com/vi/HCnJLf8XOoY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "9nbf6CLi5GI"
 videoTitle: "Hormuz Oil Flows May Not Normalize Until End of Year"
 thumbnail: "https://img.youtube.com/vi/9nbf6CLi5GI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

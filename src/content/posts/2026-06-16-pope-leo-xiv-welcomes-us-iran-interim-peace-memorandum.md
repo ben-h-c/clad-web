@@ -28,8 +28,8 @@ keyMoments:
 videoId: "pIXUfQsmi68"
 videoTitle: "‘Thanks be to God’: Pope on interim US-Iran peace deal"
 thumbnail: "https://img.youtube.com/vi/pIXUfQsmi68/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

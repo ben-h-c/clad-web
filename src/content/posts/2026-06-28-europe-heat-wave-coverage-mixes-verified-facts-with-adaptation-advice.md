@@ -38,8 +38,8 @@ keyMoments:
 videoId: "CYx16RuPGYE"
 videoTitle: "Deadly heat without AC: What Europe must learn before next summer  | DW News"
 thumbnail: "https://img.youtube.com/vi/CYx16RuPGYE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

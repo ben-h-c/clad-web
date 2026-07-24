@@ -37,8 +37,8 @@ keyMoments:
 videoId: "UPgOU0iv248"
 videoTitle: "'A speech JFK would have been happy to give’: Historian reacts to Mamdani’s America 250 address"
 thumbnail: "https://img.youtube.com/vi/UPgOU0iv248/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

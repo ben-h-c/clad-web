@@ -34,8 +34,8 @@ keyMoments:
 videoId: "lMJeudP_7jA"
 videoTitle: "A right-wing backlash surges in Latin America as crime fears fuel Bukele-style crackdowns"
 thumbnail: "https://img.youtube.com/vi/lMJeudP_7jA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

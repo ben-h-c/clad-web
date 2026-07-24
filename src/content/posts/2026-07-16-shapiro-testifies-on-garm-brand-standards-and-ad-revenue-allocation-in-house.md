@@ -37,8 +37,8 @@ keyMoments:
 videoId: "QmrItjBQY9o"
 videoTitle: "Ben Shapiro SHREDS Jerry Nadler &amp; Smug Dems Live in Fiery Congress Hearing!!!"
 thumbnail: "https://img.youtube.com/vi/QmrItjBQY9o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

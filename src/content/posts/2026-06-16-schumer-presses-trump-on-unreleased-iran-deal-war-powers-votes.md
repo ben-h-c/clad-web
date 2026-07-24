@@ -39,8 +39,8 @@ keyMoments:
 videoId: "tE56f5EGhSs"
 videoTitle: "Schumer: Trump \"needs to stop keeping America in the dark\""
 thumbnail: "https://img.youtube.com/vi/tE56f5EGhSs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

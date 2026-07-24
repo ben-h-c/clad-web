@@ -32,8 +32,8 @@ keyMoments:
 videoId: "fEHV8qyNhHY"
 videoTitle: "Trump says he’ll hold press conference to read Iran deal 'word for word' once released"
 thumbnail: "https://img.youtube.com/vi/fEHV8qyNhHY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

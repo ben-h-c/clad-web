@@ -40,8 +40,8 @@ keyMoments:
 videoId: "giL9vlsFcUY"
 videoTitle: "Grok 5 vs Claude — The $1 Trillion Battle for the Future of AI"
 thumbnail: "https://img.youtube.com/vi/giL9vlsFcUY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

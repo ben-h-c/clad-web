@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Kei0niPpy2o"
 videoTitle: "President Trump made more than $1bn from crypto in first year back in office | BBC News"
 thumbnail: "https://img.youtube.com/vi/Kei0niPpy2o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

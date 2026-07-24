@@ -39,8 +39,8 @@ keyMoments:
 videoId: "cLf3VtvVvo4"
 videoTitle: "Trump faces Republican backlash over his Iran deal | Reuters World News"
 thumbnail: "https://img.youtube.com/vi/cLf3VtvVvo4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

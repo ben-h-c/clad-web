@@ -33,8 +33,8 @@ keyMoments:
 videoId: "E56P1iKOhD8"
 videoTitle: "Lindsey Graham Asked Straight-Up: Can Trump And Iran Be Trusted To Come To 'A Good Deal?'"
 thumbnail: "https://img.youtube.com/vi/E56P1iKOhD8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

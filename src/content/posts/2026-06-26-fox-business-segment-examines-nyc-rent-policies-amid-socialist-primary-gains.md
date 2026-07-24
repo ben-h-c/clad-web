@@ -36,8 +36,8 @@ keyMoments:
 videoId: "4HtAHgk7wx8"
 videoTitle: "Ex-elected official warns of wake up call to establishment Dems amid socialist candidate rise"
 thumbnail: "https://img.youtube.com/vi/4HtAHgk7wx8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

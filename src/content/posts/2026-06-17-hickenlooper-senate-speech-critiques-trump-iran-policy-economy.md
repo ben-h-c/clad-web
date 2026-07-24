@@ -40,8 +40,8 @@ keyMoments:
 videoId: "TSKApjg6qBM"
 videoTitle: "Hickenlooper Shreds Iran Deal: The United States Is 'Worse Off Than Where It Was When We Began'"
 thumbnail: "https://img.youtube.com/vi/TSKApjg6qBM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

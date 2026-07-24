@@ -34,8 +34,8 @@ keyMoments:
 videoId: "1bRHwRJV4Yk"
 videoTitle: "Market Talk: Fed should ‘stay put’"
 thumbnail: "https://img.youtube.com/vi/1bRHwRJV4Yk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

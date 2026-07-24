@@ -31,8 +31,8 @@ keyMoments:
 videoId: "wRQnFgxXHc0"
 videoTitle: "How a Venezuelan town is coping after deadly earthquakes"
 thumbnail: "https://img.youtube.com/vi/wRQnFgxXHc0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

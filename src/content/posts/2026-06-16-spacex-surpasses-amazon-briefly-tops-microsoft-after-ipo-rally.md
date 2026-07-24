@@ -37,8 +37,8 @@ keyMoments:
 videoId: "krCEHfHtLn0"
 videoTitle: "SpaceX vaults past Microsoft and Amazon in market value"
 thumbnail: "https://img.youtube.com/vi/krCEHfHtLn0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

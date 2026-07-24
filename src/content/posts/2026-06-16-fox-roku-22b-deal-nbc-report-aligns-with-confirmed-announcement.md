@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Ll5dfua30bo"
 videoTitle: "Fox Corp. to buy video streaming giant Roku for $22 billion"
 thumbnail: "https://img.youtube.com/vi/Ll5dfua30bo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

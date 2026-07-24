@@ -36,8 +36,8 @@ keyMoments:
 videoId: "weuqlcYI5Gg"
 videoTitle: "Carney, Trump caught talking trade on hot mic at G7 summit"
 thumbnail: "https://img.youtube.com/vi/weuqlcYI5Gg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

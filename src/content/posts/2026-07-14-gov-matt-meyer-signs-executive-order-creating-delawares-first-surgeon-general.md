@@ -32,8 +32,8 @@ keyMoments:
 videoId: "Rt6zUGMi0zI"
 videoTitle: "What is the Office of Surgeon General for Delaware? Gov. Meyer signs executive order"
 thumbnail: "https://img.youtube.com/vi/Rt6zUGMi0zI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

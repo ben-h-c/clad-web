@@ -36,8 +36,8 @@ keyMoments:
 videoId: "NbovomnbNSk"
 videoTitle: "Uganda struggles to block border travel amid Ebola outbreak: \"Like stopping wind from blowing\""
 thumbnail: "https://img.youtube.com/vi/NbovomnbNSk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

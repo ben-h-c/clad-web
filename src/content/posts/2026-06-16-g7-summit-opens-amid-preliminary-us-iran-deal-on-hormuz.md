@@ -35,8 +35,8 @@ keyMoments:
 videoId: "W4lhsLk-Ovs"
 videoTitle: "G7 leaders gather as Iran deal shifts global focus"
 thumbnail: "https://img.youtube.com/vi/W4lhsLk-Ovs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

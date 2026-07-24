@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Azq22A4xkSw"
 videoTitle: "'Congress Needs To Get Their Act Together': Jason Smith Calls To Address Social Security Solvency"
 thumbnail: "https://img.youtube.com/vi/Azq22A4xkSw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

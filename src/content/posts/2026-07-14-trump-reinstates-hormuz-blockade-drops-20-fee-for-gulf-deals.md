@@ -35,8 +35,8 @@ keyMoments:
 videoId: "AuR7p9Z903I"
 videoTitle: "Iran EXPOSED for Strait of Hormuz 'EXTORTION' PLOT"
 thumbnail: "https://img.youtube.com/vi/AuR7p9Z903I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

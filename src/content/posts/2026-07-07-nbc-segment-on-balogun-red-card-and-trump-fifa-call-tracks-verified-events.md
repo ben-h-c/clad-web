@@ -35,8 +35,8 @@ keyMoments:
 videoId: "ykCglIRkwYw"
 videoTitle: "Top Team USA star to play in World Cup match after Trump weighs in on controversial penalty"
 thumbnail: "https://img.youtube.com/vi/ykCglIRkwYw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

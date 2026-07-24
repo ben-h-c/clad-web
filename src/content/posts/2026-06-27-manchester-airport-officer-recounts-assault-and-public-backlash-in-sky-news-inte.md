@@ -31,8 +31,8 @@ keyMoments:
 videoId: "zpTyLuU14XE"
 videoTitle: "'I don't understand why': Manchester police officer assaulted in airport speaks to Sky News"
 thumbnail: "https://img.youtube.com/vi/zpTyLuU14XE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

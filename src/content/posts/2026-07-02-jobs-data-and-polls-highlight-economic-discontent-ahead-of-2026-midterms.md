@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Rl8490IMxo0"
 videoTitle: "“There are no easy answers to inflation”: Insana on economic frustrations ahead of the midterms"
 thumbnail: "https://img.youtube.com/vi/Rl8490IMxo0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

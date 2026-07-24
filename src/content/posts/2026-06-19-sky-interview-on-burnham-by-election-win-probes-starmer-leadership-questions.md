@@ -35,8 +35,8 @@ keyMoments:
 videoId: "33-TNo7AMXQ"
 videoTitle: "'You're in denial': Sky's Sophy Ridge presses minister over Starmer's position as PM"
 thumbnail: "https://img.youtube.com/vi/33-TNo7AMXQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

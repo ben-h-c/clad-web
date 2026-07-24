@@ -35,8 +35,8 @@ keyMoments:
 videoId: "jUEkZtr8OQs"
 videoTitle: "Ford heir on how the company shapes American jobs and the economy | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/jUEkZtr8OQs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

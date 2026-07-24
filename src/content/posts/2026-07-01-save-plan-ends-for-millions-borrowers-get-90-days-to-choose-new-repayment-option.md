@@ -34,8 +34,8 @@ keyMoments:
 videoId: "FSAW1OzyZSA"
 videoTitle: "Biden-era SAVE plan ending for roughly 7 million student loan borrowers; what can they do? | Sunrise"
 thumbnail: "https://img.youtube.com/vi/FSAW1OzyZSA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "78HSvx217Tg"
 videoTitle: "Ben Wikler - “This Is The Plan” & Taking On Elon Musk In Wisconsin | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/78HSvx217Tg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

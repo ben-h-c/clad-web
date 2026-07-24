@@ -36,8 +36,8 @@ keyMoments:
 videoId: "9GcYtItlWuQ"
 videoTitle: "The 4 issues that could torpedo peace with Iran | DW News"
 thumbnail: "https://img.youtube.com/vi/9GcYtItlWuQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "ogNMdkV7k8U"
 videoTitle: "Rep. Pat Harrigan has a view of the Iranian conflict that advises against taking Kharg Island"
 thumbnail: "https://img.youtube.com/vi/ogNMdkV7k8U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

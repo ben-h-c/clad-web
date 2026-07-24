@@ -36,8 +36,8 @@ keyMoments:
     note: "Opinionated extrapolation; Abouammo applies to charged conduct but no specific pending indictments referenced"
 videoId: "aRNvKT9RA7s"
 thumbnail: "https://img.youtube.com/vi/aRNvKT9RA7s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

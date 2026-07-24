@@ -32,8 +32,8 @@ keyMoments:
 videoId: "KJX2BgIHMYY"
 videoTitle: "Trump Asked: 'Have There Been Any Discussions With Arab Leaders' About Joining The Abraham Accords?"
 thumbnail: "https://img.youtube.com/vi/KJX2BgIHMYY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "YBK6RaNz40I"
 videoTitle: "Ebola Outbreak Puts Spotlight on Trump's America First Health Strategy | Bloomberg Next Africa"
 thumbnail: "https://img.youtube.com/vi/YBK6RaNz40I/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "aZ2bVvVjcTc"
 videoTitle: "Gowdy TORCHES Dems' calls to add Supreme Court justices"
 thumbnail: "https://img.youtube.com/vi/aZ2bVvVjcTc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

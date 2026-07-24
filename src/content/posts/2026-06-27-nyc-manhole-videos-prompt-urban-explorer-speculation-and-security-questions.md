@@ -36,8 +36,8 @@ keyMoments:
 videoId: "RP7Y6Pw7_j4"
 videoTitle: "Manhole mystery grips NYC: Why are groups entering the city's sewers? | The Truth of the Matter"
 thumbnail: "https://img.youtube.com/vi/RP7Y6Pw7_j4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

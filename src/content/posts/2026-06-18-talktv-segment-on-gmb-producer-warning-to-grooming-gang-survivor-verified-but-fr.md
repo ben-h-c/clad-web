@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Chm-hAALS1k"
 videoTitle: "“Two-Tier MEDIA!” | Victim Was Told Not To Mention The Race Of Rapists Before ITV Appearance"
 thumbnail: "https://img.youtube.com/vi/Chm-hAALS1k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

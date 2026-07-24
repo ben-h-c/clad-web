@@ -36,8 +36,8 @@ keyMoments:
 videoId: "KoItyobxqdI"
 videoTitle: "How Washington is being 'Trumpified' for America's 250th anniversary | DW News"
 thumbnail: "https://img.youtube.com/vi/KoItyobxqdI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "uBHHl5ZkVj8"
 videoTitle: "Inside ETFs: Congress members 'should not be investing in stocks'"
 thumbnail: "https://img.youtube.com/vi/uBHHl5ZkVj8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

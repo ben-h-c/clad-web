@@ -34,8 +34,8 @@ keyMoments:
 videoId: "b_E13rwWmnc"
 videoTitle: "South Korea rolls out plan to tackle youth suicide crisis"
 thumbnail: "https://img.youtube.com/vi/b_E13rwWmnc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

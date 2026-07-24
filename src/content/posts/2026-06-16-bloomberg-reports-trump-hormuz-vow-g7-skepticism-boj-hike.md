@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Y-yt9mk8u-M"
 videoTitle: "Trump Says Hormuz to Reopen Friday But G7 Allies Less Convinced | Daybreak Europe 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/Y-yt9mk8u-M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

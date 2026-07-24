@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Z1hXbpLDYlk"
 videoTitle: "Johnson in Committee: Nonpartisan House Observer Program is Critical to Election Integrity"
 thumbnail: "https://img.youtube.com/vi/Z1hXbpLDYlk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

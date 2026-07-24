@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Lkp4Xmi-KqU"
 videoTitle: "'We've got to be prepared to reprioritise': UK's PM holds first cabinet meeting • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/Lkp4Xmi-KqU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

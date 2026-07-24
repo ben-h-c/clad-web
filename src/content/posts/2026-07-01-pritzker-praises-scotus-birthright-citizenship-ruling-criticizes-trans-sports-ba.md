@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Xt-9Lm_XIn8"
 videoTitle: "'Surprisingly, They Made The Right Ruling': JB Pritzker Reacts To Birthright Citizenship Ruling"
 thumbnail: "https://img.youtube.com/vi/Xt-9Lm_XIn8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

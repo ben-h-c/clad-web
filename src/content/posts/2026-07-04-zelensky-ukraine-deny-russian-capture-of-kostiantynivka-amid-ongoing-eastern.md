@@ -31,8 +31,8 @@ keyMoments:
 videoId: "9aDS94CAlCs"
 videoTitle: "Zelensky denies Russian capture of key eastern city • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/9aDS94CAlCs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

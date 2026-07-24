@@ -37,8 +37,8 @@ keyMoments:
 videoId: "SyYhZysSer8"
 videoTitle: "How FIFA Turned NFL Stadiums Into World Cup Pitches"
 thumbnail: "https://img.youtube.com/vi/SyYhZysSer8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

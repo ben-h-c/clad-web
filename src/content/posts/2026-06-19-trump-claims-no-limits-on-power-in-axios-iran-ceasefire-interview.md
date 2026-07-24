@@ -36,8 +36,8 @@ keyMoments:
 videoId: "f03txDvFEHg"
 videoTitle: "Trump says there's \"NO LIMITS\" on his POWER in AXIOS Interview"
 thumbnail: "https://img.youtube.com/vi/f03txDvFEHg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

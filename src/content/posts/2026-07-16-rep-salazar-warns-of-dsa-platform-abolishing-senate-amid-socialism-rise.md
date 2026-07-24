@@ -37,8 +37,8 @@ keyMoments:
 videoId: "kCybLU2Crf0"
 videoTitle: "&#39;VERY DANGEROUS:&#39; Rep Maria Elvira Salazar on the rise of socialism"
 thumbnail: "https://img.youtube.com/vi/kCybLU2Crf0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

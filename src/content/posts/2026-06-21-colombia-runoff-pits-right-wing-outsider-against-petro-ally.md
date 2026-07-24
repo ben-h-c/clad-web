@@ -35,8 +35,8 @@ keyMoments:
 videoId: "TrC-MQNEKvI"
 videoTitle: "Will Colombia Elect a Far-Right President? | DW News"
 thumbnail: "https://img.youtube.com/vi/TrC-MQNEKvI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "CwqzOaJlDsk"
 videoTitle: "Australian woman welcomes '1 in 15 million' identical quadruplet girls"
 thumbnail: "https://img.youtube.com/vi/CwqzOaJlDsk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

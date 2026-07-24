@@ -32,8 +32,8 @@ keyMoments:
 videoId: "gIxkbRku0sA"
 videoTitle: "Burnham sets out 1970s vision for Britain"
 thumbnail: "https://img.youtube.com/vi/gIxkbRku0sA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

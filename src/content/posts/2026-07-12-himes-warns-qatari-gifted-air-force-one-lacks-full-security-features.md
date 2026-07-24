@@ -33,8 +33,8 @@ keyMoments:
 videoId: "du24PzQN_T8"
 videoTitle: "'Of Course It's A Security Risk': Jim Himes Decries Use Of Trump's New Air Force One Gifted By Qatar"
 thumbnail: "https://img.youtube.com/vi/du24PzQN_T8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

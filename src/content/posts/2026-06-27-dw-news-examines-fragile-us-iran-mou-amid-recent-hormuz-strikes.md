@@ -38,8 +38,8 @@ keyMoments:
 videoId: "KERJZCEnv6o"
 videoTitle: "After tit-for-tat blows: Is the US-Iran deal on the verge of collapse? | DW News"
 thumbnail: "https://img.youtube.com/vi/KERJZCEnv6o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

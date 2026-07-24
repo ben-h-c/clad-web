@@ -36,8 +36,8 @@ keyMoments:
 videoId: "0HF9WVx594U"
 videoTitle: "SpaceX Set for More Than 50% Jump in Just Three Sessions | The Pulse 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/0HF9WVx594U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

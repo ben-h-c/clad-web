@@ -36,8 +36,8 @@ keyMoments:
 videoId: "wWkKXKhsm6Y"
 videoTitle: "Van Duyne remarks at the Small Business Committee on How AI is Shaping the Future of Small Business"
 thumbnail: "https://img.youtube.com/vi/wWkKXKhsm6Y/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

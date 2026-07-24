@@ -38,8 +38,8 @@ keyMoments:
 videoId: "ekB65NFSCzM"
 videoTitle: "SpaceX Scrubs Starship Launch, Chipmakers Suffer Steep Losses | The Opening Trade 7/17/2026"
 thumbnail: "https://img.youtube.com/vi/ekB65NFSCzM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

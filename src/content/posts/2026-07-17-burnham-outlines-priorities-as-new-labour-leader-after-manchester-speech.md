@@ -31,8 +31,8 @@ keyMoments:
 videoId: "SbNeX5e5Gpc"
 videoTitle: "UK's Burnham Says He's Laid Out Clear Priorities"
 thumbnail: "https://img.youtube.com/vi/SbNeX5e5Gpc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

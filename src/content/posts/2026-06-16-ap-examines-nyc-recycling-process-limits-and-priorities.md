@@ -34,8 +34,8 @@ keyMoments:
 videoId: "bRj2w7LV0cI"
 videoTitle: "Should you recycle? Here's how it really works"
 thumbnail: "https://img.youtube.com/vi/bRj2w7LV0cI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

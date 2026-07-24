@@ -38,8 +38,8 @@ keyMoments:
 videoId: "i7idGgYeaHc"
 videoTitle: "Titus: Trump cuts Medicaid to fund tax breaks for the rich"
 thumbnail: "https://img.youtube.com/vi/i7idGgYeaHc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

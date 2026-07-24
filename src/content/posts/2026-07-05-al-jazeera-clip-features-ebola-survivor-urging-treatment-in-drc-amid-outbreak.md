@@ -32,8 +32,8 @@ keyMoments:
 videoId: "X-WWLxAPF3Y"
 videoTitle: "Ebola survivor urges Congolese to seek treatment amid misinformation"
 thumbnail: "https://img.youtube.com/vi/X-WWLxAPF3Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "pMrLEgDL--w"
 videoTitle: "Tomi Lahren predicts Trump will attend July 4th Mount Rushmore celebration #trump #shorts #fireworks"
 thumbnail: "https://img.youtube.com/vi/pMrLEgDL--w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

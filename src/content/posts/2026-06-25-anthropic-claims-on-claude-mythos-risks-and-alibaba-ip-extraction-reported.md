@@ -34,8 +34,8 @@ keyMoments:
 videoId: "ErJHbuUKDgw"
 videoTitle: "Anthropic alleges Chinese AI firm is stealing its technology"
 thumbnail: "https://img.youtube.com/vi/ErJHbuUKDgw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

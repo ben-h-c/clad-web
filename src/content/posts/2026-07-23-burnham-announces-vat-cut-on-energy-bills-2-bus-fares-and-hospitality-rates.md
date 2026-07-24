@@ -38,8 +38,8 @@ keyMoments:
 videoId: "RW24KeDgbQ0"
 videoTitle: "“I’m Absolutely TERRIFIED Of” Andy Burnham’s Government"
 thumbnail: "https://img.youtube.com/vi/RW24KeDgbQ0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

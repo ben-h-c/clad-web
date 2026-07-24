@@ -31,8 +31,8 @@ keyMoments:
 videoId: "BJwSzGiDGss"
 videoTitle: "Britt Lower - “I Will Find You” | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/BJwSzGiDGss/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

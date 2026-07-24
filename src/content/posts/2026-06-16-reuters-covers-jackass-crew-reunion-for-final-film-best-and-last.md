@@ -31,8 +31,8 @@ keyMoments:
 videoId: "0y7RY8Qpx2w"
 videoTitle: "🫏 'Jackass' crew reunite for final emotion-filled film"
 thumbnail: "https://img.youtube.com/vi/0y7RY8Qpx2w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

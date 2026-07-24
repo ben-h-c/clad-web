@@ -34,8 +34,8 @@ keyMoments:
 videoId: "C73_FNsVido"
 videoTitle: "VA Secretary Collins, Rep. Barrett meet with veterans in Onondaga Township"
 thumbnail: "https://img.youtube.com/vi/C73_FNsVido/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

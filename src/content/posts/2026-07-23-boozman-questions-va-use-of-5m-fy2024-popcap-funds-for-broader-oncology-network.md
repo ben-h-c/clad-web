@@ -33,8 +33,8 @@ keyMoments:
 videoId: "s8WPMoeZID4"
 videoTitle: "Boozman Presses VA on Failure to Establish Oncology Program Partnership with UAMS"
 thumbnail: "https://img.youtube.com/vi/s8WPMoeZID4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

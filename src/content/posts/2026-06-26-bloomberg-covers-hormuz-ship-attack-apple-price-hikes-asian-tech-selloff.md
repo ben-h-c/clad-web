@@ -38,8 +38,8 @@ keyMoments:
 videoId: "1RSDXQK3Fe0"
 videoTitle: "Ship Attack Clouds Hormuz Outlook; Tech Stocks Selloff | Horizons Middle East & Africa 6/26/2026"
 thumbnail: "https://img.youtube.com/vi/1RSDXQK3Fe0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "UH70O0UbE6Q"
 videoTitle: "Reporter Asks Jon Ossoff: If Democrats Retake House And Senate, Should They Move To Impeach Trump?"
 thumbnail: "https://img.youtube.com/vi/UH70O0UbE6Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

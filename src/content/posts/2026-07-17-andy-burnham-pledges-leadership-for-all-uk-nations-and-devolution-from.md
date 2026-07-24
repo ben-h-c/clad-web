@@ -28,8 +28,8 @@ keyMoments:
 videoId: "6vJ2nPkXP-w"
 videoTitle: "Andy Burnham: I will be a leader for EVERYONE"
 thumbnail: "https://img.youtube.com/vi/6vJ2nPkXP-w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

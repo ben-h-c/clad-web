@@ -36,8 +36,8 @@ keyMoments:
 videoId: "dglEIHOfTJU"
 videoTitle: "Formal signing of US-Iran MOU delayed, White House cites “logistical issues”"
 thumbnail: "https://img.youtube.com/vi/dglEIHOfTJU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

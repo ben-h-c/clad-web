@@ -40,8 +40,8 @@ keyMoments:
 videoId: "zE7lTw8unsg"
 videoTitle: "'BULLY OF THE NEIGHBORHOOD': Netanyahu adviser measures the escalating conflict in Iran"
 thumbnail: "https://img.youtube.com/vi/zE7lTw8unsg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

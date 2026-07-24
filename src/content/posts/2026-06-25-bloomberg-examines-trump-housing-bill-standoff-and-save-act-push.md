@@ -37,8 +37,8 @@ keyMoments:
 videoId: "8AjmlYfV730"
 videoTitle: "Trump Blocks Housing Bill Until SAVE Act is Passed | Balance of Power 06/25/2026"
 thumbnail: "https://img.youtube.com/vi/8AjmlYfV730/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

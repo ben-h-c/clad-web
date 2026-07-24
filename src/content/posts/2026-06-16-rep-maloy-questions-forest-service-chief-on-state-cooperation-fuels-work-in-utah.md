@@ -38,8 +38,8 @@ keyMoments:
 videoId: "3FBa2Rr8CR4"
 videoTitle: "Celeste Maloy: Congress Must Make It Easier For State Governments To Cooperate With Forest Service"
 thumbnail: "https://img.youtube.com/vi/3FBa2Rr8CR4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

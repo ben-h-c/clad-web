@@ -33,8 +33,8 @@ keyMoments:
 videoId: "RESA7JblM6I"
 videoTitle: "Supreme Court rules against Rastafarian inmate in religious freedom case"
 thumbnail: "https://img.youtube.com/vi/RESA7JblM6I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

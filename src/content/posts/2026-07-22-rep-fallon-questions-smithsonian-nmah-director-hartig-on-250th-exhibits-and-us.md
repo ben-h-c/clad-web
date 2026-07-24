@@ -37,8 +37,8 @@ keyMoments:
 videoId: "uKDy6-Un_No"
 videoTitle: "Pat Fallon Asks Smithsonian Director If She Loves America"
 thumbnail: "https://img.youtube.com/vi/uKDy6-Un_No/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

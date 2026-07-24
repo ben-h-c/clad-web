@@ -38,8 +38,8 @@ keyMoments:
 videoId: "Ju5S3DoOg4E"
 videoTitle: "Why is no one stopping the killings in Sudan? | DW News"
 thumbnail: "https://img.youtube.com/vi/Ju5S3DoOg4E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "NLE5IyPiM-0"
 videoTitle: "WATCH: Andy Burnham EVACUATED from stage after winning Makerfield by-election"
 thumbnail: "https://img.youtube.com/vi/NLE5IyPiM-0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

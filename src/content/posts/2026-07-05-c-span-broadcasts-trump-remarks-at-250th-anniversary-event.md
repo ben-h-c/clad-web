@@ -31,8 +31,8 @@ keyMoments:
 videoId: "0mWzHZ0bJy0"
 videoTitle: "Trump: \"Nobody can be like us\""
 thumbnail: "https://img.youtube.com/vi/0mWzHZ0bJy0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

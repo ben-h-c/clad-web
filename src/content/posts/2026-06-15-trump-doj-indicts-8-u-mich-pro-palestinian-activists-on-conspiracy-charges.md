@@ -37,8 +37,8 @@ keyMoments:
 videoId: "3vPmfYgym9g"
 videoTitle: "Trump DOJ Indicts 8 Student Protestors Over Israel"
 thumbnail: "https://img.youtube.com/vi/3vPmfYgym9g/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

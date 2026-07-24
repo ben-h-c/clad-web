@@ -31,8 +31,8 @@ keyMoments:
 videoId: "WUQ2KY_ZfDM"
 videoTitle: "How the Lyra McKee trial unfolded"
 thumbnail: "https://img.youtube.com/vi/WUQ2KY_ZfDM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

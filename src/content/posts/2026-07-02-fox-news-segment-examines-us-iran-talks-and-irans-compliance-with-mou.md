@@ -35,8 +35,8 @@ keyMoments:
 videoId: "_ExXbYtdO9c"
 videoTitle: "Iran is not cooperating AT ALL, expert warns"
 thumbnail: "https://img.youtube.com/vi/_ExXbYtdO9c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "NSpD2_-fQl4"
 videoTitle: "Sen. Mark Warner and Rep. Suhas Subramanyam town hall, Saturday, July 18, 2026"
 thumbnail: "https://img.youtube.com/vi/NSpD2_-fQl4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

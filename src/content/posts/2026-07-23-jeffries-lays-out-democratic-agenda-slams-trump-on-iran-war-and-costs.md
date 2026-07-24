@@ -38,8 +38,8 @@ keyMoments:
 videoId: "CX9WH0aovLk"
 videoTitle: "House Democrats outline agenda as midterm elections loom"
 thumbnail: "https://img.youtube.com/vi/CX9WH0aovLk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

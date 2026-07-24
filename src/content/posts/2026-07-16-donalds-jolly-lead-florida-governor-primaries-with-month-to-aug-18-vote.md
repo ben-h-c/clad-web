@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Gm_Zcyy_dkg"
 videoTitle: "Donalds, Jolly hold the inside track as Florida governor’s race enters final primary stretch"
 thumbnail: "https://img.youtube.com/vi/Gm_Zcyy_dkg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

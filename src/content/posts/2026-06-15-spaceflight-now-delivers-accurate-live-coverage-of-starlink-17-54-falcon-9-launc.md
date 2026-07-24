@@ -35,8 +35,8 @@ keyMoments:
 videoId: "3vAySaHTtuo"
 videoTitle: "Live: SpaceX Falcon 9 rocket launches 24 internet relay satellites for Starlink from California"
 thumbnail: "https://img.youtube.com/vi/3vAySaHTtuo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

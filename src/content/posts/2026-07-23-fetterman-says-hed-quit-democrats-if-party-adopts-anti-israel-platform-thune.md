@@ -36,8 +36,8 @@ keyMoments:
 videoId: "1nr7GqmUaFQ"
 videoTitle: "John Fetterman Drops a Political Bombshell That Has Washington Talking"
 thumbnail: "https://img.youtube.com/vi/1nr7GqmUaFQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

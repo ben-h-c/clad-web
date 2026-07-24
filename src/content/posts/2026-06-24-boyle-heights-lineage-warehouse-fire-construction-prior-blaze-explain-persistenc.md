@@ -35,8 +35,8 @@ keyMoments:
 videoId: "4q8PW4dG0dQ"
 videoTitle: "Why a warehouse in LA has been burning for days, why it could get worse #shorts"
 thumbnail: "https://img.youtube.com/vi/4q8PW4dG0dQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

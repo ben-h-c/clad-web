@@ -32,8 +32,8 @@ keyMoments:
 videoId: "DhR1Xnv6zDU"
 videoTitle: "Thune Asked: 'Do You See Yourself Staring Down The Likelihood Of Another One Or Two Or More CRs?'"
 thumbnail: "https://img.youtube.com/vi/DhR1Xnv6zDU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

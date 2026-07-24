@@ -36,8 +36,8 @@ keyMoments:
 videoId: "3fufm6yJ09k"
 videoTitle: "'Elon Musk driver’ still fueling investor demand despite Tesla volatility: Strategist"
 thumbnail: "https://img.youtube.com/vi/3fufm6yJ09k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

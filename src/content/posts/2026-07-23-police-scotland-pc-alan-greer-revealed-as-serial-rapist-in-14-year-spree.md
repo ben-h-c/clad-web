@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Mj9iyAGlFIM"
 videoTitle: "Police officer was violent rapist who attacked women over 14 years | BBC News"
 thumbnail: "https://img.youtube.com/vi/Mj9iyAGlFIM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

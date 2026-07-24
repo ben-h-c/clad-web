@@ -41,8 +41,8 @@ keyMoments:
 videoId: "95Po6UbIZ_c"
 videoTitle: "Trump's weird flattery makes another awkward moment"
 thumbnail: "https://img.youtube.com/vi/95Po6UbIZ_c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

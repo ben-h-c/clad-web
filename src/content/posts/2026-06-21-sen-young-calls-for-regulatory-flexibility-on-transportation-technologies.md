@@ -34,8 +34,8 @@ keyMoments:
 videoId: "pEPJ0sHupzg"
 videoTitle: "'Our Adversaries Won't Wait For Us To Tie Our Shoes': Young Calls On Congress To Remove Red Tape"
 thumbnail: "https://img.youtube.com/vi/pEPJ0sHupzg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -33,8 +33,8 @@ keyMoments:
 videoId: "98WAnPXasQo"
 videoTitle: "Ted Cruz: Trump 'Is Getting Poor Advice' On Iran After MOU Released"
 thumbnail: "https://img.youtube.com/vi/98WAnPXasQo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

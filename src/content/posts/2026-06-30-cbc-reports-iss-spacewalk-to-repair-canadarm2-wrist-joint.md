@@ -34,8 +34,8 @@ keyMoments:
 videoId: "HfLzcNKKYuA"
 videoTitle: "Astronauts are doing a space walk to repair robotic arm on the ISS"
 thumbnail: "https://img.youtube.com/vi/HfLzcNKKYuA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

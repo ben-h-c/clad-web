@@ -35,8 +35,8 @@ keyMoments:
 videoId: "1KXxtG9DqFY"
 videoTitle: "'I Don't Want To See Us Send A Penny To The Ayatollah': Ted Cruz Gives Blunt Take On U.S.-Iran Deal"
 thumbnail: "https://img.youtube.com/vi/1KXxtG9DqFY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

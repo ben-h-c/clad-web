@@ -31,8 +31,8 @@ keyMoments:
 videoId: "xC8Ye4tQJGo"
 videoTitle: "Ghana floods leave trail of dead, missing and thousands displaced"
 thumbnail: "https://img.youtube.com/vi/xC8Ye4tQJGo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

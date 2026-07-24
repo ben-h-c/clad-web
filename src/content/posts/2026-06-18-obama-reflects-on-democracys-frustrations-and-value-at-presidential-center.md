@@ -31,8 +31,8 @@ keyMoments:
 videoId: "x3ygiDg694I"
 videoTitle: "WATCH: Democracy is frustrating, slow, inefficient, but also precious, Obama says"
 thumbnail: "https://img.youtube.com/vi/x3ygiDg694I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

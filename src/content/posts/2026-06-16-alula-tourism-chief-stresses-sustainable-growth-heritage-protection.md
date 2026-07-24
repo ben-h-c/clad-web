@@ -31,8 +31,8 @@ keyMoments:
 videoId: "-1wPGYqygC8"
 videoTitle: "AlUla tourism chief on bringing in visitors — but not too many"
 thumbnail: "https://img.youtube.com/vi/-1wPGYqygC8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "QADKN3hantI"
 videoTitle: "It's Beginning: AI Improves Itself"
 thumbnail: "https://img.youtube.com/vi/QADKN3hantI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "_0_vIxPKMmo"
 videoTitle: "Rally for Reconciliation 3.0, Great American Health Alliance: U.S. Congressman Tom Barrett"
 thumbnail: "https://img.youtube.com/vi/_0_vIxPKMmo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

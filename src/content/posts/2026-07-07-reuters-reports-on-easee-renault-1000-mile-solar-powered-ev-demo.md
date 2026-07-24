@@ -31,8 +31,8 @@ keyMoments:
 videoId: "-deJUcOrp84"
 videoTitle: "Electric vehicle makes 1,000-mile journey using only solar"
 thumbnail: "https://img.youtube.com/vi/-deJUcOrp84/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

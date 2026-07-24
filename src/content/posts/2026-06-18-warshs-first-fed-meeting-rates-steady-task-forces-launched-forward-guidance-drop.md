@@ -36,8 +36,8 @@ keyMoments:
 videoId: "GyazBDCuUD4"
 videoTitle: "POLICY EARTHQUAKE: Warsh RESHAPES the Fed in his first meeting"
 thumbnail: "https://img.youtube.com/vi/GyazBDCuUD4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

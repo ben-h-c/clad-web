@@ -34,8 +34,8 @@ keyMoments:
 videoId: "lBAuc057pVA"
 videoTitle: "NASA's new $4.3 billion space telescope to launch in August"
 thumbnail: "https://img.youtube.com/vi/lBAuc057pVA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

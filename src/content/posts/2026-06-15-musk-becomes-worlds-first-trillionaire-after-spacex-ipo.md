@@ -29,8 +29,8 @@ keyMoments:
 videoId: "CujogXaza8I"
 videoTitle: "Elon Musk Just Became The World&#39;s First Trillionaire! 🚀💰#elonmusk  #spacex  #tesla #shorts"
 thumbnail: "https://img.youtube.com/vi/CujogXaza8I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

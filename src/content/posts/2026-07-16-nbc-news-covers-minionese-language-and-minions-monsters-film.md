@@ -34,8 +34,8 @@ keyMoments:
 videoId: "aYbjsSwzzZU"
 videoTitle: "Minionese? A Minion LANGUAGE?! What’s Going On?"
 thumbnail: "https://img.youtube.com/vi/aYbjsSwzzZU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

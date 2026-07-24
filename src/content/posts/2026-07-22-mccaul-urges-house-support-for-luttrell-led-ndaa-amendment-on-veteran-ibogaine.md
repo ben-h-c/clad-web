@@ -37,8 +37,8 @@ keyMoments:
 videoId: "C7pz5YWeti4"
 videoTitle: "McCaul Urges House to Support NDAA Amendment Led by Luttrell to Increase Veteran Access to Ibogaine"
 thumbnail: "https://img.youtube.com/vi/C7pz5YWeti4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

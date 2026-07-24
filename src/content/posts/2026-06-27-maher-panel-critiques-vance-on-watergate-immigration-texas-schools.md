@@ -40,8 +40,8 @@ keyMoments:
 videoId: "F4D0jFRKgig"
 videoTitle: "Overtime with Bill Maher: Sen. Raphael Warnock, Larry Wilmore (HBO)"
 thumbnail: "https://img.youtube.com/vi/F4D0jFRKgig/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

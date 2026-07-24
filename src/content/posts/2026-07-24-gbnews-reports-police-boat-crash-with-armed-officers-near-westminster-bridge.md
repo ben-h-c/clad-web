@@ -30,9 +30,9 @@ keyMoments:
 videoId: "PwqzUrc7qqU"
 videoTitle: "BREAKING: A police boat carrying ARMED OFFICERS has CRASHED"
 thumbnail: "https://img.youtube.com/vi/PwqzUrc7qqU/maxresdefault.jpg"
-mediaNote: "Police boats and officers clustered mid-frame on water; keep action upper-middle clear of bottom text"
-thumbFocusY: 28
-thumbFocusX: 48
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 citations:
   - title: "Boat full of tourists smashes into Westminster Bridge"

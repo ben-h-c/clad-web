@@ -34,8 +34,8 @@ keyMoments:
 videoId: "v5ETjq7WN2U"
 videoTitle: "Is Trump playing with fire with the cost of war? | The Hill Sunday"
 thumbnail: "https://img.youtube.com/vi/v5ETjq7WN2U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

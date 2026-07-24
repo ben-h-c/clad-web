@@ -38,8 +38,8 @@ keyMoments:
 videoId: "0Dt3lgVInOk"
 videoTitle: "Gutfeld: Just one screw up and boom, millions dead"
 thumbnail: "https://img.youtube.com/vi/0Dt3lgVInOk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

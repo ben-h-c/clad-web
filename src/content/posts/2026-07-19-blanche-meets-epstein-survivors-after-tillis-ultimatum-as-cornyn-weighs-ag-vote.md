@@ -39,8 +39,8 @@ keyMoments:
 videoId: "jpYv1Ib1v1Q"
 videoTitle: "How (un)productive was Blanche's meeting with Epstein survivors? | Debate roundup"
 thumbnail: "https://img.youtube.com/vi/jpYv1Ib1v1Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

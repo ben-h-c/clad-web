@@ -34,8 +34,8 @@ keyMoments:
 videoId: "7OgrpImawjo"
 videoTitle: "Polish civilians take army training course amid spectre of war with Russia • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/7OgrpImawjo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

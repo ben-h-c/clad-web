@@ -36,8 +36,8 @@ keyMoments:
 videoId: "OrP814YJvRE"
 videoTitle: "Kara Swisher: \"It's a billionaire boys' club\""
 thumbnail: "https://img.youtube.com/vi/OrP814YJvRE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "CF8JXkGoNDI"
 videoTitle: "What's behind Russia's reported purchase of Indian gas? | DW News"
 thumbnail: "https://img.youtube.com/vi/CF8JXkGoNDI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

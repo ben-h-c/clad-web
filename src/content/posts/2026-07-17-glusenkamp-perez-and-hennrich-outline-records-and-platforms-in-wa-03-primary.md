@@ -33,8 +33,8 @@ keyMoments:
 videoId: "k-YZxQ68AzM"
 videoTitle: "Gluesenkamp Perez faces Democratic and Republican challengers in WA-03 primary"
 thumbnail: "https://img.youtube.com/vi/k-YZxQ68AzM/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

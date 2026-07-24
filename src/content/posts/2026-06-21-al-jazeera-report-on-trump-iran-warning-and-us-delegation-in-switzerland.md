@@ -35,8 +35,8 @@ keyMoments:
 videoId: "usFKDsL7VmE"
 videoTitle: "Trump says Iran must stop ‘proxies’ in Lebanon or US will hit Iran 'very hard again'"
 thumbnail: "https://img.youtube.com/vi/usFKDsL7VmE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -33,8 +33,8 @@ keyMoments:
 videoId: "5PUwYt7OxrE"
 videoTitle: "FIFA forced into major U-TURN as England prepare to face Mexico at the Azteca"
 thumbnail: "https://img.youtube.com/vi/5PUwYt7OxrE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

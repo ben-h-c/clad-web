@@ -36,8 +36,8 @@ keyMoments:
 videoId: "ZsAQ_B7zVJI"
 videoTitle: "NYC's Joyous Knicks Victory Celebration vs. Trump's Joyless White House UFC Fight | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/ZsAQ_B7zVJI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

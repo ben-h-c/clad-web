@@ -38,8 +38,8 @@ keyMoments:
 videoId: "gwUqC0CXb8I"
 videoTitle: "ICYMI: Republicans & Dems Debate Chloe Cole Act, Bill To Crack Down On Gender Treatments For Minors"
 thumbnail: "https://img.youtube.com/vi/gwUqC0CXb8I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

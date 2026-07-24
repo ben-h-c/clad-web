@@ -28,8 +28,8 @@ keyMoments:
 videoId: "rlRXqE09WcQ"
 videoTitle: "JD Vance asks for prayers before he goes on 'The View'"
 thumbnail: "https://img.youtube.com/vi/rlRXqE09WcQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "fiU6-AWF7Kw"
 videoTitle: "Ghana's Partey misled Canadian officials over rape arrest. #BBCNews"
 thumbnail: "https://img.youtube.com/vi/fiU6-AWF7Kw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

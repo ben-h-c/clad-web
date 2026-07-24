@@ -35,8 +35,8 @@ keyMoments:
 videoId: "ts4qz1tlLSg"
 videoTitle: "How recent killings of U.S. soldiers could affect the war with Iran"
 thumbnail: "https://img.youtube.com/vi/ts4qz1tlLSg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

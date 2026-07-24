@@ -38,8 +38,8 @@ keyMoments:
 videoId: "RF4KBpZ6oL0"
 videoTitle: "US, allies to make plan for $300 bn Iran reconstruction fund • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/RF4KBpZ6oL0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "cZAG3oBKgvQ"
 videoTitle: "'We hope the member states will recognise our effort' to join the EU: Moldova's President Maia Sandu"
 thumbnail: "https://img.youtube.com/vi/cZAG3oBKgvQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

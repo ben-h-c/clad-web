@@ -33,8 +33,8 @@ keyMoments:
 videoId: "TpptAqTD-bE"
 videoTitle: "Johnson in Committee: The Trump Administration Is Trying to Rewrite Our History"
 thumbnail: "https://img.youtube.com/vi/TpptAqTD-bE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

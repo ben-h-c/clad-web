@@ -40,8 +40,8 @@ keyMoments:
 videoId: "XIkNvupZLps"
 videoTitle: "‘NO DOUBT’: Iran was ‘encouraging’ Hezbollah to strike Israel: Ex-CIA station chief"
 thumbnail: "https://img.youtube.com/vi/XIkNvupZLps/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

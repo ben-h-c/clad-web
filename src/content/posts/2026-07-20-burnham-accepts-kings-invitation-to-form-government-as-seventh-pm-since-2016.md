@@ -28,8 +28,8 @@ keyMoments:
 videoId: "V0SdnnbsnQ0"
 videoTitle: "Burnham Says He's Accepted Invitation to Form Government"
 thumbnail: "https://img.youtube.com/vi/V0SdnnbsnQ0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

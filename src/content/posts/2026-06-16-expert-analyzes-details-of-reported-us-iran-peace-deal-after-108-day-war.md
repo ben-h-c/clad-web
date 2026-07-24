@@ -36,8 +36,8 @@ keyMoments:
 videoId: "oQ1Au1K9B-U"
 videoTitle: "What We Know About Deal Suggests Iran War Accomplished Almost No Strategic Benefits To U.S.: Expert"
 thumbnail: "https://img.youtube.com/vi/oQ1Au1K9B-U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

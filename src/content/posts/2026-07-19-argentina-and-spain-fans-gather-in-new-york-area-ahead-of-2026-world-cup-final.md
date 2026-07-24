@@ -32,8 +32,8 @@ keyMoments:
 videoId: "i7flXZG9eSM"
 videoTitle: "Argentina and Spain fans descend on New York for World Cup final"
 thumbnail: "https://img.youtube.com/vi/i7flXZG9eSM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

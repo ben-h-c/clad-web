@@ -33,8 +33,8 @@ keyMoments:
 videoId: "GJSf5-bn3cA"
 videoTitle: "Horrific video captures moment deadly blaze breaks out in Bangkok bar"
 thumbnail: "https://img.youtube.com/vi/GJSf5-bn3cA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "hNsR9zeDeq4"
 videoTitle: "How Turkey quietly became a power broker in Africa | DW News"
 thumbnail: "https://img.youtube.com/vi/hNsR9zeDeq4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

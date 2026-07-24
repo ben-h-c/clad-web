@@ -34,8 +34,8 @@ keyMoments:
 videoId: "-I0Aq7eHKB8"
 videoTitle: "'We Don't Want To Create A Lot Of Noise': David Schweikert Urges Streamlined Digital Asset Taxation"
 thumbnail: "https://img.youtube.com/vi/-I0Aq7eHKB8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

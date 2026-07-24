@@ -40,8 +40,8 @@ keyMoments:
 videoId: "7Vc8gvuTHqU"
 videoTitle: "&#39;He&#39;s trying to change the narrative&#39;: Congressman Raja Krishnamoorthi SLAMS Trump&#39;s election speech"
 thumbnail: "https://img.youtube.com/vi/7Vc8gvuTHqU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "ACAe1l2Xzpk"
 videoTitle: "\"The Coffee Can Investor\" offers a key strategy for families and long-term investors"
 thumbnail: "https://img.youtube.com/vi/ACAe1l2Xzpk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

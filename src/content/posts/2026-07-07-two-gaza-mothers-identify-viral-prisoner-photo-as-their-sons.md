@@ -34,8 +34,8 @@ keyMoments:
 videoId: "vGyonPqo-g0"
 videoTitle: "WARNING - DISTRESSING VIDEO: Two mothers claim son in viral Gaza prisoner photo"
 thumbnail: "https://img.youtube.com/vi/vGyonPqo-g0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

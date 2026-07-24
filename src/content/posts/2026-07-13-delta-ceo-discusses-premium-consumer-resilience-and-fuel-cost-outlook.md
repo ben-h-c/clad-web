@@ -31,8 +31,8 @@ keyMoments:
 videoId: "9zrnLT98RjY"
 videoTitle: "Delta CEO says oil prices will stay “sticky for longer”"
 thumbnail: "https://img.youtube.com/vi/9zrnLT98RjY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

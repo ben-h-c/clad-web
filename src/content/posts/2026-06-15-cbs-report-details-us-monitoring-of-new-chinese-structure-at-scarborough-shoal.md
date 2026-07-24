@@ -35,8 +35,8 @@ keyMoments:
 videoId: "cbzYA8g9DFg"
 videoTitle: "U.S. monitoring Chinese activity in South China Sea"
 thumbnail: "https://img.youtube.com/vi/cbzYA8g9DFg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "8PgOVvMFMvs"
 videoTitle: "Australia to double down on big tech over social media ban on under-16s | DW News"
 thumbnail: "https://img.youtube.com/vi/8PgOVvMFMvs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

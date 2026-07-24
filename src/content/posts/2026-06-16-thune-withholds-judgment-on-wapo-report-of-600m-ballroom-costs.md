@@ -29,8 +29,8 @@ keyMoments:
 videoId: "bsunXOVec3w"
 videoTitle: "John Thune Grilled On Reported Rising Costs Of Trump's Ballroom That Will Be Paid For By Taxpayers"
 thumbnail: "https://img.youtube.com/vi/bsunXOVec3w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

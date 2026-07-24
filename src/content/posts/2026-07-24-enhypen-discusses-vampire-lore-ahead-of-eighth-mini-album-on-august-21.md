@@ -32,8 +32,8 @@ keyMoments:
 videoId: "L-40NVIPg-8"
 videoTitle: "K-pop band ENHYPEN discusses vampires and upcoming album"
 thumbnail: "https://img.youtube.com/vi/L-40NVIPg-8/maxresdefault.jpg"
-mediaNote: "group faces upper-middle line"
-thumbFocusY: 28
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

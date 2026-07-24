@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Kj0HlqZ5E28"
 videoTitle: "Bill Maher says Dems 'cannot help but win' midterms, but warns on democratic socialist candidates"
 thumbnail: "https://img.youtube.com/vi/Kj0HlqZ5E28/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

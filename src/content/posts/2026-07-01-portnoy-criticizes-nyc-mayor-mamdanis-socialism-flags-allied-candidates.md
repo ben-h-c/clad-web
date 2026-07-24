@@ -36,8 +36,8 @@ keyMoments:
 videoId: "A6xj3lFDTAc"
 videoTitle: "Dave Portnoy delivers BLISTERING response to Mamdani"
 thumbnail: "https://img.youtube.com/vi/A6xj3lFDTAc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

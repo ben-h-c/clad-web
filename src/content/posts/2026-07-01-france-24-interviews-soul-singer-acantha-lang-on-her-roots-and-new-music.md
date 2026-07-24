@@ -34,8 +34,8 @@ keyMoments:
 videoId: "7oXxqGhhTfU"
 videoTitle: "Grammy-nominated singer Acantha Lang on using soul music as a means of connection • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/7oXxqGhhTfU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

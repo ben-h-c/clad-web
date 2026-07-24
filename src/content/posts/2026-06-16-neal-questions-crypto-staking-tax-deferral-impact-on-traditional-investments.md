@@ -31,8 +31,8 @@ keyMoments:
 videoId: "4ZNMpizBs0s"
 videoTitle: "Richard Neal: This Is How Adjusting Crypto Taxation Could Impact Retirement Savings For Americans"
 thumbnail: "https://img.youtube.com/vi/4ZNMpizBs0s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

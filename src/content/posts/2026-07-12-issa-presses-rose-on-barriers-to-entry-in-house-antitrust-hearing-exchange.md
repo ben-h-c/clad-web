@@ -36,8 +36,8 @@ politicians:
 thumbnail: "https://img.youtube.com/vi/SXs3D0r4SOg/maxresdefault.jpg"
 mediaStyle: "overlay"
 thumbFocusX: 50
-thumbFocusY: 28
-mediaNote: "Issa face upper-center; strong talking-head subject clears bottom scrim and side panels"
+thumbFocusY: 40
+mediaNote: "16:9 band default"
 citations:
   - title: "Testimony of Professor Nancy L. Rose, House Judiciary Subcommittee, June 24, 2026"
     url: "https://www.congress.gov/119/meeting/house/119409/witnesses/HHRG-119-JU05-Wstate-RoseN-20260624-U11.pdf"

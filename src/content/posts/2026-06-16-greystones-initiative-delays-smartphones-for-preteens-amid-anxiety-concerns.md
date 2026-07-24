@@ -32,8 +32,8 @@ keyMoments:
 videoId: "U8h9Qbxl_ng"
 videoTitle: "How an Irish village is bringing back smartphone-free childhoods"
 thumbnail: "https://img.youtube.com/vi/U8h9Qbxl_ng/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

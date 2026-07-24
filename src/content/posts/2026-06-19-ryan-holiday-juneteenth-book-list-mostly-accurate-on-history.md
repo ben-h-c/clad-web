@@ -36,8 +36,8 @@ keyMoments:
 videoId: "jc46JyoKxTQ"
 videoTitle: "Ryan Holiday's Juneteenth Reading List"
 thumbnail: "https://img.youtube.com/vi/jc46JyoKxTQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

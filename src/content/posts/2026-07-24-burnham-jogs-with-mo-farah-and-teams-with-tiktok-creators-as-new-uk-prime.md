@@ -32,9 +32,9 @@ keyMoments:
 videoId: "DU3tNgtzybI"
 videoTitle: "Is Burnham UK's first 'aura farming' prime minister?"
 thumbnail: "https://img.youtube.com/vi/DU3tNgtzybI/maxresdefault.jpg"
-mediaNote: "Talking-head face upper-middle; keep smile and eyes sharp above text safe-zone"
-thumbFocusY: 28
-thumbFocusX: 52
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:
   - name: "Donald Trump"

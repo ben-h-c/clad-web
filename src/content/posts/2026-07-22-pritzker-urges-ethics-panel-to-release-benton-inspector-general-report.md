@@ -32,8 +32,8 @@ keyMoments:
 videoId: "U0ISpMjJrzE"
 videoTitle: "Gov. JB Pritzker supports release of investigation into former Illinois state Rep. Harry Benton"
 thumbnail: "https://img.youtube.com/vi/U0ISpMjJrzE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

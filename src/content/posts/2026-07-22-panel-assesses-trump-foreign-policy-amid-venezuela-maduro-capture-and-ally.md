@@ -38,8 +38,8 @@ keyMoments:
 videoId: "cGQE6qlQEos"
 videoTitle: "Trump ‘totally got it WRONG on Iran’: Fmr. State Dept. Vet"
 thumbnail: "https://img.youtube.com/vi/cGQE6qlQEos/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

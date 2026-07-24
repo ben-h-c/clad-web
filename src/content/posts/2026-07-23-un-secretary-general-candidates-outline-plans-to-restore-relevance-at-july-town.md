@@ -33,8 +33,8 @@ keyMoments:
 videoId: "i96twozEsyQ"
 videoTitle: "UN Chief Candidates Make Case for Restoring World Body’s Stature"
 thumbnail: "https://img.youtube.com/vi/i96twozEsyQ/maxresdefault.jpg"
-mediaNote: "UN stage candidates + screen face upper-middle"
-thumbFocusY: 28
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

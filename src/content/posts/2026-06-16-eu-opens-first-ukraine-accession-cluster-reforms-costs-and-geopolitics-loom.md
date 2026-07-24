@@ -37,8 +37,8 @@ keyMoments:
 videoId: "WO1VcBhg6qw"
 videoTitle: "Will the EU let Ukraine in?"
 thumbnail: "https://img.youtube.com/vi/WO1VcBhg6qw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

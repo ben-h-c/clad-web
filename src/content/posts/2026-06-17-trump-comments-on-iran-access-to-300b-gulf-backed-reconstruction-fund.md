@@ -30,8 +30,8 @@ keyMoments:
 videoId: "HvPiV8BXrhc"
 videoTitle: "Trump says Iran can access $300 billion fund only if they do 'things right'"
 thumbnail: "https://img.youtube.com/vi/HvPiV8BXrhc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

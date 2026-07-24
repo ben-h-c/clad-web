@@ -36,8 +36,8 @@ keyMoments:
 videoId: "MV0w-rNc4LM"
 videoTitle: "Stocks close slightly lower on Wall Street after Fed holds rates steady"
 thumbnail: "https://img.youtube.com/vi/MV0w-rNc4LM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

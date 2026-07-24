@@ -37,8 +37,8 @@ keyMoments:
 videoId: "4X82EGqaS28"
 videoTitle: "Dan Bongino: He is an IMBECILE"
 thumbnail: "https://img.youtube.com/vi/4X82EGqaS28/maxresdefault.jpg"
-mediaNote: "Talking-head face upper-middle; keep eyes/nose in safe zone above text overlay"
-thumbFocusY: 28
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "el68Un9_AdQ"
 videoTitle: "Federal judges take a bus tour to spread the message of democracy to communities"
 thumbnail: "https://img.youtube.com/vi/el68Un9_AdQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

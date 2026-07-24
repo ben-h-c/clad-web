@@ -37,8 +37,8 @@ keyMoments:
 videoId: "YU4SjGWaLCA"
 videoTitle: "‘He cannot accept a loss’: Inside Trump’s voter overhaul obsession that could backfire on the GOP"
 thumbnail: "https://img.youtube.com/vi/YU4SjGWaLCA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

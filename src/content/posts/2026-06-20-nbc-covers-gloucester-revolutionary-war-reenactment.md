@@ -28,8 +28,8 @@ keyMoments:
 videoId: "EMr5JwVsG_c"
 videoTitle: "Hundreds participate in Revolutionary War reenactment in Gloucester, Mass."
 thumbnail: "https://img.youtube.com/vi/EMr5JwVsG_c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

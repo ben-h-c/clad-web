@@ -38,8 +38,8 @@ keyMoments:
 videoId: "FW2KvxN8dUA"
 videoTitle: "Former VP Al Gore marks 20 years since ‘An Inconvenient Truth’"
 thumbnail: "https://img.youtube.com/vi/FW2KvxN8dUA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

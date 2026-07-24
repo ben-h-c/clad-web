@@ -35,8 +35,8 @@ keyMoments:
 videoId: "-tPkIDI3MpM"
 videoTitle: "Why a traffic cone got a hero’s welcome in Boston"
 thumbnail: "https://img.youtube.com/vi/-tPkIDI3MpM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

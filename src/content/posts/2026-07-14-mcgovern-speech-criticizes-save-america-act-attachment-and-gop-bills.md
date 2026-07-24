@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Zroz83VSToI"
 videoTitle: "'Even Republicans Know It Is A Disaster!': Jim McGovern Rails Against SAVE America Act"
 thumbnail: "https://img.youtube.com/vi/Zroz83VSToI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

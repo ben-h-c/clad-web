@@ -35,8 +35,8 @@ keyMoments:
 videoId: "RzLrwBAK9Ug"
 videoTitle: "Health care decisions should be made by patients."
 thumbnail: "https://img.youtube.com/vi/RzLrwBAK9Ug/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

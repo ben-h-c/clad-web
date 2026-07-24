@@ -31,8 +31,8 @@ keyMoments:
 videoId: "3syO4jY4wcA"
 videoTitle: "Trial for Ebola treatment starts in DR Congo"
 thumbnail: "https://img.youtube.com/vi/3syO4jY4wcA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

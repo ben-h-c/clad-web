@@ -37,8 +37,8 @@ keyMoments:
 videoId: "p1sPBpGkIEI"
 videoTitle: "'The Five': Bernie Sanders, Zohran Mamdani flexing socialist muscles for New York comrades"
 thumbnail: "https://img.youtube.com/vi/p1sPBpGkIEI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

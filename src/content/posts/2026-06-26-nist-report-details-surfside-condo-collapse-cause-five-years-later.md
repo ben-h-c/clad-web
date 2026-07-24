@@ -34,8 +34,8 @@ keyMoments:
 videoId: "FyUhAUks9KU"
 videoTitle: "Surfside, Fla., condo collapse family member reacts to new report | Jesse Weber Live"
 thumbnail: "https://img.youtube.com/vi/FyUhAUks9KU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

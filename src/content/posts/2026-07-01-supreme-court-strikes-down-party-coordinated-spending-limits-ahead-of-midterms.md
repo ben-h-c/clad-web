@@ -39,8 +39,8 @@ keyMoments:
 videoId: "jbuVtS3G2I8"
 videoTitle: "How the Supreme Court just rewrote the rules of politics"
 thumbnail: "https://img.youtube.com/vi/jbuVtS3G2I8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

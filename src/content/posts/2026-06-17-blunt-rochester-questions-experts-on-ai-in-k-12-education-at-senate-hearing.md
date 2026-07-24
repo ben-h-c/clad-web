@@ -34,8 +34,8 @@ keyMoments:
 videoId: "hc8ealjkuXc"
 videoTitle: "'Are There Things That Only We Could Do?': Blunt Rochester Asks Experts About Needed Action On AI"
 thumbnail: "https://img.youtube.com/vi/hc8ealjkuXc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

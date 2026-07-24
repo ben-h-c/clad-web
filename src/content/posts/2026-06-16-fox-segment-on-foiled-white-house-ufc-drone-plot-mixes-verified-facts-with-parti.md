@@ -35,8 +35,8 @@ keyMoments:
 videoId: "IJcf6NZttII"
 videoTitle: "Kayleigh McEnany: This is CHILLING"
 thumbnail: "https://img.youtube.com/vi/IJcf6NZttII/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

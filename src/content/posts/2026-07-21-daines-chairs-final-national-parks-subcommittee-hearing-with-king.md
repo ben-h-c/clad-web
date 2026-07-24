@@ -35,8 +35,8 @@ keyMoments:
 videoId: "T5vPonbhhXE"
 videoTitle: "&#39;We are co-chairs no matter which way the gavel falls&#39;: Daines marks 22nd hearing with King"
 thumbnail: "https://img.youtube.com/vi/T5vPonbhhXE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

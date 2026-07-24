@@ -38,8 +38,8 @@ keyMoments:
 videoId: "RLSdKQXri6U"
 videoTitle: "John Garamendi Blasts 'Outrageous And Dangerously Irresponsible Amount Of Spending' In NDAA"
 thumbnail: "https://img.youtube.com/vi/RLSdKQXri6U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

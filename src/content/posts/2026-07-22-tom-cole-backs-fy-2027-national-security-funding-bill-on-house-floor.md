@@ -37,8 +37,8 @@ keyMoments:
 videoId: "RYTWd5rtUmI"
 videoTitle: "&#39;It Leaves No Doubt About Our Nation&#39;s Posture&#39;: Tom Cole Praises National Security Funding Bill"
 thumbnail: "https://img.youtube.com/vi/RYTWd5rtUmI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

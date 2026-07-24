@@ -35,8 +35,8 @@ keyMoments:
 videoId: "wqSisJC_uOM"
 videoTitle: "Nike battles Adidas for World Cup boost"
 thumbnail: "https://img.youtube.com/vi/wqSisJC_uOM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

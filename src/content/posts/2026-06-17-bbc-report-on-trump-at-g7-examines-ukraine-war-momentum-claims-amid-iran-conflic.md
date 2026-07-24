@@ -39,8 +39,8 @@ keyMoments:
 videoId: "W0z55lKz4WA"
 videoTitle: "Trump tells leaders 'I'm the boss' - after claim he's changed position on Ukraine | BBC News"
 thumbnail: "https://img.youtube.com/vi/W0z55lKz4WA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

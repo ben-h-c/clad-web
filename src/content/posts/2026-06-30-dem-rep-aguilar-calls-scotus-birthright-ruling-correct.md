@@ -34,8 +34,8 @@ keyMoments:
 videoId: "svvn114itrg"
 videoTitle: "Rep. Pete Aguilar (D-CA) on SCOTUS Birthright Citizenship Ruling: \"This was the right decision.\""
 thumbnail: "https://img.youtube.com/vi/svvn114itrg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

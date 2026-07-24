@@ -34,8 +34,8 @@ keyMoments:
 videoId: "HkCrhLf-ksY"
 videoTitle: "7 Natural Wonders of America': Redwood National and State Parks"
 thumbnail: "https://img.youtube.com/vi/HkCrhLf-ksY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

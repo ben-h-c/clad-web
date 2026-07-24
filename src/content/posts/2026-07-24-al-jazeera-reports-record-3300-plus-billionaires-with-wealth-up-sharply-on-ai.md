@@ -37,9 +37,9 @@ keyMoments:
 videoId: "pvBROELoWzU"
 videoTitle: "Why are billionaires booming while the rest struggle? | Counting the Cost"
 thumbnail: "https://img.youtube.com/vi/pvBROELoWzU/maxresdefault.jpg"
-mediaNote: "Primary talking-head face (Bezos) upper-middle; keep secondary faces in frame"
-thumbFocusY: 28
-thumbFocusX: 48
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 citations:
   - title: "Billionaire wealth jumps three times faster in 2025 to highest peak ever"

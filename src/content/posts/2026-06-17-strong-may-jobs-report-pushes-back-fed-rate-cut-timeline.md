@@ -35,8 +35,8 @@ keyMoments:
 videoId: "TzG0CkRryi4"
 videoTitle: "Experts say strong jobs report threatens chance to see interest rate cut"
 thumbnail: "https://img.youtube.com/vi/TzG0CkRryi4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

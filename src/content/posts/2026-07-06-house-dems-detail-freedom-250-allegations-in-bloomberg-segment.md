@@ -37,8 +37,8 @@ keyMoments:
 videoId: "XcqjtrC2s7U"
 videoTitle: "House Dems Investigate Trump's Running of Freedom 250 | Balance of Power 07/06/2026"
 thumbnail: "https://img.youtube.com/vi/XcqjtrC2s7U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

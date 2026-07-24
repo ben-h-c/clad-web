@@ -37,8 +37,8 @@ keyMoments:
 videoId: "HzI5o6mwAI0"
 videoTitle: "Knicks Championship Sparks NY Joyfest, UFC Comes to White House & Trump Heads to G7 | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/HzI5o6mwAI0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "pGZLtyZNJ7A"
 videoTitle: "Trump’s World Cup scandal COLLIDES with his war on birthright citizenship"
 thumbnail: "https://img.youtube.com/vi/pGZLtyZNJ7A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

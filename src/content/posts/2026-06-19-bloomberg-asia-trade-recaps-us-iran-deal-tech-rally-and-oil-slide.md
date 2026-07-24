@@ -35,8 +35,8 @@ keyMoments:
 videoId: "WD7dAdstja0"
 videoTitle: "Asian Stocks Hit Record, Oil Heads for Weekly Loss | The Asia Trade 6/19/2026"
 thumbnail: "https://img.youtube.com/vi/WD7dAdstja0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

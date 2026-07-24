@@ -35,8 +35,8 @@ keyMoments:
 videoId: "c_mWg81KM8s"
 videoTitle: "Oil Holds Below $80 as Iran Peace Deal Details Emerge | The Asia Trade 6/17/2026"
 thumbnail: "https://img.youtube.com/vi/c_mWg81KM8s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

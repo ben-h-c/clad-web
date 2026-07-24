@@ -36,8 +36,8 @@ keyMoments:
 videoId: "AQ2MwQrSGJo"
 videoTitle: "John Thune Points Finger At Democrats For Shutdowns, Accuses Them Of Using It To Boost Midterm Odds"
 thumbnail: "https://img.youtube.com/vi/AQ2MwQrSGJo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

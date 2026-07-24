@@ -27,8 +27,8 @@ keyMoments:
 videoId: "rTZFT3g7fv8"
 videoTitle: "Maren Morris responds to reports that she'll be at Taylor Swift's wedding"
 thumbnail: "https://img.youtube.com/vi/rTZFT3g7fv8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

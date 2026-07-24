@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Zyu_ecRsBV0"
 videoTitle: "Markets 'don't care' about what's in the Iran deal, they just want the war to be over: Greeley"
 thumbnail: "https://img.youtube.com/vi/Zyu_ecRsBV0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

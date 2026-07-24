@@ -37,8 +37,8 @@ keyMoments:
 videoId: "ZraX7ApS1s8"
 videoTitle: "Megan Rapinoe on Activism, Life Post-Soccer & New Podcast “Why Are You Like This” | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/ZraX7ApS1s8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

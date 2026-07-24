@@ -39,8 +39,8 @@ keyMoments:
 videoId: "RsBdR0DrcxY"
 videoTitle: "BREAKING: CENTCOM confirms U.S. strikes on Iran after cargo ship attack in Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/RsBdR0DrcxY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

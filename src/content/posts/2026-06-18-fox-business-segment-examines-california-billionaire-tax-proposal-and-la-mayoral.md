@@ -32,8 +32,8 @@ keyMoments:
 videoId: "JBCUQLjKZRU"
 videoTitle: "'MIND-BOGGLING': Real estate expert SOUNDS OFF on Cali billionaire tax"
 thumbnail: "https://img.youtube.com/vi/JBCUQLjKZRU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

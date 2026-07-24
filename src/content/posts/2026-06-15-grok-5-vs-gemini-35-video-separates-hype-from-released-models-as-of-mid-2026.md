@@ -38,8 +38,8 @@ keyMoments:
 videoId: "1OZF-8IReYo"
 videoTitle: "Elon's Grok 5 vs Google Gemini 3.5: Did xAI Just Win the AGI Race?"
 thumbnail: "https://img.youtube.com/vi/1OZF-8IReYo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

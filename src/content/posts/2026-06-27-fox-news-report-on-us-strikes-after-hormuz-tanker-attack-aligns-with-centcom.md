@@ -34,8 +34,8 @@ keyMoments:
 videoId: "wo-e5qk6YSw"
 videoTitle: "BREAKING: US military launches strikes in the Strait of Hormuz following Iranian attack on tanker"
 thumbnail: "https://img.youtube.com/vi/wo-e5qk6YSw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

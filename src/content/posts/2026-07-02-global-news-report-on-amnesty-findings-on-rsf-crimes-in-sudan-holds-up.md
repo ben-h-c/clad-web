@@ -38,8 +38,8 @@ keyMoments:
 videoId: "MztWzOZLPaU"
 videoTitle: "Sudan's RSF accused of crimes against humanity, ethnic cleansing in el-Fasher"
 thumbnail: "https://img.youtube.com/vi/MztWzOZLPaU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

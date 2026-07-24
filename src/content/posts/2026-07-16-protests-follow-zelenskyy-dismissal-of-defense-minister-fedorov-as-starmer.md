@@ -32,8 +32,8 @@ keyMoments:
 videoId: "vN4KMDkdhc0"
 videoTitle: "Protests erupt in Ukraine after Zelenskyy sacks Ukraine’s popular defence minister"
 thumbnail: "https://img.youtube.com/vi/vN4KMDkdhc0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

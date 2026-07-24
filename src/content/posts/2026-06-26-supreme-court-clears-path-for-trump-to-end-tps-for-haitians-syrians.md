@@ -35,8 +35,8 @@ keyMoments:
 videoId: "dXHntbyX-04"
 videoTitle: "Thousands of Haitians and Syrians could lose deportation protection after the Supreme Court ruling"
 thumbnail: "https://img.youtube.com/vi/dXHntbyX-04/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

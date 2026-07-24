@@ -36,8 +36,8 @@ keyMoments:
 videoId: "roXtqxKSUeA"
 videoTitle: "Trump tries to SPIN Iran deal to world leaders at G7 Summit"
 thumbnail: "https://img.youtube.com/vi/roXtqxKSUeA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

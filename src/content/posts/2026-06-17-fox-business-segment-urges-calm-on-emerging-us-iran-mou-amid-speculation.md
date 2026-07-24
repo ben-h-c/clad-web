@@ -33,8 +33,8 @@ keyMoments:
 videoId: "UzUYvwGhMBI"
 videoTitle: "'CHILL OUT A LITTLE BIT': Retired Lt. Gen. says everybody needs to 'relax' over Iran MOU"
 thumbnail: "https://img.youtube.com/vi/UzUYvwGhMBI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

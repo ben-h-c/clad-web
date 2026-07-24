@@ -37,8 +37,8 @@ keyMoments:
 videoId: "WOL6GHwBWFs"
 videoTitle: "The business of OnlyFans explained"
 thumbnail: "https://img.youtube.com/vi/WOL6GHwBWFs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

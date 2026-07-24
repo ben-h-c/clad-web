@@ -28,8 +28,8 @@ keyMoments:
 videoId: "29lHE-b6Sy0"
 videoTitle: "US burrito chain Chipotle opens first restaurant in Mexico"
 thumbnail: "https://img.youtube.com/vi/29lHE-b6Sy0/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

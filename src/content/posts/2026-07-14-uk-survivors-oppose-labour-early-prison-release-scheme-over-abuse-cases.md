@@ -38,8 +38,8 @@ keyMoments:
 videoId: "1o4eht_wsDA"
 videoTitle: "Survivors speak out against UK early prison release scheme"
 thumbnail: "https://img.youtube.com/vi/1o4eht_wsDA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

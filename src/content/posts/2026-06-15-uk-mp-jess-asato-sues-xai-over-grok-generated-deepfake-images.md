@@ -37,8 +37,8 @@ keyMoments:
 videoId: "5fXkSyBKapc"
 videoTitle: "ELON MUSK Hit With Lawsuit From MP Over GROK AI Abuse"
 thumbnail: "https://img.youtube.com/vi/5fXkSyBKapc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

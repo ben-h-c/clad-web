@@ -37,8 +37,8 @@ keyMoments:
 videoId: "AAIkUZYlJnU"
 videoTitle: "Europe heatwave swamps hospitals, halts parties • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/AAIkUZYlJnU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

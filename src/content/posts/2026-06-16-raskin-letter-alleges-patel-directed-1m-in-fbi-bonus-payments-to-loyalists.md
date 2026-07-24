@@ -37,8 +37,8 @@ keyMoments:
 videoId: "M5Ap6Ai3ZUg"
 videoTitle: "EXCLUSIVE: Kash Patel may have used $1 MILLION in taxpayer funds to pay off MAGA-loyal FBI henchmen"
 thumbnail: "https://img.youtube.com/vi/M5Ap6Ai3ZUg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

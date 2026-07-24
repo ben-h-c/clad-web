@@ -35,8 +35,8 @@ keyMoments:
 videoId: "S0OiT5GOXaY"
 videoTitle: "Scranton's Train Set: Last Week Tonight with John Oliver (Bonus Segments)"
 thumbnail: "https://img.youtube.com/vi/S0OiT5GOXaY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

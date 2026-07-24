@@ -33,8 +33,8 @@ keyMoments:
     note: "Reflects typical FOMC diversity; specific names and current stances not independently verified in segment."
 videoId: "ZUFxUb35X2M"
 thumbnail: "https://img.youtube.com/vi/ZUFxUb35X2M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

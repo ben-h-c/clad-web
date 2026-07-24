@@ -37,8 +37,8 @@ keyMoments:
 videoId: "_cquMJSQyDQ"
 videoTitle: "Gen Keane: Action ‘WILL BE TAKEN’ if Iran doesn’t adhere to this..."
 thumbnail: "https://img.youtube.com/vi/_cquMJSQyDQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

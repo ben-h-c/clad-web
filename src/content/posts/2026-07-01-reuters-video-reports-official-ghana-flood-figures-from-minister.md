@@ -34,8 +34,8 @@ keyMoments:
 videoId: "RX2okIMCK8Q"
 videoTitle: "Heavy rains kill at least 12 in Ghana floods"
 thumbnail: "https://img.youtube.com/vi/RX2okIMCK8Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

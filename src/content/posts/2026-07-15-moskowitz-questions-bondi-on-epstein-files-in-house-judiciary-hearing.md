@@ -37,8 +37,8 @@ keyMoments:
 videoId: "kvLrZJW3MoE"
 videoTitle: "Moskowitz Dares Pam Bondi to Read His &quot;Burn Book&quot; Her Response Stuns Congress."
 thumbnail: "https://img.youtube.com/vi/kvLrZJW3MoE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

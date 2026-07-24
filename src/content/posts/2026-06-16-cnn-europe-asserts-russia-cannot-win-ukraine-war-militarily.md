@@ -41,8 +41,8 @@ keyMoments:
 videoId: "tFs4ioXes3w"
 videoTitle: "Europe says Russia can't win Ukraine war militarily"
 thumbnail: "https://img.youtube.com/vi/tFs4ioXes3w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

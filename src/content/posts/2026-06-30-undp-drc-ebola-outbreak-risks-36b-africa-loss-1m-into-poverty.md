@@ -32,8 +32,8 @@ keyMoments:
 videoId: "VxY4OOYCpIw"
 videoTitle: "Ebola outbreak could cost Africa up to $3.6 billion"
 thumbnail: "https://img.youtube.com/vi/VxY4OOYCpIw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

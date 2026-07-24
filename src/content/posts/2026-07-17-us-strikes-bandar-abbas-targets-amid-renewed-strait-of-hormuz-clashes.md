@@ -34,8 +34,8 @@ keyMoments:
 videoId: "cbmkgJulKXc"
 videoTitle: "BREAKING: US deals MAJOR BLOW to IRGC #foxnews #news #us #fox"
 thumbnail: "https://img.youtube.com/vi/cbmkgJulKXc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

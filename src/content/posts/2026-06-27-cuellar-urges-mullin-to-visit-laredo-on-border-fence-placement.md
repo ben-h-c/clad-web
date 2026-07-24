@@ -34,8 +34,8 @@ keyMoments:
 videoId: "2LK-wnBeFjU"
 videoTitle: "'I'm For Border Security': Cuellar Asks Mullin To Visit Loredo Amid Dispute Over Border Fence"
 thumbnail: "https://img.youtube.com/vi/2LK-wnBeFjU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

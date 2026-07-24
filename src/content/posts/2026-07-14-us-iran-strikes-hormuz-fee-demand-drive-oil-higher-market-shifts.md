@@ -38,8 +38,8 @@ keyMoments:
 videoId: "a7s90-Dsj6U"
 videoTitle: "US-Iran Clashes Lift Oil, Rate Hike Bets | Insight with Haslinda Amin 7/14/2026"
 thumbnail: "https://img.youtube.com/vi/a7s90-Dsj6U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

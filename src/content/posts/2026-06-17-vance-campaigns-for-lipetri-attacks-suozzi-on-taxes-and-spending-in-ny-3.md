@@ -34,8 +34,8 @@ keyMoments:
 videoId: "rg2FAm3INjw"
 videoTitle: "'Kick Crazy Tom Suozzi The Hell Out Of Washington!': JD Vance Tears Into New York Democrat"
 thumbnail: "https://img.youtube.com/vi/rg2FAm3INjw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

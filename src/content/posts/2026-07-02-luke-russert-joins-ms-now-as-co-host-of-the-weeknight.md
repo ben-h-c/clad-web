@@ -28,8 +28,8 @@ keyMoments:
 videoId: "zQCabJXCQwE"
 videoTitle: "Tim Russert's son returning to television on MS NOW"
 thumbnail: "https://img.youtube.com/vi/zQCabJXCQwE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

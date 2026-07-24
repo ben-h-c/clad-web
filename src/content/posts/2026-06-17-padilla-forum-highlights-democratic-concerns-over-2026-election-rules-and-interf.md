@@ -37,8 +37,8 @@ keyMoments:
 videoId: "EQk0spY3nmA"
 videoTitle: "'Know your rules': Sen. Padilla tells voters to counter election intimidation with preparedness"
 thumbnail: "https://img.youtube.com/vi/EQk0spY3nmA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

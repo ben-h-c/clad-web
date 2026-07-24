@@ -35,8 +35,8 @@ keyMoments:
 videoId: "qFvJ8S7ejK0"
 videoTitle: "\"An evening for the ages.\" Trump marks America’s 250th with speech"
 thumbnail: "https://img.youtube.com/vi/qFvJ8S7ejK0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

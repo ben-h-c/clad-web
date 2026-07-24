@@ -34,8 +34,8 @@ keyMoments:
 videoId: "LJgTx-X3eU8"
 videoTitle: "Doctor shares what to know about cyclosporiasis"
 thumbnail: "https://img.youtube.com/vi/LJgTx-X3eU8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

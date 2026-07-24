@@ -40,8 +40,8 @@ keyMoments:
 videoId: "2PZ5XOLdf1k"
 videoTitle: "Tech Stocks Selloff After Apple Price Hikes, OpenAI IPO Report | Daybreak Europe 6/26/2026"
 thumbnail: "https://img.youtube.com/vi/2PZ5XOLdf1k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

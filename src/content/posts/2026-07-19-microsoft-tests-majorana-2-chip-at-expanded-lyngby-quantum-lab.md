@@ -35,8 +35,8 @@ keyMoments:
 videoId: "2JgJ1MRhntg"
 videoTitle: "Microsoft in the race to build the ultimate supercomputer | BBC News | BBC News"
 thumbnail: "https://img.youtube.com/vi/2JgJ1MRhntg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

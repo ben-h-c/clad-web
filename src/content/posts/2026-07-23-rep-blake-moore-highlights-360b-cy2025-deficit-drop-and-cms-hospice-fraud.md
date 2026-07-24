@@ -38,8 +38,8 @@ keyMoments:
 videoId: "iAQrDBy_NlU"
 videoTitle: "Blake Moore Leads Special Order On The Federal Deficit And How To Reduce Federal Spending"
 thumbnail: "https://img.youtube.com/vi/iAQrDBy_NlU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

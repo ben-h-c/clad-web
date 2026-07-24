@@ -36,8 +36,8 @@ keyMoments:
 videoId: "KIAhz7InPNk"
 videoTitle: "Homes 'like ovens' in a country where buildings are made to lock heat in"
 thumbnail: "https://img.youtube.com/vi/KIAhz7InPNk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

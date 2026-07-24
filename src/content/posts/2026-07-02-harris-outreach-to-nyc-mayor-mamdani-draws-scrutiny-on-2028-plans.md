@@ -37,8 +37,8 @@ keyMoments:
 videoId: "2CGq0KyQc1k"
 videoTitle: "Kamala's private calls SPARK questions"
 thumbnail: "https://img.youtube.com/vi/2CGq0KyQc1k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

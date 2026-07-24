@@ -35,8 +35,8 @@ keyMoments:
 videoId: "mdvdcY9h2gQ"
 videoTitle: "'Terrible Mistake': Neguse Decries Proposal To Eliminate USFS State, Private & Tribal Program"
 thumbnail: "https://img.youtube.com/vi/mdvdcY9h2gQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

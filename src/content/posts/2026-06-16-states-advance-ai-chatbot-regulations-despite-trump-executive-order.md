@@ -28,8 +28,8 @@ keyMoments:
 videoId: "U1hODSdD7bs"
 videoTitle: "States advance AI regulations despite federal opposition"
 thumbnail: "https://img.youtube.com/vi/U1hODSdD7bs/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

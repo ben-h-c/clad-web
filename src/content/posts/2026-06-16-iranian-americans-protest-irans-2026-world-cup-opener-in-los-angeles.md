@@ -35,8 +35,8 @@ keyMoments:
 videoId: "oVlTNqC5gHo"
 videoTitle: "Iranian Americans protest outside stadium at Iran's FIFA World Cup match"
 thumbnail: "https://img.youtube.com/vi/oVlTNqC5gHo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

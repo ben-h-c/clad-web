@@ -37,8 +37,8 @@ keyMoments:
 videoId: "ZE9qT3denUM"
 videoTitle: "Analysts assess how and if Andy Burnham will forge different path for UK than Keir Starmer"
 thumbnail: "https://img.youtube.com/vi/ZE9qT3denUM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

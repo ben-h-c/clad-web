@@ -37,8 +37,8 @@ keyMoments:
 videoId: "htbIyuUKGY8"
 videoTitle: "The Costs of the U.S. War with Iran and Congress Races Toward August Recess | July 22"
 thumbnail: "https://img.youtube.com/vi/htbIyuUKGY8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

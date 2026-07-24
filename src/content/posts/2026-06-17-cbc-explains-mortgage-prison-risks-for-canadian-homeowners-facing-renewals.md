@@ -34,8 +34,8 @@ keyMoments:
 videoId: "1kGxZJwjt1A"
 videoTitle: "Why some homeowners are falling into a mortgage payment trap they can't escape | About That"
 thumbnail: "https://img.youtube.com/vi/1kGxZJwjt1A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "4vHlhMU8Dwk"
 videoTitle: "'Blaming everything that went wrong during Covid on Boris Johnson is wrong'"
 thumbnail: "https://img.youtube.com/vi/4vHlhMU8Dwk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "xApRti0WPuU"
 videoTitle: "Northern Tornadoes Project investigating severity of Alberta, Saskatchewan tornadoes"
 thumbnail: "https://img.youtube.com/vi/xApRti0WPuU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

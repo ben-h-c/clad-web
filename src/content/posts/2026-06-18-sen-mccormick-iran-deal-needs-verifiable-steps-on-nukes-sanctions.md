@@ -36,8 +36,8 @@ keyMoments:
 videoId: "EysDtxpCoq0"
 videoTitle: "THE REAL DEAL: ‘Tangible steps’ in a peace deal with Iran are necessary, says Sen McCormick"
 thumbnail: "https://img.youtube.com/vi/EysDtxpCoq0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

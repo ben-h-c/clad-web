@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Ssv58YqHMRg"
 videoTitle: "'What Obligations Does That Person Undertake?': Lee Asks Attorney About Oath Of Citizenship"
 thumbnail: "https://img.youtube.com/vi/Ssv58YqHMRg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

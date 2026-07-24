@@ -32,8 +32,8 @@ keyMoments:
 videoId: "xzqKtBW_8a8"
 videoTitle: "FOX5 [Washington, DC]: Governor Spanberger wants data centers to pay for new power lines"
 thumbnail: "https://img.youtube.com/vi/xzqKtBW_8a8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "QY5bw7MAXC8"
 videoTitle: "Long Island architect gets life for Gilgo Beach serial killings"
 thumbnail: "https://img.youtube.com/vi/QY5bw7MAXC8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

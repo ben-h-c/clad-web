@@ -35,8 +35,8 @@ keyMoments:
 videoId: "UN0UXrw3JVM"
 videoTitle: "Survivors found alive in rubble 4 days after Venezuela earthquake"
 thumbnail: "https://img.youtube.com/vi/UN0UXrw3JVM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

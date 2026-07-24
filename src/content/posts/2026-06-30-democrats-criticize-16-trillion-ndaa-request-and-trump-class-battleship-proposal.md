@@ -37,8 +37,8 @@ keyMoments:
 videoId: "jqxs15huV2k"
 videoTitle: "'Even Dr. Strangelove Is Impressed!': Jim McGovern And Adam Smith Rip NDAA's Massive Budget Request"
 thumbnail: "https://img.youtube.com/vi/jqxs15huV2k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

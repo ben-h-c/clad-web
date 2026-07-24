@@ -34,8 +34,8 @@ keyMoments:
 videoId: "MBsO6EjClTI"
 videoTitle: "Why a vague statement in the U.S.-Iran peace agreement over Hormuz Strait is causing new trouble"
 thumbnail: "https://img.youtube.com/vi/MBsO6EjClTI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

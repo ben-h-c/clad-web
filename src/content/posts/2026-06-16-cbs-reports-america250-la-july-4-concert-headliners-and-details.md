@@ -34,8 +34,8 @@ keyMoments:
 videoId: "SmYRAdZIqkA"
 videoTitle: "Chris Stapleton and The Smashing Pumpkins to headline America250 L.A. concert, Queen Latifah to host"
 thumbnail: "https://img.youtube.com/vi/SmYRAdZIqkA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

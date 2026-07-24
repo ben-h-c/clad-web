@@ -35,8 +35,8 @@ keyMoments:
 videoId: "FnY5NJkcRow"
 videoTitle: "Steven Guilbeault on his split with Mark Carney | The Current"
 thumbnail: "https://img.youtube.com/vi/FnY5NJkcRow/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

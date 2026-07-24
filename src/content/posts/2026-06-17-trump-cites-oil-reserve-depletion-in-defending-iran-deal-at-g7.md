@@ -36,8 +36,8 @@ keyMoments:
 videoId: "exwtmAi7G04"
 videoTitle: "Trump: We Run Out Of Oil Reserves In 'About Four Weeks' If We Kept Bombing Iran"
 thumbnail: "https://img.youtube.com/vi/exwtmAi7G04/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

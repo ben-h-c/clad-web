@@ -28,8 +28,8 @@ keyMoments:
 videoId: "tKL0Pn8luy4"
 videoTitle: "Prince Harry does goat yoga at a summer festival in the UK"
 thumbnail: "https://img.youtube.com/vi/tKL0Pn8luy4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

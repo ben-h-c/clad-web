@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Q_L9f6XC_wg"
 videoTitle: "AI Bosses Meet G7 Leaders as US Curbs\nUnsettle Allies"
 thumbnail: "https://img.youtube.com/vi/Q_L9f6XC_wg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

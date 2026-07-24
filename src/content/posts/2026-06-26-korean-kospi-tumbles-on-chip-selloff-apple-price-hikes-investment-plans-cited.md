@@ -36,8 +36,8 @@ keyMoments:
 videoId: "y7EKteLDkt4"
 videoTitle: "Korean Stocks Plunge 9% on Chip Selloff"
 thumbnail: "https://img.youtube.com/vi/y7EKteLDkt4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

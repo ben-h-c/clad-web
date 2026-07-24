@@ -34,8 +34,8 @@ keyMoments:
 videoId: "QEjxLIaJzG8"
 videoTitle: "What the US-Iran Deal Means for Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/QEjxLIaJzG8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

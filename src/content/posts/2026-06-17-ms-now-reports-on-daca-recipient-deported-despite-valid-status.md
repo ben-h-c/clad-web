@@ -33,8 +33,8 @@ keyMoments:
 videoId: "6I5aizVsa1c"
 videoTitle: "Trump deported a DACA recipient, her daughter has an emotional message for him"
 thumbnail: "https://img.youtube.com/vi/6I5aizVsa1c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

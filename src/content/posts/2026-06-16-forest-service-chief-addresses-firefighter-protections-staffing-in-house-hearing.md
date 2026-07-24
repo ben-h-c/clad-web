@@ -37,8 +37,8 @@ keyMoments:
 videoId: "vuCT6ABGRFE"
 videoTitle: "Maxine Dexter Asks Forest Service Chief About Ways To Increase Protections For Firefighters"
 thumbnail: "https://img.youtube.com/vi/vuCT6ABGRFE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

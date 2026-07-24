@@ -34,8 +34,8 @@ keyMoments:
 videoId: "3cTxcrq14H0"
 videoTitle: "Tom Suozzi Asks Experts To Explain The Differences Between Different Kinds Of Cryptocurrency"
 thumbnail: "https://img.youtube.com/vi/3cTxcrq14H0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

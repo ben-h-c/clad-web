@@ -30,8 +30,8 @@ keyMoments:
 videoId: "KCTTUi_IJD8"
 videoTitle: "FULL Q AND A: JD Vance Takes Questions From Reporters Before U.S.-Pakistan-Qatar-Iran Talks Begin"
 thumbnail: "https://img.youtube.com/vi/KCTTUi_IJD8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

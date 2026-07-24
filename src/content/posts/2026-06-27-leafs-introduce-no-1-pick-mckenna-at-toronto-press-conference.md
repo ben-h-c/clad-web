@@ -34,8 +34,8 @@ keyMoments:
 videoId: "kZqG5ASTPtw"
 videoTitle: "Chayka recalls meeting McKenna in Whitehorse at 11 p.m. to \"full sun\" as Leafs introduce pick | FULL"
 thumbnail: "https://img.youtube.com/vi/kZqG5ASTPtw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

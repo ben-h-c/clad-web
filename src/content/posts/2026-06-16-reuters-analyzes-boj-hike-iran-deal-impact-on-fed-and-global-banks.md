@@ -35,8 +35,8 @@ keyMoments:
 videoId: "PTZft9quqD0"
 videoTitle: "Market Talk: Warsh ‘will tread carefully’ at Fed meeting"
 thumbnail: "https://img.youtube.com/vi/PTZft9quqD0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

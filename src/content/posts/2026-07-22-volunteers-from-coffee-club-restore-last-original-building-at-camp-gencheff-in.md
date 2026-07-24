@@ -33,8 +33,8 @@ keyMoments:
 videoId: "VsubzT0_ogA"
 videoTitle: "This 65-year-old camp almost lost its last original building. A coffee club saved it"
 thumbnail: "https://img.youtube.com/vi/VsubzT0_ogA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

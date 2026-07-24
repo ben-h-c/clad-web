@@ -35,8 +35,8 @@ keyMoments:
 videoId: "F-I4J8gGPzA"
 videoTitle: "Germany approves joint venture with Russia's Rosatom despite Ukraine war | DW News"
 thumbnail: "https://img.youtube.com/vi/F-I4J8gGPzA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

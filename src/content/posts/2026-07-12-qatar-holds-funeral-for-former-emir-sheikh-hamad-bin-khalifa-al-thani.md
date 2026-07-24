@@ -34,8 +34,8 @@ keyMoments:
 videoId: "G7X4E82DcWQ"
 videoTitle: "Qatar in mourning: Father emir laid to rest in capital Doha"
 thumbnail: "https://img.youtube.com/vi/G7X4E82DcWQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

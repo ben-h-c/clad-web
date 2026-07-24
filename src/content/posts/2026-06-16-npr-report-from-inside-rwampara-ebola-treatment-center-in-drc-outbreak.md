@@ -31,8 +31,8 @@ keyMoments:
 videoId: "6zlXX6CjTBo"
 videoTitle: "Here's what the inside of an Ebola ward looks like, at the epicenter of the outbreak in Congo"
 thumbnail: "https://img.youtube.com/vi/6zlXX6CjTBo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

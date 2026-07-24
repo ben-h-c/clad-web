@@ -30,8 +30,8 @@ keyMoments:
 videoId: "89YWS5S2tZo"
 videoTitle: "#Gaza: #Mamdani urges government to arrest #Netanyahu if he visits #US • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/89YWS5S2tZo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

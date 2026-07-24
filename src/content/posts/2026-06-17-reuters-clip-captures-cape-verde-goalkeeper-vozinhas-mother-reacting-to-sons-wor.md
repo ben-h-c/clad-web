@@ -28,8 +28,8 @@ keyMoments:
 videoId: "jyUZneB1IwU"
 videoTitle: "Cape Verde keeper’s mother watches son shine"
 thumbnail: "https://img.youtube.com/vi/jyUZneB1IwU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

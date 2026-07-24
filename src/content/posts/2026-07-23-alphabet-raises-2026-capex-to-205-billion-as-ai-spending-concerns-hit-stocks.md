@@ -37,8 +37,8 @@ keyMoments:
 videoId: "13UIPDiQg9M"
 videoTitle: "AI Spending Fears Weigh on Stocks; Oil Jumps on Red Sea Attack | Bloomberg Brief 07/23/2026"
 thumbnail: "https://img.youtube.com/vi/13UIPDiQg9M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

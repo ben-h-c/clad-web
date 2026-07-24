@@ -32,8 +32,8 @@ keyMoments:
 videoId: "W7AqGsbvwWQ"
 videoTitle: "Texas town protests Amazon delivery 'drone highway'"
 thumbnail: "https://img.youtube.com/vi/W7AqGsbvwWQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

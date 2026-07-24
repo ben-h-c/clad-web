@@ -39,8 +39,8 @@ keyMoments:
 videoId: "-PY5FIBNEDk"
 videoTitle: "Trump meets G7 leaders after HISTORIC Iran deal"
 thumbnail: "https://img.youtube.com/vi/-PY5FIBNEDk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

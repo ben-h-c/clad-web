@@ -35,9 +35,9 @@ keyMoments:
 videoId: "SQlhLWrYexM"
 videoTitle: "SpaceX Makes Big Bet on Starship"
 thumbnail: "https://img.youtube.com/vi/SQlhLWrYexM/maxresdefault.jpg"
-mediaNote: "Rocket and exhaust plume upper-middle"
-thumbFocusY: 28
-thumbFocusX: 52
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 citations:
   - title: "SpaceX Is Turning Away Falcon Customers in Major Bet on Starship"

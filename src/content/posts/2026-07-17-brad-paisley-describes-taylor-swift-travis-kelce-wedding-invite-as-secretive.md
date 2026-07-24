@@ -31,8 +31,8 @@ keyMoments:
 videoId: "85BAxDLRzAg"
 videoTitle: "Brad Paisley says Taylor Swift’s wedding invite was a fun 'cat and mouse game'"
 thumbnail: "https://img.youtube.com/vi/85BAxDLRzAg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

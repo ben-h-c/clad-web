@@ -31,8 +31,8 @@ keyMoments:
 videoId: "t0fI0MDVwWU"
 videoTitle: "Thousands in Albania protest Jared Kushner-backed resort plan"
 thumbnail: "https://img.youtube.com/vi/t0fI0MDVwWU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

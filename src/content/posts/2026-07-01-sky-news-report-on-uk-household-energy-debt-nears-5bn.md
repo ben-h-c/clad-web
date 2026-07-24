@@ -34,8 +34,8 @@ keyMoments:
 videoId: "7LOqK2UbzNs"
 videoTitle: "Britain's £5bn energy debt... | This is Why"
 thumbnail: "https://img.youtube.com/vi/7LOqK2UbzNs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

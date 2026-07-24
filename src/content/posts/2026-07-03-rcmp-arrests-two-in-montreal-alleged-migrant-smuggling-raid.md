@@ -31,8 +31,8 @@ keyMoments:
 videoId: "NuFrVsh3sIM"
 videoTitle: "2 arrested in RCMP raid of alleged migrant smuggling house in Montreal"
 thumbnail: "https://img.youtube.com/vi/NuFrVsh3sIM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

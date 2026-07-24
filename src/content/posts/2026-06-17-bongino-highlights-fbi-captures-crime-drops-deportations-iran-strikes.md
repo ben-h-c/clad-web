@@ -39,8 +39,8 @@ keyMoments:
 videoId: "EeTnjQpOm4M"
 videoTitle: "Dan Bongino: This is the only thing Democrats will reimagine"
 thumbnail: "https://img.youtube.com/vi/EeTnjQpOm4M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

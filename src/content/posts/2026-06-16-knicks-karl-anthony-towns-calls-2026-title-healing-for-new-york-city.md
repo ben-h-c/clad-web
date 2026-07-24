@@ -28,8 +28,8 @@ keyMoments:
 videoId: "Y2NyxWJIebw"
 videoTitle: "Karl-Anthony Towns says Knicks championship 'healing' for NYC"
 thumbnail: "https://img.youtube.com/vi/Y2NyxWJIebw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "ZwkX4CblkmQ"
 videoTitle: "Lori Trahan Slams GOP For Introducing 'Toothless Resolution' To Celebrate Anniversary Of BBB"
 thumbnail: "https://img.youtube.com/vi/ZwkX4CblkmQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "t-fYgo3ZjxY"
 videoTitle: "AI, digitization could sharpen biodiversity extinction fight"
 thumbnail: "https://img.youtube.com/vi/t-fYgo3ZjxY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

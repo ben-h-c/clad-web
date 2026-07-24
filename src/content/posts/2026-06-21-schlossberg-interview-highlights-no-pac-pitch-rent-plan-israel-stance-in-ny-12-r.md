@@ -40,8 +40,8 @@ keyMoments:
 videoId: "rdPtb9jkMLY"
 videoTitle: "\"They call me 'No-PAC Jack'\": Schlossberg on why he is DIFFERENT than the other NY-12 candidates"
 thumbnail: "https://img.youtube.com/vi/rdPtb9jkMLY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

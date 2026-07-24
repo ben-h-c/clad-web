@@ -31,8 +31,8 @@ keyMoments:
 videoId: "ZinZvnZBMtA"
 videoTitle: "LIVE: Protesters demonstrate against Iran's government in Los Angeles"
 thumbnail: "https://img.youtube.com/vi/ZinZvnZBMtA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

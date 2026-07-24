@@ -34,8 +34,8 @@ keyMoments:
 videoId: "fzVEygu0ZfE"
 videoTitle: "John Mannion Urges Trump To Sign 21st Century ROAD To Housing Act Into Law"
 thumbnail: "https://img.youtube.com/vi/fzVEygu0ZfE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

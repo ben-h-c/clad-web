@@ -31,8 +31,8 @@ keyMoments:
 videoId: "Hs0lnz1quu0"
 videoTitle: "Mayor Mamdani tours cooling van amid dangerous NY heat"
 thumbnail: "https://img.youtube.com/vi/Hs0lnz1quu0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

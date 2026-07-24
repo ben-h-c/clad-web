@@ -39,8 +39,8 @@ keyMoments:
 videoId: "DvD0I2j7P2I"
 videoTitle: "Taxes may rise as Canada pledges to increase defence spending; feds resist calls to detail spending"
 thumbnail: "https://img.youtube.com/vi/DvD0I2j7P2I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

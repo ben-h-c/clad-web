@@ -33,8 +33,8 @@ keyMoments:
 videoId: "MuN7H9Kl-cM"
 videoTitle: "Election worker says ICE officers confronted her over social media post"
 thumbnail: "https://img.youtube.com/vi/MuN7H9Kl-cM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

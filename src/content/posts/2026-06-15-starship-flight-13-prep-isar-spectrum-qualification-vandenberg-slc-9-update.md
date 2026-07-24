@@ -37,8 +37,8 @@ keyMoments:
 videoId: "HqmIhnjNkoo"
 videoTitle: "SpaceX ready for Starship Ship 40 Firing in Days —Progressing Fast Towards Launch!"
 thumbnail: "https://img.youtube.com/vi/HqmIhnjNkoo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

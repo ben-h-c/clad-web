@@ -37,8 +37,8 @@ keyMoments:
 videoId: "nTD5pouKEN4"
 videoTitle: "New inflation report shows Iowans paying $1,500 more to maintain 2020 standard of living"
 thumbnail: "https://img.youtube.com/vi/nTD5pouKEN4/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

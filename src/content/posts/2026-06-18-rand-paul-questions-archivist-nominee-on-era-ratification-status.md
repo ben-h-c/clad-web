@@ -31,8 +31,8 @@ keyMoments:
 videoId: "PmpL_gksjBg"
 videoTitle: "Rand Paul Asks U.S. Archivist Nominee: Do You Believe The Equal Rights Amendment Has Passed?"
 thumbnail: "https://img.youtube.com/vi/PmpL_gksjBg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

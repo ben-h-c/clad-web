@@ -31,8 +31,8 @@ keyMoments:
 videoId: "o4HMIfWg1zw"
 videoTitle: "Famous bald eagle Jackie rescued after bird fight | The Hill"
 thumbnail: "https://img.youtube.com/vi/o4HMIfWg1zw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

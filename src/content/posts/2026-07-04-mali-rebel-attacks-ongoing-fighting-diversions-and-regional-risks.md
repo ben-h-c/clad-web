@@ -38,8 +38,8 @@ keyMoments:
 videoId: "m0K-nAQPM1Y"
 videoTitle: "Rebel attacks in northern Mali: Some targets meant as 'diversions', expert says • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/m0K-nAQPM1Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

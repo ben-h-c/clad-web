@@ -32,8 +32,8 @@ keyMoments:
 videoId: "nTCr8f3zM7s"
 videoTitle: "Linda Sánchez: Bitcoin Taxation Must Be Implemented Free Of Loopholes And Inequities"
 thumbnail: "https://img.youtube.com/vi/nTCr8f3zM7s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

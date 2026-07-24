@@ -36,8 +36,8 @@ keyMoments:
 videoId: "KPlrdNjTw28"
 videoTitle: "The market MISREAD this, expert reveals"
 thumbnail: "https://img.youtube.com/vi/KPlrdNjTw28/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

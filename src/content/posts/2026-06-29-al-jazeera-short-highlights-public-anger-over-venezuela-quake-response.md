@@ -36,8 +36,8 @@ keyMoments:
 videoId: "ZAFIbVupVOs"
 videoTitle: "Venezuelans angry with government as time runs out to dig out survivors | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/ZAFIbVupVOs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

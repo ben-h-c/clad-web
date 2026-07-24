@@ -41,8 +41,8 @@ keyMoments:
 videoId: "sXz1WryQmSA"
 videoTitle: "Keir Starmer: You cannot carry on like this, for the love of God... GO!' | Nana Akua"
 thumbnail: "https://img.youtube.com/vi/sXz1WryQmSA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "UPVU0BhAoo4"
 videoTitle: "JD Vance: Political violence in US is ‘out-of-control’..."
 thumbnail: "https://img.youtube.com/vi/UPVU0BhAoo4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

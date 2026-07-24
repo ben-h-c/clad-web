@@ -35,8 +35,8 @@ keyMoments:
 videoId: "o2-GjgIpDA0"
 videoTitle: "Dreamers & Innovators"
 thumbnail: "https://img.youtube.com/vi/o2-GjgIpDA0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

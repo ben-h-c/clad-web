@@ -36,8 +36,8 @@ keyMoments:
 videoId: "T4HqNvTXmLw"
 videoTitle: "Watters: Trump lands in France with a gift…  #foxnews #news #us #fox #media"
 thumbnail: "https://img.youtube.com/vi/T4HqNvTXmLw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

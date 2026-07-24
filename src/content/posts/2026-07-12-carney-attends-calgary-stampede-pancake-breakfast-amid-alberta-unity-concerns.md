@@ -31,8 +31,8 @@ keyMoments:
 videoId: "ubNWkIlFqC8"
 videoTitle: "Carney visits Calgary Stampede as Alberta’s separatist threat looms"
 thumbnail: "https://img.youtube.com/vi/ubNWkIlFqC8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

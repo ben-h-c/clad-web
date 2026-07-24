@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Htuey-O0n8w"
 videoTitle: "What to know as Kevin Warsh prepares for his first Federal Reserve meeting"
 thumbnail: "https://img.youtube.com/vi/Htuey-O0n8w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

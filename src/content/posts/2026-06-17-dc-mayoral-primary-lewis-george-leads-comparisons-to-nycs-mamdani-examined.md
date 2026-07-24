@@ -35,8 +35,8 @@ keyMoments:
 videoId: "mn3v94iwORQ"
 videoTitle: "Is Democratic socialist Janeese Lewis George ready to be DC's Zohran Mamdani? | Sunrise"
 thumbnail: "https://img.youtube.com/vi/mn3v94iwORQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

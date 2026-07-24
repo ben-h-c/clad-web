@@ -41,9 +41,9 @@ keyMoments:
 videoId: "BJMtikJq51U"
 videoTitle: "'Embarrassing how pathetic they are': Dem Rep. slams GOP lawmakers doing 'whatever Trump says'"
 thumbnail: "https://img.youtube.com/vi/BJMtikJq51U/maxresdefault.jpg"
-mediaNote: "Talking-head close-up; anchor on face upper-middle, avoid bottom third and edges"
-thumbFocusY: 28
-thumbFocusX: 52
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:
   - name: "Brendan F. Boyle"

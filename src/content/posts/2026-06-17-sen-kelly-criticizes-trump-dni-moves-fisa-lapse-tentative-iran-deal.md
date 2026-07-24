@@ -37,8 +37,8 @@ keyMoments:
 videoId: "R56zmRyRveU"
 videoTitle: "'Total capitulation!': Sen. Kelly blasts Trump's tentative Iran deal as a 'nonstarter'"
 thumbnail: "https://img.youtube.com/vi/R56zmRyRveU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

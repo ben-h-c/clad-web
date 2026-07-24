@@ -38,8 +38,8 @@ keyMoments:
 videoId: "NYwpX_Q1uto"
 videoTitle: "News Wrap: Tropical Storm Arthur brings flooding threat to Gulf Coast"
 thumbnail: "https://img.youtube.com/vi/NYwpX_Q1uto/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

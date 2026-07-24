@@ -40,8 +40,8 @@ keyMoments:
 videoId: "qfvtb50LtNc"
 videoTitle: "Trump Speaks at G7 Summit in France; Oil Drops to Three-Month Low | Bloomberg Brief 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/qfvtb50LtNc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

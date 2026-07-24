@@ -35,8 +35,8 @@ keyMoments:
 videoId: "c6EwcSlR7PA"
 videoTitle: "The Obama Presidential Center opens Friday in Chicago with a star-studded dedication"
 thumbnail: "https://img.youtube.com/vi/c6EwcSlR7PA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

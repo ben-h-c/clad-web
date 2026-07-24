@@ -35,8 +35,8 @@ keyMoments:
 videoId: "PkK8PYk12R0"
 videoTitle: "Dusty Johnson Asks Experts About Balancing US Business Interests With National Security"
 thumbnail: "https://img.youtube.com/vi/PkK8PYk12R0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

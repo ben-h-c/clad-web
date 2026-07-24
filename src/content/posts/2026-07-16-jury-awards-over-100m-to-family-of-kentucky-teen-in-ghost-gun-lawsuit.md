@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Z34Q8VPPVYg"
 videoTitle: "Ghost gun company ordered to pay $100M in the death of a Kentucky teen"
 thumbnail: "https://img.youtube.com/vi/Z34Q8VPPVYg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

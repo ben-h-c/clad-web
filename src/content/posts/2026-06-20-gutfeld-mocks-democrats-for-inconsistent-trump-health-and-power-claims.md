@@ -38,8 +38,8 @@ keyMoments:
 videoId: "YXwgcSStrR0"
 videoTitle: "'Gutfeld!': Another tired Dem playing the Trump card..."
 thumbnail: "https://img.youtube.com/vi/YXwgcSStrR0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

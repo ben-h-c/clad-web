@@ -35,8 +35,8 @@ keyMoments:
 videoId: "fdEOzuUDh60"
 videoTitle: "Yum! Will Sell Struggling Pizza Hut for $2.7 Billion"
 thumbnail: "https://img.youtube.com/vi/fdEOzuUDh60/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

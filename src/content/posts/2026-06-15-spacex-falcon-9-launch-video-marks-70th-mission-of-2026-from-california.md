@@ -28,8 +28,8 @@ keyMoments:
 videoId: "Ir2ZG4yy8Kc"
 videoTitle: "On June 15, 2026, SpaceX completed its 70th Falcon launch and landing of the year from California."
 thumbnail: "https://img.youtube.com/vi/Ir2ZG4yy8Kc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

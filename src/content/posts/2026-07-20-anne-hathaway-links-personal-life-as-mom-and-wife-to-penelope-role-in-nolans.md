@@ -32,8 +32,8 @@ keyMoments:
 videoId: "jqxRBjQG1X0"
 videoTitle: "Anne Hathaway Shares How Being A Mom And Wife Influenced Her role In 'The Odyssey'"
 thumbnail: "https://img.youtube.com/vi/jqxRBjQG1X0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

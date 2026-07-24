@@ -32,8 +32,8 @@ keyMoments:
 videoId: "dXC9a50O8sE"
 videoTitle: "World Cup: Number 10 issues WILD RESPONSE to Argentina over Falklands controversy"
 thumbnail: "https://img.youtube.com/vi/dXC9a50O8sE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

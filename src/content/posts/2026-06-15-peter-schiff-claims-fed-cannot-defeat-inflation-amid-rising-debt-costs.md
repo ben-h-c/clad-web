@@ -37,8 +37,8 @@ keyMoments:
 videoId: "RfFcKEYn9DY"
 videoTitle: "The Fed Has LOST the Inflation Fight"
 thumbnail: "https://img.youtube.com/vi/RfFcKEYn9DY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

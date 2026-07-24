@@ -39,8 +39,8 @@ keyMoments:
 videoId: "9xxqid4ds2w"
 videoTitle: "'The Five': Never-Trumpers gather for counter-rally featuring celebrities and breathing exercises"
 thumbnail: "https://img.youtube.com/vi/9xxqid4ds2w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

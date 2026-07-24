@@ -33,8 +33,8 @@ keyMoments:
 videoId: "QNckN9s3t7s"
 videoTitle: "Oil Slides Below $80 as Iran Breakthrough Takes Shape | Insight with Haslinda Amin 06/17/2026"
 thumbnail: "https://img.youtube.com/vi/QNckN9s3t7s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

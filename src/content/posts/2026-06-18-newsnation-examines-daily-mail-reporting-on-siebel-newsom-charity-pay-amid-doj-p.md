@@ -36,8 +36,8 @@ keyMoments:
 videoId: "AQiTnnLsMAA"
 videoTitle: "DOJ investigates Jennifer Siebel Newsom’s taxes after allegations surface | Katie Pavlich Tonight"
 thumbnail: "https://img.youtube.com/vi/AQiTnnLsMAA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

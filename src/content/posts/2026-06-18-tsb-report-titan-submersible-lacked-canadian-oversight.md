@@ -35,8 +35,8 @@ keyMoments:
 videoId: "loxhEwH5UL8"
 videoTitle: "OceanGate's Titan submersible operated without federal oversight, TSB report says"
 thumbnail: "https://img.youtube.com/vi/loxhEwH5UL8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "kJFCtMk-qCA"
 videoTitle: "Trump \"at great risk of losing\" negotiations with Iran, expert says"
 thumbnail: "https://img.youtube.com/vi/kJFCtMk-qCA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

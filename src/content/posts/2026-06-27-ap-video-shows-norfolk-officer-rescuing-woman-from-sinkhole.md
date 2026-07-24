@@ -31,8 +31,8 @@ keyMoments:
 videoId: "KThgw75YXd4"
 videoTitle: "Virginia police officer rescues a woman whose vehicle fell into a sinkhole"
 thumbnail: "https://img.youtube.com/vi/KThgw75YXd4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "dz-_kJqM7o8"
 videoTitle: "Ex-Cabinet Secretary reveals what working with Prince William is like"
 thumbnail: "https://img.youtube.com/vi/dz-_kJqM7o8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

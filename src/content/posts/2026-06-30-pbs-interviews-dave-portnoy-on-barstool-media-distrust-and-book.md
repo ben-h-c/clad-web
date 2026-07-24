@@ -33,8 +33,8 @@ keyMoments:
 videoId: "OfJVOpFUOeA"
 videoTitle: "Dave Portnoy and Amna Nawaz discuss media and controversies on 'Settle In'"
 thumbnail: "https://img.youtube.com/vi/OfJVOpFUOeA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

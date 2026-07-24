@@ -39,8 +39,8 @@ keyMoments:
 videoId: "tv5lA7-XZ_w"
 videoTitle: "Torsten Slok Shows Us How AI Is Eating the Entire US Economy | Odd Lots"
 thumbnail: "https://img.youtube.com/vi/tv5lA7-XZ_w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

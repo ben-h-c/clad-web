@@ -35,8 +35,8 @@ keyMoments:
 videoId: "8YcEUZ0FtfI"
 videoTitle: "Live: National Hurricane Center update on tropical depression along Gulf Coast off Florida"
 thumbnail: "https://img.youtube.com/vi/8YcEUZ0FtfI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

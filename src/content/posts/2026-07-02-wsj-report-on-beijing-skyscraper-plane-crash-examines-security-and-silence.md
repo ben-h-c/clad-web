@@ -34,8 +34,8 @@ keyMoments:
 videoId: "j3v2-rdl9D8"
 videoTitle: "The Mystery Behind Beijing’s Skyscraper Plane Crash"
 thumbnail: "https://img.youtube.com/vi/j3v2-rdl9D8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

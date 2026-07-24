@@ -31,8 +31,8 @@ keyMoments:
 videoId: "TWjhrjYi-1g"
 videoTitle: "Arnold Schwarzenegger Explains Why He Is Working With Kamala Harris To Combat Climate Change"
 thumbnail: "https://img.youtube.com/vi/TWjhrjYi-1g/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

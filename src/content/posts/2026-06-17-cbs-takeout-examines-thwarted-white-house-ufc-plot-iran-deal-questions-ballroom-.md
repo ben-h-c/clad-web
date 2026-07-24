@@ -33,8 +33,8 @@ keyMoments:
 videoId: "bpRjhjpofvc"
 videoTitle: "FBI thwarts alleged White House-UFC terror plot, Trump touts Iran deal at G7, more | The Takeout"
 thumbnail: "https://img.youtube.com/vi/bpRjhjpofvc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

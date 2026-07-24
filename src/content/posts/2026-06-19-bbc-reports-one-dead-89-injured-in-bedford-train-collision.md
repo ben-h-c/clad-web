@@ -34,8 +34,8 @@ keyMoments:
 videoId: "yXTQ0EBd5J0"
 videoTitle: "One dead and 11 very seriously injured in Bedford train crash | BBC News"
 thumbnail: "https://img.youtube.com/vi/yXTQ0EBd5J0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

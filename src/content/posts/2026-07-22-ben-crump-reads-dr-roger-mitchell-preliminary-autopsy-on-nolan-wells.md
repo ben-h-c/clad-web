@@ -35,8 +35,8 @@ keyMoments:
 videoId: "bIrQqTEkCyg"
 videoTitle: "Nolan Wells' preliminary independent autopsy results read by attorney Ben Crump"
 thumbnail: "https://img.youtube.com/vi/bIrQqTEkCyg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

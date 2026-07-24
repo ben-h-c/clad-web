@@ -37,8 +37,8 @@ keyMoments:
 videoId: "e-gcm9bL1Vk"
 videoTitle: "Can AI Compute Become The Next Big Futures Market?"
 thumbnail: "https://img.youtube.com/vi/e-gcm9bL1Vk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

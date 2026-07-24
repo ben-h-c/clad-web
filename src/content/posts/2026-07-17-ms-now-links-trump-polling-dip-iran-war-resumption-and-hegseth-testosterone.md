@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Myu-S-RSQnw"
 videoTitle: "How it ENDS: Trump polling crash WORSE than Jan. 6 as Dem Socialists TROUNCE MAGA brand"
 thumbnail: "https://img.youtube.com/vi/Myu-S-RSQnw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

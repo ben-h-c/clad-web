@@ -31,8 +31,8 @@ keyMoments:
 videoId: "VFEJEPvTpR4"
 videoTitle: "England fans react to the The Three Lions' goalless Ghana draw"
 thumbnail: "https://img.youtube.com/vi/VFEJEPvTpR4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

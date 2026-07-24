@@ -35,8 +35,8 @@ keyMoments:
 videoId: "i4vv4V-DUMs"
 videoTitle: "Reporter Asks Trump Point Blank: 'Are You Frustrated With Netanyahu?'"
 thumbnail: "https://img.youtube.com/vi/i4vv4V-DUMs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

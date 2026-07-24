@@ -35,8 +35,8 @@ keyMoments:
 videoId: "XW1YMwwbbjo"
 videoTitle: "UFC America 250 White House attack using explosive drones foiled by FBI, 23 arrested says Kash Patel"
 thumbnail: "https://img.youtube.com/vi/XW1YMwwbbjo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "iUqki7rFBk8"
 videoTitle: "Emanuel Cleaver Asks Fed Chair Warsh Directly About His Views On Independence Of The Federal Reserve"
 thumbnail: "https://img.youtube.com/vi/iUqki7rFBk8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

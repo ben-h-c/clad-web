@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Tb36QneCo20"
 videoTitle: "Gov. Andy Beshear says he still hasn&#39;t heard from Sen. Mitch McConnell amidst questions over health"
 thumbnail: "https://img.youtube.com/vi/Tb36QneCo20/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "4_DXtSY5DJ0"
 videoTitle: "South Korea Doubles Down on AI, Chips With Mega Investment | Insight with Haslinda Amin 06/29/2026"
 thumbnail: "https://img.youtube.com/vi/4_DXtSY5DJ0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

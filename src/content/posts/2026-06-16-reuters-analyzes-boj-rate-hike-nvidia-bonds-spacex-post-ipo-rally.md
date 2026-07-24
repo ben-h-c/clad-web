@@ -35,8 +35,8 @@ keyMoments:
 videoId: "tMlKD41S5DE"
 videoTitle: "What does Japan’s biggest rate hike in 30 years mean for markets? | Reuters Morning Bid"
 thumbnail: "https://img.youtube.com/vi/tMlKD41S5DE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

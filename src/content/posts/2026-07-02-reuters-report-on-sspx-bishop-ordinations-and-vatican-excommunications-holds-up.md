@@ -34,8 +34,8 @@ keyMoments:
 videoId: "NAkr6_P3GGQ"
 videoTitle: "Who are the SSPX and why were they excommunicated?"
 thumbnail: "https://img.youtube.com/vi/NAkr6_P3GGQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

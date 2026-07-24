@@ -30,8 +30,8 @@ keyMoments:
 videoId: "rEXTEgOaDyc"
 videoTitle: "'It's A Common Sense Bill': Mario Díaz-Balart Praises Bill To Fund National Security Programs"
 thumbnail: "https://img.youtube.com/vi/rEXTEgOaDyc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

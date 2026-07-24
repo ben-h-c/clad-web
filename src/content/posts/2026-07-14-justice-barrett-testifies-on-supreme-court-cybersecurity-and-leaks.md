@@ -35,8 +35,8 @@ keyMoments:
 videoId: "1O_b317JV5Q"
 videoTitle: "Barrett: Cyber security attacks on the Supreme Court have been up"
 thumbnail: "https://img.youtube.com/vi/1O_b317JV5Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

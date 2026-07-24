@@ -37,8 +37,8 @@ keyMoments:
 videoId: "pxH7lajXGfk"
 videoTitle: "Chip Roy vs Jamie Raskin Explodes Over Trump&#39;s Secure Border Act; &#39;ENOUGH TIME WASTED...&#39;"
 thumbnail: "https://img.youtube.com/vi/pxH7lajXGfk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -25,8 +25,8 @@ keyMoments:
 videoId: "E1kqy9MkMDU"
 videoTitle: "US-Iran delegations arrive as talks begin in Switzerland | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/E1kqy9MkMDU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

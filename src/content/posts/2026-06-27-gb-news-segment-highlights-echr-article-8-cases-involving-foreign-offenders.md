@@ -37,8 +37,8 @@ keyMoments:
 videoId: "ZJjdGGtCkaQ"
 videoTitle: "'Common sense? NOT HERE!' | Darren Grimes EXPOSES litany of ECHR abuse keeping criminals in Britain"
 thumbnail: "https://img.youtube.com/vi/ZJjdGGtCkaQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

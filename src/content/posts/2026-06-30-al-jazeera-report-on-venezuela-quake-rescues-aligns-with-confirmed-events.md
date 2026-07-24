@@ -34,8 +34,8 @@ keyMoments:
 videoId: "u6lFLKGdu50"
 videoTitle: "Rescuers race to find survivors after Venezuela earthquake as hopes fade"
 thumbnail: "https://img.youtube.com/vi/u6lFLKGdu50/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

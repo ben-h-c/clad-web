@@ -37,8 +37,8 @@ keyMoments:
 videoId: "3nK0scX6JLY"
 videoTitle: "King to make history as first monarch to reveal personal tax bill"
 thumbnail: "https://img.youtube.com/vi/3nK0scX6JLY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

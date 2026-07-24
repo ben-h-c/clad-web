@@ -39,8 +39,8 @@ keyMoments:
 videoId: "0bMdkD4ebYM"
 videoTitle: "2026 World Cup: The tournament that changed football forever | DW News"
 thumbnail: "https://img.youtube.com/vi/0bMdkD4ebYM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

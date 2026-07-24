@@ -30,8 +30,8 @@ keyMoments:
 videoId: "PK4BZlwi9KI"
 videoTitle: "Brush fire sends smoke over Miami neighborhood"
 thumbnail: "https://img.youtube.com/vi/PK4BZlwi9KI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

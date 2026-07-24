@@ -33,8 +33,8 @@ keyMoments:
 videoId: "vUgPXssdl1Y"
 videoTitle: "BREAKING! 47's Epstein CRISIS back with blockbuster testimony: Insider sent Epstein $170M STORMS OUT"
 thumbnail: "https://img.youtube.com/vi/vUgPXssdl1Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "2mPOxmFAh_c"
 videoTitle: "US probing possible Russian link to Iran hit on CIA facilities"
 thumbnail: "https://img.youtube.com/vi/2mPOxmFAh_c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

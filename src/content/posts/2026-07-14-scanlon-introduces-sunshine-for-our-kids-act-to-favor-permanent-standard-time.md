@@ -33,8 +33,8 @@ keyMoments:
 videoId: "0_ZiCSbW5h8"
 videoTitle: "&#39;We Should Know What We&#39;re Getting Into&#39;: Mary Gay Scanlon Pans Push For Permanent Change To DST"
 thumbnail: "https://img.youtube.com/vi/0_ZiCSbW5h8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "POMMYNVsQEI"
 videoTitle: "“A lot of people are scared”: Residents plead for help after week of violence in Leaf Rapids"
 thumbnail: "https://img.youtube.com/vi/POMMYNVsQEI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

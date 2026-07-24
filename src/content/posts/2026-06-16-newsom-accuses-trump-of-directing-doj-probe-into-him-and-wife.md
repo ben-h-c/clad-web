@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Uprly2GtS9k"
 videoTitle: "Newsom says he's on Trump's 'hit list'"
 thumbnail: "https://img.youtube.com/vi/Uprly2GtS9k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

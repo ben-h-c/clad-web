@@ -40,8 +40,8 @@ keyMoments:
 videoId: "_TDhC_llUow"
 videoTitle: "Trump “hired his own pool guy to fix the Reflecting Pool”: Biden slams Trump as “loser”"
 thumbnail: "https://img.youtube.com/vi/_TDhC_llUow/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

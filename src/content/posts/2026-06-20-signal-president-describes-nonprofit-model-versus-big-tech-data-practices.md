@@ -31,8 +31,8 @@ keyMoments:
 videoId: "u_XwAc6CBP4"
 videoTitle: "The Mishal Husain Show | Signal's Whittaker on big tech's privacy threat"
 thumbnail: "https://img.youtube.com/vi/u_XwAc6CBP4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

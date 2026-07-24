@@ -37,8 +37,8 @@ keyMoments:
 videoId: "NpSwp-z_h20"
 videoTitle: "Trump DEFENDS Iran deal, reveals few new details as G7 wraps up"
 thumbnail: "https://img.youtube.com/vi/NpSwp-z_h20/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

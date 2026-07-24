@@ -35,8 +35,8 @@ keyMoments:
 videoId: "R-PlL6JCNjI"
 videoTitle: "Israel STRIKES Hezbollah after diplomatic BREAKTHROUGH with Lebanon"
 thumbnail: "https://img.youtube.com/vi/R-PlL6JCNjI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "xaYimw_YTxw"
 videoTitle: "Pingree on ​⁠@msnow: someone shouldn’t have to die for ICE to end traffic stops"
 thumbnail: "https://img.youtube.com/vi/xaYimw_YTxw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

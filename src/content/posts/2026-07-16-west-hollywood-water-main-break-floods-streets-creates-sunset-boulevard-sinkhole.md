@@ -34,8 +34,8 @@ keyMoments:
 videoId: "yIZLOJFVtCM"
 videoTitle: "Dangerous waters sweep through West Hollywood "
 thumbnail: "https://img.youtube.com/vi/yIZLOJFVtCM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

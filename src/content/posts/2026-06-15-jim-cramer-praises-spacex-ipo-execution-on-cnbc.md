@@ -35,8 +35,8 @@ keyMoments:
 videoId: "ZmMAK3pZjvk"
 videoTitle: "Jim Cramer on SpaceX IPO: Can't recall a deal done as well as this one"
 thumbnail: "https://img.youtube.com/vi/ZmMAK3pZjvk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

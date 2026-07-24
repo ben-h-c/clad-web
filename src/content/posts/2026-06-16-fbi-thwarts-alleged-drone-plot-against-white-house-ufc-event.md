@@ -31,8 +31,8 @@ keyMoments:
 videoId: "ipRTiPxyBWc"
 videoTitle: "FBI disrupts plot targeting UFC event at White House with explosive drones: Sources"
 thumbnail: "https://img.youtube.com/vi/ipRTiPxyBWc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

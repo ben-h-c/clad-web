@@ -34,8 +34,8 @@ keyMoments:
 videoId: "RIH8DaNeIGM"
 videoTitle: "Heat emergency forces cities to rework plans for holiday weekend"
 thumbnail: "https://img.youtube.com/vi/RIH8DaNeIGM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

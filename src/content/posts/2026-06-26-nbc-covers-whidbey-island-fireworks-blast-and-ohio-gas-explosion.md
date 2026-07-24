@@ -34,8 +34,8 @@ keyMoments:
 videoId: "M2slKSSfZAw"
 videoTitle: "House explosions level homes"
 thumbnail: "https://img.youtube.com/vi/M2slKSSfZAw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

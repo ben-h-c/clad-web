@@ -36,8 +36,8 @@ keyMoments:
 videoId: "ICRtJp3AN1Q"
 videoTitle: "Trump Autopens the Iran Deal, Lands a Res at G7 Summit & Spawns an Algae Conspiracy | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/ICRtJp3AN1Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

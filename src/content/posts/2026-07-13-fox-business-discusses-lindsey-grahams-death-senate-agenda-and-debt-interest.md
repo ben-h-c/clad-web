@@ -36,8 +36,8 @@ keyMoments:
 videoId: "RY3POQM89cY"
 videoTitle: "CAPITOL HILL: GOP lawmaker says there's a lot of work to do"
 thumbnail: "https://img.youtube.com/vi/RY3POQM89cY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

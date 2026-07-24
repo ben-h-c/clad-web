@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Ug75EG9p2ao"
 videoTitle: "'Unconditional surrender': Trump's Iran deal torched by top Obama nuclear negotiator Wendy Sherman"
 thumbnail: "https://img.youtube.com/vi/Ug75EG9p2ao/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "0dLB3xeue6Q"
 videoTitle: "Who is Kevin Warsh? Experts weigh new Fed chair's economic views"
 thumbnail: "https://img.youtube.com/vi/0dLB3xeue6Q/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

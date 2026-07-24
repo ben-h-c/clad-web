@@ -33,8 +33,8 @@ keyMoments:
 videoId: "0-nAtrvB5gQ"
 videoTitle: "Dog fatally shot by LAPD after reports of screaming inside an apartment building Saturday #shorts"
 thumbnail: "https://img.youtube.com/vi/0-nAtrvB5gQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

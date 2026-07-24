@@ -40,8 +40,8 @@ keyMoments:
 videoId: "DOVGbswhqTw"
 videoTitle: "‘This Is Virtue Signalling From Gary Lineker’ | ‘Wealth Tax Is Counter Productive’"
 thumbnail: "https://img.youtube.com/vi/DOVGbswhqTw/maxresdefault.jpg"
-mediaNote: "center Lineker face upper-middle"
-thumbFocusY: 28
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

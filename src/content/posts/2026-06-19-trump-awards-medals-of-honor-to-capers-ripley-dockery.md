@@ -29,8 +29,8 @@ keyMoments:
 videoId: "754CZrbF3_k"
 videoTitle: "Trump awards three Medals of Honor to Vietnam, Afghanistan veterans"
 thumbnail: "https://img.youtube.com/vi/754CZrbF3_k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

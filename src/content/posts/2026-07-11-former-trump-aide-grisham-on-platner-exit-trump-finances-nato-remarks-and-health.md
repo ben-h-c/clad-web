@@ -39,8 +39,8 @@ keyMoments:
 videoId: "0X5HVp5Y_cc"
 videoTitle: "‘He’s DECLINING’: Fmr. Trump official on new questions on Trump’s health after NATO gaffes"
 thumbnail: "https://img.youtube.com/vi/0X5HVp5Y_cc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

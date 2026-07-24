@@ -35,8 +35,8 @@ keyMoments:
 videoId: "epcLYSQsAZM"
 videoTitle: "How the Strait of Hormuz blockade has forever changed the world's energy trade"
 thumbnail: "https://img.youtube.com/vi/epcLYSQsAZM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

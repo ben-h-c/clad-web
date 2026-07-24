@@ -31,8 +31,8 @@ keyMoments:
 videoId: "iMyYS7hIDf8"
 videoTitle: "UN procures 10,000 body bags as search operations continue following Venezuela’s twin earthquakes"
 thumbnail: "https://img.youtube.com/vi/iMyYS7hIDf8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

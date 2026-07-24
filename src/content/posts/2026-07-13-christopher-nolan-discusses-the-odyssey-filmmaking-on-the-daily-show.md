@@ -37,8 +37,8 @@ keyMoments:
 videoId: "DWABbDtyfeA"
 videoTitle: "Christopher Nolan - “The Odyssey” | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/DWABbDtyfeA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

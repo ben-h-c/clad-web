@@ -38,8 +38,8 @@ keyMoments:
 videoId: "YXXH7EvEEQM"
 videoTitle: "OpenAI may delay IPO until next year: NYT"
 thumbnail: "https://img.youtube.com/vi/YXXH7EvEEQM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

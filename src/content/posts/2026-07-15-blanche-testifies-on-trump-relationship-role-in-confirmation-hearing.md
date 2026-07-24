@@ -31,8 +31,8 @@ keyMoments:
 videoId: "-E2PCsF6JLE"
 videoTitle: "WATCH: Blanche says he is not friends with President Trump"
 thumbnail: "https://img.youtube.com/vi/-E2PCsF6JLE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

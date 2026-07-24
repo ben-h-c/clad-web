@@ -35,8 +35,8 @@ keyMoments:
 videoId: "ePKH1JVDNzA"
 videoTitle: "US Set to Offer Iran Broad Financial Gains in Deal to End War"
 thumbnail: "https://img.youtube.com/vi/ePKH1JVDNzA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -39,8 +39,8 @@ keyMoments:
 videoId: "OrU58yo3Sx8"
 videoTitle: "If ‘ambiguity’ is allowed in U.S.-Iran deal, it won’t be ‘worth very much’: Fmr. energy secretary"
 thumbnail: "https://img.youtube.com/vi/OrU58yo3Sx8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

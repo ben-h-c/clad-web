@@ -33,8 +33,8 @@ keyMoments:
 videoId: "tkXtZC9v-F0"
 videoTitle: "Ilhan Omar: Funding Cuts In Republicans' Budget Threaten 'Financial Stability' Of Rural Healthcare"
 thumbnail: "https://img.youtube.com/vi/tkXtZC9v-F0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

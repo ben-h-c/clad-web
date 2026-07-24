@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Zr9GvSWtx78"
 videoTitle: "Relatives of the Gilgo Beach serial killing victims aimed decades of anger at Rex Heuermann"
 thumbnail: "https://img.youtube.com/vi/Zr9GvSWtx78/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

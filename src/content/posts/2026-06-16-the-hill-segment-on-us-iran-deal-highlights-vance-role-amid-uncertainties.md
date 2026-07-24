@@ -36,8 +36,8 @@ keyMoments:
 videoId: "0XcnhP1TRZk"
 videoTitle: "Is Vance set up to take the blame on Iran deal if ceasefire fails?"
 thumbnail: "https://img.youtube.com/vi/0XcnhP1TRZk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

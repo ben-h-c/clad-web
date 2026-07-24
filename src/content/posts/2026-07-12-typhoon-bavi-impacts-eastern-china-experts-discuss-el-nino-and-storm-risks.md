@@ -31,8 +31,8 @@ keyMoments:
 videoId: "U9p6lpHos4s"
 videoTitle: "What Typhoon Bavi reveals about extreme storm risks in East Asia | DW News"
 thumbnail: "https://img.youtube.com/vi/U9p6lpHos4s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

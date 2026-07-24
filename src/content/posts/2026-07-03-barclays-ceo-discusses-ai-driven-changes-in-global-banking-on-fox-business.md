@@ -32,8 +32,8 @@ keyMoments:
 videoId: "iYKWgHgXeFE"
 videoTitle: "TECHNOLOGY: AI continues changing global banking, Barclays CEO says"
 thumbnail: "https://img.youtube.com/vi/iYKWgHgXeFE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

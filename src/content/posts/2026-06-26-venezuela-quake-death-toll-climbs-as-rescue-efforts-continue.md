@@ -34,8 +34,8 @@ keyMoments:
 videoId: "kFO1gL3-FH8"
 videoTitle: "Search for survivors in Venezuela as earthquakes' death toll climbs"
 thumbnail: "https://img.youtube.com/vi/kFO1gL3-FH8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

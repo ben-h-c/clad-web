@@ -32,8 +32,8 @@ keyMoments:
 videoId: "0yri5vEntKk"
 videoTitle: "UK government likely to challenge Paramount takeover of Warner Bros. Discovery • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/0yri5vEntKk/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

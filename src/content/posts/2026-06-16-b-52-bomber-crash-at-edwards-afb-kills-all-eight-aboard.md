@@ -34,8 +34,8 @@ keyMoments:
 videoId: "rkqi5DvTMTI"
 videoTitle: "Eight dead after US Air Force B-52 bomber crashes in California"
 thumbnail: "https://img.youtube.com/vi/rkqi5DvTMTI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

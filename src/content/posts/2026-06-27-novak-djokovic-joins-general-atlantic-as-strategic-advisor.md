@@ -31,8 +31,8 @@ keyMoments:
 videoId: "uQ_NZraGf_w"
 videoTitle: "Novak Djokovic Joins General Atlantic in His Wall Street Debut"
 thumbnail: "https://img.youtube.com/vi/uQ_NZraGf_w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

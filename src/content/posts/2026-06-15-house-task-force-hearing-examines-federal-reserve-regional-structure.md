@@ -33,8 +33,8 @@ keyMoments:
     note: "Supported by witness accounts and Fed crisis response documentation."
 videoId: "sO84-oxmpbQ"
 thumbnail: "https://img.youtube.com/vi/sO84-oxmpbQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

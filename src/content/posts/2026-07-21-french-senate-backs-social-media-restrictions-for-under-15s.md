@@ -30,8 +30,8 @@ keyMoments:
 videoId: "d-AQxW1d_k8"
 videoTitle: "French Senate approves youth social-media ban"
 thumbnail: "https://img.youtube.com/vi/d-AQxW1d_k8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -40,8 +40,8 @@ keyMoments:
 videoId: "TZcpWTlbN_s"
 videoTitle: "How Trump played his followers for 'SUCKERS' and grabbed big bucks for himself"
 thumbnail: "https://img.youtube.com/vi/TZcpWTlbN_s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

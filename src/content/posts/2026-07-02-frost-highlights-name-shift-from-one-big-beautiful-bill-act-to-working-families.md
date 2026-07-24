@@ -33,8 +33,8 @@ keyMoments:
 videoId: "i2OaFwpyqAw"
 videoTitle: "Rep. Maxwell Frost calls out Republicans for changing the name of the disastrous Big Beautiful Bill"
 thumbnail: "https://img.youtube.com/vi/i2OaFwpyqAw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

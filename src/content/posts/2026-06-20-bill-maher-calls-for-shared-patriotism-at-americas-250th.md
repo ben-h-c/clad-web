@@ -39,8 +39,8 @@ keyMoments:
 videoId: "OqXNmO-6c3k"
 videoTitle: "New Rule: America Is Ours | Real Time with Bill Maher (HBO)"
 thumbnail: "https://img.youtube.com/vi/OqXNmO-6c3k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

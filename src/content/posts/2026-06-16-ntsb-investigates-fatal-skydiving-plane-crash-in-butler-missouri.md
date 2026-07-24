@@ -35,8 +35,8 @@ keyMoments:
 videoId: "PM_9IlQhrxk"
 videoTitle: "NTSB to investigate deadly skydiving plane crash in Missouri"
 thumbnail: "https://img.youtube.com/vi/PM_9IlQhrxk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

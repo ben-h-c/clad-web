@@ -35,8 +35,8 @@ keyMoments:
 videoId: "3QL8Kz5LRgE"
 videoTitle: "French 2027 presidential election: Can the RN win? • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/3QL8Kz5LRgE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

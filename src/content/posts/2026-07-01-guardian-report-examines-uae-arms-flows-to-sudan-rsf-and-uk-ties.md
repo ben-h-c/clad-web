@@ -35,8 +35,8 @@ keyMoments:
 videoId: "L-n6xt0_sg0"
 videoTitle: "Why the UK is accused of allowing the UAE to fuel war in Sudan"
 thumbnail: "https://img.youtube.com/vi/L-n6xt0_sg0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

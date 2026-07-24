@@ -33,8 +33,8 @@ keyMoments:
 videoId: "Eh4guWVWrlg"
 videoTitle: "Andy Burnham to launch Number 10 NORTH!?"
 thumbnail: "https://img.youtube.com/vi/Eh4guWVWrlg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

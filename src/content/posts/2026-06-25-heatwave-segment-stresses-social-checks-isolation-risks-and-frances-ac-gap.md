@@ -32,8 +32,8 @@ keyMoments:
 videoId: "9fJKOL06a5Y"
 videoTitle: "Heatwave: 'A knock on the door makes the difference between life and death' • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/9fJKOL06a5Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

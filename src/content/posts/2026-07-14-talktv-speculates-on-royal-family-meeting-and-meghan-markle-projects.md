@@ -40,8 +40,8 @@ keyMoments:
 videoId: "6zQ-cg6SC_M"
 videoTitle: "‘Meghan Markle Is NASTY, She’s Terrible' | King Charles Reunite With Harry And Family"
 thumbnail: "https://img.youtube.com/vi/6zQ-cg6SC_M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

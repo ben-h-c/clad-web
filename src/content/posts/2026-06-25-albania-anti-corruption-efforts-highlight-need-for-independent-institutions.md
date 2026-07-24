@@ -28,8 +28,8 @@ keyMoments:
 videoId: "CzPNsoPyRpk"
 videoTitle: "Albania: 'We need courageous people' to combat greed and corruption • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/CzPNsoPyRpk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

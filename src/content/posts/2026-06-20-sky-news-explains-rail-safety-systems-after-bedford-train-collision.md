@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Az8WNssS4jg"
 videoTitle: "Train crash: What could have gone wrong?"
 thumbnail: "https://img.youtube.com/vi/Az8WNssS4jg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

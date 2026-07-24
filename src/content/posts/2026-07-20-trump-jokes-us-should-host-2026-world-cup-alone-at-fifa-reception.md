@@ -27,8 +27,8 @@ keyMoments:
 videoId: "lqKMAAZ7SNk"
 videoTitle: "Trump Makes Jab at World Cup Co-Hosts Mexico and Canada"
 thumbnail: "https://img.youtube.com/vi/lqKMAAZ7SNk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "vyYwb-1KuDI"
 videoTitle: "\"Trump just got red-handed undermining America's national security.\""
 thumbnail: "https://img.youtube.com/vi/vyYwb-1KuDI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

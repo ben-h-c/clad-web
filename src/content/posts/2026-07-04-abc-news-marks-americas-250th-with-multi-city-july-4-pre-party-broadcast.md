@@ -34,8 +34,8 @@ keyMoments:
 videoId: "NVc9UaMDj9g"
 videoTitle: "Pre-Party across America"
 thumbnail: "https://img.youtube.com/vi/NVc9UaMDj9g/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

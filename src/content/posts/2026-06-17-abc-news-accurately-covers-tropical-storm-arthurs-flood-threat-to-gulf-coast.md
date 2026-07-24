@@ -34,8 +34,8 @@ keyMoments:
 videoId: "b-K3L3gxLOM"
 videoTitle: "Tropical Storm Arthur could bring life-threatening flooding as it hits Gulf Coast"
 thumbnail: "https://img.youtube.com/vi/b-K3L3gxLOM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

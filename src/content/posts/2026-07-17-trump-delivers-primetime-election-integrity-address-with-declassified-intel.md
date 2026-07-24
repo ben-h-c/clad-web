@@ -35,8 +35,8 @@ keyMoments:
 videoId: "ncwVUGGJ2XA"
 videoTitle: "Trump's dud election speech BACKFIRES; document dump accidentally contradicts his complaint"
 thumbnail: "https://img.youtube.com/vi/ncwVUGGJ2XA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "hTj8RnFKD6c"
 videoTitle: "'Not as good as the Obama-era deal': What we know so far about the Iran deal"
 thumbnail: "https://img.youtube.com/vi/hTj8RnFKD6c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

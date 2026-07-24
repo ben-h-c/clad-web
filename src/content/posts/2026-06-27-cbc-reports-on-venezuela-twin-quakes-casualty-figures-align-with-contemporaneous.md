@@ -34,8 +34,8 @@ keyMoments:
 videoId: "ZSPOOXzCYCY"
 videoTitle: "'I thought I was going to die': Survivor recounts Venezuela earthquakes"
 thumbnail: "https://img.youtube.com/vi/ZSPOOXzCYCY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

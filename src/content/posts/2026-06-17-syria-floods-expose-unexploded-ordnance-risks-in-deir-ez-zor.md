@@ -31,8 +31,8 @@ keyMoments:
 videoId: "n3wVryH4YEE"
 videoTitle: "Syria floods uncover unexploded ordnance in Deir Az Zor region"
 thumbnail: "https://img.youtube.com/vi/n3wVryH4YEE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

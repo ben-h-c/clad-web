@@ -35,8 +35,8 @@ keyMoments:
 videoId: "6XpmOxoPa-U"
 videoTitle: "How Supreme Court's lifting of limits on political party spending could impact midterms"
 thumbnail: "https://img.youtube.com/vi/6XpmOxoPa-U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

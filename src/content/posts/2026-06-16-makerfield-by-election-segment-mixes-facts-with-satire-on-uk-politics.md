@@ -39,8 +39,8 @@ keyMoments:
 videoId: "RZL_TctrNco"
 videoTitle: "UK & Makerfield Election: Last Week Tonight with John Oliver (HBO)"
 thumbnail: "https://img.youtube.com/vi/RZL_TctrNco/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "OkQo_IVa50E"
 videoTitle: "What do heatwaves cost?"
 thumbnail: "https://img.youtube.com/vi/OkQo_IVa50E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

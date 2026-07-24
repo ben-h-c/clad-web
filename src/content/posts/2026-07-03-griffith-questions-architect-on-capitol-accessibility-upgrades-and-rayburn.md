@@ -31,8 +31,8 @@ keyMoments:
 videoId: "BUII9U1rIcU"
 videoTitle: "'I've Seen Houses Built Faster': Morgan Griffith Calls Out Capitol Architect For Wait On Renovations"
 thumbnail: "https://img.youtube.com/vi/BUII9U1rIcU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

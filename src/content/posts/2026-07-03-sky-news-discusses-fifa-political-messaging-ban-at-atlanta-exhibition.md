@@ -37,8 +37,8 @@ keyMoments:
 videoId: "c33UO9b4fKI"
 videoTitle: "World Cup Watch: Should political activism be allowed?"
 thumbnail: "https://img.youtube.com/vi/c33UO9b4fKI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

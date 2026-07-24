@@ -37,8 +37,8 @@ keyMoments:
 videoId: "D6UrHdlIk6A"
 videoTitle: "WASHINGTON ERUPTS: Trump's Iran deal sparks FIERCE showdown"
 thumbnail: "https://img.youtube.com/vi/D6UrHdlIk6A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

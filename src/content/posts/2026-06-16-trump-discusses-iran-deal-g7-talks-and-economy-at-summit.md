@@ -40,8 +40,8 @@ keyMoments:
 videoId: "XVyrYJYqJg4"
 videoTitle: "Trump meets with world leaders for key G7 summit talks"
 thumbnail: "https://img.youtube.com/vi/XVyrYJYqJg4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

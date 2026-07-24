@@ -34,8 +34,8 @@ keyMoments:
 videoId: "_zkU0U_gMd4"
 videoTitle: "8 killed in B-52 bomber crash at Edwards Air Force Base"
 thumbnail: "https://img.youtube.com/vi/_zkU0U_gMd4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

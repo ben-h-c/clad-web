@@ -38,8 +38,8 @@ keyMoments:
 videoId: "MUMR3L3aOsI"
 videoTitle: "Strategy Purchases More Bitcoin, Possibility of Rescinding Rule 611 | Bloomberg Crypto 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/MUMR3L3aOsI/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

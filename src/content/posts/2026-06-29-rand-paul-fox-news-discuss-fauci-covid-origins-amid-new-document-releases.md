@@ -40,8 +40,8 @@ keyMoments:
 videoId: "r_sCz_RQgj0"
 videoTitle: "Rand Paul EXPOSES Fauci's alleged role in COVID origins"
 thumbnail: "https://img.youtube.com/vi/r_sCz_RQgj0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

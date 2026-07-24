@@ -40,8 +40,8 @@ keyMoments:
 videoId: "qUngKrHFUIA"
 videoTitle: "Caitlin Clark controversy EXPLODES over player safety concerns"
 thumbnail: "https://img.youtube.com/vi/qUngKrHFUIA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

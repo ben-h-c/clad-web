@@ -34,8 +34,8 @@ keyMoments:
 videoId: "-kAQoSO7_Ws"
 videoTitle: "Gilgo Beach killer has been sentenced, but one survivor says justice fell short | CUOMO"
 thumbnail: "https://img.youtube.com/vi/-kAQoSO7_Ws/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

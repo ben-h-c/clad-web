@@ -36,8 +36,8 @@ keyMoments:
 videoId: "99R-SWWB-BU"
 videoTitle: "Markwayne Mullin Asked: Is It Safe Enough In Haiti To Deport Former TPS Holders Back?"
 thumbnail: "https://img.youtube.com/vi/99R-SWWB-BU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

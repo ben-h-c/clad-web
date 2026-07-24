@@ -38,8 +38,8 @@ keyMoments:
 videoId: "LQBrLcaq-PM"
 videoTitle: "How Ukraine’s scaled-up precision strikes will push Russians in a winter of paralysis | Ben Hodges"
 thumbnail: "https://img.youtube.com/vi/LQBrLcaq-PM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

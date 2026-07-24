@@ -37,8 +37,8 @@ keyMoments:
 videoId: "ILrlQKhkodU"
 videoTitle: "Trump URGES Republican unity as House drama intensifies"
 thumbnail: "https://img.youtube.com/vi/ILrlQKhkodU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

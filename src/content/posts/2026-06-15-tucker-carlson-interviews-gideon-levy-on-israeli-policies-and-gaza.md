@@ -37,8 +37,8 @@ keyMoments:
 videoId: "PLaL-kv4a7A"
 videoTitle: "Will Trump Split From Israel Over the Gaza Genocide? Israeli Journalist on Netanyahu’s War Crimes"
 thumbnail: "https://img.youtube.com/vi/PLaL-kv4a7A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

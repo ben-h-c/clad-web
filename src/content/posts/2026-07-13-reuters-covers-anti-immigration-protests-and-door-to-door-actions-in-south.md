@@ -30,8 +30,8 @@ keyMoments:
 videoId: "n1zGajIAn20"
 videoTitle: "Anti-immigration protests in South Africa"
 thumbnail: "https://img.youtube.com/vi/n1zGajIAn20/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

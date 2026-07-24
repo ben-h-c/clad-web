@@ -37,8 +37,8 @@ keyMoments:
 videoId: "vK6m3pY5g6U"
 videoTitle: "Trump nominating Clayton for DNI to “undermine elections”: Rohde"
 thumbnail: "https://img.youtube.com/vi/vK6m3pY5g6U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

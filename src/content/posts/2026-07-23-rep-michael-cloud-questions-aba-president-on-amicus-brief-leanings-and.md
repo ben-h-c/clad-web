@@ -37,8 +37,8 @@ keyMoments:
 videoId: "R6963_cW0zM"
 videoTitle: "Michael Cloud Presses ABA President On Policies Relating To Gender Treatments For Minors"
 thumbnail: "https://img.youtube.com/vi/R6963_cW0zM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

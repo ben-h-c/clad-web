@@ -37,8 +37,8 @@ keyMoments:
 videoId: "SCezvV2h-HQ"
 videoTitle: "Sen. Padilla reacts to report WH considered suspending habeas corpus for undocumented immigrants"
 thumbnail: "https://img.youtube.com/vi/SCezvV2h-HQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

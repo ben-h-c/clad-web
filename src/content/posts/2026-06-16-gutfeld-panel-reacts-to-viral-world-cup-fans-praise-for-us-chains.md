@@ -33,8 +33,8 @@ keyMoments:
 videoId: "taHBNnF1W-w"
 videoTitle: "'Gutfeld!': World Cup fans love America"
 thumbnail: "https://img.youtube.com/vi/taHBNnF1W-w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

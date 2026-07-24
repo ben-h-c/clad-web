@@ -31,8 +31,8 @@ keyMoments:
 videoId: "H7oJPLlNYJM"
 videoTitle: "DDHQ Data Nerds track and analyze elections in Georgia, Alabama and Oklahoma"
 thumbnail: "https://img.youtube.com/vi/H7oJPLlNYJM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

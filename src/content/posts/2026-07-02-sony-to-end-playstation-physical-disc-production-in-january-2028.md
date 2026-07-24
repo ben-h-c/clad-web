@@ -31,8 +31,8 @@ keyMoments:
 videoId: "yOGoXx_TOIM"
 videoTitle: "Sony will end physical disc production in January 2028"
 thumbnail: "https://img.youtube.com/vi/yOGoXx_TOIM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

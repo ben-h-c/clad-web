@@ -35,8 +35,8 @@ keyMoments:
 videoId: "WcR76n4zz5E"
 videoTitle: "Gingrich: They WILL BREAK soon..."
 thumbnail: "https://img.youtube.com/vi/WcR76n4zz5E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

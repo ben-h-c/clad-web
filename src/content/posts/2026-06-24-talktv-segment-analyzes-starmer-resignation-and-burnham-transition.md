@@ -37,8 +37,8 @@ keyMoments:
 videoId: "GWV2qQ4Pgu4"
 videoTitle: "‘Starmer Wants Burnham To FAIL’ | ‘He Gave Him No Time To Plan By Quitting’"
 thumbnail: "https://img.youtube.com/vi/GWV2qQ4Pgu4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

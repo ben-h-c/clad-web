@@ -38,8 +38,8 @@ keyMoments:
 videoId: "bmzx5vlHlAo"
 videoTitle: "US strikes southern Iran as tensions rise over Strait of Hormuz and regional attacks"
 thumbnail: "https://img.youtube.com/vi/bmzx5vlHlAo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

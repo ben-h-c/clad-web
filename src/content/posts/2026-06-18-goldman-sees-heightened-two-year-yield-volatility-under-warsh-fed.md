@@ -35,8 +35,8 @@ keyMoments:
 videoId: "iSax4y8AAIQ"
 videoTitle: "Goldman Sees More Two-Year Volatility Under Warsh Fed"
 thumbnail: "https://img.youtube.com/vi/iSax4y8AAIQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

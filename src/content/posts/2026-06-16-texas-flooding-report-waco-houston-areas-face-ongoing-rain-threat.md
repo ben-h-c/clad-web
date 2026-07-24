@@ -34,8 +34,8 @@ keyMoments:
 videoId: "V3lloI-6mpE"
 videoTitle: "Parts of Texas bracing for more rain after flooding"
 thumbnail: "https://img.youtube.com/vi/V3lloI-6mpE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

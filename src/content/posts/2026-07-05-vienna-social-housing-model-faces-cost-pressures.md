@@ -35,8 +35,8 @@ keyMoments:
 videoId: "t7U52l8h7dc"
 videoTitle: "Is Vienna’s housing model still working? | DW News"
 thumbnail: "https://img.youtube.com/vi/t7U52l8h7dc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

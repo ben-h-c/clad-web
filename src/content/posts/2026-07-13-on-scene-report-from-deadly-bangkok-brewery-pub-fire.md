@@ -30,8 +30,8 @@ keyMoments:
 videoId: "J6wcpvPjVvA"
 videoTitle: "Deadly blaze engulfs popular Bangkok brewery"
 thumbnail: "https://img.youtube.com/vi/J6wcpvPjVvA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

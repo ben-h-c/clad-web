@@ -31,8 +31,8 @@ keyMoments:
 videoId: "IIK5016io34"
 videoTitle: "Dozens of New York Knicks fans compete in a Jalen Brunson lookalike contest"
 thumbnail: "https://img.youtube.com/vi/IIK5016io34/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

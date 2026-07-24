@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Iqf82N3YSOc"
 videoTitle: "Mel Brooks at 100 has no plans to retire"
 thumbnail: "https://img.youtube.com/vi/Iqf82N3YSOc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

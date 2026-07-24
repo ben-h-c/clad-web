@@ -37,8 +37,8 @@ keyMoments:
 videoId: "mqauDsbVCfY"
 videoTitle: "'Stinking piece of baggage': Sen. Whitehouse says GOP may want to 'steer clear' of Blanche"
 thumbnail: "https://img.youtube.com/vi/mqauDsbVCfY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

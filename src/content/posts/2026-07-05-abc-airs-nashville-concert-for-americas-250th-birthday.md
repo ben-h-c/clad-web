@@ -31,8 +31,8 @@ keyMoments:
 videoId: "XLtV0jIWjhw"
 videoTitle: "Nashville's Star-Spangled Bash"
 thumbnail: "https://img.youtube.com/vi/XLtV0jIWjhw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

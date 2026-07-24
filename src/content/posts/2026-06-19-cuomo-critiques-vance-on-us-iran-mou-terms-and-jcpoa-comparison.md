@@ -36,8 +36,8 @@ keyMoments:
 videoId: "ZUYU3DGkt6w"
 videoTitle: "Cuomo: JD Vance lying about terms of US-Iran peace deal | CUOMO"
 thumbnail: "https://img.youtube.com/vi/ZUYU3DGkt6w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

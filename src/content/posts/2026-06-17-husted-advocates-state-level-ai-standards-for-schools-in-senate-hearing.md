@@ -31,8 +31,8 @@ keyMoments:
 videoId: "cWriizdDh1I"
 videoTitle: "Jon Husted: Regulation Of AI In Schools Must Happen At State Level To Cater To Unique Needs"
 thumbnail: "https://img.youtube.com/vi/cWriizdDh1I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

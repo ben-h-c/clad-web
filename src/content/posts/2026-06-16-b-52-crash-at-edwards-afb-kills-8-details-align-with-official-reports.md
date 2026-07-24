@@ -34,8 +34,8 @@ keyMoments:
 videoId: "wpsTT5nkwtY"
 videoTitle: "Catastrophic B-52 bomber plane crash was \"unsurvivable,\" military official says"
 thumbnail: "https://img.youtube.com/vi/wpsTT5nkwtY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

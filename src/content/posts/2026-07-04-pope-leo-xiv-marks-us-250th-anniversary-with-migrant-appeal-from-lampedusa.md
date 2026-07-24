@@ -35,8 +35,8 @@ keyMoments:
 videoId: "a83JgdCxzyE"
 videoTitle: "Pope Leo urges US to welcome immigrants in July 4 appeal"
 thumbnail: "https://img.youtube.com/vi/a83JgdCxzyE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

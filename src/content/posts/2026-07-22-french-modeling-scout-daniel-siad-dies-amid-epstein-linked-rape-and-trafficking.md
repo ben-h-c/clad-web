@@ -36,8 +36,8 @@ keyMoments:
 videoId: "ZagmTaT5IBk"
 videoTitle: "Sex trafficking in fashion: 'Outrageous that French legal system hasn't done anything by now'"
 thumbnail: "https://img.youtube.com/vi/ZagmTaT5IBk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

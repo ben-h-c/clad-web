@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Gh0xHgW8i3I"
 videoTitle: "‘Anything in return?’ | Health Secretary GRILLED on enabling ‘cycle of strikes’ of resident doctors"
 thumbnail: "https://img.youtube.com/vi/Gh0xHgW8i3I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

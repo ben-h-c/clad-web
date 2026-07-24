@@ -33,8 +33,8 @@ keyMoments:
 videoId: "PRyVwjBvf9o"
 videoTitle: "‘BOOM’: Trump makes THRILLING new economic pitch to America #shorts"
 thumbnail: "https://img.youtube.com/vi/PRyVwjBvf9o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

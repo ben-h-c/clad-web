@@ -40,8 +40,8 @@ keyMoments:
 videoId: "UvvlxLW7KFU"
 videoTitle: "Sen. Raphael Warnock says \"it's past time for Congress to assert itself\" in Iran war"
 thumbnail: "https://img.youtube.com/vi/UvvlxLW7KFU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

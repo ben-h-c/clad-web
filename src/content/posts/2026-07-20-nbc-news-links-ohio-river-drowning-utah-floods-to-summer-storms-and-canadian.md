@@ -35,8 +35,8 @@ keyMoments:
 videoId: "1MYMPYLUbHQ"
 videoTitle: "Five drown in Ohio river during fishing trip"
 thumbnail: "https://img.youtube.com/vi/1MYMPYLUbHQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

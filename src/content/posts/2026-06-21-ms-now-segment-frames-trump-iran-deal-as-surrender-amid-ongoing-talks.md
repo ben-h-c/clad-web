@@ -41,8 +41,8 @@ keyMoments:
 videoId: "7WJvgd_tukk"
 videoTitle: "Trump wielding ‘power for the sake of oppression,’ says former congressman"
 thumbnail: "https://img.youtube.com/vi/7WJvgd_tukk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "6UmGin4twH8"
 videoTitle: "New York Knicks parade: What we know so far"
 thumbnail: "https://img.youtube.com/vi/6UmGin4twH8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

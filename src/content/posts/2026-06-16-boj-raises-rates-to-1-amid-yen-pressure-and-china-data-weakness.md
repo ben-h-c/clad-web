@@ -35,8 +35,8 @@ keyMoments:
 videoId: "mM_jGy-tpiA"
 videoTitle: "AI Relief Rally Fades While Chinese Economy Stalls | Insight with Haslinda Amin 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/mM_jGy-tpiA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

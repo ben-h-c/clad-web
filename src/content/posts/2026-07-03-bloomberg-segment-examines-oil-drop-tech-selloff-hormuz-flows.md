@@ -38,8 +38,8 @@ keyMoments:
 videoId: "unzgD-HCHf0"
 videoTitle: "Oil Falls Amid Expectations of Oversupply | Horizons Middle East & Africa 7/2/2026"
 thumbnail: "https://img.youtube.com/vi/unzgD-HCHf0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

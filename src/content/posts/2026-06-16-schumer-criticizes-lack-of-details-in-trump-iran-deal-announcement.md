@@ -36,8 +36,8 @@ keyMoments:
 videoId: "rPM24MQ4VQo"
 videoTitle: "Schumer: \"More questions than answers\" on Iran deal"
 thumbnail: "https://img.youtube.com/vi/rPM24MQ4VQo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

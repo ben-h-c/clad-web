@@ -38,8 +38,8 @@ keyMoments:
 videoId: "r5d_j2leiM0"
 videoTitle: "Stocks Set for Best Quarter Since Pandemic; SCOTUS Expands Trump's Power | Bloomberg Brief 6/30/2026"
 thumbnail: "https://img.youtube.com/vi/r5d_j2leiM0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

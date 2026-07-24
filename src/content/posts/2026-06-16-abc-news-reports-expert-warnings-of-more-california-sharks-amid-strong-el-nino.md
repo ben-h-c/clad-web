@@ -34,8 +34,8 @@ keyMoments:
 videoId: "28yOvi5nKtY"
 videoTitle: "Warnings of a shark surge in California this summer"
 thumbnail: "https://img.youtube.com/vi/28yOvi5nKtY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

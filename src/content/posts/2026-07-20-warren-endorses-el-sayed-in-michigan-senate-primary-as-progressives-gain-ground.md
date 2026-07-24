@@ -37,8 +37,8 @@ keyMoments:
 videoId: "XvAbSjfiNJw"
 videoTitle: "DEMOCRATIC DIVIDE: Here's the latest chapter in the Democratic civil war"
 thumbnail: "https://img.youtube.com/vi/XvAbSjfiNJw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

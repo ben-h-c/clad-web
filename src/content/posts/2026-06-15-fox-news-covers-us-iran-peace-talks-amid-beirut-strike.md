@@ -36,8 +36,8 @@ keyMoments:
 videoId: "9_08eSkSfjU"
 videoTitle: "Iran deal on the BRINK after Beirut strike sparks new fears"
 thumbnail: "https://img.youtube.com/vi/9_08eSkSfjU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

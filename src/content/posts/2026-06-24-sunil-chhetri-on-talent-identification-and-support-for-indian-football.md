@@ -30,8 +30,8 @@ keyMoments:
 videoId: "_navPrcEaCs"
 videoTitle: "Indian Football: Sunil Chhetri demands greater support for the sport | 101 East #shorts"
 thumbnail: "https://img.youtube.com/vi/_navPrcEaCs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

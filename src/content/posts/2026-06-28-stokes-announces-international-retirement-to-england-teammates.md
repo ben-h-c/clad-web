@@ -29,8 +29,8 @@ keyMoments:
 videoId: "0Y7dL2QeDqo"
 videoTitle: "Moment Stokes announces retirement to England teammates"
 thumbnail: "https://img.youtube.com/vi/0Y7dL2QeDqo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "aRjEB6Ry6ec"
 videoTitle: "Nasdaq and S&P 500 slip while Dow hits record high"
 thumbnail: "https://img.youtube.com/vi/aRjEB6Ry6ec/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "JWgQmKZi4VY"
 videoTitle: "Serbian president says he will resign within weeks"
 thumbnail: "https://img.youtube.com/vi/JWgQmKZi4VY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

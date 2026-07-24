@@ -37,8 +37,8 @@ keyMoments:
 videoId: "a6hQO2oUY2A"
 videoTitle: "U.S. and Iran sign preliminary deal, Gavin Newsom says he's under investigation, more | The Takeout"
 thumbnail: "https://img.youtube.com/vi/a6hQO2oUY2A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

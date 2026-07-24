@@ -34,8 +34,8 @@ keyMoments:
 videoId: "3BCo8H7WKMo"
 videoTitle: "Nvidia's Jensen Huang discusses AI policy, manufacturing and Trump relationship"
 thumbnail: "https://img.youtube.com/vi/3BCo8H7WKMo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

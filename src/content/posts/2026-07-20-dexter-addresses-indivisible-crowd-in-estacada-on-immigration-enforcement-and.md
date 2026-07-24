@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Qd7OSaIB7zg"
 videoTitle: "Oregon Congresswoman Maxine Dexter Speaks at an Indivisible, Anti ICE, Event in Estacada Or, 6/26/26"
 thumbnail: "https://img.youtube.com/vi/Qd7OSaIB7zg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

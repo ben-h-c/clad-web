@@ -37,8 +37,8 @@ keyMoments:
 videoId: "SyGU-lu0VbY"
 videoTitle: "Rep. Grothman: Student Loan Reforms Protect Taxpayers and Students"
 thumbnail: "https://img.youtube.com/vi/SyGU-lu0VbY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

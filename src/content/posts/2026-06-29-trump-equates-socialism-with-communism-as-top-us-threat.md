@@ -33,8 +33,8 @@ keyMoments:
 videoId: "wuKIRSFpMgg"
 videoTitle: "Trump calls socialism the ‘BIGGEST THREAT to our nation’ #shorts #foxnews #news #us"
 thumbnail: "https://img.youtube.com/vi/wuKIRSFpMgg/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

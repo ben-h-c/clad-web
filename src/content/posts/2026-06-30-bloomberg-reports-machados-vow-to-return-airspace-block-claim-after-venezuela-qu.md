@@ -32,8 +32,8 @@ keyMoments:
 videoId: "GxorXjugaQo"
 videoTitle: "Machado Vows Return to Venezuela, Alleges Regime Blocked Her"
 thumbnail: "https://img.youtube.com/vi/GxorXjugaQo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

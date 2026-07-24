@@ -34,8 +34,8 @@ keyMoments:
 videoId: "fx8yAwZdhp0"
 videoTitle: "House staffers to visit convicted Epstein accomplice Ghislaine Maxwell's prison today"
 thumbnail: "https://img.youtube.com/vi/fx8yAwZdhp0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

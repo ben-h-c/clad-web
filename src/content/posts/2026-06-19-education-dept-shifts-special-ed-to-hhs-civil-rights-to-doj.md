@@ -37,8 +37,8 @@ keyMoments:
 videoId: "wP8RThVPZdo"
 videoTitle: "Special education and office for civil rights move out of Dept. of Education purview"
 thumbnail: "https://img.youtube.com/vi/wP8RThVPZdo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

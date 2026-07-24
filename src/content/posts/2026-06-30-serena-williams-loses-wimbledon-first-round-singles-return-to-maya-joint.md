@@ -31,8 +31,8 @@ keyMoments:
 videoId: "2mney5uK50c"
 videoTitle: "Serena Williams loses in first round at Wimbledon"
 thumbnail: "https://img.youtube.com/vi/2mney5uK50c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

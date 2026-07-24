@@ -31,8 +31,8 @@ keyMoments:
 videoId: "KJ_X_bOVAdo"
 videoTitle: "Luigi Mangione's legal team drops psychiatric defense in state murder trial"
 thumbnail: "https://img.youtube.com/vi/KJ_X_bOVAdo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

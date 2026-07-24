@@ -34,8 +34,8 @@ keyMoments:
 videoId: "XIpMJ738uOY"
 videoTitle: "'What is wrong with you?' Couple's marriage proposal goes viral"
 thumbnail: "https://img.youtube.com/vi/XIpMJ738uOY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

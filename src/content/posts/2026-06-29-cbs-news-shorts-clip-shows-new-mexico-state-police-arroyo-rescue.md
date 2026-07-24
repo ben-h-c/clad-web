@@ -28,8 +28,8 @@ keyMoments:
 videoId: "2YczQajOj2A"
 videoTitle: "Man exhausted from battling rushing floodwaters rescued by New Mexico police #shorts"
 thumbnail: "https://img.youtube.com/vi/2YczQajOj2A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

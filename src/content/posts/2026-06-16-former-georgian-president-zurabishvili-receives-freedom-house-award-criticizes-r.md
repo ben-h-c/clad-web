@@ -34,8 +34,8 @@ keyMoments:
 videoId: "NI2Yx3KXNB0"
 videoTitle: "Georgia's 5th president says the country is \"far from a democracy\" amid Russia's influence"
 thumbnail: "https://img.youtube.com/vi/NI2Yx3KXNB0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

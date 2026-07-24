@@ -31,8 +31,8 @@ keyMoments:
 videoId: "x-IvqdglyIQ"
 videoTitle: "British prime minister announces ban on social media for kids under 16"
 thumbnail: "https://img.youtube.com/vi/x-IvqdglyIQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

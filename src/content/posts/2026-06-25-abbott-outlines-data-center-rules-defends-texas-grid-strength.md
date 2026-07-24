@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Qn0Xxo4dw8U"
 videoTitle: "Texas Gov. Greg Abbott: Data centers must 'reduce costs'"
 thumbnail: "https://img.youtube.com/vi/Qn0Xxo4dw8U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

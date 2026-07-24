@@ -31,8 +31,8 @@ keyMoments:
 videoId: "hxhym5LsoJQ"
 videoTitle: "FBI foils an alleged plot to attack the White House UFC event"
 thumbnail: "https://img.youtube.com/vi/hxhym5LsoJQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

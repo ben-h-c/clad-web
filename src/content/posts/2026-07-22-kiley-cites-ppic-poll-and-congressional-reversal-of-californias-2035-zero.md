@@ -32,8 +32,8 @@ keyMoments:
 videoId: "q-D3ywrgHUM"
 videoTitle: "&#39;An Important Win For Sanity In California&#39;: Kiley Touts &#39;Newsom&#39;s Ban On Gas Cars&#39; Being Overturned"
 thumbnail: "https://img.youtube.com/vi/q-D3ywrgHUM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

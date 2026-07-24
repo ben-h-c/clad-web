@@ -32,8 +32,8 @@ keyMoments:
 videoId: "W3QL0SErdlM"
 videoTitle: "Tesla Cybercab Details Revealed; Lincoln Seeks China Exemption for Nautilus - Autoline Daily 4319"
 thumbnail: "https://img.youtube.com/vi/W3QL0SErdlM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

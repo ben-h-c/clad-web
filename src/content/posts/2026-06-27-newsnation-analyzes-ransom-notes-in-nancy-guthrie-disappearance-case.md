@@ -33,8 +33,8 @@ keyMoments:
 videoId: "bLjh33AHp7Q"
 videoTitle: "Nancy Guthrie ransom letter writer is 'ringmaster,' media like 'circus dogs': Criminologist | CUOMO"
 thumbnail: "https://img.youtube.com/vi/bLjh33AHp7Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

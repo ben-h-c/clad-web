@@ -38,8 +38,8 @@ keyMoments:
 videoId: "sPn41oynGCY"
 videoTitle: "Misleading images turn Iran’s World Cup debut into a political flashpoint • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/sPn41oynGCY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

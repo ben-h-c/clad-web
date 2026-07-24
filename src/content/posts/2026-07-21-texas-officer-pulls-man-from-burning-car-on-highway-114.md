@@ -32,8 +32,8 @@ keyMoments:
 videoId: "oFRrGIF76AY"
 videoTitle: "Texas officer rescues a man whose car catches on fire on the highway"
 thumbnail: "https://img.youtube.com/vi/oFRrGIF76AY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

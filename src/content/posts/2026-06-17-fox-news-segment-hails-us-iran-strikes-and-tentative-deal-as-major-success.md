@@ -33,8 +33,8 @@ keyMoments:
 videoId: "xceq--QlDOo"
 videoTitle: "Military action against Iran was 'IMMENSELY SUCCESSFUL': US Army Special Forces veteran"
 thumbnail: "https://img.youtube.com/vi/xceq--QlDOo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

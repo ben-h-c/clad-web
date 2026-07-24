@@ -30,8 +30,8 @@ keyMoments:
 videoId: "M4kliMrqbB4"
 videoTitle: "How worried should we be about the AI that went rogue and launched a cyber-attack? | BBC News"
 thumbnail: "https://img.youtube.com/vi/M4kliMrqbB4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

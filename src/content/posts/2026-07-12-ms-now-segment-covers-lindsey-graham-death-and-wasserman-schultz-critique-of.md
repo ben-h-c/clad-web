@@ -36,8 +36,8 @@ keyMoments:
 videoId: "cmYOPgVyq4E"
 videoTitle: "Trump housing bill snub ‘tells you all you need to know’ of his stance on affordability: Dem Rep."
 thumbnail: "https://img.youtube.com/vi/cmYOPgVyq4E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

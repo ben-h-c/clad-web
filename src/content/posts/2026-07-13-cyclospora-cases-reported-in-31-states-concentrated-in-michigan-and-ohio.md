@@ -37,8 +37,8 @@ keyMoments:
 videoId: "ntOhr26LR8I"
 videoTitle: "Diarrhea parasite now in 30+ states: What to know about Cyclospora"
 thumbnail: "https://img.youtube.com/vi/ntOhr26LR8I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

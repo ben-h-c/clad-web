@@ -34,8 +34,8 @@ keyMoments:
 videoId: "7ii_4O-P008"
 videoTitle: "Booster 20 returns for engines ahead of Flight 13 | SpaceX Starbase"
 thumbnail: "https://img.youtube.com/vi/7ii_4O-P008/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

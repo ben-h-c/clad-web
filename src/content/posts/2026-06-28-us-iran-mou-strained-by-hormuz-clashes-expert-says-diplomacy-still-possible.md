@@ -34,8 +34,8 @@ keyMoments:
 videoId: "lG_bMmTpWFI"
 videoTitle: "US-Iran MoU at risk as Hormuz skirmishes test diplomacy: Ex-US ambassador"
 thumbnail: "https://img.youtube.com/vi/lG_bMmTpWFI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

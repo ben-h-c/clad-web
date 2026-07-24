@@ -30,8 +30,8 @@ keyMoments:
 videoId: "WvoMFE1s8ME"
 videoTitle: "Gov. Hochul on ICE presence in New York"
 thumbnail: "https://img.youtube.com/vi/WvoMFE1s8ME/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

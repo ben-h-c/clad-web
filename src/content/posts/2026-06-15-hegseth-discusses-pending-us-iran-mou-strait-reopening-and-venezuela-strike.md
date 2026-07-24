@@ -37,8 +37,8 @@ keyMoments:
 videoId: "4SqNcMBFbdA"
 videoTitle: "Pete Hegseth says U.S. is \"already doing things I can't talk about\" to reopen Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/4SqNcMBFbdA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

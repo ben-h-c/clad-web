@@ -33,8 +33,8 @@ keyMoments:
 videoId: "NiEtul5cFu0"
 videoTitle: "Trump: \"Tonight, our country is stronger … than ever before\""
 thumbnail: "https://img.youtube.com/vi/NiEtul5cFu0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

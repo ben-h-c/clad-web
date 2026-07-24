@@ -33,8 +33,8 @@ keyMoments:
 videoId: "f5Q25SwJ35o"
 videoTitle: "'We Can Achieve And Do Great In The Region': Emir Of Qatar Lauds US Cooperation Over Middle East"
 thumbnail: "https://img.youtube.com/vi/f5Q25SwJ35o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

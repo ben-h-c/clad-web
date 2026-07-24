@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Q8vQsKcoRz8"
 videoTitle: "Why Pedro Sanchez is Europe’s great political survivor | DW News"
 thumbnail: "https://img.youtube.com/vi/Q8vQsKcoRz8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

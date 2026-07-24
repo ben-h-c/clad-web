@@ -32,8 +32,8 @@ keyMoments:
 videoId: "pVq8e-aPPO0"
 videoTitle: "3 Major Supreme Court Rulings Just Dropped — Where Do You Stand? | Hot Take with Jesse Weber"
 thumbnail: "https://img.youtube.com/vi/pVq8e-aPPO0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

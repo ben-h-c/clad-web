@@ -36,8 +36,8 @@ keyMoments:
 videoId: "O9b4Yzl9_QI"
 videoTitle: "'It Didn't Even Bother Them': Bernie Moreno Eviscerates Dems Over DHS Shutdown"
 thumbnail: "https://img.youtube.com/vi/O9b4Yzl9_QI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

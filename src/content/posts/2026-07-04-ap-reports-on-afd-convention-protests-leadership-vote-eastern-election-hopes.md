@@ -35,8 +35,8 @@ keyMoments:
 videoId: "J1EVHl3lk6M"
 videoTitle: "Protests as far-right Alternative for Germany holds convention, eyeing gains in regional elections"
 thumbnail: "https://img.youtube.com/vi/J1EVHl3lk6M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

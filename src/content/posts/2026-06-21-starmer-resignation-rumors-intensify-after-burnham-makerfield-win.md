@@ -37,8 +37,8 @@ keyMoments:
 videoId: "iCt7QKAJ9jQ"
 videoTitle: "Keir Starmer to RESIGN TOMORROW? Allies signal PM is STEPPING DOWN after Burnham's Makerfield win"
 thumbnail: "https://img.youtube.com/vi/iCt7QKAJ9jQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

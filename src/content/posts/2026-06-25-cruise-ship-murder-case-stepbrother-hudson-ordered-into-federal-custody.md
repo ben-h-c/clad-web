@@ -35,8 +35,8 @@ keyMoments:
 videoId: "VReg83KHiJg"
 videoTitle: "Stepbrother jailed as cruise ship murder case explodes | Drop Dead Serious"
 thumbnail: "https://img.youtube.com/vi/VReg83KHiJg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

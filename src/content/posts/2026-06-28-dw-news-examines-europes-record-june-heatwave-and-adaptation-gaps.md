@@ -37,8 +37,8 @@ keyMoments:
 videoId: "LiybH4jGA-A"
 videoTitle: "Is this the summer that pushes Europe to adapt to extreme heat? | DW News"
 thumbnail: "https://img.youtube.com/vi/LiybH4jGA-A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

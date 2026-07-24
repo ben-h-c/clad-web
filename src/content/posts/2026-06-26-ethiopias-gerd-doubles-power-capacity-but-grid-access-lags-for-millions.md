@@ -35,8 +35,8 @@ keyMoments:
 videoId: "_0us5o204Co"
 videoTitle: "Africa's biggest dam is running. So why are millions still in the dark? | DW News"
 thumbnail: "https://img.youtube.com/vi/_0us5o204Co/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "xHNfGJRXZ-U"
 videoTitle: "UK BANS social media for kids UNDER 16 — COMPANIES should DO MORE! Lindsey Granger | RISING"
 thumbnail: "https://img.youtube.com/vi/xHNfGJRXZ-U/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "ZnKtO4lpqXg"
 videoTitle: "New: Trump's MAGA crime money plot HALTED; IRS deal BLOCKED: Ari on COURT LOSS"
 thumbnail: "https://img.youtube.com/vi/ZnKtO4lpqXg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

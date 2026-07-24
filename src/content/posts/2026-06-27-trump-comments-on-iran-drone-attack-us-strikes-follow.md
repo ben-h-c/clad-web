@@ -31,8 +31,8 @@ keyMoments:
 videoId: "JZxg3yZI5YU"
 videoTitle: "Trump bombs Iran after drone hits cargo ship as Tehran blasts 'brutal attack'"
 thumbnail: "https://img.youtube.com/vi/JZxg3yZI5YU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

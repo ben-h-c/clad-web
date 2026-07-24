@@ -32,8 +32,8 @@ keyMoments:
 videoId: "Jn89usOC6p4"
 videoTitle: "Epstein accuser gets emotional describing pain from DOJ failures in files release"
 thumbnail: "https://img.youtube.com/vi/Jn89usOC6p4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

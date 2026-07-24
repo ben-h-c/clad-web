@@ -36,8 +36,8 @@ keyMoments:
 videoId: "sQq07QVTOk0"
 videoTitle: "Is this AI's moment of truth? | BBC News"
 thumbnail: "https://img.youtube.com/vi/sQq07QVTOk0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

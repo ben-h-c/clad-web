@@ -40,9 +40,9 @@ keyMoments:
 videoId: "ApVnJW5H-ng"
 videoTitle: "Giorgia Meloni's Italy: An authoritarian drift? (part 2) • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/ApVnJW5H-ng/hqdefault.jpg"
-mediaNote: "Talking-head subject face; keep upper-middle, clear of bottom text third"
-thumbFocusY: 28
-thumbFocusX: 42
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 citations:
   - title: "Italy GDP Growth Rate"

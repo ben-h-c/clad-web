@@ -37,8 +37,8 @@ keyMoments:
 videoId: "bW3b5qKQP6I"
 videoTitle: "Planet Normal: Labour’s new migration policies will create a ‘Burnham bump’ | Podcast"
 thumbnail: "https://img.youtube.com/vi/bW3b5qKQP6I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

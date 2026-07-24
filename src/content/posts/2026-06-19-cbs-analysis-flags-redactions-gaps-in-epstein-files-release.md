@@ -34,8 +34,8 @@ keyMoments:
 videoId: "wc237dXfybg"
 videoTitle: "New analysis shows what's missing from the Epstein files"
 thumbnail: "https://img.youtube.com/vi/wc237dXfybg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

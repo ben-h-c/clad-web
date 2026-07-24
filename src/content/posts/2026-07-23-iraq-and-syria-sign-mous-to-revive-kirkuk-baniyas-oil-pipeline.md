@@ -36,8 +36,8 @@ keyMoments:
 videoId: "HC8BiLhxWsE"
 videoTitle: "Syria and Iraq sign deal to revive Kirkuk-Baniyas oil pipeline"
 thumbnail: "https://img.youtube.com/vi/HC8BiLhxWsE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

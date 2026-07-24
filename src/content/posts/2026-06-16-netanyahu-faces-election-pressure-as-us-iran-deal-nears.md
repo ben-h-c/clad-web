@@ -35,8 +35,8 @@ keyMoments:
 videoId: "FwNKuVm3IZE"
 videoTitle: "Netanyahu Pays Political Price for Trump's Iran Deal"
 thumbnail: "https://img.youtube.com/vi/FwNKuVm3IZE/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

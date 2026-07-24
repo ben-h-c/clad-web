@@ -33,8 +33,8 @@ keyMoments:
 videoId: "btNMcvfl04U"
 videoTitle: "'Throw Away The Key': Henry Nowak's Killer Appeals Murder Sentence | Ben Habib FURIOUS"
 thumbnail: "https://img.youtube.com/vi/btNMcvfl04U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

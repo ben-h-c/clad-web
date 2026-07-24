@@ -35,8 +35,8 @@ keyMoments:
 videoId: "_yhOd964J5s"
 videoTitle: "0-for-9. Dwight Evans Sold Nine Stocks. All Nine Lost to the Market."
 thumbnail: "https://img.youtube.com/vi/_yhOd964J5s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

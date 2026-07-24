@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Dj0UHrIVHoQ"
 videoTitle: "So much losing: Slumping in TX, MAGA spirals over Trump's new failures at Supreme Court"
 thumbnail: "https://img.youtube.com/vi/Dj0UHrIVHoQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

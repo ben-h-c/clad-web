@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Ro5OynV6sHk"
 videoTitle: "Mexican fans say they feel excluded from World Cup in their country"
 thumbnail: "https://img.youtube.com/vi/Ro5OynV6sHk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -28,8 +28,8 @@ keyMoments:
 videoId: "OB_BXWr3u48"
 videoTitle: "China's puppy preschools thrive as pet owners splurge"
 thumbnail: "https://img.youtube.com/vi/OB_BXWr3u48/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

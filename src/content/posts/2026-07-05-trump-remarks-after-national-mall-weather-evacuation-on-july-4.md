@@ -32,8 +32,8 @@ keyMoments:
 videoId: "KLIFBD4uQwI"
 videoTitle: "Trump thanks people for evacuating and returning for remarks"
 thumbnail: "https://img.youtube.com/vi/KLIFBD4uQwI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

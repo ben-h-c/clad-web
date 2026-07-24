@@ -39,8 +39,8 @@ keyMoments:
 videoId: "qDWaxXkty9A"
 videoTitle: "Blumenthal Introduces Bill To Sue Trump Over Alleged Emoluments Violation –Then Rick Scott Blocks It"
 thumbnail: "https://img.youtube.com/vi/qDWaxXkty9A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

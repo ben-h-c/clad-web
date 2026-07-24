@@ -34,8 +34,8 @@ keyMoments:
 videoId: "BIWDY1y0hYw"
 videoTitle: "Former NBA players indicted in gambling scheme"
 thumbnail: "https://img.youtube.com/vi/BIWDY1y0hYw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

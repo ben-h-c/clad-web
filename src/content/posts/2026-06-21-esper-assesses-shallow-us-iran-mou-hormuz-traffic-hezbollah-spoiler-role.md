@@ -35,8 +35,8 @@ keyMoments:
 videoId: "2DqWHUGlahU"
 videoTitle: "Former US Defense Secretary Esper: Hezbollah is 'Spoiler' for US-Iran Deal"
 thumbnail: "https://img.youtube.com/vi/2DqWHUGlahU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

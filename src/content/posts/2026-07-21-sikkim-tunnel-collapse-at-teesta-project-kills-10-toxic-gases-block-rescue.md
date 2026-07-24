@@ -29,8 +29,8 @@ keyMoments:
 videoId: "8vNGT6yEnig"
 videoTitle: "India tunnel collapse kills 10 as toxic gases hamper rescue | AJ Shorts"
 thumbnail: "https://img.youtube.com/vi/8vNGT6yEnig/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

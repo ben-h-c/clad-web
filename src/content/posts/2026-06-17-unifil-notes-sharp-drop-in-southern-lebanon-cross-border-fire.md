@@ -32,8 +32,8 @@ keyMoments:
 videoId: "1l_QROFQWug"
 videoTitle: "UN reports decline in cross-border fire in southern Lebanon"
 thumbnail: "https://img.youtube.com/vi/1l_QROFQWug/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "AYjdqiizj5w"
 videoTitle: "Details on Rep. Tom Kean's return to Congress after he says depression caused months-long absence"
 thumbnail: "https://img.youtube.com/vi/AYjdqiizj5w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

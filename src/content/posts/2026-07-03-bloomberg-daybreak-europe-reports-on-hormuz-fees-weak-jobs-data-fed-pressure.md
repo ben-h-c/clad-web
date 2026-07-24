@@ -35,8 +35,8 @@ keyMoments:
 videoId: "1TLpO3GupiY"
 videoTitle: "Iran War: European Nations See Inevitable Hormuz Fees | Daybreak Europe 7/3/2026"
 thumbnail: "https://img.youtube.com/vi/1TLpO3GupiY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

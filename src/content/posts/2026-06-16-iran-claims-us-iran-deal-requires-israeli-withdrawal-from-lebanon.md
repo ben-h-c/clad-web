@@ -34,8 +34,8 @@ keyMoments:
 videoId: "w55Rm0qSOiQ"
 videoTitle: "Iran says the deal to end the war requires Israel to withdraw from Lebanon"
 thumbnail: "https://img.youtube.com/vi/w55Rm0qSOiQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

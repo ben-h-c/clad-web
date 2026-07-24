@@ -37,8 +37,8 @@ keyMoments:
 videoId: "f7Nv_WFPODQ"
 videoTitle: "Democrats SILENCED As GOP Rep. Mike Kelly SHUTS UP Maxine Waters With One Brutal Reality Check."
 thumbnail: "https://img.youtube.com/vi/f7Nv_WFPODQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

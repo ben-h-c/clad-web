@@ -40,8 +40,8 @@ keyMoments:
 videoId: "9uc_6ZmCT9A"
 videoTitle: "Hayes Asks NLRB Chair About Corporations Going 'Beyond Free Speech' To Discourage Unionization"
 thumbnail: "https://img.youtube.com/vi/9uc_6ZmCT9A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

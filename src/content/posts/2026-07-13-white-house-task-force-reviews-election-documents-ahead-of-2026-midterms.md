@@ -36,8 +36,8 @@ keyMoments:
 videoId: "t50vnDdmrPo"
 videoTitle: "Trump uses new election task force to push conspiracy theories: 'UNPRECEDENTED'"
 thumbnail: "https://img.youtube.com/vi/t50vnDdmrPo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

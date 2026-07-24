@@ -28,8 +28,8 @@ keyMoments:
 videoId: "46Y9UhlERZw"
 videoTitle: "9-year-old celebrates Beatles Day"
 thumbnail: "https://img.youtube.com/vi/46Y9UhlERZw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

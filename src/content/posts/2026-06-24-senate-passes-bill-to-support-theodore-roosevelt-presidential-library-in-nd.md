@@ -34,8 +34,8 @@ keyMoments:
 videoId: "w1brjK6Fxqs"
 videoTitle: "John Hoeven Celebrates Opening Of Theodore Roosevelt Presidential Library In North Dakota"
 thumbnail: "https://img.youtube.com/vi/w1brjK6Fxqs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

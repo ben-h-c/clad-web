@@ -27,8 +27,8 @@ keyMoments:
 videoId: "FUAagMBwaqQ"
 videoTitle: "Trump Takes Center Stage at G7 Family Photo"
 thumbnail: "https://img.youtube.com/vi/FUAagMBwaqQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

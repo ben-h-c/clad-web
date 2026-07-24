@@ -35,8 +35,8 @@ keyMoments:
 videoId: "ynWvMEerjpE"
 videoTitle: "MP Dane Lloyd tapped as Conservative Party lead on Alberta referendum | Power & Politics"
 thumbnail: "https://img.youtube.com/vi/ynWvMEerjpE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

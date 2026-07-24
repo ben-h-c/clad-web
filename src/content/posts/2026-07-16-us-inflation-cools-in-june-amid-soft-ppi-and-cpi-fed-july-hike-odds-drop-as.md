@@ -38,8 +38,8 @@ keyMoments:
 videoId: "H-2Xy0SNEl0"
 videoTitle: "Macro Matters: Energy prices 'not too concerning' for US"
 thumbnail: "https://img.youtube.com/vi/H-2Xy0SNEl0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

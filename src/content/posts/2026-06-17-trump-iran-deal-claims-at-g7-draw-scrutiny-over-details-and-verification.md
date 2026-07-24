@@ -36,8 +36,8 @@ keyMoments:
 videoId: "lTAEHPfJ_fo"
 videoTitle: "LIVE: Trump holds press conference at G7 summit | NBC News"
 thumbnail: "https://img.youtube.com/vi/lTAEHPfJ_fo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

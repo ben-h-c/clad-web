@@ -35,8 +35,8 @@ keyMoments:
 videoId: "NFCTp5uiAFU"
 videoTitle: "BREAKTHROUGH: Europe appears to get behind Trump's Iran deal"
 thumbnail: "https://img.youtube.com/vi/NFCTp5uiAFU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

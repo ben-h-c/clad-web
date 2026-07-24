@@ -33,8 +33,8 @@ keyMoments:
 videoId: "T1vXD2C4sMg"
 videoTitle: "Virginia Foxx Praises GOP-Backed Bills About Taxes, Veterans, Defense, And More"
 thumbnail: "https://img.youtube.com/vi/T1vXD2C4sMg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

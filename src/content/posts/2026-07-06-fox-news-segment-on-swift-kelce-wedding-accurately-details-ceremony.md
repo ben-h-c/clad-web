@@ -37,8 +37,8 @@ keyMoments:
 videoId: "_udAoUdF4QY"
 videoTitle: "‘CONSERVATIVE COUPLE GOALS’: Tomi Lahren on Swift-Kelce wedding #shorts #foxnews #news #us"
 thumbnail: "https://img.youtube.com/vi/_udAoUdF4QY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

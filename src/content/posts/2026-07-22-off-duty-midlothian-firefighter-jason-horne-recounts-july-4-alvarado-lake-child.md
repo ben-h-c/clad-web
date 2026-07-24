@@ -35,8 +35,8 @@ keyMoments:
 videoId: "DQFZovfF4jo"
 videoTitle: "Firefighter recalls boat rescue: 'My instinct was to go' | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/DQFZovfF4jo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

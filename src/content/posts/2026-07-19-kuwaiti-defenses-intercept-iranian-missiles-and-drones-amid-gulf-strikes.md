@@ -37,8 +37,8 @@ keyMoments:
 videoId: "PXPJbzREB-o"
 videoTitle: "Sirens blare in Kuwait as military says air defences intercept Iranian missiles, drones"
 thumbnail: "https://img.youtube.com/vi/PXPJbzREB-o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

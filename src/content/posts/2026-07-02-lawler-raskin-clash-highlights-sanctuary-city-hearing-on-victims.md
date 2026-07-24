@@ -35,8 +35,8 @@ keyMoments:
 videoId: "jLHB74fdiP4"
 videoTitle: "Reps. Lawler, Raskin clash in shouting match over sanctuary cities | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/jLHB74fdiP4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

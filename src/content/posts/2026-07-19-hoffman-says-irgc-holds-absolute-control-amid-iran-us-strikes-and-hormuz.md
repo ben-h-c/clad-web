@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Mg_7kou4MfU"
 videoTitle: "The IRGC is in ‘absolute control’ of Iran, former CIA station chief says"
 thumbnail: "https://img.youtube.com/vi/Mg_7kou4MfU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

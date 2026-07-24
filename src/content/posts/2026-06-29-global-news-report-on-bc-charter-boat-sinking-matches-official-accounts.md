@@ -34,8 +34,8 @@ keyMoments:
 videoId: "IRrj97K5oaw"
 videoTitle: "4 rescued in BC after charter boat sinks, search suspended for 6 others: RCMP"
 thumbnail: "https://img.youtube.com/vi/IRrj97K5oaw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "K4LyTBhu2aA"
 videoTitle: "'Dream come true': See Fat Joe's VICTORY LAP FOR KNICKS with Ari on 'The Beat'"
 thumbnail: "https://img.youtube.com/vi/K4LyTBhu2aA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

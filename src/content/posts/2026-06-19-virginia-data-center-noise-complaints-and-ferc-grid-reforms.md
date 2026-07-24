@@ -37,8 +37,8 @@ keyMoments:
 videoId: "AtXD4EFOsCg"
 videoTitle: "Data center noise irks Virginia neighbors: ‘You just want to curse’ | The Hill"
 thumbnail: "https://img.youtube.com/vi/AtXD4EFOsCg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

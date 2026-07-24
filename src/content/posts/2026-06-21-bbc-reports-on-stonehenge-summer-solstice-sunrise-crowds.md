@@ -31,8 +31,8 @@ keyMoments:
 videoId: "bRdb8ACtUQE"
 videoTitle: "A spectacular sunrise at Stonehenge drew big crowds from all over the UK. #Solstice #UK #BBCNews"
 thumbnail: "https://img.youtube.com/vi/bRdb8ACtUQE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

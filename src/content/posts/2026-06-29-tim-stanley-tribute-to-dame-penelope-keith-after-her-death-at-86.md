@@ -35,8 +35,8 @@ keyMoments:
 videoId: "diRwQFr_ufE"
 videoTitle: "Tim Stanley pays tribute to The Good Life star Dame Penelope Keith"
 thumbnail: "https://img.youtube.com/vi/diRwQFr_ufE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

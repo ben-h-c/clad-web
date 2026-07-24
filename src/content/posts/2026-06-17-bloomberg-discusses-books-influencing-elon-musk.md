@@ -31,8 +31,8 @@ keyMoments:
 videoId: "nQeHqWmys3Y"
 videoTitle: "The Books That Influenced SpaceX Founder Elon Musk"
 thumbnail: "https://img.youtube.com/vi/nQeHqWmys3Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

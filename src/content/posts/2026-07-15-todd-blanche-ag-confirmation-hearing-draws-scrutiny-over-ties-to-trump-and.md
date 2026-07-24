@@ -37,8 +37,8 @@ keyMoments:
 videoId: "-Usu7k3soRI"
 videoTitle: "He said WHAT?! Trump AG pick cracks with BRUTAL 'Freudian Slip' as Epstein furor grows"
 thumbnail: "https://img.youtube.com/vi/-Usu7k3soRI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

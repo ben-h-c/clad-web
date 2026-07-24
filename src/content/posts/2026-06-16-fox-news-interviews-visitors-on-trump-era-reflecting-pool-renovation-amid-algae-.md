@@ -33,8 +33,8 @@ keyMoments:
 videoId: "xnkE1lkPHqE"
 videoTitle: "DC has a new look— here's what Americans think... #dc #shorts #washingtondc #american #trump"
 thumbnail: "https://img.youtube.com/vi/xnkE1lkPHqE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

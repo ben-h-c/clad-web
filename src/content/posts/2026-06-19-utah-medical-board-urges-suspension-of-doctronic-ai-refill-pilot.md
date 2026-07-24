@@ -34,8 +34,8 @@ keyMoments:
 videoId: "uQNk2acomv4"
 videoTitle: "AI vs. Your Doctor: Who Should Approve Your Refills?"
 thumbnail: "https://img.youtube.com/vi/uQNk2acomv4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

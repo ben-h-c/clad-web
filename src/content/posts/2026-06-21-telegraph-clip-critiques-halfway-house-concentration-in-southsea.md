@@ -37,8 +37,8 @@ keyMoments:
 videoId: "QiAg5bAcNfA"
 videoTitle: "'Nothing angers me more than seeing young guys dossing around doing nothing in halfway houses'"
 thumbnail: "https://img.youtube.com/vi/QiAg5bAcNfA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

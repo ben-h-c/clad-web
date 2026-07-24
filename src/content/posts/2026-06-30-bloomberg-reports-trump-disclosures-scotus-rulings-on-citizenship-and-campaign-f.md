@@ -35,8 +35,8 @@ keyMoments:
 videoId: "en-qzMYBs4o"
 videoTitle: "Trump & Vance Release Financial Disclosure Reports | Balance of Power 06/30/2026"
 thumbnail: "https://img.youtube.com/vi/en-qzMYBs4o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

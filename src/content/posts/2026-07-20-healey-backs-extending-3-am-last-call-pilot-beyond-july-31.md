@@ -32,8 +32,8 @@ keyMoments:
 videoId: "4mVc9aFCvB4"
 videoTitle: "Healey touts the &#39;vibe,&#39; wants later bar hours to stick around"
 thumbnail: "https://img.youtube.com/vi/4mVc9aFCvB4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "GeakaJgoiB8"
 videoTitle: "Newsom signs a law officially designating May 17 as Bruce Lee Day"
 thumbnail: "https://img.youtube.com/vi/GeakaJgoiB8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

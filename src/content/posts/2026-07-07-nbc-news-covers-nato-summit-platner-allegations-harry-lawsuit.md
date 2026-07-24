@@ -36,8 +36,8 @@ keyMoments:
 videoId: "zvVeLJk_vwI"
 videoTitle: "Ukraine, Iran & Greenland at NATO; Will Maine Senate Candidate Graham Platner Drop Out? | July 7"
 thumbnail: "https://img.youtube.com/vi/zvVeLJk_vwI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

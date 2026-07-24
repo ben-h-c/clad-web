@@ -35,8 +35,8 @@ keyMoments:
 videoId: "8Poe_STX9Hw"
 videoTitle: "Fed's First Interest Rate Meeting Under Warsh Begins as Crude Oil Trickles Lower"
 thumbnail: "https://img.youtube.com/vi/8Poe_STX9Hw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

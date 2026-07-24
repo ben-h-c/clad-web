@@ -37,8 +37,8 @@ keyMoments:
 videoId: "d8uGr8Z4gXE"
 videoTitle: "Former JAG officer torches Hegseth's \"warrior ethos\": \"A total abomination.\""
 thumbnail: "https://img.youtube.com/vi/d8uGr8Z4gXE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "J1XS5XyhXlI"
 videoTitle: "“Keir Starmer’s Leaving Party!” | Prime Minister Expected To Step Down Tomorrow!"
 thumbnail: "https://img.youtube.com/vi/J1XS5XyhXlI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

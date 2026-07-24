@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Ea43sPQk9dc"
 videoTitle: "Richard Hudson NOTUS 5/6/2026"
 thumbnail: "https://img.youtube.com/vi/Ea43sPQk9dc/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

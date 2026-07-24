@@ -35,8 +35,8 @@ keyMoments:
 videoId: "P5QO1lQWpZ4"
 videoTitle: "Why Temu and Shein just got more expensive in Europe | DW News"
 thumbnail: "https://img.youtube.com/vi/P5QO1lQWpZ4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

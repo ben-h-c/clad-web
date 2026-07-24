@@ -37,8 +37,8 @@ keyMoments:
 videoId: "usCyrPeFG84"
 videoTitle: "Mass crowds gather in Tehran as six-day funeral for killed supreme leader begins | DW News"
 thumbnail: "https://img.youtube.com/vi/usCyrPeFG84/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

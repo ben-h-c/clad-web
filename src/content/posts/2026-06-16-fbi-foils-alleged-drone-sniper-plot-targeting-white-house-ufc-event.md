@@ -36,8 +36,8 @@ keyMoments:
 videoId: "k66iM_WlMzw"
 videoTitle: "FBI stops drone-and-sniper plot that almost ruined UFC Freedom 250 at White House"
 thumbnail: "https://img.youtube.com/vi/k66iM_WlMzw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

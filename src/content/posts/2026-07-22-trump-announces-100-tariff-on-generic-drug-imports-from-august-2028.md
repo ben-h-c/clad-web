@@ -35,8 +35,8 @@ keyMoments:
 videoId: "TXMGqb8-sJs"
 videoTitle: "Trump Plans 100% Tariff on Generic Drugs From 2028 | Insight with Haslinda Amin 7/22/2026"
 thumbnail: "https://img.youtube.com/vi/TXMGqb8-sJs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

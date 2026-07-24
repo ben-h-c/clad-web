@@ -32,8 +32,8 @@ keyMoments:
 videoId: "nTUJPXSM2D0"
 videoTitle: "Chuck Schumer popularity plummets amid calls for new Senate leadership, DSA surge | RISING"
 thumbnail: "https://img.youtube.com/vi/nTUJPXSM2D0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

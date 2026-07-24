@@ -38,9 +38,9 @@ keyMoments:
 videoId: "pyqtuOdqiKE"
 videoTitle: "“Where's the Money Come From?” | Kemi Badenoch Says Burnham's Pub Tax Cut Doesn't Go Far Enough"
 thumbnail: "https://img.youtube.com/vi/pyqtuOdqiKE/maxresdefault.jpg"
-mediaNote: "Primary talking-head face (suited man, glasses) upper-middle; keep all faces clear of bottom text third"
-thumbFocusY: 28
-thumbFocusX: 48
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 citations:
   - title: "Andy Burnham's first speech as Prime Minister: 20 July 2026"

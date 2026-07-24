@@ -33,8 +33,8 @@ keyMoments:
 videoId: "FU7WkeLcJrk"
 videoTitle: "Waltz clashes with Rep. Jackson over Cuba question: &quot;Absolute propaganda&quot;"
 thumbnail: "https://img.youtube.com/vi/FU7WkeLcJrk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

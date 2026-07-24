@@ -33,8 +33,8 @@ keyMoments:
 videoId: "w5TFhEcwrfk"
 videoTitle: "\"It should be permanently, but if it's not permanently, we will bomb them.\""
 thumbnail: "https://img.youtube.com/vi/w5TFhEcwrfk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -30,8 +30,8 @@ keyMoments:
 videoId: "VMFqjVqgxMQ"
 videoTitle: "Suspect at large in deadly Wilmington hospital shooting"
 thumbnail: "https://img.youtube.com/vi/VMFqjVqgxMQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

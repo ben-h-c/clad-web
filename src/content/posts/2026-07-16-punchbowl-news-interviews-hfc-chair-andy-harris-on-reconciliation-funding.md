@@ -36,8 +36,8 @@ keyMoments:
 videoId: "QRmGL5c9wsU"
 videoTitle: "HFC Chair Harris on government funding, immigration and redistricting"
 thumbnail: "https://img.youtube.com/vi/QRmGL5c9wsU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -33,9 +33,9 @@ keyMoments:
 videoId: "X7W-Nlxs1g0"
 videoTitle: "World reacts to Trump's latest tariffs | DW News"
 thumbnail: "https://img.youtube.com/vi/X7W-Nlxs1g0/maxresdefault.jpg"
-mediaNote: "Seated Trump face upper-middle; avoid bottom text and edges"
-thumbFocusY: 28
-thumbFocusX: 48
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 citations:
   - title: "Latest on US tariffs"

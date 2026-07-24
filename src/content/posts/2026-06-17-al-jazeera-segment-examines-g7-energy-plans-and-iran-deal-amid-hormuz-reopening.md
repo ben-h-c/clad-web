@@ -35,8 +35,8 @@ keyMoments:
 videoId: "rv9fmwCLQzI"
 videoTitle: "Markets, not politicians, will decide oil and gas flows once Hormuz reopens, analyst says"
 thumbnail: "https://img.youtube.com/vi/rv9fmwCLQzI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

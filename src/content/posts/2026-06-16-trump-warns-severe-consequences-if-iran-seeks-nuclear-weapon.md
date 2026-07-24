@@ -31,8 +31,8 @@ keyMoments:
 videoId: "61Pf-zdfc-8"
 videoTitle: "Trump: 'Hell will rain down' if Tehran develops nuclear weapons"
 thumbnail: "https://img.youtube.com/vi/61Pf-zdfc-8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -33,8 +33,8 @@ keyMoments:
 videoId: "fkPGq8wyhRw"
 videoTitle: "&#39;Quality &#39;Learing&#39; Centre received $10mn…&#39;: Sen. Ernst exposes MN Child Care fraud at Senate hearing"
 thumbnail: "https://img.youtube.com/vi/fkPGq8wyhRw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "UiHDGdidDZg"
 videoTitle: "Tommy Tuberville Demands Measures To Ensure 'AI Strengthens Education Instead Of Weaken It'"
 thumbnail: "https://img.youtube.com/vi/UiHDGdidDZg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

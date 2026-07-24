@@ -35,8 +35,8 @@ keyMoments:
 videoId: "aWbgqG8z0oA"
 videoTitle: "How hospitals are using the arts to help patients recover"
 thumbnail: "https://img.youtube.com/vi/aWbgqG8z0oA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "hRkYYpif1FI"
 videoTitle: "VP Vance Defends Letting Iran Keep its Arsenal of Ballistic Missiles"
 thumbnail: "https://img.youtube.com/vi/hRkYYpif1FI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

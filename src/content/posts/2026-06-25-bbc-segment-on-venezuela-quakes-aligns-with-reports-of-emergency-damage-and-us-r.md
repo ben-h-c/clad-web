@@ -32,8 +32,8 @@ keyMoments:
 videoId: "hYoADwfFJEc"
 videoTitle: "Could Venezuela's deadly earthquakes harm its redevelopment? | Global News Podcast"
 thumbnail: "https://img.youtube.com/vi/hYoADwfFJEc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -39,8 +39,8 @@ keyMoments:
 videoId: "dZmNJX3xCm4"
 videoTitle: "Trump touts deal with Iran to end war sending oil prices plummeting"
 thumbnail: "https://img.youtube.com/vi/dZmNJX3xCm4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

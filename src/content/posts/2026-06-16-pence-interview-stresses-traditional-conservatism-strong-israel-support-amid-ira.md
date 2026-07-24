@@ -35,8 +35,8 @@ keyMoments:
 videoId: "AEwKDk1SJUc"
 videoTitle: "EXCLUSIVE: Fmr. VP Mike Pence: America has \"no greater ally\" than Israel"
 thumbnail: "https://img.youtube.com/vi/AEwKDk1SJUc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

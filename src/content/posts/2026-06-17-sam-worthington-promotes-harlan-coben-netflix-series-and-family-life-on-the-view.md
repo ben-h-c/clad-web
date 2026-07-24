@@ -35,8 +35,8 @@ keyMoments:
 videoId: "LWmTwfolTnI"
 videoTitle: "Sam Worthington On Fatherhood And New Thriller Series 'I Will Find You' | The View"
 thumbnail: "https://img.youtube.com/vi/LWmTwfolTnI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

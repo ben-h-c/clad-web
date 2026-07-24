@@ -36,8 +36,8 @@ keyMoments:
 videoId: "JrZmwkn9MPQ"
 videoTitle: "Virginia Foxx Swipes At Dems For &#39;Previous Shutdown Antics&#39; While Going Over Gov&#39;t Funding Bill"
 thumbnail: "https://img.youtube.com/vi/JrZmwkn9MPQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

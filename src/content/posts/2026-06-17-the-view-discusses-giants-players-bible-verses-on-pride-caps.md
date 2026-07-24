@@ -36,8 +36,8 @@ keyMoments:
 videoId: "By3d21IL28I"
 videoTitle: "Players Add Bible Verses To Uniforms On Pride Night | The View"
 thumbnail: "https://img.youtube.com/vi/By3d21IL28I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "09nJmwgZACg"
 videoTitle: "Sen John Kennedy: You &#39;couldn&#39;t get mad&#39; at Lindsey Graham"
 thumbnail: "https://img.youtube.com/vi/09nJmwgZACg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

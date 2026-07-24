@@ -31,8 +31,8 @@ keyMoments:
 videoId: "PXF8YOSUaW4"
 videoTitle: "Fans react to US World Cup loss against Belgium after red card drama. #WorldCup #BBCNews"
 thumbnail: "https://img.youtube.com/vi/PXF8YOSUaW4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

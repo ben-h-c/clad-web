@@ -38,8 +38,8 @@ keyMoments:
 videoId: "U7sOi8eZ060"
 videoTitle: "'NOT A RETREAT': Israel-Hezbollah ceasefire details REVEALED"
 thumbnail: "https://img.youtube.com/vi/U7sOi8eZ060/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

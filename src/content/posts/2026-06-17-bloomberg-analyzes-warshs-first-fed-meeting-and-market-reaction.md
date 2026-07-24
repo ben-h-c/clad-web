@@ -38,8 +38,8 @@ keyMoments:
 videoId: "27vKlAZrKUM"
 videoTitle: "Stocks Fall as Traders See Fed Hike by October | The Close 6/17/2026"
 thumbnail: "https://img.youtube.com/vi/27vKlAZrKUM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

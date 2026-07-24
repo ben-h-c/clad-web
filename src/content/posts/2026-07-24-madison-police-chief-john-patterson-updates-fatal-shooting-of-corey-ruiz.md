@@ -38,9 +38,9 @@ keyMoments:
 videoId: "Sib3LWHjLQM"
 videoTitle: "Wisconsin police investigating fatal officer-involved shooting"
 thumbnail: "https://img.youtube.com/vi/Sib3LWHjLQM/maxresdefault.jpg"
-mediaNote: "Central female officer face/upper torso; keep action clear of bottom text third"
-thumbFocusY: 28
-thumbFocusX: 52
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 citations:
   - title: "Friends, family and neighbors mourn Madison man killed by police"

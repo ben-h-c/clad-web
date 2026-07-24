@@ -36,8 +36,8 @@ keyMoments:
 videoId: "eSieBWqIUkA"
 videoTitle: "Neurologist warns directed energy weapon tech \"can be weaponized\" | Katie Pavlich Tonight"
 thumbnail: "https://img.youtube.com/vi/eSieBWqIUkA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

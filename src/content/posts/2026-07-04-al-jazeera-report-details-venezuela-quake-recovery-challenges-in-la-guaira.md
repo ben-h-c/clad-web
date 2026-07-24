@@ -34,8 +34,8 @@ keyMoments:
 videoId: "1l68P05QHQc"
 videoTitle: "Venezuela earthquakes: Race against time to recover bodies before demolition"
 thumbnail: "https://img.youtube.com/vi/1l68P05QHQc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "4sIDwybIsQo"
 videoTitle: "Inside the Race to Build a Compute Futures Market Bigger Than Oil"
 thumbnail: "https://img.youtube.com/vi/4sIDwybIsQo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

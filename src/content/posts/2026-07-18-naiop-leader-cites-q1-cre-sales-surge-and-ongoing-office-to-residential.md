@@ -37,8 +37,8 @@ keyMoments:
 videoId: "CHaT6prBhZw"
 videoTitle: "Commercial real estate expert says THIS is ‘ALWAYS’ the signal of a down cycle"
 thumbnail: "https://img.youtube.com/vi/CHaT6prBhZw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

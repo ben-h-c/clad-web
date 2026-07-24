@@ -40,8 +40,8 @@ keyMoments:
 videoId: "KQPMupuqLpk"
 videoTitle: "Tom Homan Touts 'Record Numbers Of Arrests And Deportations' Since Trump Took Office"
 thumbnail: "https://img.youtube.com/vi/KQPMupuqLpk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

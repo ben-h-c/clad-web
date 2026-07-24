@@ -32,8 +32,8 @@ keyMoments:
 videoId: "W7TomJYLqzk"
 videoTitle: "Trump official says Iran World Cup visa approval 'amazing'"
 thumbnail: "https://img.youtube.com/vi/W7TomJYLqzk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

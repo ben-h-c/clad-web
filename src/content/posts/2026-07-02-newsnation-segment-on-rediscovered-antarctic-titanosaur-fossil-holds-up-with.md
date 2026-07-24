@@ -34,8 +34,8 @@ keyMoments:
 videoId: "rdOTs5_ZmkQ"
 videoTitle: "Antarctica's First Dinosaur Bone Found in a Drawer | Hot Take with Jesse Weber"
 thumbnail: "https://img.youtube.com/vi/rdOTs5_ZmkQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

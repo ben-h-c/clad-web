@@ -31,8 +31,8 @@ keyMoments:
 videoId: "HzinM17Kv78"
 videoTitle: "Still watching?: CEO says you shouldn’t give up on Netflix yet"
 thumbnail: "https://img.youtube.com/vi/HzinM17Kv78/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

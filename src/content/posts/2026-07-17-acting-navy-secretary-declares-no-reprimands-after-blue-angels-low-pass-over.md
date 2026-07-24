@@ -36,8 +36,8 @@ keyMoments:
 videoId: "ksN9IcrZ8EI"
 videoTitle: "'Sound of freedom': Navy declines punishing Blue Angel pilots for low flyover | RISING"
 thumbnail: "https://img.youtube.com/vi/ksN9IcrZ8EI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

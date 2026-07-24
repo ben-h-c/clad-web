@@ -28,8 +28,8 @@ keyMoments:
 videoId: "1cwsAq-fCDo"
 videoTitle: "Cape Verde fans swell with pride after draw against Spain"
 thumbnail: "https://img.youtube.com/vi/1cwsAq-fCDo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

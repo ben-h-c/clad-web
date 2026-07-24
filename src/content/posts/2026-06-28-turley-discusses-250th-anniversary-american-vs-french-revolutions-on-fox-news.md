@@ -36,8 +36,8 @@ keyMoments:
 videoId: "IxYgKdd3tiQ"
 videoTitle: "Turley: It's an important time to remember who we are"
 thumbnail: "https://img.youtube.com/vi/IxYgKdd3tiQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

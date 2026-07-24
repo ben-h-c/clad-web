@@ -40,8 +40,8 @@ keyMoments:
 videoId: "fO5sC7qS04E"
 videoTitle: "All-In's Best Ideas Pitch Competition: 4 Investors Present Their Top Trades Live"
 thumbnail: "https://img.youtube.com/vi/fO5sC7qS04E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

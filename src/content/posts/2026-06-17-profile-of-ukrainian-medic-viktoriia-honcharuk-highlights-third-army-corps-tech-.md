@@ -33,8 +33,8 @@ keyMoments:
 videoId: "Cjg344FQhFA"
 videoTitle: "Ukraine's Viktoriia Honcharuk: From Wall Street banker to combat medic • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/Cjg344FQhFA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

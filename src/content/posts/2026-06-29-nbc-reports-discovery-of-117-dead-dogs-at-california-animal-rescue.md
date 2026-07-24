@@ -31,8 +31,8 @@ keyMoments:
 videoId: "teX6rHgZsEg"
 videoTitle: "At least 117 dead dogs found at California animal rescue"
 thumbnail: "https://img.youtube.com/vi/teX6rHgZsEg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

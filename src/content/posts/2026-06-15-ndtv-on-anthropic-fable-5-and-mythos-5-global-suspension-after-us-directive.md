@@ -37,8 +37,8 @@ keyMoments:
 videoId: "HT1FrbPOPDw"
 videoTitle: "Anthropic Claude | US Order Shuts Down Top AI Models Globally: Should India Worry?"
 thumbnail: "https://img.youtube.com/vi/HT1FrbPOPDw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

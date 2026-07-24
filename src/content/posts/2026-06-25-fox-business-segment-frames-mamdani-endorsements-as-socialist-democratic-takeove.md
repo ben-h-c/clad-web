@@ -37,8 +37,8 @@ keyMoments:
 videoId: "bL18pEKTnnk"
 videoTitle: "‘NEW FACE’: Mamdani THREATENS takeover over Democratic Party"
 thumbnail: "https://img.youtube.com/vi/bL18pEKTnnk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "ahyPF63ZsU8"
 videoTitle: "Tanker struck in Hormuz as Iran and US trade attacks"
 thumbnail: "https://img.youtube.com/vi/ahyPF63ZsU8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

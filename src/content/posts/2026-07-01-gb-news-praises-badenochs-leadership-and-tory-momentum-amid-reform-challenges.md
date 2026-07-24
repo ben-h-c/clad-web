@@ -39,8 +39,8 @@ keyMoments:
 videoId: "JqXnokVr0LI"
 videoTitle: "Kemi SHINES as Rees-Mogg is IMPRESSED by Tory Party"
 thumbnail: "https://img.youtube.com/vi/JqXnokVr0LI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

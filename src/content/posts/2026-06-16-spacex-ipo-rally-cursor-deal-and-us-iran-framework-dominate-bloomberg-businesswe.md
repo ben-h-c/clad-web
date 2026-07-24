@@ -35,8 +35,8 @@ keyMoments:
 videoId: "nCSII5fCHsw"
 videoTitle: "SpaceX Soars in 3rd Day of Trading, Set to Overtake Amazon| Bloomberg Businessweek Daily 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/nCSII5fCHsw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "QOaBXddwz6A"
 videoTitle: "Brad Lander, Batya debate AIPAC’s role in US politics | Batya!"
 thumbnail: "https://img.youtube.com/vi/QOaBXddwz6A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

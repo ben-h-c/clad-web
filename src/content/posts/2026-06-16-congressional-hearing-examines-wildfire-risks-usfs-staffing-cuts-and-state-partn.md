@@ -38,8 +38,8 @@ keyMoments:
 videoId: "IDN7fCfVltE"
 videoTitle: "Emily Randall Asks USFS Chief: 'Do You Believe That Climate Change Is Making Wildfires More Severe?'"
 thumbnail: "https://img.youtube.com/vi/IDN7fCfVltE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

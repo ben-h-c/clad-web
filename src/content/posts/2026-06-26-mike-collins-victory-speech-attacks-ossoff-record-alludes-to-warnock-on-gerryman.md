@@ -37,8 +37,8 @@ keyMoments:
 videoId: "3yZ-x_sgOxY"
 videoTitle: "Mike Collins Accuses Raphael Warnock Of Pushing 'Segregated Gerrymandering'"
 thumbnail: "https://img.youtube.com/vi/3yZ-x_sgOxY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

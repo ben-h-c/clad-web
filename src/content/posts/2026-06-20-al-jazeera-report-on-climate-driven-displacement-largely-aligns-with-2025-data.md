@@ -35,8 +35,8 @@ keyMoments:
 videoId: "L53wn_T7Tdk"
 videoTitle: "Climate disasters are forcing millions from their homes"
 thumbnail: "https://img.youtube.com/vi/L53wn_T7Tdk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

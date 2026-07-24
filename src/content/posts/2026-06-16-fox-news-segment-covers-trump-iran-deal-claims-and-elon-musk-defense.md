@@ -37,8 +37,8 @@ keyMoments:
 videoId: "nb66K1KMnRQ"
 videoTitle: "Fox News Highlights - June 15th, 2026"
 thumbnail: "https://img.youtube.com/vi/nb66K1KMnRQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -39,8 +39,8 @@ keyMoments:
 videoId: "v38LY7Dnb9w"
 videoTitle: "US, Iran Prepare to Sign Deal | Balance of Power 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/v38LY7Dnb9w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

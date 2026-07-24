@@ -38,8 +38,8 @@ keyMoments:
 videoId: "2DhHPjy-5sc"
 videoTitle: "Where Markets Think Fed Chair Warsh Is Taking Interest Rates"
 thumbnail: "https://img.youtube.com/vi/2DhHPjy-5sc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

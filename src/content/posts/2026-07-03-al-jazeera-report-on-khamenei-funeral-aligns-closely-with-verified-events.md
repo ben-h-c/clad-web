@@ -34,8 +34,8 @@ keyMoments:
 videoId: "pVjLWkna0dM"
 videoTitle: "Funeral of Iran's late supreme leader: Coffin of Ayatollah Ali Khamenei on display in Tehran"
 thumbnail: "https://img.youtube.com/vi/pVjLWkna0dM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

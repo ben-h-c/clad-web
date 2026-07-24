@@ -33,8 +33,8 @@ keyMoments:
 videoId: "RZvW56BEzvc"
 videoTitle: "Al Jazeera reports from scene of destroyed building in Kyiv following Russian attack | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/RZvW56BEzvc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "Wc_kt7Y0zP4"
 videoTitle: "Mamdani Celebrates the New York Knicks"
 thumbnail: "https://img.youtube.com/vi/Wc_kt7Y0zP4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

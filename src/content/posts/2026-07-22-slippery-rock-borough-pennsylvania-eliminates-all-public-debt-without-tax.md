@@ -34,8 +34,8 @@ keyMoments:
 videoId: "WqkRj9yOvj4"
 videoTitle: "REMARKABLE RESULT: Pennsylvania town ERASES 100% of DEBT without raising taxes"
 thumbnail: "https://img.youtube.com/vi/WqkRj9yOvj4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

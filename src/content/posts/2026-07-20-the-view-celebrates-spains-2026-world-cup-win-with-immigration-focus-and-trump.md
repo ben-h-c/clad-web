@@ -37,8 +37,8 @@ keyMoments:
 videoId: "y2LsQeU5tpo"
 videoTitle: "Ana Navarro Reacts To Spain's World Cup Victory"
 thumbnail: "https://img.youtube.com/vi/y2LsQeU5tpo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

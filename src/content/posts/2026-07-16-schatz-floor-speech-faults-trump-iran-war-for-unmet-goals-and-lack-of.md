@@ -38,8 +38,8 @@ keyMoments:
 videoId: "mrHnu3DUwdo"
 videoTitle: "&#39;Donald Trump Is Dragging Us Back Into War Again And No One Is Exactly Sure Why&#39;: Brian Schatz"
 thumbnail: "https://img.youtube.com/vi/mrHnu3DUwdo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

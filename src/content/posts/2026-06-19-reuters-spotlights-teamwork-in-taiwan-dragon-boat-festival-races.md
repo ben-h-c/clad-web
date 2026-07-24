@@ -25,8 +25,8 @@ keyMoments:
 videoId: "XQE7xT7UkL4"
 videoTitle: "Racers chase fun during Taiwan's Dragon Boat Festival"
 thumbnail: "https://img.youtube.com/vi/XQE7xT7UkL4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

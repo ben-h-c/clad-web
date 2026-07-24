@@ -36,8 +36,8 @@ keyMoments:
 videoId: "bsasvkRj_Gk"
 videoTitle: "Larry Kudlow: We must do this RIGHT NOW"
 thumbnail: "https://img.youtube.com/vi/bsasvkRj_Gk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

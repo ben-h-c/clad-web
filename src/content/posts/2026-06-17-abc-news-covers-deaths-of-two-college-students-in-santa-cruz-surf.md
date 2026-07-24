@@ -34,8 +34,8 @@ keyMoments:
 videoId: "dwlIrCJp7zY"
 videoTitle: "2 college friends killed after being swept out to sea in rough California surf"
 thumbnail: "https://img.youtube.com/vi/dwlIrCJp7zY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

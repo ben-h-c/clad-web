@@ -28,8 +28,8 @@ keyMoments:
 videoId: "62EZTtFTQDI"
 videoTitle: "Trump Asked To Elaborate On Comment: 'You Said You Don't Mind Iran Having Ballistic Missiles?'"
 thumbnail: "https://img.youtube.com/vi/62EZTtFTQDI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

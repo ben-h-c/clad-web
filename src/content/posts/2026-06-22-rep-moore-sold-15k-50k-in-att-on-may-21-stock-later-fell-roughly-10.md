@@ -33,8 +33,8 @@ keyMoments:
 videoId: "C90-Zd621-A"
 videoTitle: "Moore sold AT&amp;T while Khanna was buying it — stock has since dropped"
 thumbnail: "https://img.youtube.com/vi/C90-Zd621-A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

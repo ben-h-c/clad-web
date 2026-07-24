@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Hz5Nv4-DAnU"
 videoTitle: "'Heavily intoxicated': Woman says Senate nominee raped her in 2021"
 thumbnail: "https://img.youtube.com/vi/Hz5Nv4-DAnU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "6SMGky8PwFI"
 videoTitle: "Israel NOT HAPPY with Iran deal as Trump TEASES details coming SOON: Report | RISING"
 thumbnail: "https://img.youtube.com/vi/6SMGky8PwFI/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

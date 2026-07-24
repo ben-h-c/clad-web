@@ -37,8 +37,8 @@ keyMoments:
 videoId: "XSIL9FZiqHs"
 videoTitle: "McEnany: This is one of the single BEST things Trump has done for America"
 thumbnail: "https://img.youtube.com/vi/XSIL9FZiqHs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

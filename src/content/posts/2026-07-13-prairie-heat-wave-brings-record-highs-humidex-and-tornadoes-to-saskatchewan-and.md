@@ -35,8 +35,8 @@ keyMoments:
 videoId: "_ekRQS4ARrI"
 videoTitle: "Saskatchewan, Manitoba swelter under record-breaking heat"
 thumbnail: "https://img.youtube.com/vi/_ekRQS4ARrI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

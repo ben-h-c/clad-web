@@ -36,8 +36,8 @@ keyMoments:
 videoId: "CEDAm8mDiMc"
 videoTitle: "JD Vance Addresses His Past Comments About Donald Trump | The View"
 thumbnail: "https://img.youtube.com/vi/CEDAm8mDiMc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

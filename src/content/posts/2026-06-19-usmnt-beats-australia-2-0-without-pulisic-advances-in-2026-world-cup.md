@@ -34,8 +34,8 @@ keyMoments:
 videoId: "D3zliCK31Ds"
 videoTitle: "How USMNT adapted without Pulisic to beat Australia and clinch World Cup knockout stage spot"
 thumbnail: "https://img.youtube.com/vi/D3zliCK31Ds/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

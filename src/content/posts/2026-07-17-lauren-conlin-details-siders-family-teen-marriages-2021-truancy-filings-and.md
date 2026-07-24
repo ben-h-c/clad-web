@@ -31,8 +31,8 @@ keyMoments:
 videoId: "MXasZtLS41k"
 videoTitle: "New details about the Ohio \"House of Horrors.\""
 thumbnail: "https://img.youtube.com/vi/MXasZtLS41k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

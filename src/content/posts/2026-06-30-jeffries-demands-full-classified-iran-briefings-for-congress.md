@@ -32,8 +32,8 @@ keyMoments:
 videoId: "DtaVQB9CGQ0"
 videoTitle: "Hakeem Jeffries Calls For Classified Briefing For Congress From The Trump Admin On Iran Deal"
 thumbnail: "https://img.youtube.com/vi/DtaVQB9CGQ0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

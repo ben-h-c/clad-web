@@ -25,8 +25,8 @@ keyMoments:
 videoId: "E7BmxvH0bfw"
 videoTitle: "Video captures the moment a tornado rips through an Illinois home"
 thumbnail: "https://img.youtube.com/vi/E7BmxvH0bfw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

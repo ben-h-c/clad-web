@@ -36,8 +36,8 @@ keyMoments:
 videoId: "SKaMz_ziGUA"
 videoTitle: "12-year-old rescued in Venezuela"
 thumbnail: "https://img.youtube.com/vi/SKaMz_ziGUA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

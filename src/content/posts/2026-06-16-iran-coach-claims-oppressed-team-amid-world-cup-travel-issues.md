@@ -31,8 +31,8 @@ keyMoments:
 videoId: "C-ZEEkQTXzc"
 videoTitle: "Iran coach says World Cup team 'oppressed' by travel disruptions amid U.S.-Iran tensions"
 thumbnail: "https://img.youtube.com/vi/C-ZEEkQTXzc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

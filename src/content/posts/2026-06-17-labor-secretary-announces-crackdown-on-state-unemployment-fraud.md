@@ -35,8 +35,8 @@ keyMoments:
 videoId: "S-TYccqy-Yw"
 videoTitle: "MASSIVE CRACKDOWN: Labor sec drops AGGRESSIVE fraud enforcement BOMBSHELL"
 thumbnail: "https://img.youtube.com/vi/S-TYccqy-Yw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

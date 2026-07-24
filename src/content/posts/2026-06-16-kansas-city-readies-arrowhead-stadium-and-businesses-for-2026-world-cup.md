@@ -38,8 +38,8 @@ keyMoments:
 videoId: "nKPuT20n5YU"
 videoTitle: "How Kansas City is preparing for the World Cup spotlight"
 thumbnail: "https://img.youtube.com/vi/nKPuT20n5YU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

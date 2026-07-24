@@ -36,8 +36,8 @@ keyMoments:
 videoId: "BbzEjdUR0cs"
 videoTitle: "Why have so many people died from the Venezuelan earthquake?"
 thumbnail: "https://img.youtube.com/vi/BbzEjdUR0cs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

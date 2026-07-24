@@ -36,8 +36,8 @@ keyMoments:
 videoId: "upodgEh8aDU"
 videoTitle: "🔴LIVE | RFK Jr. and Brooke Rollins Sign Make Hospital Food Healthier Pledge | AR112"
 thumbnail: "https://img.youtube.com/vi/upodgEh8aDU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

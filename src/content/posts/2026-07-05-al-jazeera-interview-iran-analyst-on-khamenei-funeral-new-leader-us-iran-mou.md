@@ -40,8 +40,8 @@ keyMoments:
 videoId: "RRkp8byQn3Y"
 videoTitle: "Iranians ‘won’t be fooled’ by US talks, analyst warns of catastrophic ‘third war’"
 thumbnail: "https://img.youtube.com/vi/RRkp8byQn3Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

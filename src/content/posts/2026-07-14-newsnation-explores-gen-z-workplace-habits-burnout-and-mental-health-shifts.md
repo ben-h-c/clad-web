@@ -35,8 +35,8 @@ keyMoments:
 videoId: "C5irXTkgo7c"
 videoTitle: "Gen Z can't bear the 9-5 | Hot Takes with Jesse Weber"
 thumbnail: "https://img.youtube.com/vi/C5irXTkgo7c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

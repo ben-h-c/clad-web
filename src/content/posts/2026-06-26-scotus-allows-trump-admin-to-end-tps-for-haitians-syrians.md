@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Fyi7LypBOak"
 videoTitle: "This Is What Happens Next To Haitian & Syrian TPS Holders After Trump's SCOTUS Victory"
 thumbnail: "https://img.youtube.com/vi/Fyi7LypBOak/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "G32h564MqGY"
 videoTitle: "‘Religiously Motivated Sexual ATTACKS’ | Rupert Lowe Publishes Rape Gang Report"
 thumbnail: "https://img.youtube.com/vi/G32h564MqGY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

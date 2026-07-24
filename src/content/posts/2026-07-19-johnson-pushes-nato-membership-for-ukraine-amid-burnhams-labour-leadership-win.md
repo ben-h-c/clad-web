@@ -37,8 +37,8 @@ keyMoments:
 videoId: "8VZkG5-gcGY"
 videoTitle: "Boris Johnson on Brexit, Partygate and advice he'd give Andy Burnham"
 thumbnail: "https://img.youtube.com/vi/8VZkG5-gcGY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

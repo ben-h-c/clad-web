@@ -35,8 +35,8 @@ keyMoments:
 videoId: "q8yQPqyCq54"
 videoTitle: "'Been Abused For Way Too Long': Dick Durbin Calls For 'Reasonable Reforms' To FISA Section 702"
 thumbnail: "https://img.youtube.com/vi/q8yQPqyCq54/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "rfk3_YceAZc"
 videoTitle: "Lebanese army says troops deploying in 'pilot zone' after Israeli withdrawal | BBC News"
 thumbnail: "https://img.youtube.com/vi/rfk3_YceAZc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

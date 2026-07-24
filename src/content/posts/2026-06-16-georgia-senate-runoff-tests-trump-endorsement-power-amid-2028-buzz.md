@@ -34,8 +34,8 @@ keyMoments:
 videoId: "7czSw4b7Yt4"
 videoTitle: "Trump tests endorsement in Georgia"
 thumbnail: "https://img.youtube.com/vi/7czSw4b7Yt4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

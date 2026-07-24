@@ -32,8 +32,8 @@ keyMoments:
 videoId: "wOLFxivDkf8"
 videoTitle: "Morgan Griffith Asks Congressional Research Service Director About Political Leaning Of AI Results"
 thumbnail: "https://img.youtube.com/vi/wOLFxivDkf8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

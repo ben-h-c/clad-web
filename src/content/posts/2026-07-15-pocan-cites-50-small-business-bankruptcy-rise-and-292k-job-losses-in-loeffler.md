@@ -37,8 +37,8 @@ keyMoments:
 videoId: "QqTkULU6WDs"
 videoTitle: "KELLY LOEFFLER PUT ON THE SPOT AS POCAN EXPOSES TARIFF IMPACT"
 thumbnail: "https://img.youtube.com/vi/QqTkULU6WDs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

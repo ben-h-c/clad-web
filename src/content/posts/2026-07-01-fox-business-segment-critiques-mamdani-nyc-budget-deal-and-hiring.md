@@ -36,8 +36,8 @@ keyMoments:
 videoId: "ApYlpCdnr2k"
 videoTitle: "Mamdani's 'charted a course' of 'FAILURE' for NYC, gubernatorial candidate says"
 thumbnail: "https://img.youtube.com/vi/ApYlpCdnr2k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

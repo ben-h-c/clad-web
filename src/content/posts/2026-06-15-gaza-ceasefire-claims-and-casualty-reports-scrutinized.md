@@ -39,8 +39,8 @@ keyMoments:
     note: "Widely reported June 2026 incident in Hebron involving Sam Fahd Abu Haikal; IDF investigation acknowledged."
 videoId: "ZrYpwxp3LCc"
 thumbnail: "https://img.youtube.com/vi/ZrYpwxp3LCc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

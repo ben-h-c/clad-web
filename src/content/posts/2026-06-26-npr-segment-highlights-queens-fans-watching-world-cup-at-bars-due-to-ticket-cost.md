@@ -36,8 +36,8 @@ keyMoments:
 videoId: "ckSAGvP5iHs"
 videoTitle: "N.Y. and N.J. are hosting the World Cup. The real party is happening at bars across the city"
 thumbnail: "https://img.youtube.com/vi/ckSAGvP5iHs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

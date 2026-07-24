@@ -36,8 +36,8 @@ keyMoments:
 videoId: "jqE1WrgY8PY"
 videoTitle: "Being a sports fan is good for you and the country, expert says"
 thumbnail: "https://img.youtube.com/vi/jqE1WrgY8PY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

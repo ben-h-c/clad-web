@@ -38,8 +38,8 @@ keyMoments:
 videoId: "rHYUD3GgN2k"
 videoTitle: "Senate Republicans say they've spoken with Mitch McConnell as questions remain over his health"
 thumbnail: "https://img.youtube.com/vi/rHYUD3GgN2k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

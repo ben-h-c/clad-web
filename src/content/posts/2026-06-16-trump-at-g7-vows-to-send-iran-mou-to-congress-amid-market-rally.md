@@ -35,8 +35,8 @@ keyMoments:
 videoId: "vQcVfNg74h4"
 videoTitle: "Trump on Iran deal: \"I will send it to Congress\""
 thumbnail: "https://img.youtube.com/vi/vQcVfNg74h4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

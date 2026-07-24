@@ -35,8 +35,8 @@ keyMoments:
 videoId: "phJLzt6NogM"
 videoTitle: "In conversation with Brian Schrimpf: Live from FF Global 2026"
 thumbnail: "https://img.youtube.com/vi/phJLzt6NogM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

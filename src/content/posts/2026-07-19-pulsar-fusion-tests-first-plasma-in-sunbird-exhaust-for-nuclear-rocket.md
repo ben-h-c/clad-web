@@ -34,8 +34,8 @@ keyMoments:
 videoId: "X__TjCQChk8"
 videoTitle: "The nuclear fusion rocket that could take humans to Mars faster | BBC News"
 thumbnail: "https://img.youtube.com/vi/X__TjCQChk8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

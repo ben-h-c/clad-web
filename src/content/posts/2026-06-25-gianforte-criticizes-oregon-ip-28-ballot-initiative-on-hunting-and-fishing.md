@@ -34,8 +34,8 @@ keyMoments:
 videoId: "oDZu1JXm7Jo"
 videoTitle: "Morning Minute: Gov. Gianforte on Oregon measure to ban hunting and fishing"
 thumbnail: "https://img.youtube.com/vi/oDZu1JXm7Jo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

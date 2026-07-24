@@ -35,8 +35,8 @@ keyMoments:
 videoId: "g8LXnnaBGRg"
 videoTitle: "Iranian World Cup protesters call for regime change, criticize pre-revolutionary flag ban | RISING"
 thumbnail: "https://img.youtube.com/vi/g8LXnnaBGRg/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

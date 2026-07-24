@@ -32,8 +32,8 @@ keyMoments:
 videoId: "htxrZr01GIQ"
 videoTitle: "'We Put A Beautiful Stone That Matches The White House': Trump Lauds His Rose Garden Revamp"
 thumbnail: "https://img.youtube.com/vi/htxrZr01GIQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

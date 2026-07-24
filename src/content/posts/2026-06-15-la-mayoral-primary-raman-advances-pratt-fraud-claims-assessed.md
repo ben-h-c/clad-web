@@ -36,8 +36,8 @@ keyMoments:
 videoId: "cvYJYap2uEc"
 videoTitle: "L.A. Mayoral Candidate Nithya Raman Reacts to Spencer Pratt’s Post-Election Tirade and Fraud Claims"
 thumbnail: "https://img.youtube.com/vi/cvYJYap2uEc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

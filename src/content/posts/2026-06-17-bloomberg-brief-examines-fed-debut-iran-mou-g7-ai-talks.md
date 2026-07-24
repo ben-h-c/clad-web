@@ -35,8 +35,8 @@ keyMoments:
 videoId: "wz08lh916Lw"
 videoTitle: "Stocks Rise Ahead of Fed Decision; US-Iran MOU Details; G7 Summit | Bloomberg Brief 6/17/2026"
 thumbnail: "https://img.youtube.com/vi/wz08lh916Lw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

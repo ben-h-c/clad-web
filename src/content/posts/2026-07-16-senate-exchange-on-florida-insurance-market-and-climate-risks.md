@@ -36,8 +36,8 @@ keyMoments:
 videoId: "dn1sej93W6Y"
 videoTitle: "Sheldon Whitehouse Rails Against Climate Change's Impact On Insurance Costs—Then Jim Banks Responds"
 thumbnail: "https://img.youtube.com/vi/dn1sej93W6Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

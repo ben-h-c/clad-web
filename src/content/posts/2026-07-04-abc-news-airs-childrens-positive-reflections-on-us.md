@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Q_2Pfmc4iTc"
 videoTitle: "Children share one word that describes the U.S."
 thumbnail: "https://img.youtube.com/vi/Q_2Pfmc4iTc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

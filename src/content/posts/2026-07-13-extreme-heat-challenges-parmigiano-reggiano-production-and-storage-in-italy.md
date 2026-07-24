@@ -38,8 +38,8 @@ keyMoments:
 videoId: "zK3WE70ZR7k"
 videoTitle: "Extreme heat threatens Italy's Parmesan heartland"
 thumbnail: "https://img.youtube.com/vi/zK3WE70ZR7k/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

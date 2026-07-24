@@ -37,8 +37,8 @@ keyMoments:
 videoId: "-UGpo8EGnkQ"
 videoTitle: "John Thune: The devil is in the details..."
 thumbnail: "https://img.youtube.com/vi/-UGpo8EGnkQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

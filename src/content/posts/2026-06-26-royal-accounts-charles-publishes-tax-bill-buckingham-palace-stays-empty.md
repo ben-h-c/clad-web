@@ -39,8 +39,8 @@ keyMoments:
 videoId: "vGoZzs0KZWw"
 videoTitle: "The real reason King Charles and Prince William will never move into Buckingham Palace | The Royal T"
 thumbnail: "https://img.youtube.com/vi/vGoZzs0KZWw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

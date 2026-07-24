@@ -39,8 +39,8 @@ keyMoments:
 videoId: "8cO9OTjk5H0"
 videoTitle: "Helios Is AMD’s First AI System To Rival Nvidia Vera Rubin — We Got An Exclusive, First Look"
 thumbnail: "https://img.youtube.com/vi/8cO9OTjk5H0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

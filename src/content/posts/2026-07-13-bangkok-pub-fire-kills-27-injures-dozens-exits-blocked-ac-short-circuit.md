@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Stop2UMAcss"
 videoTitle: "GRAPHIC WARNING: Dozens killed, scores injured in Bangkok's deadly pub fire"
 thumbnail: "https://img.youtube.com/vi/Stop2UMAcss/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

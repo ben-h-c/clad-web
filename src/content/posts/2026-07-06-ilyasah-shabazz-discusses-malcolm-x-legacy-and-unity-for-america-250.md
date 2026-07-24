@@ -32,8 +32,8 @@ keyMoments:
 videoId: "sabP7Ex1-Xw"
 videoTitle: "Dr. Ilyasah Shabazz on unity, Malcolm X's impact, Black contributions for America 250"
 thumbnail: "https://img.youtube.com/vi/sabP7Ex1-Xw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

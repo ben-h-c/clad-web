@@ -36,8 +36,8 @@ keyMoments:
 videoId: "E7Q3MXl31iU"
 videoTitle: "Amid Iran war deal, Trump addresses oil prices and blames Democrats for 'affordability crisis'"
 thumbnail: "https://img.youtube.com/vi/E7Q3MXl31iU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -25,8 +25,8 @@ keyMoments:
 videoId: "p3PGuhnkW_Q"
 videoTitle: "\"I am going to do things differently\", Andy Burnham says. #BBCNews"
 thumbnail: "https://img.youtube.com/vi/p3PGuhnkW_Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

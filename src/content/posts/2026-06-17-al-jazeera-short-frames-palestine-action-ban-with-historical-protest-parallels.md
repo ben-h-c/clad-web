@@ -36,8 +36,8 @@ keyMoments:
 videoId: "pwLBG3juuZA"
 videoTitle: "How past 'terrorist' movements are often judged right by history | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/pwLBG3juuZA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

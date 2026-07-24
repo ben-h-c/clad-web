@@ -34,8 +34,8 @@ keyMoments:
 videoId: "NIziu2DrHiM"
 videoTitle: "Fed Chair on Rates and Stability"
 thumbnail: "https://img.youtube.com/vi/NIziu2DrHiM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

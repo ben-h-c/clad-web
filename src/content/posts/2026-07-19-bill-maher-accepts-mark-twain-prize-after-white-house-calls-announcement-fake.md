@@ -35,8 +35,8 @@ keyMoments:
 videoId: "D1rDqfTdTRc"
 videoTitle: "Extended Interview: 2026 Mark Twain Prize recipient Bill Maher"
 thumbnail: "https://img.youtube.com/vi/D1rDqfTdTRc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "0YYX3v945aU"
 videoTitle: "UN needs rules on AI weapons, Grossi says #shorts #unitednations #ai #autonomousweapons"
 thumbnail: "https://img.youtube.com/vi/0YYX3v945aU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

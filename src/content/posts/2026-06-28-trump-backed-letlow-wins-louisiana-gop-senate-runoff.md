@@ -31,8 +31,8 @@ keyMoments:
 videoId: "NrsoiC_p-ys"
 videoTitle: "Trump-backed candidate wins GOP Senate runoff in Louisiana"
 thumbnail: "https://img.youtube.com/vi/NrsoiC_p-ys/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

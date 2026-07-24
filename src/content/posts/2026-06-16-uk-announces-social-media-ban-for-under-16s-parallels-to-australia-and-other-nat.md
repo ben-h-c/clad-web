@@ -34,8 +34,8 @@ keyMoments:
 videoId: "5cBm2ktpwKg"
 videoTitle: "How the UK social media ban for kids could effect America"
 thumbnail: "https://img.youtube.com/vi/5cBm2ktpwKg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

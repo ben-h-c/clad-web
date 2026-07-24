@@ -35,8 +35,8 @@ keyMoments:
 videoId: "BUGEk8nHsHE"
 videoTitle: "United States 250 anniversary: Immigration that helped define a nation"
 thumbnail: "https://img.youtube.com/vi/BUGEk8nHsHE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

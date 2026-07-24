@@ -27,8 +27,8 @@ keyMoments:
 videoId: "QkQm9PSUv70"
 videoTitle: "Gaza’s aid truck drivers protest the killing of their colleagues"
 thumbnail: "https://img.youtube.com/vi/QkQm9PSUv70/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "mgK64uti6g8"
 videoTitle: "An empty middle seat is the latest perk United Airlines will offer on some flights"
 thumbnail: "https://img.youtube.com/vi/mgK64uti6g8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

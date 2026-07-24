@@ -36,8 +36,8 @@ keyMoments:
 videoId: "6akH7B1V4qo"
 videoTitle: "LIVE: ABC News Live - Monday, June 15 | ABC News"
 thumbnail: "https://img.youtube.com/vi/6akH7B1V4qo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "LhK2fX2K7OI"
 videoTitle: "'Radical overhaul' and clear supply plan needed for future pandemics, finds COVID inquiry"
 thumbnail: "https://img.youtube.com/vi/LhK2fX2K7OI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

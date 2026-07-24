@@ -35,8 +35,8 @@ keyMoments:
 videoId: "-5PFgC95ZNg"
 videoTitle: "What do international tourists think of the U.S.? #shorts"
 thumbnail: "https://img.youtube.com/vi/-5PFgC95ZNg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

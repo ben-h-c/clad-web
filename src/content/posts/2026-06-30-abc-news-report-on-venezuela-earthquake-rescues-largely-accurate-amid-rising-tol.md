@@ -38,8 +38,8 @@ keyMoments:
 videoId: "PK595OfXU94"
 videoTitle: "Rescue crews racing to find survivors in Venezuela after earthquakes"
 thumbnail: "https://img.youtube.com/vi/PK595OfXU94/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

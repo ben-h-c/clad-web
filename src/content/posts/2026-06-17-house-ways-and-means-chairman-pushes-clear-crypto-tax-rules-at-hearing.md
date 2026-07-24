@@ -34,8 +34,8 @@ keyMoments:
 videoId: "9ZeKk48q-tc"
 videoTitle: "'The Digital Asset Status Quo Is Untenable': Jason Smith Stresses Importance Of Clear Crypto Tax Law"
 thumbnail: "https://img.youtube.com/vi/9ZeKk48q-tc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

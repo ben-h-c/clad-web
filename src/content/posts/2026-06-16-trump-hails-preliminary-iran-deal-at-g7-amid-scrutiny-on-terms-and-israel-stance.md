@@ -38,8 +38,8 @@ keyMoments:
 videoId: "ugQhw4aA_TY"
 videoTitle: "President Trump faces questions on Iran deal as G7 summit begins"
 thumbnail: "https://img.youtube.com/vi/ugQhw4aA_TY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

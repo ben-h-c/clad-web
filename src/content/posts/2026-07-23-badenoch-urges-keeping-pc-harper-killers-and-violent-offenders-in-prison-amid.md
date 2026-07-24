@@ -36,8 +36,8 @@ keyMoments:
 videoId: "hh2nJso6CeY"
 videoTitle: "PC Andrew Harper's killers should be kept in prison, Kemi Badenoch says. #BBCNews"
 thumbnail: "https://img.youtube.com/vi/hh2nJso6CeY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

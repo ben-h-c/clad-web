@@ -33,8 +33,8 @@ keyMoments:
 videoId: "F-fqcGj6bsA"
 videoTitle: "Scanlon: &#39;Evidence Is Immigrants Are Actually More Law-Abiding Than Native-Born Americans Overall&#39;"
 thumbnail: "https://img.youtube.com/vi/F-fqcGj6bsA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

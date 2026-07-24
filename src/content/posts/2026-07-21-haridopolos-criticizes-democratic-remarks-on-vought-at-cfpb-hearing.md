@@ -36,8 +36,8 @@ keyMoments:
 videoId: "EYAEFh68TSw"
 videoTitle: "Mike Haridopolos Calls Out Dems For &#39;Unprofessional Comments&#39; Made Toward Russell Vought In Hearing"
 thumbnail: "https://img.youtube.com/vi/EYAEFh68TSw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

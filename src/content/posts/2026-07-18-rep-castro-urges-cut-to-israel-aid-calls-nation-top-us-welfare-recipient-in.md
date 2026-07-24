@@ -32,8 +32,8 @@ keyMoments:
 videoId: "ybA_8YWNXcQ"
 videoTitle: "Rep. Castro Says Israel &#39;Does Not Deserve&#39; More US Weapons Money #Shorts"
 thumbnail: "https://img.youtube.com/vi/ybA_8YWNXcQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

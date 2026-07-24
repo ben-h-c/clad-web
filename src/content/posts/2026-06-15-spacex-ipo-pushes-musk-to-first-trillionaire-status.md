@@ -34,8 +34,8 @@ keyMoments:
 videoId: "6GZLmuwEo88"
 videoTitle: "SpaceX achieves record $2T IPO making Elon Musk first trillionaire #SpaceX #IPO #Wealth"
 thumbnail: "https://img.youtube.com/vi/6GZLmuwEo88/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

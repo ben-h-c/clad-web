@@ -36,8 +36,8 @@ keyMoments:
 videoId: "TRSBQUmcnGQ"
 videoTitle: "Lawrence: Trump cannot survive a federal criminal justice system that works"
 thumbnail: "https://img.youtube.com/vi/TRSBQUmcnGQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

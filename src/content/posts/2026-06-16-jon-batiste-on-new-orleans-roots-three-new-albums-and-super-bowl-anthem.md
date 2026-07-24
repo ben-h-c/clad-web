@@ -35,8 +35,8 @@ keyMoments:
 videoId: "6RH6gqCuA40"
 videoTitle: "All Access with Linsey Davis: Jon Batiste"
 thumbnail: "https://img.youtube.com/vi/6RH6gqCuA40/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

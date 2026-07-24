@@ -34,8 +34,8 @@ keyMoments:
 videoId: "9B4z6rwL1ts"
 videoTitle: "Law enforcement enlists public’s help in finding suspect in string of shootings"
 thumbnail: "https://img.youtube.com/vi/9B4z6rwL1ts/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "1Wisyk18pho"
 videoTitle: "New details in Jeffrey Epstein’s death"
 thumbnail: "https://img.youtube.com/vi/1Wisyk18pho/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

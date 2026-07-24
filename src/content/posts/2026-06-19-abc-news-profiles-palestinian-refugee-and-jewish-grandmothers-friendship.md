@@ -31,8 +31,8 @@ keyMoments:
 videoId: "McUCBBO2LcE"
 videoTitle: "Two women from different walks of life form an unlikely friendship"
 thumbnail: "https://img.youtube.com/vi/McUCBBO2LcE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

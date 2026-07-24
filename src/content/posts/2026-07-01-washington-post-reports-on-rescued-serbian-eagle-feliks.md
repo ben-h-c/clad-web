@@ -35,8 +35,8 @@ keyMoments:
 videoId: "ygWv27pr40s"
 videoTitle: "Feliks the eagle was rescued from kidnapping in cross-border mission"
 thumbnail: "https://img.youtube.com/vi/ygWv27pr40s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "z0CNKUxNT6E"
 videoTitle: "Israeli Drone Strike Bureij Camp: Deadly Drone Strike Hits Central Gaza Civilians| NewsX World"
 thumbnail: "https://img.youtube.com/vi/z0CNKUxNT6E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

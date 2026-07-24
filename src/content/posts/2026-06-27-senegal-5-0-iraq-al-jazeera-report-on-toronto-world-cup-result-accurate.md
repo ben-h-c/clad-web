@@ -32,8 +32,8 @@ keyMoments:
 videoId: "ok9ef4s7swA"
 videoTitle: "Senegal crush Iraq 5–0 as World Cup knockout hopes hang in the balance"
 thumbnail: "https://img.youtube.com/vi/ok9ef4s7swA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

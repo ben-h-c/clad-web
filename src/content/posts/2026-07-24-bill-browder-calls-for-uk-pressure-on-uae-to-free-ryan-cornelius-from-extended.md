@@ -36,8 +36,8 @@ keyMoments:
 videoId: "iy8UBugv1A8"
 videoTitle: "Bill Browder: 'They Want Ryan Cornelius To Die In Prison' | 'WHERE Was Starmer?'"
 thumbnail: "https://img.youtube.com/vi/iy8UBugv1A8/maxresdefault.jpg"
-mediaNote: "Center talking-head face upper-middle; avoid bottom text bar and side edges"
-thumbFocusY: 28
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -28,8 +28,8 @@ keyMoments:
 videoId: "IvW2eknusBM"
 videoTitle: "Trump says he hasn't been briefed on planned attack on White House UFC fight"
 thumbnail: "https://img.youtube.com/vi/IvW2eknusBM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

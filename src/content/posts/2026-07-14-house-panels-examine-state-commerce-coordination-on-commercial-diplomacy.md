@@ -38,8 +38,8 @@ keyMoments:
 videoId: "6DvYo2wEi5I"
 videoTitle: "Young Kim Leads House Foreign Affairs Committee Hearing On Aligning Commercial Diplomacy"
 thumbnail: "https://img.youtube.com/vi/6DvYo2wEi5I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

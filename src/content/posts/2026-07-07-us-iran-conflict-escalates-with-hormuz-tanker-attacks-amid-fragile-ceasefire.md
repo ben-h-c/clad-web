@@ -36,8 +36,8 @@ keyMoments:
 videoId: "BQivtqrqPHc"
 videoTitle: "US-Iran war: Eerie calm broke by new attacks from Iran on vessels in Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/BQivtqrqPHc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

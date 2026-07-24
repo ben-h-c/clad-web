@@ -31,8 +31,8 @@ keyMoments:
 videoId: "aWb6PJByrBw"
 videoTitle: "Quantum deal boosts France's sovereignty, Alice and Bob COO says"
 thumbnail: "https://img.youtube.com/vi/aWb6PJByrBw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

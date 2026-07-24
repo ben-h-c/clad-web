@@ -29,8 +29,8 @@ keyMoments:
 videoId: "QRCUajtJSRg"
 videoTitle: "Congressman Mark Harris on Trump&#39;s Speech &amp; Pro Life Stance  #awokenwithaulden #politics"
 thumbnail: "https://img.youtube.com/vi/QRCUajtJSRg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

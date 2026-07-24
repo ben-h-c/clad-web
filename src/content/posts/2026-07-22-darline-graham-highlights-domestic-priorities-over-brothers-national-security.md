@@ -36,8 +36,8 @@ keyMoments:
 videoId: "ckwp4nYwhRI"
 videoTitle: "Darline Graham explains her how she differs from brother Lindsey"
 thumbnail: "https://img.youtube.com/vi/ckwp4nYwhRI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

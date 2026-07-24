@@ -31,8 +31,8 @@ keyMoments:
 videoId: "TW50tlt-Ejs"
 videoTitle: "Israeli researchers unearth 1,700-year-old marble busts"
 thumbnail: "https://img.youtube.com/vi/TW50tlt-Ejs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

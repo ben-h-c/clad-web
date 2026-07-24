@@ -37,8 +37,8 @@ keyMoments:
 videoId: "92sUIoon46g"
 videoTitle: "Trump Mount Rushmore speech labels communism 'mortal threat' ahead of midterms"
 thumbnail: "https://img.youtube.com/vi/92sUIoon46g/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

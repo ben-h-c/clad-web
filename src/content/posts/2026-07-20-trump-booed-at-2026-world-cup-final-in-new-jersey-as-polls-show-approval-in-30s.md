@@ -36,8 +36,8 @@ keyMoments:
 videoId: "rWjdGNWnS60"
 videoTitle: "BOOED & 'CROPPED': Trump humiliated at World Cup as polling CRASHES"
 thumbnail: "https://img.youtube.com/vi/rWjdGNWnS60/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

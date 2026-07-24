@@ -28,8 +28,8 @@ keyMoments:
 videoId: "GNyppKEFHC0"
 videoTitle: "President Trump Says Iran is \"getting decimated\""
 thumbnail: "https://img.youtube.com/vi/GNyppKEFHC0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

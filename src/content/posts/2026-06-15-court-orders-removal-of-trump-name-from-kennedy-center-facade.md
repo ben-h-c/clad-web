@@ -32,8 +32,8 @@ keyMoments:
 videoId: "ttlxSFphAgM"
 videoTitle: "Trump’s Name Removed from Kennedy Center After Court Order, Victory for Congress | NewsX"
 thumbnail: "https://img.youtube.com/vi/ttlxSFphAgM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

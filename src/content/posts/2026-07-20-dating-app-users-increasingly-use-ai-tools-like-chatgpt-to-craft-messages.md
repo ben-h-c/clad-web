@@ -34,8 +34,8 @@ keyMoments:
 videoId: "NhHYzET0fWU"
 videoTitle: "Dating Apps Have a Growing AI ‘Chatfishing’ Problem"
 thumbnail: "https://img.youtube.com/vi/NhHYzET0fWU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "8SyKMB1eL1s"
 videoTitle: "Sudan export at risk: Conflict has disrupted production of Gum Arabic"
 thumbnail: "https://img.youtube.com/vi/8SyKMB1eL1s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

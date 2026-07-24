@@ -35,8 +35,8 @@ keyMoments:
 videoId: "j5kmtvXdfwA"
 videoTitle: "Brian Tyler Cohen on how Democrats can seize power after Trump | CUOMO"
 thumbnail: "https://img.youtube.com/vi/j5kmtvXdfwA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "_2rq-VdRrC4"
 videoTitle: "HUD Secretary Turner on illegal immigration raising housing costs in Biden era "
 thumbnail: "https://img.youtube.com/vi/_2rq-VdRrC4/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

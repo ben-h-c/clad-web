@@ -35,8 +35,8 @@ keyMoments:
 videoId: "iLdvv7iJjEU"
 videoTitle: "Why we can't have nice things: Trump's corruption"
 thumbnail: "https://img.youtube.com/vi/iLdvv7iJjEU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "HADJFOWcVyM"
 videoTitle: "Stocks and Bonds Rally on US-Iran Deal | The Opening Trade 6/15/2026"
 thumbnail: "https://img.youtube.com/vi/HADJFOWcVyM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

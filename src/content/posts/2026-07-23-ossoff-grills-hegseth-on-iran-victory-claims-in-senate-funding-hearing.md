@@ -33,8 +33,8 @@ keyMoments:
 videoId: "mvp17TUVhl0"
 videoTitle: "Pete Hegseth Hearing LIVE: &#39;You, Sir, Are the Failure!&#39; Sen. Ossoff Blasts Hegseth Over Iran War"
 thumbnail: "https://img.youtube.com/vi/mvp17TUVhl0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "UIpMKMwU1Iw"
 videoTitle: "Violent shootout between Florida deputies and gunman"
 thumbnail: "https://img.youtube.com/vi/UIpMKMwU1Iw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

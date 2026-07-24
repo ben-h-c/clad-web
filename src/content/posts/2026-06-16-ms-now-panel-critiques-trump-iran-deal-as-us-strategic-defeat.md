@@ -36,8 +36,8 @@ keyMoments:
 videoId: "7AhhY474ZP0"
 videoTitle: "Trump dismisses Iran payout as Vance points to $300B Gulf-led reconstruction fund"
 thumbnail: "https://img.youtube.com/vi/7AhhY474ZP0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

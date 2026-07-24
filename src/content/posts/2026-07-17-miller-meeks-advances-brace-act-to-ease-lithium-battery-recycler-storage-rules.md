@@ -35,8 +35,8 @@ keyMoments:
 videoId: "H0-jynde0Q8"
 videoTitle: "Miller-Meeks Speaks in Support of her bipartisan BRACE Act"
 thumbnail: "https://img.youtube.com/vi/H0-jynde0Q8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

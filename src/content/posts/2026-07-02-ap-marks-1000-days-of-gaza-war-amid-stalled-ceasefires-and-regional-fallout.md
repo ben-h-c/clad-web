@@ -35,8 +35,8 @@ keyMoments:
 videoId: "C_cczE8W1WI"
 videoTitle: "1,000 days since Hamas-led attack on Israel sparked war in Gaza"
 thumbnail: "https://img.youtube.com/vi/C_cczE8W1WI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

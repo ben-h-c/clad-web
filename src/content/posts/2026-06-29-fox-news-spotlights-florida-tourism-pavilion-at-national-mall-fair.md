@@ -34,8 +34,8 @@ keyMoments:
 videoId: "ygfOIWF6qCo"
 videoTitle: "Florida puts tourism on full display at Great American State Fair"
 thumbnail: "https://img.youtube.com/vi/ygfOIWF6qCo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

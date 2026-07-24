@@ -36,8 +36,8 @@ keyMoments:
 videoId: "11CBbWWpwDY"
 videoTitle: "Germany's heatwave plan under fire | DW News"
 thumbnail: "https://img.youtube.com/vi/11CBbWWpwDY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

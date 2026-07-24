@@ -33,8 +33,8 @@ keyMoments:
 videoId: "syhs1HIbJsk"
 videoTitle: "'Can You Explain Why This Is?': Walberg Asks Labor Expert About Independent Healthcare Workforce"
 thumbnail: "https://img.youtube.com/vi/syhs1HIbJsk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

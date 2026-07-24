@@ -35,8 +35,8 @@ keyMoments:
 videoId: "5DRzWQEy-Hg"
 videoTitle: "'What's The Controversy?': Moran Asks Pilots Association President About ROTOR Act"
 thumbnail: "https://img.youtube.com/vi/5DRzWQEy-Hg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "oS_Mfu9AI5o"
 videoTitle: "Iran School Bombing: The Search for Truth"
 thumbnail: "https://img.youtube.com/vi/oS_Mfu9AI5o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

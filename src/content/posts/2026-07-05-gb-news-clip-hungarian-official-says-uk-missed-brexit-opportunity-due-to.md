@@ -32,8 +32,8 @@ keyMoments:
 videoId: "ihDEQa-ggY0"
 videoTitle: "Post-Brexit Britain MISSED OUT thanks to LACK of \"good leadership\""
 thumbnail: "https://img.youtube.com/vi/ihDEQa-ggY0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

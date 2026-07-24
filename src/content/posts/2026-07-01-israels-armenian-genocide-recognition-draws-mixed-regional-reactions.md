@@ -35,8 +35,8 @@ keyMoments:
 videoId: "7N-IXj2ZUWQ"
 videoTitle: "PM Pashinyas warned Armenia does not wish to engage with 'weaponization' of the 1915 genocide"
 thumbnail: "https://img.youtube.com/vi/7N-IXj2ZUWQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

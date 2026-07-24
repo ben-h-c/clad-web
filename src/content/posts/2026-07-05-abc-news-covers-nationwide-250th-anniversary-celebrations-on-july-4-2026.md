@@ -34,8 +34,8 @@ keyMoments:
 videoId: "CK5-h7vVih4"
 videoTitle: "Americans gather to celebrate the historic 250th birthday of our nation"
 thumbnail: "https://img.youtube.com/vi/CK5-h7vVih4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

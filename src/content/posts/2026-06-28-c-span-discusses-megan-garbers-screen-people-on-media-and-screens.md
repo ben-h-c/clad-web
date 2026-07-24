@@ -35,8 +35,8 @@ keyMoments:
 videoId: "x-G6kdGOde4"
 videoTitle: "After Words: Screen People - How We Entertained Ourselves into a State of Emergency"
 thumbnail: "https://img.youtube.com/vi/x-G6kdGOde4/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

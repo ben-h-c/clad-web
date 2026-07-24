@@ -36,8 +36,8 @@ keyMoments:
 videoId: "VUUdHmFzm8g"
 videoTitle: "BREAKING: Trump to nominate ICE director"
 thumbnail: "https://img.youtube.com/vi/VUUdHmFzm8g/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "H2IHVmSgePM"
 videoTitle: "'Do You Think We Can Reverse The Trend?': Bruce Westerman Asks USFS Chief About US Wood Production"
 thumbnail: "https://img.youtube.com/vi/H2IHVmSgePM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

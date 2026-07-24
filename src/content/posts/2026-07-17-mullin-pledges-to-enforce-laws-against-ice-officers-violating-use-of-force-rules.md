@@ -28,8 +28,8 @@ keyMoments:
 videoId: "pF1peCRECTU"
 videoTitle: "WATCH: Mullin says he will enforce the law when it comes to ICE officers who violate rules"
 thumbnail: "https://img.youtube.com/vi/pF1peCRECTU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

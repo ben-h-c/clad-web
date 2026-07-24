@@ -35,8 +35,8 @@ keyMoments:
 videoId: "kwDCaFiPk1M"
 videoTitle: "Michael Jackson accusers given new trial date by California judge | Jesse Weber Live"
 thumbnail: "https://img.youtube.com/vi/kwDCaFiPk1M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

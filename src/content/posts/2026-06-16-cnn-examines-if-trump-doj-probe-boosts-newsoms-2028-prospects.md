@@ -36,8 +36,8 @@ keyMoments:
 videoId: "9PeqL3-9yak"
 videoTitle: "Could Trump's DOJ investigation actually help Gavin Newsom?"
 thumbnail: "https://img.youtube.com/vi/9PeqL3-9yak/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

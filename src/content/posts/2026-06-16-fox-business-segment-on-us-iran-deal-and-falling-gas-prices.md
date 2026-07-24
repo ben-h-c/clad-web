@@ -38,8 +38,8 @@ keyMoments:
 videoId: "l5BFg3VSe5c"
 videoTitle: "'NO MORE': GOP senator highlights GOALS of US-Iran deal"
 thumbnail: "https://img.youtube.com/vi/l5BFg3VSe5c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

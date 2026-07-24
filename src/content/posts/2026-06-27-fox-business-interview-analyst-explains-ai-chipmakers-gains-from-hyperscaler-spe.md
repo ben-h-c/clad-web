@@ -36,8 +36,8 @@ keyMoments:
 videoId: "SiP1yYt2ECY"
 videoTitle: "Chipmakers are thriving because they're 'paid UPFRONT': DA Davidson's Gil Luria"
 thumbnail: "https://img.youtube.com/vi/SiP1yYt2ECY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

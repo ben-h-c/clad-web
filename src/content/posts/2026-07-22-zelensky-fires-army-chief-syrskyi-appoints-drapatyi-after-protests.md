@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Jx-cGyB65Y8"
 videoTitle: "“This War Is RAGING ON” | Zelensky Sacks Army Chief After Days of Protests | Ukraine VS Russia"
 thumbnail: "https://img.youtube.com/vi/Jx-cGyB65Y8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

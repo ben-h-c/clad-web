@@ -38,8 +38,8 @@ keyMoments:
 videoId: "oYexcPpvjA0"
 videoTitle: "Robin Hood, Supergirl, The Rock: The superheroes are back in cinema • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/oYexcPpvjA0/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

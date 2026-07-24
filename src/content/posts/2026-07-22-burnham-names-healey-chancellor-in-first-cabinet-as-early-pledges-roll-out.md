@@ -38,8 +38,8 @@ keyMoments:
 videoId: "xbrIccuNro4"
 videoTitle: "\"The Last Chance For Labour!\" | Inside The New Government's Reform Agenda"
 thumbnail: "https://img.youtube.com/vi/xbrIccuNro4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

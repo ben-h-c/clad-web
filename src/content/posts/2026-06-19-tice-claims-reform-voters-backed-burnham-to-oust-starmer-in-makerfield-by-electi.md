@@ -32,8 +32,8 @@ keyMoments:
 videoId: "usdL4aSFwzI"
 videoTitle: "Reform supporters voted \"tactically\" for Burnham to \"get Starmer out\", Richard Tice said. #BBCNews"
 thumbnail: "https://img.youtube.com/vi/usdL4aSFwzI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

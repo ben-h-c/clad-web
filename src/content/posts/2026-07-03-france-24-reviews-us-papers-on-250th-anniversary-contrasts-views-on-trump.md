@@ -35,8 +35,8 @@ keyMoments:
 videoId: "CWruST0_fWk"
 videoTitle: "The USA has survived 250 years but can it survive Donald Trump? • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/CWruST0_fWk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

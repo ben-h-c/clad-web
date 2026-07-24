@@ -40,8 +40,8 @@ keyMoments:
 videoId: "gxAENzGpNrg"
 videoTitle: "'He's so disrespectful': Sen. Rosen says 'every day' Hegseth shows 'how unqualified he is'"
 thumbnail: "https://img.youtube.com/vi/gxAENzGpNrg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

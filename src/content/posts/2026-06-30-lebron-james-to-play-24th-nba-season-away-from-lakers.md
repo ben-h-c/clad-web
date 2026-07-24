@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Bk6rJwiValI"
 videoTitle: "LeBron James to leave Lakers and play 24th season elsewhere"
 thumbnail: "https://img.youtube.com/vi/Bk6rJwiValI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

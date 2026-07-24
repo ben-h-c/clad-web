@@ -35,8 +35,8 @@ keyMoments:
 videoId: "uUC6OCqI3vs"
 videoTitle: "Ron Baron on his $25B SpaceX stake: We're going to make hundreds of billions of dollars"
 thumbnail: "https://img.youtube.com/vi/uUC6OCqI3vs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

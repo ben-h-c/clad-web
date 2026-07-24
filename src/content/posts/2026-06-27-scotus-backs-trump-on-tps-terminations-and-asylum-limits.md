@@ -41,8 +41,8 @@ keyMoments:
 videoId: "uKRbtWoW05Y"
 videoTitle: "‘Fear of cultural replacement at the heart of MAGA’: SCOTUS rules against protections for migrants"
 thumbnail: "https://img.youtube.com/vi/uKRbtWoW05Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

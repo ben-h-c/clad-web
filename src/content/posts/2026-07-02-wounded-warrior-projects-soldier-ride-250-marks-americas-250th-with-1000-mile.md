@@ -34,8 +34,8 @@ keyMoments:
 videoId: "RaPqtFbMEEg"
 videoTitle: "Wounded Warrior Project veterans cycle 1,000 MILES to celebrate America's 250th"
 thumbnail: "https://img.youtube.com/vi/RaPqtFbMEEg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

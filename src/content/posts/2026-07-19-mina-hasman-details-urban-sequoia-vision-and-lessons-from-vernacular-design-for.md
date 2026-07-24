@@ -37,8 +37,8 @@ keyMoments:
 videoId: "a1R7Hf8GH3g"
 videoTitle: "Why the smartest cities will look like forests | Talk to Al Jazeera"
 thumbnail: "https://img.youtube.com/vi/a1R7Hf8GH3g/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

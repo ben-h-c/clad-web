@@ -35,8 +35,8 @@ keyMoments:
 videoId: "K6OAjwm6-wY"
 videoTitle: "'Are There Better Ways?': Jeff Crank Presses USFS Chief On Local Reimbursement For Forest Management"
 thumbnail: "https://img.youtube.com/vi/K6OAjwm6-wY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

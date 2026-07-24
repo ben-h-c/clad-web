@@ -31,8 +31,8 @@ keyMoments:
 videoId: "vgt_0dleuDY"
 videoTitle: "National pride meets breathable mesh: A look at the design of World Cup uniforms"
 thumbnail: "https://img.youtube.com/vi/vgt_0dleuDY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "UDuhl2QcMYs"
 videoTitle: "'Will You Work To Follow The Law?': Merkley Asks Trump Nom About Debt, Deficit Modeling In Budget"
 thumbnail: "https://img.youtube.com/vi/UDuhl2QcMYs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

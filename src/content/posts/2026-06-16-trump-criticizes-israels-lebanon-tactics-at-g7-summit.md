@@ -34,8 +34,8 @@ keyMoments:
 videoId: "8-Yj0eOJLQg"
 videoTitle: "Trump renews criticism of Israel’s actions in Lebanon during remarks at G7 summit.  #BBCNews"
 thumbnail: "https://img.youtube.com/vi/8-Yj0eOJLQg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

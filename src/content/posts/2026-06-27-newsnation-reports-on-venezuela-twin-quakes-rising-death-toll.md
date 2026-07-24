@@ -34,8 +34,8 @@ keyMoments:
 videoId: "fAZoX9h-RCw"
 videoTitle: "Venezuela earthquake death toll soars past 900 | Morning in America"
 thumbnail: "https://img.youtube.com/vi/fAZoX9h-RCw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

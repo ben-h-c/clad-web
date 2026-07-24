@@ -31,8 +31,8 @@ keyMoments:
 videoId: "MJhH-7vgt5g"
 videoTitle: "VP Vance says White House has been transparent about Epstein Investigation"
 thumbnail: "https://img.youtube.com/vi/MJhH-7vgt5g/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

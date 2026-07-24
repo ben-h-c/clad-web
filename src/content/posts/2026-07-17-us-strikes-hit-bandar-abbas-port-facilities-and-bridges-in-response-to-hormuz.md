@@ -33,8 +33,8 @@ keyMoments:
 videoId: "KA7Ko5am0U4"
 videoTitle: "WATCH: Dramatic video shows US airstrikes taking out MAJOR Iranian infrastructure"
 thumbnail: "https://img.youtube.com/vi/KA7Ko5am0U4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

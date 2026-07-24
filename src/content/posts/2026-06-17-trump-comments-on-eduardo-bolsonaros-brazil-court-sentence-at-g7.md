@@ -32,8 +32,8 @@ keyMoments:
 videoId: "Zo5rBqcuRHE"
 videoTitle: "'They Play Pretty Tough': Trump Reacts To Prison Sentence For Eduardo Bolsonaro"
 thumbnail: "https://img.youtube.com/vi/Zo5rBqcuRHE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

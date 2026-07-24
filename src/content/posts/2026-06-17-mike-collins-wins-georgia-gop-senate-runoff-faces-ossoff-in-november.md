@@ -35,8 +35,8 @@ keyMoments:
 videoId: "m9vj2HUEtzw"
 videoTitle: "LIVE: Mike Collins speaks after winning Georgia Republican Senate runoff"
 thumbnail: "https://img.youtube.com/vi/m9vj2HUEtzw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

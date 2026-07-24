@@ -34,8 +34,8 @@ keyMoments:
 videoId: "yyPmyyTKHj8"
 videoTitle: "Venezuela: Two weeks after the earthquakes, rescuers hunt for last signs of life • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/yyPmyyTKHj8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

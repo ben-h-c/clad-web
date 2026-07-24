@@ -29,8 +29,8 @@ keyMoments:
 videoId: "DDBvX7uOwzA"
 videoTitle: "Trump Asked: How Can We Make Sure The Strait Of Hormuz Stays Open In The Future?"
 thumbnail: "https://img.youtube.com/vi/DDBvX7uOwzA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

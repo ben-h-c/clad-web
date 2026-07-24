@@ -37,8 +37,8 @@ keyMoments:
 videoId: "mFHf6NKHeJw"
 videoTitle: "Will the UK be in for a summer of serial heatwaves? #Weather #Heatwave #BBCNews"
 thumbnail: "https://img.youtube.com/vi/mFHf6NKHeJw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

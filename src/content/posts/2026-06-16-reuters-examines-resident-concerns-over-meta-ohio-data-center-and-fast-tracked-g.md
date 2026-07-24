@@ -40,8 +40,8 @@ keyMoments:
 videoId: "uuVOox_r_SI"
 videoTitle: "Ohio residents sound the alarm over AI data center 'threat'"
 thumbnail: "https://img.youtube.com/vi/uuVOox_r_SI/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

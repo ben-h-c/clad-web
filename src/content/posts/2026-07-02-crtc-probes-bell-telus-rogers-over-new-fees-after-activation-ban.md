@@ -34,8 +34,8 @@ keyMoments:
 videoId: "aQKZOnRIOX4"
 videoTitle: "CRTC asks Big Three to prove fees don’t break rules, or face $10M fine"
 thumbnail: "https://img.youtube.com/vi/aQKZOnRIOX4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

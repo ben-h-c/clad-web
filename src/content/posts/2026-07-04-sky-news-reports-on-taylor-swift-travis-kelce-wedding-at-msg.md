@@ -34,8 +34,8 @@ keyMoments:
 videoId: "-gGSefIPVRo"
 videoTitle: "Taylor and Travis are officially married! Here's what we know"
 thumbnail: "https://img.youtube.com/vi/-gGSefIPVRo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

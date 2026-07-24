@@ -35,8 +35,8 @@ keyMoments:
 videoId: "gRjiBQ6zz6c"
 videoTitle: "Rutte Asked: Does NATO Want Ukraine To Keep Pressure On Russia Up Or Hold Back Talks?"
 thumbnail: "https://img.youtube.com/vi/gRjiBQ6zz6c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

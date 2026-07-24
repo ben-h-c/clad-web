@@ -29,8 +29,8 @@ keyMoments:
 videoId: "wW6OrlG7Ttk"
 videoTitle: "Every single individual in this country deserves healthcare. Full stop."
 thumbnail: "https://img.youtube.com/vi/wW6OrlG7Ttk/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -25,8 +25,8 @@ keyMoments:
 videoId: "sn-S_sAuZlU"
 videoTitle: "World Cup: Cristiano Ronaldo answers critics as Portugal get back on track • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/sn-S_sAuZlU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

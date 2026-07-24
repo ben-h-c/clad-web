@@ -34,8 +34,8 @@ keyMoments:
 videoId: "EpkP8Vc7NNM"
 videoTitle: "Is Russia's control over Crimea under threat?"
 thumbnail: "https://img.youtube.com/vi/EpkP8Vc7NNM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

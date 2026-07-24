@@ -34,8 +34,8 @@ keyMoments:
 videoId: "HXy4wMdE1Hc"
 videoTitle: "BREAKING: German prosecutors say Ukraine ordered Nord Stream pipeline sabotage | DW News"
 thumbnail: "https://img.youtube.com/vi/HXy4wMdE1Hc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

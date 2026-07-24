@@ -34,8 +34,8 @@ keyMoments:
 videoId: "0ShQCYTEp1E"
 videoTitle: "Jimmy Failla: We SHOULD be celebrating this #shorts"
 thumbnail: "https://img.youtube.com/vi/0ShQCYTEp1E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

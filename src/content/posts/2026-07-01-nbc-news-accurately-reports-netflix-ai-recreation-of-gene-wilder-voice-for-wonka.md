@@ -32,8 +32,8 @@ keyMoments:
 videoId: "ngBaIr6qEQo"
 videoTitle: "Netflix recreates Gene Wilder’s voice using AI"
 thumbnail: "https://img.youtube.com/vi/ngBaIr6qEQo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

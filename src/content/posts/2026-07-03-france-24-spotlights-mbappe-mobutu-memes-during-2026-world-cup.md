@@ -34,8 +34,8 @@ keyMoments:
 videoId: "6n9nizStZ4c"
 videoTitle: "Kylian \"Mobutu\" Mbappé: 'Les Bleus' embrace the trend at the World Cup • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/6n9nizStZ4c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "LHkMitI0jAg"
 videoTitle: "'TRUTH BOMB': Justice Thomas calls out 'lie' in landmark opinion"
 thumbnail: "https://img.youtube.com/vi/LHkMitI0jAg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "m0-Br3kb8B4"
 videoTitle: "Trump team fears LEAK of Epstein Situation Room tapes: Report"
 thumbnail: "https://img.youtube.com/vi/m0-Br3kb8B4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

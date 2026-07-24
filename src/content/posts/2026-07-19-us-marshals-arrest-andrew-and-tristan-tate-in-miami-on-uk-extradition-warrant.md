@@ -35,8 +35,8 @@ keyMoments:
 videoId: "XxIpsb2ciKI"
 videoTitle: "Andrew Tate and his brother arrested in Miami, US Marshals service tells AP"
 thumbnail: "https://img.youtube.com/vi/XxIpsb2ciKI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

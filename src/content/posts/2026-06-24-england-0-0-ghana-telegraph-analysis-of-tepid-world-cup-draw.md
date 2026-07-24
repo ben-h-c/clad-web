@@ -37,8 +37,8 @@ keyMoments:
 videoId: "fTdtwwi5BVs"
 videoTitle: "England held to a goalless draw against Ghana | Analysis"
 thumbnail: "https://img.youtube.com/vi/fTdtwwi5BVs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

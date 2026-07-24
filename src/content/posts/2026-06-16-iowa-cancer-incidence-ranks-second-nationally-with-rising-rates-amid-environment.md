@@ -37,8 +37,8 @@ keyMoments:
 videoId: "HtND1E712Os"
 videoTitle: "As cancer rates fall nationally, Iowa sees a troubling rise in diagnoses"
 thumbnail: "https://img.youtube.com/vi/HtND1E712Os/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

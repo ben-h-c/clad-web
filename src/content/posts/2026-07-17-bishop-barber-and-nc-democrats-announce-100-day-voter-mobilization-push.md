@@ -35,8 +35,8 @@ keyMoments:
 videoId: "oY5oOj7__iE"
 videoTitle: "Bishop Barber calls for '100 days of mobilization' to protect voting access "
 thumbnail: "https://img.youtube.com/vi/oY5oOj7__iE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

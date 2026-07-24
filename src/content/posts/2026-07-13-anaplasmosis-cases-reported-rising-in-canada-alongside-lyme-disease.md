@@ -35,8 +35,8 @@ keyMoments:
 videoId: "LjUCP1OyIu4"
 videoTitle: "New tick-borne illness on the rise in Canada"
 thumbnail: "https://img.youtube.com/vi/LjUCP1OyIu4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

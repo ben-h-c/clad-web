@@ -39,8 +39,8 @@ keyMoments:
 videoId: "Qjgmrx_93Dk"
 videoTitle: "Trump LOST Iran War: See humiliation of war policy from Right, Left & Center"
 thumbnail: "https://img.youtube.com/vi/Qjgmrx_93Dk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

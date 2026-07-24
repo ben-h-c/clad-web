@@ -32,8 +32,8 @@ keyMoments:
 videoId: "1OEbAiYQJNQ"
 videoTitle: "Paint appears to be peeling away from the reflecting pool amid an ongoing algae bloom."
 thumbnail: "https://img.youtube.com/vi/1OEbAiYQJNQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

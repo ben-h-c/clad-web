@@ -37,8 +37,8 @@ keyMoments:
 videoId: "XJH5YSo1ifg"
 videoTitle: "‘I STAND By It!' Nicholas Kristof DOUBLES DOWN on NYT Israel Brutality Report - With Eric Weinstein"
 thumbnail: "https://img.youtube.com/vi/XJH5YSo1ifg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

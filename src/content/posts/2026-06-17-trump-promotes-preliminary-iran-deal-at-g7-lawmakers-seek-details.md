@@ -37,8 +37,8 @@ keyMoments:
 videoId: "EC5BqlOWWxA"
 videoTitle: "Trump touts Iran peace deal at G7 Summit in France, Schumer and Kennedy cast doubts"
 thumbnail: "https://img.youtube.com/vi/EC5BqlOWWxA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

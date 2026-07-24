@@ -36,8 +36,8 @@ keyMoments:
 videoId: "pDw3flIN5MU"
 videoTitle: "What Will Be The Legacy of the 2026 World Cup?"
 thumbnail: "https://img.youtube.com/vi/pDw3flIN5MU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -28,8 +28,8 @@ keyMoments:
 videoId: "mFYINM6rSk8"
 videoTitle: "Neymar trains with Brazil teammates"
 thumbnail: "https://img.youtube.com/vi/mFYINM6rSk8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

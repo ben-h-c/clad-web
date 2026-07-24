@@ -33,9 +33,9 @@ politicians:
     slug: "brad-knott"
 thumbnail: "https://img.youtube.com/vi/Up5HmNcqGoM/hqdefault.jpg"
 mediaStyle: "overlay"
-thumbFocusX: 72
-thumbFocusY: 28
-mediaNote: "Rep. Knott’s face is the clear subject; anchor upper-right above chyron/scrim"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "16:9 band default"
 citations:
   - title: "Knott Serves Over 300 Veterans at Second Annual Veterans Event"
     url: "https://knott.house.gov/media/press-releases/knott-serves-over-300-veterans-second-annual-veterans-event"

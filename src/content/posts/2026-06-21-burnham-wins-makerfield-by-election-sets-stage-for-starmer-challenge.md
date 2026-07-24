@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Z2hKqGqGTDQ"
 videoTitle: "UK's Andy Burnham speech highlights after by-election win; reaction from Keir Starmer and Londoners"
 thumbnail: "https://img.youtube.com/vi/Z2hKqGqGTDQ/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

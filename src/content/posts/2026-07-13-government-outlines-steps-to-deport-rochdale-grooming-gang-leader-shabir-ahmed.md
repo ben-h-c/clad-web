@@ -35,8 +35,8 @@ keyMoments:
 videoId: "o9J49O5RmCU"
 videoTitle: "Rochdale grooming gang leader to be deported under new legislation"
 thumbnail: "https://img.youtube.com/vi/o9J49O5RmCU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

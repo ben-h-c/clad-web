@@ -31,8 +31,8 @@ keyMoments:
 videoId: "cCEIYZQs1Gs"
 videoTitle: "Obama Foundation CEO on presidential center opening"
 thumbnail: "https://img.youtube.com/vi/cCEIYZQs1Gs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

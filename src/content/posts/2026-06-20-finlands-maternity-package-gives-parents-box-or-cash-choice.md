@@ -31,8 +31,8 @@ keyMoments:
 videoId: "S-P6Ll2MjjE"
 videoTitle: "Finland's baby box explained | WORLD OF TRAVEL"
 thumbnail: "https://img.youtube.com/vi/S-P6Ll2MjjE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -33,8 +33,8 @@ keyMoments:
 videoId: "qzKcbcNNXHU"
 videoTitle: "32% Alpha. Tim Moore Sold $CBRL Before Anyone Could Ask Why."
 thumbnail: "https://img.youtube.com/vi/qzKcbcNNXHU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

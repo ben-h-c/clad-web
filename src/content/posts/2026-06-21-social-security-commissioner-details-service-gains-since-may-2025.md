@@ -37,8 +37,8 @@ keyMoments:
 videoId: "MoxyUDdkl24"
 videoTitle: "'The American People Are Winning': Trump's Social Security Head Discusses His Leadership"
 thumbnail: "https://img.youtube.com/vi/MoxyUDdkl24/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

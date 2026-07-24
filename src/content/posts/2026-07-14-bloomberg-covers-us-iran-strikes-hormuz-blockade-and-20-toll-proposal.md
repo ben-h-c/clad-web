@@ -34,8 +34,8 @@ keyMoments:
 videoId: "eu0nJbwgDRo"
 videoTitle: "Hormuz Tensions Rise After UAE Tankers Hit | Horizons Middle East & Africa 7/14/2026"
 thumbnail: "https://img.youtube.com/vi/eu0nJbwgDRo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "cYuhBoX-dAw"
 videoTitle: "Mexico’s New Ambassador on ‘Balance of Power’"
 thumbnail: "https://img.youtube.com/vi/cYuhBoX-dAw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

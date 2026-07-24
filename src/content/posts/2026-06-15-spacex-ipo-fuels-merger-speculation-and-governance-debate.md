@@ -35,8 +35,8 @@ keyMoments:
 videoId: "1fuRISMfDac"
 videoTitle: "SpaceX, Tesla Merger A 'Forgone Conclusion,' Says Ross Gerber"
 thumbnail: "https://img.youtube.com/vi/1fuRISMfDac/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

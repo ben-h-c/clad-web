@@ -34,8 +34,8 @@ keyMoments:
 videoId: "HK8d0tz_gbA"
 videoTitle: "US and Iran sign deal to end war, reopen Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/HK8d0tz_gbA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "aS6-mUrlFDc"
 videoTitle: "Argentina see off spirited Cape Verde to qualify for World Cup last 16 • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/aS6-mUrlFDc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

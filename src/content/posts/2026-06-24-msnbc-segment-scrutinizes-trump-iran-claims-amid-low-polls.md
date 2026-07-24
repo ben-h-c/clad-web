@@ -41,8 +41,8 @@ keyMoments:
 videoId: "4FsJLq3uCHo"
 videoTitle: "Lawrence: Republican Senator Sheehy just made Donald Trump Iran's ‘dope’"
 thumbnail: "https://img.youtube.com/vi/4FsJLq3uCHo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

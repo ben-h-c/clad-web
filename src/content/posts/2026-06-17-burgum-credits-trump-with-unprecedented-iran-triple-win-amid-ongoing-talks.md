@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Z_IrmMow5TY"
 videoTitle: "'TRIPLE WIN': Trump's done something that no president's done before, Burgum says #shorts"
 thumbnail: "https://img.youtube.com/vi/Z_IrmMow5TY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

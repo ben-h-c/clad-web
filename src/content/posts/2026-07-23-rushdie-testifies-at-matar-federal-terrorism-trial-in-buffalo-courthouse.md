@@ -32,8 +32,8 @@ keyMoments:
 videoId: "Tmm_je38mlw"
 videoTitle: "Salman Rushdie sits across a courtroom from man convicted of stabbing him"
 thumbnail: "https://img.youtube.com/vi/Tmm_je38mlw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

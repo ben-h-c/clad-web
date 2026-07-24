@@ -38,8 +38,8 @@ keyMoments:
 videoId: "8TVDHOqw1bY"
 videoTitle: "The history of Juneteenth in America"
 thumbnail: "https://img.youtube.com/vi/8TVDHOqw1bY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -28,8 +28,8 @@ keyMoments:
 videoId: "QTmldpAS5CM"
 videoTitle: "Trump-endorsed Barry Moore wins Republican primary runoff in Alabama Senate race"
 thumbnail: "https://img.youtube.com/vi/QTmldpAS5CM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

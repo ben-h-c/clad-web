@@ -36,8 +36,8 @@ keyMoments:
 videoId: "wzxQBpwrciU"
 videoTitle: "US Dollar Climbs Ahead of Warsh; Anthropic Restrictions Lifted | Bloomberg Brief 7/1/2026"
 thumbnail: "https://img.youtube.com/vi/wzxQBpwrciU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

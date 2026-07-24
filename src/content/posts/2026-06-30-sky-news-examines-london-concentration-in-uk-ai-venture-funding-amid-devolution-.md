@@ -34,8 +34,8 @@ keyMoments:
 videoId: "v6sznbc4eNQ"
 videoTitle: "Why spreading the AI boom might be harder than Andy Burnham thinks"
 thumbnail: "https://img.youtube.com/vi/v6sznbc4eNQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

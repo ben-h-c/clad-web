@@ -37,8 +37,8 @@ keyMoments:
 videoId: "wcePgoXyers"
 videoTitle: "Lawrence: White House effectively says NYT reporters must have tapes of Situation Room meeting"
 thumbnail: "https://img.youtube.com/vi/wcePgoXyers/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

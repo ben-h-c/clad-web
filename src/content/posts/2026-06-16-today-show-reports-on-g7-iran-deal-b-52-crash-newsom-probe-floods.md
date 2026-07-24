@@ -38,8 +38,8 @@ keyMoments:
 videoId: "UyFqn3Bn9RE"
 videoTitle: "Full Episode: TODAY Show - June 16"
 thumbnail: "https://img.youtube.com/vi/UyFqn3Bn9RE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

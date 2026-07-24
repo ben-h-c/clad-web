@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Fnu06QoN6RY"
 videoTitle: "Mekai Curtus on playing a young 50 Cent for final season of ‘Power Book III’"
 thumbnail: "https://img.youtube.com/vi/Fnu06QoN6RY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

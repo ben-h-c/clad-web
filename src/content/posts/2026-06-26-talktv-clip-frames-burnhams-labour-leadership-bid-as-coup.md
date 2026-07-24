@@ -38,8 +38,8 @@ keyMoments:
 videoId: "cSsadh5tbkg"
 videoTitle: "‘It’s A COUP By The CULT Of Andy Burnham' | ‘Serious THREAT To British Democracy’"
 thumbnail: "https://img.youtube.com/vi/cSsadh5tbkg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

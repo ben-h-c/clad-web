@@ -37,8 +37,8 @@ keyMoments:
 videoId: "y8yhdSqHBQk"
 videoTitle: "Bill O’Reilly: ICE’s lack of discipline to blame for allegations and protests | CUOMO"
 thumbnail: "https://img.youtube.com/vi/y8yhdSqHBQk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

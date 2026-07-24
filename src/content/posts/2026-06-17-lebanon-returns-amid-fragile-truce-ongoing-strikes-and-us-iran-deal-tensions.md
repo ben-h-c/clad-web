@@ -35,8 +35,8 @@ keyMoments:
 videoId: "CsfK1820crY"
 videoTitle: "Thousands flock back to south Lebanon despite Israeli strikes amid US-Iran deal • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/CsfK1820crY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

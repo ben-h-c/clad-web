@@ -35,8 +35,8 @@ keyMoments:
 videoId: "S7sD1FKSDwQ"
 videoTitle: "Does Trump's Iran Peace Deal Make America Safer? Rear Admiral Explains And Reveals Possible Holes"
 thumbnail: "https://img.youtube.com/vi/S7sD1FKSDwQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

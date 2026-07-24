@@ -34,8 +34,8 @@ keyMoments:
 videoId: "dBi0AMZ_7SA"
 videoTitle: "Horse carriage tragedy in NYC’s Central Park"
 thumbnail: "https://img.youtube.com/vi/dBi0AMZ_7SA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

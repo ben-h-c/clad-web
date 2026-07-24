@@ -36,8 +36,8 @@ keyMoments:
 videoId: "SbfxtnwXIgw"
 videoTitle: "Inflation slows to 2.8 per cent in June, as gasoline prices fall"
 thumbnail: "https://img.youtube.com/vi/SbfxtnwXIgw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

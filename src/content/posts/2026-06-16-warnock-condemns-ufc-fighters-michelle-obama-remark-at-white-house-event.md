@@ -32,8 +32,8 @@ keyMoments:
 videoId: "jT0HbRqeWl8"
 videoTitle: "'This is bigotry, this is evil come alive': Warnock condemns UFC fighter's Michelle Obama attack"
 thumbnail: "https://img.youtube.com/vi/jT0HbRqeWl8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

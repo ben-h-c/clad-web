@@ -34,8 +34,8 @@ keyMoments:
 videoId: "KtQVqab9oio"
 videoTitle: "'It Was Anything But Beautiful': Madeline Dean Blasts Big Beautiful Bill Over SNAP Cuts"
 thumbnail: "https://img.youtube.com/vi/KtQVqab9oio/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

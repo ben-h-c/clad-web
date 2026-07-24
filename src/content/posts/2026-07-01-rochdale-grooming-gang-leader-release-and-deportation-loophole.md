@@ -38,8 +38,8 @@ keyMoments:
 videoId: "vzwY4f5CQvw"
 videoTitle: "\"He RAPED 30 Children\" | Grooming Gang Ringleader To Be A FREE MAN Tomorrow"
 thumbnail: "https://img.youtube.com/vi/vzwY4f5CQvw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "7EPSMTXOgpA"
 videoTitle: "Rogers cuts hundreds of jobs, closes radio stations across Canada | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/7EPSMTXOgpA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

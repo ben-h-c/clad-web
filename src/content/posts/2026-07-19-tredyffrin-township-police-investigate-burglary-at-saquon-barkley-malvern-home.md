@@ -31,8 +31,8 @@ keyMoments:
 videoId: "bb2qPymMhO0"
 videoTitle: "Pennsylvania police investigating burglary at Saquon Barkley's home"
 thumbnail: "https://img.youtube.com/vi/bb2qPymMhO0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

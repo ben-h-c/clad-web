@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Hk74kf0kSxs"
 videoTitle: "Moolenaar Ask Witness How Congress Can 'Raise The Cost' Of CCP's Malign Influence Efforts In The US"
 thumbnail: "https://img.youtube.com/vi/Hk74kf0kSxs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

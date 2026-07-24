@@ -35,8 +35,8 @@ keyMoments:
 videoId: "16GFAxaBdL4"
 videoTitle: "Dexter: Our Country is Intentionally Suffocating the People of Cuba"
 thumbnail: "https://img.youtube.com/vi/16GFAxaBdL4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

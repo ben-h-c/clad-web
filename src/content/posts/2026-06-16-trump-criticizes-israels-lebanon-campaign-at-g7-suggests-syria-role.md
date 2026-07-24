@@ -35,8 +35,8 @@ keyMoments:
 videoId: "aW6pmny4o98"
 videoTitle: "Trump Criticizes Israel Over Lebanon at G7 Summit in France"
 thumbnail: "https://img.youtube.com/vi/aW6pmny4o98/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

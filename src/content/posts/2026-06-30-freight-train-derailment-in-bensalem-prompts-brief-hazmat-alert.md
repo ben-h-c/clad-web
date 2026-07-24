@@ -34,8 +34,8 @@ keyMoments:
 videoId: "ARmaeh1b8HE"
 videoTitle: "Freight train derailment near Philadelphia sparks hazmat scare"
 thumbnail: "https://img.youtube.com/vi/ARmaeh1b8HE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

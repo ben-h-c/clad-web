@@ -37,8 +37,8 @@ keyMoments:
 videoId: "tidr-4wiEWg"
 videoTitle: "“A Total DISASTER!” | Burnham Says Labour Has 'Room for Movement' on Tax"
 thumbnail: "https://img.youtube.com/vi/tidr-4wiEWg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

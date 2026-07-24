@@ -31,8 +31,8 @@ keyMoments:
 videoId: "JxOVByrr4mw"
 videoTitle: "Trump on USMCA trade pact: 'I'd rather have it terminated'"
 thumbnail: "https://img.youtube.com/vi/JxOVByrr4mw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

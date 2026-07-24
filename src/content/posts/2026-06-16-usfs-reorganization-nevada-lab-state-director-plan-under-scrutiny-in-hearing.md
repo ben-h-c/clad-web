@@ -38,8 +38,8 @@ keyMoments:
 videoId: "rxo5H2qVTAU"
 videoTitle: "Susie Lee Presses USFS Chief On Office Closures That Would 'Completely Eliminate' Research Facility"
 thumbnail: "https://img.youtube.com/vi/rxo5H2qVTAU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

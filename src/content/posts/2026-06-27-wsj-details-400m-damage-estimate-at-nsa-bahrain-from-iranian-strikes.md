@@ -35,8 +35,8 @@ keyMoments:
 videoId: "qoKfSPZLAMc"
 videoTitle: "How We Revealed Costs of Damage from Iranian Strikes at a U.S. Base"
 thumbnail: "https://img.youtube.com/vi/qoKfSPZLAMc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

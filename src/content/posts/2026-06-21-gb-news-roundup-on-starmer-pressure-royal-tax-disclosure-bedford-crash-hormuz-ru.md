@@ -38,8 +38,8 @@ keyMoments:
 videoId: "ok9kJYRoe98"
 videoTitle: "Here are the five things you need to know right now."
 thumbnail: "https://img.youtube.com/vi/ok9kJYRoe98/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

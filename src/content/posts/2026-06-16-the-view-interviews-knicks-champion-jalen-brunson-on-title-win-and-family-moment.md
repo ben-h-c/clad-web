@@ -37,8 +37,8 @@ keyMoments:
 videoId: "XEvZP6txHZU"
 videoTitle: "Jalen Brunson On Historic New York Knicks Win & His Emotional Moment With His Father | The View"
 thumbnail: "https://img.youtube.com/vi/XEvZP6txHZU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

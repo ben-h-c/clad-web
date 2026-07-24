@@ -31,8 +31,8 @@ keyMoments:
 videoId: "AXzpN9wV-oQ"
 videoTitle: "Liberty Lights celebrates America's 250th through lasers, lights, music and dance"
 thumbnail: "https://img.youtube.com/vi/AXzpN9wV-oQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

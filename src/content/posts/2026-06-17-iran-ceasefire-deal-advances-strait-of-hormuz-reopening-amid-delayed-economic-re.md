@@ -38,8 +38,8 @@ keyMoments:
 videoId: "P3-3S7ZpWs8"
 videoTitle: "Iran war costs: Strait of Hormuz REOPENING, price drops will be DELAYED: Rosemary Becchi | RISING"
 thumbnail: "https://img.youtube.com/vi/P3-3S7ZpWs8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

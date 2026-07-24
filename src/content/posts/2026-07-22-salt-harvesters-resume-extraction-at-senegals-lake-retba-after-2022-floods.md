@@ -35,8 +35,8 @@ keyMoments:
 videoId: "7PCmly-QBwg"
 videoTitle: "Salt workers return to Senegal's Pink Lake after years of disruption"
 thumbnail: "https://img.youtube.com/vi/7PCmly-QBwg/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

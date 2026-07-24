@@ -32,8 +32,8 @@ keyMoments:
 videoId: "GsfaHxZWDbc"
 videoTitle: "BREAKING: Andy Burnham WINS Makerfield by-election as Keir Starmer braces for leadership challenge"
 thumbnail: "https://img.youtube.com/vi/GsfaHxZWDbc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "J1jqoeQRImA"
 videoTitle: "California bans use of consumer ‘sell-by’ dates. Could Canada do the same?"
 thumbnail: "https://img.youtube.com/vi/J1jqoeQRImA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

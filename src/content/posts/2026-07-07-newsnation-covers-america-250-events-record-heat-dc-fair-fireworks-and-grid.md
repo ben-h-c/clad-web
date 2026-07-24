@@ -40,8 +40,8 @@ keyMoments:
 videoId: "I0chkQ7G6r0"
 videoTitle: "250-year celebration: Mount Rushmore, Great American State Fair and record heat | Vargas Full Show"
 thumbnail: "https://img.youtube.com/vi/I0chkQ7G6r0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

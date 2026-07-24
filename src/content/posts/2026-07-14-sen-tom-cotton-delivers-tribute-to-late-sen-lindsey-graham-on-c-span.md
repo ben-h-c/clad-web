@@ -34,8 +34,8 @@ keyMoments:
 videoId: "J7wXqXZBdcM"
 videoTitle: "Sen. Tom Cotton tribute to late Sen. Lindsey Graham"
 thumbnail: "https://img.youtube.com/vi/J7wXqXZBdcM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

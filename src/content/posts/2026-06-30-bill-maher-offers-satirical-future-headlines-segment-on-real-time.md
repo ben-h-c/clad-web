@@ -31,8 +31,8 @@ keyMoments:
 videoId: "ARIQ5M0jNmo"
 videoTitle: "Future Headlines: Summer 2026 | Real Time with Bill Maher (HBO)"
 thumbnail: "https://img.youtube.com/vi/ARIQ5M0jNmo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

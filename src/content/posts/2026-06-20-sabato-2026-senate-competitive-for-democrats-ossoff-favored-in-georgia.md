@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Wyo4nXhXU2A"
 videoTitle: "Senate is ‘very competitive’ but Democrats need things to ‘fall just right’: Larry Sabato"
 thumbnail: "https://img.youtube.com/vi/Wyo4nXhXU2A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

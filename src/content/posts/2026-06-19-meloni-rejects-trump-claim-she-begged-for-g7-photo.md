@@ -35,8 +35,8 @@ keyMoments:
 videoId: "D4Cap_3vFuU"
 videoTitle: "Italy's Meloni fires back after Trump says she 'begged' for photo | DW News"
 thumbnail: "https://img.youtube.com/vi/D4Cap_3vFuU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "wPe4WGmMgLU"
 videoTitle: "“Absolutely not”: Hoekstra denies donations are behind postponement of Gordie Howe Bridge"
 thumbnail: "https://img.youtube.com/vi/wPe4WGmMgLU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

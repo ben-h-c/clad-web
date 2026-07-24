@@ -34,8 +34,8 @@ keyMoments:
 videoId: "-Xx-1M9A_eQ"
 videoTitle: "Netanyahu’s Main Challenger is Ex-General Who Lost Son in Gaza War"
 thumbnail: "https://img.youtube.com/vi/-Xx-1M9A_eQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

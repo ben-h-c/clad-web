@@ -39,8 +39,8 @@ keyMoments:
 videoId: "oboSCVimCVA"
 videoTitle: "$30,000 Tesla Ramps Up Production Before Launch | It's Almost Here"
 thumbnail: "https://img.youtube.com/vi/oboSCVimCVA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

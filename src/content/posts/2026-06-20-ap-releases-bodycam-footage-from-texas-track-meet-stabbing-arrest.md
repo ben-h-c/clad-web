@@ -31,8 +31,8 @@ keyMoments:
 videoId: "D2Kmkwa3Lp4"
 videoTitle: "New video shows aftermath of fatal teen stabbing at a Texas track meet"
 thumbnail: "https://img.youtube.com/vi/D2Kmkwa3Lp4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

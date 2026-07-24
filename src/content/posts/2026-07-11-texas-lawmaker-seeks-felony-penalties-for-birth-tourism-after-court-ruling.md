@@ -36,8 +36,8 @@ keyMoments:
 videoId: "xbkSJ1nw8XE"
 videoTitle: "'FELONY': Lawmaker pushes CRACKDOWN on birth tourism"
 thumbnail: "https://img.youtube.com/vi/xbkSJ1nw8XE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

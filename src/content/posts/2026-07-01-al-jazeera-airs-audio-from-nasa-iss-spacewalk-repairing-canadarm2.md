@@ -31,8 +31,8 @@ keyMoments:
 videoId: "mDE6K5JHTZs"
 videoTitle: "NASA astronauts spacewalk to fix robotic arm"
 thumbnail: "https://img.youtube.com/vi/mDE6K5JHTZs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "v6J2lrWn5kI"
 videoTitle: "Deborah Roberts got a once-in-a-lifetime chance to fly with the Patrouille de France"
 thumbnail: "https://img.youtube.com/vi/v6J2lrWn5kI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

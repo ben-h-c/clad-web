@@ -34,8 +34,8 @@ keyMoments:
 videoId: "cSa4DS291-8"
 videoTitle: "UFC suspect's mother called police about firearm purchases"
 thumbnail: "https://img.youtube.com/vi/cSa4DS291-8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

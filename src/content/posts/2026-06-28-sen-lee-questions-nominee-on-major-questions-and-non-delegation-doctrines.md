@@ -31,8 +31,8 @@ keyMoments:
 videoId: "JRWkCWF1DSs"
 videoTitle: "'Is There Overlap?': Lee Asks Trump Judicial Nom About Major Questions, Non-Delegation Doctrines"
 thumbnail: "https://img.youtube.com/vi/JRWkCWF1DSs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

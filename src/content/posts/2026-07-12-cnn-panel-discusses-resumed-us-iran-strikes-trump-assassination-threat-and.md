@@ -34,8 +34,8 @@ keyMoments:
 videoId: "-c0-H6uNxKM"
 videoTitle: "Iran strikes resume as Trump assassination plot exposed | Debate roundup"
 thumbnail: "https://img.youtube.com/vi/-c0-H6uNxKM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Rn0K55vILaA"
 videoTitle: "EXCLUSIVE: Former President Obama reacts to Iran war"
 thumbnail: "https://img.youtube.com/vi/Rn0K55vILaA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

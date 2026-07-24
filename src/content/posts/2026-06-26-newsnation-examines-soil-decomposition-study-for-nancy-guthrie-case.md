@@ -35,8 +35,8 @@ keyMoments:
 videoId: "QgR0lYu7x1I"
 videoTitle: "Could a new study help find Nancy Guthrie?"
 thumbnail: "https://img.youtube.com/vi/QgR0lYu7x1I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

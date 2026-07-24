@@ -33,8 +33,8 @@ keyMoments:
 videoId: "EGCT1XxVuE0"
 videoTitle: "'This is your captain speaking. What you have just seen, you have not.'"
 thumbnail: "https://img.youtube.com/vi/EGCT1XxVuE0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "mKqyowVlo9o"
 videoTitle: "Honeywell Aerospace BETS BIG on defense and space growth"
 thumbnail: "https://img.youtube.com/vi/mKqyowVlo9o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

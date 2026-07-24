@@ -31,8 +31,8 @@ keyMoments:
 videoId: "BfFzjG9v9_c"
 videoTitle: "Video shows a train crew surrounded by intense flames in Canada"
 thumbnail: "https://img.youtube.com/vi/BfFzjG9v9_c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

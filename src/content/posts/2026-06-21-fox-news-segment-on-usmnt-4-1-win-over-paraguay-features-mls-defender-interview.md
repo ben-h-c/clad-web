@@ -35,8 +35,8 @@ keyMoments:
 videoId: "b65Y789JeN4"
 videoTitle: "'GREAT START': MLS player praises US World Cup win over Paraguay"
 thumbnail: "https://img.youtube.com/vi/b65Y789JeN4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

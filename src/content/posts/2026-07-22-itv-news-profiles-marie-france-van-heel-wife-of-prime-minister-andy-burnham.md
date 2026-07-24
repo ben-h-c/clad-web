@@ -39,8 +39,8 @@ keyMoments:
 videoId: "isaKHphLnKg"
 videoTitle: "Who is Andy Burnham's wife Marie-France van Heel?"
 thumbnail: "https://img.youtube.com/vi/isaKHphLnKg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

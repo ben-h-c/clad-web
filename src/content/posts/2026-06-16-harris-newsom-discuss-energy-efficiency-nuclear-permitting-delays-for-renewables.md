@@ -40,8 +40,8 @@ keyMoments:
 videoId: "TcZ-feuZPLY"
 videoTitle: "Harris: 'Bureaucracy & Government Is Overwhelming In Its Ability To Slow Down Innovation & Progress'"
 thumbnail: "https://img.youtube.com/vi/TcZ-feuZPLY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

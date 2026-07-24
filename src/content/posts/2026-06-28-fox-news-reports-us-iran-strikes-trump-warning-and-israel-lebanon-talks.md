@@ -37,8 +37,8 @@ keyMoments:
 videoId: "J_hjlh0WOas"
 videoTitle: "Trump teases complete military ANNIHILATION of Iran amid strikes"
 thumbnail: "https://img.youtube.com/vi/J_hjlh0WOas/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

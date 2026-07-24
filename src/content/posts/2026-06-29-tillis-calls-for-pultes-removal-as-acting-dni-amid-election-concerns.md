@@ -36,8 +36,8 @@ keyMoments:
 videoId: "DPyVxNSksCs"
 videoTitle: "'He Needs To Get Out': Thom Tillis Rails Against Bill Pulte As DNI Pick"
 thumbnail: "https://img.youtube.com/vi/DPyVxNSksCs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

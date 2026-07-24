@@ -30,8 +30,8 @@ keyMoments:
 videoId: "bSrIrDET2qw"
 videoTitle: "Mike Collins wins Georgia GOP Senate nomination, will face Jon Ossoff"
 thumbnail: "https://img.youtube.com/vi/bSrIrDET2qw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

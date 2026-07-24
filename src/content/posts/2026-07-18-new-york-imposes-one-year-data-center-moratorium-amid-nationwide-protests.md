@@ -35,8 +35,8 @@ keyMoments:
 videoId: "v5FLUty1LYI"
 videoTitle: "Backlash growing against AI data centers"
 thumbnail: "https://img.youtube.com/vi/v5FLUty1LYI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "WUjBFFCAseI"
 videoTitle: "Conservative MP tables magic mushroom legislation | Power & Politics"
 thumbnail: "https://img.youtube.com/vi/WUjBFFCAseI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

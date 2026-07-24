@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Nm5cEmaSXHo"
 videoTitle: "Trump threatens a federal takeover of Washington, D.C. ahead of its mayoral primary"
 thumbnail: "https://img.youtube.com/vi/Nm5cEmaSXHo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

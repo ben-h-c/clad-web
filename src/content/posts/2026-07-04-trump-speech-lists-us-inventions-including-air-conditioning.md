@@ -31,8 +31,8 @@ keyMoments:
 videoId: "R6r40vLI3-o"
 videoTitle: "Trump hails invention of air conditioning during speech"
 thumbnail: "https://img.youtube.com/vi/R6r40vLI3-o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

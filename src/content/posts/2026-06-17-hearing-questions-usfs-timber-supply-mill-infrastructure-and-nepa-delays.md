@@ -36,8 +36,8 @@ keyMoments:
 videoId: "mwS44Bjr0o0"
 videoTitle: "Tom Tiffany: This Is Why USFS Must Focus On Opening New Wood Mills And Wood Processing Facilities"
 thumbnail: "https://img.youtube.com/vi/mwS44Bjr0o0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "TN1PdUEDqmY"
 videoTitle: "What does summer hold for the federal parties? | Power & Politics"
 thumbnail: "https://img.youtube.com/vi/TN1PdUEDqmY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

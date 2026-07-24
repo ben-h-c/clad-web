@@ -37,8 +37,8 @@ keyMoments:
 videoId: "o1XUz0Wzerc"
 videoTitle: "'The Biggest Housing Bill In More Than 30 Years': Elizabeth Warren Touts 'Historic' Housing Bill"
 thumbnail: "https://img.youtube.com/vi/o1XUz0Wzerc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

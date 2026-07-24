@@ -31,8 +31,8 @@ keyMoments:
 videoId: "HCqNFFO_4R8"
 videoTitle: "Ingraham TORCHES Hollywood over anti-America videos #shorts #us #news #hollywood"
 thumbnail: "https://img.youtube.com/vi/HCqNFFO_4R8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

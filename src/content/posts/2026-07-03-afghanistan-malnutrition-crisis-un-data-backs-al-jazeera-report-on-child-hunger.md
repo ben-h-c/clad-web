@@ -35,8 +35,8 @@ keyMoments:
 videoId: "GDchXiQ-cSw"
 videoTitle: "Afghanistan malnutrition: UN warns 3.7 million children are at risk"
 thumbnail: "https://img.youtube.com/vi/GDchXiQ-cSw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

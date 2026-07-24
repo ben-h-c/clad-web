@@ -34,8 +34,8 @@ keyMoments:
 videoId: "-D40MKvQQDM"
 videoTitle: "Monica McNutt reflects on the decades-long wait for a Knicks championship"
 thumbnail: "https://cladfacts.com/generated/2026-06-16-pbs-reflects-on-knicks-2026-nba-title-after-53-year-wait.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

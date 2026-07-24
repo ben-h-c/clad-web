@@ -31,8 +31,8 @@ keyMoments:
 videoId: "rAirLHc7eyk"
 videoTitle: "France reports 1,000 additional deaths from extreme heat wave"
 thumbnail: "https://img.youtube.com/vi/rAirLHc7eyk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

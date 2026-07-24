@@ -34,8 +34,8 @@ keyMoments:
 videoId: "1FZuEoCj6SA"
 videoTitle: "Rep. Darin LaHood (R-Ill.) says housing is slowing job growth"
 thumbnail: "https://img.youtube.com/vi/1FZuEoCj6SA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

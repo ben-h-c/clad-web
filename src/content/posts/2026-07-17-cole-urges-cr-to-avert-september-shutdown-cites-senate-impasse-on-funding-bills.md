@@ -37,8 +37,8 @@ keyMoments:
 videoId: "4yhTRgItMCk"
 videoTitle: "Rep. Cole’s Weekly Chat | Week of 7.13.26"
 thumbnail: "https://img.youtube.com/vi/4yhTRgItMCk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

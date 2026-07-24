@@ -31,8 +31,8 @@ keyMoments:
 videoId: "Q3jNIqckGP8"
 videoTitle: "Argentina fans rejoice as Messi delivers hat-trick victory"
 thumbnail: "https://img.youtube.com/vi/Q3jNIqckGP8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

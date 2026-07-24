@@ -36,8 +36,8 @@ keyMoments:
 videoId: "LV9KnekuOtk"
 videoTitle: "‘Starmer Is A TRAITOR’ | ‘He Left Blackhole In Defence Budget Over Beef With Andy Burnham’"
 thumbnail: "https://img.youtube.com/vi/LV9KnekuOtk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

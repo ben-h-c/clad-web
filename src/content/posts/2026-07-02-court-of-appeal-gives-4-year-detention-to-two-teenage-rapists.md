@@ -34,8 +34,8 @@ keyMoments:
 videoId: "TRU7TdHykiU"
 videoTitle: "Two teenage boys who raped girls given four years' detention | BBC News"
 thumbnail: "https://img.youtube.com/vi/TRU7TdHykiU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "Xgd_bQ4Mscg"
 videoTitle: "Is AI ALIVE? What AI is teaching us about consciousness with Michael Pollan and Chris Hayes"
 thumbnail: "https://img.youtube.com/vi/Xgd_bQ4Mscg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

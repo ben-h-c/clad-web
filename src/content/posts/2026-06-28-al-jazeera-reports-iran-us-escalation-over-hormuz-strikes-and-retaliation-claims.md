@@ -39,8 +39,8 @@ keyMoments:
 videoId: "5MFQXsdsEXE"
 videoTitle: "Iran launches attacks on US military sites in Kuwait and Bahrain after US strikes."
 thumbnail: "https://img.youtube.com/vi/5MFQXsdsEXE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

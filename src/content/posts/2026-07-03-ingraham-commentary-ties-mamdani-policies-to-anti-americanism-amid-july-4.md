@@ -33,8 +33,8 @@ keyMoments:
 videoId: "0NdoMnmkNMU"
 videoTitle: "Laura Ingraham: We celebrate America — don't let the haters get you down"
 thumbnail: "https://img.youtube.com/vi/0NdoMnmkNMU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

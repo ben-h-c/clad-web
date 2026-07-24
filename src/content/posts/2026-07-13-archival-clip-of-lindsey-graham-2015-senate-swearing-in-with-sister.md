@@ -25,8 +25,8 @@ keyMoments:
 videoId: "fe-GBz05q8U"
 videoTitle: "FLASHBACK: Lindsey Graham's Sister, Darline Graham Nordone, Participates In His 2015 Swearing-In"
 thumbnail: "https://img.youtube.com/vi/fe-GBz05q8U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

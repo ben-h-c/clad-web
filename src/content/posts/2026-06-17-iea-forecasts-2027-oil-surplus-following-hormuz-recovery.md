@@ -35,8 +35,8 @@ keyMoments:
 videoId: "OrjhklS1ta0"
 videoTitle: "IEA sees oil surplus in 2027 after Hormuz reopening"
 thumbnail: "https://img.youtube.com/vi/OrjhklS1ta0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

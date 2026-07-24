@@ -36,8 +36,8 @@ keyMoments:
 videoId: "PDjYyqG2J6M"
 videoTitle: "&quot;You Won&#39;t Share It With Congress?&quot; Scanlon Grills Pam Bondi Over DOJ Policy"
 thumbnail: "https://img.youtube.com/vi/PDjYyqG2J6M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

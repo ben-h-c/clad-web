@@ -35,8 +35,8 @@ keyMoments:
 videoId: "DPLh08EaoEs"
 videoTitle: "NY Gov. On Using AI To Clean Up The State's Legal Code"
 thumbnail: "https://img.youtube.com/vi/DPLh08EaoEs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

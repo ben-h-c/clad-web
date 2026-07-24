@@ -32,8 +32,8 @@ keyMoments:
 videoId: "1rywuKymkEo"
 videoTitle: "Trump meeting with Indian PM Narendra Modi at G7 Summit"
 thumbnail: "https://img.youtube.com/vi/1rywuKymkEo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

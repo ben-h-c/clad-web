@@ -38,8 +38,8 @@ keyMoments:
 videoId: "9fC2YT9M57c"
 videoTitle: "The Strait of Hormuz standoff that could reignite the Iran War"
 thumbnail: "https://img.youtube.com/vi/9fC2YT9M57c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

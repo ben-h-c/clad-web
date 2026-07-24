@@ -31,8 +31,8 @@ keyMoments:
 videoId: "Ge_I45NRfZk"
 videoTitle: "'Tonight could be the turning point': Andy Burnham wins Makerfield by-election"
 thumbnail: "https://img.youtube.com/vi/Ge_I45NRfZk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

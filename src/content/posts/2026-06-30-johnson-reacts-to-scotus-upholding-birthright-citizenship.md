@@ -31,8 +31,8 @@ keyMoments:
 videoId: "UIQfCJjHBJ4"
 videoTitle: "Johnson reacts to birthright citizenship ruling"
 thumbnail: "https://img.youtube.com/vi/UIQfCJjHBJ4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

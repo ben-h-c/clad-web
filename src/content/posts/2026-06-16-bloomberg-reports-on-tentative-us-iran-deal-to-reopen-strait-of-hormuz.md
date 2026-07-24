@@ -34,8 +34,8 @@ keyMoments:
 videoId: "CMqVTnf4zmk"
 videoTitle: "Iran Won't 'Get a Dime' of US Taxpayer Money, Vance Says"
 thumbnail: "https://img.youtube.com/vi/CMqVTnf4zmk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

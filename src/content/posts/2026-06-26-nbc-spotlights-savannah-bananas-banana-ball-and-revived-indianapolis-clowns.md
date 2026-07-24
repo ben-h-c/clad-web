@@ -35,8 +35,8 @@ keyMoments:
 videoId: "0fGv35flplo"
 videoTitle: "Banana Baseball? Jesse Cole? What’s Going On?"
 thumbnail: "https://img.youtube.com/vi/0fGv35flplo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

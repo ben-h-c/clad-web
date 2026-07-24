@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Iqq-QDsD2XE"
 videoTitle: "U.S. and Iran reach a deal. Now what?"
 thumbnail: "https://img.youtube.com/vi/Iqq-QDsD2XE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

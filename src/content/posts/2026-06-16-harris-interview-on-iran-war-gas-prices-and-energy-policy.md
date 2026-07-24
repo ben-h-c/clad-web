@@ -37,8 +37,8 @@ keyMoments:
 videoId: "2RnakVffJGg"
 videoTitle: "Kamala Harris Asked Point Blank: If You Were President, Does That War With Iran Even Happen?"
 thumbnail: "https://img.youtube.com/vi/2RnakVffJGg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

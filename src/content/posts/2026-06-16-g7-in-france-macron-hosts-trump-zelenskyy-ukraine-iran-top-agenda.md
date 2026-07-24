@@ -35,8 +35,8 @@ keyMoments:
 videoId: "oX437yqH5NY"
 videoTitle: "Macron hosts Trump and Zelenskyy as G7 leaders discuss Ukraine"
 thumbnail: "https://img.youtube.com/vi/oX437yqH5NY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

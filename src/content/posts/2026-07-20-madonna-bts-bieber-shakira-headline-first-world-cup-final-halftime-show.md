@@ -35,8 +35,8 @@ keyMoments:
 videoId: "YDc6NTIvmZM"
 videoTitle: "Madonna, Justin Bieber, BTS and Shakira perform at the World Cup final"
 thumbnail: "https://img.youtube.com/vi/YDc6NTIvmZM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

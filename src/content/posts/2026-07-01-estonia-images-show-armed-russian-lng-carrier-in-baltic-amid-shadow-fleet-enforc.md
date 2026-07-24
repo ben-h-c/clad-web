@@ -35,8 +35,8 @@ keyMoments:
 videoId: "93VhhukLWfI"
 videoTitle: "Armed Russian ships test Western sanctions in the Baltic Sea | DW News"
 thumbnail: "https://img.youtube.com/vi/93VhhukLWfI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

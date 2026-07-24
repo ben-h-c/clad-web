@@ -35,8 +35,8 @@ keyMoments:
 videoId: "wORUMZgK8KQ"
 videoTitle: "Growing outrage over hard foul against Caitlin Clark"
 thumbnail: "https://img.youtube.com/vi/wORUMZgK8KQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

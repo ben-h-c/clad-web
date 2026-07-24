@@ -38,8 +38,8 @@ keyMoments:
 videoId: "n5XegYxrHAg"
 videoTitle: "LIVE: White House holds press briefing | NBC News"
 thumbnail: "https://img.youtube.com/vi/n5XegYxrHAg/maxresdefault.jpg"
-mediaNote: "Speaker face upper-middle at podium; avoid foreground hands"
-thumbFocusY: 28
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

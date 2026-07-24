@@ -36,8 +36,8 @@ keyMoments:
 videoId: "EzSCWea5Qmw"
 videoTitle: "Is the Saudi nuclear deal a diplomatic loss? A strategist explains | On Balance"
 thumbnail: "https://img.youtube.com/vi/EzSCWea5Qmw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

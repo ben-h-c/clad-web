@@ -37,8 +37,8 @@ keyMoments:
 videoId: "ifci1Du8O_M"
 videoTitle: "‘Nobody feels safe’ | Ann Widdecombe's murder is a ‘damning indictment’ of policing in Britain"
 thumbnail: "https://img.youtube.com/vi/ifci1Du8O_M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "hpY6wxFw-w0"
 videoTitle: "&#39;Can You Disagree With Trump&#39; Kelly Grills Clayton As He Refuses To Answer &#39;Who Won 2020&#39; Question"
 thumbnail: "https://img.youtube.com/vi/hpY6wxFw-w0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

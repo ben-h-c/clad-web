@@ -37,8 +37,8 @@ keyMoments:
 videoId: "wu2q2wK281c"
 videoTitle: "Pallone Condemns Trump&#39;s Proposed MAGA Rally - FOX"
 thumbnail: "https://img.youtube.com/vi/wu2q2wK281c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

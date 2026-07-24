@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Tx5OteM_YPY"
 videoTitle: "Lebanon-Israel talks ‘not going very well’ amid ceasefire and withdrawal dispute: Analysis"
 thumbnail: "https://img.youtube.com/vi/Tx5OteM_YPY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

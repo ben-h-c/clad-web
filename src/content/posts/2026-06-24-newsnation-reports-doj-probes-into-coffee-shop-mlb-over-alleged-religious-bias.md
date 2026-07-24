@@ -33,8 +33,8 @@ keyMoments:
 videoId: "I7MKkDHKt2A"
 videoTitle: "DOJ's Harmeet Dhillon calls for investigation into MLB over anti-Christian discrimination"
 thumbnail: "https://img.youtube.com/vi/I7MKkDHKt2A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

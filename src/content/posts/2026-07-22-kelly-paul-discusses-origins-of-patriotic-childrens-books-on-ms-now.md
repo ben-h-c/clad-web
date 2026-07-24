@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Fnd8Y57-IbA"
 videoTitle: "What inspired Sen. Rand Paul&#39;s wife to write two patriotic children&#39;s books"
 thumbnail: "https://img.youtube.com/vi/Fnd8Y57-IbA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

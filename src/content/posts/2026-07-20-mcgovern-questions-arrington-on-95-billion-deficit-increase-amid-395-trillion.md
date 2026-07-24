@@ -36,8 +36,8 @@ keyMoments:
 videoId: "TBXfTmH9kxc"
 videoTitle: "'It Makes Richard Nixon Look Like A Boy Scout': Jim McGovern Flames Trump Admin For Corruption"
 thumbnail: "https://img.youtube.com/vi/TBXfTmH9kxc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

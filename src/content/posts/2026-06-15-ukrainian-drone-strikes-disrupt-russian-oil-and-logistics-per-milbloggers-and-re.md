@@ -36,8 +36,8 @@ keyMoments:
     note: "Strikes on GLOCs and energy infrastructure are documented as disrupting logistics to Crimea and front lines per ISW and Ukrainian statements."
 videoId: "RJ2YsNjchBc"
 thumbnail: "https://img.youtube.com/vi/RJ2YsNjchBc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -27,8 +27,8 @@ keyMoments:
 videoId: "GR9liMk-h1Y"
 videoTitle: "Over 2,700 deaths from hot weather #Heatwave #England #Wales #Climate"
 thumbnail: "https://img.youtube.com/vi/GR9liMk-h1Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -24,8 +24,8 @@ keyMoments:
 videoId: "_zd6u2XVeOA"
 videoTitle: "Trump jokes \"I'm the boss\" after arriving late to G7 meeting | DW News"
 thumbnail: "https://img.youtube.com/vi/_zd6u2XVeOA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

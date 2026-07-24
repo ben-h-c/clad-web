@@ -31,8 +31,8 @@ keyMoments:
 videoId: "WM4HGlKkkqo"
 videoTitle: "What to know as a New York building triggers fears of a collapse"
 thumbnail: "https://img.youtube.com/vi/WM4HGlKkkqo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

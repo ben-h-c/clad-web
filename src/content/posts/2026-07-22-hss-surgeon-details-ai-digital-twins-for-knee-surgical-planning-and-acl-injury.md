@@ -36,8 +36,8 @@ keyMoments:
 videoId: "-yBdDPA4_Lw"
 videoTitle: "'THE ULTIMATE PHYSICIAN EXTENDER': AI expands doctors' capabilities in patient care"
 thumbnail: "https://img.youtube.com/vi/-yBdDPA4_Lw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

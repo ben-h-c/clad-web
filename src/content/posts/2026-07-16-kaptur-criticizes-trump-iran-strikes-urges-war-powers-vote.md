@@ -34,8 +34,8 @@ keyMoments:
 videoId: "QKun7QQp_Aw"
 videoTitle: "Marcy Kaptur - Ok with Iran getting Nuclear Weapons and continuing to support terrorism"
 thumbnail: "https://img.youtube.com/vi/QKun7QQp_Aw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

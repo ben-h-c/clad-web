@@ -37,8 +37,8 @@ keyMoments:
 videoId: "D-TGJBZIK1I"
 videoTitle: "\"We're Living In A Weird Place!\" | Parents May Be Jailed For Trying To Stop Kids Becoming Trans"
 thumbnail: "https://img.youtube.com/vi/D-TGJBZIK1I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

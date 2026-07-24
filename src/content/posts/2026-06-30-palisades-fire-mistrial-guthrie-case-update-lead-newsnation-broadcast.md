@@ -38,8 +38,8 @@ keyMoments:
 videoId: "iWOr6kd9Qx4"
 videoTitle: "Palisades Fire trial ends in mistrial; defense attorney speaks out | Jesse Weber Live Full Show"
 thumbnail: "https://img.youtube.com/vi/iWOr6kd9Qx4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

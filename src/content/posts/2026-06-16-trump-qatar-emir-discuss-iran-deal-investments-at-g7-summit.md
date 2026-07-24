@@ -36,8 +36,8 @@ keyMoments:
 videoId: "r_kn_ZoyO74"
 videoTitle: "Trump meets with emir of Qatar during G7 summit in France"
 thumbnail: "https://img.youtube.com/vi/r_kn_ZoyO74/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

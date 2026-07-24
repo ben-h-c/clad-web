@@ -34,8 +34,8 @@ keyMoments:
 videoId: "k_uRxpAjiA8"
 videoTitle: "Pence on Iran deal: \"I have concerns\""
 thumbnail: "https://img.youtube.com/vi/k_uRxpAjiA8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

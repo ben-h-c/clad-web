@@ -31,8 +31,8 @@ keyMoments:
 videoId: "fof8QrXNzoc"
 videoTitle: "Rep. Tom Kean of New Jersey returns to Congress, explains he was being treated for depression"
 thumbnail: "https://img.youtube.com/vi/fof8QrXNzoc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

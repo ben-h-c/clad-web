@@ -35,8 +35,8 @@ keyMoments:
 videoId: "_YVr_j1O-SI"
 videoTitle: "US Rep Ro Khanna speaks out about being harassed by Israeli settlers"
 thumbnail: "https://img.youtube.com/vi/_YVr_j1O-SI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

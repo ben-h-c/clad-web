@@ -33,8 +33,8 @@ keyMoments:
 videoId: "thGhncvyGaE"
 videoTitle: "JUST IN: Leavitt Asked For Trump's Reaction To Sophie Cunningham Airing Concerns Over Trans Athletes"
 thumbnail: "https://img.youtube.com/vi/thGhncvyGaE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

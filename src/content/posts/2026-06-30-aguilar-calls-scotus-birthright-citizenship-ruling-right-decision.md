@@ -31,8 +31,8 @@ keyMoments:
 videoId: "RirjuQ8anvw"
 videoTitle: "Pete Aguilar: Supreme Court's Ruling On Birthright Citizenship Was The 'Right Decision'"
 thumbnail: "https://img.youtube.com/vi/RirjuQ8anvw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "oUYEgwFDEJ4"
 videoTitle: "'THE CEILING IS A LOT LOWER': What changes after Hormuz reopens?"
 thumbnail: "https://img.youtube.com/vi/oUYEgwFDEJ4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "b0XxRP2vFfU"
 videoTitle: "US, Iran offer conflicting accounts of ceasefire deal"
 thumbnail: "https://img.youtube.com/vi/b0XxRP2vFfU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

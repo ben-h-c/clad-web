@@ -35,8 +35,8 @@ keyMoments:
 videoId: "RzTboRX5pt8"
 videoTitle: "'Listen To Your Constituents And End This War': Tammy Baldwin Calls On GOP To Support War Powers Act"
 thumbnail: "https://img.youtube.com/vi/RzTboRX5pt8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

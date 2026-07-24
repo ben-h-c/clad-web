@@ -34,8 +34,8 @@ keyMoments:
 videoId: "nZKcm02Bq1U"
 videoTitle: "Venezuela: Survivors say rescue effort too slow • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/nZKcm02Bq1U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "WxbddTEeDgU"
 videoTitle: "Liberal media BLASTED for focusing on reflecting pool while Trump addresses world conflicts"
 thumbnail: "https://img.youtube.com/vi/WxbddTEeDgU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

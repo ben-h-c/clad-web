@@ -38,8 +38,8 @@ keyMoments:
 videoId: "Fb-ycdpHxdc"
 videoTitle: "Can US-Iran talks bring 'genuine peace'? | Analysis"
 thumbnail: "https://img.youtube.com/vi/Fb-ycdpHxdc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "WWgO-C7_RmI"
 videoTitle: "'It's A Racket!': John Barrasso Decries 'Staggering' Scale Of Medicaid Fraud"
 thumbnail: "https://img.youtube.com/vi/WWgO-C7_RmI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

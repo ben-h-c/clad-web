@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Kwe87qe1C68"
 videoTitle: "Ricketts Asks FHA's McMaster About 'Efficiency Improvements' Amid 'Delays' In Bridge & Road Funding"
 thumbnail: "https://img.youtube.com/vi/Kwe87qe1C68/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

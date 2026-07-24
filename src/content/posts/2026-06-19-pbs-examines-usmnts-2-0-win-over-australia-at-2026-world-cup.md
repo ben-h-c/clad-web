@@ -37,8 +37,8 @@ keyMoments:
 videoId: "6tTPRLIQH7Y"
 videoTitle: "U.S. advances to World Cup knockout round after win against Australia"
 thumbnail: "https://img.youtube.com/vi/6tTPRLIQH7Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

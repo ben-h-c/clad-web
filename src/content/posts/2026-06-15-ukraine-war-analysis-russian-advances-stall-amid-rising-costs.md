@@ -36,8 +36,8 @@ keyMoments:
     note: "Hungarian election results confirm Tisza Party victory; Magyar pledged to lift veto on EU aid packages."
 videoId: "T8y7ZIq4jXY"
 thumbnail: "https://img.youtube.com/vi/T8y7ZIq4jXY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

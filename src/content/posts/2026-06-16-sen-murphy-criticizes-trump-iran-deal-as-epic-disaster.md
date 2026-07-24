@@ -38,8 +38,8 @@ keyMoments:
 videoId: "OZd6WiCiMDg"
 videoTitle: "Chris Murphy Drops The Hammer On Trump After Peace Deal Announced: 'This War Has Been Epic Disaster'"
 thumbnail: "https://img.youtube.com/vi/OZd6WiCiMDg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

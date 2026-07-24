@@ -34,8 +34,8 @@ keyMoments:
 videoId: "3bDlYnOZ5nA"
 videoTitle: "DOJ Sues Virginia Governor Spanberger Over 'Neo-Confederate' Immigration Laws"
 thumbnail: "https://img.youtube.com/vi/3bDlYnOZ5nA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

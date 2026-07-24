@@ -40,8 +40,8 @@ keyMoments:
 videoId: "wA8PTPdD3hY"
 videoTitle: "'This Fight Is Not Over': Alex Padilla Introduces Bill To Block DOJ's $1.8 Billion 'Slush Fund'"
 thumbnail: "https://img.youtube.com/vi/wA8PTPdD3hY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "I-8jJ-JC0A4"
 videoTitle: "Trump calls housing affordability bill 'a big yawn'"
 thumbnail: "https://img.youtube.com/vi/I-8jJ-JC0A4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

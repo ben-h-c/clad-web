@@ -34,8 +34,8 @@ keyMoments:
 videoId: "gpUDFYQ9joc"
 videoTitle: "Andy Burnham sets out vision for UK under his leadership"
 thumbnail: "https://img.youtube.com/vi/gpUDFYQ9joc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

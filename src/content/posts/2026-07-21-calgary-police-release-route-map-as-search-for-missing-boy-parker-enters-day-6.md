@@ -33,8 +33,8 @@ keyMoments:
 videoId: "xWlZcam3XyM"
 videoTitle: "Search for missing Calgary child stretches into day 6"
 thumbnail: "https://img.youtube.com/vi/xWlZcam3XyM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

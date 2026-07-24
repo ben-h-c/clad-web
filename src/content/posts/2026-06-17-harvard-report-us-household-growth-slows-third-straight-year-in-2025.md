@@ -34,8 +34,8 @@ keyMoments:
 videoId: "3sRgwkqGHiw"
 videoTitle: "Household growth fell for third straight year in 2025, study finds"
 thumbnail: "https://img.youtube.com/vi/3sRgwkqGHiw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

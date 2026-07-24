@@ -35,8 +35,8 @@ keyMoments:
 videoId: "HtBNTSxXXDw"
 videoTitle: "'That Is A Very Concerning Proposed Rule...': Murray Grills Trump Nom Over Limiting 'Cronyism'"
 thumbnail: "https://img.youtube.com/vi/HtBNTSxXXDw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

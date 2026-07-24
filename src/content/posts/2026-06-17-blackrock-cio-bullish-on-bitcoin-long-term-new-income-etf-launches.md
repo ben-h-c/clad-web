@@ -40,8 +40,8 @@ keyMoments:
 videoId: "at3WIe_ugrI"
 videoTitle: "Why BlackRock Thinks Bitcoin Goes to $750k (XRP & TAO news)"
 thumbnail: "https://img.youtube.com/vi/at3WIe_ugrI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

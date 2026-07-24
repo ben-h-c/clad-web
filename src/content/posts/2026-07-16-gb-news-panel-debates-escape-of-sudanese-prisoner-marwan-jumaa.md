@@ -32,8 +32,8 @@ keyMoments:
 videoId: "ynBeeJU1VlE"
 videoTitle: "GB News panel BASH \"PIECE OF FILTH\" who ESCAPED police custody"
 thumbnail: "https://img.youtube.com/vi/ynBeeJU1VlE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

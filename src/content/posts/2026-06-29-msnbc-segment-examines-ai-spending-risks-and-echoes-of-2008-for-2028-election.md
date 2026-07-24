@@ -39,8 +39,8 @@ keyMoments:
 videoId: "F7IO84n3uaU"
 videoTitle: "How Dems could win back WH for a generation: See the CRASH scenario haunting Trump (Sorkin x Melber)"
 thumbnail: "https://img.youtube.com/vi/F7IO84n3uaU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

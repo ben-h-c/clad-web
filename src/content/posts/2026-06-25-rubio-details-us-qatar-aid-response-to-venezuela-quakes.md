@@ -34,8 +34,8 @@ keyMoments:
 videoId: "K3d1tBA67Hw"
 videoTitle: "'Other Countries Are Responding As Well': Rubio Says Qatar Offered Assistance In Venezuela"
 thumbnail: "https://img.youtube.com/vi/K3d1tBA67Hw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

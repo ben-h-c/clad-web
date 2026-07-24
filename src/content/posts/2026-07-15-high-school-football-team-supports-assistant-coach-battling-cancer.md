@@ -31,8 +31,8 @@ keyMoments:
 videoId: "clY_liyv0Us"
 videoTitle: "Good News: High school football team surprises coach as he battles cancer"
 thumbnail: "https://img.youtube.com/vi/clY_liyv0Us/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "MGZ9fJi0l8I"
 videoTitle: "Vice President JD Vance heads to Switzerland for Iran negotiations"
 thumbnail: "https://img.youtube.com/vi/MGZ9fJi0l8I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

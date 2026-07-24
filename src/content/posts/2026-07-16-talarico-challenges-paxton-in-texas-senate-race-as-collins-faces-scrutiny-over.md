@@ -35,8 +35,8 @@ keyMoments:
 videoId: "qsN3AggVRvM"
 videoTitle: "'Something's REALLY happening here': Unappealing GOP candidates give Dems FIGHTING midterms chance"
 thumbnail: "https://img.youtube.com/vi/qsN3AggVRvM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

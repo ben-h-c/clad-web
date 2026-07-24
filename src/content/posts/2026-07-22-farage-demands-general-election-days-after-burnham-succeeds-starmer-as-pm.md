@@ -37,8 +37,8 @@ keyMoments:
 videoId: "tgT1bIm0gtc"
 videoTitle: "WATCH: Nigel Farage ERUPTS at Andy Burnham DEMANDING election and SLAMMING migration stance"
 thumbnail: "https://img.youtube.com/vi/tgT1bIm0gtc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

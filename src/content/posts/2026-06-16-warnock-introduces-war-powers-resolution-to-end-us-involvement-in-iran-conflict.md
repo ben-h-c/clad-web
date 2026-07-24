@@ -40,8 +40,8 @@ keyMoments:
 videoId: "Rf7MvhjUdk0"
 videoTitle: "JUST IN: Raphael Warnock Decries 'Failed War' With Iran, Introduces Another War Powers Resolution"
 thumbnail: "https://img.youtube.com/vi/Rf7MvhjUdk0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

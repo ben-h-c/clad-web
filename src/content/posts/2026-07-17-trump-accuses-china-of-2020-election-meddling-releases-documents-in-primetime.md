@@ -34,8 +34,8 @@ keyMoments:
 videoId: "zxj0aAORvqA"
 videoTitle: "Trump uses primetime address to raise doubts about US elections ahead of midterms"
 thumbnail: "https://img.youtube.com/vi/zxj0aAORvqA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "rQTaaw8Vbws"
 videoTitle: "Corey Feldman hospitalized after medical emergency"
 thumbnail: "https://img.youtube.com/vi/rQTaaw8Vbws/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Ra_rQUwqRRo"
 videoTitle: "Keohokalole and Case spar over voting security and partisanship"
 thumbnail: "https://img.youtube.com/vi/Ra_rQUwqRRo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

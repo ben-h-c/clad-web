@@ -40,8 +40,8 @@ keyMoments:
 videoId: "K0j2sr6wJBw"
 videoTitle: "Inside the coordinated strategy to radically reshape US immigration"
 thumbnail: "https://img.youtube.com/vi/K0j2sr6wJBw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

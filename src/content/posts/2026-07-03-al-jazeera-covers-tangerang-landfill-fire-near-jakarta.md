@@ -32,8 +32,8 @@ keyMoments:
 videoId: "rRRN7M_5GC0"
 videoTitle: "Indonesia battles landfill fire near Jakarta as helicopters join firefighting effort | #AJ shorts"
 thumbnail: "https://img.youtube.com/vi/rRRN7M_5GC0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

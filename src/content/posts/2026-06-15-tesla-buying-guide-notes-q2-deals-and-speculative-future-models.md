@@ -39,8 +39,8 @@ keyMoments:
 videoId: "lAZjZlW2vcc"
 videoTitle: "Tesla Finally Has NEW Models Launching Soon!"
 thumbnail: "https://img.youtube.com/vi/lAZjZlW2vcc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

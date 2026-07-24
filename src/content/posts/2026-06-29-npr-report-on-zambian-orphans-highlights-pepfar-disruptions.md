@@ -37,8 +37,8 @@ keyMoments:
 videoId: "romH2coH-8o"
 videoTitle: "Three brothers in Zambia navigate life after they lost their parents to AIDS"
 thumbnail: "https://img.youtube.com/vi/romH2coH-8o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

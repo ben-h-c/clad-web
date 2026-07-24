@@ -35,8 +35,8 @@ keyMoments:
 videoId: "CSraN99dcIU"
 videoTitle: "Mike Lee Questions OMB Nominee About Uniform Guidance Reforms To Combat Waste, Fraud, And Abuse"
 thumbnail: "https://img.youtube.com/vi/CSraN99dcIU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

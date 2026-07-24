@@ -31,8 +31,8 @@ keyMoments:
 videoId: "aT-KesB-fV4"
 videoTitle: "Israel and Lebanon sign framework agreement with the US"
 thumbnail: "https://img.youtube.com/vi/aT-KesB-fV4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

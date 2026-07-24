@@ -35,8 +35,8 @@ keyMoments:
 videoId: "qacpZaJLHWw"
 videoTitle: "'Close Calls Should Not Simply Be Viewed As Warnings': Moran Calls For Better Airspace Safety"
 thumbnail: "https://img.youtube.com/vi/qacpZaJLHWw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

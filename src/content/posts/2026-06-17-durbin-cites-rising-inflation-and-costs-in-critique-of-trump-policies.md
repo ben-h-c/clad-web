@@ -35,8 +35,8 @@ keyMoments:
 videoId: "EqamStcn50s"
 videoTitle: "'Another Broken Promise': Dick Durbin Skewers Trump After Inflation Hits Three-Year High"
 thumbnail: "https://img.youtube.com/vi/EqamStcn50s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

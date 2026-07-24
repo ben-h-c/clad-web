@@ -33,8 +33,8 @@ keyMoments:
 videoId: "_OxQw_tk9Mg"
 videoTitle: "Gilgo Beach serial killer addresses court as he's sentenced to life in prison without parole"
 thumbnail: "https://img.youtube.com/vi/_OxQw_tk9Mg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

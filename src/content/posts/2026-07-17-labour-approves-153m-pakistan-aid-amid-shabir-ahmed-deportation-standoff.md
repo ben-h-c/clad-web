@@ -38,8 +38,8 @@ keyMoments:
 videoId: "g57ADK8vyc0"
 videoTitle: "Labour to send £153m to Pakistan DESPITE rape gang leader Shabir Ahmed deportation battle - 'FARCE!'"
 thumbnail: "https://img.youtube.com/vi/g57ADK8vyc0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

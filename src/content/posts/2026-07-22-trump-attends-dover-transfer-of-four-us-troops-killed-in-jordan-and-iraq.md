@@ -36,8 +36,8 @@ keyMoments:
 videoId: "R8aek5gxnh0"
 videoTitle: "Trump attends transfer of four US troops killed in Iranian attacks"
 thumbnail: "https://img.youtube.com/vi/R8aek5gxnh0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

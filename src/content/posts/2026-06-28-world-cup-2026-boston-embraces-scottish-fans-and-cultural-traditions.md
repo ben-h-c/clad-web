@@ -34,8 +34,8 @@ keyMoments:
 videoId: "f0VdRMEoeOY"
 videoTitle: "World Cup Fever Energizes Boston Ahead of Knockout Stage"
 thumbnail: "https://img.youtube.com/vi/f0VdRMEoeOY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -39,8 +39,8 @@ keyMoments:
 videoId: "ENrodjDMDYY"
 videoTitle: "Housing Affordability &amp; Supply w/ HUD Sec. Scott Turner | Hill Nation Summit"
 thumbnail: "https://img.youtube.com/vi/ENrodjDMDYY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

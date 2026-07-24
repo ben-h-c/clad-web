@@ -28,8 +28,8 @@ keyMoments:
 videoId: "zCvxgF6oc84"
 videoTitle: "Ivory Coast fans celebrate as team reaches World Cup knockout stage"
 thumbnail: "https://img.youtube.com/vi/zCvxgF6oc84/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

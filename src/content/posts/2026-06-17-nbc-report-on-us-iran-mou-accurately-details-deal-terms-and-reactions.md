@@ -36,8 +36,8 @@ keyMoments:
 videoId: "9mnWLw1-efg"
 videoTitle: "Iran’s ballistic missiles not mentioned in agreement but Trump says they ‘have to have some’"
 thumbnail: "https://img.youtube.com/vi/9mnWLw1-efg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

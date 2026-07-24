@@ -32,8 +32,8 @@ keyMoments:
 videoId: "MQ21AcUOZzg"
 videoTitle: "The right-wing media paints New York's joyous Knicks celebration as an orgy of chaos and violence"
 thumbnail: "https://img.youtube.com/vi/MQ21AcUOZzg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

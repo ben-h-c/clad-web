@@ -36,8 +36,8 @@ keyMoments:
 videoId: "28Aq3OzAqHU"
 videoTitle: "Fight back or back down: How should Canada respond to Trump tariff threat? | Power & Politics"
 thumbnail: "https://img.youtube.com/vi/28Aq3OzAqHU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

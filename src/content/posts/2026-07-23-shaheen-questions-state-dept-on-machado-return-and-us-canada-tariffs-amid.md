@@ -37,8 +37,8 @@ keyMoments:
 videoId: "duhe_d5yHjg"
 videoTitle: "Sen. Jeanne Shaheen (D-NH) - Hearing on Latin America"
 thumbnail: "https://img.youtube.com/vi/duhe_d5yHjg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

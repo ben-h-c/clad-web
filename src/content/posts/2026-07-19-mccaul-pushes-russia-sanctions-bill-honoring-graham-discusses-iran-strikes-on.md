@@ -37,8 +37,8 @@ keyMoments:
 videoId: "CwZ_An8ebuc"
 videoTitle: "Chairman Emeritus McCaul Joins Fox News Sunday to Discuss Graham Legacy, Russia Sanctions Bill, More"
 thumbnail: "https://img.youtube.com/vi/CwZ_An8ebuc/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

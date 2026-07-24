@@ -34,8 +34,8 @@ keyMoments:
 videoId: "63tCF3ZncvE"
 videoTitle: "British couple describe moment Russian warship fired warning shots near them | BBC News"
 thumbnail: "https://img.youtube.com/vi/63tCF3ZncvE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

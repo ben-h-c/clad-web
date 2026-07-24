@@ -35,8 +35,8 @@ keyMoments:
 videoId: "5EPkNb5-Jsk"
 videoTitle: "This is such deep, virulent anti-Americanism: Newt Gingrich"
 thumbnail: "https://img.youtube.com/vi/5EPkNb5-Jsk/maxresdefault.jpg"
-mediaNote: "Split talking-heads: dual faces upper-middle; avoid bottom logos/podium and extreme side edges"
-thumbFocusY: 28
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

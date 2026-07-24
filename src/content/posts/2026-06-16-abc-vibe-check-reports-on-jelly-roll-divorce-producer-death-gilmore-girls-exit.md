@@ -35,8 +35,8 @@ keyMoments:
 videoId: "60ahfYNc0Wk"
 videoTitle: "Vibe Check: Divorce drama, TV farewells and viral debates"
 thumbnail: "https://img.youtube.com/vi/60ahfYNc0Wk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

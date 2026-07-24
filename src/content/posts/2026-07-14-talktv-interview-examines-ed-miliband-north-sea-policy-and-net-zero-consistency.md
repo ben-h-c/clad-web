@@ -34,8 +34,8 @@ keyMoments:
 videoId: "57LvocDJwFc"
 videoTitle: "“We Should Be DRILLING!\" | Ed Miliband's North Sea U-Turn? | Major Energy Shift Explained"
 thumbnail: "https://img.youtube.com/vi/57LvocDJwFc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -29,8 +29,8 @@ keyMoments:
 videoId: "KbLIIVxei64"
 videoTitle: "Marcello Hernández on working with fellow 'SNL' actors on new film"
 thumbnail: "https://img.youtube.com/vi/KbLIIVxei64/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

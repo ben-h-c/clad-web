@@ -34,8 +34,8 @@ keyMoments:
 videoId: "2yWcVj4Bch0"
 videoTitle: "NJ teen's family 'satisfied' by decision ahead of murder trial: Attorney | Jesse Weber Live"
 thumbnail: "https://img.youtube.com/vi/2yWcVj4Bch0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

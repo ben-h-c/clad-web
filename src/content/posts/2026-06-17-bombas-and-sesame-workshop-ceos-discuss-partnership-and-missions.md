@@ -34,8 +34,8 @@ keyMoments:
 videoId: "_2P_jlHQgGI"
 videoTitle: "Where socks meet Big Bird: Bombas & Sesame Workshop"
 thumbnail: "https://img.youtube.com/vi/_2P_jlHQgGI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

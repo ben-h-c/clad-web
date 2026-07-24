@@ -32,8 +32,8 @@ keyMoments:
 videoId: "lTD6hptyUSo"
 videoTitle: "Tornados spotted in multiple states as fires hit others"
 thumbnail: "https://img.youtube.com/vi/lTD6hptyUSo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

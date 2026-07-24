@@ -34,8 +34,8 @@ keyMoments:
 videoId: "pubUJJbLwyg"
 videoTitle: "Justices Kagan and Barrett testify about security threats"
 thumbnail: "https://img.youtube.com/vi/pubUJJbLwyg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "675Rf4QHX_Y"
 videoTitle: "'Nobody helps us': Iran captain Mehdi Taremi calls the World Cup a 'disaster' | #AJ shorts"
 thumbnail: "https://img.youtube.com/vi/675Rf4QHX_Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

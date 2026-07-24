@@ -37,8 +37,8 @@ keyMoments:
 videoId: "d4KQXgfjDuo"
 videoTitle: "\"When Do We Get Early Release From This Bloody Government?\" | Fury Over Freeing Criminals Early"
 thumbnail: "https://img.youtube.com/vi/d4KQXgfjDuo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

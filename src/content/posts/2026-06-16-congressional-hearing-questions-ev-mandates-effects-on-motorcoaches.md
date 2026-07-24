@@ -33,8 +33,8 @@ keyMoments:
 videoId: "wFku0IfwgTc"
 videoTitle: "'Who's Going To Incur That Increased Cost?': Joyce Asks Bus Association CEO About EV Mandates"
 thumbnail: "https://img.youtube.com/vi/wFku0IfwgTc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

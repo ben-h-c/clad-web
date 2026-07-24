@@ -37,8 +37,8 @@ keyMoments:
 videoId: "iACVkeTO65c"
 videoTitle: "'We have to be hypervigilant' about what deniers do in 'aftermath' of an election: Charen"
 thumbnail: "https://img.youtube.com/vi/iACVkeTO65c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

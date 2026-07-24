@@ -38,8 +38,8 @@ keyMoments:
 videoId: "k7nfznVGcZE"
 videoTitle: "Wall Street rallies, Dow ends with record on US-Iran deal"
 thumbnail: "https://img.youtube.com/vi/k7nfznVGcZE/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

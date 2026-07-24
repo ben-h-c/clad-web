@@ -34,8 +34,8 @@ keyMoments:
 videoId: "U1kEOfTUHzw"
 videoTitle: "WATCH: Warsh on first-time homebuyers and mortgage rates right now"
 thumbnail: "https://img.youtube.com/vi/U1kEOfTUHzw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

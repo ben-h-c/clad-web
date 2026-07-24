@@ -33,8 +33,8 @@ keyMoments:
 videoId: "Rvuc9RErU7s"
 videoTitle: "Donald Trump EMBARRASSES reporter and FAKE NEWS CHANNEL"
 thumbnail: "https://img.youtube.com/vi/Rvuc9RErU7s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -40,8 +40,8 @@ keyMoments:
 videoId: "D6NZWg0JIyY"
 videoTitle: "UNCHR campaign to defend fundamental human right to asylum ahead of World Refugee Day • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/D6NZWg0JIyY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

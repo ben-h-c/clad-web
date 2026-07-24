@@ -36,8 +36,8 @@ keyMoments:
 videoId: "U54kp0L-qqU"
 videoTitle: "Netflix earnings forecast disappoints Wall Street, shares tumble"
 thumbnail: "https://img.youtube.com/vi/U54kp0L-qqU/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

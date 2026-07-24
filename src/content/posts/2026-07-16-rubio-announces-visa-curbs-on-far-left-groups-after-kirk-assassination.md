@@ -37,8 +37,8 @@ keyMoments:
 videoId: "1aXznnQAWac"
 videoTitle: "Paul Mauro: Far-left violence has been ‘EXCUSED’ by the media"
 thumbnail: "https://img.youtube.com/vi/1aXznnQAWac/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

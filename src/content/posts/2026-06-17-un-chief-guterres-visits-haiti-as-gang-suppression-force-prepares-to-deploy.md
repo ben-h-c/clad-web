@@ -34,8 +34,8 @@ keyMoments:
 videoId: "F0aLl379Qwc"
 videoTitle: "UN chief visits Haiti ahead of new gang suppression force deployment • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/F0aLl379Qwc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

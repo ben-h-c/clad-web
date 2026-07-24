@@ -32,8 +32,8 @@ keyMoments:
 videoId: "7f9yorcaD4U"
 videoTitle: "Iran’s nuclear promise faces SERIOUS skepticism #shorts"
 thumbnail: "https://img.youtube.com/vi/7f9yorcaD4U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

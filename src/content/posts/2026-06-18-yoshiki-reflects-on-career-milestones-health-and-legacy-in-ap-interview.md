@@ -35,8 +35,8 @@ keyMoments:
 videoId: "VNPckefw-MA"
 videoTitle: "Yoshiki at 60: 'I wanted to stick out' | AP interview"
 thumbnail: "https://img.youtube.com/vi/VNPckefw-MA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

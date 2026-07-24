@@ -31,8 +31,8 @@ keyMoments:
 videoId: "LNKRxQj6gBI"
 videoTitle: "Workers combat DC's Reflecting Pool algae with hydrogen peroxide"
 thumbnail: "https://img.youtube.com/vi/LNKRxQj6gBI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

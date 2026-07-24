@@ -34,8 +34,8 @@ keyMoments:
 videoId: "aEdLRyFl5iY"
 videoTitle: "Fans are in a frenzy for World Cup Panini stickers"
 thumbnail: "https://img.youtube.com/vi/aEdLRyFl5iY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "-sGfWSCFQ84"
 videoTitle: "Queen Camilla meets with JK Rowling"
 thumbnail: "https://img.youtube.com/vi/-sGfWSCFQ84/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

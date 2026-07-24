@@ -38,9 +38,9 @@ keyMoments:
 videoId: "VU3Niysd2fg"
 videoTitle: "Joe Morelle Blasts GOP For Adding 'Poison Pill' Voter ID Law To Stop Insider Trading Act"
 thumbnail: "https://img.youtube.com/vi/VU3Niysd2fg/maxresdefault.jpg"
-mediaNote: "talking head face upper-middle"
-thumbFocusY: 28
-thumbFocusX: 52
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 citations:
   - title: "H.R.7008 - Stop Insider Trading Act"

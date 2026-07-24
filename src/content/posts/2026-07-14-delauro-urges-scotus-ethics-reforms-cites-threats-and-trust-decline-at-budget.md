@@ -36,8 +36,8 @@ keyMoments:
 videoId: "aRX-fzcV-Gg"
 videoTitle: "'Various Scandals Have Also Plagued The Court': DeLauro Calls To Rebuild Reputation Of SCOTUS"
 thumbnail: "https://img.youtube.com/vi/aRX-fzcV-Gg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

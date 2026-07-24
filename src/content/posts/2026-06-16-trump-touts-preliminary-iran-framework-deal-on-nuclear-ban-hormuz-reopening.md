@@ -33,8 +33,8 @@ keyMoments:
 videoId: "Q4sR0KqbUJI"
 videoTitle: "Trump on U.S.-Iran deal: Tehran won't have nuclear weapon, D.C. not investing 'money in Iran'"
 thumbnail: "https://img.youtube.com/vi/Q4sR0KqbUJI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "yrpv4LtWpX8"
 videoTitle: "Iran's nuclear situation is significantly DEGRADED: Former ambassador"
 thumbnail: "https://img.youtube.com/vi/yrpv4LtWpX8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

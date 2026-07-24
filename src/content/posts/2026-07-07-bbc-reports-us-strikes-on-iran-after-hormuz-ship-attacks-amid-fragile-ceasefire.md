@@ -35,8 +35,8 @@ keyMoments:
 videoId: "jPtOdEhQBtU"
 videoTitle: "BREAKING: US launches “series of strikes” on Iran after ships attacked in strait of Hormuz |BBC News"
 thumbnail: "https://img.youtube.com/vi/jPtOdEhQBtU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

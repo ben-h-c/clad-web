@@ -36,8 +36,8 @@ keyMoments:
 videoId: "HO0ZAL7YhPU"
 videoTitle: "\"Everything Harry & Meghan Touch Turns To SH*T!\" | Megyn Kelly"
 thumbnail: "https://img.youtube.com/vi/HO0ZAL7YhPU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

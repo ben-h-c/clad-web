@@ -28,8 +28,8 @@ keyMoments:
 videoId: "6SdhXrlweDM"
 videoTitle: "Maternity commissioner to be appointed"
 thumbnail: "https://img.youtube.com/vi/6SdhXrlweDM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

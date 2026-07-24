@@ -34,8 +34,8 @@ keyMoments:
 videoId: "OMEsFeuXOsE"
 videoTitle: "An 'explosive' diarrhea illness is spreading across the U.S. Here's how to protect yourself."
 thumbnail: "https://img.youtube.com/vi/OMEsFeuXOsE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

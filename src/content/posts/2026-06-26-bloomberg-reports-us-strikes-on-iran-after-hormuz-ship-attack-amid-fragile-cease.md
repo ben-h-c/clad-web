@@ -36,8 +36,8 @@ keyMoments:
 videoId: "qpFLj7kFaYU"
 videoTitle: "US Conducts Strikes Against Iran in Response to Thursday Attacks | Balance of Power: Late Edition"
 thumbnail: "https://img.youtube.com/vi/qpFLj7kFaYU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

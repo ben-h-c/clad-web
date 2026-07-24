@@ -34,8 +34,8 @@ keyMoments:
 videoId: "5EVVEXySmLk"
 videoTitle: "Iran attacks Bahrain and Kuwait following U.S. strikes, threatens peace talks"
 thumbnail: "https://img.youtube.com/vi/5EVVEXySmLk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "hjoLHmnMD24"
 videoTitle: "Israeli military TikTok staffer investigated after streaming with Clavicular | #AJ shorts"
 thumbnail: "https://img.youtube.com/vi/hjoLHmnMD24/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

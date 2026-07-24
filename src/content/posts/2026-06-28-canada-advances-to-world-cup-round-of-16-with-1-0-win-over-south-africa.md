@@ -34,8 +34,8 @@ keyMoments:
 videoId: "SnpBz8eiC5U"
 videoTitle: "World Cup 2026: Canadian pride on full display after 1-0 win over South Africa"
 thumbnail: "https://img.youtube.com/vi/SnpBz8eiC5U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

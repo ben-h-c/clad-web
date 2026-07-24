@@ -32,8 +32,8 @@ keyMoments:
 videoId: "B8CT1sAMZrY"
 videoTitle: "JD Vance Asked If Current Iranian Leadership Will 'Fundamentally' Alter Their Long-Term Behavior"
 thumbnail: "https://img.youtube.com/vi/B8CT1sAMZrY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

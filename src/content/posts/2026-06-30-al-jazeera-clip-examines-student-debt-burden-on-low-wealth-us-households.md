@@ -35,8 +35,8 @@ keyMoments:
 videoId: "4p7_llgPN50"
 videoTitle: "US education faces ‘a crisis for low-wealth students’ | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/4p7_llgPN50/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

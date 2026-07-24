@@ -36,8 +36,8 @@ keyMoments:
 videoId: "vtQyn9qUwm8"
 videoTitle: "Trump's agenda took a hit at Supreme Court today – now he is demanding Congress fix it"
 thumbnail: "https://img.youtube.com/vi/vtQyn9qUwm8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

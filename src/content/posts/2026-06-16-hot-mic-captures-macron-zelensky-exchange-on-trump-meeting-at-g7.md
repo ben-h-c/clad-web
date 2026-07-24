@@ -31,8 +31,8 @@ keyMoments:
 videoId: "VhLy5-BX8Rg"
 videoTitle: "VIRAL MOMENT: Hot Mic Catches Macron Talking To Zelensky About President Trump"
 thumbnail: "https://img.youtube.com/vi/VhLy5-BX8Rg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

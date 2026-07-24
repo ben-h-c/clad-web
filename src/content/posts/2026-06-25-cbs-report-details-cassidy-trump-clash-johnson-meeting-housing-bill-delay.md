@@ -33,8 +33,8 @@ keyMoments:
 videoId: "5z4ifBYphCU"
 videoTitle: "Trump to meet with House Speaker Mike Johnson a day after fiery GOP meeting"
 thumbnail: "https://img.youtube.com/vi/5z4ifBYphCU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

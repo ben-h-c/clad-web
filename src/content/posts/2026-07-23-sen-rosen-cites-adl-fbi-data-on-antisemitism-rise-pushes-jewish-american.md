@@ -34,8 +34,8 @@ keyMoments:
 videoId: "_rHerfw2CnQ"
 videoTitle: "Rosen Decries Rise In Antisemitism, Touts Bill To Increase Security Funding For Houses Of Worship"
 thumbnail: "https://img.youtube.com/vi/_rHerfw2CnQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "y4UjT7kZie4"
 videoTitle: "This is a ‘TRADE WAR’ that Canada cannot ‘WIN’: Stephen Moore"
 thumbnail: "https://img.youtube.com/vi/y4UjT7kZie4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

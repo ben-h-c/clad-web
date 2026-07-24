@@ -35,8 +35,8 @@ keyMoments:
 videoId: "y5kDp0DPylM"
 videoTitle: "Tom Homan: I’m scared to DEATH…"
 thumbnail: "https://img.youtube.com/vi/y5kDp0DPylM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

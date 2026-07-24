@@ -33,8 +33,8 @@ keyMoments:
 videoId: "CSTrhzpmB60"
 videoTitle: "Couple on hike has close encounter with a bear"
 thumbnail: "https://img.youtube.com/vi/CSTrhzpmB60/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "hYqIBMrh1-Y"
 videoTitle: "JD Vance: This deal could be TRANSFORMATIVE  #news #foxnews #us #fox"
 thumbnail: "https://img.youtube.com/vi/hYqIBMrh1-Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -39,8 +39,8 @@ keyMoments:
 videoId: "MkZjYS90DW8"
 videoTitle: "'Yielded Nothing But Chaos': Bennie Thompson Decries Trump's 'Cruel Mass Deportation Agenda'"
 thumbnail: "https://img.youtube.com/vi/MkZjYS90DW8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

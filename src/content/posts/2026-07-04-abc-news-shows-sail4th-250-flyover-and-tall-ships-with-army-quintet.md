@@ -32,8 +32,8 @@ keyMoments:
 videoId: "bDUVbTysZ4s"
 videoTitle: "World-renowned U.S. Army Brass Quintet performs as military aircraft take to the skies over NYC."
 thumbnail: "https://img.youtube.com/vi/bDUVbTysZ4s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

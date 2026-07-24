@@ -28,8 +28,8 @@ keyMoments:
 videoId: "bGTjCln9tHU"
 videoTitle: "More than 70 Congo medics infected with Ebola: WHO"
 thumbnail: "https://img.youtube.com/vi/bGTjCln9tHU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

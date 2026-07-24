@@ -37,8 +37,8 @@ keyMoments:
 videoId: "W1XkBXuNCN8"
 videoTitle: "We have 'NO TIME' to waste, we MUST win the AI race: Charles Payne"
 thumbnail: "https://img.youtube.com/vi/W1XkBXuNCN8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

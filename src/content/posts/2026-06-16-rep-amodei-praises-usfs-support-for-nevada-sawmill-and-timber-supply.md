@@ -32,8 +32,8 @@ keyMoments:
 videoId: "NmFouv1dKiU"
 videoTitle: "Mark Amodei Praises 'Phenomenal Effort' BY USFS To Bolster Timber Production In Nevada"
 thumbnail: "https://img.youtube.com/vi/NmFouv1dKiU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

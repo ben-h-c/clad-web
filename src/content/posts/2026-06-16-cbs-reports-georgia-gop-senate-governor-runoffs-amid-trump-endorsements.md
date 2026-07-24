@@ -35,8 +35,8 @@ keyMoments:
 videoId: "xox017v4SjE"
 videoTitle: "Georgia voters casting ballots in GOP Senate and governor runoffs"
 thumbnail: "https://img.youtube.com/vi/xox017v4SjE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

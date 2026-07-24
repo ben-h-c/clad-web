@@ -40,8 +40,8 @@ keyMoments:
 videoId: "gH4FTjDm9FQ"
 videoTitle: "Anthropic's Fable Backlash, Nationalizing AI, Inflation Heats Up & California’s Broken Elections"
 thumbnail: "https://img.youtube.com/vi/gH4FTjDm9FQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

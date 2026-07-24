@@ -29,8 +29,8 @@ keyMoments:
 videoId: "SxZwcwYp4-M"
 videoTitle: "'Biggest Rise In History': Trump Brags About Rise In 401k Values Since Taking Office"
 thumbnail: "https://img.youtube.com/vi/SxZwcwYp4-M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "hJMGZ20tfN0"
 videoTitle: "Under Burnham's 'Number 10 North', are mayors or cabinet ministers going to have more power?"
 thumbnail: "https://img.youtube.com/vi/hJMGZ20tfN0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "AESF2KuVjkY"
 videoTitle: "Trump's push for SAVE Act drives Congress into standoff"
 thumbnail: "https://img.youtube.com/vi/AESF2KuVjkY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

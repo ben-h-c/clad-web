@@ -30,8 +30,8 @@ keyMoments:
 videoId: "UVcOvyFHR1Q"
 videoTitle: "U.S. launches retaliatory strikes against Iran; reaction pours in from Sen. Graham's passing"
 thumbnail: "https://img.youtube.com/vi/UVcOvyFHR1Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

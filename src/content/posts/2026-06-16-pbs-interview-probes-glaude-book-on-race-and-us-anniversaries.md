@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Pwauw8ErIpw"
 videoTitle: "New book explores America's history of celebrating freedom while excluding millions"
 thumbnail: "https://img.youtube.com/vi/Pwauw8ErIpw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

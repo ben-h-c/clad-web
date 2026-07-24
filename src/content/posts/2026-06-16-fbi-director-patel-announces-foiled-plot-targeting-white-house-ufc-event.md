@@ -32,8 +32,8 @@ keyMoments:
 videoId: "AYwQMdFRsI8"
 videoTitle: "Kash Patel: FBI THWARTED planned attacks targeting UFC WH event; multiple arrests made | RISING"
 thumbnail: "https://img.youtube.com/vi/AYwQMdFRsI8/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

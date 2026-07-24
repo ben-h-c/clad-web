@@ -37,8 +37,8 @@ keyMoments:
 videoId: "se25o10J9so"
 videoTitle: "DISTURBING: Report On Muslim Grooming Gangs Attacking White Girls Unearths INSIDIOUS Plot | Ep. 1798"
 thumbnail: "https://img.youtube.com/vi/se25o10J9so/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

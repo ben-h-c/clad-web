@@ -34,8 +34,8 @@ keyMoments:
 videoId: "zIB7nNxBaSs"
 videoTitle: "Intense rainfall in Texas sparks life-threatening floods and emergency rescues"
 thumbnail: "https://img.youtube.com/vi/zIB7nNxBaSs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -33,8 +33,8 @@ keyMoments:
 videoId: "gIDy0Js2P6M"
 videoTitle: "POV: The IRS choosing who to audit #elonmusk #spacex #irs #tax"
 thumbnail: "https://img.youtube.com/vi/gIDy0Js2P6M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

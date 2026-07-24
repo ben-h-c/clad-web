@@ -35,8 +35,8 @@ keyMoments:
 videoId: "lI7Rrb8cY5c"
 videoTitle: "'Do You Believe The 2020 Election Was Rigged?': Jeff Merkley Grills Top Trump Nominee"
 thumbnail: "https://img.youtube.com/vi/lI7Rrb8cY5c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "BeHzwOvYOdA"
 videoTitle: "KEY BENEFICIARIRES of the AI gold rush and SpaceX’s launch into the market"
 thumbnail: "https://img.youtube.com/vi/BeHzwOvYOdA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

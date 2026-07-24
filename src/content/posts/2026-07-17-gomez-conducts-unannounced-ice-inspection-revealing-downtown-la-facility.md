@@ -31,8 +31,8 @@ keyMoments:
 videoId: "3b6HVmNryoo"
 videoTitle: "Rep. Gomez exposes ICE detainee transfer"
 thumbnail: "https://img.youtube.com/vi/3b6HVmNryoo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

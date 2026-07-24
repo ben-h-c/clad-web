@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Iqj0hsCFxas"
 videoTitle: "'Suozzi, What Are You Doing My Man?!': JD Vance Trashes Tom Suozzi Over Votes On Taxes"
 thumbnail: "https://img.youtube.com/vi/Iqj0hsCFxas/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

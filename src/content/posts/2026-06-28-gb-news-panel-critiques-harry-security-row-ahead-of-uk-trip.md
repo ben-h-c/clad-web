@@ -36,8 +36,8 @@ keyMoments:
 videoId: "OK3x0gr0LCg"
 videoTitle: "'SPOILT BRAT!' Watch Nana Akua BLAST Prince Harry 'TANTRUM' as UK visit in DOUBT amid protection row"
 thumbnail: "https://img.youtube.com/vi/OK3x0gr0LCg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

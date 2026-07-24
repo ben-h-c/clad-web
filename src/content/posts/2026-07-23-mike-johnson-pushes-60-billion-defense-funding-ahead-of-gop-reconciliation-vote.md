@@ -33,8 +33,8 @@ keyMoments:
 videoId: "pfbq5JkGXVs"
 videoTitle: "House Speaker Mike Johnson addresses reporters ahead of GOP spending plan vote"
 thumbnail: "https://img.youtube.com/vi/pfbq5JkGXVs/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

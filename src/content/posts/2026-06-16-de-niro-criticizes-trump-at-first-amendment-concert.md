@@ -36,8 +36,8 @@ keyMoments:
 videoId: "cIyoGz9Zv1c"
 videoTitle: "De Niro: \"I want to love my country again\""
 thumbnail: "https://img.youtube.com/vi/cIyoGz9Zv1c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

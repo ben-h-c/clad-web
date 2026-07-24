@@ -34,8 +34,8 @@ keyMoments:
 videoId: "GDbEWlKAdJ8"
 videoTitle: "Millions in Kyiv 'didn't have time to seek shelter' ahead of Russian attack • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/GDbEWlKAdJ8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

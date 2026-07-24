@@ -36,8 +36,8 @@ keyMoments:
 videoId: "qJ67krsWupc"
 videoTitle: "'SHOCKING': Outrage over student's antisemitic job interview rejection"
 thumbnail: "https://img.youtube.com/vi/qJ67krsWupc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

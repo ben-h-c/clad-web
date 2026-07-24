@@ -37,8 +37,8 @@ keyMoments:
 videoId: "vJGDSxZGdkI"
 videoTitle: "Trump Says Syria Better Than Israel at Fighting Hezbollah"
 thumbnail: "https://img.youtube.com/vi/vJGDSxZGdkI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

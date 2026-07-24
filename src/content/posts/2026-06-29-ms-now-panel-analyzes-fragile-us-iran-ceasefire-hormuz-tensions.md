@@ -36,8 +36,8 @@ keyMoments:
 videoId: "zLcqTmKvZCc"
 videoTitle: "'Not a good situation for us': 4-star General says Iran 'not going to cave' on Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/zLcqTmKvZCc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

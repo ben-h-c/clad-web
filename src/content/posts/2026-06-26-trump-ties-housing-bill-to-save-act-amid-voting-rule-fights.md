@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Dmnu1BPpaRY"
 videoTitle: "Postmaster shocks with honesty about Trump's anti-mail ballot scheme"
 thumbnail: "https://img.youtube.com/vi/Dmnu1BPpaRY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "ef5l8QLGf1M"
 videoTitle: "UAP disclosure forum in DC meant to advance the cause: Ross Coulthart | NewsNation Prime"
 thumbnail: "https://img.youtube.com/vi/ef5l8QLGf1M/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

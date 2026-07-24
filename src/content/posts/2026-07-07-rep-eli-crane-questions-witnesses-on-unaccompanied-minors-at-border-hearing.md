@@ -38,8 +38,8 @@ keyMoments:
 videoId: "14iDAkkOdIs"
 videoTitle: "'Interesting, Isn't It?': Eli Crane Calls Out Democrats For Not Attending Border Security Hearing"
 thumbnail: "https://img.youtube.com/vi/14iDAkkOdIs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

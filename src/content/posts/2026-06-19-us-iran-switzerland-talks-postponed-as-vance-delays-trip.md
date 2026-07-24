@@ -31,8 +31,8 @@ keyMoments:
 videoId: "1kI7ZLUhVGs"
 videoTitle: "US-Iran talks in Geneva postponed"
 thumbnail: "https://img.youtube.com/vi/1kI7ZLUhVGs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

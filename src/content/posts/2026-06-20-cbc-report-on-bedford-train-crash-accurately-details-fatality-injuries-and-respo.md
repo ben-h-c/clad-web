@@ -36,8 +36,8 @@ keyMoments:
 videoId: "xzyFhWrSV5U"
 videoTitle: "One person killed in a train crash north of London, UK | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/xzyFhWrSV5U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

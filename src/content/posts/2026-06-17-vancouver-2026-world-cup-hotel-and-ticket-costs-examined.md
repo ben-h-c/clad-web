@@ -36,8 +36,8 @@ keyMoments:
 videoId: "8cSaMwcmRpo"
 videoTitle: "World Cup fans priced out by soaring hotel and ticket prices in Vancouver"
 thumbnail: "https://img.youtube.com/vi/8cSaMwcmRpo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

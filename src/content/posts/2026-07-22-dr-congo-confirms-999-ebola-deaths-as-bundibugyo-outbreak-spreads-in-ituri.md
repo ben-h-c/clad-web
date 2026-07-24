@@ -32,8 +32,8 @@ keyMoments:
 videoId: "P4ZCyk1SrOc"
 videoTitle: "Ebola death toll nears 1,000 in DR Congo"
 thumbnail: "https://img.youtube.com/vi/P4ZCyk1SrOc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

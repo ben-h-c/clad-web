@@ -34,8 +34,8 @@ keyMoments:
 videoId: "kBc1Ce_DJaE"
 videoTitle: "U.S. launches 13th straight night of strikes on Iran"
 thumbnail: "https://img.youtube.com/vi/kBc1Ce_DJaE/maxresdefault.jpg"
-mediaNote: "CENTCOM seal upper-center on device screen"
-thumbFocusY: 28
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "mP5izvxjp1o"
 videoTitle: "Andy Burnham wins Makerfield by-election | BBC News"
 thumbnail: "https://img.youtube.com/vi/mP5izvxjp1o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

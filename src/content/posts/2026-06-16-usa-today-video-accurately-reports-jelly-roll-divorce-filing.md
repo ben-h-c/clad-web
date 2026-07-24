@@ -31,8 +31,8 @@ keyMoments:
 videoId: "REEYidouZEI"
 videoTitle: "Jelly Roll divorces Bunnie XO after nearly 10 years of marriage"
 thumbnail: "https://img.youtube.com/vi/REEYidouZEI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

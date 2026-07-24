@@ -37,8 +37,8 @@ keyMoments:
 videoId: "PXPPGaSYGu0"
 videoTitle: "The Confrontation That Has Washington TALKING: Jason Smith vs. Treasury Secretary!"
 thumbnail: "https://img.youtube.com/vi/PXPPGaSYGu0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

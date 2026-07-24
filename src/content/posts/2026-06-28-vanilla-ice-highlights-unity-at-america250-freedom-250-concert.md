@@ -30,8 +30,8 @@ keyMoments:
 videoId: "yRNJka4Kx0E"
 videoTitle: "Vanilla Ice: We're supposed to 'bring people together'"
 thumbnail: "https://img.youtube.com/vi/yRNJka4Kx0E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

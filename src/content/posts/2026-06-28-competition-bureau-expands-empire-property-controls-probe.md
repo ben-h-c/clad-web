@@ -31,8 +31,8 @@ keyMoments:
 videoId: "F8V3qMn7YWI"
 videoTitle: "Could grocery property controls be driving up food prices? Competition probe expands"
 thumbnail: "https://img.youtube.com/vi/F8V3qMn7YWI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

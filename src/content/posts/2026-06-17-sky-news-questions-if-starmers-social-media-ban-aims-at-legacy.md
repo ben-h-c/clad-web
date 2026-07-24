@@ -30,8 +30,8 @@ keyMoments:
 videoId: "Dr-h0jZhMKc"
 videoTitle: "Did Keir Starmer implement the social media ban to secure his legacy?"
 thumbnail: "https://img.youtube.com/vi/Dr-h0jZhMKc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

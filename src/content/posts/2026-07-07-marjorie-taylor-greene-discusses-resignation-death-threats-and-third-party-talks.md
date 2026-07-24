@@ -35,8 +35,8 @@ keyMoments:
 videoId: "aMJmApI7iNE"
 videoTitle: "Marjorie Taylor Greene talks life after split with Trump and building a new party"
 thumbnail: "https://img.youtube.com/vi/aMJmApI7iNE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

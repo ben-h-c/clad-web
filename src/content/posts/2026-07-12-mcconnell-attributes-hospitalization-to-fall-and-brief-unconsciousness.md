@@ -31,8 +31,8 @@ keyMoments:
 videoId: "WfysDVgZgc4"
 videoTitle: "Sen. McConnell says he suffered a fall and was unconscious in first statement since hospitalization"
 thumbnail: "https://img.youtube.com/vi/WfysDVgZgc4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

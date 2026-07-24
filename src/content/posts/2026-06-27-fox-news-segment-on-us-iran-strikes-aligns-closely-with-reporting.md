@@ -34,8 +34,8 @@ keyMoments:
 videoId: "m2RQwMo3YTM"
 videoTitle: "BREAKING: US military launches new strikes on Iran after cargo ship attacks"
 thumbnail: "https://img.youtube.com/vi/m2RQwMo3YTM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

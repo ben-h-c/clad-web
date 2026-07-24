@@ -32,8 +32,8 @@ keyMoments:
 videoId: "E3T-rHFGBUY"
 videoTitle: "Fetterman calls Graham Platner a \"total dirtbag\" in wake of sexual assault allegation"
 thumbnail: "https://img.youtube.com/vi/E3T-rHFGBUY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

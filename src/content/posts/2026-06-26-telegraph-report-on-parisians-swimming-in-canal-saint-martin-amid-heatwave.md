@@ -34,8 +34,8 @@ keyMoments:
 videoId: "UTJ9s0K4EBA"
 videoTitle: "'I joined the Parisian canal revolt'"
 thumbnail: "https://img.youtube.com/vi/UTJ9s0K4EBA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

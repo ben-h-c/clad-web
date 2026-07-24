@@ -31,8 +31,8 @@ keyMoments:
 videoId: "WJr6KO7G8oI"
 videoTitle: "Gov. Whitmer unveils Michigan Affordable and Responsible Growth Action Plan"
 thumbnail: "https://img.youtube.com/vi/WJr6KO7G8oI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "swA_UTQQ8zI"
 videoTitle: "Severe weather at DC's America 250 celebration prompts 2-hour evacuation"
 thumbnail: "https://img.youtube.com/vi/swA_UTQQ8zI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

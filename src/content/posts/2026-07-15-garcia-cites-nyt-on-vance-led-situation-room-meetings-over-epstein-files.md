@@ -34,8 +34,8 @@ keyMoments:
 videoId: "YEo450E5a70"
 videoTitle: "JD Vance Calls Epstein File Release Meeting in the Situation Room | CNN"
 thumbnail: "https://img.youtube.com/vi/YEo450E5a70/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

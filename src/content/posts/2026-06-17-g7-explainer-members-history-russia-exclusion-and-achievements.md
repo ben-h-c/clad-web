@@ -34,8 +34,8 @@ keyMoments:
 videoId: "_hRqRmt966M"
 videoTitle: "G7 explained: what it is, who is in it, and what it does"
 thumbnail: "https://img.youtube.com/vi/_hRqRmt966M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

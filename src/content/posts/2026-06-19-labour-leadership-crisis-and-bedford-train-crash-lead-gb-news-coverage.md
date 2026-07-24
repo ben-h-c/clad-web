@@ -36,8 +36,8 @@ keyMoments:
 videoId: "OaJ2Kjs4dOw"
 videoTitle: "Patrick Christys Tonight Late Edition | Friday 19th June"
 thumbnail: "https://img.youtube.com/vi/OaJ2Kjs4dOw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

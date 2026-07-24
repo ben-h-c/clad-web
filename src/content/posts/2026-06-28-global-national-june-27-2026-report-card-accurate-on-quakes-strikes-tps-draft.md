@@ -35,8 +35,8 @@ keyMoments:
 videoId: "ZxhGSeSQy9E"
 videoTitle: "Global National: June 27, 2026 | Another 4.8 magnitude quake reported off Venezuela’s northern coast"
 thumbnail: "https://img.youtube.com/vi/ZxhGSeSQy9E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

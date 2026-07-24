@@ -34,8 +34,8 @@ keyMoments:
 videoId: "nHh1hQKzY5U"
 videoTitle: "The level of DEPRAVITY is OFF the charts: Retired FBI agent"
 thumbnail: "https://img.youtube.com/vi/nHh1hQKzY5U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

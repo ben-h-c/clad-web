@@ -37,8 +37,8 @@ keyMoments:
 videoId: "JQCMCjARtzU"
 videoTitle: "‘We Need Policies Not Performance’ | ‘It’s An Attempt To Spin' | Northern No10 Blasted"
 thumbnail: "https://img.youtube.com/vi/JQCMCjARtzU/maxresdefault.jpg"
-mediaNote: "triptych faces upper-middle"
-thumbFocusY: 28
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

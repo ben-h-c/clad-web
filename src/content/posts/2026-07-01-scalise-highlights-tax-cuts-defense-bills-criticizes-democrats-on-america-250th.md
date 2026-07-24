@@ -37,8 +37,8 @@ keyMoments:
 videoId: "HBvtBW1-Mgw"
 videoTitle: "Steve Scalise: Let Democratic Candidates Battle Over Who 'Hates This Country The Most'"
 thumbnail: "https://img.youtube.com/vi/HBvtBW1-Mgw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

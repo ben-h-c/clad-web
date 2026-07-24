@@ -39,8 +39,8 @@ keyMoments:
 videoId: "FYax3AitJ_M"
 videoTitle: "&#39;I&#39;m Not Making This Up...&#39;: Joni Ernst Highlights Shocking Examples Of Federal Fraud Schemes"
 thumbnail: "https://img.youtube.com/vi/FYax3AitJ_M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

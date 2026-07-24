@@ -38,8 +38,8 @@ keyMoments:
 videoId: "n7kiY5JuSbA"
 videoTitle: "White House attack thwarted: Arrests made for drone plot at UFC fight"
 thumbnail: "https://img.youtube.com/vi/n7kiY5JuSbA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -40,8 +40,8 @@ keyMoments:
 videoId: "jZlHjoCCXVE"
 videoTitle: "'No real path to get the enriched uranium': Top Dem on Senate Intel Cmte. on Iran deal"
 thumbnail: "https://img.youtube.com/vi/jZlHjoCCXVE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

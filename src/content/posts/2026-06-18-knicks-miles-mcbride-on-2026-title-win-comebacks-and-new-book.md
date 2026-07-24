@@ -34,8 +34,8 @@ keyMoments:
 videoId: "_RvK46Un1Zc"
 videoTitle: "NY Knick Miles McBride on the team's historic title run: 'It's been a blessing'"
 thumbnail: "https://img.youtube.com/vi/_RvK46Un1Zc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

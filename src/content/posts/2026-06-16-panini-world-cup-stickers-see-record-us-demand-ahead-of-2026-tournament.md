@@ -34,8 +34,8 @@ keyMoments:
 videoId: "advzSzw445U"
 videoTitle: "A World Cup tradition catches on in the U.S.: Panini sticker collecting"
 thumbnail: "https://img.youtube.com/vi/advzSzw445U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

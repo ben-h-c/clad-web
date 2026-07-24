@@ -34,8 +34,8 @@ keyMoments:
 videoId: "AvZPomlqtkA"
 videoTitle: "Life-threatening heat emergency"
 thumbnail: "https://img.youtube.com/vi/AvZPomlqtkA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

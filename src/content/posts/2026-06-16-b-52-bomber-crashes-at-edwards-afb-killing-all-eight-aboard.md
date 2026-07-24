@@ -31,8 +31,8 @@ keyMoments:
 videoId: "DHo8uywDrow"
 videoTitle: "'UNSURVIVABLE': B-52 bomber crashes after takeoff on US Air Force base in California"
 thumbnail: "https://img.youtube.com/vi/DHo8uywDrow/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

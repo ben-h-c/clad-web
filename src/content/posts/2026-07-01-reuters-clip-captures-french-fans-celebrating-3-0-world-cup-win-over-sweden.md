@@ -31,8 +31,8 @@ keyMoments:
 videoId: "jM2648Knvo8"
 videoTitle: "France fans revel in dazzling victory over Sweden"
 thumbnail: "https://img.youtube.com/vi/jM2648Knvo8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

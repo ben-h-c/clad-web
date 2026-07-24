@@ -34,8 +34,8 @@ keyMoments:
 videoId: "38SFnQxhd4g"
 videoTitle: "‘A Turning Point’: Trump, Zelenskyy and the G7 message to Putin | DW News"
 thumbnail: "https://img.youtube.com/vi/38SFnQxhd4g/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

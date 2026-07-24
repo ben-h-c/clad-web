@@ -34,8 +34,8 @@ keyMoments:
 videoId: "BnCI8aH1baQ"
 videoTitle: "UN says Iran nuclear pledge needs 'very strong' verification • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/BnCI8aH1baQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

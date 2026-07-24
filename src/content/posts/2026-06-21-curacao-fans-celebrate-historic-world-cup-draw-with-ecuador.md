@@ -32,8 +32,8 @@ keyMoments:
 videoId: "7Ht-ghO1jOA"
 videoTitle: "Curacao fans cheer for history-making World Cup draw against Ecuador"
 thumbnail: "https://img.youtube.com/vi/7Ht-ghO1jOA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

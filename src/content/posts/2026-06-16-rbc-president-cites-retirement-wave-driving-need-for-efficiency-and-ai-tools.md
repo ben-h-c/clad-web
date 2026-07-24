@@ -35,8 +35,8 @@ keyMoments:
 videoId: "fe1vBXxSzBE"
 videoTitle: "RBC President: We still need to hire to replace aging workforce"
 thumbnail: "https://img.youtube.com/vi/fe1vBXxSzBE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

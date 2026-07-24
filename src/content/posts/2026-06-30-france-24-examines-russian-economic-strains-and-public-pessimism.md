@@ -35,8 +35,8 @@ keyMoments:
 videoId: "sgcvywOB2mg"
 videoTitle: "'Putin doesn't care about Russians' quality of life', expert says as pessimism reaches 20-yr high"
 thumbnail: "https://img.youtube.com/vi/sgcvywOB2mg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

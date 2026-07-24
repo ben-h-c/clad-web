@@ -38,8 +38,8 @@ keyMoments:
 videoId: "hy3e_1HiTPk"
 videoTitle: "Catherine Herridge on the 'Shadow Government' claims | Katie Pavlich Tonight"
 thumbnail: "https://img.youtube.com/vi/hy3e_1HiTPk/maxresdefault.jpg"
-mediaNote: "Split talking-heads; keep both faces upper-middle, clear of bottom text third"
-thumbFocusY: 28
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -33,8 +33,8 @@ keyMoments:
 videoId: "J4rK0QuqxV8"
 videoTitle: "NBC News Poll Shows Trump’s Declining Job Approval"
 thumbnail: "https://img.youtube.com/vi/J4rK0QuqxV8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

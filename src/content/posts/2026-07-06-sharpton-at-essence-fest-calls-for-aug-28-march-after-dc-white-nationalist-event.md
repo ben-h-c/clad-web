@@ -32,8 +32,8 @@ keyMoments:
 videoId: "JNQy0l1UUa4"
 videoTitle: "Rev. Al Sharpton reacts to white nationalists march in DC at Essence Fest"
 thumbnail: "https://img.youtube.com/vi/JNQy0l1UUa4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

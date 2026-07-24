@@ -35,8 +35,8 @@ keyMoments:
 videoId: "47H-RPMFhKQ"
 videoTitle: "'America is back': US celebrates 250th anniversary"
 thumbnail: "https://img.youtube.com/vi/47H-RPMFhKQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

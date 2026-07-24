@@ -35,8 +35,8 @@ keyMoments:
 videoId: "uVER-Mj2bQU"
 videoTitle: "Reporter Asks John Thune: Have Any Of Trump Admin's Objectives Of Iran War Been Met In Peace Deal?"
 thumbnail: "https://img.youtube.com/vi/uVER-Mj2bQU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

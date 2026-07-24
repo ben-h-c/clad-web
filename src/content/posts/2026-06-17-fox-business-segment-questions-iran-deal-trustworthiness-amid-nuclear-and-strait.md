@@ -37,8 +37,8 @@ keyMoments:
 videoId: "tNaPMrzruBo"
 videoTitle: "Iranian regime ‘cannot be trusted,’ Rep Rich McCormick says"
 thumbnail: "https://img.youtube.com/vi/tNaPMrzruBo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

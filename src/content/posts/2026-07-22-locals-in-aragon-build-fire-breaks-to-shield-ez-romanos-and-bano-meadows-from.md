@@ -29,8 +29,8 @@ keyMoments:
 videoId: "5mZPitWf_Go"
 videoTitle: "Neighbors unite to protect their town from wildfires in Spain"
 thumbnail: "https://img.youtube.com/vi/5mZPitWf_Go/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

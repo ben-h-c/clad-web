@@ -37,8 +37,8 @@ keyMoments:
 videoId: "I__C8KhU4Jg"
 videoTitle: "&#39;Patients will suffer not President&#39;: Rep. Trahan raises Minnesota&#39;s mounting Medicaid challenges"
 thumbnail: "https://img.youtube.com/vi/I__C8KhU4Jg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

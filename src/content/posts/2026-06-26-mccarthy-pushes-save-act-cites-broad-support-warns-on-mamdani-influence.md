@@ -37,8 +37,8 @@ keyMoments:
 videoId: "ueXMgU4amrk"
 videoTitle: "Kevin McCarthy: This isn’t just a Republican view…"
 thumbnail: "https://img.youtube.com/vi/ueXMgU4amrk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

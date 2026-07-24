@@ -36,8 +36,8 @@ keyMoments:
 videoId: "FLWht1XCSMQ"
 videoTitle: "‘The Five’: Democrats versus the all-you-can-eat socialist buffet"
 thumbnail: "https://img.youtube.com/vi/FLWht1XCSMQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

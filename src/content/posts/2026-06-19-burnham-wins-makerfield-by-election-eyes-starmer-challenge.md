@@ -34,8 +34,8 @@ keyMoments:
 videoId: "-uOLBHmIQQo"
 videoTitle: "Andy Burnham wins UK by-election: Labour politician expected to challenge PM Starmer"
 thumbnail: "https://img.youtube.com/vi/-uOLBHmIQQo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

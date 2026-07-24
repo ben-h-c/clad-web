@@ -37,8 +37,8 @@ keyMoments:
 videoId: "szxPpqyae_o"
 videoTitle: "Rep. Mike Flood on Congressional News of the Day"
 thumbnail: "https://img.youtube.com/vi/szxPpqyae_o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

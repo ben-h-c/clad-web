@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Tkq5CM3pHO8"
 videoTitle: "UK counterterrorism police investigating suspected murder of ex-MP Ann Widdecombe"
 thumbnail: "https://img.youtube.com/vi/Tkq5CM3pHO8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

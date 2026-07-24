@@ -40,8 +40,8 @@ keyMoments:
 videoId: "BipfxlL3qZU"
 videoTitle: "Who really won the UFC fight at the White House? Trump and his allies"
 thumbnail: "https://img.youtube.com/vi/BipfxlL3qZU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

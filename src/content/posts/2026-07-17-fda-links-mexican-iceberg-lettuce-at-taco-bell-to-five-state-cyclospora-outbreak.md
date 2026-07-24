@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Jp5BLdIfOxs"
 videoTitle: "Taco Bell's shredded lettuce linked to Cyclospora outbreak"
 thumbnail: "https://img.youtube.com/vi/Jp5BLdIfOxs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "cLD02uBJNds"
 videoTitle: "Tesla Just Killed The CyberSUV You Were Imagining"
 thumbnail: "https://img.youtube.com/vi/cLD02uBJNds/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

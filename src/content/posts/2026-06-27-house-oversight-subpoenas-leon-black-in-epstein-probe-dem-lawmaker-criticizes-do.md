@@ -41,8 +41,8 @@ keyMoments:
 videoId: "4HH0QO4A1gY"
 videoTitle: "Rep. Walkinshaw: Billionaire Epstein associate needs to answer for NDAs he allegedly signed"
 thumbnail: "https://img.youtube.com/vi/4HH0QO4A1gY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

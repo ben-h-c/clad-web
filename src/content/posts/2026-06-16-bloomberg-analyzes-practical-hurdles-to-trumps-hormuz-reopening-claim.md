@@ -38,8 +38,8 @@ keyMoments:
 videoId: "le7AAsXdyrs"
 videoTitle: "Can Trump Really Reopen the Strait of Hormuz by Friday?"
 thumbnail: "https://img.youtube.com/vi/le7AAsXdyrs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

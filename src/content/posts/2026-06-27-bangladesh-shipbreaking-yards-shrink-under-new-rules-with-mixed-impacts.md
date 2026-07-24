@@ -35,8 +35,8 @@ keyMoments:
 videoId: "yNKXFCZ14NQ"
 videoTitle: "Shipbreaking industry in Bangladesh: transformation causing job losses in Sitakund"
 thumbnail: "https://img.youtube.com/vi/yNKXFCZ14NQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

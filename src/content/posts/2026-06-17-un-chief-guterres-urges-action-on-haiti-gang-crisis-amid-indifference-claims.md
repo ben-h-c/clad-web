@@ -32,8 +32,8 @@ keyMoments:
 videoId: "_PtQ_FYjdyw"
 videoTitle: "UN chief blames global indifference for Haiti crisis"
 thumbnail: "https://img.youtube.com/vi/_PtQ_FYjdyw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

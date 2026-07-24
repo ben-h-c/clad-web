@@ -31,8 +31,8 @@ keyMoments:
 videoId: "F4I-y1sTrs4"
 videoTitle: "‘No forecasted warning': Tornado strikes parts of northwestern Alberta | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/F4I-y1sTrs4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

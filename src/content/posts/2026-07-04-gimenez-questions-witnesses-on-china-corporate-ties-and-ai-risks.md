@@ -39,8 +39,8 @@ keyMoments:
 videoId: "8JCw719G_dY"
 videoTitle: "Carlos Giménez Asks Expert About U.S. Companies Operating In China Cooperating With CCP, PLA"
 thumbnail: "https://img.youtube.com/vi/8JCw719G_dY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

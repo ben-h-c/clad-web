@@ -31,8 +31,8 @@ keyMoments:
 videoId: "fBld4HiEb9U"
 videoTitle: "Nobody's happy with Brexit, story of two businessmen brothers"
 thumbnail: "https://img.youtube.com/vi/fBld4HiEb9U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

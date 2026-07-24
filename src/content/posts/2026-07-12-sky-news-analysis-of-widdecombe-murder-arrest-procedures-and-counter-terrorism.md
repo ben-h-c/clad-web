@@ -34,8 +34,8 @@ keyMoments:
 videoId: "zED3Qi2FVHE"
 videoTitle: "Analysis: Why were counter-terrorism officers involved in Widdecombe arrest?"
 thumbnail: "https://img.youtube.com/vi/zED3Qi2FVHE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

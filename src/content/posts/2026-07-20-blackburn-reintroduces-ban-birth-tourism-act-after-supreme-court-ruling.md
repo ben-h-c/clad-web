@@ -36,8 +36,8 @@ keyMoments:
 videoId: "epkGimj9NVQ"
 videoTitle: "'They Admit They're Committing Fraud!': Marsha Blackburn Sounds Off On Birth Tourism Industry"
 thumbnail: "https://img.youtube.com/vi/epkGimj9NVQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

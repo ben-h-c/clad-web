@@ -37,8 +37,8 @@ keyMoments:
 videoId: "DO5PkE9Xed0"
 videoTitle: "'Prices Are Up, Up, Up And President Trump Claims Affordability Is A Hoax': Warren Lays Into Trump"
 thumbnail: "https://img.youtube.com/vi/DO5PkE9Xed0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

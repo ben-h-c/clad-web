@@ -34,8 +34,8 @@ keyMoments:
 videoId: "aQ6hs0MMAfM"
 videoTitle: "Is Israel's Lebanon offensive threatening a fragile US–Iran thaw? | DW News"
 thumbnail: "https://img.youtube.com/vi/aQ6hs0MMAfM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

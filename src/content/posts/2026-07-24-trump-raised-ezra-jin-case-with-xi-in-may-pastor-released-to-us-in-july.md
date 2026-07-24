@@ -32,8 +32,8 @@ keyMoments:
 videoId: "DQjn0fbowHs"
 videoTitle: "How Trump-Xi talks won pastor's release - but could there be a trade-off?"
 thumbnail: "https://img.youtube.com/vi/DQjn0fbowHs/maxresdefault.jpg"
-mediaNote: "center talking-head pastor face upper-middle"
-thumbFocusY: 28
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

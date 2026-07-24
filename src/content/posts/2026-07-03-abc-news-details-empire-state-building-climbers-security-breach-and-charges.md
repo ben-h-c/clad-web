@@ -34,8 +34,8 @@ keyMoments:
 videoId: "q8gzBa560qo"
 videoTitle: "New details in daredevil couple's security breach to climb Empire State Building"
 thumbnail: "https://img.youtube.com/vi/q8gzBa560qo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

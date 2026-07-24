@@ -37,8 +37,8 @@ keyMoments:
 videoId: "GCI0Crp2l7k"
 videoTitle: "UK's next prime minister: Burnham lines up foreign policy agenda"
 thumbnail: "https://img.youtube.com/vi/GCI0Crp2l7k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

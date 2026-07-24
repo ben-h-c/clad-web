@@ -31,8 +31,8 @@ keyMoments:
 videoId: "fuwTkIF_z0Q"
 videoTitle: "Rain could clear wildfire smoke before World Cup final"
 thumbnail: "https://img.youtube.com/vi/fuwTkIF_z0Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

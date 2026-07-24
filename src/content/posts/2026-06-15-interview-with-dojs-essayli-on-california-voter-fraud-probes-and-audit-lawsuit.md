@@ -36,8 +36,8 @@ keyMoments:
 videoId: "rW1gCAwDKYQ"
 videoTitle: "Full Interview | First Assistant U.S. Attorney Bill Essayli on DOJ's election investigation"
 thumbnail: "https://img.youtube.com/vi/rW1gCAwDKYQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

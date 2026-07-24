@@ -34,8 +34,8 @@ keyMoments:
 videoId: "6ftopvliggY"
 videoTitle: "Tim Scott Reflects On History Of Lindsey Graham's Relationship With Donald Trump"
 thumbnail: "https://img.youtube.com/vi/6ftopvliggY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "uL9fPAvZgMY"
 videoTitle: "Johnny Knoxville - \"Jackass: Best and Last\" | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/uL9fPAvZgMY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

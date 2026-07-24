@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Rsq12CWcRwM"
 videoTitle: "Rep. Menefee Challenges DEI Witness | Heated Exchange Over Black Inequality Claims"
 thumbnail: "https://img.youtube.com/vi/Rsq12CWcRwM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "y-Rztqu3aFU"
 videoTitle: "Venezuela earthquake death toll rises over 1,400"
 thumbnail: "https://img.youtube.com/vi/y-Rztqu3aFU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

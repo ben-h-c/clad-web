@@ -36,8 +36,8 @@ keyMoments:
 videoId: "2qNaNhMpc3Q"
 videoTitle: "Congressman and ER doctor Raúl Ruiz says Trump is making America sicker"
 thumbnail: "https://img.youtube.com/vi/2qNaNhMpc3Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

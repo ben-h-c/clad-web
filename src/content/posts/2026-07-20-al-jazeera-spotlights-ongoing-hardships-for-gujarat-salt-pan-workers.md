@@ -30,8 +30,8 @@ keyMoments:
 videoId: "HuivLNpyGes"
 videoTitle: "India’s salt workers still struggle despite government promises | 101 East #shorts"
 thumbnail: "https://img.youtube.com/vi/HuivLNpyGes/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

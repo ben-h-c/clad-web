@@ -38,8 +38,8 @@ keyMoments:
 videoId: "eW1az9hK0g4"
 videoTitle: "Psaki: Trump's humiliating disaster on the Mall is his presidency in a nutshell"
 thumbnail: "https://img.youtube.com/vi/eW1az9hK0g4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

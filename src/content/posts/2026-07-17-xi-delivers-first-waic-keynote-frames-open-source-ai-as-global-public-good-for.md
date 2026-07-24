@@ -34,8 +34,8 @@ keyMoments:
 videoId: "WLEZsLTMR60"
 videoTitle: "Xi pitches China as leader of new global AI order"
 thumbnail: "https://img.youtube.com/vi/WLEZsLTMR60/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

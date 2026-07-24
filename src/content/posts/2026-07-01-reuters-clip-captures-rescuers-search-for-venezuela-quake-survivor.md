@@ -25,8 +25,8 @@ keyMoments:
 videoId: "Q51gy6qnahc"
 videoTitle: "Between silence and shouts, rescuers dig for Venezuela quake survivors"
 thumbnail: "https://img.youtube.com/vi/Q51gy6qnahc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

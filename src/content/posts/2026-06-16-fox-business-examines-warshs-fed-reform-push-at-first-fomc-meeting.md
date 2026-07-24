@@ -36,8 +36,8 @@ keyMoments:
 videoId: "nQokhJW5kAs"
 videoTitle: "FED WATCH: The change Kevin Warsh reportedly wants MOST…"
 thumbnail: "https://img.youtube.com/vi/nQokhJW5kAs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

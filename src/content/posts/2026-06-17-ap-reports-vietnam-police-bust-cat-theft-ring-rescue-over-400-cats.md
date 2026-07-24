@@ -34,8 +34,8 @@ keyMoments:
 videoId: "SYWYI7-kRSU"
 videoTitle: "Police rescue hundreds of cats from being eaten in Vietnam with bust of major animal theft ring"
 thumbnail: "https://img.youtube.com/vi/SYWYI7-kRSU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

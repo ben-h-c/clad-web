@@ -31,8 +31,8 @@ keyMoments:
 videoId: "GgH8YFWo8YE"
 videoTitle: "Argentina and Algeria fans react to Messi's World Cup record after hat trick"
 thumbnail: "https://img.youtube.com/vi/GgH8YFWo8YE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

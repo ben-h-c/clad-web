@@ -33,8 +33,8 @@ keyMoments:
 videoId: "I6OyUDjf8GU"
 videoTitle: "Delcy Wasn&#39;t Elected"
 thumbnail: "https://img.youtube.com/vi/I6OyUDjf8GU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

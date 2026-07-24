@@ -38,8 +38,8 @@ keyMoments:
 videoId: "3a1FNqG51A0"
 videoTitle: "Why Europe is still unsure on air conditioning despite record heatwaves | The Global Story"
 thumbnail: "https://img.youtube.com/vi/3a1FNqG51A0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

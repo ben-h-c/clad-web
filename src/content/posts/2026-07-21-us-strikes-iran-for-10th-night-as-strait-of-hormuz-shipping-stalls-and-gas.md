@@ -34,8 +34,8 @@ keyMoments:
 videoId: "DWmWsMNdLGc"
 videoTitle: "Latest on US-Iran war"
 thumbnail: "https://img.youtube.com/vi/DWmWsMNdLGc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

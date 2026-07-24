@@ -31,8 +31,8 @@ keyMoments:
 videoId: "MgcVsNp21wY"
 videoTitle: "1 dead after private plane crashes onto Texas road, police say"
 thumbnail: "https://img.youtube.com/vi/MgcVsNp21wY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

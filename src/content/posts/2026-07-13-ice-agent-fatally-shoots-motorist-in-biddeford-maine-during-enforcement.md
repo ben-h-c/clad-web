@@ -31,8 +31,8 @@ keyMoments:
 videoId: "871iaML0ZEE"
 videoTitle: "ICE officer kills motorist in Maine; the second fatality in a week"
 thumbnail: "https://img.youtube.com/vi/871iaML0ZEE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

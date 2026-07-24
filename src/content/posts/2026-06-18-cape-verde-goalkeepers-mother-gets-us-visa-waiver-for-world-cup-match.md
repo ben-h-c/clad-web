@@ -31,8 +31,8 @@ keyMoments:
 videoId: "oZukMUCmTyM"
 videoTitle: "The mother of one of this year's World Cup's breakout stars will now be able to travel to the U.S."
 thumbnail: "https://img.youtube.com/vi/oZukMUCmTyM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

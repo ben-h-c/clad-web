@@ -29,8 +29,8 @@ keyMoments:
 videoId: "mq1rInM5bhQ"
 videoTitle: "D4vd's trial continues"
 thumbnail: "https://img.youtube.com/vi/mq1rInM5bhQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

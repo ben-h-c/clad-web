@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Teg5950dU4Y"
 videoTitle: "Canada joins next-gen European fighter jet program as observer"
 thumbnail: "https://img.youtube.com/vi/Teg5950dU4Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

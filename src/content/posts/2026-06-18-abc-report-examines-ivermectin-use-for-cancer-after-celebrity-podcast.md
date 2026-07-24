@@ -37,8 +37,8 @@ keyMoments:
 videoId: "nO3QqB6K6L0"
 videoTitle: "Some cancer patients turn to ivermectin despite lack of evidence it works"
 thumbnail: "https://img.youtube.com/vi/nO3QqB6K6L0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

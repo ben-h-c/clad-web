@@ -36,8 +36,8 @@ keyMoments:
 videoId: "qR3kr9jZhrc"
 videoTitle: "US-Iran Deal Details Emerge; Bonds Rally Ahead of Fed | Horizons Middle East & Africa 6/17/2026"
 thumbnail: "https://img.youtube.com/vi/qR3kr9jZhrc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

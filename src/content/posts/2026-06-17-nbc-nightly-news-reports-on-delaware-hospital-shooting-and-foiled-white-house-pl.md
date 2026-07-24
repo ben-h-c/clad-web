@@ -35,8 +35,8 @@ keyMoments:
 videoId: "1Fjw9jABBpk"
 videoTitle: "Delaware hospital shooting, FBI foils White House plot | NBC Nightly News with Tom Llamas - June 16"
 thumbnail: "https://img.youtube.com/vi/1Fjw9jABBpk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

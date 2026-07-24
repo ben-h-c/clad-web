@@ -35,8 +35,8 @@ keyMoments:
 videoId: "tOdvmKZZkRA"
 videoTitle: "Tim Burchett Asks Experts How Inter-State Data Sharing Could Reduce SNAP Fraud"
 thumbnail: "https://img.youtube.com/vi/tOdvmKZZkRA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

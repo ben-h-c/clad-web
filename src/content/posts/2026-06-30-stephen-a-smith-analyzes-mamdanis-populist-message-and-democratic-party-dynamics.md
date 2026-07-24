@@ -37,8 +37,8 @@ keyMoments:
 videoId: "GUnswB3zQ7o"
 videoTitle: "Stephen A. Smith: Democratic socialists sending right message for forgotten voters | CUOMO"
 thumbnail: "https://img.youtube.com/vi/GUnswB3zQ7o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "YLnnSRE-8iQ"
 videoTitle: "NBC Nightly News Full Episode - June 15"
 thumbnail: "https://img.youtube.com/vi/YLnnSRE-8iQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

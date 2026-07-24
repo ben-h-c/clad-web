@@ -35,8 +35,8 @@ keyMoments:
 videoId: "cQ-PIsw0fR8"
 videoTitle: "Wall Street ends higher on boost from chips, Iran optimism"
 thumbnail: "https://img.youtube.com/vi/cQ-PIsw0fR8/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

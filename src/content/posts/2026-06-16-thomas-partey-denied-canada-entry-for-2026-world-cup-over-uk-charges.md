@@ -35,8 +35,8 @@ keyMoments:
 videoId: "7HkbM4xPmqE"
 videoTitle: "2026 FIFA World Cup: Ghana's star midfielder ruled inadmissible to Canada over UK charges"
 thumbnail: "https://img.youtube.com/vi/7HkbM4xPmqE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

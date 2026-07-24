@@ -35,8 +35,8 @@ keyMoments:
 videoId: "DmS_jrshgg4"
 videoTitle: "Sons of migrant killed by ICE in Texas demand answers"
 thumbnail: "https://img.youtube.com/vi/DmS_jrshgg4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

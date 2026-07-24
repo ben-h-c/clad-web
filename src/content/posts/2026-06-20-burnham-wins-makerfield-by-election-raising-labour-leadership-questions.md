@@ -35,8 +35,8 @@ keyMoments:
 videoId: "65omQIk6Zws"
 videoTitle: "Labour leadership tensions grow after Burnham by-election win"
 thumbnail: "https://img.youtube.com/vi/65omQIk6Zws/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

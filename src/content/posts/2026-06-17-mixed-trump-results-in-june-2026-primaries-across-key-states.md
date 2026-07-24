@@ -34,8 +34,8 @@ keyMoments:
 videoId: "clpF10u-4AA"
 videoTitle: "Mixed results for Trump in \"key battleground state\" as primaries continue ahead of midterms"
 thumbnail: "https://img.youtube.com/vi/clpF10u-4AA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

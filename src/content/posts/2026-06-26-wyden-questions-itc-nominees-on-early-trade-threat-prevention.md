@@ -31,8 +31,8 @@ keyMoments:
 videoId: "QpVuY10GxBY"
 videoTitle: "'The Government Usually Gets There Too Late': Ron Wyden Asks Nominees About Preventing Trade Threats"
 thumbnail: "https://img.youtube.com/vi/QpVuY10GxBY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

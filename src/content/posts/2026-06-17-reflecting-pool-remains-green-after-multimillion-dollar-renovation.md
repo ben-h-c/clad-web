@@ -32,8 +32,8 @@ keyMoments:
 videoId: "krljVL0jDXM"
 videoTitle: "Reflecting pool visitors react after costly fix"
 thumbnail: "https://img.youtube.com/vi/krljVL0jDXM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

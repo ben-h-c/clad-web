@@ -33,8 +33,8 @@ keyMoments:
 videoId: "KK_Z0OlBREE"
 videoTitle: "Passengers TERRIFIED as Waymo car drives into live fireworks #shorts #news #foxnews #waymo #viral"
 thumbnail: "https://img.youtube.com/vi/KK_Z0OlBREE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

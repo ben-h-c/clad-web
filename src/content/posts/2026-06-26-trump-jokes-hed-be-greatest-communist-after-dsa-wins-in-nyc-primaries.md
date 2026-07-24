@@ -31,8 +31,8 @@ keyMoments:
 videoId: "JWxZwZWWFmo"
 videoTitle: "Trump jokes that he'd be 'the greatest communist in history' after democratic socialists win in NYC"
 thumbnail: "https://img.youtube.com/vi/JWxZwZWWFmo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

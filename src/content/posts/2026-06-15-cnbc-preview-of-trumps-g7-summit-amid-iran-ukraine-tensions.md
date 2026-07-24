@@ -40,8 +40,8 @@ keyMoments:
 videoId: "hkZrpOyvY-o"
 videoTitle: "What To Expect From Trump’s Trip To The G7 Summit In France"
 thumbnail: "https://img.youtube.com/vi/hkZrpOyvY-o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

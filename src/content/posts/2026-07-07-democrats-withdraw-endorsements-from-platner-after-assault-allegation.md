@@ -34,8 +34,8 @@ keyMoments:
 videoId: "WE7G8QZuwVs"
 videoTitle: "Democrats pull endorsements for Graham Platner after sexual assault allegation"
 thumbnail: "https://img.youtube.com/vi/WE7G8QZuwVs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

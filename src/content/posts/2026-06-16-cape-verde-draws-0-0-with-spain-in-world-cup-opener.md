@@ -29,8 +29,8 @@ keyMoments:
 videoId: "fmkcbWuA5bA"
 videoTitle: "Cape Verde shocks with draw against Spain thanks to 40-year-old goalkeeper"
 thumbnail: "https://img.youtube.com/vi/fmkcbWuA5bA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

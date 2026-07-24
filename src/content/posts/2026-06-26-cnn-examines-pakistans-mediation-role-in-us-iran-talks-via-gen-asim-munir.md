@@ -35,8 +35,8 @@ keyMoments:
 videoId: "CrKpXis-Xe8"
 videoTitle: "The Pakistani general who brought Trump & Iran together"
 thumbnail: "https://img.youtube.com/vi/CrKpXis-Xe8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

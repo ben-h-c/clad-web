@@ -35,8 +35,8 @@ keyMoments:
 videoId: "J7eFkllO6F0"
 videoTitle: "Pete Stauber Asks USFS Chief: What Are You Doing To Address Administrative Land Transfer Backlog?"
 thumbnail: "https://img.youtube.com/vi/J7eFkllO6F0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -40,8 +40,8 @@ keyMoments:
 videoId: "9q_T8ChZgkU"
 videoTitle: "Trump TOUTS Iran MOU at G7 summit, URGES Russia to 'MAKE a DEAL' with Ukraine | RISING"
 thumbnail: "https://img.youtube.com/vi/9q_T8ChZgkU/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

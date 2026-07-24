@@ -35,8 +35,8 @@ keyMoments:
 videoId: "E93etFigObo"
 videoTitle: "Does ANOTHER ‘pause’ in Iran, U.S. fighting over Strait of Hormuz really mean anything?"
 thumbnail: "https://img.youtube.com/vi/E93etFigObo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "fN3Gh6pH6jY"
 videoTitle: "Turkish opposition leader Özel to form new party to challenge Erdogan | DW News"
 thumbnail: "https://img.youtube.com/vi/fN3Gh6pH6jY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

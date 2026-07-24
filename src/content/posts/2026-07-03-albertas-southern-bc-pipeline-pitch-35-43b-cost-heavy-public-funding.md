@@ -38,8 +38,8 @@ keyMoments:
 videoId: "2pJ95l48vmM"
 videoTitle: "How much is Alberta's new pipeline going to cost taxpayers? | Power & Politics"
 thumbnail: "https://img.youtube.com/vi/2pJ95l48vmM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

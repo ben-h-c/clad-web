@@ -31,8 +31,8 @@ keyMoments:
 videoId: "zBaiM3nN7Eg"
 videoTitle: "#RecapwithRick: hearings to reform FEMA and water resource infrastructure."
 thumbnail: "https://img.youtube.com/vi/zBaiM3nN7Eg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

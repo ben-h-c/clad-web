@@ -34,8 +34,8 @@ keyMoments:
 videoId: "raSQ5tAqnQs"
 videoTitle: "The Mysterious Parasite Spreading Across 34 States — How to Stay Safe | Hot Take with Jesse Weber"
 thumbnail: "https://img.youtube.com/vi/raSQ5tAqnQs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

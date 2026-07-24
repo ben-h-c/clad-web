@@ -36,8 +36,8 @@ keyMoments:
 videoId: "XFsyicJY0-M"
 videoTitle: "Luxury beliefs EXPOSED | Rob Henderson dismantles the hypocrisy of the elite class"
 thumbnail: "https://img.youtube.com/vi/XFsyicJY0-M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

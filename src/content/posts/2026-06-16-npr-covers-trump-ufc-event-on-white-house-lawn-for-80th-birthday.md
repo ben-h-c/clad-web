@@ -35,8 +35,8 @@ keyMoments:
 videoId: "9upEwOMIH-M"
 videoTitle: "Trump celebrates his 80th birthday with UFC fight on White House lawn"
 thumbnail: "https://img.youtube.com/vi/9upEwOMIH-M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

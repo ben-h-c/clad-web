@@ -32,8 +32,8 @@ keyMoments:
 videoId: "K_uIDWDrto8"
 videoTitle: "'Fierce power': Ahmed Khuzaie shares his views on how violence can end in the Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/K_uIDWDrto8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "6nOVv-zqsCo"
 videoTitle: "Pimco Sees Fed on Hold for Rest of Year"
 thumbnail: "https://img.youtube.com/vi/6nOVv-zqsCo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

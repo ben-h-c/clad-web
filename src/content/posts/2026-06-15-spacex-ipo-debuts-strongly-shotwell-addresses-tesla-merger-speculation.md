@@ -35,8 +35,8 @@ keyMoments:
 videoId: "FVTKZx2Xivs"
 videoTitle: "SpaceX President Responds To Tesla Merger Rumors Amid SpaceX IPO"
 thumbnail: "https://img.youtube.com/vi/FVTKZx2Xivs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

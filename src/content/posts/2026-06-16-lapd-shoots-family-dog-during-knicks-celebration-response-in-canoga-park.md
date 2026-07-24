@@ -37,8 +37,8 @@ keyMoments:
 videoId: "ryN1HTcgBGs"
 videoTitle: "Family grieves dog shot by LAPD officer during Knicks celebration"
 thumbnail: "https://img.youtube.com/vi/ryN1HTcgBGs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

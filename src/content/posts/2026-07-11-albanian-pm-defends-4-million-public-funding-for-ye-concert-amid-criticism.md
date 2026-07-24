@@ -33,8 +33,8 @@ keyMoments:
 videoId: "CMUR5BAgjSY"
 videoTitle: "Ye concert: Albanian PM defends paying €4 ​million in state money to host divisive rapper | DW News"
 thumbnail: "https://img.youtube.com/vi/CMUR5BAgjSY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

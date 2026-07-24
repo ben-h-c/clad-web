@@ -39,8 +39,8 @@ keyMoments:
 videoId: "txt4abf5TXs"
 videoTitle: "With Trump’s Iran War Almost Over, Why Is US Building A Major Military Base Near Gaza Strip? |Israel"
 thumbnail: "https://img.youtube.com/vi/txt4abf5TXs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

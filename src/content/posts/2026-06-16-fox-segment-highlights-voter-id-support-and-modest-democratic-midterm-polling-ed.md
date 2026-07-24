@@ -35,8 +35,8 @@ keyMoments:
 videoId: "R5tJhvP3uCM"
 videoTitle: "Voters are ‘DEMANDING’ secure elections by enabling Voter ID: Rep Randy Fine"
 thumbnail: "https://img.youtube.com/vi/R5tJhvP3uCM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -39,10 +39,10 @@ politicians:
   - name: "Craig A. Goldman"
     slug: "craig-a-goldman"
 thumbnail: "https://img.youtube.com/vi/8rKBoZf6yVo/maxresdefault.jpg"
-mediaStyle: "modular"
-thumbFocusX: 75
-thumbFocusY: 28
-mediaNote: "Split-screen dual talking heads + Forbes bug; modular thumb avoids overlay text clash"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "16:9 band default"
 citations:
   - title: "NTIA Announces Approval of Texas' BEAD Final Proposal"
     url: "https://www.ntia.gov/press-release/2025/ntia-announces-approval-texas-bead-final-proposal"

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "sNJCmBx13zc"
 videoTitle: "Trump caves to pushback again; another humiliation in court"
 thumbnail: "https://img.youtube.com/vi/sNJCmBx13zc/maxresdefault.jpg"
-mediaNote: "Dual talking-heads split; hold upper-middle on both faces"
-thumbFocusY: 28
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

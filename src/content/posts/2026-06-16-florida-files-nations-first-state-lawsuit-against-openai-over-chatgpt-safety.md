@@ -36,8 +36,8 @@ keyMoments:
 videoId: "GUE6sEjizB4"
 videoTitle: "TECH TITAN SUED: OpenAI CONFRONTS first-of-its-kind state legal challenge"
 thumbnail: "https://img.youtube.com/vi/GUE6sEjizB4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

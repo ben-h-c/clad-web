@@ -30,8 +30,8 @@ keyMoments:
 videoId: "sm-5HcpQblE"
 videoTitle: "Reporter Asks John Thune: Would You Encourage Trump Not To Claim The 2020 Election Was Stolen?"
 thumbnail: "https://img.youtube.com/vi/sm-5HcpQblE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

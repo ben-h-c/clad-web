@@ -31,8 +31,8 @@ keyMoments:
 videoId: "AEbsCyou_I0"
 videoTitle: "Giant cockroach lands on reporter during broadcast"
 thumbnail: "https://img.youtube.com/vi/AEbsCyou_I0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

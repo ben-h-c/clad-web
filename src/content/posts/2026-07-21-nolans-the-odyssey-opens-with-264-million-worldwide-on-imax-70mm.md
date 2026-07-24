@@ -35,8 +35,8 @@ keyMoments:
 videoId: "FjkGrfUmXkA"
 videoTitle: "Inside the use of 70mm IMAX cameras on \"The Odyssey\""
 thumbnail: "https://img.youtube.com/vi/FjkGrfUmXkA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

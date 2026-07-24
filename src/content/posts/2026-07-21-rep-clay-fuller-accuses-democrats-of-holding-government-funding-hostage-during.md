@@ -37,9 +37,9 @@ politicians:
     slug: "clay-fuller"
 thumbnail: "https://img.youtube.com/vi/13rVnJwd5iA/maxresdefault.jpg"
 mediaStyle: "overlay"
-thumbFocusX: 48
-thumbFocusY: 28
-mediaNote: "Strong talking-head face; anchor upper-center so scrim doesn't cover subject"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "16:9 band default"
 citations:
   - title: "Government Shutdowns Q&A: Everything You Should Know"
     url: "https://www.crfb.org/papers/government-shutdowns-qa-everything-you-should-know"

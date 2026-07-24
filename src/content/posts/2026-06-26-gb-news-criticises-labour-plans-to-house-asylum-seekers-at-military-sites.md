@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Zb9z9I0I8EA"
 videoTitle: "'Same crisis, different postcode' | Ben Leo FUMES over Labour moving migrants to military bases"
 thumbnail: "https://img.youtube.com/vi/Zb9z9I0I8EA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

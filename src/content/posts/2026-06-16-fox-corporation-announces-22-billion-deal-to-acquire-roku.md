@@ -36,8 +36,8 @@ keyMoments:
 videoId: "a13mYo_HmfU"
 videoTitle: "FOX Corp. to BUY ROKU, expected to MERGE streaming services | RISING"
 thumbnail: "https://img.youtube.com/vi/a13mYo_HmfU/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

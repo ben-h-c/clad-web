@@ -36,8 +36,8 @@ keyMoments:
 videoId: "A3BSXhifEOc"
 videoTitle: "'HUGE RED FLAG': Inside the Trump vs Newsom battle"
 thumbnail: "https://img.youtube.com/vi/A3BSXhifEOc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

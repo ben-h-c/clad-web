@@ -35,8 +35,8 @@ keyMoments:
 videoId: "bE2OgwqZ13c"
 videoTitle: "Federal Judge Dismisses xAI Trade Secrets Lawsuit Against OpenAI"
 thumbnail: "https://img.youtube.com/vi/bE2OgwqZ13c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

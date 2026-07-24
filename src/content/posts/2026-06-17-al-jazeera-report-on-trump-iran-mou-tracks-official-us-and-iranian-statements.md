@@ -37,8 +37,8 @@ keyMoments:
 videoId: "P6zKY3Enla4"
 videoTitle: "Trump signs memorandum to end war on Iran: White House"
 thumbnail: "https://img.youtube.com/vi/P6zKY3Enla4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

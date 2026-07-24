@@ -38,8 +38,8 @@ keyMoments:
 videoId: "UF01CojqMMM"
 videoTitle: "Hannity: The left is only generous with other people's money"
 thumbnail: "https://img.youtube.com/vi/UF01CojqMMM/maxresdefault.jpg"
-mediaNote: "Talking-head anchor face upper-middle; keep eyes/shoulders in frame, avoid lower third and edges"
-thumbFocusY: 28
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

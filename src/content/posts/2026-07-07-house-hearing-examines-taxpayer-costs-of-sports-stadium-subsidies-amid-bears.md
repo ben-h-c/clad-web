@@ -35,8 +35,8 @@ keyMoments:
 videoId: "k4L8LBbl5CI"
 videoTitle: "Darin LaHood Asks Expert: What Kind Of Stadium Deals Benefit Communities As Opposed To Harming Them?"
 thumbnail: "https://img.youtube.com/vi/k4L8LBbl5CI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

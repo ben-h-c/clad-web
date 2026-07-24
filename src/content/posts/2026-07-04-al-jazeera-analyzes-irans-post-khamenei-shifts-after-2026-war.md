@@ -37,8 +37,8 @@ keyMoments:
 videoId: "FFF44oRqGaQ"
 videoTitle: "Iran under a new leader: Questions about how Iran has changed after the war"
 thumbnail: "https://img.youtube.com/vi/FFF44oRqGaQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

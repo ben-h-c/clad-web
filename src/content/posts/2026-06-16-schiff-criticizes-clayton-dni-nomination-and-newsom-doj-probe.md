@@ -37,8 +37,8 @@ keyMoments:
 videoId: "--oi02MDlm8"
 videoTitle: "'This is deliberate': Sen. Schiff slams Trump DOJ probe into CA Gov. Newsom "
 thumbnail: "https://img.youtube.com/vi/--oi02MDlm8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

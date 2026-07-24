@@ -32,8 +32,8 @@ keyMoments:
 videoId: "lAhZiMqT0q8"
 videoTitle: "Trump on school bombing during Iran war that killed over 100 children: 'Nobody did that on purpose'"
 thumbnail: "https://img.youtube.com/vi/lAhZiMqT0q8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

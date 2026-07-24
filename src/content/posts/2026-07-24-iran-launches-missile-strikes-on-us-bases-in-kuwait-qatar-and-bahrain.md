@@ -28,8 +28,8 @@ keyMoments:
 videoId: "Fx4aLV6F1nE"
 videoTitle: "Iran strikes US military targets in the Gulf | DW News"
 thumbnail: "https://img.youtube.com/vi/Fx4aLV6F1nE/maxresdefault.jpg"
-mediaNote: "Missile body upper-middle against sky; keep full projectile clear of bottom text third"
-thumbFocusY: 28
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

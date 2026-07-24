@@ -35,8 +35,8 @@ keyMoments:
 videoId: "tl4MAu_uB70"
 videoTitle: "‘Continue failure is unacceptable’: Ruiz presses NTIA chief on California’s broadband funding"
 thumbnail: "https://img.youtube.com/vi/tl4MAu_uB70/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

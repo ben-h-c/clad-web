@@ -35,8 +35,8 @@ keyMoments:
 videoId: "bVmb2ImlQv8"
 videoTitle: "Why Queen Camilla is the key to reuniting William and Harry | The Royal T"
 thumbnail: "https://img.youtube.com/vi/bVmb2ImlQv8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

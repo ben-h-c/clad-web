@@ -37,8 +37,8 @@ keyMoments:
 videoId: "rIfitgR-sDk"
 videoTitle: "Mark Takano EXPOSES the Truth Behind GOP Health Care Cuts—15 Million Could Lose Coverage"
 thumbnail: "https://img.youtube.com/vi/rIfitgR-sDk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

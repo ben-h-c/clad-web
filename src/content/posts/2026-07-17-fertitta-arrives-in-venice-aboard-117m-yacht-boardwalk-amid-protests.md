@@ -32,8 +32,8 @@ keyMoments:
 videoId: "D1WpTwEk74Y"
 videoTitle: "Venice protesters rally against US ambassador’s superyacht tour | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/D1WpTwEk74Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "V286Ozy0gaA"
 videoTitle: "Catastrophic floods trigger water rescues"
 thumbnail: "https://img.youtube.com/vi/V286Ozy0gaA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "DLbOW7JOM5o"
 videoTitle: "Trump on Iran deal: 'We're gonna see how it works out'"
 thumbnail: "https://img.youtube.com/vi/DLbOW7JOM5o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

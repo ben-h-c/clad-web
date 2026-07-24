@@ -34,8 +34,8 @@ keyMoments:
 videoId: "f6rSg0WgnxE"
 videoTitle: "TikTok shut down for kids 14 and under in Florida"
 thumbnail: "https://img.youtube.com/vi/f6rSg0WgnxE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

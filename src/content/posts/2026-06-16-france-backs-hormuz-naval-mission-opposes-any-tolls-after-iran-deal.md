@@ -38,8 +38,8 @@ keyMoments:
 videoId: "oEaIBtcHAe4"
 videoTitle: "France Is Against Iran Imposing Any Tolls to Pass Through Hormuz"
 thumbnail: "https://img.youtube.com/vi/oEaIBtcHAe4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

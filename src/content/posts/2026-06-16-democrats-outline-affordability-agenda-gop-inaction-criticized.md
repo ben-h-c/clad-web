@@ -32,8 +32,8 @@ keyMoments:
 videoId: "pWe15cTIkt0"
 videoTitle: "“They want to see that their financial struggle is a priority,” | Batya!"
 thumbnail: "https://img.youtube.com/vi/pWe15cTIkt0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

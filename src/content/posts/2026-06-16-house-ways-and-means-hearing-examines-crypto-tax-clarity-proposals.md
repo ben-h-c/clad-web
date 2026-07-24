@@ -34,8 +34,8 @@ keyMoments:
 videoId: "32UCx8JZJHY"
 videoTitle: "'Financial Markets Need Need Clear Rules Of The Road': Jason Smith Urges Clarity For Crypto Taxation"
 thumbnail: "https://img.youtube.com/vi/32UCx8JZJHY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

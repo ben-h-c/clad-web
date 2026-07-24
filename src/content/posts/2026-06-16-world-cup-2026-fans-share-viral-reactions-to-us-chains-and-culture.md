@@ -34,8 +34,8 @@ keyMoments:
 videoId: "u0JFd10bY-w"
 videoTitle: "World Cup fans are living the American dream"
 thumbnail: "https://img.youtube.com/vi/u0JFd10bY-w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

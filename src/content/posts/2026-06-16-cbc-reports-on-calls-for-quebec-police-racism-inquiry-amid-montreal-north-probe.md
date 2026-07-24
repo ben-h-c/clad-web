@@ -35,8 +35,8 @@ keyMoments:
 videoId: "13ca3yKoJRU"
 videoTitle: "Montreal Black community leaders call for public inquiry into racism, profiling within police"
 thumbnail: "https://img.youtube.com/vi/13ca3yKoJRU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

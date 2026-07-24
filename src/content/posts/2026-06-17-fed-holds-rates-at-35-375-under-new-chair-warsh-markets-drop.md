@@ -35,8 +35,8 @@ keyMoments:
 videoId: "XCHGvN2nXRo"
 videoTitle: "Dow falls after Fed holds interest rates steady"
 thumbnail: "https://img.youtube.com/vi/XCHGvN2nXRo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

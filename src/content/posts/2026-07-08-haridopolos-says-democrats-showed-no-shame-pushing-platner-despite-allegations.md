@@ -33,8 +33,8 @@ keyMoments:
 videoId: "9WAOVcoLCWs"
 videoTitle: "Democrats have &#39;NO SHAME&#39; after pushing Graham Platner: Rep. Mike Haridopolos"
 thumbnail: "https://img.youtube.com/vi/9WAOVcoLCWs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

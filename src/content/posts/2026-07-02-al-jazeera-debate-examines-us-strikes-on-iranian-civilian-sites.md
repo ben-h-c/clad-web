@@ -35,8 +35,8 @@ keyMoments:
 videoId: "8QXy0IpQ3Sk"
 videoTitle: "Did the US commit war crimes in Iran? | Head to Head"
 thumbnail: "https://img.youtube.com/vi/8QXy0IpQ3Sk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

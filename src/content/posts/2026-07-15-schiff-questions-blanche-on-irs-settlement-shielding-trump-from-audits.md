@@ -37,8 +37,8 @@ keyMoments:
 videoId: "aAZEx4gKlms"
 videoTitle: "WATCH: Schiff grills Blanche on Trump tax settlement"
 thumbnail: "https://img.youtube.com/vi/aAZEx4gKlms/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "Q9ak3gAXpjs"
 videoTitle: "Apollo Global's Torsten Slok on Fed Chair Kevin Warsh's approach to interest rates"
 thumbnail: "https://img.youtube.com/vi/Q9ak3gAXpjs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

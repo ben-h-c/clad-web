@@ -31,8 +31,8 @@ keyMoments:
 videoId: "BCO_Fy3ukAA"
 videoTitle: "'What Have You Learned From Your Time As A Judge?': Grassley Probes Trump Judicial Nom"
 thumbnail: "https://img.youtube.com/vi/BCO_Fy3ukAA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

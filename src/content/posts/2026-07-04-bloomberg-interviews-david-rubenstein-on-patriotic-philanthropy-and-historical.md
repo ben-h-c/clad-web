@@ -35,8 +35,8 @@ keyMoments:
 videoId: "kEftIvXnrwg"
 videoTitle: "David Rubenstein's Belief in 'Patriotic Philanthropy'"
 thumbnail: "https://img.youtube.com/vi/kEftIvXnrwg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

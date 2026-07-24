@@ -40,8 +40,8 @@ keyMoments:
 videoId: "HkEnDDLKkHU"
 videoTitle: "Top Story with Tom Llamas - June 15 | NBC News NOW"
 thumbnail: "https://img.youtube.com/vi/HkEnDDLKkHU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

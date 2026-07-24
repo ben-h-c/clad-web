@@ -34,8 +34,8 @@ keyMoments:
 videoId: "xtvQTur8-FM"
 videoTitle: "Lindsey Graham dead at 71: Veteran politician had just returned from Ukraine"
 thumbnail: "https://img.youtube.com/vi/xtvQTur8-FM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

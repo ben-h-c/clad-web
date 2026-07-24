@@ -36,8 +36,8 @@ keyMoments:
 videoId: "jS0AMmkT7sE"
 videoTitle: "EXCLUSIVE: Obama reveals favorite exhibit from his Presidential Center ahead of grand opening"
 thumbnail: "https://img.youtube.com/vi/jS0AMmkT7sE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

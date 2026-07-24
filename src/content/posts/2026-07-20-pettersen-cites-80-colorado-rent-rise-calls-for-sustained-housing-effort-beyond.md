@@ -36,10 +36,10 @@ politicians:
   - name: "Brittany Pettersen"
     slug: "brittany-pettersen"
 thumbnail: "https://img.youtube.com/vi/Kdw-5xMpe44/maxresdefault.jpg"
-mediaStyle: "modular"
+mediaStyle: "overlay"
 thumbFocusX: 50
-thumbFocusY: 28
-mediaNote: "Center talking-head usable as thumb; heavy chyrons, quote box, and side panels fight full-bleed overlay text"
+thumbFocusY: 40
+mediaNote: "16:9 band default"
 citations:
   - title: "Rep. Pettersen’s Bipartisan Housing Bills Pass House"
     url: "https://pettersen.house.gov/news/documentsingle.aspx?DocumentID=1596"

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "GP7nicCQJ2c"
 videoTitle: "Luigi Mangione's attorneys call report of possible plea deal \"troubling\""
 thumbnail: "https://img.youtube.com/vi/GP7nicCQJ2c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

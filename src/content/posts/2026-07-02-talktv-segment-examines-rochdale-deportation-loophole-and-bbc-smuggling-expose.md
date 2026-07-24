@@ -36,8 +36,8 @@ keyMoments:
 videoId: "I7rb9X-7Srs"
 videoTitle: "'MPs NOT WILLING To Save British Girls From Being Raped' | 'WHY Can't We Deport Him?!'"
 thumbnail: "https://img.youtube.com/vi/I7rb9X-7Srs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

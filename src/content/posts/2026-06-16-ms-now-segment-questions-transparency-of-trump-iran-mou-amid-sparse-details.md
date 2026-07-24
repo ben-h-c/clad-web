@@ -36,8 +36,8 @@ keyMoments:
 videoId: "OhLBImfHwbU"
 videoTitle: "‘Show it to the world’: Joe CHALLENGES Trump to reveal Iran deal details"
 thumbnail: "https://img.youtube.com/vi/OhLBImfHwbU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

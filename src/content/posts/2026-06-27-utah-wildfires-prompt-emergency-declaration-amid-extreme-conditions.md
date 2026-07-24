@@ -36,8 +36,8 @@ keyMoments:
 videoId: "ddr3G_WmdZs"
 videoTitle: "Utah declares state of emergency over wildfires"
 thumbnail: "https://img.youtube.com/vi/ddr3G_WmdZs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "a4PyKUpiGr0"
 videoTitle: "John Early - Food Influencer Culture Meets 80s TV Movie in “Maddie’s Secret” | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/a4PyKUpiGr0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

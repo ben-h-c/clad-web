@@ -34,8 +34,8 @@ keyMoments:
 videoId: "uumc98BTCVI"
 videoTitle: "Ontario, Alberta push for 3,300km east-west oil pipeline"
 thumbnail: "https://img.youtube.com/vi/uumc98BTCVI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

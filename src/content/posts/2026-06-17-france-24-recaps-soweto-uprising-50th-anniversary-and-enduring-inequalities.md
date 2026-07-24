@@ -34,8 +34,8 @@ keyMoments:
 videoId: "EmEv007U5h8"
 videoTitle: "South Africa commemorates 50 year-old anniversary of Soweto uprising • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/EmEv007U5h8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -33,8 +33,8 @@ keyMoments:
 videoId: "mu2aMIE-VDc"
 videoTitle: "Sunny Hostin Reacts To Rep. AOC Leading In A New Presidential Primary Poll"
 thumbnail: "https://img.youtube.com/vi/mu2aMIE-VDc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "qUyz37tIFRw"
 videoTitle: "Despite Ottawa deal, B.C. still against pipeline, says Eby | Power & Politics"
 thumbnail: "https://img.youtube.com/vi/qUyz37tIFRw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

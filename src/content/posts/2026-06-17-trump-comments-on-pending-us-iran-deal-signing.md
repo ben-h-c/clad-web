@@ -31,8 +31,8 @@ keyMoments:
 videoId: "JhR9FND8N8A"
 videoTitle: "Trump on whether the Iran deal will be signed Friday: 'You never know'"
 thumbnail: "https://img.youtube.com/vi/JhR9FND8N8A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

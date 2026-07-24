@@ -37,8 +37,8 @@ keyMoments:
 videoId: "cBUSryTErBg"
 videoTitle: "Vance: The ball is in the Iranians' court… #shorts #foxnews #news #us"
 thumbnail: "https://img.youtube.com/vi/cBUSryTErBg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

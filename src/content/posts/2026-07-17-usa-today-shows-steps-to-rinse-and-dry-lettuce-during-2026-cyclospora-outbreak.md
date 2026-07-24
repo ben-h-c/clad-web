@@ -31,8 +31,8 @@ keyMoments:
 videoId: "pQ3YOecUSRc"
 videoTitle: "How to properly clean your lettuce amid cyclospora outbreak. USA TODAY demos."
 thumbnail: "https://img.youtube.com/vi/pQ3YOecUSRc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

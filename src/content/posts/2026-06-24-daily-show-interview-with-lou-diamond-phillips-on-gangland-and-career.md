@@ -38,8 +38,8 @@ keyMoments:
 videoId: "Lv7O9yuDjcY"
 videoTitle: "Lou Diamond Phillips - Honoring Indigenous Talent in “Gangland” | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/Lv7O9yuDjcY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

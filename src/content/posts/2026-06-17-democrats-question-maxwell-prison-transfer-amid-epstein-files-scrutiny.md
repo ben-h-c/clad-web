@@ -37,8 +37,8 @@ keyMoments:
 videoId: "O7pq371SVYw"
 videoTitle: "Top Oversight Dem reveals 'critical' info staffers learned while visiting Maxwell's prison"
 thumbnail: "https://img.youtube.com/vi/O7pq371SVYw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

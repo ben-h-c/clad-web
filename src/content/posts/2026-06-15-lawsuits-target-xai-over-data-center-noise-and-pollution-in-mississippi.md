@@ -41,8 +41,8 @@ keyMoments:
 videoId: "dEZEkgvS-wM"
 videoTitle: "Elon Musk ROCKED By Colossal Legal Blow As Alarming Data Center Reality Crashes Down"
 thumbnail: "https://img.youtube.com/vi/dEZEkgvS-wM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

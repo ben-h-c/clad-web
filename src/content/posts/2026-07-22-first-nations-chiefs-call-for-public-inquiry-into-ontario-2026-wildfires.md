@@ -34,8 +34,8 @@ keyMoments:
 videoId: "A8gF31MWiWc"
 videoTitle: "First Nations leaders want public inquiry into Ontario wildfire response"
 thumbnail: "https://img.youtube.com/vi/A8gF31MWiWc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

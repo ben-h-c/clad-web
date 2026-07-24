@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Gx3YkPP1nXE"
 videoTitle: "‘Deport STRAIGHT away’ | Chris Philp gives SCATHING verdict on Labour’s migration ‘gimmicks’"
 thumbnail: "https://img.youtube.com/vi/Gx3YkPP1nXE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "fpKwrinS0Fw"
 videoTitle: "South Africa braces for mass anti-immigration protests | DW News"
 thumbnail: "https://img.youtube.com/vi/fpKwrinS0Fw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

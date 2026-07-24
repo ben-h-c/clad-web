@@ -28,8 +28,8 @@ keyMoments:
 videoId: "O1jcDGXE9Dk"
 videoTitle: "'I'm at least somewhat like Mark Twain': Bill Maher receives Twain humor prize"
 thumbnail: "https://img.youtube.com/vi/O1jcDGXE9Dk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

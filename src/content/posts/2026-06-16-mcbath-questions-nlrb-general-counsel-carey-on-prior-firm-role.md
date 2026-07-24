@@ -35,8 +35,8 @@ keyMoments:
 videoId: "WSENt-3CkFs"
 videoTitle: "McBath Grills NLRB General Counsel: Does Your Prior Work Representing Corporations Make You Biased?"
 thumbnail: "https://img.youtube.com/vi/WSENt-3CkFs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

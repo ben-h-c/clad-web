@@ -31,8 +31,8 @@ keyMoments:
 videoId: "356f6n_jOXI"
 videoTitle: "New details in deadly Florida alligator attack"
 thumbnail: "https://img.youtube.com/vi/356f6n_jOXI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "2kvPwmmdRVg"
 videoTitle: "Wildfire emergency in Washington state"
 thumbnail: "https://img.youtube.com/vi/2kvPwmmdRVg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

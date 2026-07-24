@@ -32,8 +32,8 @@ keyMoments:
 videoId: "OlQl9WJkKJI"
 videoTitle: "Will there ever be an agreement between the Gulf States and Iran?"
 thumbnail: "https://img.youtube.com/vi/OlQl9WJkKJI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

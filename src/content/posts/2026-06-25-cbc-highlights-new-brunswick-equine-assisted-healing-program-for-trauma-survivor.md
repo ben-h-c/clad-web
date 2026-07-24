@@ -32,8 +32,8 @@ keyMoments:
 videoId: "CnfX5MSx5Xk"
 videoTitle: "How horses can help sexual assault survivors heal"
 thumbnail: "https://img.youtube.com/vi/CnfX5MSx5Xk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

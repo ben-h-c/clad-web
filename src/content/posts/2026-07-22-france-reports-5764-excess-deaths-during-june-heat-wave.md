@@ -32,8 +32,8 @@ keyMoments:
 videoId: "eVoSp64dYiI"
 videoTitle: "5,700 deaths in France after series of heat waves"
 thumbnail: "https://img.youtube.com/vi/eVoSp64dYiI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

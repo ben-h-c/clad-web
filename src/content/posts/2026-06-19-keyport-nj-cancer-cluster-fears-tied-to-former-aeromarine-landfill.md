@@ -38,8 +38,8 @@ keyMoments:
 videoId: "4t9y_0tdZyk"
 videoTitle: "Residents fear cancer cluster in this New Jersey waterfront neighborhood | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/4t9y_0tdZyk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

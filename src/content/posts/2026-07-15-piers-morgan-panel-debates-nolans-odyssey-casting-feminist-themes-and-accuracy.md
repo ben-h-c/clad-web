@@ -35,8 +35,8 @@ keyMoments:
 videoId: "hK6HfIXgnhQ"
 videoTitle: "\"It's JARRING!\" Christopher Nolan's 'The Odyssey' DISMANTLED By Victor Davis Hanson & Nerdrotic"
 thumbnail: "https://img.youtube.com/vi/hK6HfIXgnhQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

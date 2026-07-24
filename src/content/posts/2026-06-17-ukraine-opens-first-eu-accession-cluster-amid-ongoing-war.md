@@ -34,8 +34,8 @@ keyMoments:
 videoId: "uYgroEj5m00"
 videoTitle: "Will Ukraine become an EU member? | Inside Story"
 thumbnail: "https://img.youtube.com/vi/uYgroEj5m00/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

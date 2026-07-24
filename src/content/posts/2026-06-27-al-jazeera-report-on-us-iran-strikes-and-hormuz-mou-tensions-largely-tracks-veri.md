@@ -34,8 +34,8 @@ keyMoments:
 videoId: "6TR-sGo93Ks"
 videoTitle: "US confirms new strikes on Iran as fragile Hormuz agreement teeters amid escalating tensions"
 thumbnail: "https://img.youtube.com/vi/6TR-sGo93Ks/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

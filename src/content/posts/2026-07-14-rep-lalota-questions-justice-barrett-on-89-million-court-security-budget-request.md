@@ -27,8 +27,8 @@ keyMoments:
 videoId: "cdto3E21Sek"
 videoTitle: "Rep. Nick LaLota: Why is Court System Security Budget Increasing So Much?"
 thumbnail: "https://img.youtube.com/vi/cdto3E21Sek/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

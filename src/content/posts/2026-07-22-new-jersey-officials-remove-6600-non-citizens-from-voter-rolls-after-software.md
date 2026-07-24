@@ -37,8 +37,8 @@ keyMoments:
 videoId: "b2rfrO30peg"
 videoTitle: "New Jersey governor admits to THOUSANDS of NON-CITIZENS being registered to VOTE | RISING"
 thumbnail: "https://img.youtube.com/vi/b2rfrO30peg/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

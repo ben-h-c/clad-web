@@ -35,8 +35,8 @@ keyMoments:
 videoId: "PRT4GKUrRRE"
 videoTitle: "Pillen directs state entities to find more spending reductions now and for next biennium"
 thumbnail: "https://img.youtube.com/vi/PRT4GKUrRRE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

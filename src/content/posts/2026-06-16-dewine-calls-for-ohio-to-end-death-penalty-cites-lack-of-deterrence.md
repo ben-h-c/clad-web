@@ -31,8 +31,8 @@ keyMoments:
 videoId: "sladf0FVU9Y"
 videoTitle: "Mike DeWine says Ohio should abolish the death penalty: Not a 'deterrent to murder'"
 thumbnail: "https://img.youtube.com/vi/sladf0FVU9Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

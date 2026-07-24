@@ -34,8 +34,8 @@ keyMoments:
 videoId: "0X4I3qv7_Lc"
 videoTitle: "Few residents return to Nabatiyeh, Lebanon after a US-Iran truce"
 thumbnail: "https://img.youtube.com/vi/0X4I3qv7_Lc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

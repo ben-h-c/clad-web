@@ -34,8 +34,8 @@ keyMoments:
 videoId: "UDTVAgr-hAE"
 videoTitle: "YouTuber Yung Filly appears in Australian court #YungFilly #Perth #Australia #Court"
 thumbnail: "https://img.youtube.com/vi/UDTVAgr-hAE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

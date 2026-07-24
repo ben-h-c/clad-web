@@ -34,8 +34,8 @@ keyMoments:
 videoId: "XvnbG_6F5tI"
 videoTitle: "US, Iran exchange new strikes following commercial ship attack | Morning in America"
 thumbnail: "https://img.youtube.com/vi/XvnbG_6F5tI/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

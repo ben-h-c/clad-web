@@ -36,8 +36,8 @@ keyMoments:
 videoId: "dlwxPOGmuxQ"
 videoTitle: "Reflecting Pool SEALED OFF with fences after vandalism #foxnews #news #us #fox"
 thumbnail: "https://img.youtube.com/vi/dlwxPOGmuxQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

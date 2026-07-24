@@ -28,8 +28,8 @@ keyMoments:
 videoId: "_R7D4HS3T0c"
 videoTitle: "\"I would prefer the prime minister to take a decision on his own terms,\" Streeting said. #BBCNews"
 thumbnail: "https://img.youtube.com/vi/_R7D4HS3T0c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

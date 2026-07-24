@@ -34,8 +34,8 @@ keyMoments:
 videoId: "L7LSUHw4KJg"
 videoTitle: "Aide to Rep. Ro Khanna on moment he says he was detained by Israeli settlers in West Bank"
 thumbnail: "https://img.youtube.com/vi/L7LSUHw4KJg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "W70JNDCcOdw"
 videoTitle: "What tourists flocking to U.S. for World Cup are finding surprising about America"
 thumbnail: "https://img.youtube.com/vi/W70JNDCcOdw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

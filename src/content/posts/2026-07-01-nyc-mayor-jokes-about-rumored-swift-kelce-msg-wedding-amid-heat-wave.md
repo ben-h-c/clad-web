@@ -31,8 +31,8 @@ keyMoments:
 videoId: "y7RvQEXD-d0"
 videoTitle: "Mayor Mamdani hints at Taylor Swift wedding in NYC"
 thumbnail: "https://img.youtube.com/vi/y7RvQEXD-d0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "Gcr1cs0Ypa4"
 videoTitle: "NYPD memo details Taylor Swift wedding plans "
 thumbnail: "https://img.youtube.com/vi/Gcr1cs0Ypa4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

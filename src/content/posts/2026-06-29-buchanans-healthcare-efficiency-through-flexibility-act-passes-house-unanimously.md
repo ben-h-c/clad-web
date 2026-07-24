@@ -32,8 +32,8 @@ keyMoments:
 videoId: "y_LmOrNYrt4"
 videoTitle: "Buchanan Speaks on Passage of Healthcare Efficiency Through Flexibility Act"
 thumbnail: "https://img.youtube.com/vi/y_LmOrNYrt4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

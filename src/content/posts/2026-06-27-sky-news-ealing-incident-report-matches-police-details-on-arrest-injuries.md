@@ -34,8 +34,8 @@ keyMoments:
 videoId: "pLHaz0LB4oE"
 videoTitle: "Man arrested after car collides with multiple pedestrians in West London"
 thumbnail: "https://img.youtube.com/vi/pLHaz0LB4oE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

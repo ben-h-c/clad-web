@@ -31,8 +31,8 @@ keyMoments:
 videoId: "_8VzUlf8f5M"
 videoTitle: "'Does It Really Take That Long?': Hickenlooper Ask Airline CEO About Length Of Crash Investigations"
 thumbnail: "https://img.youtube.com/vi/_8VzUlf8f5M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "-BBv8Kxk5bw"
 videoTitle: "Two men discover they were switched at birth 38 years ago | CUOMO"
 thumbnail: "https://img.youtube.com/vi/-BBv8Kxk5bw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

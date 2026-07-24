@@ -34,8 +34,8 @@ keyMoments:
 videoId: "e7eEXvgLMGY"
 videoTitle: "Charlie Kirk's family faces suspect in key hearing for murder trial"
 thumbnail: "https://img.youtube.com/vi/e7eEXvgLMGY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

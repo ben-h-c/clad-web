@@ -35,8 +35,8 @@ keyMoments:
 videoId: "h3J9GdJt4FQ"
 videoTitle: "Trump wants his THREAT CAPABILITY maintained: Expert"
 thumbnail: "https://img.youtube.com/vi/h3J9GdJt4FQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

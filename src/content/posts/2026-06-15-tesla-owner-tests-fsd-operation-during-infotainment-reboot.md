@@ -32,8 +32,8 @@ keyMoments:
 videoId: "pNxGUKCI_0c"
 videoTitle: "Can You Reboot Tesla During FSD? Real Test"
 thumbnail: "https://img.youtube.com/vi/pNxGUKCI_0c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

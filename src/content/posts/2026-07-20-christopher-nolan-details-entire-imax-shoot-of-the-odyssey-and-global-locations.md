@@ -35,8 +35,8 @@ keyMoments:
 videoId: "fq0JafD-GXU"
 videoTitle: "How Christopher Nolan shot 'The Odyssey' entirely in IMAX "
 thumbnail: "https://img.youtube.com/vi/fq0JafD-GXU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

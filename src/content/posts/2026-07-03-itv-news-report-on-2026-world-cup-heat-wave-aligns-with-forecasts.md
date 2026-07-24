@@ -37,8 +37,8 @@ keyMoments:
 videoId: "LbL6HfweP_A"
 videoTitle: "How will extreme heat affect the World Cup knockout games?"
 thumbnail: "https://img.youtube.com/vi/LbL6HfweP_A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

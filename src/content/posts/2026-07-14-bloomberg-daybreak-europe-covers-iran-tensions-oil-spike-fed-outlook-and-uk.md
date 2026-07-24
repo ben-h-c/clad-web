@@ -37,8 +37,8 @@ keyMoments:
 videoId: "AnxpX--7Yh8"
 videoTitle: "Iran War: US Reinstates Hormuz Blockade, Demands 20% Fee | Daybreak Europe 7/14/2026"
 thumbnail: "https://img.youtube.com/vi/AnxpX--7Yh8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

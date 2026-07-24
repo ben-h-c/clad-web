@@ -38,8 +38,8 @@ keyMoments:
 videoId: "yvYCzh0BcmM"
 videoTitle: "EXCLUSIVE: Barack Obama in his own words | MS NOW FULL INTERVIEW"
 thumbnail: "https://img.youtube.com/vi/yvYCzh0BcmM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

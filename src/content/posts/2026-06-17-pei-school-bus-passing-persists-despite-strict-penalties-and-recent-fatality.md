@@ -33,8 +33,8 @@ keyMoments:
 videoId: "_66EItCo1LM"
 videoTitle: "P.E.I. has some of Canada's toughest school bus penalties, so why aren't drivers stopping?"
 thumbnail: "https://img.youtube.com/vi/_66EItCo1LM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

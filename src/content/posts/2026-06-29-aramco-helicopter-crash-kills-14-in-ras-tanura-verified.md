@@ -32,8 +32,8 @@ keyMoments:
 videoId: "l7nXE_cEYTs"
 videoTitle: "Saudi Aramco helicopter crash kills 14: report"
 thumbnail: "https://img.youtube.com/vi/l7nXE_cEYTs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

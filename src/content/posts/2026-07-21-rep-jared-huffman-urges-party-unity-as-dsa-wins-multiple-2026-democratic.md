@@ -36,8 +36,8 @@ keyMoments:
 videoId: "FoJUbisWEnA"
 videoTitle: "Rep. Jared Huffman on the insurgence of Democratic Socialists of America candidates"
 thumbnail: "https://img.youtube.com/vi/FoJUbisWEnA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

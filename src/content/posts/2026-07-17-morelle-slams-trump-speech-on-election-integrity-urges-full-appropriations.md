@@ -37,8 +37,8 @@ keyMoments:
 videoId: "6Uqst1CTF-I"
 videoTitle: "Rep. Joe Morelle on Trump’s Doubts About US Elections"
 thumbnail: "https://img.youtube.com/vi/6Uqst1CTF-I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -39,8 +39,8 @@ keyMoments:
 videoId: "m24vi4UxOCk"
 videoTitle: "Lloyd Doggett Asks Expert To Explain 'How Crypto Could Become Kryptonite For Our Economy'"
 thumbnail: "https://img.youtube.com/vi/m24vi4UxOCk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

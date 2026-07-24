@@ -34,8 +34,8 @@ keyMoments:
 videoId: "VNmz5-tbg1k"
 videoTitle: "Iran attacks middle east region: IRGC says it has targeted US military assets"
 thumbnail: "https://img.youtube.com/vi/VNmz5-tbg1k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

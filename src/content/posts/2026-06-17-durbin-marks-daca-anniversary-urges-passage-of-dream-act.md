@@ -39,8 +39,8 @@ keyMoments:
 videoId: "lthUx874M6A"
 videoTitle: "Dick Durbin: 'It's Long Overdue' For Congress To Pass The DREAM Act"
 thumbnail: "https://img.youtube.com/vi/lthUx874M6A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

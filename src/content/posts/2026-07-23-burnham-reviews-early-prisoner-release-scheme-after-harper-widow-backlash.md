@@ -33,8 +33,8 @@ keyMoments:
 videoId: "fY97ODJPHdw"
 videoTitle: "‘Can’t Let Criminals On Our Streets' | PM Reviews Prison Early Release Scheme After Backlash"
 thumbnail: "https://img.youtube.com/vi/fY97ODJPHdw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

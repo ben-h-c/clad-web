@@ -34,8 +34,8 @@ keyMoments:
 videoId: "NjorBZPu6jw"
 videoTitle: "$300 billion dollar fund: Who will pay the bill? | DW News"
 thumbnail: "https://img.youtube.com/vi/NjorBZPu6jw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

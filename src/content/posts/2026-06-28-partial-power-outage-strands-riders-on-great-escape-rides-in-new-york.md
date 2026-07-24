@@ -28,8 +28,8 @@ keyMoments:
 videoId: "fm9bN1ByWis"
 videoTitle: "Riders stuck after power outage at Great Escape theme park in New York"
 thumbnail: "https://img.youtube.com/vi/fm9bN1ByWis/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "Pl2zdHjmWl4"
 videoTitle: "Jelly Roll files for divorce after 10 years of marriage"
 thumbnail: "https://img.youtube.com/vi/Pl2zdHjmWl4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

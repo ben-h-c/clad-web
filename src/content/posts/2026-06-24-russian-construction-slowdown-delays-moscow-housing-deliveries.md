@@ -34,8 +34,8 @@ keyMoments:
 videoId: "-5suBEzMt98"
 videoTitle: "Russian building downturn leaves Moscow apartment buyers in limbo"
 thumbnail: "https://img.youtube.com/vi/-5suBEzMt98/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

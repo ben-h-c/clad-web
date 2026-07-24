@@ -35,8 +35,8 @@ keyMoments:
 videoId: "JYP9Q_C3nx8"
 videoTitle: "Are GLP-1s miracle drugs? Dr. Oz weighs in | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/JYP9Q_C3nx8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

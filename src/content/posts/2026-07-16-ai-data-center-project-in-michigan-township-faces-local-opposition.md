@@ -35,8 +35,8 @@ keyMoments:
 videoId: "qXg7IILG_Gk"
 videoTitle: "AI data centers divide communities, scramble midterm playbooks"
 thumbnail: "https://img.youtube.com/vi/qXg7IILG_Gk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

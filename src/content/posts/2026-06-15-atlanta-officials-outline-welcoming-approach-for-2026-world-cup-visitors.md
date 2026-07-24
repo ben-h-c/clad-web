@@ -30,8 +30,8 @@ keyMoments:
     note: "Atlanta hosts eight matches total, starting with group-stage games featuring teams including Spain, Cabo Verde, South Africa, Czechia, Saudi Arabia, Morocco, Haiti and Uzbekistan."
 videoId: "p6kX7C8wq3M"
 thumbnail: "https://img.youtube.com/vi/p6kX7C8wq3M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

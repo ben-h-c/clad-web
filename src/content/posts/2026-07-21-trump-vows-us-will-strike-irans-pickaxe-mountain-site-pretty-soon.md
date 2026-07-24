@@ -30,8 +30,8 @@ keyMoments:
 videoId: "y7nmdt8-x6Q"
 videoTitle: "Trump says US to hit Pickaxe Mountain area 'pretty soon'"
 thumbnail: "https://img.youtube.com/vi/y7nmdt8-x6Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

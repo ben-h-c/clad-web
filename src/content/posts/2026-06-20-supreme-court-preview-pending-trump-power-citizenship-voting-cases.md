@@ -36,8 +36,8 @@ keyMoments:
 videoId: "MmZMgF4ADH0"
 videoTitle: "The outstanding Supreme Court cases you need to know about before its term ends"
 thumbnail: "https://img.youtube.com/vi/MmZMgF4ADH0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

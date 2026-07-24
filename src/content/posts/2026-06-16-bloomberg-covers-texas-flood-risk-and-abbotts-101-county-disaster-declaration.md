@@ -32,8 +32,8 @@ keyMoments:
 videoId: "4uo9Sybydgo"
 videoTitle: "Millions Face Flash Flood Threat in Texas, Gulf States"
 thumbnail: "https://img.youtube.com/vi/4uo9Sybydgo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

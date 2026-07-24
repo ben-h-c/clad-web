@@ -35,8 +35,8 @@ keyMoments:
 videoId: "uQgglO25uxE"
 videoTitle: "Family seeks answers in death of Nolan Xavier Wells"
 thumbnail: "https://img.youtube.com/vi/uQgglO25uxE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

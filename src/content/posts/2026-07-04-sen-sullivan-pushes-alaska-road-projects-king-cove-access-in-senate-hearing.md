@@ -37,8 +37,8 @@ keyMoments:
 videoId: "HBfjhYG0x8M"
 videoTitle: "'It's Unbelievable. It's Ridiculous': Dan Sullivan Blasts Dem Opposition To AK Road Construction"
 thumbnail: "https://img.youtube.com/vi/HBfjhYG0x8M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

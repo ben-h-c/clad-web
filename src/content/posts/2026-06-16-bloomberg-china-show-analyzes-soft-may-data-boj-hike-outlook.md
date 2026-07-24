@@ -35,8 +35,8 @@ keyMoments:
 videoId: "tsPM9RtsANo"
 videoTitle: "China Sees First Consumer Spending Drop Since Covid | The China Show 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/tsPM9RtsANo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "MJXk5omCsTw"
 videoTitle: "Why BookTok blew up over 'Hot Girls Read' trademark | Top Comment Podcast"
 thumbnail: "https://img.youtube.com/vi/MJXk5omCsTw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

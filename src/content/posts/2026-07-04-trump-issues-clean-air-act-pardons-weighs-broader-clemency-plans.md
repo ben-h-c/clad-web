@@ -37,8 +37,8 @@ keyMoments:
 videoId: "PyuMPSxTzYg"
 videoTitle: "Trump's corruption, weak morals raise concern about expected 'pardoning blitz'"
 thumbnail: "https://img.youtube.com/vi/PyuMPSxTzYg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

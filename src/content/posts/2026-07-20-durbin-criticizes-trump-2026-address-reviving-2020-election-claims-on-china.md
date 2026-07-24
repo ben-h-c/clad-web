@@ -36,8 +36,8 @@ keyMoments:
 videoId: "lkY3ydsAp1g"
 videoTitle: "'He Was In Charge': Durbin Skewers Trump Over 'Rant' About Alleged 'Deep-State' Interference In 2020"
 thumbnail: "https://img.youtube.com/vi/lkY3ydsAp1g/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

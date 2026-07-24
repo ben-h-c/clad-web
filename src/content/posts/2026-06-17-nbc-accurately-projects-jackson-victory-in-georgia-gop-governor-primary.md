@@ -31,8 +31,8 @@ keyMoments:
 videoId: "5rANDe6WUVM"
 videoTitle: "Billionaire Rick Jackson defeats Trump-backed Burt Jones in Georgia GOP governor's primary"
 thumbnail: "https://img.youtube.com/vi/5rANDe6WUVM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "czQ_88C9ie8"
 videoTitle: "UK teens react to Starmer's social media ban for under-16s"
 thumbnail: "https://img.youtube.com/vi/czQ_88C9ie8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

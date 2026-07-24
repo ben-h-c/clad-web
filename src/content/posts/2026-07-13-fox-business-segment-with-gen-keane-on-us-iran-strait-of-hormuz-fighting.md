@@ -30,8 +30,8 @@ keyMoments:
 videoId: "dV1ISekW5ms"
 videoTitle: "Gen. Jack Keane: NO DOUBT the United States will decisively win this #shorts"
 thumbnail: "https://img.youtube.com/vi/dV1ISekW5ms/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

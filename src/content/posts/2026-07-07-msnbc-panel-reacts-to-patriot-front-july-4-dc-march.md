@@ -38,8 +38,8 @@ keyMoments:
 videoId: "0uYyjUgFC70"
 videoTitle: "‘I see fear’: The Weeknight reacts to white nationalists marching through D.C."
 thumbnail: "https://img.youtube.com/vi/0uYyjUgFC70/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "M6eunqiS0o4"
 videoTitle: "US-Israel relations: New fractures in congressional support for Israel"
 thumbnail: "https://img.youtube.com/vi/M6eunqiS0o4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

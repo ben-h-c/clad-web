@@ -31,8 +31,8 @@ keyMoments:
 videoId: "bl4RsPZXOyc"
 videoTitle: "Boston bars run out of beer as Scotland fans descend on city for World Cup"
 thumbnail: "https://img.youtube.com/vi/bl4RsPZXOyc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

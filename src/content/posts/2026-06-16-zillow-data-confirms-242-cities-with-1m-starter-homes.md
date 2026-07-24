@@ -31,8 +31,8 @@ keyMoments:
 videoId: "lTCp8i6AGW8"
 videoTitle: "MILLION DOLLAR STARTER HOMES: The SHOCKING truth revealed #shorts"
 thumbnail: "https://img.youtube.com/vi/lTCp8i6AGW8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

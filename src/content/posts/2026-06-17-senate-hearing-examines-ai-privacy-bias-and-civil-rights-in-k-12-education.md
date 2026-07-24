@@ -33,8 +33,8 @@ keyMoments:
 videoId: "MXXQ-VCYM0Q"
 videoTitle: "Lisa Blunt Rochester Asks Experts: How Should Congress Look At Civil Rights Issues Around AI?"
 thumbnail: "https://img.youtube.com/vi/MXXQ-VCYM0Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

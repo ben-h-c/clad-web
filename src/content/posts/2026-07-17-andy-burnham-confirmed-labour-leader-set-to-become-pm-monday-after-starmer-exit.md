@@ -35,8 +35,8 @@ keyMoments:
 videoId: "TwR5f1Rc8EM"
 videoTitle: "Labour turns to Andy Burnham for a reset | DW News"
 thumbnail: "https://img.youtube.com/vi/TwR5f1Rc8EM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

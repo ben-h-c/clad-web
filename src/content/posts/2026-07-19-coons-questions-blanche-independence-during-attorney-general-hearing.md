@@ -35,8 +35,8 @@ keyMoments:
 videoId: "TQmYmPB4i3E"
 videoTitle: "'Given His Legal Experience, He Should Have Known Better': Chris Coons Makes Case Against Blanche"
 thumbnail: "https://img.youtube.com/vi/TQmYmPB4i3E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

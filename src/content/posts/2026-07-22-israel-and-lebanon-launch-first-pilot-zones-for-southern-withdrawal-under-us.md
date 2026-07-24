@@ -33,8 +33,8 @@ keyMoments:
 videoId: "xOsbPdU_C_k"
 videoTitle: "From towns to zones: Why Israel gives military names to civilian areas"
 thumbnail: "https://img.youtube.com/vi/xOsbPdU_C_k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

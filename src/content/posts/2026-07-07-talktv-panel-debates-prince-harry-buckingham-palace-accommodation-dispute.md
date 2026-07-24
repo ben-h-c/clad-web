@@ -37,8 +37,8 @@ keyMoments:
 videoId: "AMEestE_iKM"
 videoTitle: "Royal DRAMA: King Charles Hits Out At Son Prince Harry Over ‘Constant State Of CHAOS’"
 thumbnail: "https://img.youtube.com/vi/AMEestE_iKM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

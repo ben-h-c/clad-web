@@ -38,8 +38,8 @@ keyMoments:
 videoId: "Maq8wbFDyG0"
 videoTitle: "Alberta, Ottawa and the Oil Sands Alliance reach agreement on Pathways Project"
 thumbnail: "https://img.youtube.com/vi/Maq8wbFDyG0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

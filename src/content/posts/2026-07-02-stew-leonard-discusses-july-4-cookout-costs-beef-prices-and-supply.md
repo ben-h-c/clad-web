@@ -35,8 +35,8 @@ keyMoments:
 videoId: "y9YULxuI-nA"
 videoTitle: "'THERE'S PLENTY OF FOOD': Stew Leonard says shoppers should not fear shortages"
 thumbnail: "https://img.youtube.com/vi/y9YULxuI-nA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "0jScQIV9tFE"
 videoTitle: "‘We are being buried alive,’ a father’s plea from the Gaza Strip"
 thumbnail: "https://img.youtube.com/vi/0jScQIV9tFE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

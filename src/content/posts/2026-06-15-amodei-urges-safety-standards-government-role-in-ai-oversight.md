@@ -34,8 +34,8 @@ keyMoments:
 videoId: "QaM6aHgu09M"
 videoTitle: "Anthropic CEO shares new warning on dangers of AI"
 thumbnail: "https://img.youtube.com/vi/QaM6aHgu09M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

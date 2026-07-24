@@ -32,8 +32,8 @@ keyMoments:
 videoId: "aj3V8aHCSbU"
 videoTitle: "NATO allies urged to STEP UP as Trump puts nations on notice"
 thumbnail: "https://img.youtube.com/vi/aj3V8aHCSbU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

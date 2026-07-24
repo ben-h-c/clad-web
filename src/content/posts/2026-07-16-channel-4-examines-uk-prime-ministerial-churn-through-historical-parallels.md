@@ -35,8 +35,8 @@ keyMoments:
 videoId: "98ANzo01XBA"
 videoTitle: "Why 7 prime ministers in 10 years is nothing new for the UK | FourSight"
 thumbnail: "https://img.youtube.com/vi/98ANzo01XBA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

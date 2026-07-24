@@ -36,8 +36,8 @@ keyMoments:
 videoId: "jiMSYFoq0Mw"
 videoTitle: "Patrick Christys Tonight Late Edition | Tuesday 7th July"
 thumbnail: "https://img.youtube.com/vi/jiMSYFoq0Mw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

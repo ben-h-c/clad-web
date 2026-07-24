@@ -36,8 +36,8 @@ keyMoments:
 videoId: "BBrfDvoPy6U"
 videoTitle: "We're making the US the 'crypto CAPITAL of the world': SEC chairman"
 thumbnail: "https://img.youtube.com/vi/BBrfDvoPy6U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

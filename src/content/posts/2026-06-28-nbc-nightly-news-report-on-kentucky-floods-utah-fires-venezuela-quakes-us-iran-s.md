@@ -35,8 +35,8 @@ keyMoments:
 videoId: "F4mT0CTcBNg"
 videoTitle: "June 27: Dangerous weather, Death toll rises after Venezuela quakes"
 thumbnail: "https://img.youtube.com/vi/F4mT0CTcBNg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

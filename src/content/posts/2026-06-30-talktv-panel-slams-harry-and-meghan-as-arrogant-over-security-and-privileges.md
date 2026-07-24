@@ -36,8 +36,8 @@ keyMoments:
 videoId: "7h8gm3DD4T4"
 videoTitle: "‘Harry And Meghan Are ARROGANT’ | ‘They Want All The Privileges Of Being Senior Royals’"
 thumbnail: "https://img.youtube.com/vi/7h8gm3DD4T4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

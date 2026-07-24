@@ -32,8 +32,8 @@ keyMoments:
 videoId: "lQjWU3ephLM"
 videoTitle: "Fed study REVEALS Biden-era illegal immigration TRIGGERED higher housing costs"
 thumbnail: "https://img.youtube.com/vi/lQjWU3ephLM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

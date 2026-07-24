@@ -37,8 +37,8 @@ keyMoments:
 videoId: "9AbN8E5xBaM"
 videoTitle: "Gutfeld: Now they’re not even bothering to hide it…"
 thumbnail: "https://img.youtube.com/vi/9AbN8E5xBaM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

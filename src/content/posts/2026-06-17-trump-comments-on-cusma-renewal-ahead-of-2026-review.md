@@ -31,8 +31,8 @@ keyMoments:
 videoId: "YuN3S6qSu7o"
 videoTitle: "Trump says he doesn't want CUSMA, but might sign it"
 thumbnail: "https://img.youtube.com/vi/YuN3S6qSu7o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

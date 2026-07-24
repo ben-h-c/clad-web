@@ -35,8 +35,8 @@ keyMoments:
 videoId: "oBG39Kiaf2U"
 videoTitle: "Chile: Storms leave five dead as floods devastate regions under state of catastrophe."
 thumbnail: "https://img.youtube.com/vi/oBG39Kiaf2U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

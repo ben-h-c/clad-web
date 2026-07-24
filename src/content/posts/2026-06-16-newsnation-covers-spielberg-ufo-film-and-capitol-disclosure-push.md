@@ -35,8 +35,8 @@ keyMoments:
 videoId: "fs2RzrSI_kE"
 videoTitle: "Calls for UFO transparency, 'Disclosure Day' movie, and debate over government secrets | Backscroll"
 thumbnail: "https://img.youtube.com/vi/fs2RzrSI_kE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

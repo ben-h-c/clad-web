@@ -34,8 +34,8 @@ keyMoments:
 videoId: "E98koq91n1A"
 videoTitle: "I Found the Real Reason Why Broadcom Stock Crashed After Earnings | AVGO Stock Deep Dive Part 4"
 thumbnail: "https://img.youtube.com/vi/E98koq91n1A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

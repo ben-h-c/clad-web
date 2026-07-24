@@ -31,8 +31,8 @@ keyMoments:
 videoId: "54ak9TLwSyo"
 videoTitle: "ABC News visits Great American State Fair on Fourth of July"
 thumbnail: "https://img.youtube.com/vi/54ak9TLwSyo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

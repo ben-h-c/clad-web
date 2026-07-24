@@ -34,8 +34,8 @@ keyMoments:
 videoId: "mrlSFYuIWJs"
 videoTitle: "BREAKING: President Trump Donates Teddy Roosevelt's Medal Of Honor To His Presidential Museum"
 thumbnail: "https://img.youtube.com/vi/mrlSFYuIWJs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -30,8 +30,8 @@ keyMoments:
 videoId: "NiUDPrFgmCQ"
 videoTitle: "Rescuers pulled a 43-year-old security guard alive from a collapsed basement after 8 days"
 thumbnail: "https://img.youtube.com/vi/NiUDPrFgmCQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

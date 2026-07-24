@@ -33,8 +33,8 @@ keyMoments:
 videoId: "IeCvBGekBAc"
 videoTitle: "Lawyer takes Trump to Task over Unchecked Presidential Powers | AJ Shorts"
 thumbnail: "https://img.youtube.com/vi/IeCvBGekBAc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

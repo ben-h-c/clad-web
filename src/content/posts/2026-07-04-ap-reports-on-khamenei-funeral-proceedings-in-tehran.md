@@ -34,8 +34,8 @@ keyMoments:
 videoId: "7kNI-nNZziU"
 videoTitle: "Iran begins dayslong funeral for Supreme Leader Ayatollah Ali Khamenei"
 thumbnail: "https://img.youtube.com/vi/7kNI-nNZziU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

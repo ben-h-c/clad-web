@@ -28,8 +28,8 @@ keyMoments:
 videoId: "Vk4L_OKwhTA"
 videoTitle: "Trump jokes that he’s blaming JD Vance if the Iran deal signing 'doesn't work out'"
 thumbnail: "https://img.youtube.com/vi/Vk4L_OKwhTA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

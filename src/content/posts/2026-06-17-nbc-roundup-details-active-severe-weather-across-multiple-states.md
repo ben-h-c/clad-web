@@ -35,8 +35,8 @@ keyMoments:
 videoId: "b0keD1LGKi4"
 videoTitle: "Tornado sirens warn of severe storms in multiple states"
 thumbnail: "https://img.youtube.com/vi/b0keD1LGKi4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

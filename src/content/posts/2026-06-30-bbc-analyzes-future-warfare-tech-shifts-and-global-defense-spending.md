@@ -39,8 +39,8 @@ keyMoments:
 videoId: "vx1Q-AcHERQ"
 videoTitle: "What is the future of modern warfare? | BBC News"
 thumbnail: "https://img.youtube.com/vi/vx1Q-AcHERQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

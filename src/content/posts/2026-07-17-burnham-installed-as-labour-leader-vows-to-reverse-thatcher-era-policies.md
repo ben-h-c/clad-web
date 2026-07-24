@@ -40,8 +40,8 @@ keyMoments:
 videoId: "62x1HnpNE3A"
 videoTitle: "\"If In Doubt, Blame Thatcher!\" | Andy Burnham To Blame Margaret Thatcher In First Speech"
 thumbnail: "https://img.youtube.com/vi/62x1HnpNE3A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

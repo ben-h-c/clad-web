@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Z4zzde8s3ds"
 videoTitle: "BREAKING: Collins wins GOP nomination for Georgia senate race against Ossoff"
 thumbnail: "https://img.youtube.com/vi/Z4zzde8s3ds/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

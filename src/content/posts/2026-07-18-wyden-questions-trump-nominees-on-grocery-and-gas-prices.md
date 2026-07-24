@@ -37,8 +37,8 @@ keyMoments:
 videoId: "jcXxdGvMSow"
 videoTitle: "Hassan Asks Trump Nom: 'Do You Think That Grocery Prices Are Too High For American Families?'"
 thumbnail: "https://img.youtube.com/vi/jcXxdGvMSow/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

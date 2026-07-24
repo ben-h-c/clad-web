@@ -37,8 +37,8 @@ keyMoments:
 videoId: "z2uzWEIQB7E"
 videoTitle: "Iran war enters perilous new phase, with more US troops dead | DW News"
 thumbnail: "https://img.youtube.com/vi/z2uzWEIQB7E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

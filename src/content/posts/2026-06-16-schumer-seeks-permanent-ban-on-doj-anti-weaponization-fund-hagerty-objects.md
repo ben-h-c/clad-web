@@ -35,8 +35,8 @@ keyMoments:
 videoId: "wl6lLOzCuUc"
 videoTitle: "BREAKING: Chuck Schumer Introduces Bill To Legally Ban DOJ 'MAGA Slush Fund', Then Hagerty Blocks It"
 thumbnail: "https://img.youtube.com/vi/wl6lLOzCuUc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

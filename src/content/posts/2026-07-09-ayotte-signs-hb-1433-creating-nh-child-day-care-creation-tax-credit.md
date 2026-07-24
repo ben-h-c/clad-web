@@ -31,8 +31,8 @@ keyMoments:
 videoId: "e7PwdQ-fO7M"
 videoTitle: "Gov. Kelly Ayotte signs tax credit to incentivize businesses to invest in employee childcare"
 thumbnail: "https://img.youtube.com/vi/e7PwdQ-fO7M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

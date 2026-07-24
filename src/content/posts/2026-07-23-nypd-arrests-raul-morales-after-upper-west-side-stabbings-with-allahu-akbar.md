@@ -36,8 +36,8 @@ keyMoments:
 videoId: "_XUY9UlL7iE"
 videoTitle: "Man accused in potential New York City hate crime stabbing"
 thumbnail: "https://img.youtube.com/vi/_XUY9UlL7iE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

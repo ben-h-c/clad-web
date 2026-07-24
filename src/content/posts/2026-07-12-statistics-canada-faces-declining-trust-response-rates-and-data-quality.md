@@ -38,8 +38,8 @@ keyMoments:
 videoId: "hPfl0Kpv1HM"
 videoTitle: "StatCan faces trust, reliability challenges from significant amount of Canadians"
 thumbnail: "https://img.youtube.com/vi/hPfl0Kpv1HM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

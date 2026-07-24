@@ -35,8 +35,8 @@ keyMoments:
 videoId: "oX6dAZ6PiY4"
 videoTitle: "“STARMER HAS BEEN A FAILURE!” | Politics Editor's BRUTAL Verdict"
 thumbnail: "https://img.youtube.com/vi/oX6dAZ6PiY4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

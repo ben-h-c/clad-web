@@ -37,8 +37,8 @@ keyMoments:
 videoId: "6H_GDiy6MHI"
 videoTitle: "Gutfeld: There is NO country that has succeeded under this..."
 thumbnail: "https://img.youtube.com/vi/6H_GDiy6MHI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

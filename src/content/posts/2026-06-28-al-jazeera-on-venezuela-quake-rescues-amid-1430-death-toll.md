@@ -34,8 +34,8 @@ keyMoments:
 videoId: "UTzOp703jQY"
 videoTitle: "Venezuelans dig for earthquake survivors as death toll rises to 1,430"
 thumbnail: "https://img.youtube.com/vi/UTzOp703jQY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

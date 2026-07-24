@@ -28,8 +28,8 @@ keyMoments:
 videoId: "6B7FsSs2Usk"
 videoTitle: "Crackdown coming on loud fireworks"
 thumbnail: "https://img.youtube.com/vi/6B7FsSs2Usk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,9 +35,9 @@ keyMoments:
 videoId: "z9pmoNEEDc0"
 videoTitle: "Maghazi Camp: Families Left Without Shelter Amid Rubble"
 thumbnail: "https://img.youtube.com/vi/z9pmoNEEDc0/maxresdefault.jpg"
-mediaNote: "Damaged multi-story facade and smoke plume upper-middle; keep standing figure and rubble edge in frame, clear of bottom text third"
-thumbFocusY: 28
-thumbFocusX: 52
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 citations:
   - title: "Israeli attack on car in central Gaza kills three Palestinians"

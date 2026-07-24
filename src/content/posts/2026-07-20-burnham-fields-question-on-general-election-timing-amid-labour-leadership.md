@@ -33,8 +33,8 @@ keyMoments:
 videoId: "EL1PZG5CazM"
 videoTitle: "When will Andy Burnham call a general election?"
 thumbnail: "https://img.youtube.com/vi/EL1PZG5CazM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

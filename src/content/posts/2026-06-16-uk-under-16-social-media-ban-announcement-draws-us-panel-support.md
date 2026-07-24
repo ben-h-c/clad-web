@@ -36,8 +36,8 @@ keyMoments:
 videoId: "gzDACI-2hMc"
 videoTitle: "Britain Plans To Ban Children Under 16 From Social Media | The View"
 thumbnail: "https://img.youtube.com/vi/gzDACI-2hMc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Bsy-DdFFB38"
 videoTitle: "Socialism NEVER worked: Enes Kanter Freedom"
 thumbnail: "https://img.youtube.com/vi/Bsy-DdFFB38/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

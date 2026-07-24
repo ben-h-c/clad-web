@@ -34,8 +34,8 @@ keyMoments:
 videoId: "b8qXSJ1IvW4"
 videoTitle: "Governor Kelly denies Carr brothers&#39; clemency request"
 thumbnail: "https://img.youtube.com/vi/b8qXSJ1IvW4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

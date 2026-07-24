@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Vj8IxAH6OYw"
 videoTitle: "UNHCR chief visits Afghanistan as millions of returnees strain fragile economy"
 thumbnail: "https://img.youtube.com/vi/Vj8IxAH6OYw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

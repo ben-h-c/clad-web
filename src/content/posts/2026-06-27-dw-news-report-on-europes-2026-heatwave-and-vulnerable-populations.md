@@ -37,8 +37,8 @@ keyMoments:
 videoId: "pbhglYA2IPY"
 videoTitle: "Europe's heatwave pushes the most vulnerable to the limit | DW News"
 thumbnail: "https://img.youtube.com/vi/pbhglYA2IPY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

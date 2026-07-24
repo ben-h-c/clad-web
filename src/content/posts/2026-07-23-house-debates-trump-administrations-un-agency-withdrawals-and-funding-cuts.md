@@ -37,8 +37,8 @@ keyMoments:
 videoId: "qkrd2F-BdY0"
 videoTitle: "US House debates Trump administration's UN funding cuts and future of aid"
 thumbnail: "https://img.youtube.com/vi/qkrd2F-BdY0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

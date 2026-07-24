@@ -35,8 +35,8 @@ keyMoments:
 videoId: "-yc1d9an7R0"
 videoTitle: "Montreal shooting suspect manifesto aligns with incel movement, experts say"
 thumbnail: "https://img.youtube.com/vi/-yc1d9an7R0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

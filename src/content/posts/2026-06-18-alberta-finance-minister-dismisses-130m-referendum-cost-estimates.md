@@ -33,8 +33,8 @@ keyMoments:
 videoId: "VCFN0GatHyg"
 videoTitle: "Alberta's finance minister shuts down reports referendum could cost up to $130M"
 thumbnail: "https://img.youtube.com/vi/VCFN0GatHyg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

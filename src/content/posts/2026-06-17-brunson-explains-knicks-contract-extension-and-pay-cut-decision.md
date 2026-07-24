@@ -31,8 +31,8 @@ keyMoments:
 videoId: "j1wYxwFC9RI"
 videoTitle: "Jalen Brunson On Why He Took A Significant Pay Cut On His Contract"
 thumbnail: "https://img.youtube.com/vi/j1wYxwFC9RI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

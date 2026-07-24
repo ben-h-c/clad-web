@@ -41,8 +41,8 @@ keyMoments:
 videoId: "Ah8wkfW5URY"
 videoTitle: "Albanian PM Rama opens up about Kushner-linked tourism project"
 thumbnail: "https://img.youtube.com/vi/Ah8wkfW5URY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

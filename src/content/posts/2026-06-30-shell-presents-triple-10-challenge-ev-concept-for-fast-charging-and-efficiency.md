@@ -31,8 +31,8 @@ keyMoments:
 videoId: "CEK4aafttYQ"
 videoTitle: "Shell unveils a concept EV designed to charge in under 10 minutes"
 thumbnail: "https://img.youtube.com/vi/CEK4aafttYQ/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

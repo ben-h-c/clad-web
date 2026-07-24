@@ -32,8 +32,8 @@ keyMoments:
 videoId: "7IITQelF54U"
 videoTitle: "Italian parents sue Meta and TikTok over risks to children"
 thumbnail: "https://img.youtube.com/vi/7IITQelF54U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

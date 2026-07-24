@@ -35,8 +35,8 @@ keyMoments:
 videoId: "8tmfe1BvgJ4"
 videoTitle: "'TONE IT DOWN': JD Vance urges political leaders to lower the temperature"
 thumbnail: "https://img.youtube.com/vi/8tmfe1BvgJ4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

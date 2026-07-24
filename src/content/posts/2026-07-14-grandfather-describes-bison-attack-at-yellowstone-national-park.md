@@ -34,8 +34,8 @@ keyMoments:
 videoId: "c1ML5G0d1bA"
 videoTitle: "Grandfather recounts terrifying bison attack at Yellowstone National Park"
 thumbnail: "https://img.youtube.com/vi/c1ML5G0d1bA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

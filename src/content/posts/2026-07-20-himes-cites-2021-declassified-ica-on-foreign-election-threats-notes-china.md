@@ -30,8 +30,8 @@ keyMoments:
 videoId: "Hgp-IXRS7K4"
 videoTitle: "It was Prepared Under Trump&#39;s Own Appointee John Ratcliffe. Read it Yourself."
 thumbnail: "https://img.youtube.com/vi/Hgp-IXRS7K4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

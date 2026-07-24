@@ -28,8 +28,8 @@ keyMoments:
 videoId: "YP0Sg4MXsAw"
 videoTitle: "Inde Navarrette says 'Obsession' unlocked newfound confidence"
 thumbnail: "https://img.youtube.com/vi/YP0Sg4MXsAw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

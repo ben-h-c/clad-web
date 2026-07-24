@@ -32,8 +32,8 @@ keyMoments:
 videoId: "-MNsW_1ys6E"
 videoTitle: "Former President Barack Obama and former first lady Michelle Obama speak to ABC News' Robin Roberts"
 thumbnail: "https://img.youtube.com/vi/-MNsW_1ys6E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

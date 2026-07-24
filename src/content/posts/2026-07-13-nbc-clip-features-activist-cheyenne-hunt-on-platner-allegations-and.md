@@ -32,8 +32,8 @@ keyMoments:
 videoId: "w0txX79nnIs"
 videoTitle: "Social media influencer who helped bring forward Platner allegations: 'The truth is our goal\""
 thumbnail: "https://img.youtube.com/vi/w0txX79nnIs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

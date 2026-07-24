@@ -34,8 +34,8 @@ keyMoments:
 videoId: "RdwKIG9hcrw"
 videoTitle: "The Alleged Drone Plot Against the White House: Start Here Podcast"
 thumbnail: "https://img.youtube.com/vi/RdwKIG9hcrw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

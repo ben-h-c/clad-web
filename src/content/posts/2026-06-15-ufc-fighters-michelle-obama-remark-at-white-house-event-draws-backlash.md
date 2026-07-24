@@ -34,8 +34,8 @@ keyMoments:
 videoId: "KarWW7w4tp8"
 videoTitle: "&#39;Michelle Obama is a man&#39;: UFC fighter Josh Hokit &#39;DISRESPECTS&#39; ex-First Lady at White House event"
 thumbnail: "https://img.youtube.com/vi/KarWW7w4tp8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

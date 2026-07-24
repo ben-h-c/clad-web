@@ -34,8 +34,8 @@ keyMoments:
 videoId: "XthPr_5KTyg"
 videoTitle: "FIFA to investigate racism towards IShowSpeed at World Cup"
 thumbnail: "https://img.youtube.com/vi/XthPr_5KTyg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

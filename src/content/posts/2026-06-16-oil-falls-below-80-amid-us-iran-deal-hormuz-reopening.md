@@ -35,8 +35,8 @@ keyMoments:
 videoId: "A-cqte0Mmkg"
 videoTitle: "Oil Falls Below $80 For First Time in More Than Three Months"
 thumbnail: "https://img.youtube.com/vi/A-cqte0Mmkg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

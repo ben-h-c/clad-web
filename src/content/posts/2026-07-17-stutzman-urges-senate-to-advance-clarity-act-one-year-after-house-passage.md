@@ -29,8 +29,8 @@ keyMoments:
 videoId: "Q1IqVY_7mKY"
 videoTitle: "Our financial policy is not keeping pace with the technology of our time."
 thumbnail: "https://img.youtube.com/vi/Q1IqVY_7mKY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

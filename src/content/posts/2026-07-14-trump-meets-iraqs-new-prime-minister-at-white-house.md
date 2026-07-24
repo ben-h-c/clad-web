@@ -29,8 +29,8 @@ keyMoments:
 videoId: "332xoTxdWw4"
 videoTitle: "Trump Welcomes Iraqi Prime Minister to White House"
 thumbnail: "https://img.youtube.com/vi/332xoTxdWw4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

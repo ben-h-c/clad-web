@@ -40,8 +40,8 @@ keyMoments:
 videoId: "u3-LEFi_fZg"
 videoTitle: "CARTEL CRACKDOWN: China has a plan to ‘KILL OUR COUNTRY,’ Noem says"
 thumbnail: "https://img.youtube.com/vi/u3-LEFi_fZg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

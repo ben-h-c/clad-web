@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Aptc93W0EEk"
 videoTitle: "Your retirement benefits could be in TROUBLE — Here's the new timeline"
 thumbnail: "https://img.youtube.com/vi/Aptc93W0EEk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

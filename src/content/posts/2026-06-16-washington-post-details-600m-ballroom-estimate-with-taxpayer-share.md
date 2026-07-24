@@ -36,8 +36,8 @@ keyMoments:
 videoId: "GYni8XopDeg"
 videoTitle: "'Lied to the American people': Nicolle on Trump's ballroom costing taxpayers HUNDREDS OF MILLIONS"
 thumbnail: "https://img.youtube.com/vi/GYni8XopDeg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

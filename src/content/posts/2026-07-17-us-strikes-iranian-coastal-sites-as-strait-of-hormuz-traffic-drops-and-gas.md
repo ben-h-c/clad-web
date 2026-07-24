@@ -35,8 +35,8 @@ keyMoments:
 videoId: "cYwaYfNumCU"
 videoTitle: "Gas prices rise as U.S. and Iran escalate attacks"
 thumbnail: "https://img.youtube.com/vi/cYwaYfNumCU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

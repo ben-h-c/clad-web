@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Dpe2R29wFZU"
 videoTitle: "G7 Summit Eyes Supply Chain Resilience; US Agencies Ban Chinese-Origin Goods | China in Focus"
 thumbnail: "https://img.youtube.com/vi/Dpe2R29wFZU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "yXSDAe35ycQ"
 videoTitle: "‘I will always be proud:’ Family honours Montreal police officer killed in line of duty"
 thumbnail: "https://img.youtube.com/vi/yXSDAe35ycQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

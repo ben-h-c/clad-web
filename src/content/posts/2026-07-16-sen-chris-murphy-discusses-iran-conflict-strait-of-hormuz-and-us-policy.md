@@ -39,8 +39,8 @@ keyMoments:
 videoId: "BgmM-g2d96k"
 videoTitle: "Sen. Chris Murphy:  &#39;No Confidence&#39; in Bigger Deal on Iran Nuclear Program"
 thumbnail: "https://img.youtube.com/vi/BgmM-g2d96k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

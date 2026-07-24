@@ -33,8 +33,8 @@ keyMoments:
     note: "Plausible thesis supported by efficiency trends, but lacks specific margin or cost-curve data from company disclosures."
 videoId: "7RDK84LLL2U"
 thumbnail: "https://img.youtube.com/vi/7RDK84LLL2U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

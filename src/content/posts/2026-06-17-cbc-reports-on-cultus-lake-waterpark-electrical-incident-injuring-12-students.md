@@ -31,8 +31,8 @@ keyMoments:
 videoId: "jPMETW4Y3_o"
 videoTitle: "What's known about B.C. waterpark 'electrical incident' that injured 12 kids | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/jPMETW4Y3_o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

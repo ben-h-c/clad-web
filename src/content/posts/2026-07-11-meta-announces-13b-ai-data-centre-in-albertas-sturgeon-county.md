@@ -38,8 +38,8 @@ keyMoments:
 videoId: "4D6UvmPAhbo"
 videoTitle: "Meta is building $13B AI data centre in Alberta; what does it mean for Canada?"
 thumbnail: "https://img.youtube.com/vi/4D6UvmPAhbo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

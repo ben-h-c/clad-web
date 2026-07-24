@@ -40,8 +40,8 @@ keyMoments:
 videoId: "uuahMBqYH9Q"
 videoTitle: "Takano Calls GOP-Backed Bill 'Largest Cut To Veterans Benefits Ever In The History Of This Nation'"
 thumbnail: "https://img.youtube.com/vi/uuahMBqYH9Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

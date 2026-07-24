@@ -40,8 +40,8 @@ keyMoments:
 videoId: "HPJZy6d2AQ4"
 videoTitle: "Adam Schiff Asked: 'Do You Agree That The Court Should Be Expanded?'"
 thumbnail: "https://img.youtube.com/vi/HPJZy6d2AQ4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

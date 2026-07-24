@@ -38,8 +38,8 @@ keyMoments:
 videoId: "41jeA_L9nqA"
 videoTitle: "'Callous, cold, disrespectful': Ayman reacts to Trump comparing Iran war death toll to past wars"
 thumbnail: "https://img.youtube.com/vi/41jeA_L9nqA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

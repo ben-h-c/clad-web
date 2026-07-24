@@ -29,8 +29,8 @@ keyMoments:
 videoId: "SW7v7I2LxT4"
 videoTitle: "Albania protests escalate | DW News"
 thumbnail: "https://img.youtube.com/vi/SW7v7I2LxT4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

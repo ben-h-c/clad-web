@@ -37,8 +37,8 @@ keyMoments:
 videoId: "ak-cBax9Pi0"
 videoTitle: "Alex Armstrong Tonight Late Edition | Saturday 27th June"
 thumbnail: "https://img.youtube.com/vi/ak-cBax9Pi0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

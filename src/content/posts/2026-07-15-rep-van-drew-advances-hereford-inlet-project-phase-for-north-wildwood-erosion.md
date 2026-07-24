@@ -34,8 +34,8 @@ keyMoments:
 videoId: "OtT6SCoe-HI"
 videoTitle: "7.15.26 | Rep. Van Drew Supports Hereford Inlet Project"
 thumbnail: "https://img.youtube.com/vi/OtT6SCoe-HI/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

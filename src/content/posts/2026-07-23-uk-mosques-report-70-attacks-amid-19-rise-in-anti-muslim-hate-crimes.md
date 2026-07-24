@@ -35,9 +35,9 @@ keyMoments:
 videoId: "mwszz4JAl18"
 videoTitle: "UK Muslims face rising hate crimes as mosques struggle with security threats"
 thumbnail: "https://img.youtube.com/vi/mwszz4JAl18/maxresdefault.jpg"
-mediaNote: "pallet tower signs + red hand flag upper-middle"
-thumbFocusY: 28
-thumbFocusX: 48
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 citations:
   - title: "Hate crime, England and Wales, year ending March 2025"

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "rUQC1d0VJ8A"
 videoTitle: "Booze-makers have reason to be in low spirits"
 thumbnail: "https://img.youtube.com/vi/rUQC1d0VJ8A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "x_vrVSTwqYQ"
 videoTitle: "Former Illinois Gov. Rod Blagojevich slams current Illinois politics"
 thumbnail: "https://img.youtube.com/vi/x_vrVSTwqYQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

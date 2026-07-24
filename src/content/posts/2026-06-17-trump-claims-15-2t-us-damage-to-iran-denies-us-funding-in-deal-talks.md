@@ -36,8 +36,8 @@ keyMoments:
 videoId: "JzcCQqTbO0I"
 videoTitle: "'Somebody's Going To Have To Help Them Out': Trump Says US Did $1.5-2 Trillion Of Damage To Iran"
 thumbnail: "https://img.youtube.com/vi/JzcCQqTbO0I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -39,8 +39,8 @@ keyMoments:
 videoId: "fuOj2rM6UZ0"
 videoTitle: "The SHOCKING story of how white supremacists ‘Stole a City’"
 thumbnail: "https://img.youtube.com/vi/fuOj2rM6UZ0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

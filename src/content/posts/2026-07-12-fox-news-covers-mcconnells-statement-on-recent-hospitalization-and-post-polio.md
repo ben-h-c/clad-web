@@ -38,8 +38,8 @@ keyMoments:
 videoId: "NVt4Ra5D_QY"
 videoTitle: "BREAKING: Mitch McConnell BREAKS SILENCE on hospitalization"
 thumbnail: "https://img.youtube.com/vi/NVt4Ra5D_QY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "wICsr8NTWmU"
 videoTitle: "103-year-old World War II veteran shares what gives him STRENGTH"
 thumbnail: "https://img.youtube.com/vi/wICsr8NTWmU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "woizPOGdv2g"
 videoTitle: "Hurd Asks Wright: 'What Do You See, Mr. Secretary, As The Greatest Risk' To Grid Reliability?"
 thumbnail: "https://img.youtube.com/vi/woizPOGdv2g/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

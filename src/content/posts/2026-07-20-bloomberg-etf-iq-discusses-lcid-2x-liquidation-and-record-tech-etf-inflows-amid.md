@@ -35,8 +35,8 @@ keyMoments:
 videoId: "NQRVtjyksQ8"
 videoTitle: "ETF IQ 7/20/2026"
 thumbnail: "https://img.youtube.com/vi/NQRVtjyksQ8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

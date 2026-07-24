@@ -32,8 +32,8 @@ keyMoments:
 videoId: "KjuK7U-2K3M"
 videoTitle: "Dr. Phil talks new Greenland oil docuseries | Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/KjuK7U-2K3M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

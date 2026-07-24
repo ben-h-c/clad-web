@@ -34,8 +34,8 @@ keyMoments:
 videoId: "UVG3l1brC_s"
 videoTitle: "Air Canada flight diverts after pilot's medical emergency"
 thumbnail: "https://img.youtube.com/vi/UVG3l1brC_s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

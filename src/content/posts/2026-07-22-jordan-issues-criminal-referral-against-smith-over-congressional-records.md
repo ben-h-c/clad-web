@@ -37,8 +37,8 @@ keyMoments:
 videoId: "YuyrXCmebng"
 videoTitle: "House GOP's criminal referral of Jack Smith 'will get laughed out of court'"
 thumbnail: "https://img.youtube.com/vi/YuyrXCmebng/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "4LQ7aZBt6kg"
 videoTitle: "Cowards like Gabe Evans DO NOT deserve a seat in Congress."
 thumbnail: "https://img.youtube.com/vi/4LQ7aZBt6kg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "1XfRW56ZpC0"
 videoTitle: "‘The Five’: Dems losing ground as midterms near…"
 thumbnail: "https://img.youtube.com/vi/1XfRW56ZpC0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

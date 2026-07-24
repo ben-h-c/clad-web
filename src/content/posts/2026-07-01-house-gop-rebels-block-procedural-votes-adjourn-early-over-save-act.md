@@ -35,8 +35,8 @@ keyMoments:
 videoId: "zTfaVmDExrY"
 videoTitle: "House members head to vacation early as rebels freeze votes on the floor"
 thumbnail: "https://img.youtube.com/vi/zTfaVmDExrY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

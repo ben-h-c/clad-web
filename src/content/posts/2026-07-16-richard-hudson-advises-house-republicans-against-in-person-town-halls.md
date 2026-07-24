@@ -32,8 +32,8 @@ keyMoments:
 videoId: "6aOm0IoaIT4"
 videoTitle: "Richard Hudson is Wrong for North Carolina"
 thumbnail: "https://img.youtube.com/vi/6aOm0IoaIT4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

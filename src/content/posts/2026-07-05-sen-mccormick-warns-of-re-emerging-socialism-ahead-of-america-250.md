@@ -37,8 +37,8 @@ keyMoments:
 videoId: "_WgqvY31fF4"
 videoTitle: "'FAILED IDEAS!’: Sen McCormick exposes the hidden threat facing America's next 50 years"
 thumbnail: "https://img.youtube.com/vi/_WgqvY31fF4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

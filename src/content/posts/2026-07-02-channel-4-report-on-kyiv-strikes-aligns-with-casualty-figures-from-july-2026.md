@@ -33,8 +33,8 @@ keyMoments:
 videoId: "QShy9dgpPlg"
 videoTitle: "18 killed in Russian strikes on Ukraine"
 thumbnail: "https://img.youtube.com/vi/QShy9dgpPlg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

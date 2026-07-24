@@ -32,8 +32,8 @@ keyMoments:
 videoId: "vEKiKQ-yMPo"
 videoTitle: "North Carolina resident creates lawn art for America's 250th"
 thumbnail: "https://img.youtube.com/vi/vEKiKQ-yMPo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

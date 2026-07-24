@@ -34,8 +34,8 @@ keyMoments:
 videoId: "To7ws_sXYxM"
 videoTitle: "Schismatic Catholic society sees six bishops excommunicated by Pope • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/To7ws_sXYxM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

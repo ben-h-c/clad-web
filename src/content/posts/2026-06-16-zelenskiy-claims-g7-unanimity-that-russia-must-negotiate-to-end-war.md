@@ -35,8 +35,8 @@ keyMoments:
 videoId: "EjYdS3Z5YLc"
 videoTitle: "Zelenskiy says G7 leaders agree Russia is losing"
 thumbnail: "https://img.youtube.com/vi/EjYdS3Z5YLc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

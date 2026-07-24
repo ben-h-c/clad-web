@@ -36,8 +36,8 @@ keyMoments:
 videoId: "CdsTuErwm5k"
 videoTitle: "GIANT CRYPTO NEWS HAPPENING NOW! (Major Clarity Act News)"
 thumbnail: "https://img.youtube.com/vi/CdsTuErwm5k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

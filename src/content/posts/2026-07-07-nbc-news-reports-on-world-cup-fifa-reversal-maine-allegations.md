@@ -35,8 +35,8 @@ keyMoments:
 videoId: "DCU53xfRBfo"
 videoTitle: "Hallie Jackson NOW - July 6 | NBC News NOW"
 thumbnail: "https://img.youtube.com/vi/DCU53xfRBfo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

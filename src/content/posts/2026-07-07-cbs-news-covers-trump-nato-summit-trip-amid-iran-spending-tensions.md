@@ -35,8 +35,8 @@ keyMoments:
 videoId: "iA2XBcc-aP8"
 videoTitle: "Trump heading to NATO summit amid tensions over defense spending, Iran war"
 thumbnail: "https://img.youtube.com/vi/iA2XBcc-aP8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

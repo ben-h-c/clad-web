@@ -30,8 +30,8 @@ keyMoments:
 videoId: "Y8_fJdqqai4"
 videoTitle: "Two people shot inside Delaware hospital"
 thumbnail: "https://img.youtube.com/vi/Y8_fJdqqai4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

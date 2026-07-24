@@ -32,8 +32,8 @@ keyMoments:
 videoId: "zuokdDwD-_A"
 videoTitle: "Did Karoline Leavitt really just say \"There are very strict ethical guidelines at the White House\"?"
 thumbnail: "https://img.youtube.com/vi/zuokdDwD-_A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

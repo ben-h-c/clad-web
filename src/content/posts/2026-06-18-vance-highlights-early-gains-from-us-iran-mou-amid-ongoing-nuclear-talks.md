@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Y2vzNgpawUY"
 videoTitle: "Vance touts Iranian peace plan #foxnews #news #us #fox"
 thumbnail: "https://img.youtube.com/vi/Y2vzNgpawUY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

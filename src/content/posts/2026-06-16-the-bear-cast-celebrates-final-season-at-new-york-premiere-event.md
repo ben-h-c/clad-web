@@ -33,8 +33,8 @@ keyMoments:
 videoId: "fd09t9ZNjK0"
 videoTitle: "The cast of 'The Bear' celebrate the show's final season"
 thumbnail: "https://img.youtube.com/vi/fd09t9ZNjK0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

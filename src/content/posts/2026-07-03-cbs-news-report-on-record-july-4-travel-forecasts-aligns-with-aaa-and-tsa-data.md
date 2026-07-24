@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Ru_pA4ghZhA"
 videoTitle: "Record number of July 4th travelers expected despite higher gas prices, airfares"
 thumbnail: "https://img.youtube.com/vi/Ru_pA4ghZhA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

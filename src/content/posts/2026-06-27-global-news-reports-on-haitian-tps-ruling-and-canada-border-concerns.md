@@ -36,8 +36,8 @@ keyMoments:
 videoId: "9Ow0Ugrb0yI"
 videoTitle: "Advocates warn of influx of Haitian refugees to Canada after US Supreme Court ruling"
 thumbnail: "https://img.youtube.com/vi/9Ow0Ugrb0yI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

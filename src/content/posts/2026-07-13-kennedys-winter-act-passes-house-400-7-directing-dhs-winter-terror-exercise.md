@@ -31,8 +31,8 @@ keyMoments:
 videoId: "GcQp9uuPuVQ"
 videoTitle: "Kennedy’s WINTER Act Passed by House of Representatives"
 thumbnail: "https://img.youtube.com/vi/GcQp9uuPuVQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

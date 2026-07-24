@@ -36,8 +36,8 @@ keyMoments:
 videoId: "3QpDW2xyc6c"
 videoTitle: "Matt Goodwin FUMES as Labour are SET TO RELEASE 6000 PRISONERS"
 thumbnail: "https://img.youtube.com/vi/3QpDW2xyc6c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

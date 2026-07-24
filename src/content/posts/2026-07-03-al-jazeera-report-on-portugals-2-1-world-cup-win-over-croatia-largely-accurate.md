@@ -36,8 +36,8 @@ keyMoments:
 videoId: "mnpFcqsg3zQ"
 videoTitle: "Ronaldo Leads Portugal to Victory over Croatia"
 thumbnail: "https://img.youtube.com/vi/mnpFcqsg3zQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

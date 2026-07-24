@@ -40,8 +40,8 @@ keyMoments:
 videoId: "6-DLp3g9jqk"
 videoTitle: "It’s Official: The Fed is Now 72% More Likely to RAISE Rates"
 thumbnail: "https://img.youtube.com/vi/6-DLp3g9jqk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

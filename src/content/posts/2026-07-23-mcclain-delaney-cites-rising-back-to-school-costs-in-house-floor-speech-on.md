@@ -33,8 +33,8 @@ keyMoments:
 videoId: "0WVzF-Kw89Y"
 videoTitle: "'Families Are Struggling With Affordability': April McClain Delaney Decries High Cost Of College"
 thumbnail: "https://img.youtube.com/vi/0WVzF-Kw89Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

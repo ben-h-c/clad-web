@@ -35,8 +35,8 @@ keyMoments:
 videoId: "1Zqzdo88YEY"
 videoTitle: "Guy Benson WARNS of ‘nuclear question’ in US-Iran talks: ‘The whole ball game’"
 thumbnail: "https://img.youtube.com/vi/1Zqzdo88YEY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

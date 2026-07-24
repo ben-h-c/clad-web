@@ -33,8 +33,8 @@ keyMoments:
 videoId: "d8oGex3G9xk"
 videoTitle: "'There Has Been A Paradigm Shift': Russell Vought Touts Trump Admin's Work To Change CFPB"
 thumbnail: "https://img.youtube.com/vi/d8oGex3G9xk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

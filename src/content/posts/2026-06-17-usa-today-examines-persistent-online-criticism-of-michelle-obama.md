@@ -32,8 +32,8 @@ keyMoments:
 videoId: "pzxGKlosGMg"
 videoTitle: "Michelle Obama hate persists nearly a decade after White House tenure"
 thumbnail: "https://img.youtube.com/vi/pzxGKlosGMg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

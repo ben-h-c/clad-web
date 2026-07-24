@@ -35,8 +35,8 @@ keyMoments:
 videoId: "ul6bNUO5fUM"
 videoTitle: "West Virginia governor says some are unaccounted for in flooding"
 thumbnail: "https://img.youtube.com/vi/ul6bNUO5fUM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

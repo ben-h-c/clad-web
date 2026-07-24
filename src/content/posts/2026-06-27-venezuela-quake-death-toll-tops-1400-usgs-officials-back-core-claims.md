@@ -37,8 +37,8 @@ keyMoments:
 videoId: "-2naAvdZV_E"
 videoTitle: "Death toll in Venezuela quakes tops 1,400 as rescue ramps up"
 thumbnail: "https://img.youtube.com/vi/-2naAvdZV_E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "MKAELwDd4FE"
 videoTitle: "Ricketts Champions His Stop Insider Trading Act on Senate Floor"
 thumbnail: "https://img.youtube.com/vi/MKAELwDd4FE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

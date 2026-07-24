@@ -34,8 +34,8 @@ keyMoments:
 videoId: "_Ji3xnAuRHg"
 videoTitle: "Latest news on Iran deal as Israel and Hezbollah appear to reach ceasefire"
 thumbnail: "https://img.youtube.com/vi/_Ji3xnAuRHg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

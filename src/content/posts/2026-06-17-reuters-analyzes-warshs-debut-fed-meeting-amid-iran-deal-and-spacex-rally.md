@@ -35,8 +35,8 @@ keyMoments:
 videoId: "onPMWGA5ewI"
 videoTitle: "It's Fed day: What we're expecting from Kevin Warsh’s first meeting as chair | Reuters Morning Bid"
 thumbnail: "https://img.youtube.com/vi/onPMWGA5ewI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

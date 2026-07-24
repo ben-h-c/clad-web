@@ -34,8 +34,8 @@ keyMoments:
 videoId: "liFwq5VRWvs"
 videoTitle: "BIRTHRIGHT BATTLE: Trump order falls at Supreme Court"
 thumbnail: "https://img.youtube.com/vi/liFwq5VRWvs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

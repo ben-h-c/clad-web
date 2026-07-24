@@ -34,8 +34,8 @@ keyMoments:
 videoId: "tzODujKTJqU"
 videoTitle: "‘It’s Going To Be Unbearably HOT Today' | From Frozen Peas To Wet Towels"
 thumbnail: "https://img.youtube.com/vi/tzODujKTJqU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

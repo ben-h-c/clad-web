@@ -32,9 +32,9 @@ keyMoments:
 videoId: "sdp_ytEsINw"
 videoTitle: "UK PM Andy Burnham is spending his first day working from No 10 North in Manchester. #BBCNews"
 thumbnail: "https://img.youtube.com/vi/sdp_ytEsINw/maxresdefault.jpg"
-mediaNote: "crowd action upper-middle plaza"
-thumbFocusY: 38
-thumbFocusX: 48
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 citations:
   - title: "Burnham to spend first day working from No 10 North"

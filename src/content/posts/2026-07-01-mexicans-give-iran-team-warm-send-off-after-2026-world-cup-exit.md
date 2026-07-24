@@ -31,8 +31,8 @@ keyMoments:
 videoId: "irJ5delrJYU"
 videoTitle: "Mexicans bid Iran soccer team warm farewell after World Cup exit"
 thumbnail: "https://img.youtube.com/vi/irJ5delrJYU/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "499mJYpfZ1M"
 videoTitle: "How Gavin Newsom's claims about a DOJ investigation could impact a potential 2028 presidential run"
 thumbnail: "https://img.youtube.com/vi/499mJYpfZ1M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "JQqssK9T-wg"
 videoTitle: "President Trump on Thwarted Attack at White House During UFC fight: \"I haven't heard about it.\""
 thumbnail: "https://img.youtube.com/vi/JQqssK9T-wg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

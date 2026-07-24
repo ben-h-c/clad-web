@@ -35,8 +35,8 @@ keyMoments:
 videoId: "ZVsL5NpjG3E"
 videoTitle: "The Strategic Horizon: Leadership &amp; Campaign Landscape w/ Rep. Richard Hudson | Hill Nation Summit"
 thumbnail: "https://img.youtube.com/vi/ZVsL5NpjG3E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

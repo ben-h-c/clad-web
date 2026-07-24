@@ -35,8 +35,8 @@ keyMoments:
 videoId: "UnXpAg8IXek"
 videoTitle: "Kalshi sees influx of users during NBA final and World Cup games"
 thumbnail: "https://img.youtube.com/vi/UnXpAg8IXek/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -33,8 +33,8 @@ keyMoments:
 videoId: "p2-ti2TviyU"
 videoTitle: "Trump&#39;s new rule is making it even harder for nurses to afford their education"
 thumbnail: "https://img.youtube.com/vi/p2-ti2TviyU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

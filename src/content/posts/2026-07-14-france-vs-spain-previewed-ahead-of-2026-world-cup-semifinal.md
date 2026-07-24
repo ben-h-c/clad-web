@@ -28,8 +28,8 @@ keyMoments:
 videoId: "Qc6tMm5adqc"
 videoTitle: "World Cup 2026: France aim for third consecutive final against Spain • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/Qc6tMm5adqc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

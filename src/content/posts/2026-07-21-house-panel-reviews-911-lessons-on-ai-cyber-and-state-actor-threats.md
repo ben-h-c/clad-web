@@ -37,8 +37,8 @@ keyMoments:
 videoId: "_e7wf1ct7vI"
 videoTitle: "🔴LIVE: Pete Hegseth, Gen. Caine &amp; Brooke Rollins Testify on Iran War | Trump&#39;s Budget Request | N18G"
 thumbnail: "https://img.youtube.com/vi/_e7wf1ct7vI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

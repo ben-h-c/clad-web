@@ -40,8 +40,8 @@ keyMoments:
 videoId: "SW_E_mERXrU"
 videoTitle: "WH is worried about crowd size for Trump’s July 4th event"
 thumbnail: "https://img.youtube.com/vi/SW_E_mERXrU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

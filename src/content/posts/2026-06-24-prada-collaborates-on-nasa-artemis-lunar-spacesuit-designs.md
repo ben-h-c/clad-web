@@ -28,8 +28,8 @@ keyMoments:
 videoId: "V10-tdGF4HE"
 videoTitle: "Prada plays a part in designing NASA’s lunar mission spacesuits"
 thumbnail: "https://img.youtube.com/vi/V10-tdGF4HE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

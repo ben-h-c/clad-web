@@ -32,8 +32,8 @@ keyMoments:
 videoId: "BQmko1knL5E"
 videoTitle: "'Keir Starmer's defence speech was the ultimate form of gaslighting'"
 thumbnail: "https://img.youtube.com/vi/BQmko1knL5E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

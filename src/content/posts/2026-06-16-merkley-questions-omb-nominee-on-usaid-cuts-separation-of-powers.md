@@ -37,8 +37,8 @@ keyMoments:
 videoId: "E9Srvm8rqhE"
 videoTitle: "'About 500,000 Children Have Died As A Result!': Jeff Merkley Torches Trump Admin's Gutting Of USAID"
 thumbnail: "https://img.youtube.com/vi/E9Srvm8rqhE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

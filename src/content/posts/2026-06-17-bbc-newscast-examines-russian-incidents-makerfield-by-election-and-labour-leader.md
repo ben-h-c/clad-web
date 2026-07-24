@@ -38,8 +38,8 @@ keyMoments:
 videoId: "vzy4-f4VxeI"
 videoTitle: "What do Russian proxy attacks mean for the UK? We ask the UK prime minister | BBC Newscast"
 thumbnail: "https://img.youtube.com/vi/vzy4-f4VxeI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

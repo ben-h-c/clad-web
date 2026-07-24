@@ -34,8 +34,8 @@ keyMoments:
 videoId: "fB8VweKJaZE"
 videoTitle: "Why George Washington believed in the strength of differing viewpoints"
 thumbnail: "https://img.youtube.com/vi/fB8VweKJaZE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

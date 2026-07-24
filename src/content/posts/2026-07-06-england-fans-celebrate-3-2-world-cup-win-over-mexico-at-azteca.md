@@ -34,8 +34,8 @@ keyMoments:
 videoId: "kYj3NxrnA_Y"
 videoTitle: "Late night, big win: England fans celebrate World Cup triumph"
 thumbnail: "https://img.youtube.com/vi/kYj3NxrnA_Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

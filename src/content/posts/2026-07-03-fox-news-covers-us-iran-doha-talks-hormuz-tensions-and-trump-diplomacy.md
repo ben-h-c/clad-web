@@ -37,8 +37,8 @@ keyMoments:
 videoId: "eDXL9vnwGys"
 videoTitle: "DIPLOMACY OR DEADLOCK: Iran threatens key shipping lane as Trump touts 'very good meetings'"
 thumbnail: "https://img.youtube.com/vi/eDXL9vnwGys/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "7GFvM-KcX08"
 videoTitle: "Andy Burnham ATTACKS 'HMO Britain' in by-election victory speech as he pitches for Labour leadership"
 thumbnail: "https://img.youtube.com/vi/7GFvM-KcX08/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

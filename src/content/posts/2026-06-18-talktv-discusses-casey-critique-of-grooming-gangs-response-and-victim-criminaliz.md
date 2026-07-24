@@ -36,8 +36,8 @@ keyMoments:
 videoId: "ZLDx6IkdYKU"
 videoTitle: "Grooming Gang COVER-UP: 'These Men Faced NO Consequence'"
 thumbnail: "https://img.youtube.com/vi/ZLDx6IkdYKU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

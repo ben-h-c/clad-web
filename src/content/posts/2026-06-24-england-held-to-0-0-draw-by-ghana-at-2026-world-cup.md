@@ -31,8 +31,8 @@ keyMoments:
 videoId: "_R2z9nQkkTY"
 videoTitle: "England fans slam 'awful' World Cup draw against Ghana"
 thumbnail: "https://img.youtube.com/vi/_R2z9nQkkTY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "S1JiYx881dE"
 videoTitle: "Latest Guthrie kidnapping note 'bogus', cold case researcher says | NewsNation Live"
 thumbnail: "https://img.youtube.com/vi/S1JiYx881dE/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

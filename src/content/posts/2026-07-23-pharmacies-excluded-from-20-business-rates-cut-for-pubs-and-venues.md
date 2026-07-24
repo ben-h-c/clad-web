@@ -33,8 +33,8 @@ keyMoments:
 videoId: "qw-t1BZQ53g"
 videoTitle: "'A SLAP In The Face' | Pharmacies LEFT BEHIND After Business Rate Cuts"
 thumbnail: "https://img.youtube.com/vi/qw-t1BZQ53g/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

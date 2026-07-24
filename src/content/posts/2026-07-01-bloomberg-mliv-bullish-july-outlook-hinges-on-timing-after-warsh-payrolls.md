@@ -35,8 +35,8 @@ keyMoments:
 videoId: "A5eV6zR4Fz4"
 videoTitle: "Bullish July Is Just a Matter of Timing: 3-Minutes MLIV"
 thumbnail: "https://img.youtube.com/vi/A5eV6zR4Fz4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

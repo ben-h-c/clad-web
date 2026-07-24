@@ -32,8 +32,8 @@ keyMoments:
 videoId: "x4MmvCHF8EI"
 videoTitle: "Trump says he feels 'very bad' for Lebanon and Israel 'could behave better'"
 thumbnail: "https://img.youtube.com/vi/x4MmvCHF8EI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

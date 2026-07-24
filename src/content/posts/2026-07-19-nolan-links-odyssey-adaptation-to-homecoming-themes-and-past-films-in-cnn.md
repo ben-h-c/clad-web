@@ -31,8 +31,8 @@ keyMoments:
 videoId: "XgixiP62NZ8"
 videoTitle: "'The Odyssey': Why Nolan keeps making films on men returning home"
 thumbnail: "https://img.youtube.com/vi/XgixiP62NZ8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

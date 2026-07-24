@@ -35,8 +35,8 @@ keyMoments:
 videoId: "4rUq9qme1HU"
 videoTitle: "'THE MASSES ARE COMING': The AI signal that could change everything"
 thumbnail: "https://img.youtube.com/vi/4rUq9qme1HU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

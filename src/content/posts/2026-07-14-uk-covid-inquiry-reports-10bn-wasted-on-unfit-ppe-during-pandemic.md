@@ -34,8 +34,8 @@ keyMoments:
 videoId: "4BysPRhvgXA"
 videoTitle: "Covid Inquiry finds almost £10bn of PPE was wasted"
 thumbnail: "https://img.youtube.com/vi/4BysPRhvgXA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

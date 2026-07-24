@@ -28,8 +28,8 @@ keyMoments:
 videoId: "r78r14q6KoA"
 videoTitle: "Nvidia CEO Jensen Huang encourages engaging with AI: 'Open up ChatGPT'"
 thumbnail: "https://img.youtube.com/vi/r78r14q6KoA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "-duJPH_mE-s"
 videoTitle: "G7 Allies Question Trump's Hormuz Optimism; Stocks Waver | Horizons Middle East & Africa 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/-duJPH_mE-s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

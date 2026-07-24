@@ -35,8 +35,8 @@ keyMoments:
 videoId: "LiiZoVRaEhI"
 videoTitle: "Texas Tech QB betting case sparks national debate"
 thumbnail: "https://img.youtube.com/vi/LiiZoVRaEhI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

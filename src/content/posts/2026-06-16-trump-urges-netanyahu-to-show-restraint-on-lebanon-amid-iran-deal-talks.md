@@ -36,8 +36,8 @@ keyMoments:
 videoId: "6N-VlRcttcQ"
 videoTitle: "Trump Says Netanyahu Should Be More Responsible With Lebanon"
 thumbnail: "https://img.youtube.com/vi/6N-VlRcttcQ/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

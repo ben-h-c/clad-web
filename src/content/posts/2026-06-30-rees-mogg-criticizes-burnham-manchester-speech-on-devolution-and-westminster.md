@@ -36,8 +36,8 @@ keyMoments:
 videoId: "sK1VykZsajs"
 videoTitle: "Jacob Rees-Mogg left UNIMPRESSED and UNINSPIRED by Andy Burnham"
 thumbnail: "https://img.youtube.com/vi/sK1VykZsajs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "U_tVpQIgxVU"
 videoTitle: "'COORDINATED ATTACKS': Chinese FUNNELING OPERATION uncovered inside US"
 thumbnail: "https://img.youtube.com/vi/U_tVpQIgxVU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

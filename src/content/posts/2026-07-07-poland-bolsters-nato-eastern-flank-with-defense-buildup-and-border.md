@@ -35,8 +35,8 @@ keyMoments:
 videoId: "lYale2bQnk8"
 videoTitle: "Poland's role in NATO: Warsaw an increasingly key member of the alliance"
 thumbnail: "https://img.youtube.com/vi/lYale2bQnk8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

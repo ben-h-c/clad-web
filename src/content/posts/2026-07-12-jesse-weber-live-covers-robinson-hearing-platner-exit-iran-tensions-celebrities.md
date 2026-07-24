@@ -36,8 +36,8 @@ keyMoments:
 videoId: "AiiJ_Xbg-B4"
 videoTitle: "Can the kids rescued from the Ohio house of horrors ever fully recover? | Jesse Weber Live Full Show"
 thumbnail: "https://img.youtube.com/vi/AiiJ_Xbg-B4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

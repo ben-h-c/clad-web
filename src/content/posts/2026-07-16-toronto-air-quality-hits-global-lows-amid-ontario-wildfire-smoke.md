@@ -28,8 +28,8 @@ keyMoments:
 videoId: "xOT9zEfgKzc"
 videoTitle: "Toronto: Air ranked among world's worst as wildfire smoke chokes city • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/xOT9zEfgKzc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

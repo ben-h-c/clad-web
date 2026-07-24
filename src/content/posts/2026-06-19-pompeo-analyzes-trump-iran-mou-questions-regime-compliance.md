@@ -36,8 +36,8 @@ keyMoments:
 videoId: "0T5O-gmCqnI"
 videoTitle: "This PROVES the regime is ‘FRACTURED’: Mike Pompeo"
 thumbnail: "https://img.youtube.com/vi/0T5O-gmCqnI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

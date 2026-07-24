@@ -37,8 +37,8 @@ keyMoments:
 videoId: "2uoTz78y1Bg"
 videoTitle: "Vance: Watergate would be \"a 12-hour news story\" today"
 thumbnail: "https://img.youtube.com/vi/2uoTz78y1Bg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

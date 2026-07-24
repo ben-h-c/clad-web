@@ -31,8 +31,8 @@ keyMoments:
 videoId: "n78eP3BEmAQ"
 videoTitle: "‘I know 23 is on the old side for you’: This agent offered to scout women for Epstein"
 thumbnail: "https://img.youtube.com/vi/n78eP3BEmAQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

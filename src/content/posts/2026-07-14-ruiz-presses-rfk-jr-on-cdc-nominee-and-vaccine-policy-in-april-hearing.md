@@ -38,8 +38,8 @@ keyMoments:
 videoId: "gBDQmoGPKu8"
 videoTitle: "Ruiz TORCHES RFK Jr. Over Vaccine Policies, Claims Trump Has &#39;Benched&#39; Him"
 thumbnail: "https://img.youtube.com/vi/gBDQmoGPKu8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

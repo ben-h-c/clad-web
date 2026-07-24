@@ -34,8 +34,8 @@ keyMoments:
 videoId: "jiPpBmLh_eM"
 videoTitle: "Israeli and Palestinian activists turn personal grief into message of peace"
 thumbnail: "https://img.youtube.com/vi/jiPpBmLh_eM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

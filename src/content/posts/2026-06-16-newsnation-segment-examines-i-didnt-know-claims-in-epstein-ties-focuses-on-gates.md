@@ -34,8 +34,8 @@ keyMoments:
 videoId: "EE8Rct2WnHg"
 videoTitle: "‘I didn’t know’ defense used by many linked to Epstein: Legal analyst | NewsNation"
 thumbnail: "https://img.youtube.com/vi/EE8Rct2WnHg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "LYsOMXir1Qc"
 videoTitle: "\"This is Manchester-Ism\" | Andy Burnham To Move Prime Minister's Office Up North"
 thumbnail: "https://img.youtube.com/vi/LYsOMXir1Qc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

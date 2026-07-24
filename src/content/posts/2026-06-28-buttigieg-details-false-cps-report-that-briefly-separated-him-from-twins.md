@@ -35,8 +35,8 @@ keyMoments:
 videoId: "yuVSSN17ArE"
 videoTitle: "Buttigieg family targeted in swatting attack"
 thumbnail: "https://img.youtube.com/vi/yuVSSN17ArE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

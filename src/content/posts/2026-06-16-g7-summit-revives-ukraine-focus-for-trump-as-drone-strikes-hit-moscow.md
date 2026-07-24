@@ -38,8 +38,8 @@ keyMoments:
 videoId: "7CXf9w7JFZU"
 videoTitle: "G7 summit puts Ukraine war back on Trump’s agenda | DW News"
 thumbnail: "https://img.youtube.com/vi/7CXf9w7JFZU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

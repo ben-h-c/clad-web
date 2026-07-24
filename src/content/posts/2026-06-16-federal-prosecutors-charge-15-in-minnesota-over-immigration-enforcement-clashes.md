@@ -37,8 +37,8 @@ keyMoments:
 videoId: "eR9oh52EONc"
 videoTitle: "LIVE: Federal prosecutors charge 15 people it says impeded agents during Minnesota immigration surge"
 thumbnail: "https://img.youtube.com/vi/eR9oh52EONc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

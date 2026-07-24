@@ -34,8 +34,8 @@ keyMoments:
 videoId: "uU9neQ9pn0o"
 videoTitle: "Trey Gowdy: We’ve lost a father figure"
 thumbnail: "https://img.youtube.com/vi/uU9neQ9pn0o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

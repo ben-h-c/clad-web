@@ -35,8 +35,8 @@ keyMoments:
 videoId: "sj42EnYYI2U"
 videoTitle: "Whole life sentence for teacher who murdered 13-month-old adopted son"
 thumbnail: "https://img.youtube.com/vi/sj42EnYYI2U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

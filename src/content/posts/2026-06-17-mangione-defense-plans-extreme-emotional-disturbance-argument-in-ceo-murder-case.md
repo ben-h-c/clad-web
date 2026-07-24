@@ -34,8 +34,8 @@ keyMoments:
 videoId: "azsEEljwqoc"
 videoTitle: "Luigi Mangione's attorneys plan to present 'affirmative psychiatric defense'"
 thumbnail: "https://img.youtube.com/vi/azsEEljwqoc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

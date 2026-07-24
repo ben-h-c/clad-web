@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Bl8M-oTg17E"
 videoTitle: "Saskatchewan couple killed in bear attack | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/Bl8M-oTg17E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

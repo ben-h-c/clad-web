@@ -31,8 +31,8 @@ keyMoments:
 videoId: "5Kzj5FTjAgc"
 videoTitle: "San Diego Comic-Con opens its doors to hundreds of fans"
 thumbnail: "https://img.youtube.com/vi/5Kzj5FTjAgc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

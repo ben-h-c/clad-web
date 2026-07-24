@@ -36,8 +36,8 @@ keyMoments:
 videoId: "wu7u5nQfrrc"
 videoTitle: "Joy Behar Takes You Inside ‘The View’ Interview With JD Vance | The View"
 thumbnail: "https://img.youtube.com/vi/wu7u5nQfrrc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

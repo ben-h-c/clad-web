@@ -34,8 +34,8 @@ keyMoments:
 videoId: "ana-CKfvIwg"
 videoTitle: "The Navy’s New Drone Boats Can Be Controlled From Anywhere on Earth | WSJ Equipped"
 thumbnail: "https://img.youtube.com/vi/ana-CKfvIwg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

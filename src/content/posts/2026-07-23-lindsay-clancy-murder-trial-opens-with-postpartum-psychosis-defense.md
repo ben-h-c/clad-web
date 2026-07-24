@@ -35,8 +35,8 @@ keyMoments:
 videoId: "7_1Fx9Dw6K4"
 videoTitle: "Lindsay Clancy trial: Tragedy, postpartum psychosis and the law | Serving Justice"
 thumbnail: "https://img.youtube.com/vi/7_1Fx9Dw6K4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

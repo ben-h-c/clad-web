@@ -32,8 +32,8 @@ keyMoments:
 videoId: "8u21FkxZby4"
 videoTitle: "Kyle Lowry cracks deadpan “aspiration” joke as Kawhi Leonard looks on"
 thumbnail: "https://img.youtube.com/vi/8u21FkxZby4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

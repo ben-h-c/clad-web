@@ -31,8 +31,8 @@ keyMoments:
 videoId: "CP47K6Cxh2k"
 videoTitle: "‘THIS IS A DISASTER’: Author drops STARK warning about childhood reading"
 thumbnail: "https://img.youtube.com/vi/CP47K6Cxh2k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

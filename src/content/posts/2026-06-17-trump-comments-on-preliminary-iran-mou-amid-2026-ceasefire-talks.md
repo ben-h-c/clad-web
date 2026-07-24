@@ -31,8 +31,8 @@ keyMoments:
 videoId: "Ck1DKXnaQLo"
 videoTitle: "Trump defends Iran deal: 'I didn't want to see economic catastrophe'"
 thumbnail: "https://img.youtube.com/vi/Ck1DKXnaQLo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

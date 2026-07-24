@@ -37,8 +37,8 @@ keyMoments:
 videoId: "zjy_Iy9lcU4"
 videoTitle: "'People Can't Even Afford An Inhaler Pump Here At Home': AOC Rips Trump Admin's Foreign War Spending"
 thumbnail: "https://img.youtube.com/vi/zjy_Iy9lcU4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

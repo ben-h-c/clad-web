@@ -38,8 +38,8 @@ keyMoments:
 videoId: "1l85sG_KjTM"
 videoTitle: "Gutfeld: This seems like a key fact to leave out…?"
 thumbnail: "https://img.youtube.com/vi/1l85sG_KjTM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "FyH3A47KZUE"
 videoTitle: "President Trump is trying to push back on this, GOP senator says"
 thumbnail: "https://img.youtube.com/vi/FyH3A47KZUE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

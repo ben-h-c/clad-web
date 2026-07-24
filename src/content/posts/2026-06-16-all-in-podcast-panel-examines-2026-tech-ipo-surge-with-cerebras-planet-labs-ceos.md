@@ -37,8 +37,8 @@ keyMoments:
 videoId: "jLICvWE7w2Q"
 videoTitle: "The IPO Comeback: Why Tech Giants Are Finally Going Public | All-In Liquidity IPO Panel"
 thumbnail: "https://img.youtube.com/vi/jLICvWE7w2Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

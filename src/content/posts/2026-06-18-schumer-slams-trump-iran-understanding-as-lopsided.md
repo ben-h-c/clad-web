@@ -33,8 +33,8 @@ keyMoments:
 videoId: "qzpPFfbeBR4"
 videoTitle: "Sen. Chuck Schumer says Iran ‘took Trump to the cleaners’"
 thumbnail: "https://img.youtube.com/vi/qzpPFfbeBR4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

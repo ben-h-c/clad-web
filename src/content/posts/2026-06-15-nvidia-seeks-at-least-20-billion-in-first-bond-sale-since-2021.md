@@ -31,8 +31,8 @@ keyMoments:
 videoId: "BIk0klh-vgo"
 videoTitle: "Nvidia Looks to Raise $20 Billion in First Bond Sale Since 2021"
 thumbnail: "https://img.youtube.com/vi/BIk0klh-vgo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

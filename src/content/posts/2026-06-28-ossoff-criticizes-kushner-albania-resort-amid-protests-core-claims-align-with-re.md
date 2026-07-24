@@ -34,8 +34,8 @@ keyMoments:
 videoId: "OPSUvicNBIQ"
 videoTitle: "Sen. Jon Ossoff (D-GA): \"They are literally the elites they pretend to hate.\""
 thumbnail: "https://img.youtube.com/vi/OPSUvicNBIQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

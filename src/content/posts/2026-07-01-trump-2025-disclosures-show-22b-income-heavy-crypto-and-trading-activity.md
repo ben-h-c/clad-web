@@ -40,8 +40,8 @@ keyMoments:
 videoId: "6s5s4n__vuQ"
 videoTitle: "Trump BUSTED for self-dealing as MAGA says ENOUGH! Ari reports the receipts"
 thumbnail: "https://img.youtube.com/vi/6s5s4n__vuQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

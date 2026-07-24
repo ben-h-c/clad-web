@@ -36,8 +36,8 @@ keyMoments:
 videoId: "07oamRzs280"
 videoTitle: "Hagerty Asks OECD Nom About Keeping Group Focused On 'Pro-Competition And Pro-Growth Policies'"
 thumbnail: "https://img.youtube.com/vi/07oamRzs280/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

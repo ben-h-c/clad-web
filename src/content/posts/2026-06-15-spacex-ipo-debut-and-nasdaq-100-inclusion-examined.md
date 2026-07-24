@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Y_3FHFKBEWc"
 videoTitle: "The SpaceX IPO Frenzy Isn&#39;t Over!"
 thumbnail: "https://img.youtube.com/vi/Y_3FHFKBEWc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

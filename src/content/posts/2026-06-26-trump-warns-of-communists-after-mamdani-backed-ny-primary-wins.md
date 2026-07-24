@@ -36,8 +36,8 @@ keyMoments:
 videoId: "V7KUnMRMiIg"
 videoTitle: "Trump declares 'communists have made their move,' vows to confront them | RISING"
 thumbnail: "https://img.youtube.com/vi/V7KUnMRMiIg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

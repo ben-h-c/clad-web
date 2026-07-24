@@ -38,8 +38,8 @@ keyMoments:
 videoId: "h_3W6DsRwog"
 videoTitle: "White House UFC fight terror plot suspect identified"
 thumbnail: "https://img.youtube.com/vi/h_3W6DsRwog/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

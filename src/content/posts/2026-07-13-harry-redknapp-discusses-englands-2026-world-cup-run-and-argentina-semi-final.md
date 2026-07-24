@@ -34,8 +34,8 @@ keyMoments:
 videoId: "0QB8nMYFiBo"
 videoTitle: "Harry Redknapp's Argentina Verdict: 'They're NOT GREAT... We Can Beat Them'"
 thumbnail: "https://img.youtube.com/vi/0QB8nMYFiBo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

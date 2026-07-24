@@ -32,8 +32,8 @@ keyMoments:
 videoId: "hQJZo_zQkv0"
 videoTitle: "Trump: 'Multiple arrests' at Lincoln Memorial Reflecting Pool | Morning in America"
 thumbnail: "https://img.youtube.com/vi/hQJZo_zQkv0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

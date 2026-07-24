@@ -36,8 +36,8 @@ keyMoments:
 videoId: "uzQa41G56r0"
 videoTitle: "'WOKE IDEOLOGY' keeps Democrats from ‘telling the truth’: Rep Randy Fine"
 thumbnail: "https://img.youtube.com/vi/uzQa41G56r0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

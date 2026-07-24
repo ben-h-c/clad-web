@@ -31,8 +31,8 @@ keyMoments:
 videoId: "DyHQLy217xA"
 videoTitle: "In Taylor Swift’s beach town, every clue becomes a wedding rumor"
 thumbnail: "https://img.youtube.com/vi/DyHQLy217xA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

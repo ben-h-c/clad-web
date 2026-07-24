@@ -33,8 +33,8 @@ keyMoments:
 videoId: "hCHhxFLrH2k"
 videoTitle: "'Foolish, Illegal, Unnecessary, Unproductive': Kaine Absolutely Rips Trump Over Iran 'War Of Choice'"
 thumbnail: "https://img.youtube.com/vi/hCHhxFLrH2k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

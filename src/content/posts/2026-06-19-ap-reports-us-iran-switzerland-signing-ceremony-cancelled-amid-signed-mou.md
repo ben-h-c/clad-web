@@ -34,8 +34,8 @@ keyMoments:
 videoId: "RjtlEEofW4o"
 videoTitle: "Iran-US signing ceremony in Switzerland cancelled, next steps unclear"
 thumbnail: "https://img.youtube.com/vi/RjtlEEofW4o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

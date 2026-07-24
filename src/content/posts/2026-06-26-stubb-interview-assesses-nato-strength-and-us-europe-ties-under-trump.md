@@ -40,8 +40,8 @@ keyMoments:
 videoId: "3ujmR8rJZIU"
 videoTitle: "Stubb: NATO is stronger than ever, despite Trump’s tough talk"
 thumbnail: "https://img.youtube.com/vi/3ujmR8rJZIU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

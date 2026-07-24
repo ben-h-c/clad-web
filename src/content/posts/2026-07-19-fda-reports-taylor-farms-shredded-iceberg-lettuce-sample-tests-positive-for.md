@@ -34,8 +34,8 @@ keyMoments:
 videoId: "F5P5JrQUMw4"
 videoTitle: "Iceberg lettuce sample from Taylor Farms tests positive for cyclosporiasis parasite"
 thumbnail: "https://img.youtube.com/vi/F5P5JrQUMw4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

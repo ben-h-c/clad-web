@@ -31,8 +31,8 @@ keyMoments:
 videoId: "VZi19ZRFiiM"
 videoTitle: "Vance: Trump likes to 'stir the pot' about 2028 #foxnews #news #shorts #trump #vance #election"
 thumbnail: "https://img.youtube.com/vi/VZi19ZRFiiM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

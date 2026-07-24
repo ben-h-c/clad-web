@@ -40,8 +40,8 @@ keyMoments:
 videoId: "Zh73awaI1iQ"
 videoTitle: "Alyssa Farah Griffin Previews 'The View' Interview With Vice Pres. JD Vance"
 thumbnail: "https://img.youtube.com/vi/Zh73awaI1iQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

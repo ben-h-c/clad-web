@@ -36,8 +36,8 @@ keyMoments:
 videoId: "pisHk2yCYSc"
 videoTitle: "Hannity: He STILL yearns for the spotlight..."
 thumbnail: "https://img.youtube.com/vi/pisHk2yCYSc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

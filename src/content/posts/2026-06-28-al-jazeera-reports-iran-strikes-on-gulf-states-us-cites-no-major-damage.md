@@ -32,8 +32,8 @@ keyMoments:
 videoId: "HbGKLBHmkao"
 videoTitle: "Gulf countries attacked after US launches second round of strikes on Iran | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/HbGKLBHmkao/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "ZjFAdwxN2nQ"
 videoTitle: "‘He’s literally stealing from you’: Trump defends his crypto venture as investors lose money"
 thumbnail: "https://img.youtube.com/vi/ZjFAdwxN2nQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

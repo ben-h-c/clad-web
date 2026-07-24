@@ -32,8 +32,8 @@ keyMoments:
 videoId: "Bmn9vT1PcGY"
 videoTitle: "In a new book, Georgia Democrat Sen. Raphael Warnock writes about how faith is applied to politics"
 thumbnail: "https://img.youtube.com/vi/Bmn9vT1PcGY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

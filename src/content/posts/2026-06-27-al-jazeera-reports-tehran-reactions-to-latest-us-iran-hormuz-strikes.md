@@ -32,8 +32,8 @@ keyMoments:
 videoId: "v1iXQD7ri6s"
 videoTitle: "US-Iran confrontation: Strikes raise fears of return to conflict"
 thumbnail: "https://img.youtube.com/vi/v1iXQD7ri6s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "WfbdmDAUFXs"
 videoTitle: "Air Canada pilot suffers medical emergency during flight"
 thumbnail: "https://img.youtube.com/vi/WfbdmDAUFXs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

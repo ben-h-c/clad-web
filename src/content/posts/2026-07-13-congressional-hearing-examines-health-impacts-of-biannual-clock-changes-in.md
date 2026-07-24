@@ -36,8 +36,8 @@ keyMoments:
 videoId: "S5id4r3N9_8"
 videoTitle: "Erin Houchin Asks Brett Guthrie: What Are The Health Downsides To Changing The Clock To And From DST"
 thumbnail: "https://img.youtube.com/vi/S5id4r3N9_8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

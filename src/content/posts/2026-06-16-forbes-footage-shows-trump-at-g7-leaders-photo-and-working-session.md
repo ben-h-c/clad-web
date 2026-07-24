@@ -27,8 +27,8 @@ keyMoments:
 videoId: "Vd_HeBcQ2y0"
 videoTitle: "Trump Takes Part In A Photo With Leaders At The G7 Summit And Participates In A Working Session"
 thumbnail: "https://img.youtube.com/vi/Vd_HeBcQ2y0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

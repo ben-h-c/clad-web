@@ -32,8 +32,8 @@ keyMoments:
 videoId: "bebm3rF8psM"
 videoTitle: "WATCH: Sen. Murray questions Hegseth in funding hearing as Iran war reignites"
 thumbnail: "https://img.youtube.com/vi/bebm3rF8psM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

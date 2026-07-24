@@ -29,8 +29,8 @@ keyMoments:
 videoId: "Hm-Xo5NigqA"
 videoTitle: "There’s a reason why NY, California lead the country in migration: Zeldin #shorts"
 thumbnail: "https://img.youtube.com/vi/Hm-Xo5NigqA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

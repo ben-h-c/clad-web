@@ -34,8 +34,8 @@ keyMoments:
 videoId: "6qWLY_OT6lA"
 videoTitle: "Anna Kepner's stepbrother surrenders to US marshals | Jesse Weber Live"
 thumbnail: "https://img.youtube.com/vi/6qWLY_OT6lA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

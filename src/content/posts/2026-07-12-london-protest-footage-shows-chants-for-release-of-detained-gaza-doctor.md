@@ -29,8 +29,8 @@ keyMoments:
 videoId: "k6yhyB9g8_I"
 videoTitle: "Protest on London’s Tower Bridge demands release of Dr Hussam Abu Safia | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/k6yhyB9g8_I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

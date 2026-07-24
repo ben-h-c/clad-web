@@ -35,8 +35,8 @@ keyMoments:
 videoId: "nEKi8ADdKGI"
 videoTitle: "When will it rain again?"
 thumbnail: "https://img.youtube.com/vi/nEKi8ADdKGI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

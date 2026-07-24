@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Zg8ah5Rwd6Y"
 videoTitle: "Air quality warnings across multiple states as Canadian wildfires burn"
 thumbnail: "https://img.youtube.com/vi/Zg8ah5Rwd6Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

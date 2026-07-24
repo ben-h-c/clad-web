@@ -38,8 +38,8 @@ keyMoments:
 videoId: "bAo5Nv7FZtU"
 videoTitle: "Demolitions of mosques in India: Five mosques demolished in Uttar Pradesh state"
 thumbnail: "https://img.youtube.com/vi/bAo5Nv7FZtU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

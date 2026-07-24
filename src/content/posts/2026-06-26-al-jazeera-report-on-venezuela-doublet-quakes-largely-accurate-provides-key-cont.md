@@ -36,8 +36,8 @@ keyMoments:
 videoId: "5gYQezP_8k4"
 videoTitle: "Everything we know so far about the deadly earthquakes in Venezuela"
 thumbnail: "https://img.youtube.com/vi/5gYQezP_8k4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

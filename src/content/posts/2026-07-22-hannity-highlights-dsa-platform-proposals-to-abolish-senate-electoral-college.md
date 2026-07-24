@@ -34,8 +34,8 @@ keyMoments:
 videoId: "pcnBgTmO6sc"
 videoTitle: "Hannity: They want to OVERTHROW our country from within #shorts #foxnews #news #fox"
 thumbnail: "https://img.youtube.com/vi/pcnBgTmO6sc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

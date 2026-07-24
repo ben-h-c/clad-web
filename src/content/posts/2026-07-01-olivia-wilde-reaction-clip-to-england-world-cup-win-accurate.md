@@ -25,8 +25,8 @@ keyMoments:
 videoId: "h5QvN-nNlKo"
 videoTitle: "Olivia Wilde reacts to England beating Congo in the World Cup"
 thumbnail: "https://img.youtube.com/vi/h5QvN-nNlKo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

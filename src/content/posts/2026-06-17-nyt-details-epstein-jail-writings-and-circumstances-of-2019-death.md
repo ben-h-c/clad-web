@@ -34,8 +34,8 @@ keyMoments:
 videoId: "l6qNFbZoiVk"
 videoTitle: "Stunning New York Times report sheds new light on Epstein's final days and death in jail"
 thumbnail: "https://img.youtube.com/vi/l6qNFbZoiVk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

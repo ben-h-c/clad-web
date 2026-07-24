@@ -37,8 +37,8 @@ keyMoments:
 videoId: "RgqxmcNmMP0"
 videoTitle: "US Congress LIVE: Trump Camp in Panic as Sheldon Whitehouse Questions IRS on Trump Probe | US News"
 thumbnail: "https://img.youtube.com/vi/RgqxmcNmMP0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

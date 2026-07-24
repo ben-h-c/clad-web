@@ -37,8 +37,8 @@ keyMoments:
 videoId: "lqhMsAveGCI"
 videoTitle: "'They Have No Credibility!': Hakeem Jeffries Slams SCOTUS For Decisions On Voting Maps And More"
 thumbnail: "https://img.youtube.com/vi/lqhMsAveGCI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

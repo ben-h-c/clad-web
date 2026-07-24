@@ -35,8 +35,8 @@ keyMoments:
 videoId: "DynJZuWXD2c"
 videoTitle: "Do social media bans actually protect kids? | The Excerpt"
 thumbnail: "https://img.youtube.com/vi/DynJZuWXD2c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "WRe57fc6u6E"
 videoTitle: "The search is on to find cause of parasite that has sickened over 3000 "
 thumbnail: "https://img.youtube.com/vi/WRe57fc6u6E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

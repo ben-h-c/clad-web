@@ -31,8 +31,8 @@ keyMoments:
 videoId: "td-U33wIlF8"
 videoTitle: "Mike Thompson: Congress Must Ensure Fair Tax Liability For Crypto Transactions"
 thumbnail: "https://img.youtube.com/vi/td-U33wIlF8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

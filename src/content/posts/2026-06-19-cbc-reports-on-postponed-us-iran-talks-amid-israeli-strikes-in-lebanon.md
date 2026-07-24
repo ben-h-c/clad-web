@@ -33,8 +33,8 @@ keyMoments:
 videoId: "wgUYiupomMM"
 videoTitle: "Israeli strikes kill 18 in Lebanon, U.S.-Iran talks postponed"
 thumbnail: "https://img.youtube.com/vi/wgUYiupomMM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

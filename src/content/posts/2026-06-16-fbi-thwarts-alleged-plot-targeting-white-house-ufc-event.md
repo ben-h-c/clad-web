@@ -34,8 +34,8 @@ keyMoments:
 videoId: "ycnpJN3iF2A"
 videoTitle: "FBI says it stopped an alleged plot to attack UFC event at the White House"
 thumbnail: "https://img.youtube.com/vi/ycnpJN3iF2A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

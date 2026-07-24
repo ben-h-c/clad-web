@@ -28,8 +28,8 @@ keyMoments:
 videoId: "LMxjtbyOJTk"
 videoTitle: "Iran toll in Hormuz would set 'dangerous precedent' says Rubio"
 thumbnail: "https://img.youtube.com/vi/LMxjtbyOJTk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

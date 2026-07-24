@@ -35,8 +35,8 @@ keyMoments:
 videoId: "8BJG9Ywxf84"
 videoTitle: "SpaceX IPO in Focus as Iran Fears Ease | The Asia Trade 6/12/2026"
 thumbnail: "https://img.youtube.com/vi/8BJG9Ywxf84/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

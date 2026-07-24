@@ -35,8 +35,8 @@ keyMoments:
 videoId: "MdbEwY4btlQ"
 videoTitle: "Iran's desire to keep Hezbollah alive could derail U.S. deal, expert warns"
 thumbnail: "https://img.youtube.com/vi/MdbEwY4btlQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

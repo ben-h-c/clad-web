@@ -36,8 +36,8 @@ keyMoments:
 videoId: "ic3QauxeX2M"
 videoTitle: "Rare earths independence from China is more than 'number of mines'"
 thumbnail: "https://img.youtube.com/vi/ic3QauxeX2M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -30,8 +30,8 @@ keyMoments:
 videoId: "XSXvoOGTVdU"
 videoTitle: "G7 Group Photo"
 thumbnail: "https://img.youtube.com/vi/XSXvoOGTVdU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

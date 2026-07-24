@@ -40,8 +40,8 @@ keyMoments:
 videoId: "HI9FKnOS7-E"
 videoTitle: "Laura Ingraham: THEY are making this as 'DANGEROUS' as possible..."
 thumbnail: "https://img.youtube.com/vi/HI9FKnOS7-E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

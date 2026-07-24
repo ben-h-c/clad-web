@@ -35,8 +35,8 @@ keyMoments:
 videoId: "72UAeKpZHqA"
 videoTitle: "Femicide and child rape in Cameroon: A justice system failing women and girls | DW News"
 thumbnail: "https://img.youtube.com/vi/72UAeKpZHqA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

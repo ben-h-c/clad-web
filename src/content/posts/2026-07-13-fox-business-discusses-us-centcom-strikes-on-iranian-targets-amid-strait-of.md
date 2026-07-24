@@ -35,8 +35,8 @@ keyMoments:
 videoId: "56H3ZdAhAsM"
 videoTitle: "Iran is LOSING this battle, expert says #shorts"
 thumbnail: "https://img.youtube.com/vi/56H3ZdAhAsM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

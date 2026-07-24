@@ -34,8 +34,8 @@ keyMoments:
 videoId: "I7u2knnqHyg"
 videoTitle: "Japan holds drill featuring man in a bear suit after surge of attacks"
 thumbnail: "https://img.youtube.com/vi/I7u2knnqHyg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "ZIUNI2PBJS8"
 videoTitle: "What will this new wave of tariffs do to U.S.-Canada relations? | Power & Politics"
 thumbnail: "https://img.youtube.com/vi/ZIUNI2PBJS8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

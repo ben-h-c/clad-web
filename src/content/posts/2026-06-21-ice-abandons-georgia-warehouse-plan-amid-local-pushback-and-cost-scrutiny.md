@@ -35,8 +35,8 @@ keyMoments:
 videoId: "lYl8i2siCtM"
 videoTitle: "“Help us!” 10,000-bed ICE facility rattles Trump-friendly Georgia town"
 thumbnail: "https://img.youtube.com/vi/lYl8i2siCtM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

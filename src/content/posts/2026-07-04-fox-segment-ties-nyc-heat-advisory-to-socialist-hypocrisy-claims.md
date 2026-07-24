@@ -36,8 +36,8 @@ keyMoments:
 videoId: "pE3xNxxtBxE"
 videoTitle: "Socialism 101 — 'Rules for thee, not for me': Rep Anna Paulina Luna"
 thumbnail: "https://img.youtube.com/vi/pE3xNxxtBxE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

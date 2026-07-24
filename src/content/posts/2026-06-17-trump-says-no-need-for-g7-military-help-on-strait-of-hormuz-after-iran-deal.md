@@ -33,8 +33,8 @@ keyMoments:
 videoId: "RKqxlK6oyFw"
 videoTitle: "Reporter Asks Trump: Did You Ask Japan, G7 Nations To Send Military Force To The Strait Of Homuz?"
 thumbnail: "https://img.youtube.com/vi/RKqxlK6oyFw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

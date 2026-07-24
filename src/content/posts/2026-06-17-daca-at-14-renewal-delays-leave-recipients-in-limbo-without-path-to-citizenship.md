@@ -35,8 +35,8 @@ keyMoments:
 videoId: "8L02hGpubZY"
 videoTitle: "Over a decade of DACA, but recipients still don't have a clear path to stay in the U.S."
 thumbnail: "https://img.youtube.com/vi/8L02hGpubZY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

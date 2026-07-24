@@ -38,8 +38,8 @@ keyMoments:
 videoId: "zP3r42BL754"
 videoTitle: "Planet Normal: Andy and the Backstabbers make their debut to the Country | Podcast"
 thumbnail: "https://img.youtube.com/vi/zP3r42BL754/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

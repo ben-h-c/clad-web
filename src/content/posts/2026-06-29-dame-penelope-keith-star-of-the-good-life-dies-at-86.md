@@ -31,8 +31,8 @@ keyMoments:
 videoId: "PdTsJKVp7w4"
 videoTitle: "The Good Life actress Dame Penelope Keith dies aged 86"
 thumbnail: "https://img.youtube.com/vi/PdTsJKVp7w4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

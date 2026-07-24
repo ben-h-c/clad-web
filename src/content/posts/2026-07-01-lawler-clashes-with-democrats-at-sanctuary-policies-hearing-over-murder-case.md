@@ -36,8 +36,8 @@ keyMoments:
 videoId: "CEs2YSspzAY"
 videoTitle: "Rep Mike Lawler: These 'idiots' don't grasp this..."
 thumbnail: "https://img.youtube.com/vi/CEs2YSspzAY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -28,8 +28,8 @@ keyMoments:
 videoId: "E0n4yxFdqxw"
 videoTitle: "BREAKING: Senate Democrats' Iran War Powers Resolution Fails Once Again Despite 4 GOP Defections"
 thumbnail: "https://img.youtube.com/vi/E0n4yxFdqxw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

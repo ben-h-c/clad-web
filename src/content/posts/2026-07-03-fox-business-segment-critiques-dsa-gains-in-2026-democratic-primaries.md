@@ -37,8 +37,8 @@ keyMoments:
 videoId: "_x1wWdOrxJg"
 videoTitle: "When you play STUPID games, you win STUPID prizes: Rep Wesley Hunt"
 thumbnail: "https://img.youtube.com/vi/_x1wWdOrxJg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

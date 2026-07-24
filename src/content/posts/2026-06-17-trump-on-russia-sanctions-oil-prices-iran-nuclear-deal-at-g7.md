@@ -32,8 +32,8 @@ keyMoments:
 videoId: "XKFaFWwX8yA"
 videoTitle: "Trump Asked: 'Are There Going To Be Sanctions That Are Going To Be Reimposed On Russia?'"
 thumbnail: "https://img.youtube.com/vi/XKFaFWwX8yA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

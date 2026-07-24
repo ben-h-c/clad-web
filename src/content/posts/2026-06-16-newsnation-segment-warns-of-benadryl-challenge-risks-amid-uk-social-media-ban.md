@@ -34,8 +34,8 @@ keyMoments:
 videoId: "HsAftgngpiY"
 videoTitle: "Viral 'Benadryl challenge' is sending teenagers to the hospital | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/HsAftgngpiY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

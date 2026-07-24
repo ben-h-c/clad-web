@@ -33,8 +33,8 @@ keyMoments:
 videoId: "HNB5a1NNHxg"
 videoTitle: "Alex Armstrong GRILLS 'SLIMY' Sadiq Khan!"
 thumbnail: "https://img.youtube.com/vi/HNB5a1NNHxg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

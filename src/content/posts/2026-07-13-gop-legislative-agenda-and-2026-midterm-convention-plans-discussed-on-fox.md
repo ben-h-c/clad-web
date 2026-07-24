@@ -36,8 +36,8 @@ keyMoments:
 videoId: "3bGFfoMVwKI"
 videoTitle: "GOP faces sudden political SHOCK before high-stakes vote"
 thumbnail: "https://img.youtube.com/vi/3bGFfoMVwKI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "psYl08yZOxU"
 videoTitle: "'This Is A Little Bit Of A Culture Clash': Cramer Asks Army Official About Army Hackathon"
 thumbnail: "https://img.youtube.com/vi/psYl08yZOxU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

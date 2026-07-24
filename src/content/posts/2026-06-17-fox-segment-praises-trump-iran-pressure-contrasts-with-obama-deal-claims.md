@@ -37,8 +37,8 @@ keyMoments:
 videoId: "eUgBRSczt-4"
 videoTitle: "'IRAN WAS ON ITS KNEES': Miranda Devine describes Trump's first-term pressure campaign"
 thumbnail: "https://img.youtube.com/vi/eUgBRSczt-4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

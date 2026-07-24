@@ -34,8 +34,8 @@ keyMoments:
 videoId: "4OEluie4oVE"
 videoTitle: "#JonStewart explains why MAGA's call to \"do your own research\" isn't about keeping an open mind #FYC"
 thumbnail: "https://img.youtube.com/vi/4OEluie4oVE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "K2bHH5ofoJw"
 videoTitle: "Lindsay Clancy's defense team has a good case, defense attorney says | CUOMO"
 thumbnail: "https://img.youtube.com/vi/K2bHH5ofoJw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

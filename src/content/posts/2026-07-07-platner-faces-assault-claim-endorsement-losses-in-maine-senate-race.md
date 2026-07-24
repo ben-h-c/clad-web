@@ -34,8 +34,8 @@ keyMoments:
 videoId: "5elNuzt7sKs"
 videoTitle: "Graham Platner loses key endorsement amid sexual assault allegation"
 thumbnail: "https://img.youtube.com/vi/5elNuzt7sKs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -33,8 +33,8 @@ keyMoments:
 videoId: "oC63-MOpvyo"
 videoTitle: "VP Vance: The president is doing this for our grandkids’ sake #shorts #foxnews #news #us"
 thumbnail: "https://img.youtube.com/vi/oC63-MOpvyo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

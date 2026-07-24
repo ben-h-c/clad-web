@@ -35,8 +35,8 @@ keyMoments:
 videoId: "1DcmFvD5wwc"
 videoTitle: "Israel's special relationship with US 'seems to have melted into a pretty bad break-up'"
 thumbnail: "https://img.youtube.com/vi/1DcmFvD5wwc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

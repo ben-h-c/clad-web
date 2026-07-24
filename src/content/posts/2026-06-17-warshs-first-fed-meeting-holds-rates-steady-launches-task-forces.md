@@ -34,8 +34,8 @@ keyMoments:
 videoId: "3qlLjfhfcvQ"
 videoTitle: "Warsh announces plan to reshape Federal Reserve"
 thumbnail: "https://img.youtube.com/vi/3qlLjfhfcvQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

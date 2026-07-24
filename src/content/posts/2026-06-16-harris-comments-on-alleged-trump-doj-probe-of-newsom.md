@@ -37,8 +37,8 @@ keyMoments:
 videoId: "-oO8CaDFl3E"
 videoTitle: "\"I am not surprised that he may be using the Department of Justice to go after a political enemy.\""
 thumbnail: "https://img.youtube.com/vi/-oO8CaDFl3E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

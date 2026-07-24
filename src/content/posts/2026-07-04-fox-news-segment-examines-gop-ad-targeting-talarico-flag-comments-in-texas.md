@@ -36,8 +36,8 @@ keyMoments:
 videoId: "v2fp_o4-JUw"
 videoTitle: "GOP PAC slams Texas Democrat James Talarico over 'hates America' comments about American flag"
 thumbnail: "https://img.youtube.com/vi/v2fp_o4-JUw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

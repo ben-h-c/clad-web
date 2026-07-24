@@ -29,8 +29,8 @@ keyMoments:
 videoId: "v500GZLtbRE"
 videoTitle: "Trump says U.S. is going to hit Iran hard tonight and tomorrow"
 thumbnail: "https://img.youtube.com/vi/v500GZLtbRE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

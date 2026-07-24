@@ -25,8 +25,8 @@ keyMoments:
 videoId: "C4ZCYQWa3zA"
 videoTitle: "Lando Norris wax figure on display at Madame Tussauds"
 thumbnail: "https://img.youtube.com/vi/C4ZCYQWa3zA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

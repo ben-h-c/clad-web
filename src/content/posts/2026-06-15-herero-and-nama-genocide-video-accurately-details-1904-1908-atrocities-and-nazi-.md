@@ -37,8 +37,8 @@ keyMoments:
 videoId: "PKuycLzY7c4"
 videoTitle: "The African Genocide That Taught Germany How to Build Death Camps"
 thumbnail: "https://img.youtube.com/vi/PKuycLzY7c4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

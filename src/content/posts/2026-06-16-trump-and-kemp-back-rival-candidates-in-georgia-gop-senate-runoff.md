@@ -34,8 +34,8 @@ keyMoments:
 videoId: "isVr8QBail8"
 videoTitle: "Trump and Georgia Gov. Brian Kemp back opposing candidates in GOP Senate primary"
 thumbnail: "https://img.youtube.com/vi/isVr8QBail8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

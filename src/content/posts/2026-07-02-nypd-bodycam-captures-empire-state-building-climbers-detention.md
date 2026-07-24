@@ -29,8 +29,8 @@ keyMoments:
 videoId: "HDncN64aFWU"
 videoTitle: "NYPD bodycam shows Empire State Building activists being detained"
 thumbnail: "https://img.youtube.com/vi/HDncN64aFWU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

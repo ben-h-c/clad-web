@@ -37,8 +37,8 @@ keyMoments:
 videoId: "_Mc6NL_ij5U"
 videoTitle: "'Recent Operations Have Strained Readiness': Coons Decries Drained Weapons From Operation Epic Fury"
 thumbnail: "https://img.youtube.com/vi/_Mc6NL_ij5U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

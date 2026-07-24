@@ -34,8 +34,8 @@ keyMoments:
 videoId: "9XovajJZoFI"
 videoTitle: "'We Cannot Create Special Tax Loopholes': Steven Horsford Demands Fair And Stable Crypto Tax Laws"
 thumbnail: "https://img.youtube.com/vi/9XovajJZoFI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

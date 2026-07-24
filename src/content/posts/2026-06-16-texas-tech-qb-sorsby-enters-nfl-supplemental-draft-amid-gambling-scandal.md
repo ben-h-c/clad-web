@@ -35,8 +35,8 @@ keyMoments:
 videoId: "a1CREIiui6g"
 videoTitle: "Texas Tech QB caught in betting scandal declares for NFL’s supplemental draft | NewsNation"
 thumbnail: "https://img.youtube.com/vi/a1CREIiui6g/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

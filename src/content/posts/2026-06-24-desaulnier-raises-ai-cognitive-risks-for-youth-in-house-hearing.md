@@ -35,8 +35,8 @@ keyMoments:
 videoId: "iLkkEVqkmMA"
 videoTitle: "'We've Got To Slow It Down': Mark DeSaulnier Demands More Research Into AI's Impact On Development"
 thumbnail: "https://img.youtube.com/vi/iLkkEVqkmMA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

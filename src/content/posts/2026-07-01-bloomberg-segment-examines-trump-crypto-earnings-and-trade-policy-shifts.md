@@ -32,8 +32,8 @@ keyMoments:
 videoId: "jv_0HTgOXTM"
 videoTitle: "Trump Reports at Least $1.4B in 2025 Crypto Earnings | Balance of Power 07/01/2026"
 thumbnail: "https://img.youtube.com/vi/jv_0HTgOXTM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

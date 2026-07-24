@@ -35,8 +35,8 @@ keyMoments:
 videoId: "ad1xcZU-Uz8"
 videoTitle: "Vessels from around the world participate in parade of tall ships up  Hudson River"
 thumbnail: "https://img.youtube.com/vi/ad1xcZU-Uz8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

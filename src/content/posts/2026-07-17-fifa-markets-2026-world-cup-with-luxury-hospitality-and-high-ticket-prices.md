@@ -32,8 +32,8 @@ keyMoments:
 videoId: "__3sM9SZT7M"
 videoTitle: "World Cup: 2026 tournament \"repackaged football as a luxury product\" • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/__3sM9SZT7M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

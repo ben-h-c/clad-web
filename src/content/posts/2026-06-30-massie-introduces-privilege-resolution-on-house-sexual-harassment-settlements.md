@@ -31,8 +31,8 @@ keyMoments:
 videoId: "Yai7pzLXUzQ"
 videoTitle: "Massie Demands Ethics Committee Publicly Release Records Relating To Payments Over Sexual Harassment"
 thumbnail: "https://img.youtube.com/vi/Yai7pzLXUzQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

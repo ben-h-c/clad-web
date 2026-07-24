@@ -37,8 +37,8 @@ keyMoments:
 videoId: "TfuQHeGK5bI"
 videoTitle: "This does NOT reflect Texas values: Ken Paxton"
 thumbnail: "https://img.youtube.com/vi/TfuQHeGK5bI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

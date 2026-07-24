@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Tw1lBqIibZk"
 videoTitle: "U.S. Issues Several Warnings Against Traveling to China | China in Focus"
 thumbnail: "https://img.youtube.com/vi/Tw1lBqIibZk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,9 +36,9 @@ keyMoments:
 videoId: "lBB-gznSp5Q"
 videoTitle: "Israeli settler attacks: Four Palestinians killed during attack in tell"
 thumbnail: "https://img.youtube.com/vi/lBB-gznSp5Q/maxresdefault.jpg"
-mediaNote: "Cluster of ambulances and personnel on winding road, upper-middle action"
-thumbFocusY: 38
-thumbFocusX: 55
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 citations:
   - title: "Humanitarian Situation Update #356 | West Bank"

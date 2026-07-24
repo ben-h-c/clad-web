@@ -42,10 +42,10 @@ politicians:
   - name: "Bryan Steil"
     slug: "bryan-steil"
 thumbnail: "https://img.youtube.com/vi/WN51OVRGXK8/maxresdefault.jpg"
-mediaStyle: "modular"
-thumbFocusX: 25
-thumbFocusY: 28
-mediaNote: "Split-screen dual heads; modular sidesteps messy multi-panel crop under overlay scrim"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "16:9 band default"
 citations:
   - title: "H.R.7008 - Stop Insider Trading Act"
     url: "https://www.congress.gov/bill/119th-congress/house-bill/7008"

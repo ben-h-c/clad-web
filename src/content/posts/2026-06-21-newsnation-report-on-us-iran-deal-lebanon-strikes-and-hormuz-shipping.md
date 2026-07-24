@@ -34,8 +34,8 @@ keyMoments:
 videoId: "__dCYRS9Ly0"
 videoTitle: "Israeli strikes in Lebanon risk negotiations between US and Iran |Elizabeth Vargas Reports Full Show"
 thumbnail: "https://img.youtube.com/vi/__dCYRS9Ly0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

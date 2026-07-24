@@ -31,8 +31,8 @@ keyMoments:
 videoId: "-5hgodIcjkE"
 videoTitle: "Mayor of Kelley's Island, Ohio, on record 13 inches of rain"
 thumbnail: "https://img.youtube.com/vi/-5hgodIcjkE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "gt7qpdCcX6U"
 videoTitle: "US To Impose 50% Tariff on Many Canadian Goods | Balance of Power 07/20/2026"
 thumbnail: "https://img.youtube.com/vi/gt7qpdCcX6U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

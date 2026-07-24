@@ -34,8 +34,8 @@ keyMoments:
 videoId: "gHbfOI7vh2M"
 videoTitle: "A Boise Physician is Filing a Lawsuit Against Two of Idaho's Abortion Bans"
 thumbnail: "https://img.youtube.com/vi/gHbfOI7vh2M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

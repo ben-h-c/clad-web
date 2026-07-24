@@ -33,8 +33,8 @@ keyMoments:
 videoId: "hEHmQnVnLlw"
 videoTitle: "🚨@KidRock Drops TRUTH BOMB: John James is the BEST choice for Governor! 🇺🇸"
 thumbnail: "https://img.youtube.com/vi/hEHmQnVnLlw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

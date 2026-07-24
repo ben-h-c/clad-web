@@ -38,8 +38,8 @@ keyMoments:
 videoId: "swNJct1_038"
 videoTitle: "Raul Castro's grandson gives first U.S. news interview"
 thumbnail: "https://img.youtube.com/vi/swNJct1_038/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

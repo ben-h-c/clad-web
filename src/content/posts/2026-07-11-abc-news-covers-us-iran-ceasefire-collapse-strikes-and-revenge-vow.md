@@ -33,8 +33,8 @@ keyMoments:
 videoId: "W74-jgtwz3E"
 videoTitle: "Escalating tensions between the US and Iran as ceasefire collapses"
 thumbnail: "https://img.youtube.com/vi/W74-jgtwz3E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

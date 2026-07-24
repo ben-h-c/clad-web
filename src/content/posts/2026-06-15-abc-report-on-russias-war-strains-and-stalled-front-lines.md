@@ -37,8 +37,8 @@ keyMoments:
 videoId: "LBDPMQloU8E"
 videoTitle: "An inside look at Vladimir Putin’s Russia as Ukraine war surpasses WWI"
 thumbnail: "https://img.youtube.com/vi/LBDPMQloU8E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

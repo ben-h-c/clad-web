@@ -37,8 +37,8 @@ keyMoments:
 videoId: "TM0XhyeaaSY"
 videoTitle: "Chuck Schumer Previews Senate Vote To Permanently Ban Trump's 'Slush Fund' And IRS 'Sweetheart Deal'"
 thumbnail: "https://img.youtube.com/vi/TM0XhyeaaSY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

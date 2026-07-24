@@ -36,8 +36,8 @@ keyMoments:
 videoId: "nU4dz0Wsdds"
 videoTitle: "Iran: To Take 'Decisive Actions' to Protect Interests | Balance of Power 07/07/2026"
 thumbnail: "https://img.youtube.com/vi/nU4dz0Wsdds/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

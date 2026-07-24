@@ -38,8 +38,8 @@ keyMoments:
 videoId: "Dfod59uaCkM"
 videoTitle: "Grooming Gangs: How did it happen?"
 thumbnail: "https://img.youtube.com/vi/Dfod59uaCkM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

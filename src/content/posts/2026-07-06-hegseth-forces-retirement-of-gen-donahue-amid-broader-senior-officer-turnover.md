@@ -41,8 +41,8 @@ keyMoments:
 videoId: "M1UBipV9AMU"
 videoTitle: "'It is scary': Ret. Lt. Gen. Hertling slams Hegseth for ousting general"
 thumbnail: "https://img.youtube.com/vi/M1UBipV9AMU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

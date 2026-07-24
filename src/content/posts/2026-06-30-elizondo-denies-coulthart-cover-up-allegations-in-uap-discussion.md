@@ -29,8 +29,8 @@ keyMoments:
 videoId: "MGBWJNyumz8"
 videoTitle: "UFO whistleblower responds to Ross Coulthart’s ‘cover-up’ claims | CUOMO"
 thumbnail: "https://img.youtube.com/vi/MGBWJNyumz8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

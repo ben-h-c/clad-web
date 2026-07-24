@@ -34,8 +34,8 @@ keyMoments:
 videoId: "ddfz5VTzyck"
 videoTitle: "Rep. Gillen Questions Former FEMA Chief on Nonprofit Security Grant Deadlines and Flood Resiliency"
 thumbnail: "https://img.youtube.com/vi/ddfz5VTzyck/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

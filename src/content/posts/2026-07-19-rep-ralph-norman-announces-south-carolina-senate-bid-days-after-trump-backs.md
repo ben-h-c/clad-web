@@ -31,8 +31,8 @@ keyMoments:
 videoId: "7UnL7Ko6WGo"
 videoTitle: "Rep. Ralph Norman Enters South Carolina Senate Race After Trump&#39;s Endorsement News"
 thumbnail: "https://img.youtube.com/vi/7UnL7Ko6WGo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

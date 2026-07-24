@@ -37,8 +37,8 @@ keyMoments:
 videoId: "4qW__WkyETg"
 videoTitle: "G7 summit hailed a success by Macron thanks to developments on Ukraine and Iran • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/4qW__WkyETg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

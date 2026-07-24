@@ -35,8 +35,8 @@ keyMoments:
 videoId: "W_2SgxiZ1JU"
 videoTitle: "JD Vance's rebuke of Israeli critics reveals cracks in US-Israel special relationship | DW News"
 thumbnail: "https://img.youtube.com/vi/W_2SgxiZ1JU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

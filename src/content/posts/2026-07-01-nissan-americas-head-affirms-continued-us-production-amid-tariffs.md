@@ -34,8 +34,8 @@ keyMoments:
 videoId: "EAO7hYuz0Ck"
 videoTitle: "Nissan CEO says it still makes sense to build cars in US"
 thumbnail: "https://img.youtube.com/vi/EAO7hYuz0Ck/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

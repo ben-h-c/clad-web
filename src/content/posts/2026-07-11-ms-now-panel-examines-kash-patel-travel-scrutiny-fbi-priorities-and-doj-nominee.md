@@ -37,8 +37,8 @@ keyMoments:
 videoId: "ViJKiKaBp1I"
 videoTitle: "Trump admin. ‘doesn’t care about national security’: Fmr. FBI agent shares criticism of Kash Patel"
 thumbnail: "https://img.youtube.com/vi/ViJKiKaBp1I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

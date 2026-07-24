@@ -35,8 +35,8 @@ keyMoments:
 videoId: "9n5zr9B8G0A"
 videoTitle: "Trump Says India's Modi Is a 'Tough Negotiator'"
 thumbnail: "https://img.youtube.com/vi/9n5zr9B8G0A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

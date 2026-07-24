@@ -35,8 +35,8 @@ keyMoments:
 videoId: "cjxPFx_2uWw"
 videoTitle: "Why the Supreme Court allowing states to count mail-in ballots that arrive late is significant"
 thumbnail: "https://img.youtube.com/vi/cjxPFx_2uWw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

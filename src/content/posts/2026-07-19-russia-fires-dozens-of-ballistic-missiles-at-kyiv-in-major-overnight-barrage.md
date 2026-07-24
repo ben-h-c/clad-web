@@ -37,8 +37,8 @@ keyMoments:
 videoId: "pLvEloAs3YI"
 videoTitle: "Russia launches largest missile barrage at Ukraine's Kyiv since start of war"
 thumbnail: "https://img.youtube.com/vi/pLvEloAs3YI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

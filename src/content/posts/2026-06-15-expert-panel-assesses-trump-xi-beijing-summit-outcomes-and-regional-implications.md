@@ -36,8 +36,8 @@ keyMoments:
 videoId: "AirmTeqNZSg"
 videoTitle: "Reading the Beijing Summit: What the Trump-Xi Meeting Means for Washington, Beijing, and Seoul"
 thumbnail: "https://img.youtube.com/vi/AirmTeqNZSg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

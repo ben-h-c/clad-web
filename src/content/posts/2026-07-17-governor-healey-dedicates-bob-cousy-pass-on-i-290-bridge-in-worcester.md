@@ -36,8 +36,8 @@ keyMoments:
 videoId: "869Z-_3YLZA"
 videoTitle: "Governor Healey Officially Dedicates Bob Cousy Pass at Holy Cross in Worcester"
 thumbnail: "https://img.youtube.com/vi/869Z-_3YLZA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

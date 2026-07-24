@@ -35,8 +35,8 @@ keyMoments:
 videoId: "DWPAu9b2Lmo"
 videoTitle: "Aid agencies warn of health crisis after Venezuela earthquakes displace millions"
 thumbnail: "https://img.youtube.com/vi/DWPAu9b2Lmo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

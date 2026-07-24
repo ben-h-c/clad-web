@@ -28,8 +28,8 @@ keyMoments:
 videoId: "XMu8sPUcMfQ"
 videoTitle: "Valuasi SpaceX gila banget! Tembus US$2,1 Triliun atau setara Rp37.100 Kuadriliun. #spacex"
 thumbnail: "https://img.youtube.com/vi/XMu8sPUcMfQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -33,8 +33,8 @@ keyMoments:
 videoId: "zzQFQaAdLZY"
 videoTitle: "Greg Abbott&#39;s Win Odds Skyrocket in New Texas Poll!"
 thumbnail: "https://img.youtube.com/vi/zzQFQaAdLZY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations: []

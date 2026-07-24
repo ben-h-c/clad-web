@@ -35,8 +35,8 @@ keyMoments:
 videoId: "jzCCdlrYQo8"
 videoTitle: "Colossal Biosciences wants to save the DNA of every endangered species | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/jzCCdlrYQo8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

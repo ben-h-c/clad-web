@@ -31,8 +31,8 @@ keyMoments:
 videoId: "7UwYI-da48M"
 videoTitle: "Argentina fans flood Miami for Cape Verde match"
 thumbnail: "https://img.youtube.com/vi/7UwYI-da48M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

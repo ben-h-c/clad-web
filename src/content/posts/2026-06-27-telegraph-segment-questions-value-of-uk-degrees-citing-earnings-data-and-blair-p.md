@@ -36,8 +36,8 @@ keyMoments:
 videoId: "dqz4wtAXW1k"
 videoTitle: "'1 in 4 graduates makes less money than someone who didn't go to university'"
 thumbnail: "https://img.youtube.com/vi/dqz4wtAXW1k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "q__zwynOL80"
 videoTitle: "New fires erupt in Utah as wind carries flames across homes"
 thumbnail: "https://img.youtube.com/vi/q__zwynOL80/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

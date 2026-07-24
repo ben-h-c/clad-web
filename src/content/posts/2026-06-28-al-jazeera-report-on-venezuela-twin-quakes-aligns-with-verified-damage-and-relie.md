@@ -31,8 +31,8 @@ keyMoments:
 videoId: "h8o1bR-Ti4c"
 videoTitle: "Earthquake leaves thousands homeless as rescue and relief efforts strain in Caracas"
 thumbnail: "https://img.youtube.com/vi/h8o1bR-Ti4c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

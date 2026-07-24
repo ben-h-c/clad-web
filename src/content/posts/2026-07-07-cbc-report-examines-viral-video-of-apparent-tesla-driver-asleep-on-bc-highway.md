@@ -34,8 +34,8 @@ keyMoments:
 videoId: "IdtDnwfDzrE"
 videoTitle: "Woman appears to be asleep at the wheel of self-driving Tesla | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/IdtDnwfDzrE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "gVRlGg8WbXc"
 videoTitle: "Anthropic disables new AI model after White House security directive"
 thumbnail: "https://img.youtube.com/vi/gVRlGg8WbXc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

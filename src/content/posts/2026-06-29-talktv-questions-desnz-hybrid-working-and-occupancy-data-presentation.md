@@ -35,8 +35,8 @@ keyMoments:
 videoId: "BrNkGbwytwg"
 videoTitle: "“DISHONESTY How Government Present This!” | Ed Miliband Lets Staff Work From Home Most of the Week"
 thumbnail: "https://img.youtube.com/vi/BrNkGbwytwg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

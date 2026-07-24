@@ -38,8 +38,8 @@ keyMoments:
 videoId: "k8d7JoOxhO4"
 videoTitle: "Micron Earnings to Test Tech Sector After Global Selloff | Daybreak Europe 6/24/2026"
 thumbnail: "https://img.youtube.com/vi/k8d7JoOxhO4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "zW9f87c42RI"
 videoTitle: "Niall Horan breaks down his new ‘Dinner Party’ album | AP interview"
 thumbnail: "https://img.youtube.com/vi/zW9f87c42RI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

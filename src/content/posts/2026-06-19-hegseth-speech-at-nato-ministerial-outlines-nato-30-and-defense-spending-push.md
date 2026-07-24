@@ -38,8 +38,8 @@ keyMoments:
 videoId: "XvrFZ6bG7SU"
 videoTitle: "Pete Hegseth Slams NATO's 'Focus' On 'Gender Equity And Climate Change And Defense Austerity'"
 thumbnail: "https://img.youtube.com/vi/XvrFZ6bG7SU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

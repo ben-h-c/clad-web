@@ -34,8 +34,8 @@ keyMoments:
 videoId: "cmYxFcdUsF0"
 videoTitle: "92-year-old Chick-fil-A employee says he doesn't plan to quit anytime soon"
 thumbnail: "https://img.youtube.com/vi/cmYxFcdUsF0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

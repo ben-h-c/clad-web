@@ -31,8 +31,8 @@ keyMoments:
 videoId: "6x7h1F7e3Mk"
 videoTitle: "First responders rescue multiple pets from a fire in an Arizona mobile home"
 thumbnail: "https://img.youtube.com/vi/6x7h1F7e3Mk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

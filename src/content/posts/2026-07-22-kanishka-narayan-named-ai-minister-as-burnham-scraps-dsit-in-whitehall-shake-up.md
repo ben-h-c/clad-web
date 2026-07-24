@@ -36,8 +36,8 @@ keyMoments:
 videoId: "qADDHhfWVlY"
 videoTitle: "Why new AI cabinet minister role isn't quite what it seems"
 thumbnail: "https://img.youtube.com/vi/qADDHhfWVlY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

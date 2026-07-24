@@ -38,8 +38,8 @@ keyMoments:
 videoId: "lEaBHotHwWw"
 videoTitle: "US-Iran ceasefire on life support as both sides trade strikes; peace talks continue | Sunrise"
 thumbnail: "https://img.youtube.com/vi/lEaBHotHwWw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

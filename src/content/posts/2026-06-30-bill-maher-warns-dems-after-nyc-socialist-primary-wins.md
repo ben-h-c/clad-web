@@ -30,8 +30,8 @@ keyMoments:
 videoId: "gZG0s_3MZYQ"
 videoTitle: "'REALLY CRAZY': Bill Maher issues dire warning to Dems after socialists win primaries #usa #shorts"
 thumbnail: "https://img.youtube.com/vi/gZG0s_3MZYQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

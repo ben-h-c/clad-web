@@ -28,8 +28,8 @@ keyMoments:
 videoId: "aWUbj55Wh5A"
 videoTitle: "Germany rail network halted nationwide | DW News"
 thumbnail: "https://img.youtube.com/vi/aWUbj55Wh5A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

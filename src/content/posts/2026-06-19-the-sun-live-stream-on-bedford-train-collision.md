@@ -25,8 +25,8 @@ keyMoments:
 videoId: "slpTcM1kd1M"
 videoTitle: "LIVE: Two trains crash in horror rush hour smash as passengers left ‘bloodied & seriously injured’"
 thumbnail: "https://img.youtube.com/vi/slpTcM1kd1M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

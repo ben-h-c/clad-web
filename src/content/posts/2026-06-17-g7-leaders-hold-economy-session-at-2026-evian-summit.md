@@ -27,8 +27,8 @@ keyMoments:
 videoId: "6sRJN2TaWkg"
 videoTitle: "G7 summit: Trump, Macron, Modi and other world leaders discuss economy"
 thumbnail: "https://img.youtube.com/vi/6sRJN2TaWkg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

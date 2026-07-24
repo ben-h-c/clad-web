@@ -34,8 +34,8 @@ keyMoments:
 videoId: "ktOdBrItAIU"
 videoTitle: "America's 911 crisis: Call center outages make it harder to call for help | The Hill"
 thumbnail: "https://img.youtube.com/vi/ktOdBrItAIU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

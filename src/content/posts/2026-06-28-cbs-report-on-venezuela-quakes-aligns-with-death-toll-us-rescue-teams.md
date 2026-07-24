@@ -34,8 +34,8 @@ keyMoments:
 videoId: "re30-bB7QVc"
 videoTitle: "U.S. earthquake relief aid arrives in Venezuela"
 thumbnail: "https://img.youtube.com/vi/re30-bB7QVc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

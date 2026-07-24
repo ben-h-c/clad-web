@@ -35,8 +35,8 @@ keyMoments:
 videoId: "E5VEnstI0as"
 videoTitle: "\"We will have to share the water\", as a quarter of small waterways in France run dry • FRANCE 24"
 thumbnail: "https://img.youtube.com/vi/E5VEnstI0as/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

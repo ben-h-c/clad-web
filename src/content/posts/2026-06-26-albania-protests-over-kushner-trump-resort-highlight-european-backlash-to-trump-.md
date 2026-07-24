@@ -36,8 +36,8 @@ keyMoments:
 videoId: "DYCuYmYeJlY"
 videoTitle: "Protests in Albania grow over Ivanka Trump and Jared Kushner's development there"
 thumbnail: "https://img.youtube.com/vi/DYCuYmYeJlY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

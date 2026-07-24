@@ -34,8 +34,8 @@ keyMoments:
 videoId: "fQO7twP0p_U"
 videoTitle: "Venezuela quakes final death toll expected to be 'much higher' • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/fQO7twP0p_U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

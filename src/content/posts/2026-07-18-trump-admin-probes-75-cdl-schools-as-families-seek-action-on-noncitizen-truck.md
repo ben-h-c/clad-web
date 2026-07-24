@@ -40,8 +40,8 @@ keyMoments:
 videoId: "njPpXh8pjpc"
 videoTitle: "HEARTBREAKING: Child needs more surgery YEARS after illegal trucker allegedly hit her"
 thumbnail: "https://img.youtube.com/vi/njPpXh8pjpc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

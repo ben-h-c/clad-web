@@ -34,8 +34,8 @@ keyMoments:
 videoId: "T7o_08zcpF0"
 videoTitle: "Paris's largest outside swimming pool opens early ahead of massive heatwave • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/T7o_08zcpF0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

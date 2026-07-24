@@ -31,8 +31,8 @@ keyMoments:
 videoId: "_nKTwzaf564"
 videoTitle: "Keir Starmer 'ready' for any Labour leadership contest"
 thumbnail: "https://img.youtube.com/vi/_nKTwzaf564/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

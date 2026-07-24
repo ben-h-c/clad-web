@@ -39,8 +39,8 @@ keyMoments:
 videoId: "2gm_u0ey_5I"
 videoTitle: "Tyrus: THIS drives me 'ABSOLUTELY INSANE'"
 thumbnail: "https://img.youtube.com/vi/2gm_u0ey_5I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

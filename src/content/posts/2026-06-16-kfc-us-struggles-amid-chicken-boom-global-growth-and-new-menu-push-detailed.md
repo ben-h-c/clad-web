@@ -35,8 +35,8 @@ keyMoments:
 videoId: "vwOxJJ80t3k"
 videoTitle: "Why KFC Has Fallen Behind In The U.S."
 thumbnail: "https://img.youtube.com/vi/vwOxJJ80t3k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

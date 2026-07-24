@@ -36,8 +36,8 @@ keyMoments:
 videoId: "PSKBuM9ebWM"
 videoTitle: "‘Brits Want Farage In No10’ | Nigel Farage Could Fight Re-Election If Found Guilty"
 thumbnail: "https://img.youtube.com/vi/PSKBuM9ebWM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

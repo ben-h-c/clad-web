@@ -40,8 +40,8 @@ keyMoments:
 videoId: "VKQ0ye_7ai0"
 videoTitle: "Spain in REVOLT as 1.3 MILLION migrants FLOOD coast and prosecutors LOCK UP 'corrupt' politicians"
 thumbnail: "https://img.youtube.com/vi/VKQ0ye_7ai0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

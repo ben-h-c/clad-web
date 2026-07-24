@@ -34,8 +34,8 @@ keyMoments:
 videoId: "m0xpNAzUL_A"
 videoTitle: "Why recess is important for kids"
 thumbnail: "https://img.youtube.com/vi/m0xpNAzUL_A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

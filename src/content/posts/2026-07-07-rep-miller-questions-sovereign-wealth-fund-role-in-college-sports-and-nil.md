@@ -33,8 +33,8 @@ keyMoments:
 videoId: "XI1zEp3Y2bk"
 videoTitle: "Carol Miller Sounds The Alarm On Sovereign Wealth Funds&#39; Potential Influence On College Sports"
 thumbnail: "https://img.youtube.com/vi/XI1zEp3Y2bk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

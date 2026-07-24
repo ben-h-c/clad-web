@@ -35,8 +35,8 @@ keyMoments:
 videoId: "SldZdiefXzY"
 videoTitle: "Nvidia CEO Jensen Huang tries to quell fears on future of technology"
 thumbnail: "https://img.youtube.com/vi/SldZdiefXzY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

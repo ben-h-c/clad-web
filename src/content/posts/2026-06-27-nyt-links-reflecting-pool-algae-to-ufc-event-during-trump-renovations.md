@@ -39,8 +39,8 @@ keyMoments:
 videoId: "pyXi0_sSnvQ"
 videoTitle: "Report ties Trump's GREEN POOL GOOP to his UFC birthday bash"
 thumbnail: "https://img.youtube.com/vi/pyXi0_sSnvQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

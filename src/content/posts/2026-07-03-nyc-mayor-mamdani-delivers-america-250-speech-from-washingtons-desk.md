@@ -31,8 +31,8 @@ keyMoments:
 videoId: "OHoTzVGs70A"
 videoTitle: "Mamdani speaks from George Washington's desk"
 thumbnail: "https://img.youtube.com/vi/OHoTzVGs70A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

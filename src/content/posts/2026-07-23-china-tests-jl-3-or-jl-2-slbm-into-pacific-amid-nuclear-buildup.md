@@ -34,8 +34,8 @@ keyMoments:
 videoId: "lD0VZn2IODg"
 videoTitle: "China flexes its nuclear missile tech | DW News"
 thumbnail: "https://img.youtube.com/vi/lD0VZn2IODg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

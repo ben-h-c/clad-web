@@ -32,8 +32,8 @@ keyMoments:
 videoId: "vjvDiBQIEiI"
 videoTitle: "Why UK’s Makerfield by-election matters far beyond one parliamentary seat"
 thumbnail: "https://img.youtube.com/vi/vjvDiBQIEiI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "6RxsS-ChUFQ"
 videoTitle: "'Can You Walk Us Through?': Curtis Asks Trump Nom About Improving Arches National Park Experience"
 thumbnail: "https://img.youtube.com/vi/6RxsS-ChUFQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

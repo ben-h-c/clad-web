@@ -35,8 +35,8 @@ keyMoments:
 videoId: "5iqcvglUXgI"
 videoTitle: "Rate of inflation remains flat despite expectations: What's behind it?"
 thumbnail: "https://img.youtube.com/vi/5iqcvglUXgI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "skr1OH3SDvE"
 videoTitle: "Leaked US–Iran deal: What’s in the 14-point plan? | DW News"
 thumbnail: "https://img.youtube.com/vi/skr1OH3SDvE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

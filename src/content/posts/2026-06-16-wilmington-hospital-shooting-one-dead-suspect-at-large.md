@@ -34,8 +34,8 @@ keyMoments:
 videoId: "TyqKk6PvM9A"
 videoTitle: "Police say suspect is still at large after Wilmington, Delaware, hospital shooting"
 thumbnail: "https://img.youtube.com/vi/TyqKk6PvM9A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

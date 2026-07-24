@@ -31,8 +31,8 @@ keyMoments:
 videoId: "4PVlTg0SP6c"
 videoTitle: "A Ukrainian military unit launches long-range drones inside Russia to weaken Russia's war machine"
 thumbnail: "https://img.youtube.com/vi/4PVlTg0SP6c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

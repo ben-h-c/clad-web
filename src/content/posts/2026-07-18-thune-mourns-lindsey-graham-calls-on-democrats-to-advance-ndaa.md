@@ -40,8 +40,8 @@ keyMoments:
 videoId: "i7RL3DUngJM"
 videoTitle: "John Thune Honors 'Great American Patriot' Lindsey Graham After His Passing"
 thumbnail: "https://img.youtube.com/vi/i7RL3DUngJM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

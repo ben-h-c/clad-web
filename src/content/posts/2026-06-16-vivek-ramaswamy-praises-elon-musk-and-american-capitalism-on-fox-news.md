@@ -35,8 +35,8 @@ keyMoments:
 videoId: "eOmtWbcDj2Q"
 videoTitle: "Elon Musk is the definition of the American dream: Vivek Ramaswamy"
 thumbnail: "https://img.youtube.com/vi/eOmtWbcDj2Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

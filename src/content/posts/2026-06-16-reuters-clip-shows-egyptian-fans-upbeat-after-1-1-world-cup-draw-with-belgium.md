@@ -28,8 +28,8 @@ keyMoments:
 videoId: "byb1WPm9VlE"
 videoTitle: "Egypt fans optimistic after draw against Belgium in World Cup opener"
 thumbnail: "https://img.youtube.com/vi/byb1WPm9VlE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

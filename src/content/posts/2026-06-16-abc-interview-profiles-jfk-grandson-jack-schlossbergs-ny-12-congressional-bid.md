@@ -34,8 +34,8 @@ keyMoments:
 videoId: "GWabAuS57s0"
 videoTitle: "JFK’s only grandson Jack Schlossberg is running for Congress in New York"
 thumbnail: "https://img.youtube.com/vi/GWabAuS57s0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "u9Hkz3AhG0U"
 videoTitle: "Man tossed by Yellowstone bison is speaking out"
 thumbnail: "https://img.youtube.com/vi/u9Hkz3AhG0U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

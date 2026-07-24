@@ -37,8 +37,8 @@ keyMoments:
 videoId: "b2h95MJLBVE"
 videoTitle: "Bedford train collision: What we know so far"
 thumbnail: "https://img.youtube.com/vi/b2h95MJLBVE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

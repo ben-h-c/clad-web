@@ -34,8 +34,8 @@ keyMoments:
 videoId: "OLHoZDI5Imw"
 videoTitle: "Alberta man charged with sex crimes against minors while out on bail | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/OLHoZDI5Imw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "LZRB9ZoYf3s"
 videoTitle: "Trump unveils the new Air Force One, a converted Qatari jet"
 thumbnail: "https://img.youtube.com/vi/LZRB9ZoYf3s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

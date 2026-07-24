@@ -36,8 +36,8 @@ keyMoments:
 videoId: "-_xLhx373zY"
 videoTitle: "“Who’s A Man And Who’s A Woman?” | Pronoun Row Erupts Over \"CRAZY\" Trans Guidance"
 thumbnail: "https://img.youtube.com/vi/-_xLhx373zY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

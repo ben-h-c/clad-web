@@ -38,8 +38,8 @@ keyMoments:
 videoId: "D7MlWzm0bYk"
 videoTitle: "President Trump vows 'really long speech' as heat concerns mount over 250th celebration"
 thumbnail: "https://img.youtube.com/vi/D7MlWzm0bYk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

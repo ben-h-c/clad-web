@@ -36,8 +36,8 @@ keyMoments:
 videoId: "BJFueCy5c60"
 videoTitle: "Ramirez Grills CBP Official: Was CBP 'Systematically Monitoring' Social Media Of Anti-ICE Protesters"
 thumbnail: "https://img.youtube.com/vi/BJFueCy5c60/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

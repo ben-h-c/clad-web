@@ -34,8 +34,8 @@ keyMoments:
 videoId: "O4vx9eQFW7E"
 videoTitle: "Venezuelan president says she has faith rescuers will find survivors of earthquakes | BBC News"
 thumbnail: "https://img.youtube.com/vi/O4vx9eQFW7E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

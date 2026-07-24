@@ -31,8 +31,8 @@ keyMoments:
 videoId: "DMcAfdoeZuE"
 videoTitle: "Gov. Reynolds plans farewell 99-county tour"
 thumbnail: "https://img.youtube.com/vi/DMcAfdoeZuE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

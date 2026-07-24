@@ -35,8 +35,8 @@ keyMoments:
 videoId: "nzo7YA9eErA"
 videoTitle: "7.3-magnitude earthquake off Mexican coast triggers tsunami threat in Mexico, Guatemala"
 thumbnail: "https://img.youtube.com/vi/nzo7YA9eErA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

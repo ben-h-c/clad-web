@@ -34,8 +34,8 @@ keyMoments:
 videoId: "jBJQAMUWIFA"
 videoTitle: "Venezuela earthquakes death toll surpasses 1,900 as hopes of finding survivors fade"
 thumbnail: "https://img.youtube.com/vi/jBJQAMUWIFA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

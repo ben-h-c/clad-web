@@ -29,8 +29,8 @@ keyMoments:
 videoId: "e55e_TWHiqQ"
 videoTitle: "Singer D4vd in court for teen murder case"
 thumbnail: "https://img.youtube.com/vi/e55e_TWHiqQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

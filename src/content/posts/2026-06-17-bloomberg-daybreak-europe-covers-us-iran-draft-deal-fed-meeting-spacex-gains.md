@@ -32,8 +32,8 @@ keyMoments:
 videoId: "a-7793BH-TQ"
 videoTitle: "Trump to Offer Iran Financial Boost in Peace Deal | Daybreak Europe 6/17/2026"
 thumbnail: "https://img.youtube.com/vi/a-7793BH-TQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

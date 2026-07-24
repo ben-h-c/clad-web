@@ -36,8 +36,8 @@ keyMoments:
 videoId: "m--acxVVnOw"
 videoTitle: "&#39;Completely Nongermane&#39;: Joe Courtney Demands GOP Strip SAVE Act Language From FY27 NDAA"
 thumbnail: "https://img.youtube.com/vi/m--acxVVnOw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

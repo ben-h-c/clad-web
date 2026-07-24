@@ -43,10 +43,10 @@ politicians:
   - name: "Mitch McConnell"
     slug: "mitch-mcconnell"
 thumbnail: "https://img.youtube.com/vi/Qnruov8j2-E/maxresdefault.jpg"
-mediaStyle: "modular"
-thumbFocusX: 48
-thumbFocusY: 28
-mediaNote: "Heavy promo text/graphics fight overlay; crop to central face as clean thumb"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "16:9 band default"
 citations:
   - title: "Sen. Lindsey Graham dies at 71 after 'brief and sudden illness'"
     url: "https://www.nbcnews.com/politics/politics-news/sen-lindsey-graham-dies-71-brief-sudden-illness-rcna552722"

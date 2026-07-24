@@ -35,8 +35,8 @@ keyMoments:
 videoId: "gpLi4y56qXY"
 videoTitle: "WATCH: LAPD bodycam captures DRAMATIC chase, shootout"
 thumbnail: "https://img.youtube.com/vi/gpLi4y56qXY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

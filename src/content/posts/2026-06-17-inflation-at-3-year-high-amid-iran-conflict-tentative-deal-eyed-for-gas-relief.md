@@ -35,8 +35,8 @@ keyMoments:
 videoId: "SpGtJkE8VOc"
 videoTitle: "With US inflation surging, will Iran peace deal mean relief for consumers? | Sunrise"
 thumbnail: "https://img.youtube.com/vi/SpGtJkE8VOc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

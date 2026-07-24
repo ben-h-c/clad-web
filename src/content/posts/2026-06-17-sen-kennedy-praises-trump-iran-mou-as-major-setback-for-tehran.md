@@ -35,8 +35,8 @@ keyMoments:
 videoId: "9q8i2HIHm3c"
 videoTitle: "Sen Kennedy: If you don’t know, SHUT UP!"
 thumbnail: "https://img.youtube.com/vi/9q8i2HIHm3c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

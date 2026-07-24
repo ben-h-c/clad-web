@@ -36,8 +36,8 @@ keyMoments:
 videoId: "lb0-fxz0wBk"
 videoTitle: "Cory Booker reacts to Democrat giving Trump 'credit' for Iran deal"
 thumbnail: "https://img.youtube.com/vi/lb0-fxz0wBk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

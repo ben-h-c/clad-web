@@ -38,8 +38,8 @@ keyMoments:
 videoId: "hqI1dkrRrKU"
 videoTitle: "\"It Never Quite Worked For Him!\" | Starmer Pledges ‘Wholehearted Support’ To Burnham In Final PMQs"
 thumbnail: "https://img.youtube.com/vi/hqI1dkrRrKU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

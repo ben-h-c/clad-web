@@ -35,8 +35,8 @@ keyMoments:
 videoId: "GEjH8H9VVUI"
 videoTitle: "The Next Tariff Fight for Small Businesses: Getting Refunds"
 thumbnail: "https://img.youtube.com/vi/GEjH8H9VVUI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

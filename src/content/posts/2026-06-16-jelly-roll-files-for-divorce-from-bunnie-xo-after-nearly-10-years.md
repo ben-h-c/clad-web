@@ -34,8 +34,8 @@ keyMoments:
 videoId: "CMt2LQGQUsY"
 videoTitle: "Jelly Roll and Bunnie Xo are calling it quits."
 thumbnail: "https://img.youtube.com/vi/CMt2LQGQUsY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -25,8 +25,8 @@ keyMoments:
 videoId: "umUwOnuT6eE"
 videoTitle: "John Bolton—Ex-Trump Adviser—Pleads Guilty To Retaining Classified Information"
 thumbnail: "https://img.youtube.com/vi/umUwOnuT6eE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

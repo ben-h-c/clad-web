@@ -40,8 +40,8 @@ keyMoments:
 videoId: "1mYm1gw4S5k"
 videoTitle: "Senator Warren on Iran Deal, Fed's Warsh and SpaceX IPO"
 thumbnail: "https://img.youtube.com/vi/1mYm1gw4S5k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

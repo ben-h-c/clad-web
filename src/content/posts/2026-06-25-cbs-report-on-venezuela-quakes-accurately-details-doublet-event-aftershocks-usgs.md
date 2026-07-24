@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Bghm8Pp0QFw"
 videoTitle: "At least 30 aftershocks hit Venezuela after powerful earthquakes"
 thumbnail: "https://img.youtube.com/vi/Bghm8Pp0QFw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

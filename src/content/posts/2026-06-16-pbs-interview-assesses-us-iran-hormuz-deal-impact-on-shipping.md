@@ -35,8 +35,8 @@ keyMoments:
 videoId: "CjKBgdHoRm4"
 videoTitle: "Maritime security expert weighs U.S.-Iran deal's impact on global shipping"
 thumbnail: "https://img.youtube.com/vi/CjKBgdHoRm4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

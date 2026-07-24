@@ -34,8 +34,8 @@ keyMoments:
 videoId: "IwRcVw99bIo"
 videoTitle: "England beat Norway to reach the World Cup semi-finals"
 thumbnail: "https://img.youtube.com/vi/IwRcVw99bIo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

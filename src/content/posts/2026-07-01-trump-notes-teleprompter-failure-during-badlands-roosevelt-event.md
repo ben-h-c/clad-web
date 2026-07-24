@@ -25,8 +25,8 @@ keyMoments:
 videoId: "7dXYwfTrWG4"
 videoTitle: "In the middle of speech, Trump says teleprompters 'aren't working, and here I stand'"
 thumbnail: "https://img.youtube.com/vi/7dXYwfTrWG4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "q_wPTAmCDhQ"
 videoTitle: "Sotomayor &#39;visibly angry&#39; over court&#39;s ruling president can fire independent agency heads"
 thumbnail: "https://img.youtube.com/vi/q_wPTAmCDhQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

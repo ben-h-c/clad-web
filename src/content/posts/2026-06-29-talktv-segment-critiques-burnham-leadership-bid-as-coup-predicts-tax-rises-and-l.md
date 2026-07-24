@@ -41,8 +41,8 @@ keyMoments:
 videoId: "T7NGfRbw3rE"
 videoTitle: "‘Burnham Will RAISE Your Taxes' | ‘Immigration Will WORSEN’ | ‘This Is Undemocratic Coup’"
 thumbnail: "https://img.youtube.com/vi/T7NGfRbw3rE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

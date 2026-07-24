@@ -34,8 +34,8 @@ keyMoments:
 videoId: "hGHIwA1iVRQ"
 videoTitle: "Tom Hanks and Tim Allen reflect on 30 years of \"Toy Story\""
 thumbnail: "https://img.youtube.com/vi/hGHIwA1iVRQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

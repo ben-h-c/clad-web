@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Bdh1gzQAg0g"
 videoTitle: "Trump birthright citizenship order struck down by U.S. Supreme Court"
 thumbnail: "https://img.youtube.com/vi/Bdh1gzQAg0g/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

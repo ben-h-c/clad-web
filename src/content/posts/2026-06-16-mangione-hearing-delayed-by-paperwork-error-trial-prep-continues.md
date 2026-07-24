@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Odmw-7O5pdQ"
 videoTitle: "Luigi Mangione court hearing delayed due to clerical error"
 thumbnail: "https://img.youtube.com/vi/Odmw-7O5pdQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

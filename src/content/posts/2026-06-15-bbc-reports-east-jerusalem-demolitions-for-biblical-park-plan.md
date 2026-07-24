@@ -35,8 +35,8 @@ keyMoments:
 videoId: "RJWVHMrv9GI"
 videoTitle: "Israel bulldozes Palestinian homes  in East Jerusalem | BBC News"
 thumbnail: "https://img.youtube.com/vi/RJWVHMrv9GI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

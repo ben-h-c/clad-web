@@ -31,8 +31,8 @@ keyMoments:
 videoId: "k_n3RWFLEFA"
 videoTitle: "FLASHBACK: President Clinton Promotes Environmental Preservation In Speech On July 4th, 1996"
 thumbnail: "https://img.youtube.com/vi/k_n3RWFLEFA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "lyp0I8SpFRQ"
 videoTitle: "2 boys, father dead in Ottawa murder-suicide, police say | Hanomansing Tonight"
 thumbnail: "https://img.youtube.com/vi/lyp0I8SpFRQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

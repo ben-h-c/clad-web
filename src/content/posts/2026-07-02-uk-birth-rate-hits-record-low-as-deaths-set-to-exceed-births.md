@@ -39,8 +39,8 @@ keyMoments:
 videoId: "oMqtKPmaFcs"
 videoTitle: "\"If We Don't Act Now We're Looking At Economic Collapse!\" | Britain's Birth Rate Emergency Explained"
 thumbnail: "https://img.youtube.com/vi/oMqtKPmaFcs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

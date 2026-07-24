@@ -35,8 +35,8 @@ keyMoments:
 videoId: "nAeh7ih96YM"
 videoTitle: "Trump: US will 'take over' Strait of Hormuz"
 thumbnail: "https://img.youtube.com/vi/nAeh7ih96YM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -36,8 +36,8 @@ keyMoments:
 videoId: "VSLfsVp30Oo"
 videoTitle: "FILIBUSTER SHOWDOWN: GOP rep REVEALS what is STOPPING Trump’s agenda"
 thumbnail: "https://img.youtube.com/vi/VSLfsVp30Oo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

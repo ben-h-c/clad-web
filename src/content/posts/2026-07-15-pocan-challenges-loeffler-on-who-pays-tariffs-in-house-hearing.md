@@ -30,8 +30,8 @@ keyMoments:
 videoId: "gQSg6iujP9k"
 videoTitle: "Pocan calls SBA chief&#39;s tariff claim &quot;complete BS&quot;"
 thumbnail: "https://img.youtube.com/vi/gQSg6iujP9k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

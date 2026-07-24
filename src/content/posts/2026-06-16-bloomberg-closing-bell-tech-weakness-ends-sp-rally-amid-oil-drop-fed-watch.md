@@ -38,8 +38,8 @@ keyMoments:
 videoId: "jGU-2T4h8WY"
 videoTitle: "Tech Stocks Halt S&P 500 Rally | Closing Bell"
 thumbnail: "https://img.youtube.com/vi/jGU-2T4h8WY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

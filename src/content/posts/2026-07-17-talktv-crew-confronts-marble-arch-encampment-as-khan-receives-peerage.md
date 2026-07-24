@@ -40,8 +40,8 @@ keyMoments:
 videoId: "rjQ7eoQeFkM"
 videoTitle: "“He Offered Me Drugs” | Talk Reporter ‘ATTACKED’ In Central London By ‘Migrant Men’"
 thumbnail: "https://img.youtube.com/vi/rjQ7eoQeFkM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "cux87cgv3lw"
 videoTitle: "‘Gutfeld!’: I hate this SO much"
 thumbnail: "https://img.youtube.com/vi/cux87cgv3lw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

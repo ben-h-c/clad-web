@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Mg1VEaUsdsE"
 videoTitle: "Why feel good stories on the news matter | BBC News"
 thumbnail: "https://img.youtube.com/vi/Mg1VEaUsdsE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

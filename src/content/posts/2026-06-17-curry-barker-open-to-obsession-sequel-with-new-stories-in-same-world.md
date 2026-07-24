@@ -25,8 +25,8 @@ keyMoments:
 videoId: "Fnb1nFu_vpg"
 videoTitle: "Will Curry Barker create an 'Obsession' sequel?"
 thumbnail: "https://img.youtube.com/vi/Fnb1nFu_vpg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

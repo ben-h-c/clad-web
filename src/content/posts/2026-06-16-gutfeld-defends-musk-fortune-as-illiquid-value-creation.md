@@ -40,8 +40,8 @@ keyMoments:
 videoId: "bXKA_eyqcC4"
 videoTitle: "Greg Gutfeld: They ‘DESPISE’ Musk for this..."
 thumbnail: "https://img.youtube.com/vi/bXKA_eyqcC4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

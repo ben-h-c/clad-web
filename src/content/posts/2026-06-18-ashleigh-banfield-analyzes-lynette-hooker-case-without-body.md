@@ -31,8 +31,8 @@ keyMoments:
 videoId: "hDjTeY_rSpA"
 videoTitle: "No body, no crime? Ashleigh Banfield on next steps in investigation of Lynette Hooker's vanishing"
 thumbnail: "https://img.youtube.com/vi/hDjTeY_rSpA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

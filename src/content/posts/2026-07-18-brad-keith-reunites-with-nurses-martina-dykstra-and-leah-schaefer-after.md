@@ -31,8 +31,8 @@ keyMoments:
 videoId: "l_UIZ2D6GdA"
 videoTitle: "Good News: Man reunites with nurses who saved his life"
 thumbnail: "https://img.youtube.com/vi/l_UIZ2D6GdA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

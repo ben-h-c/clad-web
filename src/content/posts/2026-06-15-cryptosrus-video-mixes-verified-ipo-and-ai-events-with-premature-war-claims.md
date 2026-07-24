@@ -36,8 +36,8 @@ keyMoments:
 videoId: "_Owt9X5i_Qw"
 videoTitle: "Bitcoin Investors...The War is Finally Over"
 thumbnail: "https://img.youtube.com/vi/_Owt9X5i_Qw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "xyzJTdUZpww"
 videoTitle: "New report claims CLEAR CCP influence against AI infrastructure #shorts"
 thumbnail: "https://img.youtube.com/vi/xyzJTdUZpww/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

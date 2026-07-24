@@ -32,8 +32,8 @@ keyMoments:
 videoId: "Sa1_TE0s92s"
 videoTitle: "LIVE: Officials announce charges against alleged Minneapolis antifa members"
 thumbnail: "https://img.youtube.com/vi/Sa1_TE0s92s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

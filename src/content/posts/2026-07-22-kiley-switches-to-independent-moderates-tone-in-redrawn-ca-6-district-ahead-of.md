@@ -33,8 +33,8 @@ keyMoments:
 videoId: "212-aL5FAcs"
 videoTitle: "Is Kevin Kiley Really Moderating? California 6th Race Analysis  #californiapolitics"
 thumbnail: "https://img.youtube.com/vi/212-aL5FAcs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

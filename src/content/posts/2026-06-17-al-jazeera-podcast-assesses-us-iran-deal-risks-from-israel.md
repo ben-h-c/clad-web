@@ -36,8 +36,8 @@ keyMoments:
 videoId: "9ES5j8z-cUw"
 videoTitle: "Why Israel could still derail the Iran-US deal | The Take"
 thumbnail: "https://img.youtube.com/vi/9ES5j8z-cUw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

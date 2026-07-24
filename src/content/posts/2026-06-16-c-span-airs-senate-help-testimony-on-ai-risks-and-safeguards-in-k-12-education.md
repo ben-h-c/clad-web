@@ -35,8 +35,8 @@ keyMoments:
 videoId: "1YiR9TUYarY"
 videoTitle: "Education Expert Warns About AI Destroying Learning Process"
 thumbnail: "https://img.youtube.com/vi/1YiR9TUYarY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

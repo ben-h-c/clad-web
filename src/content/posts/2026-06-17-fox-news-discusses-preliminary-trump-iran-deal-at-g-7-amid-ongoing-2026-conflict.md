@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Lmb7XJtPgi8"
 videoTitle: "Peter Doocy: This is a BIG deal"
 thumbnail: "https://img.youtube.com/vi/Lmb7XJtPgi8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

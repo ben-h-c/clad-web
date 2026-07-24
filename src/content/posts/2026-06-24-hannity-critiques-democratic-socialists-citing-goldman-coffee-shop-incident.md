@@ -32,8 +32,8 @@ keyMoments:
 videoId: "S34nalF2XkA"
 videoTitle: "Hannity: THEY are driven by 'RESENTMENT'"
 thumbnail: "https://img.youtube.com/vi/S34nalF2XkA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "6wzRMPk2UE4"
 videoTitle: "Labour's new plans to house THOUSANDS of migrants turns Britain into 'shopping channel for asylum'"
 thumbnail: "https://img.youtube.com/vi/6wzRMPk2UE4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

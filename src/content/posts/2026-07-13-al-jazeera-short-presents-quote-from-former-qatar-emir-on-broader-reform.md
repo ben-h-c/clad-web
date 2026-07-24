@@ -29,8 +29,8 @@ keyMoments:
 videoId: "ez9ycTiTuCg"
 videoTitle: "The late Sheikh Hamad bin Khalifa Al Thani’s legacy on women’s reform | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/ez9ycTiTuCg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "7phgVt2IYmU"
 videoTitle: "Newsom Says Trump Directed DOJ to Investigate Him and His Wife"
 thumbnail: "https://img.youtube.com/vi/7phgVt2IYmU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

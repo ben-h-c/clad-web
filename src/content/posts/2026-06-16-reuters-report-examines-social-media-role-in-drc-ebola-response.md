@@ -31,8 +31,8 @@ keyMoments:
 videoId: "S3fcGcvrwws"
 videoTitle: "Congolese influencers raise Ebola awareness through social media"
 thumbnail: "https://img.youtube.com/vi/S3fcGcvrwws/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

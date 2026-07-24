@@ -38,8 +38,8 @@ keyMoments:
 videoId: "4p9m6NjH2jk"
 videoTitle: "How Elon Musk's USAID cuts triggered an HIV crisis | People & Power Documentary"
 thumbnail: "https://img.youtube.com/vi/4p9m6NjH2jk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

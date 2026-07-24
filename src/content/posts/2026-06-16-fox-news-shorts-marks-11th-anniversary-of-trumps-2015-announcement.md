@@ -27,8 +27,8 @@ keyMoments:
 videoId: "xX6ST9_duwQ"
 videoTitle: "Eleven years ago today, American politics changed forever #foxnews #shorts #trump"
 thumbnail: "https://img.youtube.com/vi/xX6ST9_duwQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

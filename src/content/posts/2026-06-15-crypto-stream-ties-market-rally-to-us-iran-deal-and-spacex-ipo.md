@@ -40,8 +40,8 @@ keyMoments:
 videoId: "Vvl2mmgR5Sk"
 videoTitle: "Bitcoin Bulls Are Waking Up"
 thumbnail: "https://img.youtube.com/vi/Vvl2mmgR5Sk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

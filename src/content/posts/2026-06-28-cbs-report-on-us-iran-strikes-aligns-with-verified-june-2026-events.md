@@ -34,8 +34,8 @@ keyMoments:
 videoId: "nA5ENZv47R8"
 videoTitle: "U.S.-Iran peace agreement threatened as both countries trade strikes"
 thumbnail: "https://img.youtube.com/vi/nA5ENZv47R8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

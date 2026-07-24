@@ -32,8 +32,8 @@ keyMoments:
 videoId: "7z6WUd_ZQ9M"
 videoTitle: "Investigation underway after break-in at home of Philadelphia Eagles' Saquon Barkley"
 thumbnail: "https://img.youtube.com/vi/7z6WUd_ZQ9M/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

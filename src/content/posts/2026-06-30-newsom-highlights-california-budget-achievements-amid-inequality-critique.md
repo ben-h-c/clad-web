@@ -39,8 +39,8 @@ keyMoments:
 videoId: "oguWakbca1I"
 videoTitle: "Newsom Bemoans 'Radical Imbalance Of Fortunes In America' While Promoting His California Budget"
 thumbnail: "https://img.youtube.com/vi/oguWakbca1I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

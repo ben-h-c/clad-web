@@ -35,8 +35,8 @@ keyMoments:
 videoId: "QyD4Nq3L758"
 videoTitle: "New report reveals deadliest design flaws that doomed the Titan submersible | About That"
 thumbnail: "https://img.youtube.com/vi/QyD4Nq3L758/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

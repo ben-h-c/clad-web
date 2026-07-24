@@ -32,8 +32,8 @@ keyMoments:
 videoId: "X-dKrIDD8q8"
 videoTitle: "Content creator hosts an Erlign Haaland look-alike contest in Miami"
 thumbnail: "https://img.youtube.com/vi/X-dKrIDD8q8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

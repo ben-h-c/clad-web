@@ -30,8 +30,8 @@ keyMoments:
 videoId: "eWEt8mStefw"
 videoTitle: "BREAKING NEWS: NDAA Fails To Advance In The Senate As U.S. And Iran Resume Strikes"
 thumbnail: "https://img.youtube.com/vi/eWEt8mStefw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "ErJWImYNBrE"
 videoTitle: "Labour's Andy Burnham wins UK special election, setting up challenge to Starmer"
 thumbnail: "https://img.youtube.com/vi/ErJWImYNBrE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

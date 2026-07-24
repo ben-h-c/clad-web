@@ -40,8 +40,8 @@ keyMoments:
 videoId: "jYoN3vamtHs"
 videoTitle: "‘There is no peace’: Gov. Wes Moore blasts Trump’s 'memorandum of understanding' with Iran"
 thumbnail: "https://img.youtube.com/vi/jYoN3vamtHs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

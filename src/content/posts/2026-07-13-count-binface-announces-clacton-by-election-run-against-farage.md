@@ -31,8 +31,8 @@ keyMoments:
 videoId: "KNF2SHirqq0"
 videoTitle: "Electoral Dysfunction: Why is Count Binface standing against Nigel Farage?"
 thumbnail: "https://img.youtube.com/vi/KNF2SHirqq0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

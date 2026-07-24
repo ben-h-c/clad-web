@@ -31,8 +31,8 @@ keyMoments:
 videoId: "F1o1SaYxhC4"
 videoTitle: "Supreme Court rejects Trump's bid to overturn E. Jean Carroll verdict"
 thumbnail: "https://img.youtube.com/vi/F1o1SaYxhC4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

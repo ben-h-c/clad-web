@@ -33,8 +33,8 @@ keyMoments:
 videoId: "OSOE6yxzXSs"
 videoTitle: "Are Democrats reaching working class voters?"
 thumbnail: "https://img.youtube.com/vi/OSOE6yxzXSs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

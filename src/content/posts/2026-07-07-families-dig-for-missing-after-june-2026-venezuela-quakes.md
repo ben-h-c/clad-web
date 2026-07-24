@@ -30,8 +30,8 @@ keyMoments:
 videoId: "RXKiZRq42cE"
 videoTitle: "Families search for missing 12 days after Venezuela quakes"
 thumbnail: "https://img.youtube.com/vi/RXKiZRq42cE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

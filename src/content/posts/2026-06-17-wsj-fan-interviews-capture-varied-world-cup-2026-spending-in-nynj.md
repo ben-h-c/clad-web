@@ -31,8 +31,8 @@ keyMoments:
 videoId: "8GAe2_T27dw"
 videoTitle: "How Much Did Fans Spend on the FIFA World Cup?"
 thumbnail: "https://img.youtube.com/vi/8GAe2_T27dw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

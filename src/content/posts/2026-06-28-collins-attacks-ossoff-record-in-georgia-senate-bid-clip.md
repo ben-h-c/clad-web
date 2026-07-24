@@ -36,8 +36,8 @@ keyMoments:
 videoId: "gHosG7AZmkg"
 videoTitle: "'He's Accomplished Nothing': Mike Collins Blasts Jon Ossoff, Touts Bid To Unseat Him In Senate"
 thumbnail: "https://img.youtube.com/vi/gHosG7AZmkg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

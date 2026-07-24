@@ -34,8 +34,8 @@ keyMoments:
 videoId: "dCyKlGC_UPQ"
 videoTitle: "JUST IN: At least 920 dead, 51k missing after Venezuela earthquakes"
 thumbnail: "https://img.youtube.com/vi/dCyKlGC_UPQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

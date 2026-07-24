@@ -31,8 +31,8 @@ keyMoments:
 videoId: "Tp6wJyKG6yE"
 videoTitle: "'You Received A Threatening Letter...': Hunt Asks California Sheriff About Clash With CA AG, Newsom"
 thumbnail: "https://img.youtube.com/vi/Tp6wJyKG6yE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -40,8 +40,8 @@ keyMoments:
 videoId: "xX0EWTm3ciw"
 videoTitle: "World awaits U.S.-Iran nuclear negotiations as some Strait of Hormuz traffic resumes"
 thumbnail: "https://img.youtube.com/vi/xX0EWTm3ciw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

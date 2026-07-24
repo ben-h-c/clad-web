@@ -34,8 +34,8 @@ keyMoments:
 videoId: "mfSdHAXjVEw"
 videoTitle: "Ottawa investing $1.6B over 10 years toward housing in B.C."
 thumbnail: "https://img.youtube.com/vi/mfSdHAXjVEw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

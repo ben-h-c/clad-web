@@ -28,8 +28,8 @@ keyMoments:
 videoId: "QKP3mJ6yxFQ"
 videoTitle: "Trump Signals He May Let Congress Review Iran Deal"
 thumbnail: "https://img.youtube.com/vi/QKP3mJ6yxFQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

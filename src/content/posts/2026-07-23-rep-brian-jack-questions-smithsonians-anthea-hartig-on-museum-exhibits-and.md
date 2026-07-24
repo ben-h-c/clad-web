@@ -39,10 +39,10 @@ politicians:
   - name: "Brian Jack"
     slug: "brian-jack"
 thumbnail: "https://img.youtube.com/vi/rQYzbpC4Z6o/maxresdefault.jpg"
-mediaStyle: "modular"
+mediaStyle: "overlay"
 thumbFocusX: 50
-thumbFocusY: 42
-mediaNote: "Messy 3-panel split + dense top chyron; focus center speaker (likely Jack) for small thumb"
+thumbFocusY: 40
+mediaNote: "16:9 band default"
 citations:
   - title: "Smithsonian: 'Do you have any regrets?': Rep. Jack goes after Smithsonian chief Hartig"
     url: "https://m.economictimes.com/news/international/world-news/do-you-have-any-regrets-rep-jack-goes-after-smithsonian-chief-hartig-over-us-history-exhibit/videoshow/132582531.cms"

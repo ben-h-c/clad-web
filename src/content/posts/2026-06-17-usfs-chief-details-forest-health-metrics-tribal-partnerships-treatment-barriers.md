@@ -31,8 +31,8 @@ keyMoments:
 videoId: "M7L4ITWOdu0"
 videoTitle: "Jeff Hurd Asks USFS Chief: 'What's The Single Most Important Bottleneck' Preventing Forest Treatment"
 thumbnail: "https://img.youtube.com/vi/M7L4ITWOdu0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

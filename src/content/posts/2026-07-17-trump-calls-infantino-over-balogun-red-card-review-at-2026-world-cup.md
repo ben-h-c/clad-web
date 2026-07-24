@@ -36,8 +36,8 @@ keyMoments:
 videoId: "QQUvJJLpSUA"
 videoTitle: "Trump-Infantino: is this the World Cup that BROKE FIFA?"
 thumbnail: "https://img.youtube.com/vi/QQUvJJLpSUA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

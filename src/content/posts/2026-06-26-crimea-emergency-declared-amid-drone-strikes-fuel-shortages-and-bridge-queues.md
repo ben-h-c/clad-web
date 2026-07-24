@@ -31,8 +31,8 @@ keyMoments:
 videoId: "KkEBtkIdVYI"
 videoTitle: "State of emergency declared in Crimea after drone attacks by Ukraine"
 thumbnail: "https://img.youtube.com/vi/KkEBtkIdVYI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

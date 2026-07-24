@@ -34,8 +34,8 @@ keyMoments:
 videoId: "1gh-PyZ3k8I"
 videoTitle: "Cottonwood Fire burns more than 70,000 acres in Utah"
 thumbnail: "https://img.youtube.com/vi/1gh-PyZ3k8I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

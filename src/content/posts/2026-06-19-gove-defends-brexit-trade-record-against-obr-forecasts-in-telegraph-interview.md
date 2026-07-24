@@ -36,8 +36,8 @@ keyMoments:
 videoId: "pT1lnbS4xEA"
 videoTitle: "Michael Gove on Brexit, a decade on"
 thumbnail: "https://img.youtube.com/vi/pT1lnbS4xEA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

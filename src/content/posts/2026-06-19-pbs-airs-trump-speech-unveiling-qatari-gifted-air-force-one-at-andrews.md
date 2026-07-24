@@ -40,8 +40,8 @@ keyMoments:
 videoId: "s08bcqfj-HM"
 videoTitle: "WATCH: Trump unveils new Air Force One plane gifted by Qatar at Joint Base Andrews"
 thumbnail: "https://img.youtube.com/vi/s08bcqfj-HM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

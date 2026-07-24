@@ -40,8 +40,8 @@ keyMoments:
 videoId: "SGW1MQiiWgo"
 videoTitle: "Ten years of Brexit: Full interview with Vote Leave architect"
 thumbnail: "https://img.youtube.com/vi/SGW1MQiiWgo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

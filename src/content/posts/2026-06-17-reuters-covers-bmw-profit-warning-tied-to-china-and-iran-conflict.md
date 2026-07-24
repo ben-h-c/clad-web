@@ -35,8 +35,8 @@ keyMoments:
 videoId: "YXguYFM8_Ho"
 videoTitle: "BMW shares slide on China, Iran war profit warning"
 thumbnail: "https://img.youtube.com/vi/YXguYFM8_Ho/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

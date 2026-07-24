@@ -40,10 +40,10 @@ politicians:
   - name: "Dan Newhouse"
     slug: "dan-newhouse"
 thumbnail: "https://img.youtube.com/vi/h4amoC2yTTU/maxresdefault.jpg"
-mediaStyle: "modular"
+mediaStyle: "overlay"
 thumbFocusX: 50
-thumbFocusY: 42
-mediaNote: "Stick-figure graphic with dense labels; usable as top thumb, fights full-bleed overlay text"
+thumbFocusY: 40
+mediaNote: "16:9 band default"
 citations:
   - title: "Dan Newhouse Trading Activity"
     url: "https://www.quiverquant.com/congresstrading/politician/Dan%20Newhouse-N000189"

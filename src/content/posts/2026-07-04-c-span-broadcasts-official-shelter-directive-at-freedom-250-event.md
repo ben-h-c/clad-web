@@ -28,8 +28,8 @@ keyMoments:
 videoId: "3RcGzhbeQpU"
 videoTitle: "\"For your safety, all guests must seek shelter\""
 thumbnail: "https://img.youtube.com/vi/3RcGzhbeQpU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Mh3aaxlPGk4"
 videoTitle: "Trillion‑Dollar AI IPO Wave: SpaceX, OpenAI, Anthropic | Numbers Scream Ep. 25"
 thumbnail: "https://img.youtube.com/vi/Mh3aaxlPGk4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

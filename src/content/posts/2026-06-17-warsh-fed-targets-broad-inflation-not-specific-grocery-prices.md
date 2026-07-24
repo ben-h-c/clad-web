@@ -28,8 +28,8 @@ keyMoments:
 videoId: "3PvuMypgATY"
 videoTitle: "WATCH: Warsh says Fed doesn't have a major 'effect on particular prices'"
 thumbnail: "https://img.youtube.com/vi/3PvuMypgATY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

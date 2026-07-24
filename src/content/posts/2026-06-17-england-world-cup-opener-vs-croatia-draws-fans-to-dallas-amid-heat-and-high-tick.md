@@ -34,8 +34,8 @@ keyMoments:
 videoId: "4SnzSE_VCIU"
 videoTitle: "England ready for Croatia as thousands of fans arrive in Texas"
 thumbnail: "https://img.youtube.com/vi/4SnzSE_VCIU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

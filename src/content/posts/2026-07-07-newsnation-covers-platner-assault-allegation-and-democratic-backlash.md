@@ -34,8 +34,8 @@ keyMoments:
 videoId: "b1iX1cMrV5A"
 videoTitle: "Graham Platner denies sexual assault allegations | Elizabeth Vargas Reports"
 thumbnail: "https://img.youtube.com/vi/b1iX1cMrV5A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

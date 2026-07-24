@@ -36,8 +36,8 @@ keyMoments:
 videoId: "9Pdf6d6E4eA"
 videoTitle: "Conflict, displacement and Ebola in DRC: Outbreak exposes a deeper humanitarian crisis"
 thumbnail: "https://img.youtube.com/vi/9Pdf6d6E4eA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

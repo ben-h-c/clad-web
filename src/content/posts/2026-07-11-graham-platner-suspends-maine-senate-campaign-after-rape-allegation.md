@@ -36,8 +36,8 @@ keyMoments:
 videoId: "rNluXzZwJMc"
 videoTitle: "These Factors Led To Graham Platner's Rise: Dem Strategist"
 thumbnail: "https://img.youtube.com/vi/rNluXzZwJMc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

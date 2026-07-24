@@ -36,8 +36,8 @@ keyMoments:
 videoId: "_xuBD6nd0yQ"
 videoTitle: "UK Rape Gang Survivor speaks out about Pakistani child grooming gang"
 thumbnail: "https://img.youtube.com/vi/_xuBD6nd0yQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "tfZTNqZ-fcs"
 videoTitle: "DEMS Want To ARREST Elon Musk?! (Plus: Russia's War UP CLOSE): Robby Soave | RISING"
 thumbnail: "https://img.youtube.com/vi/tfZTNqZ-fcs/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

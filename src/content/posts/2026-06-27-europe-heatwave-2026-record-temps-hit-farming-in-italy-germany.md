@@ -34,8 +34,8 @@ keyMoments:
 videoId: "kWQkjZD-H3I"
 videoTitle: "Europe heatwave: How record temperatures have affected farming"
 thumbnail: "https://img.youtube.com/vi/kWQkjZD-H3I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

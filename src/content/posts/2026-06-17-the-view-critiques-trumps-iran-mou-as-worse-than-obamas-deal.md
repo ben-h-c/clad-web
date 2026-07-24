@@ -36,8 +36,8 @@ keyMoments:
 videoId: "rzRaRMOs7vo"
 videoTitle: "Alyssa Farah Griffin On Trump's Iran deal: \"A total surrender\" To The Iranians"
 thumbnail: "https://img.youtube.com/vi/rzRaRMOs7vo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

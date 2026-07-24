@@ -33,8 +33,8 @@ keyMoments:
 videoId: "fQRke8MVMkc"
 videoTitle: "Trump claims US recouped Venezuela war costs 28 times over | AJ #shorts"
 thumbnail: "https://img.youtube.com/vi/fQRke8MVMkc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

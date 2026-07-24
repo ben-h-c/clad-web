@@ -35,8 +35,8 @@ keyMoments:
 videoId: "IuEk-BdIVgw"
 videoTitle: "Lindsey Graham's Death Prompts Bipartisan Outpouring of Condolences. What You Need To Know - July 13"
 thumbnail: "https://img.youtube.com/vi/IuEk-BdIVgw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

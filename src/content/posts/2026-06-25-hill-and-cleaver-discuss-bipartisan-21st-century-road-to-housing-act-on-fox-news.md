@@ -35,8 +35,8 @@ keyMoments:
 videoId: "t6K2yBZfM4o"
 videoTitle: "Chairman Hill and Rep. Cleaver Join Fox News on the 21st Century ROAD to Housing Act- 6/24/2026"
 thumbnail: "https://img.youtube.com/vi/t6K2yBZfM4o/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

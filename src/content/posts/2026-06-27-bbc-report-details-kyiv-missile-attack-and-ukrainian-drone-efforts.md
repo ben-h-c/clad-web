@@ -40,8 +40,8 @@ keyMoments:
 videoId: "nq-Kaf_BxO0"
 videoTitle: "My night under fire: Inside a missile attack on Kyiv | BBC News"
 thumbnail: "https://img.youtube.com/vi/nq-Kaf_BxO0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

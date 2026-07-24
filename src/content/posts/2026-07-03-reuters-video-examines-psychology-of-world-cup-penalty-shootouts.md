@@ -34,8 +34,8 @@ keyMoments:
 videoId: "UKTp3JPn8c8"
 videoTitle: "The psychology behind World Cup penalty shootouts"
 thumbnail: "https://img.youtube.com/vi/UKTp3JPn8c8/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

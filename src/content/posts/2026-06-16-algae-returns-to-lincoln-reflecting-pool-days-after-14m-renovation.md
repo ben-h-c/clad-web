@@ -36,8 +36,8 @@ keyMoments:
 videoId: "k4bi55466LU"
 videoTitle: "'Puke green': Visitors disappointed with algae-filled Lincoln reflecting pool after $14M renovation"
 thumbnail: "https://img.youtube.com/vi/k4bi55466LU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "LGR9Yfh802U"
 videoTitle: "'MAKES US COMPLACENT': Congressman SOUNDS ALARM on FISA reform failures"
 thumbnail: "https://img.youtube.com/vi/LGR9Yfh802U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

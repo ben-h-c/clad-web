@@ -38,8 +38,8 @@ keyMoments:
 videoId: "fnSwSWerQX4"
 videoTitle: "Extreme weather affecting millions across U.S."
 thumbnail: "https://img.youtube.com/vi/fnSwSWerQX4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

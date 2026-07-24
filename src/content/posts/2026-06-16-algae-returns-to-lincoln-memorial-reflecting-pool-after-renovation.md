@@ -34,8 +34,8 @@ keyMoments:
 videoId: "Goj0YGXeDso"
 videoTitle: "Water in Reflecting Pool turns green from algae"
 thumbnail: "https://img.youtube.com/vi/Goj0YGXeDso/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

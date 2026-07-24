@@ -34,8 +34,8 @@ keyMoments:
 videoId: "N_yUfp-tp0Q"
 videoTitle: "Watch rescuers' joy at finding Venezuelan earthquake survivors"
 thumbnail: "https://img.youtube.com/vi/N_yUfp-tp0Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

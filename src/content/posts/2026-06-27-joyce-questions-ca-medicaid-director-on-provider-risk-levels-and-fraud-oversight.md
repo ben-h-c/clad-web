@@ -33,8 +33,8 @@ keyMoments:
 videoId: "kPX6xln-jCA"
 videoTitle: "'Are You Missing Fraud?': David Joyce Grills CA Medicaid Director Over Fraud Enforcement"
 thumbnail: "https://img.youtube.com/vi/kPX6xln-jCA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -33,8 +33,8 @@ keyMoments:
 videoId: "2wiXFABof1w"
 videoTitle: "Newly repainted reflecting pool turns green from algae blooms"
 thumbnail: "https://img.youtube.com/vi/2wiXFABof1w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

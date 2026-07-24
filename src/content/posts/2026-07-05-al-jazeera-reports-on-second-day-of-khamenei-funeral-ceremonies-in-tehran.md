@@ -34,8 +34,8 @@ keyMoments:
 videoId: "ZyFlp6UGpXA"
 videoTitle: "Huge crowds pour into Tehran for funeral ceremonies for Iran’s slain leader Ali Khamenei"
 thumbnail: "https://img.youtube.com/vi/ZyFlp6UGpXA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

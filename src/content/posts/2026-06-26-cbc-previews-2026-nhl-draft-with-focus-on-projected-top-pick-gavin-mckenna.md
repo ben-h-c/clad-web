@@ -34,8 +34,8 @@ keyMoments:
 videoId: "237M8w6xXEw"
 videoTitle: "NHL draft history within reach for Yukon’s Gavin McKenna"
 thumbnail: "https://img.youtube.com/vi/237M8w6xXEw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

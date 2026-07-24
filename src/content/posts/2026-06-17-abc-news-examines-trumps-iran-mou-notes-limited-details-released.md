@@ -38,8 +38,8 @@ keyMoments:
 videoId: "Y463OMT0k_0"
 videoTitle: "Trump touts signed deal with Iran, but reveals few details"
 thumbnail: "https://img.youtube.com/vi/Y463OMT0k_0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

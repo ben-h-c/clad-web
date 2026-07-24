@@ -37,8 +37,8 @@ keyMoments:
 videoId: "_nwBLW4MLxc"
 videoTitle: "'Don't CHOKE on your OWN SMOKE': Hasty Kash Patel post about UFC terror plot ENRAGES Secret Service"
 thumbnail: "https://img.youtube.com/vi/_nwBLW4MLxc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

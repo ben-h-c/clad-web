@@ -40,8 +40,8 @@ keyMoments:
 videoId: "jRdWEhEUIAE"
 videoTitle: "Nobody Noticed What Changed Between America and China"
 thumbnail: "https://img.youtube.com/vi/jRdWEhEUIAE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

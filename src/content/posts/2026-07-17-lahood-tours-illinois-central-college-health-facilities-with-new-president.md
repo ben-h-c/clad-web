@@ -32,8 +32,8 @@ keyMoments:
 videoId: "nIK-ogng4-g"
 videoTitle: "Rep. Darin Lahood tours Illinois Central College&#39;s health facilities"
 thumbnail: "https://img.youtube.com/vi/nIK-ogng4-g/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

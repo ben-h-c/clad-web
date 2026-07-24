@@ -35,8 +35,8 @@ keyMoments:
 videoId: "M0kKUe_3ABU"
 videoTitle: "Balderson Asks Ohio Medicaid Director How State Has Benefited From Reforms In GOP Budget"
 thumbnail: "https://img.youtube.com/vi/M0kKUe_3ABU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

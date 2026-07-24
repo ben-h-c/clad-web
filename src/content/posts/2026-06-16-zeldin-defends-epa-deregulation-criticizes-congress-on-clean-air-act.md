@@ -31,8 +31,8 @@ keyMoments:
 videoId: "QHcc0vZ1s0I"
 videoTitle: "Lee Zeldin gets fired up about ‘morally bankrupt’ members of Congress"
 thumbnail: "https://img.youtube.com/vi/QHcc0vZ1s0I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

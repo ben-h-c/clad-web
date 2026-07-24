@@ -35,8 +35,8 @@ keyMoments:
 videoId: "AtvmPV07wlQ"
 videoTitle: "Andy Burnham wins key UK by-election, paving way to challenge Keir Starmer"
 thumbnail: "https://img.youtube.com/vi/AtvmPV07wlQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "YP2qtA9CUHs"
 videoTitle: "No nuclear progress in Trump's US-Iran deal of 60 day ceasefire & Strait of Hormuz reopening"
 thumbnail: "https://img.youtube.com/vi/YP2qtA9CUHs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

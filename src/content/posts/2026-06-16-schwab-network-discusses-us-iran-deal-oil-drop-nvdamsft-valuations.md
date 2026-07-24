@@ -38,8 +38,8 @@ keyMoments:
 videoId: "Xxq0MQl2WT0"
 videoTitle: "NVDA & MSFT Buys After Pullback, Fog Clears on Interest Rate Outlook"
 thumbnail: "https://img.youtube.com/vi/Xxq0MQl2WT0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

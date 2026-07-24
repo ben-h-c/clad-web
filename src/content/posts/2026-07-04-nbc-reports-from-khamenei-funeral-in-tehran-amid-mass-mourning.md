@@ -31,8 +31,8 @@ keyMoments:
 videoId: "WkLRHFoxdUE"
 videoTitle: "Inside the funeral of Supreme Leader Ayatollah Ali Khamenei"
 thumbnail: "https://img.youtube.com/vi/WkLRHFoxdUE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

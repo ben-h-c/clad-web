@@ -28,8 +28,8 @@ keyMoments:
 videoId: "B-17_EPhcbg"
 videoTitle: "Ebola deaths in Congo top 500 as health workers threaten to strike"
 thumbnail: "https://img.youtube.com/vi/B-17_EPhcbg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

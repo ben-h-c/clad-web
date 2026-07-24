@@ -35,8 +35,8 @@ keyMoments:
 videoId: "3mc_uCBQPEg"
 videoTitle: "Drone warfare: German startup draws on Ukraine's experience | DW News"
 thumbnail: "https://img.youtube.com/vi/3mc_uCBQPEg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "gF0TEjO_PgI"
 videoTitle: "Uzbekistan's debut at the 2026 World Cup signals the region’s growing confidence on the global stage"
 thumbnail: "https://img.youtube.com/vi/gF0TEjO_PgI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

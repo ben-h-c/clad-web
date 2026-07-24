@@ -35,8 +35,8 @@ keyMoments:
 videoId: "vW69ICZ21cs"
 videoTitle: "PRESIDENTIAL PIONEER: Mount Vernon celebrates the life and legacy of George Washington"
 thumbnail: "https://img.youtube.com/vi/vW69ICZ21cs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

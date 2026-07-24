@@ -34,8 +34,8 @@ keyMoments:
 videoId: "QcjE7e05bIg"
 videoTitle: "Looming Medicaid cuts put care for people with disabilities at risk"
 thumbnail: "https://img.youtube.com/vi/QcjE7e05bIg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

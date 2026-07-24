@@ -35,8 +35,8 @@ keyMoments:
 videoId: "ymRgbY0FaZA"
 videoTitle: "NBC News catches up with astronauts on the U.S. mission to the International Space Station"
 thumbnail: "https://img.youtube.com/vi/ymRgbY0FaZA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

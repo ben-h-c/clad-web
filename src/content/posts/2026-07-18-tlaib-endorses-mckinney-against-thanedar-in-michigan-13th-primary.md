@@ -36,8 +36,8 @@ keyMoments:
 videoId: "8SSmMnX7-oE"
 videoTitle: "&#39;He Takes Money From ICE Contractors&#39;: Rashida Tlaib Goes Scorched Earth On Fellow Dem Shri Thanedar"
 thumbnail: "https://img.youtube.com/vi/8SSmMnX7-oE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

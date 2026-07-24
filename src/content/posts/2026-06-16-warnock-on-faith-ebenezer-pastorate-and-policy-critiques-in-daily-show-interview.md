@@ -36,8 +36,8 @@ keyMoments:
 videoId: "4kYixqen93U"
 videoTitle: "Senator Raphael Warnock - Faith, Politics, and \"The Crooked Places Made Straight\" | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/4kYixqen93U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

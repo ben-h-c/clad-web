@@ -31,8 +31,8 @@ keyMoments:
 videoId: "6AE_CezlLG8"
 videoTitle: "Tech selloff stirs bubble fears in US stock market"
 thumbnail: "https://img.youtube.com/vi/6AE_CezlLG8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

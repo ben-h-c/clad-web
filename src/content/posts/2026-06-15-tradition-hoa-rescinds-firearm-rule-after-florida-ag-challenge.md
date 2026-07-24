@@ -31,8 +31,8 @@ keyMoments:
 videoId: "V0WvPOubqCI"
 videoTitle: "Tradition HOA rescinds firearm rule after challenge from Florida attorney general"
 thumbnail: "https://img.youtube.com/vi/V0WvPOubqCI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

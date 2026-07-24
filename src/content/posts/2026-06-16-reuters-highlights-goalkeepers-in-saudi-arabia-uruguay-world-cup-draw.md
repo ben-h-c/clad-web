@@ -25,8 +25,8 @@ keyMoments:
 videoId: "ysnmF02f1Ig"
 videoTitle: "Goalkeepers in spotlight at World Cup"
 thumbnail: "https://img.youtube.com/vi/ysnmF02f1Ig/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

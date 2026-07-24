@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Rqx2TFGuPxk"
 videoTitle: "Parasite outbreak linked to lettuce spreads across U.S. "
 thumbnail: "https://img.youtube.com/vi/Rqx2TFGuPxk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

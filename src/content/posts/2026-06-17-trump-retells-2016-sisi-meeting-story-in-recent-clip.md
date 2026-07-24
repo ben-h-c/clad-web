@@ -29,8 +29,8 @@ keyMoments:
 videoId: "K5l1lHOOWso"
 videoTitle: "Trump jokes with Egyptian president about meeting Hillary Clinton #shorts #foxnews #trump"
 thumbnail: "https://img.youtube.com/vi/K5l1lHOOWso/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

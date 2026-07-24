@@ -38,8 +38,8 @@ keyMoments:
 videoId: "DpELXHE05L8"
 videoTitle: "Stock Rally Cools Ahead of BOJ, RBA Decisions | The Asia Trade 6/16/2026"
 thumbnail: "https://img.youtube.com/vi/DpELXHE05L8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

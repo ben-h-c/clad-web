@@ -35,8 +35,8 @@ keyMoments:
 videoId: "O7hCORnefFU"
 videoTitle: "Rare fin whale spotted off coast of BC"
 thumbnail: "https://img.youtube.com/vi/O7hCORnefFU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

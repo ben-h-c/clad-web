@@ -38,8 +38,8 @@ keyMoments:
 videoId: "aNo4UKB1WbA"
 videoTitle: "Bank of Japan raises interest rates to 31-year high"
 thumbnail: "https://img.youtube.com/vi/aNo4UKB1WbA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

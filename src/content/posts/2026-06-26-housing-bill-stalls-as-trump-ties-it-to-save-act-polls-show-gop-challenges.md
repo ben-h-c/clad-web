@@ -40,8 +40,8 @@ keyMoments:
 videoId: "t12foV8K_3A"
 videoTitle: "Why didn't Trump like the housing bill? 'He wasn't the center of attention': Max Rose"
 thumbnail: "https://img.youtube.com/vi/t12foV8K_3A/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

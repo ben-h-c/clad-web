@@ -34,8 +34,8 @@ keyMoments:
 videoId: "A3EfCHc7soI"
 videoTitle: "Socialism and Marxism are on the move!"
 thumbnail: "https://img.youtube.com/vi/A3EfCHc7soI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

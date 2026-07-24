@@ -32,8 +32,8 @@ keyMoments:
 videoId: "QAPU-GA43dw"
 videoTitle: "DHS Secretary Mullin to illegal voters: \"We will find you\""
 thumbnail: "https://img.youtube.com/vi/QAPU-GA43dw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

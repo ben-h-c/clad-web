@@ -34,8 +34,8 @@ keyMoments:
 videoId: "RFz5JrM3c2Q"
 videoTitle: "How family-run farms helped build the America we know today"
 thumbnail: "https://img.youtube.com/vi/RFz5JrM3c2Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

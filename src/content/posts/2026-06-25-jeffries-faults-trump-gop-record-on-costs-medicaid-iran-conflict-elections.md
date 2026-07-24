@@ -37,8 +37,8 @@ keyMoments:
 videoId: "TVLV2KRqBfg"
 videoTitle: "Rep. Jeffries Says Trump & GOP Have Failed America and Will Cheat to Win in November"
 thumbnail: "https://img.youtube.com/vi/TVLV2KRqBfg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

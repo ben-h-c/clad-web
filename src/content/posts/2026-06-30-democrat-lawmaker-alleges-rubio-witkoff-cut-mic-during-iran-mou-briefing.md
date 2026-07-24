@@ -37,8 +37,8 @@ keyMoments:
 videoId: "k9IICbv8RkM"
 videoTitle: "Rep. Dean: Trump team call 'cut my mic' over Iran questions to Rubio, Witkoff"
 thumbnail: "https://img.youtube.com/vi/k9IICbv8RkM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "rmYpK9f57aQ"
 videoTitle: "Germany’s government announces reform package to jump-start the economy | DW News"
 thumbnail: "https://img.youtube.com/vi/rmYpK9f57aQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

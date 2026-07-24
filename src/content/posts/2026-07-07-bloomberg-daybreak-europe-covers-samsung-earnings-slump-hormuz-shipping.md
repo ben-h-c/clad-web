@@ -36,8 +36,8 @@ keyMoments:
 videoId: "eCKrNgwgDHQ"
 videoTitle: "Samsung Slumps After Earnings; Tanker Hit in Hormuz Before NATO Summit | Daybreak Europe 7/7/2026"
 thumbnail: "https://img.youtube.com/vi/eCKrNgwgDHQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

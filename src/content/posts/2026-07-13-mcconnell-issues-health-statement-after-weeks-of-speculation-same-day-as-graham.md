@@ -35,8 +35,8 @@ keyMoments:
 videoId: "y1m3RCAWnWM"
 videoTitle: "Mitch McConnell finally BREAKS SILENCE, but more answers NEEDED: Lindsey Granger | RISING"
 thumbnail: "https://img.youtube.com/vi/y1m3RCAWnWM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

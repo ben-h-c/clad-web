@@ -34,8 +34,8 @@ keyMoments:
 videoId: "RnESlONNW9s"
 videoTitle: "White working-class children failed by England's school system, inquiry finds"
 thumbnail: "https://img.youtube.com/vi/RnESlONNW9s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

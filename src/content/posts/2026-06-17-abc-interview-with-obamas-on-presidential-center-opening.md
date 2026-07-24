@@ -35,8 +35,8 @@ keyMoments:
 videoId: "X0a4GHqOlOg"
 videoTitle: "ABC News exclusive interview with the Obamas"
 thumbnail: "https://img.youtube.com/vi/X0a4GHqOlOg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

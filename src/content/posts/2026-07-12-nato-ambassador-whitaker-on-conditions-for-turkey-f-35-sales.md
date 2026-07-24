@@ -31,8 +31,8 @@ keyMoments:
 videoId: "kh_15BYuB9I"
 videoTitle: "NATO Ambassador: Any F-35 Deal With Turkey Will Be 'In The American People's Interest'"
 thumbnail: "https://img.youtube.com/vi/kh_15BYuB9I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

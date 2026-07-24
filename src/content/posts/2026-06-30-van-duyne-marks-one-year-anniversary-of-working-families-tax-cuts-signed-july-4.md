@@ -36,8 +36,8 @@ keyMoments:
 videoId: "W3Pxuio1mh8"
 videoTitle: "&#39;Democrats Mock These Tax Dollars That Saved For The American People&#39;: Beth Van Duyne"
 thumbnail: "https://img.youtube.com/vi/W3Pxuio1mh8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

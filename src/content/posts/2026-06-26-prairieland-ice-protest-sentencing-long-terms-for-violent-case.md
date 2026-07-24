@@ -39,8 +39,8 @@ keyMoments:
 videoId: "ncD66jfeSVc"
 videoTitle: "ICE protesters sentenced to up to 100 years in prison by Trump-appointed judge"
 thumbnail: "https://img.youtube.com/vi/ncD66jfeSVc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

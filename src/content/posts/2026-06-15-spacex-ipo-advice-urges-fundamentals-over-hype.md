@@ -31,8 +31,8 @@ keyMoments:
 videoId: "Xt_UIbSV0d0"
 videoTitle: "SpaceX IPO Hype? Don&#39;t Invest Blindly! Do This Instead #shorts"
 thumbnail: "https://img.youtube.com/vi/Xt_UIbSV0d0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

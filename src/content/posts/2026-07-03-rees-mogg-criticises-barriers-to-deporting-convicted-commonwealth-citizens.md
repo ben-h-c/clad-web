@@ -36,8 +36,8 @@ keyMoments:
 videoId: "j_q8b9Tgg_4"
 videoTitle: "Jacob Rees-Mogg FUMES at Labour's INABILITY to DEPORT MIGRANT CRIMINALS"
 thumbnail: "https://img.youtube.com/vi/j_q8b9Tgg_4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

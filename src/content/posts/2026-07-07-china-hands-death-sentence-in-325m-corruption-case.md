@@ -28,8 +28,8 @@ keyMoments:
 videoId: "ZErYgqELlII"
 videoTitle: "China Sentences Official to Death Over $325 Million in Bribes"
 thumbnail: "https://img.youtube.com/vi/ZErYgqELlII/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

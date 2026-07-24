@@ -36,8 +36,8 @@ keyMoments:
 videoId: "n3_-JylAVOw"
 videoTitle: "‘The biggest scandal in modern British history’| Patrick Christys REACTS to Rape Gang Inquiry Report"
 thumbnail: "https://img.youtube.com/vi/n3_-JylAVOw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

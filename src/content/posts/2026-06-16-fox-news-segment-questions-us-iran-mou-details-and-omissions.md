@@ -39,8 +39,8 @@ keyMoments:
 videoId: "Q1DoesO-V8w"
 videoTitle: "Expert reveals 'HUGE OMISSION' in US-Iran peace agreement"
 thumbnail: "https://img.youtube.com/vi/Q1DoesO-V8w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

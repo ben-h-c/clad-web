@@ -35,8 +35,8 @@ keyMoments:
 videoId: "8kCGniv-KVY"
 videoTitle: "Justice Department Charges Eight Tren de Aragua Members"
 thumbnail: "https://img.youtube.com/vi/8kCGniv-KVY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "reI9I1t_TDQ"
 videoTitle: "Tesla set on fire, UN office's windows smashed in anti-G7 march"
 thumbnail: "https://img.youtube.com/vi/reI9I1t_TDQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -32,8 +32,8 @@ keyMoments:
 videoId: "WtmmLvQQk_U"
 videoTitle: "Ontario wildfires: Feds say province is “apparently capable” of handling current situation"
 thumbnail: "https://img.youtube.com/vi/WtmmLvQQk_U/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

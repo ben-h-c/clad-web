@@ -32,8 +32,8 @@ keyMoments:
 videoId: "GhKTTQxhXk4"
 videoTitle: "Jodey Arrington Earns A Laugh From Foxx When He Suggests They &#39;May Be Wearing Mr. McGovern Down&#39;"
 thumbnail: "https://img.youtube.com/vi/GhKTTQxhXk4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

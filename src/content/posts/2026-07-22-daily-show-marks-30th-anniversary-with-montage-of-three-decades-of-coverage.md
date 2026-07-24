@@ -34,8 +34,8 @@ keyMoments:
 videoId: "rNSpJEmSOO8"
 videoTitle: "TDS Celebrates Its 30th with a Look Back at Three Decades of News Coverage | The Daily Show"
 thumbnail: "https://img.youtube.com/vi/rNSpJEmSOO8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

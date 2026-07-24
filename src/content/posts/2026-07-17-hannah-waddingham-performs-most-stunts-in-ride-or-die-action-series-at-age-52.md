@@ -35,8 +35,8 @@ keyMoments:
 videoId: "eYAYCallSxY"
 videoTitle: "Hannah Waddingham Talks Filming Action-Packed Scenes In New Series"
 thumbnail: "https://img.youtube.com/vi/eYAYCallSxY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

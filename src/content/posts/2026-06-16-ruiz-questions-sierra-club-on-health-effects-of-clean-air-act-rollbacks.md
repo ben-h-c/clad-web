@@ -39,8 +39,8 @@ keyMoments:
 videoId: "Gw3gYwJvdPI"
 videoTitle: "'What Would That Mean?': Ruiz Asks Sierra Club Rep. About Impact Of Rollback Of Clean Air Act Rules"
 thumbnail: "https://img.youtube.com/vi/Gw3gYwJvdPI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

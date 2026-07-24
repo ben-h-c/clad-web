@@ -37,8 +37,8 @@ keyMoments:
 videoId: "T94gOc1xwx4"
 videoTitle: "China Arrests U.S. Citizen 1 Month After Trump Xi Summit | China in Focus"
 thumbnail: "https://img.youtube.com/vi/T94gOc1xwx4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

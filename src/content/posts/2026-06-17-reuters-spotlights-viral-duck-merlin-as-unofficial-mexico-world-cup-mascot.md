@@ -28,8 +28,8 @@ keyMoments:
 videoId: "r8JzdBqiRCY"
 videoTitle: "Meet Merlin the duck: Mexico's unofficial World Cup mascot"
 thumbnail: "https://img.youtube.com/vi/r8JzdBqiRCY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

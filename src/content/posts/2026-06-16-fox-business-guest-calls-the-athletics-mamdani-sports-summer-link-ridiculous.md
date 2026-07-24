@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Ffi5BjDZd2w"
 videoTitle: "'RIDICULOUS': Devine TEARS into The Athletic over Mamdani sport win attribution #shorts"
 thumbnail: "https://img.youtube.com/vi/Ffi5BjDZd2w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

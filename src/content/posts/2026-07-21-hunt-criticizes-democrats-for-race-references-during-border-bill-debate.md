@@ -33,8 +33,8 @@ keyMoments:
 videoId: "kCBgqXdNXDQ"
 videoTitle: "'White, White, White': Hunt Brutally Mocks Democrats Invoking Race During Debate On Border Bill"
 thumbnail: "https://img.youtube.com/vi/kCBgqXdNXDQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

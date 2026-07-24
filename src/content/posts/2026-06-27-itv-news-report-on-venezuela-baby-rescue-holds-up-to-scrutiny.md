@@ -33,8 +33,8 @@ keyMoments:
 videoId: "tvIf7IpYVck"
 videoTitle: "Watch the moment 18-day-old baby rescued from rubble in Venezuela"
 thumbnail: "https://img.youtube.com/vi/tvIf7IpYVck/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -35,8 +35,8 @@ keyMoments:
 videoId: "CMENUyMumIA"
 videoTitle: "Inside the high-security US-Iran talks in Switzerland"
 thumbnail: "https://img.youtube.com/vi/CMENUyMumIA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

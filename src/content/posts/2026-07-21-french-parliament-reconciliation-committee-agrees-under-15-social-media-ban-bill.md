@@ -36,8 +36,8 @@ keyMoments:
 videoId: "54qHz9S4xWw"
 videoTitle: "'It has to work': France nears approval of under-15 social media ban • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/54qHz9S4xWw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

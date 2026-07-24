@@ -35,8 +35,8 @@ keyMoments:
 videoId: "K-a_DvoEASo"
 videoTitle: "IBM Falls Most Since At Least 1968 on Sales Miss"
 thumbnail: "https://img.youtube.com/vi/K-a_DvoEASo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

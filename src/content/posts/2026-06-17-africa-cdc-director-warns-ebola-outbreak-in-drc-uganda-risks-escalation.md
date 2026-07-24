@@ -31,8 +31,8 @@ keyMoments:
 videoId: "fFsre4yd9KE"
 videoTitle: "Ebola: The worst is still to come | DW News"
 thumbnail: "https://img.youtube.com/vi/fFsre4yd9KE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

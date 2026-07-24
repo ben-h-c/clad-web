@@ -41,8 +41,8 @@ keyMoments:
 videoId: "usRKjUeWZVY"
 videoTitle: "Bill O'Reilly on declining patriotism and the fight over July Fourth | On Balance"
 thumbnail: "https://img.youtube.com/vi/usRKjUeWZVY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

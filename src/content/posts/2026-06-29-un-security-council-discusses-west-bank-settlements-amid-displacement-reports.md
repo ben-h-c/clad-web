@@ -35,8 +35,8 @@ keyMoments:
 videoId: "LUNTpse8eBo"
 videoTitle: "UN warns of worst displacement crisis in occupied West Bank since 1967"
 thumbnail: "https://img.youtube.com/vi/LUNTpse8eBo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

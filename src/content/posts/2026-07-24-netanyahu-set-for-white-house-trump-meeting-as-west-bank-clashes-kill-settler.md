@@ -34,9 +34,9 @@ keyMoments:
 videoId: "-chyQlv-zK8"
 videoTitle: "Deadly clashes in the occupied West Bank • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/-chyQlv-zK8/maxresdefault.jpg"
-mediaNote: "upper-middle faces: reporter left + soldiers right action"
-thumbFocusY: 28
-thumbFocusX: 55
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 citations:
   - title: "Trump to meet Netanyahu at the White House on Tuesday amid Iran escalation"

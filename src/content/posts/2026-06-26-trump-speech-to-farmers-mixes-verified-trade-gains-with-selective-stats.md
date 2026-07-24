@@ -40,8 +40,8 @@ keyMoments:
 videoId: "u9WhQAvY9nw"
 videoTitle: "'It's A Very Simple Change...': Trump Promotes New Nasty Nickname For Democrats"
 thumbnail: "https://img.youtube.com/vi/u9WhQAvY9nw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

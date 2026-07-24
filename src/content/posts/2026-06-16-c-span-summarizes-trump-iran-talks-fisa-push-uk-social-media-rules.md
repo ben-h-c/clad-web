@@ -38,8 +38,8 @@ keyMoments:
 videoId: "GwdpLEywjSc"
 videoTitle: "Washington Today (6/15/26): Trump Claims Iran Agreement Is Close; Senate Eyes FISA Extension"
 thumbnail: "https://img.youtube.com/vi/GwdpLEywjSc/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "y2aH7TR4Zvc"
 videoTitle: "Lawrence: JD Vance’s old accusation of Trump being ‘cultural heroin’ was on display this weekend"
 thumbnail: "https://img.youtube.com/vi/y2aH7TR4Zvc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

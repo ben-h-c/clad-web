@@ -31,8 +31,8 @@ keyMoments:
 videoId: "7K_FTns2HVM"
 videoTitle: "Caleb Hammer explains Gen Z"
 thumbnail: "https://img.youtube.com/vi/7K_FTns2HVM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

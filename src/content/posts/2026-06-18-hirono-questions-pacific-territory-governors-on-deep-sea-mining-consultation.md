@@ -34,8 +34,8 @@ keyMoments:
 videoId: "CqzMFeIiGuE"
 videoTitle: "Hirono Asks Territory Governors If They Are Given 'Meaningful Consultation' By Sea Mining Companies"
 thumbnail: "https://img.youtube.com/vi/CqzMFeIiGuE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

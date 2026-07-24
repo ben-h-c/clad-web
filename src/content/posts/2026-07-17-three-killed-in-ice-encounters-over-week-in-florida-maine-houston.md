@@ -38,8 +38,8 @@ keyMoments:
 videoId: "fYOuWIcyTlE"
 videoTitle: "Three dead in about a week from ICE encounters"
 thumbnail: "https://img.youtube.com/vi/fYOuWIcyTlE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -33,8 +33,8 @@ keyMoments:
 videoId: "X1RvrjpJCBg"
 videoTitle: "“I Don’t Like The PRIDE FLAG!” | Spanish Embassy Unveils Giant Pride Flag in London, Sparks Debate"
 thumbnail: "https://img.youtube.com/vi/X1RvrjpJCBg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "d2jVW4-05B8"
 videoTitle: "“Cast-Iron GUARANTEE Starmer WILL RESIGN!” | Poppy Coburn | Alex Phillips"
 thumbnail: "https://img.youtube.com/vi/d2jVW4-05B8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

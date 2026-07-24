@@ -35,8 +35,8 @@ keyMoments:
 videoId: "ZOtI4mAd5pA"
 videoTitle: "A turtle DNA database is the first of its kind effort to try to keep them from extinction"
 thumbnail: "https://img.youtube.com/vi/ZOtI4mAd5pA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

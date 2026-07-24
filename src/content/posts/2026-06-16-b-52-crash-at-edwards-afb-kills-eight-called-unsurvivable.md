@@ -31,8 +31,8 @@ keyMoments:
 videoId: "XjGaEiEO8gA"
 videoTitle: "Officials deem deadly B-52 crash as 'unsurvivable' #shorts #us #usmilitary #news #b52"
 thumbnail: "https://img.youtube.com/vi/XjGaEiEO8gA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "XryTbsi_-Gk"
 videoTitle: "Trump Discusses Iran Deal; New York Serial Killer Sentenced. What You Need to Know- June 17"
 thumbnail: "https://img.youtube.com/vi/XryTbsi_-Gk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

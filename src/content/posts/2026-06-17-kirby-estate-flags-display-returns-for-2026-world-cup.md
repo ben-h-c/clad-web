@@ -34,8 +34,8 @@ keyMoments:
 videoId: "dsw554Oi1bs"
 videoTitle: "London community unites behind England with flag display"
 thumbnail: "https://img.youtube.com/vi/dsw554Oi1bs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

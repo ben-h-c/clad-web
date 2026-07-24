@@ -34,8 +34,8 @@ keyMoments:
 videoId: "sgxLH8N6eCM"
 videoTitle: "Scary flooding hammers states along Gulf Coast, creates treacherous conditions"
 thumbnail: "https://img.youtube.com/vi/sgxLH8N6eCM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

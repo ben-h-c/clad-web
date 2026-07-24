@@ -34,8 +34,8 @@ keyMoments:
 videoId: "A-VskwEu8u4"
 videoTitle: "How much hiking gear do you really need?"
 thumbnail: "https://img.youtube.com/vi/A-VskwEu8u4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

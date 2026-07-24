@@ -33,8 +33,8 @@ keyMoments:
 videoId: "HhVXxT34Wk0"
 videoTitle: "Bernie Sanders, AOC rally support for progressive Democrat in Michigan"
 thumbnail: "https://img.youtube.com/vi/HhVXxT34Wk0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

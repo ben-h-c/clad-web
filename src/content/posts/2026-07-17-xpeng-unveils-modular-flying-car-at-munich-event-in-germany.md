@@ -33,8 +33,8 @@ keyMoments:
 videoId: "le4F5Qxje_Q"
 videoTitle: "Chinese company XPeng debuts its flying car in Germany"
 thumbnail: "https://img.youtube.com/vi/le4F5Qxje_Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

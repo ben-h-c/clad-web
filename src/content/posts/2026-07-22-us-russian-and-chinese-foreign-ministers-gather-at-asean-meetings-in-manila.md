@@ -29,8 +29,8 @@ keyMoments:
 videoId: "JtTP42_VL3Q"
 videoTitle: "Rubio, Lavrov and Wang Yi attend ASEAN foreign ministers' meetings"
 thumbnail: "https://img.youtube.com/vi/JtTP42_VL3Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

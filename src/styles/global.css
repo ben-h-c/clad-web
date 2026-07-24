@@ -2171,21 +2171,16 @@ html.masthead-menu-open .masthead__menu-list {
 }
 
 .hero-strip {
-  /* Shared height budget for every horizontal article strip (Breaking, Front Page, …).
-     Media tiles: image canvas + overlay type (not modular form cards). */
-  --hero-card-max-h: 38rem;
-  --hero-summary-lines: 9;
+  /* Breaking / Front Page: 16:9 photo band + type panel (height from content). */
+  --hero-summary-lines: 2;
   display: flex;
-  align-items: stretch; /* even row bottoms once copy is line-clamped */
+  align-items: stretch;
   gap: 0.85rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-padding-left: 0.2rem;
   -webkit-overflow-scrolling: touch;
-  /* Allow vertical page scroll to win when the gesture is mostly vertical,
-     while still permitting horizontal strip pans (critical in WKWebView). */
   touch-action: pan-x pan-y;
-  /* Editorial: no hard ruled rails — just breathing room for the tiles */
   padding: 0.35rem 0.15rem 1.15rem;
   border: 0;
   background: transparent;
@@ -2238,26 +2233,19 @@ html.masthead-menu-open .masthead__menu-list {
 }
 
 .hero-strip__item {
-  flex: 0 0 clamp(16.5rem, 74%, 21.5rem);
+  /* Wide enough that 16:9 stills read as full frames, not cropped posters */
+  flex: 0 0 clamp(17.5rem, 82%, 22.5rem);
   scroll-snap-align: start;
   align-self: stretch;
   min-width: 0;
-  max-height: var(--hero-card-max-h);
   display: flex;
-}
-/*
- * Horizontal Breaking / Front Page cards — media tiles fill a fixed height.
- */
-.hero-strip {
-  --hero-card-max-h: 21.5rem;
-  --hero-summary-lines: 2;
 }
 .hero-strip .report-card,
 .hero-strip .breaking-group {
-  height: 100%;
-  max-height: var(--hero-card-max-h);
   width: 100%;
   min-height: 0;
+  height: auto;
+  max-height: none;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -2267,42 +2255,31 @@ html.masthead-menu-open .masthead__menu-list {
   padding: 0;
 }
 .hero-strip .report-card--media {
-  min-height: var(--hero-card-max-h);
-  max-height: var(--hero-card-max-h);
-  border-radius: 18px;
-  /* Restore the media tile elevation (base strip rule zeros card chrome) */
+  border-radius: 16px;
   box-shadow:
-    0 1px 0 color-mix(in srgb, #fff 12%, transparent),
-    0 14px 32px color-mix(in srgb, var(--shadow) 20%, transparent);
+    0 1px 0 color-mix(in srgb, #fff 10%, transparent),
+    0 10px 28px color-mix(in srgb, var(--shadow) 16%, transparent);
   border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
 }
 .hero-strip .report-card:not(.report-card--media) {
-  /* modular / text presentation — soft card shell (not full-bleed) */
   background: var(--card, var(--paper));
   border: 1px solid color-mix(in srgb, var(--rule) 80%, transparent);
   border-radius: 14px;
   box-shadow: 0 8px 22px color-mix(in srgb, var(--shadow) 12%, transparent);
   padding: 0.75rem 0.85rem 0.9rem;
-  min-height: 0;
-  max-height: none;
-  height: auto;
-}
-.hero-strip .report-card:not(.report-card--media) .report-card__link {
-  height: auto;
-}
-.hero-strip .report-card--text {
-  /* No art — calm type-first tile */
-  justify-content: flex-start;
 }
 .hero-strip .report-card__link {
   flex: 1 1 auto;
   min-height: 0;
-  height: 100%;
+  height: auto;
   overflow: hidden;
 }
 .hero-strip .report-card--media .report-card__link {
-  min-height: 100%;
-  justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+  min-height: 0;
 }
 .hero-strip .report-card__headline {
   display: -webkit-box;
@@ -2315,9 +2292,8 @@ html.masthead-menu-open .masthead__menu-list {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: var(--hero-summary-lines, 2);
   overflow: hidden;
-  margin: 0.1rem 0 0;
+  margin: 0.15rem 0 0;
   line-height: 1.38;
-  opacity: 0.92;
 }
 .hero-strip .report-card__source {
   display: none;
@@ -2330,23 +2306,20 @@ html.clad-app .hero-strip .report-card__hold-hint {
 }
 @media (max-width: 560px) {
   .hero-strip {
-    --hero-card-max-h: 20.5rem;
     --hero-summary-lines: 2;
     gap: 0.7rem;
   }
   .hero-strip__item {
-    flex-basis: clamp(15.25rem, 78%, 19.5rem);
+    flex-basis: clamp(16.75rem, 86%, 21rem);
   }
 }
 @media (min-width: 768px) {
   .hero-strip {
-    --hero-card-max-h: 23.5rem;
     --hero-summary-lines: 3;
   }
 }
 @media (min-width: 1024px) {
   .hero-strip {
-    --hero-card-max-h: 25rem;
     --hero-summary-lines: 3;
   }
 }
@@ -2362,13 +2335,11 @@ html.clad-app .hero-strip .report-card__hold-hint {
 
 /* --- App shell: compact tiles + hold-to-preview --- */
 html.clad-app .hero-strip__item--peek {
-  flex: 0 0 clamp(12.5rem, 52%, 15.5rem);
+  flex: 0 0 clamp(14.5rem, 72%, 18.5rem);
   align-self: stretch;
-  max-height: min(26rem, var(--hero-card-max-h));
 }
 html.clad-app .hero-strip {
-  --hero-card-max-h: 26rem;
-  --hero-summary-lines: 4;
+  --hero-summary-lines: 3;
 }
 
 html.clad-app .report-card--peek {
@@ -2382,9 +2353,12 @@ html.clad-app .report-card--peek {
   -webkit-touch-callout: none !important;
   -webkit-tap-highlight-color: transparent;
 }
-/* Media tiles already fill the canvas — no inset padding in the app shell */
+/* Media band cards: no inset padding (photo edge to edge) */
 html.clad-app .report-card--peek.report-card--media {
   padding: 0;
+}
+html.clad-app .report-card--peek.report-card--media .report-card__photo {
+  border-radius: 0;
 }
 html.clad-app .report-card--peek,
 html.clad-app .report-card--peek * {
@@ -9695,101 +9669,93 @@ html.clad-app section.charts.home-app-only {
   font-size: 0.82rem;
 }
 
-/* Media report tiles — image canvas + bottom scrim + overlay type */
+/*
+ * Media report tiles — intentional 16:9 photo band + type panel.
+ * YouTube stills are landscape; never stretch them into a tall portrait
+ * cover crop (that was the “random zoom” on Hannity / logo cards).
+ */
 .report-card--media {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  border-radius: 18px;
-  background: #0e1016;
+  border-radius: 16px;
+  background: var(--card, #14161c);
   border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
   box-shadow:
-    0 1px 0 color-mix(in srgb, #fff 14%, transparent),
-    0 14px 34px color-mix(in srgb, var(--shadow) 20%, transparent);
-  color: #f4f1ea;
+    0 1px 0 color-mix(in srgb, #fff 10%, transparent),
+    0 12px 28px color-mix(in srgb, var(--shadow) 16%, transparent);
+  color: var(--ink, #f4f1ea);
   padding: 0;
 }
 .report-card--media .report-card__link {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  min-height: 18rem;
-  color: #f4f1ea;
+  justify-content: flex-start;
+  min-height: 0;
+  color: inherit;
   text-decoration: none;
   overflow: hidden;
 }
-.report-card--media .report-card__media-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+/* Fixed 16:9 band — matches native still aspect */
+.report-card--media .report-card__photo {
+  position: relative;
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #0a0c10;
+  border-radius: 0;
 }
-.report-card--media .report-card__media-bg img {
+.report-card--media .report-card__photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Per-post focus (thumbFocusX/Y) — no CSS scale (that caused “random zoom”). */
-  object-position: var(--thumb-focus, 50% 32%);
+  object-position: var(--thumb-focus, 50% 40%);
   display: block;
   transform: none;
-  filter: saturate(1.04) contrast(1.02);
-  transition: filter 0.35s ease;
+  filter: none;
+}
+/* Legacy class kept for any residual markup */
+.report-card--media .report-card__media-bg {
+  display: none;
 }
 .report-card--media .report-card__media-scrim {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  /* Top stays photographic; type sits in a deep bottom well */
-  background:
-    linear-gradient(
-      180deg,
-      rgba(6, 8, 12, 0.08) 0%,
-      rgba(6, 8, 12, 0.02) 28%,
-      rgba(6, 8, 12, 0.42) 52%,
-      rgba(6, 8, 12, 0.82) 74%,
-      rgba(6, 8, 12, 0.94) 100%
-    ),
-    radial-gradient(
-      120% 70% at 50% 100%,
-      rgba(6, 8, 12, 0.55) 0%,
-      transparent 62%
-    );
+  display: none;
 }
 .report-card--media .report-card__media-body {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
-  padding: 1rem 1rem 1.05rem;
+  gap: 0.28rem;
+  padding: 0.75rem 0.9rem 0.9rem;
   min-height: 0;
+  background: var(--card, #14161c);
+  color: var(--ink, #f4f1ea);
 }
 .report-card--media .report-card__media-chips {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.35rem;
-  margin-bottom: 0.12rem;
+  margin-bottom: 0.08rem;
 }
 .report-card--media .report-card__chip {
   display: inline-flex;
   align-items: center;
   gap: 0.28rem;
-  padding: 0.2rem 0.5rem;
+  padding: 0.18rem 0.48rem;
   border-radius: 999px;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  background: color-mix(in srgb, #0a0c10 48%, transparent);
-  border: 1px solid color-mix(in srgb, #f4f1ea 22%, transparent);
-  backdrop-filter: blur(12px) saturate(1.15);
-  -webkit-backdrop-filter: blur(12px) saturate(1.15);
-  color: #f4f1ea;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  background: color-mix(in srgb, var(--ink) 8%, var(--card, #14161c));
+  border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  color: var(--ink, #f4f1ea);
 }
 .report-card--media .report-card__chip--grade {
-  padding: 0.12rem 0.38rem 0.12rem 0.2rem;
+  padding: 0.1rem 0.36rem 0.1rem 0.18rem;
 }
 .report-card--media .report-card__chip--lean {
   font-variant-numeric: tabular-nums;
@@ -9801,78 +9767,69 @@ html.clad-app section.charts.home-app-only {
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-/* Keep grade badge legible on the glass chip */
-.report-card--media .report-card__chip .letter-grade,
-.report-card--media .report-card__chip .letter-grade--badge {
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
-}
 .report-card--media .report-card__grouptag--media {
   position: static;
   align-self: flex-start;
-  margin: 0 0 0.15rem;
-  background: color-mix(in srgb, #0a0c10 45%, transparent);
-  color: #f4f1ea;
-  border: 1px solid color-mix(in srgb, #f4f1ea 22%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  margin: 0 0 0.1rem;
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+  color: color-mix(in srgb, var(--ink) 78%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
   border-radius: 999px;
   font-size: 0.6rem;
   letter-spacing: 0.12em;
-  padding: 0.2rem 0.55rem;
+  padding: 0.18rem 0.5rem;
 }
 .report-card--media .report-card__kicker--media {
   margin: 0;
-  color: color-mix(in srgb, #9fd4c8 78%, #f4f1ea);
+  color: color-mix(in srgb, var(--accent, #9fd4c8) 70%, var(--ink));
   font-size: 0.66rem;
   letter-spacing: 0.12em;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
 }
 .report-card--media .report-card__headline {
   margin: 0;
-  color: #faf8f4;
+  color: var(--ink, #faf8f4);
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.08rem, 2.5vw, 1.32rem);
-  line-height: 1.18;
-  letter-spacing: -0.022em;
+  font-size: clamp(1.02rem, 2.2vw, 1.22rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   font-weight: 700;
-  text-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.5),
-    0 10px 24px rgba(0, 0, 0, 0.38);
+  text-shadow: none;
 }
 .report-card--media .report-card__meta {
   margin: 0;
-  color: color-mix(in srgb, #f4f1ea 70%, #a8a49a);
+  color: var(--muted-ink, color-mix(in srgb, var(--ink) 62%, transparent));
   font-size: 0.76rem;
   letter-spacing: 0.01em;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  text-shadow: none;
 }
 .report-card--media .report-card__summary {
-  color: color-mix(in srgb, #f4f1ea 80%, #b0aca2);
+  color: color-mix(in srgb, var(--ink) 82%, transparent);
   font-size: 0.86rem;
   line-height: 1.4;
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+  text-shadow: none;
 }
 .report-card--media .sample-badge--on-media {
   align-self: flex-start;
-  margin-bottom: 0.15rem;
-  background: color-mix(in srgb, var(--accent) 42%, #0a0c10);
-  color: #f4f1ea;
-  border: 1px solid color-mix(in srgb, #f4f1ea 24%, transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  margin-bottom: 0.1rem;
+  background: color-mix(in srgb, var(--accent) 28%, var(--card));
+  color: var(--ink);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
 }
-/* Hold hint sits on the image in the app */
+/* Hold hint on the photo band in the app */
+html.clad-app .report-card--media {
+  position: relative;
+}
 html.clad-app .report-card--media .report-card__hold-hint {
   position: absolute;
-  top: 0.55rem;
-  right: 0.55rem;
+  top: 0.45rem;
+  right: 0.45rem;
   z-index: 3;
   margin: 0;
-  padding: 0.22rem 0.5rem;
+  padding: 0.2rem 0.48rem;
   border-radius: 999px;
-  background: color-mix(in srgb, #0a0c10 55%, transparent);
-  color: color-mix(in srgb, #f4f1ea 88%, transparent);
-  border: 1px solid color-mix(in srgb, #f4f1ea 18%, transparent);
+  background: color-mix(in srgb, #0a0c10 58%, transparent);
+  color: color-mix(in srgb, #f4f1ea 90%, transparent);
+  border: 1px solid color-mix(in srgb, #f4f1ea 16%, transparent);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   font-size: 0.58rem;
@@ -9880,19 +9837,10 @@ html.clad-app .report-card--media .report-card__hold-hint {
   pointer-events: none;
 }
 @media (hover: hover) and (pointer: fine) {
-  .report-card--media:hover .report-card__media-bg img {
-    /* Subtle brighten only — never scale (reads as accidental zoom). */
-    filter: saturate(1.08) contrast(1.04) brightness(1.02);
-  }
   .report-card--media:hover .report-card__headline {
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1px;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .report-card--media .report-card__media-bg img {
-    transition: none;
   }
 }
 .hero-strip .report-card--group {

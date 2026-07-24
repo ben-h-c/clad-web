@@ -31,8 +31,8 @@ keyMoments:
 videoId: "RQjo4FAx8p8"
 videoTitle: "Circus classes spark high-flying friendships in Nelson, B.C."
 thumbnail: "https://img.youtube.com/vi/RQjo4FAx8p8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

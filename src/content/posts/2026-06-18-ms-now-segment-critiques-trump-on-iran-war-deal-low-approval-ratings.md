@@ -35,8 +35,8 @@ keyMoments:
 videoId: "nn6BS9i0lJQ"
 videoTitle: "'Rambling, insulting his own Cabinet': Nicolle on TANKING Trump in denial, making a scene on stage"
 thumbnail: "https://img.youtube.com/vi/nn6BS9i0lJQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

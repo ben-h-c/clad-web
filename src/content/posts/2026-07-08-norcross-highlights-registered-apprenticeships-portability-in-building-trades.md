@@ -36,8 +36,8 @@ keyMoments:
 videoId: "Kk5J8m-Uavg"
 videoTitle: "&#39;Registered Programs Are Incredibly Important&#39;: Donald Norcross Urges More Portable Apprenticeships"
 thumbnail: "https://img.youtube.com/vi/Kk5J8m-Uavg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

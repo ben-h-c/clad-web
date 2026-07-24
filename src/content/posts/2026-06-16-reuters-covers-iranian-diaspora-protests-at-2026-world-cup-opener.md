@@ -31,8 +31,8 @@ keyMoments:
 videoId: "_JZNhF1L0eg"
 videoTitle: "Hundreds protest Iranian government at World Cup opener"
 thumbnail: "https://img.youtube.com/vi/_JZNhF1L0eg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

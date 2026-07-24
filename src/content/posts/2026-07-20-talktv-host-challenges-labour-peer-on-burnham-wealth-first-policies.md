@@ -37,8 +37,8 @@ keyMoments:
 videoId: "uAaAlDuoO4Y"
 videoTitle: "'Name JUST ONE Promise?!’ | Samara Gill Grills Labour Peer on How Burnham Will Create Wealth"
 thumbnail: "https://img.youtube.com/vi/uAaAlDuoO4Y/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

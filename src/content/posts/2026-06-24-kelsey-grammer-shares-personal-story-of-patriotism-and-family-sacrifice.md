@@ -31,8 +31,8 @@ keyMoments:
 videoId: "20-ajxfvDLQ"
 videoTitle: "Kelsey Grammer: They did this for ME #america #shorts #us #usa #kelseygrammer"
 thumbnail: "https://img.youtube.com/vi/20-ajxfvDLQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

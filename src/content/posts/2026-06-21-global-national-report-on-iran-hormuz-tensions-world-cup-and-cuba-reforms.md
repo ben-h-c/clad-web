@@ -35,8 +35,8 @@ keyMoments:
 videoId: "qLY-Hx4woaA"
 videoTitle: "Global National: June 20, 2026 | Iran closes Strait of Hormuz again"
 thumbnail: "https://img.youtube.com/vi/qLY-Hx4woaA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

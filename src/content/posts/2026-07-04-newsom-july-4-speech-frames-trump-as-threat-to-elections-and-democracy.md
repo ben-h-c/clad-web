@@ -34,8 +34,8 @@ keyMoments:
 videoId: "j1griV01gjI"
 videoTitle: "Newsom: \"Do we still have a government that belongs to the people?\""
 thumbnail: "https://img.youtube.com/vi/j1griV01gjI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

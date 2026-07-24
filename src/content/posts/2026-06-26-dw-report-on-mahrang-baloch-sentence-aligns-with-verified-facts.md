@@ -36,8 +36,8 @@ keyMoments:
 videoId: "enG0nQ_Q4js"
 videoTitle: "Sentenced to life in prison — Mahrang Baloch's fight for justice  | DW News"
 thumbnail: "https://img.youtube.com/vi/enG0nQ_Q4js/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

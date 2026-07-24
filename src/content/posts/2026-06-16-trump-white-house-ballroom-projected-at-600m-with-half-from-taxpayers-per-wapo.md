@@ -37,8 +37,8 @@ keyMoments:
 videoId: "M6NnVVpl5Rs"
 videoTitle: "Who is paying for Trump's $600M ballroom? Report finds taxpayers are footing half the bill"
 thumbnail: "https://img.youtube.com/vi/M6NnVVpl5Rs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

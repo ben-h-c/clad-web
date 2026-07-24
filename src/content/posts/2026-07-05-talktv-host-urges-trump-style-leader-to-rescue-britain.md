@@ -37,8 +37,8 @@ keyMoments:
 videoId: "vBZIV_nG3Mg"
 videoTitle: "'UK Needs A Donald Trump Style Leader' | US President Attacks Communism In Independence Day Speech"
 thumbnail: "https://img.youtube.com/vi/vBZIV_nG3Mg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

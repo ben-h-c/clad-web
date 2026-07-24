@@ -36,8 +36,8 @@ keyMoments:
 videoId: "lJSQA8c7yV4"
 videoTitle: "'NOT THE AMERICAN DREAM': Homeownership costs SURGE across the board"
 thumbnail: "https://img.youtube.com/vi/lJSQA8c7yV4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

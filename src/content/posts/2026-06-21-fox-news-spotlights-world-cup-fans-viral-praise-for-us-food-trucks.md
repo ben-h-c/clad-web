@@ -37,8 +37,8 @@ keyMoments:
 videoId: "aVATDMhKhx4"
 videoTitle: "Ranch dressing and trucks: World Cup fans document travels in the US"
 thumbnail: "https://img.youtube.com/vi/aVATDMhKhx4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

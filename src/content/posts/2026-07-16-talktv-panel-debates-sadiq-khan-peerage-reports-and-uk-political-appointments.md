@@ -37,8 +37,8 @@ keyMoments:
 videoId: "S8tEHMyRD2I"
 videoTitle: "BREAKING: 'What's He Going To Be Lord Khan Of?' | FURY As Sir Sadiq Gets Peerage"
 thumbnail: "https://img.youtube.com/vi/S8tEHMyRD2I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

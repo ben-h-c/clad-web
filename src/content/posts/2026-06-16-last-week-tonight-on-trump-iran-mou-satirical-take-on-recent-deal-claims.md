@@ -37,8 +37,8 @@ keyMoments:
 videoId: "ipjz8u0QwAA"
 videoTitle: "Trump & Iran Peace Deal #lastweektonight"
 thumbnail: "https://img.youtube.com/vi/ipjz8u0QwAA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

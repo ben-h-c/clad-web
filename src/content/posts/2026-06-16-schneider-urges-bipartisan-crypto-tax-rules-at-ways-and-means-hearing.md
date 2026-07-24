@@ -32,8 +32,8 @@ keyMoments:
 videoId: "GKmrJWM_zWU"
 videoTitle: "'We Can Thread This Needle': Brad Schneider Demands Bipartisan Work To Regulate Crypto Tax Code"
 thumbnail: "https://img.youtube.com/vi/GKmrJWM_zWU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "I52rShTScBo"
 videoTitle: "Andrew Young on the State of the Union as America Marks 250 Years"
 thumbnail: "https://img.youtube.com/vi/I52rShTScBo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

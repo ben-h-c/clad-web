@@ -35,8 +35,8 @@ keyMoments:
 videoId: "oa2S81Ljm40"
 videoTitle: "'Discuss The Factors': Owens Asks NLRB Head When Student Athletes Should Be Classified As Employees"
 thumbnail: "https://img.youtube.com/vi/oa2S81Ljm40/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

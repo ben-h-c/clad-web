@@ -37,8 +37,8 @@ keyMoments:
 videoId: "xunRdiIsicw"
 videoTitle: "France looks to exchange its 'support to Iran deal with increased US support to Ukraine'"
 thumbnail: "https://img.youtube.com/vi/xunRdiIsicw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

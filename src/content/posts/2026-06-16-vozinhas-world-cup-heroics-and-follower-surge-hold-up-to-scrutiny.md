@@ -34,8 +34,8 @@ keyMoments:
 videoId: "q0HcxYSTggI"
 videoTitle: "Cape Verde's goalkeeper Vozinha goes viral after World Cup debut"
 thumbnail: "https://img.youtube.com/vi/q0HcxYSTggI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

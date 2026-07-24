@@ -34,8 +34,8 @@ keyMoments:
 videoId: "0y98XVaScF0"
 videoTitle: "Housing market looks for direction as Federal Reserve meets this week"
 thumbnail: "https://img.youtube.com/vi/0y98XVaScF0/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

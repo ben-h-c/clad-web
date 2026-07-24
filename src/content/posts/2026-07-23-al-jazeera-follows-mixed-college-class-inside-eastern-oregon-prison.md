@@ -32,8 +32,8 @@ keyMoments:
 videoId: "PjLuOG0lTUA"
 videoTitle: "Inside a Prison Classroom in the US: Rethinking Justice | Witness Documentary"
 thumbnail: "https://img.youtube.com/vi/PjLuOG0lTUA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

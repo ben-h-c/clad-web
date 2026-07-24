@@ -35,8 +35,8 @@ keyMoments:
 videoId: "jnjqZnU92nc"
 videoTitle: "Global National: June 16, 2026 | Trump under pressure to release details of Iran deal"
 thumbnail: "https://img.youtube.com/vi/jnjqZnU92nc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

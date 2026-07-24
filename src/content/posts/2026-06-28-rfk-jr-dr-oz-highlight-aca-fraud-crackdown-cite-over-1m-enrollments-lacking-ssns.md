@@ -36,8 +36,8 @@ keyMoments:
 videoId: "zM9UF1mdcrQ"
 videoTitle: "Dr. Oz And RFK Jr Send Direct Message To Medicare Fraudsters: 'Run Because We Are Going To Find You'"
 thumbnail: "https://img.youtube.com/vi/zM9UF1mdcrQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

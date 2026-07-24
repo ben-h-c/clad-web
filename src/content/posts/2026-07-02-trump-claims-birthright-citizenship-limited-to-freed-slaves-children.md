@@ -32,8 +32,8 @@ keyMoments:
 videoId: "q3GAZnAUmgo"
 videoTitle: "Trump: Birthright Citizenship Not Meant for 'Rich People From China'"
 thumbnail: "https://img.youtube.com/vi/q3GAZnAUmgo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

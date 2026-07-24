@@ -40,8 +40,8 @@ keyMoments:
 videoId: "3B_2U7doKQo"
 videoTitle: "Phil Dave | 21-Jun-26"
 thumbnail: "https://img.youtube.com/vi/3B_2U7doKQo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

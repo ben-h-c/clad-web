@@ -37,8 +37,8 @@ keyMoments:
 videoId: "LHuWWXj-UJM"
 videoTitle: "Turkey detains 209 in anti-terror operations ahead of NATO summit"
 thumbnail: "https://img.youtube.com/vi/LHuWWXj-UJM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "5vjUisdEgB0"
 videoTitle: "Hostages to escalation? Gulf nations caught between Tehran and Washington | DW News"
 thumbnail: "https://img.youtube.com/vi/5vjUisdEgB0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -31,8 +31,8 @@ keyMoments:
 videoId: "Kw3SWz3ZThM"
 videoTitle: "La Voix on EastEnders, Strictly and a surprise Kate Garraway moment #eastenders #strictly #lavoix"
 thumbnail: "https://img.youtube.com/vi/Kw3SWz3ZThM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

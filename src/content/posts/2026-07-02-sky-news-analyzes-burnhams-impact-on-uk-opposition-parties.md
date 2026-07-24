@@ -35,8 +35,8 @@ keyMoments:
 videoId: "qsL0uBTOdiA"
 videoTitle: "What does Burnham mean for Kemi, Nigel, Ed and Zack?"
 thumbnail: "https://img.youtube.com/vi/qsL0uBTOdiA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

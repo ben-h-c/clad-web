@@ -31,8 +31,8 @@ keyMoments:
 videoId: "E_N1b37Th2o"
 videoTitle: "How Josh Kerr is training to break the mile world record"
 thumbnail: "https://img.youtube.com/vi/E_N1b37Th2o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

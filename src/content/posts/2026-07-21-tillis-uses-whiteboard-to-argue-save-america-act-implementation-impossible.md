@@ -36,8 +36,8 @@ keyMoments:
 videoId: "dS8BnA8F8SU"
 videoTitle: "Senator Tillis Says The Save Act Math Doesn&#39;t Work—Trump Disagrees"
 thumbnail: "https://img.youtube.com/vi/dS8BnA8F8SU/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

@@ -40,8 +40,8 @@ keyMoments:
 videoId: "he89xvf2j34"
 videoTitle: "Could the U.S. Post Office RIG the midterm elections for Trump?"
 thumbnail: "https://img.youtube.com/vi/he89xvf2j34/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

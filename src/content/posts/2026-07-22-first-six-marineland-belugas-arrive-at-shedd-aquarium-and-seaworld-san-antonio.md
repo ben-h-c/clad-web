@@ -32,8 +32,8 @@ keyMoments:
 videoId: "xn0mma3CnVk"
 videoTitle: "Rescued beluga whales travel to U.S. aquariums"
 thumbnail: "https://img.youtube.com/vi/xn0mma3CnVk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

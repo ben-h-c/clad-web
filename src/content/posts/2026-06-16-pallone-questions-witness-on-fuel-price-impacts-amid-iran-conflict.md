@@ -37,8 +37,8 @@ keyMoments:
 videoId: "46FUzP90U-0"
 videoTitle: "Frank Pallone Asks Witness: How Are Higher Fuel Prices 'Rippling Through Our Economy?'"
 thumbnail: "https://img.youtube.com/vi/46FUzP90U-0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "FaTTkp0Lzik"
 videoTitle: "Oil markets fluctuate as tensions between U.S. and Iran flare"
 thumbnail: "https://img.youtube.com/vi/FaTTkp0Lzik/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

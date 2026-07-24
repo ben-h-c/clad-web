@@ -34,8 +34,8 @@ keyMoments:
 videoId: "o-bMxYx_Mho"
 videoTitle: "Trump heads to Camp David amid Iran nuclear talks, sets 60 day deadline & touts Strait reopening"
 thumbnail: "https://img.youtube.com/vi/o-bMxYx_Mho/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

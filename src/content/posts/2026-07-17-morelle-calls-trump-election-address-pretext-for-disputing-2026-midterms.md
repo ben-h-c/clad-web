@@ -36,8 +36,8 @@ keyMoments:
 videoId: "LtRZn570LM0"
 videoTitle: "Morelle: \"This is a pretext for the president\""
 thumbnail: "https://img.youtube.com/vi/LtRZn570LM0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

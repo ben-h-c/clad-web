@@ -38,8 +38,8 @@ keyMoments:
 videoId: "956faQ2ov70"
 videoTitle: "Rep. Mark E. Amodei (Nevada–2nd) | 119th United States Congress"
 thumbnail: "https://img.youtube.com/vi/956faQ2ov70/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

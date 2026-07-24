@@ -40,8 +40,8 @@ keyMoments:
 videoId: "qinUmDGKs0k"
 videoTitle: "Could the Iran ceasefire collapse? Dem Rep. weighs in on fragile agreement"
 thumbnail: "https://img.youtube.com/vi/qinUmDGKs0k/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

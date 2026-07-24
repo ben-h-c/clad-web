@@ -35,8 +35,8 @@ keyMoments:
 videoId: "uLzMjVt5HKo"
 videoTitle: "MLB warns players against writing Bible verses on their hats during Pride month"
 thumbnail: "https://img.youtube.com/vi/uLzMjVt5HKo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

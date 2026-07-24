@@ -31,8 +31,8 @@ keyMoments:
 videoId: "dgFUu_W8lGQ"
 videoTitle: "Knicks retire Jimmy Fallon's lucky shoe"
 thumbnail: "https://img.youtube.com/vi/dgFUu_W8lGQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

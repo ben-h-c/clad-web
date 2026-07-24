@@ -33,8 +33,8 @@ keyMoments:
 videoId: "lMt-MPXp9-Q"
 videoTitle: "Anger grows in Venezuela as citizens blocked from aiding earthquake rescue"
 thumbnail: "https://img.youtube.com/vi/lMt-MPXp9-Q/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

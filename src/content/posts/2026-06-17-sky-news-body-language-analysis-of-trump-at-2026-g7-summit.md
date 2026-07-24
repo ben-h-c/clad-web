@@ -35,8 +35,8 @@ keyMoments:
 videoId: "DF0x55eXTow"
 videoTitle: "Trump and the other G7 leaders: What their body language reveals"
 thumbnail: "https://img.youtube.com/vi/DF0x55eXTow/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

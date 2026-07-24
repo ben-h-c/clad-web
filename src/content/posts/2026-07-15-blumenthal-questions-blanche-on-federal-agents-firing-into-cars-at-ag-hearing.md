@@ -28,8 +28,8 @@ keyMoments:
 videoId: "lxWaQqwzruc"
 videoTitle: "WATCH: Sen. Blumenthal asks Blanche whether federal agents should fire their weapons into cars"
 thumbnail: "https://img.youtube.com/vi/lxWaQqwzruc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

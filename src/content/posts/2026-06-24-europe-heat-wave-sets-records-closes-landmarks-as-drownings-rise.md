@@ -37,8 +37,8 @@ keyMoments:
 videoId: "EfANHst9FQ0"
 videoTitle: "Heat wave scorches Europe with record-breaking temperatures"
 thumbnail: "https://img.youtube.com/vi/EfANHst9FQ0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "MexiLlv8eWw"
 videoTitle: "Lawyers “shocked” by lack of answers on “lost Canadian” citizenship recalls"
 thumbnail: "https://img.youtube.com/vi/MexiLlv8eWw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

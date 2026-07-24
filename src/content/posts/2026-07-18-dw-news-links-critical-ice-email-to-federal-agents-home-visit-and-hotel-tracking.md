@@ -37,8 +37,8 @@ keyMoments:
 videoId: "oZTo80-sBTw"
 videoTitle: "When an email brings federal agents to your door | DW News"
 thumbnail: "https://img.youtube.com/vi/oZTo80-sBTw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "ymCm8G7gcMw"
 videoTitle: "France: Current heatwave recalls 2003 casualties • FRANCE 24 English"
 thumbnail: "https://img.youtube.com/vi/ymCm8G7gcMw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "qoYXDo90CIY"
 videoTitle: "“Now OR NEVER for The King To See Grandchildren” | Meghan And Kids Won’t Join Harry On UK Visit"
 thumbnail: "https://img.youtube.com/vi/qoYXDo90CIY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "QEqqOQHXWIA"
 videoTitle: "FBI says it thwarted plot against White House UFC event"
 thumbnail: "https://img.youtube.com/vi/QEqqOQHXWIA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

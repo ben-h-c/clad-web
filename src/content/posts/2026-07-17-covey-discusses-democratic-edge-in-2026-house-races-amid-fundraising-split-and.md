@@ -34,8 +34,8 @@ keyMoments:
 videoId: "MTAHVm8Nvwk"
 videoTitle: "Covey: Race To Win Control of House Remains Competitive"
 thumbnail: "https://img.youtube.com/vi/MTAHVm8Nvwk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

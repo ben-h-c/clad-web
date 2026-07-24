@@ -33,8 +33,8 @@ keyMoments:
 videoId: "9ZKDLS6eZXM"
 videoTitle: "Moral Clarity‼️🔥🔥 #usa #america #israel #palestine #iran #politics #congress #uk #nyc #newyork"
 thumbnail: "https://img.youtube.com/vi/9ZKDLS6eZXM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

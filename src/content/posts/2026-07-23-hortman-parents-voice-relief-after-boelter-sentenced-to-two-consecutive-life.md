@@ -32,8 +32,8 @@ keyMoments:
 videoId: "zPhFZHp4tXw"
 videoTitle: "Melissa Hortman's parents says they're glad 'it's over' after man is sentenced to life in killing"
 thumbnail: "https://img.youtube.com/vi/zPhFZHp4tXw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

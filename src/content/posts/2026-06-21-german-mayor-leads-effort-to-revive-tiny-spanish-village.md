@@ -34,8 +34,8 @@ keyMoments:
 videoId: "ZAZhesZZHSk"
 videoTitle: "A German mayor fights to save this tiny Spanish village | Focus on Europe"
 thumbnail: "https://img.youtube.com/vi/ZAZhesZZHSk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

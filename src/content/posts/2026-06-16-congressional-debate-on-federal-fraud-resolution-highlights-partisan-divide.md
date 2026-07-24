@@ -41,8 +41,8 @@ keyMoments:
 videoId: "T9fu58a0Z5o"
 videoTitle: "US Congress LIVE: Lawmaker Flags Trump’s $1.6B Scam, Rips GOP Anti-Fraud Push Amid Fraudster Pardons"
 thumbnail: "https://img.youtube.com/vi/T9fu58a0Z5o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

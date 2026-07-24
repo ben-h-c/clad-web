@@ -37,8 +37,8 @@ keyMoments:
 videoId: "z2U9vsqZgQo"
 videoTitle: "ALL EYES ON SENATE: Trump’s top priority faces MAJOR test"
 thumbnail: "https://img.youtube.com/vi/z2U9vsqZgQo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

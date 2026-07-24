@@ -38,8 +38,8 @@ keyMoments:
 videoId: "UM93o9h2nUc"
 videoTitle: "Ukraine launches drone strikes on Moscow, hitting oil refinery"
 thumbnail: "https://img.youtube.com/vi/UM93o9h2nUc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

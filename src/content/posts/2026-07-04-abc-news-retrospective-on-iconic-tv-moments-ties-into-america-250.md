@@ -34,8 +34,8 @@ keyMoments:
 videoId: "WvzX5cJeHhI"
 videoTitle: "Magic moments when TV cameras started rolling decades ago"
 thumbnail: "https://img.youtube.com/vi/WvzX5cJeHhI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

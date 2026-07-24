@@ -35,8 +35,8 @@ keyMoments:
 videoId: "Y1Ak7oL2FGo"
 videoTitle: "Some advice for Coach Pochettino: Keep Pulisic fit! #shorts #foxnews #news #us"
 thumbnail: "https://img.youtube.com/vi/Y1Ak7oL2FGo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

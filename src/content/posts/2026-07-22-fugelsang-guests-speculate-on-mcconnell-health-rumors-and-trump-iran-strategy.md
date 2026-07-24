@@ -35,8 +35,8 @@ keyMoments:
 videoId: "p4JrL78wYYw"
 videoTitle: "What’s The Deal with Mitch McConnell?! - The John Fugelsang Show"
 thumbnail: "https://img.youtube.com/vi/p4JrL78wYYw/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

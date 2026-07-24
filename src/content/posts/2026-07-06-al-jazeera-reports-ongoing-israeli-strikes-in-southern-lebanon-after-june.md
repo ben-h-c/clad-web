@@ -35,8 +35,8 @@ keyMoments:
 videoId: "q0fKHjJNYt0"
 videoTitle: "Israel strikes Southern Lebanon despite ceasefire as tensions rise"
 thumbnail: "https://img.youtube.com/vi/q0fKHjJNYt0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

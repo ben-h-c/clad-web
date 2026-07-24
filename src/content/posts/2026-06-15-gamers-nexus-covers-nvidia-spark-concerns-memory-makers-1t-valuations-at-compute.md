@@ -36,8 +36,8 @@ keyMoments:
 videoId: "cpP6Y3Guego"
 videoTitle: "HW News - DRAM Companies Hit Trillions of Dollars, Bambu Open Source, NVIDIA Spark Concerns"
 thumbnail: "https://img.youtube.com/vi/cpP6Y3Guego/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -39,8 +39,8 @@ keyMoments:
 videoId: "UN1fyLufqdo"
 videoTitle: "'That Leads To Widespread Economic Distress': Whitehouse Warns Of Climate Risk In Insurance Market"
 thumbnail: "https://img.youtube.com/vi/UN1fyLufqdo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

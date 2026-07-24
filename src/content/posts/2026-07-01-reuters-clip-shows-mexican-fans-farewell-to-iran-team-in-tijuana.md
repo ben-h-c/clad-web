@@ -28,8 +28,8 @@ keyMoments:
 videoId: "kX66Dn_GIuE"
 videoTitle: "Mexicans bid Iran team farewell after World Cup exit"
 thumbnail: "https://img.youtube.com/vi/kX66Dn_GIuE/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

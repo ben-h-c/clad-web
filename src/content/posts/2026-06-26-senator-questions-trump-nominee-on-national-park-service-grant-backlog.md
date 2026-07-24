@@ -32,8 +32,8 @@ keyMoments:
 videoId: "0gX1F_uop1c"
 videoTitle: "'How Many Grants Are Currently Awaiting Your Review?': Duckworth Grills Trump Nom Over Grants"
 thumbnail: "https://img.youtube.com/vi/0gX1F_uop1c/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

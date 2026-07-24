@@ -28,8 +28,8 @@ keyMoments:
 videoId: "Jp7_fZqXeX0"
 videoTitle: "JD Vance meets Pakistan delegation before Iran talks in Switzerland"
 thumbnail: "https://img.youtube.com/vi/Jp7_fZqXeX0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

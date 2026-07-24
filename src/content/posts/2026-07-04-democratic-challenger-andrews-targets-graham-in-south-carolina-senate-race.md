@@ -40,8 +40,8 @@ keyMoments:
 videoId: "8LVUxp_nBEA"
 videoTitle: "New candidate has the best shot yet at booting 'swamp creature' Lindsey Graham"
 thumbnail: "https://img.youtube.com/vi/8LVUxp_nBEA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

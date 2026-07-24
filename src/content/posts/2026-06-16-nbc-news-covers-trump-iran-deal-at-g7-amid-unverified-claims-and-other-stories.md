@@ -34,8 +34,8 @@ keyMoments:
 videoId: "bs5dD56-drM"
 videoTitle: "Morning News NOW Full Episode – June 16"
 thumbnail: "https://img.youtube.com/vi/bs5dD56-drM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

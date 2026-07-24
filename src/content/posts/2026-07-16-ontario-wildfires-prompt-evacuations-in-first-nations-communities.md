@@ -35,8 +35,8 @@ keyMoments:
 videoId: "X2rQRFiHJuM"
 videoTitle: "Ontario seeks federal help as wildfires force more evacuations"
 thumbnail: "https://img.youtube.com/vi/X2rQRFiHJuM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

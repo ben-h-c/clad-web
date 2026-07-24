@@ -37,8 +37,8 @@ keyMoments:
 videoId: "5g6K-ihKQ-I"
 videoTitle: "The Democratic Party is getting HIJACKED: Expert"
 thumbnail: "https://img.youtube.com/vi/5g6K-ihKQ-I/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Neo2ydnwldg"
 videoTitle: "Rep. Thompson CALLS OUT Bessent&#39;s &#39;Golden Age&#39; Economy in Heated Hearing"
 thumbnail: "https://img.youtube.com/vi/Neo2ydnwldg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

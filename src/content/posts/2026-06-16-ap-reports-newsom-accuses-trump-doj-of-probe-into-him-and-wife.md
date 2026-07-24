@@ -35,8 +35,8 @@ keyMoments:
 videoId: "iNxLD49JR9E"
 videoTitle: "Gavin Newsom says Justice Department is investigating him and his wife"
 thumbnail: "https://img.youtube.com/vi/iNxLD49JR9E/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "ew-uw9Vt6rs"
 videoTitle: "Virginia lawmakers push ahead with marijuana market; DOJ opposes assault weapons ban | Sunrise"
 thumbnail: "https://img.youtube.com/vi/ew-uw9Vt6rs/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

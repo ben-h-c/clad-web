@@ -39,8 +39,8 @@ keyMoments:
 videoId: "P5e72N-9hDY"
 videoTitle: "BREAKING NEWS: Chuck Schumer Absolutely Torches Trump, Cabinet After U.S.-Iran Deal Announced"
 thumbnail: "https://img.youtube.com/vi/P5e72N-9hDY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

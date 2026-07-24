@@ -31,8 +31,8 @@ keyMoments:
 videoId: "_da2iLh6sws"
 videoTitle: "Gutfeld: When did men stop wearing these…?"
 thumbnail: "https://img.youtube.com/vi/_da2iLh6sws/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

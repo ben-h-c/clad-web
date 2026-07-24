@@ -31,8 +31,8 @@ keyMoments:
 videoId: "Xb94X61mYWw"
 videoTitle: "Red Cross warns Ebola outbreak in DRC not yet peaked, could last a year"
 thumbnail: "https://img.youtube.com/vi/Xb94X61mYWw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

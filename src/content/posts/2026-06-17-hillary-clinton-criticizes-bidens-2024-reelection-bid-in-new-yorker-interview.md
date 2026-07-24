@@ -37,8 +37,8 @@ keyMoments:
 videoId: "5kZIvlT-TTI"
 videoTitle: "Hillary Clinton blasts Joe Biden for 2024 re-election campaign | RISING"
 thumbnail: "https://img.youtube.com/vi/5kZIvlT-TTI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

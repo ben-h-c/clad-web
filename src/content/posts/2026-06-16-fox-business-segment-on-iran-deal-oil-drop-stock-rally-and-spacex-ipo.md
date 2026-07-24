@@ -37,8 +37,8 @@ keyMoments:
 videoId: "QAhVY_K9ZNA"
 videoTitle: "'SHOOTING UP LIKE A ROCKET': Trump touts EXPLOSIVE stock market rally"
 thumbnail: "https://img.youtube.com/vi/QAhVY_K9ZNA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

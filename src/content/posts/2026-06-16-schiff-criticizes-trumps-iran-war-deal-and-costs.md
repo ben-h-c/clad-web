@@ -36,8 +36,8 @@ keyMoments:
 videoId: "akErrcKnXOI"
 videoTitle: "'Those Billions You Paid At The Pump Are Going To Go To Iran': Adam Schiff Shreds Trump's Iran Deal"
 thumbnail: "https://img.youtube.com/vi/akErrcKnXOI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

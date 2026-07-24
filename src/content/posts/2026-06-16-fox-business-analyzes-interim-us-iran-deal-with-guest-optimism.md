@@ -35,8 +35,8 @@ keyMoments:
 videoId: "p5pt4hoKJmw"
 videoTitle: "This is good for Americans, expert says"
 thumbnail: "https://img.youtube.com/vi/p5pt4hoKJmw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

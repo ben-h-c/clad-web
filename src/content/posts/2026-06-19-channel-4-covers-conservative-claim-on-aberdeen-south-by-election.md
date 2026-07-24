@@ -31,8 +31,8 @@ keyMoments:
 videoId: "KgbUg4lGrLg"
 videoTitle: "Aberdeen South by-election ‘was a referendum on oil and gas’"
 thumbnail: "https://img.youtube.com/vi/KgbUg4lGrLg/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

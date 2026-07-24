@@ -27,8 +27,8 @@ keyMoments:
 videoId: "N_H9ShrVTS4"
 videoTitle: "President Trump describes MOU as 'not final,' threatens to restart bombing #news #iran"
 thumbnail: "https://img.youtube.com/vi/N_H9ShrVTS4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

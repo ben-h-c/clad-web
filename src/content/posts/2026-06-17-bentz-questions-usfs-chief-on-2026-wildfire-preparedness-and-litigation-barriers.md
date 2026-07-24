@@ -36,8 +36,8 @@ keyMoments:
 videoId: "NHewGkqrPtA"
 videoTitle: "Cliff Bentz Asks USFS Chief Point Blank: 'Are You Prepared For This Fire Season?'"
 thumbnail: "https://img.youtube.com/vi/NHewGkqrPtA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

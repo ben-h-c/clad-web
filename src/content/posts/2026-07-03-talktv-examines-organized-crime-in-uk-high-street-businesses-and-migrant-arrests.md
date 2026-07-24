@@ -33,8 +33,8 @@ keyMoments:
 videoId: "cuga-Zn2vXo"
 videoTitle: "'Organised Crime Has Moved Into The High Street' | 'They're Not Even Hiding It'"
 thumbnail: "https://img.youtube.com/vi/cuga-Zn2vXo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

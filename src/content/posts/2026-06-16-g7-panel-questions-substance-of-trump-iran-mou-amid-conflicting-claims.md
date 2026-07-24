@@ -37,8 +37,8 @@ keyMoments:
 videoId: "J4d_h2Rw7V8"
 videoTitle: "Will G7 summit reveal Trump as a 'reality TV' president?"
 thumbnail: "https://img.youtube.com/vi/J4d_h2Rw7V8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -33,8 +33,8 @@ keyMoments:
 videoId: "J2rmrHZ2e9w"
 videoTitle: "Gilgo Beach killer Rex Heuermann sentenced to life in prison"
 thumbnail: "https://img.youtube.com/vi/J2rmrHZ2e9w/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

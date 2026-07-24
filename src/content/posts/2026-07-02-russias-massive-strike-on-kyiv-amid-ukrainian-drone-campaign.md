@@ -36,8 +36,8 @@ keyMoments:
 videoId: "s5O94oncGmo"
 videoTitle: "Russia's biggest ever attacks hit Kyiv, but is it Ukraine that has the advantage | DW News"
 thumbnail: "https://img.youtube.com/vi/s5O94oncGmo/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "S0z2R9BxTnQ"
 videoTitle: "US Supreme Court to rule on several cases this month | ChicagoLIVE"
 thumbnail: "https://img.youtube.com/vi/S0z2R9BxTnQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

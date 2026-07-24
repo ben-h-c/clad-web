@@ -35,8 +35,8 @@ keyMoments:
 videoId: "5XCl16QQxFg"
 videoTitle: "Court visits jungle lab at center of Nigeria's biggest meth bust"
 thumbnail: "https://img.youtube.com/vi/5XCl16QQxFg/hqdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

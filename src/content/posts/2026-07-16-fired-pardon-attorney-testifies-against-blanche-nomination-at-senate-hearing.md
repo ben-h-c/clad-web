@@ -40,8 +40,8 @@ keyMoments:
 videoId: "RX3Ct7JHSPc"
 videoTitle: "Fired DOJ lawyer attorney accuses Blanche of enforcing Trump's \"pointless vendettas\""
 thumbnail: "https://img.youtube.com/vi/RX3Ct7JHSPc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

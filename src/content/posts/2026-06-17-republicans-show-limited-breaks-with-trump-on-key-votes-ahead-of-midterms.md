@@ -34,8 +34,8 @@ keyMoments:
 videoId: "T2bzV0FmcjI"
 videoTitle: "Why are Republicans in Congress starting to break with Donald Trump?"
 thumbnail: "https://img.youtube.com/vi/T2bzV0FmcjI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

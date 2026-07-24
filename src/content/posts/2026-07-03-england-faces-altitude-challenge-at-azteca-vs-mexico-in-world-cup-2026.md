@@ -38,8 +38,8 @@ keyMoments:
 videoId: "Zrf2CLoy2o0"
 videoTitle: "Why England's World Cup could run out of gas in Mexico City"
 thumbnail: "https://img.youtube.com/vi/Zrf2CLoy2o0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

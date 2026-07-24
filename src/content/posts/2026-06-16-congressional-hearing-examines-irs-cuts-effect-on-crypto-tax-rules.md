@@ -32,8 +32,8 @@ keyMoments:
 videoId: "YLqW_Gtaag4"
 videoTitle: "Don Beyer: The IRS' Staff Cuts Will Negatively Impact Implementation Of Cryptocurrency Tax Law"
 thumbnail: "https://img.youtube.com/vi/YLqW_Gtaag4/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -38,8 +38,8 @@ keyMoments:
 videoId: "793DfZVxVLA"
 videoTitle: "How Big Food sells ultraprocessed food | The Listening Post"
 thumbnail: "https://img.youtube.com/vi/793DfZVxVLA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

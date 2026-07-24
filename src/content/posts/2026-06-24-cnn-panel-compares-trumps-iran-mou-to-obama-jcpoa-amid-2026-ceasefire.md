@@ -40,8 +40,8 @@ keyMoments:
 videoId: "WbrJSJJ7rV0"
 videoTitle: "How is Trump's Iran deal different from Obama's?"
 thumbnail: "https://img.youtube.com/vi/WbrJSJJ7rV0/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

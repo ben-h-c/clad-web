@@ -32,8 +32,8 @@ keyMoments:
 videoId: "WxKJpBMUV2o"
 videoTitle: "Is Toronto pushing out its homeless population for the World Cup? | DW News"
 thumbnail: "https://img.youtube.com/vi/WxKJpBMUV2o/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

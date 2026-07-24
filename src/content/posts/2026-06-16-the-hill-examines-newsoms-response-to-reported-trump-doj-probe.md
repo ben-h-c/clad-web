@@ -32,8 +32,8 @@ keyMoments:
 videoId: "a_Y-KkazjWk"
 videoTitle: "Will Gavin Newsom benefit from the Trump DOJ investigation? | THE FIGHT FOR 2028"
 thumbnail: "https://img.youtube.com/vi/a_Y-KkazjWk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

@@ -34,8 +34,8 @@ keyMoments:
 videoId: "ibTCRaTdSyM"
 videoTitle: "Democratic socialist defeats longtime US longtime incumbent in Colorado"
 thumbnail: "https://img.youtube.com/vi/ibTCRaTdSyM/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

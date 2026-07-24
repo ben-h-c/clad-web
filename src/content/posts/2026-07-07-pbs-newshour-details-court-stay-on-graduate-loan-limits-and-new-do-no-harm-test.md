@@ -34,8 +34,8 @@ keyMoments:
 videoId: "jq8vdLqlqqY"
 videoTitle: "New student loan rules could limit funding for some graduate programs"
 thumbnail: "https://img.youtube.com/vi/jq8vdLqlqqY/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

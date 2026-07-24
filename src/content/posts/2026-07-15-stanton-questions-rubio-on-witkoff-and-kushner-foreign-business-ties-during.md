@@ -37,8 +37,8 @@ keyMoments:
 videoId: "Tnl4BI8I2iQ"
 videoTitle: "BREAKING: Greg Stanton Puts Rubio On The Spot Over Witkoff &amp; Kushner Conflict Claims"
 thumbnail: "https://img.youtube.com/vi/Tnl4BI8I2iQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

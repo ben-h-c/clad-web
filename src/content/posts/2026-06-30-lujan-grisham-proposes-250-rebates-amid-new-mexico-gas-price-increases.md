@@ -35,8 +35,8 @@ keyMoments:
 videoId: "jHajnk2iaKQ"
 videoTitle: "Governor Michelle Lujan Grisham proposes $250 rebates amid rising inflation and gas prices"
 thumbnail: "https://img.youtube.com/vi/jHajnk2iaKQ/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

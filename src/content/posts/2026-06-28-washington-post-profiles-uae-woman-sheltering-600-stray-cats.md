@@ -34,8 +34,8 @@ keyMoments:
 videoId: "NQU2OqdCrl8"
 videoTitle: "She biked stray cats to the vet in a backpack. Now she shelters 600."
 thumbnail: "https://img.youtube.com/vi/NQU2OqdCrl8/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

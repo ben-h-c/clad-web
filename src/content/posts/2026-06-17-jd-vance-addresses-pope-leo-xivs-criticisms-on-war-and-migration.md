@@ -31,8 +31,8 @@ keyMoments:
 videoId: "N-t1b3G9kyI"
 videoTitle: "How does JD Vance process Pope Leo's criticism? #jdvance #shorts #popeleoxiv #religion #politics"
 thumbnail: "https://img.youtube.com/vi/N-t1b3G9kyI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

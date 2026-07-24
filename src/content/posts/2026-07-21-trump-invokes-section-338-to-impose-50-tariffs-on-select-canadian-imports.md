@@ -32,8 +32,8 @@ keyMoments:
 videoId: "oPDDR_8JTic"
 videoTitle: "Are Trump’s latest tariff threats on Canada legal?"
 thumbnail: "https://img.youtube.com/vi/oPDDR_8JTic/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

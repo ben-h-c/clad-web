@@ -39,8 +39,8 @@ keyMoments:
 videoId: "Ecvcr2D1Unk"
 videoTitle: "Michael Guest Highlights Importance Of Northern Border Security As Drug Seizures Hit 'Record Levels'"
 thumbnail: "https://img.youtube.com/vi/Ecvcr2D1Unk/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

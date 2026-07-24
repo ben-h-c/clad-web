@@ -34,8 +34,8 @@ keyMoments:
 videoId: "2rJsQL-a1DI"
 videoTitle: "Orphanage fire in Algeria kills 11 people, including children, amid heatwave"
 thumbnail: "https://img.youtube.com/vi/2rJsQL-a1DI/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

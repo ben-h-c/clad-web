@@ -31,8 +31,8 @@ keyMoments:
 videoId: "xmn8go_aCNA"
 videoTitle: "'We Need To Start To Learn': Jill Tokuda Demands Race-Neutral Methods To Deter Chinese Influence"
 thumbnail: "https://img.youtube.com/vi/xmn8go_aCNA/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

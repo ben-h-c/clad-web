@@ -25,8 +25,8 @@ keyMoments:
 videoId: "j11ieUyYprc"
 videoTitle: "Macron Reveals ‘Difficult’ Trump Meeting on Hot Mic"
 thumbnail: "https://img.youtube.com/vi/j11ieUyYprc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

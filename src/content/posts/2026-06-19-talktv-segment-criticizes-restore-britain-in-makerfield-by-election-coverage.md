@@ -37,8 +37,8 @@ keyMoments:
 videoId: "UsHT8WmbuVw"
 videoTitle: "‘Thuggish And DEEPLY Unpleasant Party’ | Restore UK Voters Urged To Think AGAIN"
 thumbnail: "https://img.youtube.com/vi/UsHT8WmbuVw/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

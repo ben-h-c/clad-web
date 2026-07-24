@@ -30,8 +30,8 @@ keyMoments:
 videoId: "qBW-5N7RqDc"
 videoTitle: "Trump tells reporter Iran wants 'to desperately meet'"
 thumbnail: "https://img.youtube.com/vi/qBW-5N7RqDc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:

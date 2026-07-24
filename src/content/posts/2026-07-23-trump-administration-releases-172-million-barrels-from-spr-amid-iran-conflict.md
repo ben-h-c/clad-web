@@ -38,9 +38,9 @@ keyMoments:
 videoId: "D29pdfb6qms"
 videoTitle: "U.S. Strategic Petroleum Reserve hits lowest level since 1983 as oil prices surge"
 thumbnail: "https://img.youtube.com/vi/D29pdfb6qms/maxresdefault.jpg"
-mediaNote: "Center on midground cluster of white storage tanks; keep upper facility and waterline in frame, clear of bottom text third"
-thumbFocusY: 32
-thumbFocusX: 48
+mediaNote: "16:9 band default"
+thumbFocusY: 40
+thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:
   - name: "Thomas Massie"

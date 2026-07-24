@@ -35,8 +35,8 @@ keyMoments:
 videoId: "cxnbkAUzp7s"
 videoTitle: "Larry Kudlow: Let's NOT forget this..."
 thumbnail: "https://img.youtube.com/vi/cxnbkAUzp7s/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 citations:

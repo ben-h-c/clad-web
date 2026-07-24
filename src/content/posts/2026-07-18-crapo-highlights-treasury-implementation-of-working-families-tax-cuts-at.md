@@ -31,8 +31,8 @@ keyMoments:
 videoId: "EOKwhAeM9qc"
 videoTitle: "&#39;The Treasury Department Has Worked Expeditiously&#39;: Crapo Praises Big Beautiful Bill Tax Cuts"
 thumbnail: "https://img.youtube.com/vi/EOKwhAeM9qc/maxresdefault.jpg"
-mediaNote: "default overlay framing"
-thumbFocusY: 32
+mediaNote: "16:9 band default"
+thumbFocusY: 40
 thumbFocusX: 50
 mediaStyle: "overlay"
 politicians:
