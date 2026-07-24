@@ -37,9 +37,11 @@ import { getAccess } from "~/lib/access";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 import { homePromosForPage } from "~/lib/homePromos";
 import { resolveHomeHighlight, resolveHomeOrder } from "~/lib/homeLayout";
+import { buildHomeFeatureItems } from "~/lib/homeFeatures";
 import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates } from "~/lib/elections";
 import {
   normalizeCalendarEvent,
+  buildCalendarEvents,
   type CalendarEvent,
 } from "~/lib/calendarEvents";
 import { buildDaySummaries } from "~/lib/calendarDays";
@@ -176,6 +178,17 @@ const homeOrder = resolveHomeOrder(homeLayout);
 const homeHighlight = resolveHomeHighlight(homeLayout, {
   signedIn: access.signedIn,
 });
+// “Today” media strip: desk highlight + daybook + fresh graded reports.
+const featureCalendar = buildCalendarEvents({
+  races: calendarRaces ?? undefined,
+  live: calendarLive,
+});
+const featureItems = buildHomeFeatureItems({
+  highlight: homeHighlight,
+  calendarEvents: featureCalendar,
+  posts: all,
+  max: 10,
+});
 
 // Discover + Good News — same horizontal strip format as Breaking / Front Page.
 // Flatten curated section post ids (order preserved, de-duped). Cap for mobile.
@@ -242,8 +255,8 @@ const quips = await getQuips(env.AGENTS);
             />
           )}
 
-          {section === "feature-highlight" && homeHighlight && (
-            <HomeFeatureHighlight highlight={homeHighlight} />
+          {section === "feature-highlight" && featureItems.length > 0 && (
+            <HomeFeatureHighlight items={featureItems} title="Today" />
           )}
 
           {section === "spotlight" && spotlightPromos.length > 0 && (

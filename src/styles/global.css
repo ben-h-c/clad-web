@@ -9155,6 +9155,77 @@ html.clad-app section.charts.home-app-only {
   -webkit-backdrop-filter: none;
 }
 
+/* ---------- Today feature strip (horizontal media heroes) ---------- */
+.home-features {
+  margin: 0.35rem 0 1.15rem;
+}
+.home-features__head {
+  margin-bottom: 0.15rem;
+}
+.home-features__wrap {
+  position: relative;
+  margin: 0.65rem 0 0;
+}
+.home-features__strip {
+  display: flex;
+  gap: 0.85rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 0.15rem;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y;
+  padding: 0.15rem 0.15rem 0.55rem;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--rule) 45%, transparent) transparent;
+}
+.home-features__item,
+.home-features__slide {
+  flex: 0 0 min(88vw, 34rem);
+  scroll-snap-align: start;
+  min-width: 0;
+  max-width: 34rem;
+  margin: 0;
+  min-height: clamp(14.5rem, 32vw, 18.5rem);
+  height: auto;
+  box-sizing: border-box;
+  /* Keep slide self-contained so the strip doesn't stretch every card tall */
+  align-self: stretch;
+}
+.home-features__slide .media-hero__content {
+  flex: 1 1 auto;
+}
+/* Single slide: use full shell width */
+.home-features__strip:has(> :only-child) .home-features__item {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+.home-features__hint {
+  margin: 0.15rem 0 0;
+  text-align: center;
+  color: var(--muted-ink);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+}
+@media (min-width: 900px) {
+  .home-features__item,
+  .home-features__slide {
+    flex-basis: min(72%, 36rem);
+    max-width: 36rem;
+    min-height: clamp(15rem, 28vw, 19rem);
+  }
+}
+@media (max-width: 560px) {
+  .home-features__item,
+  .home-features__slide {
+    flex-basis: min(92vw, 22rem);
+    max-width: 22rem;
+    min-height: 15.5rem;
+  }
+  .home-features__strip {
+    gap: 0.65rem;
+  }
+}
+
 /* Home feature aliases (plain + media) */
 .home-feature.media-hero {
   /* inherits media-hero */

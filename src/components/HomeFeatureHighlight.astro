@@ -1,68 +1,96 @@
 ---
 /**
- * Agent-driven full-width feature / current-events strip on the home page.
- * CNN-style media hero when an image is available: photo fills the frame,
- * soft bottom scrim under the type for readability.
+ * Horizontal “Today” media-hero strip — desk highlight + daily calendar +
+ * fresh graded reports. Swipe / arrow scroll; same CNN-style image + scrim.
  */
-import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
-import type { HomeLayoutHighlight } from "~/lib/homeLayout";
-import { displayableThumb } from "~/lib/imagePolicy";
+import type { HomeFeatureItem } from "~/lib/homeFeatures";
+import { todayIsoNy } from "~/lib/calendarEvents";
 
 interface Props {
-  highlight: HomeLayoutHighlight;
+  items: HomeFeatureItem[];
   class?: string;
+  title?: string;
 }
-const { highlight: h } = Astro.props;
-
-/** Prefer explicit image; else resolve a post thumbnail from the primary href. */
-let image: string | null = h.image ? displayableThumb(h.image) : null;
-if (!image && h.href.startsWith("/posts/")) {
-  const slug = h.href.replace(/^\/posts\//, "").replace(/\/$/, "").split("?")[0];
-  if (slug) {
-    try {
-      const posts = await getCollection("posts", (p) => p.id === slug);
-      const post = posts[0] as CollectionEntry<"posts"> | undefined;
-      image = displayableThumb(post?.data.thumbnail) ?? null;
-    } catch {
-      /* collection unavailable */
-    }
-  }
-}
-
-const wrapClass = [
-  "media-hero",
-  "home-feature",
-  image ? "media-hero--has-image" : "media-hero--plain",
-  h.variant && `home-feature--${h.variant}`,
-  h.variant && `media-hero--${h.variant}`,
-  Astro.props.class,
-]
-  .filter(Boolean)
-  .join(" ");
+const { items, title = "Today" } = Astro.props;
+const today = todayIsoNy();
+const multi = items.length > 1;
+const wrapClass = ["home-features", Astro.props.class].filter(Boolean).join(" ");
 ---
-<section
-  class={wrapClass}
-  aria-labelledby={`home-feature-${h.id}`}
-  data-home-feature={h.id}
->
-  {image && (
-    <div class="media-hero__bg" aria-hidden="true">
-      <img src={image} alt="" width="1200" height="675" loading="eager" decoding="async" />
+{items.length > 0 && (
+  <section class={wrapClass} aria-label={title} data-home-features>
+    <div class="feed__head home-features__head">
+      <h2 class="feed__title" id="home-features-title">{title}</h2>
+      <a class="category__more" href={`/day/${today}/`}>Full day →</a>
     </div>
-  )}
-  <div class="media-hero__scrim" aria-hidden="true"></div>
-  <div class="media-hero__content home-feature__inner">
-    <div class="home-feature__text">
-      <p class="home-feature__kicker media-hero__kicker small-caps">{h.kicker}</p>
-      <h2 class="home-feature__title media-hero__title" id={`home-feature-${h.id}`}>{h.title}</h2>
-      <p class="home-feature__body media-hero__body">{h.body}</p>
-    </div>
-    <div class="home-feature__actions media-hero__actions">
-      <a class="home-feature__cta media-hero__cta" href={h.href}>{h.cta}</a>
-      {h.secondaryHref && h.secondaryCta && (
-        <a class="home-feature__secondary media-hero__secondary" href={h.secondaryHref}>{h.secondaryCta}</a>
+    <div class="rule rule--double" aria-hidden="true"></div>
+
+    <div class="home-features__wrap hero-strip-wrap">
+      {multi && (
+        <button type="button" class="hero-arrow hero-arrow--left" aria-label="Previous highlights" hidden>‹</button>
+      )}
+      <div
+        class="home-features__strip hero-strip"
+        aria-labelledby="home-features-title"
+        data-home-features-strip
+      >
+        {items.map((h, i) => {
+          const image = h.image || null;
+          const slideClass = [
+            "media-hero",
+            "home-feature",
+            "home-features__slide",
+            image ? "media-hero--has-image" : "media-hero--plain",
+            h.variant && `home-feature--${h.variant}`,
+            h.variant && `media-hero--${h.variant}`,
+          ]
+            .filter(Boolean)
+            .join(" ");
+          return (
+            <article
+              class={`home-features__item hero-strip__item ${slideClass}`}
+              data-home-feature={h.id}
+              aria-label={`${i + 1} of ${items.length}: ${h.title}`}
+            >
+              {image && (
+                <div class="media-hero__bg" aria-hidden="true">
+                  <img
+                    src={image}
+                    alt=""
+                    width="960"
+                    height="540"
+                    loading={i === 0 ? "eager" : "lazy"}
+                    decoding="async"
+                  />
+                </div>
+              )}
+              <div class="media-hero__scrim" aria-hidden="true"></div>
+              <div class="media-hero__content home-feature__inner">
+                <div class="home-feature__text">
+                  <p class="home-feature__kicker media-hero__kicker small-caps">{h.kicker}</p>
+                  <h3 class="home-feature__title media-hero__title">{h.title}</h3>
+                  {h.body && <p class="home-feature__body media-hero__body">{h.body}</p>}
+                </div>
+                <div class="home-feature__actions media-hero__actions">
+                  <a class="home-feature__cta media-hero__cta" href={h.href}>{h.cta}</a>
+                  {h.secondaryHref && h.secondaryCta && (
+                    <a class="home-feature__secondary media-hero__secondary" href={h.secondaryHref}>
+                      {h.secondaryCta}
+                    </a>
+                  )}
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+      {multi && (
+        <button type="button" class="hero-arrow hero-arrow--right" aria-label="Next highlights">›</button>
       )}
     </div>
-  </div>
-</section>
+    {multi && (
+      <p class="home-features__hint small-caps" aria-hidden="true">
+        Swipe for more · {items.length} today
+      </p>
+    )}
+  </section>
+)}
