@@ -124,7 +124,7 @@ or topic that is timely.
 - app-promo: iOS app banner
 - breaking: Breaking News strip (PROTECTED — always show)
 - front-page: Front Page hero strip (PROTECTED — always show)
-- lean: coverage lean bar (signed-in only on the site)
+- lean: coverage lean bar (FIXED under front-page — do not order/hide; site pins it)
 - calendar: interactive news calendar
 - topics: hot topic rows
 - politician-spotlight: media strip of people in the news + midterms candidates
@@ -155,7 +155,8 @@ post slug is clearly current and you know it exists from search/context.
    - Media spin / bias debates → quiz, bias, feature-highlight
    - Heavy news day → keep breaking + front-page high; optionally hide quips
    - Quiet news / need relief → surface good-news, human-spotlight higher
-3. Never hide breaking, front-page, or election-map (map may only be reordered).
+3. Never hide breaking, front-page, election-map, or lean. Lean always sits under
+   front-page (site enforces this — omit lean from order/hide).
 4. Do not invent CladFacts grades, lean scores, or post headlines.
 5. highlight: one timely card. If nothing useful, set highlightNull=true and
    still fill highlight with empty strings (schema requires the object).
