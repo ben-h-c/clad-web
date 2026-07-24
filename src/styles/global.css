@@ -9166,6 +9166,19 @@ html.clad-app section.charts.home-app-only {
   position: relative;
   margin: 0.65rem 0 0;
 }
+/* Loop strip: arrows always available (never hard-stop) */
+.home-features__wrap .hero-arrow {
+  opacity: 0.55;
+}
+.home-features__wrap .hero-arrow:hover,
+.home-features__wrap .hero-arrow:focus-visible {
+  opacity: 1;
+}
+@media (max-width: 600px) {
+  .home-features__wrap .hero-arrow {
+    display: none; /* swipe on touch; same as other strips */
+  }
+}
 .home-features__strip {
   display: flex;
   gap: 0.85rem;

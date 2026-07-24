@@ -1,7 +1,7 @@
 ---
 /**
  * Horizontal “Today” media-hero strip — desk highlight + daily calendar +
- * fresh graded reports. Swipe / arrow scroll; same CNN-style image + scrim.
+ * fresh graded reports. Infinite loop scroll (no hard stop at the ends).
  */
 import type { HomeFeatureItem } from "~/lib/homeFeatures";
 import { todayIsoNy } from "~/lib/calendarEvents";
@@ -24,14 +24,15 @@ const wrapClass = ["home-features", Astro.props.class].filter(Boolean).join(" ")
     </div>
     <div class="rule rule--double" aria-hidden="true"></div>
 
-    <div class="home-features__wrap hero-strip-wrap">
+    <div class="home-features__wrap" data-home-features-wrap>
       {multi && (
-        <button type="button" class="hero-arrow hero-arrow--left" aria-label="Previous highlights" hidden>‹</button>
+        <button type="button" class="hero-arrow hero-arrow--left" data-hf-prev aria-label="Previous highlights">‹</button>
       )}
       <div
-        class="home-features__strip hero-strip"
+        class="home-features__strip"
         aria-labelledby="home-features-title"
         data-home-features-strip
+        data-loop={multi ? "1" : "0"}
       >
         {items.map((h, i) => {
           const image = h.image || null;
@@ -47,8 +48,9 @@ const wrapClass = ["home-features", Astro.props.class].filter(Boolean).join(" ")
             .join(" ");
           return (
             <article
-              class={`home-features__item hero-strip__item ${slideClass}`}
+              class={`home-features__item ${slideClass}`}
               data-home-feature={h.id}
+              data-hf-slide
               aria-label={`${i + 1} of ${items.length}: ${h.title}`}
             >
               {image && (
@@ -84,13 +86,133 @@ const wrapClass = ["home-features", Astro.props.class].filter(Boolean).join(" ")
         })}
       </div>
       {multi && (
-        <button type="button" class="hero-arrow hero-arrow--right" aria-label="Next highlights">›</button>
+        <button type="button" class="hero-arrow hero-arrow--right" data-hf-next aria-label="Next highlights">›</button>
       )}
     </div>
     {multi && (
       <p class="home-features__hint small-caps" aria-hidden="true">
-        Swipe for more · {items.length} today
+        Swipe · loops · {items.length} stories today
       </p>
     )}
   </section>
+)}
+
+{multi && (
+  <script is:inline>
+    (() => {
+      const root = document.querySelector("[data-home-features]");
+      if (!root || root.dataset.loopBound === "1") return;
+      root.dataset.loopBound = "1";
+
+      const strip = root.querySelector("[data-home-features-strip]");
+      const prev = root.querySelector("[data-hf-prev]");
+      const next = root.querySelector("[data-hf-next]");
+      if (!strip || strip.dataset.loop !== "1") return;
+
+      const originals = Array.from(strip.querySelectorAll("[data-hf-slide]"));
+      if (originals.length < 2) return;
+
+      // Duplicate the set once for seamless wrap (start mid-set).
+      const frag = document.createDocumentFragment();
+      originals.forEach((el) => {
+        const clone = el.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        // Avoid duplicate eager images fighting bandwidth
+        clone.querySelectorAll("img[loading=eager]").forEach((img) => {
+          img.setAttribute("loading", "lazy");
+        });
+        frag.appendChild(clone);
+      });
+      strip.appendChild(frag);
+
+      let setWidth = 0;
+      let jumping = false;
+      const reduce = () =>
+        matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const measure = () => {
+        const slides = strip.querySelectorAll("[data-hf-slide]");
+        const n = originals.length;
+        if (slides.length < n * 2) return;
+        const first = slides[0];
+        const mid = slides[n];
+        if (!first || !mid) return;
+        setWidth = mid.offsetLeft - first.offsetLeft;
+      };
+
+      /** When scrolled into the clone half, snap back by one set (seamless loop). */
+      const jumpIfNeeded = () => {
+        if (!setWidth || jumping) return;
+        const x = strip.scrollLeft;
+        if (x >= setWidth - 1) {
+          jumping = true;
+          strip.scrollLeft = x - setWidth;
+          jumping = false;
+        }
+      };
+
+      const step = () =>
+        Math.max(260, Math.min(setWidth || 400, strip.clientWidth * 0.85));
+
+      const go = (dir) => {
+        measure();
+        if (!setWidth) return;
+        const behavior = reduce() ? "auto" : "smooth";
+        // From the start, left needs a silent hop into the clone set first
+        if (dir < 0 && strip.scrollLeft <= 6) {
+          jumping = true;
+          strip.scrollLeft = setWidth + strip.scrollLeft;
+          jumping = false;
+        }
+        strip.scrollBy({ left: dir * step(), behavior });
+        window.setTimeout(jumpIfNeeded, reduce() ? 0 : 450);
+      };
+
+      prev && prev.addEventListener("click", () => go(-1));
+      next && next.addEventListener("click", () => go(1));
+
+      strip.addEventListener(
+        "scroll",
+        () => {
+          if (jumping) return;
+          if (strip._hfRaf) return;
+          strip._hfRaf = requestAnimationFrame(() => {
+            strip._hfRaf = 0;
+            jumpIfNeeded();
+          });
+        },
+        { passive: true }
+      );
+
+      // Touch: when user flings past the end of the first set, wrap
+      strip.addEventListener(
+        "scrollend",
+        () => {
+          jumpIfNeeded();
+        },
+        { passive: true }
+      );
+
+      if (prev) prev.hidden = false;
+      if (next) next.hidden = false;
+
+      const boot = () => {
+        measure();
+        if (setWidth > 0) strip.scrollLeft = 0;
+      };
+      requestAnimationFrame(() => {
+        boot();
+        requestAnimationFrame(boot);
+      });
+      window.addEventListener("resize", () => {
+        const frac = setWidth ? (strip.scrollLeft % setWidth) / setWidth : 0;
+        measure();
+        if (setWidth) strip.scrollLeft = frac * setWidth;
+      });
+
+      strip.querySelectorAll("img").forEach((img) => {
+        if (!img.complete) img.addEventListener("load", measure, { once: true });
+      });
+    })();
+  </script>
 )}
