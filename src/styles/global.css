@@ -6818,11 +6818,7 @@ html.clad-app .issue-row__stats {
     0 1px 0 color-mix(in srgb, #fff 32%, transparent),
     0 12px 28px color-mix(in srgb, var(--shadow) 20%, transparent);
 }
-.topic-row {
-  box-shadow:
-    0 1px 0 color-mix(in srgb, #fff 26%, transparent),
-    0 8px 18px color-mix(in srgb, var(--shadow) 18%, transparent);
-}
+/* topic-row shadows live with the media-tile rules above */
 .human-spot__teaser {
   box-shadow:
     2px 2px 0 color-mix(in srgb, var(--shadow) 28%, transparent),
