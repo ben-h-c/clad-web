@@ -82,15 +82,16 @@ const heroClass = [
   ogImage={`/og/breaking-${slug}.png`}
   ogType="website"
 >
-  <section class="topic-page breaking-story">
-    <header class={heroClass}>
+  <section class="breaking-story">
+    {/* Full-bleed hero — image spans the viewport, not the reading column */}
+    <header class={`${heroClass} breaking-hero--bleed`}>
       {heroThumb && (
         <div class="media-hero__bg" aria-hidden="true">
           <img
             src={heroThumb}
             alt=""
-            width="1200"
-            height="675"
+            width="1600"
+            height="900"
             loading="eager"
             decoding="async"
           />
@@ -138,23 +139,25 @@ const heroClass = [
       </div>
     </header>
 
-    <p class="dateline breaking-story__lede">
-      A temporary grouping of multiple outlets' coverage of the same breaking
-      story. It dissolves back into the regular topics once the story settles.
-    </p>
+    <div class="breaking-story__body topic-page">
+      <p class="dateline breaking-story__lede">
+        A temporary grouping of multiple outlets' coverage of the same breaking
+        story. It dissolves back into the regular topics once the story settles.
+      </p>
 
-    <ShareBar
-      url={shareUrl}
-      title={`${group.title} — developing on CladFacts`}
-      hook={`${members.length} outlets graded on the same developing story. Same facts, different tellings — see who held up.`}
-    />
+      <ShareBar
+        url={shareUrl}
+        title={`${group.title} — developing on CladFacts`}
+        hook={`${members.length} outlets graded on the same developing story. Same facts, different tellings — see who held up.`}
+      />
 
-    <div class="rule rule--double" aria-hidden="true" style="margin:1.25rem 0"></div>
+      <div class="rule rule--double" aria-hidden="true" style="margin:1.25rem 0"></div>
 
-    <div class="feed-list">
-      {members.map((p) => (
-        <ReportCard post={p!} variant="bar" locked={locked && p!.id !== sampleId} sample={locked && p!.id === sampleId} />
-      ))}
+      <div class="feed-list">
+        {members.map((p) => (
+          <ReportCard post={p!} variant="bar" locked={locked && p!.id !== sampleId} sample={locked && p!.id === sampleId} />
+        ))}
+      </div>
     </div>
   </section>
 </BaseLayout>
