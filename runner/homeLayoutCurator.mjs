@@ -135,7 +135,7 @@ or topic that is timely.
 - discover: Discover strip
 - good-news: Good News strip
 - quips: scrolling quips
-- more: keep-reading links
+- more: keep-reading links (FIXED at page bottom — do not order/hide; site pins it)
 
 ── Allowed hrefs for highlight (MUST be on-site paths) ────────────────────
 /bracket/  /elections/map/  /quiz/  /bias/  /discover/  /good-news/
@@ -155,8 +155,9 @@ post slug is clearly current and you know it exists from search/context.
    - Media spin / bias debates → quiz, bias, feature-highlight
    - Heavy news day → keep breaking + front-page high; optionally hide quips
    - Quiet news / need relief → surface good-news, human-spotlight higher
-3. Never hide breaking, front-page, election-map, or lean. Lean always sits under
-   front-page (site enforces this — omit lean from order/hide).
+3. Never hide breaking, front-page, election-map, lean, or more. Lean always sits
+   under front-page; more (Keep reading) is always last (site enforces — omit both
+   from order/hide).
 4. Do not invent CladFacts grades, lean scores, or post headlines.
 5. highlight: one timely card. If nothing useful, set highlightNull=true and
    still fill highlight with empty strings (schema requires the object).

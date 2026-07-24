@@ -97,6 +97,7 @@ const PROTECTED = new Set<HomeSectionId>([
   "election-map",
   "feature-highlight",
   "lean", // always under Front Page (pinned in resolveHomeOrder)
+  "more", // always last on the page
 ]);
 
 const SECTION_SET = new Set<HomeSectionId>(DEFAULT_HOME_ORDER);
@@ -221,6 +222,7 @@ export function isHomeLayoutFresh(
  * Merge agent order with defaults. Protected sections cannot be hidden.
  * Unknown ids dropped; missing sections appended in default order.
  * Coverage lean is always pinned immediately under Front Page.
+ * “Keep reading” (more) is always last.
  */
 export function resolveHomeOrder(
   store: HomeLayoutStore | null | undefined,
@@ -229,12 +231,13 @@ export function resolveHomeOrder(
   const fresh = isHomeLayoutFresh(store, now) ? store : null;
   const hide = new Set(fresh?.hide || []);
   for (const p of PROTECTED) hide.delete(p);
-  // Lean is fixed under front-page — ignore agent hide/order for it.
+  // Fixed pins — ignore agent hide/order for these.
   hide.delete("lean");
+  hide.delete("more");
 
   const preferred = (fresh?.order || [])
     .filter(isHomeSectionId)
-    .filter((id) => id !== "lean");
+    .filter((id) => id !== "lean" && id !== "more");
   const seen = new Set<HomeSectionId>();
   const out: HomeSectionId[] = [];
 
@@ -244,7 +247,7 @@ export function resolveHomeOrder(
     out.push(id);
   }
   for (const id of DEFAULT_HOME_ORDER) {
-    if (id === "lean") continue;
+    if (id === "lean" || id === "more") continue;
     if (seen.has(id) || hide.has(id)) continue;
     seen.add(id);
     out.push(id);
@@ -254,6 +257,9 @@ export function resolveHomeOrder(
   const fp = out.indexOf("front-page");
   if (fp >= 0) out.splice(fp + 1, 0, "lean");
   else out.push("lean");
+
+  // Keep reading always bottoms the page.
+  out.push("more");
   return out;
 }
 
