@@ -2277,12 +2277,22 @@ html.masthead-menu-open .masthead__menu-list {
   border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
 }
 .hero-strip .report-card:not(.report-card--media) {
-  /* No-thumb fallback still needs a soft card shell */
+  /* modular / text presentation — soft card shell (not full-bleed) */
   background: var(--card, var(--paper));
   border: 1px solid color-mix(in srgb, var(--rule) 80%, transparent);
   border-radius: 14px;
   box-shadow: 0 8px 22px color-mix(in srgb, var(--shadow) 12%, transparent);
   padding: 0.75rem 0.85rem 0.9rem;
+  min-height: 0;
+  max-height: none;
+  height: auto;
+}
+.hero-strip .report-card:not(.report-card--media) .report-card__link {
+  height: auto;
+}
+.hero-strip .report-card--text {
+  /* No art — calm type-first tile */
+  justify-content: flex-start;
 }
 .hero-strip .report-card__link {
   flex: 1 1 auto;
@@ -2800,6 +2810,7 @@ html.theme-dark .peek-pop__panel {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: var(--thumb-focus, center 28%);
   display: block;
   /* Drop CSS filters on thumbs — they re-composite during scroll */
 }
@@ -9716,7 +9727,8 @@ html.clad-app section.charts.home-app-only {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 28%;
+  /* Per-post focus from publish-time still analysis (thumbFocusX/Y) */
+  object-position: var(--thumb-focus, center 28%);
   display: block;
   transform: scale(1.05);
   filter: saturate(1.08) contrast(1.05) brightness(0.96);

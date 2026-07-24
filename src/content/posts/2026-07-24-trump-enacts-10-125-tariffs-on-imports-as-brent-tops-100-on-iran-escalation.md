@@ -39,6 +39,10 @@ keyMoments:
 videoId: "Xzpvu6Py-iU"
 videoTitle: "Brent Tops $100 as Trump Threatens More Iran Strikes | Horizons Middle East & Africa 7/24/2026"
 thumbnail: "https://img.youtube.com/vi/Xzpvu6Py-iU/maxresdefault.jpg"
+mediaNote: "Host face on right; heavy show title graphics and skyline make full-bleed overlay risky — crop to face"
+thumbFocusY: 28
+thumbFocusX: 78
+mediaStyle: "modular"
 citations:
   - title: "Bloomberg Horizons Middle East & Africa broadcast 7/24/2026"
     url: "https://www.youtube.com/watch?v=Xzpvu6Py-iU"

@@ -5,6 +5,7 @@
  */
 import type { BroadcastReport } from "./broadcast.ts";
 import type { Frontmatter } from "./yaml.ts";
+import type { MediaPresentation } from "./mediaPresentation.ts";
 import { tagPoliticiansFromText } from "./politicians.ts";
 import { isOwnedGeneratedImage, isOwnVideoStill, thumbnailUrl } from "./youtube.ts";
 
@@ -19,6 +20,8 @@ export interface BuildOptions {
   correctionOf?: string;
   publishedAt?: string; // ISO datetime; defaults to now
   thumbnail?: string; // resolved working thumbnail; falls back to the YouTube still
+  /** Per-post strip framing from still analysis (optional). */
+  media?: MediaPresentation;
 }
 
 export function buildBroadcastFrontmatter(
@@ -43,6 +46,7 @@ export function buildBroadcastFrontmatter(
     topics: report.topics,
     keyMomentClaims: report.keyMoments.map((m) => m.claim),
   });
+  const media = opts.media;
   return {
     type: "broadcast",
     headline: report.headline,
@@ -71,6 +75,10 @@ export function buildBroadcastFrontmatter(
     videoId: opts.videoId,
     videoTitle: opts.videoTitle,
     thumbnail,
+    mediaStyle: media?.mediaStyle,
+    thumbFocusX: media?.thumbFocusX,
+    thumbFocusY: media?.thumbFocusY,
+    mediaNote: media?.mediaNote,
     citations: report.citations,
     politicians: politicians.length ? politicians : undefined,
   };

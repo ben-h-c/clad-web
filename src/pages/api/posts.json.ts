@@ -68,6 +68,10 @@ export async function GET({ request, url }: { request: Request; url: URL }) {
       topics: d.topics ?? [],
       videoId: d.videoId ?? null,
       thumbnail: d.thumbnail ?? null,
+      // Per-post strip framing (publish-time still analysis). Additive for iOS.
+      mediaStyle: d.mediaStyle ?? null,
+      thumbFocusX: typeof d.thumbFocusX === "number" ? d.thumbFocusX : null,
+      thumbFocusY: typeof d.thumbFocusY === "number" ? d.thumbFocusY : null,
     };
   });
 

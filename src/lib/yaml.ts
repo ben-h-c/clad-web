@@ -43,6 +43,14 @@ export interface Frontmatter {
   videoId?: string;
   videoTitle?: string;
   thumbnail?: string;
+  /** Per-post strip presentation: overlay | modular | text */
+  mediaStyle?: "overlay" | "modular" | "text";
+  /** Horizontal focus 0–100 for object-position. */
+  thumbFocusX?: number;
+  /** Vertical focus 0–100 for object-position. */
+  thumbFocusY?: number;
+  /** Short pipeline rationale (not shown on site). */
+  mediaNote?: string;
   /** People tagged for /politicians/[slug] (agent matcher + optional editor). */
   politicians?: { name: string; slug: string }[];
 }
@@ -78,9 +86,17 @@ export function emitPost(fm: Frontmatter, body: string): string {
     emitKeyMoments(lines, fm.keyMoments ?? []);
     if (fm.videoId) lines.push(`videoId: ${q(fm.videoId)}`);
     if (fm.videoTitle) lines.push(`videoTitle: ${q(fm.videoTitle)}`);
-    if (fm.thumbnail) lines.push(`thumbnail: ${q(fm.thumbnail)}`);
     emitPoliticians(lines, fm.politicians ?? []);
   }
+
+  // Shared art + per-post strip framing (broadcast + verdict).
+  if (fm.thumbnail) lines.push(`thumbnail: ${q(fm.thumbnail)}`);
+  if (fm.mediaStyle) lines.push(`mediaStyle: ${q(fm.mediaStyle)}`);
+  if (fm.thumbFocusX != null && Number.isFinite(fm.thumbFocusX))
+    lines.push(`thumbFocusX: ${Math.round(fm.thumbFocusX)}`);
+  if (fm.thumbFocusY != null && Number.isFinite(fm.thumbFocusY))
+    lines.push(`thumbFocusY: ${Math.round(fm.thumbFocusY)}`);
+  if (fm.mediaNote) lines.push(`mediaNote: ${q(fm.mediaNote)}`);
 
   if (fm.citations.length === 0) {
     lines.push("citations: []");

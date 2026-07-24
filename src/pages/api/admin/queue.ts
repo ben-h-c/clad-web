@@ -15,6 +15,10 @@ import {
   putDraft,
 } from "~/lib/agents";
 import { resolveThumbnail } from "~/lib/thumbnail";
+import {
+  coerceMediaPresentation,
+  resolveMediaPresentation,
+} from "~/lib/mediaPresentation";
 import { reviseBroadcastReport } from "~/lib/broadcast";
 import { applyEventTopics, assessDraftQuality } from "~/lib/draftQuality";
 
@@ -151,6 +155,27 @@ export const POST: APIRoute = async ({ request }) => {
     github: { token: env.GITHUB_TOKEN, repo: env.GITHUB_REPO, branch: env.GITHUB_BRANCH },
   });
 
+  // Per-post card framing: vision inspects the still so each report chooses
+  // overlay vs modular vs text and a focus point (not a site-wide crop).
+  // Prefer editor override from the approve payload when present.
+  const editorMedia =
+    p?.mediaStyle || p?.thumbFocusX != null || p?.thumbFocusY != null
+      ? coerceMediaPresentation({
+          mediaStyle: p.mediaStyle,
+          thumbFocusX: p.thumbFocusX,
+          thumbFocusY: p.thumbFocusY,
+          mediaNote: typeof p.mediaNote === "string" ? p.mediaNote : "editor override",
+        })
+      : null;
+  const media =
+    editorMedia ??
+    (await resolveMediaPresentation({
+      apiKey: env.XAI_API_KEY,
+      imageUrl: thumbnail || undefined,
+      headline: draft.report.headline,
+      videoId: draft.videoId,
+    }));
+
   const fm = buildBroadcastFrontmatter(draft.report, {
     sourceUrl: draft.sourceUrl,
     videoId: draft.videoId,
@@ -160,6 +185,7 @@ export const POST: APIRoute = async ({ request }) => {
     draft: false,
     publishedAt: publishedAt || undefined,
     thumbnail: thumbnail || undefined,
+    media,
   });
   // Prefer tags captured at draft time (includes debate-time matches) when present.
   if (draft.quality?.politicians?.length) {

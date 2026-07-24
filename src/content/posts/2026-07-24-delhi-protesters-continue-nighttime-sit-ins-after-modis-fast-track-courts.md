@@ -35,6 +35,10 @@ keyMoments:
 videoId: "fd3_AbuAtIw"
 videoTitle: "At the scene of Delhi's nighttime 'cockroach' protests. #India #BBCNews"
 thumbnail: "https://img.youtube.com/vi/fd3_AbuAtIw/maxresdefault.jpg"
+mediaNote: "Reporter face upper-center; dense chyrons, caption box and lower inset make full-bleed overlay poor"
+thumbFocusY: 25
+thumbFocusX: 50
+mediaStyle: "modular"
 citations:
   - title: "Government to set up fast-track courts for paper leak cases, says PM Modi"
     url: "https://www.thehindu.com/news/national/government-to-set-up-fast-track-courts-for-paper-leak-cases-says-pm-modi/article71256462.ece"

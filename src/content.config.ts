@@ -103,6 +103,16 @@ const posts = defineCollection({
       videoId: z.string().optional(),
       videoTitle: z.string().optional(),
       thumbnail: z.string().optional(),
+      // Per-post card presentation (set at publish via still analysis).
+      // overlay = full-bleed image + text scrim; modular = top thumb + body;
+      // text = no still (confusing / unusable art).
+      mediaStyle: z.enum(["overlay", "modular", "text"]).optional(),
+      /** Horizontal object-position anchor 0–100 (0 = left). */
+      thumbFocusX: z.number().min(0).max(100).optional(),
+      /** Vertical object-position anchor 0–100 (0 = top). */
+      thumbFocusY: z.number().min(0).max(100).optional(),
+      /** Pipeline note for why this framing was chosen (not shown in UI). */
+      mediaNote: z.string().max(200).optional(),
 
       // Optional people tags for /politicians/[slug] report cards (growth /
       // midterm SEO). When absent, the index still matches a curated seed list

@@ -1,9 +1,14 @@
 ---
 /**
- * Developing-story group card for Breaking News — media overlay when a still
- * exists (same language as report / topic media tiles).
+ * Developing-story group card — presentation follows the newest member that
+ * has a still (per-post mediaStyle + focus), so group tiles stay coherent with
+ * the lead report's publish-time framing.
  */
 import { displayableThumb } from "~/lib/imagePolicy";
+import {
+  mediaFromPostData,
+  objectPositionCss,
+} from "~/lib/mediaPresentation";
 import LetterGrade from "~/components/LetterGrade.astro";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
 import type { CollectionEntry } from "astro:content";
@@ -27,7 +32,10 @@ const lead = members[0];
 const reasoning = lead?.data.summary || "";
 
 const byNew = [...members].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
-const thumb = displayableThumb(byNew.find((p) => p.data.thumbnail)?.data.thumbnail);
+const artPost = byNew.find((p) => displayableThumb(p.data.thumbnail));
+const thumb = artPost ? displayableThumb(artPost.data.thumbnail) : null;
+const media = artPost ? mediaFromPostData(artPost.data) : mediaFromPostData({});
+const focusStyle = objectPositionCss(media);
 const hqFallback =
   thumb && /^https:\/\/(img\.youtube\.com|i\.ytimg\.com)\//.test(thumb)
     ? byNew.find((p) => p.data.videoId)?.data.videoId
@@ -42,22 +50,26 @@ const leanCompact =
         ? `${Math.abs(avgLean)}% L`
         : `${Math.abs(avgLean)}% R`;
 
-const useMedia = !!thumb;
+const wantOverlay = !!thumb && media.mediaStyle === "overlay";
+const wantModular = !!thumb && media.mediaStyle === "modular";
 const cardClass = [
   "report-card",
   "report-card--card",
   "report-card--group",
-  useMedia ? "report-card--media" : "",
+  wantOverlay ? "report-card--media" : "",
+  media.mediaStyle === "text" ? "report-card--text" : "",
   peek ? "report-card--peek" : "",
 ].filter(Boolean).join(" ");
 ---
 <article
   class={cardClass}
   data-peek={peek ? "true" : undefined}
+  data-media-style={media.mediaStyle}
   aria-expanded={peek ? "false" : undefined}
+  style={wantOverlay || wantModular ? `--thumb-focus: ${focusStyle}` : undefined}
 >
   <a class="report-card__link" href={`/breaking/${slug}/`} draggable="false">
-    {useMedia ? (
+    {wantOverlay ? (
       <>
         <div class="report-card__media-bg" aria-hidden="true">
           <img
@@ -67,6 +79,7 @@ const cardClass = [
             height="360"
             loading="lazy"
             decoding="async"
+            style={`object-position: ${focusStyle}`}
             onerror={hqFallback ? `this.onerror=null;this.src='https://img.youtube.com/vi/${hqFallback}/hqdefault.jpg'` : undefined}
           />
         </div>
@@ -98,9 +111,33 @@ const cardClass = [
       </>
     ) : (
       <div class="report-card__body">
+        {wantModular && (
+          <div class="report-card__thumb">
+            <img
+              src={thumb!}
+              alt=""
+              width="320"
+              height="180"
+              loading="lazy"
+              decoding="async"
+              style={`object-position: ${focusStyle}`}
+              onerror={hqFallback ? `this.onerror=null;this.src='https://img.youtube.com/vi/${hqFallback}/hqdefault.jpg'` : undefined}
+            />
+          </div>
+        )}
         <p class="report-card__kicker small-caps">
           Developing{topic ? ` · ${topic}` : ""} · {members.length} reports
         </p>
+        {!locked && avgGrade && (
+          <div class="report-card__media-chips" style="margin:0.25rem 0 0.35rem">
+            <span class="report-card__chip report-card__chip--grade" style="background:var(--card);color:inherit;border-color:var(--rule)">
+              <LetterGrade grade={avgGrade} size="badge" />
+            </span>
+            {leanCompact && (
+              <span class="report-card__chip report-card__chip--lean" style="background:var(--card);color:inherit;border-color:var(--rule)">{leanCompact}</span>
+            )}
+          </div>
+        )}
         <h3 class="report-card__headline">{title}</h3>
         {reasoning && <p class="report-card__summary report-card__detail">{reasoning}</p>}
       </div>

@@ -35,6 +35,10 @@ keyMoments:
 videoId: "QxyeIS8exJg"
 videoTitle: "Passengers, pilot survive fiery seaplane crash off Washington state coast"
 thumbnail: "https://img.youtube.com/vi/QxyeIS8exJg/maxresdefault.jpg"
+mediaNote: "Anchor on flaming seaplane wreckage and core fire; keep above waterline/logo scrim zone"
+thumbFocusY: 45
+thumbFocusX: 68
+mediaStyle: "overlay"
 citations:
   - title: "Kenmore Air seaplane crashes near Sucia Island; all 11 aboard rescued"
     url: "https://komonews.com/news/local/aircraft-crashes-into-water-near-sucia-island-rescue-response-underway-orcas-island-san-juan-fire-and-rescue-united-states-coast-guard-operations-11-patients-investigation-aircraft"

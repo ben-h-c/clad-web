@@ -37,6 +37,10 @@ keyMoments:
 videoId: "JQCMCjARtzU"
 videoTitle: "‘We Need Policies Not Performance’ | ‘It’s An Attempt To Spin' | Northern No10 Blasted"
 thumbnail: "https://img.youtube.com/vi/JQCMCjARtzU/maxresdefault.jpg"
+mediaNote: "Three-way split-screen talk show with dense lower-third chyron; crop to middle guest’s face for thumb, avoid banner and side panels"
+thumbFocusY: 22
+thumbFocusX: 50
+mediaStyle: "modular"
 citations:
   - title: "No. 10 North - Wikipedia"
     url: "https://en.wikipedia.org/wiki/No._10_North"

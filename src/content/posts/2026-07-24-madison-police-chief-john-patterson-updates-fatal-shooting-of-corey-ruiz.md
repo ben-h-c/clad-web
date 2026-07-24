@@ -38,6 +38,10 @@ keyMoments:
 videoId: "Sib3LWHjLQM"
 videoTitle: "Wisconsin police investigating fatal officer-involved shooting"
 thumbnail: "https://img.youtube.com/vi/Sib3LWHjLQM/maxresdefault.jpg"
+mediaNote: "Split-screen broadcast still with side panels, NPR bug, and lower-third chyron; anchor on central officers' faces above tape/text"
+thumbFocusY: 28
+thumbFocusX: 52
+mediaStyle: "modular"
 citations:
   - title: "Friends, family and neighbors mourn Madison man killed by police"
     url: "https://www.wpr.org/news/friends-family-neighbors-mourn-madison-man-killed-police-vigil"

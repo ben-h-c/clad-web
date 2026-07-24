@@ -35,6 +35,10 @@ keyMoments:
 videoId: "z9pmoNEEDc0"
 videoTitle: "Maghazi Camp: Families Left Without Shelter Amid Rubble"
 thumbnail: "https://img.youtube.com/vi/z9pmoNEEDc0/maxresdefault.jpg"
+mediaNote: "Destroyed multi-story building with smoke is the clear subject; heavy lower-third chyron and logo make full-bleed overlay risky—crop to upper structure, keep people out of focus point"
+thumbFocusY: 28
+thumbFocusX: 55
+mediaStyle: "modular"
 citations:
   - title: "Israeli attack on car in central Gaza kills three Palestinians"
     url: "https://www.aljazeera.com/news/2026/6/26/israeli-attack-on-car-in-central-gaza-kills-three-palestinians"

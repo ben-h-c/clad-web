@@ -40,6 +40,10 @@ keyMoments:
 videoId: "DOVGbswhqTw"
 videoTitle: "‘This Is Virtue Signalling From Gary Lineker’ | ‘Wealth Tax Is Counter Productive’"
 thumbnail: "https://img.youtube.com/vi/DOVGbswhqTw/maxresdefault.jpg"
+mediaNote: "Multi-person talk-show composite with dense bottom chyron; anchor on central Lineker face, crop above banner"
+thumbFocusY: 28
+thumbFocusX: 50
+mediaStyle: "modular"
 citations:
   - title: "Gary Lineker among millionaires asking Andy Burnham to tax them more"
     url: "https://www.bbc.com/news/articles/cvgjp79m42go"

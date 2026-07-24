@@ -1,13 +1,21 @@
 ---
 /**
- * Report card — media-tile (image + scrim + overlay type) for strip cards when
- * a still exists; modular layout for bars / no-thumb fallbacks.
+ * Report card — presentation is per-post (mediaStyle + thumb focus from
+ * publish-time still analysis), not a site-wide crop:
+ *   overlay  → full-bleed image + scrim + overlay type
+ *   modular  → top thumb + body (when still is busy / text-heavy)
+ *   text     → no still (unusable art)
+ * Legacy posts without media fields default to overlay + center 28%.
  */
 import Verdict from "~/components/Verdict.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
 import { shortDate } from "~/lib/dateline";
 import { displayableThumb } from "~/lib/imagePolicy";
+import {
+  mediaFromPostData,
+  objectPositionCss,
+} from "~/lib/mediaPresentation";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -58,12 +66,17 @@ const leanCompact =
         : `${Math.abs(leanScore)}% R`;
 
 const blurb = d.summary;
-const useMedia = variant === "card" && !!thumb;
+const media = mediaFromPostData(d);
+// Bar lists stay modular; strip cards honor per-post style.
+const wantOverlay = variant === "card" && !!thumb && media.mediaStyle === "overlay";
+const wantModularThumb = !!thumb && media.mediaStyle !== "text" && !wantOverlay;
+const focusStyle = objectPositionCss(media);
 
 const cardClass = [
   "report-card",
   `report-card--${variant}`,
-  useMedia ? "report-card--media" : "",
+  wantOverlay ? "report-card--media" : "",
+  media.mediaStyle === "text" ? "report-card--text" : "",
   peek ? "report-card--peek" : "",
 ].filter(Boolean).join(" ");
 ---
@@ -71,10 +84,12 @@ const cardClass = [
   class={cardClass}
   data-sample-unlocked={sample ? "true" : undefined}
   data-peek={peek ? "true" : undefined}
+  data-media-style={media.mediaStyle}
   aria-expanded={peek ? "false" : undefined}
+  style={wantOverlay || wantModularThumb ? `--thumb-focus: ${focusStyle}` : undefined}
 >
   <a class="report-card__link" href={`/posts/${post.id}/`} draggable="false">
-    {useMedia ? (
+    {wantOverlay ? (
       <>
         <div class="report-card__media-bg" aria-hidden="true">
           <img
@@ -84,6 +99,7 @@ const cardClass = [
             height="360"
             loading="lazy"
             decoding="async"
+            style={`object-position: ${focusStyle}`}
             onerror={hq ? `this.onerror=null;this.src='${hq}'` : undefined}
           />
         </div>
@@ -118,15 +134,16 @@ const cardClass = [
       </>
     ) : (
       <>
-        {thumb && (
+        {wantModularThumb && (
           <div class="report-card__thumb">
             <img
-              src={thumb}
+              src={thumb!}
               alt={`Video: ${d.headline}`}
               width="320"
               height="180"
               loading="lazy"
               decoding="async"
+              style={`object-position: ${focusStyle}`}
               onerror={hq ? `this.onerror=null;this.src='${hq}'` : undefined}
             />
           </div>
@@ -186,7 +203,7 @@ const cardClass = [
       </>
     )}
   </a>
-  {!useMedia && (
+  {!wantOverlay && (
     <p class="report-card__source report-card__detail">
       {isBroadcast && <span aria-hidden="true">▶ </span>}Source:{" "}
       <a href={d.sourceUrl} rel="noopener noreferrer" target="_blank">{source}</a>

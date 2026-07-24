@@ -32,6 +32,10 @@ keyMoments:
 videoId: "DQjn0fbowHs"
 videoTitle: "How Trump-Xi talks won pastor's release - but could there be a trade-off?"
 thumbnail: "https://img.youtube.com/vi/DQjn0fbowHs/maxresdefault.jpg"
+mediaNote: "Sky News graphic collage; anchor on central pastor face, avoid lower text/logo/bars and side suits"
+thumbFocusY: 38
+thumbFocusX: 50
+mediaStyle: "modular"
 politicians:
   - name: "Donald Trump"
     slug: "donald-trump"

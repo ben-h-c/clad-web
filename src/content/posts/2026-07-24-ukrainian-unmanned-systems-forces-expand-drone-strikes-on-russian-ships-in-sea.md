@@ -35,6 +35,10 @@ keyMoments:
 videoId: "vALWMCeeFCM"
 videoTitle: "A crack Ukrainian drone team hunts Russian ships to isolate Crimea"
 thumbnail: "https://img.youtube.com/vi/vALWMCeeFCM/hqdefault.jpg"
+mediaNote: "Anchor on launch vehicle and bright exhaust plume; keep clear of ground scrub and bottom scrim"
+thumbFocusY: 28
+thumbFocusX: 62
+mediaStyle: "overlay"
 citations:
   - title: "Ukrainian Drone Raid Hits 10 Russian Ships, Crippling Crimea Supply Lines"
     url: "https://www.navalnews.com/naval-news/2026/07/ukrainian-drone-raid-russian-ships-crimea-supply-lines/"

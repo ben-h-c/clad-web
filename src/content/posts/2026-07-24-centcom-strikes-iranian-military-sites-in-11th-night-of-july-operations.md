@@ -34,6 +34,10 @@ keyMoments:
 videoId: "wNU2XK6Bu7g"
 videoTitle: "Explosions across Iran: At least four killed in latest round of US strikes"
 thumbnail: "https://img.youtube.com/vi/wNU2XK6Bu7g/maxresdefault.jpg"
+mediaNote: "Aerial strike footage of vehicle under reticle; dense lower-third chyron and graphics make full-bleed overlay poor—crop to truck/action above scrim zone"
+thumbFocusY: 38
+thumbFocusX: 55
+mediaStyle: "modular"
 citations:
   - title: "U.S. Finishes Latest Strikes Against Iran"
     url: "https://www.centcom.mil/MEDIA/PUBLIC-RELEASES/Article/4550818/us-finishes-latest-strikes-against-iran/"

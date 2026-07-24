@@ -81,6 +81,9 @@ export async function GET({ request, params }: { request: Request; params: { slu
     videoId: d.videoId ?? null,
     videoTitle: d.videoTitle ?? null,
     thumbnail: d.thumbnail ?? null,
+    mediaStyle: d.mediaStyle ?? null,
+    thumbFocusX: typeof d.thumbFocusX === "number" ? d.thumbFocusX : null,
+    thumbFocusY: typeof d.thumbFocusY === "number" ? d.thumbFocusY : null,
     locked,
   };
 

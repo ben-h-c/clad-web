@@ -28,6 +28,10 @@ keyMoments:
 videoId: "Fx4aLV6F1nE"
 videoTitle: "Iran strikes US military targets in the Gulf | DW News"
 thumbnail: "https://img.youtube.com/vi/Fx4aLV6F1nE/maxresdefault.jpg"
+mediaNote: "Anchor on missile body/nose in clear center strip; keep out of bottom scrim and dark side blur"
+thumbFocusY: 32
+thumbFocusX: 50
+mediaStyle: "overlay"
 citations:
   - title: "Iran says it hits U.S. military targets in Gulf, buries slain leader Khamenei"
     url: "https://www.reuters.com/world/middle-east/iran-says-it-hits-us-military-targets-gulf-prepares-bury-slain-leader-2026-07-09/"

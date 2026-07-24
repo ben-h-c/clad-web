@@ -38,6 +38,10 @@ keyMoments:
 videoId: "hy3e_1HiTPk"
 videoTitle: "Catherine Herridge on the 'Shadow Government' claims | Katie Pavlich Tonight"
 thumbnail: "https://img.youtube.com/vi/hy3e_1HiTPk/maxresdefault.jpg"
+mediaNote: "Split-screen interview; crop to right-side talking head (expressive face) to avoid divider, left chyron, and network bug"
+thumbFocusY: 28
+thumbFocusX: 75
+mediaStyle: "modular"
 citations:
   - title: "Election Integrity"
     url: "https://www.whitehouse.gov/election-integrity/"

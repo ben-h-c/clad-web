@@ -8,6 +8,11 @@ import { leanBucket, sanitizeShareText } from "~/lib/broadcast";
 import { existingVideoIds, findNearDuplicates } from "~/lib/agents";
 import { validateCitations } from "~/lib/citations";
 import { resolveThumbnail } from "~/lib/thumbnail";
+import {
+  coerceMediaPresentation,
+  resolveMediaPresentation,
+  type MediaPresentation,
+} from "~/lib/mediaPresentation";
 import { sendBreakingPush, apnsConfigured } from "~/lib/push";
 import { tagPoliticiansFromText } from "~/lib/politicians";
 
@@ -72,6 +77,13 @@ export const POST: APIRoute = async ({ request }) => {
       xaiKey: env.XAI_API_KEY,
       github,
     });
+    const media = await resolvePostMedia({
+      p,
+      thumbnail,
+      headline,
+      videoId: extractVideoId(sourceUrl),
+      apiKey: env.XAI_API_KEY,
+    });
     fm = {
       type: "verdict",
       headline,
@@ -86,6 +98,10 @@ export const POST: APIRoute = async ({ request }) => {
       correctionOf,
       verdict,
       thumbnail: thumbnail || undefined,
+      mediaStyle: media.mediaStyle,
+      thumbFocusX: media.thumbFocusX,
+      thumbFocusY: media.thumbFocusY,
+      mediaNote: media.mediaNote,
       citations,
     };
   } else {
@@ -145,6 +161,14 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     const thumbnail = await resolveThumbnail({ videoId, title: headline, slug, xaiKey: env.XAI_API_KEY, github });
+    const resolvedThumb = thumbnail || thumbnailUrl(videoId);
+    const media = await resolvePostMedia({
+      p,
+      thumbnail: resolvedThumb,
+      headline,
+      videoId,
+      apiKey: env.XAI_API_KEY,
+    });
 
     // Prefer editor-supplied tags; otherwise seed-match the report text so
     // /politicians/ pages stay current without a second model call.
@@ -190,7 +214,11 @@ export const POST: APIRoute = async ({ request }) => {
       keyMoments,
       videoId,
       videoTitle,
-      thumbnail: thumbnail || thumbnailUrl(videoId),
+      thumbnail: resolvedThumb,
+      mediaStyle: media.mediaStyle,
+      thumbFocusX: media.thumbFocusX,
+      thumbFocusY: media.thumbFocusY,
+      mediaNote: media.mediaNote,
       citations,
       politicians: politicians.length ? politicians : undefined,
     };
@@ -231,6 +259,35 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ error: err?.message ?? "Publish failed" }, 502);
   }
 };
+
+/** Editor override from body, else vision analysis of the still. */
+async function resolvePostMedia(args: {
+  p: any;
+  thumbnail?: string;
+  headline: string;
+  videoId?: string | null;
+  apiKey?: string;
+}): Promise<MediaPresentation> {
+  const hasOverride =
+    args.p?.mediaStyle ||
+    args.p?.thumbFocusX != null ||
+    args.p?.thumbFocusY != null;
+  if (hasOverride) {
+    return coerceMediaPresentation({
+      mediaStyle: args.p.mediaStyle,
+      thumbFocusX: args.p.thumbFocusX,
+      thumbFocusY: args.p.thumbFocusY,
+      mediaNote:
+        typeof args.p.mediaNote === "string" ? args.p.mediaNote : "editor override",
+    });
+  }
+  return resolveMediaPresentation({
+    apiKey: args.apiKey,
+    imageUrl: args.thumbnail,
+    headline: args.headline,
+    videoId: args.videoId,
+  });
+}
 
 function str(v: unknown): string {
   return typeof v === "string" ? v.trim() : "";

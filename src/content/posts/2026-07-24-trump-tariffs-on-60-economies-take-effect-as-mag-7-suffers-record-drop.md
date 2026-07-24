@@ -39,6 +39,10 @@ keyMoments:
 videoId: "3asLR-51hwE"
 videoTitle: "Stocks Waver after Tech Selloff; Trump Rebuilds Tariffs | Bloomberg Brief 07/24/2026"
 thumbnail: "https://img.youtube.com/vi/3asLR-51hwE/maxresdefault.jpg"
+mediaNote: "Primary anchor face on left; crop off right-side Bloomberg Brief title art and keep focus above bottom scrim"
+thumbFocusY: 26
+thumbFocusX: 28
+mediaStyle: "overlay"
 citations:
   - title: "U.S. proposes fresh tariffs on 60 economies over forced labor"
     url: "https://www.cnbc.com/2026/06/03/us-tariffs-60-economies-dection-301-forced-labor-trade-practices-.html"

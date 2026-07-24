@@ -32,6 +32,10 @@ keyMoments:
 videoId: "L-40NVIPg-8"
 videoTitle: "K-pop band ENHYPEN discusses vampires and upcoming album"
 thumbnail: "https://img.youtube.com/vi/L-40NVIPg-8/maxresdefault.jpg"
+mediaNote: "Group lineup of ENHYPEN faces; anchor mid-group upper torsos so heads stay clear of bottom scrim and AP bug"
+thumbFocusY: 28
+thumbFocusX: 52
+mediaStyle: "overlay"
 citations:
   - title: "[Notice] ENHYPEN THE SIN : BLISS Release"
     url: "https://weverse.io/enhypen/notice/37455"
