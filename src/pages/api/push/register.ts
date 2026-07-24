@@ -9,6 +9,12 @@ export const prerender = false;
 // devices can opt into breaking-news alerts; if a session cookie is
 // present we associate the token with that account.
 //
+// Ownership rules (anti-IDOR):
+//  - POST: cannot rebind a token already owned by a different userId
+//    (null→user and same-user refresh are allowed).
+//  - DELETE: signed-in users may only delete their own tokens; anonymous
+//    callers may only delete rows with userId IS NULL.
+//
 // Body: { token: string (hex), environment?: "sandbox" | "production" }
 export const POST: APIRoute = async ({ request }) => {
   let body: any;
@@ -29,8 +35,18 @@ export const POST: APIRoute = async ({ request }) => {
   const user = await getSessionUser(request.headers);
   const now = new Date().toISOString();
 
-  // Upsert: re-registration (token rotation, env change, sign-in) refreshes
-  // the row rather than duplicating it.
+  const existing = await env.DB.prepare(
+    "SELECT userId FROM push_token WHERE token = ?"
+  )
+    .bind(token)
+    .first<{ userId: string | null }>();
+
+  if (existing?.userId && existing.userId !== (user?.id ?? null)) {
+    // Token is bound to another account — refuse hijack / anonymous rebind.
+    return json({ error: "Token is registered to another account." }, 403);
+  }
+
+  // Allowed: insert new, refresh same-user, or claim a null-userId row when signed in.
   await env.DB.prepare(
     "INSERT INTO push_token (token, userId, environment, createdAt, updatedAt) " +
       "VALUES (?, ?, ?, ?, ?) " +
@@ -53,7 +69,23 @@ export const DELETE: APIRoute = async ({ request }) => {
   }
   const token = typeof body?.token === "string" ? body.token.trim() : "";
   if (!token) return json({ error: "Missing token" }, 400);
-  await env.DB.prepare("DELETE FROM push_token WHERE token = ?").bind(token).run();
+
+  const user = await getSessionUser(request.headers);
+  if (user) {
+    // Only delete if this token is owned by the session user.
+    await env.DB.prepare(
+      "DELETE FROM push_token WHERE token = ? AND userId = ?"
+    )
+      .bind(token, user.id)
+      .run();
+  } else {
+    // Anonymous: only manage unbound tokens.
+    await env.DB.prepare(
+      "DELETE FROM push_token WHERE token = ? AND userId IS NULL"
+    )
+      .bind(token)
+      .run();
+  }
   return json({ ok: true }, 200);
 };
 
