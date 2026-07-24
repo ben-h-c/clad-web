@@ -1,17 +1,26 @@
 import { betterAuth } from "better-auth";
 import { D1Dialect } from "kysely-d1";
 import { env } from "cloudflare:workers";
+import { EMAIL, emailShell, escHtml } from "./emailTheme.ts";
 
 const SITE = "https://cladfacts.com";
 
 // Transactional email via Resend (only used when RESEND_API_KEY is set).
 async function sendEmail(to: string, subject: string, html: string): Promise<void> {
-  if (!env.RESEND_API_KEY) return;
-  await fetch("https://api.resend.com/emails", {
+  if (!env.RESEND_API_KEY) {
+    console.error("[auth-email] RESEND_API_KEY not set — cannot send:", subject, "to", to);
+    return;
+  }
+  const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
     body: JSON.stringify({ from: "CladFacts <noreply@cladfacts.com>", to, subject, html }),
   });
+  if (!res.ok) {
+    const body = await res.text().catch(() => "");
+    console.error("[auth-email] Resend failed", res.status, body.slice(0, 240));
+    throw new Error(`Resend ${res.status}`);
+  }
 }
 
 // TEMP: email this address whenever a new account is created. Remove the
@@ -85,12 +94,32 @@ export function getAuth() {
       // Verification requires Resend; until that's configured, allow sign-in so
       // accounts work, then flip this on once email is live.
       requireEmailVerification: hasEmail,
+      // Standard email reset link (Better Auth builds token URL → callback page).
+      resetPasswordTokenExpiresIn: 3600, // 1 hour
+      revokeSessionsOnPasswordReset: true,
       sendResetPassword: async ({ user, url }) => {
-        await sendEmail(
-          user.email,
-          "Reset your CladFacts password",
-          `<p>Click to reset your password:</p><p><a href="${url}">${url}</a></p>`
-        );
+        const safeUrl = escHtml(url);
+        const name = user.name ? escHtml(String(user.name).split(" ")[0] || "") : "";
+        const greeting = name ? `Hi ${name},` : "Hi,";
+        const html = emailShell({
+          title: "Reset your password",
+          subtitle: "CladFacts account",
+          body:
+            `<p style="margin:0 0 12px;font:400 15px/1.55 ${EMAIL.font};color:${EMAIL.body}">${greeting}</p>` +
+            `<p style="margin:0 0 12px;font:400 15px/1.55 ${EMAIL.font};color:${EMAIL.body}">` +
+            `We received a request to reset the password for <strong style="color:${EMAIL.ink}">${escHtml(user.email)}</strong>.` +
+            `</p>` +
+            `<p style="margin:0 0 12px;font:400 15px/1.55 ${EMAIL.font};color:${EMAIL.body}">` +
+            `This link expires in <strong style="color:${EMAIL.ink}">one hour</strong>. If you didn’t ask for a reset, you can ignore this email — your password stays the same.` +
+            `</p>` +
+            `<p style="margin:16px 0 0;font:400 12px/1.45 ${EMAIL.font};color:${EMAIL.muted};word-break:break-all">` +
+            `Or paste this link into your browser:<br><a href="${safeUrl}" style="color:${EMAIL.accent}">${safeUrl}</a>` +
+            `</p>`,
+          footerNote: "Transactional message from CladFacts — password reset only.",
+          ctaHref: url,
+          ctaLabel: "Choose a new password",
+        });
+        await sendEmail(user.email, "Reset your CladFacts password", html);
       },
     },
     emailVerification: hasEmail
