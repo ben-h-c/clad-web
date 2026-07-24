@@ -1,7 +1,7 @@
-import { getCollection } from "astro:content";
 import { env } from "cloudflare:workers";
 import { getAccess } from "~/lib/access";
 import { getSentiments, type SentimentMap } from "~/lib/agents";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 
 export const prerender = false;
 
@@ -22,9 +22,7 @@ export async function GET({ request, url }: { request: Request; url: URL }) {
   const sectionParam = url.searchParams.get("section");
   const verdictParam = url.searchParams.get("verdict");
 
-  const all = (await getCollection("posts", (p) => !p.data.draft)).sort(
-    (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
-  );
+  const all = await publishedPostsSorted();
 
   // Social-media sentiment (KV, scanner-scored) — premium-gated like the grade,
   // so the KV read is skipped entirely for restricted readers.

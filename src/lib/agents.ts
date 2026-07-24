@@ -389,6 +389,15 @@ export const DEFAULT_REGISTRY: Registry = {
       cron: "30 12,23 * * *",
       config: {},
     },
+    {
+      id: "retention-prune",
+      kind: "retention-prune",
+      name: "Data retention prune (sessions, newsletter, anon push tokens)",
+      enabled: true,
+      // Daily 04:40 UTC — expire sessions, age out unsubscribed newsletter, stale tokens.
+      cron: "40 4 * * *",
+      config: {},
+    },
   ],
 };
 

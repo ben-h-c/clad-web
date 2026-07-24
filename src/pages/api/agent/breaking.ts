@@ -31,6 +31,7 @@ export const POST: APIRoute = async ({ request }) => {
   let items: BreakingItem[] = [];
   if (Array.isArray(payload?.items)) {
     items = payload.items
+      .slice(0, 40)
       .map((it: any): BreakingItem | null => {
         if (it?.type === "group" && Array.isArray(it.ids) && it.ids.length) {
           return {
@@ -38,7 +39,7 @@ export const POST: APIRoute = async ({ request }) => {
             slug: String(it.slug || "").slice(0, 80),
             title: String(it.title || "").slice(0, 160),
             topic: it.topic ? String(it.topic).slice(0, 80) : undefined,
-            ids: it.ids.map((v: unknown) => String(v)).filter(Boolean),
+            ids: it.ids.map((v: unknown) => String(v)).filter(Boolean).slice(0, 24),
           };
         }
         const id = String(it?.id ?? it ?? "").trim();
@@ -46,7 +47,10 @@ export const POST: APIRoute = async ({ request }) => {
       })
       .filter((x: BreakingItem | null): x is BreakingItem => x !== null);
   } else if (Array.isArray(payload?.ids)) {
-    items = payload.ids.map((v: unknown) => ({ type: "post", id: String(v) })).filter((x: any) => x.id);
+    items = payload.ids
+      .slice(0, 40)
+      .map((v: unknown) => ({ type: "post" as const, id: String(v) }))
+      .filter((x: any) => x.id);
   }
   await setBreaking(env.AGENTS, items);
   return json({ ok: true, count: items.length }, 200);

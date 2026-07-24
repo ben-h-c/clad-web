@@ -30,6 +30,7 @@ import { runHumanSpotlight } from "./humanSpotlight.mjs";
 import { runHomeLayoutCurator } from "./homeLayoutCurator.mjs";
 import { runForecastRefresher } from "./forecastRefresher.mjs";
 import { runPushReminders } from "./pushReminders.mjs";
+import { runRetentionPrune } from "./retentionPrune.mjs";
 import { processUrlQueue } from "./urlIntake.mjs";
 import { updateTicker } from "./ticker.mjs";
 
@@ -68,6 +69,7 @@ const KINDS = {
   "home-layout-curator": runHomeLayoutCurator,
   "forecast-refresher": runForecastRefresher,
   "push-reminders": runPushReminders,
+  "retention-prune": runRetentionPrune,
 };
 
 function log(...args) {

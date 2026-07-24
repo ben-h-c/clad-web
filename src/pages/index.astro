@@ -1,5 +1,4 @@
 ---
-import { getCollection } from "astro:content";
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import HeroStrip from "~/components/HeroStrip.astro";
@@ -32,7 +31,7 @@ import {
   getPoliticianPhotoMap,
 } from "~/lib/agents";
 import { buildGoodNewsSections } from "~/lib/goodnews";
-import { aggregateTopics, gradeToGpa } from "~/lib/topics";
+import { aggregateTopics, aggregateTopicsCached, gradeToGpa } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
@@ -47,7 +46,8 @@ import {
   buildCalendarEvents,
   type CalendarEvent,
 } from "~/lib/calendarEvents";
-import { buildDaySummaries } from "~/lib/calendarDays";
+import { buildDaySummariesCached } from "~/lib/calendarDays";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 
 // SSR so the hero reflects the curator's live KV-stored selection without a
 // rebuild. Per-user (grades hidden for restricted readers), so never shared-cache.
@@ -55,14 +55,41 @@ export const prerender = false;
 Astro.response.headers.set("Cache-Control", "private, no-store");
 
 const access = await getAccess(Astro.request.headers);
+const locked = !access.fullAccess;
 
-const all = (await getCollection("posts", (p) => !p.data.draft)).sort(
-  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
-);
+const all = [...(await publishedPostsSorted())];
 const byId = new Map(all.map((p) => [p.id, p]));
 
+// Independent KV reads in one wave (C2). Sentiments only for full-access.
+const [
+  curated,
+  breakingItems,
+  sentiments,
+  election,
+  calStore,
+  todayInHistory,
+  humanSpotlight,
+  homeLayout,
+  photoMapStore,
+  discoverStore,
+  goodNewsStore,
+  quipsStore,
+] = await Promise.all([
+  getFrontpage(env.AGENTS),
+  getBreaking(env.AGENTS),
+  locked ? Promise.resolve({}) : getSentiments(env.AGENTS),
+  getElectionWithPublishedDates(DEFAULT_ELECTION_ID, env.AGENTS),
+  getCalendarEventsStore(env.AGENTS),
+  getTodayInHistory(env.AGENTS),
+  getHumanSpotlight(env.AGENTS),
+  getHomeLayout(env.AGENTS),
+  getPoliticianPhotoMap(env.AGENTS),
+  getDiscover(env.AGENTS),
+  getGoodNews(env.AGENTS),
+  getQuips(env.AGENTS),
+]);
+
 // Hero = Front Page Curator selection. Fall back to featured, then most-recent.
-let curated = await getFrontpage(env.AGENTS);
 let heroPosts = curated.map((id) => byId.get(id)).filter((p) => p !== undefined);
 if (heroPosts.length === 0) {
   const flagged = all.filter((p) => p.data.featured);
@@ -72,7 +99,6 @@ if (heroPosts.length === 0) {
 heroPosts = heroPosts.slice(0, 12);
 
 // Breaking = impact-ordered; cap for mobile length.
-const breakingItems = await getBreaking(env.AGENTS);
 let breaking = breakingItems
   .map((it) => {
     if (it.type === "post") {
@@ -89,10 +115,10 @@ let breaking = breakingItems
   .filter((x): x is NonNullable<typeof x> => x !== null)
   .slice(0, 10);
 
-const locked = !access.fullAccess;
-
-const sentiments = locked ? {} : await getSentiments(env.AGENTS);
-const topics = aggregateTopics(all, sentiments);
+// Full-access: live recency + sentiment clustering. Locked: memoized (no sentiments).
+const topics = locked
+  ? aggregateTopicsCached(all as any)
+  : aggregateTopics(all as any, sentiments);
 const TOPICS_ON_HOME = 8;
 
 // Live promo inputs: hottest topic + freshest report for top-of-home cards
@@ -159,24 +185,17 @@ if (!locked) {
 }
 
 // Home calendar: race dates + agent news feed + recent Clad reports on publish days.
-const election = await getElectionWithPublishedDates(DEFAULT_ELECTION_ID, env.AGENTS);
 const calendarRaces = election?.races;
-const calStore = await getCalendarEventsStore(env.AGENTS);
 const calendarLive: CalendarEvent[] = (calStore?.events ?? [])
   .map((e) => normalizeCalendarEvent(e, "agent"))
   .filter((e): e is CalendarEvent => e != null);
-// The graded record: one aggregate per publish day across the WHOLE archive.
-// This replaces the old eventsFromPosts extras (3/day, 72 total, 60 days) —
-// an aggregate costs a few bytes per day instead of per report, so the
-// calendar can finally show every day it has rather than a 3% sample. Grade
-// and lean are nulled here for restricted readers.
-// Cap day payload (newest ~4 months) so the home HTML stays lean for the
-// iOS WebView — full first/last still bound month nav.
-const calendarDays = buildDaySummaries(all, { locked, topPerDay: 4, maxDays: 120 });
-const todayInHistory = await getTodayInHistory(env.AGENTS);
-const humanSpotlight = await getHumanSpotlight(env.AGENTS);
+// Cap day payload: fewer peeks + ~3 months so the home HTML stays lean.
+const calendarDays = buildDaySummariesCached(all as any, {
+  locked,
+  topPerDay: 2,
+  maxDays: 92,
+});
 // Dynamic landing plan (home-layout-curator agent — Grok + web_search).
-const homeLayout = await getHomeLayout(env.AGENTS);
 const homeOrder = resolveHomeOrder(homeLayout);
 const homeHighlight = resolveHomeHighlight(homeLayout, {
   signedIn: access.signedIn,
@@ -194,8 +213,8 @@ const featureItems = buildHomeFeatureItems({
 });
 
 // Politician media strip — people in recent coverage + midterms race sides.
-const politiciansLive = await buildPoliticianIndexLive(all, env.AGENTS);
-const photoMap = (await getPoliticianPhotoMap(env.AGENTS))?.bySlug ?? {};
+const politiciansLive = await buildPoliticianIndexLive(all as any, env.AGENTS);
+const photoMap = photoMapStore?.bySlug ?? {};
 const politicianSpotlightItems = buildPoliticianSpotlightItems({
   politicians: politiciansLive,
   photoBySlug: photoMap,
@@ -228,8 +247,8 @@ function postsFromSections(
   }
   return out;
 }
-const discoverSections = await getDiscover(env.AGENTS);
-const goodNewsCurated = await getGoodNews(env.AGENTS);
+const discoverSections = discoverStore ?? [];
+const goodNewsCurated = goodNewsStore ?? [];
 const goodNewsSections =
   goodNewsCurated.length > 0 ? goodNewsCurated : buildGoodNewsSections(all);
 const discoverPosts = postsFromSections(discoverSections, byId, 12);
@@ -241,7 +260,7 @@ const goodNewsPosts = postsFromSections(
   new Set(discoverPosts.map((p) => p.id))
 );
 // Decorative marquee — loads after the main story rows so crawlers hit real content first.
-const quips = await getQuips(env.AGENTS);
+const quips = quipsStore ?? [];
 ---
 <BaseLayout
   title="CladFacts — Grading Content & Exposing Bias"

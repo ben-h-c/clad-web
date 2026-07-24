@@ -11,11 +11,19 @@ export const prerender = false;
 // the entitlement so getAccess() unlocks Premium in the app, web, and widget.
 //
 // Body: { originalTransactionId: string, environment?: "sandbox"|"production" }
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, clientAddress }) => {
   if (!(await iapConfigured())) return json({ error: "In-app purchase is not configured." }, 503);
 
   const user = await getSessionUser(request.headers);
   if (!user) return json({ error: "Sign in required." }, 401);
+
+  // Rate-limit outbound Apple API amplification per user.
+  if (env.FACTCHECK_LIMITER) {
+    const { success } = await env.FACTCHECK_LIMITER.limit({ key: `iap-apple:${user.id}` });
+    if (!success) {
+      return json({ error: "Too many attempts. Try again in a minute." }, 429);
+    }
+  }
 
   let body: any;
   try {
@@ -29,6 +37,19 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ error: "Invalid transaction id" }, 400);
   }
   const environment = body?.environment === "sandbox" ? "sandbox" : "production";
+
+  // One Apple subscription → one account (A3).
+  const bound = await env.DB.prepare(
+    "SELECT userId FROM apple_subscription WHERE originalTransactionId = ?"
+  )
+    .bind(originalTransactionId)
+    .first<{ userId: string }>();
+  if (bound && bound.userId !== user.id) {
+    return json(
+      { error: "This purchase is already linked to another account." },
+      409
+    );
+  }
 
   const status = await getAppleSubscriptionStatus(originalTransactionId, environment);
   if (!status) return json({ error: "Could not verify the purchase with Apple." }, 502);

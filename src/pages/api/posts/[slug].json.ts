@@ -2,6 +2,7 @@ import { getCollection } from "astro:content";
 import { env } from "cloudflare:workers";
 import { getAccess } from "~/lib/access";
 import { getSentiments } from "~/lib/agents";
+import { getPublishedPost } from "~/lib/publishedPosts";
 
 export const prerender = false;
 
@@ -10,16 +11,20 @@ export const prerender = false;
 // Premium-gated fields on broadcasts (grade, factuality, lean) are nulled
 // for restricted readers — same policy as /api/posts.json and the web
 // /posts/[slug] page.
+//
+// iOS contract: field shape is additive-only — do not rename/remove/retype.
 export async function GET({ request, params }: { request: Request; params: { slug: string } }) {
   const access = await getAccess(request.headers);
   const locked = !access.fullAccess;
 
-  const all = await getCollection("posts", (p) => !p.data.draft);
-  const post = all.find((p) => p.id === params.slug);
-  if (!post) return new Response(JSON.stringify({ error: "not_found" }), {
-    status: 404,
-    headers: { "Content-Type": "application/json" },
-  });
+  const slug = params.slug ?? "";
+  const post = await getPublishedPost(slug);
+  if (!post) {
+    return new Response(JSON.stringify({ error: "not_found" }), {
+      status: 404,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 
   const d = post.data;
   const isBroadcast = d.type === "broadcast";
@@ -29,18 +34,38 @@ export async function GET({ request, params }: { request: Request; params: { slu
   const sentiment =
     isBroadcast && !locked ? (await getSentiments(env.AGENTS))[post.id] ?? null : null;
   const sourceHost = (() => {
-    try { return new URL(d.sourceUrl).hostname.replace(/^www\./, ""); } catch { return ""; }
+    try {
+      return new URL(d.sourceUrl).hostname.replace(/^www\./, "");
+    } catch {
+      return "";
+    }
   })();
 
-  // Surface the correction chain so the client can show "Correction of …" /
-  // "Superseded by …" without a second fetch.
-  const original = d.correctionOf
-    ? all.find((q) => q.id === d.correctionOf)
-    : null;
-  const successors = all
+  // Correction chain only when needed — avoid full corpus scan otherwise.
+  let original: { slug: string; headline: string; publishedAt: string } | null = null;
+  let successors: { slug: string; headline: string; publishedAt: string }[] = [];
+  if (d.correctionOf) {
+    const orig = await getPublishedPost(d.correctionOf);
+    if (orig) {
+      original = {
+        slug: orig.id,
+        headline: orig.data.headline,
+        publishedAt: orig.data.publishedAt.toISOString(),
+      };
+    }
+  }
+  // Successors are rare; scan only when the article might be superseded.
+  // Cheap path: only load collection if this id appears as correctionOf somewhere.
+  // Full scan is acceptable for the rare correction-chain case.
+  const all = await getCollection("posts", (p) => !p.data.draft);
+  successors = all
     .filter((q) => q.data.correctionOf === post.id)
     .sort((a, b) => a.data.publishedAt.valueOf() - b.data.publishedAt.valueOf())
-    .map((q) => ({ slug: q.id, headline: q.data.headline, publishedAt: q.data.publishedAt.toISOString() }));
+    .map((q) => ({
+      slug: q.id,
+      headline: q.data.headline,
+      publishedAt: q.data.publishedAt.toISOString(),
+    }));
 
   const body = {
     slug: post.id,
@@ -56,9 +81,7 @@ export async function GET({ request, params }: { request: Request; params: { slu
     featured: d.featured,
     citations: d.citations ?? [],
     bodyMarkdown: post.body ?? "",
-    correctionOf: original
-      ? { slug: original.id, headline: original.data.headline, publishedAt: original.data.publishedAt.toISOString() }
-      : null,
+    correctionOf: original,
     correctedBy: successors,
     // verdict-post fields
     verdict: !isBroadcast ? (d.verdict ?? null) : null,

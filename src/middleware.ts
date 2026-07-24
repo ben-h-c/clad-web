@@ -84,6 +84,36 @@ const LOW_TTL_PAGE = (path: string) =>
  * (grades/lean render for full-access readers) and must never be stored in a
  * shared cache.
  */
+/** Security headers for HTML (and most document responses). Embed SVG must stay frameable. */
+function applySecurityHeaders(path: string, response: Response) {
+  response.headers.set("X-Content-Type-Options", "nosniff");
+  response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  // HSTS: edge already terminates TLS; skip in-app HSTS to avoid conflicting policies.
+  const isEmbed = path.startsWith("/embed/");
+  if (!isEmbed) {
+    response.headers.set("X-Frame-Options", "SAMEORIGIN");
+  }
+  // Report-only CSP first — allows measuring breakage without blocking OAuth/inline.
+  // Embeds intentionally omit frame-ancestors so third-party sites can iframe the SVG.
+  const csp = isEmbed
+    ? "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; base-uri 'none'"
+    : [
+        "default-src 'self'",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://challenges.cloudflare.com",
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+        "font-src 'self' https://fonts.gstatic.com data:",
+        "img-src 'self' data: blob: https:",
+        "connect-src 'self' https://api.stripe.com https://*.cladfacts.com https://cladfacts.com",
+        "frame-src 'self' https://js.stripe.com https://challenges.cloudflare.com https://www.youtube.com https://youtube.com",
+        "frame-ancestors 'self'",
+        "base-uri 'self'",
+        "form-action 'self'",
+        "object-src 'none'",
+      ].join("; ");
+  response.headers.set("Content-Security-Policy-Report-Only", csp);
+  return response;
+}
+
 function applyCachePolicy(context: { request: Request }, path: string, response: Response) {
   const hasSession = (context.request.headers.get("cookie") ?? "").includes("session_token");
   if (hasSession || response.headers.has("set-cookie") || UNCACHEABLE_PAGE(path)) {
@@ -93,6 +123,7 @@ function applyCachePolicy(context: { request: Request }, path: string, response:
   } else {
     response.headers.set("Cache-Control", "public, s-maxage=300, stale-while-revalidate=600");
   }
+  applySecurityHeaders(path, response);
   return response;
 }
 
@@ -159,13 +190,20 @@ export const onRequest = defineMiddleware(async (context, next) => {
   if (USER_API(path)) return next();
   if (COMMENTS_API(path)) return next();
   if (STRIPE_API(path)) return next();
-  if (PUBLIC_API(path)) return next();
+  if (PUBLIC_API(path)) {
+    // Still apply nosniff / frame policy on public API JSON responses.
+    const res = await next();
+    res.headers.set("X-Content-Type-Options", "nosniff");
+    return res;
+  }
   if (!PROTECTED(path)) {
     // HTML pages only: API routes and file-like paths set their own headers.
     if ((method === "GET" || method === "HEAD") && !/\.[a-z0-9]+$/i.test(path)) {
       return applyCachePolicy(context, path, await next());
     }
-    return next();
+    const res = await next();
+    applySecurityHeaders(path, res);
+    return res;
   }
 
   if (!env.ADMIN_USER || !env.ADMIN_PASSWORD) {

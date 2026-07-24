@@ -8,9 +8,21 @@ export const prerender = false;
 // renewals, cancellations, refunds, expirations, etc. We don't trust the
 // notification's contents — we use it only as a trigger: decode it to find the
 // originalTransactionId, then re-query the authoritative status from Apple and
-// update the stored entitlement. Always 200 so Apple doesn't retry forever.
-export const POST: APIRoute = async ({ request }) => {
+// update the stored entitlement. Always 200 so Apple doesn't retry forever
+// (except 429 under abuse, which Apple will back off from).
+export const POST: APIRoute = async ({ request, clientAddress }) => {
   if (!(await iapConfigured())) return new Response(null, { status: 200 });
+
+  // Soft rate limit by IP — stops unauthenticated amplification of Apple API calls.
+  if (env.FACTCHECK_LIMITER) {
+    const ip =
+      request.headers.get("CF-Connecting-IP") ||
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      clientAddress ||
+      "unknown";
+    const { success } = await env.FACTCHECK_LIMITER.limit({ key: `iap-notify:${ip}` });
+    if (!success) return new Response(null, { status: 429 });
+  }
 
   let body: any;
   try {

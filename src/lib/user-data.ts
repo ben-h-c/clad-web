@@ -203,12 +203,16 @@ export function publicName(name: string): string {
   return `${parts[0]} ${parts[parts.length - 1][0].toUpperCase()}.`;
 }
 
-export async function listCommentsForPost(postSlug: string): Promise<PostComment[]> {
+export async function listCommentsForPost(
+  postSlug: string,
+  limit = 500
+): Promise<PostComment[]> {
+  const cap = Math.max(1, Math.min(1000, Math.floor(limit) || 500));
   const res = await env.DB.prepare(
     "SELECT id, userId, authorName, body, gradeVote, leanVote, createdAt, updatedAt " +
-      "FROM comment WHERE postSlug = ? ORDER BY updatedAt DESC"
+      "FROM comment WHERE postSlug = ? ORDER BY updatedAt DESC LIMIT ?"
   )
-    .bind(postSlug)
+    .bind(postSlug, cap)
     .all<PostComment>();
   return res.results ?? [];
 }
@@ -366,10 +370,20 @@ export async function deleteUserAndData(userId: string): Promise<void> {
     byUser("DELETE FROM apple_subscription WHERE userId = ?"),
     byUser("DELETE FROM push_token WHERE userId = ?"),
     byUser("DELETE FROM comment WHERE userId = ?"),
+    // Ballot picks: user_pick cascades from ballot, but delete both for clarity.
+    byUser(
+      "DELETE FROM user_pick WHERE ballotId IN (SELECT id FROM user_ballot WHERE userId = ?)"
+    ),
+    byUser("DELETE FROM user_ballot WHERE userId = ?"),
   ];
-  // verification rows are keyed by email (identifier), not userId.
+  // verification + newsletter rows keyed by email, not userId.
   if (u?.email) {
     stmts.push(env.DB.prepare("DELETE FROM verification WHERE identifier = ?").bind(u.email));
+    stmts.push(
+      env.DB.prepare("DELETE FROM newsletter_subscriber WHERE lower(email) = lower(?)").bind(
+        u.email
+      )
+    );
   }
   stmts.push(env.DB.prepare("DELETE FROM user WHERE id = ?").bind(userId));
   await env.DB.batch(stmts);

@@ -16,12 +16,14 @@ export const POST: APIRoute = async ({ request }) => {
   } catch {
     return json({ error: "Invalid JSON body" }, 400);
   }
-  const raw = Array.isArray(payload?.sections) ? payload.sections : [];
+  const raw = (Array.isArray(payload?.sections) ? payload.sections : []).slice(0, 20);
   const sections: GoodNewsSection[] = raw
     .map((s: any) => ({
       title: String(s?.title ?? "").trim(),
       blurb: String(s?.blurb ?? "").trim(),
-      ids: Array.isArray(s?.ids) ? s.ids.map((v: unknown) => String(v)).filter(Boolean) : [],
+      ids: Array.isArray(s?.ids)
+        ? s.ids.map((v: unknown) => String(v)).filter(Boolean).slice(0, 40)
+        : [],
     }))
     .filter((s: GoodNewsSection) => s.title && s.ids.length >= 2);
   await setGoodNews(env.AGENTS, sections);

@@ -5,10 +5,19 @@ import { EMAIL, emailShell, escHtml } from "./emailTheme.ts";
 
 const SITE = "https://cladfacts.com";
 
+/** Redact email for Worker logs (privacy — B7). */
+function emailLogTag(email: string): string {
+  const e = String(email || "").trim().toLowerCase();
+  if (!e || !e.includes("@")) return "(none)";
+  const [local, domain] = e.split("@");
+  const head = (local || "").slice(0, 2);
+  return `${head}…@${domain || "?"}`;
+}
+
 // Transactional email via Resend (only used when RESEND_API_KEY is set).
 async function sendEmail(to: string, subject: string, html: string): Promise<void> {
   if (!env.RESEND_API_KEY) {
-    console.error("[auth-email] RESEND_API_KEY not set — cannot send:", subject, "to", to);
+    console.error("[auth-email] RESEND_API_KEY not set — cannot send:", subject, "to", emailLogTag(to));
     return;
   }
   const res = await fetch("https://api.resend.com/emails", {
@@ -18,9 +27,53 @@ async function sendEmail(to: string, subject: string, html: string): Promise<voi
   });
   if (!res.ok) {
     const body = await res.text().catch(() => "");
-    console.error("[auth-email] Resend failed", res.status, body.slice(0, 240));
+    // Do not log raw recipient or response body (may echo the address).
+    console.error(
+      "[auth-email] Resend failed",
+      res.status,
+      "subject=",
+      subject,
+      "to=",
+      emailLogTag(to),
+      "bodyLen=",
+      body.length
+    );
     throw new Error(`Resend ${res.status}`);
   }
+}
+
+/** KV-backed secondary storage so Better Auth rate limits survive isolate restarts. */
+function kvSecondaryStorage() {
+  const kv = env.AGENTS;
+  if (!kv) return undefined;
+  const prefix = "ba:";
+  return {
+    get: async (key: string) => {
+      try {
+        return (await kv.get(prefix + key)) ?? null;
+      } catch {
+        return null;
+      }
+    },
+    set: async (key: string, value: string, ttl?: number) => {
+      try {
+        const opts =
+          typeof ttl === "number" && ttl > 0
+            ? { expirationTtl: Math.max(60, Math.ceil(ttl)) }
+            : undefined;
+        await kv.put(prefix + key, value, opts);
+      } catch {
+        /* best-effort */
+      }
+    },
+    delete: async (key: string) => {
+      try {
+        await kv.delete(prefix + key);
+      } catch {
+        /* best-effort */
+      }
+    },
+  };
 }
 
 // TEMP: email this address whenever a new account is created. Remove the
@@ -83,12 +136,39 @@ export function getAuth() {
   if (env.TWITTER_CLIENT_ID && env.TWITTER_CLIENT_SECRET)
     socialProviders.twitter = { clientId: env.TWITTER_CLIENT_ID, clientSecret: env.TWITTER_CLIENT_SECRET };
 
+  const secondaryStorage = kvSecondaryStorage();
+
   cached = betterAuth({
     appName: "CladFacts",
     secret: env.BETTER_AUTH_SECRET,
     baseURL: env.BETTER_AUTH_URL || SITE,
     trustedOrigins: [SITE, "https://www.cladfacts.com"],
     database: { dialect: new D1Dialect({ database: env.DB }), type: "sqlite" },
+    // Durable rate-limit storage (Workers memory resets per isolate).
+    ...(secondaryStorage ? { secondaryStorage } : {}),
+    rateLimit: {
+      enabled: true,
+      window: 60,
+      max: 30,
+      storage: secondaryStorage ? "secondary-storage" : "memory",
+      customRules: {
+        "/sign-in/email": { window: 60, max: 8 },
+        "/sign-up/email": { window: 60, max: 5 },
+        "/forget-password": { window: 60, max: 5 },
+        "/request-password-reset": { window: 60, max: 5 },
+        "/reset-password": { window: 60, max: 8 },
+        "/send-verification-email": { window: 60, max: 5 },
+      },
+    },
+    session: {
+      // Short cookie cache: fewer D1 session reads; revocation within ~60s.
+      cookieCache: {
+        enabled: true,
+        maxAge: 60,
+      },
+      expiresIn: 60 * 60 * 24 * 14, // 14 days
+      updateAge: 60 * 60 * 24, // refresh at most daily
+    },
     emailAndPassword: {
       enabled: true,
       // Verification requires Resend; until that's configured, allow sign-in so

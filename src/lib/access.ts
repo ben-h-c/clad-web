@@ -2,8 +2,8 @@
  * Access tiers — registration wall (not a pay wall) while billing is paused.
  *
  *  - paid : active Stripe / Apple subscription (framework kept for future)
- *  - free : any signed-in account → full scoreboard access
- *  - anon : not signed in → grades locked until free account
+ *  - free : signed-in, email-verified account → full scoreboard access
+ *  - anon : not signed in (or unverified email/password) → grades locked
  *
  * Flip BILLING_ENABLED to true when re-enabling Premium promos and paid-only
  * feature gates. Stripe/IAP code paths stay live either way.
@@ -14,7 +14,7 @@ import { getSessionUser } from "./user-data.ts";
 /**
  * When false:
  *  - Hide Premium / pricing / “Go Premium” promo surfaces
- *  - Every signed-in account gets full platform features (incl. reactions)
+ *  - Every verified signed-in account gets full platform features (incl. reactions)
  *  - Anon still locked behind free registration
  * When true: restore supporter-tier upsells and paid-only extras.
  */
@@ -44,6 +44,19 @@ async function resolveAccess(headers: Headers): Promise<Access> {
   const user = await getSessionUser(headers);
   if (!user) {
     return { ...ANON };
+  }
+
+  // When verification email can be sent (RESEND configured), require
+  // emailVerified for full access. Social logins are auto-verified.
+  // When RESEND is unset, Better Auth cannot verify — do not lock everyone out.
+  if (env.RESEND_API_KEY && !user.emailVerified) {
+    return { tier: "anon", fullAccess: false, signedIn: true };
+  }
+
+  // Billing off: skip dead subscription table reads (C1). Every verified
+  // signed-in user has full access; paid tier is indistinguishable in UI.
+  if (!BILLING_ENABLED) {
+    return { tier: "free", fullAccess: true, signedIn: true };
   }
 
   const now = Date.now();

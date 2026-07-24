@@ -94,6 +94,20 @@ function reportThumb(data: PostLike["data"]): string | null {
  * is summarised, because an aggregate costs a few bytes per day rather than
  * per report.
  */
+let _daySumCache: { key: string; val: CalendarDayIndex } | null = null;
+
+/** Memoized day summaries (keyed on posts.length + locked + caps). */
+export function buildDaySummariesCached(
+  posts: PostLike[],
+  opts: { locked: boolean; topPerDay?: number; maxDays?: number }
+): CalendarDayIndex {
+  const key = `${posts.length}|${opts.locked ? 1 : 0}|${opts.topPerDay ?? 5}|${opts.maxDays ?? 0}`;
+  if (_daySumCache && _daySumCache.key === key) return _daySumCache.val;
+  const val = buildDaySummaries(posts, opts);
+  _daySumCache = { key, val };
+  return val;
+}
+
 export function buildDaySummaries(
   posts: PostLike[],
   opts: { locked: boolean; topPerDay?: number; /** Cap days kept newest-first (home payload size). */ maxDays?: number }

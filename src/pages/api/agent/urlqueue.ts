@@ -25,7 +25,10 @@ export const POST: APIRoute = async ({ request }) => {
   } catch {
     return json({ error: "Invalid JSON body" }, 400);
   }
-  const remove = Array.isArray(p?.remove) ? p.remove : [];
+  const remove = (Array.isArray(p?.remove) ? p.remove : [])
+    .map((u: unknown) => String(u))
+    .filter(Boolean)
+    .slice(0, 100);
   // Mark every processed URL's video as seen — whatever the outcome (drafted,
   // duplicate, or skipped for no transcript) — so re-submitting it is ignored.
   for (const u of remove) {

@@ -31,6 +31,7 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const agentId = String(payload?.agentId ?? "").trim();
+  const MAX_CANDIDATES = 80;
   const candidates: { videoId: string; channel?: string; title?: string }[] =
     Array.isArray(payload?.candidates)
       ? payload.candidates
@@ -40,8 +41,12 @@ export const POST: APIRoute = async ({ request }) => {
             title: c?.title ? String(c.title) : "",
           }))
           .filter((c: any) => c.videoId)
+          .slice(0, MAX_CANDIDATES)
       : Array.isArray(payload?.videoIds)
-      ? payload.videoIds.map((v: unknown) => ({ videoId: String(v) })).filter((c: any) => c.videoId)
+      ? payload.videoIds
+          .map((v: unknown) => ({ videoId: String(v) }))
+          .filter((c: any) => c.videoId)
+          .slice(0, MAX_CANDIDATES)
       : [];
 
   const published = await existingVideoIds();

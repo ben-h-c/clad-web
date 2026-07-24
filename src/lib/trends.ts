@@ -102,6 +102,20 @@ function quantile(sorted: number[], q: number): number {
   return sorted[lo]! + (sorted[hi]! - sorted[lo]!) * (pos - lo);
 }
 
+let _trendsCache: {
+  key: string;
+  val: TrendsReport;
+} | null = null;
+
+/** Memoized when sentiments is empty (locked/anon paths). */
+export function buildTrendsCached(posts: CollectionEntry<"posts">[]): TrendsReport {
+  const key = `n=${posts.length}`;
+  if (_trendsCache && _trendsCache.key === key) return _trendsCache.val;
+  const val = buildTrends(posts, {});
+  _trendsCache = { key, val };
+  return val;
+}
+
 export function buildTrends(
   posts: CollectionEntry<"posts">[],
   sentiments: SentimentMap = {}

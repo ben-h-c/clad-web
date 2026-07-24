@@ -241,6 +241,44 @@ const planLabel =
       </ul>
     </section>
 
+    <section class="account-card" id="security-section">
+      <div class="account-card__head">
+        <h3 class="account-card__title">Security &amp; data</h3>
+      </div>
+      <p class="account-card__desc">
+        Manage your password, sessions, and a copy of the data we store for this account.
+      </p>
+      {hasPassword && (
+        <form id="password-form" class="prefs" style="margin-bottom:1.25rem">
+          <label class="del-acct__label">
+            Current password
+            <input type="password" id="pw-current" autocomplete="current-password" required />
+          </label>
+          <label class="del-acct__label">
+            New password (min 8 characters)
+            <input type="password" id="pw-new" autocomplete="new-password" minlength="8" required />
+          </label>
+          <div class="account-actions">
+            <button type="submit" class="auth-submit secondary">Change password</button>
+            <span id="pw-status" class="auth-status" role="status"></span>
+          </div>
+        </form>
+      )}
+      <div class="account-actions" style="flex-wrap:wrap;gap:0.5rem">
+        <button type="button" id="revoke-others-btn" class="auth-submit secondary">
+          Sign out other devices
+        </button>
+        <a class="auth-submit secondary" href="/api/me/export" download>
+          Download my data
+        </a>
+        <span id="sessions-status" class="auth-status" role="status"></span>
+      </div>
+      <p class="account-card__desc" style="margin-top:0.75rem;font-size:0.9rem">
+        “Sign out other devices” keeps this browser signed in. Change email is available
+        via support for now (re-verification required).
+      </p>
+    </section>
+
     <div class="account-actions account-signout">
       <button type="button" id="logout-btn" class="auth-submit secondary">Sign out</button>
       <span id="logout-status" class="auth-status"></span>
@@ -473,6 +511,58 @@ const planLabel =
       });
 
       // --- Sign out ---
+      // --- Password change ---
+      const pwForm = document.getElementById("password-form");
+      if (pwForm) {
+        pwForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const st = document.getElementById("pw-status");
+          setStatus(st, "info", "Updating…");
+          try {
+            const res = await fetch("/api/me/password", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                currentPassword: document.getElementById("pw-current").value,
+                newPassword: document.getElementById("pw-new").value,
+              }),
+            });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok) throw new Error(data.error || "Could not change password.");
+            document.getElementById("pw-current").value = "";
+            document.getElementById("pw-new").value = "";
+            setStatus(st, "info", "Password updated. Other devices signed out.");
+          } catch (err) {
+            setStatus(st, "error", String(err.message || err));
+          }
+        });
+      }
+
+      // --- Sign out other devices ---
+      const revokeBtn = document.getElementById("revoke-others-btn");
+      if (revokeBtn) {
+        revokeBtn.addEventListener("click", async () => {
+          const st = document.getElementById("sessions-status");
+          if (!window.confirm("Sign out all other devices and browsers?")) return;
+          revokeBtn.disabled = true;
+          setStatus(st, "info", "Signing out…");
+          try {
+            const res = await fetch("/api/me/sessions", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ action: "revoke-others" }),
+            });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok) throw new Error(data.error || "Could not revoke sessions.");
+            setStatus(st, "info", "Other devices signed out.");
+          } catch (err) {
+            setStatus(st, "error", String(err.message || err));
+          } finally {
+            revokeBtn.disabled = false;
+          }
+        });
+      }
+
       document.getElementById("logout-btn").addEventListener("click", async (e) => {
         e.target.disabled = true;
         try {
