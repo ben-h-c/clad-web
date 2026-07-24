@@ -44,6 +44,11 @@ export interface HomeLayoutHighlight {
   secondaryCta?: string;
   variant?: HomeHighlightVariant;
   audience?: HomeHighlightAudience;
+  /**
+   * Optional hero image (YouTube still or /generated/ art only).
+   * When omitted, the home feature strip resolves a post thumbnail from href.
+   */
+  image?: string;
 }
 
 export interface HomeLayoutStore {
@@ -132,6 +137,14 @@ export function normalizeHomeHighlight(raw: unknown): HomeLayoutHighlight | null
   ];
   const okAudience: HomeHighlightAudience[] = ["all", "anon", "signed-in"];
 
+  // Only allow known-safe image hosts (same policy as tiles / post thumbs).
+  const rawImage = String(o.image || "").trim();
+  const imageOk =
+    rawImage &&
+    (/^https:\/\/(img\.youtube\.com|i\.ytimg\.com)\//.test(rawImage) ||
+      rawImage.startsWith("/generated/") ||
+      rawImage.startsWith("https://cladfacts.com/generated/"));
+
   return {
     id: clip(String(o.id || `hl-${Date.now()}`), 64).replace(/\s+/g, "-") || "highlight",
     kicker: clip(String(o.kicker || "Now on CladFacts"), 48),
@@ -144,6 +157,7 @@ export function normalizeHomeHighlight(raw: unknown): HomeLayoutHighlight | null
     secondaryCta: secondaryHref && secondaryCta ? secondaryCta : undefined,
     variant: okVariant.includes(variant) ? variant : "event",
     audience: okAudience.includes(audience) ? audience : "all",
+    image: imageOk ? rawImage : undefined,
   };
 }
 

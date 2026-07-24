@@ -1,4 +1,8 @@
 ---
+/**
+ * Developing-story group card — media-overlay format when a thumbnail exists:
+ * full-bleed still, bottom gradient scrim, type on top (CNN-style tile).
+ */
 import { displayableThumb } from "~/lib/imagePolicy";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
@@ -16,21 +20,16 @@ interface Props {
 }
 const { slug, title, topic, members, locked = false, peek = true } = Astro.props;
 
-// Aggregate grade + lean across the grouped reports, like a topic does.
 const gpas = members.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n != null);
 const leans = members.map((p) => leanScoreOf(p.data)).filter((n): n is number => n != null);
 const avgGrade = gpas.length ? gpaToGrade(gpas.reduce((a, b) => a + b, 0) / gpas.length) : null;
 const avgLean = leans.length ? Math.round(leans.reduce((a, b) => a + b, 0) / leans.length) : null;
 
-// members[0] is the lead (highest-impact) story — its summary stands in for
-// the group on hold-preview (not grade rationale).
 const lead = members[0];
 const reasoning = lead?.data.summary || "";
 
 const byNew = [...members].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 const thumb = displayableThumb(byNew.find((p) => p.data.thumbnail)?.data.thumbnail);
-// Only YouTube stills may fall back to a video still on error; owned
-// /generated/ art must never swap back to third-party imagery (imagePolicy).
 const hqFallback =
   thumb && /^https:\/\/(img\.youtube\.com|i\.ytimg\.com)\//.test(thumb)
     ? byNew.find((p) => p.data.videoId)?.data.videoId
@@ -40,8 +39,11 @@ const cardClass = [
   "report-card",
   "report-card--card",
   "report-card--group",
+  thumb ? "report-card--media" : "",
   peek ? "report-card--peek" : "",
-].filter(Boolean).join(" ");
+]
+  .filter(Boolean)
+  .join(" ");
 ---
 <article
   class={cardClass}
@@ -49,63 +51,106 @@ const cardClass = [
   aria-expanded={peek ? "false" : undefined}
 >
   <a class="report-card__link" href={`/breaking/${slug}/`} draggable="false">
-    {thumb && (
-      <div class="report-card__thumb">
-        <img
-          src={thumb}
-          alt={`Video still: ${title}`}
-          width="320"
-          height="180"
-          loading="lazy"
-          decoding="async"
-          onerror={hqFallback ? `this.onerror=null;this.src='https://img.youtube.com/vi/${hqFallback}/hqdefault.jpg'` : undefined}
-        />
-        <span class="report-card__grouptag small-caps">{members.length} reports</span>
-      </div>
-    )}
-    <div class="report-card__body">
-      {peek && !locked && avgGrade && (
-        <div class="report-card__peek-row" aria-hidden="true">
-          <LetterGrade grade={avgGrade} size="badge" />
-          {avgLean !== null && (
-            <span class="report-card__peek-lean">
-              {avgLean === 0 ? "Center" : avgLean < 0 ? `${Math.abs(avgLean)}% L` : `${avgLean}% R`}
-            </span>
-          )}
+    {thumb ? (
+      <>
+        <div class="report-card__media-bg" aria-hidden="true">
+          <img
+            src={thumb}
+            alt=""
+            width="640"
+            height="360"
+            loading="lazy"
+            decoding="async"
+            onerror={hqFallback ? `this.onerror=null;this.src='https://img.youtube.com/vi/${hqFallback}/hqdefault.jpg'` : undefined}
+          />
         </div>
-      )}
-      {peek && locked && (
-        <div class="report-card__peek-row report-card__peek-row--locked" aria-hidden="true">
-          <span class="report-card__peek-lock grade-lock">Unlock free</span>
-        </div>
-      )}
-
-      <div class="report-card__detail">
-        {locked ? (
-          <div class="scoreband scoreband--locked" aria-hidden="true">
-            <span class="grade-lock">Grade &amp; lean — Unlock free</span>
-          </div>
-        ) : avgGrade ? (
-          <div class="scoreband">
-            <div class="scoreband__grade">
-              <LetterGrade grade={avgGrade} size="card" />
-              <span class="scoreband__cap small-caps">Avg Grade</span>
+        <div class="report-card__media-scrim" aria-hidden="true"></div>
+        <div class="report-card__media-body">
+          <span class="report-card__grouptag small-caps">{members.length} reports</span>
+          {peek && !locked && avgGrade && (
+            <div class="report-card__peek-row report-card__peek-row--on-media" aria-hidden="true">
+              <LetterGrade grade={avgGrade} size="badge" />
+              {avgLean !== null && (
+                <span class="report-card__peek-lean">
+                  {avgLean === 0 ? "Center" : avgLean < 0 ? `${Math.abs(avgLean)}% L` : `${avgLean}% R`}
+                </span>
+              )}
             </div>
-            {avgLean !== null && (
-              <div class="scoreband__bias">
-                <PoliticalLean score={avgLean} />
+          )}
+          {peek && locked && (
+            <div class="report-card__peek-row report-card__peek-row--locked report-card__peek-row--on-media" aria-hidden="true">
+              <span class="report-card__peek-lock grade-lock">Unlock free</span>
+            </div>
+          )}
+          <div class="report-card__detail">
+            {locked ? (
+              <div class="scoreband scoreband--locked scoreband--on-media" aria-hidden="true">
+                <span class="grade-lock">Grade &amp; lean — Unlock free</span>
               </div>
+            ) : avgGrade ? (
+              <div class="scoreband scoreband--on-media">
+                <div class="scoreband__grade">
+                  <LetterGrade grade={avgGrade} size="card" />
+                  <span class="scoreband__cap small-caps">Avg Grade</span>
+                </div>
+                {avgLean !== null && (
+                  <div class="scoreband__bias">
+                    <PoliticalLean score={avgLean} />
+                  </div>
+                )}
+              </div>
+            ) : null}
+          </div>
+          <p class="report-card__kicker small-caps">
+            Developing{topic ? ` · ${topic}` : ""} · {members.length} reports
+          </p>
+          <h3 class="report-card__headline">{title}</h3>
+          {reasoning && <p class="report-card__summary report-card__detail">{reasoning}</p>}
+        </div>
+      </>
+    ) : (
+      <div class="report-card__body">
+        {peek && !locked && avgGrade && (
+          <div class="report-card__peek-row" aria-hidden="true">
+            <LetterGrade grade={avgGrade} size="badge" />
+            {avgLean !== null && (
+              <span class="report-card__peek-lean">
+                {avgLean === 0 ? "Center" : avgLean < 0 ? `${Math.abs(avgLean)}% L` : `${avgLean}% R`}
+              </span>
             )}
           </div>
-        ) : null}
+        )}
+        {peek && locked && (
+          <div class="report-card__peek-row report-card__peek-row--locked" aria-hidden="true">
+            <span class="report-card__peek-lock grade-lock">Unlock free</span>
+          </div>
+        )}
+        <div class="report-card__detail">
+          {locked ? (
+            <div class="scoreband scoreband--locked" aria-hidden="true">
+              <span class="grade-lock">Grade &amp; lean — Unlock free</span>
+            </div>
+          ) : avgGrade ? (
+            <div class="scoreband">
+              <div class="scoreband__grade">
+                <LetterGrade grade={avgGrade} size="card" />
+                <span class="scoreband__cap small-caps">Avg Grade</span>
+              </div>
+              {avgLean !== null && (
+                <div class="scoreband__bias">
+                  <PoliticalLean score={avgLean} />
+                </div>
+              )}
+            </div>
+          ) : null}
+        </div>
+        <p class="report-card__kicker small-caps">
+          Developing{topic ? ` · ${topic}` : ""} · {members.length} reports
+        </p>
+        <h3 class="report-card__headline">{title}</h3>
+        {reasoning && <p class="report-card__summary report-card__detail">{reasoning}</p>}
       </div>
-
-      <p class="report-card__kicker small-caps">
-        Developing{topic ? ` · ${topic}` : ""} · {members.length} reports
-      </p>
-      <h3 class="report-card__headline">{title}</h3>
-      {reasoning && <p class="report-card__summary report-card__detail">{reasoning}</p>}
-    </div>
+    )}
   </a>
   {peek && (
     <p class="report-card__hold-hint small-caps" aria-hidden="true">Hold for preview</p>

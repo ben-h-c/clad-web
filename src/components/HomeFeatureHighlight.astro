@@ -1,34 +1,67 @@
 ---
 /**
  * Agent-driven full-width feature / current-events strip on the home page.
- * Payload comes from home-layout-curator (Grok + web_search) via AGENTS KV.
+ * CNN-style media hero when an image is available: photo fills the frame,
+ * soft bottom scrim under the type for readability.
  */
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import type { HomeLayoutHighlight } from "~/lib/homeLayout";
+import { displayableThumb } from "~/lib/imagePolicy";
 
 interface Props {
   highlight: HomeLayoutHighlight;
   class?: string;
 }
 const { highlight: h } = Astro.props;
+
+/** Prefer explicit image; else resolve a post thumbnail from the primary href. */
+let image: string | null = h.image ? displayableThumb(h.image) : null;
+if (!image && h.href.startsWith("/posts/")) {
+  const slug = h.href.replace(/^\/posts\//, "").replace(/\/$/, "").split("?")[0];
+  if (slug) {
+    try {
+      const posts = await getCollection("posts", (p) => p.id === slug);
+      const post = posts[0] as CollectionEntry<"posts"> | undefined;
+      image = displayableThumb(post?.data.thumbnail) ?? null;
+    } catch {
+      /* collection unavailable */
+    }
+  }
+}
+
 const wrapClass = [
+  "media-hero",
   "home-feature",
+  image ? "media-hero--has-image" : "media-hero--plain",
   h.variant && `home-feature--${h.variant}`,
+  h.variant && `media-hero--${h.variant}`,
   Astro.props.class,
 ]
   .filter(Boolean)
   .join(" ");
 ---
-<section class={wrapClass} aria-labelledby={`home-feature-${h.id}`} data-home-feature={h.id}>
-  <div class="home-feature__inner">
-    <div class="home-feature__text">
-      <p class="home-feature__kicker small-caps">{h.kicker}</p>
-      <h2 class="home-feature__title" id={`home-feature-${h.id}`}>{h.title}</h2>
-      <p class="home-feature__body">{h.body}</p>
+<section
+  class={wrapClass}
+  aria-labelledby={`home-feature-${h.id}`}
+  data-home-feature={h.id}
+>
+  {image && (
+    <div class="media-hero__bg" aria-hidden="true">
+      <img src={image} alt="" width="1200" height="675" loading="eager" decoding="async" />
     </div>
-    <div class="home-feature__actions">
-      <a class="home-feature__cta" href={h.href}>{h.cta}</a>
+  )}
+  <div class="media-hero__scrim" aria-hidden="true"></div>
+  <div class="media-hero__content home-feature__inner">
+    <div class="home-feature__text">
+      <p class="home-feature__kicker media-hero__kicker small-caps">{h.kicker}</p>
+      <h2 class="home-feature__title media-hero__title" id={`home-feature-${h.id}`}>{h.title}</h2>
+      <p class="home-feature__body media-hero__body">{h.body}</p>
+    </div>
+    <div class="home-feature__actions media-hero__actions">
+      <a class="home-feature__cta media-hero__cta" href={h.href}>{h.cta}</a>
       {h.secondaryHref && h.secondaryCta && (
-        <a class="home-feature__secondary" href={h.secondaryHref}>{h.secondaryCta}</a>
+        <a class="home-feature__secondary media-hero__secondary" href={h.secondaryHref}>{h.secondaryCta}</a>
       )}
     </div>
   </div>

@@ -12,6 +12,7 @@ import { LEAN_THRESHOLD } from "~/lib/trends";
 import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
 import { sampleUnlockedId } from "~/lib/sample";
+import { displayableThumb } from "~/lib/imagePolicy";
 
 // Ephemeral: a breaking-news group exists only while the story is active. SSR so
 // it reflects the live KV selection; 404 once the group ages out of the feed.
@@ -64,6 +65,15 @@ const pageTitle = `${hubName} — developing story — CladFacts`;
 // Unfurl title stays short (platforms truncate ~60-70 chars); the report count
 // lives in the description where it isn't competing with the topic name.
 const ogTitle = `${hubName} — developing story`;
+
+const heroThumb = displayableThumb(
+  members.find((p) => p!.data.thumbnail)?.data.thumbnail
+);
+const heroClass = [
+  "media-hero",
+  "breaking-hero",
+  heroThumb ? "media-hero--has-image" : "media-hero--plain",
+].join(" ");
 ---
 <BaseLayout
   title={pageTitle}
@@ -72,46 +82,63 @@ const ogTitle = `${hubName} — developing story`;
   ogImage={`/og/breaking-${slug}.png`}
   ogType="website"
 >
-  <section class="topic-page">
-    <p class="small-caps" style="color:var(--muted-ink)">
-      {group.topic ? `${group.topic} · ` : ""}Developing story · {members.length} reports
-    </p>
-    <h1 class="topic-page__title">{group.title}</h1>
-
-    {locked ? (
-      <p class="grade-lock-panel" style="margin:0.75rem 0">
-        <span class="grade-lock-icon" aria-hidden="true"></span> Average grade &amp; political-lean for this story unlock with a
-        <a href="/register/"> free CladFacts account</a> — no card required.
-      </p>
-    ) : (
-      <>
-        <div class="topic-page__agg">
-          {avgGrade && (
-            <div class="scoreband__grade">
-              <LetterGrade grade={avgGrade} size="card" />
-              <span class="scoreband__cap small-caps">Avg grade</span>
-            </div>
-          )}
-          {avgLean !== null && (
-            <div class="scoreband__bias"><PoliticalLean score={avgLean} /></div>
-          )}
+  <section class="topic-page breaking-story">
+    <header class={heroClass}>
+      {heroThumb && (
+        <div class="media-hero__bg" aria-hidden="true">
+          <img
+            src={heroThumb}
+            alt=""
+            width="1200"
+            height="675"
+            loading="eager"
+            decoding="async"
+          />
         </div>
-        {leans.length > 0 && (
-          <>
-            <div class="callout__split" aria-hidden="true" style="max-width:22rem">
-              <span class="split split--l" style={`flex:${left || 0.001}`}>{left || ""}</span>
-              <span class="split split--c" style={`flex:${center || 0.001}`}>{center || ""}</span>
-              <span class="split split--r" style={`flex:${right || 0.001}`}>{right || ""}</span>
-            </div>
-            <p class="callout__splitcap">
-              Coverage balance: {left} left · {center} center · {right} right{unknown > 0 ? ` · ${unknown} unrated` : ""}
-            </p>
-          </>
-        )}
-      </>
-    )}
+      )}
+      <div class="media-hero__scrim" aria-hidden="true"></div>
+      <div class="media-hero__content breaking-hero__content">
+        <p class="media-hero__kicker small-caps">
+          {group.topic ? `${group.topic} · ` : ""}Developing story · {members.length} reports
+        </p>
+        <h1 class="media-hero__title breaking-hero__title">{group.title}</h1>
 
-    <p class="dateline">
+        {locked ? (
+          <p class="breaking-hero__lock">
+            Average grade &amp; lean unlock with a
+            <a href="/register/">free account</a> — no card required.
+          </p>
+        ) : (
+          <div class="breaking-hero__agg">
+            {avgGrade && (
+              <div class="scoreband scoreband--on-media breaking-hero__score">
+                <div class="scoreband__grade">
+                  <LetterGrade grade={avgGrade} size="card" />
+                  <span class="scoreband__cap small-caps">Avg grade</span>
+                </div>
+                {avgLean !== null && (
+                  <div class="scoreband__bias"><PoliticalLean score={avgLean} /></div>
+                )}
+              </div>
+            )}
+            {leans.length > 0 && (
+              <div class="breaking-hero__balance">
+                <div class="callout__split callout__split--on-media" aria-hidden="true">
+                  <span class="split split--l" style={`flex:${left || 0.001}`}>{left || ""}</span>
+                  <span class="split split--c" style={`flex:${center || 0.001}`}>{center || ""}</span>
+                  <span class="split split--r" style={`flex:${right || 0.001}`}>{right || ""}</span>
+                </div>
+                <p class="callout__splitcap callout__splitcap--on-media">
+                  Coverage: {left} left · {center} center · {right} right{unknown > 0 ? ` · ${unknown} unrated` : ""}
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </header>
+
+    <p class="dateline breaking-story__lede">
       A temporary grouping of multiple outlets' coverage of the same breaking
       story. It dissolves back into the regular topics once the story settles.
     </p>
