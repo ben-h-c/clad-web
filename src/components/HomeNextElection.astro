@@ -1,17 +1,16 @@
 ---
 /**
  * Homepage “next up” race blurb under the midterms map teaser.
- * Picks the soonest dated race on the board and links map / ballot / related reports.
+ * Collapsed by default; expands to full detail + related reports.
  */
 import type { CollectionEntry } from "astro:content";
 import type { RaceDef } from "~/lib/races";
 import {
   daysUntil,
-  formatShortVoteDate,
-  isVoteDateTbd,
   voteDateChip,
   voteKindLabel,
 } from "~/lib/elections";
+import { isVoteDateTbd } from "~/lib/races";
 import { US_STATE_NAMES } from "~/lib/usMapPaths";
 
 interface Props {
@@ -44,7 +43,6 @@ function pickNextRace(list: RaceDef[]): RaceDef | null {
     });
   if (dated.length) return dated[0]!;
 
-  // All dated votes are past or TBD — prefer marquee with any nextVoteDate
   const fallback = [...list].sort((a, b) => {
     const da = isVoteDateTbd(a.nextVoteDate) ? 9999 : daysUntil(a.nextVoteDate);
     const db = isVoteDateTbd(b.nextVoteDate) ? 9999 : daysUntil(b.nextVoteDate);
@@ -103,73 +101,123 @@ function daysLabel(d: number): string {
   if (d < 0) return `${Math.abs(d)} days ago`;
   return "Date TBD";
 }
+
+const summaryLine = race
+  ? [
+      whenChip || "Date TBD",
+      days < 9990 ? daysLabel(days) : null,
+      stateName || null,
+    ]
+      .filter(Boolean)
+      .join(" · ")
+  : "";
 ---
 {race && (
-  <aside class="home-next-race" aria-labelledby="home-next-race-title">
-    <div class="home-next-race__inner">
-      <p class="home-next-race__kicker small-caps">Next on the map</p>
-      <h3 class="home-next-race__title" id="home-next-race-title">{race.office}</h3>
-      <p class="home-next-race__when">
-        <strong>{whenChip || "Date TBD"}</strong>
-        {days < 9990 && (
-          <span class="home-next-race__countdown"> · {daysLabel(days)}</span>
+  <aside class="home-next-race" data-home-next-race aria-labelledby="home-next-race-title">
+    <button
+      type="button"
+      class="home-next-race__toggle"
+      data-home-next-race-toggle
+      aria-expanded="false"
+      aria-controls="home-next-race-panel"
+      id="home-next-race-toggle"
+    >
+      <span class="home-next-race__toggle-text">
+        <span class="home-next-race__kicker small-caps">Next on the map</span>
+        <span class="home-next-race__title" id="home-next-race-title">{race.office}</span>
+        {summaryLine && (
+          <span class="home-next-race__summary">{summaryLine}</span>
         )}
-      </p>
-      <p class="home-next-race__lede">
-        {stateName}
-        {kind ? ` · ${kind}` : ""}
-        {race.chamber === "senate" ? " · U.S. Senate" : race.chamber === "governor" ? " · Governor" : ""}
-        {race.tier === "marquee" ? " · Marquee race" : race.tier === "watch" ? " · Watch race" : ""}.
-        {outlookNote
-          ? ` ${outlookNote}`
-          : sides.length >= 2
-            ? ` ${sides[0]!.name} vs ${sides[1]!.name}.`
-            : sides.length === 1
-              ? ` Featuring ${sides[0]!.name}.`
-              : " Open or unsettled field — check the map for the latest outlook."}
-      </p>
+      </span>
+      <span class="home-next-race__chevron" aria-hidden="true"></span>
+    </button>
 
-      {sides.length > 0 && (
-        <p class="home-next-race__sides">
-          {sides.map((s, i) => (
-            <>
-              {i > 0 && <span class="home-next-race__vs"> vs </span>}
-              {s.href ? (
-                <a href={s.href}>
-                  {s.name}
-                  {s.party ? ` (${s.party})` : ""}
-                </a>
-              ) : (
-                <span>
-                  {s.name}
-                  {s.party ? ` (${s.party})` : ""}
-                </span>
-              )}
-            </>
-          ))}
+    <div
+      class="home-next-race__panel"
+      id="home-next-race-panel"
+      role="region"
+      aria-labelledby="home-next-race-toggle"
+      hidden
+    >
+      <div class="home-next-race__inner">
+        <p class="home-next-race__when">
+          <strong>{whenChip || "Date TBD"}</strong>
+          {days < 9990 && (
+            <span class="home-next-race__countdown"> · {daysLabel(days)}</span>
+          )}
         </p>
-      )}
+        <p class="home-next-race__lede">
+          {stateName}
+          {kind ? ` · ${kind}` : ""}
+          {race.chamber === "senate" ? " · U.S. Senate" : race.chamber === "governor" ? " · Governor" : ""}
+          {race.tier === "marquee" ? " · Marquee race" : race.tier === "watch" ? " · Watch race" : ""}.
+          {outlookNote
+            ? ` ${outlookNote}`
+            : sides.length >= 2
+              ? ` ${sides[0]!.name} vs ${sides[1]!.name}.`
+              : sides.length === 1
+                ? ` Featuring ${sides[0]!.name}.`
+                : " Open or unsettled field — check the map for the latest outlook."}
+        </p>
 
-      {related.length > 0 && (
-        <div class="home-next-race__related">
-          <p class="small-caps home-next-race__related-label">Related on CladFacts</p>
-          <ul>
-            {related.map((p) => (
-              <li>
-                <a href={`/posts/${p.id}/`}>{p.data.headline}</a>
-              </li>
+        {sides.length > 0 && (
+          <p class="home-next-race__sides">
+            {sides.map((s, i) => (
+              <>
+                {i > 0 && <span class="home-next-race__vs"> vs </span>}
+                {s.href ? (
+                  <a href={s.href}>
+                    {s.name}
+                    {s.party ? ` (${s.party})` : ""}
+                  </a>
+                ) : (
+                  <span>
+                    {s.name}
+                    {s.party ? ` (${s.party})` : ""}
+                  </span>
+                )}
+              </>
             ))}
-          </ul>
-        </div>
-      )}
-
-      <p class="home-next-race__links">
-        <a class="home-next-race__cta" href={mapHref}>Open on map →</a>
-        <a href={ballotHref}>Ballot board</a>
-        {related.length === 0 && (
-          <a href={`/search/?q=${encodeURIComponent(race.office)}`}>Search coverage</a>
+          </p>
         )}
-      </p>
+
+        {related.length > 0 && (
+          <div class="home-next-race__related">
+            <p class="small-caps home-next-race__related-label">Related on CladFacts</p>
+            <ul>
+              {related.map((p) => (
+                <li>
+                  <a href={`/posts/${p.id}/`}>{p.data.headline}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <p class="home-next-race__links">
+          <a class="home-next-race__cta" href={mapHref}>Open on map →</a>
+          <a href={ballotHref}>Ballot board</a>
+          {related.length === 0 && (
+            <a href={`/search/?q=${encodeURIComponent(race.office)}`}>Search coverage</a>
+          )}
+        </p>
+      </div>
     </div>
   </aside>
+  <script is:inline>
+    (() => {
+      const root = document.querySelector("[data-home-next-race]");
+      const btn = root?.querySelector("[data-home-next-race-toggle]");
+      const panel = root?.querySelector("#home-next-race-panel");
+      if (!root || !btn || !panel || root.dataset.bound === "1") return;
+      root.dataset.bound = "1";
+      btn.addEventListener("click", () => {
+        const open = btn.getAttribute("aria-expanded") === "true";
+        const next = !open;
+        btn.setAttribute("aria-expanded", String(next));
+        root.classList.toggle("is-open", next);
+        panel.hidden = !next;
+      });
+    })();
+  </script>
 )}

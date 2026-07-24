@@ -8979,19 +8979,83 @@ html.theme-dark .home-emap__card {
 .home-emap__party--solid-r { fill: #8b1a14; background: #8b1a14; }
 .home-emap__party--no-race { fill: #d9d0bc; background: #d9d0bc; }
 
-/* Next race blurb under the home map */
+/* Next race blurb under the home map — collapsible, collapsed by default */
 .home-next-race {
   margin-top: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+  border-radius: 14px;
+  background:
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--card) 92%, var(--paper)) 0%,
+      var(--card) 48%,
+      color-mix(in srgb, var(--card) 96%, var(--paper-deep, var(--paper))) 100%
+    );
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 22%, transparent),
+    0 8px 20px color-mix(in srgb, var(--shadow) 14%, transparent);
+  overflow: hidden;
+}
+.home-next-race__toggle {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  margin: 0;
+  padding: 0.7rem 0.9rem 0.75rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.home-next-race__toggle:hover,
+.home-next-race__toggle:focus-visible {
+  background: color-mix(in srgb, var(--ink) 5%, transparent);
+  outline: none;
+}
+.home-next-race__toggle-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.home-next-race__summary {
+  font-size: 0.82rem;
+  color: var(--muted-ink);
+  line-height: 1.3;
+}
+.home-next-race__chevron {
+  flex-shrink: 0;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid color-mix(in srgb, var(--ink) 55%, transparent);
+  border-bottom: 2px solid color-mix(in srgb, var(--ink) 55%, transparent);
+  transform: rotate(45deg);
+  transition: transform 0.18s ease;
+  margin-right: 0.35rem;
+  margin-top: -0.2rem;
+}
+.home-next-race.is-open .home-next-race__chevron {
+  transform: rotate(225deg);
+  margin-top: 0.15rem;
+}
+.home-next-race__panel {
+  border-top: 1px solid color-mix(in srgb, var(--rule) 45%, transparent);
+}
+.home-next-race__panel[hidden] {
+  display: none !important;
 }
 .home-next-race__inner {
-  padding: 0.9rem 1rem 1rem;
-  border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
-  border-radius: 4px;
-  background: color-mix(in srgb, var(--paper) 72%, var(--card));
-  box-shadow: 2px 2px 0 color-mix(in srgb, var(--shadow) 28%, transparent);
+  padding: 0.75rem 1rem 0.95rem;
 }
 .home-next-race__kicker {
-  margin: 0 0 0.25rem;
+  margin: 0;
   color: var(--accent, #941a1a);
   letter-spacing: 0.12em;
   font-size: 0.68rem;
@@ -8999,7 +9063,7 @@ html.theme-dark .home-emap__card {
 .home-next-race__title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   font-weight: 700;
   line-height: 1.15;
 }
