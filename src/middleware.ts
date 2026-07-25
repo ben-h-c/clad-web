@@ -86,15 +86,29 @@ const LOW_TTL_PAGE = (path: string) =>
  * (grades/lean render for full-access readers) and must never be stored in a
  * shared cache.
  */
+/**
+ * Cache API hits (and some streamed bodies) expose immutable Headers.
+ * Mutating them throws "Can't modify immutable headers" → empty 500.
+ * Always rewrite onto a fresh Headers object when a set fails.
+ */
+function withHeaders(response: Response, mutate: (h: Headers) => void): Response {
+  try {
+    mutate(response.headers);
+    return response;
+  } catch {
+    const headers = new Headers(response.headers);
+    mutate(headers);
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
+  }
+}
+
 /** Security headers for HTML (and most document responses). Embed SVG must stay frameable. */
 function applySecurityHeaders(path: string, response: Response) {
-  response.headers.set("X-Content-Type-Options", "nosniff");
-  response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
-  // HSTS: edge already terminates TLS; skip in-app HSTS to avoid conflicting policies.
   const isEmbed = path.startsWith("/embed/");
-  if (!isEmbed) {
-    response.headers.set("X-Frame-Options", "SAMEORIGIN");
-  }
   // Enforcing CSP (inline scripts used site-wide; Stripe / Turnstile / YouTube allowed).
   // Embeds intentionally omit frame-ancestors so third-party sites can iframe the SVG.
   const csp = isEmbed
@@ -113,21 +127,29 @@ function applySecurityHeaders(path: string, response: Response) {
         "object-src 'none'",
         "upgrade-insecure-requests",
       ].join("; ");
-  response.headers.set("Content-Security-Policy", csp);
-  return response;
+  return withHeaders(response, (h) => {
+    h.set("X-Content-Type-Options", "nosniff");
+    h.set("Referrer-Policy", "strict-origin-when-cross-origin");
+    // HSTS: edge already terminates TLS; skip in-app HSTS to avoid conflicting policies.
+    if (!isEmbed) {
+      h.set("X-Frame-Options", "SAMEORIGIN");
+    }
+    h.set("Content-Security-Policy", csp);
+  });
 }
 
 function applyCachePolicy(context: { request: Request }, path: string, response: Response) {
   const hasSession = (context.request.headers.get("cookie") ?? "").includes("session_token");
-  if (hasSession || response.headers.has("set-cookie") || UNCACHEABLE_PAGE(path)) {
-    response.headers.set("Cache-Control", "private, no-store");
-  } else if (LOW_TTL_PAGE(path)) {
-    response.headers.set("Cache-Control", "public, s-maxage=60, stale-while-revalidate=600");
-  } else {
-    response.headers.set("Cache-Control", "public, s-maxage=300, stale-while-revalidate=600");
-  }
-  applySecurityHeaders(path, response);
-  return response;
+  const next = withHeaders(response, (h) => {
+    if (hasSession || response.headers.has("set-cookie") || UNCACHEABLE_PAGE(path)) {
+      h.set("Cache-Control", "private, no-store");
+    } else if (LOW_TTL_PAGE(path)) {
+      h.set("Cache-Control", "public, s-maxage=60, stale-while-revalidate=600");
+    } else {
+      h.set("Cache-Control", "public, s-maxage=300, stale-while-revalidate=600");
+    }
+  });
+  return applySecurityHeaders(path, next);
 }
 
 // Apple universal-links association file. Served straight from middleware
@@ -194,10 +216,12 @@ export const onRequest = defineMiddleware(async (context, next) => {
   if (COMMENTS_API(path)) return next();
   if (STRIPE_API(path)) return next();
   if (PUBLIC_API(path)) {
-    // Still apply nosniff / frame policy on public API JSON responses.
+    // Still apply nosniff on public API responses. Cache API hits return
+    // immutable headers — re-wrap via withHeaders when set would throw.
     const res = await next();
-    res.headers.set("X-Content-Type-Options", "nosniff");
-    return res;
+    return withHeaders(res, (h) => {
+      h.set("X-Content-Type-Options", "nosniff");
+    });
   }
   if (!PROTECTED(path)) {
     // HTML pages only: API routes and file-like paths set their own headers.

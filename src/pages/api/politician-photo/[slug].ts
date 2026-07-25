@@ -165,7 +165,14 @@ export const GET: APIRoute = async ({ params, request, locals }) => {
   if (cache) {
     try {
       const hit = await cache.match(cacheKey);
-      if (hit) return hit;
+      if (hit && hit.ok) {
+        // Cache hits expose immutable headers; rebuild so middleware can set nosniff.
+        const headers = new Headers(hit.headers);
+        if (!headers.has("X-Content-Type-Options")) {
+          headers.set("X-Content-Type-Options", "nosniff");
+        }
+        return new Response(hit.body, { status: 200, headers });
+      }
     } catch {
       /* ignore */
     }
