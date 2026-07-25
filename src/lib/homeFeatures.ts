@@ -181,26 +181,36 @@ function sharesTopic(
   return false;
 }
 
-/** Prefer post stills whose headline/summary share words with the event title. */
+/** Prefer post stills whose headline/summary share words/clusters with the event. */
 function imageForEvent(
   title: string,
   posts: CollectionEntry<"posts">[]
 ): string | null {
-  const words = title
-    .toLowerCase()
+  const blobIn = contentBlob(title);
+  const clusters = CLUSTER_PATTERNS.filter((c) => c.re.test(blobIn)).map((c) => c.id);
+  const words = blobIn
     .split(/[^a-z0-9]+/)
     .filter((w) => w.length >= 4 && !STOP.has(w))
-    .slice(0, 8);
-  if (words.length === 0) return null;
+    .slice(0, 10);
+  if (words.length === 0 && clusters.length === 0) return null;
+
+  let best: { score: number; thumb: string } | null = null;
   for (const p of posts) {
     const blob = `${p.data.headline} ${p.data.summary ?? ""}`.toLowerCase();
     const hits = words.filter((w) => blob.includes(w)).length;
-    if (hits >= 2) {
-      const t = displayableThumb(p.data.thumbnail);
-      if (t) return t;
-    }
+    const clusterHits = clusters.filter((id) =>
+      CLUSTER_PATTERNS.find((c) => c.id === id)?.re.test(blob)
+    ).length;
+    // Cluster match alone is enough (e.g. tariff highlight → trade post still).
+    const score = hits + clusterHits * 3;
+    if (score < 2 && clusterHits === 0) continue;
+    if (clusterHits === 0 && hits < 2) continue;
+    const t = displayableThumb(p.data.thumbnail);
+    if (!t) continue;
+    if (!best || score > best.score) best = { score, thumb: t };
+    if (score >= 5) break;
   }
-  return null;
+  return best?.thumb ?? null;
 }
 
 /**
@@ -249,10 +259,21 @@ export function buildHomeFeatureItems(opts: {
   const h = opts.highlight;
   if (h) {
     let image = h.image ? displayableThumb(h.image) : null;
-    if (!image && h.href.startsWith("/posts/")) {
-      const slug = h.href.replace(/^\/posts\//, "").replace(/\/$/, "").split("?")[0];
-      const post = posts.find((p) => p.id === slug);
-      image = displayableThumb(post?.data.thumbnail) ?? null;
+    // Resolve still from primary or secondary post path (desk often links
+    // /bias/ or /topics/ as href and a graded report as secondary).
+    if (!image) {
+      for (const path of [h.href, h.secondaryHref].filter(Boolean) as string[]) {
+        if (!path.startsWith("/posts/")) continue;
+        const slug = path.replace(/^\/posts\//, "").replace(/\/$/, "").split("?")[0];
+        const post = posts.find((p) => p.id === slug);
+        image = displayableThumb(post?.data.thumbnail) ?? null;
+        if (image) break;
+      }
+    }
+    // Thematic fallback: match title/body tokens to recent post stills
+    // (tariff/economy highlights often have no post URL and no agent image).
+    if (!image) {
+      image = imageForEvent(`${h.title} ${h.body || ""}`, posts);
     }
     push({
       id: h.id,

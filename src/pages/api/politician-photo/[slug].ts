@@ -185,7 +185,7 @@ export const GET: APIRoute = async ({ params, request, locals }) => {
     return new Response(null, { status: 502 });
   }
 
-  if (!upstream.ok || !upstream.body) {
+  if (!upstream.ok) {
     return new Response(null, { status: upstream.status === 404 ? 404 : 502 });
   }
 
@@ -194,32 +194,50 @@ export const GET: APIRoute = async ({ params, request, locals }) => {
     return new Response(null, { status: 502 });
   }
 
-  const resp = new Response(upstream.body, {
-    status: 200,
-    headers: {
-      "Content-Type": contentType,
-      "Cache-Control": "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400",
-      "X-Portrait-Source": "wikimedia-commons",
-    },
-  });
-
-  const cf = (locals as { cfContext?: { waitUntil?: (p: Promise<unknown>) => void } } | undefined)?.cfContext;
-  if (cf?.waitUntil) {
-    if (cache) cf.waitUntil(cache.put(cacheKey, resp.clone()));
-    cf.waitUntil(captureCredit(slug, remote));
-    // Write resolved Commons URL into the live photo map so the directory and
-    // profile-builder treat this slug as covered (scale via traffic + agents).
-    cf.waitUntil(
-      (async () => {
-        try {
-          const live = await getPoliticianPhotoMap(env.AGENTS);
-          if (live?.bySlug?.[slug] === remote) return;
-          await mergePoliticianPhotos(env.AGENTS, { [slug]: remote });
-        } catch {
-          /* best-effort */
-        }
-      })()
-    );
+  // Buffer the full body before responding. Streaming upstream.body + clone()
+  // for Cache API / waitUntil side-effects has produced empty 500s in production
+  // (HEAD works; GET fails after onerror strips the <img>). Bytes are small
+  // portrait JPEGs (~50–200KB).
+  let bytes: ArrayBuffer;
+  try {
+    bytes = await upstream.arrayBuffer();
+  } catch {
+    return new Response(null, { status: 502 });
   }
+  if (!bytes.byteLength) {
+    return new Response(null, { status: 502 });
+  }
+
+  const headers = {
+    "Content-Type": contentType,
+    "Cache-Control": "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400",
+    "X-Portrait-Source": "wikimedia-commons",
+  };
+
+  const resp = new Response(bytes, { status: 200, headers });
+
+  // Side effects never block the portrait. Isolate each promise so one failure
+  // (cache put, KV credit, photo map) cannot tear down the response path.
+  const cf = (locals as { cfContext?: { waitUntil?: (p: Promise<unknown>) => void } } | undefined)?.cfContext;
+  const wait = (p: Promise<unknown>) => {
+    const safe = p.catch(() => undefined);
+    if (cf?.waitUntil) cf.waitUntil(safe);
+    // If waitUntil is unavailable (local/tests), fire-and-forget is fine.
+  };
+
+  if (cache) {
+    wait(cache.put(cacheKey, new Response(bytes, { status: 200, headers })));
+  }
+  wait(captureCredit(slug, remote));
+  // Write resolved Commons URL into the live photo map so the directory and
+  // profile-builder treat this slug as covered (scale via traffic + agents).
+  wait(
+    (async () => {
+      const live = await getPoliticianPhotoMap(env.AGENTS);
+      if (live?.bySlug?.[slug] === remote) return;
+      await mergePoliticianPhotos(env.AGENTS, { [slug]: remote });
+    })()
+  );
+
   return resp;
 };
