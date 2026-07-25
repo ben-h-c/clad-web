@@ -3114,6 +3114,31 @@ html.theme-dark .peek-pop__panel {
   }
 }
 
+/* Single topic card interleaved between home sections (not a Topics grid). */
+.home-topic-insert {
+  margin-block: 0.35rem 0.15rem;
+}
+.home-topic-insert__head {
+  margin-bottom: 0;
+  align-items: baseline;
+}
+.home-topic-insert__kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  opacity: 0.72;
+  color: var(--ink-muted, inherit);
+}
+.topic-rows--solo {
+  margin-top: 0.45rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 560px) {
+  .topic-rows--solo {
+    grid-template-columns: 1fr;
+  }
+}
+
 .topic-row-item {
   margin: 0;
   padding: 0;

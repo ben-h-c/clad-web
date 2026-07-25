@@ -36,7 +36,12 @@ import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 import { homePromosForPage } from "~/lib/homePromos";
-import { resolveHomeHighlight, resolveHomeOrder } from "~/lib/homeLayout";
+import {
+  resolveHomeHighlight,
+  resolveHomeOrder,
+  interleaveHomeTopics,
+  HOME_TOPICS_SPREAD,
+} from "~/lib/homeLayout";
 import { buildHomeFeatureItems } from "~/lib/homeFeatures";
 import { buildPoliticianSpotlightItems } from "~/lib/homePoliticians";
 import { buildPoliticianIndexLive } from "~/lib/politicians";
@@ -44,6 +49,7 @@ import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates } from "~/lib/electi
 import {
   normalizeCalendarEvent,
   buildCalendarEvents,
+  todayIsoNy,
   type CalendarEvent,
 } from "~/lib/calendarEvents";
 import { buildDaySummariesCached } from "~/lib/calendarDays";
@@ -119,7 +125,8 @@ let breaking = breakingItems
 const topics = locked
   ? aggregateTopicsCached(all as any)
   : aggregateTopics(all as any, sentiments);
-const TOPICS_ON_HOME = 8;
+/** Top topics only — sprinkled singly through the stack (not one Topics block). */
+const homeTopics = topics.slice(0, HOME_TOPICS_SPREAD);
 
 // Live promo inputs: hottest topic + freshest report for top-of-home cards
 const hotTopic =
@@ -196,7 +203,12 @@ const calendarDays = buildDaySummariesCached(all as any, {
   maxDays: 92,
 });
 // Dynamic landing plan (home-layout-curator agent — Grok + web_search).
+// Bulk "topics" section is dropped; up to 5 topic cards land between sections.
 const homeOrder = resolveHomeOrder(homeLayout);
+const homeRender = interleaveHomeTopics(homeOrder, homeTopics.length, {
+  maxTopics: HOME_TOPICS_SPREAD,
+  seed: `topics-${todayIsoNy()}`,
+});
 const homeHighlight = resolveHomeHighlight(homeLayout, {
   signedIn: access.signedIn,
 });
@@ -274,10 +286,30 @@ const quips = quipsStore ?? [];
       {/*
         Section order is dynamic when home-layout-curator has a fresh plan
         (Grok + web_search). Missing/expired plan → DEFAULT_HOME_ORDER.
+        Topics are not a single block — up to 5 cards are interleaved.
       */}
-      {homeOrder.map((section) => (
+      {homeRender.map((item) => (
         <>
-          {section === "guest-hero" && !access.signedIn && (
+          {item.kind === "topic" && homeTopics[item.topicIndex] && (
+            <section
+              class="home-topic-insert feed"
+              aria-label={`Topic: ${homeTopics[item.topicIndex]!.display}`}
+            >
+              <div class="feed__head home-topic-insert__head">
+                <p class="home-topic-insert__kicker small-caps">Topic</p>
+                <a class="category__more" href={`/topics/${homeTopics[item.topicIndex]!.slug}/`}>
+                  Open hub →
+                </a>
+              </div>
+              <ul class="topic-rows topic-rows--solo">
+                <li class="topic-row-item">
+                  <TopicRow topic={homeTopics[item.topicIndex]!} locked={locked} />
+                </li>
+              </ul>
+            </section>
+          )}
+
+          {item.kind === "section" && item.id === "guest-hero" && !access.signedIn && (
             <GuestHero
               posts={
                 heroPosts.some((p) => p.data.letterGrade)
@@ -289,15 +321,15 @@ const quips = quipsStore ?? [];
             />
           )}
 
-          {section === "feature-highlight" && featureItems.length > 0 && (
+          {item.kind === "section" && item.id === "feature-highlight" && featureItems.length > 0 && (
             <HomeFeatureHighlight items={featureItems} title="Today" />
           )}
 
-          {section === "spotlight" && spotlightPromos.length > 0 && (
+          {item.kind === "section" && item.id === "spotlight" && spotlightPromos.length > 0 && (
             <HomeSpotlightCarousel promos={spotlightPromos} class="home-spotlight--top" />
           )}
 
-          {section === "app-promo" && APP_STORE_LIVE && (
+          {item.kind === "section" && item.id === "app-promo" && APP_STORE_LIVE && (
             <>
               <aside class="app-promo" id="app-promo" data-app-hide hidden>
                 <p class="app-promo__msg">
@@ -325,11 +357,11 @@ const quips = quipsStore ?? [];
             </>
           )}
 
-          {section === "breaking" && (
+          {item.kind === "section" && item.id === "breaking" && (
             <BreakingStrip items={breaking} locked={locked} />
           )}
 
-          {section === "front-page" && (
+          {item.kind === "section" && item.id === "front-page" && (
             <HeroStrip
               posts={heroPosts}
               title="Front Page"
@@ -339,11 +371,11 @@ const quips = quipsStore ?? [];
             />
           )}
 
-          {section === "lean" && !locked && (
+          {item.kind === "section" && item.id === "lean" && !locked && (
             <CoverageLeanBar posts={all} class="home-lean" />
           )}
 
-          {section === "calendar" && (
+          {item.kind === "section" && item.id === "calendar" && (
             <HomeCalendar
               races={calendarRaces}
               live={calendarLive}
@@ -354,29 +386,7 @@ const quips = quipsStore ?? [];
             />
           )}
 
-          {section === "topics" && (
-            <section class="feed">
-              <div class="feed__head">
-                <h2 class="feed__title">Topics</h2>
-                <a class="category__more" href="/search/">Hot today · search all →</a>
-              </div>
-              <div class="rule rule--double" aria-hidden="true"></div>
-              <ul class="topic-rows">
-                {topics.slice(0, TOPICS_ON_HOME).map((t) => (
-                  <li class="topic-row-item">
-                    <TopicRow topic={t} locked={locked} />
-                  </li>
-                ))}
-              </ul>
-              {topics.length > TOPICS_ON_HOME && (
-                <p class="feed__foot">
-                  <a href="/search/">Browse {topics.length} topics in search →</a>
-                </p>
-              )}
-            </section>
-          )}
-
-          {section === "politician-spotlight" && politicianSpotlightItems.length > 0 && (
+          {item.kind === "section" && item.id === "politician-spotlight" && politicianSpotlightItems.length > 0 && (
             <HomeFeatureHighlight
               items={politicianSpotlightItems}
               title="People in the news"
@@ -387,11 +397,11 @@ const quips = quipsStore ?? [];
             />
           )}
 
-          {section === "election-map" && (
+          {item.kind === "section" && item.id === "election-map" && (
             <HomeElectionMap races={calendarRaces} posts={all} />
           )}
 
-          {section === "grades" && (
+          {item.kind === "section" && item.id === "grades" && (
             locked ? (
               <PaywallPanel signedIn={access.signedIn} returnTo="/" />
             ) : (
@@ -405,11 +415,11 @@ const quips = quipsStore ?? [];
             )
           )}
 
-          {section === "today-history" && !locked && (
+          {item.kind === "section" && item.id === "today-history" && !locked && (
             <TodayInHistory payload={todayInHistory} />
           )}
 
-          {section === "human-spotlight" && (
+          {item.kind === "section" && item.id === "human-spotlight" && (
             <>
               <HumanSpotlight payload={humanSpotlight} />
               {!locked && (
@@ -427,7 +437,7 @@ const quips = quipsStore ?? [];
             </>
           )}
 
-          {section === "discover" && (
+          {item.kind === "section" && item.id === "discover" && (
             <HeroStrip
               posts={discoverPosts}
               title="Discover"
@@ -437,7 +447,7 @@ const quips = quipsStore ?? [];
             />
           )}
 
-          {section === "good-news" && (
+          {item.kind === "section" && item.id === "good-news" && (
             <HeroStrip
               posts={goodNewsPosts}
               title="Good News"
@@ -447,9 +457,9 @@ const quips = quipsStore ?? [];
             />
           )}
 
-          {section === "quips" && <QuipTicker data={quips} />}
+          {item.kind === "section" && item.id === "quips" && <QuipTicker data={quips} />}
 
-          {section === "more" && (
+          {item.kind === "section" && item.id === "more" && (
             <section class="more-clad" aria-labelledby="more-clad-title">
               <div class="feed__head">
                 <h2 class="feed__title" id="more-clad-title">Keep reading</h2>
@@ -463,6 +473,7 @@ const quips = quipsStore ?? [];
                 <li><a href="/learn/"><strong>New to the news?</strong></a> — short explainers, no jargon</li>
                 <li><a href="/how-it-works/"><strong>How Clad works</strong></a> — the method, start to finish</li>
                 <li><a href="/newsletter/"><strong>Newsletter</strong></a> — Sunday desk in your inbox</li>
+                <li><a href="/search/"><strong>Topics</strong></a> — browse every theme we grade</li>
               </ul>
             </section>
           )}

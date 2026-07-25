@@ -281,3 +281,103 @@ export function resolveHomeHighlight(
   if (aud === "signed-in" && !opts.signedIn) return null;
   return h;
 }
+
+/** Max topic cards sprinkled through the home stack (never a single Topics block). */
+export const HOME_TOPICS_SPREAD = 5;
+
+/** One home stack entry: a normal section or a single interspersed topic card. */
+export type HomeRenderItem =
+  | { kind: "section"; id: HomeSectionId }
+  | { kind: "topic"; topicIndex: number };
+
+/** Deterministic 0..1 PRNG (mulberry32) for stable daily layout. */
+function mulberry32(seed: number): () => number {
+  let a = seed >>> 0;
+  return () => {
+    a = (a + 0x6d2b79f5) >>> 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function hashSeed(s: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+/**
+ * Drop the bulk "topics" section and interleave up to `maxTopics` single topic
+ * cards into random gaps between other home sections.
+ *
+ * - Never breaks the FIXED_HOME_TOP stack (Today → Breaking → Front → Lean).
+ * - Never places a topic after "more" (Keep reading stays last).
+ * - Placement is seeded (default: seed string) so a given day is stable.
+ *
+ * `topicCount` is how many topic cards are available; only the first
+ * `min(maxTopics, topicCount)` indices (0..n-1) are used — caller passes
+ * pre-ranked topics and reads them by `topicIndex`.
+ */
+export function interleaveHomeTopics(
+  order: HomeSectionId[],
+  topicCount: number,
+  opts?: { maxTopics?: number; seed?: string }
+): HomeRenderItem[] {
+  const maxTopics = Math.max(0, Math.min(HOME_TOPICS_SPREAD, opts?.maxTopics ?? HOME_TOPICS_SPREAD));
+  const n = Math.max(0, Math.min(maxTopics, topicCount | 0));
+
+  // Strip bulk topics block — individual inserts replace it.
+  const sections = order.filter((id) => id !== "topics");
+  const items: HomeRenderItem[] = sections.map((id) => ({ kind: "section" as const, id }));
+
+  if (n === 0 || items.length < 2) return items;
+
+  const fixed = new Set<HomeSectionId>(FIXED_HOME_TOP);
+  // Gaps are positions AFTER item index i (insert between i and i+1).
+  // Skip gaps that sit between two fixed-top sections; skip after final "more".
+  const gapAfter: number[] = [];
+  for (let i = 0; i < items.length - 1; i++) {
+    const cur = items[i]!;
+    const next = items[i + 1]!;
+    if (cur.kind !== "section" || next.kind !== "section") continue;
+    if (next.id === "more") {
+      // Allow insert just before Keep reading.
+      gapAfter.push(i);
+      continue;
+    }
+    if (fixed.has(cur.id) && fixed.has(next.id)) continue;
+    gapAfter.push(i);
+  }
+  if (gapAfter.length === 0) return items;
+
+  const rng = mulberry32(hashSeed(opts?.seed ?? "home-topics"));
+
+  // Shuffle available gaps, pick unique ones for each topic.
+  const gaps = [...gapAfter];
+  for (let i = gaps.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [gaps[i], gaps[j]] = [gaps[j]!, gaps[i]!];
+  }
+  const chosen = gaps.slice(0, Math.min(n, gaps.length)).sort((a, b) => b - a);
+
+  // Shuffle topic indices so which topic lands where also varies with the seed.
+  const topicIndices = Array.from({ length: n }, (_, i) => i);
+  for (let i = topicIndices.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [topicIndices[i], topicIndices[j]] = [topicIndices[j]!, topicIndices[i]!];
+  }
+
+  // Insert from the bottom so earlier indices stay valid.
+  for (let k = 0; k < chosen.length; k++) {
+    const after = chosen[k]!;
+    const topicIndex = topicIndices[k]!;
+    items.splice(after + 1, 0, { kind: "topic", topicIndex });
+  }
+
+  return items;
+}
