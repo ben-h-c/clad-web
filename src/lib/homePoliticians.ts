@@ -3,11 +3,15 @@
  * and/or appearing on the midterms race board.
  */
 import type { CollectionEntry } from "astro:content";
-import { POLITICIAN_PHOTOS } from "./politicianPhotos.ts";
+import {
+  photoForSlug,
+  photoSrc,
+  resolvePhotoSlug,
+  wikiTitleForSlug,
+} from "./politicianPhotos.ts";
 import type { PoliticianAgg } from "./politicians.ts";
 import type { RaceDef } from "./races.ts";
 import { isVoteDateTbd } from "./races.ts";
-import { displayableThumb } from "./imagePolicy.ts";
 import type { HomeFeatureItem } from "./homeFeatures.ts";
 
 function clip(s: string, n: number): string {
@@ -29,18 +33,30 @@ function nextVoteDate(r: RaceDef): string | undefined {
   return undefined;
 }
 
-function photoFor(
+/**
+ * Known portrait chance: static map, live KV (with slug aliases), or wiki title.
+ * Everyone still gets a proxy URL so Wikipedia-by-name can fill gaps at request time.
+ */
+function knownPortrait(
   slug: string,
   photoBySlug: Record<string, string>
 ): string | null {
-  const live = photoBySlug[slug];
+  const key = resolvePhotoSlug(slug);
+  const live = photoBySlug[slug] || photoBySlug[key];
   if (live) return live;
-  return POLITICIAN_PHOTOS[slug] || null;
+  return photoForSlug(slug);
+}
+
+function hasPortraitPath(slug: string, photoBySlug: Record<string, string>): boolean {
+  if (knownPortrait(slug, photoBySlug)) return true;
+  // Wiki title map (or alias) means the photo proxy can resolve a Commons still.
+  return !!(wikiTitleForSlug(slug));
 }
 
 /**
  * Build media-hero slides for the politician spotlight strip.
  * Mixes (1) people with recent Clad coverage and (2) midterms race sides.
+ * Portraits always go through /api/politician-photo/[slug] (static → KV → Wikipedia).
  */
 export function buildPoliticianSpotlightItems(opts: {
   politicians: PoliticianAgg[];
@@ -82,7 +98,7 @@ export function buildPoliticianSpotlightItems(opts: {
     kicker: string;
     body: string;
     href: string;
-    image: string | null;
+    hasPhoto: boolean;
     grade: string | null;
     lean: number | null;
   };
@@ -95,7 +111,7 @@ export function buildPoliticianSpotlightItems(opts: {
   };
 
   for (const p of opts.politicians) {
-    if (!p.slug || p.bucket === "Coverage" && p.appearances.length === 0) continue;
+    if (!p.slug || (p.bucket === "Coverage" && p.appearances.length === 0)) continue;
     const recent = p.appearances.filter((a) => a.publishedAt.valueOf() >= weekAgo);
     const month = p.appearances.filter((a) => a.publishedAt.valueOf() >= monthAgo);
     const raceInfo = raceBySlug.get(p.slug);
@@ -114,9 +130,10 @@ export function buildPoliticianSpotlightItems(opts: {
         score += 8; // TBD still midterms-relevant
       }
     }
-    // Prefer people we can show a face for
-    const portrait = photoFor(p.slug, photos);
-    if (portrait) score += 6;
+    // Strongly prefer people we can show a face for
+    const hasPhoto = hasPortraitPath(p.slug, photos);
+    if (hasPhoto) score += 40;
+    else score -= 25;
 
     const latest = p.appearances[0];
     let body = latest
@@ -144,13 +161,6 @@ export function buildPoliticianSpotlightItems(opts: {
       kicker = "This month";
     }
 
-    // Prefer portrait; fall back to latest post still
-    let image = portrait;
-    if (!image && latest && opts.postsById) {
-      const post = opts.postsById.get(latest.id);
-      image = displayableThumb(post?.data.thumbnail) ?? null;
-    }
-
     put({
       slug: p.slug,
       name: p.name,
@@ -158,7 +168,7 @@ export function buildPoliticianSpotlightItems(opts: {
       kicker,
       body,
       href: `/politicians/${p.slug}/`,
-      image,
+      hasPhoto,
       grade: opts.locked ? null : p.personGrade ?? p.avgGrade,
       lean: opts.locked ? null : p.personLean ?? p.avgLean,
     });
@@ -169,21 +179,24 @@ export function buildPoliticianSpotlightItems(opts: {
     if (bySlug.has(slug)) continue;
     const side = info.race[info.side];
     if (!side?.name) continue;
-    const portrait = photoFor(slug, photos);
+    const hasPhoto = hasPortraitPath(slug, photos);
     const days = info.days;
     const kicker =
       days != null && days >= 0 && days <= 60 ? `Midterms · ${days}d` : "Midterms 2026";
     put({
       slug,
       name: side.name,
-      score: 16 + (portrait ? 6 : 0) + (days != null && days >= 0 && days <= 90 ? 20 : 0),
+      score:
+        16 +
+        (hasPhoto ? 40 : -25) +
+        (days != null && days >= 0 && days <= 90 ? 20 : 0),
       kicker,
       body: clip(
         `${info.race.office || "Race"}${info.race.state ? ` · ${info.race.state}` : ""} — on the ballot board.`,
         160
       ),
       href: `/politicians/${slug}/`,
-      image: portrait,
+      hasPhoto,
       grade: null,
       lean: null,
     });
@@ -193,7 +206,12 @@ export function buildPoliticianSpotlightItems(opts: {
     (a, b) => b.score - a.score || a.name.localeCompare(b.name)
   );
 
-  return ranked.slice(0, max).map((c) => {
+  // Prefer a full strip of people with portrait paths; fill remaining with others.
+  const withPhoto = ranked.filter((c) => c.hasPhoto);
+  const without = ranked.filter((c) => !c.hasPhoto);
+  const picked = [...withPhoto, ...without].slice(0, max);
+
+  return picked.map((c) => {
     const leanBit =
       !opts.locked && typeof c.lean === "number"
         ? Math.abs(c.lean) < 5
@@ -213,12 +231,16 @@ export function buildPoliticianSpotlightItems(opts: {
       secondaryHref: "/politicians/",
       secondaryCta: "All politicians",
       variant: c.kicker.startsWith("Midterms") ? "midterms" : "topic",
-      // Same-origin proxy when we have a known portrait (avoids hotlink quirks)
-      image: c.image
-        ? photos[c.slug] || POLITICIAN_PHOTOS[c.slug]
-          ? `/api/politician-photo/${c.slug}`
-          : c.image
-        : null,
+      // Always same-origin proxy — resolves static/KV/Wikipedia; monogram fallback in UI.
+      image: photoSrc(c.slug),
+      monogram: monogramFromName(c.name),
     } satisfies HomeFeatureItem;
   });
+}
+
+function monogramFromName(name: string): string {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "?";
+  if (parts.length === 1) return parts[0]!.slice(0, 2).toUpperCase();
+  return (parts[0]![0]! + parts[parts.length - 1]![0]!).toUpperCase();
 }

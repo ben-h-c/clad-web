@@ -44,11 +44,13 @@ const wrapClass = ["home-features", Astro.props.class].filter(Boolean).join(" ")
       >
         {items.map((h, i) => {
           const image = h.image || null;
+          const mono = (h.monogram || "").trim();
           const slideClass = [
             "media-hero",
             "home-feature",
             "home-features__slide",
-            image ? "media-hero--has-image" : "media-hero--plain",
+            image || mono ? "media-hero--has-image" : "media-hero--plain",
+            mono ? "media-hero--has-mono" : "",
             h.variant && `home-feature--${h.variant}`,
             h.variant && `media-hero--${h.variant}`,
           ]
@@ -61,16 +63,20 @@ const wrapClass = ["home-features", Astro.props.class].filter(Boolean).join(" ")
               data-hf-slide
               aria-label={`${i + 1} of ${items.length}: ${h.title}`}
             >
-              {image && (
+              {(image || mono) && (
                 <div class="media-hero__bg" aria-hidden="true">
-                  <img
-                    src={image}
-                    alt=""
-                    width="960"
-                    height="540"
-                    loading={i === 0 ? "eager" : "lazy"}
-                    decoding="async"
-                  />
+                  {mono && <span class="media-hero__mono">{mono}</span>}
+                  {image && (
+                    <img
+                      src={image}
+                      alt=""
+                      width="960"
+                      height="540"
+                      loading={i === 0 ? "eager" : "lazy"}
+                      decoding="async"
+                      onerror="this.remove()"
+                    />
+                  )}
                 </div>
               )}
               <div class="media-hero__scrim" aria-hidden="true"></div>

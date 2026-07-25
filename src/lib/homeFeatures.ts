@@ -22,6 +22,8 @@ export interface HomeFeatureItem {
   secondaryCta?: string;
   variant?: string;
   image?: string | null;
+  /** Initials behind portrait when image fails (People in the news). */
+  monogram?: string | null;
 }
 
 const STOP = new Set([

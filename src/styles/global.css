@@ -9254,8 +9254,26 @@ html.clad-app section.charts.home-app-only {
   inset: 0;
   z-index: 0;
   overflow: hidden;
+  background: color-mix(in srgb, var(--ink) 16%, #1a2230);
+}
+/* Initials under portrait when photo is missing or fails to load */
+.media-hero__mono {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display, Georgia, serif);
+  font-weight: 700;
+  font-size: clamp(3.25rem, 11vw, 5.25rem);
+  letter-spacing: 0.06em;
+  color: color-mix(in srgb, #f4f1ea 52%, transparent);
+  user-select: none;
+  pointer-events: none;
 }
 .media-hero__bg img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -9422,6 +9440,10 @@ html.clad-app section.charts.home-app-only {
 /* ---------- Today / politician media strips (horizontal heroes) ---------- */
 .home-features {
   margin: 0.35rem 0 1.15rem;
+}
+/* People strip: portrait crop (faces) rather than landscape news stills */
+.home-features--politicians .media-hero__bg img {
+  object-position: center 18%;
 }
 .home-features--politicians .media-hero__title {
   font-size: clamp(1.25rem, 2.8vw, 1.75rem);
