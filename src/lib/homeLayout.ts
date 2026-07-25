@@ -60,7 +60,7 @@ export interface HomeLayoutStore {
   reason: string;
   /** Preferred section order (partial OK; gaps filled from default). */
   order?: HomeSectionId[];
-  /** Sections to hide for this cycle (cannot hide core: breaking, front-page). */
+  /** Sections to hide this cycle (cannot hide fixed top, election-map, more). */
   hide?: HomeSectionId[];
   /** Optional full-width feature / current-events strip. */
   highlight?: HomeLayoutHighlight | null;
@@ -68,15 +68,23 @@ export interface HomeLayoutStore {
   sourceQueries?: string[];
 }
 
-/** Default top-to-bottom home stack. */
-export const DEFAULT_HOME_ORDER: HomeSectionId[] = [
-  "guest-hero",
+/**
+ * Permanent top stack — never reordered or hidden by the layout curator.
+ * Today → Breaking → Front Page → Coverage lean.
+ */
+export const FIXED_HOME_TOP: HomeSectionId[] = [
   "feature-highlight",
-  "spotlight",
-  "app-promo",
   "breaking",
   "front-page",
   "lean",
+];
+
+/** Default top-to-bottom home stack (fixed top first, then flexible middle). */
+export const DEFAULT_HOME_ORDER: HomeSectionId[] = [
+  ...FIXED_HOME_TOP,
+  "guest-hero",
+  "spotlight",
+  "app-promo",
   "calendar",
   "topics",
   "politician-spotlight",
@@ -90,13 +98,10 @@ export const DEFAULT_HOME_ORDER: HomeSectionId[] = [
   "more",
 ];
 
-/** Never hide these — core news, midterms map, daily feature strip. */
+/** Never hide these — core news, midterms map, daily feature strip, fixed top. */
 const PROTECTED = new Set<HomeSectionId>([
-  "breaking",
-  "front-page",
+  ...FIXED_HOME_TOP,
   "election-map",
-  "feature-highlight",
-  "lean", // always under Front Page (pinned in resolveHomeOrder)
   "more", // always last on the page
 ]);
 
@@ -221,7 +226,13 @@ export function isHomeLayoutFresh(
 /**
  * Merge agent order with defaults. Protected sections cannot be hidden.
  * Unknown ids dropped; missing sections appended in default order.
- * Coverage lean is always pinned immediately under Front Page.
+ *
+ * Permanent pins (ignore agent order/hide):
+ *   1. feature-highlight (Today)
+ *   2. breaking
+ *   3. front-page
+ *   4. lean (coverage lean)
+ * Everything else may be reordered/hidden by the curator.
  * “Keep reading” (more) is always last.
  */
 export function resolveHomeOrder(
@@ -231,36 +242,31 @@ export function resolveHomeOrder(
   const fresh = isHomeLayoutFresh(store, now) ? store : null;
   const hide = new Set(fresh?.hide || []);
   for (const p of PROTECTED) hide.delete(p);
-  // Fixed pins — ignore agent hide/order for these.
-  hide.delete("lean");
+  // Fixed pins — never hide.
+  for (const id of FIXED_HOME_TOP) hide.delete(id);
   hide.delete("more");
 
+  const fixed = new Set<HomeSectionId>(FIXED_HOME_TOP);
   const preferred = (fresh?.order || [])
     .filter(isHomeSectionId)
-    .filter((id) => id !== "lean" && id !== "more");
+    .filter((id) => !fixed.has(id) && id !== "more");
   const seen = new Set<HomeSectionId>();
-  const out: HomeSectionId[] = [];
+  const middle: HomeSectionId[] = [];
 
   for (const id of preferred) {
     if (seen.has(id) || hide.has(id)) continue;
     seen.add(id);
-    out.push(id);
+    middle.push(id);
   }
   for (const id of DEFAULT_HOME_ORDER) {
-    if (id === "lean" || id === "more") continue;
+    if (fixed.has(id) || id === "more") continue;
     if (seen.has(id) || hide.has(id)) continue;
     seen.add(id);
-    out.push(id);
+    middle.push(id);
   }
 
-  // Pin lean right after front-page (or at end if front-page missing).
-  const fp = out.indexOf("front-page");
-  if (fp >= 0) out.splice(fp + 1, 0, "lean");
-  else out.push("lean");
-
-  // Keep reading always bottoms the page.
-  out.push("more");
-  return out;
+  // Fixed top stack + flexible middle + Keep reading last.
+  return [...FIXED_HOME_TOP, ...middle, "more"];
 }
 
 export function resolveHomeHighlight(

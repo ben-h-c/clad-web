@@ -11,14 +11,15 @@ import { getHomeLayout, putHomeLayout } from "./api.mjs";
 const XAI_RESPONSES = "https://api.x.ai/v1/responses";
 const MODEL = "grok-4.3";
 
+// Full section id list (site pins FIXED_HOME_TOP + more; order/hide only flexible ones).
 const SECTIONS = [
-  "guest-hero",
   "feature-highlight",
-  "spotlight",
-  "app-promo",
   "breaking",
   "front-page",
   "lean",
+  "guest-hero",
+  "spotlight",
+  "app-promo",
   "calendar",
   "topics",
   "politician-spotlight",
@@ -46,7 +47,8 @@ const SCHEMA = {
     order: {
       type: "array",
       items: { type: "string" },
-      description: "Preferred section order (subset OK; unknown ids ignored)",
+      description:
+        "Preferred order for FLEXIBLE sections only (omit feature-highlight/breaking/front-page/lean/more — site pins those)",
     },
     hide: {
       type: "array",
@@ -117,18 +119,20 @@ landing page should feel until the next refresh. You do NOT invent news grades.
 You only reorganize existing product surfaces and optionally spotlight a feature
 or topic that is timely.
 
-── Homepage sections (ids you may order / hide) ───────────────────────────
+── FIXED top stack (do NOT order or hide — site always pins in this order) ─
+1. feature-highlight: "Today" multi-item strip
+2. breaking: Breaking News strip
+3. front-page: Front Page hero strip
+4. lean: Overall coverage lean bar
+
+── Flexible sections (ids you may order / hide) ───────────────────────────
 - guest-hero: signed-out marketing strip (auto-hidden when signed in)
-- feature-highlight: YOUR optional full-width current-events / feature card
 - spotlight: product carousel (ballot, quiz, midterms, etc.)
 - app-promo: iOS app banner
-- breaking: Breaking News strip (PROTECTED — always show)
-- front-page: Front Page hero strip (PROTECTED — always show)
-- lean: coverage lean bar (FIXED under front-page — do not order/hide; site pins it)
 - calendar: interactive news calendar
 - topics: hot topic rows
 - politician-spotlight: media strip of people in the news + midterms candidates
-- election-map: midterms map teaser (PROTECTED — always show; reorder only)
+- election-map: midterms map teaser (PROTECTED — always show; reorder only below fixed top)
 - grades: best/worst graded board (signed-in)
 - today-history: on-this-day
 - human-spotlight: daily positive human story
@@ -155,13 +159,14 @@ post slug is clearly current and you know it exists from search/context.
    - Media spin / bias debates → quiz, bias, feature-highlight
    - Heavy news day → keep breaking + front-page high; optionally hide quips
    - Quiet news / need relief → surface good-news, human-spotlight higher
-3. Never hide breaking, front-page, election-map, lean, or more. Lean always sits
-   under front-page; more (Keep reading) is always last (site enforces — omit both
-   from order/hide).
+3. Never hide or reorder the fixed top stack (feature-highlight, breaking,
+   front-page, lean). Never hide election-map or more. more is always last
+   (site enforces — omit fixed ids from order/hide).
 4. Do not invent CladFacts grades, lean scores, or post headlines.
-5. highlight: one timely card. If nothing useful, set highlightNull=true and
-   still fill highlight with empty strings (schema requires the object).
-6. order: list sections you care about first; omit the rest (site fills gaps).
+5. highlight: optional content for the Today strip / feature card. If nothing
+   useful, set highlightNull=true and still fill highlight with empty strings.
+6. order: only list FLEXIBLE sections you care about first; omit fixed top ids
+   and more (site fills gaps and pins the top stack + footer).
 7. ttlHours: usually 6–12; max 24. Quiet days can be longer; breaking news shorter.
 8. reason: plain English for the editor console.
 9. secondaryHref/secondaryCta: use "" when unused.
