@@ -60,13 +60,12 @@ export async function putQueueBulkJob(kv: KVNamespace, job: QueueBulkJob): Promi
 
 /**
  * Stuck if still "running" but no progress for this long (ms).
- * Keep short: a healthy tick updates KV every publish (~10–40s). If we see
- * "Starting…" for minutes, the chain never ran.
+ * Healthy ticks update KV every few seconds when the admin tab is polling.
  */
-export const BULK_STALE_MS = 90 * 1000;
+export const BULK_STALE_MS = 3 * 60 * 1000;
 
-/** Age after which a status poll should re-kick processing (ms). */
-export const BULK_KICK_MS = 45 * 1000;
+/** Unused by the poll path (every status advances); kept for stale detection helpers. */
+export const BULK_KICK_MS = 8 * 1000;
 
 export function isBulkJobStale(job: QueueBulkJob, now = Date.now()): boolean {
   if (job.status !== "running") return false;

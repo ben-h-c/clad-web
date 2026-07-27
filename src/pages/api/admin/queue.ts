@@ -18,6 +18,7 @@ import {
 import { resolveThumbnail } from "~/lib/thumbnail";
 import {
   coerceMediaPresentation,
+  DEFAULT_MEDIA,
   resolveMediaPresentation,
 } from "~/lib/mediaPresentation";
 import { reviseBroadcastReport } from "~/lib/broadcast";
@@ -66,24 +67,28 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return startBulkJob(request, cfLocals, p);
   }
   if (action === "bulk-tick") {
-    // Internal/self-chain + manual resume: process a short batch.
-    await runBulkBatch({ maxItems: 1, maxMs: 50_000 });
+    // Process one draft in this request, then chain more via waitUntil.
+    await runBulkBatch({ maxItems: 1, maxMs: 55_000 });
     const bulk = (await getQueueBulkJob(env.AGENTS)) ?? emptyBulkJob();
-    // Keep the chain going if work remains.
     if (bulk.status === "running" && bulk.remaining.length > 0) {
-      scheduleBulkContinue(request, cfLocals);
+      scheduleBulkContinue(request, cfLocals, true);
     }
     return json({ ok: true, bulk: { ...bulk, summary: bulkJobSummary(bulk) } }, 200);
   }
   if (action === "bulk-status") {
     let bulk = (await getQueueBulkJob(env.AGENTS)) ?? emptyBulkJob();
-    // Heartbeat recovery: if the chain died mid-run, a status poll unsticks it.
-    if (bulk.status === "running" && needsBulkKick(bulk)) {
-      await runBulkBatch({ maxItems: 1, maxMs: 50_000 });
+    // Every status poll advances the job by one draft while it is running.
+    // This is the reliable path (open admin tab). waitUntil is best-effort extra.
+    if (bulk.status === "running" && bulk.remaining.length > 0) {
+      await runBulkBatch({ maxItems: 1, maxMs: 55_000 });
       bulk = (await getQueueBulkJob(env.AGENTS)) ?? bulk;
       if (bulk.status === "running" && bulk.remaining.length > 0) {
-        scheduleBulkContinue(request, cfLocals);
+        scheduleBulkContinue(request, cfLocals, true);
       }
+    } else if (bulk.status === "running" && bulk.remaining.length === 0) {
+      bulk.status = "done";
+      bulk.lastNote = bulk.lastNote || "Finished";
+      await putQueueBulkJob(env.AGENTS, bulk);
     }
     return json({ ok: true, bulk: { ...bulk, summary: bulkJobSummary(bulk) } }, 200);
   }
@@ -193,6 +198,8 @@ async function approveDraft(
     thumbFocusX?: unknown;
     thumbFocusY?: unknown;
     mediaNote?: unknown;
+    /** Skip Grok vision framing (bulk path) — default 16:9 is intentional. */
+    skipVision?: boolean;
   }
 ): Promise<ApproveOk | ApproveFail> {
   if (!env.GITHUB_TOKEN || !env.GITHUB_REPO || !env.GITHUB_BRANCH) {
@@ -274,14 +281,17 @@ async function approveDraft(
             typeof opts.mediaNote === "string" ? opts.mediaNote : "editor override",
         })
       : null;
+  // Bulk skips vision: each call was ~10–30s and broke waitUntil chaining.
   const media =
     editorMedia ??
-    (await resolveMediaPresentation({
-      apiKey: env.XAI_API_KEY,
-      imageUrl: thumbnail || undefined,
-      headline: draft.report.headline,
-      videoId: draft.videoId,
-    }));
+    (opts.skipVision
+      ? { ...DEFAULT_MEDIA, mediaNote: "bulk default 16:9 framing" }
+      : await resolveMediaPresentation({
+          apiKey: env.XAI_API_KEY,
+          imageUrl: thumbnail || undefined,
+          headline: draft.report.headline,
+          videoId: draft.videoId,
+        }));
 
   const fm = buildBroadcastFrontmatter(draft.report, {
     sourceUrl: draft.sourceUrl,
@@ -426,15 +436,19 @@ async function startBulkJob(
   }
   await putQueueBulkJob(env.AGENTS, job);
 
-  // Primary path: process in this isolate via waitUntil (no self-HTTP required
-  // for the first items). Self-fetch chain continues the job after the budget.
-  scheduleBulkContinue(request, locals, /* alsoRunLocal */ true);
+  // Process the first draft in THIS request so progress is never stuck at
+  // "Starting…". Further items: waitUntil + status-poll kicks.
+  await runBulkBatch({ maxItems: 1, maxMs: 55_000 });
+  const after = (await getQueueBulkJob(env.AGENTS)) ?? job;
+  if (after.status === "running" && after.remaining.length > 0) {
+    scheduleBulkContinue(request, locals, /* alsoRunLocal */ true);
+  }
 
   return json(
     {
       ok: true,
       started: true,
-      bulk: { ...job, summary: bulkJobSummary(job) },
+      bulk: { ...after, summary: bulkJobSummary(after) },
     },
     200
   );
@@ -521,7 +535,11 @@ async function processOneBulkDraft(jobSnap: QueueBulkJob, nextId: string): Promi
     return;
   }
 
-  const result = await approveDraft(nextId, { force: false, featured: false });
+  const result = await approveDraft(nextId, {
+    force: false,
+    featured: false,
+    skipVision: true,
+  });
   job = await load();
   if (job.status !== "running") return;
 
@@ -564,8 +582,9 @@ function scheduleBulkContinue(
 ): void {
   const waitUntil = locals?.cfContext?.waitUntil?.bind(locals.cfContext);
 
+  // Fast path (no vision): several drafts per waitUntil window.
   const localWork = alsoRunLocal
-    ? runBulkBatch({ maxItems: 2, maxMs: 55_000 }).then(async () => {
+    ? runBulkBatch({ maxItems: 4, maxMs: 50_000 }).then(async () => {
         const job = await getQueueBulkJob(env.AGENTS);
         if (job?.status === "running" && job.remaining.length > 0) {
           await chainBulkTickFetch(request);

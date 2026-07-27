@@ -92,7 +92,7 @@ for (const d of drafts) {
             {bulkSummary}
           </span>
           <span class="dateline" style="opacity:.8">
-            Runs on the server — you can leave this page. Status polls also keep a stalled job moving. Publishes clean drafts; auto-rejects duplicates and style-flagged headlines.
+            Leave this tab open while it runs (polls publish the next draft every ~2s). Publishes clean drafts; auto-rejects duplicates and style-flagged headlines.
           </span>
         </div>
       <div class="queue">
@@ -449,6 +449,7 @@ for (const d of drafts) {
 
     function startBulkPoll() {
       if (bulkPollTimer) clearInterval(bulkPollTimer);
+      // Each poll processes one draft server-side — keep interval short.
       bulkPollTimer = setInterval(async () => {
         const b = await refreshBulkStatus();
         if (b && b.status !== "running") {
@@ -456,7 +457,7 @@ for (const d of drafts) {
           bulkPollTimer = null;
           setTimeout(() => location.reload(), 1200);
         }
-      }, 3000);
+      }, 2000);
     }
 
     if (bulkBtn && bulkStatus) {
@@ -503,7 +504,8 @@ for (const d of drafts) {
               `• Clean drafts → publish\n` +
               `• Duplicates & style-flagged headlines → reject & remove\n` +
               `• Transient failures stay for you to retry\n\n` +
-              `You can leave this page — keep the tab open for best progress.\n` +
+              `Leave this tab open on the queue page for reliable progress\n` +
+              `(each status poll publishes the next draft).\n` +
               `This cannot be undone for rejected drafts.`,
           )
         ) {
