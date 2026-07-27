@@ -16,6 +16,14 @@ const lean = leanLabel(topic.avgLean);
 const contrast =
   topic.leanSpread && topic.leanSpread[1] - topic.leanSpread[0] >= 60;
 const thumb = displayableThumb(topic.thumbnail);
+const focusX =
+  typeof topic.thumbFocusX === "number" && Number.isFinite(topic.thumbFocusX)
+    ? Math.max(0, Math.min(100, topic.thumbFocusX))
+    : 50;
+const focusY =
+  typeof topic.thumbFocusY === "number" && Number.isFinite(topic.thumbFocusY)
+    ? Math.max(0, Math.min(100, topic.thumbFocusY))
+    : 40;
 ---
 <a class="topic-card" href={`/topics/${topic.slug}/`}>
   {thumb && (
@@ -27,6 +35,7 @@ const thumb = displayableThumb(topic.thumbnail);
         decoding="async"
         width="320"
         height="180"
+        style={`object-position: ${focusX}% ${focusY}%`}
         onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')"
       />
     </div>

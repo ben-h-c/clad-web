@@ -6,6 +6,7 @@
  */
 import type { CollectionEntry } from "astro:content";
 import type { SentimentMap } from "./agents.ts";
+import { displayableThumb } from "./imagePolicy.ts";
 
 const GPA: Record<string, number> = {
   "A+": 12, A: 11, "A-": 10, "B+": 9, B: 8, "B-": 7,
@@ -54,8 +55,106 @@ export interface TopicAgg {
   avgSentiment: number | null;
   leanSpread: [number, number] | null;
   latest: number;
+  /**
+   * Representative still for topic cards — intentionally chosen (not merely
+   * “newest”), with optional focus for object-position in a 16:9 band.
+   * Null when no usable still exists (plain card fallback).
+   */
   thumbnail: string | null;
+  /** object-position X% for the topic still (default 50). */
+  thumbFocusX?: number;
+  /** object-position Y% for the topic still (default 40). */
+  thumbFocusY?: number;
   posts: CollectionEntry<"posts">[];
+}
+
+/**
+ * Pick a readable topic hero still from member posts.
+ * Prefer owned /generated/ art, then framed overlay stills with sensible focus;
+ * deprioritize “text” media, all-caps chyron-y headlines, and extreme crops.
+ * Returns null rather than a junk still — plain card is better.
+ */
+export function pickTopicStill(
+  posts: CollectionEntry<"posts">[],
+  topicDisplay: string
+): { thumbnail: string; thumbFocusX: number; thumbFocusY: number } | null {
+  const topicToks = topicTokens(topicDisplay);
+  type Cand = {
+    url: string;
+    score: number;
+    thumbFocusX: number;
+    thumbFocusY: number;
+  };
+  const cands: Cand[] = [];
+  const now = Date.now();
+  const HOUR = 3_600_000;
+
+  for (const p of posts) {
+    const url = displayableThumb(p.data.thumbnail);
+    if (!url) continue;
+
+    const style = String(p.data.mediaStyle ?? "overlay").toLowerCase();
+    // Explicit text cards mean “no usable art” — skip for topic heroes.
+    if (style === "text") continue;
+
+    let score = 0;
+    // Owned art beats random cable stills.
+    if (url.startsWith("/generated/") || url.includes("/generated/")) score += 80;
+
+    // Prefer intentional 16:9 overlay framing.
+    if (style === "overlay" || style === "modular") score += 24;
+    else score += 8;
+
+    // Mild recency — not newest-only (avoids the latest chyron winning).
+    const ageH = (now - p.data.publishedAt.valueOf()) / HOUR;
+    if (ageH <= 24) score += 18;
+    else if (ageH <= 72) score += 14;
+    else if (ageH <= 168) score += 10;
+    else if (ageH <= 720) score += 4;
+
+    const gpa = gradeToGpa(p.data.letterGrade);
+    if (gpa != null) score += gpa * 0.6; // 0–7.2
+
+    const fx =
+      typeof p.data.thumbFocusX === "number" && Number.isFinite(p.data.thumbFocusX)
+        ? Math.max(0, Math.min(100, p.data.thumbFocusX))
+        : 50;
+    const fy =
+      typeof p.data.thumbFocusY === "number" && Number.isFinite(p.data.thumbFocusY)
+        ? Math.max(0, Math.min(100, p.data.thumbFocusY))
+        : 40;
+    // Prefer near-center / upper-third (faces, subjects) — not edge zooms.
+    score += Math.max(0, 12 - Math.abs(fx - 50) / 4);
+    score += Math.max(0, 12 - Math.abs(fy - 38) / 3);
+
+    // Topic relevance: still from a post whose headline shares topic words.
+    const head = `${p.data.headline ?? ""} ${p.data.summary ?? ""}`.toLowerCase();
+    let hits = 0;
+    for (const t of topicToks) if (t.length >= 3 && head.includes(t)) hits += 1;
+    score += Math.min(16, hits * 5);
+
+    // Chyron / lower-third smell: many ALL-CAPS tokens or graphic-y titles.
+    const caps = (p.data.headline ?? "").match(/\b[A-Z]{4,}\b/g) ?? [];
+    score -= Math.min(24, caps.length * 5);
+    if (/\b(BREAKING|LIVE|EXCLUSIVE|JUST IN)\b/i.test(p.data.headline ?? "")) score -= 8;
+
+    // Prefer maxres YouTube stills over soft hqdefault when URL reveals it.
+    if (/maxresdefault/i.test(url)) score += 4;
+    if (/hqdefault|mqdefault|default\.jpg/i.test(url)) score -= 6;
+
+    cands.push({ url, score, thumbFocusX: fx, thumbFocusY: fy });
+  }
+
+  if (cands.length === 0) return null;
+  cands.sort((a, b) => b.score - a.score);
+  const best = cands[0]!;
+  // Floor: if even the best still scores like junk, prefer plain card.
+  if (best.score < 12) return null;
+  return {
+    thumbnail: best.url,
+    thumbFocusX: best.thumbFocusX,
+    thumbFocusY: best.thumbFocusY,
+  };
 }
 
 const TOPIC_STOP = new Set(
@@ -199,9 +298,8 @@ export function aggregateTopics(
       .map((p) => sentiments[p.id]?.score)
       .filter((n): n is number => typeof n === "number");
     const latest = Math.max(...g.posts.map((p) => p.data.publishedAt.valueOf()));
-    // Representative image: newest article in the topic that has a thumbnail.
-    const byNew = [...g.posts].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
-    const thumbnail = byNew.find((p) => p.data.thumbnail)?.data.thumbnail ?? null;
+    // Representative image: intentional pick (readable still + focus), not newest.
+    const still = pickTopicStill(g.posts, g.display);
 
     // Hot-today ranking — deliberately NOT total article count.
     // Buckets are ordered so one post in the last 24h outranks any volume of
@@ -233,7 +331,9 @@ export function aggregateTopics(
       avgSentiment: sentis.length ? Math.round(sentis.reduce((a, b) => a + b, 0) / sentis.length) : null,
       leanSpread: leans.length ? [Math.min(...leans), Math.max(...leans)] : null,
       latest,
-      thumbnail,
+      thumbnail: still?.thumbnail ?? null,
+      thumbFocusX: still?.thumbFocusX,
+      thumbFocusY: still?.thumbFocusY,
       posts: g.posts,
       _score: score,
     });
