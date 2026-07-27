@@ -214,7 +214,7 @@ function brandMarkup(p: OgPalette): string {
   <div style="display:flex;flex-direction:column;width:1200px;height:630px;background:${p.paper};color:${p.ink};font-family:Playfair;align-items:center;justify-content:center;padding:40px;">
     <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;background:${p.card};border-radius:28px;border:1px solid ${p.rule};padding:48px;">
       <div style="display:flex;font-size:18px;color:${p.accent};letter-spacing:2px;font-weight:700;background:${p.accentSoft};padding:8px 18px;border-radius:999px;">WE GRADE THE NEWS</div>
-      <div style="display:flex;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1;margin:22px 0 12px;color:${p.ink};">CladFacts</div>
+      <div style="display:flex;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1;margin:22px 0 12px;color:${p.ink};">CLAD</div>
       <div style="display:flex;width:120px;height:4px;background:${p.accent};border-radius:999px;"></div>
       <div style="display:flex;font-size:32px;font-weight:600;margin-top:28px;line-height:1.3;width:860px;justify-content:center;text-align:center;color:${p.muted};">Every claim. Graded. Bias-rated. Receipts.</div>
       <div style="display:flex;margin-top:36px;background:${p.accent};color:${p.ctaText};padding:14px 32px;font-size:20px;letter-spacing:1px;font-weight:700;border-radius:999px;">FREE TO READ · FREE TO SHARE</div>

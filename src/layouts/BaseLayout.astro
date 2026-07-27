@@ -6,6 +6,7 @@ import ThemeCoachmark from "~/components/ThemeCoachmark.astro";
 import { APP_STORE_LIVE } from "~/lib/app-store";
 import { getSessionUser, getPrefs, type ThemePref } from "~/lib/user-data";
 import { showBillingPromo } from "~/lib/access";
+import { OG_VERSIONS } from "~/lib/ogCard";
 
 interface Props {
   title: string;
@@ -68,10 +69,14 @@ const themeColor = htmlTheme === "dark" ? "#1C1C1E" : "#F7F5F0";
 
 // Share image: match the viewer's current theme so scorecards look right when
 // shared from a signed-in session (guests default dark; client toggle updates meta).
-const shareImageRaw = ogImage ?? "/og/brand.png";
+// Default brand card: version-bust so iMessage/etc. re-unfurl after redesigns.
+const shareImageRaw = ogImage ?? `/og/brand.png?v=${OG_VERSIONS.post}`;
 const shareImageUrl = new URL(shareImageRaw, site);
 if (!shareImageUrl.searchParams.has("theme")) {
   shareImageUrl.searchParams.set("theme", htmlTheme);
+}
+if (!shareImageUrl.searchParams.has("v") && shareImageRaw.includes("/og/brand")) {
+  shareImageUrl.searchParams.set("v", OG_VERSIONS.post);
 }
 const shareImage = shareImageUrl.href;
 
@@ -305,7 +310,7 @@ const billingOn = showBillingPromo();
     <title>{title}</title>
 
     <!-- Open Graph / social link previews -->
-    <meta property="og:site_name" content="CladFacts" />
+    <meta property="og:site_name" content="CLAD" />
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="en_US" />

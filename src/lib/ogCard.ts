@@ -28,7 +28,7 @@ import { displayableThumb } from "./imagePolicy.ts";
 import { isCommonsMediaUrl } from "./politicianPhotos.ts";
 
 export const OG_VERSIONS = {
-  post: "8", // v8: light/dark theme variants
+  post: "9", // v9: brand card wordmark CLAD (was CladFacts)
   story: "6", // v6: light/dark theme variants
   quiz: "5",
   week: "4",
