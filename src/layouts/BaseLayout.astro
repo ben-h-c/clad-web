@@ -146,6 +146,50 @@ const billingOn = showBillingPromo();
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content={themeColor} />
+    <!-- Refresh always lands at the top of the current page. Browsers otherwise
+         restore the prior scroll offset (and site smooth-scroll can make that
+         look like a long jump). Back/forward navigation is left alone. -->
+    <script is:inline>
+      (function () {
+        function isReload() {
+          try {
+            var n = performance.getEntriesByType("navigation")[0];
+            if (n && n.type === "reload") return true;
+          } catch (e) {}
+          try {
+            if (performance.navigation && performance.navigation.type === 1) return true;
+          } catch (e2) {}
+          return false;
+        }
+        if (!isReload()) return;
+        try {
+          if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+        } catch (e3) {}
+        function toTop() {
+          var html = document.documentElement;
+          var prev = html.style.scrollBehavior;
+          html.style.scrollBehavior = "auto";
+          try {
+            window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+          } catch (e4) {
+            window.scrollTo(0, 0);
+          }
+          html.scrollTop = 0;
+          if (document.body) document.body.scrollTop = 0;
+          html.style.scrollBehavior = prev || "";
+        }
+        toTop();
+        document.addEventListener("DOMContentLoaded", toTop);
+        window.addEventListener("load", toTop);
+        // Safari/Chrome can re-apply the saved offset after load.
+        window.addEventListener("pageshow", function () {
+          if (isReload()) toTop();
+        });
+        setTimeout(toTop, 0);
+        setTimeout(toTop, 50);
+        setTimeout(toTop, 200);
+      })();
+    </script>
     <!-- Theme before first paint + global toggle handler (capture phase so it
          always wins over menu chrome stacking / other click handlers). -->
     <script is:inline>
