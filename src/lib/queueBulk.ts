@@ -1,12 +1,11 @@
 /**
  * Background bulk-submit for the admin pending queue.
- * State lives in AGENTS KV so processing continues after the editor navigates away.
- * Each tick publishes/rejects one draft, then self-chains via waitUntil.
+ * State lives in AGENTS KV so processing can continue after the editor navigates away.
  */
 
 export const QUEUE_BULK_KEY = "admin:queue-bulk-job";
 
-export type QueueBulkStatus = "idle" | "running" | "done" | "error";
+export type QueueBulkStatus = "idle" | "running" | "done" | "error" | "cancelled";
 
 export interface QueueBulkJob {
   status: QueueBulkStatus;
@@ -59,14 +58,29 @@ export async function putQueueBulkJob(kv: KVNamespace, job: QueueBulkJob): Promi
   await kv.put(QUEUE_BULK_KEY, JSON.stringify(job), { expirationTtl: ttl });
 }
 
-/** Stuck if still "running" but no progress for this long (ms). */
-export const BULK_STALE_MS = 20 * 60 * 1000;
+/**
+ * Stuck if still "running" but no progress for this long (ms).
+ * Keep short: a healthy tick updates KV every publish (~10–40s). If we see
+ * "Starting…" for minutes, the chain never ran.
+ */
+export const BULK_STALE_MS = 90 * 1000;
+
+/** Age after which a status poll should re-kick processing (ms). */
+export const BULK_KICK_MS = 45 * 1000;
 
 export function isBulkJobStale(job: QueueBulkJob, now = Date.now()): boolean {
   if (job.status !== "running") return false;
   const t = Date.parse(job.updatedAt);
   if (Number.isNaN(t)) return true;
   return now - t > BULK_STALE_MS;
+}
+
+export function needsBulkKick(job: QueueBulkJob, now = Date.now()): boolean {
+  if (job.status !== "running") return false;
+  if (job.remaining.length === 0) return false;
+  const t = Date.parse(job.updatedAt);
+  if (Number.isNaN(t)) return true;
+  return now - t > BULK_KICK_MS;
 }
 
 export function bulkJobSummary(job: QueueBulkJob): string {
@@ -76,6 +90,9 @@ export function bulkJobSummary(job: QueueBulkJob): string {
   }
   if (job.status === "done") {
     return `Last run done — ${job.published} published, ${job.rejected} rejected, ${job.failed} failed (of ${job.total})`;
+  }
+  if (job.status === "cancelled") {
+    return `Cancelled — ${job.published} published, ${job.rejected} rejected, ${job.failed} failed (${job.remaining.length} left unprocessed)`;
   }
   if (job.status === "error") {
     return `Last run error — ${job.lastError || "unknown"} (${job.published} published, ${job.rejected} rejected, ${job.failed} failed)`;

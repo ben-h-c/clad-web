@@ -28,11 +28,14 @@ import {
   emptyBulkJob,
   getQueueBulkJob,
   isBulkJobStale,
+  needsBulkKick,
   putQueueBulkJob,
   type QueueBulkJob,
 } from "~/lib/queueBulk";
 
 export const prerender = false;
+
+type CfLocals = { cfContext?: { waitUntil?: (p: Promise<unknown>) => void } };
 
 export const GET: APIRoute = async () => {
   const [drafts, bulk] = await Promise.all([listDrafts(env.AGENTS), getQueueBulkJob(env.AGENTS)]);
@@ -56,16 +59,42 @@ export const POST: APIRoute = async ({ request, locals }) => {
   }
 
   const action = String(p?.action ?? "");
+  const cfLocals = locals as CfLocals;
 
   // ---- Background bulk submit (survives navigating away) --------------------
   if (action === "bulk-start") {
-    return startBulkJob(request, locals, p);
+    return startBulkJob(request, cfLocals, p);
   }
   if (action === "bulk-tick") {
-    return tickBulkJob(request, locals);
+    // Internal/self-chain + manual resume: process a short batch.
+    await runBulkBatch({ maxItems: 1, maxMs: 50_000 });
+    const bulk = (await getQueueBulkJob(env.AGENTS)) ?? emptyBulkJob();
+    // Keep the chain going if work remains.
+    if (bulk.status === "running" && bulk.remaining.length > 0) {
+      scheduleBulkContinue(request, cfLocals);
+    }
+    return json({ ok: true, bulk: { ...bulk, summary: bulkJobSummary(bulk) } }, 200);
   }
   if (action === "bulk-status") {
+    let bulk = (await getQueueBulkJob(env.AGENTS)) ?? emptyBulkJob();
+    // Heartbeat recovery: if the chain died mid-run, a status poll unsticks it.
+    if (bulk.status === "running" && needsBulkKick(bulk)) {
+      await runBulkBatch({ maxItems: 1, maxMs: 50_000 });
+      bulk = (await getQueueBulkJob(env.AGENTS)) ?? bulk;
+      if (bulk.status === "running" && bulk.remaining.length > 0) {
+        scheduleBulkContinue(request, cfLocals);
+      }
+    }
+    return json({ ok: true, bulk: { ...bulk, summary: bulkJobSummary(bulk) } }, 200);
+  }
+  if (action === "bulk-cancel") {
     const bulk = (await getQueueBulkJob(env.AGENTS)) ?? emptyBulkJob();
+    if (bulk.status === "running") {
+      bulk.status = "cancelled";
+      bulk.current = null;
+      bulk.lastNote = "Cancelled by editor";
+      await putQueueBulkJob(env.AGENTS, bulk);
+    }
     return json({ ok: true, bulk: { ...bulk, summary: bulkJobSummary(bulk) } }, 200);
   }
 
@@ -297,7 +326,7 @@ async function approveDraft(
 }
 
 // ---------------------------------------------------------------------------
-// Bulk job: start + one-at-a-time tick with self-chain via waitUntil
+// Bulk job: in-process batches via waitUntil (+ status-poll recovery)
 // ---------------------------------------------------------------------------
 
 function sortDraftsForBulk(drafts: PendingDraft[]): PendingDraft[] {
@@ -312,13 +341,31 @@ function sortDraftsForBulk(drafts: PendingDraft[]): PendingDraft[] {
   });
 }
 
+function basicAuthHeader(): string | null {
+  if (!env.ADMIN_USER || !env.ADMIN_PASSWORD) return null;
+  const raw = `${env.ADMIN_USER}:${env.ADMIN_PASSWORD}`;
+  try {
+    return "Basic " + btoa(raw);
+  } catch {
+    // Non-Latin1 passwords: encode as bytes then btoa
+    const bytes = new TextEncoder().encode(raw);
+    let bin = "";
+    for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]!);
+    return "Basic " + btoa(bin);
+  }
+}
+
 async function startBulkJob(
   request: Request,
-  locals: { cfContext?: { waitUntil?: (p: Promise<unknown>) => void } },
+  locals: CfLocals,
   p: { draftIds?: unknown }
 ): Promise<Response> {
   const existing = await getQueueBulkJob(env.AGENTS);
   if (existing?.status === "running" && !isBulkJobStale(existing)) {
+    // Nudge a stuck-looking chain while reporting already-running.
+    if (needsBulkKick(existing)) {
+      scheduleBulkContinue(request, locals, /* alsoRunLocal */ true);
+    }
     return json(
       {
         ok: true,
@@ -329,13 +376,21 @@ async function startBulkJob(
     );
   }
 
+  // Stale "running" job (e.g. chain never started): reclaim remaining ids.
+  let carryIds: string[] | null = null;
+  if (existing?.status === "running" && isBulkJobStale(existing) && existing.remaining?.length) {
+    carryIds = existing.remaining;
+  }
+
   const all = sortDraftsForBulk(await listDrafts(env.AGENTS));
-  // Optional client list (current page); otherwise every pending draft.
   let ids: string[];
-  if (Array.isArray(p.draftIds) && p.draftIds.length > 0) {
+  if (carryIds) {
+    // Keep only drafts that still exist.
+    const live = new Set(all.map((d) => d.draftId));
+    ids = carryIds.filter((id) => live.has(id));
+  } else if (Array.isArray(p.draftIds) && p.draftIds.length > 0) {
     const want = new Set(p.draftIds.map((x) => String(x || "").trim()).filter(Boolean));
     ids = all.map((d) => d.draftId).filter((id) => want.has(id));
-    // Preserve client order when provided
     const order = p.draftIds.map((x) => String(x || "").trim()).filter(Boolean);
     ids.sort((a, b) => order.indexOf(a) - order.indexOf(b));
   } else {
@@ -352,18 +407,28 @@ async function startBulkJob(
     startedAt: now,
     updatedAt: now,
     remaining: ids,
-    total: ids.length,
-    published: 0,
-    rejected: 0,
-    failed: 0,
+    total: ids.length + (existing && isBulkJobStale(existing) ? existing.published + existing.rejected + existing.failed : 0),
+    published: existing && isBulkJobStale(existing) ? existing.published : 0,
+    rejected: existing && isBulkJobStale(existing) ? existing.rejected : 0,
+    failed: existing && isBulkJobStale(existing) ? existing.failed : 0,
     current: null,
     lastError: null,
     lastNote: "Starting…",
   };
+  // Fresh totals when not resuming a stale job.
+  if (!(existing && isBulkJobStale(existing))) {
+    job.total = ids.length;
+    job.published = 0;
+    job.rejected = 0;
+    job.failed = 0;
+  } else {
+    job.total = job.published + job.rejected + job.failed + ids.length;
+  }
   await putQueueBulkJob(env.AGENTS, job);
 
-  // Kick the first tick after the response so the editor can leave immediately.
-  scheduleBulkTick(request, locals);
+  // Primary path: process in this isolate via waitUntil (no self-HTTP required
+  // for the first items). Self-fetch chain continues the job after the budget.
+  scheduleBulkContinue(request, locals, /* alsoRunLocal */ true);
 
   return json(
     {
@@ -375,133 +440,177 @@ async function startBulkJob(
   );
 }
 
-async function tickBulkJob(
-  request: Request,
-  locals: { cfContext?: { waitUntil?: (p: Promise<unknown>) => void } }
-): Promise<Response> {
-  // Admin basic-auth is enforced by middleware for browser calls. Self-chained
-  // ticks send ADMIN_USER/PASSWORD + X-Clad-Bulk-Secret (see scheduleBulkTick).
-  let job = (await getQueueBulkJob(env.AGENTS)) ?? emptyBulkJob();
-  if (job.status !== "running") {
-    return json({ ok: true, bulk: { ...job, summary: bulkJobSummary(job) } }, 200);
-  }
+/**
+ * Process up to maxItems drafts from the running job (re-reads KV each item).
+ * Safe to call from waitUntil, bulk-tick, or bulk-status recovery.
+ */
+async function runBulkBatch(opts: { maxItems: number; maxMs: number }): Promise<void> {
+  const deadline = Date.now() + Math.max(5_000, opts.maxMs);
+  let n = 0;
+  while (n < opts.maxItems && Date.now() < deadline) {
+    let job = (await getQueueBulkJob(env.AGENTS)) ?? emptyBulkJob();
+    if (job.status !== "running") return;
 
-  const nextId = job.remaining[0];
-  if (!nextId) {
-    job.status = "done";
-    job.current = null;
-    job.lastNote = "Finished";
+    const nextId = job.remaining[0];
+    if (!nextId) {
+      job.status = "done";
+      job.current = null;
+      job.lastNote = "Finished";
+      await putQueueBulkJob(env.AGENTS, job);
+      return;
+    }
+
+    // Claim next id up front so concurrent ticks don't double-process.
+    job.remaining = job.remaining.slice(1);
+    job.current = nextId;
+    job.lastNote = `Processing ${nextId}…`;
     await putQueueBulkJob(env.AGENTS, job);
-    return json({ ok: true, bulk: { ...job, summary: bulkJobSummary(job) } }, 200);
+
+    try {
+      await processOneBulkDraft(job, nextId);
+    } catch (err: any) {
+      // Put the draft back? Leave it as failed; draft may still exist for retry.
+      job = (await getQueueBulkJob(env.AGENTS)) ?? job;
+      if (job.status !== "running") return;
+      job.failed += 1;
+      job.lastError = err?.message ?? String(err);
+      job.lastNote = `Failed: ${(err?.message ?? String(err)).slice(0, 120)}`;
+      job.current = null;
+      await putQueueBulkJob(env.AGENTS, job);
+    }
+    n += 1;
   }
 
-  job.remaining = job.remaining.slice(1);
-  job.current = nextId;
-  job.lastNote = `Processing ${nextId}…`;
-  await putQueueBulkJob(env.AGENTS, job);
+  // Mark done if emptied during this batch.
+  const end = (await getQueueBulkJob(env.AGENTS)) ?? emptyBulkJob();
+  if (end.status === "running" && end.remaining.length === 0) {
+    end.status = "done";
+    end.current = null;
+    end.lastNote = end.lastNote || "Finished";
+    await putQueueBulkJob(env.AGENTS, end);
+  }
+}
+
+async function processOneBulkDraft(jobSnap: QueueBulkJob, nextId: string): Promise<void> {
+  // Re-load job after each step so concurrent cancel is respected.
+  const load = async () => (await getQueueBulkJob(env.AGENTS)) ?? jobSnap;
 
   const draft = await getDraft(env.AGENTS, nextId);
+  let job = await load();
+  if (job.status !== "running") return;
+
   if (!draft) {
-    // Already gone (manual approve/reject race) — count as rejected/cleared.
     job.rejected += 1;
-    job.lastNote = `Skipped missing draft`;
+    job.lastNote = "Skipped missing draft";
     job.current = null;
-    await finishOrContinue(job, request, locals);
-    return json({ ok: true, bulk: { ...job, summary: bulkJobSummary(job) } }, 200);
+    await putQueueBulkJob(env.AGENTS, job);
+    return;
   }
 
-  // Same rules as the old client bulk flow: lint → reject; else approve;
-  // duplicate → reject; transient error → failed (draft stays for retry).
   const lint = draft.quality?.headlineLint?.length
     ? draft.quality.headlineLint
     : lintHeadline(draft.report.headline);
   if (lint.length > 0) {
     await deleteDraft(env.AGENTS, nextId);
+    job = await load();
+    if (job.status !== "running") return;
     job.rejected += 1;
     job.lastNote = `Rejected (headline lint): ${draft.report.headline.slice(0, 60)}`;
     job.current = null;
-    await finishOrContinue(job, request, locals);
-    return json({ ok: true, bulk: { ...job, summary: bulkJobSummary(job) } }, 200);
+    await putQueueBulkJob(env.AGENTS, job);
+    return;
   }
 
   const result = await approveDraft(nextId, { force: false, featured: false });
+  job = await load();
+  if (job.status !== "running") return;
+
   if (result.ok) {
     job.published += 1;
     job.lastNote = `Published ${result.slug}`;
     job.current = null;
-    await finishOrContinue(job, request, locals);
-    return json({ ok: true, bulk: { ...job, summary: bulkJobSummary(job) } }, 200);
+    await putQueueBulkJob(env.AGENTS, job);
+    return;
   }
 
   if (result.duplicate) {
     await deleteDraft(env.AGENTS, nextId);
+    job = await load();
+    if (job.status !== "running") return;
     job.rejected += 1;
     job.lastNote = `Rejected (duplicate): ${draft.report.headline.slice(0, 60)}`;
     job.current = null;
-    await finishOrContinue(job, request, locals);
-    return json({ ok: true, bulk: { ...job, summary: bulkJobSummary(job) } }, 200);
+    await putQueueBulkJob(env.AGENTS, job);
+    return;
   }
 
-  // Transient failure — leave draft in queue, count failed, continue others.
+  // Transient failure — leave draft in queue for a later manual/bulk retry.
   job.failed += 1;
   job.lastError = result.error;
   job.lastNote = `Failed: ${result.error.slice(0, 120)}`;
   job.current = null;
-  await finishOrContinue(job, request, locals);
-  return json({ ok: true, bulk: { ...job, summary: bulkJobSummary(job) } }, 200);
-}
-
-async function finishOrContinue(
-  job: QueueBulkJob,
-  request: Request,
-  locals: { cfContext?: { waitUntil?: (p: Promise<unknown>) => void } }
-): Promise<void> {
-  if (job.remaining.length === 0) {
-    job.status = "done";
-    job.lastNote = job.lastNote || "Finished";
-    await putQueueBulkJob(env.AGENTS, job);
-    return;
-  }
   await putQueueBulkJob(env.AGENTS, job);
-  scheduleBulkTick(request, locals);
 }
 
-function scheduleBulkTick(
+/**
+ * Continue the job: run a local batch in waitUntil, then self-fetch another tick
+ * if work remains. `alsoRunLocal` processes immediately inside waitUntil so we
+ * do not depend solely on HTTP self-calls (which left jobs stuck at "Starting…").
+ */
+function scheduleBulkContinue(
   request: Request,
-  locals: { cfContext?: { waitUntil?: (p: Promise<unknown>) => void } }
+  locals: CfLocals,
+  alsoRunLocal = false
 ): void {
-  const origin = new URL(request.url).origin;
-  const url = `${origin}/api/admin/queue`;
-  const secret = env.BETTER_AUTH_SECRET || env.AGENT_TOKEN || "";
-  const basic =
-    env.ADMIN_USER && env.ADMIN_PASSWORD
-      ? "Basic " + btoa(`${env.ADMIN_USER}:${env.ADMIN_PASSWORD}`)
-      : "";
+  const waitUntil = locals?.cfContext?.waitUntil?.bind(locals.cfContext);
 
-  const run = fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      ...(basic ? { Authorization: basic } : {}),
-      ...(secret ? { "X-Clad-Bulk-Secret": secret } : {}),
-    },
-    body: JSON.stringify({ action: "bulk-tick" }),
-  }).then(
-    async (r) => {
-      if (!r.ok) {
-        const t = await r.text().catch(() => "");
-        console.error("bulk-tick chain failed", r.status, t.slice(0, 200));
-      }
-    },
-    (err) => console.error("bulk-tick chain error", err)
-  );
+  const localWork = alsoRunLocal
+    ? runBulkBatch({ maxItems: 2, maxMs: 55_000 }).then(async () => {
+        const job = await getQueueBulkJob(env.AGENTS);
+        if (job?.status === "running" && job.remaining.length > 0) {
+          await chainBulkTickFetch(request);
+        }
+      })
+    : chainBulkTickFetch(request);
 
-  const cf = (locals as { cfContext?: { waitUntil?: (p: Promise<unknown>) => void } })
-    ?.cfContext;
-  if (cf?.waitUntil) {
-    cf.waitUntil(run);
+  if (waitUntil) {
+    waitUntil(localWork.catch((e) => console.error("bulk continue", e)));
+  } else {
+    // Dev / missing cfContext: still try (may be cancelled after response).
+    void localWork.catch((e) => console.error("bulk continue", e));
   }
-  // Without waitUntil (some local paths), fire-and-forget still helps.
+}
+
+async function chainBulkTickFetch(request: Request): Promise<void> {
+  const origin = new URL(request.url).origin;
+  // Prefer same origin; also try workers.dev if custom domain self-fetch fails.
+  const urls = [
+    `${origin}/api/admin/queue`,
+    "https://clad-web.benjaminharriscody.workers.dev/api/admin/queue",
+  ];
+  // Dedupe if origin already is workers.dev
+  const unique = [...new Set(urls)];
+  const auth = basicAuthHeader();
+  const secret = env.BETTER_AUTH_SECRET || env.AGENT_TOKEN || "";
+
+  for (const url of unique) {
+    try {
+      const r = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...(auth ? { Authorization: auth } : {}),
+          ...(secret ? { "X-Clad-Bulk-Secret": secret } : {}),
+        },
+        body: JSON.stringify({ action: "bulk-tick" }),
+      });
+      if (r.ok) return;
+      const t = await r.text().catch(() => "");
+      console.error("bulk-tick chain non-ok", url, r.status, t.slice(0, 180));
+    } catch (err) {
+      console.error("bulk-tick chain error", url, err);
+    }
+  }
 }
 
 function json(body: unknown, status: number): Response {

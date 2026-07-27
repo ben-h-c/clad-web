@@ -85,11 +85,14 @@ for (const d of drafts) {
           <button type="button" id="q-submit-all" disabled={bulkRunning}>
             {bulkRunning ? "Background job running…" : `Submit all (${drafts.length})`}
           </button>
+          <button type="button" id="q-bulk-cancel" hidden={!bulkRunning}>
+            Cancel job
+          </button>
           <span id="q-bulk-status" class="dateline" data-bulk-running={bulkRunning ? "1" : "0"}>
             {bulkSummary}
           </span>
           <span class="dateline" style="opacity:.8">
-            Runs in the background on the server — you can leave this page. Publishes clean drafts; auto-rejects duplicates and style-flagged headlines.
+            Runs on the server — you can leave this page. Status polls also keep a stalled job moving. Publishes clean drafts; auto-rejects duplicates and style-flagged headlines.
           </span>
         </div>
       <div class="queue">
@@ -400,18 +403,35 @@ for (const d of drafts) {
       });
     });
 
-    // "Submit all" starts a server-side job that keeps running if you leave.
-    // Each draft is still published/rejected with the same rules (vision, GitHub,
-    // dup checks) — just not tied to this browser tab.
+    // "Submit all" starts a server-side job. Processing runs in waitUntil and
+    // is also kicked by status polls if the chain stalls.
     const bulkBtn = document.getElementById("q-submit-all");
+    const bulkCancel = document.getElementById("q-bulk-cancel");
     const bulkStatus = document.getElementById("q-bulk-status");
     const draftIdsOnPage = bulkItems
       .map((_, i) => document.querySelectorAll(".queue-item")[i]?.getAttribute("data-draft-id"))
       .filter(Boolean);
+    let bulkPollTimer = null;
+
+    function setBulkUi(bulk) {
+      if (!bulkStatus) return;
+      bulkStatus.textContent = (bulk && bulk.summary) || "";
+      const running = bulk && bulk.status === "running";
+      if (bulkBtn) {
+        bulkBtn.disabled = !!running;
+        if (running) bulkBtn.textContent = "Background job running…";
+        else {
+          const n = document.querySelectorAll(".queue-item .q-approve").length;
+          bulkBtn.textContent = `Submit all (${n || draftIdsOnPage.length})`;
+        }
+      }
+      if (bulkCancel) bulkCancel.hidden = !running;
+    }
 
     async function refreshBulkStatus() {
       if (!bulkStatus) return null;
       try {
+        // bulk-status also re-kicks a stalled job (processes one draft if idle too long).
         const res = await fetch("/api/admin/queue", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -420,30 +440,53 @@ for (const d of drafts) {
         const data = await res.json().catch(() => ({}));
         const bulk = data.bulk;
         if (!bulk) return null;
-        bulkStatus.textContent = bulk.summary || "";
-        if (bulkBtn) {
-          if (bulk.status === "running") {
-            bulkBtn.disabled = true;
-            bulkBtn.textContent = "Background job running…";
-          } else {
-            bulkBtn.disabled = false;
-            const n = document.querySelectorAll(".queue-item .q-approve").length;
-            bulkBtn.textContent = `Submit all (${n || draftIdsOnPage.length})`;
-          }
-        }
+        setBulkUi(bulk);
         return bulk;
       } catch {
         return null;
       }
     }
 
+    function startBulkPoll() {
+      if (bulkPollTimer) clearInterval(bulkPollTimer);
+      bulkPollTimer = setInterval(async () => {
+        const b = await refreshBulkStatus();
+        if (b && b.status !== "running") {
+          clearInterval(bulkPollTimer);
+          bulkPollTimer = null;
+          setTimeout(() => location.reload(), 1200);
+        }
+      }, 3000);
+    }
+
     if (bulkBtn && bulkStatus) {
-      // Resume status polling if a job is already running when the page loads.
+      // Resume / unstick if a job is already running when the page loads.
       if (bulkStatus.getAttribute("data-bulk-running") === "1") {
-        const poll = setInterval(async () => {
-          const b = await refreshBulkStatus();
-          if (b && b.status !== "running") clearInterval(poll);
-        }, 4000);
+        refreshBulkStatus().then((b) => {
+          if (b && b.status === "running") startBulkPoll();
+        });
+      }
+
+      if (bulkCancel) {
+        bulkCancel.addEventListener("click", async () => {
+          if (!confirm("Cancel the background job? Already published posts stay live.")) return;
+          bulkCancel.disabled = true;
+          try {
+            const res = await fetch("/api/admin/queue", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ action: "bulk-cancel" }),
+            });
+            const data = await res.json().catch(() => ({}));
+            setBulkUi(data.bulk);
+            if (bulkPollTimer) {
+              clearInterval(bulkPollTimer);
+              bulkPollTimer = null;
+            }
+          } finally {
+            bulkCancel.disabled = false;
+          }
+        });
       }
 
       bulkBtn.addEventListener("click", async () => {
@@ -460,7 +503,7 @@ for (const d of drafts) {
               `• Clean drafts → publish\n` +
               `• Duplicates & style-flagged headlines → reject & remove\n` +
               `• Transient failures stay for you to retry\n\n` +
-              `You can leave this page — the job keeps running on the server.\n` +
+              `You can leave this page — keep the tab open for best progress.\n` +
               `This cannot be undone for rejected drafts.`,
           )
         ) {
@@ -477,20 +520,8 @@ for (const d of drafts) {
           });
           const data = await res.json().catch(() => ({}));
           if (!res.ok) throw new Error(data.error || "Could not start bulk job");
-          bulkStatus.textContent =
-            data.bulk?.summary ||
-            (data.alreadyRunning
-              ? "A job is already running — leave the page if you want; it continues."
-              : "Job started — safe to leave this page.");
-          bulkBtn.textContent = "Background job running…";
-          const poll = setInterval(async () => {
-            const b = await refreshBulkStatus();
-            if (b && b.status !== "running") {
-              clearInterval(poll);
-              // Soft reload so the queue cards match server state.
-              setTimeout(() => location.reload(), 1200);
-            }
-          }, 4000);
+          setBulkUi(data.bulk || { status: "running", summary: "Job started…" });
+          startBulkPoll();
         } catch (err) {
           bulkStatus.textContent = String(err.message || err);
           bulkBtn.disabled = false;
