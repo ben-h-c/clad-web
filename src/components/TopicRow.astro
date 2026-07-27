@@ -1,7 +1,7 @@
 ---
 /**
- * Home topic card — 16:9 photo band + type panel below (same language as
- * report-card media tiles). Never full-bleed cover-crop of a cable still.
+ * Home / list topic card — compact media tile (image + scrim + overlaid type).
+ * Still is chosen intentionally via pickTopicStill (not newest chyron).
  */
 import { displayableThumb } from "~/lib/imagePolicy";
 import LetterGrade from "~/components/LetterGrade.astro";
@@ -49,61 +49,65 @@ const leanPos = leanScore === null ? 50 : (Math.max(-100, Math.min(100, leanScor
 const leanSide =
   leanScore === null ? "center" : leanMag < 5 ? "center" : leanScore < 0 ? "left" : "right";
 
-const rowClass = ["topic-row", thumb ? "topic-row--media" : "topic-row--plain"].join(" ");
+const rowClass = [
+  "topic-row",
+  thumb ? "topic-row--media" : "topic-row--plain",
+].join(" ");
 ---
 <a class={rowClass} href={`/topics/${topic.slug}/`}>
   {thumb ? (
-    <span class="topic-row__photo" aria-hidden="true">
-      <img
-        src={thumb}
-        alt=""
-        loading="lazy"
-        decoding="async"
-        width="640"
-        height="360"
-        style={`object-position: ${objectPosition}`}
-        onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')"
-      />
-    </span>
+    <>
+      <span class="topic-row__bg" aria-hidden="true">
+        <img
+          src={thumb}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          width="640"
+          height="360"
+          style={`object-position: ${objectPosition}`}
+          onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')"
+        />
+      </span>
+      <span class="topic-row__scrim" aria-hidden="true"></span>
+    </>
   ) : null}
 
-  <span class="topic-row__body">
-    <span class="topic-row__main">
-      <span class="topic-row__name">{topic.display}</span>
-      <span class="topic-row__meta">{meta}</span>
+  <span class="topic-row__content">
+    <span class="topic-row__name">{topic.display}</span>
+    <span class="topic-row__meta">{meta}</span>
 
-      {leanLabel && (
-        <span class={`topic-row__lean topic-row__lean--${leanSide}`} aria-label={`Political lean ${leanLabel}`}>
-          <span class="topic-row__lean-label small-caps">Political lean</span>
-          <span class="topic-row__lean-value">{leanLabel}</span>
-          <span class="topic-row__lean-track" aria-hidden="true">
-            <span class="topic-row__lean-end">L</span>
-            <span class="topic-row__lean-bar">
-              <span class="topic-row__lean-center"></span>
-              <span class="topic-row__lean-marker" style={`left:${leanPos}%`}></span>
-            </span>
-            <span class="topic-row__lean-end">R</span>
+    {leanLabel && (
+      <span class={`topic-row__lean topic-row__lean--${leanSide}`} aria-label={`Political lean ${leanLabel}`}>
+        <span class="topic-row__lean-label small-caps">Political lean</span>
+        <span class="topic-row__lean-value">{leanLabel}</span>
+        <span class="topic-row__lean-track" aria-hidden="true">
+          <span class="topic-row__lean-end">L</span>
+          <span class="topic-row__lean-bar">
+            <span class="topic-row__lean-center"></span>
+            <span class="topic-row__lean-marker" style={`left:${leanPos}%`}></span>
           </span>
+          <span class="topic-row__lean-end">R</span>
         </span>
-      )}
-      {locked && (
-        <span class="topic-row__lean topic-row__lean--locked">
-          <span class="topic-row__lean-label small-caps">Political lean</span>
-          <span class="topic-row__lean-value">Unlock free</span>
-        </span>
-      )}
-    </span>
-
-    {!locked && topic.avgGrade && (
-      <span class="topic-row__grade">
-        <LetterGrade grade={topic.avgGrade} size="card" />
       </span>
     )}
     {locked && (
-      <span class="topic-row__grade grade-lock">
-        <span class="grade-lock-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Grade unlocks with a free CladFacts account</span>
+      <span class="topic-row__lean topic-row__lean--locked">
+        <span class="topic-row__lean-label small-caps">Political lean</span>
+        <span class="topic-row__lean-value">Unlock free</span>
       </span>
     )}
   </span>
+
+  {!locked && topic.avgGrade && (
+    <span class="topic-row__grade">
+      <LetterGrade grade={topic.avgGrade} size="card" />
+    </span>
+  )}
+  {locked && (
+    <span class="topic-row__grade grade-lock">
+      <span class="grade-lock-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Grade unlocks with a free CladFacts account</span>
+    </span>
+  )}
 </a>
