@@ -31,7 +31,7 @@ export const GET: APIRoute = async ({ request, url }) => {
   const seed = String(url.searchParams.get("seed") || defaultHomeMoreSeed()).slice(0, 64);
   const offset = Math.max(0, parseInt(url.searchParams.get("offset") ?? "0", 10) || 0);
   const limit = Math.min(
-    50,
+    32,
     Math.max(1, parseInt(url.searchParams.get("limit") ?? String(HOME_MORE_PAGE_SIZE), 10) || HOME_MORE_PAGE_SIZE)
   );
 

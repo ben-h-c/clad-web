@@ -1,6 +1,6 @@
 ---
 /**
- * Bottom home feed — randomized (day-seeded) articles, 25 per page, Load more.
+ * Bottom home feed — randomized (day-seeded) articles, 16 per page, Load more.
  */
 import ReportCard from "~/components/ReportCard.astro";
 import type { CollectionEntry } from "astro:content";
@@ -290,10 +290,7 @@ const {
       const io = new IntersectionObserver(
         (entries) => {
           for (const e of entries) {
-            // Near the end: reveal Load more is already visible; optional
-            // auto-load after the first full page of 25 is already shown —
-            // user asked for Load more after 25, so we only auto-prompt, not auto-fetch
-            // until they press. Intersection just ensures the button is in view.
+            // Load more is explicit (batches of 16); sentinel keeps the footer in view.
             if (e.isIntersecting && hasMore && !loading) {
               /* keep button visible; no auto-fetch */
             }

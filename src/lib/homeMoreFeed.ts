@@ -1,12 +1,12 @@
 /**
  * Bottom-of-home “For you” feed: day-seeded shuffle of posts the reader has
  * not already seen higher on the page (front page, breaking, discover, etc.).
- * Served 25 at a time with Load more / infinite-scroll continuation.
+ * Served 16 at a time with Load more / infinite-scroll continuation.
  */
 import type { CollectionEntry } from "astro:content";
 import { todayIsoNy } from "./calendarEvents.ts";
 
-export const HOME_MORE_PAGE_SIZE = 25;
+export const HOME_MORE_PAGE_SIZE = 16;
 
 /** Deterministic 0..1 PRNG (mulberry32). */
 function mulberry32(seed: number): () => number {
