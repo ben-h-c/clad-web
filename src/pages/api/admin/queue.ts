@@ -13,6 +13,7 @@ import {
   listDrafts,
   markSeen,
   putDraft,
+  type PendingDraft,
 } from "~/lib/agents";
 import { resolveThumbnail } from "~/lib/thumbnail";
 import {
@@ -21,15 +22,32 @@ import {
 } from "~/lib/mediaPresentation";
 import { reviseBroadcastReport } from "~/lib/broadcast";
 import { applyEventTopics, assessDraftQuality } from "~/lib/draftQuality";
+import { lintHeadline } from "~/lib/headlineLint";
+import {
+  bulkJobSummary,
+  emptyBulkJob,
+  getQueueBulkJob,
+  isBulkJobStale,
+  putQueueBulkJob,
+  type QueueBulkJob,
+} from "~/lib/queueBulk";
 
 export const prerender = false;
 
 export const GET: APIRoute = async () => {
-  const drafts = await listDrafts(env.AGENTS);
-  return json({ drafts }, 200);
+  const [drafts, bulk] = await Promise.all([listDrafts(env.AGENTS), getQueueBulkJob(env.AGENTS)]);
+  return json(
+    {
+      drafts,
+      bulk: bulk
+        ? { ...bulk, summary: bulkJobSummary(bulk) }
+        : { ...emptyBulkJob(), summary: "" },
+    },
+    200
+  );
 };
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
   let p: any;
   try {
     p = await request.json();
@@ -38,6 +56,19 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const action = String(p?.action ?? "");
+
+  // ---- Background bulk submit (survives navigating away) --------------------
+  if (action === "bulk-start") {
+    return startBulkJob(request, locals, p);
+  }
+  if (action === "bulk-tick") {
+    return tickBulkJob(request, locals);
+  }
+  if (action === "bulk-status") {
+    const bulk = (await getQueueBulkJob(env.AGENTS)) ?? emptyBulkJob();
+    return json({ ok: true, bulk: { ...bulk, summary: bulkJobSummary(bulk) } }, 200);
+  }
+
   const id = String(p?.draftId ?? "").trim();
   if (!id) return json({ error: "draftId required" }, 400);
 
@@ -84,43 +115,92 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   if (action !== "approve") {
-    return json({ error: "action must be 'approve', 'reject', or 'revise'" }, 400);
+    return json({ error: "action must be 'approve', 'reject', 'revise', or bulk-*" }, 400);
   }
 
+  const result = await approveDraft(id, {
+    force: Boolean(p?.force),
+    featured: Boolean(p?.featured),
+    mediaStyle: p?.mediaStyle,
+    thumbFocusX: p?.thumbFocusX,
+    thumbFocusY: p?.thumbFocusY,
+    mediaNote: p?.mediaNote,
+  });
+  if (result.ok) {
+    return json(
+      { ok: true, slug: result.slug, htmlUrl: result.htmlUrl, postUrl: result.postUrl },
+      200
+    );
+  }
+  if (result.duplicate) {
+    return json({ error: result.error, duplicate: true }, 409);
+  }
+  return json({ error: result.error }, result.status);
+};
+
+// ---------------------------------------------------------------------------
+// Approve one draft (shared by single-click and bulk)
+// ---------------------------------------------------------------------------
+
+type ApproveOk = {
+  ok: true;
+  slug: string;
+  htmlUrl: string;
+  postUrl: string;
+};
+type ApproveFail = {
+  ok: false;
+  error: string;
+  status: number;
+  duplicate?: boolean;
+};
+
+async function approveDraft(
+  id: string,
+  opts: {
+    force?: boolean;
+    featured?: boolean;
+    mediaStyle?: unknown;
+    thumbFocusX?: unknown;
+    thumbFocusY?: unknown;
+    mediaNote?: unknown;
+  }
+): Promise<ApproveOk | ApproveFail> {
   if (!env.GITHUB_TOKEN || !env.GITHUB_REPO || !env.GITHUB_BRANCH) {
-    return json({ error: "GitHub publishing is not configured." }, 503);
+    return { ok: false, error: "GitHub publishing is not configured.", status: 503 };
   }
 
   const draft = await getDraft(env.AGENTS, id);
-  if (!draft) return json({ error: "Draft not found" }, 404);
+  if (!draft) return { ok: false, error: "Draft not found", status: 404 };
 
-  // Backstop: block approving a story this network has already published
-  // (something may have gone live since the draft was created). Override with
-  // {force:true} if the editor is sure it's a distinct story.
   const near = await findNearDuplicates(env.AGENTS, {
     texts: [draft.source.videoTitle ?? "", draft.report.headline],
     publishedAt: draft.source.publishedAt,
     excludeDraftId: draft.draftId,
   });
   const spread = leanSpread([...near, { leanScore: draft.report.leanScore }]);
-  if (!p?.force) {
+  if (!opts.force) {
     const dup = await findDuplicateStory(env.AGENTS, {
       channel: draft.source.channel ?? "",
       texts: [draft.source.videoTitle ?? "", draft.report.headline],
     });
     if (dup) {
-      return json({ error: `Looks like a duplicate — ${dup}. Re-approve to publish anyway.`, duplicate: true }, 409);
+      return {
+        ok: false,
+        error: `Looks like a duplicate — ${dup}. Re-approve to publish anyway.`,
+        status: 409,
+        duplicate: true,
+      };
     }
     if (near.length > 0) {
       const top = near[0]!;
       const leanTxt = top.leanScore != null ? `lean ${top.leanScore}%` : "lean n/a";
-      return json(
-        {
-          duplicate: true,
-          error: `Near-duplicate coverage in the last 48h: ${top.headline} (${top.channel ?? "unknown channel"}, ${leanTxt}) — lean spread ${spread} pts. Re-approve to publish anyway.`,
-        },
-        409
-      );
+      return {
+        ok: false,
+        error: `Near-duplicate coverage in the last 48h: ${top.headline} (${top.channel ?? "unknown channel"}, ${leanTxt}) — lean spread ${spread} pts. Re-approve to publish anyway.`,
+        status: 409,
+        duplicate: true,
+      };
     }
   } else if (near.length > 0) {
     console.warn(
@@ -136,10 +216,6 @@ export const POST: APIRoute = async ({ request }) => {
     );
   }
 
-  // Date the post by the source video's real publish date+time (captured by the
-  // scanner), not the moment it's approved — so trends/archive reflect when the
-  // news actually happened AND same-day posts order chronologically (the Recent
-  // strip relies on the full timestamp). Fall back to now if missing/malformed.
   const srcRaw = (draft.source?.publishedAt ?? "").trim();
   const parsed = srcRaw ? new Date(srcRaw) : null;
   const valid = parsed && !Number.isNaN(parsed.getTime());
@@ -152,19 +228,21 @@ export const POST: APIRoute = async ({ request }) => {
     title: draft.report.headline,
     slug,
     xaiKey: env.XAI_API_KEY,
-    github: { token: env.GITHUB_TOKEN, repo: env.GITHUB_REPO, branch: env.GITHUB_BRANCH },
+    github: {
+      token: env.GITHUB_TOKEN,
+      repo: env.GITHUB_REPO,
+      branch: env.GITHUB_BRANCH,
+    },
   });
 
-  // Per-post card framing: vision inspects the still so each report chooses
-  // overlay vs modular vs text and a focus point (not a site-wide crop).
-  // Prefer editor override from the approve payload when present.
   const editorMedia =
-    p?.mediaStyle || p?.thumbFocusX != null || p?.thumbFocusY != null
+    opts.mediaStyle || opts.thumbFocusX != null || opts.thumbFocusY != null
       ? coerceMediaPresentation({
-          mediaStyle: p.mediaStyle,
-          thumbFocusX: p.thumbFocusX,
-          thumbFocusY: p.thumbFocusY,
-          mediaNote: typeof p.mediaNote === "string" ? p.mediaNote : "editor override",
+          mediaStyle: opts.mediaStyle as any,
+          thumbFocusX: opts.thumbFocusX as any,
+          thumbFocusY: opts.thumbFocusY as any,
+          mediaNote:
+            typeof opts.mediaNote === "string" ? opts.mediaNote : "editor override",
         })
       : null;
   const media =
@@ -181,13 +259,12 @@ export const POST: APIRoute = async ({ request }) => {
     videoId: draft.videoId,
     videoTitle: draft.source.videoTitle,
     sourceTitle: draft.source.channel,
-    featured: Boolean(p?.featured),
+    featured: Boolean(opts.featured),
     draft: false,
     publishedAt: publishedAt || undefined,
     thumbnail: thumbnail || undefined,
     media,
   });
-  // Prefer tags captured at draft time (includes debate-time matches) when present.
   if (draft.quality?.politicians?.length) {
     const bySlug = new Map((fm.politicians ?? []).map((x) => [x.slug, x]));
     for (const t of draft.quality.politicians) bySlug.set(t.slug, t);
@@ -208,11 +285,224 @@ export const POST: APIRoute = async ({ request }) => {
     });
     await markSeen(env.AGENTS, draft.videoId);
     await deleteDraft(env.AGENTS, id);
-    return json({ ok: true, slug, htmlUrl: out.url, postUrl: `/posts/${slug}/` }, 200);
+    return {
+      ok: true,
+      slug,
+      htmlUrl: out.url,
+      postUrl: `/posts/${slug}/`,
+    };
   } catch (err: any) {
-    return json({ error: err?.message ?? "Approve/publish failed" }, 502);
+    return { ok: false, error: err?.message ?? "Approve/publish failed", status: 502 };
   }
-};
+}
+
+// ---------------------------------------------------------------------------
+// Bulk job: start + one-at-a-time tick with self-chain via waitUntil
+// ---------------------------------------------------------------------------
+
+function sortDraftsForBulk(drafts: PendingDraft[]): PendingDraft[] {
+  return [...drafts].sort((a, b) => {
+    const pa = a.quality?.priority ? 1 : 0;
+    const pb = b.quality?.priority ? 1 : 0;
+    if (pb !== pa) return pb - pa;
+    const sa = a.quality?.score ?? 50;
+    const sb = b.quality?.score ?? 50;
+    if (sb !== sa) return sb - sa;
+    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+  });
+}
+
+async function startBulkJob(
+  request: Request,
+  locals: { cfContext?: { waitUntil?: (p: Promise<unknown>) => void } },
+  p: { draftIds?: unknown }
+): Promise<Response> {
+  const existing = await getQueueBulkJob(env.AGENTS);
+  if (existing?.status === "running" && !isBulkJobStale(existing)) {
+    return json(
+      {
+        ok: true,
+        alreadyRunning: true,
+        bulk: { ...existing, summary: bulkJobSummary(existing) },
+      },
+      200
+    );
+  }
+
+  const all = sortDraftsForBulk(await listDrafts(env.AGENTS));
+  // Optional client list (current page); otherwise every pending draft.
+  let ids: string[];
+  if (Array.isArray(p.draftIds) && p.draftIds.length > 0) {
+    const want = new Set(p.draftIds.map((x) => String(x || "").trim()).filter(Boolean));
+    ids = all.map((d) => d.draftId).filter((id) => want.has(id));
+    // Preserve client order when provided
+    const order = p.draftIds.map((x) => String(x || "").trim()).filter(Boolean);
+    ids.sort((a, b) => order.indexOf(a) - order.indexOf(b));
+  } else {
+    ids = all.map((d) => d.draftId);
+  }
+
+  if (ids.length === 0) {
+    return json({ error: "No drafts to process.", bulk: emptyBulkJob() }, 400);
+  }
+
+  const now = new Date().toISOString();
+  const job: QueueBulkJob = {
+    status: "running",
+    startedAt: now,
+    updatedAt: now,
+    remaining: ids,
+    total: ids.length,
+    published: 0,
+    rejected: 0,
+    failed: 0,
+    current: null,
+    lastError: null,
+    lastNote: "Starting…",
+  };
+  await putQueueBulkJob(env.AGENTS, job);
+
+  // Kick the first tick after the response so the editor can leave immediately.
+  scheduleBulkTick(request, locals);
+
+  return json(
+    {
+      ok: true,
+      started: true,
+      bulk: { ...job, summary: bulkJobSummary(job) },
+    },
+    200
+  );
+}
+
+async function tickBulkJob(
+  request: Request,
+  locals: { cfContext?: { waitUntil?: (p: Promise<unknown>) => void } }
+): Promise<Response> {
+  // Admin basic-auth is enforced by middleware for browser calls. Self-chained
+  // ticks send ADMIN_USER/PASSWORD + X-Clad-Bulk-Secret (see scheduleBulkTick).
+  let job = (await getQueueBulkJob(env.AGENTS)) ?? emptyBulkJob();
+  if (job.status !== "running") {
+    return json({ ok: true, bulk: { ...job, summary: bulkJobSummary(job) } }, 200);
+  }
+
+  const nextId = job.remaining[0];
+  if (!nextId) {
+    job.status = "done";
+    job.current = null;
+    job.lastNote = "Finished";
+    await putQueueBulkJob(env.AGENTS, job);
+    return json({ ok: true, bulk: { ...job, summary: bulkJobSummary(job) } }, 200);
+  }
+
+  job.remaining = job.remaining.slice(1);
+  job.current = nextId;
+  job.lastNote = `Processing ${nextId}…`;
+  await putQueueBulkJob(env.AGENTS, job);
+
+  const draft = await getDraft(env.AGENTS, nextId);
+  if (!draft) {
+    // Already gone (manual approve/reject race) — count as rejected/cleared.
+    job.rejected += 1;
+    job.lastNote = `Skipped missing draft`;
+    job.current = null;
+    await finishOrContinue(job, request, locals);
+    return json({ ok: true, bulk: { ...job, summary: bulkJobSummary(job) } }, 200);
+  }
+
+  // Same rules as the old client bulk flow: lint → reject; else approve;
+  // duplicate → reject; transient error → failed (draft stays for retry).
+  const lint = draft.quality?.headlineLint?.length
+    ? draft.quality.headlineLint
+    : lintHeadline(draft.report.headline);
+  if (lint.length > 0) {
+    await deleteDraft(env.AGENTS, nextId);
+    job.rejected += 1;
+    job.lastNote = `Rejected (headline lint): ${draft.report.headline.slice(0, 60)}`;
+    job.current = null;
+    await finishOrContinue(job, request, locals);
+    return json({ ok: true, bulk: { ...job, summary: bulkJobSummary(job) } }, 200);
+  }
+
+  const result = await approveDraft(nextId, { force: false, featured: false });
+  if (result.ok) {
+    job.published += 1;
+    job.lastNote = `Published ${result.slug}`;
+    job.current = null;
+    await finishOrContinue(job, request, locals);
+    return json({ ok: true, bulk: { ...job, summary: bulkJobSummary(job) } }, 200);
+  }
+
+  if (result.duplicate) {
+    await deleteDraft(env.AGENTS, nextId);
+    job.rejected += 1;
+    job.lastNote = `Rejected (duplicate): ${draft.report.headline.slice(0, 60)}`;
+    job.current = null;
+    await finishOrContinue(job, request, locals);
+    return json({ ok: true, bulk: { ...job, summary: bulkJobSummary(job) } }, 200);
+  }
+
+  // Transient failure — leave draft in queue, count failed, continue others.
+  job.failed += 1;
+  job.lastError = result.error;
+  job.lastNote = `Failed: ${result.error.slice(0, 120)}`;
+  job.current = null;
+  await finishOrContinue(job, request, locals);
+  return json({ ok: true, bulk: { ...job, summary: bulkJobSummary(job) } }, 200);
+}
+
+async function finishOrContinue(
+  job: QueueBulkJob,
+  request: Request,
+  locals: { cfContext?: { waitUntil?: (p: Promise<unknown>) => void } }
+): Promise<void> {
+  if (job.remaining.length === 0) {
+    job.status = "done";
+    job.lastNote = job.lastNote || "Finished";
+    await putQueueBulkJob(env.AGENTS, job);
+    return;
+  }
+  await putQueueBulkJob(env.AGENTS, job);
+  scheduleBulkTick(request, locals);
+}
+
+function scheduleBulkTick(
+  request: Request,
+  locals: { cfContext?: { waitUntil?: (p: Promise<unknown>) => void } }
+): void {
+  const origin = new URL(request.url).origin;
+  const url = `${origin}/api/admin/queue`;
+  const secret = env.BETTER_AUTH_SECRET || env.AGENT_TOKEN || "";
+  const basic =
+    env.ADMIN_USER && env.ADMIN_PASSWORD
+      ? "Basic " + btoa(`${env.ADMIN_USER}:${env.ADMIN_PASSWORD}`)
+      : "";
+
+  const run = fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      ...(basic ? { Authorization: basic } : {}),
+      ...(secret ? { "X-Clad-Bulk-Secret": secret } : {}),
+    },
+    body: JSON.stringify({ action: "bulk-tick" }),
+  }).then(
+    async (r) => {
+      if (!r.ok) {
+        const t = await r.text().catch(() => "");
+        console.error("bulk-tick chain failed", r.status, t.slice(0, 200));
+      }
+    },
+    (err) => console.error("bulk-tick chain error", err)
+  );
+
+  const cf = (locals as { cfContext?: { waitUntil?: (p: Promise<unknown>) => void } })
+    ?.cfContext;
+  if (cf?.waitUntil) {
+    cf.waitUntil(run);
+  }
+  // Without waitUntil (some local paths), fire-and-forget still helps.
+}
 
 function json(body: unknown, status: number): Response {
   return new Response(JSON.stringify(body), {

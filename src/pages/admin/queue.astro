@@ -9,10 +9,14 @@ import { isTertiarySource } from "~/lib/citations";
 import { eventTypeLabel, type EventType } from "~/lib/draftQuality";
 import { lintHeadline } from "~/lib/headlineLint";
 import { embedUrl } from "~/lib/youtube";
+import { bulkJobSummary, getQueueBulkJob } from "~/lib/queueBulk";
 
 export const prerender = false;
 
 const allDrafts = await listDrafts(env.AGENTS);
+const bulkJob = await getQueueBulkJob(env.AGENTS);
+const bulkRunning = bulkJob?.status === "running";
+const bulkSummary = bulkJob ? bulkJobSummary(bulkJob) : "";
 
 // Track C: priority / quality score first, then newest — debate nights and
 // clean drafts surface above thin or style-flagged ones.
@@ -78,10 +82,14 @@ for (const d of drafts) {
     ) : (
       <>
         <div class="queue-bulk" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin:1rem 0">
-          <button type="button" id="q-submit-all">Submit all ({drafts.length})</button>
-          <span id="q-bulk-status" class="dateline"></span>
+          <button type="button" id="q-submit-all" disabled={bulkRunning}>
+            {bulkRunning ? "Background job running…" : `Submit all (${drafts.length})`}
+          </button>
+          <span id="q-bulk-status" class="dateline" data-bulk-running={bulkRunning ? "1" : "0"}>
+            {bulkSummary}
+          </span>
           <span class="dateline" style="opacity:.8">
-            Publishes clean drafts; auto-rejects duplicates and style-flagged headlines so the queue clears.
+            Runs in the background on the server — you can leave this page. Publishes clean drafts; auto-rejects duplicates and style-flagged headlines.
           </span>
         </div>
       <div class="queue">
@@ -392,72 +400,102 @@ for (const d of drafts) {
       });
     });
 
-    // "Submit all": publish clean drafts; auto-reject anything the bulk flow
-    // would not publish (headline style flags + API-flagged duplicates) so the
-    // queue does not leave leftovers to clear by hand. Transient API errors
-    // stay in the queue for retry.
+    // "Submit all" starts a server-side job that keeps running if you leave.
+    // Each draft is still published/rejected with the same rules (vision, GitHub,
+    // dup checks) — just not tied to this browser tab.
     const bulkBtn = document.getElementById("q-submit-all");
     const bulkStatus = document.getElementById("q-bulk-status");
-    if (bulkBtn) {
+    const draftIdsOnPage = bulkItems
+      .map((_, i) => document.querySelectorAll(".queue-item")[i]?.getAttribute("data-draft-id"))
+      .filter(Boolean);
+
+    async function refreshBulkStatus() {
+      if (!bulkStatus) return null;
+      try {
+        const res = await fetch("/api/admin/queue", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ action: "bulk-status" }),
+        });
+        const data = await res.json().catch(() => ({}));
+        const bulk = data.bulk;
+        if (!bulk) return null;
+        bulkStatus.textContent = bulk.summary || "";
+        if (bulkBtn) {
+          if (bulk.status === "running") {
+            bulkBtn.disabled = true;
+            bulkBtn.textContent = "Background job running…";
+          } else {
+            bulkBtn.disabled = false;
+            const n = document.querySelectorAll(".queue-item .q-approve").length;
+            bulkBtn.textContent = `Submit all (${n || draftIdsOnPage.length})`;
+          }
+        }
+        return bulk;
+      } catch {
+        return null;
+      }
+    }
+
+    if (bulkBtn && bulkStatus) {
+      // Resume status polling if a job is already running when the page loads.
+      if (bulkStatus.getAttribute("data-bulk-running") === "1") {
+        const poll = setInterval(async () => {
+          const b = await refreshBulkStatus();
+          if (b && b.status !== "running") clearInterval(poll);
+        }, 4000);
+      }
+
       bulkBtn.addEventListener("click", async () => {
-        const pending = bulkItems.filter((i) => i.isPending());
-        const total = pending.length;
-        if (total === 0) {
+        const ids = [...document.querySelectorAll(".queue-item[data-draft-id]")]
+          .map((el) => el.getAttribute("data-draft-id"))
+          .filter(Boolean);
+        if (ids.length === 0) {
           bulkStatus.textContent = "Nothing left to process.";
           return;
         }
         if (
           !confirm(
-            `Process ${total} draft(s)?\n\n` +
+            `Start background processing of ${ids.length} draft(s)?\n\n` +
               `• Clean drafts → publish\n` +
               `• Duplicates & style-flagged headlines → reject & remove\n` +
               `• Transient failures stay for you to retry\n\n` +
+              `You can leave this page — the job keeps running on the server.\n` +
               `This cannot be undone for rejected drafts.`,
           )
         ) {
           return;
         }
         bulkBtn.disabled = true;
-        let published = 0;
-        let rejected = 0;
-        let failed = 0;
-        let done = 0;
-        const render = (prefix) => {
+        bulkBtn.textContent = "Starting…";
+        bulkStatus.textContent = "Starting background job…";
+        try {
+          const res = await fetch("/api/admin/queue", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action: "bulk-start", draftIds: ids }),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok) throw new Error(data.error || "Could not start bulk job");
           bulkStatus.textContent =
-            `${prefix} ${done}/${total} — ${published} published, ` +
-            `${rejected} rejected, ${failed} failed.`;
-        };
-        render("Processing…");
-        for (const it of pending) {
-          if (!it.isPending()) {
-            done += 1;
-            render("Processing…");
-            continue;
-          }
-          // Style-flagged headlines: bulk never publishes these — reject.
-          if (it.hasLint) {
-            const ok = await it.rejectNoConfirm("headline states the verdict");
-            if (ok) rejected += 1;
-            else failed += 1;
-            done += 1;
-            render("Processing…");
-            continue;
-          }
-          const outcome = await it.approveNoConfirm();
-          if (outcome === "published") {
-            published += 1;
-          } else if (outcome === "duplicate") {
-            const ok = await it.rejectNoConfirm("possible duplicate");
-            if (ok) rejected += 1;
-            else failed += 1;
-          } else {
-            failed += 1;
-          }
-          done += 1;
-          render("Processing…");
+            data.bulk?.summary ||
+            (data.alreadyRunning
+              ? "A job is already running — leave the page if you want; it continues."
+              : "Job started — safe to leave this page.");
+          bulkBtn.textContent = "Background job running…";
+          const poll = setInterval(async () => {
+            const b = await refreshBulkStatus();
+            if (b && b.status !== "running") {
+              clearInterval(poll);
+              // Soft reload so the queue cards match server state.
+              setTimeout(() => location.reload(), 1200);
+            }
+          }, 4000);
+        } catch (err) {
+          bulkStatus.textContent = String(err.message || err);
+          bulkBtn.disabled = false;
+          bulkBtn.textContent = `Submit all (${ids.length})`;
         }
-        render("Done —");
-        bulkBtn.disabled = false;
       });
     }
   </script>
