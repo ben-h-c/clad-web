@@ -70,18 +70,18 @@ export interface HomeLayoutStore {
 
 /**
  * Permanent top stack — never reordered or hidden by the layout curator.
- * Today → Breaking → Front Page → Coverage lean.
+ * Today → Breaking → Front Page (exactly these three, nothing else in between).
  */
 export const FIXED_HOME_TOP: HomeSectionId[] = [
   "feature-highlight",
   "breaking",
   "front-page",
-  "lean",
 ];
 
 /** Default top-to-bottom home stack (fixed top first, then flexible middle). */
 export const DEFAULT_HOME_ORDER: HomeSectionId[] = [
   ...FIXED_HOME_TOP,
+  "lean",
   "guest-hero",
   "spotlight",
   "app-promo",
@@ -231,8 +231,7 @@ export function isHomeLayoutFresh(
  *   1. feature-highlight (Today)
  *   2. breaking
  *   3. front-page
- *   4. lean (coverage lean)
- * Everything else may be reordered/hidden by the curator.
+ * Everything else (including coverage lean) may be reordered/hidden by the curator.
  * “Keep reading” (more) is always last.
  */
 export function resolveHomeOrder(
@@ -315,7 +314,7 @@ function hashSeed(s: string): number {
  * Drop the bulk "topics" section and interleave up to `maxTopics` single topic
  * cards into random gaps between other home sections.
  *
- * - Never breaks the FIXED_HOME_TOP stack (Today → Breaking → Front → Lean).
+ * - Never breaks the FIXED_HOME_TOP stack (Today → Breaking → Front Page).
  * - Never places a topic after "more" (Keep reading stays last).
  * - Placement is seeded (default: seed string) so a given day is stable.
  *
