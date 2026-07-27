@@ -35,6 +35,9 @@ const PUBLIC_API = (path: string) =>
   path === "/api/search" ||
   path === "/api/posts.json" ||
   path.startsWith("/api/posts/") ||
+  // Home “For you” infinite feed pages (grades gated inside the route).
+  path === "/api/home-more" ||
+  path.startsWith("/api/home-more/") ||
   // iOS push-token (un)registration. Anonymous devices may opt into
   // breaking-news alerts; the route reads any session cookie itself.
   path.startsWith("/api/push/") ||

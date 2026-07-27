@@ -4,6 +4,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import HeroStrip from "~/components/HeroStrip.astro";
 import BreakingStrip from "~/components/BreakingStrip.astro";
 import TopicRow from "~/components/TopicRow.astro";
+import HomeMoreFeed from "~/components/HomeMoreFeed.astro";
 import GradeBoard from "~/components/GradeBoard.astro";
 import CoverageLeanBar from "~/components/CoverageLeanBar.astro";
 import HomeElectionMap from "~/components/HomeElectionMap.astro";
@@ -43,6 +44,12 @@ import {
   HOME_TOPICS_SPREAD,
 } from "~/lib/homeLayout";
 import { buildHomeFeatureItems } from "~/lib/homeFeatures";
+import {
+  HOME_MORE_PAGE_SIZE,
+  buildHomeMoreIds,
+  defaultHomeMoreSeed,
+  pageHomeMoreIds,
+} from "~/lib/homeMoreFeed";
 import { buildPoliticianSpotlightItems } from "~/lib/homePoliticians";
 import { buildPoliticianIndexLive } from "~/lib/politicians";
 import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates } from "~/lib/elections";
@@ -273,6 +280,22 @@ const goodNewsPosts = postsFromSections(
 );
 // Decorative marquee — loads after the main story rows so crawlers hit real content first.
 const quips = quipsStore ?? [];
+
+// Bottom “For you” feed — day-seeded shuffle excluding stories already on home.
+const homeMoreExclude = new Set<string>();
+for (const p of heroPosts) homeMoreExclude.add(p.id);
+for (const it of breaking) {
+  if (it.kind === "post") homeMoreExclude.add(it.post.id);
+  else for (const m of it.members) homeMoreExclude.add(m.id);
+}
+for (const p of discoverPosts) homeMoreExclude.add(p.id);
+for (const p of goodNewsPosts) homeMoreExclude.add(p.id);
+const homeMoreSeed = defaultHomeMoreSeed();
+const homeMoreIds = buildHomeMoreIds(all, homeMoreExclude, homeMoreSeed);
+const homeMorePage = pageHomeMoreIds(homeMoreIds, 0, HOME_MORE_PAGE_SIZE);
+const homeMorePosts = homeMorePage.page
+  .map((id) => byId.get(id))
+  .filter((p): p is NonNullable<typeof p> => p !== undefined);
 ---
 <BaseLayout
   title="CladFacts — Grading Content & Exposing Bias"
@@ -458,6 +481,17 @@ const quips = quipsStore ?? [];
           )}
 
           {item.kind === "section" && item.id === "quips" && <QuipTicker data={quips} />}
+
+          {item.kind === "section" && item.id === "more-feed" && homeMorePosts.length > 0 && (
+            <HomeMoreFeed
+              posts={homeMorePosts}
+              seed={homeMoreSeed}
+              total={homeMorePage.total}
+              nextOffset={homeMorePage.nextOffset}
+              hasMore={homeMorePage.hasMore}
+              locked={locked}
+            />
+          )}
 
           {item.kind === "section" && item.id === "more" && (
             <section class="more-clad" aria-labelledby="more-clad-title">

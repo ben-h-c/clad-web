@@ -22,6 +22,7 @@ export type HomeSectionId =
   | "discover"
   | "good-news"
   | "quips"
+  | "more-feed"
   | "more";
 
 export type HomeHighlightVariant =
@@ -95,6 +96,7 @@ export const DEFAULT_HOME_ORDER: HomeSectionId[] = [
   "discover",
   "good-news",
   "quips",
+  "more-feed",
   "more",
 ];
 
@@ -102,6 +104,7 @@ export const DEFAULT_HOME_ORDER: HomeSectionId[] = [
 const PROTECTED = new Set<HomeSectionId>([
   ...FIXED_HOME_TOP,
   "election-map",
+  "more-feed", // infinite “For you” near the bottom
   "more", // always last on the page
 ]);
 
@@ -245,11 +248,12 @@ export function resolveHomeOrder(
   // Fixed pins — never hide.
   for (const id of FIXED_HOME_TOP) hide.delete(id);
   hide.delete("more");
+  hide.delete("more-feed");
 
   const fixed = new Set<HomeSectionId>(FIXED_HOME_TOP);
   const preferred = (fresh?.order || [])
     .filter(isHomeSectionId)
-    .filter((id) => !fixed.has(id) && id !== "more");
+    .filter((id) => !fixed.has(id) && id !== "more" && id !== "more-feed");
   const seen = new Set<HomeSectionId>();
   const middle: HomeSectionId[] = [];
 
@@ -259,14 +263,14 @@ export function resolveHomeOrder(
     middle.push(id);
   }
   for (const id of DEFAULT_HOME_ORDER) {
-    if (fixed.has(id) || id === "more") continue;
+    if (fixed.has(id) || id === "more" || id === "more-feed") continue;
     if (seen.has(id) || hide.has(id)) continue;
     seen.add(id);
     middle.push(id);
   }
 
-  // Fixed top stack + flexible middle + Keep reading last.
-  return [...FIXED_HOME_TOP, ...middle, "more"];
+  // Fixed top + flexible middle + For you feed + Keep reading last.
+  return [...FIXED_HOME_TOP, ...middle, "more-feed", "more"];
 }
 
 export function resolveHomeHighlight(
