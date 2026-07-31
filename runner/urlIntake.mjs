@@ -1,11 +1,15 @@
 import { extractVideoId } from "../src/lib/youtube.ts";
 import { generateBroadcastReport } from "../src/lib/broadcast.ts";
 import { validateCitations } from "../src/lib/citations.ts";
+import { xaiLimits } from "../src/lib/xaiEconomy.ts";
 import { fetchTranscript, fetchVideoMeta } from "./transcript.mjs";
 import { getUrlQueue, removeUrls, submitDraft } from "./api.mjs";
 import { isVideoDraftable } from "./youtubeVideoStatus.mjs";
 
-const MAX_PER_TICK = 5;
+function maxUrlIntakePerTick() {
+  // Economy: at most 2 manual URLs per runner tick to avoid Grok bursts.
+  return Math.min(5, Math.max(1, xaiLimits().youtubeMaxPublishesPerRun));
+}
 
 // Process editor-supplied YouTube URLs (from the admin "Add URLs" page) into
 // drafts. Uses yt-dlp for transcripts + web-grounded Grok — NO YouTube Data API
@@ -17,7 +21,7 @@ export async function processUrlQueue(log = () => {}) {
   const q = await getUrlQueue();
   if (!q.ok || !Array.isArray(q.body?.urls) || q.body.urls.length === 0) return;
 
-  const batch = q.body.urls.slice(0, MAX_PER_TICK);
+  const batch = q.body.urls.slice(0, maxUrlIntakePerTick());
   const done = [];
   let drafted = 0;
   let noTranscript = 0;

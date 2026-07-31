@@ -142,7 +142,8 @@ export const DEFAULT_REGISTRY: Registry = {
       kind: "youtube-scanner",
       name: "YouTube News Scanner",
       enabled: true,
-      cron: "0 * * * *",
+      // Every 2h seed; economy minHours also gates (see xaiEconomy).
+      cron: "0 */2 * * *",
       config: {
         regionCode: "US",
         // News & Politics (25) + Science & Technology (28) so big tech/space/
@@ -152,8 +153,9 @@ export const DEFAULT_REGISTRY: Registry = {
         // top-viewed videos that dedup keeps skipping.
         order: "date",
         publishedWithinHours: 48,
-        maxCandidatesPerRun: 8,
-        maxPublishesPerRun: 15,
+        // Runtime ceilings also apply via xaiEconomy (economy vs full).
+        maxCandidatesPerRun: 5,
+        maxPublishesPerRun: 3,
         maxScanPages: 4,
         // Focused query — a very long OR query (40+ terms) caused YouTube to
         // miss obvious matches (e.g. SpaceX IPO videos). Keep it tight.
@@ -244,7 +246,7 @@ export const DEFAULT_REGISTRY: Registry = {
       name: "Discover Curator",
       enabled: true,
       cron: "0 11 * * *", // daily, 11:00 UTC
-      config: { maxSections: 6, poolSize: 80 },
+      config: { maxSections: 6, poolSize: 40 },
     },
     {
       id: "good-news-curator",
@@ -252,19 +254,19 @@ export const DEFAULT_REGISTRY: Registry = {
       name: "Good News Curator",
       enabled: true,
       cron: "30 11 * * *", // daily, 11:30 UTC (just after the Discover run)
-      config: { maxSections: 6, poolSize: 120 },
+      config: { maxSections: 6, poolSize: 40 },
     },
     {
       id: "social-sentiment-scanner",
       kind: "social-sentiment-scanner",
       name: "Social Sentiment Scanner",
       enabled: true,
-      cron: "20 */2 * * *", // every 2 hours — social reaction moves fast, then settles
+      cron: "20 */6 * * *", // every 6 hours (economy); full mode still runtime-capped
       config: {
-        maxScansPerRun: 10,
-        scanWindowDays: 10,
-        refreshHours: 24,
-        refreshWindowHours: 72,
+        maxScansPerRun: 3,
+        scanWindowDays: 3,
+        refreshHours: 48,
+        refreshWindowHours: 0,
       },
     },
     {
@@ -300,15 +302,13 @@ export const DEFAULT_REGISTRY: Registry = {
       kind: "politician-profile-builder",
       name: "Politician Profile Builder (coverage + photos)",
       enabled: true,
-      // Smaller batches more often — avoid 12m runner timeout on heavy YT/Grok days.
-      // Every 3 hours (8×/day); ~12 people per pass advances the roster faster than
-      // three 30-person runs that die at 720s.
-      cron: "20 */3 * * *",
+      // Every 6h — small draft caps; photos still advance without full Grok drafts.
+      cron: "20 */6 * * *",
       config: {
-        maxPoliticiansPerRun: 12,
+        maxPoliticiansPerRun: 6,
         maxDraftsPerPolitician: 1,
-        maxPublishesPerRun: 10,
-        maxPhotoLookupsPerRun: 60,
+        maxPublishesPerRun: 2,
+        maxPhotoLookupsPerRun: 40,
         // 30 days of YT search for people under 3 appearances.
         publishedWithinHours: 720,
         // Target depth: each officeholder should accumulate ≥3 graded mentions.
@@ -320,10 +320,10 @@ export const DEFAULT_REGISTRY: Registry = {
       kind: "politician-grader",
       name: "Politician Grader (person ideology + claim record)",
       enabled: true,
-      // Three daily passes — clear never-graded backlog in ~1 week for full roster.
-      cron: "30 5,12,19 * * *",
+      // Once daily (was 3×); backlog can use admin run-now.
+      cron: "30 12 * * *",
       config: {
-        maxPoliticiansPerRun: 40,
+        maxPoliticiansPerRun: 6,
       },
     },
     {
@@ -331,14 +331,14 @@ export const DEFAULT_REGISTRY: Registry = {
       kind: "calendar-scanner",
       name: "News Calendar Scanner (upcoming + history)",
       enabled: true,
-      // Every 3 hours — denser daybook fill across a multi-month window.
-      cron: "20 */3 * * *",
+      // Twice daily — economy caps chunks/window in xaiEconomy.
+      cron: "20 6,18 * * *",
       config: {
-        lookAheadDays: 60,
-        lookBackDays: 21,
-        maxEventsPerRun: 90,
+        lookAheadDays: 21,
+        lookBackDays: 7,
+        maxEventsPerRun: 30,
         maxStoredEvents: 800,
-        targetMinEvents: 50,
+        targetMinEvents: 20,
       },
     },
     {
@@ -346,9 +346,8 @@ export const DEFAULT_REGISTRY: Registry = {
       kind: "today-in-history",
       name: "Today in History (homepage fun facts)",
       enabled: true,
-      // Twice daily: soon after ET midnight (~05:15 UTC) so the new dateKey
-      // is not empty overnight, and again ~7am ET for a morning refresh.
-      cron: "15 5,11 * * *",
+      // Once daily after ET midnight window.
+      cron: "15 5 * * *",
       config: {
         maxItems: 5,
       },
@@ -358,8 +357,8 @@ export const DEFAULT_REGISTRY: Registry = {
       kind: "human-spotlight",
       name: "Human Spotlight (daily positive human story)",
       enabled: true,
-      // After today-in-history morning pass; one living person per ET day.
-      cron: "25 5,12 * * *",
+      // Once daily; one living person per ET day.
+      cron: "25 5 * * *",
       config: {},
     },
     {
@@ -367,8 +366,8 @@ export const DEFAULT_REGISTRY: Registry = {
       kind: "home-layout-curator",
       name: "Home layout curator (current events → landing modules)",
       enabled: true,
-      // Every 4 hours — web-search current events, refresh home order + feature strip.
-      cron: "40 */4 * * *",
+      // Twice daily (was every 4h).
+      cron: "40 7,19 * * *",
       config: {},
     },
     {
@@ -376,8 +375,8 @@ export const DEFAULT_REGISTRY: Registry = {
       kind: "forecast-refresher",
       name: "Election forecast refresher (party map as-of + ratings)",
       enabled: true,
-      // Twice daily — bump map "as of" date and competitive ratings via web_search.
-      cron: "50 6,18 * * *",
+      // Once daily — bump map "as of" date and competitive ratings via web_search.
+      cron: "50 6 * * *",
       config: {},
     },
     {

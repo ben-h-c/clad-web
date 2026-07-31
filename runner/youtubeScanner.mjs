@@ -1,5 +1,6 @@
 import { generateBroadcastReport } from "../src/lib/broadcast.ts";
 import { validateCitations } from "../src/lib/citations.ts";
+import { xaiLimits } from "../src/lib/xaiEconomy.ts";
 import { fetchTranscript } from "./transcript.mjs";
 import { getKnown, submitDraft } from "./api.mjs";
 import { heuristicLighthearted } from "./newsroom.mjs";
@@ -99,14 +100,19 @@ export async function runYoutubeScanner(agent) {
   if (!xaiKey) return { ok: false, message: "XAI_API_KEY not set" };
 
   const c = agent.config || {};
-  const limit = c.maxPublishesPerRun || 3;
+  const econ = xaiLimits();
+  // Economy caps always win — dial full via XAI_ECONOMY=full.
+  const limit = Math.min(
+    Number(c.maxPublishesPerRun) || econ.youtubeMaxPublishesPerRun,
+    econ.youtubeMaxPublishesPerRun
+  );
   const withinHours = c.publishedWithinHours || 48;
   const cutoff = Date.now() - withinHours * 3600_000;
-  const perChannel = c.perChannel || 4; // newest uploads to pull from each outlet
+  const perChannel = Math.min(Number(c.perChannel) || 4, 3); // newest uploads per outlet
   // Per-run draft slots reserved for positive/uplifting "good news" headlines so
   // they get surfaced for the Good News page instead of being crowded out by the
   // newest breaking (usually political) stories. 0 disables the reservation.
-  const goodNewsSlots = c.goodNewsSlots ?? 1;
+  const goodNewsSlots = Math.min(c.goodNewsSlots ?? 1, Math.max(0, limit));
 
   // 1) Collect recent uploads from every outlet's uploads playlist (UC… -> UU…).
   const candidates = [];

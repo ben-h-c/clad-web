@@ -7,12 +7,11 @@
  * the Premium-only /discover page.
  */
 import { getPosts, setDiscover } from "./api.mjs";
+import { xaiLimits } from "../src/lib/xaiEconomy.ts";
 
 const XAI_RESPONSES = "https://api.x.ai/v1/responses";
-// Reasoning model — this runs once a day and needs genuine creativity to find
-// cross-topic throughlines and invent fresh angle titles (the non-reasoning
-// tier either grouped by topic or parroted the example titles).
-const MODEL = "grok-4.20-0309-reasoning";
+const REASONING_MODEL = "grok-4.20-0309-reasoning";
+const CHEAP_MODEL = "grok-4.20-0309-non-reasoning";
 
 const SYSTEM = `You are CladFacts's "Discover" editor. From the numbered news reports below, invent a set of FRESH, surprising thematic collections that a curious reader would not ordinarily see grouped together. Think like a magazine features editor finding hidden throughlines.
 
@@ -67,8 +66,10 @@ export async function runDiscoverCurator(agent) {
   if (!xaiKey) return { ok: false, message: "XAI_API_KEY not set" };
 
   const c = agent.config || {};
+  const econ = xaiLimits();
   const maxSections = c.maxSections || 6;
-  const poolSize = c.poolSize || 80;
+  const poolSize = Math.min(Number(c.poolSize) || econ.discoverPoolSize, econ.discoverPoolSize);
+  const model = econ.useReasoningCurators ? REASONING_MODEL : CHEAP_MODEL;
 
   const res = await getPosts();
   if (!res.ok) return { ok: false, message: `posts fetch ${res.status}` };
@@ -93,7 +94,7 @@ export async function runDiscoverCurator(agent) {
       signal: AbortSignal.timeout(120_000),
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${xaiKey}` },
       body: JSON.stringify({
-        model: MODEL,
+        model,
         input: [
           { role: "system", content: SYSTEM },
           { role: "user", content: user },

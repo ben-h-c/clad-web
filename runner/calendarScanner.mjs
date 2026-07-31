@@ -8,6 +8,8 @@
  */
 import { getCalendarEvents, putCalendarEvents } from "./api.mjs";
 
+import { xaiLimits } from "../src/lib/xaiEconomy.ts";
+
 const XAI_RESPONSES = "https://api.x.ai/v1/responses";
 const MODEL = "grok-4.3";
 
@@ -208,7 +210,7 @@ function dedupeById(events) {
  * Split [windowStart, windowEnd] into ~10-day chunks so each Grok call can
  * pack a dense daybook instead of under-filling a multi-month span.
  */
-function chunkWindow(windowStart, windowEnd, chunkDays = 10) {
+function chunkWindow(windowStart, windowEnd, chunkDays = 10, maxChunks = 10) {
   const chunks = [];
   let cur = windowStart;
   while (cur <= windowEnd) {
@@ -216,7 +218,7 @@ function chunkWindow(windowStart, windowEnd, chunkDays = 10) {
     const capped = end > windowEnd ? windowEnd : end;
     chunks.push([cur, capped]);
     cur = isoDayOffset(capped, 1);
-    if (chunks.length >= 10) break; // hard cap Grok calls per run
+    if (chunks.length >= maxChunks) break; // hard cap Grok calls per run
   }
   return chunks;
 }
@@ -225,11 +227,24 @@ export async function runCalendarScanner(agent) {
   const xaiKey = process.env.XAI_API_KEY;
   if (!xaiKey) return { ok: false, message: "XAI_API_KEY missing" };
 
-  const lookAhead = Math.min(Math.max(Number(agent?.config?.lookAheadDays) || 60, 7), 90);
-  const lookBack = Math.min(Math.max(Number(agent?.config?.lookBackDays) || 21, 3), 45);
-  const maxEvents = Math.min(Math.max(Number(agent?.config?.maxEventsPerRun) || 90, 10), 150);
+  const econ = xaiLimits();
+  const lookAhead = Math.min(
+    Math.max(Number(agent?.config?.lookAheadDays) || econ.calendarLookAheadDays, 7),
+    econ.calendarLookAheadDays
+  );
+  const lookBack = Math.min(
+    Math.max(Number(agent?.config?.lookBackDays) || econ.calendarLookBackDays, 3),
+    econ.calendarLookBackDays
+  );
+  const maxEvents = Math.min(
+    Math.max(Number(agent?.config?.maxEventsPerRun) || econ.calendarMaxEventsPerRun, 10),
+    econ.calendarMaxEventsPerRun
+  );
   const maxStored = Math.min(Math.max(Number(agent?.config?.maxStoredEvents) || 800, 100), 1200);
-  const targetMin = Math.min(Math.max(Number(agent?.config?.targetMinEvents) || 50, 15), 120);
+  const targetMin = Math.min(
+    Math.max(Number(agent?.config?.targetMinEvents) || Math.ceil(maxEvents / 2), 8),
+    maxEvents
+  );
 
   const today = new Date().toISOString().slice(0, 10);
   const windowStart = isoDayOffset(today, -lookBack);
@@ -242,7 +257,12 @@ export async function runCalendarScanner(agent) {
   const priorAll = Array.isArray(existing.body?.store?.events) ? existing.body.store.events : [];
   const prior = priorAll.slice(-100);
 
-  const chunks = chunkWindow(windowStart, windowEnd, 12);
+  const chunks = chunkWindow(
+    windowStart,
+    windowEnd,
+    econ.calendarChunkDays,
+    econ.calendarMaxChunksPerRun
+  );
   const targetPerChunk = Math.max(8, Math.ceil(targetMin / Math.max(chunks.length, 1)));
 
   const collected = [];

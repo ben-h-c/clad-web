@@ -6,6 +6,7 @@
  * Priority: officeholders with graded appearances who lack an agent profile.
  */
 import { getPoliticianGradeQueue, putPoliticianGrades } from "./api.mjs";
+import { xaiLimits } from "../src/lib/xaiEconomy.ts";
 
 const XAI_RESPONSES = "https://api.x.ai/v1/responses";
 const MODEL = "grok-4.3";
@@ -123,9 +124,12 @@ export async function runPoliticianGrader(agent) {
   const xaiKey = process.env.XAI_API_KEY;
   if (!xaiKey) return { ok: false, message: "XAI_API_KEY missing" };
 
+  const econ = xaiLimits();
   // Keep batches modest: each grade uses web_search and can take ~30–60s.
-  // Large batches (40) routinely hit the runner's per-agent timeout.
-  const max = Math.min(Number(agent?.config?.maxPoliticiansPerRun) || 12, 20);
+  const max = Math.min(
+    Number(agent?.config?.maxPoliticiansPerRun) || econ.graderMaxPoliticiansPerRun,
+    econ.graderMaxPoliticiansPerRun
+  );
   const q = await getPoliticianGradeQueue();
   if (!q.ok) return { ok: false, message: `queue fetch failed: ${q.status}` };
 

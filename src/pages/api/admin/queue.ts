@@ -21,6 +21,7 @@ import {
   DEFAULT_MEDIA,
   resolveMediaPresentation,
 } from "~/lib/mediaPresentation";
+import { xaiLimits } from "~/lib/xaiEconomy";
 import { reviseBroadcastReport } from "~/lib/broadcast";
 import { applyEventTopics, assessDraftQuality } from "~/lib/draftQuality";
 import { lintHeadline } from "~/lib/headlineLint";
@@ -281,11 +282,13 @@ async function approveDraft(
             typeof opts.mediaNote === "string" ? opts.mediaNote : "editor override",
         })
       : null;
-  // Bulk skips vision: each call was ~10–30s and broke waitUntil chaining.
+  // Bulk / economy skip vision: default 16:9 is intentional and cheap.
+  const skipVision =
+    opts.skipVision || !xaiLimits(env.XAI_ECONOMY).enableVisionOnPublish;
   const media =
     editorMedia ??
-    (opts.skipVision
-      ? { ...DEFAULT_MEDIA, mediaNote: "bulk default 16:9 framing" }
+    (skipVision
+      ? { ...DEFAULT_MEDIA, mediaNote: "default 16:9 framing (no vision)" }
       : await resolveMediaPresentation({
           apiKey: env.XAI_API_KEY,
           imageUrl: thumbnail || undefined,

@@ -10,10 +10,10 @@
  * living data: posts are re-scanned while the story is hot, then left alone.
  */
 import { getPosts, getSentiments, putSentiments } from "./api.mjs";
+import { xaiLimits } from "../src/lib/xaiEconomy.ts";
 
 const XAI_RESPONSES = "https://api.x.ai/v1/responses";
-// Search-grounded reasoning model — the same tier the grader uses. Sentiment
-// is worthless without sampling real posts, so search is non-negotiable here.
+// Search-grounded model. Economy mode drops x_search and caps scans (xaiEconomy).
 const MODEL = "grok-4.3";
 
 const VOLUMES = ["minimal", "low", "moderate", "high", "viral"];
@@ -125,12 +125,14 @@ async function scanPost(xaiKey, p) {
     .filter((l) => l !== "")
     .join("\n");
 
+  const econ = xaiLimits();
+  const webN = Math.max(1, econ.sentimentWebSearchResults);
   let data;
-  if (xSearchSupported) {
+  if (econ.sentimentUseXSearch && xSearchSupported) {
     try {
       data = await callGrok(xaiKey, user, [
-        { type: "x_search", max_search_results: 8 },
-        { type: "web_search", max_search_results: 4 },
+        { type: "x_search", max_search_results: Math.min(8, webN + 2) },
+        { type: "web_search", max_search_results: Math.min(4, webN) },
       ]);
     } catch (err) {
       // 400/404/422 → the tool itself was refused; anything else is a real error.
@@ -139,7 +141,7 @@ async function scanPost(xaiKey, p) {
     }
   }
   if (!data) {
-    data = await callGrok(xaiKey, user, [{ type: "web_search", max_search_results: 8 }]);
+    data = await callGrok(xaiKey, user, [{ type: "web_search", max_search_results: webN }]);
   }
 
   const parsed = JSON.parse(extractText(data));
@@ -166,10 +168,16 @@ export async function runSentimentScanner(agent) {
   if (!xaiKey) return { ok: false, message: "XAI_API_KEY not set" };
 
   const c = agent.config || {};
-  const maxScans = c.maxScansPerRun || 10;
-  const windowMs = (c.scanWindowDays || 10) * 24 * 60 * 60 * 1000;
+  const econ = xaiLimits();
+  const maxScans = Math.min(Number(c.maxScansPerRun) || econ.sentimentMaxScansPerRun, econ.sentimentMaxScansPerRun);
+  // Economy: only the last 3 days of posts, not 10 — fewer candidates forever.
+  const windowDays = Math.min(Number(c.scanWindowDays) || 10, econ.sentimentUseXSearch ? 10 : 3);
+  const windowMs = windowDays * 24 * 60 * 60 * 1000;
   const refreshMs = (c.refreshHours || 24) * 60 * 60 * 1000;
-  const refreshWindowMs = (c.refreshWindowHours || 72) * 60 * 60 * 1000;
+  // Economy: don't re-scan "stale" sentiment for older stories.
+  const refreshWindowMs = econ.sentimentUseXSearch
+    ? (c.refreshWindowHours || 72) * 60 * 60 * 1000
+    : 0;
 
   const res = await getPosts();
   if (!res.ok) return { ok: false, message: `posts fetch ${res.status}` };

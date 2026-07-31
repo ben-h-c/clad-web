@@ -8,6 +8,11 @@
  */
 import { getConfig, reportStatus } from "./api.mjs";
 import { isDue } from "./cron.mjs";
+import {
+  economyAllowsAgentRun,
+  xaiEconomyBanner,
+  xaiSpendMode,
+} from "../src/lib/xaiEconomy.ts";
 import { runYoutubeScanner } from "./youtubeScanner.mjs";
 import { runFrontpageCurator } from "./frontpageCurator.mjs";
 import { runBreakingCurator } from "./breakingCurator.mjs";
@@ -161,14 +166,23 @@ async function tick() {
     const forced = FORCE_KINDS.has(agent.kind) || FORCE_KINDS.has(agent.id);
     const manual = agent.runNowAt || null;
     if (!forced && !manual && !isDue(agent.cron, agent.lastRun?.at, now)) continue;
+    // Economy mode: stretch cadence beyond cron for optional / expensive agents.
+    if (
+      !forced &&
+      !manual &&
+      !economyAllowsAgentRun(agent.kind, agent.lastRun?.at, now)
+    ) {
+      continue;
+    }
     await runAgent(agent, manual || (forced ? "force-cli" : null));
   }
 }
 
 async function main() {
   log(
-    `runner start (once=${ONCE}, force=[${[...FORCE_KINDS].join(",") || "—"}], base=${process.env.WORKER_BASE_URL || "http://localhost:8787"})`
+    `runner start (once=${ONCE}, force=[${[...FORCE_KINDS].join(",") || "—"}], base=${process.env.WORKER_BASE_URL || "http://localhost:8787"}, ${xaiEconomyBanner()})`
   );
+  log(`xAI mode=${xaiSpendMode()} — set XAI_ECONOMY=full to restore full volume`);
   if (ONCE || FORCE_KINDS.size) {
     await tick();
     log("once complete");

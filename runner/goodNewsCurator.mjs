@@ -10,11 +10,11 @@
  */
 import { getPosts, setGoodNews } from "./api.mjs";
 import { ensureClassifications, classOf } from "./newsroom.mjs";
+import { xaiLimits } from "../src/lib/xaiEconomy.ts";
 
 const XAI_RESPONSES = "https://api.x.ai/v1/responses";
-// Reasoning model — like Discover, it needs genuine creativity to find warm
-// throughlines and invent fresh, specific collection titles.
-const MODEL = "grok-4.20-0309-reasoning";
+const REASONING_MODEL = "grok-4.20-0309-reasoning";
+const CHEAP_MODEL = "grok-4.20-0309-non-reasoning";
 
 const SYSTEM = `You are CladFacts's "Good News" editor. From the numbered reports below — all already pre-screened as positive, uplifting, or genuinely interesting (NOT grim) — group them into a few warm, inviting themed collections a reader would enjoy browsing when they want a break from heavy news.
 
@@ -136,8 +136,10 @@ export async function runGoodNewsCurator(agent) {
   if (!xaiKey) return { ok: false, message: "XAI_API_KEY not set" };
 
   const c = agent.config || {};
+  const econ = xaiLimits();
   const maxSections = c.maxSections || 6;
-  const poolSize = c.poolSize || 120;
+  const poolSize = Math.min(Number(c.poolSize) || econ.goodNewsPoolSize, econ.goodNewsPoolSize);
+  const model = econ.useReasoningCurators ? REASONING_MODEL : CHEAP_MODEL;
 
   const res = await getPosts();
   if (!res.ok) return { ok: false, message: `posts fetch ${res.status}` };
@@ -150,7 +152,10 @@ export async function runGoodNewsCurator(agent) {
   const recent = [...all].sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   );
-  const classMap = await ensureClassifications(recent, { xaiKey, maxNew: 50 });
+  const classMap = await ensureClassifications(recent, {
+    xaiKey,
+    maxNew: Math.min(50, econ.classifyMaxNew),
+  });
   const pool = recent
     .filter((p) => {
       const cls = classOf(p, classMap);
@@ -175,7 +180,7 @@ export async function runGoodNewsCurator(agent) {
       signal: AbortSignal.timeout(120_000),
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${xaiKey}` },
       body: JSON.stringify({
-        model: MODEL,
+        model,
         input: [
           { role: "system", content: SYSTEM },
           { role: "user", content: user },
@@ -197,13 +202,14 @@ export async function runGoodNewsCurator(agent) {
   }
 
   // Second pass: verify every item plainly fits its collection's stated theme.
-  // On any failure fall back to the unverified sections — the page must not
-  // stall because the checker call broke.
+  // Economy mode skips this extra Grok call.
   let keepBySection = null;
-  try {
-    keepBySection = await verifySections(xaiKey, parsed?.sections || [], pool);
-  } catch {
-    keepBySection = null;
+  if (econ.goodNewsVerifyPass) {
+    try {
+      keepBySection = await verifySections(xaiKey, parsed?.sections || [], pool);
+    } catch {
+      keepBySection = null;
+    }
   }
 
   const used = new Set();

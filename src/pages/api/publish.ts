@@ -10,9 +10,11 @@ import { validateCitations } from "~/lib/citations";
 import { resolveThumbnail } from "~/lib/thumbnail";
 import {
   coerceMediaPresentation,
+  DEFAULT_MEDIA,
   resolveMediaPresentation,
   type MediaPresentation,
 } from "~/lib/mediaPresentation";
+import { xaiLimits } from "~/lib/xaiEconomy";
 import { sendBreakingPush, apnsConfigured } from "~/lib/push";
 import { tagPoliticiansFromText } from "~/lib/politicians";
 
@@ -285,6 +287,10 @@ async function resolvePostMedia(args: {
       },
       { allowNonOverlay: style === "modular" || style === "text" }
     );
+  }
+  // Economy mode skips vision (see xaiEconomy.ts); default 16:9 is fine.
+  if (!xaiLimits(env.XAI_ECONOMY).enableVisionOnPublish) {
+    return { ...DEFAULT_MEDIA, mediaNote: "economy default 16:9 framing" };
   }
   return resolveMediaPresentation({
     apiKey: args.apiKey,

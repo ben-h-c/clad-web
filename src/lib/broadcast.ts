@@ -5,6 +5,11 @@
  * as a continuation of the same publication.
  */
 import { canonicalTopic, topicSlug } from "./topics.ts";
+import {
+  clipTranscriptForGrok,
+  xaiLimits,
+  type XaiLimitProfile,
+} from "./xaiEconomy.ts";
 
 export const LETTER_GRADES = [
   "A+", "A", "A-",
@@ -136,10 +141,9 @@ If the content is too sparse to evaluate, do not force a failing grade — pick 
 
 Return ONLY the JSON object, no markdown fence and no commentary.`;
 
-// All reports go through the Responses API (/v1/responses) with web_search so
-// every draft is grounded in current facts, using grok-4.3 (the model xAI
-// documents for web_search).
-const SEARCH_MODEL = "grok-4.3";
+// Premium search-grounded model (xAI documents web_search for this tier).
+// Economy mode may use a cheaper non-reasoning model when a long transcript
+// is present — see xaiEconomy.ts.
 
 // Added when a transcript IS supplied: still require web search so the report
 // reflects current facts, not just the transcript or the model's stale prior
@@ -226,7 +230,9 @@ export async function generateBroadcastReport(
     notes?: string;
   }
 ): Promise<BroadcastReport> {
-  const hasTranscript = !!input.transcript && input.transcript.trim().length >= 80;
+  const limits = xaiLimits();
+  const clipped = clipTranscriptForGrok(input.transcript);
+  const hasTranscript = clipped.length >= 80;
 
   const userMessage = [
     input.videoTitle ? `Video title: ${input.videoTitle}` : "",
@@ -235,15 +241,22 @@ export async function generateBroadcastReport(
     input.notes ? `Editor notes: ${input.notes}` : "",
     "",
     hasTranscript ? "Transcript:" : "No transcript provided — research the video at the Source URL.",
-    hasTranscript ? input.transcript!.trim() : "",
+    hasTranscript ? clipped : "",
   ]
     .filter((l) => l !== "")
     .join("\n");
 
   // ALWAYS web-search before producing a report — even when a transcript is
   // supplied — so drafts reflect current facts instead of stale training data.
+  // Economy mode may use a cheaper model when a solid transcript is present.
   const addendum = hasTranscript ? TRANSCRIPT_WEB_ADDENDUM : WEB_SEARCH_ADDENDUM;
-  const raw = await callResponsesWithSearch(apiKey, SYSTEM_PROMPT + addendum, userMessage);
+  const raw = await callResponsesWithSearch(
+    apiKey,
+    SYSTEM_PROMPT + addendum,
+    userMessage,
+    limits,
+    hasTranscript
+  );
 
   let parsed: any;
   try {
@@ -297,10 +310,14 @@ export async function reviseBroadcastReport(
     .join("\n");
 
   // Web-search on revision too, so corrections are grounded in current facts.
+  // Revisions always use the premium model (editor-driven quality path).
   const raw = await callResponsesWithSearch(
     apiKey,
     SYSTEM_PROMPT + REVISE_ADDENDUM + "\n\nUse web search to verify current facts before revising.",
-    userMessage
+    userMessage,
+    xaiLimits(),
+    false,
+    /* forcePremium */ true
   );
   let parsed: any;
   try {
@@ -317,20 +334,34 @@ export async function reviseBroadcastReport(
   return revised;
 }
 
-async function callResponsesWithSearch(apiKey: string, system: string, user: string): Promise<string> {
+async function callResponsesWithSearch(
+  apiKey: string,
+  system: string,
+  user: string,
+  limits: XaiLimitProfile = xaiLimits(),
+  hasTranscript = false,
+  forcePremium = false
+): Promise<string> {
+  const useCheap =
+    !forcePremium &&
+    hasTranscript &&
+    limits.broadcastPreferCheapModelWithTranscript;
+  const model = useCheap ? limits.cheapBroadcastModel : limits.premiumBroadcastModel;
+  const searchN = Math.max(1, Math.min(12, limits.broadcastWebSearchResults));
+
   // Hard timeout: without this a stalled xAI connection freezes the agent runner.
   const res = await fetch("https://api.x.ai/v1/responses", {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
     signal: AbortSignal.timeout(120_000),
     body: JSON.stringify({
-      model: SEARCH_MODEL,
+      model,
       input: [
         { role: "system", content: system },
         { role: "user", content: user },
       ],
       // Cap sources per search — web_search bills per source consumed.
-      tools: [{ type: "web_search", max_search_results: 6 }],
+      tools: [{ type: "web_search", max_search_results: searchN }],
       text: {
         format: {
           type: "json_schema",

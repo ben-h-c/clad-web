@@ -13,6 +13,7 @@
  */
 import { generateBroadcastReport } from "../src/lib/broadcast.ts";
 import { validateCitations } from "../src/lib/citations.ts";
+import { xaiLimits } from "../src/lib/xaiEconomy.ts";
 import { fetchTranscript } from "./transcript.mjs";
 import { getKnown, submitDraft } from "./api.mjs";
 import { checkVideosPublic } from "./youtubeVideoStatus.mjs";
@@ -125,10 +126,20 @@ export async function runPoliticianProfileBuilder(agent) {
   if (!xaiKey) return { ok: false, message: "XAI_API_KEY not set" };
 
   const c = agent.config || {};
-  // Defaults match agents.ts — small batches; runner hard-caps at 12 min.
-  const maxPeople = Math.min(Number(c.maxPoliticiansPerRun) || 12, 20);
-  const maxDraftsTotal = Math.min(Number(c.maxPublishesPerRun) || 10, 16);
-  const maxDraftsEach = Math.min(Number(c.maxDraftsPerPolitician) || 1, 2);
+  const econ = xaiLimits();
+  // Defaults match agents.ts — economy ceilings from xaiEconomy.ts.
+  const maxPeople = Math.min(
+    Number(c.maxPoliticiansPerRun) || econ.profileMaxPoliticiansPerRun,
+    econ.profileMaxPoliticiansPerRun
+  );
+  const maxDraftsTotal = Math.min(
+    Number(c.maxPublishesPerRun) || econ.profileMaxPublishesPerRun,
+    econ.profileMaxPublishesPerRun
+  );
+  const maxDraftsEach = Math.min(
+    Number(c.maxDraftsPerPolitician) || econ.profileMaxDraftsPerPolitician,
+    econ.profileMaxDraftsPerPolitician
+  );
   const maxPhotos = Math.min(Number(c.maxPhotoLookupsPerRun) || 60, 100);
   const withinHours = Number(c.publishedWithinHours) || 720;
   const minTarget = Math.min(Math.max(Number(c.minAppearancesTarget) || 3, 1), 10);
