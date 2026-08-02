@@ -11,32 +11,42 @@ const YT_VIDEOS = "https://www.googleapis.com/youtube/v3/videos";
 // (inherent newsworthiness/magnitude). A stickiness margin is applied to the
 // stories already on the strip, so it only swaps a card out when a new story is
 // SIGNIFICANTLY more important — keeping the feed stable but always current.
+//
+// Resilience: if nothing scores in the primary window (or YT meta is sparse),
+// fall back to post.publishedAt recency so the strip never goes blank. Never
+// overwrite a populated strip with [].
 export async function runBreakingCurator(agent) {
   const key = process.env.YOUTUBE_API_KEY;
   if (!key) return { ok: false, message: "YOUTUBE_API_KEY not set" };
 
   const c = agent.config || {};
   const maxBreaking = c.maxBreaking || 50;
-  const recencyHours = c.recencyHours || 36;
+  // 72h primary window — 36h emptied the strip when drafting slowed.
+  const recencyHours = c.recencyHours || 72;
+  const fallbackHours = Math.max(recencyHours, Number(c.fallbackHours) || 120);
   const maxPerTopic = c.maxPerTopic || 2;
   const wR = c.recencyWeight ?? 0.35;
   const wP = c.popularityWeight ?? 0.3;
   const wC = c.criticalityWeight ?? 0.35;
-  const stickiness = c.stickiness ?? 0.15; // current cards get +15% so marginal challengers can't churn them
+  const stickiness = c.stickiness ?? 0.15;
 
   const res = await getPosts();
   if (!res.ok) return { ok: false, message: `posts fetch ${res.status}` };
   // Breaking News is news-outlet only, and needs a source video to time-rank.
   const posts = (res.body.posts || []).filter((p) => isNewsOutlet(p.sourceTitle) && p.videoId);
   if (posts.length === 0) {
-    await setBreaking([]);
-    return { ok: true, message: "no eligible outlet posts", submitted: 0 };
+    // Do not wipe existing strip when the corpus temporarily has no outlet posts.
+    return { ok: true, message: "no eligible outlet posts — keeping existing strip", submitted: 0 };
   }
 
   // Pull each source video's upload time + view count (batched, 50/call, cheap).
-  const meta = await fetchVideoMeta(posts.map((p) => p.videoId), key);
+  const meta = await fetchVideoMeta(
+    posts.map((p) => p.videoId),
+    key
+  );
 
   // Grok criticality/topic for each post (cached; classifies new posts only).
+  // On xAI failure ensureClassifications falls back to heuristics.
   const classMap = await ensureClassifications(posts, {
     xaiKey: process.env.XAI_API_KEY,
     log: (m) => console.log(new Date().toISOString(), m),
@@ -44,10 +54,12 @@ export async function runBreakingCurator(agent) {
 
   // Which stories are already on the strip (for stickiness) — flatten groups.
   let current = new Set();
+  let priorItems = [];
   try {
     const b = await getBreaking();
     if (b.ok) {
-      const ids = (b.body.items || []).flatMap((it) => (it.type === "group" ? it.ids : [it.id]));
+      priorItems = b.body.items || [];
+      const ids = priorItems.flatMap((it) => (it.type === "group" ? it.ids : [it.id]));
       current = new Set(ids.filter(Boolean).map(String));
     }
   } catch {
@@ -55,54 +67,34 @@ export async function runBreakingCurator(agent) {
   }
 
   const now = Date.now();
-  const scored = [];
-  for (const p of posts) {
-    const m = meta[p.videoId];
-    if (!m || !m.publishedAt) continue;
-    const ageH = (now - new Date(m.publishedAt).getTime()) / 3_600_000;
-    if (ageH > recencyHours) continue; // not breaking anymore
-    const recency = Math.exp(-ageH / 12); // ~12h half-life
-    const pop = Math.min(1, Math.log10(m.views + 10) / 7); // ~10M views -> 1
-    const velocity = Math.min(1, Math.log10(m.views / Math.max(ageH, 1) + 10) / 5); // views/hour (trending)
-    const popularity = 0.6 * pop + 0.4 * velocity;
-    const cls = classOf(p, classMap);
-    const criticality = cls.criticality / 100;
-    let score = wR * recency + wP * popularity + wC * criticality;
-    if (current.has(p.id)) score *= 1 + stickiness; // incumbents are sticky
-    scored.push({
-      id: p.id,
-      headline: p.headline || "",
-      // Normalize the classifier's free-form topic to a canonical bucket so all
-      // coverage of one subject groups consistently (e.g. "Iran Deal",
-      // "US-Iran Deal" → "Iran"), matching the Topics section.
-      topic: canonicalTopic(cls.broadTopic || p.headline || ""),
-      crit: cls.criticality,
-      score,
-    });
+  let scored = scoreCandidates(posts, meta, classMap, current, now, recencyHours, wR, wP, wC, stickiness, false);
+  let usedFallback = false;
+
+  // If the tight YT window is empty (quiet news desk / stalled drafts), rank by
+  // post publish time so Breaking stays populated.
+  if (scored.length === 0) {
+    usedFallback = true;
+    scored = scoreCandidates(posts, meta, classMap, current, now, fallbackHours, wR, wP, wC, stickiness, true);
   }
 
   scored.sort((a, b) => b.score - a.score);
 
-  // Group DETERMINISTICALLY by canonical broad topic (the same buckets the
-  // Topics section uses), so coverage of one subject always lands in a single
-  // consistent group instead of fragmenting by headline wording. Members keep
-  // score order (scored is already sorted desc).
+  // Group DETERMINISTICALLY by canonical broad topic.
   const groups = new Map();
   for (const s of scored) {
     const raw = s.topic && s.topic.trim() ? s.topic.trim() : "misc";
-    // Case/whitespace-insensitive key so classifier variance ("B-52 crash" vs
-    // "B-52 Crash") doesn't split one subject into two groups (or collide slugs).
-    const key = raw.toLowerCase().replace(/\s+/g, " ");
-    if (!groups.has(key)) groups.set(key, { bucket: raw, members: [] });
-    groups.get(key).members.push(s);
+    const keyT = raw.toLowerCase().replace(/\s+/g, " ");
+    if (!groups.has(keyT)) groups.set(keyT, { bucket: raw, members: [] });
+    groups.get(keyT).members.push(s);
   }
 
-  // Order groups by impact: each ranks by its strongest member's score.
+  // Cap members per topic group for strip density.
+  for (const g of groups.values()) {
+    g.members = g.members.slice(0, Math.max(1, maxPerTopic * 3));
+  }
+
   const ordered = [...groups.values()].sort((a, b) => b.members[0].score - a.members[0].score);
 
-  // 2+ articles → a temporary topic group; a lone article stays a single post.
-  // slug stays the stable topic bucket; the title is the lead story's headline
-  // (more descriptive than the bare bucket name).
   const items = [];
   for (const g of ordered.slice(0, maxBreaking)) {
     if (g.members.length >= 2) {
@@ -120,6 +112,15 @@ export async function runBreakingCurator(agent) {
     }
   }
 
+  if (items.length === 0) {
+    // Never blank the homepage strip on a dry run.
+    return {
+      ok: true,
+      message: `no candidates in ${fallbackHours}h window — keeping existing strip (${priorItems.length} items)`,
+      submitted: 0,
+    };
+  }
+
   const out = await setBreaking(items);
   if (!out.ok) return { ok: false, message: `breaking set ${out.status}` };
 
@@ -127,9 +128,41 @@ export async function runBreakingCurator(agent) {
   const articleCount = items.reduce((n, i) => n + (i.type === "group" ? i.ids.length : 1), 0);
   return {
     ok: true,
-    message: `breaking: ${items.length} items (${groupCount} grouped) covering ${articleCount} of ${posts.length} articles, by impact`,
+    message: `breaking: ${items.length} items (${groupCount} grouped) covering ${articleCount} of ${posts.length} articles${usedFallback ? " [fallback recency]" : ""}, by impact`,
     submitted: items.length,
   };
+}
+
+function scoreCandidates(posts, meta, classMap, current, now, recencyHours, wR, wP, wC, stickiness, usePostTime) {
+  const scored = [];
+  for (const p of posts) {
+    const m = meta[p.videoId];
+    // Prefer YouTube upload time; fall back to graded post publishedAt.
+    const publishedIso =
+      (!usePostTime && m?.publishedAt) || p.publishedAt || m?.publishedAt || "";
+    if (!publishedIso) continue;
+    const ageH = (now - new Date(publishedIso).getTime()) / 3_600_000;
+    if (!Number.isFinite(ageH) || ageH < 0 || ageH > recencyHours) continue;
+
+    const recency = Math.exp(-ageH / 18); // ~18h half-life (was 12 — less harsh)
+    const views = m?.views ?? 0;
+    const pop = Math.min(1, Math.log10(views + 10) / 7);
+    const velocity = Math.min(1, Math.log10(views / Math.max(ageH, 1) + 10) / 5);
+    // When YT stats missing, still rank on recency + criticality.
+    const popularity = m ? 0.6 * pop + 0.4 * velocity : 0.25;
+    const cls = classOf(p, classMap);
+    const criticality = cls.criticality / 100;
+    let score = wR * recency + wP * popularity + wC * criticality;
+    if (current.has(p.id)) score *= 1 + stickiness;
+    scored.push({
+      id: p.id,
+      headline: p.headline || "",
+      topic: canonicalTopic(cls.broadTopic || p.headline || ""),
+      crit: cls.criticality,
+      score,
+    });
+  }
+  return scored;
 }
 
 async function fetchVideoMeta(videoIds, key) {

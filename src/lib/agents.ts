@@ -195,7 +195,9 @@ export const DEFAULT_REGISTRY: Registry = {
       cron: "*/15 * * * *", // every 15 minutes — keep it fresh
       config: {
         maxBreaking: 50,
-        recencyHours: 36,
+        // 72h primary window; curator falls back further if empty.
+        recencyHours: 72,
+        fallbackHours: 120,
         recencyWeight: 0.35,
         popularityWeight: 0.3,
         criticalityWeight: 0.35,

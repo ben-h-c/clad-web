@@ -112,6 +112,8 @@ if (heroPosts.length === 0) {
 heroPosts = heroPosts.slice(0, 12);
 
 // Breaking = impact-ordered; cap for mobile length.
+// If KV was wiped empty (e.g. dry curator run), fall back to newest outlet posts
+// so the section never disappears from the home page.
 let breaking = breakingItems
   .map((it) => {
     if (it.type === "post") {
@@ -127,6 +129,12 @@ let breaking = breakingItems
   })
   .filter((x): x is NonNullable<typeof x> => x !== null)
   .slice(0, 10);
+if (breaking.length === 0) {
+  breaking = all
+    .filter((p) => isNewsOutlet(p.data.sourceTitle) && p.data.videoId)
+    .slice(0, 10)
+    .map((post) => ({ kind: "post" as const, post }));
+}
 
 // Full-access: live recency + sentiment clustering. Locked: memoized (no sentiments).
 const topics = locked
