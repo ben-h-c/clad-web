@@ -67,8 +67,25 @@ Astro.response.headers.set("Cache-Control", "private, no-store");
 const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
 
-const all = [...(await publishedPostsSorted())];
+// Isolate-memoized list — do not copy with spread (saves memory under load).
+const all = await publishedPostsSorted();
 const byId = new Map(all.map((p) => [p.id, p]));
+
+// Heavy aggregations only need recent posts — full-corpus clustering on ~4k
+// posts was tripping CF Worker 1102 (CPU) on the homepage under concurrency.
+const nowMs = Date.now();
+const RECENT_TOPIC_MS = 21 * 86_400_000; // 3 weeks
+const RECENT_POL_MS = 30 * 86_400_000;
+const CALENDAR_MS = 100 * 86_400_000;
+const recentForTopics = all.filter(
+  (p) => nowMs - p.data.publishedAt.valueOf() < RECENT_TOPIC_MS
+);
+const recentForPoliticians = all.filter(
+  (p) => nowMs - p.data.publishedAt.valueOf() < RECENT_POL_MS
+);
+const calendarPosts = all.filter(
+  (p) => nowMs - p.data.publishedAt.valueOf() < CALENDAR_MS
+);
 
 // Home surfaces prefer one home:bundle get; other KV still parallel.
 // Sentiments only for full-access.
@@ -132,10 +149,11 @@ if (breaking.length === 0) {
     .map((post) => ({ kind: "post" as const, post }));
 }
 
-// Full-access: live recency + sentiment clustering. Locked: memoized (no sentiments).
+// Topic clusters from recent posts only (home ranking is recency-weighted).
+// Avoid full-corpus aggregateTopics — too expensive for Worker CPU limits.
 const topics = locked
-  ? aggregateTopicsCached(all as any)
-  : aggregateTopics(all as any, sentiments);
+  ? aggregateTopics(recentForTopics as any)
+  : aggregateTopics(recentForTopics as any, sentiments);
 /** Top topics only — sprinkled singly through the stack (not one Topics block). */
 const homeTopics = topics.slice(0, HOME_TOPICS_SPREAD);
 
@@ -208,7 +226,7 @@ const calendarLive: CalendarEvent[] = (calStore?.events ?? [])
   .map((e) => normalizeCalendarEvent(e, "agent"))
   .filter((e): e is CalendarEvent => e != null);
 // Cap day payload: fewer peeks + ~3 months so the home HTML stays lean.
-const calendarDays = buildDaySummariesCached(all as any, {
+const calendarDays = buildDaySummariesCached(calendarPosts as any, {
   locked,
   topPerDay: 2,
   maxDays: 92,
@@ -231,12 +249,15 @@ const featureCalendar = buildCalendarEvents({
 const featureItems = buildHomeFeatureItems({
   highlight: homeHighlight,
   calendarEvents: featureCalendar,
-  posts: all,
+  posts: recentForTopics,
   max: 10,
 });
 
 // Politician media strip — people in recent coverage + midterms race sides.
-const politiciansLive = await buildPoliticianIndexLive(all as any, env.AGENTS);
+const politiciansLive = await buildPoliticianIndexLive(
+  recentForPoliticians as any,
+  env.AGENTS
+);
 const photoMap = photoMapStore?.bySlug ?? {};
 const politicianSpotlightItems = buildPoliticianSpotlightItems({
   politicians: politiciansLive,
@@ -273,7 +294,9 @@ function postsFromSections(
 const discoverSections = discoverStore ?? [];
 const goodNewsCurated = goodNewsStore ?? [];
 const goodNewsSections =
-  goodNewsCurated.length > 0 ? goodNewsCurated : buildGoodNewsSections(all);
+  goodNewsCurated.length > 0
+    ? goodNewsCurated
+    : buildGoodNewsSections(recentForTopics);
 const discoverPosts = postsFromSections(discoverSections, byId, 12);
 // Good News never repeats a card already in Discover (common curator overlap).
 const goodNewsPosts = postsFromSections(
