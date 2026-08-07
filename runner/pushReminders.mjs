@@ -1,14 +1,25 @@
 /**
- * Push reminder agent — daily calendar daybook pings to iOS devices.
- * Hits POST /api/agent/push-reminders (mode auto: today in morning, else tomorrow).
+ * Push reminder agent — calendar daybook + evening desk digest for iOS.
+ * Hits POST /api/agent/push-reminders.
+ *
+ * Cron: 12:30 UTC (morning ET) → marquee "today" calendar.
+ *       23:30 UTC (evening ET) → digest of grades that skipped lock-screen
+ *                                + optional passive "tomorrow" marquee.
  */
 import { call } from "./api.mjs";
 
 export async function runPushReminders(agent) {
-  const mode = agent?.config?.mode; // optional force "today" | "tomorrow"
+  const mode = agent?.config?.mode; // optional force "today" | "tomorrow" | "digest" | "auto"
   const force = Boolean(agent?.config?.force);
   const body = { force };
-  if (mode === "today" || mode === "tomorrow") body.mode = mode;
+  if (
+    mode === "today" ||
+    mode === "tomorrow" ||
+    mode === "digest" ||
+    mode === "auto"
+  ) {
+    body.mode = mode;
+  }
 
   const res = await call("/api/agent/push-reminders", {
     method: "POST",
@@ -28,10 +39,24 @@ export async function runPushReminders(agent) {
       submitted: 0,
     };
   }
+
+  if (b.mode === "digest" || b.digest) {
+    const d = b.digest || {};
+    const t = b.tomorrowCalendar?.push || {};
+    return {
+      ok: true,
+      message: `digest sent ${d.sent ?? 0}/${d.recipients ?? 0} (${d.reason || "ok"}) · tomorrow cal ${t.sent ?? 0}`.slice(
+        0,
+        280
+      ),
+      submitted: (d.sent ?? 0) + (t.sent ?? 0),
+    };
+  }
+
   const p = b.push || {};
   return {
     ok: true,
-    message: `event push ${b.mode} ${b.targetDate}: sent ${p.sent ?? 0}/${p.recipients ?? 0} · ${b.body || ""}`.slice(
+    message: `event push ${b.mode} ${b.targetDate}: sent ${p.sent ?? 0}/${p.recipients ?? 0} · ${b.reason || b.body || ""}`.slice(
       0,
       280
     ),

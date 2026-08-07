@@ -157,15 +157,15 @@ const planLabel =
         <label class="pref-row">
           <input type="checkbox" id="pref-push-reports" checked={prefs.pushReports !== false} />
           <span>
-            <strong>iPhone — new report cards</strong>
-            <small>Push notification when CladFacts publishes a graded report (requires notifications allowed in the iOS app).</small>
+            <strong>iPhone — standout report cards</strong>
+            <small>Lock-screen alerts only for notable grades (extremes, marquee stories) — not every publish. A quiet evening summary covers the rest. Requires notifications in the iOS app.</small>
           </span>
         </label>
         <label class="pref-row">
           <input type="checkbox" id="pref-push-events" checked={prefs.pushEvents !== false} />
           <span>
-            <strong>iPhone — calendar reminders</strong>
-            <small>Push for key daybook events (today / tomorrow on the national news calendar).</small>
+            <strong>iPhone — daybook highlights</strong>
+            <small>Morning heads-up for debates, SCOTUS, elections, and other marquee calendar items — not every daybook entry.</small>
           </span>
         </label>
         <div class="pref-row pref-row--select">

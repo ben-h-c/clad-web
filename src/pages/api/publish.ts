@@ -15,7 +15,7 @@ import {
   type MediaPresentation,
 } from "~/lib/mediaPresentation";
 import { xaiLimits } from "~/lib/xaiEconomy";
-import { sendBreakingPush, apnsConfigured } from "~/lib/push";
+import { maybeSendReportPush, apnsConfigured } from "~/lib/push";
 import { tagPoliticiansFromText } from "~/lib/politicians";
 
 export const prerender = false;
@@ -240,16 +240,29 @@ export const POST: APIRoute = async ({ request }) => {
       message: `publish: ${headline}`,
     });
 
-    // Notify the iOS app. Best-effort: a push failure must never fail a
-    // publish. Skip drafts. By the time a notification is delivered and
-    // tapped, Cloudflare will have rebuilt and the post URL will be live.
-    let push: Awaited<ReturnType<typeof sendBreakingPush>> | null = null;
+    // iOS push — quality-gated (see pushPolicy.ts). Most publishes skip the
+    // lock screen and land in the evening digest queue instead. Never fail publish.
+    let push: Awaited<ReturnType<typeof maybeSendReportPush>> | null = null;
     if (!draft && (await apnsConfigured())) {
       try {
-        push = await sendBreakingPush({
-          title: "New report card",
-          body: headline,
+        const letterGrade =
+          type === "broadcast" && typeof (fm as any).letterGrade === "string"
+            ? (fm as any).letterGrade
+            : null;
+        const factualityScore =
+          type === "broadcast" && typeof (fm as any).factualityScore === "number"
+            ? (fm as any).factualityScore
+            : null;
+        const topics = Array.isArray((fm as any).topics) ? (fm as any).topics : [];
+        push = await maybeSendReportPush({
           slug,
+          headline,
+          letterGrade,
+          factualityScore,
+          featured,
+          topics,
+          sourceTitle,
+          summary,
         });
       } catch (e: any) {
         console.error("push fan-out failed:", e?.message ?? e);

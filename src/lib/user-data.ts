@@ -9,11 +9,11 @@ export interface UserPrefs {
   digest: "off" | "weekly" | "daily";
   breakingAlerts: boolean;
   /**
-   * iOS push: new graded reports (publish fan-out). Default on — opt-out only.
-   * Granting the system notification permission is the primary opt-in.
+   * iOS push: standout report cards + evening desk digest (not every publish).
+   * Default on — opt-out only. System permission is the primary opt-in.
    */
   pushReports: boolean;
-  /** iOS push: calendar daybook reminders (today / tomorrow events). Default on. */
+  /** iOS push: marquee calendar daybook only (debates, SCOTUS, elections…). */
   pushEvents: boolean;
   /** Preferred reading theme when signed in (synced to localStorage). */
   theme: ThemePref;
