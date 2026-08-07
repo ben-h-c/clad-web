@@ -79,19 +79,6 @@ const LOW_TTL_PAGE = (path: string) =>
   path === "/how-it-works" ||
   path === "/how-it-works/";
 
-/** Anon GET paths we store in the Workers Cache API (back-nav / menu hubs). */
-const EDGE_HTML_PATHS = new Set([
-  "/",
-  "/discover/",
-  "/good-news/",
-  "/trends/",
-  "/search/",
-  "/about/",
-  "/how-it-works/",
-  "/quiz/",
-  "/politicians/",
-]);
-
 /**
  * Cache policy for HTML pages. Anonymous GETs are shared-cacheable for five
  * minutes (one minute for copy-critical marketing pages;
@@ -252,43 +239,6 @@ export const onRequest = defineMiddleware(async (context, next) => {
   if (!PROTECTED(path)) {
     // HTML pages only: API routes and file-like paths set their own headers.
     if ((method === "GET" || method === "HEAD") && !/\.[a-z0-9]+$/i.test(path)) {
-      const cookie = context.request.headers.get("cookie") ?? "";
-      const hasSession = cookie.includes("session_token");
-      // Workers don't auto-edge-cache SSR from s-maxage alone — Cache API makes
-      // back-nav to home (and other anon hubs) feel instant.
-      const edgeHtml =
-        !hasSession &&
-        method === "GET" &&
-        !context.url.search && // only bare paths (stable keys)
-        EDGE_HTML_PATHS.has(path === "" ? "/" : path);
-
-      if (edgeHtml) {
-        const cache = (caches as unknown as { default: Cache }).default;
-        // Cache key omits cookies so one shared anon HTML entry.
-        const cacheKey = new Request(new URL(path, context.url.origin).href, {
-          method: "GET",
-        });
-        const hit = await cache.match(cacheKey);
-        if (hit) {
-          return withHeaders(hit, (h) => {
-            h.set("X-Clad-Edge-Cache", "HIT");
-          });
-        }
-        const fresh = applyCachePolicy(context, path, await next());
-        // Only store successful HTML.
-        if (fresh.status === 200) {
-          const toStore = fresh.clone();
-          const cf = (context.locals as { runtime?: { ctx?: { waitUntil?: (p: Promise<unknown>) => void } } })
-            ?.runtime?.ctx;
-          const put = cache.put(cacheKey, toStore).catch(() => {});
-          if (cf?.waitUntil) cf.waitUntil(put);
-          else await put;
-        }
-        return withHeaders(fresh, (h) => {
-          h.set("X-Clad-Edge-Cache", "MISS");
-        });
-      }
-
       return applyCachePolicy(context, path, await next());
     }
     const res = await next();
