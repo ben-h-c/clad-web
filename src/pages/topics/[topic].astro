@@ -8,23 +8,39 @@ import PoliticalLean from "~/components/PoliticalLean.astro";
 import SocialSentiment from "~/components/SocialSentiment.astro";
 import ShareBar from "~/components/ShareBar.astro";
 import { getSentiments, getShareTags } from "~/lib/agents";
-import { aggregateTopics } from "~/lib/topics";
+import { aggregateTopics, canonicalTopic, topicSlug } from "~/lib/topics";
 import { getAccess } from "~/lib/access";
 import { sampleUnlockedId } from "~/lib/sample";
 import { metaDescription } from "~/lib/seo";
 import { shortDate } from "~/lib/dateline";
 
 export const prerender = false;
-Astro.response.headers.set("Cache-Control", "no-store");
 
 const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
+Astro.response.headers.set(
+  "Cache-Control",
+  access.signedIn
+    ? "private, no-store"
+    : "public, s-maxage=90, stale-while-revalidate=600"
+);
 
 const all = await publishedPostsSorted();
+const wantSlug = String(Astro.params.topic || "");
+// Pre-filter posts that mention this slug — avoid aggregateTopics over full corpus.
+const matching = all.filter((p) =>
+  (p.data.topics ?? []).some((t) => {
+    const key = canonicalTopic(t);
+    return key && topicSlug(key) === wantSlug;
+  })
+);
+if (matching.length === 0) return new Response(null, { status: 404 });
 // Social-media sentiment (KV, scanner-scored) — Premium like grade/lean; the
 // read is skipped for restricted readers so the value never reaches their HTML.
 const sentiments = locked ? {} : await getSentiments(env.AGENTS);
-const topic = aggregateTopics(all, sentiments).find((t) => t.slug === Astro.params.topic);
+const topic =
+  aggregateTopics(matching, sentiments).find((t) => t.slug === wantSlug) ??
+  aggregateTopics(matching, sentiments)[0];
 if (!topic) return new Response(null, { status: 404 });
 
 const sorted = topic.posts.sort(

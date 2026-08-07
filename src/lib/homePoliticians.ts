@@ -1,6 +1,8 @@
 /**
  * Home “People in the news” strip — politicians hot in graded coverage
  * and/or appearing on the midterms race board.
+ *
+ * Fast path: tag counts + race board only (no full roster × posts regex index).
  */
 import type { CollectionEntry } from "astro:content";
 import {
@@ -49,8 +51,14 @@ function knownPortrait(
 
 function hasPortraitPath(slug: string, photoBySlug: Record<string, string>): boolean {
   if (knownPortrait(slug, photoBySlug)) return true;
-  // Wiki title map (or alias) means the photo proxy can resolve a Commons still.
-  return !!(wikiTitleForSlug(slug));
+  return !!wikiTitleForSlug(slug);
+}
+
+function monogramFromName(name: string): string {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "?";
+  if (parts.length === 1) return parts[0]!.slice(0, 2).toUpperCase();
+  return (parts[0]![0]! + parts[parts.length - 1]![0]!).toUpperCase();
 }
 
 /**
@@ -75,11 +83,9 @@ export function buildPoliticianSpotlightItems(opts: {
   const weekAgo = now.getTime() - weekMs;
   const monthAgo = now.getTime() - monthMs;
 
-  // Slug → upcoming race label (for kickers / boost)
   const raceBySlug = new Map<string, { race: RaceDef; side: "a" | "b"; days: number | null }>();
   for (const r of opts.races || []) {
     const days = daysUntilIso(nextVoteDate(r), now);
-    // Skip long-past races; keep TBD and future/near
     if (days != null && days < -14) continue;
     for (const side of ["a", "b"] as const) {
       const s = r[side];
@@ -116,7 +122,6 @@ export function buildPoliticianSpotlightItems(opts: {
     const month = p.appearances.filter((a) => a.publishedAt.valueOf() >= monthAgo);
     const raceInfo = raceBySlug.get(p.slug);
 
-    // Need a signal: recent coverage OR on the ballot board
     if (recent.length === 0 && month.length === 0 && !raceInfo) continue;
 
     let score = 0;
@@ -127,10 +132,9 @@ export function buildPoliticianSpotlightItems(opts: {
       if (raceInfo.days != null && raceInfo.days >= 0 && raceInfo.days <= 90) {
         score += Math.max(0, 40 - raceInfo.days / 3);
       } else if (raceInfo.days == null) {
-        score += 8; // TBD still midterms-relevant
+        score += 8;
       }
     }
-    // Strongly prefer people we can show a face for
     const hasPhoto = hasPortraitPath(p.slug, photos);
     if (hasPhoto) score += 40;
     else score -= 25;
@@ -174,7 +178,6 @@ export function buildPoliticianSpotlightItems(opts: {
     });
   }
 
-  // Race sides not yet in politician index (candidates without coverage)
   for (const [slug, info] of raceBySlug) {
     if (bySlug.has(slug)) continue;
     const side = info.race[info.side];
@@ -206,7 +209,6 @@ export function buildPoliticianSpotlightItems(opts: {
     (a, b) => b.score - a.score || a.name.localeCompare(b.name)
   );
 
-  // Prefer a full strip of people with portrait paths; fill remaining with others.
   const withPhoto = ranked.filter((c) => c.hasPhoto);
   const without = ranked.filter((c) => !c.hasPhoto);
   const picked = [...withPhoto, ...without].slice(0, max);
@@ -231,16 +233,82 @@ export function buildPoliticianSpotlightItems(opts: {
       secondaryHref: "/politicians/",
       secondaryCta: "All politicians",
       variant: c.kicker.startsWith("Midterms") ? "midterms" : "topic",
-      // Always same-origin proxy — resolves static/KV/Wikipedia; monogram fallback in UI.
       image: photoSrc(c.slug),
       monogram: monogramFromName(c.name),
     } satisfies HomeFeatureItem;
   });
 }
 
-function monogramFromName(name: string): string {
-  const parts = name.trim().split(/\s+/).filter(Boolean);
-  if (parts.length === 0) return "?";
-  if (parts.length === 1) return parts[0]!.slice(0, 2).toUpperCase();
-  return (parts[0]![0]! + parts[parts.length - 1]![0]!).toUpperCase();
+/**
+ * Fast home-only politician list: frontmatter tags on recent posts only.
+ * Avoids buildPoliticianIndex (roster × posts regex) which is too heavy for /.
+ */
+export function lightPoliticianAggsFromPosts(
+  posts: CollectionEntry<"posts">[]
+): PoliticianAgg[] {
+  type Row = {
+    name: string;
+    slug: string;
+    appearances: PoliticianAgg["appearances"];
+  };
+  const bySlug = new Map<string, Row>();
+
+  for (const p of posts) {
+    if (p.data.draft) continue;
+    const tags = p.data.politicians ?? [];
+    if (!tags.length) continue;
+    const appearance = {
+      id: p.id,
+      headline: p.data.headline,
+      publishedAt: p.data.publishedAt,
+      sourceTitle: p.data.sourceTitle ?? null,
+      letterGrade: p.data.letterGrade ?? null,
+      factualityScore:
+        typeof p.data.factualityScore === "number" ? p.data.factualityScore : null,
+      leanScore: typeof p.data.leanScore === "number" ? p.data.leanScore : null,
+    };
+    for (const tag of tags) {
+      const slug = String(tag.slug || "").trim();
+      if (!slug) continue;
+      let row = bySlug.get(slug);
+      if (!row) {
+        row = {
+          name: String(tag.name || slug).trim() || slug,
+          slug,
+          appearances: [],
+        };
+        bySlug.set(slug, row);
+      }
+      if (!row.appearances.some((a) => a.id === p.id)) {
+        row.appearances.push(appearance);
+      }
+    }
+  }
+
+  const out: PoliticianAgg[] = [];
+  for (const row of bySlug.values()) {
+    row.appearances.sort(
+      (a, b) => b.publishedAt.valueOf() - a.publishedAt.valueOf()
+    );
+    out.push({
+      name: row.name,
+      slug: row.slug,
+      bucket: "Coverage",
+      appearances: row.appearances,
+      personGrade: null,
+      personFactuality: null,
+      personLean: null,
+      personLeanRationale: null,
+      personGradeRationale: null,
+      coverageGrade: null,
+      coverageFactuality: null,
+      coverageLean: null,
+      avgGrade: null,
+      avgFactuality: null,
+      avgLean: null,
+    });
+  }
+  return out.sort(
+    (a, b) => b.appearances.length - a.appearances.length || a.name.localeCompare(b.name)
+  );
 }

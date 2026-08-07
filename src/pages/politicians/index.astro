@@ -3,7 +3,6 @@
  * Politician directory — hub of government areas, then drill into one branch.
  * Never dumps the full roster on a single screen.
  */
-import { getCollection } from "astro:content";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import LetterGrade from "~/components/LetterGrade.astro";
 import PoliticalLean from "~/components/PoliticalLean.astro";
@@ -20,14 +19,26 @@ import {
   resolvePoliticianSeeds,
   type RaceBucket,
 } from "~/lib/politicians";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 
 export const prerender = false;
-Astro.response.headers.set("Cache-Control", "private, no-store");
 
 const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
+// Directory grades gated; hub shell is similar for anon → short edge TTL.
+Astro.response.headers.set(
+  "Cache-Control",
+  access.signedIn
+    ? "private, no-store"
+    : "public, s-maxage=120, stale-while-revalidate=600"
+);
 
-const all = await getCollection("posts", (p) => !p.data.draft);
+// Directory coverage from last ~90d is enough for “who’s in the news”;
+// full archive multi-second scan was the slowest nav target after home.
+const nowMs = Date.now();
+const DIR_MS = 90 * 86_400_000;
+const allSorted = await publishedPostsSorted();
+const all = allSorted.filter((p) => nowMs - p.data.publishedAt.valueOf() < DIR_MS);
 const { updatedAt, source } = await resolvePoliticianSeeds(env.AGENTS);
 const politicians = await buildPoliticianIndexLive(all, env.AGENTS);
 const groups = groupPoliticiansByBucket(politicians);

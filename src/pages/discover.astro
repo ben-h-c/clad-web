@@ -9,13 +9,18 @@ import { getAccess } from "~/lib/access";
 import { sampleUnlockedId } from "~/lib/sample";
 
 export const prerender = false;
-Astro.response.headers.set("Cache-Control", "private, no-store");
 
 // Discover is free with an account (hybrid model) — anonymous readers get a
 // teaser (first sections, grades/lean hidden) with a register panel instead
 // of a bodyless redirect.
 const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
+Astro.response.headers.set(
+  "Cache-Control",
+  access.signedIn
+    ? "private, no-store"
+    : "public, s-maxage=120, stale-while-revalidate=600"
+);
 
 const sections = await getDiscover(env.AGENTS);
 const all = await publishedPostsSorted();

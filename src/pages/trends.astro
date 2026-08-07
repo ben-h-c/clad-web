@@ -12,13 +12,19 @@ import { slugify } from "~/lib/slug";
 import { getAccess } from "~/lib/access";
 
 export const prerender = false;
-Astro.response.headers.set("Cache-Control", "no-store");
 
 // Free/anonymous readers get the volume story (weekly counts, themes); the
 // grade + political-lean analytics stay Premium and are replaced by an
 // upgrade panel — never a bodyless redirect.
 const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
+// Anon trends = volume-only (no grades in HTML) → edge-cacheable.
+Astro.response.headers.set(
+  "Cache-Control",
+  access.signedIn
+    ? "private, no-store"
+    : "public, s-maxage=180, stale-while-revalidate=600"
+);
 
 const posts = await publishedPostsSorted();
 // Social-media sentiment (KV, scanner-scored) — Premium like grade/lean, so

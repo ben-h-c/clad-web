@@ -163,12 +163,29 @@ export async function resolvePoliticianSeeds(
 /** @deprecated Prefer resolvePoliticianSeeds — kept for sync helpers. */
 export const POLITICIAN_SEEDS: PoliticianSeed[] = ROSTER_SEEDS as PoliticianSeed[];
 
+// Isolate memo: /politicians/ was multi-second rebuilding the full index.
+let polIndexCache: {
+  postLen: number;
+  seedLen: number;
+  profileLen: number;
+  val: PoliticianAgg[];
+} | null = null;
+
 /** Build index from posts + officeholder seeds + person profiles. */
 export function buildPoliticianIndex(
   posts: CollectionEntry<"posts">[],
   seeds: PoliticianSeed[] = POLITICIAN_SEEDS,
   profiles: PersonProfileMap | null = null
 ): PoliticianAgg[] {
+  const profileLen = profiles ? Object.keys(profiles).length : 0;
+  if (
+    polIndexCache &&
+    polIndexCache.postLen === posts.length &&
+    polIndexCache.seedLen === seeds.length &&
+    polIndexCache.profileLen === profileLen
+  ) {
+    return polIndexCache.val;
+  }
   const seedBySlug = new Map(seeds.map((s) => [s.slug, s]));
   const bySlug = new Map<
     string,
@@ -298,9 +315,16 @@ export function buildPoliticianIndex(
     });
   }
 
-  return out.sort(
+  const sorted = out.sort(
     (a, b) => b.appearances.length - a.appearances.length || a.name.localeCompare(b.name)
   );
+  polIndexCache = {
+    postLen: posts.length,
+    seedLen: seeds.length,
+    profileLen,
+    val: sorted,
+  };
+  return sorted;
 }
 
 export async function findPolitician(

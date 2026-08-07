@@ -35,18 +35,30 @@ export interface SessionUser {
   createdAt: string | null; // ISO; used for the free-trial window
 }
 
+// Same-isolate memo: page + BaseLayout both call getSessionUser; avoid 2× auth.
+let sessionMemo: { key: string; at: number; user: SessionUser | null } | null = null;
+const SESSION_MEMO_MS = 3_000;
+
 /** Resolve the signed-in user from the request cookies, or null. */
 export async function getSessionUser(headers: Headers): Promise<SessionUser | null> {
+  const key = headers.get("cookie") || "";
+  const now = Date.now();
+  if (sessionMemo && sessionMemo.key === key && now - sessionMemo.at < SESSION_MEMO_MS) {
+    return sessionMemo.user;
+  }
   const session = await getAuth().api.getSession({ headers });
   const u = session?.user;
-  if (!u) return null;
-  return {
-    id: u.id,
-    name: u.name,
-    email: u.email,
-    emailVerified: !!u.emailVerified,
-    createdAt: u.createdAt ? new Date(u.createdAt).toISOString() : null,
-  };
+  const user = !u
+    ? null
+    : {
+        id: u.id,
+        name: u.name,
+        email: u.email,
+        emailVerified: !!u.emailVerified,
+        createdAt: u.createdAt ? new Date(u.createdAt).toISOString() : null,
+      };
+  sessionMemo = { key, at: now, user };
+  return user;
 }
 
 export function jsonResponse(body: unknown, status = 200): Response {

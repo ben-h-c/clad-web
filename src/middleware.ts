@@ -152,6 +152,9 @@ function applyCachePolicy(context: { request: Request }, path: string, response:
       h.set("Cache-Control", "private, no-store");
     } else if (LOW_TTL_PAGE(path)) {
       h.set("Cache-Control", "public, s-maxage=60, stale-while-revalidate=600");
+    } else if (path === "/" || path === "") {
+      // Anon home is the hottest back-nav target.
+      h.set("Cache-Control", "public, s-maxage=90, stale-while-revalidate=600");
     } else if (path.startsWith("/posts/")) {
       // Post HTML is large + CPU-heavy; short edge TTL for anon only.
       h.set("Cache-Control", "public, s-maxage=60, stale-while-revalidate=300");

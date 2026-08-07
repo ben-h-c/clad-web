@@ -48,6 +48,9 @@ export function shuffleSeeded<T>(items: T[], seed: string): T[] {
  * Build ordered post ids for the more-feed, excluding stories already featured
  * higher on the home page.
  */
+/** Cap shuffle pool so home-more doesn't Fisher–Yates 4k entries per request. */
+const HOME_MORE_POOL_CAP = 400;
+
 export function buildHomeMoreIds(
   posts: CollectionEntry<"posts">[],
   excludeIds: Iterable<string>,
@@ -56,7 +59,13 @@ export function buildHomeMoreIds(
   const ban = new Set(
     [...excludeIds].map((id) => String(id || "").trim()).filter(Boolean)
   );
-  const pool = posts.filter((p) => !p.data.draft && !ban.has(p.id));
+  // posts are newest-first from publishedPostsSorted
+  const pool: CollectionEntry<"posts">[] = [];
+  for (const p of posts) {
+    if (p.data.draft || ban.has(p.id)) continue;
+    pool.push(p);
+    if (pool.length >= HOME_MORE_POOL_CAP) break;
+  }
   return shuffleSeeded(pool, seed ?? defaultHomeMoreSeed()).map((p) => p.id);
 }
 

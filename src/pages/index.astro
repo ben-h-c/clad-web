@@ -29,7 +29,7 @@ import {
   getPoliticianPhotoMap,
 } from "~/lib/agents";
 import { buildGoodNewsSections } from "~/lib/goodnews";
-import { aggregateTopics, aggregateTopicsCached, gradeToGpa } from "~/lib/topics";
+import { aggregateTopics, gradeToGpa } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
@@ -47,8 +47,10 @@ import {
   defaultHomeMoreSeed,
   pageHomeMoreIds,
 } from "~/lib/homeMoreFeed";
-import { buildPoliticianSpotlightItems } from "~/lib/homePoliticians";
-import { buildPoliticianIndexLive } from "~/lib/politicians";
+import {
+  buildPoliticianSpotlightItems,
+  lightPoliticianAggsFromPosts,
+} from "~/lib/homePoliticians";
 import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates } from "~/lib/elections";
 import {
   normalizeCalendarEvent,
@@ -59,13 +61,18 @@ import {
 import { buildDaySummariesCached } from "~/lib/calendarDays";
 import { publishedPostsSorted } from "~/lib/publishedPosts";
 
-// SSR so the hero reflects the curator's live KV-stored selection without a
-// rebuild. Per-user (grades hidden for restricted readers), so never shared-cache.
+// SSR: live KV hero. Anon HTML is grade-locked and identical → edge-cacheable.
 export const prerender = false;
-Astro.response.headers.set("Cache-Control", "private, no-store");
 
 const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
+// Signed-in HTML shows grades — never share-cache. Anon back-nav hits the edge.
+Astro.response.headers.set(
+  "Cache-Control",
+  access.signedIn
+    ? "private, no-store"
+    : "public, s-maxage=90, stale-while-revalidate=600"
+);
 
 // Isolate-memoized list — do not copy with spread (saves memory under load).
 const all = await publishedPostsSorted();
@@ -253,11 +260,8 @@ const featureItems = buildHomeFeatureItems({
   max: 10,
 });
 
-// Politician media strip — people in recent coverage + midterms race sides.
-const politiciansLive = await buildPoliticianIndexLive(
-  recentForPoliticians as any,
-  env.AGENTS
-);
+// Politician strip: tag counts on recent posts only (skip full roster×posts index).
+const politiciansLive = lightPoliticianAggsFromPosts(recentForPoliticians as any);
 const photoMap = photoMapStore?.bySlug ?? {};
 const politicianSpotlightItems = buildPoliticianSpotlightItems({
   politicians: politiciansLive,

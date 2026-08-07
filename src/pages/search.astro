@@ -1,25 +1,38 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ExploreNext from "~/components/ExploreNext.astro";
-import { getCollection } from "astro:content";
 import { getAccess } from "~/lib/access";
 import { searchPosts } from "~/lib/search";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 
 export const prerender = false;
-Astro.response.headers.set("Cache-Control", "no-store");
 
-const fullAccess = (await getAccess(Astro.request.headers)).fullAccess;
+const access = await getAccess(Astro.request.headers);
+const fullAccess = access.fullAccess;
+// Empty search shell is same for anon; results vary by query (still private when signed in).
+Astro.response.headers.set(
+  "Cache-Control",
+  access.signedIn
+    ? "private, no-store"
+    : "public, s-maxage=60, stale-while-revalidate=300"
+);
 
 // Facets only — outlet list + top topics for the filter UI. The full post
 // records are NOT shipped to the browser; results come from the server
 // (rendered below, refreshed via /api/search as you type).
-const posts = await getCollection("posts", (p) => !p.data.draft);
-const outlets = [...new Set(posts.map((p) => p.data.sourceTitle).filter((s): s is string => !!s))].sort(
-  (a, b) => a.localeCompare(b)
-);
+const posts = await publishedPostsSorted();
+const outlets = [
+  ...new Set(posts.map((p) => p.data.sourceTitle).filter((s): s is string => !!s)),
+].sort((a, b) => a.localeCompare(b));
+// Facets from newest ~800 only — enough diversity, less CPU.
+const facetPosts = posts.slice(0, 800);
 const topicFreq = new Map<string, number>();
-for (const p of posts) for (const t of p.data.topics ?? []) topicFreq.set(t, (topicFreq.get(t) ?? 0) + 1);
-const topTopics = [...topicFreq.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12).map(([t]) => t);
+for (const p of facetPosts)
+  for (const t of p.data.topics ?? []) topicFreq.set(t, (topicFreq.get(t) ?? 0) + 1);
+const topTopics = [...topicFreq.entries()]
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 12)
+  .map(([t]) => t);
 
 // Server-rendered results for the URL's query params — the page works with no
 // JS (real GET form); the inline script upgrades it to live search.

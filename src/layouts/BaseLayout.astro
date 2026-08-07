@@ -151,6 +151,17 @@ const billingOn = showBillingPromo();
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content={themeColor} />
+    <!-- Prefetch common next hops so back-to-home / menu nav feels instant. -->
+    {!isAdminPath && (
+      <Fragment>
+        <link rel="prefetch" href="/" as="document" />
+        <link rel="prefetch" href="/discover/" as="document" />
+        <link rel="prefetch" href="/search/" as="document" />
+        <script is:inline type="speculationrules">
+{"prefetch":[{"source":"list","urls":["/","/discover/","/search/","/trends/","/good-news/"],"eagerness":"moderate"}],"prerender":[{"source":"list","urls":["/"],"eagerness":"conservative"}]}
+        </script>
+      </Fragment>
+    )}
     <!-- Refresh always lands at the top of the current page. Browsers otherwise
          restore the prior scroll offset (and site smooth-scroll can make that
          look like a long jump). Back/forward navigation is left alone. -->
