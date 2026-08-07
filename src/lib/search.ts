@@ -46,10 +46,12 @@ function tokenize(s: string): string[] {
 
 function ensureIndex(posts: Post[]): Map<string, Set<string>> {
   if (invertedIndex && invertedForLen === posts.length) return invertedIndex;
+  // Index only headline + topics + channel — full body text bloated isolate
+  // memory and contributed to CF 1102 under concurrent traffic.
   const idx = new Map<string, Set<string>>();
   for (const p of posts) {
     const d = p.data;
-    const blob = `${d.headline} ${d.summary} ${d.assessment ?? ""} ${(d.topics ?? []).join(" ")} ${d.sourceTitle ?? ""}`;
+    const blob = `${d.headline} ${(d.topics ?? []).join(" ")} ${d.sourceTitle ?? ""}`;
     for (const t of tokenize(blob)) {
       let set = idx.get(t);
       if (!set) {

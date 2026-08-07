@@ -144,10 +144,17 @@ function applySecurityHeaders(path: string, response: Response) {
 function applyCachePolicy(context: { request: Request }, path: string, response: Response) {
   const hasSession = (context.request.headers.get("cookie") ?? "").includes("session_token");
   const next = withHeaders(response, (h) => {
-    if (hasSession || response.headers.has("set-cookie") || UNCACHEABLE_PAGE(path)) {
+    // Honor route-level private/no-store (e.g. post pages that vary by tier).
+    const existing = h.get("Cache-Control") || "";
+    if (existing.includes("no-store") || existing.includes("private")) {
+      // keep
+    } else if (hasSession || response.headers.has("set-cookie") || UNCACHEABLE_PAGE(path)) {
       h.set("Cache-Control", "private, no-store");
     } else if (LOW_TTL_PAGE(path)) {
       h.set("Cache-Control", "public, s-maxage=60, stale-while-revalidate=600");
+    } else if (path.startsWith("/posts/")) {
+      // Post HTML is large + CPU-heavy; short edge TTL for anon only.
+      h.set("Cache-Control", "public, s-maxage=60, stale-while-revalidate=300");
     } else {
       h.set("Cache-Control", "public, s-maxage=300, stale-while-revalidate=600");
     }

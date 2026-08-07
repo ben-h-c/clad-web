@@ -22,25 +22,22 @@ import { sampleUnlockedId } from "~/lib/sample";
 import { metaDescription, stripSummaryOpener } from "~/lib/seo";
 import { splitCitations } from "~/lib/citations";
 import { slugify } from "~/lib/slug";
-import { aggregateTopicsCached, canonicalTopic, topicSlug } from "~/lib/topics";
+import { canonicalTopic, topicSlug } from "~/lib/topics";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
-import {
-  getPublishedPost,
-  publishedPostsSorted,
-} from "~/lib/publishedPosts";
+import { publishedPostsSorted } from "~/lib/publishedPosts";
 
 export const prerender = false;
-Astro.response.headers.set("Cache-Control", "no-store");
+// Private: varies by auth (sample unlock + grades). Do not share-cache error
+// responses either — middleware respects no-store when set on the response.
+Astro.response.headers.set("Cache-Control", "private, no-store");
 
 // Article text is open (SEO); the scoreboard unlocks with any account.
 const access = await getAccess(Astro.request.headers);
 
-// Prefer O(1) single-post load; fall back to sorted list (isolate-memoized).
 const slug = String(Astro.params.slug ?? "");
-let post = await getPublishedPost(slug);
-// Sample + explore + corrections need the corpus (memoized per isolate).
+// One isolate-memoized corpus load (no getEntry + getCollection double-hit).
 const all = await publishedPostsSorted();
-if (!post) post = all.find((p) => p.id === slug) ?? null;
+const post = all.find((p) => p.id === slug) ?? null;
 if (!post) return new Response(null, { status: 404 });
 // Report of the Day — today's sample renders fully unlocked for restricted
 // readers (badge + data-sample-unlocked marker); everything else stays gated.
@@ -48,9 +45,7 @@ const sampleId = sampleUnlockedId(all);
 const isSample = post.id === sampleId;
 const locked = !access.fullAccess && !isSample;
 const original = post.data.correctionOf
-  ? (await getPublishedPost(post.data.correctionOf)) ??
-    all.find((q) => q.id === post.data.correctionOf) ??
-    null
+  ? all.find((q) => q.id === post.data.correctionOf) ?? null
   : null;
 const successors = all
   .filter((q) => q.data.correctionOf === post.id)
@@ -231,26 +226,39 @@ const { sources, background } = splitCitations(d.citations);
 // grade/lean, so restricted readers never even trigger the KV read.
 const sentiment = isBroadcast && !locked ? (await getSentiments(env.AGENTS))[post.id] ?? null : null;
 
-// Topic chips link to their aggregated topic page when one exists. The
-// aggregator clusters near-duplicate tags by similarity, so raw tags rarely
-// slug-match directly — the primary (first) chip therefore falls back to the
-// cluster this post was actually assigned to.
-const topicAggs = aggregateTopicsCached(all);
-const topicPageSlugs = new Set(topicAggs.map((t) => t.slug));
-const ownTopicSlug = topicAggs.find((t) => t.posts.some((q) => q.id === post.id))?.slug ?? null;
+// Topic chips → /topics/<slug>/ via canonical slug only.
+// Avoid full-corpus aggregateTopics() here — that O(posts×topics) clustering
+// was blowing Worker CPU/memory (CF 1102) under concurrent post traffic.
+const topicChipSlugs = (d.topics ?? [])
+  .map((t) => {
+    const key = canonicalTopic(t);
+    return key ? { display: t, slug: topicSlug(key) } : null;
+  })
+  .filter((x): x is { display: string; slug: string } => !!x);
+const primaryTopic = topicChipSlugs[0] ?? null;
 
-// Breadcrumb trail for SERP display: Home › <topic hub> › headline. Falls back
-// to the section-free two-level trail when the post has no topic hub.
-const ownTopic = ownTopicSlug ? topicAggs.find((t) => t.slug === ownTopicSlug) : null;
+// Breadcrumb trail for SERP display: Home › <topic hub> › headline.
 const breadcrumbLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "CladFacts", item: `${origin}/` },
-    ...(ownTopic
-      ? [{ "@type": "ListItem", position: 2, name: ownTopic.display, item: `${origin}/topics/${ownTopic.slug}/` }]
+    ...(primaryTopic
+      ? [
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: primaryTopic.display,
+            item: `${origin}/topics/${primaryTopic.slug}/`,
+          },
+        ]
       : []),
-    { "@type": "ListItem", position: ownTopic ? 3 : 2, name: d.headline, item: shareUrl },
+    {
+      "@type": "ListItem",
+      position: primaryTopic ? 3 : 2,
+      name: d.headline,
+      item: shareUrl,
+    },
   ],
 };
 ---
@@ -489,19 +497,13 @@ const breadcrumbLd = {
           </div>
         )}
 
-        {d.topics.length > 0 && (
+        {topicChipSlugs.length > 0 && (
           <div class="topics">
             <h2 class="small-caps">Topics in this report</h2>
             <div class="topics__tags">
-              {d.topics.map((t, i) => {
-                const direct = topicSlug(canonicalTopic(t));
-                const ts = topicPageSlugs.has(direct) ? direct : i === 0 ? ownTopicSlug : null;
-                return ts ? (
-                  <a class="topic-tag" href={`/topics/${ts}/`}>{t}</a>
-                ) : (
-                  <span class="topic-tag">{t}</span>
-                );
-              })}
+              {topicChipSlugs.map(({ display, slug: ts }) => (
+                <a class="topic-tag" href={`/topics/${ts}/`}>{display}</a>
+              ))}
             </div>
           </div>
         )}
