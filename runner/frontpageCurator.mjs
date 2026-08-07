@@ -1,5 +1,6 @@
-import { getPosts, setFrontpage } from "./api.mjs";
+import { getPosts, setFrontpage, getFrontpage } from "./api.mjs";
 import { ensureClassifications, classOf, frontPageEligible } from "./newsroom.mjs";
+import { xaiLimits } from "../src/lib/xaiEconomy.ts";
 
 const HEADLINE_STOP = new Set(
   ("the a an of to in on for and or with at by is are was were as that this it amid after over " +
@@ -49,8 +50,10 @@ export async function runFrontpageCurator(agent) {
   // Time, The Daily Show, etc.) across ANY network — including late-night
   // political. Grok classifies each post (isTalkShow?); the heuristic (which
   // keys off the video/show title) fills in for anything not yet classified.
+  const econ = xaiLimits();
   const classMap = await ensureClassifications(allPosts, {
     xaiKey: process.env.XAI_API_KEY,
+    maxNew: econ.classifyMaxNew,
     log: (m) => console.log(new Date().toISOString(), m),
   });
   const isTalk = (p) => frontPageEligible(p, classMap);
@@ -58,10 +61,18 @@ export async function runFrontpageCurator(agent) {
 
   const pool = allPosts.filter(isTalk);
   if (pool.length === 0) {
-    await setFrontpage([]);
+    // Never wipe a populated hero — mirror breaking-news resilience.
+    let prior = 0;
+    try {
+      const cur = await getFrontpage();
+      if (cur.ok && Array.isArray(cur.body?.ids)) prior = cur.body.ids.length;
+      else if (cur.ok && Array.isArray(cur.body)) prior = cur.body.length;
+    } catch {
+      /* keep prior unknown */
+    }
     return {
       ok: true,
-      message: `no talk-show segments yet (of ${allPosts.length} published)`,
+      message: `no talk-show segments yet (of ${allPosts.length} published) — keeping existing front page (${prior} ids)`,
       submitted: 0,
     };
   }

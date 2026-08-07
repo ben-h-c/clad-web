@@ -96,12 +96,12 @@ const FULL: XaiLimitProfile = {
 const ECONOMY: XaiLimitProfile = {
   youtubeMaxPublishesPerRun: 3,
   youtubeMaxCandidatesPerRun: 5,
-  profileMaxPublishesPerRun: 2,
-  profileMaxPoliticiansPerRun: 6,
+  profileMaxPublishesPerRun: 1,
+  profileMaxPoliticiansPerRun: 4,
   profileMaxDraftsPerPolitician: 1,
-  sentimentMaxScansPerRun: 3,
+  sentimentMaxScansPerRun: 2,
   sentimentUseXSearch: false,
-  sentimentWebSearchResults: 3,
+  sentimentWebSearchResults: 2,
   graderMaxPoliticiansPerRun: 6,
   calendarLookAheadDays: 21,
   calendarLookBackDays: 7,
@@ -113,7 +113,8 @@ const ECONOMY: XaiLimitProfile = {
   classifyMaxNew: 12,
   goodNewsVerifyPass: false,
   useReasoningCurators: false,
-  transcriptMaxChars: 10_000,
+  // ~25k keeps open/close claims without full 100k full-mode cost.
+  transcriptMaxChars: 25_000,
   broadcastWebSearchResults: 3,
   broadcastPreferCheapModelWithTranscript: true,
   cheapBroadcastModel: "grok-4.20-0309-non-reasoning",
@@ -124,7 +125,8 @@ const ECONOMY: XaiLimitProfile = {
     "youtube-scanner": 2, // at most ~every 2h even if cron is hourly
     "politician-profile-builder": 6,
     "politician-grader": 12,
-    "social-sentiment-scanner": 12,
+    // Sentiment is soft chrome — daily is enough in economy.
+    "social-sentiment-scanner": 24,
     "calendar-scanner": 12,
     "home-layout-curator": 12,
     "forecast-refresher": 24,
@@ -134,7 +136,8 @@ const ECONOMY: XaiLimitProfile = {
     "good-news-curator": 24,
     "race-board-auditor": 48,
     "frontpage-curator": 4,
-    "breaking-news-curator": 1,
+    // Core home strip — keep closer to 15m cron without full mode.
+    "breaking-news-curator": 0.5,
     "quip-writer": 72,
     "share-tag-writer": 72,
     "compliance-auditor": 168,
@@ -174,17 +177,38 @@ export function isXaiEconomy(envEconomy?: string | null): boolean {
   return xaiSpendMode(envEconomy) === "economy";
 }
 
+/** xAI billing / rate-limit failures — should not burn the full economy sleep. */
+export function isXaiCreditFailure(message?: string | null): boolean {
+  return /xAI\s*(402|403|429)|credits?\s*(exhaust|limit)|insufficient.?credit|quota.?exceeded|rate.?limit|payment.?required|billing|monthly.?limit|spend.?limit/i.test(
+    String(message || "")
+  );
+}
+
 /**
- * Whether an automatic agent tick should run given last success time.
+ * Whether an automatic agent tick should run given last run metadata.
  * Manual runNow / --force always bypass (caller decides).
+ *
+ * Credit/quota failures allow retry after 15 minutes instead of minHoursBetweenRuns.
  */
 export function economyAllowsAgentRun(
   agentKind: string,
   lastRunAt: string | null | undefined,
   now = new Date(),
-  envEconomy?: string | null
+  envEconomy?: string | null,
+  lastRunMeta?: { ok?: boolean; message?: string } | null
 ): boolean {
   if (xaiSpendMode(envEconomy) === "full") return true;
+  if (
+    lastRunMeta &&
+    lastRunMeta.ok === false &&
+    isXaiCreditFailure(lastRunMeta.message)
+  ) {
+    if (!lastRunAt) return true;
+    const t = Date.parse(lastRunAt);
+    if (Number.isNaN(t)) return true;
+    // Retry soon after credits are restored — don't sleep 12–48h.
+    return now.getTime() - t >= 15 * 60_000;
+  }
   const minH = xaiLimits(envEconomy).minHoursBetweenRuns[agentKind];
   if (!minH || minH <= 0) return true;
   if (!lastRunAt) return true;

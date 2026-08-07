@@ -127,6 +127,9 @@ export interface PendingDraft {
 const REGISTRY_KEY = "agents:registry";
 const FRONTPAGE_KEY = "frontpage:featured";
 const DRAFT_PREFIX = "draft:";
+/** Sorted list of draft ids — avoids kv.list + N gets on every admin queue load. */
+const DRAFT_INDEX_KEY = "drafts:index";
+const HOME_BUNDLE_KEY = "home:bundle";
 const SEEN_PREFIX = "seen:";
 const RUNNOW_PREFIX = "runnow:";
 const DRAFT_TTL = 14 * 24 * 60 * 60; // 14 days
@@ -265,7 +268,7 @@ export const DEFAULT_REGISTRY: Registry = {
       enabled: true,
       cron: "20 */6 * * *", // every 6 hours (economy); full mode still runtime-capped
       config: {
-        maxScansPerRun: 3,
+        maxScansPerRun: 2,
         scanWindowDays: 3,
         refreshHours: 48,
         refreshWindowHours: 0,
@@ -307,9 +310,9 @@ export const DEFAULT_REGISTRY: Registry = {
       // Every 6h — small draft caps; photos still advance without full Grok drafts.
       cron: "20 */6 * * *",
       config: {
-        maxPoliticiansPerRun: 6,
+        maxPoliticiansPerRun: 4,
         maxDraftsPerPolitician: 1,
-        maxPublishesPerRun: 2,
+        maxPublishesPerRun: 1,
         maxPhotoLookupsPerRun: 40,
         // 30 days of YT search for people under 3 appearances.
         publishedWithinHours: 720,
@@ -518,20 +521,58 @@ export function draftId(agentId: string, videoId: string): string {
   return `${agentId}-${videoId}`;
 }
 
-export async function listDrafts(kv: KVNamespace): Promise<PendingDraft[]> {
+async function readDraftIndex(kv: KVNamespace): Promise<string[] | null> {
+  const raw = await kv.get(DRAFT_INDEX_KEY);
+  if (!raw) return null;
+  try {
+    const v = JSON.parse(raw);
+    return Array.isArray(v) ? v.map(String) : null;
+  } catch {
+    return null;
+  }
+}
+
+async function writeDraftIndex(kv: KVNamespace, ids: string[]): Promise<void> {
+  await kv.put(DRAFT_INDEX_KEY, JSON.stringify(ids.slice(0, 500)));
+}
+
+async function rebuildDraftIndex(kv: KVNamespace): Promise<string[]> {
   const list = await kv.list({ prefix: DRAFT_PREFIX });
-  // Parallel gets: with a large backlog (the queue reached 160 pending drafts
-  // on 2026-07-06) sequential reads alone took seconds of wall time.
-  const raws = await Promise.all(list.keys.map((key) => kv.get(key.name)));
+  const ids = list.keys
+    .map((k) => k.name.slice(DRAFT_PREFIX.length))
+    .filter(Boolean);
+  await writeDraftIndex(kv, ids);
+  return ids;
+}
+
+export async function listDrafts(kv: KVNamespace): Promise<PendingDraft[]> {
+  let ids = await readDraftIndex(kv);
+  if (!ids) {
+    ids = await rebuildDraftIndex(kv);
+  }
+  // Parallel gets by index (no list scan when index is warm).
+  let raws = await Promise.all(ids.map((id) => kv.get(DRAFT_PREFIX + id)));
+  // If many keys expired/missing, rebuild once from list.
+  const missing = raws.filter((r) => !r).length;
+  if (ids.length > 0 && missing > ids.length / 2) {
+    ids = await rebuildDraftIndex(kv);
+    raws = await Promise.all(ids.map((id) => kv.get(DRAFT_PREFIX + id)));
+  }
   const drafts: PendingDraft[] = [];
-  for (const raw of raws) {
-    if (raw) {
-      try {
-        drafts.push(JSON.parse(raw) as PendingDraft);
-      } catch {
-        // skip malformed
-      }
+  const liveIds: string[] = [];
+  for (let i = 0; i < ids.length; i++) {
+    const raw = raws[i];
+    if (!raw) continue;
+    try {
+      drafts.push(JSON.parse(raw) as PendingDraft);
+      liveIds.push(ids[i]!);
+    } catch {
+      // skip malformed
     }
+  }
+  // Compact index if we dropped expired keys
+  if (liveIds.length !== ids.length) {
+    await writeDraftIndex(kv, liveIds);
   }
   drafts.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
   return drafts;
@@ -551,6 +592,11 @@ export async function putDraft(kv: KVNamespace, draft: PendingDraft): Promise<vo
   await kv.put(DRAFT_PREFIX + draft.draftId, JSON.stringify(draft), {
     expirationTtl: DRAFT_TTL,
   });
+  const ids = (await readDraftIndex(kv)) ?? (await rebuildDraftIndex(kv));
+  if (!ids.includes(draft.draftId)) {
+    ids.unshift(draft.draftId);
+    await writeDraftIndex(kv, ids);
+  }
 }
 
 // Maintenance: wipe KV families for a clean start.
@@ -568,17 +614,27 @@ async function clearByPrefix(kv: KVNamespace, prefix: string): Promise<number> {
   return count;
 }
 export async function clearDrafts(kv: KVNamespace): Promise<number> {
-  return clearByPrefix(kv, DRAFT_PREFIX);
+  const n = await clearByPrefix(kv, DRAFT_PREFIX);
+  await kv.delete(DRAFT_INDEX_KEY);
+  return n;
 }
 export async function clearSeen(kv: KVNamespace): Promise<number> {
   return clearByPrefix(kv, SEEN_PREFIX);
 }
 export async function clearFrontpage(kv: KVNamespace): Promise<void> {
   await kv.delete(FRONTPAGE_KEY);
+  await refreshHomeBundle(kv).catch(() => {});
 }
 
 export async function deleteDraft(kv: KVNamespace, id: string): Promise<void> {
   await kv.delete(DRAFT_PREFIX + id);
+  const ids = await readDraftIndex(kv);
+  if (ids) {
+    await writeDraftIndex(
+      kv,
+      ids.filter((x) => x !== id)
+    );
+  }
 }
 
 export async function markSeen(kv: KVNamespace, videoId: string): Promise<void> {
@@ -614,6 +670,7 @@ export async function getFrontpage(kv: KVNamespace): Promise<string[]> {
 
 export async function setFrontpage(kv: KVNamespace, ids: string[]): Promise<void> {
   await kv.put(FRONTPAGE_KEY, JSON.stringify(ids.slice(0, 50)));
+  await refreshHomeBundle(kv).catch(() => {});
 }
 
 const DISCOVER_KEY = "discover:sections";
@@ -646,6 +703,7 @@ export async function getDiscover(kv: KVNamespace): Promise<DiscoverSection[]> {
 
 export async function setDiscover(kv: KVNamespace, sections: DiscoverSection[]): Promise<void> {
   await kv.put(DISCOVER_KEY, JSON.stringify(sections.slice(0, 8)));
+  await refreshHomeBundle(kv).catch(() => {});
 }
 
 const GOODNEWS_KEY = "goodnews:sections";
@@ -676,6 +734,7 @@ export async function getGoodNews(kv: KVNamespace): Promise<GoodNewsSection[]> {
 
 export async function setGoodNews(kv: KVNamespace, sections: GoodNewsSection[]): Promise<void> {
   await kv.put(GOODNEWS_KEY, JSON.stringify(sections.slice(0, 8)));
+  await refreshHomeBundle(kv).catch(() => {});
 }
 
 const BREAKING_KEY = "breaking:featured";
@@ -716,6 +775,132 @@ export async function getBreaking(kv: KVNamespace): Promise<BreakingItem[]> {
 
 export async function setBreaking(kv: KVNamespace, items: BreakingItem[]): Promise<void> {
   await kv.put(BREAKING_KEY, JSON.stringify(items.slice(0, 50)));
+  await refreshHomeBundle(kv).catch(() => {});
+}
+
+/* ---------- home bundle (one KV get for landing + home-more) ---------- */
+
+export interface HomeBundle {
+  at: string;
+  frontpage: string[];
+  breaking: BreakingItem[];
+  discover: DiscoverSection[];
+  goodNews: GoodNewsSection[];
+}
+
+async function assembleHomeBundle(kv: KVNamespace): Promise<HomeBundle> {
+  const [frontpage, breaking, discover, goodNews] = await Promise.all([
+    getFrontpage(kv),
+    getBreaking(kv),
+    getDiscover(kv),
+    getGoodNews(kv),
+  ]);
+  return {
+    at: new Date().toISOString(),
+    frontpage,
+    breaking,
+    discover,
+    goodNews,
+  };
+}
+
+/** Rebuild composite home surfaces key (called after curator writes). */
+export async function refreshHomeBundle(kv: KVNamespace): Promise<HomeBundle> {
+  // Read individual keys without going through getFrontpage recursion on refresh.
+  const [frontpageRaw, breakingRaw, discoverRaw, goodNewsRaw] = await Promise.all([
+    kv.get(FRONTPAGE_KEY),
+    kv.get(BREAKING_KEY),
+    kv.get(DISCOVER_KEY),
+    kv.get(GOODNEWS_KEY),
+  ]);
+  const frontpage = (() => {
+    if (!frontpageRaw) return [] as string[];
+    try {
+      const v = JSON.parse(frontpageRaw);
+      return Array.isArray(v) ? v.map(String) : [];
+    } catch {
+      return [];
+    }
+  })();
+  const parseSections = (raw: string | null): DiscoverSection[] => {
+    if (!raw) return [];
+    try {
+      const v = JSON.parse(raw);
+      if (!Array.isArray(v)) return [];
+      return v
+        .filter((s) => s && typeof s.title === "string" && Array.isArray(s.ids))
+        .map((s) => ({
+          title: String(s.title),
+          blurb: typeof s.blurb === "string" ? s.blurb : "",
+          ids: s.ids.map(String),
+        }));
+    } catch {
+      return [];
+    }
+  };
+  const breaking = (() => {
+    if (!breakingRaw) return [] as BreakingItem[];
+    try {
+      const v = JSON.parse(breakingRaw);
+      if (!Array.isArray(v)) return [];
+      return v
+        .map((it): BreakingItem | null => {
+          if (typeof it === "string") return { type: "post", id: it };
+          if (it && it.type === "post" && typeof it.id === "string")
+            return { type: "post", id: it.id };
+          if (it && it.type === "group" && Array.isArray(it.ids)) {
+            return {
+              type: "group",
+              slug: String(it.slug || ""),
+              title: String(it.title || ""),
+              topic: it.topic ? String(it.topic) : undefined,
+              ids: it.ids.map(String),
+            };
+          }
+          return null;
+        })
+        .filter((x): x is BreakingItem => x !== null);
+    } catch {
+      return [];
+    }
+  })();
+  const bundle: HomeBundle = {
+    at: new Date().toISOString(),
+    frontpage,
+    breaking,
+    discover: parseSections(discoverRaw),
+    goodNews: parseSections(goodNewsRaw),
+  };
+  await kv.put(HOME_BUNDLE_KEY, JSON.stringify(bundle));
+  return bundle;
+}
+
+/**
+ * Prefer single home:bundle get; fall back to parallel individual keys and
+ * rebuild the bundle for the next request.
+ */
+export async function getHomeBundle(kv: KVNamespace): Promise<HomeBundle> {
+  const raw = await kv.get(HOME_BUNDLE_KEY);
+  if (raw) {
+    try {
+      const v = JSON.parse(raw) as HomeBundle;
+      if (v && Array.isArray(v.frontpage) && Array.isArray(v.breaking)) {
+        return {
+          at: String(v.at || ""),
+          frontpage: v.frontpage.map(String),
+          breaking: v.breaking,
+          discover: Array.isArray(v.discover) ? v.discover : [],
+          goodNews: Array.isArray(v.goodNews) ? v.goodNews : [],
+        };
+      }
+    } catch {
+      /* rebuild below */
+    }
+  }
+  return assembleHomeBundle(kv).then(async (b) => {
+    await kv.put(HOME_BUNDLE_KEY, JSON.stringify(b)).catch(() => {});
+    return b;
+  });
 }
 
 /* ---------- search categories (editor-managed scanner search terms) ---------- */

@@ -138,7 +138,7 @@ async function callGrok(xaiKey, user) {
         { role: "system", content: SYSTEM },
         { role: "user", content: user },
       ],
-      tools: [{ type: "web_search" }],
+      tools: [{ type: "web_search", max_search_results: 10 }],
       text: {
         format: {
           type: "json_schema",

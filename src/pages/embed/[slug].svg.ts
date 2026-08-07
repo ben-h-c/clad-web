@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
-import { getCollection } from "astro:content";
 import { shortDate } from "~/lib/dateline";
+import { getPublishedPost } from "~/lib/publishedPosts";
 
 export const prerender = false;
 
@@ -31,7 +31,7 @@ export const GET: APIRoute = async ({ params, request, locals }) => {
   const hit = await cache.match(cacheKey);
   if (hit) return hit;
 
-  const post = (await getCollection("posts", (p) => !p.data.draft)).find((p) => p.id === params.slug);
+  const post = await getPublishedPost(String(params.slug ?? ""));
   if (!post) return new Response(null, { status: 404 });
   const d = post.data;
   const isBroadcast = d.type === "broadcast";

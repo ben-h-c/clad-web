@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from "astro:content";
+import { render } from "astro:content";
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import Verdict from "~/components/Verdict.astro";
@@ -24,6 +24,10 @@ import { splitCitations } from "~/lib/citations";
 import { slugify } from "~/lib/slug";
 import { aggregateTopicsCached, canonicalTopic, topicSlug } from "~/lib/topics";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
+import {
+  getPublishedPost,
+  publishedPostsSorted,
+} from "~/lib/publishedPosts";
 
 export const prerender = false;
 Astro.response.headers.set("Cache-Control", "no-store");
@@ -31,8 +35,12 @@ Astro.response.headers.set("Cache-Control", "no-store");
 // Article text is open (SEO); the scoreboard unlocks with any account.
 const access = await getAccess(Astro.request.headers);
 
-const all = await getCollection("posts", (p) => !p.data.draft);
-const post = all.find((p) => p.id === Astro.params.slug);
+// Prefer O(1) single-post load; fall back to sorted list (isolate-memoized).
+const slug = String(Astro.params.slug ?? "");
+let post = await getPublishedPost(slug);
+// Sample + explore + corrections need the corpus (memoized per isolate).
+const all = await publishedPostsSorted();
+if (!post) post = all.find((p) => p.id === slug) ?? null;
 if (!post) return new Response(null, { status: 404 });
 // Report of the Day — today's sample renders fully unlocked for restricted
 // readers (badge + data-sample-unlocked marker); everything else stays gated.
@@ -40,7 +48,9 @@ const sampleId = sampleUnlockedId(all);
 const isSample = post.id === sampleId;
 const locked = !access.fullAccess && !isSample;
 const original = post.data.correctionOf
-  ? all.find((q) => q.id === post.data.correctionOf) ?? null
+  ? (await getPublishedPost(post.data.correctionOf)) ??
+    all.find((q) => q.id === post.data.correctionOf) ??
+    null
   : null;
 const successors = all
   .filter((q) => q.data.correctionOf === post.id)

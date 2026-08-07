@@ -1,14 +1,30 @@
 import { extractVideoId } from "../src/lib/youtube.ts";
 import { generateBroadcastReport } from "../src/lib/broadcast.ts";
 import { validateCitations } from "../src/lib/citations.ts";
-import { xaiLimits } from "../src/lib/xaiEconomy.ts";
+import { isXaiEconomy, xaiLimits } from "../src/lib/xaiEconomy.ts";
 import { fetchTranscript, fetchVideoMeta } from "./transcript.mjs";
 import { getUrlQueue, removeUrls, submitDraft } from "./api.mjs";
 import { isVideoDraftable } from "./youtubeVideoStatus.mjs";
 
+/** Daily Grok draft budget for URL intake (UTC day). Economy: 12; full: 40. */
+let urlIntakeDayKey = "";
+let urlIntakeDayDrafts = 0;
+
 function maxUrlIntakePerTick() {
   // Economy: at most 2 manual URLs per runner tick to avoid Grok bursts.
-  return Math.min(5, Math.max(1, xaiLimits().youtubeMaxPublishesPerRun));
+  return Math.min(2, Math.max(1, xaiLimits().youtubeMaxPublishesPerRun));
+}
+
+function dailyUrlIntakeBudget() {
+  return isXaiEconomy() ? 12 : 40;
+}
+
+function rollUrlIntakeDay() {
+  const key = new Date().toISOString().slice(0, 10);
+  if (key !== urlIntakeDayKey) {
+    urlIntakeDayKey = key;
+    urlIntakeDayDrafts = 0;
+  }
 }
 
 // Process editor-supplied YouTube URLs (from the admin "Add URLs" page) into
@@ -18,10 +34,18 @@ export async function processUrlQueue(log = () => {}) {
   const xaiKey = process.env.XAI_API_KEY;
   if (!xaiKey) return;
 
+  rollUrlIntakeDay();
+  const dayBudget = dailyUrlIntakeBudget();
+  if (urlIntakeDayDrafts >= dayBudget) {
+    log(`url-intake: daily Grok budget reached (${dayBudget}) — pause until UTC midnight`);
+    return;
+  }
+
   const q = await getUrlQueue();
   if (!q.ok || !Array.isArray(q.body?.urls) || q.body.urls.length === 0) return;
 
-  const batch = q.body.urls.slice(0, maxUrlIntakePerTick());
+  const remaining = dayBudget - urlIntakeDayDrafts;
+  const batch = q.body.urls.slice(0, Math.min(maxUrlIntakePerTick(), remaining));
   const done = [];
   let drafted = 0;
   let noTranscript = 0;
@@ -78,7 +102,10 @@ export async function processUrlQueue(log = () => {}) {
           transcriptUsed: true,
         },
       });
-      if (out.ok) drafted++;
+      if (out.ok) {
+        drafted++;
+        urlIntakeDayDrafts++;
+      }
       // Drop whether drafted or rejected as a duplicate (409).
       done.push(url);
     } catch (err) {

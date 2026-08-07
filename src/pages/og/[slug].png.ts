@@ -1,11 +1,11 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
-import { getCollection } from "astro:content";
 import { ImageResponse } from "workers-og";
-import { aggregateTopics, gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
+import { aggregateTopicsCached, gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
 import { getBreaking } from "~/lib/agents";
 import { isNewsOutlet } from "~/lib/networks";
 import { displayableThumb } from "~/lib/imagePolicy";
+import { getPublishedPost, publishedPostsSorted } from "~/lib/publishedPosts";
 import {
   OG_VERSIONS,
   ogCacheKey,
@@ -311,11 +311,29 @@ function postThumbUrl(d: { thumbnail?: string; videoId?: string }): string | nul
 }
 
 async function buildCard(slug: string): Promise<Card | null> {
-  const all = await getCollection("posts", (p) => !p.data.draft);
+  // Single-post cards: O(1) via getPublishedPost (isolate memo after first list).
+  if (!slug.startsWith("topic-") && !slug.startsWith("breaking-")) {
+    const post = await getPublishedPost(slug);
+    if (!post) return null;
+    const d = post.data;
+    const isBroadcast = d.type === "broadcast";
+    return {
+      headline: d.headline,
+      badge: isBroadcast ? d.letterGrade ?? "—" : VERDICT_LABELS[d.verdict ?? ""] ?? "—",
+      badgeLabel: isBroadcast ? "ARTICLE GRADE" : "VERDICT",
+      lean: isBroadcast ? leanLabel(leanScoreOf(d), d.politicalLean) : null,
+      leanScore: isBroadcast ? resolveLeanScore(leanScoreOf(d), d.politicalLean) : null,
+      factuality: isBroadcast && typeof d.factualityScore === "number" ? d.factualityScore : null,
+      moment: isBroadcast ? pickMoment(d.keyMoments) : null,
+      thumbUrl: postThumbUrl(d),
+    };
+  }
+
+  const all = await publishedPostsSorted();
 
   if (slug.startsWith("topic-")) {
     const topicSlug = slug.slice("topic-".length);
-    const t = aggregateTopics(all).find((x) => x.slug === topicSlug);
+    const t = aggregateTopicsCached(all as any).find((x) => x.slug === topicSlug);
     if (!t) return null;
     const thumbPost = t.posts[0];
     return {
@@ -358,18 +376,5 @@ async function buildCard(slug: string): Promise<Card | null> {
     };
   }
 
-  const post = all.find((p) => p.id === slug);
-  if (!post) return null;
-  const d = post.data;
-  const isBroadcast = d.type === "broadcast";
-  return {
-    headline: d.headline,
-    badge: isBroadcast ? d.letterGrade ?? "—" : VERDICT_LABELS[d.verdict ?? ""] ?? "—",
-    badgeLabel: isBroadcast ? "ARTICLE GRADE" : "VERDICT",
-    lean: isBroadcast ? leanLabel(leanScoreOf(d), d.politicalLean) : null,
-    leanScore: isBroadcast ? resolveLeanScore(leanScoreOf(d), d.politicalLean) : null,
-    factuality: isBroadcast && typeof d.factualityScore === "number" ? d.factualityScore : null,
-    moment: isBroadcast ? pickMoment(d.keyMoments) : null,
-    thumbUrl: postThumbUrl(d),
-  };
+  return null;
 }

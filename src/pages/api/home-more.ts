@@ -4,12 +4,7 @@
  */
 import type { APIRoute } from "astro";
 import { getAccess } from "~/lib/access";
-import {
-  getFrontpage,
-  getBreaking,
-  getDiscover,
-  getGoodNews,
-} from "~/lib/agents";
+import { getHomeBundle } from "~/lib/agents";
 import { env } from "cloudflare:workers";
 import { publishedPostsSorted } from "~/lib/publishedPosts";
 import { buildGoodNewsSections } from "~/lib/goodnews";
@@ -38,12 +33,11 @@ export const GET: APIRoute = async ({ request, url }) => {
   const all = await publishedPostsSorted();
   const byId = new Map(all.map((p) => [p.id, p]));
 
-  const [curated, breakingItems, discoverStore, goodNewsStore] = await Promise.all([
-    getFrontpage(env.AGENTS),
-    getBreaking(env.AGENTS),
-    getDiscover(env.AGENTS),
-    getGoodNews(env.AGENTS),
-  ]);
+  const homeBundle = await getHomeBundle(env.AGENTS);
+  const curated = homeBundle.frontpage;
+  const breakingItems = homeBundle.breaking;
+  const discoverStore = homeBundle.discover;
+  const goodNewsStore = homeBundle.goodNews;
 
   const exclude = new Set<string>();
   for (const id of curated) exclude.add(id);
@@ -109,8 +103,12 @@ export const GET: APIRoute = async ({ request, url }) => {
       status: 200,
       headers: {
         "Content-Type": "application/json",
-        // Day-seeded order; short private cache only (varies by auth).
-        "Cache-Control": "private, no-store",
+        // Locked responses omit grades/lean — safe for short shared cache.
+        // Signed-in full-access stays private (varies by tier).
+        "Cache-Control": locked
+          ? "public, s-maxage=60, stale-while-revalidate=300"
+          : "private, no-store",
+        Vary: "Cookie",
       },
     }
   );

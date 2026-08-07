@@ -13,8 +13,12 @@ import { getPosts, getSentiments, putSentiments } from "./api.mjs";
 import { xaiLimits } from "../src/lib/xaiEconomy.ts";
 
 const XAI_RESPONSES = "https://api.x.ai/v1/responses";
-// Search-grounded model. Economy mode drops x_search and caps scans (xaiEconomy).
-const MODEL = "grok-4.3";
+// Premium only in full mode; economy uses cheap non-reasoning + web_search.
+function sentimentModel() {
+  return xaiLimits().sentimentUseXSearch
+    ? "grok-4.3"
+    : "grok-4.20-0309-non-reasoning";
+}
 
 const VOLUMES = ["minimal", "low", "moderate", "high", "viral"];
 
@@ -89,7 +93,7 @@ async function callGrok(xaiKey, user, tools) {
     signal: AbortSignal.timeout(120_000),
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${xaiKey}` },
     body: JSON.stringify({
-      model: MODEL,
+      model: sentimentModel(),
       input: [
         { role: "system", content: SYSTEM },
         { role: "user", content: user },

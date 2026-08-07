@@ -41,6 +41,10 @@ export function getPosts() {
   return call("/api/agent/posts", { method: "GET" });
 }
 
+export function getFrontpage() {
+  return call("/api/agent/frontpage", { method: "GET" });
+}
+
 export function setFrontpage(ids) {
   return call("/api/agent/frontpage", { method: "POST", body: JSON.stringify({ ids }) });
 }

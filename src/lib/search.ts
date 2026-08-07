@@ -3,6 +3,9 @@
  * Scores + filters posts on the server and returns only the matching results,
  * so the browser never downloads the full index. Grades + lean are omitted for
  * restricted (free/anonymous) readers — same model as the rest of the site.
+ *
+ * Isolate-local inverted index (token → post ids) speeds multi-term queries
+ * after the first request warms publishedPostsSorted.
  */
 import type { CollectionEntry } from "astro:content";
 
@@ -27,6 +30,40 @@ export interface SearchResult {
   leanScore: number | null;
 }
 
+type Post = CollectionEntry<"posts">;
+
+/** token → post ids (isolate memo). */
+let invertedIndex: Map<string, Set<string>> | null = null;
+let invertedForLen = -1;
+
+function tokenize(s: string): string[] {
+  return s
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .split(/\s+/)
+    .filter((t) => t.length > 1);
+}
+
+function ensureIndex(posts: Post[]): Map<string, Set<string>> {
+  if (invertedIndex && invertedForLen === posts.length) return invertedIndex;
+  const idx = new Map<string, Set<string>>();
+  for (const p of posts) {
+    const d = p.data;
+    const blob = `${d.headline} ${d.summary} ${d.assessment ?? ""} ${(d.topics ?? []).join(" ")} ${d.sourceTitle ?? ""}`;
+    for (const t of tokenize(blob)) {
+      let set = idx.get(t);
+      if (!set) {
+        set = new Set();
+        idx.set(t, set);
+      }
+      set.add(p.id);
+    }
+  }
+  invertedIndex = idx;
+  invertedForLen = posts.length;
+  return idx;
+}
+
 export function searchPosts(
   posts: CollectionEntry<"posts">[],
   params: SearchParams,
@@ -43,13 +80,40 @@ export function searchPosts(
   const sorted = [...posts].sort(
     (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
   );
+  const byId = new Map(sorted.map((p) => [p.id, p]));
 
   const terms = q.split(/\s+/).filter((t) => t.length > 1);
   const fromMs = from ? new Date(from).getTime() : null;
   const toMs = to ? new Date(`${to}T23:59:59.999Z`).getTime() : null;
 
-  const scored: { p: (typeof sorted)[number]; s: number }[] = [];
-  for (const p of sorted) {
+  // Candidate set: full corpus, or inverted-index intersection for multi-term q.
+  let candidates: Post[] = sorted;
+  if (terms.length > 0) {
+    const idx = ensureIndex(sorted);
+    let idSet: Set<string> | null = null;
+    for (const t of terms) {
+      const hits = idx.get(t);
+      if (!hits || hits.size === 0) {
+        idSet = new Set();
+        break;
+      }
+      if (!idSet) idSet = new Set(hits);
+      else {
+        for (const id of [...idSet]) {
+          if (!hits.has(id)) idSet.delete(id);
+        }
+      }
+    }
+    if (idSet) {
+      candidates = [...idSet]
+        .map((id) => byId.get(id))
+        .filter((p): p is Post => !!p)
+        .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+    }
+  }
+
+  const scored: { p: Post; s: number }[] = [];
+  for (const p of candidates) {
     const d = p.data;
     const dateMs = d.publishedAt.valueOf();
     if (fromMs && dateMs < fromMs) continue;

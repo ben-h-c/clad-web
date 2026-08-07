@@ -76,9 +76,11 @@ async function searchVideos(apiKey, person, withinHours) {
     `"${person.name}" (Senate OR Congress OR House OR Governor OR President OR Secretary OR interview OR hearing OR speech OR debate)`,
     `"${person.name}" (C-SPAN OR "press conference" OR "town hall" OR primary OR campaign OR "floor speech")`,
   ];
+  // Economy: one YT search query (100 units) per person — full mode keeps both.
+  const qList = xaiLimits().profileMaxPublishesPerRun <= 1 ? queries.slice(0, 1) : queries;
   const out = [];
   const seen = new Set();
-  for (const q of queries) {
+  for (const q of qList) {
     const params = new URLSearchParams({
       key: apiKey,
       part: "snippet",

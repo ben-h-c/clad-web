@@ -10,6 +10,7 @@ import { getConfig, reportStatus } from "./api.mjs";
 import { isDue } from "./cron.mjs";
 import {
   economyAllowsAgentRun,
+  isXaiCreditFailure,
   xaiEconomyBanner,
   xaiSpendMode,
 } from "../src/lib/xaiEconomy.ts";
@@ -165,12 +166,21 @@ async function tick() {
     if (!agent.enabled) continue;
     const forced = FORCE_KINDS.has(agent.kind) || FORCE_KINDS.has(agent.id);
     const manual = agent.runNowAt || null;
-    if (!forced && !manual && !isDue(agent.cron, agent.lastRun?.at, now)) continue;
+    const creditRetry =
+      agent.lastRun &&
+      agent.lastRun.ok === false &&
+      isXaiCreditFailure(agent.lastRun.message);
+    // Credit failures: allow re-fire every 15m even if cron/economy would sleep longer.
+    if (!forced && !manual && !isDue(agent.cron, agent.lastRun?.at, now)) {
+      if (!creditRetry) continue;
+      const t = Date.parse(agent.lastRun?.at || "");
+      if (Number.isNaN(t) || now.getTime() - t < 15 * 60_000) continue;
+    }
     // Economy mode: stretch cadence beyond cron for optional / expensive agents.
     if (
       !forced &&
       !manual &&
-      !economyAllowsAgentRun(agent.kind, agent.lastRun?.at, now)
+      !economyAllowsAgentRun(agent.kind, agent.lastRun?.at, now, null, agent.lastRun)
     ) {
       continue;
     }

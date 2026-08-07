@@ -2,6 +2,7 @@ import { getPosts, setBreaking, getBreaking } from "./api.mjs";
 import { isNewsOutlet } from "../src/lib/networks.ts";
 import { ensureClassifications, classOf } from "./newsroom.mjs";
 import { topicSlug, canonicalTopic } from "../scripts/topicsAgg.mjs";
+import { xaiLimits } from "../src/lib/xaiEconomy.ts";
 
 const YT_VIDEOS = "https://www.googleapis.com/youtube/v3/videos";
 
@@ -49,6 +50,7 @@ export async function runBreakingCurator(agent) {
   // On xAI failure ensureClassifications falls back to heuristics.
   const classMap = await ensureClassifications(posts, {
     xaiKey: process.env.XAI_API_KEY,
+    maxNew: xaiLimits().classifyMaxNew,
     log: (m) => console.log(new Date().toISOString(), m),
   });
 

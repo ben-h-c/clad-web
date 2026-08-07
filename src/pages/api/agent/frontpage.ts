@@ -1,9 +1,18 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { checkAgentToken, tokenUnauthorized } from "~/lib/agentAuth";
-import { setFrontpage } from "~/lib/agents";
+import { getFrontpage, setFrontpage } from "~/lib/agents";
 
 export const prerender = false;
+
+// Read current front-page ids (curator keep-prior when talk-show pool is empty).
+export const GET: APIRoute = async ({ request }) => {
+  if (!checkAgentToken(request.headers.get("authorization"), env.AGENT_TOKEN)) {
+    return tokenUnauthorized();
+  }
+  const ids = await getFrontpage(env.AGENTS);
+  return json({ ok: true, ids }, 200);
+};
 
 // The curator posts the ordered list of post ids to feature on the home page.
 export const POST: APIRoute = async ({ request }) => {

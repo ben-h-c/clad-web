@@ -19,14 +19,11 @@ import TodayInHistory from "~/components/TodayInHistory.astro";
 import HumanSpotlight from "~/components/HumanSpotlight.astro";
 import QuipTicker from "~/components/QuipTicker.astro";
 import {
-  getFrontpage,
-  getBreaking,
+  getHomeBundle,
   getSentiments,
   getTodayInHistory,
   getHumanSpotlight,
   getHomeLayout,
-  getDiscover,
-  getGoodNews,
   getCalendarEventsStore,
   getQuips,
   getPoliticianPhotoMap,
@@ -73,10 +70,10 @@ const locked = !access.fullAccess;
 const all = [...(await publishedPostsSorted())];
 const byId = new Map(all.map((p) => [p.id, p]));
 
-// Independent KV reads in one wave (C2). Sentiments only for full-access.
+// Home surfaces prefer one home:bundle get; other KV still parallel.
+// Sentiments only for full-access.
 const [
-  curated,
-  breakingItems,
+  homeBundle,
   sentiments,
   election,
   calStore,
@@ -84,12 +81,9 @@ const [
   humanSpotlight,
   homeLayout,
   photoMapStore,
-  discoverStore,
-  goodNewsStore,
   quipsStore,
 ] = await Promise.all([
-  getFrontpage(env.AGENTS),
-  getBreaking(env.AGENTS),
+  getHomeBundle(env.AGENTS),
   locked ? Promise.resolve({}) : getSentiments(env.AGENTS),
   getElectionWithPublishedDates(DEFAULT_ELECTION_ID, env.AGENTS),
   getCalendarEventsStore(env.AGENTS),
@@ -97,10 +91,12 @@ const [
   getHumanSpotlight(env.AGENTS),
   getHomeLayout(env.AGENTS),
   getPoliticianPhotoMap(env.AGENTS),
-  getDiscover(env.AGENTS),
-  getGoodNews(env.AGENTS),
   getQuips(env.AGENTS),
 ]);
+const curated = homeBundle.frontpage;
+const breakingItems = homeBundle.breaking;
+const discoverStore = homeBundle.discover;
+const goodNewsStore = homeBundle.goodNews;
 
 // Hero = Front Page Curator selection. Fall back to featured, then most-recent.
 let heroPosts = curated.map((id) => byId.get(id)).filter((p) => p !== undefined);

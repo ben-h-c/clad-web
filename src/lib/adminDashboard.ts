@@ -38,13 +38,38 @@ function hoursSince(iso: string | null | undefined): number | null {
 }
 
 function agentExpectedHours(a: Agent): number {
-  // Rough freshness: if cron is every N hours, warn after 2× that (min 6h, max 72h).
+  // Align with economy minHoursBetweenRuns (default mode) so the dashboard
+  // doesn't flag agents as "stale" while the spend dial intentionally stretches them.
+  const econMin: Record<string, number> = {
+    "youtube-scanner": 2,
+    "politician-profile-builder": 6,
+    "politician-grader": 12,
+    "social-sentiment-scanner": 24,
+    "calendar-scanner": 12,
+    "home-layout-curator": 12,
+    "forecast-refresher": 24,
+    "today-in-history": 24,
+    "human-spotlight": 24,
+    "discover-curator": 24,
+    "good-news-curator": 24,
+    "race-board-auditor": 48,
+    "frontpage-curator": 4,
+    "breaking-news-curator": 0.75,
+    "quip-writer": 72,
+    "share-tag-writer": 72,
+    "compliance-auditor": 168,
+  };
+  const minH = econMin[a.kind];
+  if (minH != null) {
+    // Warn after ~2× economy spacing (min 2h for frequent agents, cap 96h).
+    return Math.min(96, Math.max(2, minH * 2.5));
+  }
+  // Fallback: cron-based estimate
   const cron = a.cron || "";
   if (cron.startsWith("*/15")) return 2;
   if (cron.startsWith("*/60") || cron === "0 * * * *") return 4;
   if (cron.includes("*/3") || cron.includes("*/4")) return 12;
   if (cron.includes("* * *") && cron.split(/\s+/).length === 5) {
-    // daily-ish
     if (cron.endsWith("* *") || /^\d+ \d+ \* \* \*$/.test(cron)) return 36;
   }
   return 48;
