@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[Clad knowledge] Read AGENTS.md Continuous learning. Skills: clad-design, clad-web, clad-test, clad-product, clad-knowledge-maintain. Docs: docs/design-system.md, docs/decisions.md. Memory enabled — persist durable prefs.'"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[Clad knowledge] Compaction soon — if this session taught durable prefs/decisions, update docs/decisions.md, design-system.md, clad-* skills, or ~/.grok/memory/MEMORY.md before context is dropped.'"
+          }
+        ]
+      }
+    ]
+  }
+}

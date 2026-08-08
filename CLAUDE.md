@@ -7,6 +7,14 @@ git-committed markdown. Astro 6 on a Cloudflare Worker; the runner
 (`runner/`) executes background agents; grading logic lives in
 `src/lib/broadcast.ts`.
 
+## Agent knowledge (read first)
+
+Long-lived agent instructions live in **`AGENTS.md`** (continuous learning,
+design summary, deploy discipline). Visual tokens: **`docs/design-system.md`**.
+Settled decisions: **`docs/decisions.md`**. Role skills under
+**`.grok/skills/clad-*/`**. Prefer updating those files when you learn durable
+project taste — see skill `clad-knowledge-maintain`.
+
 ## Who Clad is for
 
 The target reader is **high-school and college aged (roughly 16–24)** — young

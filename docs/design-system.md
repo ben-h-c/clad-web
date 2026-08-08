@@ -1,0 +1,113 @@
+# CladFacts design system
+
+**Source of truth for tokens:** `src/styles/global.css`  
+**Human summary for agents:** this file  
+**Rollback tag:** `pre-soft-redesign` (clad-web + cladfacts-ios)
+
+Update this file whenever tokens or major UI patterns change. Keep `.grok/skills/clad-design/SKILL.md` in sync.
+
+---
+
+## Brand principles
+
+1. Soft modern newsroom — elevated cards on calm paper, not tech-startup neon.
+2. Grade is the hook — scannable accuracy + lean in seconds on mobile.
+3. Credibility over virality — no clickbait chrome, no outrage UI.
+4. Mobile-first (audience is phone-native).
+5. Dark-friendly: default dark for guests; light is an explicit choice.
+
+---
+
+## Color tokens (light)
+
+| Token | Value | Use |
+|-------|--------|-----|
+| `--paper` | `#f7f5f0` | Page background (parchment) |
+| `--paper-deep` | `#f0ede6` | Nested page depth |
+| `--desk` / `--desk-edge` | `#ebe8e1` / `#e4e0d8` | Desk surfaces |
+| `--ink` | `#1c1c1e` | Primary text |
+| `--muted-ink` | `#6b6b6b` | Secondary text |
+| `--accent` | `#5b9a8b` | Soft teal — links, focus, CTAs |
+| `--accent-soft` | `rgba(91, 154, 139, 0.12)` | Soft fills |
+| `--red-ink` | `#c45c52` | Emphasis / danger-adjacent |
+| `--card` | `#ffffff` | Elevated cards |
+| Grades | pastel washes (good green / mid amber / bad rose) | Letter grades |
+| Lean | blue / gray / red pastels | Political lean |
+
+## Color tokens (dark)
+
+| Token | Value | Use |
+|-------|--------|-----|
+| `--paper` | `#1c1c1e` | Charcoal page |
+| `--ink` | `#f5f5f7` | Light text |
+| `--muted-ink` | `#a1a1a6` | Secondary |
+| `--accent` | `#6fb5a4` | Soft teal (slightly brighter) |
+| `--card` | elevated dark surfaces | Cards |
+
+Admin paths force dark via `data-force-theme="dark"`.
+
+---
+
+## Type
+
+- **Sans system UI stack:** SF Pro / system UI (`--font-sans`).
+- Display/masthead currently share the sans stack (soft redesign).
+- Reading measure: `--measure` ~70ch; page column `--measure-page: min(40rem, 100%)`.
+
+---
+
+## Shape & elevation
+
+| Token | Value |
+|-------|--------|
+| `--radius-stock` | `18px` (cards) |
+| `--radius-control` | `12px` |
+| `--radius-chip` | pill |
+| `--shadow-sm/md/lg` | soft layered shadows |
+| `--card-pad` | `1.15rem` |
+| `--section-gap` | `2.1rem` |
+| `--gutter` | `1.25rem` |
+
+---
+
+## Motion
+
+- `--ease-out: cubic-bezier(0.2, 0.9, 0.25, 1)`
+- `--dur-card: 0.18s`
+- Respect `prefers-reduced-motion` (disable non-essential animation).
+
+---
+
+## UI patterns to reuse
+
+- **Cards / modules:** existing home modules, `media-hero`, category rails with `.category__more`.
+- **Grades:** pastel grade chips / scoreboard patterns already on post cards.
+- **Admin:** `.admin`, `.stat-grid`, `.stat-table`, `AdminNav` grouped desk.
+- **Auth:** `.auth-form`, soft status messages — not heavy modals unless needed.
+- **Video:** click-to-load facade (`.video-facade`) — no third-party until play.
+- **Progress:** non-blocking banners / queues (Clad Studio lessons: never trap the user on a full-screen spinner).
+
+---
+
+## Do / don’t
+
+**Do**
+
+- Use CSS variables; extend tokens if a new color is truly needed.
+- Match spacing rhythm from neighboring sections.
+- Design for one-handed phone first.
+- Keep OG / share cards grade-aware and clean.
+
+**Don’t**
+
+- Introduce a second accent family (purple/neon) without an explicit decision log entry.
+- Dense dashboard chrome on reader surfaces.
+- Full-screen blocking loaders for multi-minute Mac/Grok work.
+- “Fellow kids” copy or meme typography.
+
+---
+
+## Related surfaces
+
+- iOS: align with soft redesign (same rollback tag).
+- Clad Studio: packets should reference these tokens; implementers read this file first.
