@@ -73,76 +73,80 @@ const wrapClass = ["today-hist", Astro.props.class].filter(Boolean).join(" ");
     <div class="rule rule--double" aria-hidden="true"></div>
     <ul class="today-hist__list" aria-label="Today in history events">
       {items.map((it) => (
-        <li class="today-hist__item" id={it.id}>
-          <div class="today-hist__main">
-            {(it.imageUrl || it.poster) && (
-              <div class="today-hist__thumb" aria-hidden="true">
-                <img
-                  src={it.imageUrl || it.poster || ""}
-                  alt=""
-                  width="72"
-                  height="72"
-                  loading="lazy"
-                  decoding="async"
-                  referrerpolicy="no-referrer"
-                />
-              </div>
-            )}
-            <div class="today-hist__text">
-              <p class="today-hist__headline">
-                <span class="today-hist__year">{it.year}</span>
-                <span class="today-hist__title">{it.title}</span>
-              </p>
-              <p class="today-hist__body">{it.body}</p>
+        <li
+          class:list={[
+            "today-hist__item",
+            (it.imageUrl || it.poster) && "today-hist__item--media",
+          ]}
+          id={it.id}
+        >
+          {(it.imageUrl || it.poster) && (
+            <div class="today-hist__media" aria-hidden="true">
+              <img
+                src={it.imageUrl || it.poster || ""}
+                alt=""
+                width="640"
+                height="400"
+                loading="lazy"
+                decoding="async"
+                referrerpolicy="no-referrer"
+              />
+            </div>
+          )}
+          <div class="today-hist__text">
+            <p class="today-hist__headline">
+              <span class="today-hist__year">{it.year}</span>
+              <span class="today-hist__title">{it.title}</span>
+            </p>
+            <p class="today-hist__body">{it.body}</p>
 
-              <div class="today-hist__actions">
-                {it.videoId && it.embed && (
-                  <div class="today-hist__video-wrap" data-hist-video>
-                    <button
-                      type="button"
-                      class="today-hist__video-toggle"
-                      data-hist-video-toggle
-                      aria-expanded="false"
-                      aria-label={`Play video about ${it.title}`}
-                    >
-                      <span class="today-hist__video-icon" aria-hidden="true">▶</span>
-                      <span data-hist-video-label>Play video</span>
-                    </button>
-                    <div
-                      class="today-hist__video-panel video-embed"
-                      data-hist-video-panel
-                      data-embed={it.embed}
-                      data-title={`Video: ${it.title}`}
-                      hidden
-                    ></div>
-                  </div>
-                )}
-
-                <div class="today-hist__share-wrap" data-hist-share>
+            <div class="today-hist__actions">
+              {it.videoId && it.embed && (
+                <div class="today-hist__video-wrap" data-hist-video>
                   <button
                     type="button"
-                    class="today-hist__share-toggle"
-                    data-hist-share-toggle
+                    class="today-hist__video-toggle"
+                    data-hist-video-toggle
                     aria-expanded="false"
-                    aria-label={`Share: ${it.shareTitle}`}
+                    aria-label={`Play video about ${it.title}`}
                   >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <circle cx="18" cy="5" r="3"></circle>
-                      <circle cx="6" cy="12" r="3"></circle>
-                      <circle cx="18" cy="19" r="3"></circle>
-                      <line x1="8.6" y1="10.5" x2="15.4" y2="6.5"></line>
-                      <line x1="8.6" y1="13.5" x2="15.4" y2="17.5"></line>
-                    </svg>
-                    <span>Share</span>
+                    <span class="today-hist__video-icon" aria-hidden="true">▶</span>
+                    <span data-hist-video-label>Play video</span>
                   </button>
-                  <div class="today-hist__share-panel" data-hist-share-panel hidden>
-                    <ShareBar
-                      class="today-hist__share"
-                      url={it.shareUrl}
-                      title={it.shareTitle}
-                      hook={it.shareHook}
-                    />
-                  </div>
+                  <div
+                    class="today-hist__video-panel video-embed"
+                    data-hist-video-panel
+                    data-embed={it.embed}
+                    data-title={`Video: ${it.title}`}
+                    hidden
+                  ></div>
+                </div>
+              )}
+
+              <div class="today-hist__share-wrap" data-hist-share>
+                <button
+                  type="button"
+                  class="today-hist__share-toggle"
+                  data-hist-share-toggle
+                  aria-expanded="false"
+                  aria-label={`Share: ${it.shareTitle}`}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="18" cy="5" r="3"></circle>
+                    <circle cx="6" cy="12" r="3"></circle>
+                    <circle cx="18" cy="19" r="3"></circle>
+                    <line x1="8.6" y1="10.5" x2="15.4" y2="6.5"></line>
+                    <line x1="8.6" y1="13.5" x2="15.4" y2="17.5"></line>
+                  </svg>
+                  <span>Share</span>
+                </button>
+                <div class="today-hist__share-panel" data-hist-share-panel hidden>
+                  <ShareBar
+                    class="today-hist__share"
+                    url={it.shareUrl}
+                    title={it.shareTitle}
+                    hook={it.shareHook}
+                  />
                 </div>
               </div>
             </div>

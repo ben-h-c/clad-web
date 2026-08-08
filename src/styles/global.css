@@ -8353,6 +8353,7 @@ html.clad-app .home-cal__dialog {
 }
 
 /* ── Today in history (homepage fun facts under Best & Worst) ─────────── */
+/* Soft continuous fade: natural-height media dissolves under type; low-definition card edges. */
 .today-hist {
   margin: 1.5rem 0 0.5rem;
 }
@@ -8367,40 +8368,95 @@ html.clad-app .home-cal__dialog {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.75rem;
 }
 .today-hist__item {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
-  padding: 0.7rem 0.75rem;
-  border: 1px solid color-mix(in srgb, var(--rule) 40%, transparent);
-  border-radius: 4px;
-  background: color-mix(in srgb, var(--paper) 72%, var(--card));
-}
-.today-hist__main {
-  display: flex;
-  gap: 0.75rem;
-  align-items: flex-start;
-}
-.today-hist__thumb {
-  flex-shrink: 0;
-  width: 4.5rem;
-  height: 4.5rem;
-  border-radius: 3px;
+  gap: 0;
+  padding: 0;
+  /* Low-definition edge — hairline, not a framed tile */
+  border: 1px solid color-mix(in srgb, var(--rule) 10%, transparent);
+  border-radius: 12px;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--rule) 35%, transparent);
+  box-shadow: none;
+  /* Continuous paper gradient — one surface with the photo fade */
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--paper) 55%, var(--card)) 0%,
+    color-mix(in srgb, var(--paper) 72%, var(--card)) 42%,
+    color-mix(in srgb, var(--paper) 78%, var(--card)) 100%
+  );
+  box-sizing: border-box;
+}
+/* No-image cards: quiet paper pad only */
+.today-hist__item:not(.today-hist__item--media) {
+  padding: 0.85rem;
+}
+/* Natural-height media band — never full-card stretch */
+.today-hist__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
   background: var(--paper-deep);
 }
-.today-hist__thumb img {
+.today-hist__media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
+  /* Long multi-stop dissolve — no hard photo/panel seam */
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 26%,
+    rgba(0, 0, 0, 0.82) 48%,
+    rgba(0, 0, 0, 0.45) 68%,
+    rgba(0, 0, 0, 0.14) 86%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 26%,
+    rgba(0, 0, 0, 0.82) 48%,
+    rgba(0, 0, 0, 0.45) 68%,
+    rgba(0, 0, 0, 0.14) 86%,
+    transparent 100%
+  );
+}
+/* Fallback soft edge when mask-image is unsupported */
+@supports not ((-webkit-mask-image: linear-gradient(#000, transparent)) or (mask-image: linear-gradient(#000, transparent))) {
+  .today-hist__media::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 55%;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      color-mix(in srgb, var(--paper) 55%, var(--card)) 100%
+    );
+  }
 }
 .today-hist__text {
+  position: relative;
+  z-index: 1;
   min-width: 0;
   flex: 1;
+  padding: 0.85rem;
+}
+/* Overlap type into the long fade so photo dissolves under headline */
+.today-hist__item--media .today-hist__text {
+  margin-top: -1.6rem;
+  padding-top: 0;
 }
 .today-hist__headline {
   margin: 0;
@@ -8514,10 +8570,6 @@ html.clad-app .home-cal__dialog {
   font-size: 0.62rem;
 }
 @media (max-width: 420px) {
-  .today-hist__thumb {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
   .today-hist__headline {
     font-size: 0.95rem;
   }
@@ -8525,7 +8577,7 @@ html.clad-app .home-cal__dialog {
 
 /*
  * iOS app only: swipe horizontally through history cards.
- * Web/desktop keep the vertical list.
+ * Web/desktop keep the vertical list. Same soft fade + natural band.
  */
 html.clad-app .today-hist__list {
   flex-direction: row;
@@ -8553,14 +8605,10 @@ html.clad-app .today-hist__item {
   min-height: 100%;
   box-sizing: border-box;
 }
-html.clad-app .today-hist__main {
-  flex-direction: column;
-  gap: 0.55rem;
-}
-html.clad-app .today-hist__thumb {
-  width: 100%;
-  height: 7.5rem;
-  border-radius: 3px;
+/* Photo-proportioned band on app cards — never vertically stretched full-card */
+html.clad-app .today-hist__media {
+  aspect-ratio: 16 / 10;
+  max-height: 9rem;
 }
 html.clad-app .today-hist__body {
   display: -webkit-box;
