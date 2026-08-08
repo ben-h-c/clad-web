@@ -25,6 +25,9 @@ export interface RaceWatchItem {
   daysToVote: number;
   aName: string;
   bName: string;
+  /** Ballot-side slugs for portrait lookup (`/api/politician-photo/[slug]`). */
+  aSlug: string;
+  bSlug: string;
   note: string | null;
   href: string;
 }
@@ -287,6 +290,8 @@ export function pickRaceWatch(cards: RaceCardLive[], limit = 6): RaceWatchItem[]
     daysToVote: c.daysToVote,
     aName: c.a.name,
     bName: c.b.name,
+    aSlug: c.a.slug,
+    bSlug: c.b.slug,
     note: c.def.note ?? null,
     href: "/bracket/",
   }));
