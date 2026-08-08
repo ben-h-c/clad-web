@@ -1,0 +1,254 @@
+---
+import { env } from "cloudflare:workers";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import AdminNav from "~/components/AdminNav.astro";
+import { getRegistry } from "~/lib/agents";
+import { buildYoutubeScannerPolicyDoc } from "~/lib/youtubeScannerPolicy";
+import { xaiLimits, xaiSpendMode } from "~/lib/xaiEconomy";
+
+export const prerender = false;
+
+let agentConfig: Record<string, unknown> | null = null;
+let agentMeta: { id: string; name: string; enabled: boolean; cron: string; lastRun: string } | null =
+  null;
+try {
+  const reg = await getRegistry(env.AGENTS);
+  const a = reg.agents.find((x) => x.kind === "youtube-scanner") ??
+    reg.agents.find((x) => x.id === "youtube-news-scanner");
+  if (a) {
+    agentConfig = (a.config ?? {}) as Record<string, unknown>;
+    agentMeta = {
+      id: a.id,
+      name: a.name,
+      enabled: a.enabled,
+      cron: a.cron || "—",
+      lastRun: a.lastRun
+        ? `${a.lastRun.ok ? "OK" : "FAILED"} · ${a.lastRun.at} · ${a.lastRun.message || ""}`
+        : "Never run",
+    };
+  }
+} catch {
+  /* registry optional for static criteria */
+}
+
+const econ = xaiLimits();
+let mode = "economy";
+try {
+  mode = xaiSpendMode();
+} catch {
+  mode = "economy";
+}
+
+const doc = buildYoutubeScannerPolicyDoc({
+  agentConfig,
+  economyMode: mode,
+  economyPublishCap: econ.youtubeMaxPublishesPerRun,
+});
+---
+<BaseLayout title="Clad — YouTube scanner criteria" noindex={true}>
+  <section class="admin admin--wide">
+    <AdminNav current="youtube-scanner" />
+    <header class="admin-dash__head">
+      <h2 class="admin__title">YouTube scanner criteria</h2>
+      <p class="dateline">
+        Read-only review of how the YouTube News Scanner discovers and drafts
+        videos. No controls here — request changes via Grok Build against
+        <code>src/lib/youtubeScannerPolicy.ts</code> and
+        <code>runner/youtubeScanner.mjs</code>.
+      </p>
+    </header>
+
+    {agentMeta && (
+      <div class="ysc-meta">
+        <div><span class="small-caps">Agent</span> {agentMeta.name} <code>{agentMeta.id}</code></div>
+        <div><span class="small-caps">Enabled</span> {agentMeta.enabled ? "yes" : "no"}</div>
+        <div><span class="small-caps">Cron</span> {agentMeta.cron}</div>
+        <div><span class="small-caps">Last run</span> {agentMeta.lastRun}</div>
+      </div>
+    )}
+
+    <h3 class="small-caps ysc-h">Summary</h3>
+    <p class="ysc-prose">{doc.summary}</p>
+
+    <h3 class="small-caps ysc-h">What it does <em>not</em> use</h3>
+    <ul class="ysc-list">
+      {doc.notUsed.map((x) => (
+        <li>{x}</li>
+      ))}
+    </ul>
+
+    <h3 class="small-caps ysc-h">Active knobs</h3>
+    <table class="stat-table ysc-table">
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Effective value</th>
+          <th>Source</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        {doc.knobs.map((k) => (
+          <tr>
+            <th>{k.key}</th>
+            <td>{k.value}</td>
+            <td class="dateline">{k.source}</td>
+            <td class="dateline">{k.notes}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
+    <h3 class="small-caps ysc-h">Pipeline</h3>
+    <ol class="ysc-pipeline">
+      {doc.pipeline.map((s) => (
+        <li>
+          <strong>{s.n}. {s.title}</strong>
+          <p>{s.detail}</p>
+        </li>
+      ))}
+    </ol>
+
+    <h3 class="small-caps ysc-h">Drafting gates (must all pass)</h3>
+    <ul class="ysc-list">
+      {doc.draftingGates.map((g) => (
+        <li>{g}</li>
+      ))}
+    </ul>
+
+    <h3 class="small-caps ysc-h">Good-news prioritization</h3>
+    <p class="ysc-prose">{doc.goodNews.how}</p>
+    <p class="ysc-prose dateline">{doc.goodNews.lightheartedNote}</p>
+    <p class="small-caps" style="margin-top:1rem;color:var(--muted-ink)">Positive title pattern</p>
+    <pre class="ysc-code">{doc.goodNews.positivePattern}</pre>
+    <p class="small-caps" style="margin-top:1rem;color:var(--muted-ink)">Negative title pattern (exclude)</p>
+    <pre class="ysc-code">{doc.goodNews.negativePattern}</pre>
+
+    <h3 class="small-caps ysc-h">
+      Channel allow-list ({doc.channelGroups.reduce((n, g) => n + g.channels.length, 0)})
+    </h3>
+    <p class="dateline">
+      Exact YouTube channel IDs. Scanner reads each channel’s uploads playlist
+      only — not keyword search across YouTube.
+    </p>
+    {doc.channelGroups.map((g) => (
+      <div class="ysc-group">
+        <h4 class="ysc-group__title">{g.group} · {g.channels.length}</h4>
+        <table class="stat-table ysc-table">
+          <thead>
+            <tr>
+              <th>Outlet</th>
+              <th>Channel ID</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.channels.map((ch) => (
+              <tr>
+                <th>{ch.name}</th>
+                <td><code>{ch.id}</code></td>
+                <td>
+                  <a
+                    href={`https://www.youtube.com/channel/${ch.id}`}
+                    target="_blank"
+                    rel="noopener"
+                  >YouTube ↗</a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    ))}
+
+    <h3 class="small-caps ysc-h">Source files</h3>
+    <table class="stat-table ysc-table">
+      <tbody>
+        {doc.sourceFiles.map((f) => (
+          <tr>
+            <th><code>{f.path}</code></th>
+            <td>{f.role}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
+    <p class="dateline ysc-foot">
+      Manual topic intake remains available under <a href="/admin/intake/">Add URLs</a>.
+      Agent enable/cron under <a href="/admin/agents/">Agents</a>.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .ysc-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 0.65rem 1.25rem;
+    margin: 1rem 0 1.5rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid color-mix(in srgb, var(--muted-ink) 28%, transparent);
+    border-radius: 10px;
+    font-size: 0.92rem;
+  }
+  .ysc-meta .small-caps {
+    display: block;
+    opacity: 0.7;
+    margin-bottom: 0.15rem;
+  }
+  .ysc-h {
+    margin: 1.75rem 0 0.65rem;
+    color: var(--muted-ink);
+  }
+  .ysc-prose {
+    max-width: 52rem;
+    line-height: 1.5;
+    margin: 0.35rem 0;
+  }
+  .ysc-list {
+    max-width: 48rem;
+    margin: 0.35rem 0 0;
+    padding-left: 1.25rem;
+    line-height: 1.5;
+  }
+  .ysc-table {
+    width: 100%;
+  }
+  .ysc-table code {
+    font-size: 0.8rem;
+  }
+  .ysc-pipeline {
+    max-width: 48rem;
+    margin: 0.5rem 0 0;
+    padding-left: 1.25rem;
+  }
+  .ysc-pipeline li {
+    margin-bottom: 0.75rem;
+  }
+  .ysc-pipeline p {
+    margin: 0.25rem 0 0;
+    opacity: 0.9;
+    line-height: 1.45;
+  }
+  .ysc-code {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    background: color-mix(in srgb, #000 35%, transparent);
+    font-size: 0.72rem;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .ysc-group {
+    margin: 1rem 0 1.5rem;
+  }
+  .ysc-group__title {
+    font-size: 1rem;
+    margin: 0 0 0.5rem;
+  }
+  .ysc-foot {
+    margin: 2rem 0 1rem;
+  }
+</style>

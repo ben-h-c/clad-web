@@ -410,5 +410,10 @@ const billingOn = showBillingPromo();
     </div>
     {!path.startsWith("/admin") && <SiteTips />}
     {!path.startsWith("/admin") && <ThemeCoachmark />}
+    {/* Privacy-first first-party analytics: aggregate page/video signals only.
+        Cookieless; honors DNT/GPC; no account/PII. See /privacy/ and /admin/analytics/. */}
+    {!isAdminPath && (
+      <script src="/js/clad-analytics.js" defer></script>
+    )}
   </body>
 </html>

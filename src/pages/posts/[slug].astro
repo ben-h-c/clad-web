@@ -676,6 +676,11 @@ const breadcrumbLd = {
         iframe.allowFullscreen = true;
         iframe.referrerPolicy = "strict-origin-when-cross-origin";
         box.replaceChildren(iframe);
+        // Privacy-first analytics: count play after intentional click only.
+        try {
+          const m = embed.match(/\/embed\/([\w-]{11})/);
+          if (m && window.__cladTrackVideo) window.__cladTrackVideo(m[1]);
+        } catch (_) {}
       });
     })();
   </script>

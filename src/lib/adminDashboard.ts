@@ -182,6 +182,28 @@ export async function buildAdminDashboard(env: {
     href: "/admin/users/",
   });
 
+  // --- Privacy-first analytics (7d pageviews) ---
+  let pv7 = 0;
+  try {
+    const weekDay = new Date(Date.now() - 7 * 86_400_000).toISOString().slice(0, 10);
+    const row = await env.DB.prepare(
+      "SELECT COALESCE(SUM(pageviews),0) AS n FROM analytics_daily WHERE day >= ?"
+    )
+      .bind(weekDay)
+      .first<{ n: number }>();
+    pv7 = Number(row?.n ?? 0);
+  } catch {
+    pv7 = -1;
+  }
+  tiles.push({
+    key: "analytics",
+    label: "Pageviews · 7d",
+    value: pv7 < 0 ? "—" : pv7,
+    detail: pv7 < 0 ? "Analytics tables pending" : "Privacy-first · open dashboard",
+    tone: pv7 > 0 ? "neutral" : "ok",
+    href: "/admin/analytics/",
+  });
+
   // --- Agents ---
   let failCount = 0;
   let disabledCount = 0;

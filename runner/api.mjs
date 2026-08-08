@@ -170,10 +170,6 @@ export function putPoliticianGrades(payload) {
   });
 }
 
-export function getCategories() {
-  return call("/api/agent/categories", { method: "GET" });
-}
-
 export function getUrlQueue() {
   return call("/api/agent/urlqueue", { method: "GET" });
 }

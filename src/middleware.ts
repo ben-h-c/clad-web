@@ -54,7 +54,11 @@ const PUBLIC_API = (path: string) =>
   // Subscribable .ics of the scheduled daybook (home calendar → "Ahead").
   // Carries only scheduled events — no grade, factuality or lean values —
   // so it is public and shared-cacheable by construction.
-  path === "/api/calendar.ics";
+  path === "/api/calendar.ics" ||
+  // Privacy-first first-party analytics (aggregate page/video events).
+  // No auth; the route drops bots, DNT/GPC, and stores no PII.
+  path === "/api/analytics/collect" ||
+  path === "/api/analytics/collect/";
 
 const PROTECTED = (path: string) =>
   path === "/admin" ||

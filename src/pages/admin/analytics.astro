@@ -1,0 +1,332 @@
+---
+import { env } from "cloudflare:workers";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import AdminNav from "~/components/AdminNav.astro";
+import { buildAnalyticsSummary, purgeOldSessions } from "~/lib/analytics";
+
+export const prerender = false;
+
+const rangeParam = Number(Astro.url.searchParams.get("days") || 7);
+const rangeDays = [1, 7, 30, 90].includes(rangeParam) ? rangeParam : 7;
+
+// Best-effort maintenance on dashboard load
+try {
+  await purgeOldSessions(env.DB, 14);
+} catch {
+  /* ignore */
+}
+
+const s = await buildAnalyticsSummary(env.DB, rangeDays);
+const maxHour = Math.max(1, ...s.hours.map((h) => h.pageviews));
+
+function priClass(p: string) {
+  if (p === "high") return "analytics-rec--high";
+  if (p === "medium") return "analytics-rec--med";
+  return "analytics-rec--low";
+}
+---
+<BaseLayout title="Clad — Analytics" noindex={true}>
+  <section class="admin admin--wide">
+    <AdminNav current="analytics" />
+    <header class="admin-dash__head">
+      <h2 class="admin__title">Reader analytics</h2>
+      <p class="dateline">
+        Privacy-first, first-party aggregates · {s.from} → {s.to} (UTC) ·
+        cookieless · no account PII
+      </p>
+      <p class="analytics-range">
+        Range:
+        {[1, 7, 30, 90].map((d) => (
+          <a
+            href={`/admin/analytics/?days=${d}`}
+            class:list={[{ "is-active": d === rangeDays }]}
+          >{d === 1 ? "24h" : `${d}d`}</a>
+        ))}
+      </p>
+    </header>
+
+    <p class="analytics-privacy dateline">{s.privacyNote}</p>
+
+    <div class="stat-grid">
+      <div class="stat">
+        <span class="stat__num">{s.pageviews.toLocaleString()}</span>
+        <span class="stat__label small-caps">Pageviews</span>
+      </div>
+      <div class="stat">
+        <span class="stat__num">{s.sessions.toLocaleString()}</span>
+        <span class="stat__label small-caps">Sessions (approx.)</span>
+      </div>
+      <div class="stat">
+        <span class="stat__num">{s.avgEngagedSeconds}</span>
+        <span class="stat__label small-caps">Avg engaged sec</span>
+      </div>
+      <div class="stat">
+        <span class="stat__num">
+          {s.sessions > 0 ? (s.pageviews / s.sessions).toFixed(2) : "—"}
+        </span>
+        <span class="stat__label small-caps">Pages / session</span>
+      </div>
+    </div>
+
+    <h3 class="small-caps analytics-h">Recommendations</h3>
+    {s.recommendations.length === 0 ? (
+      <p class="dateline">No recommendations yet — waiting for more traffic.</p>
+    ) : (
+      <ul class="analytics-recs">
+        {s.recommendations.map((r) => (
+          <li class:list={["analytics-rec", priClass(r.priority)]}>
+            <div class="analytics-rec__top">
+              <span class="analytics-rec__pri small-caps">{r.priority}</span>
+              <strong>{r.title}</strong>
+            </div>
+            <p>{r.detail}</p>
+            <p class="dateline analytics-rec__basis">Based on: {r.basedOn}</p>
+          </li>
+        ))}
+      </ul>
+    )}
+
+    <h3 class="small-caps analytics-h">Top pages</h3>
+    <table class="stat-table">
+      <thead>
+        <tr>
+          <th>Path</th>
+          <th>Views</th>
+          <th>Sessions</th>
+          <th>Avg sec</th>
+        </tr>
+      </thead>
+      <tbody>
+        {s.topPages.length === 0 ? (
+          <tr><td colspan="4">No pageviews in this range yet. Browse the public site to seed data.</td></tr>
+        ) : (
+          s.topPages.map((p) => (
+            <tr>
+              <th><a href={p.path} target="_blank" rel="noopener">{p.path}</a></th>
+              <td>{p.pageviews}</td>
+              <td>{p.sessions}</td>
+              <td>{p.avgSeconds}</td>
+            </tr>
+          ))
+        )}
+      </tbody>
+    </table>
+
+    <div class="analytics-cols">
+      <div>
+        <h3 class="small-caps analytics-h">Referrers (host only)</h3>
+        <table class="stat-table">
+          <tbody>
+            {s.topReferrers.length === 0 ? (
+              <tr><td>None yet</td></tr>
+            ) : (
+              s.topReferrers.map((r) => (
+                <tr><th>{r.host}</th><td>{r.hits}</td></tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3 class="small-caps analytics-h">Devices</h3>
+        <table class="stat-table">
+          <tbody>
+            {s.devices.length === 0 ? (
+              <tr><td>None yet</td></tr>
+            ) : (
+              s.devices.map((d) => (
+                <tr><th>{d.device}</th><td>{d.hits} ({d.pct}%)</td></tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3 class="small-caps analytics-h">Countries (coarse)</h3>
+        <table class="stat-table">
+          <tbody>
+            {s.countries.length === 0 ? (
+              <tr><td>None yet</td></tr>
+            ) : (
+              s.countries.map((c) => (
+                <tr><th>{c.country}</th><td>{c.hits}</td></tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h3 class="small-caps analytics-h">Traffic by hour (UTC)</h3>
+    <div class="analytics-hours" role="img" aria-label="Pageviews by UTC hour">
+      {s.hours.map((h) => (
+        <div class="analytics-hours__bar" title={`${h.hour}:00 UTC — ${h.pageviews}`}>
+          <span style={`height:${Math.max(2, (h.pageviews / maxHour) * 100)}%`}></span>
+          <em>{h.hour}</em>
+        </div>
+      ))}
+    </div>
+
+    <h3 class="small-caps analytics-h">Video engagement</h3>
+    <p class="dateline">
+      Plays are counted only when a reader taps play. Watch milestones are
+      estimated from focused time after play (not YouTube account data).
+    </p>
+    <table class="stat-table">
+      <thead>
+        <tr>
+          <th>Video</th>
+          <th>Path</th>
+          <th>Plays</th>
+          <th>Avg watch (s)</th>
+          <th>≥15s</th>
+          <th>≥30s</th>
+          <th>≥60s</th>
+        </tr>
+      </thead>
+      <tbody>
+        {s.videos.length === 0 ? (
+          <tr><td colspan="7">No video plays recorded yet.</td></tr>
+        ) : (
+          s.videos.map((v) => (
+            <tr>
+              <th>
+                <a
+                  href={`https://www.youtube.com/watch?v=${v.videoId}`}
+                  target="_blank"
+                  rel="noopener"
+                >{v.videoId}</a>
+              </th>
+              <td>{v.path}</td>
+              <td>{v.plays}</td>
+              <td>{v.avgWatch}</td>
+              <td>{v.m15}</td>
+              <td>{v.m30}</td>
+              <td>{v.m60}</td>
+            </tr>
+          ))
+        )}
+      </tbody>
+    </table>
+
+    <h3 class="small-caps analytics-h">What we never collect</h3>
+    <ul class="analytics-never dateline">
+      <li>Names, emails, account ids, or login state</li>
+      <li>Raw IP addresses or precise location</li>
+      <li>Full user-agent strings or device fingerprints</li>
+      <li>URL query strings, form fields, or page content</li>
+      <li>Cross-site advertising identifiers or third-party analytics cookies</li>
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .analytics-range {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+    margin: 0.75rem 0 0;
+    font-size: 0.9rem;
+  }
+  .analytics-range a {
+    color: var(--muted-ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding: 0.1rem 0;
+  }
+  .analytics-range a.is-active {
+    color: var(--accent, #7dd3c0);
+    border-bottom-color: currentColor;
+    font-weight: 600;
+  }
+  .analytics-privacy {
+    max-width: 52rem;
+    margin: 1rem 0 1.25rem;
+    opacity: 0.9;
+  }
+  .analytics-h {
+    margin: 1.75rem 0 0.65rem;
+    color: var(--muted-ink);
+  }
+  .analytics-recs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+  .analytics-rec {
+    border: 1px solid color-mix(in srgb, var(--muted-ink) 25%, transparent);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    background: color-mix(in srgb, var(--card, #222) 88%, transparent);
+  }
+  .analytics-rec--high {
+    border-color: color-mix(in srgb, #f59e0b 55%, transparent);
+  }
+  .analytics-rec--med {
+    border-color: color-mix(in srgb, #60a5fa 45%, transparent);
+  }
+  .analytics-rec__top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 0.75rem;
+    margin-bottom: 0.35rem;
+  }
+  .analytics-rec__pri {
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    opacity: 0.8;
+  }
+  .analytics-rec p {
+    margin: 0.25rem 0;
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+  .analytics-rec__basis {
+    margin-top: 0.4rem !important;
+    font-size: 0.8rem !important;
+  }
+  .analytics-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 1.25rem;
+    margin-top: 0.5rem;
+  }
+  .analytics-hours {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 7rem;
+    margin: 0.5rem 0 1rem;
+    padding: 0.25rem 0;
+  }
+  .analytics-hours__bar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    min-width: 0;
+  }
+  .analytics-hours__bar span {
+    width: 100%;
+    max-width: 14px;
+    background: color-mix(in srgb, var(--accent, #7dd3c0) 70%, #555);
+    border-radius: 2px 2px 0 0;
+    display: block;
+  }
+  .analytics-hours__bar em {
+    font-style: normal;
+    font-size: 0.55rem;
+    opacity: 0.65;
+    margin-top: 0.2rem;
+  }
+  .analytics-never {
+    margin: 0.5rem 0 2rem;
+    padding-left: 1.2rem;
+    max-width: 40rem;
+  }
+</style>

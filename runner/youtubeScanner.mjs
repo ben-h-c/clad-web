@@ -1,24 +1,19 @@
 import { generateBroadcastReport } from "../src/lib/broadcast.ts";
 import { validateCitations } from "../src/lib/citations.ts";
 import { xaiLimits } from "../src/lib/xaiEconomy.ts";
+import {
+  YOUTUBE_SCANNER_CHANNEL_IDS,
+  GOOD_NEWS_POSITIVE_PATTERN,
+  GOOD_NEWS_NEGATIVE_PATTERN,
+} from "../src/lib/youtubeScannerPolicy.ts";
 import { fetchTranscript } from "./transcript.mjs";
 import { getKnown, submitDraft } from "./api.mjs";
 import { heuristicLighthearted } from "./newsroom.mjs";
 import { checkVideosPublic } from "./youtubeVideoStatus.mjs";
 
-// Positive / uplifting / "could be good news" signal. A headline qualifies for
-// the Good News bucket when it reads as a bright spot AND isn't heavy-politics
-// or tragedy (the latter two are excluded by heuristicLighthearted, which is
-// already tuned for the Front Page's "cool stories" feed). Kept here, title-
-// driven, so the scanner stays self-contained; the Good News Curator does the
-// real grouping later from the published, classifier-screened reports.
-const GOOD_NEWS =
-  /\b(?:breakthrough|discover\w*|cure\w*|rescue\w*|saved|survivors?|record(?:-breaking)?|milestone|historic|first ever|first-ever|wins?|won|victor\w*|champion\w*|triumph\w*|celebrat\w*|reunit\w*|restor\w*|recover\w*|comeback|heartwarming|uplifting|kindness|generou\w*|donat\w*|charity|award\w*|honou?red|achievement|thriv\w*|revive\w*|soars?|lands?|landing|launch\w*|unveil\w*|debut\w*|hope\w*|inspir\w*|miracle\w*)\b/i;
-// Downbeat / not-actually-good signals that slip past the tragedy filter —
-// market slumps, layoffs, bans, criticism, climate stress. Excluded even when a
-// positive word is present, to match the /good-news page's stricter gate.
-const GOOD_NEWS_NEGATIVE =
-  /\b(?:selloff|sell-off|tumbl\w*|plung\w*|slump\w*|layoff\w*|job cuts|recall\w*|lawsuit\w*|guilty|\bban\b|bans\b|banned|suspend\w*|penalt\w*|warn\w*|shortage\w*|hike\w*|slash\w*|slam\w*|criticiz\w*|criticis\w*|controvers\w*|backlash|feud\w*|scandal|probe|resign\w*|boycott\w*|strike\w*|breach\w*|hack\w*|fraud\w*|bankrupt\w*|heat ?wave\w*|drought\w*|foreclosur\w*)\b/i;
+// Patterns live in youtubeScannerPolicy.ts (shared with the admin review page).
+const GOOD_NEWS = new RegExp(GOOD_NEWS_POSITIVE_PATTERN, "i");
+const GOOD_NEWS_NEGATIVE = new RegExp(GOOD_NEWS_NEGATIVE_PATTERN, "i");
 
 function looksLikeGoodNews(title) {
   if (!title) return false;
@@ -30,66 +25,12 @@ function looksLikeGoodNews(title) {
 }
 
 // Pull each outlet's latest uploads via its uploads playlist — 1 quota unit per
-// call, vs 100 per keyword search. (Topic-driven discovery is now handled
-// manually via the Categories page + Dispatch; this agent only watches the
-// established news outlets for their newest headlines.)
+// call, vs 100 per keyword search. Topic-driven discovery is manual via URL
+// intake / Dispatch; this agent only watches the established news outlets.
 const YT_PLAYLIST = "https://www.googleapis.com/youtube/v3/playlistItems";
 
-// Allow-list of news outlets + talk/panel/commentary shows, by exact YouTube
-// channel ID (the Front Page features talk-show segments). Using IDs (not title
-// substrings) keeps out foreign affiliates that share a name — e.g. US "CNN" vs
-// India's "CNN-News18". Editorial policy; easy to adjust here. Includes major
-// US outlets plus international English-language broadcasters that cover US
-// politics heavily (their lean is graded by the classifier like any other).
-const NETWORK_CHANNEL_IDS = [
-  "UCupvZG-5ko_eiXAupbDfxWw", // CNN
-  "UCXIJgqnII2ZOINSWNOGFThA", // Fox News
-  "UCCXoCcu9Rp7NPbTzIvogpZg", // Fox Business
-  "UCaXkIU1QidjPwiAYu6GcHjg", // MSNBC (now "MS NOW")
-  "UCBi2mrWuNuyYy4gbM6fU18Q", // ABC News
-  "UC8p1vwvWtl6T73JiExfWs1g", // CBS News
-  "UCeY0bbntWzzVIaj2z3QigXg", // NBC News
-  "UC6ZFN9Tx6xh-skXCuRHCDpQ", // PBS NewsHour
-  "UCCjG8NtOig0USdrT5D1FpxQ", // NewsNation
-  "UCb--64Gl51jIEVE-GLDAVTg", // C-SPAN
-  "UChqUTb7kYRX8-EiaN3XFrSQ", // Reuters
-  "UC52X5wxOL_s5yw0dQk7NtgA", // Associated Press
-  "UCIALMKvObZNtJ6AmdCLP7Lg", // Bloomberg Television
-  "UChirEOpgFCupRAk5etXqPaA", // Bloomberg News
-  "UCvJJ_dzjViJCoLf5uKUTwoA", // CNBC
-  "UCPWXiRWZ29zrxPFIQT7eHSA", // The Hill
-  "UCHd62-u_v4DvJ8TCFtpi4GA", // Washington Post
-  "UCK7tptUDHh-RYDsdxO1-5QQ", // The Wall Street Journal
-  "UCP6HGa63sBC7-KHtkme-p-g", // USA TODAY
-  "UCgjtvMmHXbutALaw9XzRkAg", // POLITICO
-  "UCJnS2EsPfv46u1JR8cnD0NA", // NPR
-  "UCg40OxZ1GYh3u3jBntB6DLg", // Forbes Breaking News
-  // Talk shows / panels / roundtables / late-night political (their own
-  // channels — the networks above also upload their panel shows: Fox & Friends,
-  // The Five, Morning Joe, Meet the Press, etc.).
-  "UCeH6qE4V7n5tVwP7NkdrtJg", // The View
-  "UCwWhs_6x42TyRM4Wstoq8HA", // The Daily Show (Jon Stewart)
-  "UC3XTzVzaHQEd30rQbuvCtTQ", // Last Week Tonight
-  "UCy6kyFxaMqGtpE3pQTflK8A", // Real Time with Bill Maher
-  // International English-language outlets with heavy US coverage.
-  "UC16niRr50-MSBwiO3YDb3RA", // BBC News
-  "UCoMdktPbSTixAyNGwb-UYkQ", // Sky News
-  "UCIRYBXDze5krPDzAEOxFGVA", // Guardian News
-  "UCNye-wNBqNL5ZzHSJj3l8Bg", // Al Jazeera English
-  "UCknLrEdhRCp1aegoMqRaCZg", // DW News
-  "UCQfwfsi5VrQ8yKZ-UWmAEFg", // France 24 English
-  "UCuFFtHWoLl5fauMMD5Ww2jA", // CBC News
-  "UChLtXXpo4Ge1ReTEboVvTDg", // Global News
-  // UK news + commentary — much of it (free-speech debates, immigration, knife
-  // crime, grooming-gang cases) resonates in US political discourse.
-  "UCatt7TBjfBkiJWx8khav_Gg", // Piers Morgan Uncensored
-  "UC0vn8ISa4LKMunLbzaXLnOQ", // GB News
-  "UCm0yTweyAa0PwEIp0l3N_gA", // TalkTV
-  "UCPgLNge0xqQHWM5B5EFH9Cg", // The Telegraph
-  "UCTrQ7HXWRRxr7OsOtodr2_w", // Channel 4 News
-  "UCIzXayRP7-P0ANpq-nD-h5g", // The Sun
-  "UCFQgi22Ht00CpaOQLtvZx2A", // ITV News
-];
+// Channel allow-list: src/lib/youtubeScannerPolicy.ts (also shown in admin).
+const NETWORK_CHANNEL_IDS = YOUTUBE_SCANNER_CHANNEL_IDS;
 
 // Run one scan: gather the newest headlines across the news outlets, then draft
 // the most-recent transcribed ones (up to maxPublishesPerRun).

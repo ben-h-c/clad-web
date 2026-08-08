@@ -190,6 +190,35 @@ const updated = "June 16, 2026";
       you play a video. You can control cookies through your browser settings;
       disabling the session cookie will prevent you from staying signed in.
     </p>
+    <p>
+      We run a <strong>first-party, privacy-preserving analytics</strong> script
+      (no third-party analytics vendors) so we can understand which pages and
+      videos are useful and improve the product. It is designed in the spirit of
+      tools like Plausible and Fathom:
+    </p>
+    <ul>
+      <li>No advertising cookies and no cross-site tracking.</li>
+      <li>
+        We store only <strong>aggregates</strong>: page path (without query
+        strings), approximate engaged time, coarse device class, coarse country
+        (from the CDN), referrer <em>host</em> only, and optional video play /
+        watch milestones for embedded source clips.
+      </li>
+      <li>
+        We do <strong>not</strong> store names, emails, account IDs, raw IP
+        addresses, full user-agent strings, form contents, or precise location.
+      </li>
+      <li>
+        A random id may live in <code>sessionStorage</code> for the duration of
+        a browser tab only (not a cookie) so we can approximate sessions; it is
+        not linked to your account and rotates with a daily hash server-side.
+      </li>
+      <li>
+        We honor browser <strong>Do Not Track</strong> and
+        <strong> Global Privacy Control</strong> signals by not recording those
+        visits.
+      </li>
+    </ul>
 
     <h3 class="static-page__sub">7. Data retention</h3>
     <p>
