@@ -104,8 +104,8 @@ export const DEFAULT_HOME_ORDER: HomeSectionId[] = [
 const PROTECTED = new Set<HomeSectionId>([
   ...FIXED_HOME_TOP,
   "election-map",
-  "more-feed", // infinite “For you” near the bottom
-  "more", // always last on the page
+  "more-feed", // infinite “Keep reading” near the bottom
+  "more", // always last on the page (“Explore more”)
 ]);
 
 const SECTION_SET = new Set<HomeSectionId>(DEFAULT_HOME_ORDER);
@@ -236,7 +236,7 @@ export function isHomeLayoutFresh(
  *   3. front-page
  *   4. lean (coverage lean — always under Front Page)
  * Everything else may be reordered/hidden by the curator.
- * “Keep reading” (more) is always last.
+ * “Explore more” (more) is always last.
  */
 export function resolveHomeOrder(
   store: HomeLayoutStore | null | undefined,
@@ -269,7 +269,7 @@ export function resolveHomeOrder(
     middle.push(id);
   }
 
-  // Fixed top + flexible middle + For you feed + Keep reading last.
+  // Fixed top + flexible middle + Keep reading feed + Explore more last.
   return [...FIXED_HOME_TOP, ...middle, "more-feed", "more"];
 }
 
@@ -320,7 +320,7 @@ function hashSeed(s: string): number {
  * cards into random gaps between other home sections.
  *
  * - Never breaks the FIXED_HOME_TOP stack (Today → Breaking → Front → Lean).
- * - Never places a topic after "more" (Keep reading stays last).
+ * - Never places a topic after "more" (Explore more stays last).
  * - Placement is seeded (default: seed string) so a given day is stable.
  *
  * `topicCount` is how many topic cards are available; only the first
@@ -350,7 +350,7 @@ export function interleaveHomeTopics(
     const next = items[i + 1]!;
     if (cur.kind !== "section" || next.kind !== "section") continue;
     if (next.id === "more") {
-      // Allow insert just before Keep reading.
+      // Allow insert just before Explore more.
       gapAfter.push(i);
       continue;
     }

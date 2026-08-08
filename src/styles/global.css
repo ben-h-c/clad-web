@@ -3444,7 +3444,7 @@ html.theme-dark .peek-pop__panel {
   color: var(--paper);
 }
 
-/* Home bottom “For you” infinite feed — compact cards, 16 per page */
+/* Home bottom “Keep reading” infinite feed — compact cards, 16 per page */
 .home-more-feed {
   margin-top: 1rem;
   margin-bottom: 0.35rem;

@@ -312,7 +312,7 @@ const goodNewsPosts = postsFromSections(
 // Decorative marquee — loads after the main story rows so crawlers hit real content first.
 const quips = quipsStore ?? [];
 
-// Bottom “For you” feed — day-seeded shuffle excluding stories already on home.
+// Bottom “Keep reading” feed — day-seeded shuffle excluding stories already on home.
 const homeMoreExclude = new Set<string>();
 for (const p of heroPosts) homeMoreExclude.add(p.id);
 for (const it of breaking) {
@@ -528,7 +528,7 @@ const homeMorePosts = homeMorePage.page
           {item.kind === "section" && item.id === "more" && (
             <section class="more-clad" aria-labelledby="more-clad-title">
               <div class="feed__head">
-                <h2 class="feed__title" id="more-clad-title">Keep reading</h2>
+                <h2 class="feed__title" id="more-clad-title">Explore more</h2>
               </div>
               <div class="rule rule--double" aria-hidden="true"></div>
               <ul class="more-clad__list">

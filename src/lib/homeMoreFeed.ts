@@ -1,5 +1,5 @@
 /**
- * Bottom-of-home “For you” feed: day-seeded shuffle of posts the reader has
+ * Bottom-of-home “Keep reading” feed: day-seeded shuffle of posts the reader has
  * not already seen higher on the page (front page, breaking, discover, etc.).
  * Served 16 at a time with Load more / infinite-scroll continuation.
  */

@@ -1,5 +1,5 @@
 /**
- * JSON pages for the home “For you” infinite feed.
+ * JSON pages for the home “Keep reading” infinite feed.
  * Same gating as /api/posts.json — grades/lean null for restricted readers.
  */
 import type { APIRoute } from "astro";
