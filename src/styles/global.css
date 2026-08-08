@@ -7076,9 +7076,7 @@ html.clad-app .issue-row__stats {
     2px 2px 0 color-mix(in srgb, var(--shadow) 28%, transparent),
     0 10px 22px color-mix(in srgb, var(--shadow) 14%, transparent);
 }
-.home-emap__card {
-  box-shadow: 0 10px 24px color-mix(in srgb, var(--shadow) 18%, transparent);
-}
+/* home-emap card sits on page paper — no elevated module shadow */
 .home-more-analytics {
   margin: 1.75rem 0 0.5rem;
   padding: 0.85rem 1rem;
@@ -9044,6 +9042,7 @@ a.topic-tag:hover { border-color: var(--ink); text-decoration: underline; }
 }
 
 /* ---------- Homepage midterms map teaser (view-only → /elections/map/) ---------- */
+/* One continuous --paper surface: rails + map float; no nested well / side shades. */
 .home-emap {
   margin: 1.75rem 0 1.25rem;
 }
@@ -9054,15 +9053,12 @@ a.topic-tag:hover { border-color: var(--ink); text-decoration: underline; }
   color: inherit;
   margin-top: 0.65rem;
   padding: 0.85rem 0.9rem 0.75rem;
-  border: 1px solid color-mix(in srgb, var(--rule) 72%, transparent);
+  border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
   border-radius: 4px;
-  background-color: var(--card);
-  background-image:
-    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(255, 248, 230, 0.4), transparent 55%),
-    linear-gradient(165deg, color-mix(in srgb, var(--card) 75%, #fff8e4) 0%, var(--card-deep) 100%);
-  box-shadow:
-    0 1px 0 color-mix(in srgb, #fff 45%, transparent),
-    var(--shadow-sm);
+  /* Match page paper so left rail / map / right rail share one fill */
+  background-color: var(--paper);
+  background-image: none;
+  box-shadow: none;
   transition:
     transform var(--dur-card) var(--ease-out),
     box-shadow var(--dur-card) var(--ease-out),
@@ -9071,15 +9067,13 @@ a.topic-tag:hover { border-color: var(--ink); text-decoration: underline; }
 .home-emap__card:hover,
 .home-emap__card:focus-within {
   border-color: color-mix(in srgb, var(--accent) 35%, var(--rule));
-  box-shadow:
-    0 1px 0 color-mix(in srgb, #fff 50%, transparent),
-    var(--shadow-md);
+  box-shadow: var(--shadow-sm);
   transform: translateY(-2px);
 }
 :root[data-theme="dark"] .home-emap__card,
 html.theme-dark .home-emap__card {
   background-image: none;
-  background-color: var(--card);
+  background-color: var(--paper);
 }
 
 /* Full prose summary for assistive tech; visual glance stats live in strip/rails */
@@ -9147,18 +9141,17 @@ html.theme-dark .home-emap__card {
   color: inherit;
   min-width: 0;
   margin: 0;
-  /* Full-bleed of the card interior on mobile */
+  /* Full-bleed of the card interior on mobile — same surface as card */
   margin-inline: -0.9rem;
   border: 0;
-  border-block: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
   border-radius: 0;
+  /* Soft vignette only — no solid tray fill (avoids side-gutter shade) */
   background:
     radial-gradient(
       ellipse 72% 68% at 50% 46%,
-      color-mix(in srgb, var(--paper) 35%, transparent) 0%,
-      transparent 62%
-    ),
-    color-mix(in srgb, var(--paper-deep) 82%, var(--paper));
+      color-mix(in srgb, var(--ink) 3%, transparent) 0%,
+      transparent 68%
+    );
   overflow: hidden;
   outline: none;
   transition: border-color var(--dur-card) var(--ease-out);
@@ -9268,10 +9261,10 @@ html.theme-dark .home-emap__card {
   }
   .home-emap__map {
     margin-inline: 0;
-    border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
-    border-radius: 4px;
-    /* Soft inset well + vignette so the continent pops */
-    box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 8%, transparent);
+    /* No inner map border — only the outer card rule remains */
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
   .home-emap__svg {
     max-height: min(52vh, 28rem);
@@ -9307,15 +9300,16 @@ html.theme-dark .home-emap__card {
     flex-direction: column;
     gap: 0.35rem;
   }
+  /* Floating labels — hairline only, no chip fill */
   .home-emap__chip {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.05rem;
-    padding: 0.35rem 0.5rem;
-    border: 1px solid color-mix(in srgb, var(--rule) 65%, transparent);
+    padding: 0.3rem 0.45rem;
+    border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
     border-radius: 6px;
-    background: color-mix(in srgb, var(--paper-deep) 55%, var(--card));
+    background: transparent;
     min-width: 3.25rem;
   }
   .home-emap__chip-code {
@@ -9573,9 +9567,9 @@ html.theme-dark .home-emap__card {
   align-items: baseline;
   gap: 0.28rem;
   padding: 0.22rem 0.45rem;
-  border: 1px solid color-mix(in srgb, var(--rule) 65%, transparent);
+  border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
   border-radius: 6px;
-  background: color-mix(in srgb, var(--paper-deep) 45%, var(--card));
+  background: transparent;
 }
 .home-emap__chips--row .home-emap__chip-code {
   font-family: var(--font-display);
