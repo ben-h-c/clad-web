@@ -3206,6 +3206,7 @@ html.theme-dark .peek-pop__panel {
   transform: none;
   filter: saturate(1.04) contrast(1.03);
 }
+/* Soft continuous dissolve — lighter top, longer bottom fade (matches history cards) */
 .topic-row__scrim {
   position: absolute;
   inset: 0;
@@ -3214,14 +3215,15 @@ html.theme-dark .peek-pop__panel {
   background:
     linear-gradient(
       180deg,
-      rgba(8, 10, 14, 0.18) 0%,
-      rgba(8, 10, 14, 0.12) 28%,
-      rgba(8, 10, 14, 0.52) 58%,
-      rgba(8, 10, 14, 0.88) 100%
+      rgba(8, 10, 14, 0.06) 0%,
+      rgba(8, 10, 14, 0.08) 22%,
+      rgba(8, 10, 14, 0.28) 48%,
+      rgba(8, 10, 14, 0.62) 72%,
+      rgba(8, 10, 14, 0.86) 100%
     ),
     linear-gradient(
       90deg,
-      rgba(8, 10, 14, 0.28) 0%,
+      rgba(8, 10, 14, 0.18) 0%,
       transparent 55%
     );
 }
@@ -8353,7 +8355,7 @@ html.clad-app .home-cal__dialog {
 }
 
 /* ── Today in history (homepage fun facts under Best & Worst) ─────────── */
-/* Soft continuous fade: natural-height media dissolves under type; low-definition card edges. */
+/* Full-bleed photo fills the card; type sits on a bottom scrim dissolve — no hard panel seam. */
 .today-hist {
   margin: 1.5rem 0 0.5rem;
 }
@@ -8380,28 +8382,32 @@ html.clad-app .home-cal__dialog {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: none;
-  /* Continuous paper gradient — one surface with the photo fade */
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--paper) 55%, var(--card)) 0%,
-    color-mix(in srgb, var(--paper) 72%, var(--card)) 42%,
-    color-mix(in srgb, var(--paper) 78%, var(--card)) 100%
-  );
+  background: color-mix(in srgb, var(--paper) 78%, var(--card));
   box-sizing: border-box;
+}
+/* Media cards: photo fills the shell; type pinned to bottom over fade */
+.today-hist__item--media {
+  position: relative;
+  justify-content: flex-end;
+  min-height: clamp(16rem, 52vw, 22rem);
 }
 /* No-image cards: quiet paper pad only */
 .today-hist__item:not(.today-hist__item--media) {
   padding: 0.85rem;
 }
-/* Natural-height media band — never full-card stretch */
+/* Full-bleed media — absolute fill, never warped (cover crops only) */
 .today-hist__media {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  aspect-ratio: auto;
+  max-height: none;
   overflow: hidden;
   border: 0;
   border-radius: 0;
   background: var(--paper-deep);
+  z-index: 0;
 }
 .today-hist__media img {
   width: 100%;
@@ -8409,54 +8415,32 @@ html.clad-app .home-cal__dialog {
   object-fit: cover;
   object-position: center top;
   display: block;
-  /* Long multi-stop dissolve — no hard photo/panel seam */
-  -webkit-mask-image: linear-gradient(
-    180deg,
-    #000 0%,
-    #000 26%,
-    rgba(0, 0, 0, 0.82) 48%,
-    rgba(0, 0, 0, 0.45) 68%,
-    rgba(0, 0, 0, 0.14) 86%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    180deg,
-    #000 0%,
-    #000 26%,
-    rgba(0, 0, 0, 0.82) 48%,
-    rgba(0, 0, 0, 0.45) 68%,
-    rgba(0, 0, 0, 0.14) 86%,
-    transparent 100%
-  );
+  /* Full image stays; fade is the separate scrim layer */
+  -webkit-mask-image: none;
+  mask-image: none;
 }
-/* Fallback soft edge when mask-image is unsupported */
-@supports not ((-webkit-mask-image: linear-gradient(#000, transparent)) or (mask-image: linear-gradient(#000, transparent))) {
-  .today-hist__media::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 55%;
-    pointer-events: none;
-    background: linear-gradient(
-      180deg,
-      transparent 0%,
-      color-mix(in srgb, var(--paper) 55%, var(--card)) 100%
-    );
-  }
+/* Card-tall paper gradient — photo dissolves under type at bottom */
+.today-hist__fade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 28%,
+    color-mix(in srgb, var(--paper) 35%, transparent) 48%,
+    color-mix(in srgb, var(--paper) 78%, var(--card)) 72%,
+    color-mix(in srgb, var(--paper) 92%, var(--card)) 100%
+  );
 }
 .today-hist__text {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   min-width: 0;
-  flex: 1;
-  padding: 0.85rem;
-}
-/* Overlap type into the long fade so photo dissolves under headline */
-.today-hist__item--media .today-hist__text {
-  margin-top: -1.6rem;
-  padding-top: 0;
+  flex: 0 0 auto;
+  margin-top: 0;
+  padding: 1.1rem 0.9rem 0.9rem;
 }
 .today-hist__headline {
   margin: 0;
@@ -8577,7 +8561,7 @@ html.clad-app .home-cal__dialog {
 
 /*
  * iOS app only: swipe horizontally through history cards.
- * Web/desktop keep the vertical list. Same soft fade + natural band.
+ * Web/desktop keep the vertical list. Same full-bleed + bottom scrim.
  */
 html.clad-app .today-hist__list {
   flex-direction: row;
@@ -8602,13 +8586,15 @@ html.clad-app .today-hist__item {
   flex: 0 0 min(82vw, 17.5rem);
   max-width: min(82vw, 17.5rem);
   scroll-snap-align: start;
-  min-height: 100%;
   box-sizing: border-box;
 }
-/* Photo-proportioned band on app cards — never vertically stretched full-card */
+/* Full-bleed app cards — room for portrait + landscape without warp */
+html.clad-app .today-hist__item--media {
+  min-height: 19rem;
+}
 html.clad-app .today-hist__media {
-  aspect-ratio: 16 / 10;
-  max-height: 9rem;
+  aspect-ratio: auto;
+  max-height: none;
 }
 html.clad-app .today-hist__body {
   display: -webkit-box;

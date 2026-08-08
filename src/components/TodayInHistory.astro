@@ -81,17 +81,20 @@ const wrapClass = ["today-hist", Astro.props.class].filter(Boolean).join(" ");
           id={it.id}
         >
           {(it.imageUrl || it.poster) && (
-            <div class="today-hist__media" aria-hidden="true">
-              <img
-                src={it.imageUrl || it.poster || ""}
-                alt=""
-                width="640"
-                height="400"
-                loading="lazy"
-                decoding="async"
-                referrerpolicy="no-referrer"
-              />
-            </div>
+            <>
+              <div class="today-hist__media" aria-hidden="true">
+                <img
+                  src={it.imageUrl || it.poster || ""}
+                  alt=""
+                  width="640"
+                  height="400"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                />
+              </div>
+              <div class="today-hist__fade" aria-hidden="true"></div>
+            </>
           )}
           <div class="today-hist__text">
             <p class="today-hist__headline">
