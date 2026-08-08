@@ -1,8 +1,8 @@
 ---
 /**
  * Homepage "Today in history" — max 5 callouts for this month-day.
- * Optional Commons thumbs + YouTube embeds (click-to-play facade).
- * Collapsed Share button expands full ShareBar.
+ * Full-bleed only for Commons imageUrl (never YouTube posters as hero art).
+ * Optional YouTube embeds via click-to-play; Share expands ShareBar.
  */
 import ShareBar from "~/components/ShareBar.astro";
 import type { TodayInHistoryStore } from "~/lib/agents";
@@ -52,9 +52,6 @@ const items = show
           it.imageUrl && isCommonsMediaUrl(it.imageUrl) ? it.imageUrl : null,
         videoId,
         embed: videoId ? embedUrl(videoId) : null,
-        poster: videoId
-          ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
-          : null,
         shareUrl: `${origin}/#today-hist-${slug}`,
         shareTitle,
         shareHook: `${it.body}\n\nToday in history · ${dateLabel} on CladFacts`,
@@ -76,15 +73,16 @@ const wrapClass = ["today-hist", Astro.props.class].filter(Boolean).join(" ");
         <li
           class:list={[
             "today-hist__item",
-            (it.imageUrl || it.poster) && "today-hist__item--media",
+            /* Full-bleed only for real Commons stills — never YouTube title-card posters */
+            it.imageUrl && "today-hist__item--media",
           ]}
           id={it.id}
         >
-          {(it.imageUrl || it.poster) && (
+          {it.imageUrl && (
             <>
               <div class="today-hist__media" aria-hidden="true">
                 <img
-                  src={it.imageUrl || it.poster || ""}
+                  src={it.imageUrl}
                   alt=""
                   width="640"
                   height="400"

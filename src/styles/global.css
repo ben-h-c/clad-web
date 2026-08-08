@@ -8389,9 +8389,10 @@ html.clad-app .home-cal__dialog {
 .today-hist__item--media {
   position: relative;
   justify-content: flex-end;
-  min-height: clamp(16rem, 52vw, 22rem);
+  /* Slightly taller so photo owns the upper card (match mock) */
+  min-height: clamp(17rem, 54vw, 23rem);
 }
-/* No-image cards: quiet paper pad only */
+/* No-image cards: quiet paper pad only — no gray hole, no YT thumb */
 .today-hist__item:not(.today-hist__item--media) {
   padding: 0.85rem;
 }
@@ -8419,7 +8420,7 @@ html.clad-app .home-cal__dialog {
   -webkit-mask-image: none;
   mask-image: none;
 }
-/* Card-tall paper gradient — photo dissolves under type at bottom */
+/* Longer clear top (~40–45% pure photo), then multi-stop paper dissolve under type */
 .today-hist__fade {
   position: absolute;
   inset: 0;
@@ -8428,10 +8429,11 @@ html.clad-app .home-cal__dialog {
   background: linear-gradient(
     180deg,
     transparent 0%,
-    transparent 28%,
-    color-mix(in srgb, var(--paper) 35%, transparent) 48%,
-    color-mix(in srgb, var(--paper) 78%, var(--card)) 72%,
-    color-mix(in srgb, var(--paper) 92%, var(--card)) 100%
+    transparent 42%,
+    color-mix(in srgb, var(--paper) 22%, transparent) 58%,
+    color-mix(in srgb, var(--paper) 55%, transparent) 70%,
+    color-mix(in srgb, var(--paper) 82%, var(--card)) 84%,
+    color-mix(in srgb, var(--paper) 94%, var(--card)) 100%
   );
 }
 .today-hist__text {
@@ -8448,6 +8450,11 @@ html.clad-app .home-cal__dialog {
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.25;
+}
+/* Soft legibility lift when type sits on photo (media cards only) */
+.today-hist__item--media .today-hist__headline,
+.today-hist__item--media .today-hist__body {
+  text-shadow: 0 1px 2px color-mix(in srgb, var(--paper) 55%, transparent);
 }
 .today-hist__year {
   color: var(--muted-ink);
@@ -8467,6 +8474,11 @@ html.clad-app .home-cal__dialog {
   font-size: 0.88rem;
   line-height: 1.4;
   color: var(--muted-ink);
+  /* Web: compact type so photo stays dominant */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
 }
 /* Compact action row: Play video + Share (no full frame until opened) */
 .today-hist__actions {
@@ -8588,18 +8600,19 @@ html.clad-app .today-hist__item {
   scroll-snap-align: start;
   box-sizing: border-box;
 }
-/* Full-bleed app cards — room for portrait + landscape without warp */
+/* Full-bleed app cards — taller so photo owns upper half (match mock) */
 html.clad-app .today-hist__item--media {
-  min-height: 19rem;
+  min-height: 22rem;
 }
 html.clad-app .today-hist__media {
   aspect-ratio: auto;
   max-height: none;
 }
+/* App: tighter body so type block stays compact under the photo */
 html.clad-app .today-hist__body {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 3;
   overflow: hidden;
 }
 html.clad-app .today-hist__actions {
