@@ -9586,9 +9586,22 @@ html.clad-app section.charts.home-app-only {
 .home-features {
   margin: 0.35rem 0 1.15rem;
 }
-/* People strip: portrait crop (faces) rather than landscape news stills */
+/*
+ * People in the news: portrait-leaning cards + head-and-shoulders focus.
+ * The shared strip is landscape (news stills); stuffing tight official
+ * portraits into that frame with cover + object-position 18% + scale(1.04)
+ * produced forehead crops (e.g. Trump). Narrower/taller tiles show a full
+ * face; no extra zoom so the photo reads as intentional framing.
+ */
+.home-features--politicians .home-features__item,
+.home-features--politicians .home-features__slide {
+  flex: 0 0 min(78vw, 22rem);
+  max-width: 22rem;
+  min-height: clamp(17rem, 50vw, 21.5rem);
+}
 .home-features--politicians .media-hero__bg img {
-  object-position: center 18%;
+  object-position: center 22%;
+  transform: none;
 }
 .home-features--politicians .media-hero__title {
   font-size: clamp(1.25rem, 2.8vw, 1.75rem);
@@ -9656,6 +9669,12 @@ html.clad-app section.charts.home-app-only {
     max-width: 36rem;
     min-height: clamp(15rem, 28vw, 19rem);
   }
+  .home-features--politicians .home-features__item,
+  .home-features--politicians .home-features__slide {
+    flex-basis: min(42%, 22.5rem);
+    max-width: 22.5rem;
+    min-height: clamp(17.5rem, 26vw, 21.5rem);
+  }
 }
 @media (max-width: 560px) {
   .home-features__item,
@@ -9663,6 +9682,12 @@ html.clad-app section.charts.home-app-only {
     flex-basis: min(92vw, 22rem);
     max-width: 22rem;
     min-height: 15.5rem;
+  }
+  .home-features--politicians .home-features__item,
+  .home-features--politicians .home-features__slide {
+    flex-basis: min(86vw, 20rem);
+    max-width: 20rem;
+    min-height: 18rem;
   }
   .home-features__strip {
     gap: 0.65rem;
