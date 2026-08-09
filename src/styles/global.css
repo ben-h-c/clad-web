@@ -3140,13 +3140,28 @@ html.theme-dark .peek-pop__panel {
   }
 }
 
+/* Solo home inserts: taller cinematic media presence (not multi-col density). */
+.topic-rows--solo .topic-row--media {
+  min-height: 11.5rem;
+}
+@media (min-width: 720px) {
+  .topic-rows--solo .topic-row--media {
+    min-height: 13rem;
+  }
+}
+@media (min-width: 1100px) {
+  .topic-rows--solo .topic-row--media {
+    min-height: 14rem;
+  }
+}
+
 .topic-row-item {
   margin: 0;
   padding: 0;
   min-width: 0;
 }
 
-/* Topic row — compact full-bleed media tile (original height). */
+/* Topic row — full-bleed media tile (dual-layer ambient fill). */
 .topic-row {
   position: relative;
   isolation: isolate;
@@ -3196,15 +3211,35 @@ html.theme-dark .peek-pop__panel {
   z-index: 0;
   overflow: hidden;
 }
+/* Shared media fill base — both bloom and subject use cover + focus. */
 .topic-row__bg img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Focus set inline from pickTopicStill; no extra zoom scale. */
+  /* Focus set inline from pickTopicStill. */
   object-position: center 40%;
   display: block;
-  transform: none;
+}
+/* Ambient color fill: kills L/R black gutters on letterboxed/sparse stills. */
+.topic-row__bg-bloom {
+  z-index: 0;
+  transform: scale(1.4);
+  transform-origin: center center;
+  filter: blur(30px) saturate(1.18) brightness(0.9);
+  opacity: 0.78;
+}
+/* Subject layer: mild zoom so hero subject fills more of the tile. */
+.topic-row__bg-subject {
+  z-index: 1;
+  transform: scale(1.1);
+  transform-origin: center center;
   filter: saturate(1.04) contrast(1.03);
+}
+/* Full-width solo inserts: crop in slightly more so subjects read cinematic. */
+.topic-rows--solo .topic-row__bg-subject {
+  transform: scale(1.14);
 }
 /* Soft continuous dissolve — lighter top, longer bottom fade (matches history cards) */
 .topic-row__scrim {
@@ -3223,8 +3258,9 @@ html.theme-dark .peek-pop__panel {
     ),
     linear-gradient(
       90deg,
-      rgba(8, 10, 14, 0.18) 0%,
-      transparent 55%
+      rgba(8, 10, 14, 0.22) 0%,
+      rgba(8, 10, 14, 0.08) 38%,
+      transparent 58%
     );
 }
 
@@ -3417,6 +3453,10 @@ html.theme-dark .peek-pop__panel {
     min-height: 7.75rem;
     padding: 0.75rem 0.8rem 0.8rem;
     border-radius: 14px;
+  }
+  /* Solo inserts stay taller than multi-col tiles; slightly less than desktop. */
+  .topic-rows--solo .topic-row--media {
+    min-height: 10.5rem;
   }
   .topic-row__name {
     font-size: 1.08rem;

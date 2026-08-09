@@ -57,8 +57,24 @@ const rowClass = [
 <a class={rowClass} href={`/topics/${topic.slug}/`}>
   {thumb ? (
     <>
+      {/*
+        Dual-layer fill: bloom paints letterboxed/sparse stills with ambient
+        color; subject sits on top with mild zoom + pickTopicStill focus.
+      */}
       <span class="topic-row__bg" aria-hidden="true">
         <img
+          class="topic-row__bg-bloom"
+          src={thumb}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          width="640"
+          height="360"
+          style={`object-position: ${objectPosition}`}
+          onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')"
+        />
+        <img
+          class="topic-row__bg-subject"
           src={thumb}
           alt=""
           loading="lazy"
