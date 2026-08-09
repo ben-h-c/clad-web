@@ -82,6 +82,8 @@ Admin paths force dark via `data-force-theme="dark"`.
 
 - **Cards / modules:** existing home modules, `media-hero`, category rails with `.category__more`.
 - **Topic media tiles (`TopicRow`):** dual-layer stills — `.topic-row__bg-bloom` (cover + heavy blur + scale) under `.topic-row__bg-subject` (cover + mild zoom + `thumbFocus*`). Kills letterbox gutters without new art. Solo home inserts (`.topic-rows--solo`) use taller cinematic min-heights; multi-col grids keep density.
+- **Always-image report/strip cards:** every card shows 16:9 art (YT still or owned `/generated/` illustration). Do not design empty media voids; hide-photo is not a product option. See `docs/decisions.md` + clad-design skill.
+- **Spotlight monogram:** when no valid Commons portrait, show monogram underlay (not broken-image icon).
 - **Grades:** pastel grade chips / scoreboard patterns already on post cards.
 - **Admin:** `.admin`, `.stat-grid`, `.stat-table`, `AdminNav` grouped desk.
 - **Auth:** `.auth-form`, soft status messages — not heavy modals unless needed.

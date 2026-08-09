@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-09 — Knowledge maintain: media lessons into skills + memory
+
+**Status:** accepted  
+**Context:** Bootcamp left always-image and Commons hygiene mainly in this log; skills and project Grok Memory were thin.  
+**Decision:** Fold those operational rules into `clad-web` / `clad-design` / `clad-test` / `clad-product` skills, `docs/platform-brief.md` §6, `docs/design-system.md` patterns, and seed `~/.grok/memory/clad-web-fb55f351/MEMORY.md`. Global memory points at cold-start + media bullets. No full-site rescan.  
+**Consequences:** Cold starts should not re-litigate hide-photo vs illustration or invent Commons widths.
+
 ## 2026-08-08 — Commons thumbs: no invented widths + validate before store
 
 **Status:** accepted  

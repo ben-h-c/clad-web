@@ -42,10 +42,32 @@ description: >
 | Analytics admin | `/admin/analytics/` |
 | YT scanner policy | `src/lib/youtubeScannerPolicy.ts`, `/admin/youtube-scanner/` |
 | Today in history | `runner/todayInHistory.mjs`, KV `home:today-in-history`, Commons-only heroes |
+| Human spotlight | runner + KV; Commons portrait only if wiki title matches person |
+| Commons hygiene | `src/lib/commonsMedia.ts`, `runner/commonsMedia.mjs` |
 | Home layout | `src/lib/homeLayout.ts` FIXED_HOME_TOP + DEFAULT_HOME_ORDER |
 | Access choke point | `src/lib/access.ts` |
 | Anon leak guard | `scripts/checkAnonLeak.mjs` |
 | Image license | YouTube own still or `/generated/` only; `docs/legal/image-claims.md` |
+
+## Media pipeline (do not re-litigate)
+
+**Always-image (report cards / strips)** — see `docs/decisions.md` 2026-08-08:
+
+- Vision scores `stillQuality`: `pass` | `weak` | `fail`.
+- **`fail` → generate site-owned editorial art under `/generated/`**, set `mediaStyle: overlay`; keep `stillQuality: fail` as audit of the *broadcast* still.
+- Editor controls: **Use photo** / **Use illustration** / **Force show** (YT still even on fail).
+- **Hide-photo is not a product option** for strip cards. Empty “Hold for preview” tiles are a bug.
+- If generation fails, fall back to YT still (not a blank void).
+- Legal: only own YT still or `/generated/` (`docs/legal/image-claims.md`). Economy/bulk may skip vision and keep the still.
+
+**Commons thumbs & portraits:**
+
+- Shared hygiene: `src/lib/commonsMedia.ts` + `runner/commonsMedia.mjs`.
+- Strip query params; **never invent unchecked widths** (arbitrary 440/640 often 400). Safe candidates **330 → 500 → 960** only with HEAD/GET validation before writing `imageUrl` to AGENTS KV.
+- Re-enrich same-day packs when a stored URL fails validation (not only when null).
+- **Human Spotlight:** accept Commons portrait only when Wikipedia title clearly matches the person; else `imageUrl = null` and UI monogram. Monogram underlay + `onerror` remove.
+- **Today in history:** Commons-only heroes (no YouTube posters); multi-fallback resolve; on image error drop media layer (no broken `?` glyph).
+- Politician portraits: Commons via `/api/politician-photo/`.
 
 ## Coding norms
 

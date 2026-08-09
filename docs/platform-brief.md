@@ -106,9 +106,27 @@ If a new public endpoint 401s, it was forgotten on the allowlist (analytics coll
 ## 6. Content & images
 
 - Posts: `src/content/posts/*.md` frontmatter + body.
-- **Image policy:** post art = own YouTube still **or** `/generated/` only. See `docs/legal/image-claims.md`. CI: `scripts/checkImageLicense.mjs`.
-- Today in history heroes: **Commons only** (`upload.wikimedia.org/wikipedia/commons/…`), multi-fallback resolve in `runner/todayInHistory.mjs`.
-- Politician portraits: Commons via proxy `/api/politician-photo/`.
+- **Image policy (legal):** post art = own YouTube still **or** `/generated/` only. See `docs/legal/image-claims.md`. CI: `scripts/checkImageLicense.mjs`.
+
+### Always-image (report cards / home strips)
+
+- Designer rule: cards always show a **16:9** image — no empty “Hold for preview” tiles.
+- Vision scores `stillQuality` (`pass` | `weak` | `fail`). **`fail` → generate owned editorial art under `/generated/`**, `mediaStyle: overlay`; keep `stillQuality: fail` as audit of the broadcast still.
+- Editor: **Use photo** / **Use illustration** / **Force show**. Hide-photo is not a product option for strip cards. Generation failure falls back to YT still.
+- Full decision: `docs/decisions.md` — “Always image: still fail → owned illustration”.
+
+### Commons hygiene (spotlight, history, politicians)
+
+- Shared modules: `src/lib/commonsMedia.ts`, `runner/commonsMedia.mjs`.
+- Never invent unchecked thumb widths; validate safe sizes (**330 → 500 → 960**) with HEAD/GET before writing `imageUrl` to AGENTS KV. Re-enrich when a stored URL fails.
+- **Human Spotlight:** Commons portrait only if Wikipedia title matches the person; else monogram (`imageUrl = null`).
+- **Today in history:** Commons-only heroes (no YouTube posters); multi-fallback in `runner/todayInHistory.mjs`; drop media layer on image error.
+- **Politicians:** Commons via proxy `/api/politician-photo/`.
+- Decision: `docs/decisions.md` — “Commons thumbs: no invented widths + validate before store”.
+
+### Topic tiles (UI)
+
+- Dual-layer stills on `TopicRow` (bloom + subject) — see `docs/design-system.md`. Not a new art pipeline; CSS fix for letterboxing.
 
 ---
 

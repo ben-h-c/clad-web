@@ -40,6 +40,19 @@ Source: `src/lib/homeLayout.ts`.
 - Post tiles: own YouTube still or `/generated/` only.
 - Honor `prefers-reduced-motion`.
 
+## Report-card & strip media (always-image)
+
+- Every strip/report card must show a **16:9 image** — never leave empty “Hold for preview” voids.
+- Pipeline: vision `stillQuality` pass|weak|**fail**; **fail → owned illustration** under `/generated/` (`mediaStyle: overlay`), not hide-photo.
+- Editor may switch Use photo / Use illustration / Force show; design work assumes art is always present.
+- Legal surfaces: own YT still or `/generated/` only.
+
+## Patterns to reuse (see also design-system.md)
+
+- **Topic media tiles (`TopicRow`):** dual-layer stills — `.topic-row__bg-bloom` (cover + heavy blur + scale) under `.topic-row__bg-subject` (cover + mild zoom + `thumbFocus*`). Kills letterbox gutters without new art. Solo home inserts (`.topic-rows--solo`) = taller cinematic min-heights.
+- **Human Spotlight:** monogram underlay when no valid Commons portrait; `onerror` removes broken img.
+- **History cards:** drop media layer on image error — no broken-image glyph.
+
 ## Clad Studio packets
 
 - Implement annotations in clad-web with design-system tokens.

@@ -28,6 +28,7 @@ Charter: `docs/daily-review.md`. Map: `docs/platform-brief.md`.
 - YouTube ingest via allow-listed channels + manual URL intake (no keyword Categories admin).
 - Clad Studio → Mac companion → Grok for design-to-code.
 - Post images: own video still or site-generated only.
+- **Always-image:** report/strip cards always show 16:9 art — bad broadcast stills become owned `/generated/` illustrations (not hide-photo).
 
 ## How to lead in-session
 
