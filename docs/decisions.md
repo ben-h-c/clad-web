@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-09 — Today in History images: Commons multi-fallback
+
+**Status:** accepted  
+**Context:** Spanish Armada (and occasional other items) lost full-bleed photos when wiki lead thumbs failed or packs skipped re-enrich for missing thumbs.  
+**Decision:** Resolve images via wikiTitle + title variants + MediaWiki pageimages + Commons file search; re-enrich same-day packs missing thumbs (not only videos). Heroes remain Commons-only (no YouTube posters).  
+**Consequences:** Higher thumb hit-rate; slightly more Wikimedia API calls per pack.
+
 ## 2026-08-08 — Continuous agent knowledge system
 
 **Status:** accepted  
