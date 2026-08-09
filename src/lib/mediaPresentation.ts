@@ -1,24 +1,33 @@
 /**
- * Per-post still framing for strip cards.
+ * Per-post still framing + quality gate for strip cards.
  *
  * Layout policy (2026-07-24): cards use a fixed **16:9 photo band** + type
  * panel below — never portrait full-bleed cover of landscape YouTube stills
  * (that was the “random zoom”). Focus only nudges within the 16:9 band.
  *
+ * Still quality (2026-08-08): vision (when enabled) scores whether the still
+ * is newsroom-suitable in a 16:9 card. Fail → default to mediaStyle "text"
+ * so busy chyrons / split graphics never ship next to clean talking heads.
+ *
  * Fields (optional):
- *   mediaStyle  — overlay/band (show photo) | text (no art)
+ *   mediaStyle   — overlay/band (show photo) | text (no art)
  *   thumbFocusX / thumbFocusY — object-position in the 16:9 band
- *   mediaNote   — pipeline note (not shown)
+ *   stillQuality — pass | weak | fail (pipeline; not shown to readers)
+ *   mediaNote    — pipeline note (not shown)
  */
 import { thumbnailUrl } from "./youtube.ts";
 
 export const MEDIA_STYLES = ["overlay", "modular", "text"] as const;
 export type MediaStyle = (typeof MEDIA_STYLES)[number];
 
+export const STILL_QUALITIES = ["pass", "weak", "fail"] as const;
+export type StillQuality = (typeof STILL_QUALITIES)[number];
+
 export interface MediaPresentation {
   mediaStyle: MediaStyle;
   thumbFocusX: number;
   thumbFocusY: number;
+  stillQuality?: StillQuality;
   mediaNote?: string;
 }
 
@@ -49,6 +58,12 @@ export function normalizeMediaStyle(v: unknown): MediaStyle | undefined {
   return (MEDIA_STYLES as readonly string[]).includes(s) ? (s as MediaStyle) : undefined;
 }
 
+export function normalizeStillQuality(v: unknown): StillQuality | undefined {
+  if (typeof v !== "string") return undefined;
+  const s = v.trim().toLowerCase();
+  return (STILL_QUALITIES as readonly string[]).includes(s) ? (s as StillQuality) : undefined;
+}
+
 export function safeFocus(
   x: unknown,
   y: unknown
@@ -69,10 +84,12 @@ export function coerceMediaPresentation(
   // modular is legacy — treat as overlay (16:9 band). text only when no art / override.
   if (style === "modular") style = "overlay";
   if (!opts?.allowNonOverlay && style === "text") style = "overlay";
+  const quality = normalizeStillQuality(partial.stillQuality);
   return {
     mediaStyle: style,
     thumbFocusX: focus.thumbFocusX,
     thumbFocusY: focus.thumbFocusY,
+    stillQuality: quality,
     mediaNote:
       typeof partial.mediaNote === "string" && partial.mediaNote.trim()
         ? partial.mediaNote.trim().slice(0, 200)
@@ -85,11 +102,33 @@ export function objectPositionCss(p: Pick<MediaPresentation, "thumbFocusX" | "th
   return `${f.thumbFocusX}% ${f.thumbFocusY}%`;
 }
 
+/**
+ * Apply fail → hide-art default unless the editor forced the photo.
+ * Weak/pass keep overlay (weak is a soft warning via mediaNote only).
+ */
+export function applyStillQualityGate(
+  media: MediaPresentation,
+  opts?: { forceStill?: boolean }
+): MediaPresentation {
+  if (media.stillQuality === "fail" && !opts?.forceStill && media.mediaStyle !== "text") {
+    return {
+      ...media,
+      mediaStyle: "text",
+      mediaNote: media.mediaNote
+        ? `fail — hide art: ${media.mediaNote}`.slice(0, 200)
+        : "Still quality fail — hide art",
+    };
+  }
+  return media;
+}
+
 export async function resolveMediaPresentation(args: {
   apiKey?: string;
   imageUrl?: string | null;
   headline?: string;
   videoId?: string | null;
+  /** When true, keep overlay even if vision scores fail. */
+  forceStill?: boolean;
 }): Promise<MediaPresentation> {
   const imageUrl =
     (args.imageUrl && args.imageUrl.trim()) ||
@@ -99,11 +138,14 @@ export async function resolveMediaPresentation(args: {
       mediaStyle: "text",
       thumbFocusX: 50,
       thumbFocusY: 50,
+      stillQuality: "fail",
       mediaNote: "No still available",
     };
   }
   // Default is already intentional for 16:9 band — vision is optional polish.
-  if (!args.apiKey) return { ...DEFAULT_MEDIA, mediaNote: "default 16:9 framing" };
+  if (!args.apiKey) {
+    return { ...DEFAULT_MEDIA, mediaNote: "default 16:9 framing" };
+  }
 
   try {
     const decided = await analyzeStillWithVision({
@@ -111,7 +153,11 @@ export async function resolveMediaPresentation(args: {
       imageUrl,
       headline: args.headline ?? "",
     });
-    return { ...decided, mediaStyle: "overlay" };
+    const withStyle: MediaPresentation = {
+      ...decided,
+      mediaStyle: decided.stillQuality === "fail" && !args.forceStill ? "text" : "overlay",
+    };
+    return applyStillQualityGate(withStyle, { forceStill: args.forceStill });
   } catch (e) {
     console.error("mediaPresentation vision failed:", (e as Error)?.message ?? e);
     return { ...DEFAULT_MEDIA, mediaNote: "default (vision failed)" };
@@ -123,10 +169,19 @@ async function analyzeStillWithVision(args: {
   imageUrl: string;
   headline: string;
 }): Promise<MediaPresentation> {
-  const system = `You frame a 16:9 news still inside a 16:9 photo band (no portrait zoom).
-Pick a gentle object-position so the main subject is visible. Return ONLY JSON:
-{"thumbFocusX":number,"thumbFocusY":number,"mediaNote":string}
-Rules: prefer center; talking heads ~X 45-55 Y 35-45; avoid extreme edges; Y rarely below 25 or above 55.`;
+  const system = `You frame a 16:9 news still for a small report-card photo band and score whether the still is newsroom-quality.
+
+Return ONLY JSON:
+{"thumbFocusX":number,"thumbFocusY":number,"stillQuality":"pass"|"weak"|"fail","mediaNote":string}
+
+Focus rules: prefer center; talking heads ~X 45-55 Y 35-45; avoid extreme edges; Y rarely below 25 or above 55.
+
+stillQuality rules (strict — bad art undercuts credibility next to clean cards):
+- pass: clean subject (talking head, clear scene), minimal or no chyron, suitable crop in a 16:9 card band.
+- weak: some lower-third text or busy edges but the main subject is still readable and professional enough to show.
+- fail: heavy network chyrons / large on-image text blocks; split or composite thumbnails; letterboxed or low-signal stills; logo soup; graphics that read as stretched or cut mid-panel; unusable crop for a card strip.
+
+mediaNote: short reason (under 120 chars), e.g. "clean talking head" or "busy split graphic + heavy chyron".`;
 
   const res = await fetch("https://api.x.ai/v1/chat/completions", {
     method: "POST",
@@ -137,7 +192,7 @@ Rules: prefer center; talking heads ~X 45-55 Y 35-45; avoid extreme edges; Y rar
     body: JSON.stringify({
       model: VISION_MODEL,
       temperature: 0.1,
-      max_tokens: 120,
+      max_tokens: 160,
       response_format: { type: "json_object" },
       messages: [
         { role: "system", content: system },
@@ -148,8 +203,8 @@ Rules: prefer center; talking heads ~X 45-55 Y 35-45; avoid extreme edges; Y rar
             {
               type: "text",
               text: args.headline
-                ? `Headline: ${args.headline}\nGentle 16:9 focus only.`
-                : "Gentle 16:9 focus only.",
+                ? `Headline: ${args.headline}\nScore still quality and gentle 16:9 focus.`
+                : "Score still quality and gentle 16:9 focus.",
             },
           ],
         },
@@ -172,28 +227,37 @@ Rules: prefer center; talking heads ~X 45-55 Y 35-45; avoid extreme edges; Y rar
     throw new Error("vision non-JSON");
   }
 
-  return coerceMediaPresentation({
-    mediaStyle: "overlay",
-    thumbFocusX: parsed?.thumbFocusX,
-    thumbFocusY: parsed?.thumbFocusY,
-    mediaNote: typeof parsed?.mediaNote === "string" ? parsed.mediaNote : undefined,
-  });
+  return coerceMediaPresentation(
+    {
+      mediaStyle: "overlay",
+      thumbFocusX: parsed?.thumbFocusX,
+      thumbFocusY: parsed?.thumbFocusY,
+      stillQuality: parsed?.stillQuality,
+      mediaNote: typeof parsed?.mediaNote === "string" ? parsed.mediaNote : undefined,
+    },
+    { allowNonOverlay: false }
+  );
 }
 
-/** Read presentation from post data. Thumb → always show 16:9 band. */
+/** Read presentation from post data. Honors mediaStyle:text even when thumbnail exists. */
 export function mediaFromPostData(d: {
   mediaStyle?: string | null;
   thumbFocusX?: number | null;
   thumbFocusY?: number | null;
+  stillQuality?: string | null;
   mediaNote?: string | null;
   thumbnail?: string | null;
 }): MediaPresentation {
   const hasThumb = !!(d.thumbnail && String(d.thumbnail).trim());
-  if (!hasThumb) {
+  const style = normalizeMediaStyle(d.mediaStyle);
+  const quality = normalizeStillQuality(d.stillQuality);
+  // Explicit text style, or no usable still → no art on the card.
+  if (!hasThumb || style === "text") {
     return {
       mediaStyle: "text",
       thumbFocusX: 50,
       thumbFocusY: 50,
+      stillQuality: quality ?? (!hasThumb ? "fail" : undefined),
       mediaNote: d.mediaNote ?? undefined,
     };
   }
@@ -202,6 +266,7 @@ export function mediaFromPostData(d: {
     mediaStyle: "overlay",
     thumbFocusX: focus.thumbFocusX,
     thumbFocusY: focus.thumbFocusY,
+    stillQuality: quality,
     mediaNote: d.mediaNote ?? undefined,
   };
 }

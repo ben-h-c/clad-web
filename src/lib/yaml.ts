@@ -49,6 +49,8 @@ export interface Frontmatter {
   thumbFocusX?: number;
   /** Vertical focus 0–100 for object-position. */
   thumbFocusY?: number;
+  /** Still suitability for card band (pipeline/admin; not public UI). */
+  stillQuality?: "pass" | "weak" | "fail";
   /** Short pipeline rationale (not shown on site). */
   mediaNote?: string;
   /** People tagged for /politicians/[slug] (agent matcher + optional editor). */
@@ -96,6 +98,7 @@ export function emitPost(fm: Frontmatter, body: string): string {
     lines.push(`thumbFocusX: ${Math.round(fm.thumbFocusX)}`);
   if (fm.thumbFocusY != null && Number.isFinite(fm.thumbFocusY))
     lines.push(`thumbFocusY: ${Math.round(fm.thumbFocusY)}`);
+  if (fm.stillQuality) lines.push(`stillQuality: ${q(fm.stillQuality)}`);
   if (fm.mediaNote) lines.push(`mediaNote: ${q(fm.mediaNote)}`);
 
   if (fm.citations.length === 0) {

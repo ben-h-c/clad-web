@@ -8,7 +8,7 @@ import { findNearDuplicates, leanSpread, listDrafts, publishedPostsMeta, type Ne
 import { isTertiarySource } from "~/lib/citations";
 import { eventTypeLabel, type EventType } from "~/lib/draftQuality";
 import { lintHeadline } from "~/lib/headlineLint";
-import { embedUrl } from "~/lib/youtube";
+import { embedUrl, thumbnailUrl } from "~/lib/youtube";
 import { bulkJobSummary, getQueueBulkJob } from "~/lib/queueBulk";
 
 export const prerender = false;
@@ -189,6 +189,49 @@ for (const d of drafts) {
               ></iframe>
             </div>
 
+            {/* Card-as-published still preview — same 16:9 band + cover as ReportCard */}
+            <div class="q-still" data-still-preview>
+              <div class="q-still__label small-caps">Card still preview</div>
+              <div class="q-still__card" data-still-card>
+                <div class="q-still__photo">
+                  <img
+                    src={thumbnailUrl(d.videoId)}
+                    alt=""
+                    width="640"
+                    height="360"
+                    loading="lazy"
+                    decoding="async"
+                    onerror={`this.onerror=null;this.src='https://img.youtube.com/vi/${d.videoId}/hqdefault.jpg'`}
+                  />
+                </div>
+                <div class="q-still__body">
+                  <p class="q-still__headline">{d.report.headline}</p>
+                  <span class="qa-pill qa-pill--still" data-still-pill title="Vision scores suitability on approve when enabled; review the crop now">
+                    Review still
+                  </span>
+                </div>
+              </div>
+              <fieldset class="q-still__controls">
+                <legend class="small-caps">Photo for publish</legend>
+                <label class="q-still__opt">
+                  <input type="radio" name={`still-${d.draftId}`} class="q-media-use" value="use" checked />
+                  Use photo
+                </label>
+                <label class="q-still__opt">
+                  <input type="radio" name={`still-${d.draftId}`} class="q-media-hide" value="hide" />
+                  Hide photo
+                </label>
+                <label class="q-still__opt q-still__opt--force" title="Only needed if vision would fail but you still want the art">
+                  <input type="checkbox" class="q-force-still" />
+                  Force show (override quality fail)
+                </label>
+              </fieldset>
+              <p class="dateline q-still__hint">
+                Same 16:9 crop as the homepage. Busy chyrons / split graphics should use <strong>Hide photo</strong>.
+                With vision on, approve auto-hides fail stills unless you force show.
+              </p>
+            </div>
+
             <details>
               <summary class="small-caps">Summary &amp; assessment</summary>
               <p>{d.report.summary}</p>
@@ -260,9 +303,97 @@ for (const d of drafts) {
       color: var(--paper, #f5edd9);
     }
     .qa-pill--score { opacity: 0.85; }
+    .qa-pill--still {
+      border-color: color-mix(in srgb, var(--accent, #5b9a8b) 55%, transparent);
+      color: var(--accent, #5b9a8b);
+      opacity: 0.95;
+    }
+    .qa-pill--still-hide {
+      border-color: color-mix(in srgb, var(--red-ink, #c45c52) 55%, transparent);
+      color: var(--red-ink, #c45c52);
+    }
     .notice--warn {
       border-color: #8a6a1f;
       background: color-mix(in srgb, #8a6a1f 12%, transparent);
+    }
+    /* Mini report-card mock — matches production 16:9 band + object-fit cover */
+    .q-still {
+      max-width: 320px;
+      margin: 1rem 0 1.25rem;
+      padding: 0.75rem;
+      border: 1px solid var(--rule, rgba(255, 255, 255, 0.12));
+      border-radius: var(--radius-stock, 18px);
+      background: color-mix(in srgb, var(--card, #1c1c1e) 80%, transparent);
+    }
+    .q-still__label {
+      margin: 0 0 0.5rem;
+      opacity: 0.75;
+    }
+    .q-still__card {
+      border-radius: var(--radius-control, 12px);
+      overflow: hidden;
+      border: 1px solid var(--rule, rgba(255, 255, 255, 0.1));
+      background: var(--card, #111);
+    }
+    .q-still__card.is-hidden-art .q-still__photo {
+      display: none;
+    }
+    .q-still__photo {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      overflow: hidden;
+      background: #0a0a0a;
+    }
+    .q-still__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 40%;
+      display: block;
+    }
+    .q-still__body {
+      padding: 0.65rem 0.75rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .q-still__headline {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.3;
+      font-weight: 600;
+    }
+    .q-still__controls {
+      border: 0;
+      margin: 0.65rem 0 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.85rem;
+      align-items: center;
+    }
+    .q-still__controls legend {
+      padding: 0;
+      margin: 0 0 0.35rem;
+      width: 100%;
+      opacity: 0.75;
+    }
+    .q-still__opt {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .q-still__opt--force {
+      opacity: 0.85;
+      font-size: 0.8rem;
+    }
+    .q-still__hint {
+      margin: 0.5rem 0 0;
+      font-size: 0.78rem;
+      opacity: 0.8;
+      line-height: 1.35;
     }
   </style>
 
@@ -301,6 +432,32 @@ for (const d of drafts) {
           return false;
         }
       };
+      const stillCard = item.querySelector("[data-still-card]");
+      const stillPill = item.querySelector("[data-still-pill]");
+      const hideRadio = item.querySelector(".q-media-hide");
+      const useRadio = item.querySelector(".q-media-use");
+      const forceStillCb = item.querySelector(".q-force-still");
+      const syncStillPreview = () => {
+        const hide = !!(hideRadio && hideRadio.checked);
+        if (stillCard) stillCard.classList.toggle("is-hidden-art", hide);
+        if (stillPill) {
+          stillPill.textContent = hide ? "Hide art" : "Review still";
+          stillPill.classList.toggle("qa-pill--still-hide", hide);
+        }
+      };
+      if (hideRadio) hideRadio.addEventListener("change", syncStillPreview);
+      if (useRadio) useRadio.addEventListener("change", syncStillPreview);
+      syncStillPreview();
+
+      const mediaOpts = () => {
+        const hide = !!(hideRadio && hideRadio.checked);
+        const forceStill = !!(forceStillCb && forceStillCb.checked);
+        if (hide) {
+          return { mediaStyle: "text", mediaNote: "editor hide art" };
+        }
+        return forceStill ? { forceStill: true } : {};
+      };
+
       // Non-interactive approve for the bulk flow: publishes without prompting,
       // and never forces past a duplicate (409) — bulk then auto-rejects those.
       // Returns "published" | "duplicate" | "error".
@@ -316,6 +473,7 @@ for (const d of drafts) {
               draftId: id,
               force: false,
               featured: item.querySelector(".q-featured")?.checked,
+              ...mediaOpts(),
             }),
           });
           const data = await res.json();
@@ -346,6 +504,7 @@ for (const d of drafts) {
               draftId: id,
               force,
               featured: item.querySelector(".q-featured")?.checked,
+              ...(action === "approve" ? mediaOpts() : {}),
             }),
           });
           const data = await res.json();

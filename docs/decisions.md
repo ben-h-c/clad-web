@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-08 — Pre-publish still quality gate
+
+**Status:** accepted  
+**Context:** Homepage Breaking strip mixed clean talking-head stills with busy network graphics (chyron / split composites) that read as stretched or unprofessional in the 16:9 card band. Defect is suitability, not CSS (`object-fit: cover` is correct).  
+**Decision:** Vision (when `enableVisionOnPublish`) scores `stillQuality` pass|weak|fail and sets focus; **fail → default `mediaStyle: text`** (hide art) unless the editor forces the photo. Admin queue shows a 16:9 card-as-published preview with Use photo / Hide photo. Persist optional `stillQuality` + `mediaNote` on the post (not public UI). Economy mode skips vision; human queue preview is the gate. Forward-only (no full archive re-thumb); fix called-out posts at ship.  
+**Consequences:** Bad stills no longer go live unnoticed when vision is on; text cards are intentional and must be honored by `mediaFromPostData` / ReportCard.
+
 ## 2026-08-09 — Today in History images: Commons multi-fallback
 
 **Status:** accepted  

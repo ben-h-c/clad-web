@@ -31,7 +31,12 @@ const lead = members[0];
 const reasoning = lead?.data.summary || "";
 
 const byNew = [...members].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
-const artPost = byNew.find((p) => displayableThumb(p.data.thumbnail));
+// Prefer a still that is allowed to show (mediaStyle text = hide art).
+const artPost = byNew.find((p) => {
+  const t = displayableThumb(p.data.thumbnail);
+  if (!t) return false;
+  return mediaFromPostData(p.data).mediaStyle !== "text";
+});
 const thumb = artPost ? displayableThumb(artPost.data.thumbnail) : null;
 const media = artPost ? mediaFromPostData(artPost.data) : mediaFromPostData({});
 const focusStyle = objectPositionCss(media);

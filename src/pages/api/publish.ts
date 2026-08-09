@@ -103,6 +103,7 @@ export const POST: APIRoute = async ({ request }) => {
       mediaStyle: media.mediaStyle,
       thumbFocusX: media.thumbFocusX,
       thumbFocusY: media.thumbFocusY,
+      stillQuality: media.stillQuality,
       mediaNote: media.mediaNote,
       citations,
     };
@@ -220,6 +221,7 @@ export const POST: APIRoute = async ({ request }) => {
       mediaStyle: media.mediaStyle,
       thumbFocusX: media.thumbFocusX,
       thumbFocusY: media.thumbFocusY,
+      stillQuality: media.stillQuality,
       mediaNote: media.mediaNote,
       citations,
       politicians: politicians.length ? politicians : undefined,
@@ -283,22 +285,40 @@ async function resolvePostMedia(args: {
   videoId?: string | null;
   apiKey?: string;
 }): Promise<MediaPresentation> {
-  const hasOverride =
-    args.p?.mediaStyle ||
-    args.p?.thumbFocusX != null ||
-    args.p?.thumbFocusY != null;
-  if (hasOverride) {
-    // Editor may force modular/text; otherwise coerce keeps overlay.
-    const style = String(args.p.mediaStyle || "overlay").toLowerCase();
+  const styleRaw =
+    typeof args.p?.mediaStyle === "string" ? args.p.mediaStyle.trim().toLowerCase() : "";
+  // Hide-art override — no vision needed.
+  if (styleRaw === "text") {
     return coerceMediaPresentation(
       {
-        mediaStyle: style,
+        mediaStyle: "text",
+        thumbFocusX: 50,
+        thumbFocusY: 50,
+        stillQuality:
+          typeof args.p?.stillQuality === "string" ? args.p.stillQuality : undefined,
+        mediaNote:
+          typeof args.p.mediaNote === "string" ? args.p.mediaNote : "editor hide art",
+      },
+      { allowNonOverlay: true }
+    );
+  }
+  const forceStill = Boolean(args.p?.forceStill);
+  const hasFocusOverride =
+    args.p?.thumbFocusX != null || args.p?.thumbFocusY != null;
+  // Explicit focus (or force-show) without hide — keep editor framing; optional quality.
+  if (hasFocusOverride || forceStill || styleRaw === "overlay" || styleRaw === "modular") {
+    const style = styleRaw === "modular" || styleRaw === "overlay" ? styleRaw : "overlay";
+    return coerceMediaPresentation(
+      {
+        mediaStyle: style === "modular" ? "overlay" : style,
         thumbFocusX: args.p.thumbFocusX,
         thumbFocusY: args.p.thumbFocusY,
+        stillQuality:
+          typeof args.p?.stillQuality === "string" ? args.p.stillQuality : undefined,
         mediaNote:
           typeof args.p.mediaNote === "string" ? args.p.mediaNote : "editor override",
       },
-      { allowNonOverlay: style === "modular" || style === "text" }
+      { allowNonOverlay: false }
     );
   }
   // Economy mode skips vision (see xaiEconomy.ts); default 16:9 is fine.
@@ -310,6 +330,7 @@ async function resolvePostMedia(args: {
     imageUrl: args.thumbnail,
     headline: args.headline,
     videoId: args.videoId,
+    forceStill,
   });
 }
 

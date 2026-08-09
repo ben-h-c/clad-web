@@ -20,6 +20,7 @@ import {
   coerceMediaPresentation,
   DEFAULT_MEDIA,
   resolveMediaPresentation,
+  type MediaPresentation,
 } from "~/lib/mediaPresentation";
 import { xaiLimits } from "~/lib/xaiEconomy";
 import { reviseBroadcastReport } from "~/lib/broadcast";
@@ -160,6 +161,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     thumbFocusX: p?.thumbFocusX,
     thumbFocusY: p?.thumbFocusY,
     mediaNote: p?.mediaNote,
+    forceStill: Boolean(p?.forceStill),
   });
   if (result.ok) {
     return json(
@@ -199,6 +201,8 @@ async function approveDraft(
     thumbFocusX?: unknown;
     thumbFocusY?: unknown;
     mediaNote?: unknown;
+    /** Keep photo even when vision scores stillQuality fail. */
+    forceStill?: boolean;
     /** Skip Grok vision framing (bulk path) — default 16:9 is intentional. */
     skipVision?: boolean;
   }
@@ -272,29 +276,12 @@ async function approveDraft(
     },
   });
 
-  const editorMedia =
-    opts.mediaStyle || opts.thumbFocusX != null || opts.thumbFocusY != null
-      ? coerceMediaPresentation({
-          mediaStyle: opts.mediaStyle as any,
-          thumbFocusX: opts.thumbFocusX as any,
-          thumbFocusY: opts.thumbFocusY as any,
-          mediaNote:
-            typeof opts.mediaNote === "string" ? opts.mediaNote : "editor override",
-        })
-      : null;
-  // Bulk / economy skip vision: default 16:9 is intentional and cheap.
-  const skipVision =
-    opts.skipVision || !xaiLimits(env.XAI_ECONOMY).enableVisionOnPublish;
-  const media =
-    editorMedia ??
-    (skipVision
-      ? { ...DEFAULT_MEDIA, mediaNote: "default 16:9 framing (no vision)" }
-      : await resolveMediaPresentation({
-          apiKey: env.XAI_API_KEY,
-          imageUrl: thumbnail || undefined,
-          headline: draft.report.headline,
-          videoId: draft.videoId,
-        }));
+  const media = await resolveApproveMedia({
+    opts,
+    thumbnail,
+    headline: draft.report.headline,
+    videoId: draft.videoId,
+  });
 
   const fm = buildBroadcastFrontmatter(draft.report, {
     sourceUrl: draft.sourceUrl,
@@ -336,6 +323,79 @@ async function approveDraft(
   } catch (err: any) {
     return { ok: false, error: err?.message ?? "Approve/publish failed", status: 502 };
   }
+}
+
+/** Editor hide-art / force-show / vision quality gate for queue approve. */
+async function resolveApproveMedia(args: {
+  opts: {
+    mediaStyle?: unknown;
+    thumbFocusX?: unknown;
+    thumbFocusY?: unknown;
+    mediaNote?: unknown;
+    forceStill?: boolean;
+    skipVision?: boolean;
+  };
+  thumbnail: string | null | undefined;
+  headline: string;
+  videoId: string;
+}): Promise<MediaPresentation> {
+  const styleRaw =
+    typeof args.opts.mediaStyle === "string"
+      ? args.opts.mediaStyle.trim().toLowerCase()
+      : "";
+  // Editor chose hide photo — no vision needed.
+  if (styleRaw === "text") {
+    return coerceMediaPresentation(
+      {
+        mediaStyle: "text",
+        thumbFocusX: 50,
+        thumbFocusY: 50,
+        mediaNote:
+          typeof args.opts.mediaNote === "string"
+            ? args.opts.mediaNote
+            : "editor hide art",
+      },
+      { allowNonOverlay: true }
+    );
+  }
+
+  const forceStill = Boolean(args.opts.forceStill);
+  const hasFocus =
+    args.opts.thumbFocusX != null || args.opts.thumbFocusY != null;
+  // Explicit focus override without hide — use editor framing (no vision).
+  if (hasFocus) {
+    return coerceMediaPresentation(
+      {
+        mediaStyle: "overlay",
+        thumbFocusX: args.opts.thumbFocusX as any,
+        thumbFocusY: args.opts.thumbFocusY as any,
+        mediaNote:
+          typeof args.opts.mediaNote === "string"
+            ? args.opts.mediaNote
+            : "editor override",
+      },
+      { allowNonOverlay: false }
+    );
+  }
+
+  // Bulk / economy skip vision: default 16:9 is intentional and cheap.
+  // Human queue preview is the still gate when vision is off.
+  const skipVision =
+    args.opts.skipVision || !xaiLimits(env.XAI_ECONOMY).enableVisionOnPublish;
+  if (skipVision) {
+    return {
+      ...DEFAULT_MEDIA,
+      mediaNote: "default 16:9 framing (no vision)",
+    };
+  }
+
+  return resolveMediaPresentation({
+    apiKey: env.XAI_API_KEY,
+    imageUrl: args.thumbnail || undefined,
+    headline: args.headline,
+    videoId: args.videoId,
+    forceStill,
+  });
 }
 
 // ---------------------------------------------------------------------------

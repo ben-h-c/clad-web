@@ -111,6 +111,11 @@ const posts = defineCollection({
       thumbFocusX: z.number().min(0).max(100).optional(),
       /** Vertical object-position anchor 0–100 (0 = top). */
       thumbFocusY: z.number().min(0).max(100).optional(),
+      /**
+       * Still suitability for the 16:9 card band (pipeline / admin only).
+       * Not shown to public readers. fail → prefer mediaStyle text.
+       */
+      stillQuality: z.enum(["pass", "weak", "fail"]).optional(),
       /** Pipeline note for why this framing was chosen (not shown in UI). */
       mediaNote: z.string().max(200).optional(),
 

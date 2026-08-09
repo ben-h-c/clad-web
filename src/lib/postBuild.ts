@@ -78,6 +78,7 @@ export function buildBroadcastFrontmatter(
     mediaStyle: media?.mediaStyle,
     thumbFocusX: media?.thumbFocusX,
     thumbFocusY: media?.thumbFocusY,
+    stillQuality: media?.stillQuality,
     mediaNote: media?.mediaNote,
     citations: report.citations,
     politicians: politicians.length ? politicians : undefined,

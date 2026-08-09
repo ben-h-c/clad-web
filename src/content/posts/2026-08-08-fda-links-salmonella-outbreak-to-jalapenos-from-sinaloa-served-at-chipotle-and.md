@@ -37,10 +37,11 @@ keyMoments:
 videoId: "eP2d1AWI5AA"
 videoTitle: "What to know about the salmonella outbreak linked to jalapeños"
 thumbnail: "https://img.youtube.com/vi/eP2d1AWI5AA/maxresdefault.jpg"
-mediaStyle: "overlay"
+mediaStyle: "text"
 thumbFocusX: 50
 thumbFocusY: 40
-mediaNote: "default 16:9 framing (no vision)"
+stillQuality: "fail"
+mediaNote: "Busy split storefront + heavy chyron — hide art (still QA)"
 citations:
   - title: "Outbreak Investigation of Salmonella: Jalapeño (August 2026)"
     url: "https://www.fda.gov/food/outbreaks-foodborne-illness/outbreak-investigation-salmonella-jalapeno-august-2026"
