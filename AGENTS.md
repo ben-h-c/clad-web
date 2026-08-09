@@ -6,11 +6,14 @@ Companion docs:
 
 | Doc | Role |
 |-----|------|
+| `docs/platform-brief.md` | **Cold-start expert map** (architecture, access, agents, deploy) |
 | `docs/design-system.md` | Colors, type, radius, motion, components |
 | `docs/decisions.md` | Settled product/architecture decisions |
 | `docs/daily-review.md` | Audience charter (16–24) |
 | `CLAUDE.md` | Hard product rules (access, anon leak) |
 | `.grok/skills/clad-*/` | Role skills: design, web, test, product, knowledge |
+
+**Cold start:** read `docs/platform-brief.md` before large features.
 
 ---
 

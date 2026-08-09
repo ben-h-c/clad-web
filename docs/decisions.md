@@ -35,6 +35,13 @@ Format:
 **Decision (original):** Vision scores `stillQuality`; fail → `mediaStyle: text` unless force-show.  
 **Superseded by:** fail → owned `/generated/` illustration (always-image).
 
+## 2026-08-09 — Agent knowledge bootcamp + platform brief
+
+**Status:** accepted  
+**Context:** Need agents to open as platform experts without dozen full-site rescans.  
+**Decision:** One structured bootcamp produced `docs/platform-brief.md` and fattened clad-* skills; ongoing learning via continuous-learning rules + clad-knowledge-maintain (not repeated whole-platform crawls).  
+**Consequences:** Cold starts load brief → AGENTS → skill; update those files when reality changes.
+
 ## 2026-08-09 — Today in History images: Commons multi-fallback
 
 **Status:** accepted  
