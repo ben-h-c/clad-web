@@ -37,7 +37,7 @@ description: >
 - Admin pages: `BaseLayout` + `AdminNav`, `prerender = false` when using env.
 - Do not invent new analytics third parties.
 - Scanner: channel playlists only — edit policy module, restart `clad-agent-runner` PM2.
-- Still QA (`mediaPresentation`): vision scores `stillQuality` pass|weak|fail; **fail → `mediaStyle: text`** unless editor force-show. Queue has 16:9 card preview + Use/Hide photo. Honor `mediaStyle: text` in `mediaFromPostData` / ReportCard.
+- Still QA (`mediaPresentation`): vision scores `stillQuality` pass|weak|fail; **fail → owned `/generated/` illustration** (always-image), not text-only, unless editor force-show keeps YT still. Queue: Use photo / Use illustration / Force show. `preferIllustration` + `needsOwnedIllustration` on approve/publish.
 
 ## After engineering lessons
 

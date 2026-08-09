@@ -11,6 +11,7 @@ import { resolveThumbnail } from "~/lib/thumbnail";
 import {
   coerceMediaPresentation,
   DEFAULT_MEDIA,
+  needsOwnedIllustration,
   resolveMediaPresentation,
   type MediaPresentation,
 } from "~/lib/mediaPresentation";
@@ -72,18 +73,13 @@ export const POST: APIRoute = async ({ request }) => {
     if (!VERDICTS.includes(verdict)) return json({ error: "Invalid verdict" }, 400);
     if (!sourceUrl) return json({ error: "Source URL required" }, 400);
     // Verdict posts have no video — generate an illustration so every post has art.
-    const thumbnail = await resolveThumbnail({
-      videoId: extractVideoId(sourceUrl),
-      title: headline,
-      slug,
-      xaiKey: env.XAI_API_KEY,
-      github,
-    });
-    const media = await resolvePostMedia({
+    const videoId = extractVideoId(sourceUrl);
+    const { thumbnail, media } = await resolvePublishArt({
       p,
-      thumbnail,
+      videoId,
       headline,
-      videoId: extractVideoId(sourceUrl),
+      slug,
+      github,
       apiKey: env.XAI_API_KEY,
     });
     fm = {
@@ -163,13 +159,12 @@ export const POST: APIRoute = async ({ request }) => {
       }
     }
 
-    const thumbnail = await resolveThumbnail({ videoId, title: headline, slug, xaiKey: env.XAI_API_KEY, github });
-    const resolvedThumb = thumbnail || thumbnailUrl(videoId);
-    const media = await resolvePostMedia({
+    const { thumbnail: resolvedThumb, media } = await resolvePublishArt({
       p,
-      thumbnail: resolvedThumb,
-      headline,
       videoId,
+      headline,
+      slug,
+      github,
       apiKey: env.XAI_API_KEY,
     });
 
@@ -217,7 +212,7 @@ export const POST: APIRoute = async ({ request }) => {
       keyMoments,
       videoId,
       videoTitle,
-      thumbnail: resolvedThumb,
+      thumbnail: resolvedThumb || thumbnailUrl(videoId),
       mediaStyle: media.mediaStyle,
       thumbFocusX: media.thumbFocusX,
       thumbFocusY: media.thumbFocusY,
@@ -277,6 +272,80 @@ export const POST: APIRoute = async ({ request }) => {
   }
 };
 
+/**
+ * Resolve thumbnail + media presentation for publish.
+ * Always-image: still QA fail or preferIllustration → owned `/generated/` art.
+ */
+async function resolvePublishArt(args: {
+  p: any;
+  videoId?: string | null;
+  headline: string;
+  slug: string;
+  github: { token: string; repo: string; branch: string };
+  apiKey?: string;
+}): Promise<{ thumbnail: string; media: MediaPresentation }> {
+  const ytThumb = await resolveThumbnail({
+    videoId: args.videoId,
+    title: args.headline,
+    slug: args.slug,
+  });
+  let media = await resolvePostMedia({
+    p: args.p,
+    thumbnail: ytThumb || undefined,
+    headline: args.headline,
+    videoId: args.videoId,
+    apiKey: args.apiKey,
+  });
+
+  const forceStill = Boolean(args.p?.forceStill);
+  const preferIllustration = Boolean(args.p?.preferIllustration);
+  const wantIllustration = needsOwnedIllustration(media, {
+    forceStill,
+    preferIllustration,
+  });
+
+  let thumbnail = ytThumb;
+  if (wantIllustration && args.apiKey) {
+    const generated = await resolveThumbnail({
+      videoId: args.videoId,
+      title: args.headline,
+      slug: args.slug,
+      xaiKey: args.apiKey,
+      github: args.github,
+      preferGenerated: true,
+    });
+    if (generated && generated.startsWith("/generated/")) {
+      thumbnail = generated;
+      media = {
+        ...media,
+        mediaStyle: "overlay",
+        mediaNote: (
+          media.stillQuality === "fail"
+            ? `YT still fail → owned illustration${media.mediaNote ? `: ${media.mediaNote}` : ""}`
+            : typeof args.p?.mediaNote === "string" && args.p.mediaNote
+              ? args.p.mediaNote
+              : "editor chose illustration"
+        ).slice(0, 200),
+      };
+    } else {
+      thumbnail = ytThumb || generated;
+      media = {
+        ...media,
+        mediaStyle: "overlay",
+        mediaNote: (
+          media.mediaNote
+            ? `illustration failed — showing still: ${media.mediaNote}`
+            : "illustration failed — showing YT still"
+        ).slice(0, 200),
+      };
+    }
+  } else if (!thumbnail && args.videoId) {
+    thumbnail = thumbnailUrl(args.videoId);
+  }
+
+  return { thumbnail, media };
+}
+
 /** Editor override from body, else vision analysis of the still. */
 async function resolvePostMedia(args: {
   p: any;
@@ -287,25 +356,26 @@ async function resolvePostMedia(args: {
 }): Promise<MediaPresentation> {
   const styleRaw =
     typeof args.p?.mediaStyle === "string" ? args.p.mediaStyle.trim().toLowerCase() : "";
-  // Hide-art override — no vision needed.
-  if (styleRaw === "text") {
-    return coerceMediaPresentation(
-      {
-        mediaStyle: "text",
-        thumbFocusX: 50,
-        thumbFocusY: 50,
-        stillQuality:
-          typeof args.p?.stillQuality === "string" ? args.p.stillQuality : undefined,
-        mediaNote:
-          typeof args.p.mediaNote === "string" ? args.p.mediaNote : "editor hide art",
-      },
-      { allowNonOverlay: true }
-    );
-  }
   const forceStill = Boolean(args.p?.forceStill);
+  const preferIllustration =
+    Boolean(args.p?.preferIllustration) || styleRaw === "text";
+
+  // Editor chose illustration (or legacy hide) — mark for owned art path.
+  if (preferIllustration && !forceStill) {
+    return {
+      ...DEFAULT_MEDIA,
+      stillQuality:
+        typeof args.p?.stillQuality === "string" ? args.p.stillQuality : "fail",
+      mediaNote:
+        typeof args.p?.mediaNote === "string" && args.p.mediaNote
+          ? args.p.mediaNote
+          : "editor chose illustration",
+    };
+  }
+
   const hasFocusOverride =
     args.p?.thumbFocusX != null || args.p?.thumbFocusY != null;
-  // Explicit focus (or force-show) without hide — keep editor framing; optional quality.
+  // Explicit focus (or force-show) — keep editor framing; optional quality.
   if (hasFocusOverride || forceStill || styleRaw === "overlay" || styleRaw === "modular") {
     const style = styleRaw === "modular" || styleRaw === "overlay" ? styleRaw : "overlay";
     return coerceMediaPresentation(

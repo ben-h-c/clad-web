@@ -19,6 +19,7 @@ import { resolveThumbnail } from "~/lib/thumbnail";
 import {
   coerceMediaPresentation,
   DEFAULT_MEDIA,
+  needsOwnedIllustration,
   resolveMediaPresentation,
   type MediaPresentation,
 } from "~/lib/mediaPresentation";
@@ -162,6 +163,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     thumbFocusY: p?.thumbFocusY,
     mediaNote: p?.mediaNote,
     forceStill: Boolean(p?.forceStill),
+    preferIllustration: Boolean(p?.preferIllustration),
   });
   if (result.ok) {
     return json(
@@ -201,8 +203,10 @@ async function approveDraft(
     thumbFocusX?: unknown;
     thumbFocusY?: unknown;
     mediaNote?: unknown;
-    /** Keep photo even when vision scores stillQuality fail. */
+    /** Keep YouTube still even when vision scores stillQuality fail. */
     forceStill?: boolean;
+    /** Editor chose owned illustration (always-image path). */
+    preferIllustration?: boolean;
     /** Skip Grok vision framing (bulk path) — default 16:9 is intentional. */
     skipVision?: boolean;
   }
@@ -264,24 +268,69 @@ async function approveDraft(
   const publishedAt = valid ? when.toISOString() : "";
 
   const slug = datedSlug(draft.report.headline, when);
-  const thumbnail = await resolveThumbnail({
+  const github = {
+    token: env.GITHUB_TOKEN,
+    repo: env.GITHUB_REPO,
+    branch: env.GITHUB_BRANCH,
+  };
+
+  // Always resolve the YouTube still first (vision scores this; audit trail).
+  const ytThumb = await resolveThumbnail({
     videoId: draft.videoId,
     title: draft.report.headline,
     slug,
-    xaiKey: env.XAI_API_KEY,
-    github: {
-      token: env.GITHUB_TOKEN,
-      repo: env.GITHUB_REPO,
-      branch: env.GITHUB_BRANCH,
-    },
   });
 
-  const media = await resolveApproveMedia({
+  let media = await resolveApproveMedia({
     opts,
-    thumbnail,
+    thumbnail: ytThumb,
     headline: draft.report.headline,
     videoId: draft.videoId,
   });
+
+  // Always-image: fail or editor "Use illustration" → owned /generated/ art.
+  // Force-show keeps the YouTube still. Generation failure falls back to YT.
+  let thumbnail = ytThumb;
+  const wantIllustration = needsOwnedIllustration(media, {
+    forceStill: Boolean(opts.forceStill),
+    preferIllustration: Boolean(opts.preferIllustration),
+  });
+  if (wantIllustration && env.XAI_API_KEY) {
+    const generated = await resolveThumbnail({
+      videoId: draft.videoId,
+      title: draft.report.headline,
+      slug,
+      xaiKey: env.XAI_API_KEY,
+      github,
+      preferGenerated: true,
+    });
+    if (generated && generated.startsWith("/generated/")) {
+      thumbnail = generated;
+      media = {
+        ...media,
+        mediaStyle: "overlay",
+        mediaNote: (
+          media.stillQuality === "fail"
+            ? `YT still fail → owned illustration${media.mediaNote ? `: ${media.mediaNote}` : ""}`
+            : typeof opts.mediaNote === "string" && opts.mediaNote
+              ? opts.mediaNote
+              : "editor chose illustration"
+        ).slice(0, 200),
+      };
+    } else {
+      // Last resort: show YT still rather than empty void.
+      thumbnail = ytThumb || generated;
+      media = {
+        ...media,
+        mediaStyle: "overlay",
+        mediaNote: (
+          media.mediaNote
+            ? `illustration failed — showing still: ${media.mediaNote}`
+            : "illustration failed — showing YT still"
+        ).slice(0, 200),
+      };
+    }
+  }
 
   const fm = buildBroadcastFrontmatter(draft.report, {
     sourceUrl: draft.sourceUrl,
@@ -325,7 +374,7 @@ async function approveDraft(
   }
 }
 
-/** Editor hide-art / force-show / vision quality gate for queue approve. */
+/** Force-show / illustration preference / vision quality gate for queue approve. */
 async function resolveApproveMedia(args: {
   opts: {
     mediaStyle?: unknown;
@@ -333,37 +382,26 @@ async function resolveApproveMedia(args: {
     thumbFocusY?: unknown;
     mediaNote?: unknown;
     forceStill?: boolean;
+    preferIllustration?: boolean;
     skipVision?: boolean;
   };
   thumbnail: string | null | undefined;
   headline: string;
   videoId: string;
 }): Promise<MediaPresentation> {
+  const forceStill = Boolean(args.opts.forceStill);
+  const preferIllustration = Boolean(args.opts.preferIllustration);
+  // Legacy mediaStyle:text from older clients → treat as prefer illustration.
   const styleRaw =
     typeof args.opts.mediaStyle === "string"
       ? args.opts.mediaStyle.trim().toLowerCase()
       : "";
-  // Editor chose hide photo — no vision needed.
-  if (styleRaw === "text") {
-    return coerceMediaPresentation(
-      {
-        mediaStyle: "text",
-        thumbFocusX: 50,
-        thumbFocusY: 50,
-        mediaNote:
-          typeof args.opts.mediaNote === "string"
-            ? args.opts.mediaNote
-            : "editor hide art",
-      },
-      { allowNonOverlay: true }
-    );
-  }
+  const wantIllustration = preferIllustration || styleRaw === "text";
 
-  const forceStill = Boolean(args.opts.forceStill);
   const hasFocus =
     args.opts.thumbFocusX != null || args.opts.thumbFocusY != null;
-  // Explicit focus override without hide — use editor framing (no vision).
-  if (hasFocus) {
+  // Explicit focus override — use editor framing (no vision).
+  if (hasFocus && !wantIllustration) {
     return coerceMediaPresentation(
       {
         mediaStyle: "overlay",
@@ -376,6 +414,18 @@ async function resolveApproveMedia(args: {
       },
       { allowNonOverlay: false }
     );
+  }
+
+  // Editor chose illustration — skip vision; stillQuality left unset/failish.
+  if (wantIllustration) {
+    return {
+      ...DEFAULT_MEDIA,
+      stillQuality: "fail",
+      mediaNote:
+        typeof args.opts.mediaNote === "string" && args.opts.mediaNote
+          ? args.opts.mediaNote
+          : "editor chose illustration",
+    };
   }
 
   // Bulk / economy skip vision: default 16:9 is intentional and cheap.

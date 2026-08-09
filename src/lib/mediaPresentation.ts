@@ -5,12 +5,13 @@
  * panel below — never portrait full-bleed cover of landscape YouTube stills
  * (that was the “random zoom”). Focus only nudges within the 16:9 band.
  *
- * Still quality (2026-08-08): vision (when enabled) scores whether the still
- * is newsroom-suitable in a 16:9 card. Fail → default to mediaStyle "text"
- * so busy chyrons / split graphics never ship next to clean talking heads.
+ * Still quality (2026-08-08, updated 2026-08-08 rev always-image): vision
+ * scores whether the YouTube still is newsroom-suitable in a 16:9 card.
+ * **Fail → owned `/generated/` illustration** (not text-only). Bad chyrons
+ * never ship next to clean talking heads; cards always ship with an image.
  *
  * Fields (optional):
- *   mediaStyle   — overlay/band (show photo) | text (no art)
+ *   mediaStyle   — overlay/band (show art) | text (rare residual: no art at all)
  *   thumbFocusX / thumbFocusY — object-position in the 16:9 band
  *   stillQuality — pass | weak | fail (pipeline; not shown to readers)
  *   mediaNote    — pipeline note (not shown)
@@ -81,7 +82,7 @@ export function coerceMediaPresentation(
   if (!partial) return { ...DEFAULT_MEDIA };
   const focus = safeFocus(partial.thumbFocusX, partial.thumbFocusY);
   let style = normalizeMediaStyle(partial.mediaStyle) ?? DEFAULT_MEDIA.mediaStyle;
-  // modular is legacy — treat as overlay (16:9 band). text only when no art / override.
+  // modular is legacy — treat as overlay (16:9 band). text only as residual.
   if (style === "modular") style = "overlay";
   if (!opts?.allowNonOverlay && style === "text") style = "overlay";
   const quality = normalizeStillQuality(partial.stillQuality);
@@ -103,23 +104,35 @@ export function objectPositionCss(p: Pick<MediaPresentation, "thumbFocusX" | "th
 }
 
 /**
- * Apply fail → hide-art default unless the editor forced the photo.
- * Weak/pass keep overlay (weak is a soft warning via mediaNote only).
+ * Fail does **not** hide art. It marks the broadcast still as unsuitable so
+ * approve/publish can swap in owned `/generated/` illustration. Force-show
+ * keeps the YouTube still even on fail.
  */
 export function applyStillQualityGate(
   media: MediaPresentation,
   opts?: { forceStill?: boolean }
 ): MediaPresentation {
-  if (media.stillQuality === "fail" && !opts?.forceStill && media.mediaStyle !== "text") {
+  if (media.stillQuality === "fail" && !opts?.forceStill) {
     return {
       ...media,
-      mediaStyle: "text",
+      // Always-image: presentation expects art; pipeline supplies illustration.
+      mediaStyle: "overlay",
       mediaNote: media.mediaNote
-        ? `fail — hide art: ${media.mediaNote}`.slice(0, 200)
-        : "Still quality fail — hide art",
+        ? `fail — use illustration: ${media.mediaNote}`.slice(0, 200)
+        : "Still quality fail — use owned illustration",
     };
   }
   return media;
+}
+
+/** True when approve/publish should commit owned art instead of the YT still. */
+export function needsOwnedIllustration(
+  media: MediaPresentation,
+  opts?: { forceStill?: boolean; preferIllustration?: boolean }
+): boolean {
+  if (opts?.forceStill) return false;
+  if (opts?.preferIllustration) return true;
+  return media.stillQuality === "fail";
 }
 
 export async function resolveMediaPresentation(args: {
@@ -127,7 +140,7 @@ export async function resolveMediaPresentation(args: {
   imageUrl?: string | null;
   headline?: string;
   videoId?: string | null;
-  /** When true, keep overlay even if vision scores fail. */
+  /** When true, keep YouTube still even if vision scores fail. */
   forceStill?: boolean;
 }): Promise<MediaPresentation> {
   const imageUrl =
@@ -135,11 +148,11 @@ export async function resolveMediaPresentation(args: {
     (args.videoId ? thumbnailUrl(args.videoId) : "");
   if (!imageUrl) {
     return {
-      mediaStyle: "text",
+      mediaStyle: "overlay",
       thumbFocusX: 50,
       thumbFocusY: 50,
       stillQuality: "fail",
-      mediaNote: "No still available",
+      mediaNote: "No still available — use owned illustration",
     };
   }
   // Default is already intentional for 16:9 band — vision is optional polish.
@@ -153,9 +166,10 @@ export async function resolveMediaPresentation(args: {
       imageUrl,
       headline: args.headline ?? "",
     });
+    // Always overlay at this layer; fail → illustration is applied at publish.
     const withStyle: MediaPresentation = {
       ...decided,
-      mediaStyle: decided.stillQuality === "fail" && !args.forceStill ? "text" : "overlay",
+      mediaStyle: "overlay",
     };
     return applyStillQualityGate(withStyle, { forceStill: args.forceStill });
   } catch (e) {
@@ -239,7 +253,12 @@ mediaNote: short reason (under 120 chars), e.g. "clean talking head" or "busy sp
   );
 }
 
-/** Read presentation from post data. Honors mediaStyle:text even when thumbnail exists. */
+/**
+ * Read presentation from post data.
+ * Forward path is always-image (overlay + YT still or `/generated/`).
+ * Explicit `mediaStyle: text` remains residual for archive posts not yet
+ * backfilled with owned art — do not re-show a failed YT still as photo.
+ */
 export function mediaFromPostData(d: {
   mediaStyle?: string | null;
   thumbFocusX?: number | null;
@@ -251,7 +270,22 @@ export function mediaFromPostData(d: {
   const hasThumb = !!(d.thumbnail && String(d.thumbnail).trim());
   const style = normalizeMediaStyle(d.mediaStyle);
   const quality = normalizeStillQuality(d.stillQuality);
-  // Explicit text style, or no usable still → no art on the card.
+  // Owned art always displays even if an old post was marked text.
+  const owned =
+    hasThumb &&
+    (String(d.thumbnail).startsWith("/generated/") ||
+      /\/generated\/[\w.-]+\.(?:png|jpe?g|webp)$/i.test(String(d.thumbnail)));
+  if (owned) {
+    const focus = safeFocus(d.thumbFocusX, d.thumbFocusY);
+    return {
+      mediaStyle: "overlay",
+      thumbFocusX: focus.thumbFocusX,
+      thumbFocusY: focus.thumbFocusY,
+      stillQuality: quality,
+      mediaNote: d.mediaNote ?? undefined,
+    };
+  }
+  // Explicit text or no usable still → no art (archive residual).
   if (!hasThumb || style === "text") {
     return {
       mediaStyle: "text",

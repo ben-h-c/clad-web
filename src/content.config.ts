@@ -104,16 +104,17 @@ const posts = defineCollection({
       videoTitle: z.string().optional(),
       thumbnail: z.string().optional(),
       // Per-post card presentation (set at publish via still analysis).
-      // overlay = full-bleed image + text scrim; modular = top thumb + body;
-      // text = no still (confusing / unusable art).
+      // overlay = 16:9 photo band (YouTube still or /generated/ art);
+      // modular = legacy alias of overlay; text = residual only (no art).
       mediaStyle: z.enum(["overlay", "modular", "text"]).optional(),
       /** Horizontal object-position anchor 0–100 (0 = left). */
       thumbFocusX: z.number().min(0).max(100).optional(),
       /** Vertical object-position anchor 0–100 (0 = top). */
       thumbFocusY: z.number().min(0).max(100).optional(),
       /**
-       * Still suitability for the 16:9 card band (pipeline / admin only).
-       * Not shown to public readers. fail → prefer mediaStyle text.
+       * Still suitability of the *broadcast* YouTube still (pipeline / admin).
+       * Not shown to public readers. fail → owned /generated/ illustration
+       * (always-image policy), not text-only.
        */
       stillQuality: z.enum(["pass", "weak", "fail"]).optional(),
       /** Pipeline note for why this framing was chosen (not shown in UI). */

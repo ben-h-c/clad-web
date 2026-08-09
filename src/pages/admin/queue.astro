@@ -218,17 +218,17 @@ for (const d of drafts) {
                   Use photo
                 </label>
                 <label class="q-still__opt">
-                  <input type="radio" name={`still-${d.draftId}`} class="q-media-hide" value="hide" />
-                  Hide photo
+                  <input type="radio" name={`still-${d.draftId}`} class="q-media-illustration" value="illustration" />
+                  Use illustration
                 </label>
-                <label class="q-still__opt q-still__opt--force" title="Only needed if vision would fail but you still want the art">
+                <label class="q-still__opt q-still__opt--force" title="Keep the YouTube still even if vision scores fail">
                   <input type="checkbox" class="q-force-still" />
                   Force show (override quality fail)
                 </label>
               </fieldset>
               <p class="dateline q-still__hint">
-                Same 16:9 crop as the homepage. Busy chyrons / split graphics should use <strong>Hide photo</strong>.
-                With vision on, approve auto-hides fail stills unless you force show.
+                Same 16:9 crop as the homepage. Busy chyrons / split graphics should use <strong>Use illustration</strong>—not hide art.
+                Cards always ship with an image. With vision on, approve swaps fail stills for owned art unless you force show.
               </p>
             </div>
 
@@ -434,26 +434,26 @@ for (const d of drafts) {
       };
       const stillCard = item.querySelector("[data-still-card]");
       const stillPill = item.querySelector("[data-still-pill]");
-      const hideRadio = item.querySelector(".q-media-hide");
+      const illustrationRadio = item.querySelector(".q-media-illustration");
       const useRadio = item.querySelector(".q-media-use");
       const forceStillCb = item.querySelector(".q-force-still");
       const syncStillPreview = () => {
-        const hide = !!(hideRadio && hideRadio.checked);
-        if (stillCard) stillCard.classList.toggle("is-hidden-art", hide);
+        const illustration = !!(illustrationRadio && illustrationRadio.checked);
+        if (stillCard) stillCard.classList.toggle("is-hidden-art", illustration);
         if (stillPill) {
-          stillPill.textContent = hide ? "Hide art" : "Review still";
-          stillPill.classList.toggle("qa-pill--still-hide", hide);
+          stillPill.textContent = illustration ? "Illustration" : "Review still";
+          stillPill.classList.toggle("qa-pill--still-hide", illustration);
         }
       };
-      if (hideRadio) hideRadio.addEventListener("change", syncStillPreview);
+      if (illustrationRadio) illustrationRadio.addEventListener("change", syncStillPreview);
       if (useRadio) useRadio.addEventListener("change", syncStillPreview);
       syncStillPreview();
 
       const mediaOpts = () => {
-        const hide = !!(hideRadio && hideRadio.checked);
+        const illustration = !!(illustrationRadio && illustrationRadio.checked);
         const forceStill = !!(forceStillCb && forceStillCb.checked);
-        if (hide) {
-          return { mediaStyle: "text", mediaNote: "editor hide art" };
+        if (illustration) {
+          return { preferIllustration: true, mediaNote: "editor chose illustration" };
         }
         return forceStill ? { forceStill: true } : {};
       };

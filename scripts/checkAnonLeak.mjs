@@ -207,6 +207,13 @@ async function checkHtml(route, { minBytes = 2048, post = null } = {}) {
   }
   const raw = await res.text();
   const html = stripSampleUnlocked(raw);
+  // Markup patterns target rendered DOM (LetterGrade.astro etc.). Inline
+  // scripts may contain class-name strings for unlocked client paths (e.g.
+  // HomeMoreFeed) even when locked responses never render grades — strip
+  // script/style bodies so those templates are not false positives.
+  const htmlDom = html
+    .replace(/<script\b[\s\S]*?<\/script>/gi, "")
+    .replace(/<style\b[\s\S]*?<\/style>/gi, "");
 
   // Size on the RAW response (the sample subtree is real content); leak
   // patterns on the sample-stripped HTML.
@@ -215,7 +222,7 @@ async function checkHtml(route, { minBytes = 2048, post = null } = {}) {
     fail(route, `body too small (${bytes} bytes of text, need > ${minBytes}) — blank-page regression?`);
   }
   for (const [re, what] of LEAK_PATTERNS) {
-    if (re.test(html)) fail(route, `anonymous leak: ${what} matched ${re}`);
+    if (re.test(htmlDom)) fail(route, `anonymous leak: ${what} matched ${re}`);
   }
   // Head scan runs on the RAW response: the daily-sample carve-out is a body
   // subtree only — even the sample post's head metadata must stay grade-free.

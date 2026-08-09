@@ -36,12 +36,12 @@ keyMoments:
     note: "Standard, evidence-based FDA/USDA food-safety recommendations referenced in the outbreak advisory."
 videoId: "eP2d1AWI5AA"
 videoTitle: "What to know about the salmonella outbreak linked to jalapeños"
-thumbnail: "https://img.youtube.com/vi/eP2d1AWI5AA/maxresdefault.jpg"
-mediaStyle: "text"
+thumbnail: "/generated/2026-08-08-fda-links-salmonella-outbreak-to-jalapenos-from-sinaloa-served-at-chipotle-and.jpg"
+mediaStyle: "overlay"
 thumbFocusX: 50
 thumbFocusY: 40
 stillQuality: "fail"
-mediaNote: "Busy split storefront + heavy chyron — hide art (still QA)"
+mediaNote: "YT still fail → owned illustration: busy split storefront + heavy chyron"
 citations:
   - title: "Outbreak Investigation of Salmonella: Jalapeño (August 2026)"
     url: "https://www.fda.gov/food/outbreaks-foodborne-illness/outbreak-investigation-salmonella-jalapeno-august-2026"

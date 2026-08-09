@@ -14,12 +14,19 @@ Format:
 
 ---
 
+## 2026-08-08 — Always image: still fail → owned illustration
+
+**Status:** accepted (supersedes hide-art default from earlier same-day decision)  
+**Context:** Designer rule: report cards must always show a 16:9 image. Hiding bad YouTube stills left empty “Hold for preview” tiles (e.g. FDA/Salmonella Chipotle post) next to full photo cards.  
+**Decision:** Vision still scores `stillQuality` pass|weak|fail. **Fail → generate site-owned editorial art under `/generated/`**, set `mediaStyle: overlay`, keep `stillQuality: fail` + note as audit of the *broadcast* still. Editor controls: **Use photo** / **Use illustration** / **Force show** (YT still even on fail). Hide-photo is not a product option for strip cards. Generation failure falls back to YT still rather than empty void. Legal: only own YT still or `/generated/` (`docs/legal/image-claims.md`).  
+**Consequences:** Approve may call xAI image + commit a binary; bulk/economy still skips vision (keeps still). Archive text-only posts are residual, not the forward path.
+
 ## 2026-08-08 — Pre-publish still quality gate
 
-**Status:** accepted  
+**Status:** superseded (see “Always image” above)  
 **Context:** Homepage Breaking strip mixed clean talking-head stills with busy network graphics (chyron / split composites) that read as stretched or unprofessional in the 16:9 card band. Defect is suitability, not CSS (`object-fit: cover` is correct).  
-**Decision:** Vision (when `enableVisionOnPublish`) scores `stillQuality` pass|weak|fail and sets focus; **fail → default `mediaStyle: text`** (hide art) unless the editor forces the photo. Admin queue shows a 16:9 card-as-published preview with Use photo / Hide photo. Persist optional `stillQuality` + `mediaNote` on the post (not public UI). Economy mode skips vision; human queue preview is the gate. Forward-only (no full archive re-thumb); fix called-out posts at ship.  
-**Consequences:** Bad stills no longer go live unnoticed when vision is on; text cards are intentional and must be honored by `mediaFromPostData` / ReportCard.
+**Decision (original):** Vision scores `stillQuality`; fail → `mediaStyle: text` unless force-show.  
+**Superseded by:** fail → owned `/generated/` illustration (always-image).
 
 ## 2026-08-09 — Today in History images: Commons multi-fallback
 

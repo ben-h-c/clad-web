@@ -31,7 +31,7 @@ const lead = members[0];
 const reasoning = lead?.data.summary || "";
 
 const byNew = [...members].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
-// Prefer a still that is allowed to show (mediaStyle text = hide art).
+// Prefer any displayable still (always-image: owned art or YT still).
 const artPost = byNew.find((p) => {
   const t = displayableThumb(p.data.thumbnail);
   if (!t) return false;

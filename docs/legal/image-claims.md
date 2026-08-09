@@ -79,7 +79,9 @@ just belt-and-suspenders.
 3. **Swap the artwork the same day** (goodwill removal, without admitting
    anything — removal is not an admission):
    - Edit that post's `thumbnail:` frontmatter to site-owned generated art
-     (preferred — keeps the tile visual), or delete the field entirely.
+     under `/generated/` (required product path — cards always ship with an
+     image; do not leave a text-only empty tile as remediation). Set
+     `mediaStyle: overlay` and note the swap in `mediaNote`.
    - Ship via PR; after deploy, verify the image is gone from the claimed
      page AND from both baked share cards, `/og/<slug>.png` and
      `/og/story/<slug>.png` (the deploy purge covers the edge cache;

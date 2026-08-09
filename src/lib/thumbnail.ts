@@ -1,12 +1,11 @@
 /**
  * Thumbnail resolution. Every post must have a working image.
  *
- *  - Video posts: use the best YouTube still that actually exists. `maxresdefault`
- *    is sharper but is missing for many videos (404), so we verify it and fall
- *    back to `hqdefault`, which YouTube generates for every video.
- *  - Posts with no usable YouTube still (e.g. a verdict post with no video):
- *    generate an editorial illustration from the headline with xAI's image model,
- *    commit it into the repo under public/, and return its static path.
+ *  - Video posts (pass/weak still QA): YouTube still that actually exists.
+ *    `maxresdefault` is sharper but often 404s; fall back to `hqdefault`.
+ *  - Still QA fail, editor-chosen illustration, or no usable video still:
+ *    generate an editorial illustration with xAI's image model, commit under
+ *    public/generated/, return its static path.
  */
 import { commitBinaryFile } from "./github.ts";
 
@@ -72,34 +71,68 @@ export async function generateThumbnail(
   }
 }
 
+export interface GithubCommitTarget {
+  token: string;
+  repo: string;
+  branch: string;
+}
+
+/**
+ * Generate site-owned editorial art and commit it under public/generated/.
+ * Returns the public path (e.g. `/generated/<slug>.jpg`) or null on failure.
+ */
+export async function commitGeneratedThumbnail(args: {
+  xaiKey: string;
+  github: GithubCommitTarget;
+  title: string;
+  slug: string;
+}): Promise<string | null> {
+  const img = await generateThumbnail(args.xaiKey, args.title);
+  if (!img) return null;
+  const ext = img.mime.includes("png") ? "png" : "jpg";
+  const path = `public/generated/${args.slug}.${ext}`;
+  await commitBinaryFile({
+    ...args.github,
+    path,
+    base64: img.base64,
+    message: `thumbnail (generated): ${args.title}`,
+  });
+  return `/generated/${args.slug}.${ext}`;
+}
+
 interface ResolveArgs {
   videoId?: string | null;
   title: string;
   slug: string;
   xaiKey?: string;
-  github?: { token: string; repo: string; branch: string };
+  github?: GithubCommitTarget;
+  /**
+   * Force owned illustration even when a videoId exists (still QA fail path
+   * or editor "Use illustration"). Default false → YouTube still for videos.
+   */
+  preferGenerated?: boolean;
 }
 
 /**
- * Resolve a guaranteed-working thumbnail URL for a post. Returns "" only if a
- * post has no video AND image generation is unavailable/failed.
+ * Resolve a guaranteed-working thumbnail URL for a post. Returns "" only if
+ * generation is unavailable/failed and there is no video still.
  */
 export async function resolveThumbnail(args: ResolveArgs): Promise<string> {
-  if (args.videoId) return bestYoutubeThumb(args.videoId);
+  if (args.videoId && !args.preferGenerated) {
+    return bestYoutubeThumb(args.videoId);
+  }
 
   if (args.xaiKey && args.github) {
-    const img = await generateThumbnail(args.xaiKey, args.title);
-    if (img) {
-      const ext = img.mime.includes("png") ? "png" : "jpg";
-      const path = `public/generated/${args.slug}.${ext}`;
-      await commitBinaryFile({
-        ...args.github,
-        path,
-        base64: img.base64,
-        message: `thumbnail (generated): ${args.title}`,
-      });
-      return `/generated/${args.slug}.${ext}`;
-    }
+    const path = await commitGeneratedThumbnail({
+      xaiKey: args.xaiKey,
+      github: args.github,
+      title: args.title,
+      slug: args.slug,
+    });
+    if (path) return path;
   }
+
+  // Generation failed: fall back to YouTube still if any (always-image).
+  if (args.videoId) return bestYoutubeThumb(args.videoId);
   return "";
 }
