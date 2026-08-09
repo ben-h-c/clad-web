@@ -110,7 +110,7 @@ const {
     function gradeChip(letter) {
       if (!letter || locked) {
         return locked
-          ? '<span class="report-card__chip report-card__chip--lock grade-lock">Unlock free</span>'
+          ? '<span class="report-card__chip report-card__chip--lock grade-lock" aria-label="Grade locked — free with an account">Grade</span>'
           : "";
       }
       const tier = String(letter).charAt(0).toUpperCase();

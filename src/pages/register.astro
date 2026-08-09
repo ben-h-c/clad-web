@@ -14,10 +14,11 @@ const PROVIDER_LABELS: Record<string, string> = { google: "Google", apple: "Appl
 const providers = enabledSocialProviders();
 const loginHref = dest !== "/account/" ? `/login/?next=${encodeURIComponent(dest)}` : "/login/";
 ---
-<BaseLayout title="Create account — CladFacts" description="Create a free CladFacts account — every grade, political-lean rating, and sentiment score, no card required." noindex={true}>
+<BaseLayout title="See grades free — CladFacts" description="See grades free with a CladFacts account — every grade, political-lean rating, and sentiment score, no card required." noindex={true}>
   <article class="static-page auth-page" id="register-article" data-next={dest}>
-    <h2 class="static-page__title">Create your account</h2>
-    <p class="dateline">A free account is full access — every letter grade, factuality score, political-lean rating, and social-sentiment score. No card, no trial clock. Plus saved reports and custom topic alerts.</p>
+    <h2 class="static-page__title">See grades free</h2>
+    <p class="dateline">Create a free account to unlock accuracy grades and political lean on every report card. No credit card. Premium is optional support for the newsroom. Plus saved reports and topic alerts.</p>
+    <p class="auth-how"><a href="/how-it-works/">How grading works</a> · Registration wall — not a paywall.</p>
     {dest !== "/account/" && (
       <p class="auth-return small-caps">After you verify, we&rsquo;ll send you back to finish what you started.</p>
     )}
@@ -44,7 +45,7 @@ const loginHref = dest !== "/account/" ? `/login/?next=${encodeURIComponent(dest
         <label for="password">Password (8+ characters)</label>
         <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required />
       </div>
-      <button type="submit" class="auth-submit">Create account</button>
+      <button type="submit" class="auth-submit">See grades free</button>
       <div id="register-status" class="auth-status" role="status"></div>
     </form>
 

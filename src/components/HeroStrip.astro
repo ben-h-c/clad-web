@@ -5,6 +5,8 @@ import type { CollectionEntry } from "astro:content";
 interface Props {
   posts: CollectionEntry<"posts">[];
   title?: string;
+  /** Soft Neutral section sublabel under the H2. */
+  eyebrow?: string;
   variant?: string;
   locked?: boolean;
   /** Post id unlocked as today's free sample for restricted readers. */
@@ -16,17 +18,24 @@ interface Props {
 const {
   posts,
   title = "Front Page",
+  eyebrow,
   variant,
   locked = false,
   unlockedId = null,
   moreHref,
   moreLabel = "See all →",
 } = Astro.props;
+const defaultEyebrow =
+  title === "Front Page" ? "Desk picks" : undefined;
+const showEyebrow = eyebrow ?? defaultEyebrow;
 ---
 {posts.length > 0 && (
-  <section class={`hero${variant ? ` hero--${variant}` : ""}`}>
+  <section class={`hero${variant ? ` hero--${variant}` : ""}${title === "Front Page" ? " hero--front-page" : ""}`}>
     <div class="hero__head">
-      <h2 class="small-caps">{title}</h2>
+      <div class="hero__head-text">
+        <h2 class="small-caps">{title}</h2>
+        {showEyebrow && <p class="hero__eyebrow">{showEyebrow}</p>}
+      </div>
       {moreHref && <a class="category__more" href={moreHref}>{moreLabel}</a>}
     </div>
     <div class="hero-strip-wrap">

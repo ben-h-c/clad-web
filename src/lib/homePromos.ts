@@ -91,7 +91,7 @@ export const HOME_PROMOS: HomePromo[] = [
     title: "Unlock every grade with a free account",
     body: "Letter grades, lean scores, charts, and search filters — full access the moment you sign up.",
     href: "/register/?next=/",
-    cta: "Create free account",
+    cta: "See grades free",
     secondaryHref: "/how-it-works/",
     secondaryCta: "How it works",
     variant: "default",

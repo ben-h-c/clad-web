@@ -14,11 +14,42 @@ Astro.response.headers.set("Cache-Control", "public, max-age=300");
     <h1 class="static-page__title">How Clad Works</h1>
 
     <p>
-      Every Clad report is a graded fact-check of a real news broadcast. This
-      page explains, step by step, how each part of a report is produced — what
-      the AI does, what the human editor does, and where the limits are. A
-      rating is only as good as the method behind it, so here is the method.
-      Tap a section to expand it.
+      Built for first-time news readers. No black box — here is the loop in
+      plain language, then the full methodology below.
+    </p>
+
+    <ol class="how-steps">
+      <li class="how-steps__item">
+        <span class="how-steps__n" aria-hidden="true">1</span>
+        <div>
+          <strong>We watch the broadcast</strong>
+          <p>Allow-listed channels and editor intake — not random keyword scrape.</p>
+        </div>
+      </li>
+      <li class="how-steps__item">
+        <span class="how-steps__n" aria-hidden="true">2</span>
+        <div>
+          <strong>Agents draft a report card</strong>
+          <p>Accuracy, lean, and notes a human editor can approve or fix.</p>
+        </div>
+      </li>
+      <li class="how-steps__item">
+        <span class="how-steps__n" aria-hidden="true">3</span>
+        <div>
+          <strong>You see the grade</strong>
+          <p>Free with registration. Flags and corrections stay public trust tools.</p>
+        </div>
+      </li>
+    </ol>
+    <p class="how-steps__cta">
+      <a class="auth-submit" href="/register/">See grades free</a>
+      <span class="how-steps__note">No card required.</span>
+    </p>
+
+    <p>
+      Every Clad report is a graded fact-check of a real news broadcast. The
+      sections below explain what the AI does, what the human editor does, and
+      where the limits are. Tap a section to expand it.
     </p>
 
     <CollapsibleSection title="What gets checked" eyebrow="Scope">

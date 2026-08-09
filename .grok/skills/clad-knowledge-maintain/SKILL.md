@@ -23,11 +23,13 @@ You are responsible for making future agents smarter about CladFacts. Chat is ep
    - Test/ship gate → `.grok/skills/clad-test/SKILL.md`
    - Prioritization / lead process → `.grok/skills/clad-product/SKILL.md`
    - Cross-project Ben preference → `~/.grok/memory/MEMORY.md` (## Preferences)
+   - **Quality / “that looks horrible” / missing screenshots** → `~/.grok/skills/ben-quality-lens/SKILL.md` + append `~/.grok/memory/training/FEEDBACK_LOG.md` + `dataset.jsonl` (same turn as the fix)
 
 2. **Write the minimum durable statement**
    - Imperative, specific, dated if a decision.
    - Merge duplicates; delete contradictions.
    - No secrets, tokens, passwords, or PII.
+   - Quality bar for visual audits: real screenshots/renders required (see ben-quality-lens).
 
 3. **Cross-link**
    - If tokens changed, design-system.md and clad-design must match `global.css`.
@@ -44,6 +46,7 @@ You are responsible for making future agents smarter about CladFacts. Chat is ep
 - After approving a design direction that should stick.
 - After App Store / production incident lessons.
 - Before saying “done” on multi-hour platform work.
+- After Ben rejects deliverable quality (e.g. visual PDF without screenshots) — fix + training log, not chat-only apology.
 
 ## Anti-patterns
 

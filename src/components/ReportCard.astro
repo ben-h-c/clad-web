@@ -16,6 +16,7 @@ import {
   objectPositionCss,
 } from "~/lib/mediaPresentation";
 import type { CollectionEntry } from "astro:content";
+import { LOCK_CHIP, LOCK_CHIP_ARIA, CTA_PRIMARY } from "~/lib/productCopy";
 
 interface Props {
   post: CollectionEntry<"posts">;
@@ -108,7 +109,7 @@ const cardClass = [
 
           <div class="report-card__media-chips">
             {showLocked ? (
-              <span class="report-card__chip report-card__chip--lock grade-lock">Unlock free</span>
+              <span class="report-card__chip report-card__chip--lock grade-lock" aria-label={LOCK_CHIP_ARIA}>{LOCK_CHIP}</span>
             ) : isBroadcast && d.letterGrade ? (
               <>
                 <span class="report-card__chip report-card__chip--grade">
@@ -162,7 +163,7 @@ const cardClass = [
           )}
           {peek && showLocked && (
             <div class="report-card__peek-row report-card__peek-row--locked" aria-hidden="true">
-              <span class="report-card__peek-lock grade-lock">Unlock free</span>
+              <span class="report-card__peek-lock grade-lock" aria-label={LOCK_CHIP_ARIA}>{LOCK_CHIP}</span>
             </div>
           )}
           {peek && !showLocked && !isBroadcast && d.verdict && (
@@ -174,8 +175,8 @@ const cardClass = [
           <div class="report-card__detail">
             {showLocked ? (
               <div class="scoreband scoreband--locked">
-                <span class="grade-lock">
-                  Grade &amp; lean — <a href="/register/">Unlock free</a>
+                <span class="grade-lock" aria-label={LOCK_CHIP_ARIA}>
+                  {LOCK_CHIP} &amp; lean — <a href="/register/">{CTA_PRIMARY}</a>
                 </span>
               </div>
             ) : isBroadcast && d.letterGrade ? (

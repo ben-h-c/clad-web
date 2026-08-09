@@ -104,7 +104,7 @@ const jsonLd = {
 
     {locked ? (
       <div class="scoreband scoreband--locked pol-scoreband" aria-hidden="true">
-        <span class="grade-lock">Ideology &amp; claim record — Unlock free</span>
+        <span class="grade-lock" aria-label="Grade locked — free with an account">Ideology &amp; claim record — locked</span>
       </div>
     ) : (pol.personGrade || pol.personFactuality != null || pol.personLean != null) ? (
       <div class="scoreband pol-scoreband" aria-label="Person scores">
@@ -150,7 +150,7 @@ const jsonLd = {
     {locked && (
       <p class="paywall-banner" style="margin: 1rem 0">
         <span>Person scores locked for guests — free with any account.</span>
-        <a class="paywall-banner__cta" href="/register/">Create free account</a>
+        <a class="paywall-banner__cta" href="/register/">See grades free</a>
       </p>
     )}
 

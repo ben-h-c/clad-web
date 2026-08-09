@@ -18,6 +18,7 @@ import HomeCalendar from "~/components/HomeCalendar.astro";
 import TodayInHistory from "~/components/TodayInHistory.astro";
 import HumanSpotlight from "~/components/HumanSpotlight.astro";
 import QuipTicker from "~/components/QuipTicker.astro";
+import HomeExploreGrid from "~/components/HomeExploreGrid.astro";
 import {
   getHomeBundle,
   getSentiments,
@@ -327,6 +328,11 @@ const homeMorePage = pageHomeMoreIds(homeMoreIds, 0, HOME_MORE_PAGE_SIZE);
 const homeMorePosts = homeMorePage.page
   .map((id) => byId.get(id))
   .filter((p): p is NonNullable<typeof p> => p !== undefined);
+
+// Anon density (Pass 2 R03): shorter FIXED_TOP strips; skip stacked explore rails.
+const ANON_STRIP_CAP = 4;
+const breakingShow = locked ? breaking.slice(0, ANON_STRIP_CAP) : breaking;
+const heroPostsShow = locked ? heroPosts.slice(0, ANON_STRIP_CAP) : heroPosts;
 ---
 <BaseLayout
   title="CLAD — Grading Content & Exposing Bias"
@@ -413,24 +419,27 @@ const homeMorePosts = homeMorePage.page
           )}
 
           {item.kind === "section" && item.id === "breaking" && (
-            <BreakingStrip items={breaking} locked={locked} />
+            <BreakingStrip items={breakingShow} locked={locked} />
           )}
 
           {item.kind === "section" && item.id === "front-page" && (
-            <HeroStrip
-              posts={heroPosts}
-              title="Front Page"
-              locked={locked}
-              moreHref="/recent/"
-              moreLabel="Latest →"
-            />
+            <>
+              <HeroStrip
+                posts={heroPostsShow}
+                title="Front Page"
+                locked={locked}
+                moreHref="/recent/"
+                moreLabel="Full front page →"
+              />
+              {locked && <HomeExploreGrid />}
+            </>
           )}
 
           {item.kind === "section" && item.id === "lean" && !locked && (
             <CoverageLeanBar posts={all} class="home-lean" />
           )}
 
-          {item.kind === "section" && item.id === "calendar" && (
+          {item.kind === "section" && item.id === "calendar" && !locked && (
             <HomeCalendar
               races={calendarRaces}
               live={calendarLive}
@@ -441,7 +450,7 @@ const homeMorePosts = homeMorePage.page
             />
           )}
 
-          {item.kind === "section" && item.id === "politician-spotlight" && politicianSpotlightItems.length > 0 && (
+          {item.kind === "section" && item.id === "politician-spotlight" && !locked && politicianSpotlightItems.length > 0 && (
             <HomeFeatureHighlight
               items={politicianSpotlightItems}
               title="People in the news"
@@ -474,25 +483,23 @@ const homeMorePosts = homeMorePage.page
             <TodayInHistory payload={todayInHistory} />
           )}
 
-          {item.kind === "section" && item.id === "human-spotlight" && (
+          {item.kind === "section" && item.id === "human-spotlight" && !locked && (
             <>
               <HumanSpotlight payload={humanSpotlight} />
-              {!locked && (
-                <p class="home-more-analytics">
-                  Want the long view?{" "}
-                  <a href="/trends/">News Trends</a>
-                  {" · "}
-                  <a href="/bias/">Check your bias</a>
-                  {" · "}
-                  <a href="/week/">Week in Grades</a>
-                  {" · "}
-                  <a href="/good-news/">Good News</a>.
-                </p>
-              )}
+              <p class="home-more-analytics">
+                Want the long view?{" "}
+                <a href="/trends/">News Trends</a>
+                {" · "}
+                <a href="/bias/">Check your bias</a>
+                {" · "}
+                <a href="/week/">Week in Grades</a>
+                {" · "}
+                <a href="/good-news/">Good News</a>.
+              </p>
             </>
           )}
 
-          {item.kind === "section" && item.id === "discover" && (
+          {item.kind === "section" && item.id === "discover" && !locked && (
             <HeroStrip
               posts={discoverPosts}
               title="Discover"
@@ -502,7 +509,7 @@ const homeMorePosts = homeMorePage.page
             />
           )}
 
-          {item.kind === "section" && item.id === "good-news" && (
+          {item.kind === "section" && item.id === "good-news" && !locked && (
             <HeroStrip
               posts={goodNewsPosts}
               title="Good News"
@@ -512,7 +519,7 @@ const homeMorePosts = homeMorePage.page
             />
           )}
 
-          {item.kind === "section" && item.id === "quips" && <QuipTicker data={quips} />}
+          {item.kind === "section" && item.id === "quips" && !locked && <QuipTicker data={quips} />}
 
           {item.kind === "section" && item.id === "more-feed" && homeMorePosts.length > 0 && (
             <HomeMoreFeed
@@ -531,16 +538,27 @@ const homeMorePosts = homeMorePage.page
                 <h2 class="feed__title" id="more-clad-title">Explore more</h2>
               </div>
               <div class="rule rule--double" aria-hidden="true"></div>
-              <ul class="more-clad__list">
-                <li><a href="/week/"><strong>Week in Grades</strong></a> — best, worst, and what got ignored</li>
-                <li><a href="/trends/"><strong>News Trends</strong></a> — is coverage getting better or worse?</li>
-                <li><a href="/good-news/"><strong>Good News</strong></a> — solid reporting, lighter load</li>
-                <li><a href="/students/"><strong>For students</strong></a> — how to read grades and share them</li>
-                <li><a href="/learn/"><strong>New to the news?</strong></a> — short explainers, no jargon</li>
-                <li><a href="/how-it-works/"><strong>How Clad works</strong></a> — the method, start to finish</li>
-                <li><a href="/newsletter/"><strong>Newsletter</strong></a> — Sunday desk in your inbox</li>
-                <li><a href="/search/"><strong>Topics</strong></a> — browse every theme we grade</li>
-              </ul>
+              <div class="more-clad__cols">
+                <div class="more-clad__col">
+                  <h3 class="more-clad__col-title small-caps">Product</h3>
+                  <ul class="more-clad__list">
+                    <li><a href="/how-it-works/"><strong>How Clad works</strong></a> — the method, start to finish</li>
+                    <li><a href="/register/"><strong>See grades free</strong></a> — full scoreboard, no card</li>
+                    <li><a href="/search/"><strong>Topics</strong></a> — browse every theme we grade</li>
+                  </ul>
+                </div>
+                <div class="more-clad__col">
+                  <h3 class="more-clad__col-title small-caps">Explore</h3>
+                  <ul class="more-clad__list">
+                    <li><a href="/week/"><strong>Week in Grades</strong></a> — best, worst, and what got ignored</li>
+                    <li><a href="/trends/"><strong>News Trends</strong></a> — is coverage getting better or worse?</li>
+                    <li><a href="/good-news/"><strong>Good News</strong></a> — solid reporting, lighter load</li>
+                    <li><a href="/students/"><strong>For students</strong></a> — how to read grades and share them</li>
+                    <li><a href="/learn/"><strong>New to the news?</strong></a> — short explainers, no jargon</li>
+                    <li><a href="/newsletter/"><strong>Newsletter</strong></a> — Sunday desk in your inbox</li>
+                  </ul>
+                </div>
+              </div>
             </section>
           )}
         </>

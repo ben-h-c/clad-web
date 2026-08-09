@@ -26,16 +26,18 @@ const packText = CAMPUS_SHARE_LINES.map((l) => `• ${l}`).join("\n");
 >
   <article class="static-page campus-hub">
     <p class="small-caps upgrade__eyebrow">For students · ages ~16–24</p>
-    <h1 class="static-page__title">News with receipts</h1>
+    <h1 class="static-page__title">Learn to read the news without the spin</h1>
     <p class="upgrade__lede">
-      You've been told not to trust everything online. Fair. Clad grades the
-      <em>coverage</em> — letter grade, factuality, political lean — and lists
-      the sources so you can check us too. No slang act. No outrage machine.
-      Just a clearer read on what you watched.
+      Clad is built for high-school and college readers. You've been told not
+      to trust everything online — fair. We grade the <em>coverage</em>
+      (letter grade, factuality, lean) and list sources so you can check us too.
+      No slang act. No outrage machine. Classroom path: methodology → sample
+      cards → free scoreboard.
     </p>
 
     <p class="campus-cta-row">
-      <a class="auth-submit" href="/register/">Create free account</a>
+      <a class="auth-submit" href="/register/">See grades free</a>
+      <a class="auth-submit secondary" href="/how-it-works/">How grading works</a>
       <a class="auth-submit secondary" href="/quiz/">Morning quiz</a>
       {APP_STORE_LIVE && (
         <a class="auth-submit secondary" href={APP_STORE_URL} target="_blank" rel="noopener">Get the iOS app</a>

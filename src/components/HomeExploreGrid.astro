@@ -1,0 +1,105 @@
+---
+/**
+ * Compact “More on Clad” tile grid for anon home density (Pass 2 R03).
+ * Replaces stacking full discover/good-news/spotlight rails for guests.
+ */
+const tiles = [
+  { href: "/search/", kicker: "Browse", label: "Topics" },
+  { href: "/elections/map/", kicker: "Midterms", label: "Election map" },
+  { href: "/politicians/", kicker: "People", label: "Politicians" },
+  { href: "/good-news/", kicker: "Hope", label: "Good news" },
+] as const;
+---
+<section class="home-explore" aria-labelledby="home-explore-title">
+  <div class="home-explore__head">
+    <h2 class="home-explore__title" id="home-explore-title">More on Clad</h2>
+    <p class="home-explore__eyebrow">Explore without another infinite rail</p>
+  </div>
+  <div class="home-explore__grid">
+    {tiles.map((t) => (
+      <a class="home-explore__tile" href={t.href}>
+        <span class="home-explore__kicker">{t.kicker}</span>
+        <strong class="home-explore__label">{t.label}</strong>
+      </a>
+    ))}
+  </div>
+  <p class="home-explore__cta-wrap">
+    <a class="home-explore__cta" href="/register/">See grades free</a>
+    <a class="home-explore__link" href="/how-it-works/">How grading works</a>
+  </p>
+</section>
+
+<style>
+  .home-explore {
+    margin: 1.5rem 0 0.5rem;
+    padding: 0.25rem 0 0.5rem;
+  }
+  .home-explore__head {
+    margin-bottom: 0.75rem;
+  }
+  .home-explore__title {
+    margin: 0;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+  }
+  .home-explore__eyebrow {
+    margin: 0.2rem 0 0;
+    font-size: 0.78rem;
+    color: var(--muted-ink);
+  }
+  .home-explore__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+  }
+  .home-explore__tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 5.5rem;
+    padding: 0.9rem 1rem;
+    border-radius: var(--radius-stock, 18px);
+    border: 1px solid var(--rule);
+    background: var(--card);
+    color: inherit;
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: border-color 0.15s var(--ease-out, ease), transform 0.15s var(--ease-out, ease);
+  }
+  .home-explore__tile:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--rule));
+  }
+  .home-explore__kicker {
+    font-size: 0.72rem;
+    color: var(--muted-ink);
+    margin-bottom: 0.2rem;
+  }
+  .home-explore__label {
+    font-size: 0.95rem;
+    font-weight: 650;
+  }
+  .home-explore__cta-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    align-items: center;
+    margin: 1rem 0 0;
+  }
+  .home-explore__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #0f1f1c;
+    font-weight: 700;
+    font-size: 0.88rem;
+    text-decoration: none;
+  }
+  .home-explore__link {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+</style>

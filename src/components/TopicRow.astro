@@ -110,7 +110,14 @@ const rowClass = [
     {locked && (
       <span class="topic-row__lean topic-row__lean--locked">
         <span class="topic-row__lean-label small-caps">Political lean</span>
-        <span class="topic-row__lean-value">Unlock free</span>
+        <span class="topic-row__lean-track topic-row__lean-track--muted" aria-hidden="true">
+          <span class="topic-row__lean-end">L</span>
+          <span class="topic-row__lean-bar">
+            <span class="topic-row__lean-center"></span>
+          </span>
+          <span class="topic-row__lean-end">R</span>
+        </span>
+        <span class="topic-row__lean-value">Sign in to see lean</span>
       </span>
     )}
   </span>
@@ -121,8 +128,8 @@ const rowClass = [
     </span>
   )}
   {locked && (
-    <span class="topic-row__grade grade-lock">
-      <span class="grade-lock-icon" aria-hidden="true"></span>
+    <span class="topic-row__grade grade-lock" aria-label="Grade locked — free with an account">
+      <span class="topic-row__grade-lock-label">Grade</span>
       <span class="visually-hidden">Grade unlocks with a free CladFacts account</span>
     </span>
   )}

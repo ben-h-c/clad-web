@@ -18,8 +18,11 @@ const { items, locked = false, unlockedId = null } = Astro.props;
 {items.length > 0 && (
   <section class="hero hero--breaking">
     <div class="hero__head">
-      <h2 class="small-caps">Breaking News</h2>
-
+      <div class="hero__head-text">
+        <h2 class="small-caps">Breaking</h2>
+        <p class="hero__eyebrow">Graded as it airs</p>
+      </div>
+      <a class="category__more" href="/recent/">See all breaking →</a>
     </div>
     <div class="hero-strip-wrap">
       <button type="button" class="hero-arrow hero-arrow--left" aria-label="Scroll left" hidden>‹</button>

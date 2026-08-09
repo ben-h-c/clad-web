@@ -7,6 +7,13 @@
 import type { CollectionEntry } from "astro:content";
 import { displayableThumb } from "~/lib/imagePolicy";
 import { shortDate } from "~/lib/dateline";
+import {
+  CTA_PRIMARY,
+  CTA_PRIMARY_ARROW,
+  CTA_HOW,
+  LOCK_LEAN,
+  TRUST_REGISTER_LINE,
+} from "~/lib/productCopy";
 
 interface Props {
   posts: CollectionEntry<"posts">[];
@@ -79,8 +86,8 @@ const multi = slides.length > 1;
     <div class="guest-hero__copy">
       <p class="guest-hero__brand">CLADFACTS</p>
       <h2 class="guest-hero__headline">
-        Grading content.<br aria-hidden="true" />
-        <span class="guest-hero__headline-accent">Exposing bias.</span>
+        See how much to trust<br aria-hidden="true" />
+        <span class="guest-hero__headline-accent">the news.</span>
       </h2>
       <p class="guest-hero__lede">
         Every broadcast fact-checked claim by claim — letter grade for accuracy,
@@ -88,16 +95,16 @@ const multi = slides.length > 1;
       </p>
       <div class="guest-hero__actions">
         <a class="guest-hero__cta guest-hero__cta--primary" href="/register/">
-          Create free account
+          {CTA_PRIMARY}
         </a>
         <a class="guest-hero__cta guest-hero__cta--ghost" href="/how-it-works/">
-          Learn more
+          {CTA_HOW}
         </a>
       </div>
       <p class="guest-hero__meta">
         <span>{countLabel}+ graded reports</span>
         <span class="guest-hero__meta-dot" aria-hidden="true">·</span>
-        <span>Full scoreboard free with an account</span>
+        <span>{TRUST_REGISTER_LINE}</span>
       </p>
     </div>
 
@@ -144,10 +151,10 @@ const multi = slides.length > 1;
                     )}
                     <div class="guest-hero__card-body">
                       <div class="guest-hero__score guest-hero__score--locked">
-                        <span class="guest-hero__grade guest-hero__grade--lock">Grade</span>
+                        <span class="guest-hero__grade guest-hero__grade--lock" aria-label="Grade locked">Grade ··</span>
                         <div class="guest-hero__lean">
                           <span class="guest-hero__lean-label small-caps">Political lean</span>
-                          <span class="guest-hero__lean-value">Unlock free</span>
+                          <span class="guest-hero__lean-value">{LOCK_LEAN}</span>
                         </div>
                       </div>
                       <h3 class="guest-hero__card-title">{s.headline}</h3>
@@ -160,7 +167,7 @@ const multi = slides.length > 1;
                         <p class="guest-hero__card-sum">{s.summary}</p>
                       )}
                       <span class="guest-hero__card-cta">
-                        Unlock full grades free →
+                        {CTA_PRIMARY_ARROW}
                       </span>
                     </div>
                   </a>

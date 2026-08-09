@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-09 — Pass 2 site UX: lock chips, CTA system, anon home density
+
+**Status:** accepted  
+**Context:** Visual site review (Pass 2) recommended Soft Neutral treatments for anon grade hooks, nav IA, and home density. Branch `feat/pass2-site-review-ux` for clean rollback.  
+**Decision:** Implement R01–R12: lock chips say “Grade” (not “Unlock free”); primary CTA “See grades free”; guest hero + register + paywall aligned; anon home caps Breaking/Front Page and swaps stacked rails for HomeExploreGrid; masthead Product/Explore/Play/Utility; footer Product/Explore/Org; how-it-works 3-step intro; newsletter secondary Soft Neutral; post lock panel; students path; section eyebrows. Shared copy in `src/lib/productCopy.ts`.  
+**Consequences:** Anon HTML slightly shorter on home; signed-in layout unchanged for discover/good-news/spotlight. Rollback: `git checkout main` or revert the feature branch merge.
+
 ## 2026-08-09 — Knowledge maintain: media lessons into skills + memory
 
 **Status:** accepted  

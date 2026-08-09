@@ -278,7 +278,7 @@ const breadcrumbLd = {
   <article class="post" data-sample-unlocked={isSample && !access.fullAccess ? "true" : undefined}>
     <div class="post__kicker">
       {locked ? (
-        <span class="grade-lock" aria-label="Locked — the grade unlocks with a free account">Grade — Unlock free</span>
+        <span class="grade-lock" aria-label="Grade locked — free with an account">Grade</span>
       ) : isBroadcast ? (
         <LetterGrade grade={d.letterGrade!} />
       ) : (
@@ -386,13 +386,21 @@ const breadcrumbLd = {
       <div class="report">
         {locked ? (
           <div class="report__locked">
-            <p class="grade-lock-panel">
-              <span class="grade-lock-icon" aria-hidden="true"></span> The <strong>letter grade</strong>, factuality score,
-              <strong> political-lean</strong> rating, and <strong>social-media sentiment</strong> for this report unlock with a
-              <a href={registerHref(`/posts/${post.id}/`)}> free CladFacts account</a> — no card, no trial clock.
-              Already have one? <a href={`/login/?next=/posts/${post.id}/`}>Sign in</a>.
-              The full report below is free to read.
-            </p>
+            <div class="grade-lock-panel grade-lock-panel--scoreboard">
+              <p class="grade-lock-panel__title">Unlock the full scoreboard</p>
+              <p>
+                Letter grade, factuality, lean, and rationales — free with registration.
+                No card required.
+              </p>
+              <p class="grade-lock-panel__actions">
+                <a class="grade-lock-panel__cta" href={registerHref(`/posts/${post.id}/`)}>See grades free</a>
+                <a class="grade-lock-panel__link" href="/how-it-works/">How grading works</a>
+              </p>
+              <p class="grade-lock-panel__sign-in">
+                Already have an account? <a href={`/login/?next=/posts/${post.id}/`}>Sign in</a>.
+                The full report below is free to read.
+              </p>
+            </div>
           </div>
         ) : (
           <>
