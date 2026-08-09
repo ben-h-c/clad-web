@@ -16,6 +16,7 @@ You are responsible for making future agents smarter about CladFacts. Chat is ep
 ## Procedure (every time knowledge is learned)
 
 1. **Classify** the lesson:
+   - Map-level architecture → `docs/platform-brief.md` + clad-web skill
    - Design/taste → `docs/design-system.md` + `.grok/skills/clad-design/SKILL.md`
    - Product/architecture decision → `docs/decisions.md` (new entry at top)
    - Code/deploy convention → `.grok/skills/clad-web/SKILL.md`
