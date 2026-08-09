@@ -4,12 +4,19 @@
  * a short article. New person each America/New_York calendar day.
  */
 import { getHumanSpotlight, putHumanSpotlight } from "./api.mjs";
+import {
+  cleanCommonsUrl,
+  firstValidCommonsUrl,
+  validateImageUrl,
+  wikiTitleMatchesPerson,
+} from "./commonsMedia.mjs";
 
 const XAI_RESPONSES = "https://api.x.ai/v1/responses";
 const MODEL = "grok-4.3";
 const UA = "CladFactsBot/1.0 (https://cladfacts.com; human-spotlight)";
 const YT_SEARCH = "https://www.googleapis.com/youtube/v3/search";
 const YT_VIDEOS = "https://www.googleapis.com/youtube/v3/videos";
+const imgOpts = { ua: UA };
 
 const SCHEMA = {
   type: "object",
@@ -101,22 +108,14 @@ function extractText(data) {
   return "";
 }
 
-function isCommonsUrl(url) {
-  try {
-    const u = new URL(url);
-    return (
-      u.protocol === "https:" &&
-      u.hostname === "upload.wikimedia.org" &&
-      u.pathname.startsWith("/wikipedia/commons/")
-    );
-  } catch {
-    return false;
-  }
-}
-
-async function commonsThumbForWikiTitle(title) {
+/**
+ * Resolve a Wikipedia title to a validated Commons thumb.
+ * When personName is set, reject titles that don't clearly match (namesakes).
+ */
+async function commonsThumbForWikiTitle(title, personName = "") {
   const t = String(title || "").trim();
   if (!t) return null;
+  if (personName && !wikiTitleMatchesPerson(t, personName)) return null;
   try {
     const r = await fetch(
       `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(t.replace(/ /g, "_"))}`,
@@ -125,12 +124,12 @@ async function commonsThumbForWikiTitle(title) {
     if (!r.ok) return null;
     const j = await r.json();
     if (j?.type === "disambiguation") return null;
-    const src = j?.thumbnail?.source;
-    // Prefer a larger Commons thumb when possible (still free-licensed).
-    if (src && isCommonsUrl(src)) {
-      return src.replace(/\/\d+px-/, "/440px-");
-    }
-    return null;
+    // Prefer API display title when present (redirects / display forms)
+    const pageTitle = String(j?.titles?.normalized || j?.title || t).trim();
+    if (personName && !wikiTitleMatchesPerson(pageTitle, personName)) return null;
+    const src = j?.thumbnail?.source || j?.originalimage?.source;
+    // Keep API width; try safe alternates only via firstValidCommonsUrl.
+    return await firstValidCommonsUrl(src, imgOpts);
   } catch {
     return null;
   }
@@ -225,16 +224,16 @@ async function findYoutubeVideo(apiKey, { name, achievement, youtubeQuery }) {
   return null;
 }
 
-/** Wikipedia search → first hit with a Commons lead image. */
+/** Wikipedia search → first title that matches this person + has a live Commons still. */
 async function commonsThumbForPersonName(name) {
   const q = String(name || "").trim();
   if (!q) return null;
   try {
-    // 1) Direct summary by name
-    const direct = await commonsThumbForWikiTitle(q);
+    // 1) Direct summary by name (name-matched)
+    const direct = await commonsThumbForWikiTitle(q, q);
     if (direct) return direct;
 
-    // 2) OpenSearch titles
+    // 2) OpenSearch titles — only accept clear name matches
     const params = new URLSearchParams({
       action: "opensearch",
       search: q,
@@ -250,13 +249,26 @@ async function commonsThumbForPersonName(name) {
     const data = await r.json();
     const titles = Array.isArray(data?.[1]) ? data[1] : [];
     for (const title of titles) {
-      const thumb = await commonsThumbForWikiTitle(title);
+      if (!wikiTitleMatchesPerson(title, q)) continue;
+      const thumb = await commonsThumbForWikiTitle(title, q);
       if (thumb) return thumb;
     }
   } catch {
     /* ignore */
   }
   return null;
+}
+
+/** Best-effort verified portrait, or null → UI monogram. */
+async function resolvePersonPortrait(name, wikiTitle) {
+  const nm = String(name || "").trim();
+  if (!nm) return null;
+  const wt = String(wikiTitle || "").trim();
+  if (wt) {
+    const hit = await commonsThumbForWikiTitle(wt, nm);
+    if (hit) return hit;
+  }
+  return (await commonsThumbForPersonName(nm)) || null;
 }
 
 function deskDateParts() {
@@ -346,28 +358,61 @@ export async function runHumanSpotlight(agent) {
   const existing = await getHumanSpotlight();
   const store = existing.ok ? existing.body?.store : null;
   if (store?.dateKey === dateKey && store?.person?.name && !force) {
-    // Same day: fill missing video without rewriting the article.
-    if (!store.person.videoId && ytKey) {
+    // Same day: heal dead/missing portrait + fill missing video; keep article.
+    const person = { ...store.person };
+    let changed = false;
+    const notes = [];
+
+    const cleanedExisting = cleanCommonsUrl(person.imageUrl);
+    const existingOk =
+      cleanedExisting && (await validateImageUrl(cleanedExisting, imgOpts));
+    if (existingOk) {
+      if (cleanedExisting !== person.imageUrl) {
+        person.imageUrl = cleanedExisting;
+        changed = true;
+        notes.push("cleaned photo URL");
+      }
+    } else {
+      // Dead, non-Commons, or missing → re-resolve or monogram (null)
+      const resolved = await resolvePersonPortrait(person.name, person.wikiTitle);
+      if (resolved) {
+        person.imageUrl = resolved;
+        changed = true;
+        notes.push("repaired photo");
+      } else if (person.imageUrl) {
+        person.imageUrl = null;
+        changed = true;
+        notes.push("dropped bad photo (monogram)");
+      }
+    }
+
+    if (!person.videoId && ytKey) {
       const videoId = await findYoutubeVideo(ytKey, {
-        name: store.person.name,
-        achievement: store.person.achievement,
-        youtubeQuery: `${store.person.name} ${store.person.achievement}`,
+        name: person.name,
+        achievement: person.achievement,
+        youtubeQuery: `${person.name} ${person.achievement}`,
       });
       if (videoId) {
-        const put = await putHumanSpotlight({
-          dateKey,
-          dateLabel: store.dateLabel || dateLabel,
-          person: { ...store.person, videoId },
-          recentNames: store.recentNames,
-        });
-        if (put.ok) {
-          return {
-            ok: true,
-            message: `${dateLabel}: attached video for ${store.person.name}`,
-            submitted: 1,
-            skipped: 0,
-          };
-        }
+        person.videoId = videoId;
+        changed = true;
+        notes.push("attached video");
+      }
+    }
+
+    if (changed) {
+      const put = await putHumanSpotlight({
+        dateKey,
+        dateLabel: store.dateLabel || dateLabel,
+        person,
+        recentNames: store.recentNames,
+      });
+      if (put.ok) {
+        return {
+          ok: true,
+          message: `${dateLabel}: ${person.name} — ${notes.join(", ")}`,
+          submitted: 1,
+          skipped: 0,
+        };
       }
     }
     return {
@@ -412,10 +457,10 @@ export async function runHumanSpotlight(agent) {
     return { ok: false, message: `model repeated recent name: ${name}` };
   }
 
-  let imageUrl = null;
+  // Only accept a verified Commons portrait that matches this person.
+  // Prefer monogram (null imageUrl) over wrong-person / dead thumbs.
   const wikiTitle = String(result?.wikiTitle || "").trim();
-  if (wikiTitle) imageUrl = await commonsThumbForWikiTitle(wikiTitle);
-  if (!imageUrl) imageUrl = await commonsThumbForPersonName(name);
+  const imageUrl = await resolvePersonPortrait(name, wikiTitle);
 
   const youtubeQuery = String(result?.youtubeQuery || "").trim();
   let videoId = null;

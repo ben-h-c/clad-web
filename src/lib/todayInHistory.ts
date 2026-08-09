@@ -3,6 +3,7 @@
  * Generated daily by the today-in-history agent; stored in AGENTS KV.
  * No outbound links in the UI — informational only.
  */
+import { cleanCommonsUrl } from "~/lib/commonsMedia";
 
 export interface TodayInHistoryItem {
   /** Year the event occurred (e.g. 1969). */
@@ -69,22 +70,8 @@ export function normalizeHistoryItem(raw: unknown): TodayInHistoryItem | null {
   if (!title) return null;
   const body = String(r.body || "").trim().slice(0, 400);
   if (!body) return null;
-  let imageUrl: string | null = null;
-  if (r.imageUrl) {
-    const u = String(r.imageUrl).trim();
-    // Only accept Commons HTTPS thumbs — validated again at store time.
-    // Strip tracking query params from Wikipedia REST thumbs.
-    if (u.startsWith("https://upload.wikimedia.org/wikipedia/commons/")) {
-      try {
-        const parsed = new URL(u);
-        parsed.search = "";
-        parsed.hash = "";
-        imageUrl = parsed.toString().slice(0, 500);
-      } catch {
-        imageUrl = u.slice(0, 500);
-      }
-    }
-  }
+  // Commons-only; strip tracking params (no invented thumb widths).
+  const imageUrl = cleanCommonsUrl(r.imageUrl != null ? String(r.imageUrl) : null);
   let videoId: string | null = null;
   if (r.videoId) {
     const v = String(r.videoId).trim();

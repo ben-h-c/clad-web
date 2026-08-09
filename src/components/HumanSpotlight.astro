@@ -4,6 +4,7 @@
  */
 import type { HumanSpotlightStore } from "~/lib/agents";
 import {
+  personInitials,
   spotlightDateKey,
   teaserFromArticle,
   spotlightDisplayImage,
@@ -27,6 +28,7 @@ const show =
 
 const person = show ? raw!.person : null;
 const display = person ? spotlightDisplayImage(person) : null;
+const initials = person ? personInitials(person.name) : "";
 const teaser = person ? teaserFromArticle(person.article, 220) : "";
 const href = "/human-spotlight/";
 
@@ -41,11 +43,16 @@ const wrapClass = ["human-spot", Astro.props.class].filter(Boolean).join(" ");
     <div class="rule rule--double" aria-hidden="true"></div>
 
     <a class="human-spot__teaser" href={href}>
-      {display && (
-        <div
-          class:list={["human-spot__photo", display.kind === "youtube" && "human-spot__photo--video"]}
-          aria-hidden="true"
-        >
+      {/* Monogram always; photo on top with onerror remove (never broken-image glyph). */}
+      <div
+        class:list={[
+          "human-spot__photo",
+          display?.kind === "youtube" && "human-spot__photo--video",
+        ]}
+        aria-hidden="true"
+      >
+        <span class="human-spot__initials">{initials}</span>
+        {display && (
           <img
             src={display.src}
             alt=""
@@ -54,9 +61,10 @@ const wrapClass = ["human-spot", Astro.props.class].filter(Boolean).join(" ");
             loading="lazy"
             decoding="async"
             referrerpolicy="no-referrer"
+            onerror="this.remove()"
           />
-        </div>
-      )}
+        )}
+      </div>
       <div class="human-spot__intro">
         {(person.field || person.location) && (
           <p class="human-spot__meta small-caps">

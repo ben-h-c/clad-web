@@ -8684,6 +8684,7 @@ html.clad-app .today-hist__actions {
   text-decoration: none;
 }
 .human-spot__photo {
+  position: relative;
   flex-shrink: 0;
   width: 7.5rem;
   height: 7.5rem;
@@ -8694,8 +8695,11 @@ html.clad-app .today-hist__actions {
   display: flex;
   align-items: center;
   justify-content: center;
+  isolation: isolate;
 }
 .human-spot__photo img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -8706,12 +8710,19 @@ html.clad-app .today-hist__actions {
 .human-spot__photo--video img {
   object-position: center center;
 }
+/* Monogram underlay — visible when no photo or after img onerror removes */
 .human-spot__initials {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  place-items: center;
   font-family: var(--font-display);
   font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   color: var(--muted-ink);
+  opacity: 0.85;
 }
 .human-spot__intro {
   min-width: 0;

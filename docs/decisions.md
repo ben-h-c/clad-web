@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-08 — Commons thumbs: no invented widths + validate before store
+
+**Status:** accepted  
+**Context:** Human Spotlight and Today in history showed broken-image icons when runners rewrote Commons thumbs to arbitrary widths (440px / 640px). Many files return HTTP 400 at those sizes while 330/500/960 work. Name search could also attach a wrong-person portrait (historical namesake).  
+**Decision:** Shared hygiene in `src/lib/commonsMedia.ts` + `runner/commonsMedia.mjs`: strip query params; never force unchecked widths; try safe width candidates (330→500→960) only with HEAD/GET validation before writing `imageUrl` to AGENTS KV. Re-enrich same-day packs when a stored URL fails validation (not only when null). Human Spotlight accepts Commons portraits only when the Wikipedia title clearly matches the person; otherwise `imageUrl = null` and UI monogram. UI: monogram underlay + `onerror` remove on spotlight; history cards drop media layer on image error (no `?` glyph).  
+**Consequences:** Slightly more Wikimedia requests on enrich; monogram for private living people without free portraits; stale KV heals on next agent run.
+
 ## 2026-08-08 — Always image: still fail → owned illustration
 
 **Status:** accepted (supersedes hide-art default from earlier same-day decision)  

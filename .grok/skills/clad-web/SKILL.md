@@ -38,6 +38,7 @@ description: >
 - Do not invent new analytics third parties.
 - Scanner: channel playlists only — edit policy module, restart `clad-agent-runner` PM2.
 - Still QA (`mediaPresentation`): vision scores `stillQuality` pass|weak|fail; **fail → owned `/generated/` illustration** (always-image), not text-only, unless editor force-show keeps YT still. Queue: Use photo / Use illustration / Force show. `preferIllustration` + `needsOwnedIllustration` on approve/publish.
+- Commons desk media (`commonsMedia`): never invent unchecked thumb widths (440/640 often 400); validate HEAD/GET before store; Human Spotlight monogram when no verified matching portrait; history/spotlight UI monogram/`onerror` — never broken-image glyphs.
 
 ## After engineering lessons
 

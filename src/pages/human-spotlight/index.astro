@@ -82,24 +82,28 @@ const description = person
       </>
     ) : (
       <>
-        <header class:list={["human-spot-page__hero", !showHeroPhoto && "human-spot-page__hero--text"]}>
-          {showHeroPhoto && (
-            <div class="human-spot-page__photo">
-              {display ? (
-                <img
-                  src={display.src}
-                  alt={person.name}
-                  width="320"
-                  height="320"
-                  loading="eager"
-                  decoding="async"
-                  referrerpolicy="no-referrer"
-                />
-              ) : (
-                <span class="human-spot-page__initials" aria-hidden="true">{initials}</span>
-              )}
-            </div>
-          )}
+        <header class="human-spot-page__hero">
+          {/* Always show monogram tile; photo on top, remove on error (no broken icon). */}
+          <div
+            class:list={[
+              "human-spot-page__photo",
+              display?.kind === "youtube" && showHeroPhoto && "human-spot-page__photo--video",
+            ]}
+          >
+            <span class="human-spot-page__initials" aria-hidden="true">{initials}</span>
+            {showHeroPhoto && display && (
+              <img
+                src={display.src}
+                alt={person.name}
+                width="320"
+                height="320"
+                loading="eager"
+                decoding="async"
+                referrerpolicy="no-referrer"
+                onerror="this.remove()"
+              />
+            )}
+          </div>
           <div class="human-spot-page__head">
             {(person.field || person.location) && (
               <p class="human-spot__meta small-caps">
@@ -190,11 +194,8 @@ const description = person
     align-items: flex-start;
     margin: 0.75rem 0 1.25rem;
   }
-  .human-spot-page__hero--text {
-    /* No portrait — title stack uses full measure */
-    display: block;
-  }
   .human-spot-page__photo {
+    position: relative;
     flex-shrink: 0;
     width: 10rem;
     height: 10rem;
@@ -204,8 +205,11 @@ const description = person
     display: flex;
     align-items: center;
     justify-content: center;
+    isolation: isolate;
   }
   .human-spot-page__photo img {
+    position: relative;
+    z-index: 1;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -216,11 +220,17 @@ const description = person
     object-position: center center;
   }
   .human-spot-page__initials {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: grid;
+    place-items: center;
     font-family: var(--font-display, Georgia, serif);
     font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: 0.06em;
     color: var(--muted-ink, #6e5e4d);
+    opacity: 0.85;
   }
   .human-spot-page__head {
     min-width: 0;

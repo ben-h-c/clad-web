@@ -80,7 +80,7 @@ const wrapClass = ["today-hist", Astro.props.class].filter(Boolean).join(" ");
         >
           {it.imageUrl && (
             <>
-              <div class="today-hist__media" aria-hidden="true">
+              <div class="today-hist__media" data-hist-media aria-hidden="true">
                 <img
                   src={it.imageUrl}
                   alt=""
@@ -89,9 +89,10 @@ const wrapClass = ["today-hist", Astro.props.class].filter(Boolean).join(" ");
                   loading="lazy"
                   decoding="async"
                   referrerpolicy="no-referrer"
+                  onerror="(function(img){var item=img.closest('.today-hist__item');var media=item&&item.querySelector('[data-hist-media]');var fade=item&&item.querySelector('[data-hist-fade]');if(media)media.remove();if(fade)fade.remove();if(item)item.classList.remove('today-hist__item--media');})(this)"
                 />
               </div>
-              <div class="today-hist__fade" aria-hidden="true"></div>
+              <div class="today-hist__fade" data-hist-fade aria-hidden="true"></div>
             </>
           )}
           <div class="today-hist__text">
