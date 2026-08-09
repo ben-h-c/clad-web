@@ -56,8 +56,10 @@ milestones). Prefer well-documented facts. No invented events.
 - title: short headline (≤90 chars), present tense or news headline style
 - body: 1–2 sentences of plain context (≤280 chars). No URLs. No "click here".
 - wikiTitle: English Wikipedia article title that best matches the event for a
-  free image (e.g. "Apollo_11", "Storming_of_the_Bastille"). Use underscores or
-  spaces. Empty string if no good article exists.
+  free Commons lead image (e.g. "Spanish Armada", "Apollo 11",
+  "Storming of the Bastille"). Prefer the PRIMARY article with a famous painting
+  or photo — not disambiguation pages, lists, or obscure sub-articles.
+  Empty string only if no good article exists.
 - youtubeQuery: a concise YouTube search string to find a relevant video about
   THIS event (documentary clip, archival footage, reputable explainer).
   Include the year and distinctive names when helpful.
@@ -123,23 +125,184 @@ function isCommonsUrl(url) {
   }
 }
 
+/** Canonicalize Commons thumbs (drop tracking query params; keep stable path). */
+function cleanCommonsUrl(url) {
+  if (!url || !isCommonsUrl(url)) return null;
+  try {
+    const u = new URL(url);
+    u.search = "";
+    u.hash = "";
+    // Prefer a mid-size thumb when API returns full original (faster LCP).
+    const path = u.pathname;
+    if (path.includes("/thumb/")) return u.toString();
+    // …/commons/a/ab/File.jpg → request 640px thumb when possible
+    const m = path.match(/^\/wikipedia\/commons\/([0-9a-f])\/([0-9a-f]{2})\/([^/]+)$/i);
+    if (m) {
+      const file = m[3];
+      u.pathname = `/wikipedia/commons/thumb/${m[1]}/${m[2]}/${file}/640px-${file}`;
+    }
+    return u.toString();
+  } catch {
+    return null;
+  }
+}
+
+function wikiTitleCandidates(wikiTitle, eventTitle, year) {
+  const out = [];
+  const push = (t) => {
+    const s = String(t || "")
+      .trim()
+      .replace(/_/g, " ")
+      .replace(/\s+/g, " ");
+    if (!s || s.length < 2) return;
+    if (!out.some((x) => x.toLowerCase() === s.toLowerCase())) out.push(s);
+  };
+  push(wikiTitle);
+  // Common model mistakes: trailing "(event)", year in title, quotes
+  if (wikiTitle) {
+    push(String(wikiTitle).replace(/\s*\([^)]*\)\s*$/, ""));
+    push(String(wikiTitle).replace(/_/g, " "));
+  }
+  if (eventTitle) {
+    push(eventTitle);
+    // Drop leading year fragments like "1588 Spanish Armada…"
+    push(String(eventTitle).replace(/^\d{3,4}\s*[:\-–]?\s*/, ""));
+    // First clause before colon/em dash
+    push(String(eventTitle).split(/[:–—|]/)[0]);
+  }
+  if (year && eventTitle) {
+    // e.g. "Spanish Armada" from "Spanish Armada defeated 1588"
+    const words = String(eventTitle)
+      .replace(/[^a-zA-Z0-9\s\-']/g, " ")
+      .split(/\s+/)
+      .filter((w) => w && !/^\d{3,4}$/.test(w));
+    if (words.length >= 2) push(words.slice(0, 4).join(" "));
+    if (words.length >= 2) push(words.slice(0, 3).join(" "));
+  }
+  return out.slice(0, 8);
+}
+
 /** Resolve a Wikipedia title to a Commons-hosted thumbnail (free license only). */
 async function commonsThumbForWikiTitle(title) {
   const t = String(title || "").trim();
   if (!t) return null;
+  const enc = encodeURIComponent(t.replace(/ /g, "_"));
+
+  // 1) REST summary (fast)
   try {
-    const r = await fetch(
-      `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(t.replace(/ /g, "_"))}`,
-      { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(6000) }
-    );
+    const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${enc}`, {
+      headers: { "User-Agent": UA },
+      signal: AbortSignal.timeout(8000),
+    });
+    if (r.ok) {
+      const j = await r.json();
+      if (j?.type !== "disambiguation") {
+        const src = j?.thumbnail?.source || j?.originalimage?.source;
+        const cleaned = cleanCommonsUrl(src);
+        if (cleaned) return cleaned;
+      }
+    }
+  } catch {
+    /* try next */
+  }
+
+  // 2) Action API pageimages (often finds a lead image when REST has none / non-Commons)
+  try {
+    const params = new URLSearchParams({
+      action: "query",
+      format: "json",
+      origin: "*",
+      prop: "pageimages",
+      piprop: "thumbnail|original",
+      pithumbsize: "640",
+      titles: t.replace(/_/g, " "),
+      redirects: "1",
+    });
+    const r = await fetch(`https://en.wikipedia.org/w/api.php?${params}`, {
+      headers: { "User-Agent": UA },
+      signal: AbortSignal.timeout(8000),
+    });
+    if (r.ok) {
+      const j = await r.json();
+      const pages = j?.query?.pages || {};
+      for (const p of Object.values(pages)) {
+        if (!p || p.missing != null) continue;
+        const src = p.thumbnail?.source || p.original?.source;
+        const cleaned = cleanCommonsUrl(src);
+        if (cleaned) return cleaned;
+      }
+    }
+  } catch {
+    /* try next */
+  }
+
+  return null;
+}
+
+/**
+ * Last-resort: Commons search for a free still matching the event keywords.
+ * Still Commons-only (license-safe).
+ */
+async function commonsSearchThumb(query) {
+  const q = String(query || "")
+    .replace(/[^\w\s\-']/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 80);
+  if (q.length < 4) return null;
+  try {
+    const params = new URLSearchParams({
+      action: "query",
+      format: "json",
+      origin: "*",
+      generator: "search",
+      gsrsearch: q,
+      gsrnamespace: "6", // File:
+      gsrlimit: "5",
+      prop: "imageinfo",
+      iiprop: "url|mime",
+      iiurlwidth: "640",
+    });
+    const r = await fetch(`https://commons.wikimedia.org/w/api.php?${params}`, {
+      headers: { "User-Agent": UA },
+      signal: AbortSignal.timeout(8000),
+    });
     if (!r.ok) return null;
     const j = await r.json();
-    if (j?.type === "disambiguation") return null;
-    const src = j?.thumbnail?.source;
-    return src && isCommonsUrl(src) ? src : null;
+    const pages = j?.query?.pages || {};
+    for (const p of Object.values(pages)) {
+      const info = p?.imageinfo?.[0];
+      if (!info) continue;
+      const mime = String(info.mime || "");
+      if (mime && !mime.startsWith("image/")) continue;
+      const src = info.thumburl || info.url;
+      const cleaned = cleanCommonsUrl(src);
+      if (cleaned) return cleaned;
+    }
   } catch {
     return null;
   }
+  return null;
+}
+
+/** Best-effort Commons still for a history item (multiple title fallbacks). */
+async function resolveHistoryImage(raw) {
+  if (raw?.imageUrl) {
+    const existing = cleanCommonsUrl(String(raw.imageUrl));
+    if (existing) return existing;
+  }
+  const candidates = wikiTitleCandidates(raw?.wikiTitle, raw?.title, raw?.year);
+  for (const title of candidates) {
+    const hit = await commonsThumbForWikiTitle(title);
+    if (hit) return hit;
+  }
+  // Commons file search from event title (+ year when useful)
+  const year = Number(raw?.year);
+  const searchQ =
+    year && year > 1000
+      ? `${String(raw?.title || "").slice(0, 60)} ${year}`
+      : String(raw?.title || "").slice(0, 70);
+  return (await commonsSearchThumb(searchQ)) || null;
 }
 
 function isVideoId(id) {
@@ -235,11 +398,13 @@ async function attachMedia(items, { ytKey }) {
     const body = String(raw?.body || "").trim().slice(0, 400);
     if (!year || year < 1 || !title || !body) continue;
 
-    let imageUrl = raw.imageUrl || null;
-    if (!imageUrl) {
-      const wikiTitle = String(raw?.wikiTitle || "").trim();
-      if (wikiTitle) imageUrl = await commonsThumbForWikiTitle(wikiTitle);
-    }
+    // Commons stills only — try wikiTitle, title variants, then Commons search.
+    const imageUrl = await resolveHistoryImage({
+      imageUrl: raw.imageUrl,
+      wikiTitle: raw.wikiTitle,
+      title,
+      year,
+    });
 
     let videoId = isVideoId(raw.videoId) ? raw.videoId : null;
     if (!videoId && ytKey) {
@@ -282,7 +447,8 @@ export async function runTodayInHistory(agent) {
       store.items.length
     ) {
       const missingVideo = store.items.some((i) => !i.videoId);
-      if (!missingVideo) {
+      const missingThumb = store.items.some((i) => !i.imageUrl);
+      if (!missingVideo && !missingThumb) {
         return {
           ok: true,
           message: `already fresh for ${dateLabel} (${store.items.length} items)`,
@@ -290,38 +456,38 @@ export async function runTodayInHistory(agent) {
           skipped: store.items.length,
         };
       }
-      // Same desk day but missing embeds: fill videos only (keep copy + thumbs).
-      if (ytKey) {
-        const enriched = await attachMedia(
-          store.items.map((i) => ({
-            year: i.year,
-            title: i.title,
-            body: i.body,
-            imageUrl: i.imageUrl,
-            videoId: i.videoId,
-            youtubeQuery: `${i.title} ${i.year}`,
-          })),
-          { ytKey }
-        );
-        const put = await putTodayInHistory({
-          dateKey,
-          dateLabel: store.dateLabel || dateLabel,
-          items: enriched,
-        });
-        if (!put.ok) {
-          return {
-            ok: false,
-            message: `video enrich store failed: ${put.status}`,
-          };
-        }
-        const withVid = enriched.filter((i) => i.videoId).length;
+      // Same desk day but missing thumbs and/or embeds: re-attach media, keep copy.
+      const enriched = await attachMedia(
+        store.items.map((i) => ({
+          year: i.year,
+          title: i.title,
+          body: i.body,
+          imageUrl: i.imageUrl,
+          videoId: i.videoId,
+          wikiTitle: i.wikiTitle,
+          youtubeQuery: `${i.title} ${i.year}`,
+        })),
+        { ytKey }
+      );
+      const put = await putTodayInHistory({
+        dateKey,
+        dateLabel: store.dateLabel || dateLabel,
+        items: enriched,
+      });
+      if (!put.ok) {
         return {
-          ok: true,
-          message: `${dateLabel}: enriched videos ${withVid}/${enriched.length}`,
-          submitted: enriched.length,
-          skipped: 0,
+          ok: false,
+          message: `media enrich store failed: ${put.status}`,
         };
       }
+      const withImg = enriched.filter((i) => i.imageUrl).length;
+      const withVid = enriched.filter((i) => i.videoId).length;
+      return {
+        ok: true,
+        message: `${dateLabel}: enriched media ${withImg} thumbs, ${withVid} videos / ${enriched.length}`,
+        submitted: enriched.length,
+        skipped: 0,
+      };
     }
   }
 

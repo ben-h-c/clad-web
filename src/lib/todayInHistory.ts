@@ -73,8 +73,16 @@ export function normalizeHistoryItem(raw: unknown): TodayInHistoryItem | null {
   if (r.imageUrl) {
     const u = String(r.imageUrl).trim();
     // Only accept Commons HTTPS thumbs — validated again at store time.
+    // Strip tracking query params from Wikipedia REST thumbs.
     if (u.startsWith("https://upload.wikimedia.org/wikipedia/commons/")) {
-      imageUrl = u.slice(0, 500);
+      try {
+        const parsed = new URL(u);
+        parsed.search = "";
+        parsed.hash = "";
+        imageUrl = parsed.toString().slice(0, 500);
+      } catch {
+        imageUrl = u.slice(0, 500);
+      }
     }
   }
   let videoId: string | null = null;
