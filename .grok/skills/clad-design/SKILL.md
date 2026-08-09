@@ -30,6 +30,7 @@ description: >
 - Match neighboring section spacing (`--section-gap`, `--gutter`, `--card-pad`).
 - Video: facade until click.
 - Honor `prefers-reduced-motion`.
+- Topic media: dual-layer bloom + subject in `TopicRow` (not contain/letterbox). Solo home inserts taller; don’t invent height hacks on multi-col `.topic-rows`.
 
 ## Clad Studio packets
 

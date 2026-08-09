@@ -81,6 +81,7 @@ Admin paths force dark via `data-force-theme="dark"`.
 ## UI patterns to reuse
 
 - **Cards / modules:** existing home modules, `media-hero`, category rails with `.category__more`.
+- **Topic media tiles (`TopicRow`):** dual-layer stills — `.topic-row__bg-bloom` (cover + heavy blur + scale) under `.topic-row__bg-subject` (cover + mild zoom + `thumbFocus*`). Kills letterbox gutters without new art. Solo home inserts (`.topic-rows--solo`) use taller cinematic min-heights; multi-col grids keep density.
 - **Grades:** pastel grade chips / scoreboard patterns already on post cards.
 - **Admin:** `.admin`, `.stat-grid`, `.stat-table`, `AdminNav` grouped desk.
 - **Auth:** `.auth-form`, soft status messages — not heavy modals unless needed.
