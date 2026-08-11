@@ -1,7 +1,8 @@
 ---
 /**
- * Horizontal “Today” media-hero strip — desk highlight + daily calendar +
- * fresh graded reports. Infinite loop scroll (no hard stop at the ends).
+ * Home feature strip:
+ * - variant "media" (default): horizontal media-hero cards (People in the news)
+ * - variant "titles": thin scrolling title bar (Today on home)
  */
 import type { HomeFeatureItem } from "~/lib/homeFeatures";
 import { todayIsoNy } from "~/lib/calendarEvents";
@@ -15,104 +16,168 @@ interface Props {
   moreLabel?: string;
   /** Distinct id when multiple strips share the page (loop scripts). */
   stripId?: string;
+  /** "media" = hero cards; "titles" = thin scrolling title bar. */
+  variant?: "media" | "titles";
 }
-const { items, title = "Today", moreHref, moreLabel, stripId = "home-features" } = Astro.props;
+const {
+  items,
+  title = "Today",
+  moreHref,
+  moreLabel,
+  stripId = "home-features",
+  variant = "media",
+} = Astro.props;
 const today = todayIsoNy();
 const multi = items.length > 1;
+const isTitles = variant === "titles";
 const headMoreHref = moreHref ?? `/day/${today}/`;
 const headMoreLabel = moreLabel ?? "Full day →";
 const titleId = `${stripId}-title`;
-const wrapClass = ["home-features", Astro.props.class].filter(Boolean).join(" ");
+const wrapClass = [
+  "home-features",
+  isTitles ? "home-features--titles" : "",
+  Astro.props.class,
+]
+  .filter(Boolean)
+  .join(" ");
+
+/** Short kicker for non-post desk/daybook items only. */
+function shortKicker(h: HomeFeatureItem): string | null {
+  if (h.id.startsWith("post-")) return null;
+  const raw = (h.kicker || "").trim();
+  if (!raw) return null;
+  // First segment before · or —; cap length for the bar.
+  const part = raw.split(/\s*[·•—–|]\s*/)[0]?.trim() || raw;
+  if (part.length <= 14) return part;
+  return part.slice(0, 12).trimEnd() + "…";
+}
 ---
 {items.length > 0 && (
-  <section class={wrapClass} aria-label={title} data-home-features data-hf-root={stripId}>
+  <section class={wrapClass} aria-label={title} data-home-features data-hf-root={stripId} data-hf-variant={variant}>
     <div class="feed__head home-features__head">
       <h2 class="feed__title" id={titleId}>{title}</h2>
       <a class="category__more" href={headMoreHref}>{headMoreLabel}</a>
     </div>
     <div class="rule rule--double" aria-hidden="true"></div>
 
-    <div class="home-features__wrap" data-home-features-wrap>
-      {multi && (
-        <button type="button" class="hero-arrow hero-arrow--left" data-hf-prev aria-label={`Previous ${title}`}>‹</button>
-      )}
-      <div
-        class="home-features__strip"
-        aria-labelledby={titleId}
-        data-home-features-strip
-        data-loop={multi ? "1" : "0"}
-      >
-        {items.map((h, i) => {
-          const image = h.image || null;
-          const mono = (h.monogram || "").trim();
-          const slideClass = [
-            "media-hero",
-            "home-feature",
-            "home-features__slide",
-            image || mono ? "media-hero--has-image" : "media-hero--plain",
-            mono ? "media-hero--has-mono" : "",
-            h.variant && `home-feature--${h.variant}`,
-            h.variant && `media-hero--${h.variant}`,
-          ]
-            .filter(Boolean)
-            .join(" ");
-          return (
-            <article
-              class={`home-features__item ${slideClass}`}
-              data-home-feature={h.id}
-              data-hf-slide
-              aria-label={`${i + 1} of ${items.length}: ${h.title}`}
-            >
-              {(image || mono) && (
-                <div class="media-hero__bg" aria-hidden="true">
-                  {mono && <span class="media-hero__mono">{mono}</span>}
-                  {image && (
-                    <img
-                      src={image}
-                      alt=""
-                      width="960"
-                      height="540"
-                      loading={i === 0 ? "eager" : "lazy"}
-                      decoding="async"
-                      onerror="this.remove()"
-                    />
+    {isTitles ? (
+      <div class="today-title-bar" data-today-title-bar>
+        <span class="today-title-bar__live small-caps" aria-hidden="true">Live</span>
+        <div class="today-title-bar__fade-wrap">
+          <div
+            class="today-title-bar__track"
+            role="list"
+            aria-labelledby={titleId}
+            data-today-title-track
+          >
+            {items.map((h, i) => {
+              const kicker = shortKicker(h);
+              return (
+                <>
+                  {i > 0 && (
+                    <span class="today-title-bar__sep" aria-hidden="true">·</span>
                   )}
-                </div>
-              )}
-              <div class="media-hero__scrim" aria-hidden="true"></div>
-              <div class="media-hero__content home-feature__inner">
-                <div class="home-feature__text">
-                  <p class="home-feature__kicker media-hero__kicker small-caps">{h.kicker}</p>
-                  <h3 class="home-feature__title media-hero__title">{h.title}</h3>
-                  {h.body && <p class="home-feature__body media-hero__body">{h.body}</p>}
-                </div>
-                <div class="home-feature__actions media-hero__actions">
-                  <a class="home-feature__cta media-hero__cta" href={h.href}>{h.cta}</a>
-                  {h.secondaryHref && h.secondaryCta && (
-                    <a class="home-feature__secondary media-hero__secondary" href={h.secondaryHref}>
-                      {h.secondaryCta}
-                    </a>
-                  )}
-                </div>
-              </div>
-            </article>
-          );
-        })}
+                  <a
+                    class="today-title-bar__item"
+                    role="listitem"
+                    href={h.href}
+                    title={h.title}
+                  >
+                    {kicker && (
+                      <span class="today-title-bar__kicker small-caps">{kicker}</span>
+                    )}
+                    <span class="today-title-bar__title">{h.title}</span>
+                  </a>
+                </>
+              );
+            })}
+          </div>
+        </div>
       </div>
-      {multi && (
-        <button type="button" class="hero-arrow hero-arrow--right" data-hf-next aria-label="Next highlights">›</button>
-      )}
-    </div>
+    ) : (
+      <div class="home-features__wrap" data-home-features-wrap>
+        {multi && (
+          <button type="button" class="hero-arrow hero-arrow--left" data-hf-prev aria-label={`Previous ${title}`}>‹</button>
+        )}
+        <div
+          class="home-features__strip"
+          aria-labelledby={titleId}
+          data-home-features-strip
+          data-loop={multi ? "1" : "0"}
+        >
+          {items.map((h, i) => {
+            const image = h.image || null;
+            const mono = (h.monogram || "").trim();
+            const slideClass = [
+              "media-hero",
+              "home-feature",
+              "home-features__slide",
+              image || mono ? "media-hero--has-image" : "media-hero--plain",
+              mono ? "media-hero--has-mono" : "",
+              h.variant && `home-feature--${h.variant}`,
+              h.variant && `media-hero--${h.variant}`,
+            ]
+              .filter(Boolean)
+              .join(" ");
+            return (
+              <article
+                class={`home-features__item ${slideClass}`}
+                data-home-feature={h.id}
+                data-hf-slide
+                aria-label={`${i + 1} of ${items.length}: ${h.title}`}
+              >
+                {(image || mono) && (
+                  <div class="media-hero__bg" aria-hidden="true">
+                    {mono && <span class="media-hero__mono">{mono}</span>}
+                    {image && (
+                      <img
+                        src={image}
+                        alt=""
+                        width="960"
+                        height="540"
+                        loading={i === 0 ? "eager" : "lazy"}
+                        decoding="async"
+                        onerror="this.remove()"
+                      />
+                    )}
+                  </div>
+                )}
+                <div class="media-hero__scrim" aria-hidden="true"></div>
+                <div class="media-hero__content home-feature__inner">
+                  <div class="home-feature__text">
+                    <p class="home-feature__kicker media-hero__kicker small-caps">{h.kicker}</p>
+                    <h3 class="home-feature__title media-hero__title">{h.title}</h3>
+                    {h.body && <p class="home-feature__body media-hero__body">{h.body}</p>}
+                  </div>
+                  <div class="home-feature__actions media-hero__actions">
+                    <a class="home-feature__cta media-hero__cta" href={h.href}>{h.cta}</a>
+                    {h.secondaryHref && h.secondaryCta && (
+                      <a class="home-feature__secondary media-hero__secondary" href={h.secondaryHref}>
+                        {h.secondaryCta}
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+        {multi && (
+          <button type="button" class="hero-arrow hero-arrow--right" data-hf-next aria-label="Next highlights">›</button>
+        )}
+      </div>
+    )}
   </section>
 )}
 
-{multi && (
+{!isTitles && multi && (
   <script is:inline>
     (() => {
-      // Bind every unbound media strip (Today + politician spotlight, etc.).
+      // Bind every unbound media strip (Today media path + politician spotlight, etc.).
       const roots = Array.from(document.querySelectorAll("[data-home-features]"));
       for (const root of roots) {
       if (root.dataset.loopBound === "1") continue;
+      if (root.dataset.hfVariant === "titles") continue;
       root.dataset.loopBound = "1";
 
       const strip = root.querySelector("[data-home-features-strip]");

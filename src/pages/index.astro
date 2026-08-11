@@ -258,7 +258,8 @@ const featureItems = buildHomeFeatureItems({
   highlight: homeHighlight,
   calendarEvents: featureCalendar,
   posts: recentForTopics,
-  max: 10,
+  // Titles bar is cheap; allow a few more than the old media-hero max.
+  max: 12,
 });
 
 // Politician strip: tag counts on recent posts only (skip full roster×posts index).
@@ -383,7 +384,7 @@ const heroPostsShow = locked ? heroPosts.slice(0, ANON_STRIP_CAP) : heroPosts;
           )}
 
           {item.kind === "section" && item.id === "feature-highlight" && featureItems.length > 0 && (
-            <HomeFeatureHighlight items={featureItems} title="Today" />
+            <HomeFeatureHighlight items={featureItems} title="Today" variant="titles" />
           )}
 
           {item.kind === "section" && item.id === "spotlight" && spotlightPromos.length > 0 && (

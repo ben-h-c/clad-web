@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-10 — Home Today → thin title bar
+
+**Status:** accepted  
+**Context:** Clad Studio ticket `ticket-20260810-200406-clad--grading-content--exposing-`: large Today media-hero strip owned ~half the first viewport; annotation asked for a minimal scrolling title bar so Breaking is first focus.  
+**Decision:** `HomeFeatureHighlight` gains `variant="titles"` for home Today only. Presentation: section head + ~40–48px bar of title links (mid-dot separators, optional short kickers for non-post desk/daybook items, Live pill, right-edge fade, manual pan-x). Data still from `buildHomeFeatureItems()` (max 12). People in the news keeps media heroes. No iOS change; no auto-marquee.  
+**Consequences:** First screen shows Breaking sooner on phone/tablet; desk/agent highlight images unused on home Today (still available elsewhere). CSS: `.home-features--titles` / `.today-title-bar` in `global.css`.
+
 ## 2026-08-09 — Pass 2 site UX: lock chips, CTA system, anon home density
 
 **Status:** accepted  

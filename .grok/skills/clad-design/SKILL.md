@@ -31,6 +31,9 @@ Fixed top (never reorder/hide): feature-highlight → breaking → front-page �
 Flexible: calendar, topics, politicians, election-map, grades, today-history, human-spotlight, discover, good-news, quips, more-feed.  
 Source: `src/lib/homeLayout.ts`.
 
+- **Today (`feature-highlight`):** thin title bar (`HomeFeatureHighlight variant="titles"`) — titles + optional desk/daybook kickers, manual horizontal scroll, no media heroes. Breaking is first large visual focus.
+- **People in the news:** still large media-hero strip (`variant` default / `home-features--politicians`).
+
 ## Implementation rules
 
 - Use CSS variables — never hardcode random hex.
