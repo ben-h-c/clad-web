@@ -10191,73 +10191,86 @@ html.clad-app section.charts.home-app-only {
 .today-title-bar {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
   margin: 0.45rem 0 0;
   min-height: 2.65rem; /* ~42–48px with padding */
-  padding: 0.35rem 0.45rem 0.35rem 0.5rem;
+  padding: 0.35rem 0.55rem;
   border-radius: calc(var(--radius-stock) - 4px);
   border: 1px solid var(--rule-faded-soft);
   background: color-mix(in srgb, var(--card) 92%, var(--paper));
   box-shadow: var(--shadow-sm);
   box-sizing: border-box;
-}
-.today-title-bar__live {
-  flex: 0 0 auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.28rem;
-  margin: 0;
-  padding: 0.22rem 0.45rem;
-  border-radius: 999px;
-  font-size: 0.62rem;
-  font-weight: 750;
-  letter-spacing: 0.1em;
-  line-height: 1;
-  color: #fff;
-  background: color-mix(in srgb, var(--accent) 88%, var(--ink));
-  user-select: none;
-}
-.today-title-bar__live::before {
-  content: "";
-  width: 0.38rem;
-  height: 0.38rem;
-  border-radius: 50%;
-  background: currentColor;
-  opacity: 0.9;
-  box-shadow: 0 0 0 2px color-mix(in srgb, currentColor 25%, transparent);
+  overflow: hidden;
 }
 .today-title-bar__fade-wrap {
   position: relative;
   flex: 1 1 auto;
   min-width: 0;
-  /* Right-edge fade so overflow is obvious without auto-marquee */
+  overflow: hidden;
+}
+/* Soft edge fades only while the crawl runs (avoid clipping a single static title). */
+.today-title-bar--ticker .today-title-bar__fade-wrap {
   -webkit-mask-image: linear-gradient(
     to right,
-    #000 0%,
-    #000 calc(100% - 2.25rem),
+    transparent 0,
+    #000 1.1rem,
+    #000 calc(100% - 1.1rem),
     transparent 100%
   );
   mask-image: linear-gradient(
     to right,
-    #000 0%,
-    #000 calc(100% - 2.25rem),
+    transparent 0,
+    #000 1.1rem,
+    #000 calc(100% - 1.1rem),
     transparent 100%
   );
 }
-.today-title-bar__track {
-  display: flex;
-  align-items: center;
-  gap: 0;
+/* One long title, no multi-item loop: allow manual pan. */
+.today-title-bar:not(.today-title-bar--ticker) .today-title-bar__fade-wrap {
   overflow-x: auto;
-  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-  touch-action: pan-x pan-y;
   scrollbar-width: none;
-  padding: 0.05rem 1.75rem 0.05rem 0;
-  scroll-snap-type: x proximity;
 }
-.today-title-bar__track::-webkit-scrollbar {
+.today-title-bar:not(.today-title-bar--ticker) .today-title-bar__fade-wrap::-webkit-scrollbar {
   display: none;
+}
+.today-title-bar__track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+  padding: 0.05rem 0;
+}
+.today-title-bar__set {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+/* Mid-dot after each set so the loop joins cleanly (second set is visual only). */
+.today-title-bar--ticker .today-title-bar__set::after {
+  content: "·";
+  flex: 0 0 auto;
+  margin: 0 0.55rem;
+  color: color-mix(in srgb, var(--muted) 70%, transparent);
+  font-size: 0.85rem;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}
+.today-title-bar--ticker .today-title-bar__track {
+  /* Steady crawl; scales with title count (calm, not urgent). */
+  animation: today-title-scroll calc(var(--n, 4) * 9s) linear infinite;
+}
+.today-title-bar--ticker:hover .today-title-bar__track,
+.today-title-bar--ticker:focus-within .today-title-bar__track {
+  animation-play-state: paused;
+}
+@keyframes today-title-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 .today-title-bar__sep {
   flex: 0 0 auto;
@@ -10273,12 +10286,10 @@ html.clad-app section.charts.home-app-only {
   display: inline-flex;
   align-items: baseline;
   gap: 0.4rem;
-  max-width: min(52vw, 18rem);
   min-width: 0;
   padding: 0.15rem 0;
   text-decoration: none;
   color: var(--ink);
-  scroll-snap-align: start;
   white-space: nowrap;
   transition: color var(--dur-card, 0.18s) var(--ease-out, ease);
 }
@@ -10303,34 +10314,48 @@ html.clad-app section.charts.home-app-only {
   text-overflow: ellipsis;
 }
 .today-title-bar__title {
-  min-width: 0;
+  flex: 0 0 auto;
   font-family: var(--font-display, inherit);
   font-size: 0.9rem;
   font-weight: 650;
   letter-spacing: -0.015em;
   line-height: 1.25;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  /* Full titles — no ellipsis; track grows, marquee carries the length. */
+  white-space: nowrap;
 }
 @media (max-width: 560px) {
   .today-title-bar {
     min-height: 2.5rem;
-    padding: 0.3rem 0.35rem 0.3rem 0.4rem;
-    gap: 0.4rem;
-  }
-  .today-title-bar__item {
-    max-width: min(72vw, 16rem);
+    padding: 0.3rem 0.4rem;
   }
   .today-title-bar__title {
     font-size: 0.86rem;
   }
-  .today-title-bar__sep {
+  .today-title-bar__sep,
+  .today-title-bar--ticker .today-title-bar__set::after {
     margin: 0 0.42rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .today-title-bar__item {
     transition: none;
+  }
+  .today-title-bar--ticker .today-title-bar__track {
+    animation: none;
+  }
+  .today-title-bar__fade-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .today-title-bar__fade-wrap::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide the visual loop set when motion is off — one logical list only. */
+  .today-title-bar--ticker .today-title-bar__set[aria-hidden="true"] {
+    display: none;
   }
 }
 

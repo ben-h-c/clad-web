@@ -2,7 +2,7 @@
 /**
  * Home feature strip:
  * - variant "media" (default): horizontal media-hero cards (People in the news)
- * - variant "titles": thin scrolling title bar (Today on home)
+ * - variant "titles": thin auto-ticker title bar (Today on home)
  */
 import type { HomeFeatureItem } from "~/lib/homeFeatures";
 import { todayIsoNy } from "~/lib/calendarEvents";
@@ -61,36 +61,60 @@ function shortKicker(h: HomeFeatureItem): string | null {
     <div class="rule rule--double" aria-hidden="true"></div>
 
     {isTitles ? (
-      <div class="today-title-bar" data-today-title-bar>
-        <span class="today-title-bar__live small-caps" aria-hidden="true">Live</span>
+      <div
+        class:list={["today-title-bar", multi && "today-title-bar--ticker"]}
+        data-today-title-bar
+      >
         <div class="today-title-bar__fade-wrap">
           <div
             class="today-title-bar__track"
-            role="list"
-            aria-labelledby={titleId}
             data-today-title-track
+            style={multi ? `--n:${items.length}` : undefined}
           >
-            {items.map((h, i) => {
-              const kicker = shortKicker(h);
-              return (
-                <>
-                  {i > 0 && (
-                    <span class="today-title-bar__sep" aria-hidden="true">·</span>
-                  )}
-                  <a
-                    class="today-title-bar__item"
-                    role="listitem"
-                    href={h.href}
-                    title={h.title}
-                  >
-                    {kicker && (
-                      <span class="today-title-bar__kicker small-caps">{kicker}</span>
+            {/* Primary set: real list for a11y / crawlers. */}
+            <div class="today-title-bar__set" role="list" aria-labelledby={titleId}>
+              {items.map((h, i) => {
+                const kicker = shortKicker(h);
+                return (
+                  <>
+                    {i > 0 && (
+                      <span class="today-title-bar__sep" aria-hidden="true">·</span>
                     )}
-                    <span class="today-title-bar__title">{h.title}</span>
-                  </a>
-                </>
-              );
-            })}
+                    <a
+                      class="today-title-bar__item"
+                      role="listitem"
+                      href={h.href}
+                    >
+                      {kicker && (
+                        <span class="today-title-bar__kicker small-caps">{kicker}</span>
+                      )}
+                      <span class="today-title-bar__title">{h.title}</span>
+                    </a>
+                  </>
+                );
+              })}
+            </div>
+            {/* Duplicate set for seamless marquee; hidden from AT, not tabbable. */}
+            {multi && (
+              <div class="today-title-bar__set" aria-hidden="true">
+                {items.map((h, i) => {
+                  const kicker = shortKicker(h);
+                  return (
+                    <>
+                      {i > 0 && (
+                        <span class="today-title-bar__sep">·</span>
+                      )}
+                      <a class="today-title-bar__item" href={h.href} tabindex="-1">
+                        {kicker && (
+                          <span class="today-title-bar__kicker small-caps">{kicker}</span>
+                        )}
+                        <span class="today-title-bar__title">{h.title}</span>
+                      </a>
+                    </>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
       </div>

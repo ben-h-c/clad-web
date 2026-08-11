@@ -31,7 +31,7 @@ Fixed top (never reorder/hide): feature-highlight → breaking → front-page �
 Flexible: calendar, topics, politicians, election-map, grades, today-history, human-spotlight, discover, good-news, quips, more-feed.  
 Source: `src/lib/homeLayout.ts`.
 
-- **Today (`feature-highlight`):** thin title bar (`HomeFeatureHighlight variant="titles"`) — titles + optional desk/daybook kickers, manual horizontal scroll, no media heroes. Breaking is first large visual focus.
+- **Today (`feature-highlight`):** thin title bar (`HomeFeatureHighlight variant="titles"`) — full titles + optional desk/daybook kickers, CSS auto-ticker (pause on hover/focus, reduced-motion → manual scroll), no Live pill, no media heroes. Breaking is first large visual focus.
 - **People in the news:** still large media-hero strip (`variant` default / `home-features--politicians`).
 
 ## Implementation rules
@@ -64,3 +64,7 @@ Source: `src/lib/homeLayout.ts`.
 ## After design decisions
 
 Update `docs/design-system.md` and this skill (clad-knowledge-maintain).
+
+## Clad Studio design lens
+
+Packets may include a **Design lens** (Settings on iPad; default poet/philosopher). When proposing or implementing Studio work, honor that lens for tone/density/copy while keeping Soft Neutral tokens and annotation geometry. See packet `lens.md` / `context.json` → `lens`.
