@@ -37,9 +37,18 @@ Copy home/agent KV from prod when you want staging to look like live:
 node scripts/sync-staging-kv.mjs
 ```
 
+## Default agent flow
+
+1. Implement the requested change.
+2. `npm run deploy:staging` + smoke (`SMOKE_BASE=https://clad-web-staging.benjaminharriscody.workers.dev npm run smoke`).
+3. Tell Ben the staging URL. Wait.
+4. Only if he says **push to prod**: `CONFIRM_PROD=1 npm run deploy`.
+
+`npm run deploy` without `CONFIRM_PROD=1` is blocked on purpose.
+
 ## Rules
 
 - Staging is **noindex**.
-- A yellow-green **Staging** bar appears on every page.
-- Do **not** run `npm run deploy` (no `--env`) for experimental work.
-- When a change is ready: merge/commit on `main`, then `npm run deploy`.
+- A **Staging** bar appears on every page.
+- Do **not** run unguarded `wrangler deploy` for experimental work.
+- Production is an explicit second step after review.

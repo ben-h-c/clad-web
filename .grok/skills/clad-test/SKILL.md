@@ -8,11 +8,24 @@ description: >
 
 # Clad test & ship gates
 
-## Minimum before push/deploy (web)
+## Dev-first (mandatory)
+
+No production deploy until Ben reviewed **staging** and said push to prod.
+
+```bash
+cd ~/clad-web
+npm run deploy:staging
+SMOKE_BASE=https://clad-web-staging.benjaminharriscody.workers.dev npm run smoke
+# After approval only:
+CONFIRM_PROD=1 npm run deploy
+```
+
+## Minimum before staging (and again before prod)
 
 ```bash
 cd ~/clad-web
 npm run build
+# leak check when the change touches HTML/JSON/access:
 node scripts/checkAnonLeak.mjs
 ```
 

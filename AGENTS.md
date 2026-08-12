@@ -81,8 +81,9 @@ Update durable artifacts when **any** of these happen:
 ## Engineering defaults
 
 - Stack: Astro 6, Cloudflare Worker, D1 (`DB`), KV (`AGENTS`), runner in `runner/`.
-- Deploy: commit to `main` then build + `wrangler deploy` from this machine; **uncommitted features die** on next git-based deploy.
-- **Staging:** `npm run deploy:staging` (isolated Worker, KV, D1). Do not experiment on cladfacts.com. Details: `docs/staging.md`.
+- **Dev-first (mandatory):** implement + test + `npm run deploy:staging`. Never change production unless Ben explicitly says **push to prod** / **deploy production** after he reviewed staging. `npm run deploy` is gated (`CONFIRM_PROD=1`).
+- Deploy prod (only after that approval): `CONFIRM_PROD=1 npm run deploy`. Uncommitted features die on the next git-based deploy.
+- Staging URL: https://clad-web-staging.benjaminharriscody.workers.dev — `docs/staging.md`.
 - Wrangler OAuth: if `~/.wrangler` exists empty, symlink `config/default.toml` from `~/Library/Preferences/.wrangler/config/`.
 - Analytics: cookieless first-party; public `POST /api/analytics/collect`; admin `/admin/analytics/`.
 - YouTube scanner: **channel allow-list** playlists only (`src/lib/youtubeScannerPolicy.ts`); not keyword search. Criteria page: `/admin/youtube-scanner/`.

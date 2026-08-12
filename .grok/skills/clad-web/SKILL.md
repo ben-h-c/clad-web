@@ -26,14 +26,17 @@ description: >
 - Anon: grades/lean/sentiment never in HTML/JSON (except daily sample). `checkAnonLeak.mjs`.
 - Some sections (e.g. today-history) are signed-in only (`!locked` on home).
 
-## Ship discipline
+## Ship discipline (dev-first)
 
-1. **Commit to git** before/with deploy — uncommitted work dies on next main deploy.
-2. `npm run build` then `./node_modules/.bin/wrangler deploy` (project-local wrangler).
-2b. **Staging (non-prod):** `npm run deploy:staging` → https://clad-web-staging.benjaminharriscody.workers.dev. Own KV + D1. Never `wrangler deploy --env staging` after `astro build` (deploys prod). See `docs/staging.md`.
-3. Wrangler OAuth: symlink `~/Library/Preferences/.wrangler/config/default.toml` → `~/.wrangler/config/` if empty legacy dir shadows auth.
-4. After infra deploys smoke live: HTML includes scripts, asset **200**, public POST **204**.
-5. Full script: `npm run deploy` also purgeCache + smoke-anon.
+**Default path for every requested change:** code → tests → **staging**. Production only after Ben reviews staging and says **push to prod**.
+
+1. Implement in `~/clad-web`. Commit when the change should survive.
+2. **Always** `npm run deploy:staging` (build + isolated Worker). URL: https://clad-web-staging.benjaminharriscody.workers.dev
+3. Run gates on staging: `SMOKE_BASE=https://clad-web-staging.benjaminharriscody.workers.dev npm run smoke`. For access/HTML work also `npm run check:leak` against staging when practical.
+4. **Do not** run `npm run deploy`, `wrangler deploy` (no env), or `CONFIRM_PROD=1` unless Ben explicitly asked to ship production.
+5. After approval: `CONFIRM_PROD=1 npm run deploy` (purge + prod smoke).
+6. Never `wrangler deploy --env staging` after `astro build` — adapter drops env and that hits **prod**. See `docs/staging.md`.
+7. Wrangler OAuth: symlink `~/Library/Preferences/.wrangler/config/default.toml` → `~/.wrangler/config/` if empty legacy dir shadows auth.
 
 ## Key surfaces
 

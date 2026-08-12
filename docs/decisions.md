@@ -135,6 +135,13 @@ Format:
 **Decision:** iPad Settings → Design lens (catalog + Custom freeform). Default **poet-philosopher**. Snapshot into each packet (`context.json.lens`, `lens.md`, `prompt.md` section). Mac `run-job.mjs` injects Active design lens into proposal + implement prompts. Changing lens affects subsequent Sends only.  
 **Consequences:** Proposals/ships should feel written *for* that audience; Soft Neutral still holds; annotations still win on what/where.
 
+## 2026-08-12 — Dev-first: staging before production
+
+**Status:** accepted  
+**Context:** Ben wants every requested change to land in the non-prod environment automatically, with testing, and production only after he reviews and asks to push.  
+**Decision:** Default ship path is `npm run deploy:staging`. Agents must not deploy cladfacts.com unless Ben says **push to prod** / **deploy production**. `npm run deploy` requires `CONFIRM_PROD=1`. Smoke staging before asking for approval.  
+**Consequences:** Redesigns and fixes are visible at the staging Worker first. Prod stays frozen until an explicit second command.
+
 ## 2026-08-12 — Isolated staging Worker
 
 **Status:** accepted  

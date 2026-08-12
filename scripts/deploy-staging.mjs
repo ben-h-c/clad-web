@@ -60,8 +60,18 @@ if (Array.isArray(cfg.ratelimits)) {
 writeFileSync(GEN, JSON.stringify(cfg, null, 2));
 console.log("→ patched", GEN, "as", cfg.name, cfg.routes);
 
+if (cfg.name !== "clad-web-staging") {
+  console.error("Refusing deploy: patched name is", cfg.name, "(expected clad-web-staging)");
+  process.exit(2);
+}
+if ((cfg.routes || []).some((r) => /^(www\.)?cladfacts\.com$/.test(r.pattern || ""))) {
+  console.error("Refusing deploy: staging config still lists production hosts");
+  process.exit(2);
+}
+
 console.log("→ wrangler deploy (staging worker only)");
 run("npx", ["wrangler", "deploy"]);
 
-console.log("Staging deploy complete. https://staging.cladfacts.com");
-console.log("Fallback: https://clad-web-staging.benjaminharriscody.workers.dev");
+console.log("Staging deploy complete.");
+console.log("Review: https://clad-web-staging.benjaminharriscody.workers.dev");
+console.log("Custom: https://staging.cladfacts.com (when DNS resolves)");
