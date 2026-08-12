@@ -111,3 +111,26 @@ Format:
 **Context:** See `docs/daily-review.md`.  
 **Decision:** All product/copy/design weighed for high-school and college readers; credibility over slang/clickbait.  
 **Consequences:** Mobile-first, scannable grades, shareability, plain-language civics paths.
+
+## 2026-08-10 — Clad Studio cloud relay
+
+**Decision:** iPad ↔ Mac design loop can run over the internet via `/api/studio/*` on cladfacts.com (KV-backed, shared Bearer token). LAN Bonjour remains fallback.
+
+**Why:** Bonjour only works on same Wi‑Fi; user needs cafe/hotspot ↔ home Mac.
+
+**Setup:** `CLAD_STUDIO_RELAY_TOKEN` Worker secret + Mac `~/.cladstudio/relay-token` + iPad Settings cloud relay.
+
+
+## 2026-08-11 — Clad Studio design-loop speed + status reliability
+
+**Status:** accepted  
+**Context:** Packet felt stuck on iPad ("received / Grok working") for a long time while Mac had proposed; implement phase ran long on leak-check and failed status pushes never retried (signature cached before HTTP success).  
+**Decision:** Mac cloud-relay retries pushes, records success only after 200, resyncs open ticket status every ~6s, attaches preview base64 only at review. Implement agent verifies with `npm run build` only (no checkAnonLeak for pure UI); companion runs deploy after `shipped.json` and surfaces "Deploying…" on the loop.  
+**Consequences:** iPad should track real progress; design-loop target under ~10 minutes to shipped for typical UI tickets.
+
+## 2026-08-11 — Clad Studio configurable design lens
+
+**Status:** accepted  
+**Context:** Ben wants a configurable layer between designer prompts and Grok so each packet is framed for a sensibility/demographic (first: poet/philosopher; later e.g. Chinese farmer).  
+**Decision:** iPad Settings → Design lens (catalog + Custom freeform). Default **poet-philosopher**. Snapshot into each packet (`context.json.lens`, `lens.md`, `prompt.md` section). Mac `run-job.mjs` injects Active design lens into proposal + implement prompts. Changing lens affects subsequent Sends only.  
+**Consequences:** Proposals/ships should feel written *for* that audience; Soft Neutral still holds; annotations still win on what/where.

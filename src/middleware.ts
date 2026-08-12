@@ -58,7 +58,10 @@ const PUBLIC_API = (path: string) =>
   // Privacy-first first-party analytics (aggregate page/video events).
   // No auth; the route drops bots, DNT/GPC, and stores no PII.
   path === "/api/analytics/collect" ||
-  path === "/api/analytics/collect/";
+  path === "/api/analytics/collect/" ||
+  // Clad Studio cloud relay (iPad ↔ Mac over internet). Bearer token
+  // checked inside each route — not editor basic-auth.
+  path.startsWith("/api/studio/");
 
 const PROTECTED = (path: string) =>
   path === "/admin" ||
