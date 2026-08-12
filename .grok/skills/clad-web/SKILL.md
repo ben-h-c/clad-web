@@ -30,6 +30,7 @@ description: >
 
 1. **Commit to git** before/with deploy — uncommitted work dies on next main deploy.
 2. `npm run build` then `./node_modules/.bin/wrangler deploy` (project-local wrangler).
+2b. **Staging (non-prod):** `npm run deploy:staging` → https://clad-web-staging.benjaminharriscody.workers.dev. Own KV + D1. Never `wrangler deploy --env staging` after `astro build` (deploys prod). See `docs/staging.md`.
 3. Wrangler OAuth: symlink `~/Library/Preferences/.wrangler/config/default.toml` → `~/.wrangler/config/` if empty legacy dir shadows auth.
 4. After infra deploys smoke live: HTML includes scripts, asset **200**, public POST **204**.
 5. Full script: `npm run deploy` also purgeCache + smoke-anon.

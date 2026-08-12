@@ -129,7 +129,7 @@ function applySecurityHeaders(path: string, response: Response) {
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
         "font-src 'self' https://fonts.gstatic.com data:",
         "img-src 'self' data: blob: https:",
-        "connect-src 'self' https://api.stripe.com https://api.x.ai https://*.cladfacts.com https://cladfacts.com https://accounts.google.com https://appleid.apple.com",
+        "connect-src 'self' https://api.stripe.com https://api.x.ai https://*.cladfacts.com https://cladfacts.com https://*.workers.dev https://accounts.google.com https://appleid.apple.com",
         "frame-src 'self' https://js.stripe.com https://challenges.cloudflare.com https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com",
         "frame-ancestors 'self'",
         "base-uri 'self'",
@@ -145,6 +145,7 @@ function applySecurityHeaders(path: string, response: Response) {
       h.set("X-Frame-Options", "SAMEORIGIN");
     }
     h.set("Content-Security-Policy", csp);
+    if (env.ENVIRONMENT === "staging") h.set("X-Robots-Tag", "noindex, nofollow");
   });
 }
 
@@ -241,6 +242,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
     const res = await next();
     return withHeaders(res, (h) => {
       h.set("X-Content-Type-Options", "nosniff");
+      if (env.ENVIRONMENT === "staging") h.set("X-Robots-Tag", "noindex, nofollow");
     });
   }
   if (!PROTECTED(path)) {

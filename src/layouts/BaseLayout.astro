@@ -7,6 +7,7 @@ import { APP_STORE_LIVE } from "~/lib/app-store";
 import { getSessionUser, getPrefs, type ThemePref } from "~/lib/user-data";
 import { showBillingPromo } from "~/lib/access";
 import { OG_VERSIONS } from "~/lib/ogCard";
+import { env } from "cloudflare:workers";
 
 interface Props {
   title: string;
@@ -119,6 +120,9 @@ const siteLd = {
 };
 const ldBlocks = [orgLd, siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
 const billingOn = showBillingPromo();
+const isStaging = env.ENVIRONMENT === "staging";
+const robotsContent =
+  noindex || isStaging ? "noindex,nofollow" : "max-image-preview:large";
 ---
 <!doctype html>
 <html
@@ -304,7 +308,7 @@ const billingOn = showBillingPromo();
     <meta name="description" content={metaDescription} />
     {/* Large image previews in Google Discover/Top Stories; per-post OG
         images are 1200×630 and grade-free for restricted readers. */}
-    <meta name="robots" content={noindex ? "noindex,follow" : "max-image-preview:large"} />
+    <meta name="robots" content={robotsContent} />
     {/* iOS Safari smart app banner — the native install prompt for the
         CladFacts app (same listing as the footer badge). app-argument deep
         links the app to the page being viewed. Gated on APP_STORE_LIVE so we
@@ -346,6 +350,11 @@ const billingOn = showBillingPromo();
     <slot name="head" />
   </head>
   <body>
+    {isStaging && (
+      <div class="staging-banner" role="status">
+        Staging — not production. <a href="https://cladfacts.com/">cladfacts.com</a> is live.
+      </div>
+    )}
     <a class="skip-link" href="#main">Skip to content</a>
     {/* Optional decorative stage behind the page (usually muted in soft UI). */}
     <div class="living-bg" aria-hidden="true">

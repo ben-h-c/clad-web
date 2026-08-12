@@ -10,6 +10,7 @@
     "build": "astro build",
     "preview": "astro build && wrangler dev",
     "deploy": "astro build && wrangler deploy && node scripts/purgeCache.mjs && node scripts/smoke-anon.mjs",
+    "deploy:staging": "node scripts/deploy-staging.mjs && SMOKE_BASE=https://clad-web-staging.benjaminharriscody.workers.dev node scripts/smoke-anon.mjs",
     "check:leak": "node scripts/checkAnonLeak.mjs",
     "smoke": "node scripts/smoke-anon.mjs",
     "astro": "astro",

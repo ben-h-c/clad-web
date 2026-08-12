@@ -3,7 +3,7 @@ import { D1Dialect } from "kysely-d1";
 import { env } from "cloudflare:workers";
 import { EMAIL, emailShell, escHtml } from "./emailTheme.ts";
 
-const SITE = "https://cladfacts.com";
+const SITE = (env.BETTER_AUTH_URL || "https://cladfacts.com").replace(/\/$/, "");
 
 /** Redact email for Worker logs (privacy — B7). */
 function emailLogTag(email: string): string {
@@ -142,7 +142,12 @@ export function getAuth() {
     appName: "CladFacts",
     secret: env.BETTER_AUTH_SECRET,
     baseURL: env.BETTER_AUTH_URL || SITE,
-    trustedOrigins: [SITE, "https://www.cladfacts.com"],
+    trustedOrigins: [
+      SITE,
+      "https://www.cladfacts.com",
+      "https://cladfacts.com",
+      "https://clad-web-staging.benjaminharriscody.workers.dev",
+    ],
     database: { dialect: new D1Dialect({ database: env.DB }), type: "sqlite" },
     // Durable rate-limit storage (Workers memory resets per isolate).
     ...(secondaryStorage ? { secondaryStorage } : {}),

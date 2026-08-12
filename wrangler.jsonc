@@ -31,5 +31,46 @@
   // User accounts / sessions / preferences / alerts (Better Auth).
   "d1_databases": [
     { "binding": "DB", "database_name": "clad-users", "database_id": "afb89ef5-404e-4c68-b591-f96408fc7118" }
-  ]
+  ],
+  "vars": {
+    "ENVIRONMENT": "production"
+  },
+  // Isolated preview Worker. Deploy: `npm run deploy:staging`
+  // Does NOT bind cladfacts.com. Use for redesign / QA before prod.
+  "env": {
+    "staging": {
+      "name": "clad-web-staging",
+      "workers_dev": true,
+      "preview_urls": true,
+      "vars": {
+        "ENVIRONMENT": "staging",
+        "BETTER_AUTH_URL": "https://staging.cladfacts.com"
+      },
+      "routes": [
+        { "pattern": "staging.cladfacts.com", "custom_domain": true }
+      ],
+      "ratelimits": [
+        {
+          "name": "FACTCHECK_LIMITER",
+          "namespace_id": "2001",
+          "simple": { "limit": 20, "period": 60 }
+        },
+        {
+          "name": "CAMPAIGN_LIMITER",
+          "namespace_id": "2002",
+          "simple": { "limit": 6, "period": 60 }
+        }
+      ],
+      "kv_namespaces": [
+        { "binding": "AGENTS", "id": "bd68a4ace38f43a79506cdb318cdde89" }
+      ],
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "clad-users-staging",
+          "database_id": "c693f21f-cc09-4022-9bf4-6fa8232ffa9a"
+        }
+      ]
+    }
+  }
 }

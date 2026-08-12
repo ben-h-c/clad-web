@@ -27,6 +27,8 @@ declare module "cloudflare:workers" {
     BSKY_APP_PASSWORD?: string;
     AGENT_TOKEN: string;
     AGENTS: KVNamespace;
+    /** "production" | "staging" | unset (local). */
+    ENVIRONMENT?: string;
     /**
      * Shared secret for Clad Studio cloud relay (iPad + Mac companion).
      * Same value as CLAD_STUDIO_RELAY_TOKEN on the Mac LaunchAgent and in

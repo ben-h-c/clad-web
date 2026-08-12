@@ -134,3 +134,11 @@ Format:
 **Context:** Ben wants a configurable layer between designer prompts and Grok so each packet is framed for a sensibility/demographic (first: poet/philosopher; later e.g. Chinese farmer).  
 **Decision:** iPad Settings → Design lens (catalog + Custom freeform). Default **poet-philosopher**. Snapshot into each packet (`context.json.lens`, `lens.md`, `prompt.md` section). Mac `run-job.mjs` injects Active design lens into proposal + implement prompts. Changing lens affects subsequent Sends only.  
 **Consequences:** Proposals/ships should feel written *for* that audience; Soft Neutral still holds; annotations still win on what/where.
+
+## 2026-08-12 — Isolated staging Worker
+
+**Status:** accepted  
+**Context:** Need a non-prod environment for redesign/QA without touching cladfacts.com.  
+**Decision:** Dedicated Worker `clad-web-staging` at https://clad-web-staging.benjaminharriscody.workers.dev (custom domain `staging.cladfacts.com` when DNS lands). Own KV (`AGENTS_STAGING`) and D1 (`clad-users-staging`). Deploy with `npm run deploy:staging` (`scripts/deploy-staging.mjs` patches Astro’s generated wrangler.json because the adapter drops `env.staging`). Staging is noindex and shows a banner. Prod remains `npm run deploy`.  
+**Consequences:** Experimental UI ships to staging first. Never run `wrangler deploy --env staging` after `astro build` — that deploys production.
+
