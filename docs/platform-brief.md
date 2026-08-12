@@ -51,10 +51,12 @@ Mac PM2: clad-agent-runner  →  calls /api/agent/* with AGENT_TOKEN
 
 ```bash
 cd ~/clad-web
-npm run build
-./node_modules/.bin/wrangler deploy   # commit first or next git deploy wipes local-only work
-# full: npm run deploy  → build + wrangler + purgeCache + smoke-anon
+npm run deploy:staging          # default — isolated Worker, not cladfacts.com
+# After Ben reviews staging and says push to prod:
+CONFIRM_PROD=1 npm run deploy
 ```
+
+See `docs/staging.md`. Never `wrangler deploy --env staging` after `astro build` (hits prod).
 
 **Wrangler auth footgun:** if `~/.wrangler` exists empty, OAuth in `~/Library/Preferences/.wrangler/config/default.toml` is ignored. Symlink `default.toml` into `~/.wrangler/config/`.
 
