@@ -258,6 +258,7 @@ export function buildPoliticianIndex(
       const extracted = extractNotablePeopleFromText({
         headline: p.data.headline,
         summary: p.data.summary,
+        topics: p.data.topics,
       });
       for (const tag of extracted) {
         ensure(tag.slug, tag.name).posts.set(p.id, p);

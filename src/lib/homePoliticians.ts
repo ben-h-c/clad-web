@@ -11,11 +11,23 @@ import {
   resolvePhotoSlug,
   wikiTitleForSlug,
 } from "./politicianPhotos.ts";
+import { ROSTER_SEEDS } from "../data/politicianRoster.ts";
 import type { PoliticianAgg } from "./politicians.ts";
-import { extractNotablePeopleFromText } from "./notablePeople.ts";
+import { extractNotablePeopleFromText, mergePersonTags } from "./notablePeople.ts";
 import type { RaceDef } from "./races.ts";
 import { isVoteDateTbd } from "./races.ts";
 import type { HomeFeatureItem } from "./homeFeatures.ts";
+
+const OFFICE_SLUGS = new Set(ROSTER_SEEDS.map((s) => s.slug));
+
+function recencyPoints(ageDays: number): number {
+  if (ageDays <= 0.75) return 90;
+  if (ageDays <= 1.5) return 75;
+  if (ageDays <= 3) return 55;
+  if (ageDays <= 7) return 22;
+  if (ageDays <= 14) return 8;
+  return 2;
+}
 
 function clip(s: string, n: number): string {
   const t = String(s || "").replace(/\s+/g, " ").trim();
@@ -60,6 +72,67 @@ function monogramFromName(name: string): string {
   if (parts.length === 0) return "?";
   if (parts.length === 1) return parts[0]!.slice(0, 2).toUpperCase();
   return (parts[0]![0]! + parts[parts.length - 1]![0]!).toUpperCase();
+}
+
+/**
+ * Fill the strip with people currently in coverage.
+ * Recency first; cap officeholders so celebrities / CEOs / athletes can appear.
+ */
+function mentionedInHeadline(name: string, headline: string | undefined): boolean {
+  if (!headline) return false;
+  const n = name.toLowerCase();
+  const h = headline.toLowerCase();
+  if (h.includes(n)) return true;
+  const parts = n.split(/\s+/).filter((w) => w.length > 3);
+  return parts.some((w) => new RegExp(`\\b${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`).test(h));
+}
+
+function pickSpotlightPeople<
+  T extends {
+    slug: string;
+    office: boolean;
+    latestAgeDays: number;
+    hasPhoto: boolean;
+    latestPostId: string | null;
+  },
+>(ranked: T[], max: number): T[] {
+  const officeCap = Math.max(5, Math.ceil(max * 0.6));
+  const hot = ranked.filter((c) => c.latestAgeDays <= 3);
+  const warm = ranked.filter((c) => c.latestAgeDays > 3 && c.latestAgeDays <= 14);
+  const cold = ranked.filter((c) => c.latestAgeDays > 14);
+  const picked: T[] = [];
+  const seen = new Set<string>();
+
+  const take = (list: T[], opts: { respectCap: boolean; uniqueStory: boolean }) => {
+    const usedStories = new Set(picked.map((p) => p.latestPostId).filter(Boolean));
+    for (const c of list) {
+      if (picked.length >= max) return;
+      if (seen.has(c.slug)) continue;
+      if (opts.respectCap && c.office && picked.filter((p) => p.office).length >= officeCap) {
+        continue;
+      }
+      if (opts.uniqueStory && c.latestPostId && usedStories.has(c.latestPostId)) continue;
+      seen.add(c.slug);
+      if (c.latestPostId) usedStories.add(c.latestPostId);
+      picked.push(c);
+    }
+  };
+
+  // One face per story first, so a hearing does not consume the whole strip.
+  take(
+    hot.filter((c) => c.hasPhoto),
+    { respectCap: true, uniqueStory: true }
+  );
+  take(hot, { respectCap: true, uniqueStory: true });
+  take(hot, { respectCap: true, uniqueStory: false });
+  take(hot, { respectCap: false, uniqueStory: false });
+  take(
+    warm.filter((c) => c.hasPhoto),
+    { respectCap: true, uniqueStory: true }
+  );
+  take(warm, { respectCap: false, uniqueStory: false });
+  take(cold, { respectCap: false, uniqueStory: false });
+  return picked;
 }
 
 /**
@@ -108,6 +181,9 @@ export function buildPoliticianSpotlightItems(opts: {
     hasPhoto: boolean;
     grade: string | null;
     lean: number | null;
+    latestAgeDays: number;
+    office: boolean;
+    latestPostId: string | null;
   };
 
   const bySlug = new Map<string, Cand>();
@@ -125,22 +201,30 @@ export function buildPoliticianSpotlightItems(opts: {
 
     if (recent.length === 0 && month.length === 0 && !raceInfo) continue;
 
-    let score = 0;
-    score += recent.length * 12;
-    score += month.length * 2;
-    if (raceInfo) {
-      score += 18;
-      if (raceInfo.days != null && raceInfo.days >= 0 && raceInfo.days <= 90) {
-        score += Math.max(0, 40 - raceInfo.days / 3);
-      } else if (raceInfo.days == null) {
-        score += 8;
-      }
-    }
-    const hasPhoto = hasPortraitPath(p.slug, photos) || p.name.trim().split(/\s+/).length >= 2;
-    if (hasPhoto) score += 40;
-    else score -= 25;
-
     const latest = p.appearances[0];
+    const latestAgeDays = latest
+      ? (now.getTime() - latest.publishedAt.valueOf()) / 86_400_000
+      : 999;
+    const office = OFFICE_SLUGS.has(p.slug) || Boolean(raceInfo);
+    const hasPhoto = hasPortraitPath(p.slug, photos) || p.name.trim().split(/\s+/).length >= 2;
+
+    // Recency first, volume capped — otherwise a few heavily tagged officeholders
+    // crowd out anyone notable who appeared once today.
+    let score = recencyPoints(latestAgeDays);
+    score += Math.min(recent.length, 4) * 8;
+    score += Math.min(month.length, 3) * 2;
+    if (hasPhoto) score += 10;
+    else score -= 8;
+    if (raceInfo && recent.length > 0) score += 8;
+    if (mentionedInHeadline(p.name, latest?.headline)) score += 16;
+    // One hearing clip is not "in the news" the way a dedicated story is.
+    if (
+      recent.length <= 1 &&
+      /questions|hearing|grills|presses|testifies|markup/i.test(latest?.headline ?? "")
+    ) {
+      score -= 22;
+    }
+
     let body = latest
       ? clip(latest.headline, 160)
       : p.race
@@ -176,6 +260,9 @@ export function buildPoliticianSpotlightItems(opts: {
       hasPhoto,
       grade: opts.locked ? null : p.personGrade ?? p.avgGrade,
       lean: opts.locked ? null : p.personLean ?? p.avgLean,
+      latestAgeDays,
+      office,
+      latestPostId: latest?.id ?? null,
     });
   }
 
@@ -190,10 +277,7 @@ export function buildPoliticianSpotlightItems(opts: {
     put({
       slug,
       name: side.name,
-      score:
-        16 +
-        (hasPhoto ? 40 : -25) +
-        (days != null && days >= 0 && days <= 90 ? 20 : 0),
+      score: 6 + (hasPhoto ? 8 : 0) + (days != null && days >= 0 && days <= 90 ? 4 : 0),
       kicker,
       body: clip(
         `${info.race.office || "Race"}${info.race.state ? ` · ${info.race.state}` : ""} — on the ballot board.`,
@@ -203,16 +287,16 @@ export function buildPoliticianSpotlightItems(opts: {
       hasPhoto,
       grade: null,
       lean: null,
+      latestAgeDays: 999,
+      office: true,
+      latestPostId: null,
     });
   }
 
   const ranked = [...bySlug.values()].sort(
-    (a, b) => b.score - a.score || a.name.localeCompare(b.name)
+    (a, b) => b.score - a.score || a.latestAgeDays - b.latestAgeDays || a.name.localeCompare(b.name)
   );
-
-  const withPhoto = ranked.filter((c) => c.hasPhoto);
-  const without = ranked.filter((c) => !c.hasPhoto);
-  const picked = [...withPhoto, ...without].slice(0, max);
+  const picked = pickSpotlightPeople(ranked, max);
 
   return picked.map((c) => {
     const leanBit =
@@ -256,13 +340,14 @@ export function lightPoliticianAggsFromPosts(
 
   for (const p of posts) {
     if (p.data.draft) continue;
-    const tags = [
-      ...(p.data.politicians ?? []),
-      ...extractNotablePeopleFromText({
+    const tags = mergePersonTags(
+      p.data.politicians,
+      extractNotablePeopleFromText({
         headline: p.data.headline,
         summary: p.data.summary,
-      }),
-    ];
+        topics: p.data.topics,
+      })
+    );
     if (!tags.length) continue;
     const appearance = {
       id: p.id,

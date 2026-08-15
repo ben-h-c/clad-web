@@ -11,8 +11,11 @@ export interface NotablePersonTag {
   slug: string;
 }
 
-const HONORIFIC =
-  /^(?:Rep|Sen|Gov|Pres|Dr|Mr|Mrs|Ms|Gen|Capt|Rev|Prof|Sgt|Lt|Col|Adm|Amb|Sec|Speaker|Judge|Justice|Mayor|Reps)\.?\s+/i;
+/** Shared by the matcher (so we don't capture "President Donald") and the stripper. */
+const HONORIFIC_ALT =
+  "Rep|Sen|Gov|Pres|President|Dr|Mr|Mrs|Ms|Gen|Capt|Rev|Prof|Sgt|Lt|Col|Adm|Amb|Sec|Secretary|Speaker|Judge|Justice|Mayor|Reps|Director|CEO|Host|Chair|Chairman|Chairwoman|Commissioner|Minister|Reporter|Official|Ambassador|Governor|Senator|Congressman|Congresswoman|Representative";
+
+const HONORIFIC = new RegExp(`^(?:${HONORIFIC_ALT})\\.?\\s+`, "i");
 
 const PARTICLE = "van|von|de|da|del|della|di|du|le|la|bin|al|el|dos|st|saint";
 
@@ -29,6 +32,11 @@ const STOP_FIRST = new Set(
   today tonight tomorrow monday tuesday wednesday thursday friday saturday sunday
   january february march april june july august september october november december
   high low world super air prime deputy acting former late
+  defense operation secretary director host guest president
+  royal daily truth social chair commissioner minister reporter official
+  assistant spokesman spokeswoman ambassador congress senate house
+  space swarm aeronautics democracy summer winter spring autumn
+  lebanese palestinian israeli iranian ukrainian russian chinese
   california texas florida ohio china russia iran israel mexico india
   virginia georgia alabama arizona colorado minnesota wisconsin
   michigan pennsylvania maryland missouri oregon washington
@@ -57,6 +65,11 @@ const STOP_LAST = new Set(
   leaves meets speaks talks warns urges backs slams blasts blames
   praises mocks draws pulls criticises
   america america's states kingdom republic federation
+  event buzz biopic framework segment rally conference birthday
+  purchase sale stake magazine foundation estate doll barbie
+  meeting commerce prime subcommittee era forge road forward
+  war hearing subcommittee commissioner minister reporter
+  square garden plaza center centre airport bridge stadium
   `.split(/\s+/).filter(Boolean)
 );
 
@@ -110,6 +123,25 @@ const STOP_FULL = new Set(
     "european union",
     "united nations",
     "united kingdom",
+    "al jazeera",
+    "defense secretary",
+    "defence secretary",
+    "operation epic",
+    "president trump",
+    "vice president",
+    "prime minister",
+    "attorney general",
+    "truth social",
+    "daily wire",
+    "meidas touch",
+    "george washington",
+    "abraham lincoln",
+    "thomas jefferson",
+    "benjamin franklin",
+    "james madison",
+    "alexander hamilton",
+    "madison square",
+    "madison square garden",
   ].map((s) => s.toLowerCase())
 );
 
@@ -139,12 +171,13 @@ function isJunkName(name: string): boolean {
   if (/^[a-z]{5,}(?:es|ed|ing)$/i.test(parts[parts.length - 1]!)) return true;
   // Reject if any token is a single letter that isn't an initial with a period
   if (parts.some((p) => p.length === 1)) return true;
+  if (/-(?:era|old|based|led|wide|style|like)$/i.test(parts[parts.length - 1]!)) return true;
   return false;
 }
 
 /** First Last, optional particle / initial / Jr-Sr. No third free word (avoids Title Case junk). */
 const NAME_RE = new RegExp(
-  String.raw`\b(?:(?:Rep|Sen|Gov|Pres|Dr|Mr|Mrs|Ms|Gen|Capt|Rev|Prof|Sgt|Lt|Col|Adm|Amb|Mayor|Judge|Justice)\.?\s+)?` +
+  String.raw`\b(?:(?:${HONORIFIC_ALT})\.?\s+)?` +
     String.raw`([A-Z][a-z]+(?:['’-][A-Z]?[a-z]+)?` +
     String.raw`(?:\s+[A-Z]\.)?` +
     String.raw`(?:\s+(?:${PARTICLE}))?` +
@@ -231,6 +264,7 @@ const GIVEN = new Set(
   nikki pete raph rfk ron ted thom tim tina tony wes zohran
   megyn whitney katrina bourdain iger kushner infantino haddish shapiro
   banderas netanyahu zelenskyy putin jinping modi starmer farage
+  luigi gianni dominic rishi pat jeanie skye nawaf mckenna
   `.split(/\s+/).filter(Boolean)
 );
 
@@ -247,11 +281,36 @@ function scan(text: string, requireGiven: boolean, out: NotablePersonTag[], seen
     }
     const slug = slugify(name);
     if (!slug || slug.length < 5) continue;
-    if (seen.has(slug)) continue;
-    seen.add(slug);
-    out.push({ name, slug });
+    const canon = canonicalizePerson(slug, name);
+    if (seen.has(canon.slug)) continue;
+    seen.add(canon.slug);
+    out.push(canon);
     if (out.length >= 10) break;
   }
+}
+
+/** Collapse honorific / nickname slugs onto the roster person. */
+const CANONICAL_PERSON: Record<string, NotablePersonTag> = {
+  "president-trump": { slug: "donald-trump", name: "Donald Trump" },
+  "donald-j-trump": { slug: "donald-trump", name: "Donald Trump" },
+  aoc: { slug: "alexandria-ocasio-cortez", name: "Alexandria Ocasio-Cortez" },
+  "alexandria-ocasiocortez": {
+    slug: "alexandria-ocasio-cortez",
+    name: "Alexandria Ocasio-Cortez",
+  },
+  "j-d-vance": { slug: "jd-vance", name: "JD Vance" },
+  "vice-president-vance": { slug: "jd-vance", name: "JD Vance" },
+  "president-biden": { slug: "joe-biden", name: "Joe Biden" },
+  "vice-president-harris": { slug: "kamala-harris", name: "Kamala Harris" },
+};
+
+export function canonicalizePerson(slug: string, name?: string): NotablePersonTag {
+  const key = String(slug || "")
+    .trim()
+    .toLowerCase();
+  const hit = CANONICAL_PERSON[key];
+  if (hit) return { ...hit };
+  return { slug: key, name: String(name || slug).trim() || key };
 }
 
 /** Extract notable person names from prose. Headlines are Title Case — gated. */
@@ -264,16 +323,14 @@ export function extractNotablePeopleFromText(parts: {
 }): NotablePersonTag[] {
   const out: NotablePersonTag[] = [];
   const seen = new Set<string>();
-  const prose = [
-    parts.summary ?? "",
-    parts.assessment ?? "",
-    ...(parts.topics ?? []),
-    ...(parts.keyMomentClaims ?? []),
-  ]
+  const prose = [parts.summary ?? "", parts.assessment ?? "", ...(parts.keyMomentClaims ?? [])]
     .filter(Boolean)
     .join(" \n ");
-  scan(prose, false, out, seen);
+  // Headline / topics first so the story subject wins the per-doc cap.
+  // Always require a known given name — summaries are full of Title Case junk.
   if (parts.headline) scan(parts.headline, true, out, seen);
+  if (parts.topics?.length) scan(parts.topics.join(" \n "), true, out, seen);
+  scan(prose, true, out, seen);
   return out;
 }
 
@@ -285,11 +342,10 @@ export function mergePersonTags(
   for (const list of lists) {
     if (!list) continue;
     for (const t of list) {
-      const slug = String(t.slug || "").trim();
-      const name = String(t.name || "").trim();
-      if (!slug || seen.has(slug)) continue;
-      seen.add(slug);
-      out.push({ name: name || slug, slug });
+      const canon = canonicalizePerson(t.slug, t.name);
+      if (!canon.slug || seen.has(canon.slug)) continue;
+      seen.add(canon.slug);
+      out.push(canon);
     }
   }
   return out;

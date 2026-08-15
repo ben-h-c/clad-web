@@ -17,8 +17,8 @@ Format:
 ## 2026-08-15 — People in the news is anyone notable, not only politicians
 
 **Status:** accepted  
-**Context:** The home strip only scored officeholders tagged from the politician roster, so celebrities, CEOs, and other names in current reports never appeared.  
-**Decision:** Extract notable people from recent headline/summary prose (plus existing roster tags). They join the same strip and `/politicians/` Coverage bucket. Portraits still go through the Commons proxy (Wikipedia-by-name).  
+**Context:** The home strip only scored officeholders tagged from the politician roster, so celebrities, CEOs, and other names in current reports never appeared. A first extract pass still ranked by mention volume, so Trump/AOC/Hegseth filled all 10 slides while Banderas, Haddish, Markle, Iger sat unused in the HTML.  
+**Decision:** Extract notable people from recent headline/summary prose and given-name-gated topics (plus existing roster tags). Rank the strip by recency with capped volume. Keep politicians in the mix, but cap officeholders so other people in the last 3 days can take seats. Race-only ballot names are leftover fill, not the default. Same `/politicians/` Coverage path and Commons portrait proxy (Wikipedia-by-name).  
 **Consequences:** `src/lib/notablePeople.ts`, `homePoliticians.ts`, `politicians.ts` tagger + index, `/api/politician-photo`. No xAI. Guest/locked still hides grades.
 
 ## 2026-08-15 — Broadcast articles: source, then grade

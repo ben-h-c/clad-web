@@ -12,6 +12,7 @@
     "deploy": "node scripts/deploy-prod.mjs",
     "deploy:staging": "node scripts/deploy-staging.mjs && SMOKE_BASE=https://clad-web-staging.benjaminharriscody.workers.dev node scripts/smoke-anon.mjs",
     "check:leak": "node scripts/checkAnonLeak.mjs",
+    "check:people": "node --experimental-strip-types scripts/checkNotablePeople.mjs",
     "smoke": "node scripts/smoke-anon.mjs",
     "astro": "astro",
     "typecheck": "astro check"

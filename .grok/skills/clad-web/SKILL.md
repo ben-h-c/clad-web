@@ -74,7 +74,7 @@ description: >
 - **Human Spotlight:** accept Commons portrait only when Wikipedia title clearly matches the person; else `imageUrl = null` and UI monogram. Monogram underlay + `onerror` remove.
 - **Today in history:** Commons-only heroes (no YouTube posters); multi-fallback resolve; on image error drop media layer (no broken `?` glyph).
 - Politician portraits: Commons via `/api/politician-photo/`.
-- **People in the news:** `src/lib/notablePeople.ts` + roster tags. Anyone notable in recent reports, not only officeholders.
+- **People in the news:** `src/lib/notablePeople.ts` + roster tags. Anyone notable in recent reports, not only officeholders. Strip ranking is recency-first with an officeholder cap (`homePoliticians.ts`) so one week of congressional tags cannot hide celebrities/CEOs.
 
 ## Coding norms
 
