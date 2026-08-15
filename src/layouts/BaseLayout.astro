@@ -374,12 +374,33 @@ const stageView = isStaging
     {isStaging && (
       <div class="staging-banner" role="status">
         Staging — not production. <a href="https://cladfacts.com/">cladfacts.com</a> is live.
+        <label class="staging-banner__spend">
+          <input type="checkbox" id="clad-allow-spend" />
+          Allow xAI spend (this tab)
+        </label>
       </div>
     )}
     {isStaging && <ThemeSkinBar currentSkin={skin} currentView={stageView} />}
     {isStaging && skin === "matrix" && <MatrixRain />}
     {isStaging && (
       <script is:inline>
+        (function () {
+          var box = document.getElementById("clad-allow-spend");
+          if (!box) return;
+          try { box.checked = sessionStorage.getItem("clad_allow_spend") === "1"; } catch (e) {}
+          box.addEventListener("change", function () {
+            try { sessionStorage.setItem("clad_allow_spend", box.checked ? "1" : "0"); } catch (e) {}
+          });
+          var orig = window.fetch;
+          window.fetch = function (input, init) {
+            if (!box.checked) return orig.call(this, input, init);
+            init = init ? Object.assign({}, init) : {};
+            var headers = new Headers(init.headers || {});
+            headers.set("X-Clad-Allow-Spend", "1");
+            init.headers = headers;
+            return orig.call(this, input, init);
+          };
+        })();
         document.addEventListener("click", function (e) {
           var root = document.documentElement;
           var skin = root.getAttribute("data-skin");

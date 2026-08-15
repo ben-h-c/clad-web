@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-15 — Staging does not auto-spend xAI tokens
+
+**Status:** accepted  
+**Context:** Staging had the production xAI key and full-power dial, so incidental admin/publish/vision on staging could burn tokens.  
+**Decision:** Staging is spend-dark unless explicitly opted in (`X-Clad-Allow-Spend`, `?spend=1`, `allowSpend: true`, or the staging banner checkbox). Runner against a staging base skips automatic ticks; only `--force=<kind>` or Run-now. Production spend is unchanged.  
+**Consequences:** `src/lib/spendGuard.ts`, `runner/stagingGuard.mjs`. Approving a draft on staging without the checkbox skips vision/Imagine.
+
 ## 2026-08-15 — xAI spend mode is full power
 
 **Status:** accepted  

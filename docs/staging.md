@@ -62,6 +62,16 @@ Cookies `clad_stage_view` and `clad_stage_skin` remember the last choice. Stagin
 
 Do **not** copy a selected skin to production unless Ben says **push to prod** after reviewing it.
 
+## Token spend (xAI)
+
+Staging does **not** call xAI unless you opt in. Default is spend-dark.
+
+- Banner checkbox **Allow xAI spend (this tab)** — adds `X-Clad-Allow-Spend: 1` to fetches.
+- Or `allowSpend: true` on the JSON body / `?spend=1` / header `X-Clad-Allow-Spend: 1`.
+- A runner pointed at staging skips cron; only `--force=<kind>` or admin Run-now spends.
+
+Approve-without-opt-in still publishes using the YouTube still (no vision, no Imagine).
+
 ## Rules
 
 - Staging is **noindex**.

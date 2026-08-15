@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
+import { getXaiApiKey, xaiUnavailableMessage } from "~/lib/spendGuard";
 import { commitFile, getFile } from "~/lib/github";
 import { getComplianceReport, removeComplianceFinding } from "~/lib/agents";
 
@@ -41,16 +42,16 @@ Rules:
 Return ONLY JSON: { "edits": [ { "find": "...", "replace": "..." } ], "note": "one short sentence on what you changed" }.`;
 
 export const POST: APIRoute = async ({ request }) => {
-  if (!env.XAI_API_KEY) return json({ error: "XAI_API_KEY not configured" }, 503);
-  if (!env.GITHUB_TOKEN || !env.GITHUB_REPO || !env.GITHUB_BRANCH) {
-    return json({ error: "GitHub is not configured." }, 503);
-  }
-
   let p: any;
   try {
     p = await request.json();
   } catch {
     return json({ error: "Invalid JSON body" }, 400);
+  }
+  const xaiKey = getXaiApiKey(request, p);
+  if (!xaiKey) return json({ error: xaiUnavailableMessage() }, 503);
+  if (!env.GITHUB_TOKEN || !env.GITHUB_REPO || !env.GITHUB_BRANCH) {
+    return json({ error: "GitHub is not configured." }, 503);
   }
   if (p?.action !== "apply") return json({ error: "Unknown action" }, 400);
   const id = String(p?.id ?? "");
@@ -70,7 +71,7 @@ export const POST: APIRoute = async ({ request }) => {
   let edits: { find: string; replace: string }[];
   let note = "";
   try {
-    const out = await proposeEdits(env.XAI_API_KEY, file.contents, finding);
+    const out = await proposeEdits(xaiKey, file.contents, finding);
     edits = out.edits;
     note = out.note;
   } catch (err: any) {

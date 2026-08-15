@@ -16,6 +16,7 @@ import {
   type MediaPresentation,
 } from "~/lib/mediaPresentation";
 import { xaiLimits } from "~/lib/xaiEconomy";
+import { getXaiApiKey } from "~/lib/spendGuard";
 import { maybeSendReportPush, apnsConfigured } from "~/lib/push";
 import { tagPoliticiansFromText } from "~/lib/politicians";
 
@@ -80,7 +81,7 @@ export const POST: APIRoute = async ({ request }) => {
       headline,
       slug,
       github,
-      apiKey: env.XAI_API_KEY,
+      apiKey: getXaiApiKey(request, p),
     });
     fm = {
       type: "verdict",
@@ -165,7 +166,7 @@ export const POST: APIRoute = async ({ request }) => {
       headline,
       slug,
       github,
-      apiKey: env.XAI_API_KEY,
+      apiKey: getXaiApiKey(request, p),
     });
 
     // Prefer editor-supplied tags; otherwise seed-match the report text so
@@ -391,9 +392,9 @@ async function resolvePostMedia(args: {
       { allowNonOverlay: false }
     );
   }
-  // Economy mode skips vision (see xaiEconomy.ts); default 16:9 is fine.
-  if (!xaiLimits(env.XAI_ECONOMY).enableVisionOnPublish) {
-    return { ...DEFAULT_MEDIA, mediaNote: "economy default 16:9 framing" };
+  // Economy mode / staging without spend opt-in skips vision.
+  if (!args.apiKey || !xaiLimits(env.XAI_ECONOMY).enableVisionOnPublish) {
+    return { ...DEFAULT_MEDIA, mediaNote: "default 16:9 framing (no vision)" };
   }
   return resolveMediaPresentation({
     apiKey: args.apiKey,

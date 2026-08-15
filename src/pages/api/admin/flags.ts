@@ -3,6 +3,7 @@ import { env } from "cloudflare:workers";
 import { commitFile, getFile } from "~/lib/github";
 import { deleteFlag, getFlag, setFlagStatus } from "~/lib/agents";
 import { generateBroadcastReport, leanBucket } from "~/lib/broadcast";
+import { getXaiApiKey, xaiUnavailableMessage } from "~/lib/spendGuard";
 
 export const prerender = false;
 
@@ -35,7 +36,8 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   if (action === "regrade") {
-    if (!env.XAI_API_KEY) return json({ error: "XAI_API_KEY not configured" }, 503);
+    const xaiKey = getXaiApiKey(request, p);
+    if (!xaiKey) return json({ error: xaiUnavailableMessage() }, 503);
     if (!env.GITHUB_TOKEN || !env.GITHUB_REPO || !env.GITHUB_BRANCH) {
       return json({ error: "GitHub is not configured." }, 503);
     }
@@ -75,7 +77,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     let report;
     try {
-      report = await generateBroadcastReport(env.XAI_API_KEY, {
+      report = await generateBroadcastReport(xaiKey, {
         sourceUrl,
         videoTitle,
         channel,

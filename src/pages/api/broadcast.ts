@@ -1,13 +1,15 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { generateBroadcastReport } from "~/lib/broadcast";
+import { getXaiApiKey, xaiUnavailableMessage } from "~/lib/spendGuard";
 import { extractVideoId } from "~/lib/youtube";
 import { validateCitations } from "~/lib/citations";
 
 export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
-  if (!env.XAI_API_KEY) return json({ error: "XAI_API_KEY not configured" }, 503);
+  const xaiKey = getXaiApiKey(request);
+  if (!xaiKey) return json({ error: xaiUnavailableMessage() }, 503);
 
   // One editor, one bucket — shared with /api/factcheck. Backstop for a
   // leaked credential so the xAI bill can't run away.
@@ -41,7 +43,7 @@ export const POST: APIRoute = async ({ request }) => {
   if (transcript.length > 200_000) return json({ error: "Transcript too long" }, 400);
 
   try {
-    const report = await generateBroadcastReport(env.XAI_API_KEY, {
+    const report = await generateBroadcastReport(xaiKey, {
       transcript: transcript.length >= 80 ? transcript : undefined,
       sourceUrl: youtubeUrl,
       videoTitle,

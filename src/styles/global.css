@@ -681,6 +681,18 @@ body {
 .staging-banner a {
   color: var(--accent);
 }
+.staging-banner__spend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: 0.85rem;
+  letter-spacing: 0;
+  cursor: pointer;
+  user-select: none;
+}
+.staging-banner__spend input {
+  margin: 0;
+}
 html:has(.staging-banner) {
   --site-header-h: calc(3.25rem + 1.55rem);
 }

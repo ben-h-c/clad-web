@@ -68,7 +68,7 @@ cd ~/clad-web/runner
 node --env-file=.env index.mjs --once --force=<kind>
 ```
 
-Spend: `XAI_ECONOMY` default **full**. Throttle with `XAI_ECONOMY=economy`.
+Spend: `XAI_ECONOMY` default **full**. Throttle with `XAI_ECONOMY=economy`. Staging is spend-dark unless opted in (`src/lib/spendGuard.ts`).
 
 ---
 

@@ -39,6 +39,7 @@ import { runPushReminders } from "./pushReminders.mjs";
 import { runRetentionPrune } from "./retentionPrune.mjs";
 import { processUrlQueue } from "./urlIntake.mjs";
 import { updateTicker } from "./ticker.mjs";
+import { runnerTargetsStaging } from "./stagingGuard.mjs";
 
 const ONCE = process.argv.includes("--once");
 /** Force specific agent kinds this tick (comma-separated): --force=calendar-scanner,politician-grader */
@@ -140,12 +141,20 @@ async function runAgent(agent, consumedRunNow = null) {
 }
 
 async function tick() {
+  const staging = runnerTargetsStaging();
+  const stagingAuto = staging && FORCE_KINDS.size === 0;
+  if (stagingAuto) {
+    log("staging target: skipping automatic url-intake / agents (pass --force=<kind> to spend)");
+  }
+
   // Process any editor-supplied URLs first (quota-free intake), independent of
-  // the agent registry.
-  try {
-    await processUrlQueue(log);
-  } catch (err) {
-    log(`url-intake error: ${String(err?.message || err).slice(0, 120)}`);
+  // the agent registry. Staging: only when a kind was forced (manual).
+  if (!stagingAuto) {
+    try {
+      await processUrlQueue(log);
+    } catch (err) {
+      log(`url-intake error: ${String(err?.message || err).slice(0, 120)}`);
+    }
   }
 
   // Refresh the markets ticker (throttled internally to ~2 min).
@@ -166,6 +175,8 @@ async function tick() {
     if (!agent.enabled) continue;
     const forced = FORCE_KINDS.has(agent.kind) || FORCE_KINDS.has(agent.id);
     const manual = agent.runNowAt || null;
+    // Staging: no cron. Only CLI --force or an admin Run-now flag.
+    if (staging && !forced && !manual) continue;
     const creditRetry =
       agent.lastRun &&
       agent.lastRun.ok === false &&

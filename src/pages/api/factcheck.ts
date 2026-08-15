@@ -1,11 +1,13 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { factCheck } from "~/lib/grok";
+import { getXaiApiKey, xaiUnavailableMessage } from "~/lib/spendGuard";
 
 export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
-  if (!env.XAI_API_KEY) return json({ error: "XAI_API_KEY not configured" }, 503);
+  const xaiKey = getXaiApiKey(request);
+  if (!xaiKey) return json({ error: xaiUnavailableMessage() }, 503);
 
   // Two buckets: a per-IP token bucket (one abusive client can't monopolize
   // the endpoint) AND the shared global key (hard cap on total xAI spend —
@@ -47,7 +49,7 @@ export const POST: APIRoute = async ({ request }) => {
   if (sourceUrl && !isHttpUrl(sourceUrl)) return json({ error: "Source URL must be http(s)" }, 400);
 
   try {
-    const result = await factCheck(env.XAI_API_KEY, { headline, sourceUrl, notes });
+    const result = await factCheck(xaiKey, { headline, sourceUrl, notes });
     return json(result, 200);
   } catch (err: any) {
     return json({ error: err?.message ?? "Fact-check failed" }, 502);

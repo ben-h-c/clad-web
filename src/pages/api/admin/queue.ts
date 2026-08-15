@@ -24,6 +24,7 @@ import {
   type MediaPresentation,
 } from "~/lib/mediaPresentation";
 import { xaiLimits } from "~/lib/xaiEconomy";
+import { getXaiApiKey, xaiUnavailableMessage } from "~/lib/spendGuard";
 import { reviseBroadcastReport } from "~/lib/broadcast";
 import { applyEventTopics, assessDraftQuality } from "~/lib/draftQuality";
 import { lintHeadline } from "~/lib/headlineLint";
@@ -119,11 +120,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
   if (action === "revise") {
     const comment = String(p?.comment ?? "").trim();
     if (comment.length < 3) return json({ error: "Add a comment describing what to fix." }, 400);
-    if (!env.XAI_API_KEY) return json({ error: "xAI is not configured." }, 503);
+    const reviseKey = getXaiApiKey(request, p);
+    if (!reviseKey) return json({ error: xaiUnavailableMessage() }, 503);
     const draft = await getDraft(env.AGENTS, id);
     if (!draft) return json({ error: "Draft not found" }, 404);
     try {
-      const revised = await reviseBroadcastReport(env.XAI_API_KEY, {
+      const revised = await reviseBroadcastReport(reviseKey, {
         report: draft.report,
         feedback: comment,
         sourceUrl: draft.sourceUrl,
@@ -164,6 +166,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     mediaNote: p?.mediaNote,
     forceStill: Boolean(p?.forceStill),
     preferIllustration: Boolean(p?.preferIllustration),
+    xaiKey: getXaiApiKey(request, p),
   });
   if (result.ok) {
     return json(
@@ -209,6 +212,8 @@ async function approveDraft(
     preferIllustration?: boolean;
     /** Skip Grok vision framing (bulk path) — default 16:9 is intentional. */
     skipVision?: boolean;
+    /** Present only when staging spend is opted in (or always on production). */
+    xaiKey?: string;
   }
 ): Promise<ApproveOk | ApproveFail> {
   if (!env.GITHUB_TOKEN || !env.GITHUB_REPO || !env.GITHUB_BRANCH) {
@@ -286,6 +291,7 @@ async function approveDraft(
     thumbnail: ytThumb,
     headline: draft.report.headline,
     videoId: draft.videoId,
+    xaiKey: opts.xaiKey,
   });
 
   // Always-image: fail or editor "Use illustration" → owned /generated/ art.
@@ -295,12 +301,12 @@ async function approveDraft(
     forceStill: Boolean(opts.forceStill),
     preferIllustration: Boolean(opts.preferIllustration),
   });
-  if (wantIllustration && env.XAI_API_KEY) {
+  if (wantIllustration && opts.xaiKey) {
     const generated = await resolveThumbnail({
       videoId: draft.videoId,
       title: draft.report.headline,
       slug,
-      xaiKey: env.XAI_API_KEY,
+      xaiKey: opts.xaiKey,
       github,
       preferGenerated: true,
     });
@@ -388,6 +394,7 @@ async function resolveApproveMedia(args: {
   thumbnail: string | null | undefined;
   headline: string;
   videoId: string;
+  xaiKey?: string;
 }): Promise<MediaPresentation> {
   const forceStill = Boolean(args.opts.forceStill);
   const preferIllustration = Boolean(args.opts.preferIllustration);
@@ -431,7 +438,9 @@ async function resolveApproveMedia(args: {
   // Bulk / economy skip vision: default 16:9 is intentional and cheap.
   // Human queue preview is the still gate when vision is off.
   const skipVision =
-    args.opts.skipVision || !xaiLimits(env.XAI_ECONOMY).enableVisionOnPublish;
+    args.opts.skipVision ||
+    !args.xaiKey ||
+    !xaiLimits(env.XAI_ECONOMY).enableVisionOnPublish;
   if (skipVision) {
     return {
       ...DEFAULT_MEDIA,
@@ -440,7 +449,7 @@ async function resolveApproveMedia(args: {
   }
 
   return resolveMediaPresentation({
-    apiKey: env.XAI_API_KEY,
+    apiKey: args.xaiKey,
     imageUrl: args.thumbnail || undefined,
     headline: args.headline,
     videoId: args.videoId,

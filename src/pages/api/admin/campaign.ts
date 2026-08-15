@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
+import { getXaiApiKey, xaiUnavailableMessage } from "~/lib/spendGuard";
 import {
   buildCampaignFromClient,
   deleteCampaign,
@@ -26,14 +27,15 @@ export const POST: APIRoute = async ({ request }) => {
 
   switch (action) {
     case "generate": {
-      if (!env.XAI_API_KEY) return json({ error: "XAI_API_KEY not configured" }, 503);
+      const xaiKey = getXaiApiKey(request, p);
+      if (!xaiKey) return json({ error: xaiUnavailableMessage() }, 503);
       const rl = await rateLimit(request);
       if (rl) return rl;
       const input = sanitizeInput(p);
       if (!input.brief) return json({ error: "brief is required" }, 400);
       if (!input.platforms.length) return json({ error: "pick at least one platform" }, 400);
       try {
-        const draft = await generateCampaign(env.XAI_API_KEY, input);
+        const draft = await generateCampaign(xaiKey, input);
         return json({ draft, input }, 200);
       } catch (err: any) {
         return json({ error: err?.message ?? "Generation failed" }, 502);
@@ -60,7 +62,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     case "illustration": {
       // PHASE 2 — stub, secret-gated
-      if (!env.XAI_API_KEY) return json({ error: "XAI_API_KEY not configured" }, 503);
+      if (!getXaiApiKey(request, p)) return json({ error: xaiUnavailableMessage() }, 503);
       if (!env.GITHUB_TOKEN || !env.GITHUB_REPO || !env.GITHUB_BRANCH) {
         return json({ error: "GitHub not configured" }, 503);
       }
