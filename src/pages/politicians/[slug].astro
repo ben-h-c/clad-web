@@ -7,7 +7,7 @@ import PoliticianAvatar from "~/components/PoliticianAvatar.astro";
 import ShareBar from "~/components/ShareBar.astro";
 import { env } from "cloudflare:workers";
 import { getAccess } from "~/lib/access";
-import { bucketLabel, bucketSlug, findPolitician } from "~/lib/politicians";
+import { bucketLabel, bucketSlug, findPolitician, latestStoryPathForPerson } from "~/lib/politicians";
 import { shortDate } from "~/lib/dateline";
 import { OG_VERSIONS } from "~/lib/ogCard";
 import { metaDescription } from "~/lib/seo";
@@ -21,7 +21,11 @@ const locked = !access.fullAccess;
 const slug = Astro.params.slug ?? "";
 const all = await getCollection("posts", (p) => !p.data.draft);
 const pol = await findPolitician(all, slug, env.AGENTS);
-if (!pol) return new Response("Not found", { status: 404 });
+if (!pol) {
+  const story = latestStoryPathForPerson(all, slug);
+  if (story) return Astro.redirect(story, 302);
+  return new Response("Not found", { status: 404 });
+}
 
 const origin = (Astro.site ?? new URL("https://cladfacts.com")).origin;
 const pageUrl = `${origin}/politicians/${pol.slug}/`;

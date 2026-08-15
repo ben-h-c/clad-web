@@ -120,9 +120,9 @@ const posts = defineCollection({
       /** Pipeline note for why this framing was chosen (not shown in UI). */
       mediaNote: z.string().max(200).optional(),
 
-      // Optional people tags for /politicians/[slug] report cards (growth /
-      // midterm SEO). When absent, the index still matches a curated seed list
-      // against headline/topics/summary. Additive only — never required.
+      // Optional officeholder tags for /politicians/[slug] report cards.
+      // Roster slugs only — extracted notables (actors, defendants) stay off
+      // this list. When absent, the index still matches the roster.
       politicians: z
         .array(
           z.object({

@@ -169,7 +169,18 @@ const strip = buildPoliticianSpotlightItems({
 });
 console.log("\nHome strip preview:");
 for (const item of strip) {
-  console.log(`  ${item.title}  —  ${item.kicker}`);
+  console.log(`  ${item.title}  —  ${item.kicker}  →  ${item.href}  (${item.cta})`);
+}
+
+const luigi = strip.find((i) => /luigi|mangione/i.test(i.title) || /luigi-mangione/.test(i.href));
+if (luigi && luigi.href.includes("/politicians/")) {
+  console.error("FAIL Luigi must not have a politician report card");
+  failed++;
+}
+const banderas = strip.find((i) => /banderas/i.test(i.title));
+if (banderas && banderas.href.includes("/politicians/")) {
+  console.error("FAIL Banderas must not have a politician report card");
+  failed++;
 }
 
 if (failed) {

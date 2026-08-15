@@ -14,12 +14,12 @@ Format:
 
 ---
 
-## 2026-08-15 — People in the news is anyone notable, not only politicians
+## 2026-08-15 — People in the news is anyone notable; report cards are politicians only
 
 **Status:** accepted  
-**Context:** The home strip only scored officeholders tagged from the politician roster, so celebrities, CEOs, and other names in current reports never appeared. A first extract pass still ranked by mention volume, so Trump/AOC/Hegseth filled all 10 slides while Banderas, Haddish, Markle, Iger sat unused in the HTML.  
-**Decision:** Extract notable people from recent headline/summary prose and given-name-gated topics (plus existing roster tags). Rank the strip by recency with capped volume. Keep politicians in the mix, but cap officeholders so other people in the last 3 days can take seats. Race-only ballot names are leftover fill, not the default. Same `/politicians/` Coverage path and Commons portrait proxy (Wikipedia-by-name).  
-**Consequences:** `src/lib/notablePeople.ts`, `homePoliticians.ts`, `politicians.ts` tagger + index, `/api/politician-photo`. No xAI. Guest/locked still hides grades.
+**Context:** The home strip only scored officeholders tagged from the politician roster, so celebrities, CEOs, and other names in current reports never appeared. A first extract pass still ranked by mention volume, then minted `/politicians/[slug]` cards for everyone — including Luigi Mangione (on trial for murder). Ben: if they are not a politician they should not have a politician report card.  
+**Decision:** Extract notable people for the home strip. Rank by recency with an officeholder cap. **Politician report cards stay on the officeholder roster (and ballot sides) only.** Non-politicians in the strip open the latest graded report, with CTA “Open report” and no person grade/lean. `/politicians/[slug]` for a non-roster name 302s to that story. Publish tagging is roster-only so new posts do not write Luigi-style tags.  
+**Consequences:** `src/lib/notablePeople.ts`, `homePoliticians.ts`, `politicians.ts` tagger + index, `[slug].astro`. Portraits still use the Commons proxy. No xAI. Guest/locked still hides grades.
 
 ## 2026-08-15 — Broadcast articles: source, then grade
 

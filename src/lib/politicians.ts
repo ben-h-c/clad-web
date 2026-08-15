@@ -5,8 +5,9 @@
  *  - Live: AGENTS KV `politicians:roster` (daily politician-roster-sync agent)
  *  - Fallback: src/data/politicianRoster.ts snapshot
  *
- * Coverage matching still uses aliases + post frontmatter tags. People who
- * appear only in coverage (not officeholders) land in "Coverage".
+ * Coverage matching uses aliases + post frontmatter tags for roster slugs only.
+ * Extracted notables (celebrities, defendants, CEOs) are not politicians and
+ * do not get report cards — they stay on People in the news via the home strip.
  *
  * Directory groups by branch / chamber: Executive, Senate, House, Governor,
  * Supreme Court — then Coverage for non-officeholders with reports.
@@ -20,7 +21,7 @@ import {
   type PersonProfileMap,
 } from "./politicianProfiles.ts";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "./topics.ts";
-import { extractNotablePeopleFromText, mergePersonTags } from "./notablePeople.ts";
+import { extractNotablePeopleFromText } from "./notablePeople.ts";
 
 /** Directory sections — officeholders by branch/chamber, then coverage-only. */
 export type RaceBucket =
@@ -248,21 +249,10 @@ export function buildPoliticianIndex(
 
     for (const tag of p.data.politicians ?? []) {
       const slug = tag.slug.trim();
-      if (!slug) continue;
+      // Ignore leftover non-roster tags (e.g. Luigi Mangione) so they never
+      // mint a politician report card.
+      if (!slug || !seedBySlug.has(slug)) continue;
       ensure(slug, tag.name.trim() || slug).posts.set(p.id, p);
-    }
-
-    // Recent coverage only — a full-corpus name scan fills Coverage with junk.
-    const recencyMs = 45 * 86_400_000;
-    if (Date.now() - p.data.publishedAt.valueOf() < recencyMs) {
-      const extracted = extractNotablePeopleFromText({
-        headline: p.data.headline,
-        summary: p.data.summary,
-        topics: p.data.topics,
-      });
-      for (const tag of extracted) {
-        ensure(tag.slug, tag.name).posts.set(p.id, p);
-      }
     }
 
     for (const { seed, needles, regexes } of seedMatchers) {
@@ -341,6 +331,31 @@ export function buildPoliticianIndex(
   return sorted;
 }
 
+/** Latest graded report mentioning this person — used to bounce non-politicians off /politicians/[slug]. */
+export function latestStoryPathForPerson(
+  posts: CollectionEntry<"posts">[],
+  slug: string
+): string | null {
+  const key = String(slug || "").trim().toLowerCase();
+  if (!key) return null;
+  let best: { id: string; at: number } | null = null;
+  for (const p of posts) {
+    if (p.data.draft) continue;
+    const tagged = (p.data.politicians ?? []).some((t) => t.slug.trim().toLowerCase() === key);
+    const extracted = tagged
+      ? true
+      : extractNotablePeopleFromText({
+          headline: p.data.headline,
+          summary: p.data.summary,
+          topics: p.data.topics,
+        }).some((t) => t.slug === key);
+    if (!tagged && !extracted) continue;
+    const at = p.data.publishedAt.valueOf();
+    if (!best || at > best.at) best = { id: p.id, at };
+  }
+  return best ? `/posts/${best.id}/` : null;
+}
+
 export async function findPolitician(
   posts: CollectionEntry<"posts">[],
   slug: string,
@@ -396,8 +411,7 @@ export function tagPoliticiansFromText(parts: {
       roster.push({ name: seed.name, slug: seed.slug });
     }
   }
-  const notable = extractNotablePeopleFromText(parts);
-  return mergePersonTags(roster, notable).slice(0, 12);
+  return roster.slice(0, 12);
 }
 
 /**
@@ -558,7 +572,7 @@ export function bucketBlurb(bucket: RaceBucket): string {
     case "Supreme Court":
       return "Justices of the U.S. Supreme Court.";
     case "Coverage":
-      return "Notable people in graded reports — not only officeholders.";
+      return "Other political figures on the roster who are not in a U.S. branch above.";
     default:
       return "";
   }

@@ -1,6 +1,7 @@
 /**
  * Named people in graded coverage — not only officeholders.
- * Used by People in the news, publish tagging, and /politicians/ Coverage.
+ * Used by People in the news. Not a politician tagger — non-officeholders
+ * never get /politicians/[slug] report cards.
  *
  * Deterministic (no xAI). Headline/summary proper names, filtered hard.
  */
@@ -70,6 +71,7 @@ const STOP_LAST = new Set(
   meeting commerce prime subcommittee era forge road forward
   war hearing subcommittee commissioner minister reporter
   square garden plaza center centre airport bridge stadium
+  safety awful hate islamophobia islands secretary
   `.split(/\s+/).filter(Boolean)
 );
 
@@ -142,6 +144,10 @@ const STOP_FULL = new Set(
     "alexander hamilton",
     "madison square",
     "madison square garden",
+    "flock safety",
+    "hallaniyat islands",
+    "uss abraham lincoln",
+    "abraham lincoln",
   ].map((s) => s.toLowerCase())
 );
 

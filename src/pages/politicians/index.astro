@@ -67,17 +67,17 @@ const jsonLd = {
   url: pageUrl,
   description: isDrillIn
     ? `CladFacts report cards in ${bucketLabel(activeBucket!)}.`
-    : "How people in the news grade on CladFacts: officeholders and anyone notable in coverage.",
+    : "Officeholder report cards on CladFacts: claim record and ideology.",
   isPartOf: { "@type": "WebSite", name: "CladFacts", url: origin },
   numberOfItems: isDrillIn ? (activeGroup?.items.length ?? 0) : politicians.length,
 };
 
 const pageTitle = isDrillIn
   ? `${bucketLabel(activeBucket!)} — Politician report cards | CladFacts`
-  : "People in the news — CladFacts";
+  : "Politician report cards — CladFacts";
 const pageDesc = isDrillIn
   ? `Fact-check grade history for ${activeGroup?.items.length ?? 0} people in ${bucketLabel(activeBucket!)}. Free account unlocks average grades and lean.`
-  : `Fact-check grade history for ${politicians.length} people in coverage — officeholders and anyone notable in graded reports. Free account unlocks grades and lean.`;
+  : `Fact-check grade history for ${officeCount} officeholders we track. People in the news who are not politicians open the report, not a politician card.`;
 ---
 <BaseLayout
   title={pageTitle}

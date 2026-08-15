@@ -256,10 +256,14 @@ export function buildPoliticianSpotlightItems(opts: {
       score,
       kicker,
       body,
-      href: `/politicians/${p.slug}/`,
+      href: office
+        ? `/politicians/${p.slug}/`
+        : latest
+          ? `/posts/${latest.id}/`
+          : "/politicians/",
       hasPhoto,
-      grade: opts.locked ? null : p.personGrade ?? p.avgGrade,
-      lean: opts.locked ? null : p.personLean ?? p.avgLean,
+      grade: office && !opts.locked ? p.personGrade ?? p.avgGrade : null,
+      lean: office && !opts.locked ? p.personLean ?? p.avgLean : null,
       latestAgeDays,
       office,
       latestPostId: latest?.id ?? null,
@@ -314,9 +318,9 @@ export function buildPoliticianSpotlightItems(opts: {
       title: c.name,
       body: clip(bodyExtra, 200),
       href: c.href,
-      cta: "Open report card",
-      secondaryHref: "/politicians/",
-      secondaryCta: "All people",
+      cta: c.office ? "Open report card" : "Open report",
+      secondaryHref: c.office ? "/politicians/" : undefined,
+      secondaryCta: c.office ? "Politicians" : undefined,
       variant: c.kicker.startsWith("Midterms") ? "midterms" : "topic",
       image: photoSrc(c.slug),
       monogram: monogramFromName(c.name),
@@ -340,8 +344,11 @@ export function lightPoliticianAggsFromPosts(
 
   for (const p of posts) {
     if (p.data.draft) continue;
+    const rosterTags = (p.data.politicians ?? []).filter((t) =>
+      OFFICE_SLUGS.has(String(t.slug || "").trim())
+    );
     const tags = mergePersonTags(
-      p.data.politicians,
+      rosterTags,
       extractNotablePeopleFromText({
         headline: p.data.headline,
         summary: p.data.summary,
