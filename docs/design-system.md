@@ -92,6 +92,7 @@ Admin paths force dark via `data-force-theme="dark"`.
 - **Admin:** `.admin`, `.stat-grid`, `.stat-table`, `AdminNav` grouped desk.
 - **Auth:** `.auth-form`, soft status messages — not heavy modals unless needed.
 - **Video:** click-to-load facade (`.video-facade`) — no third-party until play.
+- **Broadcast article order:** title (kicker, headline, byline; correction banners if any) → source video → grade card → share/save → Why this grade / Why this lean → embed, disagree, topics, summary, and the rest. Non-broadcast posts keep share under the byline.
 - **Progress:** non-blocking banners / queues (Clad Studio lessons: never trap the user on a full-screen spinner).
 
 ---

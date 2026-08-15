@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-15 — Broadcast articles: source, then grade
+
+**Status:** accepted  
+**Context:** Clad Studio ticket `ticket-20260815-153038-mark-cudmore-predicts-10-year-yi` (poet/philosopher): marks asked to rearrange the report after the title — video, then grade, then share, then the why.  
+**Decision:** Broadcast `/posts/[slug]/` reads title → source video → grade card (or lock panel) → share/save → Why this grade / Why this lean → embed, disagree, and the rest. Non-broadcast posts stay as they are.  
+**Consequences:** `src/pages/posts/[slug].astro`, `global.css` report spacing. iOS not in this packet.
+
 ## 2026-08-15 — Clad Studio browses staging as signed-in
 
 **Status:** accepted  

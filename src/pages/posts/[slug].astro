@@ -119,6 +119,11 @@ const tally = (() => {
   }
   return { verified, disputed, total };
 })();
+const shareHook =
+  d.shareText?.trim() ||
+  (tally.total > 0
+    ? `${tally.total} claims checked · ${tally.verified} verified${tally.disputed ? ` · ${tally.disputed} disputed` : ""}. See the full receipts on CladFacts →`
+    : "Fact-checked on CladFacts — every claim, with sources.");
 const publicLede =
   tally.total > 0
     ? `${tally.total} claims checked — ${tally.verified} verified${tally.disputed ? `, ${tally.disputed} disputed` : ""}. ${stripSummaryOpener(d.summary)}`
@@ -311,42 +316,27 @@ const breadcrumbLd = {
       <span>Reviewed &amp; approved by <a href="/about/#editor">Ben Cody</a></span>
     </div>
 
-    <div class="post__actions">
-      <ShareBar
-        url={shareUrl}
-        title={d.headline}
-        hook={
-          d.shareText?.trim() ||
-            (tally.total > 0
-              ? `${tally.total} claims checked · ${tally.verified} verified${tally.disputed ? ` · ${tally.disputed} disputed` : ""}. See the full receipts on CladFacts →`
-              : "Fact-checked on CladFacts — every claim, with sources.")
-        }
-        storyImage={`/og/story/${post.id}.png`}
-      />
-      <button
-        type="button"
-        class="save-btn"
-        id="save-btn"
-        data-slug={post.id}
-        data-headline={d.headline}
-        aria-pressed="false"
-        hidden
-      >
-        <span class="save-btn__icon" aria-hidden="true">♡</span>
-        <span class="save-btn__label">Save</span>
-      </button>
-    </div>
-
-    {isBroadcast && (
-      <details class="embed-grade">
-        <summary class="small-caps">Embed this grade</summary>
-        <p class="embed-grade__hint">
-          Paste this on your site or blog — the badge links readers to the full report
-          (grade values stay in the image, same policy as our share cards).
-        </p>
-        <img src={`/embed/${post.id}.svg`} width="320" height="112" alt={`CladFacts grade badge for: ${d.headline}`} loading="lazy" />
-        <textarea class="embed-grade__code" rows="3" readonly onclick="this.select()">{`<a href="${shareUrl}"><img src="${new URL(`/embed/${post.id}.svg`, Astro.site ?? "https://cladfacts.com").href}" width="320" height="112" alt="CladFacts grade for this report"></a>`}</textarea>
-      </details>
+    {!isBroadcast && (
+      <div class="post__actions">
+        <ShareBar
+          url={shareUrl}
+          title={d.headline}
+          hook={shareHook}
+          storyImage={`/og/story/${post.id}.png`}
+        />
+        <button
+          type="button"
+          class="save-btn"
+          id="save-btn"
+          data-slug={post.id}
+          data-headline={d.headline}
+          aria-pressed="false"
+          hidden
+        >
+          <span class="save-btn__icon" aria-hidden="true">♡</span>
+          <span class="save-btn__label">Save</span>
+        </button>
+      </div>
     )}
 
     {original && (
@@ -384,6 +374,34 @@ const breadcrumbLd = {
 
     {isBroadcast ? (
       <div class="report">
+        {d.videoId && (
+          <div
+            class="video-embed video-facade"
+            data-embed={embedUrl(d.videoId)}
+            data-title={`Source video: ${d.headline}`}
+          >
+            {/* Click-to-load facade: no YouTube requests (or cookies) until the
+                reader opts in — cheaper LCP and consistent with the privacy
+                policy's YouTube-cookie caveat. Poster honors the imagery policy:
+                a post remediated with owned /generated/ art (image-licensing
+                claim — docs/legal/image-claims.md) shows that art here too,
+                instead of resurfacing the video still being remediated. */}
+            <button type="button" class="video-facade__btn" aria-label={`Play source video: ${d.headline}`}>
+              <img
+                class="video-facade__thumb"
+                src={d.thumbnail && isOwnedGeneratedImage(d.thumbnail)
+                  ? d.thumbnail
+                  : `https://img.youtube.com/vi/${d.videoId}/hqdefault.jpg`}
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="video-facade__play" aria-hidden="true">▶</span>
+              <span class="video-facade__label">Play source video</span>
+            </button>
+          </div>
+        )}
+
         {locked ? (
           <div class="report__locked">
             <div class="grade-lock-panel grade-lock-panel--scoreboard">
@@ -403,22 +421,46 @@ const breadcrumbLd = {
             </div>
           </div>
         ) : (
-          <>
-            <div class="report__scorecard">
-              <div class="report__grade">
-                <LetterGrade grade={d.letterGrade!} size="hero" />
-                <span class="small-caps">Grade</span>
-              </div>
-              <div class="report__metrics">
-                <FactualityBar score={d.factualityScore!} />
-                {(d.leanScore != null || d.politicalLean) && (
-                  <PoliticalLean score={d.leanScore} lean={d.politicalLean} size="header" />
-                )}
-                {sentiment && (
-                  <SocialSentiment score={sentiment.score} volume={sentiment.volume} size="header" />
-                )}
-              </div>
+          <div class="report__scorecard">
+            <div class="report__grade">
+              <LetterGrade grade={d.letterGrade!} size="hero" />
+              <span class="small-caps">Grade</span>
             </div>
+            <div class="report__metrics">
+              <FactualityBar score={d.factualityScore!} />
+              {(d.leanScore != null || d.politicalLean) && (
+                <PoliticalLean score={d.leanScore} lean={d.politicalLean} size="header" />
+              )}
+              {sentiment && (
+                <SocialSentiment score={sentiment.score} volume={sentiment.volume} size="header" />
+              )}
+            </div>
+          </div>
+        )}
+
+        <div class="post__actions">
+          <ShareBar
+            url={shareUrl}
+            title={d.headline}
+            hook={shareHook}
+            storyImage={`/og/story/${post.id}.png`}
+          />
+          <button
+            type="button"
+            class="save-btn"
+            id="save-btn"
+            data-slug={post.id}
+            data-headline={d.headline}
+            aria-pressed="false"
+            hidden
+          >
+            <span class="save-btn__icon" aria-hidden="true">♡</span>
+            <span class="save-btn__label">Save</span>
+          </button>
+        </div>
+
+        {!locked && (
+          <>
             {d.gradeRationale && (
               <p class="grade-rationale">
                 <span class="small-caps">Why this grade:</span> {d.gradeRationale}
@@ -436,6 +478,16 @@ const breadcrumbLd = {
             )}
           </>
         )}
+
+        <details class="embed-grade">
+          <summary class="small-caps">Embed this grade</summary>
+          <p class="embed-grade__hint">
+            Paste this on your site or blog — the badge links readers to the full report
+            (grade values stay in the image, same policy as our share cards).
+          </p>
+          <img src={`/embed/${post.id}.svg`} width="320" height="112" alt={`CladFacts grade badge for: ${d.headline}`} loading="lazy" />
+          <textarea class="embed-grade__code" rows="3" readonly onclick="this.select()">{`<a href="${shareUrl}"><img src="${new URL(`/embed/${post.id}.svg`, Astro.site ?? "https://cladfacts.com").href}" width="320" height="112" alt="CladFacts grade for this report"></a>`}</textarea>
+        </details>
 
         {/* Flagging is every reader's right (About / How It Works promise it),
             not a Premium perk — any signed-in account can dispute a grade or
@@ -476,34 +528,6 @@ const breadcrumbLd = {
             )}
           </div>
         </details>
-
-        {d.videoId && (
-          <div
-            class="video-embed video-facade"
-            data-embed={embedUrl(d.videoId)}
-            data-title={`Source video: ${d.headline}`}
-          >
-            {/* Click-to-load facade: no YouTube requests (or cookies) until the
-                reader opts in — cheaper LCP and consistent with the privacy
-                policy's YouTube-cookie caveat. Poster honors the imagery policy:
-                a post remediated with owned /generated/ art (image-licensing
-                claim — docs/legal/image-claims.md) shows that art here too,
-                instead of resurfacing the video still being remediated. */}
-            <button type="button" class="video-facade__btn" aria-label={`Play source video: ${d.headline}`}>
-              <img
-                class="video-facade__thumb"
-                src={d.thumbnail && isOwnedGeneratedImage(d.thumbnail)
-                  ? d.thumbnail
-                  : `https://img.youtube.com/vi/${d.videoId}/hqdefault.jpg`}
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="video-facade__play" aria-hidden="true">▶</span>
-              <span class="video-facade__label">Play source video</span>
-            </button>
-          </div>
-        )}
 
         {topicChipSlugs.length > 0 && (
           <div class="topics">

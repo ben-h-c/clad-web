@@ -4260,10 +4260,10 @@ html.theme-dark .peek-pop__panel {
   border-color: var(--grade-bad-rule);
 }
 
-/* Broadcast report */
+/* Broadcast report — title → source video → grade → share → why */
 
 .report {
-  margin-top: 1.5rem;
+  margin-top: 0;
 }
 
 .report__scorecard {
@@ -4276,7 +4276,19 @@ html.theme-dark .peek-pop__panel {
   background: var(--card);
   box-shadow: var(--shadow-sm);
   padding: 1.15rem 1.25rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.15rem;
+}
+
+.report > .post__actions {
+  margin: 0 0 1.15rem;
+}
+
+.report > .post__actions .sharebar {
+  margin-top: 0;
+}
+
+.report > .grade-rationale {
+  margin-top: 0;
 }
 
 .report__grade {
