@@ -82,8 +82,8 @@ for (const d of drafts) {
     ) : (
       <>
         <div class="queue-bulk" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin:1rem 0">
-          <button type="button" id="q-submit-all" disabled={bulkRunning}>
-            {bulkRunning ? "Background job running…" : `Submit all (${drafts.length})`}
+          <button type="button" id="q-submit-all" disabled={bulkRunning} data-pending-total={allDrafts.length}>
+            {bulkRunning ? "Background job running…" : `Submit all (${allDrafts.length})`}
           </button>
           <button type="button" id="q-bulk-cancel" hidden={!bulkRunning}>
             Cancel job
@@ -92,7 +92,8 @@ for (const d of drafts) {
             {bulkSummary}
           </span>
           <span class="dateline" style="opacity:.8">
-            Leave this tab open while it runs (polls publish the next draft every ~2s). Publishes clean drafts; auto-rejects duplicates and style-flagged headlines.
+            Processes every pending draft ({allDrafts.length}), not just the {drafts.length} on this page.
+            Leave this tab open. Clean drafts publish; duplicates and style-flagged headlines are rejected.
           </span>
         </div>
       <div class="queue">
@@ -580,8 +581,9 @@ for (const d of drafts) {
         bulkBtn.disabled = !!running;
         if (running) bulkBtn.textContent = "Background job running…";
         else {
+          const total = Number(bulkBtn.getAttribute("data-pending-total") || 0);
           const n = document.querySelectorAll(".queue-item .q-approve").length;
-          bulkBtn.textContent = `Submit all (${n || draftIdsOnPage.length})`;
+          bulkBtn.textContent = `Submit all (${total || n || draftIdsOnPage.length})`;
         }
       }
       if (bulkCancel) bulkCancel.hidden = !running;
@@ -650,21 +652,21 @@ for (const d of drafts) {
       }
 
       bulkBtn.addEventListener("click", async () => {
-        const ids = [...document.querySelectorAll(".queue-item[data-draft-id]")]
-          .map((el) => el.getAttribute("data-draft-id"))
-          .filter(Boolean);
-        if (ids.length === 0) {
+        const pendingTotal = Number(bulkBtn.getAttribute("data-pending-total") || 0);
+        const visible = document.querySelectorAll(".queue-item[data-draft-id]").length;
+        if (pendingTotal === 0 && visible === 0) {
           bulkStatus.textContent = "Nothing left to process.";
           return;
         }
+        const count = pendingTotal || visible;
         if (
           !confirm(
-            `Start background processing of ${ids.length} draft(s)?\n\n` +
+            `Start background processing of all ${count} pending draft(s)?\n\n` +
+              (count > visible ? `This page shows ${visible}; the job will take the full queue.\n\n` : "") +
               `• Clean drafts → publish\n` +
               `• Duplicates & style-flagged headlines → reject & remove\n` +
-              `• Transient failures stay for you to retry\n\n` +
-              `Leave this tab open on the queue page for reliable progress\n` +
-              `(each status poll publishes the next draft).\n` +
+              `• Transient failures are retried once, then left for you\n\n` +
+              `Leave this tab open on the queue page for reliable progress.\n` +
               `This cannot be undone for rejected drafts.`,
           )
         ) {
@@ -677,7 +679,7 @@ for (const d of drafts) {
           const res = await fetch("/api/admin/queue", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ action: "bulk-start", draftIds: ids }),
+            body: JSON.stringify({ action: "bulk-start", all: true }),
           });
           const data = await res.json().catch(() => ({}));
           if (!res.ok) throw new Error(data.error || "Could not start bulk job");
@@ -686,7 +688,7 @@ for (const d of drafts) {
         } catch (err) {
           bulkStatus.textContent = String(err.message || err);
           bulkBtn.disabled = false;
-          bulkBtn.textContent = `Submit all (${ids.length})`;
+          bulkBtn.textContent = `Submit all (${count})`;
         }
       });
     }

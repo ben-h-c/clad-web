@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-15 — Queue “Submit all” means the full pending list
+
+**Status:** accepted  
+**Context:** Admin Submit all only queued the 40 drafts rendered on the page (`QUEUE_PAGE_SIZE`). Editors had to click several times to drain a backlog.  
+**Decision:** `bulk-start` with `all: true` enqueues every draft from `listDrafts`. After the claimed list empties, one leftover sweep (plus one retry of transient failures) picks up anything still pending. Status polls process 4 at a time.  
+**Consequences:** `queue.astro` + `src/pages/api/admin/queue.ts`. Keep the page render cap at 40.
+
 ## 2026-08-15 — Staging does not auto-spend xAI tokens
 
 **Status:** accepted  

@@ -22,6 +22,10 @@ export interface QueueBulkJob {
   lastError?: string | null;
   /** Human-readable last outcome. */
   lastNote?: string | null;
+  /** Transient failures this run — not re-queued by the leftover sweep. */
+  failedIds?: string[];
+  /** How many times we re-scanned KV for drafts the first pass missed. */
+  sweeps?: number;
 }
 
 export function emptyBulkJob(): QueueBulkJob {

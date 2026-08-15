@@ -533,14 +533,20 @@ async function readDraftIndex(kv: KVNamespace): Promise<string[] | null> {
 }
 
 async function writeDraftIndex(kv: KVNamespace, ids: string[]): Promise<void> {
-  await kv.put(DRAFT_INDEX_KEY, JSON.stringify(ids.slice(0, 500)));
+  await kv.put(DRAFT_INDEX_KEY, JSON.stringify(ids.slice(0, 2000)));
 }
 
 async function rebuildDraftIndex(kv: KVNamespace): Promise<string[]> {
-  const list = await kv.list({ prefix: DRAFT_PREFIX });
-  const ids = list.keys
-    .map((k) => k.name.slice(DRAFT_PREFIX.length))
-    .filter(Boolean);
+  const ids: string[] = [];
+  let cursor: string | undefined;
+  do {
+    const list = await kv.list({ prefix: DRAFT_PREFIX, cursor });
+    for (const k of list.keys) {
+      const id = k.name.slice(DRAFT_PREFIX.length);
+      if (id) ids.push(id);
+    }
+    cursor = list.list_complete ? undefined : list.cursor;
+  } while (cursor);
   await writeDraftIndex(kv, ids);
   return ids;
 }

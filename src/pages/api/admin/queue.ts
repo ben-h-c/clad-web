@@ -71,8 +71,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return startBulkJob(request, cfLocals, p);
   }
   if (action === "bulk-tick") {
-    // Process one draft in this request, then chain more via waitUntil.
-    await runBulkBatch({ maxItems: 1, maxMs: 55_000 });
+    // Process a small batch per tick (vision is off on bulk). Then chain more.
+    await runBulkBatch({ maxItems: 4, maxMs: 55_000 });
     const bulk = (await getQueueBulkJob(env.AGENTS)) ?? emptyBulkJob();
     if (bulk.status === "running" && bulk.remaining.length > 0) {
       scheduleBulkContinue(request, cfLocals, true);
@@ -81,10 +81,9 @@ export const POST: APIRoute = async ({ request, locals }) => {
   }
   if (action === "bulk-status") {
     let bulk = (await getQueueBulkJob(env.AGENTS)) ?? emptyBulkJob();
-    // Every status poll advances the job by one draft while it is running.
-    // This is the reliable path (open admin tab). waitUntil is best-effort extra.
+    // Status poll is the reliable path while the admin tab is open.
     if (bulk.status === "running" && bulk.remaining.length > 0) {
-      await runBulkBatch({ maxItems: 1, maxMs: 55_000 });
+      await runBulkBatch({ maxItems: 4, maxMs: 55_000 });
       bulk = (await getQueueBulkJob(env.AGENTS)) ?? bulk;
       if (bulk.status === "running" && bulk.remaining.length > 0) {
         scheduleBulkContinue(request, cfLocals, true);
@@ -520,6 +519,9 @@ async function startBulkJob(
     // Keep only drafts that still exist.
     const live = new Set(all.map((d) => d.draftId));
     ids = carryIds.filter((id) => live.has(id));
+  } else if (p.all === true || !Array.isArray(p.draftIds) || p.draftIds.length === 0) {
+    // Submit all = every pending draft, not just the 40 rendered on the page.
+    ids = all.map((d) => d.draftId);
   } else if (Array.isArray(p.draftIds) && p.draftIds.length > 0) {
     const want = new Set(p.draftIds.map((x) => String(x || "").trim()).filter(Boolean));
     ids = all.map((d) => d.draftId).filter((id) => want.has(id));
@@ -546,6 +548,8 @@ async function startBulkJob(
     current: null,
     lastError: null,
     lastNote: "Starting…",
+    failedIds: [],
+    sweeps: 0,
   };
   // Fresh totals when not resuming a stale job.
   if (!(existing && isBulkJobStale(existing))) {
@@ -605,10 +609,11 @@ async function runBulkBatch(opts: { maxItems: number; maxMs: number }): Promise<
     try {
       await processOneBulkDraft(job, nextId);
     } catch (err: any) {
-      // Put the draft back? Leave it as failed; draft may still exist for retry.
+      // Leave it as failed; leftover sweep may retry once if not listed here.
       job = (await getQueueBulkJob(env.AGENTS)) ?? job;
       if (job.status !== "running") return;
       job.failed += 1;
+      job.failedIds = [...(job.failedIds ?? []), nextId];
       job.lastError = err?.message ?? String(err);
       job.lastNote = `Failed: ${(err?.message ?? String(err)).slice(0, 120)}`;
       job.current = null;
@@ -617,14 +622,42 @@ async function runBulkBatch(opts: { maxItems: number; maxMs: number }): Promise<
     n += 1;
   }
 
-  // Mark done if emptied during this batch.
+  // Mark done if emptied during this batch — or pick up drafts the first
+  // pass missed (page-sized starts, new arrivals, index rebuild).
   const end = (await getQueueBulkJob(env.AGENTS)) ?? emptyBulkJob();
   if (end.status === "running" && end.remaining.length === 0) {
-    end.status = "done";
-    end.current = null;
-    end.lastNote = end.lastNote || "Finished";
-    await putQueueBulkJob(env.AGENTS, end);
+    const leftover = await leftoverDraftIds(end);
+    if (leftover.length > 0 && (end.sweeps ?? 0) < 2) {
+      end.sweeps = (end.sweeps ?? 0) + 1;
+      end.remaining = leftover;
+      end.total += leftover.length;
+      end.lastNote = `Queued ${leftover.length} remaining draft(s)…`;
+      await putQueueBulkJob(env.AGENTS, end);
+    } else if ((end.failedIds?.length ?? 0) > 0 && (end.sweeps ?? 0) < 1) {
+      end.sweeps = 1;
+      end.remaining = end.failedIds ?? [];
+      end.failedIds = [];
+      end.lastNote = `Retrying ${end.remaining.length} failed draft(s)…`;
+      await putQueueBulkJob(env.AGENTS, end);
+    } else {
+      end.status = "done";
+      end.current = null;
+      end.lastNote = leftover.length
+        ? `Finished — ${leftover.length} still pending after retries`
+        : end.lastNote || "Finished";
+      await putQueueBulkJob(env.AGENTS, end);
+    }
   }
+}
+
+async function leftoverDraftIds(job: QueueBulkJob): Promise<string[]> {
+  const skip = new Set(job.failedIds ?? []);
+  const live = sortDraftsForBulk(await listDrafts(env.AGENTS));
+  const ids = live.map((d) => d.draftId);
+  // First pass: drafts this job never claimed (e.g. only the visible page
+  // was queued). Later sweeps include prior transient failures for one retry.
+  if ((job.sweeps ?? 0) === 0) return ids.filter((id) => !skip.has(id));
+  return ids;
 }
 
 async function processOneBulkDraft(jobSnap: QueueBulkJob, nextId: string): Promise<void> {
@@ -684,8 +717,9 @@ async function processOneBulkDraft(jobSnap: QueueBulkJob, nextId: string): Promi
     return;
   }
 
-  // Transient failure — leave draft in queue for a later manual/bulk retry.
+  // Transient failure — leave draft in queue; leftover sweep retries once.
   job.failed += 1;
+  job.failedIds = [...(job.failedIds ?? []), nextId];
   job.lastError = result.error;
   job.lastNote = `Failed: ${result.error.slice(0, 120)}`;
   job.current = null;
@@ -706,7 +740,7 @@ function scheduleBulkContinue(
 
   // Fast path (no vision): several drafts per waitUntil window.
   const localWork = alsoRunLocal
-    ? runBulkBatch({ maxItems: 4, maxMs: 50_000 }).then(async () => {
+    ? runBulkBatch({ maxItems: 8, maxMs: 50_000 }).then(async () => {
         const job = await getQueueBulkJob(env.AGENTS);
         if (job?.status === "running" && job.remaining.length > 0) {
           await chainBulkTickFetch(request);
