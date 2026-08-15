@@ -2086,12 +2086,26 @@ html.masthead-menu-open .masthead__menu-list {
   margin-top: 1.75rem;
 }
 
+/* Home lead: close the empty paper between Today, Breaking, and Front Page.
+ * Adjacent-sibling only so Discover / Good News keep the roomier .hero gap,
+ * and Breaking still opens at 1.75rem when the ticker is absent. */
+.home-features--titles + .hero--breaking {
+  margin-top: 0.4rem;
+}
+.hero--breaking + .hero--front-page {
+  margin-top: 0.7rem;
+}
+
 .hero__head {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 0.75rem 1rem;
   margin-bottom: 0.55rem;
+}
+.hero--breaking .hero__head,
+.hero--front-page .hero__head {
+  margin-bottom: 0.28rem;
 }
 .hero__head-text {
   display: flex;
@@ -2207,6 +2221,10 @@ html.masthead-menu-open .masthead__menu-list {
   box-shadow: none;
   scrollbar-width: thin;
   scrollbar-color: color-mix(in srgb, var(--rule) 45%, transparent) transparent;
+}
+/* Front Page keeps 1.15rem so Lean does not jump up. */
+.hero--breaking .hero-strip {
+  padding-bottom: 0.55rem;
 }
 
 /* Left/right scroll arrows: faint until hovered. */
@@ -10185,7 +10203,7 @@ html.clad-app section.charts.home-app-only {
  * still reads as a set page, not a jammed feed.
  */
 .home-features--titles {
-  margin: 0.7rem 0 0.9rem;
+  margin: 0.55rem 0 0.2rem;
 }
 .today-title-bar {
   display: flex;
