@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-15 — Clad Studio browses staging as signed-in
+
+**Status:** accepted  
+**Context:** Studio’s default target is staging, with no Better Auth session on `workers.dev`. Every card tap hit the guest register wall. Studio also set `__cladNative`, which is the reader-app flag.  
+**Decision:** Clad Studio UA / first load uses staging `view=signed` (full product). Guest remains a bar toggle. Do not inject `__cladNative` from Studio.  
+**Consequences:** `src/middleware.ts`; Studio `StudioTargets.browseURL`, `StudioWebController`. Production still requires a real login if the designer switches to cladfacts.com.
+
 ## 2026-08-15 — No “See all breaking” / “Full front page”
 
 **Status:** accepted  

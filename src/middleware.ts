@@ -314,10 +314,21 @@ export const onRequest = defineMiddleware(async (context, next) => {
   if (qView === "live") {
     context.cookies.delete(STAGE_VIEW_COOKIE, { path: "/" });
   }
-  const view =
+  let view =
     qView === "live"
       ? null
       : parseStageView(qView) ?? parseStageView(context.cookies.get(STAGE_VIEW_COOKIE)?.value);
+  // Clad Studio is a design tool, not the reader app. With no explicit
+  // Guest/Live choice, show the signed-in product so taps are not a register wall.
+  const ua = context.request.headers.get("user-agent") || "";
+  if (view == null && qView !== "live" && /CladStudio/i.test(ua)) {
+    view = "signed";
+    context.cookies.set(STAGE_VIEW_COOKIE, "signed", {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 7,
+      sameSite: "lax",
+    });
+  }
 
   const qSkin = context.url.searchParams.get("skin");
   if (qSkin === "off" || qSkin === "current") {

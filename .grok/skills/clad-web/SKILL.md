@@ -32,7 +32,7 @@ description: >
 
 1. Implement in `~/clad-web`. Commit when the change should survive.
 2. **Always** `npm run deploy:staging` (build + isolated Worker). URL: https://clad-web-staging.benjaminharriscody.workers.dev
-   Clad Studio: Approve/ship is staging only. Production is a later iPad **Push to production** tap (`promote` → `CONFIRM_PROD=1`). Companion must never run unguarded `npm run deploy`.
+   Clad Studio: Approve/ship is staging only. Browse staging as **signed-in preview** (`view=signed` / CladStudio UA) so taps are not a register wall. Production is a later iPad **Push to production** tap (`promote` → `CONFIRM_PROD=1`). Companion must never run unguarded `npm run deploy`.
 3. Run gates on staging: `SMOKE_BASE=https://clad-web-staging.benjaminharriscody.workers.dev npm run smoke`. For access/HTML work also `npm run check:leak` against staging when practical.
 4. **Do not** run `npm run deploy`, `wrangler deploy` (no env), or `CONFIRM_PROD=1` unless Ben explicitly asked to ship production.
 5. After approval: `CONFIRM_PROD=1 npm run deploy` (purge + prod smoke).
