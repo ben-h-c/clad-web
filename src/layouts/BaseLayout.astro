@@ -371,15 +371,6 @@ const stageView = isStaging
     <slot name="head" />
   </head>
   <body>
-    {isStaging && (
-      <div class="staging-banner" role="status">
-        Staging — not production. <a href="https://cladfacts.com/">cladfacts.com</a> is live.
-        <label class="staging-banner__spend">
-          <input type="checkbox" id="clad-allow-spend" />
-          Allow xAI spend (this tab)
-        </label>
-      </div>
-    )}
     {isStaging && <ThemeSkinBar currentSkin={skin} currentView={stageView} />}
     {isStaging && skin === "matrix" && <MatrixRain />}
     {isStaging && (

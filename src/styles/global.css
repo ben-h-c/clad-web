@@ -664,42 +664,6 @@ body {
   padding-top: var(--site-header-h);
 }
 
-.staging-banner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 5001;
-  background: #2a3324;
-  color: #d8e8d4;
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  text-align: center;
-  padding: 0.35rem 0.75rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-}
-.staging-banner a {
-  color: var(--accent);
-}
-.staging-banner__spend {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-left: 0.85rem;
-  letter-spacing: 0;
-  cursor: pointer;
-  user-select: none;
-}
-.staging-banner__spend input {
-  margin: 0;
-}
-html:has(.staging-banner) {
-  --site-header-h: calc(3.25rem + 1.55rem);
-}
-html:has(.staging-banner) .masthead__fixed {
-  top: 1.55rem;
-}
-
 .masthead {
   text-align: center;
   padding: 0 0 0.35rem;

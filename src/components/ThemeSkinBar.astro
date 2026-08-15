@@ -34,6 +34,14 @@ const skins = [
 ] as const;
 ---
 <nav class="skin-bar" aria-label="Staging previews">
+  <div class="skin-bar__row skin-bar__row--notice" role="status">
+    <span class="skin-bar__label">Staging</span>
+    <span class="skin-bar__notice">Not production. <a href="https://cladfacts.com/">cladfacts.com</a> is live.</span>
+    <label class="skin-bar__spend">
+      <input type="checkbox" id="clad-allow-spend" />
+      Allow xAI spend (this tab)
+    </label>
+  </div>
   <div class="skin-bar__row">
     <span class="skin-bar__label">Account</span>
     {views.map((v) => {

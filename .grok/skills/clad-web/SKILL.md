@@ -82,7 +82,7 @@ description: >
 - Scanner: channel playlists only — edit policy module, restart `clad-agent-runner`.
 - Force agent: `cd runner && node --env-file=.env index.mjs --once --force=<kind>`.
 - Spend dial: `src/lib/xaiEconomy.ts` / `XAI_ECONOMY` (default **full**; `economy` to throttle).
-- **Staging never auto-spends xAI.** `src/lib/spendGuard.ts` — opt in via banner checkbox / `X-Clad-Allow-Spend`. Runner against staging only runs `--force=` or Run-now.
+- **Staging never auto-spends xAI.** `src/lib/spendGuard.ts` — opt in via bottom-bar checkbox (`#clad-allow-spend`) / `X-Clad-Allow-Spend`. Runner against staging only runs `--force=` or Run-now. Staging notice is that first bottom-bar row — no top ribbon over the masthead.
 - **Refresh staging from prod:** bar button → `POST /api/admin/sync-staging` (`src/lib/syncStagingFromProd.ts`). Staging-only; needs `AGENTS_PROD` binding.
 
 ## After engineering lessons

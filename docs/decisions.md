@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-15 — Staging notice lives in the bottom bar
+
+**Status:** accepted  
+**Context:** Clad Studio ticket `ticket-20260815-090105-clad--grading-content--exposing-` (poet/philosopher): the olive top **Staging** ribbon covered the CLAD masthead and Today ticker.  
+**Decision:** Remove the fixed top ribbon. Production warning and **Allow xAI spend (this tab)** live in the first row of the bottom preview bar. Masthead returns to `top: 0`. Broadsheet/Gazette static nameplates no longer pad for a ribbon. Spend checkbox id `clad-allow-spend` and the fetch-header interceptor stay.  
+**Consequences:** `ThemeSkinBar.astro`, `BaseLayout.astro`, `global.css`, `theme-skins.css`, `docs/staging.md`. Production unchanged.
+
 ## 2026-08-15 — Clad Studio: staging first, then optional push to prod
 
 **Status:** accepted  

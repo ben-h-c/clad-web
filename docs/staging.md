@@ -47,10 +47,12 @@ Copy home/agent KV from prod when you want staging to look like live:
 
 ## Preview toggles (staging only)
 
-Bottom bar on every staging page:
+Bottom bar on every staging page (notice, spend toggle, and preview controls):
 
 | Control | Query | What it does |
 |--|--|--|
+| Staging · Not production | — | Desk notice that this Worker is not cladfacts.com |
+| ☐ Allow xAI spend (this tab) | — | Opt in to xAI calls for this tab (see Token spend) |
 | Account → Live session | `?view=live` | Real cookies (or guest if you are not logged in) |
 | Account → Guest | `?view=anon` | Force locked grades, guest hero, paywall, Sign in |
 | Account → Signed-in | `?view=signed` | Force fullAccess (real session if present, else a fake preview user) |
@@ -65,7 +67,7 @@ Do **not** copy a selected skin to production unless Ben says **push to prod** a
 
 Staging does **not** call xAI unless you opt in. Default is spend-dark.
 
-- Banner checkbox **Allow xAI spend (this tab)** — adds `X-Clad-Allow-Spend: 1` to fetches.
+- Bottom-bar checkbox **Allow xAI spend (this tab)** — adds `X-Clad-Allow-Spend: 1` to fetches.
 - Or `allowSpend: true` on the JSON body / `?spend=1` / header `X-Clad-Allow-Spend: 1`.
 - A runner pointed at staging skips cron; only `--force=<kind>` or admin Run-now spends.
 
@@ -74,6 +76,6 @@ Approve-without-opt-in still publishes using the YouTube still (no vision, no Im
 ## Rules
 
 - Staging is **noindex**.
-- A **Staging** bar appears on every page.
+- A **Staging** notice and spend toggle live in the bottom preview bar (not a top ribbon).
 - Do **not** run unguarded `wrangler deploy` for experimental work.
 - Production is an explicit second step after review.
