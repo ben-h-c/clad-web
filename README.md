@@ -157,9 +157,10 @@ Alternative one-shot deploy from your laptop:
 npx wrangler secret put XAI_API_KEY     # repeat for each secret
 npm run deploy                          # astro build + wrangler deploy + cache purge + anon smoke
 ```
-Laptop deploys run the purge in hard-fail mode: `CLOUDFLARE_ZONE_ID` and
-`CLOUDFLARE_API_TOKEN` must be in your shell environment or the deploy
-errors visibly.
+Laptop / Clad Studio deploys treat a missing purge token as a warning.
+`wrangler deploy` already uploaded the Worker; smoke still runs. Set
+`CLOUDFLARE_ZONE_ID` and `CLOUDFLARE_API_TOKEN` in the shell (or LaunchAgent)
+to actually clear the zone cache.
 
 **Why no cron purge:** stale edge HTML self-heals fast enough without one.
 Anonymous HTML is shared-cached (`public, s-maxage=300,

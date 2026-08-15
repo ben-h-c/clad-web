@@ -35,7 +35,7 @@ description: >
    Clad Studio: Approve/ship is staging only. Browse staging as **signed-in preview** (`view=signed` / CladStudio UA) so taps are not a register wall. Production is a later iPad **Push to production** tap (`promote` → `CONFIRM_PROD=1`). Companion must never run unguarded `npm run deploy`.
 3. Run gates on staging: `SMOKE_BASE=https://clad-web-staging.benjaminharriscody.workers.dev npm run smoke`. For access/HTML work also `npm run check:leak` against staging when practical.
 4. **Do not** run `npm run deploy`, `wrangler deploy` (no env), or `CONFIRM_PROD=1` unless Ben explicitly asked to ship production.
-5. After approval: `CONFIRM_PROD=1 npm run deploy` (purge + prod smoke).
+5. After approval: `CONFIRM_PROD=1 npm run deploy` (Worker upload, best-effort purge, prod smoke). A missing zone purge token must not fail the ship.
 6. Never `wrangler deploy --env staging` after `astro build` — adapter drops env and that hits **prod**. See `docs/staging.md`.
 7. Wrangler OAuth: symlink `~/Library/Preferences/.wrangler/config/default.toml` → `~/.wrangler/config/` if empty legacy dir shadows auth.
 
