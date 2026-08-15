@@ -21,7 +21,7 @@ import {
   type PersonProfileMap,
 } from "./politicianProfiles.ts";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "./topics.ts";
-import { extractNotablePeopleFromText } from "./notablePeople.ts";
+import { aboutPersonScore, extractNotablePeopleFromText } from "./notablePeople.ts";
 
 /** Directory sections — officeholders by branch/chamber, then coverage-only. */
 export type RaceBucket =
@@ -331,27 +331,38 @@ export function buildPoliticianIndex(
   return sorted;
 }
 
-/** Latest graded report mentioning this person — used to bounce non-politicians off /politicians/[slug]. */
+/** Report this person is actually in — used to bounce non-politicians off /politicians/[slug]. */
 export function latestStoryPathForPerson(
   posts: CollectionEntry<"posts">[],
   slug: string
 ): string | null {
   const key = String(slug || "").trim().toLowerCase();
   if (!key) return null;
-  let best: { id: string; at: number } | null = null;
+  let best: { id: string; about: number; at: number } | null = null;
   for (const p of posts) {
     if (p.data.draft) continue;
-    const tagged = (p.data.politicians ?? []).some((t) => t.slug.trim().toLowerCase() === key);
-    const extracted = tagged
-      ? true
-      : extractNotablePeopleFromText({
-          headline: p.data.headline,
-          summary: p.data.summary,
-          topics: p.data.topics,
-        }).some((t) => t.slug === key);
-    if (!tagged && !extracted) continue;
+    const extracted = extractNotablePeopleFromText({
+      headline: p.data.headline,
+      summary: p.data.summary,
+      topics: p.data.topics,
+    });
+    const hit = extracted.find((t) => t.slug === key);
+    const tagged = (p.data.politicians ?? []).find((t) => t.slug.trim().toLowerCase() === key);
+    if (!hit && !tagged) continue;
+    const name = hit?.name || tagged?.name || key;
+    const about = aboutPersonScore(name, key, {
+      id: p.id,
+      headline: p.data.headline,
+      topics: p.data.topics,
+    });
     const at = p.data.publishedAt.valueOf();
-    if (!best || at > best.at) best = { id: p.id, at };
+    if (
+      !best ||
+      about > best.about ||
+      (about === best.about && at > best.at)
+    ) {
+      best = { id: p.id, about, at };
+    }
   }
   return best ? `/posts/${best.id}/` : null;
 }

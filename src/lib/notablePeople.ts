@@ -340,6 +340,39 @@ export function extractNotablePeopleFromText(parts: {
   return out;
 }
 
+function escapeRe(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/**
+ * How clearly a report is *about* this person (vs a passing mention in a wrap).
+ * Headline / topic beats recency — a multi-story rundown that names them once
+ * must not win the tap target over the report whose title is them.
+ */
+export function aboutPersonScore(
+  name: string,
+  slug: string,
+  story: { id?: string; headline?: string; topics?: string[] }
+): number {
+  const full = String(name || "").trim().toLowerCase();
+  if (!full) return 0;
+  const headline = String(story.headline || "").toLowerCase();
+  const topics = (story.topics ?? []).map((t) => t.toLowerCase());
+  const parts = full.split(/\s+/).filter(Boolean);
+  const last = parts.filter((w) => w.length > 3).pop() || "";
+  const id = String(story.id || "").toLowerCase();
+
+  let score = 0;
+  if (full && headline.includes(full)) score += 100;
+  else if (last && new RegExp(`\\b${escapeRe(last)}\\b`).test(headline)) score += 70;
+  if (topics.some((t) => t === full || t.includes(full))) score += 50;
+  else if (last && topics.some((t) => t.includes(last))) score += 25;
+  if (last && id.includes(last)) score += 15;
+  if (parts[0] && headline.startsWith(parts[0])) score += 20;
+  else if (last && headline.startsWith(last)) score += 20;
+  return score;
+}
+
 export function mergePersonTags(
   ...lists: Array<Iterable<{ name: string; slug: string }> | undefined>
 ): NotablePersonTag[] {

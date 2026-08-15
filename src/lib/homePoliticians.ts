@@ -13,7 +13,11 @@ import {
 } from "./politicianPhotos.ts";
 import { ROSTER_SEEDS } from "../data/politicianRoster.ts";
 import type { PoliticianAgg } from "./politicians.ts";
-import { extractNotablePeopleFromText, mergePersonTags } from "./notablePeople.ts";
+import {
+  aboutPersonScore,
+  extractNotablePeopleFromText,
+  mergePersonTags,
+} from "./notablePeople.ts";
 import type { RaceDef } from "./races.ts";
 import { isVoteDateTbd } from "./races.ts";
 import type { HomeFeatureItem } from "./homeFeatures.ts";
@@ -78,6 +82,31 @@ function monogramFromName(name: string): string {
  * Fill the strip with people currently in coverage.
  * Recency first; cap officeholders so celebrities / CEOs / athletes can appear.
  */
+function pickAboutAppearance(
+  name: string,
+  slug: string,
+  appearances: PoliticianAgg["appearances"],
+  postsById?: Map<string, CollectionEntry<"posts">>
+): { appearance: PoliticianAgg["appearances"][number]; score: number } | null {
+  let best: { appearance: PoliticianAgg["appearances"][number]; score: number } | null = null;
+  for (const a of appearances) {
+    const post = postsById?.get(a.id);
+    const score = aboutPersonScore(name, slug, {
+      id: a.id,
+      headline: a.headline,
+      topics: post?.data.topics,
+    });
+    if (
+      !best ||
+      score > best.score ||
+      (score === best.score && a.publishedAt.valueOf() > best.appearance.publishedAt.valueOf())
+    ) {
+      best = { appearance: a, score };
+    }
+  }
+  return best;
+}
+
 function mentionedInHeadline(name: string, headline: string | undefined): boolean {
   if (!headline) return false;
   const n = name.toLowerCase();
@@ -201,11 +230,15 @@ export function buildPoliticianSpotlightItems(opts: {
 
     if (recent.length === 0 && month.length === 0 && !raceInfo) continue;
 
+    const office = OFFICE_SLUGS.has(p.slug) || Boolean(raceInfo);
     const latest = p.appearances[0];
+    const about = pickAboutAppearance(p.name, p.slug, p.appearances, opts.postsById);
+    // Passing mention in a wrap is not enough to put a non-officeholder on the strip.
+    if (!office && (!about || about.score < 40)) continue;
+    const story = about?.appearance ?? latest;
     const latestAgeDays = latest
       ? (now.getTime() - latest.publishedAt.valueOf()) / 86_400_000
       : 999;
-    const office = OFFICE_SLUGS.has(p.slug) || Boolean(raceInfo);
     const hasPhoto = hasPortraitPath(p.slug, photos) || p.name.trim().split(/\s+/).length >= 2;
 
     // Recency first, volume capped — otherwise a few heavily tagged officeholders
@@ -225,8 +258,8 @@ export function buildPoliticianSpotlightItems(opts: {
       score -= 22;
     }
 
-    let body = latest
-      ? clip(latest.headline, 160)
+    let body = story
+      ? clip(story.headline, 160)
       : p.race
         ? clip(p.race, 160)
         : `${p.bucket} · open report card`;
@@ -258,15 +291,15 @@ export function buildPoliticianSpotlightItems(opts: {
       body,
       href: office
         ? `/politicians/${p.slug}/`
-        : latest
-          ? `/posts/${latest.id}/`
+        : story
+          ? `/posts/${story.id}/`
           : "/politicians/",
       hasPhoto,
       grade: office && !opts.locked ? p.personGrade ?? p.avgGrade : null,
       lean: office && !opts.locked ? p.personLean ?? p.avgLean : null,
       latestAgeDays,
       office,
-      latestPostId: latest?.id ?? null,
+      latestPostId: story?.id ?? null,
     });
   }
 

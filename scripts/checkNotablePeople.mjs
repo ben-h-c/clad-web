@@ -6,7 +6,11 @@ import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
-import { extractNotablePeopleFromText, mergePersonTags } from "../src/lib/notablePeople.ts";
+import {
+  aboutPersonScore,
+  extractNotablePeopleFromText,
+  mergePersonTags,
+} from "../src/lib/notablePeople.ts";
 import {
   buildPoliticianSpotlightItems,
   lightPoliticianAggsFromPosts,
@@ -161,20 +165,44 @@ for (const slug of expectLive) {
 }
 
 const aggs = lightPoliticianAggsFromPosts(fakePosts);
+const postsById = new Map(fakePosts.map((p) => [p.id, p]));
 const strip = buildPoliticianSpotlightItems({
   politicians: aggs,
   now: new Date(),
-  max: 10,
+  max: 12,
   locked: false,
+  postsById,
 });
 console.log("\nHome strip preview:");
 for (const item of strip) {
   console.log(`  ${item.title}  —  ${item.kicker}  →  ${item.href}  (${item.cta})`);
 }
 
-const luigi = strip.find((i) => /luigi|mangione/i.test(i.title) || /luigi-mangione/.test(i.href));
+{
+  const wrap = aboutPersonScore("Luigi Mangione", "luigi-mangione", {
+    id: "2026-08-15-surrogate-mckenna-west-gives-birth-in-texas-after-heart-defect-dispute-carrier",
+    headline:
+      "Surrogate McKenna West gives birth in Texas after heart defect dispute; carrier Lincoln hits 250+ days at sea amid Iran operations",
+    topics: ["Surrogacy", "Iran", "Navy deployment", "Immigration"],
+  });
+  const about = aboutPersonScore("Luigi Mangione", "luigi-mangione", {
+    id: "2026-08-14-mangione-pleads-guilty-to-federal-stalking-in-thompson-killing-uss-lincoln",
+    headline: "Mangione pleads guilty to federal stalking in Thompson killing; USS Lincoln nears record deployment",
+    topics: ["Luigi Mangione", "USS Lincoln", "Iran"],
+  });
+  if (!(about > wrap + 40)) {
+    console.error(`FAIL about-score: wrap=${wrap} dedicated=${about}`);
+    failed++;
+  }
+}
+
+const luigi = strip.find((i) => /luigi|mangione/i.test(i.title) || /mangione/.test(i.href));
 if (luigi && luigi.href.includes("/politicians/")) {
   console.error("FAIL Luigi must not have a politician report card");
+  failed++;
+}
+if (luigi && !/mangione/i.test(luigi.href)) {
+  console.error(`FAIL Luigi card must open a Mangione report, got ${luigi.href}`);
   failed++;
 }
 const banderas = strip.find((i) => /banderas/i.test(i.title));

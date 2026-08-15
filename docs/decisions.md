@@ -18,7 +18,7 @@ Format:
 
 **Status:** accepted  
 **Context:** The home strip only scored officeholders tagged from the politician roster, so celebrities, CEOs, and other names in current reports never appeared. A first extract pass still ranked by mention volume, then minted `/politicians/[slug]` cards for everyone — including Luigi Mangione (on trial for murder). Ben: if they are not a politician they should not have a politician report card.  
-**Decision:** Extract notable people for the home strip. Rank by recency with an officeholder cap. **Politician report cards stay on the officeholder roster (and ballot sides) only.** Non-politicians in the strip open the latest graded report, with CTA “Open report” and no person grade/lean. `/politicians/[slug]` for a non-roster name 302s to that story. Publish tagging is roster-only so new posts do not write Luigi-style tags.  
+**Decision:** Extract notable people for the home strip. Rank by recency with an officeholder cap. **Politician report cards stay on the officeholder roster (and ballot sides) only.** Non-politicians open the graded report *about them* (headline/topic match), not the newest wrap that names them once. CTA “Open report,” no person grade/lean. `/politicians/[slug]` for a non-roster name 302s to that story. Publish tagging is roster-only so new posts do not write Luigi-style tags.  
 **Consequences:** `src/lib/notablePeople.ts`, `homePoliticians.ts`, `politicians.ts` tagger + index, `[slug].astro`. Portraits still use the Commons proxy. No xAI. Guest/locked still hides grades.
 
 ## 2026-08-15 — Broadcast articles: source, then grade
