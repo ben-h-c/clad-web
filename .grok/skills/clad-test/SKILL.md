@@ -63,6 +63,10 @@ curl -sS -o /dev/null -w "%{http_code}\n" -X POST https://cladfacts.com/api/anal
   `ASAuthorizationAppleIDButton` (see `cladfacts-ios` `AppleSignInButton.swift`).
   Never ship a custom Apple mark, SF Symbol `apple.logo`, or Font Awesome apple
   on the SIWA control. The clad-web HTML Apple button is hidden in-app.
+- **Version train:** after a version is approved, that `CFBundleShortVersionString`
+  is closed. The next archive must bump `MARKETING_VERSION` in `cladfacts-ios/project.yml`
+  (app + widget) **and** `CURRENT_PROJECT_VERSION`. Build-only bumps fail 90062 / 90186.
+  Closed: 1.0.2, 1.0.5. Current: **1.0.6 (9)**. Then `xcodegen generate`.
 
 ## Runner
 
