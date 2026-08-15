@@ -33,9 +33,8 @@ done
 
 Copy home/agent KV from prod when you want staging to look like live:
 
-```bash
-node scripts/sync-staging-kv.mjs
-```
+- **In the browser:** staging bar → **Refresh from production** (admin basic-auth). Copies home packs, agent registry, politicians, ticker, calendar, etc. Does **not** copy drafts, flags, seen-ledger, or D1 users. Does not write to production.
+- **CLI:** `node scripts/sync-staging-kv.mjs`
 
 ## Default agent flow
 

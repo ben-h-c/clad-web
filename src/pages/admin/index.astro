@@ -26,6 +26,12 @@ const headline =
         {headline}. Snapshot {shortDate(new Date(dash.generatedAt))} ·
         {new Date(dash.generatedAt).toUTCString().slice(17, 25)} UTC.
       </p>
+      {env.ENVIRONMENT === "staging" && (
+        <p class="dateline">
+          Staging data: use <strong>Refresh from production</strong> in the bottom bar
+          to copy live home/agent KV. Users and drafts on staging are left alone.
+        </p>
+      )}
     </header>
 
     <div class="admin-dash__tiles" role="list">

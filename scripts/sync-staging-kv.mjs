@@ -10,17 +10,26 @@ import { writeFileSync, unlinkSync } from "node:fs";
 
 const PROD = "231fcd9cfeaa4ed99367550cd2c10877";
 const STAGING = "bd68a4ace38f43a79506cdb318cdde89";
+// Keep in sync with src/lib/syncStagingFromProd.ts
 const PREFIXES = [
+  "agents:registry",
   "home:",
-  "quips",
-  "calendar:",
-  "today-in-history",
-  "human-spotlight",
-  "discover:",
-  "breaking:",
   "frontpage:",
+  "breaking:",
+  "discover:",
+  "goodnews:",
   "good-news:",
   "layout:",
+  "calendar:",
+  "quips",
+  "ticker:",
+  "agents:classifications",
+  "social:sentiments",
+  "races:",
+  "elections:",
+  "politicians:",
+  "compliance:",
+  "sharetags:",
 ];
 
 function wrangler(args) {

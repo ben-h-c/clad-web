@@ -52,4 +52,53 @@ const skins = [
       );
     })}
   </div>
+  <div class="skin-bar__row">
+    <span class="skin-bar__label">Data</span>
+    <button type="button" class="skin-bar__btn" id="clad-sync-prod" data-sync="/api/admin/sync-staging">
+      Refresh from production
+    </button>
+    <span class="skin-bar__sync-status" id="clad-sync-status" aria-live="polite"></span>
+  </div>
 </nav>
+<script is:inline>
+  (function () {
+    var btn = document.getElementById("clad-sync-prod");
+    var status = document.getElementById("clad-sync-status");
+    if (!btn) return;
+    var url = btn.getAttribute("data-sync") || "/api/admin/sync-staging";
+    function setStatus(t) { if (status) status.textContent = t || ""; }
+    fetch(url, { credentials: "same-origin" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (d && d.last && d.last.at) {
+          var when = new Date(d.last.at);
+          setStatus("Last sync " + (isNaN(when.getTime()) ? d.last.at : when.toLocaleString()) +
+            " · " + d.last.copied + " keys");
+        }
+      })
+      .catch(function () {});
+    btn.addEventListener("click", function () {
+      if (!confirm("Replace staging home/agent data with current production?\n\nStaging users, drafts, and this tab’s preview settings stay. Production is not changed.")) return;
+      btn.disabled = true;
+      setStatus("Copying from production…");
+      fetch(url, { method: "POST", credentials: "same-origin", headers: { Accept: "application/json" } })
+        .then(function (r) {
+          if (r.status === 401) {
+            window.location.href = "/admin/";
+            throw new Error("Admin sign-in required");
+          }
+          return r.json().then(function (d) { return { ok: r.ok, d: d }; });
+        })
+        .then(function (res) {
+          if (!res.ok) throw new Error((res.d && res.d.error) || "Sync failed");
+          var d = res.d;
+          setStatus("Synced " + d.copied + " keys" + (d.errors ? " · " + d.errors + " skipped" : "") + ".");
+          setTimeout(function () { window.location.reload(); }, 900);
+        })
+        .catch(function (err) {
+          setStatus(String(err.message || err));
+          btn.disabled = false;
+        });
+    });
+  })();
+</script>

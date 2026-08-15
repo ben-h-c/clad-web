@@ -27,6 +27,8 @@ declare module "cloudflare:workers" {
     BSKY_APP_PASSWORD?: string;
     AGENT_TOKEN: string;
     AGENTS: KVNamespace;
+    /** Staging only: read-only handle on production AGENTS for Refresh from prod. */
+    AGENTS_PROD?: KVNamespace;
     /** "production" | "staging" | unset (local). */
     ENVIRONMENT?: string;
     /**

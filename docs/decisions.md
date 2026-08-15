@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-15 — Staging “Refresh from production” button
+
+**Status:** accepted  
+**Context:** Staging KV drifts from prod; editors wanted a click, not a CLI script.  
+**Decision:** Staging-only control on the preview bar. POST `/api/admin/sync-staging` copies allowlisted AGENTS keys from production KV (`AGENTS_PROD` binding) into staging `AGENTS`. Never writes prod. Never copies drafts, flags, seen-ledger, URL queue, or D1 users.  
+**Consequences:** `deploy-staging.mjs` injects `AGENTS_PROD`. Admin basic-auth required.
+
 ## 2026-08-15 — Quiet home section chrome
 
 **Status:** accepted  

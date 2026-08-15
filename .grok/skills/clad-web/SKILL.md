@@ -83,6 +83,7 @@ description: >
 - Force agent: `cd runner && node --env-file=.env index.mjs --once --force=<kind>`.
 - Spend dial: `src/lib/xaiEconomy.ts` / `XAI_ECONOMY` (default **full**; `economy` to throttle).
 - **Staging never auto-spends xAI.** `src/lib/spendGuard.ts` — opt in via banner checkbox / `X-Clad-Allow-Spend`. Runner against staging only runs `--force=` or Run-now.
+- **Refresh staging from prod:** bar button → `POST /api/admin/sync-staging` (`src/lib/syncStagingFromProd.ts`). Staging-only; needs `AGENTS_PROD` binding.
 
 ## After engineering lessons
 

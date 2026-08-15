@@ -16,9 +16,11 @@ const STAGING = {
   vars: {
     ENVIRONMENT: "staging",
     BETTER_AUTH_URL: "https://clad-web-staging.benjaminharriscody.workers.dev",
+    XAI_ECONOMY: "full",
   },
   routes: [{ pattern: "staging.cladfacts.com", custom_domain: true }],
   kvId: "bd68a4ace38f43a79506cdb318cdde89",
+  prodKvId: "231fcd9cfeaa4ed99367550cd2c10877",
   d1Name: "clad-users-staging",
   d1Id: "c693f21f-cc09-4022-9bf4-6fa8232ffa9a",
 };
@@ -42,6 +44,13 @@ if (Array.isArray(cfg.kv_namespaces)) {
   cfg.kv_namespaces = cfg.kv_namespaces.map((k) =>
     k.binding === "AGENTS" ? { ...k, id: STAGING.kvId } : k
   );
+  if (!cfg.kv_namespaces.some((k) => k.binding === "AGENTS_PROD")) {
+    cfg.kv_namespaces.push({ binding: "AGENTS_PROD", id: STAGING.prodKvId });
+  }
+}
+if (cfg.kv_namespaces?.some((k) => k.binding === "AGENTS" && k.id === STAGING.prodKvId)) {
+  console.error("Refusing deploy: staging AGENTS still points at production KV");
+  process.exit(2);
 }
 if (Array.isArray(cfg.d1_databases)) {
   cfg.d1_databases = cfg.d1_databases.map((d) =>

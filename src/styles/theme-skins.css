@@ -54,9 +54,32 @@
   color: var(--paper);
   border-color: var(--accent);
 }
+.skin-bar__btn {
+  font: inherit;
+  color: var(--ink);
+  background: transparent;
+  text-decoration: none;
+  padding: 0.22rem 0.5rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.skin-bar__btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.skin-bar__btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.skin-bar__sync-status {
+  color: var(--muted-ink);
+  font-size: 0.64rem;
+  max-width: 22rem;
+}
 
 html:has(.skin-bar) body {
-  padding-bottom: calc(5.6rem + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(7.2rem + env(safe-area-inset-bottom, 0px));
 }
 
 .matrix-rain {
