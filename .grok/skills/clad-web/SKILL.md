@@ -32,6 +32,7 @@ description: >
 
 1. Implement in `~/clad-web`. Commit when the change should survive.
 2. **Always** `npm run deploy:staging` (build + isolated Worker). URL: https://clad-web-staging.benjaminharriscody.workers.dev
+   Clad Studio defaults here too (browse + Approve/ship). Companion must never run unguarded `npm run deploy`.
 3. Run gates on staging: `SMOKE_BASE=https://clad-web-staging.benjaminharriscody.workers.dev npm run smoke`. For access/HTML work also `npm run check:leak` against staging when practical.
 4. **Do not** run `npm run deploy`, `wrangler deploy` (no env), or `CONFIRM_PROD=1` unless Ben explicitly asked to ship production.
 5. After approval: `CONFIRM_PROD=1 npm run deploy` (purge + prod smoke).
@@ -49,7 +50,8 @@ description: >
 | Human spotlight | runner + KV; Commons portrait only if wiki title matches person |
 | Commons hygiene | `src/lib/commonsMedia.ts`, `runner/commonsMedia.mjs` |
 | Home layout | `src/lib/homeLayout.ts` FIXED_HOME_TOP + DEFAULT_HOME_ORDER |
-| Access choke point | `src/lib/access.ts` |
+| Access choke point | `src/lib/access.ts` (staging `?view=signed\|anon` preview via ALS) |
+| Staging skins | `src/styles/theme-skins.css`, `ThemeSkinBar.astro` — layout experiments, staging only |
 | Anon leak guard | `scripts/checkAnonLeak.mjs` |
 | Image license | YouTube own still or `/generated/` only; `docs/legal/image-claims.md` |
 
@@ -79,7 +81,7 @@ description: >
 - Admin: `BaseLayout` + `AdminNav`, `prerender = false` when using `cloudflare:workers` env.
 - Scanner: channel playlists only — edit policy module, restart `clad-agent-runner`.
 - Force agent: `cd runner && node --env-file=.env index.mjs --once --force=<kind>`.
-- Economy caps: `src/lib/xaiEconomy.ts` / `XAI_ECONOMY`.
+- Spend dial: `src/lib/xaiEconomy.ts` / `XAI_ECONOMY` (default **full**; `economy` to throttle).
 
 ## After engineering lessons
 

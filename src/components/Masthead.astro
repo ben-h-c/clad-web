@@ -176,7 +176,7 @@ const menuAccountText = signedIn ? accountLabel : "Sign in";
     // Client backup only if SSR missed a session (cookie race / bfcache).
     // Theme toggle is wired globally in BaseLayout (capture phase).
     const root = document.querySelector(".masthead");
-    if (root && root.getAttribute("data-signed-in") !== "1") {
+    if (root && root.getAttribute("data-signed-in") !== "1" && document.documentElement.getAttribute("data-stage-view") !== "anon") {
       fetch("/api/auth/get-session", { headers: { accept: "application/json" }, credentials: "same-origin" })
         .then((r) => (r.ok ? r.json() : null))
         .then((d) => {

@@ -59,6 +59,10 @@ curl -sS -o /dev/null -w "%{http_code}\n" -X POST https://cladfacts.com/api/anal
 - Subscriptions: Terms of Use + Privacy URLs in App Store Connect (guideline 3.1.2).
 - Live: `https://cladfacts.com/terms/`, `https://cladfacts.com/privacy/`.
 - Prefer in-app Terms/Privacy on paywall too.
+- **Sign in with Apple (Guideline 4):** the iOS app must show
+  `ASAuthorizationAppleIDButton` (see `cladfacts-ios` `AppleSignInButton.swift`).
+  Never ship a custom Apple mark, SF Symbol `apple.logo`, or Font Awesome apple
+  on the SIWA control. The clad-web HTML Apple button is hidden in-app.
 
 ## Runner
 

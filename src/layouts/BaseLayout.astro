@@ -1,11 +1,20 @@
 ---
 import "~/styles/global.css";
+import "~/styles/theme-skins.css";
 import Masthead from "~/components/Masthead.astro";
+import ThemeSkinBar from "~/components/ThemeSkinBar.astro";
 import SiteTips from "~/components/SiteTips.astro";
 import ThemeCoachmark from "~/components/ThemeCoachmark.astro";
 import { APP_STORE_LIVE } from "~/lib/app-store";
 import { getSessionUser, getPrefs, type ThemePref } from "~/lib/user-data";
-import { showBillingPromo } from "~/lib/access";
+import {
+  showBillingPromo,
+  parseStageSkin,
+  parseStageView,
+  STAGE_SKIN_COOKIE,
+  STAGE_VIEW_COOKIE,
+} from "~/lib/access";
+import MatrixRain from "~/components/MatrixRain.astro";
 import { OG_VERSIONS } from "~/lib/ogCard";
 import { env } from "cloudflare:workers";
 
@@ -123,6 +132,16 @@ const billingOn = showBillingPromo();
 const isStaging = env.ENVIRONMENT === "staging";
 const robotsContent =
   noindex || isStaging ? "noindex,nofollow" : "max-image-preview:large";
+const skinParam = isStaging ? Astro.url.searchParams.get("skin") : null;
+const skin = isStaging
+  ? parseStageSkin(skinParam ?? Astro.cookies.get(STAGE_SKIN_COOKIE)?.value)
+  : null;
+const viewParam = isStaging ? Astro.url.searchParams.get("view") : null;
+const stageView = isStaging
+  ? viewParam === "live"
+    ? null
+    : parseStageView(viewParam ?? Astro.cookies.get(STAGE_VIEW_COOKIE)?.value)
+  : null;
 ---
 <!doctype html>
 <html
@@ -131,6 +150,8 @@ const robotsContent =
   data-account-theme={accountTheme ? "1" : "0"}
   data-force-theme={isAdminPath ? "dark" : undefined}
   data-billing={billingOn ? "1" : "0"}
+  data-skin={skin || undefined}
+  data-stage-view={stageView || undefined}
 >
   <head>
     <meta charset="utf-8" />
@@ -355,6 +376,28 @@ const robotsContent =
         Staging — not production. <a href="https://cladfacts.com/">cladfacts.com</a> is live.
       </div>
     )}
+    {isStaging && <ThemeSkinBar currentSkin={skin} currentView={stageView} />}
+    {isStaging && skin === "matrix" && <MatrixRain />}
+    {isStaging && (
+      <script is:inline>
+        document.addEventListener("click", function (e) {
+          var root = document.documentElement;
+          var skin = root.getAttribute("data-skin");
+          var view = root.getAttribute("data-stage-view");
+          if (!skin && !view) return;
+          var a = e.target && e.target.closest && e.target.closest("a[href]");
+          if (!a || a.getAttribute("aria-current") === "true") return;
+          if (a.hostname && a.hostname !== location.hostname) return;
+          try {
+            var u = new URL(a.getAttribute("href"), location.origin);
+            if (u.origin !== location.origin) return;
+            if (skin && !u.searchParams.has("skin")) u.searchParams.set("skin", skin);
+            if (view && !u.searchParams.has("view")) u.searchParams.set("view", view);
+            a.setAttribute("href", u.pathname + u.search + u.hash);
+          } catch (err) {}
+        });
+      </script>
+    )}
     <a class="skip-link" href="#main">Skip to content</a>
     {/* Optional decorative stage behind the page (usually muted in soft UI). */}
     <div class="living-bg" aria-hidden="true">
@@ -435,8 +478,8 @@ const robotsContent =
         <p>© {new Date().getFullYear()} CladFacts LLC. All rights reserved.</p>
       </footer>
     </div>
-    {!path.startsWith("/admin") && <SiteTips />}
-    {!path.startsWith("/admin") && <ThemeCoachmark />}
+    {!isAdminPath && !isStaging && <SiteTips />}
+    {!isAdminPath && !isStaging && <ThemeCoachmark />}
     {/* Privacy-first first-party analytics: aggregate page/video signals only.
         Cookieless; honors DNT/GPC; no account/PII. See /privacy/ and /admin/analytics/. */}
     {!isAdminPath && (

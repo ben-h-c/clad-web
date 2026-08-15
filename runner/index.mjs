@@ -192,7 +192,7 @@ async function main() {
   log(
     `runner start (once=${ONCE}, force=[${[...FORCE_KINDS].join(",") || "—"}], base=${process.env.WORKER_BASE_URL || "http://localhost:8787"}, ${xaiEconomyBanner()})`
   );
-  log(`xAI mode=${xaiSpendMode()} — set XAI_ECONOMY=full to restore full volume`);
+  log(`xAI mode=${xaiSpendMode()} — set XAI_ECONOMY=economy to throttle`);
   if (ONCE || FORCE_KINDS.size) {
     await tick();
     log("once complete");

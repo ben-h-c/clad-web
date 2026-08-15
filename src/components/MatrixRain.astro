@@ -1,0 +1,41 @@
+---
+/** Staging-only Matrix skin overlay. Prototype — not for production. */
+---
+<canvas id="clad-matrix-rain" class="matrix-rain" aria-hidden="true"></canvas>
+<script is:inline>
+  (function () {
+    if (document.documentElement.getAttribute("data-skin") !== "matrix") return;
+    var canvas = document.getElementById("clad-matrix-rain");
+    if (!canvas || !canvas.getContext) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var ctx = canvas.getContext("2d");
+    var glyphs = "ETAOINSHRDLU 0123456789 ¶ § — · CLAD FACT GRADE LEAN";
+    var cols = [];
+    var w = 0;
+    var h = 0;
+    var size = 13;
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+      var n = Math.floor(w / size);
+      cols = Array.from({ length: n }, function () { return Math.random() * h; });
+    }
+    function tick() {
+      ctx.fillStyle = "rgba(8, 10, 8, 0.12)";
+      ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = "rgba(111, 181, 106, 0.42)";
+      ctx.font = size + "px ui-monospace, SFMono-Regular, Menlo, monospace";
+      for (var i = 0; i < cols.length; i++) {
+        var ch = glyphs[Math.floor(Math.random() * glyphs.length)];
+        ctx.fillText(ch, i * size, cols[i]);
+        cols[i] += size * 0.85;
+        if (cols[i] > h && Math.random() > 0.975) cols[i] = 0;
+      }
+      requestAnimationFrame(tick);
+    }
+    resize();
+    window.addEventListener("resize", resize);
+    if (reduce) return;
+    tick();
+  })();
+</script>

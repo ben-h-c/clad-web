@@ -41,10 +41,32 @@ const SESSION_MEMO_MS = 3_000;
 
 /** Resolve the signed-in user from the request cookies, or null. */
 export async function getSessionUser(headers: Headers): Promise<SessionUser | null> {
-  const key = headers.get("cookie") || "";
+  // Lazy import avoids a cycle (access → user-data → access).
+  const { getStageView, STAGING_PREVIEW_USER } = await import("./access.ts");
+  const preview = getStageView();
+  if (preview === "anon") return null;
+
+  const key = `${headers.get("cookie") || ""}|${preview || ""}`;
   const now = Date.now();
   if (sessionMemo && sessionMemo.key === key && now - sessionMemo.at < SESSION_MEMO_MS) {
     return sessionMemo.user;
+  }
+  if (preview === "signed") {
+    const session = await getAuth().api.getSession({ headers });
+    const u = session?.user;
+    if (u) {
+      const user = {
+        id: u.id,
+        name: u.name,
+        email: u.email,
+        emailVerified: !!u.emailVerified,
+        createdAt: u.createdAt ? new Date(u.createdAt).toISOString() : null,
+      };
+      sessionMemo = { key, at: now, user };
+      return user;
+    }
+    sessionMemo = { key, at: now, user: STAGING_PREVIEW_USER };
+    return STAGING_PREVIEW_USER;
   }
   const session = await getAuth().api.getSession({ headers });
   const u = session?.user;
@@ -70,6 +92,7 @@ export function jsonResponse(body: unknown, status = 200): Response {
 
 // --- Preferences -----------------------------------------------------------
 export async function getPrefs(userId: string): Promise<UserPrefs> {
+  if (userId === "staging-preview") return { ...DEFAULT_PREFS };
   const row = await env.DB.prepare("SELECT prefs FROM user_preferences WHERE userId = ?")
     .bind(userId)
     .first<{ prefs: string }>();
@@ -83,6 +106,7 @@ export async function getPrefs(userId: string): Promise<UserPrefs> {
 }
 
 export async function setPrefs(userId: string, prefs: UserPrefs): Promise<void> {
+  if (userId === "staging-preview") return;
   await env.DB.prepare(
     "INSERT INTO user_preferences (userId, prefs, updatedAt) VALUES (?, ?, ?) " +
       "ON CONFLICT(userId) DO UPDATE SET prefs = excluded.prefs, updatedAt = excluded.updatedAt"

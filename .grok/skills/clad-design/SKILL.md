@@ -9,6 +9,10 @@ description: >
 
 # Clad design
 
+## Staging skins (not production)
+
+Staging may run **layout experiments** (`html[data-skin]`) that change structure, type, density, and chrome — not just color. Production stays Soft Neutral until Ben picks one skin and says push to prod. Prototypes do not need to be feature-complete. Recolor-only skins have already been rejected.
+
 ## Before any visual work
 
 1. Read `docs/design-system.md` and tokens in `src/styles/global.css`.

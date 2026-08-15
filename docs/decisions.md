@@ -14,6 +14,34 @@ Format:
 
 ---
 
+## 2026-08-15 — xAI spend mode is full power
+
+**Status:** accepted  
+**Context:** Token usage had been on economy (`XAI_ECONOMY=economy` on the runner; code default economy when unset) to save Grok spend at low traffic.  
+**Decision:** Run **full** quality/volume. Default unset → full. Set `XAI_ECONOMY=economy` only to throttle. Flip is `runner/.env` + Worker `XAI_ECONOMY` + `src/lib/xaiEconomy.ts`.  
+**Consequences:** Higher YouTube draft caps, vision on publish, reasoning curators, X search on sentiment, no minHoursBetweenRuns gate. Revert with `XAI_ECONOMY=economy` + runner restart.
+
+## 2026-08-13 — Sign in with Apple must be the system button in the iOS app
+
+**Status:** accepted  
+**Context:** App Review rejected 1.03 (5) on iPad Air 11" (M3) — Guideline 4: the Sign in with Apple button used logo artwork not from Apple Design Resources. The control Review saw was the clad-web HTML `Continue with Apple` social button inside the WKWebView.  
+**Decision:** In the CladFacts iOS app, SIWA is only `ASAuthorizationAppleIDButton` (type Continue, style White) on `/login` and `/register`. The site’s custom Apple button is hidden in-app via injected CSS (`.auth-social__btn--app-only`). Do not draw an Apple mark, use SF Symbols `apple.logo`, or Font Awesome for SIWA. Auth still hands off through `NativeAuth` / Better Auth. Do not hide that CSS on production until this binary is live — older binaries still use the HTML button.  
+**Consequences:** `cladfacts-ios` 1.0.5 (6)+. Review reply: system button, no custom artwork.
+
+## 2026-08-12 — Clad Studio defaults to staging
+
+**Status:** accepted  
+**Context:** Studio browsed cladfacts.com and the Mac companion ran `npm run deploy` after Approve — which is now blocked without `CONFIRM_PROD=1`, so ships never landed on a reviewable site.  
+**Decision:** Clad Studio target site defaults to staging (`clad-web-staging.benjaminharriscody.workers.dev`). Existing installs that still have the production URL are migrated once. Approve/implement deploys with `npm run deploy:staging` only. Cloud relay stays on cladfacts.com (packet transport). Production remains a Settings preset and an explicit “push to prod.”  
+**Consequences:** iPad 1.3.0 (6)+; `StudioTargets.swift`; `run-job.mjs` deploy:staging. Do not revert the companion to unguarded prod deploy.
+
+## 2026-08-12 — Staging skins are different products, not recolors
+
+**Status:** accepted  
+**Context:** First staging skins (Tight / Folio / Broadsheet / Matrix) only changed color, radius, and a little type. Ben: they are too alike; he needs drastic skins to toggle, plus a logged-in vs guest toggle, knowing only one skin will later go to prod.  
+**Decision:** Staging bottom bar has **Account** (Live / Guest / Signed-in) and **Skin** (Current + Packed, Folio, Broadsheet, Cinema, Matrix, Wire). Skins must change layout and chrome (grid vs carousel, magazine lead, newspaper nameplate, stacked film frames, CRT, all-text wire). `?view=` / `?skin=` persist in cookies. Production stays Soft Neutral until he picks one and says push to prod. Prototypes do not need to be production-complete.  
+**Consequences:** `src/styles/theme-skins.css` is allowed to be aggressive and incomplete. Do not ship `data-skin` on cladfacts.com. Guest/signed preview uses ALS in `access.ts` and is staging-only.
+
 ## 2026-08-10 — Home Today → thin title bar
 
 **Status:** accepted  

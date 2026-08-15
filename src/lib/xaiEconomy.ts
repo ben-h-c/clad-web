@@ -3,12 +3,12 @@
  *
  * ## How to switch
  *
- *   Economy (default — save money while traffic is low):
- *     XAI_ECONOMY=economy   (or unset)
+ *   Full quality / volume (default):
+ *     XAI_ECONOMY=full   (or unset)
+ *     # aliases: off | 0 | false | high | prod | production
  *
- *   Full quality / volume when users grow and freshness matters:
- *     XAI_ECONOMY=full
- *     # aliases: off | 0 | false | high
+ *   Economy (save money):
+ *     XAI_ECONOMY=economy
  *
  * Set on the **runner** host (PM2 / runner/.env) for agents.
  * Optionally set the same secret on the Worker for vision / on-demand paths.
@@ -155,18 +155,17 @@ export function xaiSpendMode(envEconomy?: string | null): XaiSpendMode {
     .trim()
     .toLowerCase();
   if (
-    raw === "full" ||
-    raw === "off" ||
-    raw === "0" ||
-    raw === "false" ||
-    raw === "high" ||
-    raw === "prod" ||
-    raw === "production"
+    raw === "economy" ||
+    raw === "on" ||
+    raw === "1" ||
+    raw === "true" ||
+    raw === "low" ||
+    raw === "cheap"
   ) {
-    return "full";
+    return "economy";
   }
-  // Default economy when unset — intentional while user count is low.
-  return "economy";
+  // Default full when unset — 2026-08-15: run at full quality / volume.
+  return "full";
 }
 
 export function xaiLimits(envEconomy?: string | null): XaiLimitProfile {
@@ -240,5 +239,5 @@ export function xaiEconomyBanner(envEconomy?: string | null): string {
   const mode = xaiSpendMode(envEconomy);
   return mode === "full"
     ? "xAI spend mode: FULL (high quality / volume)"
-    : "xAI spend mode: ECONOMY (throttled — set XAI_ECONOMY=full to restore)";
+    : "xAI spend mode: ECONOMY (throttled — unset or XAI_ECONOMY=full for full volume)";
 }

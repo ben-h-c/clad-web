@@ -68,7 +68,7 @@ cd ~/clad-web/runner
 node --env-file=.env index.mjs --once --force=<kind>
 ```
 
-Economy: `XAI_ECONOMY` default **economy** (low draft caps). Full: `XAI_ECONOMY=full`.
+Spend: `XAI_ECONOMY` default **full**. Throttle with `XAI_ECONOMY=economy`.
 
 ---
 

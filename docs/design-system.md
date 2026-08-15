@@ -6,6 +6,8 @@
 
 Update this file whenever tokens or major UI patterns change. Keep `.grok/skills/clad-design/SKILL.md` in sync.
 
+**Staging-only skins:** `src/styles/theme-skins.css` (`html[data-skin]`). These are layout experiments (Packed, Folio, Broadsheet, Gazette, Cinema, Matrix, Wire), not token recolors. **Gazette** combines Folio’s magazine cover lead with Broadsheet’s newspaper nameplate and column well. Production must stay Soft Neutral until one is selected and explicitly pushed.
+
 ---
 
 ## Brand principles

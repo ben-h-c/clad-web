@@ -1,4 +1,5 @@
 import { defineMiddleware } from "astro:middleware";
+import type { APIContext, MiddlewareNext } from "astro";
 import { env } from "cloudflare:workers";
 import { checkBasicAuth, unauthorized } from "~/lib/auth";
 
@@ -150,6 +151,14 @@ function applySecurityHeaders(path: string, response: Response) {
 }
 
 function applyCachePolicy(context: { request: Request }, path: string, response: Response) {
+  if (env.ENVIRONMENT === "staging") {
+    return applySecurityHeaders(
+      path,
+      withHeaders(response, (h) => {
+        h.set("Cache-Control", "private, no-store");
+      })
+    );
+  }
   const hasSession = (context.request.headers.get("cookie") ?? "").includes("session_token");
   const next = withHeaders(response, (h) => {
     // Honor route-level private/no-store (e.g. post pages that vary by tier).
@@ -199,7 +208,7 @@ const APPLE_APP_SITE_ASSOCIATION = JSON.stringify({
   },
 });
 
-export const onRequest = defineMiddleware(async (context, next) => {
+async function handleRequest(context: APIContext, next: MiddlewareNext) {
   const path = context.url.pathname;
   const method = context.request.method;
 
@@ -287,4 +296,56 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
 
   return next();
+}
+
+export const onRequest = defineMiddleware(async (context, next) => {
+  if (env.ENVIRONMENT !== "staging") {
+    return handleRequest(context, next);
+  }
+
+  const {
+    runWithStageView,
+    parseStageView,
+    parseStageSkin,
+    STAGE_VIEW_COOKIE,
+    STAGE_SKIN_COOKIE,
+  } = await import("~/lib/access");
+
+  const qView = context.url.searchParams.get("view");
+  if (qView === "live") {
+    context.cookies.delete(STAGE_VIEW_COOKIE, { path: "/" });
+  }
+  const view =
+    qView === "live"
+      ? null
+      : parseStageView(qView) ?? parseStageView(context.cookies.get(STAGE_VIEW_COOKIE)?.value);
+
+  const qSkin = context.url.searchParams.get("skin");
+  if (qSkin === "off" || qSkin === "current") {
+    context.cookies.delete(STAGE_SKIN_COOKIE, { path: "/" });
+  } else {
+    const skin = parseStageSkin(qSkin);
+    if (skin) {
+      context.cookies.set(STAGE_SKIN_COOKIE, skin, {
+        path: "/",
+        maxAge: 60 * 60 * 24 * 7,
+        sameSite: "lax",
+      });
+    }
+  }
+  if (qView === "signed" || qView === "anon") {
+    context.cookies.set(STAGE_VIEW_COOKIE, qView, {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 7,
+      sameSite: "lax",
+    });
+  }
+
+  const res = await runWithStageView(view, () => handleRequest(context, next));
+  return withHeaders(res, (h) => {
+    const ct = h.get("content-type") || "";
+    if (ct.includes("text/html") || ct.includes("application/json")) {
+      h.set("Cache-Control", "private, no-store");
+    }
+  });
 });

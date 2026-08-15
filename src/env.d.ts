@@ -10,8 +10,8 @@ declare module "cloudflare:workers" {
   interface Env {
     XAI_API_KEY: string;
     /**
-     * Grok spend dial: "economy" (default/unset) or "full".
-     * See src/lib/xaiEconomy.ts — set on runner + optional Worker secret.
+     * Grok spend dial: "full" (default/unset) or "economy".
+     * See src/lib/xaiEconomy.ts — set on runner + Worker.
      */
     XAI_ECONOMY?: string;
     ADMIN_USER: string;

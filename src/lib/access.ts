@@ -8,8 +8,46 @@
  * Flip BILLING_ENABLED to true when re-enabling Premium promos and paid-only
  * feature gates. Stripe/IAP code paths stay live either way.
  */
+import { AsyncLocalStorage } from "node:async_hooks";
 import { env } from "cloudflare:workers";
-import { getSessionUser } from "./user-data.ts";
+import { getSessionUser, type SessionUser } from "./user-data.ts";
+
+/** Staging-only preview: force signed-in (grades on) or guest (grades locked). */
+export type StageView = "signed" | "anon";
+export const STAGE_VIEW_COOKIE = "clad_stage_view";
+export const STAGE_SKIN_COOKIE = "clad_stage_skin";
+/** Layout experiments — never applied in production. `tight` aliases packed. */
+export const STAGE_SKINS = ["packed", "folio", "broadsheet", "gazette", "matrix", "wire", "cinema"] as const;
+export type StageSkin = (typeof STAGE_SKINS)[number];
+
+const stageAls = new AsyncLocalStorage<StageView | null>();
+
+export function runWithStageView<T>(view: StageView | null, fn: () => T): T {
+  return stageAls.run(view, fn);
+}
+
+export function getStageView(): StageView | null {
+  if (env.ENVIRONMENT !== "staging") return null;
+  return stageAls.getStore() ?? null;
+}
+
+export function parseStageView(raw: string | null | undefined): StageView | null {
+  return raw === "signed" || raw === "anon" ? raw : null;
+}
+
+export function parseStageSkin(raw: string | null | undefined): StageSkin | null {
+  if (!raw || raw === "off" || raw === "current") return null;
+  if (raw === "tight") return "packed";
+  return (STAGE_SKINS as readonly string[]).includes(raw) ? (raw as StageSkin) : null;
+}
+
+export const STAGING_PREVIEW_USER: SessionUser = {
+  id: "staging-preview",
+  name: "Preview (signed-in)",
+  email: "preview@staging.local",
+  emailVerified: true,
+  createdAt: null,
+};
 
 /**
  * When false:
@@ -43,7 +81,19 @@ export async function getAccess(headers: Headers): Promise<Access> {
 }
 
 async function resolveAccess(headers: Headers): Promise<Access> {
+  const preview = getStageView();
+  if (preview === "anon") {
+    return { ...ANON };
+  }
+
   const user = await getSessionUser(headers);
+  if (preview === "signed") {
+    if (user) {
+      return { tier: "free", fullAccess: true, signedIn: true, user };
+    }
+    return { tier: "free", fullAccess: true, signedIn: true, user: STAGING_PREVIEW_USER };
+  }
+
   if (!user) {
     return { ...ANON };
   }

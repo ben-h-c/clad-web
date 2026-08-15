@@ -1,0 +1,55 @@
+---
+/** Staging-only: force guest vs signed-in, and swap layout skins. */
+interface Props {
+  currentSkin: string | null;
+  currentView: "signed" | "anon" | null;
+}
+const { currentSkin, currentView } = Astro.props;
+const path = Astro.url.pathname.endsWith("/") || Astro.url.pathname.includes(".")
+  ? Astro.url.pathname
+  : Astro.url.pathname + "/";
+
+function href(skin: string | null, view: "signed" | "anon" | null): string {
+  const p = new URLSearchParams();
+  p.set("skin", skin ?? "off");
+  p.set("view", view ?? "live");
+  return `${path}?${p.toString()}`;
+}
+
+const views = [
+  { id: null, label: "Live session" },
+  { id: "anon", label: "Guest" },
+  { id: "signed", label: "Signed-in" },
+] as const;
+
+const skins = [
+  { id: null, label: "Current" },
+  { id: "packed", label: "Packed" },
+  { id: "folio", label: "Folio" },
+  { id: "broadsheet", label: "Broadsheet" },
+  { id: "gazette", label: "Gazette" },
+  { id: "cinema", label: "Cinema" },
+  { id: "matrix", label: "Matrix" },
+  { id: "wire", label: "Wire" },
+] as const;
+---
+<nav class="skin-bar" aria-label="Staging previews">
+  <div class="skin-bar__row">
+    <span class="skin-bar__label">Account</span>
+    {views.map((v) => {
+      const on = (v.id ?? "") === (currentView ?? "");
+      return (
+        <a href={href(currentSkin, v.id)} aria-current={on ? "true" : undefined}>{v.label}</a>
+      );
+    })}
+  </div>
+  <div class="skin-bar__row">
+    <span class="skin-bar__label">Skin</span>
+    {skins.map((s) => {
+      const on = (s.id ?? "") === (currentSkin ?? "");
+      return (
+        <a href={href(s.id, currentView)} aria-current={on ? "true" : undefined}>{s.label}</a>
+      );
+    })}
+  </div>
+</nav>

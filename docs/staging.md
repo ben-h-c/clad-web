@@ -46,6 +46,22 @@ node scripts/sync-staging-kv.mjs
 
 `npm run deploy` without `CONFIRM_PROD=1` is blocked on purpose.
 
+## Preview toggles (staging only)
+
+Bottom bar on every staging page:
+
+| Control | Query | What it does |
+|--|--|--|
+| Account → Live session | `?view=live` | Real cookies (or guest if you are not logged in) |
+| Account → Guest | `?view=anon` | Force locked grades, guest hero, paywall, Sign in |
+| Account → Signed-in | `?view=signed` | Force fullAccess (real session if present, else a fake preview user) |
+| Skin → Current | `?skin=off` | Production Soft Neutral |
+| Skin → Packed / Folio / Broadsheet / Gazette / Cinema / Matrix / Wire | `?skin=packed` etc. | Layout experiments — not recolors. **Gazette** = Folio cover + Broadsheet nameplate. One may later be rebuilt for prod. |
+
+Cookies `clad_stage_view` and `clad_stage_skin` remember the last choice. Staging HTML/JSON is `private, no-store` so the two account views cannot share a cache.
+
+Do **not** copy a selected skin to production unless Ben says **push to prod** after reviewing it.
+
 ## Rules
 
 - Staging is **noindex**.
