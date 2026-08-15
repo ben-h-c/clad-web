@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-15 — People in the news is anyone notable, not only politicians
+
+**Status:** accepted  
+**Context:** The home strip only scored officeholders tagged from the politician roster, so celebrities, CEOs, and other names in current reports never appeared.  
+**Decision:** Extract notable people from recent headline/summary prose (plus existing roster tags). They join the same strip and `/politicians/` Coverage bucket. Portraits still go through the Commons proxy (Wikipedia-by-name).  
+**Consequences:** `src/lib/notablePeople.ts`, `homePoliticians.ts`, `politicians.ts` tagger + index, `/api/politician-photo`. No xAI. Guest/locked still hides grades.
+
 ## 2026-08-15 — Broadcast articles: source, then grade
 
 **Status:** accepted  

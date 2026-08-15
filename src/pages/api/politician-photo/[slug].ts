@@ -54,6 +54,14 @@ async function wikiThumb(title: string): Promise<string | null> {
   }
 }
 
+function nameFromSlug(slug: string): string {
+  return slug
+    .split("-")
+    .filter(Boolean)
+    .map((w) => (w.length === 1 ? `${w.toUpperCase()}.` : w.charAt(0).toUpperCase() + w.slice(1)))
+    .join(" ");
+}
+
 async function nameForSlug(slug: string): Promise<string | null> {
   try {
     const roster = await getPoliticianRoster(env.AGENTS);
@@ -63,7 +71,9 @@ async function nameForSlug(slug: string): Promise<string | null> {
     /* ignore */
   }
   const staticHit = (ROSTER_SEEDS as { slug: string; name: string }[]).find((s) => s.slug === slug);
-  return staticHit?.name ?? null;
+  if (staticHit?.name) return staticHit.name;
+  const guessed = nameFromSlug(slug);
+  return guessed.length >= 3 ? guessed : null;
 }
 
 async function resolveRemote(slug: string): Promise<string | null> {

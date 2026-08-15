@@ -20,6 +20,7 @@ import {
   type PersonProfileMap,
 } from "./politicianProfiles.ts";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "./topics.ts";
+import { extractNotablePeopleFromText, mergePersonTags } from "./notablePeople.ts";
 
 /** Directory sections — officeholders by branch/chamber, then coverage-only. */
 export type RaceBucket =
@@ -251,6 +252,18 @@ export function buildPoliticianIndex(
       ensure(slug, tag.name.trim() || slug).posts.set(p.id, p);
     }
 
+    // Recent coverage only — a full-corpus name scan fills Coverage with junk.
+    const recencyMs = 45 * 86_400_000;
+    if (Date.now() - p.data.publishedAt.valueOf() < recencyMs) {
+      const extracted = extractNotablePeopleFromText({
+        headline: p.data.headline,
+        summary: p.data.summary,
+      });
+      for (const tag of extracted) {
+        ensure(tag.slug, tag.name).posts.set(p.id, p);
+      }
+    }
+
     for (const { seed, needles, regexes } of seedMatchers) {
       if (needles.some((n) => blob.includes(n)) || regexes.some((re) => re.test(blob))) {
         ensure(seed.slug, seed.name, {
@@ -372,16 +385,18 @@ export function tagPoliticiansFromText(parts: {
   ]
     .join(" \n ")
     .toLowerCase();
-  if (!hay.trim()) return [];
-  const out: PoliticianTag[] = [];
+  const roster: PoliticianTag[] = [];
   const seen = new Set<string>();
-  for (const seed of POLITICIAN_SEEDS) {
-    if (!seed.aliases.some((a) => matchesAlias(hay, a))) continue;
-    if (seen.has(seed.slug)) continue;
-    seen.add(seed.slug);
-    out.push({ name: seed.name, slug: seed.slug });
+  if (hay.trim()) {
+    for (const seed of POLITICIAN_SEEDS) {
+      if (!seed.aliases.some((a) => matchesAlias(hay, a))) continue;
+      if (seen.has(seed.slug)) continue;
+      seen.add(seed.slug);
+      roster.push({ name: seed.name, slug: seed.slug });
+    }
   }
-  return out.slice(0, 8);
+  const notable = extractNotablePeopleFromText(parts);
+  return mergePersonTags(roster, notable).slice(0, 12);
 }
 
 /**
@@ -542,7 +557,7 @@ export function bucketBlurb(bucket: RaceBucket): string {
     case "Supreme Court":
       return "Justices of the U.S. Supreme Court.";
     case "Coverage":
-      return "People who appear in reports but aren’t on the officeholder roster.";
+      return "Notable people in graded reports — not only officeholders.";
     default:
       return "";
   }

@@ -1,6 +1,6 @@
 /**
- * Home “People in the news” strip — politicians hot in graded coverage
- * and/or appearing on the midterms race board.
+ * Home “People in the news” strip — anyone notable in graded coverage
+ * (officeholders plus other named people) and midterms race sides.
  *
  * Fast path: tag counts + race board only (no full roster × posts regex index).
  */
@@ -12,6 +12,7 @@ import {
   wikiTitleForSlug,
 } from "./politicianPhotos.ts";
 import type { PoliticianAgg } from "./politicians.ts";
+import { extractNotablePeopleFromText } from "./notablePeople.ts";
 import type { RaceDef } from "./races.ts";
 import { isVoteDateTbd } from "./races.ts";
 import type { HomeFeatureItem } from "./homeFeatures.ts";
@@ -135,7 +136,7 @@ export function buildPoliticianSpotlightItems(opts: {
         score += 8;
       }
     }
-    const hasPhoto = hasPortraitPath(p.slug, photos);
+    const hasPhoto = hasPortraitPath(p.slug, photos) || p.name.trim().split(/\s+/).length >= 2;
     if (hasPhoto) score += 40;
     else score -= 25;
 
@@ -231,7 +232,7 @@ export function buildPoliticianSpotlightItems(opts: {
       href: c.href,
       cta: "Open report card",
       secondaryHref: "/politicians/",
-      secondaryCta: "All politicians",
+      secondaryCta: "All people",
       variant: c.kicker.startsWith("Midterms") ? "midterms" : "topic",
       image: photoSrc(c.slug),
       monogram: monogramFromName(c.name),
@@ -255,7 +256,13 @@ export function lightPoliticianAggsFromPosts(
 
   for (const p of posts) {
     if (p.data.draft) continue;
-    const tags = p.data.politicians ?? [];
+    const tags = [
+      ...(p.data.politicians ?? []),
+      ...extractNotablePeopleFromText({
+        headline: p.data.headline,
+        summary: p.data.summary,
+      }),
+    ];
     if (!tags.length) continue;
     const appearance = {
       id: p.id,
