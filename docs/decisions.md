@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-15 — Clad Studio: staging first, then optional push to prod
+
+**Status:** accepted  
+**Context:** Approve already deployed staging, but the iPad loop ended there with no first-class way to promote. Ben wants review on staging, then a separate tap for production.  
+**Decision:** Approve / implement still run `npm run deploy:staging` and land in `shipped` (on staging). The design loop then shows **Push to production** with a confirm dialog. That action is `promote` → companion `CONFIRM_PROD=1 npm run deploy` → `live`. Production never runs from Approve.  
+**Consequences:** Companion `run-job.mjs` phase `promote`; iPad 1.3.0 (7)+; Worker `/api/studio/ticket/:id/decision` accepts `promote`. Cloud promote needs the Worker on prod; LAN works as soon as the Mac companion restarts.
+
 ## 2026-08-15 — Staging “Refresh from production” button
 
 **Status:** accepted  

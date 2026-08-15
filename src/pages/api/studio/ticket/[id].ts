@@ -82,6 +82,8 @@ export const POST: APIRoute = async ({ request, params }) => {
   }
   if (typeof body.shipCommit === "string") meta.shipCommit = body.shipCommit;
   if (typeof body.shipUrl === "string") meta.shipUrl = body.shipUrl;
+  if (typeof body.prodCommit === "string") meta.prodCommit = body.prodCommit;
+  if (typeof body.prodUrl === "string") meta.prodUrl = body.prodUrl;
   if (typeof body.revision === "number") meta.revision = body.revision;
   if (Array.isArray(body.feedback)) meta.feedback = body.feedback;
   if (typeof body.claimedAt === "string") meta.claimedAt = body.claimedAt;

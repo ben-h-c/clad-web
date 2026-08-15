@@ -10,7 +10,7 @@ description: >
 
 ## Dev-first (mandatory)
 
-No production deploy until Ben reviewed **staging** and said push to prod.
+No production deploy until Ben reviewed **staging** and said push to prod (chat or Clad Studio **Push to production**).
 
 ```bash
 cd ~/clad-web

@@ -183,7 +183,7 @@ Pending drafts / flags badges from KV.
 - iPad app packs annotated screens + notes → zip Design Packet.
 - Mac companion: LaunchAgent `com.bencody.cladstudio.inbox`, HTTP **:8765**, inbox `~/CladFacts-Design-Inbox/`.
 - Jobs: `mac-companion/run-job.mjs` — Grok headless via **`--prompt-file`** (never bare `-p`).
-- cwd for implement: `~/clad-web`. Status machine: received → proposing → awaiting_review → implementing → shipped|failed.
+- cwd for implement: `~/clad-web`. Status machine: received → proposing → awaiting_review → implementing → shipped (staging) → promoting → live | failed. Approve never deploys production.
 
 ---
 

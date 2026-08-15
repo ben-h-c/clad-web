@@ -1,5 +1,5 @@
 /**
- * POST /api/studio/ticket/:id/decision — iPad approve / request changes.
+ * POST /api/studio/ticket/:id/decision — iPad approve / request changes / promote.
  * Mac companion pulls decisions via GET /api/studio/decisions.
  */
 import type { APIRoute } from "astro";
@@ -37,22 +37,31 @@ export const POST: APIRoute = async ({ request, params }) => {
 
   const action = String(body.action || "").toLowerCase();
   const notes = String(body.notes || "").trim();
-  if (action !== "approve" && action !== "changes" && action !== "request_changes") {
-    return json({ ok: false, error: "action must be approve|changes" }, 400);
+  const normalized =
+    action === "request_changes"
+      ? "changes"
+      : action === "push_prod" || action === "push-to-prod" || action === "production"
+        ? "promote"
+        : action;
+  if (normalized !== "approve" && normalized !== "changes" && normalized !== "promote") {
+    return json({ ok: false, error: "action must be approve|changes|promote" }, 400);
   }
 
-  const normalized = action === "request_changes" ? "changes" : action;
   meta.pendingDecision = {
     action: normalized,
     notes,
     at: new Date().toISOString(),
   };
-  meta.lastNote =
-    normalized === "approve"
-      ? notes || "Approved on iPad — waiting for Mac to implement"
-      : notes || "Changes requested — waiting for Mac";
-  // Optimistic status so UI updates immediately; Mac will refine
-  meta.status = normalized === "approve" ? "implementing" : "changes_requested";
+  if (normalized === "approve") {
+    meta.lastNote = notes || "Approved on iPad — waiting for Mac to implement on staging";
+    meta.status = "implementing";
+  } else if (normalized === "changes") {
+    meta.lastNote = notes || "Changes requested — waiting for Mac";
+    meta.status = "changes_requested";
+  } else {
+    meta.lastNote = notes || "Push to production requested — waiting for Mac";
+    meta.status = "promoting";
+  }
   await putMeta(meta);
   await enqueueDecision(id);
 

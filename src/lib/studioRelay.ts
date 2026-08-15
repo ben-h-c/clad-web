@@ -21,6 +21,8 @@ export type StudioTicketMeta = {
   summary?: Record<string, unknown> | null;
   shipCommit?: string | null;
   shipUrl?: string | null;
+  prodCommit?: string | null;
+  prodUrl?: string | null;
   revision?: number;
   feedback?: unknown[];
   claimedAt?: string | null;
@@ -236,6 +238,8 @@ export function publicTicketView(meta: StudioTicketMeta) {
     summary: meta.summary ?? null,
     shipCommit: meta.shipCommit ?? null,
     shipUrl: meta.shipUrl ?? null,
+    prodCommit: meta.prodCommit ?? null,
+    prodUrl: meta.prodUrl ?? null,
     revision: meta.revision ?? 0,
     feedback: meta.feedback ?? [],
     transport: "cloud",

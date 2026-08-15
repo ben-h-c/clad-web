@@ -93,6 +93,6 @@ Update durable artifacts when **any** of these happen:
 ## Design-loop efficiency
 
 1. Prefer one recommended implementation matching existing patterns.
-2. Clad Studio packets: implement marked changes; use Mac companion with correct CLI (`--prompt-file`, not bare `-p`).
+2. Clad Studio packets: implement marked changes; use Mac companion with correct CLI (`--prompt-file`, not bare `-p`). Approve ships staging; production is a later **Push to production** tap.
 3. For visual work: load `docs/design-system.md` and clad-design skill first.
 4. Ship with verification (build, leak check, smoke live URL when infra).
