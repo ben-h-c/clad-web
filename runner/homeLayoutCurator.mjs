@@ -145,7 +145,7 @@ or topic that is timely.
 /bracket/  /elections/map/  /quiz/  /bias/  /discover/  /good-news/
 /students/  /learn/  /week/  /trends/  /topics/{slug}/  /posts/{slug}/
 /politicians/  /politicians/{slug}/  /search/  /register/  /how-it-works/
-/human-spotlight/  /recent/  /newsletter/  /grades/
+/human-spotlight/  /newsletter/  /grades/
 
 Prefer linking to product surfaces or topic hubs over a specific post unless a
 post slug is clearly current and you know it exists from search/context.

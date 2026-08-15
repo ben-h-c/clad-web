@@ -76,8 +76,7 @@ const UNCACHEABLE_PAGE = (path: string) =>
   path.startsWith("/login/") ||
   path.startsWith("/register/") ||
   path.startsWith("/verified/") ||
-  path.startsWith("/goodbye/") ||
-  path.startsWith("/recent/");
+  path.startsWith("/goodbye/");
 
 // Copy-critical marketing pages: pricing and tier copy must not sit in the
 // shared cache for five minutes after a wording change, so they get a 60s TTL.

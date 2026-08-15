@@ -429,8 +429,6 @@ const heroPostsShow = locked ? heroPosts.slice(0, ANON_STRIP_CAP) : heroPosts;
                 posts={heroPostsShow}
                 title="Front Page"
                 locked={locked}
-                moreHref="/recent/"
-                moreLabel="Full front page →"
               />
               {locked && <HomeExploreGrid />}
             </>

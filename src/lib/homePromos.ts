@@ -212,8 +212,6 @@ export function homePromosForPage(ctx: HomePromoContext = {}): HomePromo[] {
       body: "Fresh fact-check on the front of the desk — grade and lean unlock free with an account.",
       href: `/posts/${hp.id}/`,
       cta: "Read report",
-      secondaryHref: "/recent/",
-      secondaryCta: "Latest",
       variant: "urgent",
       priority: 112,
       enabled: true,

@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-15 — No “See all breaking” / “Full front page”
+
+**Status:** accepted  
+**Context:** Both home links opened the same `/recent/` dump. Ben: remove the buttons and that page.  
+**Decision:** Breaking and Front Page heads are the section name only. `/recent/` 301s to home. Masthead “Grades & reports” and footer “Latest reports” (aliases of the same dump) are gone.  
+**Consequences:** `BreakingStrip.astro`, `index.astro` Front Page `HeroStrip`, `recent.astro` redirect, `Masthead.astro`, `BaseLayout.astro`.
+
 ## 2026-08-15 — Staging notice lives in the bottom bar
 
 **Status:** accepted  
