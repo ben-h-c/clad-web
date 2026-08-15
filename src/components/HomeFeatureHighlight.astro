@@ -2,7 +2,7 @@
 /**
  * Home feature strip:
  * - variant "media" (default): horizontal media-hero cards (People in the news)
- * - variant "titles": thin auto-ticker title bar (Today on home)
+ * - variant "titles": thin auto-ticker title bar (Today on home; no visible section head)
  */
 import type { HomeFeatureItem } from "~/lib/homeFeatures";
 import { todayIsoNy } from "~/lib/calendarEvents";
@@ -54,11 +54,17 @@ function shortKicker(h: HomeFeatureItem): string | null {
 ---
 {items.length > 0 && (
   <section class={wrapClass} aria-label={title} data-home-features data-hf-root={stripId} data-hf-variant={variant}>
-    <div class="feed__head home-features__head">
-      <h2 class="feed__title" id={titleId}>{title}</h2>
-      <a class="category__more" href={headMoreHref}>{headMoreLabel}</a>
-    </div>
-    <div class="rule rule--double" aria-hidden="true"></div>
+    {isTitles ? (
+      <h2 class="visually-hidden" id={titleId}>{title}</h2>
+    ) : (
+      <>
+        <div class="feed__head home-features__head">
+          <h2 class="feed__title" id={titleId}>{title}</h2>
+          <a class="category__more" href={headMoreHref}>{headMoreLabel}</a>
+        </div>
+        <div class="rule rule--double" aria-hidden="true"></div>
+      </>
+    )}
 
     {isTitles ? (
       <div

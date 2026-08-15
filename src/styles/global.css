@@ -10216,18 +10216,17 @@ html.clad-app section.charts.home-app-only {
 
 /*
  * Today title bar — compact horizontal ticker of links (not media heroes).
- * Soft Neutral: card surface, rule border, teal Live pill; manual pan-x only.
+ * No visible section head (Today / Full day); visually hidden heading remains.
+ * Soft Neutral: card surface, rule border; air under the masthead so the bar
+ * still reads as a set page, not a jammed feed.
  */
 .home-features--titles {
-  margin: 0.2rem 0 0.85rem;
-}
-.home-features--titles .home-features__head {
-  margin-bottom: 0.1rem;
+  margin: 0.7rem 0 0.9rem;
 }
 .today-title-bar {
   display: flex;
   align-items: center;
-  margin: 0.45rem 0 0;
+  margin: 0;
   min-height: 2.65rem; /* ~42–48px with padding */
   padding: 0.35rem 0.55rem;
   border-radius: calc(var(--radius-stock) - 4px);

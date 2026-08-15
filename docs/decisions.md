@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-15 — Quiet home section chrome
+
+**Status:** accepted  
+**Context:** Clad Studio ticket `ticket-20260812-163735-clad--grading-content--exposing-` (poet/philosopher lens): yellow marks on Today / Full day, Breaking’s **Graded as it airs**, and Front Page’s **Desk picks** — chrome that spent height without adding meaning.  
+**Decision:** Titles-variant Today strip hides the visible section head and double rule; keep a visually hidden “Today” heading. Remove Breaking’s eyebrow. Stop defaulting Front Page’s eyebrow to Desk picks (explicit `eyebrow` still renders). Discover / Good News / People in the news unchanged. Day archive remains via calendar and menu.  
+**Consequences:** `HomeFeatureHighlight.astro` (`variant="titles"`), `BreakingStrip.astro`, `HeroStrip.astro`, `.home-features--titles` spacing in `global.css`.
+
 ## 2026-08-15 — Queue “Submit all” means the full pending list
 
 **Status:** accepted  
