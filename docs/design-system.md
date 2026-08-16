@@ -20,7 +20,7 @@ Update this file whenever tokens or major UI patterns change. Keep `.grok/skills
 
 ## Email (digest / weekly / welcome)
 
-Same Soft Neutral dark cards as the site (`src/lib/emailTheme.ts`). Each story: still, grade + lean, headline, meta, **Open report**. Mail hrefs are `https://cladfacts.com/go/posts/{id}/` (AASA-excluded, rewritten to the article — do not 302). Never put quoted font names inside `style=""`. Welcome letter is copy + CTA only — no CLAD / From Ben / Welcome kicker.
+Same Soft Neutral dark cards as the site (`src/lib/emailTheme.ts`). Each story: still, grade + lean, headline, meta, **Open report**. Mail hrefs are `https://mail.cladfacts.com/posts/{id}/` — never the apex host. Mail/Yahoo treat `cladfacts.com` as the iOS app and open home. Never put quoted font names inside `style=""`. Welcome letter is copy + CTA only — no CLAD / From Ben / Welcome kicker.
 
 ---
 

@@ -12,6 +12,8 @@ import { thumbnailUrl } from "./youtube.ts";
 
 export const EMAIL = {
   site: "https://cladfacts.com",
+  /** Host the iOS app does not claim (entitlements are applinks:cladfacts.com only). */
+  mailSite: "https://mail.cladfacts.com",
   paper: "#1C1C1E",
   paperDeep: "#161618",
   card: "#2C2C2E",
@@ -48,16 +50,15 @@ export function escAttr(s: string): string {
 }
 
 /**
- * Email-only path. /go/* is excluded from apple-app-site-association so
- * Mail/Yahoo open the page in Safari instead of launching the iOS app at
- * home. Middleware rewrites /go/posts/x/ → /posts/x/ in place (no 302 —
- * a redirect would re-trigger Universal Links on the destination).
+ * Email click-through. Must NOT use the apex host — Mail/Yahoo treat
+ * cladfacts.com as the iOS app and open home, ignoring AASA path excludes.
+ * mail.cladfacts.com is the same Worker, is not in applinks entitlements,
+ * and must never 301 onto the apex (that would re-steal the tap).
  */
 export function emailHref(path = "/"): string {
   const raw = path.startsWith("/") ? path : `/${path}`;
   const withSlash = raw.endsWith("/") || raw.includes("?") || raw.includes(".") ? raw : `${raw}/`;
-  if (withSlash === "/") return `${SITE}/go/`;
-  return `${SITE}/go${withSlash}`;
+  return `${EMAIL.mailSite}${withSlash}`;
 }
 
 /** Absolute article URL for digest/weekly cards. */

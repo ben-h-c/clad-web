@@ -8,7 +8,8 @@
   "compatibility_flags": ["nodejs_compat"],
   "routes": [
     { "pattern": "cladfacts.com", "custom_domain": true },
-    { "pattern": "www.cladfacts.com", "custom_domain": true }
+    { "pattern": "www.cladfacts.com", "custom_domain": true },
+    { "pattern": "mail.cladfacts.com", "custom_domain": true }
   ],
   // Rate-limit /api/factcheck so a leaked basic-auth credential can't burn
   // the xAI key. The endpoint is one-editor-only; 20 calls/min is generous.

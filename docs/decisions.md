@@ -28,6 +28,13 @@ Format:
 **Decision:** None — it is not an article list. It lists every civic daybook event for today through today+2 (Eastern), uncapped. Closed bar: muted count (`N scheduled` / `Quiet for three days`). Open: small-caps **Next three days**. Graded reports stay on the day dialog (`topPerDay: 2` + full day).  
 **Consequences:** `HomeCalendar.astro` + `.home-cal__coming-meta`. Do not pass `eventsFromPosts` into this card.
 
+## 2026-08-16 — Email links live on mail.cladfacts.com, not the apex
+
+**Status:** accepted  
+**Context:** `/go/` on cladfacts.com still opened the iOS app at home. Apple’s AASA CDN already excluded `/go/*`. Mail/Yahoo treat the whole apex host as the app and ignore path excludes. The App Store binary still drops https Universal Links.  
+**Decision:** Email hrefs use `https://mail.cladfacts.com/posts/{id}/` (same Worker, not in `applinks:cladfacts.com`). Do not 301 that host onto the apex. AASA no longer includes `/*`.  
+**Consequences:** `wrangler.jsonc` custom domain `mail.cladfacts.com`. `emailTheme.emailHref`. Old `/go/` rewrites remain.
+
 ## 2026-08-16 — Email links must not Universal-Link into the app at home
 
 **Status:** accepted  

@@ -208,11 +208,12 @@ const APPLE_APP_SITE_ASSOCIATION = JSON.stringify({
           { "/": "/register/*", exclude: true },
           { "/": "/reset-password/*", exclude: true },
           { "/": "/admin/*", exclude: true },
-          // Digest/welcome mail uses /go/* so Mail/Yahoo stay in Safari
-          // instead of launching the app at home with no path.
           { "/": "/go", exclude: true },
           { "/": "/go/*", exclude: true },
-          { "/": "/*" },
+          // Do not claim the rest of the site. Mail/Yahoo open the iOS app
+          // for any included cladfacts.com path and the shipped binary lands
+          // on home. Widget/push use cladfacts:// and native routing.
+          { "/": "/*", exclude: true },
         ],
       },
     ],
