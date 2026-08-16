@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-16 — Cover skin is Current plus one full-bleed lead
+
+**Status:** accepted  
+**Context:** Clad Studio ticket `ticket-20260816-102405-clad--grading-content--exposing-` (poet/philosopher): keep Current, put one gazette-format full-page article at the top of home.  
+**Decision:** Staging skin `cover`. First breaking story is a full-bleed plate (image + overlay type). Masthead, Today tape, remaining Breaking cards, and every later section stay Soft Neutral Current, including carousels. No token restyle.  
+**Consequences:** `STAGE_SKINS`, `ThemeSkinBar`, `BreakingStrip` `leadCover`, `theme-skins.css`. Production stays Current until an explicit push to prod.
+
 ## 2026-08-16 — Masthead Menu opens as four chapters
 
 **Status:** accepted  

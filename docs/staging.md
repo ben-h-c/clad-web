@@ -57,6 +57,7 @@ Bottom bar on every staging page (notice, spend toggle, and preview controls):
 | Account → Guest | `?view=anon` | Force locked grades, guest hero, paywall, Sign in |
 | Account → Signed-in | `?view=signed` | Force fullAccess (real session if present, else a fake preview user) |
 | Skin → Current | `?skin=off` | Production Soft Neutral |
+| Skin → Cover | `?skin=cover` | Current + one gazette-format full-bleed lead at the top of home. Other strips stay carousels. |
 | Skin → Packed / Folio / Broadsheet / Gazette / Cinema / Matrix / Wire | `?skin=packed` etc. | Layout experiments — not recolors. **Gazette** = Folio cover + Broadsheet nameplate. One may later be rebuilt for prod. |
 
 Cookies `clad_stage_view` and `clad_stage_skin` remember the last choice. Staging HTML/JSON is `private, no-store` so the two account views cannot share a cache.

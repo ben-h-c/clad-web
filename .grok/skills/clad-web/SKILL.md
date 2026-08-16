@@ -52,7 +52,7 @@ description: >
 | Commons hygiene | `src/lib/commonsMedia.ts`, `runner/commonsMedia.mjs` |
 | Home layout | `src/lib/homeLayout.ts` FIXED_HOME_TOP + DEFAULT_HOME_ORDER |
 | Access choke point | `src/lib/access.ts` (staging `?view=signed\|anon` preview via ALS) |
-| Staging skins | `src/styles/theme-skins.css`, `ThemeSkinBar.astro` — layout experiments, staging only |
+| Staging skins | `src/styles/theme-skins.css`, `ThemeSkinBar.astro` — layout experiments, staging only. `cover` = Current + one full-bleed home lead |
 | Anon leak guard | `scripts/checkAnonLeak.mjs` |
 | Image license | YouTube own still or `/generated/` only; `docs/legal/image-claims.md` |
 

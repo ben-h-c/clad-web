@@ -32,7 +32,7 @@ import {
 import { buildGoodNewsSections } from "~/lib/goodnews";
 import { aggregateTopics, gradeToGpa } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
-import { getAccess } from "~/lib/access";
+import { getAccess, parseStageSkin, STAGE_SKIN_COOKIE } from "~/lib/access";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 import { homePromosForPage } from "~/lib/homePromos";
 import {
@@ -67,6 +67,10 @@ export const prerender = false;
 
 const access = await getAccess(Astro.request.headers);
 const locked = !access.fullAccess;
+const stageSkin =
+  env.ENVIRONMENT === "staging"
+    ? parseStageSkin(Astro.url.searchParams.get("skin") ?? Astro.cookies.get(STAGE_SKIN_COOKIE)?.value)
+    : null;
 // Signed-in HTML shows grades — never share-cache. Anon back-nav hits the edge.
 Astro.response.headers.set(
   "Cache-Control",
@@ -420,7 +424,7 @@ const heroPostsShow = locked ? heroPosts.slice(0, ANON_STRIP_CAP) : heroPosts;
           )}
 
           {item.kind === "section" && item.id === "breaking" && (
-            <BreakingStrip items={breakingShow} locked={locked} />
+            <BreakingStrip items={breakingShow} locked={locked} leadCover={stageSkin === "cover"} />
           )}
 
           {item.kind === "section" && item.id === "front-page" && (
