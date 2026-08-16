@@ -6,7 +6,8 @@
  * ribbon. Encoding switch recolours by grade / lean / volume.
  *
  * Coming up: separate card under the calendar — daybook events for the next
- * three calendar days (today + 2), collapsible.
+ * three calendar days (today + 2), collapsible. Closed bar shows a muted
+ * count; open state names the window. Not a graded-article list.
  *
  * GATING: letter grades AND political lean stay account-gated for anonymous
  * (hard platform invariant). Free visitors default to volume colouring;
@@ -18,7 +19,7 @@ import {
   todayIsoNy,
   type CalendarEvent,
 } from "~/lib/calendarEvents";
-import type { CalendarDaySummary } from "~/lib/calendarDays";
+import { shiftIsoDate, type CalendarDaySummary } from "~/lib/calendarDays";
 import type { RaceDef } from "~/lib/races";
 
 interface Props {
@@ -45,6 +46,9 @@ const locked = Astro.props.locked ?? true;
 const today = todayIsoNy();
 const defaultMonth = today.slice(0, 7);
 const wrapClass = ["home-cal", Astro.props.class].filter(Boolean).join(" ");
+const comingEnd = shiftIsoDate(today, 2);
+const comingCount = events.filter((e) => e.date >= today && e.date <= comingEnd).length;
+const comingMeta = comingCount > 0 ? `${comingCount} scheduled` : "Quiet for three days";
 
 // Nav bounds: the record on one side, the furthest scheduled event on the
 // other, so paging can't wander into empty centuries.
@@ -154,8 +158,10 @@ const clientEvents = events.map((e) => ({
       id="home-cal-coming-toggle"
     >
       <span class="home-cal__coming-title">Coming up</span>
+      <span class="home-cal__coming-meta" data-cal-coming-count>{comingMeta}</span>
       <span class="home-cal__coming-chevron" aria-hidden="true"></span>
     </button>
+    <p class="home-cal__coming-window small-caps">Next three days</p>
     <div
       class="home-cal__coming-panel"
       id="home-cal-coming-panel"
@@ -248,6 +254,7 @@ const clientEvents = events.map((e) => ({
     const agendaEl = root.querySelector("[data-cal-agenda]");
     const comingEl = root.querySelector("[data-cal-coming]") as HTMLElement | null;
     const comingToggle = root.querySelector("[data-cal-coming-toggle]") as HTMLButtonElement | null;
+    const comingCountEl = root.querySelector("[data-cal-coming-count]");
     const swipeEl = root.querySelector("[data-cal-swipe]") as HTMLElement | null;
     const prevBtn = root.querySelector("[data-cal-prev]") as HTMLButtonElement | null;
     const nextBtn = root.querySelector("[data-cal-next]") as HTMLButtonElement | null;
@@ -672,6 +679,12 @@ const clientEvents = events.map((e) => ({
           (links ? `<div class="home-cal__event-links">${links}</div>` : "") +
           `</div></article>`
         );
+      }
+
+      if (comingCountEl) {
+        comingCountEl.textContent = coming.length
+          ? `${coming.length} scheduled`
+          : "Quiet for three days";
       }
 
       if (!coming.length) {

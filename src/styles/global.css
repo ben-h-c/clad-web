@@ -12877,6 +12877,26 @@ html.theme-dark .home-cal__pill--d {
   letter-spacing: -0.01em;
   color: var(--ink);
 }
+.home-cal__coming-meta {
+  margin-left: auto;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--muted-ink);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.home-cal__coming.is-open .home-cal__coming-meta {
+  display: none;
+}
+.home-cal__coming-window {
+  margin: -0.05rem 0.1rem 0.5rem;
+  color: var(--muted-ink);
+}
+.home-cal__coming:not(.is-open) .home-cal__coming-window {
+  display: none;
+}
 .home-cal__coming-chevron {
   flex-shrink: 0;
   width: 0.55rem;

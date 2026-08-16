@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-16 — Coming up is a three-day daybook, not articles
+
+**Status:** accepted  
+**Context:** Clad Studio ticket `ticket-20260816-100349-clad--grading-content--exposing-` asked how many articles the home **Coming up** accordion can show.  
+**Decision:** None — it is not an article list. It lists every civic daybook event for today through today+2 (Eastern), uncapped. Closed bar: muted count (`N scheduled` / `Quiet for three days`). Open: small-caps **Next three days**. Graded reports stay on the day dialog (`topPerDay: 2` + full day).  
+**Consequences:** `HomeCalendar.astro` + `.home-cal__coming-meta`. Do not pass `eventsFromPosts` into this card.
+
 ## 2026-08-16 — Masthead Menu is a flattened directory
 
 **Status:** accepted  

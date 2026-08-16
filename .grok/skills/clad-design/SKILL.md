@@ -41,6 +41,7 @@ Source: `src/lib/homeLayout.ts`.
 - **Masthead Menu:** Read / Coverage / Play / About directory (flat rows, not Product chips or nested drawers). Current page = teal left rule. Account last row is Account / Sign in, never the user name. Footer still Product / Explore / Org.
 - **People in the news:** still large media-hero strip (`variant` default / `home-features--politicians`). Includes anyone notable in current graded coverage. Politician cards (grade + “Open report card” + `/politicians/`) only for officeholders; others are story cards.
 - **Broadcast article (`/posts/[slug]/`):** title → source video → grade card → share → why. Embed / disagree stay below the why. Non-broadcast unchanged.
+- **Coming up:** civic daybook for today + next two days, no cap, no graded articles. Closed bar: muted `N scheduled` / `Quiet for three days`. Open: small-caps **Next three days**. Day-cell peeks stay the place for reports.
 
 ## Implementation rules
 
