@@ -196,36 +196,39 @@ function destFromGoPath(path: string): string | null {
   return dest.startsWith("/") ? dest : `/${dest}`;
 }
 
-const APPLE_APP_SITE_ASSOCIATION = JSON.stringify({
-  applinks: {
-    details: [
-      {
-        appIDs: ["R7AV32BX6D.com.bencody.cladfacts"],
-        components: [
-          { "/": "/api/*", exclude: true },
-          { "/": "/account/*", exclude: true },
-          { "/": "/login/*", exclude: true },
-          { "/": "/register/*", exclude: true },
-          { "/": "/reset-password/*", exclude: true },
-          { "/": "/admin/*", exclude: true },
-          { "/": "/go", exclude: true },
-          { "/": "/go/*", exclude: true },
-          // Do not claim the rest of the site. Mail/Yahoo open the iOS app
-          // for any included cladfacts.com path and the shipped binary lands
-          // on home. Widget/push use cladfacts:// and native routing.
-          { "/": "/*", exclude: true },
-        ],
-      },
-    ],
-  },
-});
+function appleAppSiteAssociation(host: string): string {
+  const onMail = host === "mail.cladfacts.com";
+  return JSON.stringify({
+    applinks: {
+      details: [
+        {
+          appIDs: ["R7AV32BX6D.com.bencody.cladfacts"],
+          components: [
+            { "/": "/api/*", exclude: true },
+            { "/": "/account/*", exclude: true },
+            { "/": "/login/*", exclude: true },
+            { "/": "/register/*", exclude: true },
+            { "/": "/reset-password/*", exclude: true },
+            { "/": "/admin/*", exclude: true },
+            { "/": "/go", exclude: true },
+            { "/": "/go/*", exclude: true },
+            // Apex stays unclaimed so the current App Store binary does not
+            // open at home. mail.cladfacts.com is claimed so a build that
+            // includes applinks:mail.cladfacts.com opens the article in-app.
+            onMail ? { "/": "/*" } : { "/": "/*", exclude: true },
+          ],
+        },
+      ],
+    },
+  });
+}
 
 async function handleRequest(context: APIContext, next: MiddlewareNext) {
   const path = context.url.pathname;
   const method = context.request.method;
 
   if (path === "/.well-known/apple-app-site-association") {
-    return new Response(APPLE_APP_SITE_ASSOCIATION, {
+    return new Response(appleAppSiteAssociation(context.url.hostname), {
       status: 200,
       headers: {
         "Content-Type": "application/json",

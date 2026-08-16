@@ -19,7 +19,7 @@ description: >
 - Auth: Better Auth (readers) + basic-auth for `/admin` and most `/api`. Welcome email (`welcomeEmail.ts`) after email verification (or on create if the provider already verified).
 - Agents: `Authorization: Bearer AGENT_TOKEN` on `/api/agent/*`.
 - Public APIs must be listed in `src/middleware.ts` `PUBLIC_API` or they return **401**.
-- **Email click-throughs:** hrefs use `https://mail.cladfacts.com/...` (Worker custom domain, not in iOS applinks). Never email `cladfacts.com` — Mail/Yahoo launch the app at home. AASA must not include `/*` until a shipped iOS binary honors https Universal Links. `/go/*` rewrite stays for already-sent mail.
+- **Email click-throughs:** hrefs use `https://mail.cladfacts.com/...`. Apex AASA must not include `/*` until a shipped iOS binary honors https Universal Links (otherwise Mail opens the app at home). mail.cladfacts.com serves the article; iOS Safari hands off to `cladfacts://post/{slug}` so the current App Store app opens that report. Next iOS build: `applinks:mail.cladfacts.com`.
 
 ## Access (do not break)
 

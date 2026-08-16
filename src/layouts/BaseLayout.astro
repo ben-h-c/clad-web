@@ -171,6 +171,20 @@ const stageView = isStaging
             window.webkit.messageHandlers.cladPurchase.postMessage({});
           }
         });
+      } else if (
+        location.hostname === 'mail.cladfacts.com' &&
+        /iPhone|iPad|iPod/i.test(navigator.userAgent || '')
+      ) {
+        // Email click-throughs land here so Yahoo/Mail do not Universal-Link
+        // the apex host. If the App Store app is installed, hand off via the
+        // cladfacts://post/{slug} scheme it already routes to the article.
+        // No app → this page stays put (the article / how-it-works HTML).
+        var post = (location.pathname || '').match(/^\/posts\/([^/]+)\/?$/);
+        if (post) {
+          // Custom scheme — the App Store binary already maps this to /posts/{slug}/.
+          // Universal Links on this host need a newer app entitlement.
+          window.location.href = 'cladfacts://post/' + post[1];
+        }
       }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />

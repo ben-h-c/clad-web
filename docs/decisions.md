@@ -35,6 +35,13 @@ Format:
 **Decision:** None — it is not an article list. It lists every civic daybook event for today through today+2 (Eastern), uncapped. Closed bar: muted count (`N scheduled` / `Quiet for three days`). Open: small-caps **Next three days**. Graded reports stay on the day dialog (`topPerDay: 2` + full day).  
 **Consequences:** `HomeCalendar.astro` + `.home-cal__coming-meta`. Do not pass `eventsFromPosts` into this card.
 
+## 2026-08-16 — Email: app if installed, browser if not
+
+**Status:** accepted  
+**Context:** Ben: a tap on iOS with the app installed should open the app to that article; browser only when the app is not there. Apex Universal Links opened the shipped app at home. Moving links to mail.cladfacts.com opened Safari every time.  
+**Decision:** Keep email hrefs on `mail.cladfacts.com`. That host serves the real page (no-app / non-iOS). On iOS Safari, a small handoff navigates to `cladfacts://post/{slug}`, which the App Store app already routes to the article. Next iOS build adds `applinks:mail.cladfacts.com` and loads https Universal Links / cold-start pending URLs so the hop can go away. Apex AASA stays unclaimed so the old binary does not steal `cladfacts.com` taps onto home.  
+**Consequences:** `BaseLayout.astro` mail-host handoff. `DeepLinkRouter` + entitlements on iOS. Do not put digest links back on the apex until the new binary is installed.
+
 ## 2026-08-16 — Email links live on mail.cladfacts.com, not the apex
 
 **Status:** accepted  
