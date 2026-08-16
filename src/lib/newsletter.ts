@@ -1,16 +1,21 @@
 /**
- * Weekly newsletter — an editorial "week in review" sent to everyone who opts
- * in (same content for all, unlike the personalized digest). Soft Neutral dark
- * email chrome matches the site dark theme.
+ * Weekly newsletter — week in review as app-like report cards + grade board.
  */
 import type { CollectionEntry } from "astro:content";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "./topics.ts";
-import { EMAIL, emailShell, escHtml, gradePill } from "./emailTheme.ts";
+import {
+  EMAIL,
+  emailSectionHead,
+  emailShell,
+  emailStoryFromPost,
+  escHtml,
+  gradePill,
+  leanChip,
+} from "./emailTheme.ts";
 
 const SITE = EMAIL.site;
-const { ink, muted, accent, rule, font, body, accentSoft, ctaText } = EMAIL;
+const { ink, muted, accent, card, rule, font, body, accentSoft, ctaText } = EMAIL;
 const WEEK = 7 * 86_400_000;
-const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 type Post = CollectionEntry<"posts">;
 
@@ -20,62 +25,20 @@ export interface NewsletterResult {
   count: number;
 }
 
-function leanLabel(s: number | null): string | null {
-  if (s == null) return null;
-  return Math.abs(s) < 5 ? "Centered" : `${Math.abs(s)}% ${s > 0 ? "Right" : "Left"}-leaning`;
-}
-function thumbUrl(d: Post["data"]): string | null {
-  if (d.thumbnail) return d.thumbnail.startsWith("/") ? SITE + d.thumbnail : d.thumbnail;
-  if (d.videoId) return `https://img.youtube.com/vi/${d.videoId}/hqdefault.jpg`;
-  return null;
-}
 function fmtDay(d: Date): string {
-  return `${MONTHS[d.getUTCMonth()]} ${d.getUTCDate()}`;
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "America/New_York" });
 }
 
-function storyRow(p: Post, showGrades: boolean): string {
+function gradeBoardRow(p: Post): string {
   const d = p.data;
-  const url = `${SITE}/posts/${p.id}/`;
-  const thumb = thumbUrl(d);
-  const meta = [d.sourceTitle ?? "", fmtDay(d.publishedAt)].filter(Boolean).join(" · ");
-  let score = "";
-  if (showGrades) {
-    const lean = leanLabel(leanScoreOf(d));
-    const bits = [
-      d.letterGrade ? gradePill(d.letterGrade) : null,
-      lean ? `<span style="font:600 13px ${font};color:${muted}">${escHtml(lean)}</span>` : null,
-    ].filter(Boolean);
-    if (bits.length) {
-      score = `<div style="margin:6px 0 4px;line-height:1.6">${bits.join(" &nbsp; ")}</div>`;
-    }
-  }
-  const thumbCell = thumb
-    ? `<td width="128" valign="top" style="padding-right:14px"><a href="${url}"><img src="${escHtml(thumb)}" width="128" height="72" alt="" style="display:block;width:128px;height:72px;object-fit:cover;border:0;border-radius:10px"></a></td>`
-    : "";
-  return `<tr><td style="padding:14px 0;border-bottom:1px solid ${rule}"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-    ${thumbCell}
-    <td valign="top">
-      <a href="${url}" style="font:700 16px ${font};color:${ink};text-decoration:none;line-height:1.3">${escHtml(d.headline)}</a>
-      <div style="font:12px ${font};color:${muted};margin:4px 0">${escHtml(meta)}</div>
-      ${score}
-      <div style="font:13px ${font};color:${body};line-height:1.5">${escHtml((d.summary || "").slice(0, 150))}…</div>
-    </td></tr></table></td></tr>`;
-}
-
-function gradeLine(p: Post): string {
-  const d = p.data;
-  return `<tr><td style="padding:8px 0;font:14px ${font};color:${ink};line-height:1.4">
-    ${d.letterGrade ? gradePill(d.letterGrade) + " " : ""}
-    <a href="${SITE}/posts/${p.id}/" style="color:${ink};text-decoration:none;font-weight:600">${escHtml(d.headline)}</a>
-    <span style="color:${muted}"> — ${escHtml(d.sourceTitle ?? "")}</span>
-  </td></tr>`;
-}
-
-function section(title: string, inner: string): string {
-  return `<tr><td style="padding:20px 28px 0">
-    <h2 style="font:700 12px ${font};letter-spacing:.08em;text-transform:uppercase;color:${accent};margin:0 0 10px;padding-bottom:6px;border-bottom:1px solid ${rule}">${title}</h2>
-    ${inner}
-  </td></tr>`;
+  const lean = leanScoreOf(d);
+  return `<tr>
+    <td width="48" valign="top" style="padding:10px 10px 10px 0">${d.letterGrade ? gradePill(d.letterGrade) : ""}</td>
+    <td valign="middle" style="padding:10px 0;border-bottom:1px solid ${rule}">
+      <a href="${SITE}/posts/${p.id}/" style="font:600 15px/1.35 ${font};color:${ink};text-decoration:none">${escHtml(d.headline)}</a>
+      <div style="font:12px ${font};color:${muted};margin-top:4px">${escHtml(d.sourceTitle ?? "")}${lean != null ? " · " : ""}${lean != null ? leanChip(lean) : ""}</div>
+    </td>
+  </tr>`;
 }
 
 export function buildNewsletter(opts: { posts: Post[]; showGrades: boolean; max?: number }): NewsletterResult | null {
@@ -104,102 +67,68 @@ export function buildNewsletter(opts: { posts: Post[]; showGrades: boolean; max?
     .filter((p) => !bestIds.has(p.id))
     .sort((a, b) => gradeToGpa(a.data.letterGrade)! - gradeToGpa(b.data.letterGrade)!)
     .slice(0, 3);
-  const leaned = fresh.filter((p) => leanScoreOf(p.data) != null);
-  const mostLeft = [...leaned].sort((a, b) => leanScoreOf(a.data)! - leanScoreOf(b.data)!)[0];
-  const mostRight = [...leaned].sort((a, b) => leanScoreOf(b.data)! - leanScoreOf(a.data)!)[0];
 
   const rangeStart = fmtDay(new Date(since));
   const rangeEnd = fmtDay(new Date(now));
 
-  const sections: string[] = [];
+  const parts: string[] = [];
 
   if (opts.showGrades) {
-    sections.push(
-      section(
-        "The week in numbers",
-        `<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr style="text-align:center">
-          <td style="padding:10px 6px;background:${accentSoft};border-radius:12px">
-            <div style="font:700 24px ${font};color:${ink}">${fresh.length}</div>
-            <div style="font:600 11px ${font};color:${muted};text-transform:uppercase;letter-spacing:0.04em">reports</div>
-          </td>
-          <td width="10"></td>
-          <td style="padding:10px 6px;background:${accentSoft};border-radius:12px">
-            <div style="font:700 24px ${font};color:${ink}">${escHtml(avgGrade ?? "—")}</div>
-            <div style="font:600 11px ${font};color:${muted};text-transform:uppercase;letter-spacing:0.04em">avg grade</div>
-          </td>
-          <td width="10"></td>
-          <td style="padding:10px 6px;background:${accentSoft};border-radius:12px">
-            <div style="font:700 16px ${font};color:${ink}">${left} · ${center} · ${right}</div>
-            <div style="font:600 11px ${font};color:${muted};text-transform:uppercase;letter-spacing:0.04em">L · C · R</div>
-          </td>
-        </tr></table>`
-      )
-    );
-  } else {
-    sections.push(
-      section(
-        "This week",
-        `<p style="font:14px ${font};color:${body};margin:0">We fact-checked <strong>${fresh.length}</strong> news reports this week.</p>`
-      )
-    );
+    parts.push(emailSectionHead("This week"));
+    parts.push(`<tr><td style="padding:0 0 8px">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+        <td width="32%" valign="top" bgcolor="${card}" style="background:${card};border:1px solid ${rule};border-radius:18px;padding:14px 8px;text-align:center">
+          <div style="font:700 22px ${font};color:${ink}">${fresh.length}</div>
+          <div style="font:700 10px ${font};letter-spacing:0.1em;text-transform:uppercase;color:${muted};margin-top:4px">Reports</div>
+        </td>
+        <td width="2%"></td>
+        <td width="32%" valign="top" bgcolor="${card}" style="background:${card};border:1px solid ${rule};border-radius:18px;padding:14px 8px;text-align:center">
+          <div style="font:700 22px ${font};color:${ink}">${escHtml(avgGrade ?? "—")}</div>
+          <div style="font:700 10px ${font};letter-spacing:0.1em;text-transform:uppercase;color:${muted};margin-top:4px">Avg grade</div>
+        </td>
+        <td width="2%"></td>
+        <td width="32%" valign="top" bgcolor="${card}" style="background:${card};border:1px solid ${rule};border-radius:18px;padding:14px 8px;text-align:center">
+          <div style="font:700 16px ${font};color:${ink};line-height:1.35">${left}<span style="color:${muted};font-weight:500"> L</span> · ${center}<span style="color:${muted};font-weight:500"> C</span> · ${right}<span style="color:${muted};font-weight:500"> R</span></div>
+          <div style="font:700 10px ${font};letter-spacing:0.1em;text-transform:uppercase;color:${muted};margin-top:4px">Lean mix</div>
+        </td>
+      </tr></table>
+    </td></tr>`);
   }
 
-  sections.push(
-    section(
-      "Top stories",
-      `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${top.map((p) => storyRow(p, opts.showGrades)).join("")}</table>`
-    )
-  );
+  parts.push(emailSectionHead("Top stories"));
+  for (const p of top) {
+    parts.push(`<tr><td style="padding:0 0 16px">${emailStoryFromPost(p, opts.showGrades)}</td></tr>`);
+  }
 
   if (opts.showGrades) {
     if (best.length) {
-      sections.push(
-        section(
-          "Top of the class",
-          `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${best.map(gradeLine).join("")}</table>`
-        )
-      );
+      parts.push(emailSectionHead("Best graded"));
+      parts.push(`<tr><td style="padding:0 0 8px;background:${card};border-radius:18px;border:1px solid ${rule}">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding:4px 14px 8px">${best.map(gradeBoardRow).join("")}</table>
+      </td></tr>`);
     }
     if (worst.length) {
-      sections.push(
-        section(
-          "Bottom of the barrel",
-          `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${worst.map(gradeLine).join("")}</table>`
-        )
-      );
-    }
-    if (mostLeft || mostRight) {
-      const rows = [
-        mostLeft
-          ? `<tr><td style="padding:8px 0;font:14px ${font}"><span style="color:${EMAIL.leanLeft};font-weight:700">◀ Most left</span> — <a href="${SITE}/posts/${mostLeft.id}/" style="color:${ink};text-decoration:none;font-weight:600">${escHtml(mostLeft.data.headline)}</a> <span style="color:${muted}">(${escHtml(leanLabel(leanScoreOf(mostLeft.data)) ?? "")})</span></td></tr>`
-          : "",
-        mostRight
-          ? `<tr><td style="padding:8px 0;font:14px ${font}"><span style="color:${EMAIL.leanRight};font-weight:700">Most right ▶</span> — <a href="${SITE}/posts/${mostRight.id}/" style="color:${ink};text-decoration:none;font-weight:600">${escHtml(mostRight.data.headline)}</a> <span style="color:${muted}">(${escHtml(leanLabel(leanScoreOf(mostRight.data)) ?? "")})</span></td></tr>`
-          : "",
-      ].join("");
-      sections.push(
-        section("Most biased coverage", `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}</table>`)
-      );
+      parts.push(emailSectionHead("Worst graded"));
+      parts.push(`<tr><td style="padding:0 0 8px;background:${card};border-radius:18px;border:1px solid ${rule}">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding:4px 14px 8px">${worst.map(gradeBoardRow).join("")}</table>
+      </td></tr>`);
     }
   } else {
-    sections.push(
-      section(
-        "Grades, swings &amp; bias",
-        `<p style="font:14px ${font};color:${body};line-height:1.55;margin:0 0 12px">The week's best- and worst-graded coverage and the most politically biased reports unlock with a <strong>free CladFacts account</strong> — no card, no trial clock.</p>
-         <a href="${SITE}/register/" style="display:inline-block;background:${accent};color:${ctaText};font:600 14px ${font};text-decoration:none;padding:11px 20px;border-radius:999px">Unlock this week's grades — free →</a>`
-      )
-    );
+    parts.push(`<tr><td style="padding:8px 18px 20px;background:${accentSoft};border-radius:18px">
+      <p style="font:14px/1.55 ${font};color:${body};margin:0 0 12px">Best- and worst-graded coverage unlocks with a free CladFacts account. No card.</p>
+      <a href="${SITE}/register/" style="display:inline-block;background:${accent};color:${ctaText};font:600 14px ${font};text-decoration:none;padding:11px 20px;border-radius:999px">See grades free</a>
+    </td></tr>`);
   }
 
   const html = emailShell({
-    title: `${rangeStart}–${rangeEnd}`,
-    subtitle: "The Weekly Review",
-    body: sections.join(""),
+    title: `${rangeStart} – ${rangeEnd}`,
+    subtitle: "Weekly review",
+    previewText: `${fresh.length} graded reports this week.`,
+    body: parts.join(""),
     ctaHref: `${SITE}/`,
-    ctaLabel: "Read CladFacts →",
-    footerNote: `You're receiving the CladFacts weekly newsletter.
-      <a href="${SITE}/account/" style="color:${muted}">Manage your email preferences</a>.
-      <br><a href="${SITE}/week/" style="color:${accent}">This week on the site: The Week in Grades →</a>`,
+    ctaLabel: "Open CladFacts",
+    footerNote: `You're getting the CladFacts weekly.
+      <a href="${SITE}/account/" style="color:${muted}">Manage email</a>.`,
   });
 
   return { subject: `CladFacts Weekly — ${rangeStart}–${rangeEnd}`, html, count: top.length };

@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-16 — Digest emails match the app report cards
+
+**Status:** accepted  
+**Context:** Ben: daily and weekly digest emails “look horrible.” They were a text list with tiny thumbs.  
+**Decision:** Rebuild email chrome as the dark Soft Neutral app: CLAD masthead, stacked 16:9 report cards, letter-grade + lean, weekly stat chips + best/worst board. Shared builders in `emailTheme.ts`.  
+**Consequences:** `digest.ts`, `newsletter.ts`, `emailTheme.ts`. Staging first.
+
 ## 2026-08-16 — Welcome email after email verification
 
 **Status:** accepted  
