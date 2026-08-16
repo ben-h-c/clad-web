@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-16 — Welcome email after email verification
+
+**Status:** accepted  
+**Context:** Ben wanted an automated thank-you for new accounts: why Clad exists (news, not propaganda; call out bias, missing context, and misleading headlines) and what to do next. Copy approved as drafted. Send after they verify, not at signup.  
+**Decision:** `afterEmailVerification` sends the founder welcome (`src/lib/welcomeEmail.ts`). Google/Apple accounts that arrive already verified get it on create. Once per user (AGENTS KV `welcome-sent:{id}`). Failures never block auth.  
+**Consequences:** `auth-server.ts`. Staging first.
+
 ## 2026-08-15 — People in the news is anyone notable; report cards are politicians only
 
 **Status:** accepted  

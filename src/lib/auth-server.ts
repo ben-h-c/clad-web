@@ -2,6 +2,7 @@ import { betterAuth } from "better-auth";
 import { D1Dialect } from "kysely-d1";
 import { env } from "cloudflare:workers";
 import { EMAIL, emailShell, escHtml } from "./emailTheme.ts";
+import { sendWelcomeEmail } from "./welcomeEmail.ts";
 
 const SITE = (env.BETTER_AUTH_URL || "https://cladfacts.com").replace(/\/$/, "");
 
@@ -217,6 +218,13 @@ export function getAuth() {
     emailVerification: hasEmail
       ? {
           sendOnSignUp: true,
+          afterEmailVerification: async (user) => {
+            try {
+              await sendWelcomeEmail(user);
+            } catch {
+              /* never block verification */
+            }
+          },
           sendVerificationEmail: async ({ user, url }) => {
             // Land on a friendly confirmation page after the link is clicked.
             let link = url;
@@ -260,6 +268,14 @@ export function getAuth() {
               );
             } catch {
               /* never block signup on a notification failure */
+            }
+            // Google/Apple accounts arrive already verified — no verify-email click.
+            if (user?.emailVerified) {
+              try {
+                await sendWelcomeEmail(user);
+              } catch {
+                /* never block signup */
+              }
             }
           },
         },
