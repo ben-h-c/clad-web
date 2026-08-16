@@ -16,21 +16,70 @@ const homeHref = isAdmin ? "/admin/" : "/";
 
 // Resolve session on the server so signed-in users never flash/see "Sign in".
 let signedIn = false;
-let accountLabel = "Account";
 if (!isAdmin) {
   try {
     const user = await getSessionUser(Astro.request.headers);
-    if (user) {
-      signedIn = true;
-      accountLabel = (user.name || user.email || "Account").trim().slice(0, 28) || "Account";
-    }
+    if (user) signedIn = true;
   } catch {
     signedIn = false;
   }
 }
 const accountHref = signedIn ? "/account/" : "/login/";
 const accountText = signedIn ? "Account" : "Sign in";
-const menuAccountText = signedIn ? accountLabel : "Sign in";
+
+function normalizeMenuPath(p: string): string {
+  if (!p || p === "/") return "/";
+  return p.endsWith("/") ? p : `${p}/`;
+}
+const here = normalizeMenuPath(Astro.url.pathname);
+function menuCurrent(href: string): boolean {
+  const h = normalizeMenuPath(href);
+  if (h === "/") return here === "/";
+  if (h === "/bracket/") return here === "/bracket/";
+  return here === h || here.startsWith(h);
+}
+
+const menuGroups: { label: string; items: { href: string; label: string }[] }[] = [
+  {
+    label: "Read",
+    items: [
+      { href: "/", label: "Home" },
+      { href: "/discover/", label: "Discover" },
+      { href: "/search/", label: "Topics" },
+      { href: "/good-news/", label: "Good news" },
+      { href: "/week/", label: "Week in Grades" },
+    ],
+  },
+  {
+    label: "Coverage",
+    items: [
+      { href: "/elections/map/", label: "Election map" },
+      { href: "/politicians/", label: "People" },
+      { href: "/trends/", label: "News Trends" },
+      { href: "/archive/", label: "Archive" },
+    ],
+  },
+  {
+    label: "Play",
+    items: [
+      { href: "/quiz/", label: "Morning quiz" },
+      { href: "/bracket/", label: "Ballot board" },
+      { href: "/bracket/votes/", label: "Community votes" },
+      { href: "/bias/", label: "Check your bias" },
+    ],
+  },
+  {
+    label: "About",
+    items: [
+      { href: "/how-it-works/", label: "How it works" },
+      { href: "/learn/", label: "New to the news?" },
+      { href: "/students/", label: "Students" },
+      { href: "/newsletter/", label: "Newsletter" },
+      { href: "/about/", label: "About" },
+      { href: "/press/", label: "Press" },
+    ],
+  },
+];
 ---
 
 <header class="masthead" data-signed-in={signedIn ? "1" : "0"}>
@@ -54,52 +103,20 @@ const menuAccountText = signedIn ? accountLabel : "Sign in";
                   <a class="masthead__menu-cta" href="/register/">See grades free</a>
                 </li>
               )}
-              <li class="masthead__popular">
-                <p class="masthead__popular-label small-caps">Product</p>
-                <ul class="masthead__popular-list">
-                  <li><a href="/">Home</a></li>
-                  <li><a href="/search/">Topics</a></li>
-                  <li><a href="/how-it-works/">How it works</a></li>
-                  <li><a id="menu-account" href={accountHref}>{menuAccountText}</a></li>
-                </ul>
-              </li>
-              <li>
-                <details class="masthead__submenu">
-                  <summary>Explore</summary>
+              {menuGroups.map((group) => (
+                <li class="masthead__menu-group">
+                  <p class="masthead__menu-heading small-caps">{group.label}</p>
                   <ul>
-                    <li><a href="/discover/">Discover</a></li>
-                    <li><a href="/elections/map/">Election map</a></li>
-                    <li><a href="/politicians/">People</a></li>
-                    <li><a href="/good-news/">Good news</a></li>
-                    <li><a href="/trends/">News Trends</a></li>
-                    <li><a href="/week/">Week in Grades</a></li>
+                    {group.items.map((item) => (
+                      <li>
+                        <a href={item.href} aria-current={menuCurrent(item.href) ? "page" : undefined}>{item.label}</a>
+                      </li>
+                    ))}
                   </ul>
-                </details>
-              </li>
-              <li>
-                <details class="masthead__submenu">
-                  <summary>Play</summary>
-                  <ul>
-                    <li><a href="/quiz/">Morning quiz</a></li>
-                    <li><a href="/bracket/">Ballot board</a></li>
-                    <li><a href="/bracket/votes/">Community votes</a></li>
-                    <li><a href="/bias/">Check your bias</a></li>
-                  </ul>
-                </details>
-              </li>
-              <li>
-                <details class="masthead__submenu">
-                  <summary>Utility</summary>
-                  <ul>
-                    <li><a href="/search/">Search</a></li>
-                    <li><a href="/newsletter/">Newsletter</a></li>
-                    <li><a href="/students/">Students</a></li>
-                    <li><a href="/learn/">New to the news?</a></li>
-                    <li><a href="/about/">About</a></li>
-                    <li><a href="/press/">Press</a></li>
-                    <li><a href="/archive/">Archive</a></li>
-                  </ul>
-                </details>
+                </li>
+              ))}
+              <li class="masthead__menu-account">
+                <a id="menu-account" href={accountHref} aria-current={menuCurrent(accountHref) ? "page" : undefined}>{accountText}</a>
               </li>
             </ul>
           </nav>
@@ -163,15 +180,6 @@ const menuAccountText = signedIn ? accountLabel : "Sign in";
         }
       });
     })();
-    // Only one submenu open at a time (accordion).
-    document.querySelectorAll(".masthead__submenu").forEach((sub) => {
-      sub.addEventListener("toggle", () => {
-        if (!sub.open) return;
-        document.querySelectorAll(".masthead__submenu").forEach((other) => {
-          if (other !== sub) other.open = false;
-        });
-      });
-    });
     // Client backup only if SSR missed a session (cookie race / bfcache).
     // Theme toggle is wired globally in BaseLayout (capture phase).
     const root = document.querySelector(".masthead");
@@ -184,7 +192,8 @@ const menuAccountText = signedIn ? accountLabel : "Sign in";
           const acct = document.getElementById("masthead-account");
           if (acct) { acct.textContent = "Account"; acct.href = "/account/"; }
           const m = document.getElementById("menu-account");
-          if (m) { m.textContent = user.name || user.email || "Account"; m.href = "/account/"; }
+          if (m) { m.textContent = "Account"; m.href = "/account/"; }
+          root.querySelector(".masthead__cta-row")?.remove();
           root.setAttribute("data-signed-in", "1");
         })
         .catch(() => {});

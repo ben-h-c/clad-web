@@ -38,6 +38,7 @@ Source: `src/lib/homeLayout.ts`.
 
 - **Today (`feature-highlight`):** thin title bar (`HomeFeatureHighlight variant="titles"`) — ticker only (no visible Today / Full day head; visually hidden heading remains), full titles + optional desk/daybook kickers, CSS auto-ticker (pause on hover/focus, reduced-motion → manual scroll), no Live pill, no media heroes. Breaking / Front Page: section name only — no see-more, no Graded as it airs / Desk picks. `/recent/` is retired (301 home). Breaking is first large visual focus.
 - **Home lead stack:** Today → Breaking → Front Page sit tighter than later sections (Current / Soft Neutral only; adjacent-sibling CSS). Do not collapse Discover / Good News / People unless asked.
+- **Masthead Menu:** Read / Coverage / Play / About directory (flat rows, not Product chips or nested drawers). Current page = teal left rule. Account last row is Account / Sign in, never the user name. Footer still Product / Explore / Org.
 - **People in the news:** still large media-hero strip (`variant` default / `home-features--politicians`). Includes anyone notable in current graded coverage. Politician cards (grade + “Open report card” + `/politicians/`) only for officeholders; others are story cards.
 - **Broadcast article (`/posts/[slug]/`):** title → source video → grade card → share → why. Embed / disagree stay below the why. Non-broadcast unchanged.
 

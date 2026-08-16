@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-16 — Masthead Menu is a flattened directory
+
+**Status:** accepted  
+**Context:** Clad Studio ticket `ticket-20260815-153658-clad--grading-content--exposing-` (poet/philosopher): open Menu mixed wrapping Product chips with Explore / Play / Utility accordions.  
+**Decision:** Flatten to one-column rows in four groups — **Read** (Home, Discover, Topics, Good news, Week in Grades), **Coverage** (Election map, People, News Trends, Archive), **Play** (Morning quiz, Ballot board, Community votes, Check your bias), **About** (How it works, New to the news?, Students, Newsletter, About, Press). Current page: teal left rule. Account: quiet last row labeled Account / Sign in — not the preview name. Search stays the magnifier. Footer IA unchanged.  
+**Consequences:** `Masthead.astro` + `.masthead__menu-*` in `global.css`. Same destinations, no nested `details`.
+
 ## 2026-08-16 — Digest emails match the app report cards
 
 **Status:** accepted  
