@@ -88,8 +88,8 @@ export function buildNewsletter(opts: { posts: Post[]; showGrades: boolean; max?
         </td>
         <td width="2%"></td>
         <td width="32%" valign="top" bgcolor="${card}" style="background:${card};border:1px solid ${rule};border-radius:18px;padding:14px 8px;text-align:center">
-          <div style="font:700 16px ${font};color:${ink};line-height:1.35">${left}<span style="color:${muted};font-weight:500"> L</span> · ${center}<span style="color:${muted};font-weight:500"> C</span> · ${right}<span style="color:${muted};font-weight:500"> R</span></div>
-          <div style="font:700 10px ${font};letter-spacing:0.1em;text-transform:uppercase;color:${muted};margin-top:4px">Lean mix</div>
+          <div style="font:700 18px ${font};color:${ink}">${left}/${center}/${right}</div>
+          <div style="font:700 10px ${font};letter-spacing:0.1em;text-transform:uppercase;color:${muted};margin-top:4px">L / C / R</div>
         </td>
       </tr></table>
     </td></tr>`);

@@ -52,7 +52,7 @@ export function gradePill(letter: string): string {
     bg = EMAIL.gradeBadBg;
     inkC = EMAIL.gradeBadInk;
   }
-  return `<span style="display:inline-block;font:700 16px/1 ${font};color:${inkC};background:${bg};border-radius:999px;min-width:36px;padding:8px 10px;text-align:center;letter-spacing:0.01em">${escHtml(letter)}</span>`;
+  return `<span style="display:inline-block;font:700 15px/1 ${font};color:${inkC};background:${bg};border:1px solid ${rule};border-radius:999px;min-width:34px;padding:7px 9px;text-align:center">${escHtml(letter)}</span>`;
 }
 
 export function leanChip(score: number | null): string {
@@ -98,9 +98,9 @@ export function emailStoryCard(opts: {
     .filter(Boolean)
     .join(" · ");
   const media = thumb
-    ? `<tr><td style="font-size:0;line-height:0">
-        <a href="${url}" style="display:block">
-          <img src="${escHtml(thumb)}" width="552" alt="" style="display:block;width:100%;max-width:552px;height:auto;border:0">
+    ? `<tr><td style="font-size:0;line-height:0;background:${paperDeep}">
+        <a href="${url}" style="display:block;text-decoration:none">
+          <img src="${escHtml(thumb)}" width="552" height="310" alt="" style="display:block;width:100%;max-width:552px;height:310px;object-fit:cover;object-position:center center;border:0">
         </a>
       </td></tr>`
     : "";
@@ -119,7 +119,7 @@ export function emailStoryCard(opts: {
     ${media}
     <tr><td bgcolor="${card}" style="padding:16px 18px 18px;background:${card}">
       ${meta ? `<div style="font:700 11px ${font};letter-spacing:0.08em;text-transform:uppercase;color:${muted};margin:0 0 8px">${escHtml(meta)}</div>` : ""}
-      <a href="${url}" style="font:700 20px/1.28 ${font};color:${ink};text-decoration:none">${escHtml(opts.headline)}</a>
+      <a href="${url}" style="font:700 20px/1.28 ${font};color:${ink};text-decoration:none"><span style="color:${ink};text-decoration:none">${escHtml(opts.headline)}</span></a>
       ${score}
       ${blurb}
     </td></tr>
@@ -189,6 +189,7 @@ export function emailShell(opts: {
 <meta name="color-scheme" content="dark">
 <meta name="supported-color-schemes" content="dark">
 <title>CladFacts</title>
+<style>a,a:link,a:visited{color:#F5F5F7!important;text-decoration:none}</style>
 </head>
 <body style="margin:0;background:${paper};padding:0;font-family:${font};color:${ink}">
 ${preview}
@@ -196,7 +197,7 @@ ${preview}
 <tr><td align="center" style="background:${paper};padding:20px 12px 32px">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto">
   <tr><td style="padding:8px 8px 20px">
-    <a href="${SITE}/" style="font:800 22px ${font};letter-spacing:0.14em;color:${ink};text-decoration:none">CLAD</a>
+    <a href="${SITE}/" style="font:800 22px ${font};letter-spacing:0.16em;color:${ink};text-decoration:none"><span style="color:${ink}">CLAD</span></a>
     ${kicker}
     ${datelineLine}
   </td></tr>
