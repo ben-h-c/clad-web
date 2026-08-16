@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-16 — Masthead Menu opens as four chapters
+
+**Status:** accepted  
+**Context:** Clad Studio ticket `ticket-20260816-100934-clad--grading-content--exposing-` (poet/philosopher): marks sat on the four group labels — Read, Coverage, Play, About. First open of Menu should show those chapters, then unfold each on its own. Revises the same-day flattened-directory decision.  
+**Decision:** Menu first paint is a four-name table of contents. Each group is a nested `<details class="masthead__menu-fold">`. Independent expand (not exclusive). Closing Menu resets every chapter. Current destination keeps the teal left rule; the chapter that contains it gets the same mark on its name. Account / Sign in stays the last row. Search stays the magnifier. Guests keep See grades free above the list. Footer IA unchanged. No chips or counts.  
+**Consequences:** `Masthead.astro` + `.masthead__menu-fold*` in `global.css`. Staging skins inherit. Do not auto-open the current chapter.
+
 ## 2026-08-16 — Coming up is a three-day daybook, not articles
 
 **Status:** accepted  

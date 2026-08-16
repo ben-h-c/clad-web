@@ -103,18 +103,26 @@ const menuGroups: { label: string; items: { href: string; label: string }[] }[] 
                   <a class="masthead__menu-cta" href="/register/">See grades free</a>
                 </li>
               )}
-              {menuGroups.map((group) => (
-                <li class="masthead__menu-group">
-                  <p class="masthead__menu-heading small-caps">{group.label}</p>
-                  <ul>
-                    {group.items.map((item) => (
-                      <li>
-                        <a href={item.href} aria-current={menuCurrent(item.href) ? "page" : undefined}>{item.label}</a>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
+              {menuGroups.map((group) => {
+                const chapterHere = group.items.some((item) => menuCurrent(item.href));
+                return (
+                  <li class="masthead__menu-group">
+                    <details class:list={["masthead__menu-fold", { "masthead__menu-fold--here": chapterHere }]}>
+                      <summary class="masthead__menu-fold-sum small-caps">
+                        <span class="masthead__menu-fold-name">{group.label}</span>
+                        <span class="masthead__menu-fold-chevron" aria-hidden="true"></span>
+                      </summary>
+                      <ul>
+                        {group.items.map((item) => (
+                          <li>
+                            <a href={item.href} aria-current={menuCurrent(item.href) ? "page" : undefined}>{item.label}</a>
+                          </li>
+                        ))}
+                      </ul>
+                    </details>
+                  </li>
+                );
+              })}
               <li class="masthead__menu-account">
                 <a id="menu-account" href={accountHref} aria-current={menuCurrent(accountHref) ? "page" : undefined}>{accountText}</a>
               </li>
@@ -163,19 +171,30 @@ const menuGroups: { label: string; items: { href: string; label: string }[] }[] 
       const syncMenuOpen = () => {
         document.documentElement.classList.toggle("masthead-menu-open", !!(menu && menu.open));
       };
+      const resetChapters = () => {
+        if (!menu) return;
+        menu.querySelectorAll(".masthead__menu-fold").forEach((fold) => {
+          fold.open = false;
+        });
+      };
       if (menu) {
-        menu.addEventListener("toggle", syncMenuOpen);
+        menu.addEventListener("toggle", () => {
+          syncMenuOpen();
+          if (!menu.open) resetChapters();
+        });
         syncMenuOpen();
       }
       document.addEventListener("click", (e) => {
         if (menu && menu.open && !menu.contains(e.target)) {
           menu.open = false;
+          resetChapters();
           syncMenuOpen();
         }
       });
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && menu && menu.open) {
           menu.open = false;
+          resetChapters();
           syncMenuOpen();
         }
       });

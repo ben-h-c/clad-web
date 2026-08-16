@@ -377,6 +377,9 @@ html.theme-dark .gradeboard__item {
   .masthead__menu-list {
     transition: none;
   }
+  .masthead__menu-fold-chevron {
+    transition: none;
+  }
 }
 
 /* Media never forces the page wider than the screen. */
@@ -1458,23 +1461,68 @@ html.masthead-menu-open .masthead__menu-list {
 }
 
 .masthead__menu-group + .masthead__menu-group {
-  margin-top: 0.2rem;
-  padding-top: 0.15rem;
+  margin-top: 0;
+  padding-top: 0;
   border-top: 1px solid var(--rule);
 }
 
-.masthead__menu-heading {
+.masthead__menu-fold {
   margin: 0;
-  padding: 0.38rem 0.95rem 0.08rem;
-  color: var(--muted-ink);
-  font-size: 0.62rem;
+}
+
+.masthead__menu-fold-sum {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  min-height: 2.55rem;
+  margin: 0;
+  padding: 0.45rem 0.95rem;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.masthead__menu-fold-sum::-webkit-details-marker,
+.masthead__menu-fold-sum::marker {
+  display: none;
+  content: "";
+}
+
+.masthead__menu-fold-sum:hover {
+  background: color-mix(in srgb, var(--ink) 6%, transparent);
+}
+
+.masthead__menu-fold-name {
+  font-size: 0.7rem;
   letter-spacing: 0.12em;
 }
 
+.masthead__menu-fold-chevron {
+  flex-shrink: 0;
+  width: 0.38rem;
+  height: 0.38rem;
+  border-right: 1.5px solid color-mix(in srgb, var(--ink) 42%, transparent);
+  border-bottom: 1.5px solid color-mix(in srgb, var(--ink) 42%, transparent);
+  transform: rotate(-45deg);
+  transition: transform var(--dur-card) var(--ease-out);
+  margin-right: 0.05rem;
+}
+
+.masthead__menu-fold[open] > .masthead__menu-fold-sum .masthead__menu-fold-chevron {
+  transform: rotate(45deg);
+}
+
+.masthead__menu-fold--here > .masthead__menu-fold-sum {
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+.masthead__menu-fold ul,
 .masthead__menu-group ul {
   list-style: none;
   margin: 0;
-  padding: 0 0 0.2rem;
+  padding: 0 0 0.28rem 0.4rem;
 }
 
 .masthead__menu-list a:not(.masthead__menu-cta) {
@@ -11939,6 +11987,7 @@ html.theme-dark .coverage-lean {
 
 /* Masthead / footer focus rings (canonical accent outline) */
 .masthead__menu > summary:focus-visible,
+.masthead__menu-fold-sum:focus-visible,
 .masthead__menu-list a:focus-visible,
 .masthead__account:focus-visible,
 .masthead__search:focus-visible,
