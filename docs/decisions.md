@@ -28,6 +28,13 @@ Format:
 **Decision:** None — it is not an article list. It lists every civic daybook event for today through today+2 (Eastern), uncapped. Closed bar: muted count (`N scheduled` / `Quiet for three days`). Open: small-caps **Next three days**. Graded reports stay on the day dialog (`topPerDay: 2` + full day).  
 **Consequences:** `HomeCalendar.astro` + `.home-cal__coming-meta`. Do not pass `eventsFromPosts` into this card.
 
+## 2026-08-16 — Email links must not Universal-Link into the app at home
+
+**Status:** accepted  
+**Context:** Tapping a digest card or welcome “How grading works” opened the CladFacts iOS app on the home feed, not the article / how-it-works page. AASA claimed `/*`. Mail handed the app an `https` URL; the app only handled `cladfacts://` and loaded home.  
+**Decision:** (1) All mail hrefs use `/go/...`. AASA excludes `/go` and `/go/*`. Middleware rewrites those paths in place — never 302 to `/posts/` (that would re-claim the link). (2) iOS loads `https` Universal Links and cold-start `NSUserActivity` into the webview.  
+**Consequences:** `emailTheme.emailHref`, `middleware.ts` AASA + `destFromGoPath`. iOS: `DeepLinkRouter.webURL`, `RootView.handleDeepLink`, `AppDelegate` continue/open. In-app routing needs an App Store binary; `/go/` works in Safari without it.
+
 ## 2026-08-16 — Email cards must link to the article; welcome has no masthead
 
 **Status:** accepted  

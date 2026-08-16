@@ -5,6 +5,7 @@ import type { CollectionEntry } from "astro:content";
 import { canonicalTopic } from "./topics.ts";
 import {
   EMAIL,
+  emailHref,
   emailSectionHead,
   emailShell,
   emailStoryFromPost,
@@ -69,7 +70,7 @@ export function buildDigest(opts: {
     subtitle: "Daily digest",
     body: bodyHtml,
     previewText: intro,
-    ctaHref: `${SITE}/`,
+    ctaHref: emailHref("/"),
     ctaLabel: "Open CladFacts",
     footerNote: `You're getting this because you turned on the news digest.
       <a href="${SITE}/account/" style="color:${muted}">Manage email</a>.`,

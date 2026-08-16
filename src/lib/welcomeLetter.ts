@@ -1,9 +1,7 @@
 /**
  * Founder welcome letter HTML — no Worker bindings so previews can import it.
  */
-import { EMAIL, emailShell, escHtml } from "./emailTheme.ts";
-
-const SITE = EMAIL.site;
+import { EMAIL, emailHref, emailShell, escHtml } from "./emailTheme.ts";
 
 export const WELCOME_SUBJECT = "Welcome to CladFacts — the news, not the spin";
 
@@ -40,7 +38,7 @@ export function welcomeEmailHtml(name?: string | null): string {
     `</p>` +
     `<p style="${p}">` +
     `If you want the method first: ` +
-    `<a href="${SITE}/how-it-works/" target="_blank" style="color:${EMAIL.accent};font-weight:600">How grading works</a>.` +
+    `<a href="${emailHref("/how-it-works/")}" style="color:${EMAIL.accent};font-weight:600">How grading works</a>.` +
     `</p>` +
     `<p style="margin:18px 0 0;font-family:${EMAIL.font};font-size:15px;font-weight:400;line-height:1.6;color:${ink}">Glad you’re here.</p>` +
     `<p style="margin:4px 0 0;font-family:${EMAIL.font};font-size:15px;font-weight:400;line-height:1.55;color:${ink}">Ben<br>` +
@@ -50,7 +48,7 @@ export function welcomeEmailHtml(name?: string | null): string {
     brand: false,
     body: `<tr><td style="padding:28px 28px 12px;background:${EMAIL.card};border-radius:18px">${bodyInner}</td></tr>`,
     footerNote: "You’re getting this because you verified a CladFacts account.",
-    ctaHref: `${SITE}/`,
+    ctaHref: emailHref("/"),
     ctaLabel: "See today’s grades",
   });
 }

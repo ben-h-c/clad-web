@@ -188,6 +188,14 @@ function applyCachePolicy(context: { request: Request }, path: string, response:
 // R7AV32BX6D + bundle com.bencody.cladfacts (see cladfacts-ios). Every content
 // path opens in the app; api / auth / account / admin stay in Safari so
 // sign-in callbacks and the editor console are never hijacked.
+/** `/go/posts/x/` → `/posts/x/`. Null if this is not an email click-through. */
+function destFromGoPath(path: string): string | null {
+  if (path === "/go" || path === "/go/") return "/";
+  if (!path.startsWith("/go/")) return null;
+  const dest = path.slice(3); // keep the slash: /go/posts/x/ → /posts/x/
+  return dest.startsWith("/") ? dest : `/${dest}`;
+}
+
 const APPLE_APP_SITE_ASSOCIATION = JSON.stringify({
   applinks: {
     details: [
@@ -200,6 +208,10 @@ const APPLE_APP_SITE_ASSOCIATION = JSON.stringify({
           { "/": "/register/*", exclude: true },
           { "/": "/reset-password/*", exclude: true },
           { "/": "/admin/*", exclude: true },
+          // Digest/welcome mail uses /go/* so Mail/Yahoo stay in Safari
+          // instead of launching the app at home with no path.
+          { "/": "/go", exclude: true },
+          { "/": "/go/*", exclude: true },
           { "/": "/*" },
         ],
       },
@@ -240,6 +252,16 @@ async function handleRequest(context: APIContext, next: MiddlewareNext) {
   if (path === "/sitemap.xml/") return context.redirect("/sitemap.xml", 301);
   if (path === "/rss.xml/") return context.redirect("/rss.xml", 301);
   if (path === "/news-sitemap.xml/") return context.redirect("/news-sitemap.xml", 301);
+
+  // Email click-through: serve the real page at /go/... so a 302 to /posts/
+  // cannot bounce into the iOS app. Browser URL stays /go/....
+  const goDest = destFromGoPath(path);
+  if (goDest != null) {
+    const res = await context.rewrite(goDest + context.url.search);
+    return withHeaders(res, (h) => {
+      h.set("X-Robots-Tag", "noindex, nofollow");
+    });
+  }
   if (AGENT_API(path)) return next();
   if (USER_API(path)) return next();
   if (COMMENTS_API(path)) return next();

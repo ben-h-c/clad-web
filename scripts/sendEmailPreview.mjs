@@ -47,6 +47,12 @@ function assertEmailSafe(html, label) {
   if (html.includes("CLAD From Ben") || /From Ben[\s\S]{0,40}Welcome/.test(html)) {
     if (label === "welcome") throw new Error("welcome still has CLAD / From Ben / Welcome masthead");
   }
+  if (label !== "welcome" && !html.includes("/go/posts/")) {
+    throw new Error(`${label}: article links must use /go/posts/ so iOS Mail does not eat the path`);
+  }
+  if (label === "welcome" && !html.includes("/go/how-it-works/")) {
+    throw new Error("welcome: How grading works must use /go/how-it-works/");
+  }
 }
 
 const outDir = "/tmp/clad-email-preview";

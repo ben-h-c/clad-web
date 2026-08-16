@@ -5,6 +5,7 @@ import type { CollectionEntry } from "astro:content";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "./topics.ts";
 import {
   EMAIL,
+  emailHref,
   emailSectionHead,
   emailShell,
   emailStoryFromPost,
@@ -37,7 +38,7 @@ function gradeBoardRow(p: Post): string {
   return `<tr>
     <td width="48" valign="top" style="padding:10px 10px 10px 0">${d.letterGrade ? gradePill(d.letterGrade) : ""}</td>
     <td valign="middle" style="padding:10px 0;border-bottom:1px solid ${rule}">
-      <a href="${escAttr(postHref(p.id))}" target="_blank" style="font-family:${font};font-size:15px;font-weight:600;line-height:1.35;color:${ink};text-decoration:none">${escHtml(d.headline)}</a>
+      <a href="${escAttr(postHref(p.id))}" style="font-family:${font};font-size:15px;font-weight:600;line-height:1.35;color:${ink};text-decoration:none">${escHtml(d.headline)}</a>
       <div style="font-family:${font};font-size:12px;color:${muted};margin-top:4px">${escHtml(d.sourceTitle ?? "")}${lean != null ? " · " : ""}${lean != null ? leanChip(lean) : ""}</div>
     </td>
   </tr>`;
@@ -127,7 +128,7 @@ export function buildNewsletter(opts: { posts: Post[]; showGrades: boolean; max?
     subtitle: "Weekly review",
     previewText: `${fresh.length} graded reports this week.`,
     body: parts.join(""),
-    ctaHref: `${SITE}/`,
+    ctaHref: emailHref("/"),
     ctaLabel: "Open CladFacts",
     footerNote: `You're getting the CladFacts weekly.
       <a href="${SITE}/account/" style="color:${muted}">Manage email</a>.`,

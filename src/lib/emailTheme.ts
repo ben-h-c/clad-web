@@ -47,12 +47,25 @@ export function escAttr(s: string): string {
   return escHtml(s);
 }
 
-/** Absolute article URL. Always https, always /posts/{id}/. */
+/**
+ * Email-only path. /go/* is excluded from apple-app-site-association so
+ * Mail/Yahoo open the page in Safari instead of launching the iOS app at
+ * home. Middleware rewrites /go/posts/x/ → /posts/x/ in place (no 302 —
+ * a redirect would re-trigger Universal Links on the destination).
+ */
+export function emailHref(path = "/"): string {
+  const raw = path.startsWith("/") ? path : `/${path}`;
+  const withSlash = raw.endsWith("/") || raw.includes("?") || raw.includes(".") ? raw : `${raw}/`;
+  if (withSlash === "/") return `${SITE}/go/`;
+  return `${SITE}/go${withSlash}`;
+}
+
+/** Absolute article URL for digest/weekly cards. */
 export function postHref(id: string): string {
   const slug = String(id || "")
     .trim()
     .replace(/^\/+|\/+$/g, "");
-  return `${SITE}/posts/${slug}/`;
+  return emailHref(`/posts/${slug}/`);
 }
 
 export function gradePill(letter: string): string {
@@ -103,7 +116,7 @@ export function emailButton(href: string, label: string, align: "left" | "center
   return `<table role="presentation" cellpadding="0" cellspacing="0" align="${align}" style="margin:14px 0 0">
     <tr>
       <td bgcolor="${accent}" style="background:${accent};border-radius:999px">
-        <a href="${escAttr(href)}" target="_blank" style="display:inline-block;padding:12px 18px;font-family:${font};font-size:14px;font-weight:700;line-height:1;color:${ctaText};text-decoration:none">${escHtml(label)}</a>
+        <a href="${escAttr(href)}" style="display:inline-block;padding:12px 18px;font-family:${font};font-size:14px;font-weight:700;line-height:1;color:${ctaText};text-decoration:none">${escHtml(label)}</a>
       </td>
     </tr>
   </table>`;
@@ -130,7 +143,7 @@ export function emailStoryCard(opts: {
     .join(" · ");
   const media = thumb
     ? `<tr><td bgcolor="${paperDeep}" style="font-size:0;line-height:0;background:${paperDeep}">
-        <a href="${safeUrl}" target="_blank" style="display:block;text-decoration:none">
+        <a href="${safeUrl}" style="display:block;text-decoration:none">
           <img src="${escAttr(thumb)}" width="600" alt="${escAttr(opts.headline)}" style="display:block;width:100%;max-width:600px;height:auto;border:0">
         </a>
       </td></tr>`
@@ -153,7 +166,7 @@ export function emailStoryCard(opts: {
     ${media}
     <tr><td bgcolor="${card}" style="padding:16px 18px 18px;background:${card}">
       ${chips}
-      <a href="${safeUrl}" target="_blank" style="font-family:${font};font-size:20px;font-weight:700;line-height:1.28;color:${ink};text-decoration:none">${escHtml(opts.headline)}</a>
+      <a href="${safeUrl}" style="font-family:${font};font-size:20px;font-weight:700;line-height:1.28;color:${ink};text-decoration:none">${escHtml(opts.headline)}</a>
       ${meta ? `<div style="font-family:${font};font-size:13px;font-style:italic;color:${muted};margin:8px 0 0">${escHtml(meta)}</div>` : ""}
       ${blurb}
       ${emailButton(url, "Open report")}
@@ -219,7 +232,7 @@ export function emailShell(opts: {
   const header =
     showBrand || opts.subtitle || opts.title
       ? `<tr><td style="padding:8px 8px 20px">
-    ${showBrand ? `<a href="${SITE}/" target="_blank" style="font-family:${font};font-size:22px;font-weight:800;letter-spacing:0.16em;color:${ink};text-decoration:none">CLAD</a>` : ""}
+    ${showBrand ? `<a href="${emailHref("/")}" style="font-family:${font};font-size:22px;font-weight:800;letter-spacing:0.16em;color:${ink};text-decoration:none">CLAD</a>` : ""}
     ${kicker}
     ${datelineLine}
   </td></tr>`

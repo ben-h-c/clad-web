@@ -19,6 +19,7 @@ description: >
 - Auth: Better Auth (readers) + basic-auth for `/admin` and most `/api`. Welcome email (`welcomeEmail.ts`) after email verification (or on create if the provider already verified).
 - Agents: `Authorization: Bearer AGENT_TOKEN` on `/api/agent/*`.
 - Public APIs must be listed in `src/middleware.ts` `PUBLIC_API` or they return **401**.
+- **Email click-throughs:** `/go/*` is excluded from apple-app-site-association. Middleware **rewrites** `/go/posts/x/` → `/posts/x/` (no 302). Do not 301/302 `/go` onto a Universal-Link path — iOS will reopen the app at home.
 
 ## Access (do not break)
 
