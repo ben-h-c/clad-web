@@ -1,10 +1,14 @@
 /**
  * Soft Neutral DARK email chrome — same tokens as the app (data-theme=dark).
- * Cards are 16:9 report tiles on charcoal paper, not a single text dump.
+ *
+ * Email clients parse HTML attributes strictly. Never put double quotes inside
+ * a style="" value (a quoted font name like "Segoe UI" splits the attribute,
+ * drops styles, and can drop the href). Font stack is quote-free on purpose.
  */
 import { dateline as siteDateline, shortDate } from "./dateline.ts";
 import { displayableThumb } from "./imagePolicy.ts";
 import { leanScoreOf } from "./topics.ts";
+import { thumbnailUrl } from "./youtube.ts";
 
 export const EMAIL = {
   site: "https://cladfacts.com",
@@ -18,7 +22,8 @@ export const EMAIL = {
   rule: "#3A3A3C",
   body: "#D1D1D6",
   ctaText: "#0E1512",
-  font: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif',
+  // Quote-free — quoted family names break style="..." in every mail client.
+  font: "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif",
   gradeABg: "#065F46",
   gradeAInk: "#A7F3D0",
   gradeBBg: "#92400E",
@@ -38,6 +43,18 @@ export function escHtml(s: string): string {
   return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
 }
 
+export function escAttr(s: string): string {
+  return escHtml(s);
+}
+
+/** Absolute article URL. Always https, always /posts/{id}/. */
+export function postHref(id: string): string {
+  const slug = String(id || "")
+    .trim()
+    .replace(/^\/+|\/+$/g, "");
+  return `${SITE}/posts/${slug}/`;
+}
+
 export function gradePill(letter: string): string {
   const t = (letter || "").charAt(0).toUpperCase();
   let bg = EMAIL.gradeCBg;
@@ -52,7 +69,9 @@ export function gradePill(letter: string): string {
     bg = EMAIL.gradeBadBg;
     inkC = EMAIL.gradeBadInk;
   }
-  return `<span style="display:inline-block;font:700 15px/1 ${font};color:${inkC};background:${bg};border:1px solid ${rule};border-radius:999px;min-width:34px;padding:7px 9px;text-align:center">${escHtml(letter)}</span>`;
+  return `<table role="presentation" cellpadding="0" cellspacing="0" style="display:inline-table;border-collapse:separate"><tr>
+    <td bgcolor="${bg}" style="background:${bg};color:${inkC};font-family:${font};font-size:15px;font-weight:700;line-height:1;padding:7px 10px;border-radius:999px;text-align:center">${escHtml(letter)}</td>
+  </tr></table>`;
 }
 
 export function leanChip(score: number | null): string {
@@ -60,7 +79,7 @@ export function leanChip(score: number | null): string {
   const abs = Math.abs(score);
   const label = abs < 5 ? "Centered" : `${abs}% ${score > 0 ? "Right" : "Left"}`;
   const color = abs < 5 ? muted : score > 0 ? EMAIL.leanRight : EMAIL.leanLeft;
-  return `<span style="font:600 13px ${font};color:${color};letter-spacing:0.01em">${escHtml(label)}</span>`;
+  return `<span style="font-family:${font};font-size:13px;font-weight:600;color:${color};letter-spacing:0.01em">${escHtml(label)}</span>`;
 }
 
 export function emailThumb(d: {
@@ -69,17 +88,28 @@ export function emailThumb(d: {
 }): string | null {
   const raw = displayableThumb(d.thumbnail ?? null);
   if (raw) return raw.startsWith("/") ? SITE + raw : raw;
-  if (d.videoId) return `https://img.youtube.com/vi/${d.videoId}/hqdefault.jpg`;
+  if (d.videoId) return thumbnailUrl(d.videoId);
   return null;
 }
 
 export function emailSectionHead(title: string): string {
   return `<tr><td style="padding:22px 4px 10px">
-    <div style="font:700 11px ${font};letter-spacing:0.12em;text-transform:uppercase;color:${accent}">${title}</div>
+    <div style="font-family:${font};font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:${accent}">${escHtml(title)}</div>
   </td></tr>`;
 }
 
-/** App report card: 16:9 still + outlet/date + headline + grade/lean. */
+/** Solid-fill button. bgcolor on the td so it still paints when CSS is stripped. */
+export function emailButton(href: string, label: string, align: "left" | "center" = "left"): string {
+  return `<table role="presentation" cellpadding="0" cellspacing="0" align="${align}" style="margin:14px 0 0">
+    <tr>
+      <td bgcolor="${accent}" style="background:${accent};border-radius:999px">
+        <a href="${escAttr(href)}" target="_blank" style="display:inline-block;padding:12px 18px;font-family:${font};font-size:14px;font-weight:700;line-height:1;color:${ctaText};text-decoration:none">${escHtml(label)}</a>
+      </td>
+    </tr>
+  </table>`;
+}
+
+/** App report card: 16:9 still + grade/lean + headline + Open report. */
 export function emailStoryCard(opts: {
   href: string;
   headline: string;
@@ -93,35 +123,40 @@ export function emailStoryCard(opts: {
   blurb?: string | null;
 }): string {
   const url = opts.href;
+  const safeUrl = escAttr(url);
   const thumb = emailThumb(opts);
-  const meta = [opts.source || "", opts.publishedAt ? shortDate(opts.publishedAt) : ""]
+  const meta = [opts.publishedAt ? shortDate(opts.publishedAt) : "", opts.source || ""]
     .filter(Boolean)
     .join(" · ");
   const media = thumb
-    ? `<tr><td style="font-size:0;line-height:0;background:${paperDeep}">
-        <a href="${url}" style="display:block;text-decoration:none">
-          <img src="${escHtml(thumb)}" width="552" height="310" alt="" style="display:block;width:100%;max-width:552px;height:310px;object-fit:cover;object-position:center center;border:0">
+    ? `<tr><td bgcolor="${paperDeep}" style="font-size:0;line-height:0;background:${paperDeep}">
+        <a href="${safeUrl}" target="_blank" style="display:block;text-decoration:none">
+          <img src="${escAttr(thumb)}" width="600" alt="${escAttr(opts.headline)}" style="display:block;width:100%;max-width:600px;height:auto;border:0">
         </a>
       </td></tr>`
     : "";
-  let score = "";
+
+  let chips = "";
   if (opts.showGrades !== false && (opts.letterGrade || opts.leanScore != null)) {
-    score = `<table role="presentation" cellpadding="0" cellspacing="0" style="margin:10px 0 0"><tr>
+    chips = `<table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 10px"><tr>
       ${opts.letterGrade ? `<td style="padding:0 10px 0 0;vertical-align:middle">${gradePill(opts.letterGrade)}</td>` : ""}
       ${opts.leanScore != null ? `<td style="vertical-align:middle">${leanChip(opts.leanScore)}</td>` : ""}
     </tr></table>`;
   }
+
   const blurb =
     opts.blurb && opts.blurb.trim()
-      ? `<div style="font:14px/1.5 ${font};color:${body};margin:10px 0 0">${escHtml(opts.blurb.trim())}</div>`
+      ? `<div style="font-family:${font};font-size:15px;line-height:1.5;color:${body};margin:10px 0 0">${escHtml(opts.blurb.trim())}</div>`
       : "";
+
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="${card}" style="background:${card};border-radius:18px;overflow:hidden;border:1px solid ${rule}">
     ${media}
     <tr><td bgcolor="${card}" style="padding:16px 18px 18px;background:${card}">
-      ${meta ? `<div style="font:700 11px ${font};letter-spacing:0.08em;text-transform:uppercase;color:${muted};margin:0 0 8px">${escHtml(meta)}</div>` : ""}
-      <a href="${url}" style="font:700 20px/1.28 ${font};color:${ink};text-decoration:none"><span style="color:${ink};text-decoration:none">${escHtml(opts.headline)}</span></a>
-      ${score}
+      ${chips}
+      <a href="${safeUrl}" target="_blank" style="font-family:${font};font-size:20px;font-weight:700;line-height:1.28;color:${ink};text-decoration:none">${escHtml(opts.headline)}</a>
+      ${meta ? `<div style="font-family:${font};font-size:13px;font-style:italic;color:${muted};margin:8px 0 0">${escHtml(meta)}</div>` : ""}
       ${blurb}
+      ${emailButton(url, "Open report")}
     </td></tr>
   </table>`;
 }
@@ -146,7 +181,7 @@ export function emailStoryFromPost(
 ): string {
   const d = p.data;
   return emailStoryCard({
-    href: `${SITE}/posts/${p.id}/`,
+    href: postHref(p.id),
     headline: d.headline,
     source: d.sourceTitle,
     publishedAt: d.publishedAt,
@@ -155,31 +190,40 @@ export function emailStoryFromPost(
     letterGrade: showGrades ? d.letterGrade ?? null : null,
     leanScore: showGrades ? leanScoreOf(d as Parameters<typeof leanScoreOf>[0]) : null,
     showGrades,
-    blurb: opts?.blurb === false ? null : (d.summary || "").replace(/\s+/g, " ").trim().slice(0, 140),
+    blurb: opts?.blurb === false ? null : (d.summary || "").replace(/\s+/g, " ").trim().slice(0, 160),
   });
 }
 
 export function emailShell(opts: {
-  title: string;
+  title?: string;
   subtitle?: string;
   body: string;
   footerNote: string;
   ctaHref?: string;
   ctaLabel?: string;
   previewText?: string;
+  /** CLAD wordmark + kicker. Off for the welcome letter. */
+  brand?: boolean;
 }): string {
+  const showBrand = opts.brand !== false;
   const cta =
     opts.ctaHref && opts.ctaLabel
-      ? `<tr><td style="padding:8px 0 20px;text-align:center">
-      <a href="${opts.ctaHref}" style="display:inline-block;background:${accent};color:${ctaText};font:600 14px ${font};text-decoration:none;padding:12px 22px;border-radius:999px">${opts.ctaLabel}</a>
-    </td></tr>`
+      ? `<tr><td style="padding:8px 0 20px" align="center">${emailButton(opts.ctaHref, opts.ctaLabel, "center")}</td></tr>`
       : "";
   const kicker = opts.subtitle
-    ? `<div style="font:700 11px ${font};letter-spacing:0.14em;text-transform:uppercase;color:${accent};margin:8px 0 0">${opts.subtitle}</div>`
+    ? `<div style="font-family:${font};font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:${accent};margin:8px 0 0">${escHtml(opts.subtitle)}</div>`
     : "";
   const datelineLine = opts.title
-    ? `<div style="font:400 13px ${font};color:${muted};margin:6px 0 0">${opts.title}</div>`
+    ? `<div style="font-family:${font};font-size:13px;color:${muted};margin:6px 0 0">${escHtml(opts.title)}</div>`
     : "";
+  const header =
+    showBrand || opts.subtitle || opts.title
+      ? `<tr><td style="padding:8px 8px 20px">
+    ${showBrand ? `<a href="${SITE}/" target="_blank" style="font-family:${font};font-size:22px;font-weight:800;letter-spacing:0.16em;color:${ink};text-decoration:none">CLAD</a>` : ""}
+    ${kicker}
+    ${datelineLine}
+  </td></tr>`
+      : "";
   const preview = opts.previewText
     ? `<div style="display:none;max-height:0;overflow:hidden;opacity:0">${escHtml(opts.previewText)}</div>`
     : "";
@@ -189,21 +233,16 @@ export function emailShell(opts: {
 <meta name="color-scheme" content="dark">
 <meta name="supported-color-schemes" content="dark">
 <title>CladFacts</title>
-<style>a,a:link,a:visited{color:#F5F5F7!important;text-decoration:none}</style>
 </head>
 <body style="margin:0;background:${paper};padding:0;font-family:${font};color:${ink}">
 ${preview}
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="${paper}" style="background:${paper}">
 <tr><td align="center" style="background:${paper};padding:20px 12px 32px">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto">
-  <tr><td style="padding:8px 8px 20px">
-    <a href="${SITE}/" style="font:800 22px ${font};letter-spacing:0.16em;color:${ink};text-decoration:none"><span style="color:${ink}">CLAD</span></a>
-    ${kicker}
-    ${datelineLine}
-  </td></tr>
+  ${header}
   ${opts.body}
   ${cta}
-  <tr><td style="padding:8px 8px 0;font:12px/1.55 ${font};color:${muted};text-align:center">
+  <tr><td style="padding:8px 8px 0;font-family:${font};font-size:12px;line-height:1.55;color:${muted};text-align:center">
     ${opts.footerNote}
     <br>© ${new Date().getUTCFullYear()} CladFacts LLC
   </td></tr>

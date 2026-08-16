@@ -28,7 +28,7 @@ Staging may run **layout experiments** (`html[data-skin]`) that change structure
 - Dark default for public guests; admin always dark (`data-force-theme`).
 - No full-screen blockers for long background work (Clad Studio lesson).
 - Copy: clear, direct, not slangy; credibility over virality.
-- **Email (digest / weekly):** same Soft Neutral dark report-card format as the site — 16:9 still, CLAD masthead, grade + lean. Not a text dump (`emailTheme.ts`).
+- **Email (digest / weekly):** same Soft Neutral dark report-card format as the site — still, grade + lean, headline, **Open report** to `https://cladfacts.com/posts/{id}/`. Font stack must be quote-free (quoted `"Segoe UI"` inside `style=""` breaks hrefs in Yahoo/Gmail). Welcome letter has **no** CLAD / From Ben / Welcome masthead (`emailTheme.ts`, `welcomeLetter.ts`).
 
 ## Home surfaces (common)
 

@@ -18,6 +18,10 @@ Update this file whenever tokens or major UI patterns change. Keep `.grok/skills
 4. Mobile-first (audience is phone-native).
 5. Dark-friendly: default dark for guests; light is an explicit choice.
 
+## Email (digest / weekly / welcome)
+
+Same Soft Neutral dark cards as the site (`src/lib/emailTheme.ts`). Each story: still, grade + lean, headline, meta, **Open report** → `https://cladfacts.com/posts/{id}/`. Never put quoted font names inside `style=""` (breaks Yahoo/Gmail attributes). Welcome letter is copy + CTA only — no CLAD / From Ben / Welcome kicker.
+
 ---
 
 ## Color tokens (light)

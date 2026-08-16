@@ -58,8 +58,8 @@ export function buildDigest(opts: {
 
   const bodyHtml =
     `<tr><td style="padding:0 4px 16px">
-      <p style="font:600 16px ${font};color:${ink};margin:0 0 6px">${hello}</p>
-      <p style="font:14px/1.5 ${font};color:${muted};margin:0">${intro}</p>
+      <p style="font-family:${font};font-size:16px;font-weight:600;color:${ink};margin:0 0 6px">${hello}</p>
+      <p style="font-family:${font};font-size:14px;line-height:1.5;color:${muted};margin:0">${intro}</p>
     </td></tr>` +
     (hasFollowed ? emailSectionHead("On your topics") : emailSectionHead("Latest reports")) +
     cards;

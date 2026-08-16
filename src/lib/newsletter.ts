@@ -8,9 +8,11 @@ import {
   emailSectionHead,
   emailShell,
   emailStoryFromPost,
+  escAttr,
   escHtml,
   gradePill,
   leanChip,
+  postHref,
 } from "./emailTheme.ts";
 
 const SITE = EMAIL.site;
@@ -35,8 +37,8 @@ function gradeBoardRow(p: Post): string {
   return `<tr>
     <td width="48" valign="top" style="padding:10px 10px 10px 0">${d.letterGrade ? gradePill(d.letterGrade) : ""}</td>
     <td valign="middle" style="padding:10px 0;border-bottom:1px solid ${rule}">
-      <a href="${SITE}/posts/${p.id}/" style="font:600 15px/1.35 ${font};color:${ink};text-decoration:none">${escHtml(d.headline)}</a>
-      <div style="font:12px ${font};color:${muted};margin-top:4px">${escHtml(d.sourceTitle ?? "")}${lean != null ? " · " : ""}${lean != null ? leanChip(lean) : ""}</div>
+      <a href="${escAttr(postHref(p.id))}" target="_blank" style="font-family:${font};font-size:15px;font-weight:600;line-height:1.35;color:${ink};text-decoration:none">${escHtml(d.headline)}</a>
+      <div style="font-family:${font};font-size:12px;color:${muted};margin-top:4px">${escHtml(d.sourceTitle ?? "")}${lean != null ? " · " : ""}${lean != null ? leanChip(lean) : ""}</div>
     </td>
   </tr>`;
 }
@@ -78,18 +80,18 @@ export function buildNewsletter(opts: { posts: Post[]; showGrades: boolean; max?
     parts.push(`<tr><td style="padding:0 0 8px">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
         <td width="32%" valign="top" bgcolor="${card}" style="background:${card};border:1px solid ${rule};border-radius:18px;padding:14px 8px;text-align:center">
-          <div style="font:700 22px ${font};color:${ink}">${fresh.length}</div>
-          <div style="font:700 10px ${font};letter-spacing:0.1em;text-transform:uppercase;color:${muted};margin-top:4px">Reports</div>
+          <div style="font-family:${font};font-size:22px;font-weight:700;color:${ink}">${fresh.length}</div>
+          <div style="font-family:${font};font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:${muted};margin-top:4px">Reports</div>
         </td>
         <td width="2%"></td>
         <td width="32%" valign="top" bgcolor="${card}" style="background:${card};border:1px solid ${rule};border-radius:18px;padding:14px 8px;text-align:center">
-          <div style="font:700 22px ${font};color:${ink}">${escHtml(avgGrade ?? "—")}</div>
-          <div style="font:700 10px ${font};letter-spacing:0.1em;text-transform:uppercase;color:${muted};margin-top:4px">Avg grade</div>
+          <div style="font-family:${font};font-size:22px;font-weight:700;color:${ink}">${escHtml(avgGrade ?? "—")}</div>
+          <div style="font-family:${font};font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:${muted};margin-top:4px">Avg grade</div>
         </td>
         <td width="2%"></td>
         <td width="32%" valign="top" bgcolor="${card}" style="background:${card};border:1px solid ${rule};border-radius:18px;padding:14px 8px;text-align:center">
-          <div style="font:700 18px ${font};color:${ink}">${left}/${center}/${right}</div>
-          <div style="font:700 10px ${font};letter-spacing:0.1em;text-transform:uppercase;color:${muted};margin-top:4px">L / C / R</div>
+          <div style="font-family:${font};font-size:18px;font-weight:700;color:${ink}">${left}/${center}/${right}</div>
+          <div style="font-family:${font};font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:${muted};margin-top:4px">L / C / R</div>
         </td>
       </tr></table>
     </td></tr>`);
@@ -115,8 +117,8 @@ export function buildNewsletter(opts: { posts: Post[]; showGrades: boolean; max?
     }
   } else {
     parts.push(`<tr><td style="padding:8px 18px 20px;background:${accentSoft};border-radius:18px">
-      <p style="font:14px/1.55 ${font};color:${body};margin:0 0 12px">Best- and worst-graded coverage unlocks with a free CladFacts account. No card.</p>
-      <a href="${SITE}/register/" style="display:inline-block;background:${accent};color:${ctaText};font:600 14px ${font};text-decoration:none;padding:11px 20px;border-radius:999px">See grades free</a>
+      <p style="font-family:${font};font-size:14px;line-height:1.55;color:${body};margin:0 0 12px">Best- and worst-graded coverage unlocks with a free CladFacts account. No card.</p>
+      <a href="${SITE}/register/" target="_blank" style="display:inline-block;background:${accent};color:${ctaText};font-family:${font};font-size:14px;font-weight:600;text-decoration:none;padding:11px 20px;border-radius:999px">See grades free</a>
     </td></tr>`);
   }
 

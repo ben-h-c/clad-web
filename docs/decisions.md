@@ -21,6 +21,13 @@ Format:
 **Decision:** None — it is not an article list. It lists every civic daybook event for today through today+2 (Eastern), uncapped. Closed bar: muted count (`N scheduled` / `Quiet for three days`). Open: small-caps **Next three days**. Graded reports stay on the day dialog (`topPerDay: 2` + full day).  
 **Consequences:** `HomeCalendar.astro` + `.home-cal__coming-meta`. Do not pass `eventsFromPosts` into this card.
 
+## 2026-08-16 — Email cards must link to the article; welcome has no masthead
+
+**Status:** accepted  
+**Context:** Test digest/weekly in Yahoo: headline/image clicks did not open the report. Layout still read as a text dump. Welcome showed “CLAD / From Ben / Welcome” above the letter.  
+**Decision:** (1) Email CSS is attribute-safe — no quoted font names in `style=""`. (2) Every story card uses `postHref(id)` on the still, the headline, and a visible **Open report** button. (3) Welcome is the founder letter only (`brand: false`). Shared builders stay in `emailTheme.ts`.  
+**Consequences:** `emailTheme.ts`, `welcomeLetter.ts`, `digest.ts`, `newsletter.ts`. Preview script asserts attributes are intact.
+
 ## 2026-08-16 — Masthead Menu is a flattened directory
 
 **Status:** accepted  
