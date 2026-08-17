@@ -28,6 +28,7 @@ Staging may run **layout experiments** (`html[data-skin]`) that change structure
 - Dark default for public guests; admin always dark (`data-force-theme`).
 - No full-screen blockers for long background work (Clad Studio lesson).
 - **Clad Studio job banner** sits in the layout stack, never as an overlay on the WebView. Staging Account / Skin / Data (`ThemeSkinBar`) is `position:fixed` at the WebView bottom and must stay tappable while a change is in flight.
+- **Clad Studio after staging:** Approve still ships staging only. Once `shipped`, the loop offers **Push to production** *and* **Request changes** (same notes sheet as the first proposal). A post-staging change request is a follow-up on the staging work, not a new ticket.
 - Copy: clear, direct, not slangy; credibility over virality.
 - **Email (digest / weekly):** same Soft Neutral dark report-card format as the site — still, grade + lean, headline, **Open report**. Font stack must be quote-free. Links must be `https://mail.cladfacts.com/posts/{id}/` — never `cladfacts.com`, which Mail/Yahoo open as the iOS app at home. Welcome letter has **no** CLAD / From Ben / Welcome masthead (`emailTheme.ts`, `welcomeLetter.ts`).
 

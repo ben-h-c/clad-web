@@ -56,7 +56,15 @@ export const POST: APIRoute = async ({ request, params }) => {
     meta.lastNote = notes || "Approved on iPad — waiting for Mac to implement on staging";
     meta.status = "implementing";
   } else if (normalized === "changes") {
-    meta.lastNote = notes || "Changes requested — waiting for Mac";
+    if (meta.status === "promoting") {
+      return json({ ok: false, error: "cannot request changes while a production push is running" }, 409);
+    }
+    const fromStaging = meta.status === "shipped";
+    meta.lastNote =
+      notes ||
+      (fromStaging
+        ? "Changes requested on staging — waiting for Mac"
+        : "Changes requested — waiting for Mac");
     meta.status = "changes_requested";
   } else {
     meta.lastNote = notes || "Push to production requested — waiting for Mac";

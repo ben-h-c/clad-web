@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-16 — Staging review can request another change
+
+**Status:** accepted  
+**Context:** After Approve shipped to staging, Clad Studio only offered **Push to production**. Ben wanted the same **Request changes** path he gets on the first proposal.  
+**Decision:** On `shipped`, the design loop shows both **Push to production** and **Request changes**. Changes re-run the proposal job as a follow-up on the staging work (do not start over). Production stays a separate confirm. Cannot request changes while a production push is in flight.  
+**Consequences:** Studio 1.3.0 (11); `DesignLoopView` `promoteActions`; companion `changes` from `shipped`; Worker lastNote from staging.
+
 ## 2026-08-16 — Cover ticker even gutters; dek is five lines
 
 **Status:** accepted  
