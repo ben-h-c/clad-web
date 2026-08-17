@@ -24,7 +24,6 @@ const views = [
 
 const skins = [
   { id: null, label: "Current" },
-  { id: "cover", label: "Cover" },
 ] as const;
 ---
 <nav class="skin-bar" aria-label="Staging previews">
@@ -45,6 +44,7 @@ const skins = [
       );
     })}
   </div>
+  {skins.length > 1 && (
   <div class="skin-bar__row">
     <span class="skin-bar__label">Skin</span>
     {skins.map((s) => {
@@ -54,6 +54,7 @@ const skins = [
       );
     })}
   </div>
+  )}
   <div class="skin-bar__row">
     <span class="skin-bar__label">Data</span>
     <button type="button" class="skin-bar__btn" id="clad-sync-prod" data-sync="/api/admin/sync-staging">

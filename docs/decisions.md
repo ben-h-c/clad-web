@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-16 — Cover is the production home lead
+
+**Status:** accepted  
+**Context:** Ben: make the Cover skin the current skin and push to prod.  
+**Decision:** Cover is no longer a staging experiment. Home always uses the Cover lead (`leadCover` on, CSS un-gated). Staging Skin row is hidden (`STAGE_SKINS = []`). `?skin=cover` / old cookies fall back to Current, which is now Cover.  
+**Consequences:** `theme-skins.css`, `index.astro`, `access.ts`, `ThemeSkinBar.astro`. Production and staging Current match.
+
 ## 2026-08-16 — Studio relay must not claim a packet on download start
 
 **Status:** accepted  

@@ -6,7 +6,7 @@
 
 Update this file whenever tokens or major UI patterns change. Keep `.grok/skills/clad-design/SKILL.md` in sync.
 
-**Staging-only skins:** `src/styles/theme-skins.css` (`html[data-skin]`). **Cover** is the only experiment — Current plus one shorter full-bleed lead at the top of home (`min-height: max(15rem, 40svh)`); other strips stay carousels. Cover Today tape sits in even **0.9rem** gutters above and below; Cover lead shows **headline + grade only** (recap hidden on the plate; full summary stays on the report). Current (no `data-skin`) remains the production baseline to compare against. Retired Packed / Folio / Broadsheet / Gazette / Cinema / Matrix / Wire cookies and `?skin=` URLs fall back to Current. Production stays Soft Neutral until Cover is selected and explicitly pushed.
+**Home lead (Cover, production):** first Breaking story is a shorter full-bleed plate (`min-height: max(15rem, 40svh)`), headline + grade only; Today tape sits in even **0.9rem** gutters; later strips stay carousels. CSS lives in `theme-skins.css` as the default (not `data-skin`). Staging Skin row is hidden until a new experiment is added (`STAGE_SKINS`). Old `?skin=cover` cookies fall back to this Current.
 
 ---
 

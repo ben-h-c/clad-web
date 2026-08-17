@@ -16,9 +16,9 @@ import { getSessionUser, type SessionUser } from "./user-data.ts";
 export type StageView = "signed" | "anon";
 export const STAGE_VIEW_COOKIE = "clad_stage_view";
 export const STAGE_SKIN_COOKIE = "clad_stage_skin";
-/** Staging layout experiments — never applied in production. Cover only. */
-export const STAGE_SKINS = ["cover"] as const;
-export type StageSkin = (typeof STAGE_SKINS)[number];
+/** Staging layout experiments. Empty: Cover is now the production home lead. */
+export const STAGE_SKINS = [] as const;
+export type StageSkin = string;
 
 const stageAls = new AsyncLocalStorage<StageView | null>();
 
@@ -36,8 +36,8 @@ export function parseStageView(raw: string | null | undefined): StageView | null
 }
 
 export function parseStageSkin(raw: string | null | undefined): StageSkin | null {
-  if (!raw || raw === "off" || raw === "current") return null;
-  return (STAGE_SKINS as readonly string[]).includes(raw) ? (raw as StageSkin) : null;
+  if (!raw || raw === "off" || raw === "current" || raw === "cover") return null;
+  return (STAGE_SKINS as readonly string[]).includes(raw) ? raw : null;
 }
 
 export const STAGING_PREVIEW_USER: SessionUser = {
