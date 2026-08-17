@@ -84,10 +84,10 @@ const stripItems = lead ? items.slice(1) : items;
         var photo = el.closest(".report-card__photo");
         if (!photo || photo.dataset.ambientReveal) return;
         photo.dataset.ambientReveal = "1";
-        // YouTube paints pause + bezel for ~1s on start. Hold the still over it.
+        // Let YouTube's start chrome finish, then fade the video in — never the still.
         setTimeout(function () {
           photo.classList.add("is-ambient-live");
-        }, 2000);
+        }, 900);
       }
       function load(el) {
         if (el.getAttribute("src")) return;
@@ -100,11 +100,12 @@ const stripItems = lead ? items.slice(1) : items;
         el.addEventListener("load", function () {
           listen(el);
           cmd(el, "mute");
+          cmd(el, "playVideo");
           reveal(el);
         }, { once: true });
       }
+      frames.forEach(load);
       if (!("IntersectionObserver" in window)) {
-        frames.forEach(load);
         return;
       }
       var io = new IntersectionObserver(function (ents) {

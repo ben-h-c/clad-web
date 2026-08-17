@@ -18,7 +18,7 @@ Format:
 
 **Status:** accepted  
 **Context:** Ben wants the top home article to play video for looks — muted, no sound. Tap still opens the article, where the real player lives. Same Cover plate format.  
-**Decision:** Cover lead only. Still stays as the poster **on top of** the iframe until ~2s after play so YouTube’s start pause/bezel never shows, then the still fades. A `youtube-nocookie` iframe mute-autoplays, no controls, `pointer-events: none`. No `playlist=`. Loop by restarting on ended. Overscan crops leftover chrome. Reduced motion: still only.  
+**Decision:** Cover lead only. Never show the thumbnail when video can play. Iframe starts under a dark plate, fades in after YouTube start chrome (~0.9s). Mute, no controls, `pointer-events: none`. No `playlist=`. Loop by restarting on ended. Overscan crops leftover chrome. Reduced motion: still only.  
 **Consequences:** `AmbientLeadVideo.astro`, `ReportCard`/`BreakingGroupCard` `ambientPlay`, `BreakingStrip` observer, `theme-skins.css`.
 
 ## 2026-08-16 — Today tape centered in 1.45rem paper
