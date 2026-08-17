@@ -74,8 +74,6 @@ export function ambientEmbedUrl(videoId: string): string {
     mute: "1",
     controls: "0",
     playsinline: "1",
-    loop: "1",
-    playlist: videoId,
     modestbranding: "1",
     rel: "0",
     disablekb: "1",
@@ -84,6 +82,7 @@ export function ambientEmbedUrl(videoId: string): string {
     cc_load_policy: "0",
     enablejsapi: "1",
   });
+  // No playlist= — that draws prev/next on first paint. Loop via JS.
   return `https://www.youtube-nocookie.com/embed/${videoId}?${q.toString()}`;
 }
 

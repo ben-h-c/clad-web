@@ -222,8 +222,9 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: max(100%, calc(100cqh * 16 / 9));
-  height: max(100%, calc(100cqw * 9 / 16));
+  /* Overscan so YouTube's start chrome (pause / skip) is cropped out. */
+  width: max(118%, calc(100cqh * 16 / 9 * 1.18));
+  height: max(118%, calc(100cqw * 9 / 16 * 1.18));
   transform: translate(-50%, -50%);
   border: 0;
   pointer-events: none;
