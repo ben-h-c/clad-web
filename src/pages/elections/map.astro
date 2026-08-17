@@ -1298,18 +1298,14 @@ const registerMap = registerHref("/elections/map/");
     transition: fill 0.12s ease, stroke-width 0.12s ease, filter 0.12s ease;
   }
   .emap-state:focus {
-    outline: 2px solid var(--ink, #1a140d);
+    outline: none;
+  }
+  .emap-state:focus-visible {
+    outline: 2px solid var(--accent, #6fb5a4);
     outline-offset: 2px;
   }
   .emap-state--hover {
-    stroke: var(--ink, #1a140d);
-    stroke-width: 1.75;
     filter: brightness(1.06);
-  }
-  .emap-state--selected {
-    stroke: var(--ink, #1a140d);
-    stroke-width: 2.25;
-    filter: brightness(1.08);
   }
 
   .emap-fill--hot { fill: #c45c2a; }

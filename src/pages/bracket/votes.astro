@@ -784,13 +784,11 @@ function partyTag(p: string | null) {
     transition: filter 0.12s ease, stroke-width 0.12s ease;
   }
   .votes-map__state:focus {
-    outline: 2px solid var(--ink, #1a140d);
-    outline-offset: 1px;
+    outline: none;
   }
-  .votes-map__state--selected {
-    stroke: var(--ink, #1a140d);
-    stroke-width: 1.8;
-    filter: brightness(1.08);
+  .votes-map__state:focus-visible {
+    outline: 2px solid var(--accent, #6fb5a4);
+    outline-offset: 2px;
   }
   .votes-map__fill--solid-d { fill: #0b3d91; }
   .votes-map__fill--likely-d { fill: #2a6fdb; }
