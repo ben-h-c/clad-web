@@ -11,7 +11,7 @@ description: >
 
 ## Staging skins (not production)
 
-Staging may run **layout experiments** (`html[data-skin]`) that change structure, type, density, and chrome — not just color. **Cover is the only experiment** — Current plus one half-viewport full-bleed lead on home; other strips stay carousels. Cover Today tape: even **0.9rem** gutters vs masthead and plate. Cover dek: **5-line** clamp (box-orient + overflow). Current stays on the bar as the production baseline. Retired Packed–Wire skins fall back to Current. Production stays Soft Neutral until Ben picks Cover and says push to prod. Recolor-only skins have already been rejected.
+Staging may run **layout experiments** (`html[data-skin]`) that change structure, type, density, and chrome — not just color. **Cover is the only experiment** — Current plus one shorter full-bleed lead on home (`min-height: max(15rem, 40svh)`); other strips stay carousels. Cover Today tape: even **0.9rem** gutters vs masthead and plate. Cover lead: **headline + grade only** — hide the recap/summary on the plate. Current stays on the bar as the production baseline. Retired Packed–Wire skins fall back to Current. Production stays Soft Neutral until Ben picks Cover and says push to prod. Recolor-only skins have already been rejected.
 
 ## Before any visual work
 

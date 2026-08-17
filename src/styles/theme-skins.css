@@ -147,7 +147,8 @@ html[data-skin] .living-bg__spark {
 /* ==========================================================================
    0. COVER — Current + one gazette-format lead
    Soft Neutral tokens, masthead, and carousels stay. Only the first
-   breaking story becomes a half-viewport plate; the rest of home is Current.
+   breaking story becomes a plate (headline + grade, no recap); the rest of
+   home is Current.
    ========================================================================== */
 
 html[data-skin="cover"] {
@@ -217,7 +218,7 @@ html[data-skin="cover"] .hero-cover .report-card--media {
 html[data-skin="cover"] .hero-cover .report-card--media .report-card__link {
   position: relative;
   display: block;
-  min-height: max(18rem, 48svh);
+  min-height: max(15rem, 40svh);
 }
 html[data-skin="cover"] .hero-cover .report-card--media .report-card__photo {
   position: absolute;
@@ -237,10 +238,10 @@ html[data-skin="cover"] .hero-cover .report-card--media .report-card__media-body
   left: 0;
   right: 0;
   bottom: 0;
-  padding: clamp(1.35rem, 4vw, 2.4rem) clamp(1rem, 3.5vw, 2.2rem) clamp(0.95rem, 2.4vw, 1.55rem);
-  background: linear-gradient(180deg, transparent 8%, rgba(16, 16, 18, 0.76) 78%);
+  padding: clamp(1.05rem, 3vw, 1.7rem) clamp(1rem, 3.5vw, 2.2rem) clamp(0.75rem, 1.8vw, 1.15rem);
+  background: linear-gradient(180deg, transparent 18%, rgba(16, 16, 18, 0.72) 86%);
   color: #f5f2eb;
-  gap: 0.42rem;
+  gap: 0.32rem;
 }
 html[data-skin="cover"] .hero-cover .report-card__headline {
   font-family: var(--font-display, inherit);
@@ -253,15 +254,8 @@ html[data-skin="cover"] .hero-cover .report-card__headline {
   text-wrap: balance;
   text-shadow: none;
 }
-html[data-skin="cover"] .hero-cover .report-card--media .report-card__summary {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-  overflow: hidden;
-  max-width: 38rem;
-  font-size: 1.02rem;
-  line-height: 1.4;
-  color: rgba(245, 242, 235, 0.84);
+html[data-skin="cover"] .hero-cover .report-card__summary {
+  display: none;
 }
 html[data-skin="cover"] .hero-cover .report-card--media .report-card__kicker--media,
 html[data-skin="cover"] .hero-cover .report-card--media .report-card__meta,
@@ -275,8 +269,8 @@ html[data-skin="cover"] .hero-cover .report-card--media .report-card__chip--lock
   color: #f5f2eb;
 }
 html[data-skin="cover"] .hero-cover .report-card:not(.report-card--media) {
-  min-height: min(36vh, 20rem);
-  padding: clamp(1.4rem, 4vw, 2.6rem) clamp(1.1rem, 3vw, 2.2rem);
+  min-height: min(28vh, 16rem);
+  padding: clamp(1.1rem, 3vw, 1.8rem) clamp(1.1rem, 3vw, 2.2rem);
   background: var(--paper-deep);
   border-radius: 0;
 }
