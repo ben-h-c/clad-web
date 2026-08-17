@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-16 — Studio relay must not claim a packet on download start
+
+**Status:** accepted  
+**Context:** iPad change request `ticket-20260816-215002` sat on queued. Mac GET claimed + dequeued the zip, then the download died. Pull no longer listed it; iPad kept polling.  
+**Decision:** GET `/api/studio/packet/:id` returns bytes only. Claim/dequeue happens after the companion has the zip and POSTs ticket status.  
+**Consequences:** `packet/[id].ts`, `pull.ts`. Recover lost tickets by downloading the zip and POSTing to the Mac `/packet` endpoint.
+
 ## 2026-08-16 — Broadcast article: no reviewer line; source under video
 
 **Status:** accepted  

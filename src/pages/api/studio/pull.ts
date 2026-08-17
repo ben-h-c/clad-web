@@ -25,7 +25,11 @@ export const GET: APIRoute = async ({ request }) => {
   for (const id of pending) {
     const meta = await getMeta(id);
     if (!meta) continue;
-    if (meta.claimedAt) continue;
+    // Re-offer packets that were claimed then lost (download died after
+    // dequeue). A live ticket is proposing+ and should not re-queue.
+    const unfinished = !meta.status || meta.status === "received" || meta.status === "queued";
+    if (meta.claimedAt && !unfinished) continue;
+    if (!unfinished) continue;
     tickets.push({
       ticketId: meta.ticketId,
       filename: meta.filename,
