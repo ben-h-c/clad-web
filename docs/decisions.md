@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-16 — Footer is About, Privacy, Terms only
+
+**Status:** accepted  
+**Context:** Ben on the iPhone staging app: the bottom was a Product / Explore / Org directory plus play note, tagline, and legal essay. “Get rid of all of this… stop adding new things. It should only have the privacy, terms, and about sections. The rest can be accessed through the menu.”  
+**Decision:** Site footer is **About · Privacy · Terms** and a quiet ©. No product/explore/org columns, no how-it-works / students / press, no play note, no method essay. Menu is the directory. Do not add new footer blocks.  
+**Consequences:** `BaseLayout.astro` colophon; `FOOTER_PRODUCT_LINKS`; students page closer removed. Supersedes “Footer IA unchanged” on the same-day menu decisions.
+
 ## 2026-08-16 — Cover lead is headline only, shorter plate
 
 **Status:** accepted  

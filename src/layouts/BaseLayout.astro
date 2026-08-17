@@ -464,41 +464,14 @@ const stageView = isStaging
         <slot />
       </main>
       <footer class="colophon">
-        <nav class="colophon__grid" aria-label="Site footer">
-          <div class="colophon__col colophon__col--product">
-            <h2 class="colophon__heading small-caps">Product</h2>
-            <a href="/how-it-works/">How it works</a>
-            <a href="/register/">See grades free</a>
-            <a href="/search/">Topics</a>
-          </div>
-          <div class="colophon__col">
-            <h2 class="colophon__heading small-caps">Explore</h2>
-            <a href="/discover/">Discover</a>
-            <a href="/elections/map/">Election map</a>
-            <a href="/politicians/">People</a>
-            <a href="/good-news/">Good news</a>
-          </div>
-          <div class="colophon__col">
-            <h2 class="colophon__heading small-caps">Org</h2>
-            <a href="/about/">About</a>
-            <a href="/students/">Students</a>
-            <a href="/press/">Press</a>
-            <a href="/privacy/">Privacy</a>
-            <a href="/terms/">Terms</a>
-          </div>
+        <nav class="colophon__legal" aria-label="Site footer">
+          <a href="/about/">About</a>
+          <span class="colophon__dot" aria-hidden="true">·</span>
+          <a href="/privacy/">Privacy</a>
+          <span class="colophon__dot" aria-hidden="true">·</span>
+          <a href="/terms/">Terms</a>
         </nav>
-        <p class="colophon__note">
-          Play (Quiz, Bracket, Bias) lives in the menu — grades stay the product.
-        </p>
-        <p>
-          Clad — AI-assisted reporting; every verdict is hand-reviewed.
-        </p>
-        <p>
-          Reports are editorial commentary and analysis based on publicly
-          available material, presented under fair use. Verdicts assess the
-          evidence, not any person.
-        </p>
-        <p>© {new Date().getFullYear()} CladFacts LLC. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} CladFacts LLC</p>
       </footer>
     </div>
     {!isAdminPath && !isStaging && <SiteTips />}

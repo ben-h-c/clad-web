@@ -137,10 +137,9 @@ export function exploreLinks(ctx: ExploreContext, opts?: { locked?: boolean }): 
   }
 }
 
-/** Compact footer links (About / method / legal only). */
+/** Site footer — About / Privacy / Terms only. Everything else is the Menu. */
 export const FOOTER_PRODUCT_LINKS: { href: string; label: string }[] = [
   { href: "/about/", label: "About" },
-  { href: "/how-it-works/", label: "How it works" },
   { href: "/privacy/", label: "Privacy" },
   { href: "/terms/", label: "Terms" },
 ];
