@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-16 — Today tape centered in 1.45rem paper
+
+**Status:** accepted  
+**Context:** Clad Studio ticket `ticket-20260816-215002-clad--grading-content--exposing-` (poet/philosopher): tape still too far from the masthead and too close to the Cover plate. Prior 0.9rem rule missed the shell’s `1.1rem` padding-top.  
+**Decision:** Clear `.home-features--titles` `margin-top`. Space below the tape is **1.45rem** (shell `1.1rem` + masthead `0.35rem`). Lead plate stays put; the bar rises into the existing band.  
+**Consequences:** `theme-skins.css` only. Supersedes the 0.9rem gutter measure from the same-day ticker ticket.
+
 ## 2026-08-16 — Cover is the production home lead
 
 **Status:** accepted  
@@ -65,7 +72,7 @@ Format:
 
 ## 2026-08-16 — Cover ticker even gutters; dek is five lines
 
-**Status:** superseded (dek now hidden — see “Cover lead is headline only”)  
+**Status:** superseded (gutters now 1.45rem — see “Today tape centered in 1.45rem paper”; dek hidden — see “Cover lead is headline only”)  
 **Context:** Clad Studio ticket `ticket-20260816-213454-clad--grading-content--exposing-` (poet/philosopher): yellow mark on the Today tape (uneven sandwich vs the Cover plate); X over the Colombia recap (full summary dumped on the still).  
 **Decision:** Cover-only. Today tape sits in **0.9rem** air above and below (below matches existing masthead-side paper). Cover lead recap was clamped to **5 lines**; later hidden entirely. Stored `summary` is unchanged.  
 **Consequences:** Gutters still stand. Dek rule replaced same day.

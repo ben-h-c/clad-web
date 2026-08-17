@@ -6,7 +6,7 @@
 
 Update this file whenever tokens or major UI patterns change. Keep `.grok/skills/clad-design/SKILL.md` in sync.
 
-**Home lead (Cover, production):** first Breaking story is a shorter full-bleed plate (`min-height: max(15rem, 40svh)`), headline + grade only; Today tape sits in even **0.9rem** gutters; later strips stay carousels. CSS lives in `theme-skins.css` as the default (not `data-skin`). Staging Skin row is hidden until a new experiment is added (`STAGE_SKINS`). Old `?skin=cover` cookies fall back to this Current.
+**Home lead (Cover, production):** first Breaking story is a shorter full-bleed plate (`min-height: max(15rem, 40svh)`), headline + grade only; Today tape sits in even **1.45rem** paper (shell `1.1rem` + masthead `0.35rem` above; matching margin below the tape); later strips stay carousels. CSS lives in `theme-skins.css` as the default (not `data-skin`). Staging Skin row is hidden until a new experiment is added (`STAGE_SKINS`). Old `?skin=cover` cookies fall back to this Current.
 
 ---
 

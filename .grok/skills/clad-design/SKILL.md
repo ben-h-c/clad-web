@@ -11,7 +11,7 @@ description: >
 
 ## Staging skins (not production)
 
-Staging may run **layout experiments** (`html[data-skin]`) that change structure, type, density, and chrome — not just color. **Cover is the production home lead** (2026-08-16): first Breaking story is a shorter full-bleed plate (`min-height: max(15rem, 40svh)`), headline + grade only, Today tape in even **0.9rem** gutters; other strips stay carousels. Staging Skin row is hidden until a new experiment exists (`STAGE_SKINS` empty). Retired Packed–Wire / `?skin=cover` fall back to this Current. Recolor-only skins have already been rejected.
+Staging may run **layout experiments** (`html[data-skin]`) that change structure, type, density, and chrome — not just color. **Cover is the production home lead** (2026-08-16): first Breaking story is a shorter full-bleed plate (`min-height: max(15rem, 40svh)`), headline + grade only, Today tape in even **1.45rem** paper (clear titles `margin-top`; match below); other strips stay carousels. Staging Skin row is hidden until a new experiment exists (`STAGE_SKINS` empty). Retired Packed–Wire / `?skin=cover` fall back to this Current. Recolor-only skins have already been rejected.
 
 ## Before any visual work
 
