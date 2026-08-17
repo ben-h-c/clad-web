@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-16 — Broadcast article: no reviewer line; source under video
+
+**Status:** accepted  
+**Context:** Ben on the iPhone app: drop “Reviewed & approved by Ben Cody”; move source below the video and above grades; video frame looked bland and over-defined; grade/lean block ate too much height. Phone first, then iPad.  
+**Decision:** Broadcast order is title → dateline → video → source line → compact scorecard → share → why. Reviewer credit lives on About, not the article. Video: no hard 1px rule, 14px radius, soft shadow, quieter play chip. Scorecard padding/type/gaps tightened; phone stacks lean label+value and drops sentiment volume + scale.  
+**Consequences:** `posts/[slug].astro`, `global.css`. Non-broadcast keeps source in the byline. Supersedes same-day “title → video → grade” order only for the source line.
+
 ## 2026-08-16 — Listing pages are spaced cards, not a flush stack
 
 **Status:** accepted  
@@ -137,7 +144,7 @@ Format:
 
 **Status:** accepted  
 **Context:** Clad Studio ticket `ticket-20260815-153038-mark-cudmore-predicts-10-year-yi` (poet/philosopher): marks asked to rearrange the report after the title — video, then grade, then share, then the why.  
-**Decision:** Broadcast `/posts/[slug]/` reads title → source video → grade card (or lock panel) → share/save → Why this grade / Why this lean → embed, disagree, and the rest. Non-broadcast posts stay as they are.  
+**Decision:** Broadcast `/posts/[slug]/` reads title → dateline → source video → source line → grade card (or lock panel) → share/save → Why this grade / Why this lean → embed, disagree, and the rest. Non-broadcast posts stay as they are. Later same-day: no reviewer byline; tighter phone scorecard.  
 **Consequences:** `src/pages/posts/[slug].astro`, `global.css` report spacing. iOS not in this packet.
 
 ## 2026-08-15 — Clad Studio browses staging as signed-in

@@ -4270,23 +4270,27 @@ html.theme-dark .peek-pop__panel {
   border-color: var(--grade-bad-rule);
 }
 
-/* Broadcast report — title → source video → grade → share → why */
+/* Broadcast report — title → video → source → grade → share → why */
 
 .report {
   margin-top: 0;
 }
 
+.report > .post__source {
+  margin: 0.45rem 0 0.7rem;
+}
+
 .report__scorecard {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
-  border: 1px solid var(--rule-faded-soft);
-  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+  border-radius: var(--radius-stock);
   background: var(--card);
   box-shadow: var(--shadow-sm);
-  padding: 1.15rem 1.25rem;
-  margin-bottom: 1.15rem;
+  padding: 0.8rem 0.95rem;
+  margin-bottom: 0.95rem;
 }
 
 .report > .post__actions {
@@ -4305,20 +4309,65 @@ html.theme-dark .peek-pop__panel {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.15rem;
   text-align: center;
 }
 
 .report__grade .small-caps {
   color: var(--muted-ink);
+  font-size: 0.62rem;
 }
 
 .report__metrics {
   flex: 1;
-  min-width: 14rem;
+  min-width: 12rem;
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
+  gap: 0.42rem;
+}
+
+.report__scorecard .letter-grade--hero {
+  font-size: clamp(1.55rem, 5vw, 2.15rem);
+  min-width: 2.85rem;
+  min-height: 2.85rem;
+  padding: 0.28rem 0.45rem;
+}
+
+.report__scorecard .factuality__head {
+  margin-bottom: 0.18rem;
+}
+
+.report__scorecard .factuality__score {
+  font-size: 1.15rem;
+}
+
+.report__scorecard .factuality__bar {
+  height: 5px;
+  border-color: color-mix(in srgb, var(--ink) 10%, transparent);
+}
+
+.report__scorecard .lean--header .lean__value,
+.report__scorecard .senti--header .senti__value {
+  font-size: 1.05rem;
+}
+
+.report__scorecard .lean__label,
+.report__scorecard .senti__label {
+  margin-bottom: 0.08rem;
+}
+
+.report__scorecard .lean__scale,
+.report__scorecard .senti__scale {
+  margin-top: 0.18rem;
+}
+
+.report__scorecard .lean__track {
+  height: 6px;
+}
+
+.report__scorecard .lean__marker {
+  width: 12px;
+  height: 12px;
 }
 
 .factuality {
@@ -4546,9 +4595,14 @@ html.theme-dark .peek-pop__panel {
   position: relative;
   aspect-ratio: 16 / 9;
   width: 100%;
-  border: 1px solid var(--rule);
-  margin-bottom: 1.5rem;
-  background: var(--ink);
+  border: 0;
+  border-radius: 14px;
+  margin-bottom: 0;
+  background: var(--paper-deep);
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--ink) 7%, transparent),
+    0 10px 28px color-mix(in srgb, var(--shadow) 14%, transparent);
 }
 
 .video-embed iframe {
@@ -4567,7 +4621,7 @@ html.theme-dark .peek-pop__panel {
   height: 100%;
   padding: 0;
   border: 0;
-  background: var(--ink);
+  background: var(--paper-deep);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -4579,7 +4633,7 @@ html.theme-dark .peek-pop__panel {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.85;
+  opacity: 0.96;
 }
 .video-facade__play {
   position: relative;
@@ -4587,30 +4641,35 @@ html.theme-dark .peek-pop__panel {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.72);
+  background: color-mix(in srgb, #0a0c10 52%, transparent);
   color: #fff;
-  font-size: 1.5rem;
-  padding-left: 5px;
+  font-size: 1.25rem;
+  padding-left: 4px;
+  border: 1px solid color-mix(in srgb, #fff 22%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   transition: background 0.15s ease;
 }
 .video-facade__btn:hover .video-facade__play,
 .video-facade__btn:focus-visible .video-facade__play {
-  background: var(--accent, rgb(150, 30, 20));
+  background: color-mix(in srgb, var(--accent) 78%, #0a0c10);
 }
 .video-facade__label {
   position: absolute;
-  left: 0.75rem;
-  bottom: 0.6rem;
+  left: 0.7rem;
+  bottom: 0.55rem;
   z-index: 1;
-  color: #fff;
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
+  color: color-mix(in srgb, #fff 88%, transparent);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 0.25rem 0.6rem;
+  background: color-mix(in srgb, #0a0c10 38%, transparent);
+  padding: 0.16rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, #fff 12%, transparent);
 }
 
 .topics {
@@ -4777,7 +4836,20 @@ html.theme-dark .peek-pop__panel {
   color: var(--muted-ink);
   font-style: italic;
   font-size: 0.95rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.post__source {
+  margin: 0;
+  color: var(--muted-ink);
+  font-style: italic;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.post__source a {
+  color: inherit;
+  text-underline-offset: 2px;
 }
 
 .post__body {
@@ -6107,9 +6179,69 @@ html.theme-dark .admin-nav__compact-panel {
   /* Long source URLs / citations wrap instead of overflowing. */
   .report-card__source,
   .post__byline,
+  .post__source,
   .sources a {
     overflow-wrap: anywhere;
     word-break: break-word;
+  }
+
+  /* Article scorecard — phone first: less height, same scan */
+  .report__scorecard {
+    gap: 0.65rem;
+    padding: 0.65rem 0.75rem;
+    margin-bottom: 0.8rem;
+  }
+  .report__metrics {
+    gap: 0.32rem;
+  }
+  .report__scorecard .letter-grade--hero {
+    font-size: 1.45rem;
+    min-width: 2.6rem;
+    min-height: 2.6rem;
+    padding: 0.22rem 0.38rem;
+  }
+  .report__scorecard .factuality__score {
+    font-size: 1.02rem;
+  }
+  .report__scorecard .lean--header,
+  .report__scorecard .senti--header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 0.45rem;
+    align-items: baseline;
+  }
+  .report__scorecard .lean__label,
+  .report__scorecard .senti__label {
+    margin: 0;
+  }
+  .report__scorecard .lean__scale,
+  .report__scorecard .senti__scale {
+    grid-column: 1 / -1;
+    margin-top: 0.12rem;
+  }
+  .report__scorecard .senti__volume {
+    display: none;
+  }
+  .report__scorecard .senti__scale {
+    display: none;
+  }
+  .video-embed {
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 6%, transparent);
+  }
+  .video-facade__play {
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
+  }
+  .post__byline {
+    margin-bottom: 0.75rem;
+    gap: 0.45rem;
+    font-size: 0.88rem;
+  }
+  .report > .post__source {
+    margin: 0.4rem 0 0.55rem;
+    font-size: 0.82rem;
   }
   /* Masthead meta can wrap if the edition line gets long. */
   .masthead__meta {

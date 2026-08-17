@@ -299,21 +299,23 @@ const breadcrumbLd = {
       <span>{dateline(d.publishedAt)}</span>
       <span>·</span>
       <span>{readMinutes} min read</span>
-      <span>·</span>
-      <span>
-        Source:{" "}
-        <a href={d.sourceUrl} rel="noopener noreferrer" target="_blank">
-          {d.sourceTitle ?? sourceHost}
-        </a>
-      </span>
-      {d.sourceTitle && (
+      {!isBroadcast && (
         <>
           <span>·</span>
-          <span><a href={`/outlets/${slugify(d.sourceTitle.trim())}/`}>All {d.sourceTitle} reports</a></span>
+          <span>
+            Source:{" "}
+            <a href={d.sourceUrl} rel="noopener noreferrer" target="_blank">
+              {d.sourceTitle ?? sourceHost}
+            </a>
+          </span>
+          {d.sourceTitle && (
+            <>
+              <span>·</span>
+              <span><a href={`/outlets/${slugify(d.sourceTitle.trim())}/`}>All {d.sourceTitle} reports</a></span>
+            </>
+          )}
         </>
       )}
-      <span>·</span>
-      <span>Reviewed &amp; approved by <a href="/about/#editor">Ben Cody</a></span>
     </div>
 
     {!isBroadcast && (
@@ -401,6 +403,19 @@ const breadcrumbLd = {
             </button>
           </div>
         )}
+
+        <p class="post__source">
+          Source:{" "}
+          <a href={d.sourceUrl} rel="noopener noreferrer" target="_blank">
+            {d.sourceTitle ?? sourceHost}
+          </a>
+          {d.sourceTitle && (
+            <>
+              {" · "}
+              <a href={`/outlets/${slugify(d.sourceTitle.trim())}/`}>All {d.sourceTitle} reports</a>
+            </>
+          )}
+        </p>
 
         {locked ? (
           <div class="report__locked">

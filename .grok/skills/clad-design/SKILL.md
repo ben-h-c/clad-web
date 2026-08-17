@@ -44,7 +44,7 @@ Source: `src/lib/homeLayout.ts`.
 - **Footer:** About · Privacy · Terms and a quiet © line. Do **not** add product, explore, play, students, press, how-it-works, or essays to the footer. Those live in Menu. Do not invent new footer blocks.
 - **Listing feeds** (Discover, Good News, topics, grades, outlets, breaking clusters): stacked Soft Neutral cards with **1.15rem** gap — not a hairline flush stack. Bar-card dek clamps to **3 lines**. Do not dump the full summary on listing pages.
 - **People in the news:** still large media-hero strip (`variant` default / `home-features--politicians`). Includes anyone notable in current graded coverage. Politician cards (grade + “Open report card” + `/politicians/`) only for officeholders; others are story cards.
-- **Broadcast article (`/posts/[slug]/`):** title → source video → grade card → share → why. Embed / disagree stay below the why. Non-broadcast unchanged.
+- **Broadcast article (`/posts/[slug]/`):** title → dateline/read time → source video → source line → compact grade card → share → why. No “Reviewed & approved by” byline. Video frame is soft (radius, no hard rule). Phone first: tighter scorecard; iPad keeps the same order with slightly more air. Embed / disagree stay below the why. Non-broadcast unchanged (source stays in the byline).
 - **Coming up:** civic daybook for today + next two days, no cap, no graded articles. Closed bar: muted `N scheduled` / `Quiet for three days`. Open: small-caps **Next three days**. Day-cell peeks stay the place for reports.
 
 ## Implementation rules
