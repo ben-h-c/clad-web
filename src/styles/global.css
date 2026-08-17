@@ -2905,45 +2905,43 @@ html.theme-dark .peek-pop__panel {
   margin: 0.5rem 0 0;
 }
 
-/* Bar variant — full-width horizontal row for the vertical feed */
+/* Bar variant — stacked Soft Neutral cards on Discover / Good News / topics */
 
 .feed-list {
   display: flex;
   flex-direction: column;
+  gap: 1.15rem;
 }
 
 .report-card--bar {
-  border: none;
-  border-top: 1px solid var(--rule);
-  border-radius: 0;
-  padding: 1.25rem 0;
-  background: transparent;
-  box-shadow: none;
+  border: 1px solid var(--rule-faded-soft);
+  border-radius: var(--radius-stock);
+  padding: 0;
+  background-color: var(--card);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
   transform: none;
 }
 
 .report-card--bar:hover,
 .report-card--bar:focus-within {
   transform: none;
-  border-color: transparent;
-  border-top-color: var(--rule);
-  box-shadow: none;
-}
-
-.report-card--bar:last-child {
-  border-bottom: 1px solid var(--rule);
+  border-color: var(--rule-faded-soft);
+  box-shadow: var(--shadow-sm);
 }
 
 .report-card--bar .report-card__link {
   flex-direction: row;
-  gap: 1.25rem;
+  gap: 1rem;
   align-items: flex-start;
+  padding: 0.9rem 0.95rem;
 }
 
 .report-card--bar .report-card__thumb {
-  flex: 0 0 14rem;
+  flex: 0 0 13rem;
   max-width: 38%;
   margin-bottom: 0;
+  border-radius: 12px;
 }
 
 .report-card--bar .report-card__body {
@@ -2952,22 +2950,52 @@ html.theme-dark .peek-pop__panel {
 }
 
 .report-card--bar .report-card__headline {
-  font-size: 1.35rem;
+  font-size: 1.22rem;
 }
 
 .report-card--bar .report-card__summary {
-  font-size: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.report-card--bar .report-card__source {
+  padding: 0 0.95rem 0.85rem;
+  margin: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .report-card--bar:hover,
+  .report-card--bar:focus-within {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--accent) 22%, var(--rule-faded-soft));
+    box-shadow: var(--shadow-md);
+  }
 }
 
 @media (max-width: 560px) {
   .report-card--bar .report-card__link {
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0;
+    padding: 0;
   }
   .report-card--bar .report-card__thumb {
     flex-basis: auto;
     max-width: 100%;
     width: 100%;
+    border-radius: 0;
+  }
+  .report-card--bar .report-card__body {
+    padding: 0.85rem 1rem 0.25rem;
+  }
+  .report-card--bar .report-card__source {
+    padding: 0.1rem 1rem 0.9rem;
+  }
+  .report-card--bar .scoreband {
+    margin: 0 0 0.65rem;
   }
 }
 
@@ -3031,7 +3059,7 @@ html.theme-dark .peek-pop__panel {
   border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
   border-radius: 4px;
   padding: 0.85rem 0.9rem;
-  margin: 0.55rem 0;
+  margin: 0;
   background: color-mix(in srgb, var(--paper) 80%, transparent);
   box-shadow:
     0 1px 0 color-mix(in srgb, #fff 45%, transparent),
@@ -3718,11 +3746,9 @@ html.theme-dark .peek-pop__panel {
   .topic-page__title {
     font-size: clamp(2.1rem, 3.2vw, 3rem);
   }
-  .topic-page .report-card--bar {
-    padding: 1.4rem 0;
-  }
   .topic-page .report-card--bar .report-card__link {
-    gap: 1.5rem;
+    gap: 1.25rem;
+    padding: 1rem 1.05rem;
   }
   .topic-page .report-card--bar .report-card__thumb {
     flex: 0 0 17.5rem;
@@ -7578,7 +7604,7 @@ a.auth-submit {
   line-height: 1.05;
 }
 .discover__lede { max-width: 42rem; color: var(--ink); line-height: 1.55; margin: 0; }
-.discover-sec { margin: 2rem 0; }
+.discover-sec { margin: 2.25rem 0 2.75rem; }
 .discover-sec__title {
   font-family: var(--font-display);
   font-size: 1.5rem;

@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-16 — Listing pages are spaced cards, not a flush stack
+
+**Status:** accepted  
+**Context:** Ben on the iPhone staging app: Discover / Good News / other listing pages looked sloppy — articles bunched together (full recap then the next still slammed into it).  
+**Decision:** `.feed-list` uses **1.15rem** gap. `report-card--bar` is a Soft Neutral card (radius, paper, light shadow), not a hairline row. Summary clamps to **3 lines**. Mobile photo is flush to the card top; type and source sit inside the card.  
+**Consequences:** `global.css` only. Discover, Good News, topics, grades, outlets, breaking, bias share `.feed-list`.
+
 ## 2026-08-16 — Footer is About, Privacy, Terms only
 
 **Status:** accepted  
