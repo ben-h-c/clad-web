@@ -14,7 +14,6 @@ import {
   STAGE_SKIN_COOKIE,
   STAGE_VIEW_COOKIE,
 } from "~/lib/access";
-import MatrixRain from "~/components/MatrixRain.astro";
 import { OG_VERSIONS } from "~/lib/ogCard";
 import { env } from "cloudflare:workers";
 
@@ -386,7 +385,6 @@ const stageView = isStaging
   </head>
   <body>
     {isStaging && <ThemeSkinBar currentSkin={skin} currentView={stageView} />}
-    {isStaging && skin === "matrix" && <MatrixRain />}
     {isStaging && (
       <script is:inline>
         (function () {

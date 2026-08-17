@@ -6,7 +6,7 @@
 
 Update this file whenever tokens or major UI patterns change. Keep `.grok/skills/clad-design/SKILL.md` in sync.
 
-**Staging-only skins:** `src/styles/theme-skins.css` (`html[data-skin]`). These are layout experiments (Cover, Packed, Folio, Broadsheet, Gazette, Cinema, Matrix, Wire), not token recolors. **Cover** is Current with one gazette-format full-bleed lead at the top of home; everything else stays Soft Neutral. **Gazette** combines Folio’s magazine cover lead with Broadsheet’s newspaper nameplate and column well. Production must stay Soft Neutral until one is selected and explicitly pushed.
+**Staging-only skins:** `src/styles/theme-skins.css` (`html[data-skin]`). **Cover** is the only experiment — Current plus one half-viewport full-bleed lead at the top of home; other strips stay carousels. Current (no `data-skin`) remains the production baseline to compare against. Retired Packed / Folio / Broadsheet / Gazette / Cinema / Matrix / Wire cookies and `?skin=` URLs fall back to Current. Production stays Soft Neutral until Cover is selected and explicitly pushed.
 
 ---
 

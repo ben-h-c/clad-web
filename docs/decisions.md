@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-16 — Cover lead is half-viewport; Cover is the only staging skin
+
+**Status:** accepted  
+**Context:** Clad Studio ticket `ticket-20260816-213304-clad--grading-content--exposing-` (poet/philosopher): yellow stroke at mid-cover; get rid of the other skins and work off Cover.  
+**Decision:** Cover plate `min-height: max(18rem, 48svh)` with overlay type tightened (smaller hed, two-line dek). `STAGE_SKINS` is `["cover"]` only. ThemeSkinBar keeps Current + Cover. Packed, Folio, Broadsheet, Gazette, Cinema, Matrix, and Wire are retired (CSS deleted; old `?skin=` / cookies fall back to Current). Matrix rain include removed.  
+**Consequences:** Restore retired skins from git if a later experiment needs them. Production stays Current until an explicit push to prod.
+
 ## 2026-08-16 — Cover skin is Current plus one full-bleed lead
 
 **Status:** accepted  
