@@ -207,9 +207,15 @@ html {
   container-type: size;
 }
 .hero-cover .report-card--media .report-card__photo img {
+  position: relative;
+  z-index: 2;
   object-fit: cover;
   object-position: center 28%;
   filter: saturate(0.9) contrast(1.03);
+  transition: opacity 0.45s ease;
+}
+.hero-cover .report-card__photo.is-ambient-live img {
+  opacity: 0;
 }
 .hero-cover .report-card__ambient {
   position: absolute;
@@ -222,9 +228,9 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  /* Overscan so YouTube's start chrome (pause / skip) is cropped out. */
-  width: max(118%, calc(100cqh * 16 / 9 * 1.18));
-  height: max(118%, calc(100cqw * 9 / 16 * 1.18));
+  /* Overscan crops leftover YouTube chrome after the poster lifts. */
+  width: max(128%, calc(100cqh * 16 / 9 * 1.28));
+  height: max(128%, calc(100cqw * 9 / 16 * 1.28));
   transform: translate(-50%, -50%);
   border: 0;
   pointer-events: none;
@@ -239,7 +245,7 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 2;
+  z-index: 3;
   padding: clamp(1.05rem, 3vw, 1.7rem) clamp(1rem, 3.5vw, 2.2rem) clamp(0.75rem, 1.8vw, 1.15rem);
   background: linear-gradient(180deg, transparent 18%, rgba(16, 16, 18, 0.72) 86%);
   color: #f5f2eb;

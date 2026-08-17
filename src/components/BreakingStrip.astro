@@ -80,6 +80,15 @@ const stripItems = lead ? items.slice(1) : items;
           );
         } catch (e) {}
       }
+      function reveal(el) {
+        var photo = el.closest(".report-card__photo");
+        if (!photo || photo.dataset.ambientReveal) return;
+        photo.dataset.ambientReveal = "1";
+        // YouTube paints pause + bezel for ~1s on start. Hold the still over it.
+        setTimeout(function () {
+          photo.classList.add("is-ambient-live");
+        }, 2000);
+      }
       function load(el) {
         if (el.getAttribute("src")) return;
         var src = el.getAttribute("data-ambient-src");
@@ -88,7 +97,11 @@ const stripItems = lead ? items.slice(1) : items;
           src += "&origin=" + encodeURIComponent(location.origin);
         }
         el.setAttribute("src", src);
-        el.addEventListener("load", function () { listen(el); cmd(el, "mute"); }, { once: true });
+        el.addEventListener("load", function () {
+          listen(el);
+          cmd(el, "mute");
+          reveal(el);
+        }, { once: true });
       }
       if (!("IntersectionObserver" in window)) {
         frames.forEach(load);
@@ -115,11 +128,14 @@ const stripItems = lead ? items.slice(1) : items;
         if (typeof data === "string") {
           try { data = JSON.parse(data); } catch (err) { return; }
         }
-        if (!data || data.event !== "onStateChange" || data.info !== 0) return;
+        if (!data || data.event !== "onStateChange") return;
         frames.forEach(function (el) {
-          cmd(el, "seekTo", [0, true]);
-          cmd(el, "mute");
-          cmd(el, "playVideo");
+          if (data.info === 1) reveal(el);
+          if (data.info === 0) {
+            cmd(el, "seekTo", [0, true]);
+            cmd(el, "mute");
+            cmd(el, "playVideo");
+          }
         });
       });
     })();
