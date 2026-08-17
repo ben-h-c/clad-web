@@ -6,7 +6,7 @@
 
 Update this file whenever tokens or major UI patterns change. Keep `.grok/skills/clad-design/SKILL.md` in sync.
 
-**Staging-only skins:** `src/styles/theme-skins.css` (`html[data-skin]`). **Cover** is the only experiment — Current plus one half-viewport full-bleed lead at the top of home; other strips stay carousels. Current (no `data-skin`) remains the production baseline to compare against. Retired Packed / Folio / Broadsheet / Gazette / Cinema / Matrix / Wire cookies and `?skin=` URLs fall back to Current. Production stays Soft Neutral until Cover is selected and explicitly pushed.
+**Staging-only skins:** `src/styles/theme-skins.css` (`html[data-skin]`). **Cover** is the only experiment — Current plus one half-viewport full-bleed lead at the top of home; other strips stay carousels. Cover Today tape sits in even **0.9rem** gutters above and below; Cover lead recap clamps to **5 lines** (full summary stays on the report). Current (no `data-skin`) remains the production baseline to compare against. Retired Packed / Folio / Broadsheet / Gazette / Cinema / Matrix / Wire cookies and `?skin=` URLs fall back to Current. Production stays Soft Neutral until Cover is selected and explicitly pushed.
 
 ---
 

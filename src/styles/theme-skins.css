@@ -182,8 +182,13 @@ html[data-skin="cover"] .hero-strip__item {
   scroll-snap-align: start;
 }
 
+/* Even paper around the Today tape: 0.9rem matches masthead-side air
+ * (.masthead padding-bottom 0.35rem + titles margin-top 0.55rem). */
+html[data-skin="cover"] .home-features--titles {
+  margin-bottom: 0;
+}
 html[data-skin="cover"] .home-features--titles + .hero--breaking-cover {
-  margin-top: 0.2rem;
+  margin-top: 0.9rem;
 }
 html[data-skin="cover"] .hero--breaking-cover > .hero__head {
   margin-top: 1.15rem;
@@ -250,11 +255,13 @@ html[data-skin="cover"] .hero-cover .report-card__headline {
 }
 html[data-skin="cover"] .hero-cover .report-card--media .report-card__summary {
   display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
   max-width: 38rem;
   font-size: 1.02rem;
   line-height: 1.4;
   color: rgba(245, 242, 235, 0.84);
-  -webkit-line-clamp: 2;
 }
 html[data-skin="cover"] .hero-cover .report-card--media .report-card__kicker--media,
 html[data-skin="cover"] .hero-cover .report-card--media .report-card__meta,

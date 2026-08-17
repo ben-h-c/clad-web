@@ -14,11 +14,18 @@ Format:
 
 ---
 
+## 2026-08-16 — Cover ticker even gutters; dek is five lines
+
+**Status:** accepted  
+**Context:** Clad Studio ticket `ticket-20260816-213454-clad--grading-content--exposing-` (poet/philosopher): yellow mark on the Today tape (uneven sandwich vs the Cover plate); X over the Colombia recap (full summary dumped on the still).  
+**Decision:** Cover-only. Today tape sits in **0.9rem** air above and below (below matches existing masthead-side paper). Cover lead recap clamps to **5 lines** (`-webkit-box-orient` + `overflow` so the clamp actually holds). Stored `summary` is unchanged — article, iOS, and Current still get the full text. Do not restore the 2-line dek unless asked.  
+**Consequences:** `theme-skins.css` only. Current skin untouched.
+
 ## 2026-08-16 — Cover lead is half-viewport; Cover is the only staging skin
 
 **Status:** accepted  
 **Context:** Clad Studio ticket `ticket-20260816-213304-clad--grading-content--exposing-` (poet/philosopher): yellow stroke at mid-cover; get rid of the other skins and work off Cover.  
-**Decision:** Cover plate `min-height: max(18rem, 48svh)` with overlay type tightened (smaller hed, two-line dek). `STAGE_SKINS` is `["cover"]` only. ThemeSkinBar keeps Current + Cover. Packed, Folio, Broadsheet, Gazette, Cinema, Matrix, and Wire are retired (CSS deleted; old `?skin=` / cookies fall back to Current). Matrix rain include removed.  
+**Decision:** Cover plate `min-height: max(18rem, 48svh)` with overlay type tightened (smaller hed). Dek later set to five lines — see same-day “Cover ticker even gutters” entry. `STAGE_SKINS` is `["cover"]` only. ThemeSkinBar keeps Current + Cover. Packed, Folio, Broadsheet, Gazette, Cinema, Matrix, and Wire are retired (CSS deleted; old `?skin=` / cookies fall back to Current). Matrix rain include removed.  
 **Consequences:** Restore retired skins from git if a later experiment needs them. Production stays Current until an explicit push to prod.
 
 ## 2026-08-16 — Cover skin is Current plus one full-bleed lead
