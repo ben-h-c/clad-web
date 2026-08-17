@@ -11,6 +11,7 @@ import {
 import LetterGrade from "~/components/LetterGrade.astro";
 import { gradeToGpa, gpaToGrade, leanScoreOf } from "~/lib/topics";
 import type { CollectionEntry } from "astro:content";
+import AmbientLeadVideo from "~/components/AmbientLeadVideo.astro";
 
 interface Props {
   slug: string;
@@ -19,8 +20,9 @@ interface Props {
   members: CollectionEntry<"posts">[];
   locked?: boolean;
   peek?: boolean;
+  ambientPlay?: boolean;
 }
-const { slug, title, topic, members, locked = false, peek = true } = Astro.props;
+const { slug, title, topic, members, locked = false, peek = true, ambientPlay = false } = Astro.props;
 
 const gpas = members.map((p) => gradeToGpa(p.data.letterGrade)).filter((n): n is number => n != null);
 const leans = members.map((p) => leanScoreOf(p.data)).filter((n): n is number => n != null);
@@ -44,6 +46,9 @@ const hqFallback =
   thumb && /^https:\/\/(img\.youtube\.com|i\.ytimg\.com)\//.test(thumb)
     ? byNew.find((p) => p.data.videoId)?.data.videoId
     : undefined;
+const ambientId =
+  (artPost?.data.videoId && /^[\w-]{11}$/.test(artPost.data.videoId) ? artPost.data.videoId : null)
+  ?? (byNew.find((p) => p.data.videoId && /^[\w-]{11}$/.test(p.data.videoId))?.data.videoId ?? null);
 
 const leanCompact =
   avgLean === null
@@ -85,6 +90,7 @@ const cardClass = [
             style={`object-position: ${focusStyle}`}
             onerror={hqFallback ? `this.onerror=null;this.src='https://img.youtube.com/vi/${hqFallback}/hqdefault.jpg'` : undefined}
           />
+          {ambientPlay && ambientId && <AmbientLeadVideo videoId={ambientId} />}
         </div>
         <div class="report-card__media-body">
           <span class="report-card__grouptag report-card__grouptag--media small-caps">

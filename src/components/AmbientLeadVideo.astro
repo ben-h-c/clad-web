@@ -1,0 +1,18 @@
+---
+import { ambientEmbedUrl } from "~/lib/youtube";
+
+interface Props {
+  videoId: string;
+}
+const { videoId } = Astro.props;
+const src = ambientEmbedUrl(videoId);
+---
+<div class="report-card__ambient" aria-hidden="true">
+  <iframe
+    data-ambient-src={src}
+    title=""
+    tabindex="-1"
+    allow="autoplay; encrypted-media"
+    referrerpolicy="strict-origin-when-cross-origin"
+  ></iframe>
+</div>

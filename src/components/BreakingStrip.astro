@@ -12,7 +12,7 @@ interface Props {
   locked?: boolean;
   /** Post id unlocked as today's free sample for restricted readers. */
   unlockedId?: string | null;
-  /** Staging Cover skin: first story is a full-bleed plate; rest stay the strip. */
+  /** First story is a full-bleed plate; rest stay the strip. */
   leadCover?: boolean;
 }
 const { items, locked = false, unlockedId = null, leadCover = false } = Astro.props;
@@ -24,9 +24,9 @@ const stripItems = lead ? items.slice(1) : items;
     {lead && (
       <div class="hero-cover">
         {lead.kind === "group" ? (
-          <BreakingGroupCard slug={lead.slug} title={lead.title} topic={lead.topic} members={lead.members} locked={locked} />
+          <BreakingGroupCard slug={lead.slug} title={lead.title} topic={lead.topic} members={lead.members} locked={locked} ambientPlay />
         ) : (
-          <ReportCard post={lead.post} locked={locked && lead.post.id !== unlockedId} sample={locked && lead.post.id === unlockedId} />
+          <ReportCard post={lead.post} locked={locked && lead.post.id !== unlockedId} sample={locked && lead.post.id === unlockedId} ambientPlay />
         )}
       </div>
     )}
@@ -55,4 +55,44 @@ const stripItems = lead ? items.slice(1) : items;
       </>
     )}
   </section>
+)}
+{lead && (
+  <script is:inline>
+    (() => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      var frames = document.querySelectorAll(".hero-cover [data-ambient-src]");
+      if (!frames.length) return;
+      function cmd(el, fn) {
+        try {
+          if (!el.contentWindow) return;
+          el.contentWindow.postMessage(
+            JSON.stringify({ event: "command", func: fn, args: [] }),
+            "*"
+          );
+        } catch (e) {}
+      }
+      function load(el) {
+        if (el.getAttribute("src")) return;
+        var src = el.getAttribute("data-ambient-src");
+        if (src) el.setAttribute("src", src);
+      }
+      if (!("IntersectionObserver" in window)) {
+        frames.forEach(load);
+        return;
+      }
+      var io = new IntersectionObserver(function (ents) {
+        ents.forEach(function (e) {
+          var el = e.target;
+          if (e.isIntersecting) {
+            load(el);
+            cmd(el, "mute");
+            cmd(el, "playVideo");
+          } else {
+            cmd(el, "pauseVideo");
+          }
+        });
+      }, { threshold: 0.2 });
+      frames.forEach(function (f) { io.observe(f); });
+    })();
+  </script>
 )}

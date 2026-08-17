@@ -17,6 +17,7 @@ import {
 } from "~/lib/mediaPresentation";
 import type { CollectionEntry } from "astro:content";
 import { LOCK_CHIP, LOCK_CHIP_ARIA, CTA_PRIMARY } from "~/lib/productCopy";
+import AmbientLeadVideo from "~/components/AmbientLeadVideo.astro";
 
 interface Props {
   post: CollectionEntry<"posts">;
@@ -31,8 +32,10 @@ interface Props {
    * html.clad-app).
    */
   peek?: boolean;
+  /** Home Cover lead: mute-loop the source video under the still. Tap still opens the article. */
+  ambientPlay?: boolean;
 }
-const { post, variant = "card", locked = false, sample = false, peek = false } = Astro.props;
+const { post, variant = "card", locked = false, sample = false, peek = false, ambientPlay = false } = Astro.props;
 const showLocked = locked && !sample;
 const d = post.data;
 const isBroadcast = d.type === "broadcast";
@@ -103,6 +106,7 @@ const cardClass = [
             style={`object-position: ${focusStyle}`}
             onerror={hq ? `this.onerror=null;this.src='${hq}'` : undefined}
           />
+          {ambientPlay && d.videoId && <AmbientLeadVideo videoId={d.videoId} />}
         </div>
         <div class="report-card__media-body">
           {sample && <span class="sample-badge sample-badge--on-media small-caps">Today's free sample</span>}
