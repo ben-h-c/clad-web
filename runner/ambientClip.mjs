@@ -5,7 +5,7 @@
  *
  *   cd runner && node --env-file=.env ambientClip.mjs
  *
- * Only auto-runs from the breaking curator when WORKER_BASE_URL is staging.
+ * Auto-runs from the breaking curator so the Cover clip tracks the lead.
  */
 import { spawnSync } from "node:child_process";
 import { mkdtempSync, readFileSync, rmSync } from "node:fs";
