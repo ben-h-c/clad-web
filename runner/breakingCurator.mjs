@@ -129,14 +129,12 @@ export async function runBreakingCurator(agent) {
   const groupCount = items.filter((i) => i.type === "group").length;
   const articleCount = items.reduce((n, i) => n + (i.type === "group" ? i.ids.length : 1), 0);
   let ambientNote = "";
-  if (/staging/.test(process.env.WORKER_BASE_URL || "")) {
-    try {
-      const { ensureAmbientClip } = await import("./ambientClip.mjs");
-      const clip = await ensureAmbientClip();
-      ambientNote = `; ambient ${clip.ok ? clip.message : `skip ${clip.message}`}`;
-    } catch (err) {
-      ambientNote = `; ambient skip ${err?.message || err}`;
-    }
+  try {
+    const { ensureAmbientClip } = await import("./ambientClip.mjs");
+    const clip = await ensureAmbientClip();
+    ambientNote = `; ambient ${clip.ok ? clip.message : `skip ${clip.message}`}`;
+  } catch (err) {
+    ambientNote = `; ambient skip ${err?.message || err}`;
   }
   return {
     ok: true,

@@ -385,3 +385,30 @@ export function interleaveHomeTopics(
 
   return items;
 }
+
+/** Post ids already on Breaking (singles + every member of a group). */
+export function idsInBreaking(
+  items: Array<
+    | { kind: "post"; post: { id: string } }
+    | { kind: "group"; members: Array<{ id: string }> }
+  >
+): Set<string> {
+  const ids = new Set<string>();
+  for (const it of items) {
+    if (it.kind === "post") ids.add(it.post.id);
+    else for (const m of it.members) ids.add(m.id);
+  }
+  return ids;
+}
+
+/** Front Page never repeats a Breaking story. Breaking keeps the slot. */
+export function excludeBreakingFromFrontPage<T extends { id: string }>(
+  posts: T[],
+  breakingIds: Iterable<string>
+): T[] {
+  const ban = new Set(
+    [...breakingIds].map((id) => String(id || "").trim()).filter(Boolean)
+  );
+  if (ban.size === 0) return posts;
+  return posts.filter((p) => !ban.has(p.id));
+}

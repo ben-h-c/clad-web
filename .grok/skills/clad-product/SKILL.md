@@ -24,6 +24,7 @@ Charter: `docs/daily-review.md`. Map: `docs/platform-brief.md`.
 
 - Registration unlocks scoreboard; Premium supports newsroom (`BILLING_ENABLED` currently **false** → all verified users full access).
 - Soft Neutral Card visual system.
+- Home: Breaking and Front Page never share the same article (Breaking keeps the slot).
 - Privacy-first analytics (aggregates only).
 - YouTube ingest via allow-listed channels + manual URL intake (no keyword Categories admin).
 - Clad Studio → Mac companion → Grok for design-to-code.

@@ -40,6 +40,8 @@ import {
   resolveHomeOrder,
   interleaveHomeTopics,
   HOME_TOPICS_SPREAD,
+  idsInBreaking,
+  excludeBreakingFromFrontPage,
 } from "~/lib/homeLayout";
 import { buildHomeFeatureItems } from "~/lib/homeFeatures";
 import {
@@ -124,13 +126,8 @@ const discoverStore = homeBundle.discover;
 const goodNewsStore = homeBundle.goodNews;
 
 // Hero = Front Page Curator selection. Fall back to featured, then most-recent.
+// Breaking overlap is stripped after the Breaking strip is built (below).
 let heroPosts = curated.map((id) => byId.get(id)).filter((p) => p !== undefined);
-if (heroPosts.length === 0) {
-  const flagged = all.filter((p) => p.data.featured);
-  heroPosts = flagged.length > 0 ? flagged : all.slice(0, 8);
-}
-// Home is a curated front page — not an infinite archive. Cap hard.
-heroPosts = heroPosts.slice(0, 12);
 
 // Breaking = impact-ordered; cap for mobile length.
 // If KV was wiped empty (e.g. dry curator run), fall back to newest outlet posts
@@ -156,6 +153,15 @@ if (breaking.length === 0) {
     .slice(0, 10)
     .map((post) => ({ kind: "post" as const, post }));
 }
+
+// Front Page must not repeat a Breaking story (or a member of a Breaking group).
+const breakingIds = idsInBreaking(breaking);
+heroPosts = excludeBreakingFromFrontPage(heroPosts, breakingIds);
+if (heroPosts.length === 0) {
+  const flagged = all.filter((p) => p.data.featured && !breakingIds.has(p.id));
+  heroPosts = flagged.length > 0 ? flagged : all.filter((p) => !breakingIds.has(p.id)).slice(0, 8);
+}
+heroPosts = heroPosts.slice(0, 12);
 
 // Topic clusters from recent posts only (home ranking is recency-weighted).
 // Avoid full-corpus aggregateTopics — too expensive for Worker CPU limits.

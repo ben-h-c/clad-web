@@ -1,4 +1,4 @@
-import { getPosts, setFrontpage, getFrontpage } from "./api.mjs";
+import { getPosts, setFrontpage, getFrontpage, getBreaking } from "./api.mjs";
 import { ensureClassifications, classOf, frontPageEligible } from "./newsroom.mjs";
 import { xaiLimits } from "../src/lib/xaiEconomy.ts";
 
@@ -59,7 +59,21 @@ export async function runFrontpageCurator(agent) {
   const isTalk = (p) => frontPageEligible(p, classMap);
   const topicOf = (p) => classOf(p, classMap).broadTopic;
 
-  const pool = allPosts.filter(isTalk);
+  const breakingBan = new Set();
+  try {
+    const br = await getBreaking();
+    const items = br.ok && Array.isArray(br.body?.items) ? br.body.items : [];
+    for (const it of items) {
+      if (it?.type === "post" && it.id) breakingBan.add(String(it.id));
+      else if (Array.isArray(it?.ids)) {
+        for (const id of it.ids) if (id) breakingBan.add(String(id));
+      }
+    }
+  } catch {
+    /* keep empty — homepage still de-dupes at render */
+  }
+
+  const pool = allPosts.filter((p) => isTalk(p) && !breakingBan.has(p.id));
   if (pool.length === 0) {
     // Never wipe a populated hero — mirror breaking-news resilience.
     let prior = 0;
@@ -119,6 +133,7 @@ export async function runFrontpageCurator(agent) {
   const chosen = [];
   const chosenTokens = [];
   const take = (p) => {
+    if (breakingBan.has(p.id)) return false;
     const tk = headlineTokens(p.headline);
     if (isNearDup(tk, chosenTokens)) return false;
     chosen.push(p);
