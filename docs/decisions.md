@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-18 — Cover lead is never a phone/Shorts video
+
+**Status:** accepted  
+**Context:** Ben: never put an article in the top spot if the YouTube video is not full-frame / is a phone-sized Shorts format (letterboxed vertical clip with pause in the middle).  
+**Decision:** Cover lead is the first Breaking story whose source is a **landscape full-frame** video. `#shorts` in the title/URL or a YouTube `/shorts/ID` 200 (no redirect to `/watch`) is a phone video — it stays in the Breaking strip only. Unknown aspect is not used as Cover. Website Cover is a 16:9 card in the page column (`object-fit: cover`); do not letterbox. The iOS app keeps the full-bleed plate.  
+**Consequences:** `coverLead.ts`, `videoFrame.ts`, `BreakingStrip` `coverLead`, `runner/ambientClip.mjs`, website rules in `theme-skins.css`.
+
 ## 2026-08-17 — Cover lead is a native muted clip, not a YouTube iframe
 
 **Status:** accepted  

@@ -18,20 +18,46 @@ const TOKEN = process.env.AGENT_TOKEN || "";
 const START_SEC = 6;
 const DURATION_SEC = 20;
 
+function isPhoneHint(post) {
+  const blob = `${post.videoTitle || ""} ${post.headline || ""} ${post.sourceUrl || ""}`;
+  return /#shorts\b/i.test(blob) || /\/shorts\//i.test(blob);
+}
+
+async function youtubeIsPhone(videoId) {
+  try {
+    const r = await fetch(`https://www.youtube.com/shorts/${videoId}`, {
+      method: "HEAD",
+      redirect: "manual",
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; CladFacts/1.0)" },
+      signal: AbortSignal.timeout(4000),
+    });
+    if (r.status === 200) return true;
+    if (r.status >= 300 && r.status < 400) {
+      return /\/shorts\//i.test(r.headers.get("location") || "");
+    }
+  } catch {
+    /* ignore */
+  }
+  return false;
+}
+
 export async function resolveLeadVideoId() {
   const [breaking, postsRes] = await Promise.all([getBreaking(), getPosts()]);
   if (!breaking.ok) return { ok: false, message: `breaking ${breaking.status}` };
   if (!postsRes.ok) return { ok: false, message: `posts ${postsRes.status}` };
   const items = breaking.body.items || [];
-  const lead = items[0];
-  if (!lead) return { ok: false, message: "no breaking lead" };
+  if (!items.length) return { ok: false, message: "no breaking lead" };
   const byId = new Map((postsRes.body.posts || []).map((p) => [p.id, p]));
-  const ids = lead.type === "group" ? lead.ids || [] : [lead.id];
-  const members = ids.map((id) => byId.get(id)).filter(Boolean);
-  members.sort((a, b) => String(b.publishedAt || "").localeCompare(String(a.publishedAt || "")));
-  const hit = members.find((p) => p.videoId && /^[\w-]{11}$/.test(p.videoId));
-  if (!hit) return { ok: false, message: "lead has no video id" };
-  return { ok: true, videoId: hit.videoId, postId: hit.id };
+  for (const lead of items.slice(0, 8)) {
+    const ids = lead.type === "group" ? lead.ids || [] : [lead.id];
+    const members = ids.map((id) => byId.get(id)).filter(Boolean);
+    members.sort((a, b) => String(b.publishedAt || "").localeCompare(String(a.publishedAt || "")));
+    const hit = members.find((p) => p.videoId && /^[\w-]{11}$/.test(p.videoId));
+    if (!hit) continue;
+    if (isPhoneHint(hit) || (await youtubeIsPhone(hit.videoId))) continue;
+    return { ok: true, videoId: hit.videoId, postId: hit.id };
+  }
+  return { ok: false, message: "no full-frame landscape video on Breaking" };
 }
 
 async function currentMeta() {
@@ -87,7 +113,7 @@ export function cutAmbientClip(videoId, outPath) {
       "-movflags",
       "+faststart",
       "-vf",
-      "scale=-2:480",
+      "scale=854:480:force_original_aspect_ratio=decrease,pad=854:480:(ow-iw)/2:(oh-ih)/2:black",
       outPath,
     ]);
     if (ff.status !== 0) {

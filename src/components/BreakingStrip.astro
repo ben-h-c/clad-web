@@ -14,10 +14,19 @@ interface Props {
   unlockedId?: string | null;
   /** First story is a full-bleed plate; rest stay the strip. */
   leadCover?: boolean;
+  /** Cover must be a full-frame landscape video — not items[0] if that is a Short. */
+  coverLead?: Item | null;
 }
-const { items, locked = false, unlockedId = null, leadCover = false } = Astro.props;
-const lead = leadCover ? items[0] ?? null : null;
-const stripItems = lead ? items.slice(1) : items;
+const { items, locked = false, unlockedId = null, leadCover = false, coverLead = undefined } = Astro.props;
+const lead = leadCover ? (coverLead !== undefined ? coverLead : items[0] ?? null) : null;
+const stripItems = lead
+  ? items.filter((it) => {
+      if (it === lead) return false;
+      if (lead.kind === "post" && it.kind === "post") return it.post.id !== lead.post.id;
+      if (lead.kind === "group" && it.kind === "group") return it.slug !== lead.slug;
+      return true;
+    })
+  : items;
 ---
 {items.length > 0 && (
   <section class:list={["hero", "hero--breaking", lead && "hero--breaking-cover"]}>

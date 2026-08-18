@@ -291,3 +291,43 @@ html {
     display: none;
   }
 }
+
+/*
+ * Public website (not the iOS app). Cover is a 16:9 card in the page
+ * column — never a 100vw slit, never a letterboxed Shorts. Only
+ * full-frame landscape videos are allowed on this plate.
+ */
+html:not(.clad-app) .hero-cover {
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+html:not(.clad-app) .hero-cover .report-card,
+html:not(.clad-app) .hero-cover .breaking-group,
+html:not(.clad-app) .hero-cover .report-card--media {
+  border-radius: var(--radius-stock);
+  overflow: hidden;
+  background: #101014;
+}
+html:not(.clad-app) .hero-cover .report-card--media .report-card__link {
+  border-radius: var(--radius-stock);
+  width: 100%;
+}
+html:not(.clad-app) .hero-cover .report-card--media .report-card__photo img,
+html:not(.clad-app) .hero-cover .report-card--media .report-card__photo .report-card__ambient-video {
+  object-fit: cover;
+  object-position: center center;
+}
+html:not(.clad-app) .hero-cover .report-card--media .report-card__media-body {
+  background: linear-gradient(180deg, transparent 42%, rgba(16, 16, 18, 0.72) 92%);
+}
+@media (min-width: 700px) {
+  html:not(.clad-app) .hero-cover .report-card--media .report-card__link {
+    width: min(100%, 48rem);
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    margin-inline: auto;
+  }
+}

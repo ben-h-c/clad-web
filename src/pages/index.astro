@@ -33,6 +33,7 @@ import { buildGoodNewsSections } from "~/lib/goodnews";
 import { aggregateTopics, gradeToGpa } from "~/lib/topics";
 import { isNewsOutlet } from "~/lib/networks";
 import { getAccess } from "~/lib/access";
+import { pickCoverLead } from "~/lib/coverLead";
 import { APP_STORE_URL, APP_STORE_LIVE } from "~/lib/app-store";
 import { homePromosForPage } from "~/lib/homePromos";
 import {
@@ -339,6 +340,7 @@ const homeMorePosts = homeMorePage.page
 // Anon density (Pass 2 R03): shorter FIXED_TOP strips; skip stacked explore rails.
 const ANON_STRIP_CAP = 4;
 const breakingShow = locked ? breaking.slice(0, ANON_STRIP_CAP) : breaking;
+const coverLead = await pickCoverLead(breaking, env.AGENTS);
 const heroPostsShow = locked ? heroPosts.slice(0, ANON_STRIP_CAP) : heroPosts;
 ---
 <BaseLayout
@@ -426,7 +428,7 @@ const heroPostsShow = locked ? heroPosts.slice(0, ANON_STRIP_CAP) : heroPosts;
           )}
 
           {item.kind === "section" && item.id === "breaking" && (
-            <BreakingStrip items={breakingShow} locked={locked} leadCover />
+            <BreakingStrip items={breakingShow} locked={locked} leadCover coverLead={coverLead} />
           )}
 
           {item.kind === "section" && item.id === "front-page" && (
