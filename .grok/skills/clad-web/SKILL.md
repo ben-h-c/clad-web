@@ -53,6 +53,7 @@ description: >
 | Home layout | `src/lib/homeLayout.ts` FIXED_HOME_TOP + DEFAULT_HOME_ORDER |
 | Access choke point | `src/lib/access.ts` (staging `?view=signed\|anon` preview via ALS) |
 | Staging skins | `src/styles/theme-skins.css`, `ThemeSkinBar.astro` — no active experiments (`STAGE_SKINS = []`). Cover is the production home lead |
+| Cover ambient clip | Native `<video>` via public `GET /api/ambient/:id` (must stay in `PUBLIC_API`). Bytes in `ambient:clip:<id>` KV. Runner `ambientClip.mjs` (yt-dlp android client). Never a YouTube iframe on the Cover. |
 | Anon leak guard | `scripts/checkAnonLeak.mjs` |
 | Image license | YouTube own still or `/generated/` only; `docs/legal/image-claims.md` |
 

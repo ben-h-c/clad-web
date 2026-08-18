@@ -50,6 +50,8 @@ const PUBLIC_API = (path: string) =>
   path === "/api/subscribe" ||
   // Same-origin Wikimedia portrait proxy for politician cards / race board.
   path.startsWith("/api/politician-photo/") ||
+  // Cover-lead muted clip (native <video>, not a YouTube proxy).
+  path.startsWith("/api/ambient/") ||
   // Public ballot share cards (summary only; no auth secrets).
   path.startsWith("/api/ballot/") ||
   // Subscribable .ics of the scheduled daybook (home calendar → "Ahead").
@@ -125,11 +127,11 @@ function applySecurityHeaders(path: string, response: Response) {
     ? "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; base-uri 'none'"
     : [
         "default-src 'self'",
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://challenges.cloudflare.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://challenges.cloudflare.com https://www.youtube.com https://s.ytimg.com",
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
         "font-src 'self' https://fonts.gstatic.com data:",
         "img-src 'self' data: blob: https:",
-        "connect-src 'self' https://api.stripe.com https://api.x.ai https://*.cladfacts.com https://cladfacts.com https://*.workers.dev https://accounts.google.com https://appleid.apple.com",
+        "connect-src 'self' https://api.stripe.com https://api.x.ai https://*.cladfacts.com https://cladfacts.com https://*.workers.dev https://accounts.google.com https://appleid.apple.com https://www.youtube.com https://s.ytimg.com https://www.youtube-nocookie.com",
         "frame-src 'self' https://js.stripe.com https://challenges.cloudflare.com https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com",
         "frame-ancestors 'self'",
         "base-uri 'self'",

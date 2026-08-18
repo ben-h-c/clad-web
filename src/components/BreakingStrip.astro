@@ -24,7 +24,7 @@ const stripItems = lead ? items.slice(1) : items;
     {lead && (
       <div class="hero-cover">
         {lead.kind === "group" ? (
-          <BreakingGroupCard slug={lead.slug} title={lead.title} topic={lead.topic} members={lead.members} locked={locked} ambientPlay />
+          <BreakingGroupCard slug={lead.slug} title={lead.title} topic={lead.topic} members={lead.members} locked={locked} peek={false} ambientPlay />
         ) : (
           <ReportCard post={lead.post} locked={locked && lead.post.id !== unlockedId} sample={locked && lead.post.id === unlockedId} ambientPlay />
         )}
@@ -56,89 +56,4 @@ const stripItems = lead ? items.slice(1) : items;
     )}
   </section>
 )}
-{lead && (
-  <script is:inline>
-    (() => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      var frames = document.querySelectorAll(".hero-cover [data-ambient-src]");
-      if (!frames.length) return;
-      function cmd(el, fn, args) {
-        try {
-          if (!el.contentWindow) return;
-          el.contentWindow.postMessage(
-            JSON.stringify({ event: "command", func: fn, args: args || [] }),
-            "*"
-          );
-        } catch (e) {}
-      }
-      function listen(el) {
-        try {
-          if (!el.contentWindow) return;
-          el.contentWindow.postMessage(
-            JSON.stringify({ event: "listening", id: 1, channel: "widget" }),
-            "*"
-          );
-        } catch (e) {}
-      }
-      function reveal(el) {
-        var photo = el.closest(".report-card__photo");
-        if (!photo || photo.dataset.ambientReveal) return;
-        photo.dataset.ambientReveal = "1";
-        // Let YouTube's start chrome finish, then fade the video in — never the still.
-        setTimeout(function () {
-          photo.classList.add("is-ambient-live");
-        }, 900);
-      }
-      function load(el) {
-        if (el.getAttribute("src")) return;
-        var src = el.getAttribute("data-ambient-src");
-        if (!src) return;
-        if (src.indexOf("origin=") === -1) {
-          src += "&origin=" + encodeURIComponent(location.origin);
-        }
-        el.setAttribute("src", src);
-        el.addEventListener("load", function () {
-          listen(el);
-          cmd(el, "mute");
-          cmd(el, "playVideo");
-          reveal(el);
-        }, { once: true });
-      }
-      frames.forEach(load);
-      if (!("IntersectionObserver" in window)) {
-        return;
-      }
-      var io = new IntersectionObserver(function (ents) {
-        ents.forEach(function (e) {
-          var el = e.target;
-          if (e.isIntersecting) {
-            load(el);
-            cmd(el, "mute");
-            cmd(el, "playVideo");
-          } else {
-            cmd(el, "pauseVideo");
-          }
-        });
-      }, { threshold: 0.2 });
-      frames.forEach(function (f) { io.observe(f); });
-      window.addEventListener("message", function (e) {
-        var host = "";
-        try { host = new URL(e.origin).hostname; } catch (err) { return; }
-        if (host !== "www.youtube-nocookie.com" && host !== "www.youtube.com") return;
-        var data = e.data;
-        if (typeof data === "string") {
-          try { data = JSON.parse(data); } catch (err) { return; }
-        }
-        if (!data || data.event !== "onStateChange") return;
-        frames.forEach(function (el) {
-          if (data.info === 1) reveal(el);
-          if (data.info === 0) {
-            cmd(el, "seekTo", [0, true]);
-            cmd(el, "mute");
-            cmd(el, "playVideo");
-          }
-        });
-      });
-    })();
-  </script>
-)}
+

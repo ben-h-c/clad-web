@@ -6,7 +6,7 @@
 
 Update this file whenever tokens or major UI patterns change. Keep `.grok/skills/clad-design/SKILL.md` in sync.
 
-**Home lead (Cover, production):** first Breaking story is a shorter full-bleed plate (`min-height: max(15rem, 40svh)`), headline + grade only; Today tape sits in even **1.45rem** paper (shell `1.1rem` + masthead `0.35rem` above; matching margin below the tape); later strips stay carousels. The plate mute-autoplays the source video under the overlay (tap opens the article). Reduced motion keeps the still. CSS lives in `theme-skins.css` as the default (not `data-skin`). Staging Skin row is hidden until a new experiment is added (`STAGE_SKINS`). Old `?skin=cover` cookies fall back to this Current.
+**Home lead (Cover, production):** first Breaking story is a full-bleed plate — phone `min-height: 16.25rem` (grade + 4-line headline), `min-height: max(15rem, 40svh)` from 700px up — headline + grade only; Today tape sits in even **1.45rem** paper (shell `1.1rem` + masthead `0.35rem` above; matching margin below the tape); later strips stay carousels. The plate mute-loops a same-origin native `<video>` of that story’s own clip (not a YouTube iframe). Fill matches the still (`object-fit: cover`). The only shade is the text-readability gradient behind the headline. Tap opens the article. Reduced motion keeps the still. Do not crop/veil the player to hide chrome. CSS lives in `theme-skins.css` as the default (not `data-skin`). Staging Skin row is hidden until a new experiment is added (`STAGE_SKINS`). Old `?skin=cover` cookies fall back to this Current.
 
 ---
 

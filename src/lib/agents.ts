@@ -3,6 +3,8 @@
  *   - `agents:registry`      one JSON object: all agents + their config + lastRun
  *   - `draft:<draftId>`      one pending report awaiting editor approval
  *   - `seen:<videoId>`       dedupe ledger ("1"); written at submit and approve
+ *   - `ambient:clip:<id>`    short muted Cover-lead mp4 (runner-prepared)
+ *   - `ambient:meta`         { videoId, byteLength, preparedAt }
  *
  * The Worker console reads/writes this directly via the binding. The Mac runner
  * reaches it only through the /api/agent/* HTTP endpoints.

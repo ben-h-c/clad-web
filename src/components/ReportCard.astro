@@ -32,7 +32,7 @@ interface Props {
    * html.clad-app).
    */
   peek?: boolean;
-  /** Home Cover lead: mute-loop the source video under the still. Tap still opens the article. */
+  /** Home Cover lead: mute-loop a same-origin clip under the still. Tap opens the article. */
   ambientPlay?: boolean;
 }
 const { post, variant = "card", locked = false, sample = false, peek = false, ambientPlay = false } = Astro.props;

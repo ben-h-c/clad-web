@@ -66,26 +66,6 @@ export function embedUrl(videoId: string): string {
   return `https://www.youtube.com/embed/${videoId}`;
 }
 
-/** Muted looping embed for the home Cover lead. Decorative — click-through
- *  is the article link (iframe is pointer-events: none). */
-export function ambientEmbedUrl(videoId: string): string {
-  const q = new URLSearchParams({
-    autoplay: "1",
-    mute: "1",
-    controls: "0",
-    playsinline: "1",
-    modestbranding: "1",
-    rel: "0",
-    disablekb: "1",
-    fs: "0",
-    iv_load_policy: "3",
-    cc_load_policy: "0",
-    enablejsapi: "1",
-  });
-  // No playlist= — that draws prev/next on first paint. Loop via JS.
-  return `https://www.youtube-nocookie.com/embed/${videoId}?${q.toString()}`;
-}
-
 export function watchUrl(videoId: string): string {
   return `https://www.youtube.com/watch?v=${videoId}`;
 }

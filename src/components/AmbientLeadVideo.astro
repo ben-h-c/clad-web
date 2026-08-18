@@ -1,18 +1,53 @@
 ---
-import { ambientEmbedUrl } from "~/lib/youtube";
-
+/**
+ * Cover-lead looks-only loop. Native <video> — no YouTube iframe, so iOS
+ * never paints pause / title / framing. Tap still belongs to the article
+ * link. If the clip 404s the still underneath stays.
+ */
 interface Props {
   videoId: string;
 }
 const { videoId } = Astro.props;
-const src = ambientEmbedUrl(videoId);
+const src = `/api/ambient/${encodeURIComponent(videoId)}`;
 ---
-<div class="report-card__ambient" aria-hidden="true">
-  <iframe
-    data-ambient-src={src}
-    title=""
-    tabindex="-1"
-    allow="autoplay; encrypted-media"
-    referrerpolicy="strict-origin-when-cross-origin"
-  ></iframe>
-</div>
+<video
+  class="report-card__ambient-video"
+  src={src}
+  autoplay
+  muted
+  loop
+  playsinline
+  webkit-playsinline
+  disablepictureinpicture
+  disableRemotePlayback
+  controlslist="nodownload nofullscreen noremoteplayback"
+  preload="auto"
+  aria-hidden="true"
+  tabindex="-1"
+></video>
+<script is:inline>
+(function () {
+  var v = document.currentScript && document.currentScript.previousElementSibling;
+  if (!v || v.tagName !== "VIDEO") return;
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    v.remove();
+    return;
+  }
+  v.muted = true;
+  v.defaultMuted = true;
+  v.playsInline = true;
+  v.setAttribute("playsinline", "");
+  v.setAttribute("webkit-playsinline", "");
+  v.addEventListener("error", function () { v.remove(); });
+  v.addEventListener("ended", function () {
+    try { v.currentTime = 0; } catch (e) {}
+    v.play().catch(function () {});
+  });
+  var kick = function () { v.play().catch(function () {}); };
+  if (v.readyState >= 2) kick();
+  else v.addEventListener("canplay", kick, { once: true });
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) kick();
+  });
+})();
+</script>

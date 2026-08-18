@@ -14,12 +14,26 @@ Format:
 
 ---
 
+## 2026-08-17 — Cover lead is a native muted clip, not a YouTube iframe
+
+**Status:** accepted  
+**Context:** Ben still wants video on the top article. Cropping the player and extra shade to hide YouTube chrome are not allowed. Only a readability gradient behind the headline.  
+**Decision:** Cover lead mute-loops a same-origin `<video>` of a short H264 clip of that story's own source. No YouTube iframe, no overscan, no veil or pause-mask. Fill matches the still (`object-fit: cover`, `center 28%`). Only the existing `.report-card__media-body` gradient. Tap opens the article. The Mac runner (`yt-dlp` android client + ffmpeg) writes `ambient:clip:<id>` to KV; public `GET /api/ambient/:id` serves it (Range 206). Staging first. Do not bring back iframe crop/shade or Ken Burns.  
+**Consequences:** `AmbientLeadVideo.astro`, `src/lib/ambientClip.ts`, `/api/ambient/[videoId]`, `/api/agent/ambient`, `runner/ambientClip.mjs`, `theme-skins.css`, `middleware.ts` `PUBLIC_API`.
+
+## 2026-08-17 — Breaking and Front Page do not share articles
+
+**Status:** accepted  
+**Context:** Ben: no shared articles between Breaking News and Front Page.  
+**Decision:** Breaking keeps the story. Front Page drops any post id already on Breaking, including every member of a Breaking group. Homepage enforces this at render. Front-page curator also skips current Breaking ids.  
+**Consequences:** `homeLayout.ts` `idsInBreaking` / `excludeBreakingFromFrontPage`, `index.astro`, `runner/frontpageCurator.mjs`.
+
 ## 2026-08-17 — Cover lead mute-plays the source video
 
 **Status:** accepted  
-**Context:** Ben wants the top home article to play video for looks — muted, no sound. Tap still opens the article, where the real player lives. Same Cover plate format.  
-**Decision:** Cover lead only. Never show the thumbnail when video can play. Iframe starts under a dark plate, fades in after YouTube start chrome (~0.9s). Mute, no controls, `pointer-events: none`. No `playlist=`. Loop by restarting on ended. Overscan crops leftover chrome. Reduced motion: still only.  
-**Consequences:** `AmbientLeadVideo.astro`, `ReportCard`/`BreakingGroupCard` `ambientPlay`, `BreakingStrip` observer, `theme-skins.css`.
+**Context:** Ben wants the top home article to play video for looks — muted, no sound. Tap still opens the article, where the real player lives. Same Cover plate format. Delay-fade and edge-crop left YouTube’s center pause in the open plate.  
+**Decision:** Cover lead only. Phone plate is **`16.25rem`**; iPad keeps `min-height: max(15rem, 40svh)`. Overlay is headline + grade only (hide the date line). **Rejected:** YouTube iframe on the Cover (iOS pause/framing; crop/shade to hide chrome looks bad). **Superseded same day:** native same-origin `<video>` clip — see “Cover lead is a native muted clip”.  
+**Consequences:** plate sizes in `theme-skins.css`; iframe path abandoned.
 
 ## 2026-08-16 — Today tape centered in 1.45rem paper
 
