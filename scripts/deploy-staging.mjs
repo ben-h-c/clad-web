@@ -16,7 +16,7 @@ const STAGING = {
   vars: {
     ENVIRONMENT: "staging",
     BETTER_AUTH_URL: "https://clad-web-staging.benjaminharriscody.workers.dev",
-    XAI_ECONOMY: "full",
+    XAI_ECONOMY: "economy",
   },
   routes: [{ pattern: "staging.cladfacts.com", custom_domain: true }],
   kvId: "bd68a4ace38f43a79506cdb318cdde89",
