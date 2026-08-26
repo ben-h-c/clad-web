@@ -1,0 +1,76 @@
+---
+type: "broadcast"
+headline: "Darline Graham Wins SC GOP Senate Runoff, Attacks Opponent Andrews as Radical"
+summary: "In her victory speech after winning the Republican nomination for U.S. Senate in South Carolina's special runoff, Darline Graham accepted the nomination to replace her late brother Lindsey Graham, who died suddenly in July 2026 from an aortic dissection. She thanked President Trump for his endorsement and campaign help, GOP officials, her campaign team, volunteers, family, and voters, while paying tribute to her brother's legacy and offering conciliatory words to primary opponent Rep. Ralph Norman. Graham contrasted her humble upbringing and public service record with her general-election opponent Dr. Annie Andrews, labeling her the \"most radical liberal\" in state Democratic history for supporting gender-affirming care for transgender youth, gun control measures, expanded government healthcare, and abortion rights. She urged donations at darling.com and framed the race as a defense of conservative South Carolina values against outside liberal funding.\n\nThe C-SPAN broadcast showed the full unfiltered speech with crowd reactions. Sourcing relied on Graham's personal narrative and campaign attacks; no independent fact-checks or opponent responses were included. Key throughline was continuity with Lindsey Graham's service and Trump's influence in securing the win."
+publishedAt: 2026-08-26T02:29:07.000Z
+sourceUrl: "https://www.youtube.com/watch?v=6Oxy530pknc"
+sourceTitle: "C-SPAN"
+section: "Politics"
+letterGrade: "B"
+factualityScore: 75
+politicalLean: "right"
+leanScore: 65
+leanRationale: "Strong positive framing of Republican figures (Trump, Graham's legacy, SC values) and negative portrayal of Democratic opponent and \"democratic socialists\" as threats; omits any counterpoints from Andrews or Democratic perspectives."
+gradeRationale: "Graded B: Factual claims about the primary victory, her appointment, family background, and Andrews' documented positions on gender-affirming care, abortion access, and gun control hold up. Some characterizations (\"most radical,\" \"abortion until the moment of birth,\" \"turning confused little boys into little girls\") use charged framing without full nuance on medical consensus debates or Andrews' stated limits on surgery for minors."
+topics:
+  - "Congress"
+  - "2026 Midterms"
+  - "Elections"
+assessment: "The speech accurately recounts Graham's path from state agency leadership to interim senator via gubernatorial appointment after Lindsey Graham's documented death, her runoff victory (confirmed at roughly 52-48%), and Trump's heavy involvement including rallies and PAC spending. Her biographical details match public records of her upbringing and career in vocational rehabilitation for the blind. Claims about Andrews align with the pediatrician's public record: advocacy for restoring Roe v. Wade protections (framed by Graham as \"until the moment of birth\"), support for universal background checks and banning \"weapons of war,\" expanding healthcare access, and strong backing of gender-affirming care for transgender minors as \"people healthcare\" (though she has stated opposition to surgery under 18). Viewers miss broader context on medical debates over youth gender medicine, including European reviews restricting puberty blockers, and that Andrews positions herself as pragmatic on healthcare rather than a full \"democratic socialist.\" The heavy emphasis on grief, family, and culture-war contrasts motivates the base but presents a one-sided preview of the general election in a deeply Republican state where Graham remains heavily favored."
+notableConcerns:
+  - "Partisan framing presents Andrews' positions in the most negative light without her direct responses or nuance on age limits for medical interventions"
+  - "Relies entirely on candidate's self-narrative and attacks; no independent sourcing or balance in the broadcast itself"
+keyMoments:
+  - claim: "I humbly accept your nomination to serve as the Republican nominee for the United States Senate from South Carolina"
+    verdict: "verified"
+    note: "Graham won the Aug. 25, 2026, GOP runoff against Ralph Norman 52-48% after placing first in the Aug. 11 primary; AP and multiple outlets called the race for her."
+  - claim: "My Democratic opponent, Dr. Annie Andrews is the most radical liberal ever nominated for a statewide office by the South Carolina Democratic Party. Her views are those of Bernie Sanders and AOC."
+    verdict: "unsupported"
+    note: "Subjective opinion; Andrews is a pediatrician advocating progressive policies on healthcare, guns, abortion, and LGBTQ+ rights but has no formal ties to Sanders or AOC and emphasizes pragmatism."
+  - claim: "No person in South Carolina has pushed harder for the absolutely terrible idea of turning confused little boys into little girls and vice versa than Annie Andrews."
+    verdict: "missing context"
+    note: "Andrews has publicly supported gender-affirming care for trans youth, opposed bans on such care, and tweeted \"trans kids are kids,\" but has stated she does not support surgery for minors under 18."
+  - claim: "Gun control, government-run health care, abortion until the moment of birth. Annie Andrews backs them all."
+    verdict: "verified"
+    note: "Consistent with her record: supports universal background checks and assault weapon bans; advocates expanding access to affordable healthcare and a public option; supports restoring Roe protections without stated viability limits in many statements."
+  - claim: "People are moving to South Carolina in droves to get away from the blue state policies of the democratic socialist."
+    verdict: "missing context"
+    note: "South Carolina has seen net domestic migration gains, but multiple factors including jobs, taxes, and climate contribute; attribution solely to escaping \"democratic socialist\" policies is partisan framing."
+videoId: "6Oxy530pknc"
+videoTitle: "Sen. Darline Graham (R-SC) Victory Speech"
+politicians:
+  - name: "Alexandria Ocasio-Cortez"
+    slug: "alexandria-ocasio-cortez"
+  - name: "Bernard Sanders"
+    slug: "bernard-sanders"
+  - name: "Darline Graham"
+    slug: "darline-graham"
+  - name: "Donald Trump"
+    slug: "donald-trump"
+  - name: "Ralph Norman"
+    slug: "ralph-norman"
+thumbnail: "https://img.youtube.com/vi/6Oxy530pknc/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "What We Know About Lindsey Graham’s Death"
+    url: "https://www.nytimes.com/2026/07/12/us/politics/lindsey-graham-final-days.html"
+  - title: "Graham, and Trump, Triumph: Six Takeaways From South Carolina’s Senate Runoff"
+    url: "https://www.nytimes.com/2026/08/25/us/politics/election-takeaways-south-carolina-oklahoma.html"
+  - title: "Darline Graham wins South Carolina’s GOP Senate primary runoff election for brother’s seat"
+    url: "https://nypost.com/2026/08/25/us-news/darline-graham-wins-south-carolinas-gop-senate-primary-runoff-election-for-brothers-seat/"
+  - title: "Trump pick Darline Graham wins South Carolina Republican Senate race"
+    url: "https://www.axios.com/2026/08/26/darline-graham-south-carolina-republican-senate-results"
+  - title: "Annie Andrews on the Issues"
+    url: "https://www.ontheissues.org/Senate/Annie_Andrews.htm"
+  - title: "Darline Graham - Wikipedia"
+    url: "https://en.wikipedia.org/wiki/Darline_Graham"
+  - title: "Nancy Mace accuses Dem opponent of 'ducking' past support for gender reassignment surgery for minors"
+    url: "https://www.foxnews.com/politics/nancy-mace-democrat-opponent-ducking-past-support-gender-reassignment-surgery-minors"
+  - title: "Ousting RFK Jr. Among the Priorities for This Doctor Running for Senate"
+    url: "https://www.medpagetoday.com/washington-watch/electioncoverage/122722"
+---
+
+
