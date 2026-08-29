@@ -101,6 +101,7 @@ Admin paths force dark via `data-force-theme="dark"`.
 - **Video:** click-to-load facade (`.video-facade`) — no third-party until play.
 - **Broadcast article order:** title (kicker, headline, byline; correction banners if any) → source video → grade card → share/save → Why this grade / Why this lean → embed, disagree, topics, summary, and the rest. Non-broadcast posts keep share under the byline.
 - **Progress:** non-blocking banners / queues (Clad Studio lessons: never trap the user on a full-screen spinner).
+- **iPhone App Store card:** slim Soft Neutral card under the masthead (`IosAppBanner`) on iPhone Safari/Chrome only — App Store CTA + × dismiss (localStorage). Hidden in the native app and on iPad. Do not stack Apple’s smart banner on iPhone.
 
 ---
 

@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-29 — iPhone Safari shows a dismissible App Store card
+
+**Status:** accepted  
+**Context:** Ben: when opening cladfacts.com in an iPhone browser, show a popup towards the top that takes people to the App Store, or let them × out.  
+**Decision:** Sitewide `IosAppBanner` under the masthead on **iPhone** browsers only. CTA opens the live listing. × dismisses and stays dismissed (`localStorage`). Hidden in the native app. Skip Apple’s smart-app-banner meta on iPhone so the two do not stack; iPad still gets the native banner.  
+**Consequences:** `src/components/IosAppBanner.astro`, `BaseLayout.astro`. Not shown on `/app/`, auth, or admin.
+
 ## 2026-08-29 — xAI spend mode is full
 
 **Status:** accepted  

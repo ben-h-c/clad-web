@@ -9291,6 +9291,83 @@ html.clad-app .today-hist__actions {
   margin-top: auto;
 }
 
+/* iPhone-only App Store card — sits under the masthead until dismissed. */
+.ios-app-banner {
+  --ios-app-banner-h: 4.15rem;
+  position: fixed;
+  top: calc(var(--site-header-h) + 0.5rem);
+  left: max(0.75rem, env(safe-area-inset-left, 0px));
+  right: max(0.75rem, env(safe-area-inset-right, 0px));
+  z-index: 40;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 0.75rem;
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-stock);
+  background: var(--card);
+  box-shadow: var(--shadow-md);
+}
+.ios-app-banner[hidden] { display: none; }
+html.ios-app-banner-on body {
+  padding-top: calc(var(--site-header-h) + var(--ios-app-banner-h, 4.15rem) + 0.65rem);
+}
+.ios-app-banner__copy {
+  margin: 0;
+  flex: 1 1 11rem;
+  min-width: 0;
+}
+.ios-app-banner__kicker {
+  display: block;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.12rem;
+  font-size: 0.68rem;
+}
+.ios-app-banner__body {
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.ios-app-banner__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex: none;
+}
+.ios-app-banner__cta {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.4rem 0.65rem;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius-control);
+  background: var(--ink);
+  color: var(--paper);
+}
+.ios-app-banner__cta:hover { opacity: 0.88; }
+.ios-app-banner__close {
+  appearance: none;
+  font: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+  border: none;
+  background: transparent;
+  color: var(--muted-ink);
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+}
+.ios-app-banner__close:hover { color: var(--ink); }
+@media (prefers-reduced-motion: reduce) {
+  .ios-app-banner { box-shadow: none; }
+}
+
 .site-tip {
   position: fixed;
   left: 0.75rem;

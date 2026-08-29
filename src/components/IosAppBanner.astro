@@ -1,0 +1,64 @@
+---
+/**
+ * iPhone Safari/Chrome only: a slim top card that sends readers to the App Store.
+ * Hidden in the native app (`clad-app` / data-app-hide). Dismiss persists.
+ */
+import { APP_STORE_URL } from "~/lib/app-store";
+---
+<aside
+  class="ios-app-banner"
+  id="ios-app-banner"
+  hidden
+  data-app-hide
+  role="dialog"
+  aria-labelledby="ios-app-banner-title"
+  aria-describedby="ios-app-banner-body"
+>
+  <p class="ios-app-banner__copy">
+    <span class="ios-app-banner__kicker small-caps" id="ios-app-banner-title">iPhone app</span>
+    <span class="ios-app-banner__body" id="ios-app-banner-body">Get CladFacts — grades and alerts in your pocket.</span>
+  </p>
+  <div class="ios-app-banner__actions">
+    <a class="ios-app-banner__cta" href={APP_STORE_URL} rel="noopener">App Store</a>
+    <button type="button" class="ios-app-banner__close" id="ios-app-banner-close" aria-label="Dismiss">×</button>
+  </div>
+</aside>
+<script is:inline>
+  (() => {
+    var el = document.getElementById("ios-app-banner");
+    if (!el) return;
+    var KEY = "clad_ios_app_banner_v1";
+    var path = location.pathname || "/";
+    if (/^\/(app|login|register|admin|verified|account|reset-password)(\/|$)/.test(path)) return;
+    if (document.documentElement.classList.contains("clad-app") || window.__cladNative) return;
+    var ua = navigator.userAgent || "";
+    if (!/iPhone/.test(ua) || /iPad/.test(ua)) return;
+    try {
+      if (navigator.standalone) return;
+    } catch (e) {}
+    try {
+      if (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) return;
+    } catch (e2) {}
+    try {
+      if (localStorage.getItem(KEY)) return;
+    } catch (e3) {
+      return;
+    }
+
+    function hide() {
+      el.hidden = true;
+      document.documentElement.classList.remove("ios-app-banner-on");
+    }
+    function dismiss() {
+      hide();
+      try {
+        localStorage.setItem(KEY, "1");
+      } catch (e4) {}
+    }
+
+    el.hidden = false;
+    document.documentElement.classList.add("ios-app-banner-on");
+    var close = document.getElementById("ios-app-banner-close");
+    if (close) close.addEventListener("click", dismiss);
+  })();
+</script>
