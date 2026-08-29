@@ -1,0 +1,76 @@
+---
+type: "broadcast"
+headline: "RFK Jr. questions Pennsylvania measles deaths amid record U.S. outbreak"
+summary: "The MS NOW segment reported on the resurgence of measles in the U.S., citing AP and NYT on declining vaccination rates fueling the largest surge since 1991, with 2026 cases already exceeding 2025's record. It focused on an outbreak in Pennsylvania's Lancaster County, where two unvaccinated people died (first state deaths in 35 years), over 390 infected, 70 hospitalized, and a third of cases in children; experts noted potential undercounting in Amish/Mennonite communities. The broadcast replayed RFK Jr.'s 2021 comments downplaying measles and his recent skepticism about the reported deaths, contrasted with sharp criticism from Gov. Josh Shapiro blaming Kennedy's actions and rhetoric.\n\nPulmonologist Dr. Vin Gupta, an MSNOW senior medical analyst, joined as the sole guest, attributing the outbreak to RFK Jr.'s two decades of vaccine skepticism, a recent Oval Office event questioning the MMR vaccine, and erosion of trust. Gupta emphasized measles complications (pneumonia, encephalitis) in unvaccinated children occurring in roughly one in four cases and praised California Gov. Gavin Newsom's state-led albuterol production initiative as filling a federal leadership void. Sourcing relied on AP, NYT, state health officials, and CDC-tracked national figures."
+publishedAt: 2026-08-29T03:47:34.000Z
+sourceUrl: "https://www.youtube.com/watch?v=iiFpMYtuIag"
+sourceTitle: "MS NOW"
+section: "Politics"
+letterGrade: "C-"
+factualityScore: 65
+politicalLean: "left"
+leanScore: -65
+leanRationale: "Segment frames surge explicitly as occurring \"in Donald Trump's America,\" repeatedly ties it to RFK Jr.'s past comments and current role as undermining trust, features only critical experts and Democratic Gov. Shapiro; omits RFK Jr.'s recent public endorsements of MMR vaccination and attributes decline primarily to his influence while downplaying pre-existing trends and COVID-era factors."
+gradeRationale: "Graded C-: Core outbreak statistics (2,777 cases, PA hospitalizations, unvaccinated majority) verified by CDC data, but segment overstated deaths as definitively \"from measles\" when officials use \"measles-associated\" phrasing with noted coroner disputes on one infant case; heavy attribution to RFK Jr. without quantifying his direct causal impact beyond long-term rhetoric."
+topics:
+  - "Measles outbreak"
+  - "Vaccines"
+  - "RFK Jr."
+  - "Public health"
+assessment: "The broadcast accurately captures the scale of the 2026 measles resurgence—now at 2,777 cases with 94% outbreak-associated and the vast majority in unvaccinated individuals—and the real risks of complications, which are well-documented by CDC and AAP data. Claims about Pennsylvania's outbreak numbers, hospitalizations, and the two deaths align with state health department announcements, though one infant death involves ongoing coroner review where measles was present but the immediate cause listed as a ruptured spleen.[[1]](https://www.pa.gov/agencies/health/newsroom/pennsylvania-department-of-health-confirms-two-measles-associate)[[2]](https://lancasteronline.com/news/health/lancaster-county-coroner-s-records-don-t-add-clarity-to-2-pa-deaths-tied-to/article_01cf0185-73b6-4c8c-99de-249b412aa486.html)\n\nFraming heavily emphasizes RFK Jr.'s long history of vaccine skepticism (including the verified 2021 \"chicken soup and vitamin A\" remark) and his recent questioning of the Pennsylvania deaths as driving the crisis, while presenting only one-sided expert commentary. Viewers miss fuller context: vaccination rates had been declining for years before RFK Jr.'s appointment (kindergarten MMR coverage fell from 95.2% in 2019-2020 to 92.4% recently), COVID disruptions affected uptake globally, and RFK Jr. has in 2026 publicly stated that the MMR vaccine is 97% effective and that \"people should get vaccinated.\" The segment also downplays that U.S. outbreaks are part of a broader international pattern. Overall, factual numbers hold but selective sourcing and partisan framing (\"in Donald Trump's America\") risk overstating individual culpability while underplaying community exemption trends in affected areas like Lancaster County."
+notableConcerns:
+  - "One-sided guest selection and sourcing with no counter-perspective on RFK Jr.'s recent statements supporting vaccination"
+  - "Overstated certainty on \"deaths from measles\" given \"measles-associated\" classification and coroner disputes on one case"
+  - "Missing broader context on pre-2025 vaccination trends and international measles surges"
+keyMoments:
+  - claim: "Declining vaccination rates have fueled the nation's biggest measles surge since 1991, with 2026 cases trending higher than 2025's record total; U.S. on verge of losing 26-year elimination status."
+    verdict: "verified"
+    note: "CDC data confirms 2,777 cases as of Aug 20 2026 (highest since 1991), surpassing 2025's 2,289; 94% unvaccinated/unknown; PAHO review of elimination status scheduled for Nov 2026."
+  - claim: "Two unvaccinated people in Lancaster County, PA died from causes related to measles; outbreak has hospitalized 70 and infected more than 390, a third children; possible vast undercount in Amish/Mennonite areas."
+    verdict: "verified"
+    note: "PA Dept of Health confirmed two measles-associated deaths in unvaccinated Lancaster residents (first in 35 years); state reports ~393-460 cases with dozens hospitalized; NYT and local reporting match outbreak details and undercount concerns."
+  - claim: "RFK Jr. said in 2021 that the cure for measles is chicken soup and vitamin A; recently questioned whether the PA measles deaths 'actually happened' and suggested press coverage assumes they did without critical inquiry."
+    verdict: "verified"
+    note: "RFK Jr.'s 2021 Lancaster remarks documented by NYT; his recent comments questioning details of PA deaths and cooperation with CDC confirmed in multiple outlets including his own statements and Shapiro exchange."
+  - claim: "RFK Jr.'s actions dismantling public health agencies, language undermining confidence in medical guidance, and past comments are contributing to these outbreaks; Gov. Shapiro called it a 'rabbit hole of conspiracy theories.'"
+    verdict: "missing context"
+    note: "Shapiro's criticism verified, but segment omits RFK Jr.'s 2026 statements endorsing MMR vaccination (97% effective) and blaming declines on COVID-era trust erosion and Biden administration; vaccination drops predated his tenure."
+  - claim: "Measles complications occur in one in four cases especially in unvaccinated kids, leading to pneumonia, encephalitis, hospitalization, and death; far more than a self-limited rash."
+    verdict: "verified"
+    note: "Consistent with CDC guidance: ~1 in 5 unvaccinated require hospitalization; encephalitis and pneumonia are documented complications; U.S. saw 3 deaths in 2025."
+videoId: "iiFpMYtuIag"
+videoTitle: "RFK Jr. accused of vaccine misinformation as U.S. measles cases soar"
+politicians:
+  - name: "Donald Trump"
+    slug: "donald-trump"
+  - name: "Gavin Newsom"
+    slug: "gavin-newsom"
+  - name: "Josh Shapiro"
+    slug: "josh-shapiro"
+  - name: "Robert F. Kennedy Jr."
+    slug: "rfk-jr"
+thumbnail: "https://img.youtube.com/vi/iiFpMYtuIag/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "Red Book Online Outbreaks: Measles"
+    url: "https://publications.aap.org/redbook/resources/15187/Red-Book-Online-Outbreaks-Measles"
+  - title: "Pennsylvania Department of Health Confirms Two Measles-Associated Deaths"
+    url: "https://www.pa.gov/agencies/health/newsroom/pennsylvania-department-of-health-confirms-two-measles-associate"
+  - title: "Two Unvaccinated People Died From Measles in Pennsylvania, Officials Say"
+    url: "https://www.nytimes.com/2026/08/25/well/measles-deaths-pennsylvania-outbreak.html"
+  - title: "Measles Cases and Outbreaks | CDC"
+    url: "https://www.cdc.gov/measles/data-research/index.html"
+  - title: "U.S. Measles Deaths Reported"
+    url: "https://www.medpagetoday.com/infectiousdisease/publichealth/122744"
+  - title: "Lancaster County coroner’s records don’t add clarity to 2 Pa. deaths tied to measles"
+    url: "https://lancasteronline.com/news/health/lancaster-county-coroner-s-records-don-t-add-clarity-to-2-pa-deaths-tied-to-measles/article_01cf0185-73b6-4c8c-99de-249b412aa486.html"
+  - title: "RFK Jr. accused of vaccine misinformation as U.S. measles cases soar (original video source)"
+    url: "https://www.youtube.com/watch?v=iiFpMYtuIag"
+  - title: "Tracking U.S. Measles 2026"
+    url: "https://www.usnews.com/news/health-news/articles/tracking-the-2026-u-s-measles-outbreaks"
+---
+
+
