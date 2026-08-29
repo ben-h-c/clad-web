@@ -30,7 +30,7 @@ Charter: `docs/daily-review.md`. Map: `docs/platform-brief.md`.
 - Clad Studio → Mac companion → Grok for design-to-code.
 - Post images: own video still or site-generated only.
 - **Always-image:** report/strip cards always show 16:9 art — bad broadcast stills become owned `/generated/` illustrations (not hide-photo).
-- **Midterms board:** live auditor overlay for nominees + vote dates. Curated card list stays editorial. Do not re-open “card every House district.” General winners remain a desk call at `/admin/results`.
+- **Midterms board:** live auditor overlay for nominees + vote dates. Curated card list stays editorial. Do not re-open “card every House district.” Seat winners auto-call from AP / two-outlet consensus; desk `editorial` on `/admin/results` is not overwritten.
 
 ## How to lead in-session
 

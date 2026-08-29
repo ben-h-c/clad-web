@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-29 — Ballot winners call from news consensus
+
+**Status:** accepted  
+**Context:** Ben: CladFacts should also call an election winner based on news consensus. Pick'em scoring (`race_result`) was a desk button on `/admin/results`.  
+**Decision:** A dedicated `election-caller` agent writes D1 results when **AP** has called the race, or **two independent major outlets** have called the same winner. Seat-filling contests only (general or special) after that vote day has begun in Eastern Time. Primaries/runoffs never score the ballot. A desk `editorial` row is not overwritten. Empty Grok spend until a vote day (runner skips). Cron every 2h so election night is covered.  
+**Consequences:** `runner/electionCaller.mjs`, `src/lib/elections/raceCalls.ts`, `POST /api/agent/results`. Admin can still set/clear. Supersedes the “winners stay a desk call” line in the same-day overlay decision.
+
 ## 2026-08-29 — Midterms board stays current via live auditor overlay
 
 **Status:** accepted  

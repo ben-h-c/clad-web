@@ -296,6 +296,15 @@ export const DEFAULT_REGISTRY: Registry = {
       },
     },
     {
+      id: "election-caller",
+      kind: "election-caller",
+      name: "Election caller (news consensus → ballot winners)",
+      enabled: true,
+      // Every 2h — cheap no-op until a general/special vote day; Grok only then.
+      cron: "40 */2 * * *",
+      config: {},
+    },
+    {
       id: "politician-roster-sync",
       kind: "politician-roster-sync",
       name: "Politician Roster Sync (who holds office)",
@@ -436,6 +445,7 @@ export async function getRegistry(kv: KVNamespace): Promise<Registry> {
   // so config bumps ship without wiping lastRun / custom toggles.
   for (const id of [
     "race-board-auditor",
+    "election-caller",
     "politician-grader",
     "politician-profile-builder",
     "calendar-scanner",
@@ -1371,6 +1381,7 @@ export async function removeComplianceFinding(
 
 // ── Race board auditor (2026 midterms candidates + election dates) ─────
 const RACE_AUDIT_KEY = "races:audit";
+const RACE_CALLS_KEY = "races:calls";
 
 export type RaceAuditSeverity = "critical" | "stale" | "info";
 
@@ -1462,6 +1473,38 @@ export async function getRaceAuditReport(kv: KVNamespace): Promise<RaceAuditRepo
 
 export async function setRaceAuditReport(kv: KVNamespace, report: RaceAuditReport): Promise<void> {
   await kv.put(RACE_AUDIT_KEY, JSON.stringify(report));
+}
+
+export interface RaceCallLogEntry {
+  raceId: string;
+  action: "apply" | "update" | "skip";
+  reason?: string;
+  winnerSide?: string;
+  winnerName?: string;
+  source?: string;
+}
+
+export interface RaceCallReport {
+  generatedAt: string;
+  summary: string;
+  eligible: number;
+  applied: number;
+  skipped: number;
+  calls: RaceCallLogEntry[];
+}
+
+export async function getRaceCallReport(kv: KVNamespace): Promise<RaceCallReport | null> {
+  const raw = await kv.get(RACE_CALLS_KEY);
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw) as RaceCallReport;
+  } catch {
+    return null;
+  }
+}
+
+export async function setRaceCallReport(kv: KVNamespace, report: RaceCallReport): Promise<void> {
+  await kv.put(RACE_CALLS_KEY, JSON.stringify(report));
 }
 
 /** Latest researched dates only (empty if no audit yet). */

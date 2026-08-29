@@ -137,6 +137,17 @@ export function putElectionForecastLive(payload) {
   });
 }
 
+export function getRaceCalls() {
+  return call("/api/agent/results", { method: "GET" });
+}
+
+export function putRaceCalls(payload) {
+  return call("/api/agent/results", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
 export function getPoliticianRoster() {
   return call("/api/agent/politicians-roster", { method: "GET" });
 }

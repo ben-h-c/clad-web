@@ -136,9 +136,9 @@ If a new public endpoint 401s, it was forgotten on the allowlist (analytics coll
 
 Registry seed: `src/lib/agents.ts` `DEFAULT_REGISTRY`. Kinds include:
 
-`youtube-scanner`, `frontpage-curator`, `breaking-news-curator`, `discover-curator`, `good-news-curator`, `home-layout-curator`, `today-in-history`, `human-spotlight`, `calendar-scanner`, `politician-*`, `race-board-auditor` (live 2026 candidates + dates), `forecast-refresher`, `social-sentiment-scanner`, `compliance-auditor`, digests, push, retention…
+`youtube-scanner`, `frontpage-curator`, `breaking-news-curator`, `discover-curator`, `good-news-curator`, `home-layout-curator`, `today-in-history`, `human-spotlight`, `calendar-scanner`, `politician-*`, `race-board-auditor` (live 2026 candidates + dates), `election-caller` (news-consensus winners), `forecast-refresher`, `social-sentiment-scanner`, `compliance-auditor`, digests, push, retention…
 
-**Midterms 2026:** curated race cards in `src/lib/races.ts` (Class II Senate + selected governors). Daily `race-board-auditor` overlays current nominees and next-vote dates onto KV — public ballot/map/home read the overlay, not a code deploy. Party-stable sides so pick'em does not flip. Map Cook-style bands: `forecast-refresher`. Officeholders: `politician-roster-sync`.
+**Midterms 2026:** curated race cards in `src/lib/races.ts` (Class II Senate + selected governors). Daily `race-board-auditor` overlays current nominees and next-vote dates onto KV — public ballot/map/home read the overlay, not a code deploy. Party-stable sides so pick'em does not flip. Seat winners: `election-caller` writes D1 `race_result` from AP / two-outlet consensus after the general or special vote day; desk editorial rows stay locked. Map Cook-style bands: `forecast-refresher`. Officeholders: `politician-roster-sync`.
 
 **YouTube news scanner:** does **not** keyword-search. Watches **allow-listed channel upload playlists** (`src/lib/youtubeScannerPolicy.ts`). Admin read-only criteria: `/admin/youtube-scanner/`. Manual URLs: admin intake + url queue.
 

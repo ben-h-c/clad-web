@@ -56,7 +56,7 @@ description: >
 | Cover ambient clip | Native `<video>` via public `GET /api/ambient/:id` (must stay in `PUBLIC_API`). Bytes in `ambient:clip:<id>` KV. Runner `ambientClip.mjs` (yt-dlp android client). Never a YouTube iframe on the Cover. |
 | Anon leak guard | `scripts/checkAnonLeak.mjs` |
 | Image license | YouTube own still or `/generated/` only; `docs/legal/image-claims.md` |
-| Midterms 2026 board | Seed `src/lib/races.ts`; live overlay `src/lib/elections/liveOverlay.ts` via daily `race-board-auditor` (candidates + dates in KV). Do not hand-edit names for routine primary results. Forecast map: `forecast-refresher`. Roster: `politician-roster-sync`. |
+| Midterms 2026 board | Seed `src/lib/races.ts`; live overlay `src/lib/elections/liveOverlay.ts` via daily `race-board-auditor` (candidates + dates in KV). Do not hand-edit names for routine primary results. Seat winners: `election-caller` → D1 `race_result` (AP or 2 majors; never a primary). Forecast map: `forecast-refresher`. Roster: `politician-roster-sync`. |
 
 ## Media pipeline (do not re-litigate)
 

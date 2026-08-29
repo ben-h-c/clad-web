@@ -53,6 +53,7 @@ function agentExpectedHours(a: Agent): number {
     "discover-curator": 24,
     "good-news-curator": 24,
     "race-board-auditor": 24,
+    "election-caller": 2,
     "frontpage-curator": 4,
     "breaking-news-curator": 0.75,
     "quip-writer": 72,

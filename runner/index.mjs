@@ -35,6 +35,7 @@ import { runTodayInHistory } from "./todayInHistory.mjs";
 import { runHumanSpotlight } from "./humanSpotlight.mjs";
 import { runHomeLayoutCurator } from "./homeLayoutCurator.mjs";
 import { runForecastRefresher } from "./forecastRefresher.mjs";
+import { runElectionCaller } from "./electionCaller.mjs";
 import { runPushReminders } from "./pushReminders.mjs";
 import { runRetentionPrune } from "./retentionPrune.mjs";
 import { processUrlQueue } from "./urlIntake.mjs";
@@ -67,6 +68,7 @@ const KINDS = {
   "dead-video-pruner": runDeadVideoPruner,
   "social-sentiment-scanner": runSentimentScanner,
   "race-board-auditor": runRaceBoardAuditor,
+  "election-caller": runElectionCaller,
   "politician-roster-sync": runPoliticianRosterSync,
   "politician-profile-builder": runPoliticianProfileBuilder,
   "politician-grader": runPoliticianGrader,
@@ -91,6 +93,7 @@ const AGENT_TIMEOUT_MS = {
   "politician-grader": 15 * 60_000,
   "calendar-scanner": 15 * 60_000,
   "race-board-auditor": 10 * 60_000,
+  "election-caller": 8 * 60_000,
   default: 6 * 60_000,
 };
 

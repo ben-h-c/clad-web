@@ -2,7 +2,7 @@
 import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import AdminNav from "~/components/AdminNav.astro";
-import { getRaceAuditReport } from "~/lib/agents";
+import { getRaceAuditReport, getRaceCallReport } from "~/lib/agents";
 import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates, liveBoardVerifiedAsOf } from "~/lib/elections";
 import { listResults } from "~/lib/picks";
 import { RACE_BOARD_VERIFIED_ASOF } from "~/lib/races";
@@ -19,15 +19,16 @@ const critical = findings.filter((f) => f.severity === "critical").length;
 const stale = findings.filter((f) => f.severity === "stale").length;
 const candidateCards = audit?.candidates?.length ?? 0;
 const dated = (audit?.electionDates ?? []).filter((d) => d.nextVoteDate !== "TBD").length;
+const callReport = await getRaceCallReport(env.AGENTS);
 ---
 <BaseLayout title="Race results — Admin" noindex={true}>
   <AdminNav current="results" />
   <article class="static-page">
     <h1 class="static-page__title">Race results · {election.id}</h1>
     <p class="upgrade__lede">
-      Call races as winners become clear. User ballots score against these sides (a / b).
-      Names and dates on this table are the live auditor overlay (party-stable); seed fallback is in
-      <code>races.ts</code>.
+      Winners score locked ballots (a / b). News consensus (AP or two major outlets) writes
+      these automatically after a general or special vote day; a desk call here is
+      <code>editorial</code> and will not be overwritten. Names/dates are the live auditor overlay.
     </p>
 
     <section class="admin-audit" aria-label="Race board auditor">
@@ -52,6 +53,13 @@ const dated = (audit?.electionDates ?? []).filter((d) => d.nextVoteDate !== "TBD
       ) : (
         <p class="dateline">No candidate findings in the last audit.</p>
       )}
+      <p class="dateline" style="margin-top:0.75rem">
+        Consensus caller
+        {callReport
+          ? ` · last run ${callReport.generatedAt} · applied ${callReport.applied} / skipped ${callReport.skipped} · eligible ${callReport.eligible}`
+          : " · no run stored yet"}
+      </p>
+      {callReport?.summary ? <p class="admin-audit__summary">{callReport.summary}</p> : null}
     </section>
 
     <table class="admin-results">
@@ -79,6 +87,9 @@ const dated = (audit?.electionDates ?? []).filter((d) => d.nextVoteDate !== "TBD
                 {res
                   ? `${res.winnerSide === "a" ? race.a.name : res.winnerSide === "b" ? race.b.name : "Other"} (${res.winnerSide})`
                   : "—"}
+                {res?.source ? (
+                  <div class="admin-results__id">{res.source}{res.calledAt ? ` · ${res.calledAt.slice(0, 10)}` : ""}</div>
+                ) : null}
               </td>
               <td class="admin-results__actions">
                 <button type="button" data-side="a">A wins</button>
