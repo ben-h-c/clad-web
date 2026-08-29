@@ -1,14 +1,24 @@
 ---
+import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import AdminNav from "~/components/AdminNav.astro";
-import { DEFAULT_ELECTION_ID, getElection } from "~/lib/elections";
+import { getRaceAuditReport } from "~/lib/agents";
+import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates, liveBoardVerifiedAsOf } from "~/lib/elections";
 import { listResults } from "~/lib/picks";
+import { RACE_BOARD_VERIFIED_ASOF } from "~/lib/races";
 
 export const prerender = false;
 
-const election = getElection(DEFAULT_ELECTION_ID)!;
+const election = (await getElectionWithPublishedDates(DEFAULT_ELECTION_ID, env.AGENTS))!;
 const results = await listResults(election.id);
 const byRace = new Map(results.map((r) => [r.raceId, r]));
+const audit = await getRaceAuditReport(env.AGENTS);
+const liveAsOf = liveBoardVerifiedAsOf(election.races, RACE_BOARD_VERIFIED_ASOF);
+const findings = audit?.findings ?? [];
+const critical = findings.filter((f) => f.severity === "critical").length;
+const stale = findings.filter((f) => f.severity === "stale").length;
+const candidateCards = audit?.candidates?.length ?? 0;
+const dated = (audit?.electionDates ?? []).filter((d) => d.nextVoteDate !== "TBD").length;
 ---
 <BaseLayout title="Race results — Admin" noindex={true}>
   <AdminNav current="results" />
@@ -16,7 +26,33 @@ const byRace = new Map(results.map((r) => [r.raceId, r]));
     <h1 class="static-page__title">Race results · {election.id}</h1>
     <p class="upgrade__lede">
       Call races as winners become clear. User ballots score against these sides (a / b).
+      Names and dates on this table are the live auditor overlay (party-stable); seed fallback is in
+      <code>races.ts</code>.
     </p>
+
+    <section class="admin-audit" aria-label="Race board auditor">
+      <h2 class="admin-audit__title">Live overlay</h2>
+      <p class="dateline">
+        Desk stamp {liveAsOf}
+        {audit?.generatedAt ? ` · last run ${audit.generatedAt}` : " · no audit stored yet"}
+        {audit ? ` · ${candidateCards} candidate cards · ${dated} dates set · ${critical} critical / ${stale} stale findings` : ""}
+      </p>
+      {audit?.summary ? <p class="admin-audit__summary">{audit.summary}</p> : null}
+      {findings.length ? (
+        <ul class="admin-audit__findings">
+          {findings.slice(0, 24).map((f) => (
+            <li>
+              <strong>{f.severity}</strong> · {f.office || f.raceId}: {f.issue}
+              {f.suggestedA || f.suggestedB
+                ? ` → ${f.suggestedA || "—"} / ${f.suggestedB || "—"}`
+                : ""}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="dateline">No candidate findings in the last audit.</p>
+      )}
+    </section>
 
     <table class="admin-results">
       <thead>
@@ -122,5 +158,24 @@ const byRace = new Map(results.map((r) => [r.raceId, r]));
     font-size: 0.75rem;
     padding: 0.25rem 0.4rem;
     cursor: pointer;
+  }
+  .admin-audit {
+    margin: 0 0 1.5rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--rule, #cfc3ad);
+    border-radius: 8px;
+  }
+  .admin-audit__title {
+    font-size: 1rem;
+    margin: 0 0 0.35rem;
+  }
+  .admin-audit__summary {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+  .admin-audit__findings {
+    margin: 0.4rem 0 0;
+    padding-left: 1.1rem;
+    font-size: 0.85rem;
   }
 </style>

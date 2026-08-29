@@ -56,6 +56,7 @@ description: >
 | Cover ambient clip | Native `<video>` via public `GET /api/ambient/:id` (must stay in `PUBLIC_API`). Bytes in `ambient:clip:<id>` KV. Runner `ambientClip.mjs` (yt-dlp android client). Never a YouTube iframe on the Cover. |
 | Anon leak guard | `scripts/checkAnonLeak.mjs` |
 | Image license | YouTube own still or `/generated/` only; `docs/legal/image-claims.md` |
+| Midterms 2026 board | Seed `src/lib/races.ts`; live overlay `src/lib/elections/liveOverlay.ts` via daily `race-board-auditor` (candidates + dates in KV). Do not hand-edit names for routine primary results. Forecast map: `forecast-refresher`. Roster: `politician-roster-sync`. |
 
 ## Media pipeline (do not re-litigate)
 
@@ -84,6 +85,7 @@ description: >
 - Admin: `BaseLayout` + `AdminNav`, `prerender = false` when using `cloudflare:workers` env.
 - Scanner: channel playlists only — edit policy module, restart `clad-agent-runner`.
 - Force agent: `cd runner && node --env-file=.env index.mjs --once --force=<kind>`.
+- Midterms live overlay: `npm run check:races`. After auditor code changes, `pm2 restart clad-agent-runner` so production ticks pick up `raceBoardAuditor.mjs`.
 - Spend dial: `src/lib/xaiEconomy.ts` / `XAI_ECONOMY`. **Production is economy** (2026-08-19). Flip with `runner/.env` + Worker vars + `pm2 restart clad-agent-runner`. `XAI_ECONOMY=full` is max volume.
 - **Staging never auto-spends xAI.** `src/lib/spendGuard.ts` — opt in via bottom-bar checkbox (`#clad-allow-spend`) / `X-Clad-Allow-Spend`. Runner against staging only runs `--force=` or Run-now. Staging notice is that first bottom-bar row — no top ribbon over the masthead.
 - **Refresh staging from prod:** bar button → `POST /api/admin/sync-staging` (`src/lib/syncStagingFromProd.ts`). Staging-only; needs `AGENTS_PROD` binding.

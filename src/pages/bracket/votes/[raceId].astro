@@ -1,6 +1,7 @@
 ---
+import { env } from "cloudflare:workers";
 import BaseLayout from "~/layouts/BaseLayout.astro";
-import { DEFAULT_ELECTION_ID, getElection, raceById } from "~/lib/elections";
+import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates, raceById } from "~/lib/elections";
 import { OG_VERSIONS } from "~/lib/ogCard";
 import { getCommunityVotes, listResults } from "~/lib/picks";
 
@@ -8,7 +9,7 @@ export const prerender = false;
 Astro.response.headers.set("Cache-Control", "public, max-age=30, s-maxage=60");
 
 const raceId = String(Astro.params.raceId ?? "").trim();
-const election = getElection(DEFAULT_ELECTION_ID)!;
+const election = (await getElectionWithPublishedDates(DEFAULT_ELECTION_ID, env.AGENTS))!;
 const race = raceById(election, raceId);
 if (!race) return Astro.redirect("/bracket/votes/");
 

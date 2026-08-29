@@ -38,6 +38,7 @@ CI also: `node scripts/checkImageLicense.mjs` (every post image must be own YT s
 - **Commons KV:** do not store unvalidated thumb URLs. After Commons pipeline changes, force-run agents that write `imageUrl` (`today-in-history`, human-spotlight, etc.) and spot-check live tiles for 400 thumbs / wrong-person portraits.
 - Spot-check: homepage Breaking/Topic rows show 16:9 art; Spotlight monogram when no portrait; history full-bleed Commons only.
 - People in the news: `npm run check:people` (extractor fixtures + last-week strip preview). Staging home signed view should mix non-officeholders with politicians. `/politicians/luigi-mangione/` must not be a report card (302 to the story).
+- Midterms overlay: `npm run check:races` when touching `liveOverlay.ts` / race-board auditor. After staging, `/bracket/` names should match current nominees without a `races.ts` edit.
 
 ## Production smoke (infra / analytics / public APIs)
 

@@ -8,7 +8,12 @@ import {
   type RaceElectionDate,
   type RaceVoteKind,
 } from "~/lib/agents";
-import { getElectionWithPublishedDates, DEFAULT_ELECTION_ID } from "~/lib/elections";
+import {
+  getElection,
+  getElectionWithPublishedDates,
+  DEFAULT_ELECTION_ID,
+  normalizeRaceCandidates,
+} from "~/lib/elections";
 import { normalizeVoteDate, raceBoardSnapshot, isVoteDateTbd } from "~/lib/races";
 
 export const prerender = false;
@@ -66,7 +71,7 @@ export const GET: APIRoute = async ({ request }) => {
   return json({ board, lastAudit });
 };
 
-/** POST — store a race-board audit report from the runner (findings + electionDates). */
+/** POST — store a race-board audit report (findings + electionDates + live candidates). */
 export const POST: APIRoute = async ({ request }) => {
   if (!checkAgentToken(request.headers.get("authorization"), env.AGENT_TOKEN)) {
     return tokenUnauthorized();
@@ -81,6 +86,8 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ error: "invalid report" }, 400);
   }
   const electionDates = normElectionDates(body.electionDates);
+  const knownIds = new Set((getElection(DEFAULT_ELECTION_ID)?.races ?? []).map((r) => r.id));
+  const candidates = normalizeRaceCandidates(body.candidates).filter((c) => knownIds.has(c.raceId));
   const report: RaceAuditReport = {
     generatedAt: body.generatedAt,
     boardVerifiedAsOf: String(body.boardVerifiedAsOf || ""),
@@ -100,6 +107,7 @@ export const POST: APIRoute = async ({ request }) => {
       sources: Array.isArray(f.sources) ? f.sources.map((s) => String(s).slice(0, 300)).slice(0, 6) : undefined,
     })),
     electionDates,
+    candidates,
   };
   await setRaceAuditReport(env.AGENTS, report);
   const dated = electionDates.filter((d) => d.nextVoteDate !== "TBD").length;
@@ -109,5 +117,6 @@ export const POST: APIRoute = async ({ request }) => {
     electionDates: electionDates.length,
     dated,
     tbd: electionDates.length - dated,
+    candidates: candidates.length,
   });
 };

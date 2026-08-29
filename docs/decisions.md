@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-29 — Midterms board stays current via live auditor overlay
+
+**Status:** accepted  
+**Context:** Ben: how is CladFacts staying up to date with the 2026 midterms? Make it fully automated. The ballot/map seed (`races.ts`) was last hand-audited 2026-07-14. Dates already overlaid from KV; candidate names did not — so Aug primaries (MI, MN, SC runoff, ME convention) sat stale until a deploy.  
+**Decision:** The race-board-auditor publishes **candidates and dates live**. No hand-edit of `races.ts` for routine primary/runoff/replacement results. Overlay matches sides **by party** so locked pick'em a/b do not flip. Curated race list stays editorial (Class II Senate + selected governors — not every House district). Forecast map ratings stay on `forecast-refresher`. Officeholders stay on `politician-roster-sync`. General-election **winners** (`/admin/results`) stay a desk call until AP-level calls exist. Economy cadence for the auditor is daily (24h), not 48h.  
+**Consequences:** `runner/raceBoardAuditor.mjs`, `src/lib/elections/liveOverlay.ts`, KV report `candidates[]` + `electionDates[]`. Public `/bracket/`, `/elections/map/`, home, calendar, share cards read `getElectionWithPublishedDates`. Seed in `races.ts` is fallback only.
+
 ## 2026-08-19 — xAI spend mode is economy
 
 **Status:** accepted  

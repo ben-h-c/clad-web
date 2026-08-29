@@ -7,14 +7,21 @@ import {
   type RaceVoteKind,
 } from "../races.ts";
 import {
-  getPublishedElectionDates,
+  getRaceAuditReport,
   type RaceElectionDate,
   type RaceVoteKind as AgentVoteKind,
 } from "../agents.ts";
+import { applyPublishedCandidates } from "./liveOverlay.ts";
 
 export * from "./types.ts";
 export { MIDTERMS_2026, MIDTERMS_2026_ID, MIDTERMS_2026_GENERAL, MIDTERMS_2026_PICKS_CLOSE } from "./midterms-2026.ts";
 export { isVoteDateTbd, normalizeVoteDate } from "../races.ts";
+export {
+  applyPublishedCandidates,
+  liveBoardVerifiedAsOf,
+  normalizeRaceCandidates,
+  pairOverlayByParty,
+} from "./liveOverlay.ts";
 
 const ELECTIONS: Record<string, ElectionTemplate> = {
   [MIDTERMS_2026_ID]: MIDTERMS_2026,
@@ -28,8 +35,9 @@ export function getElection(id: string | null | undefined): ElectionTemplate | n
 }
 
 /**
- * Election template with researched next-vote dates overlaid from the daily
- * race-board auditor (KV). Dates publish as soon as available; undecided → TBD.
+ * Election template with live auditor overlays (KV): next-vote dates and
+ * current candidates. Dates publish as soon as available; undecided → TBD.
+ * Candidate sides match by party so locked ballot picks do not flip.
  */
 export async function getElectionWithPublishedDates(
   id: string | null | undefined,
@@ -38,12 +46,11 @@ export async function getElectionWithPublishedDates(
   const base = getElection(id);
   if (!base) return null;
   if (!kv) return base;
-  const published = await getPublishedElectionDates(kv);
-  if (!published.length) return base;
-  return {
-    ...base,
-    races: applyPublishedElectionDates(base.races, published),
-  };
+  const report = await getRaceAuditReport(kv);
+  if (!report) return base;
+  let races = applyPublishedElectionDates(base.races, report.electionDates);
+  races = applyPublishedCandidates(races, report.candidates, report.generatedAt);
+  return { ...base, races };
 }
 
 /** Overlay auditor-researched dates onto editorial race defs. */

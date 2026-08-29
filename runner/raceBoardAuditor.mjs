@@ -2,12 +2,10 @@
  * Race Board Auditor — web-search grounded check of every card on the
  * Midterms 2026 race board (src/lib/races.ts).
  *
- * 1) Candidates: flags withdrawn nominees, wrong incumbents, open seats
- *    mislabeled as incumbents, etc. Does NOT auto-edit races.ts (editorial apply).
- * 2) Election dates: researches nextVoteDate for every race and PUBLISHES
- *    them live via the audit report (ISO YYYY-MM-DD or "TBD" when undecided).
- *
- * Stores findings + electionDates in KV via POST /api/agent/races.
+ * Publishes LIVE (no code deploy) via POST /api/agent/races:
+ *  1) electionDates — nextVoteDate (ISO or TBD) for every race
+ *  2) candidates — current nominees / field stand-ins, overlaid by party
+ * Findings remain an editorial log (withdrawn, wrong class, etc.).
  */
 import { getRaceBoard, putRaceAuditReport } from "./api.mjs";
 
@@ -15,6 +13,22 @@ const XAI_RESPONSES = "https://api.x.ai/v1/responses";
 const MODEL = "grok-4.3";
 
 const VOTE_KINDS = ["primary", "runoff", "special", "general", "party-process", "undecided"];
+const STATUSES = ["incumbent-vs-field", "open-seat", "general-projected", "special"];
+const PARTIES = ["D", "R", "I", "O"];
+
+const SIDE_SCHEMA = {
+  type: "object",
+  properties: {
+    slug: { type: "string" },
+    name: { type: "string" },
+    party: { type: "string", enum: PARTIES },
+    incumbent: { type: "boolean" },
+    field: { type: "boolean" },
+    withdrawn: { type: "boolean" },
+  },
+  required: ["slug", "name", "party", "incumbent", "field", "withdrawn"],
+  additionalProperties: false,
+};
 
 const SCHEMA = {
   type: "object",
@@ -57,8 +71,25 @@ const SCHEMA = {
         additionalProperties: false,
       },
     },
+    candidates: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          raceId: { type: "string" },
+          office: { type: "string" },
+          status: { type: "string", enum: STATUSES },
+          a: SIDE_SCHEMA,
+          b: SIDE_SCHEMA,
+          note: { type: "string" },
+          sources: { type: "array", items: { type: "string" } },
+        },
+        required: ["raceId", "office", "status", "a", "b"],
+        additionalProperties: false,
+      },
+    },
   },
-  required: ["summary", "findings", "electionDates"],
+  required: ["summary", "findings", "electionDates", "candidates"],
   additionalProperties: false,
 };
 
@@ -68,25 +99,47 @@ list of 2026 U.S. midterm race cards (Class II Senate + selected governors).
 Use web search (Ballotpedia, AP, Reuters, major state papers, official Secretary of State /
 elections division pages, party committee notices) to verify:
 
-A) CANDIDATES — who is CURRENTLY on the ballot or the clear leading contender as of today.
+A) CANDIDATES — who is CURRENTLY the nominee or clear coverage stand-in as of today.
+   These PUBLISH LIVE on the public ballot/map. Be conservative; do not invent names.
 B) ELECTION DATES — the next meaningful vote date for EACH race, published as soon as known.
 
-── Candidates (findings) ──────────────────────────────────────────────────
+── Candidates (candidates — REQUIRED for every race in the payload) ───────
+For EACH raceId, return one candidates entry with sides a and b.
+
+- Match parties to the board: if the board's side a is D, your a MUST be the Democrat
+  (or D-field). Do not swap parties across a/b. The public pick'em is keyed by side.
+- name: short display name. Named person once the nominee is locked.
+  If the party has not named a nominee, use a field label like "GOP field (MN)"
+  and set field=true. Never leave a withdrawn/lost candidate as the live name.
+- party: D | R | I | O
+- slug: lowercase-hyphen slug for a named person (e.g. "abdul-el-sayed").
+  Keep the board's existing slug when it is the same person (e.g. keep "mike-rogers-mi").
+- incumbent: true only if they currently hold THIS seat.
+- field: true only while they are a coverage stand-in, not the locked nominee.
+- withdrawn: always false on live sides. If someone withdrew, REPLACE them.
+- status: incumbent-vs-field | open-seat | general-projected | special
+  Use general-projected when both major-party nominees are named.
+  Use special for vacancy/special calendars until both nominees are named, then
+  general-projected is OK for the November card.
+- note: one or two sentences of current desk context.
+- sources: 1–3 URLs or outlet+date strings you actually used.
+
+Rules:
+- 2026 federal Senate races are Class II only. Do not put Class I (2030) or
+  Class III (2028) senators on this board as 2026 Senate cards.
+- After a primary/runoff/convention, lock the winner (field=false).
+- If a primary winner withdrew, the live side is the replacement, or "nominee TBD"
+  with field=true until a replacement is named. Never keep the withdrawn name.
+- Do not invent candidates. If search is unclear, keep the board's current named
+  person rather than guessing a new one.
+
+── Findings (log only — candidates array is what publishes) ───────────────
 Flag problems only when evidence is strong:
 - critical: a named person is listed as the nominee/contender but has withdrawn, died,
   lost a primary, is not running, or is the wrong Senate class for 2026.
-- stale: both sides are still "field" but nominees have locked (or vice versa);
-  labels need refresh but are not dangerously wrong.
+- stale: both sides are still "field" but nominees have locked (or vice versa).
 - info: optional note (primary date approaching, special calendar).
-
-Rules:
-- 2026 federal Senate races are Class II only. Do not put Class I (next 2030) or
-  Class III (next 2028) senators on this board as 2026 Senate cards.
-- Prefer major-party nominees once primaries are finished.
-- If a primary winner withdrew, the card must NOT keep them as the active side —
-  use "nominee TBD" / field until a replacement is named.
-- Do not invent candidates. If search is unclear, omit a finding rather than guess.
-- suggestedA / suggestedB should be short display names for the board if a change is needed.
+- suggestedA / suggestedB: short display names when a change is needed.
 - sources: 1–3 URLs or outlet+date strings you actually used.
 
 ── Election dates (electionDates — REQUIRED for every race in the payload) ─
@@ -114,8 +167,8 @@ Date findings (optional, in findings array):
 Publish ASAP: as soon as an official primary / special / general date is confirmed,
 nextVoteDate must be that ISO day — do not leave TBD when the calendar is public.
 
-Return ONLY JSON matching the schema. electionDates length must match the number of
-races audited. Empty findings array means candidate labels look accurate.`;
+Return ONLY JSON matching the schema. electionDates AND candidates length must match
+the number of races audited. Empty findings array means candidate labels look accurate.`;
 
 function extractText(data) {
   if (typeof data?.output_text === "string" && data.output_text) return data.output_text;
@@ -175,6 +228,69 @@ function normalizeVoteKind(raw, nextVoteDate) {
   if (VOTE_KINDS.includes(k)) return k;
   if (nextVoteDate === "TBD") return "undecided";
   return "general";
+}
+
+function slugifyName(name) {
+  return String(name || "")
+    .toLowerCase()
+    .replace(/[’']/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 80);
+}
+
+function normalizeSide(raw) {
+  if (!raw || typeof raw !== "object") return null;
+  const name = String(raw.name || "").trim().slice(0, 80);
+  const party = String(raw.party || "").trim().toUpperCase();
+  if (name.length < 2 || !PARTIES.includes(party)) return null;
+  if (raw.withdrawn === true) return null;
+  const slug = String(raw.slug || slugifyName(name))
+    .toLowerCase()
+    .replace(/[^a-z0-9-]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 80);
+  const side = { name, party };
+  if (slug.length >= 2) side.slug = slug;
+  if (raw.incumbent === true) side.incumbent = true;
+  if (raw.incumbent === false) side.incumbent = false;
+  if (raw.field === true) side.field = true;
+  if (raw.field === false) side.field = false;
+  return side;
+}
+
+function normalizeCandidates(rawList, races) {
+  const byId = new Map();
+  for (const item of Array.isArray(rawList) ? rawList : []) {
+    const raceId = String(item?.raceId || "").slice(0, 80);
+    if (!raceId) continue;
+    const a = normalizeSide(item.a);
+    const b = normalizeSide(item.b);
+    if (!a || !b || a.party === b.party) continue;
+    const status = String(item.status || "");
+    byId.set(raceId, {
+      raceId,
+      office: String(item.office || "").slice(0, 160),
+      status: STATUSES.includes(status) ? status : undefined,
+      a,
+      b,
+      note: item.note ? String(item.note).slice(0, 400) : undefined,
+      sources: Array.isArray(item.sources)
+        ? item.sources.map((s) => String(s).slice(0, 300)).slice(0, 6)
+        : undefined,
+    });
+  }
+  const out = [];
+  for (const r of races) {
+    const existing = byId.get(r.id);
+    if (!existing) continue; // omit rather than invent; editorial seed stays
+    if (!existing.office) existing.office = r.office || r.id;
+    if (!existing.status) existing.status = r.status;
+    out.push(existing);
+  }
+  return out;
 }
 
 function normalizeElectionDates(rawList, races) {
@@ -238,7 +354,7 @@ export async function runRaceBoardAuditor(agent) {
     today: new Date().toISOString().slice(0, 10),
     boardVerifiedAsOf: board.verifiedAsOf,
     instruction:
-      "For every race, return electionDates with nextVoteDate (YYYY-MM-DD or TBD) and voteKind. Publish dates as soon as official; use TBD when not decided.",
+      "For every race, return electionDates (nextVoteDate YYYY-MM-DD or TBD) AND candidates (current a/b sides, matching the board's parties). Candidates publish live.",
     races,
   };
 
@@ -247,7 +363,7 @@ export async function runRaceBoardAuditor(agent) {
     result = await callGrok(
       xaiKey,
       `Audit these CladFacts race cards against current 2026 election reality.\n` +
-        `Research candidates AND next vote dates for every race.\n\n${JSON.stringify(payload, null, 2)}`
+        `Research candidates AND next vote dates for every race. Candidates publish live — match parties to each card's existing a/b sides.\n\n${JSON.stringify(payload, null, 2)}`
     );
   } catch (err) {
     return { ok: false, message: String(err?.message || err).slice(0, 280) };
@@ -255,6 +371,7 @@ export async function runRaceBoardAuditor(agent) {
 
   const findings = Array.isArray(result.findings) ? result.findings : [];
   const electionDates = normalizeElectionDates(result.electionDates, races);
+  const candidates = normalizeCandidates(result.candidates, races);
   const dated = electionDates.filter((d) => d.nextVoteDate !== "TBD").length;
   const tbd = electionDates.length - dated;
 
@@ -265,6 +382,7 @@ export async function runRaceBoardAuditor(agent) {
     summary: String(result.summary || "").slice(0, 2000),
     findings,
     electionDates,
+    candidates,
   };
 
   const put = await putRaceAuditReport(report);
@@ -276,7 +394,8 @@ export async function runRaceBoardAuditor(agent) {
     ok: true,
     message:
       `audited ${races.length} races · ${critical} critical · ${stale} stale · ` +
-      `${findings.length} findings · dates ${dated} set / ${tbd} TBD`,
+      `${findings.length} findings · dates ${dated} set / ${tbd} TBD · ` +
+      `${candidates.length} candidate cards live`,
     submitted: findings.length + electionDates.length,
     skipped: 0,
   };

@@ -287,7 +287,7 @@ export const DEFAULT_REGISTRY: Registry = {
     {
       id: "race-board-auditor",
       kind: "race-board-auditor",
-      name: "Race Board Auditor (2026 candidates + dates)",
+      name: "Race Board Auditor (2026 candidates + dates, live overlay)",
       enabled: true,
       // Daily 15:00 UTC — publish election dates ASAP; candidates + calendar.
       cron: "0 15 * * *",
@@ -1398,6 +1398,30 @@ export interface RaceAuditFinding {
   sources?: string[];
 }
 
+/** One ballot side as researched by the race-board auditor (live overlay). */
+export interface RaceSidePatch {
+  slug?: string;
+  name: string;
+  party: "D" | "R" | "I" | "O";
+  incumbent?: boolean;
+  field?: boolean;
+  withdrawn?: boolean;
+}
+
+/**
+ * Current candidates for one race — published live like electionDates.
+ * Overlay matches sides by party so locked picks do not flip.
+ */
+export interface RaceCandidateSnapshot {
+  raceId: string;
+  office?: string;
+  status?: "incumbent-vs-field" | "open-seat" | "general-projected" | "special";
+  a: RaceSidePatch;
+  b: RaceSidePatch;
+  note?: string;
+  sources?: string[];
+}
+
 /**
  * Researched election calendar for one race — published live as soon as the
  * daily auditor lands them. Use nextVoteDate "TBD" when not yet scheduled.
@@ -1422,6 +1446,8 @@ export interface RaceAuditReport {
   findings: RaceAuditFinding[];
   /** One entry per audited race — drives published vote dates on the board. */
   electionDates?: RaceElectionDate[];
+  /** Current nominees / field stand-ins — overlay on the public board. */
+  candidates?: RaceCandidateSnapshot[];
 }
 
 export async function getRaceAuditReport(kv: KVNamespace): Promise<RaceAuditReport | null> {
@@ -1442,6 +1468,12 @@ export async function setRaceAuditReport(kv: KVNamespace, report: RaceAuditRepor
 export async function getPublishedElectionDates(kv: KVNamespace): Promise<RaceElectionDate[]> {
   const report = await getRaceAuditReport(kv);
   return Array.isArray(report?.electionDates) ? report!.electionDates! : [];
+}
+
+/** Latest researched candidates only (empty if no audit yet). */
+export async function getPublishedRaceCandidates(kv: KVNamespace): Promise<RaceCandidateSnapshot[]> {
+  const report = await getRaceAuditReport(kv);
+  return Array.isArray(report?.candidates) ? report!.candidates! : [];
 }
 
 // ── News calendar (all news — scanner agent) ───────────────────────────

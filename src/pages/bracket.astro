@@ -21,6 +21,7 @@ import { RACE_BOARD_VERIFIED_ASOF } from "~/lib/races";
 import {
   DEFAULT_ELECTION_ID,
   getElectionWithPublishedDates,
+  liveBoardVerifiedAsOf,
   picksAreOpen,
 } from "~/lib/elections";
 import { OG_VERSIONS } from "~/lib/ogCard";
@@ -35,6 +36,7 @@ const reveal = access.fullAccess;
 const signedIn = access.signedIn;
 
 const election = (await getElectionWithPublishedDates(DEFAULT_ELECTION_ID, env.AGENTS))!;
+const boardVerifiedAsOf = liveBoardVerifiedAsOf(election.races, RACE_BOARD_VERIFIED_ASOF);
 
 const all = await publishedPostsSorted();
 const board = maskRaceLeaders(
@@ -387,7 +389,7 @@ const jsonLd = {
         <li><strong>Your pick</strong> requires a free account. <strong>Lock</strong> freezes only the races in your current filter (e.g. Governors) — other groups stay open.</li>
         <li><strong>Locked picks</strong> join the <a href="/bracket/votes/">anonymous community tally</a> and appear on your share link. <strong>Reset draft</strong> clears unlocked picks in the current filter only.</li>
         <li><strong>Coverage lead</strong> (signed-in) is editorial context about airtime quality — separate from your ballot.</li>
-        <li>Candidate map verified as of {RACE_BOARD_VERIFIED_ASOF}.</li>
+        <li>Candidate map verified as of {boardVerifiedAsOf} (live auditor overlay).</li>
       </ul>
     </CollapsibleSection>
 

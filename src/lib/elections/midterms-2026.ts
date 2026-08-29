@@ -18,12 +18,11 @@ export const MIDTERMS_2026_PICKS_CLOSE = "2026-11-04T04:59:59.000Z";
  */
 const NEXT_VOTE: Record<string, string> = {
   // Senate — remaining primaries / specials
-  "mi-senate": "2026-08-04",
-  "mn-senate": "2026-08-11",
+  "mi-senate": "2026-11-03",
+  "mn-senate": "2026-11-03",
   "nh-senate": "2026-09-08",
-  "sc-senate": "2026-08-11",
-  // Dem replacement process after Platner withdrew — date not locked → TBD until auditor confirms
-  "me-senate": "TBD",
+  "sc-senate": "2026-11-03",
+  "me-senate": "2026-11-03",
   "il-senate": "2026-11-03",
   "mt-senate": "2026-11-03",
   "ne-senate": "2026-11-03",
@@ -45,11 +44,11 @@ const NEXT_VOTE: Record<string, string> = {
 };
 
 const NEXT_VOTE_KIND: Record<string, RaceDef["voteKind"]> = {
-  "mi-senate": "primary",
-  "mn-senate": "primary",
+  "mi-senate": "general",
+  "mn-senate": "general",
   "nh-senate": "primary",
-  "sc-senate": "primary",
-  "me-senate": "party-process",
+  "sc-senate": "general",
+  "me-senate": "general",
   "il-senate": "general",
   "mt-senate": "general",
   "ne-senate": "general",

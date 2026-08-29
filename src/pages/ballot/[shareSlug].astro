@@ -2,7 +2,8 @@
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ShareBar from "~/components/ShareBar.astro";
 import { getPublicSharedBallot, listResults } from "~/lib/picks";
-import { getElection } from "~/lib/elections";
+import { env } from "cloudflare:workers";
+import { getElectionWithPublishedDates } from "~/lib/elections";
 import { OG_VERSIONS } from "~/lib/ogCard";
 
 export const prerender = false;
@@ -14,7 +15,7 @@ const ballot = shareSlug ? await getPublicSharedBallot(shareSlug) : null;
 if (!ballot) {
   return Astro.redirect("/bracket/");
 }
-const election = getElection(ballot.electionId);
+const election = await getElectionWithPublishedDates(ballot.electionId, env.AGENTS);
 if (!election) {
   return Astro.redirect("/bracket/");
 }

@@ -2,7 +2,7 @@ import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 import { ImageResponse } from "workers-og";
 import { getPublicSharedBallot, listResults } from "~/lib/picks";
-import { getElection } from "~/lib/elections";
+import { getElectionWithPublishedDates } from "~/lib/elections";
 import {
   loadImageDataUri,
   ogCacheKey,
@@ -135,7 +135,7 @@ export const GET: APIRoute = async ({ params, request }) => {
 
   const ballot = await getPublicSharedBallot(shareSlug);
   if (!ballot) return new Response("Not found", { status: 404 });
-  const election = getElection(ballot.electionId);
+  const election = await getElectionWithPublishedDates(ballot.electionId, env.AGENTS);
   if (!election) return new Response("Not found", { status: 404 });
 
   const pickMap = new Map(ballot.picks.map((p) => [p.raceId, p.side]));

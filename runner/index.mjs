@@ -90,6 +90,7 @@ const AGENT_TIMEOUT_MS = {
   "politician-profile-builder": 12 * 60_000,
   "politician-grader": 15 * 60_000,
   "calendar-scanner": 15 * 60_000,
+  "race-board-auditor": 10 * 60_000,
   default: 6 * 60_000,
 };
 

@@ -134,7 +134,7 @@ const ECONOMY: XaiLimitProfile = {
     "human-spotlight": 24,
     "discover-curator": 24,
     "good-news-curator": 24,
-    "race-board-auditor": 48,
+    "race-board-auditor": 24,
     "frontpage-curator": 4,
     // Core home strip — keep closer to 15m cron without full mode.
     "breaking-news-curator": 0.5,

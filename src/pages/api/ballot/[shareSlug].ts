@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro";
 import { getPublicSharedBallot, listResults } from "~/lib/picks";
-import { getElection } from "~/lib/elections";
+import { env } from "cloudflare:workers";
+import { getElectionWithPublishedDates } from "~/lib/elections";
 import { jsonResponse } from "~/lib/user-data";
 
 export const prerender = false;
@@ -15,7 +16,7 @@ export const GET: APIRoute = async ({ params }) => {
   const ballot = await getPublicSharedBallot(shareSlug);
   if (!ballot) return jsonResponse({ error: "not found" }, 404);
 
-  const election = getElection(ballot.electionId);
+  const election = await getElectionWithPublishedDates(ballot.electionId, env.AGENTS);
   if (!election) return jsonResponse({ error: "not found" }, 404);
 
   const results = await listResults(ballot.electionId);

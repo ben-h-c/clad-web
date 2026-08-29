@@ -20,9 +20,10 @@
  * - Not a claim that every pairing is locked on the general-election ballot.
  * - Coverage heat: how CladFacts has graded *broadcasts about* each side.
  *
- * Keep `verifiedAsOf` current. The race-board-auditor agent (runner) web-searches
- * each card daily: (1) candidate correctness findings for the editor to apply by
- * hand, and (2) electionDates which publish live automatically (ISO date or TBD).
+ * Seed list is the curated Class II Senate + midterm-governor cards. The
+ * race-board-auditor agent (runner) web-searches each card daily and publishes
+ * live overlays to KV — candidates (by party, so ballot picks do not flip) and
+ * electionDates (ISO or TBD). Do not hand-edit names for routine primary results.
  */
 
 /** Next meaningful vote kind — used on ballot chips and the map. */
@@ -102,13 +103,13 @@ export function normalizeVoteDate(raw: string | null | undefined): string {
   return "TBD";
 }
 
-/** Bump when you complete a full human pass over the board. */
-export const RACE_BOARD_VERIFIED_ASOF = "2026-07-14";
+/** Fallback desk stamp when no live auditor overlay is present. */
+export const RACE_BOARD_VERIFIED_ASOF = "2026-08-29";
 
 /**
  * 2026 Class II Senate focus + midterm governors.
- * Last full audit: 2026-07-14 (Platner out of ME; Tillis retired NC → Cooper/Whatley;
- * Cornyn lost TX primary → Paxton/Talarico; SC vacancy after Graham’s death).
+ * Seed refresh 2026-08-29 (MI/MN primaries, ME convention, SC GOP runoff).
+ * Live names/dates come from the race-board-auditor overlay — this array is fallback.
  */
 export const RACE_MATCHUPS: RaceDef[] = [
   // ── Class II Senate — marquee / competitive attention ────────────────
@@ -147,13 +148,13 @@ export const RACE_MATCHUPS: RaceDef[] = [
     senateClass: 2,
     region: "Midwest",
     tier: "marquee",
-    status: "open-seat",
+    status: "general-projected",
     state: "MI",
-    verifiedAsOf: "2026-07-14",
-    a: { slug: "haley-stevens", name: "Dem primary (Stevens / El-Sayed)", party: "D", field: true },
+    verifiedAsOf: "2026-08-29",
+    a: { slug: "abdul-el-sayed", name: "Abdul El-Sayed", party: "D" },
     // Distinct from AL-3 House Mike Rogers (slug: mike-rogers)
-    b: { slug: "mike-rogers-mi", name: "Mike Rogers", party: "R", field: true },
-    note: "Class II open seat — Gary Peters not seeking re-election. Dem primary Aug 4, 2026: Haley Stevens vs Abdul El-Sayed (McMorrow suspended). Rogers is the main GOP coverage name. Elissa Slotkin is Class I (2030) — not on this ballot.",
+    b: { slug: "mike-rogers-mi", name: "Mike Rogers", party: "R" },
+    note: "Class II open seat — Gary Peters not seeking re-election. El-Sayed won the Aug 4, 2026 Dem primary over Haley Stevens. Rogers is the GOP nominee. Elissa Slotkin is Class I (2030) — not on this ballot.",
   },
   {
     id: "me-senate",
@@ -162,12 +163,12 @@ export const RACE_MATCHUPS: RaceDef[] = [
     senateClass: 2,
     region: "Northeast",
     tier: "marquee",
-    status: "incumbent-vs-field",
+    status: "general-projected",
     state: "ME",
-    verifiedAsOf: "2026-07-14",
+    verifiedAsOf: "2026-08-29",
     a: { slug: "susan-collins", name: "Susan Collins", party: "R", incumbent: true },
-    b: { slug: "me-dem-field", name: "Democratic nominee TBD (ME)", party: "D", field: true },
-    note: "Class II. Collins won the GOP primary unopposed. Graham Platner won the June Dem primary but withdrew July 2026 after assault allegations — Maine Democrats must name a replacement (party process; filing window around late July). Do not list Platner as the nominee.",
+    b: { slug: "troy-jackson", name: "Troy Jackson", party: "D" },
+    note: "Class II. Collins won the GOP primary unopposed. Graham Platner won the June Dem primary then withdrew July 2026. Maine Democrats named former Senate President Troy Jackson at a July 25 convention.",
   },
   {
     id: "tx-senate",
@@ -190,12 +191,12 @@ export const RACE_MATCHUPS: RaceDef[] = [
     senateClass: 2,
     region: "Midwest",
     tier: "watch",
-    status: "open-seat",
+    status: "general-projected",
     state: "MN",
-    verifiedAsOf: "2026-07-14",
-    a: { slug: "peggy-flanagan", name: "Dem primary (Flanagan / Craig)", party: "D", field: true },
-    b: { slug: "mn-gop-field", name: "GOP field (MN)", party: "R", field: true },
-    note: "Class II open seat — Tina Smith retiring. Dem primary Aug 11, 2026 (Lt. Gov. Peggy Flanagan, Rep. Angie Craig lead coverage). Amy Klobuchar is Class I (2030).",
+    verifiedAsOf: "2026-08-29",
+    a: { slug: "peggy-flanagan", name: "Peggy Flanagan", party: "D" },
+    b: { slug: "michele-tafoya", name: "Michele Tafoya", party: "R" },
+    note: "Class II open seat — Tina Smith retiring. Flanagan won the Aug 11, 2026 Dem primary over Angie Craig; Tafoya won the GOP primary. Amy Klobuchar is Class I (2030).",
   },
   {
     id: "nh-senate",
@@ -288,12 +289,12 @@ export const RACE_MATCHUPS: RaceDef[] = [
     senateClass: 2,
     region: "South",
     tier: "watch",
-    status: "special",
+    status: "general-projected",
     state: "SC",
-    verifiedAsOf: "2026-07-14",
-    a: { slug: "sc-gop-field", name: "GOP special primary (SC)", party: "R", field: true },
+    verifiedAsOf: "2026-08-29",
+    a: { slug: "darline-graham", name: "Darline Graham", party: "R", incumbent: true },
     b: { slug: "annie-andrews", name: "Annie Andrews", party: "D" },
-    note: "Class II vacancy after Sen. Lindsey Graham’s death (July 11, 2026). Gov. McMaster appointed Darline Graham Nordone interim. Special GOP primary Aug 11 (runoff Aug 25 if needed) for the Nov ballot. Annie Andrews is the Democratic nominee.",
+    note: "Class II vacancy after Sen. Lindsey Graham’s death (July 11, 2026). Gov. McMaster appointed Darline Graham interim; she won the Aug 25 GOP runoff vs Ralph Norman. Annie Andrews is the Democratic nominee.",
   },
 
   // ── Midterm governors (state law; typically 4-year terms elected 2022 → 2026) ─

@@ -14,7 +14,7 @@ import { buildElectionMap, type StateMapCell } from "~/lib/electionMap";
 import { pickElectionMapNews, pickRaceWatch } from "~/lib/electionMapNews";
 import { buildStateForecasts, LAYER_LABELS } from "~/lib/electionForecast";
 import { getElectionForecastLive } from "~/lib/agents";
-import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates } from "~/lib/elections";
+import { DEFAULT_ELECTION_ID, getElectionWithPublishedDates, liveBoardVerifiedAsOf } from "~/lib/elections";
 import { OG_VERSIONS } from "~/lib/ogCard";
 import { RACE_BOARD_VERIFIED_ASOF } from "~/lib/races";
 import { sampleUnlockedId } from "~/lib/sample";
@@ -35,6 +35,7 @@ Astro.response.headers.set(
 
 const all = await publishedPostsSorted();
 const election = await getElectionWithPublishedDates(DEFAULT_ELECTION_ID, env.AGENTS);
+const boardVerifiedAsOf = liveBoardVerifiedAsOf(election?.races ?? [], RACE_BOARD_VERIFIED_ASOF);
 const board = maskRaceLeaders(
   await buildRaceBoardLive(
     all,
@@ -517,7 +518,7 @@ const registerMap = registerHref("/elections/map/");
         <li><strong>Party &amp; outlook (default)</strong> — who holds the seat/control now, Cook-style solid/likely/lean/toss-up bands for 2026, and flip-risk striping when the favored party differs from the holder. Editorial snapshot as of {FORECAST_ASOF}.</li>
         <li><strong>State control (default layer)</strong> — simplified lean of governor + legislature for the whole state. Switch to Senate, governor, or House for office-specific outlooks.</li>
         <li><strong>Coverage map</strong> — ballot structure + CladFacts graded-report heat. Not a forecast of who wins.</li>
-        <li><strong>Class II Senate</strong> = one-third of the chamber up in 2026 (Art. I §3). Candidate map verified {RACE_BOARD_VERIFIED_ASOF}.</li>
+        <li><strong>Class II Senate</strong> = one-third of the chamber up in 2026 (Art. I §3). Candidate map verified {boardVerifiedAsOf} (live auditor overlay).</li>
         <li><strong>House</strong> = all 435 seats every midterm; colors are statewide lean only, not districts.</li>
         <li><strong>Your picks</strong> — after exploring, lock winners on the <a href="/bracket/">ballot board</a> (account required). Community tallies stay anonymous.</li>
       </ul>
