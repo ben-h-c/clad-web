@@ -1,0 +1,78 @@
+---
+type: "broadcast"
+headline: "Secular Talk Hosts Debate AOC 2028 Run and 'Woke 1.0 Was Crazy' Comment"
+summary: "The Secular Talk episode features Kyle Kulinski and guests analyzing whether Rep. Alexandria Ocasio-Cortez will run for president in 2028 or challenge Sen. Chuck Schumer. They discuss her momentum in early betting markets and New Hampshire polls, strategic benefits of a presidential bid even without winning, and alternatives like progressives entering the Senate. The second half examines AOC's recent ABC interview where she said 'Woke 1.0 was crazy' in reference to 2020 excesses like defund the police, with hosts debating if it's a smart distancing or betrayal of the left.\n\nSourcing relies on Polymarket odds, cited NH polls, Axios reporting on AOC's southern outreach, personal anecdotes, and the recent interview itself. Guests reference DSA membership growth, Pete Buttigieg's 2020 trajectory, and comparisons to Ro Khanna and other progressives. The throughline is optimism for a progressive moment in 2028 absent a Bernie Sanders figure."
+publishedAt: 2026-08-28T23:56:01.000Z
+sourceUrl: "https://www.youtube.com/watch?v=YjIEo4YTNSY"
+sourceTitle: "Secular Talk"
+section: "Politics"
+letterGrade: "B-"
+factualityScore: 68
+politicalLean: "left"
+leanScore: -65
+leanRationale: "Strong left/progressive slant: praises AOC and DSA, criticizes Schumer/Gillibrand as terrible, frames Republicans as primary identity politics practitioners via 'white grievance,' and laments establishment attacks on progressives like those on Mehdi Hasan."
+gradeRationale: "Graded B-: Betting odds, NH polls showing AOC near or at top of Dem field, DSA growth from ~5k to 90k+, and AOC's 'Woke 1.0 was crazy' remark on Meet the Press/ABC are accurate; however, claims of near-certain 2028 win for any Democrat and her Senate power being worthless overstate electoral certainty and ignore counter-evidence like her low national favorability (~26%)."
+topics:
+  - "Debate"
+  - "Elections"
+  - "AOC"
+  - "Woke Politics"
+assessment: "The discussion holds up on specific facts like AOC leading or near-leading early 2028 Democratic prediction markets (13-20% on Polymarket) and certain New Hampshire polls (22% in one UNH survey), as well as her quoted remark distancing from peak 2020 progressive rhetoric. However, the optimistic forecast that 'almost any Democrat' wins in 2028 and serves two terms lacks substantiation given Republican strength post-2024 and historical volatility. Viewers miss national polling where AOC trails significantly with low overall favorability, and the dismissal of a Senate run undervalues institutional power. Framing of 'woke' as mostly corporate Democrat excess rather than progressive-led overlooks AOC's own past support for policies like defund the police. The identity politics reversal—blaming Republicans primarily—selectively omits Democratic cultural emphasis in 2020-2022 that contributed to electoral losses. Overall, it's an engaged left perspective with accurate sourcing on trends but heavy partisan framing that could skew perceptions toward inevitable progressive resurgence."
+notableConcerns:
+  - "Overstates certainty of Democratic 2028 victory and AOC's path to influence"
+  - "One-sided attribution of identity politics primarily to Republicans"
+  - "Minimizes AOC's past alignment with 2020 progressive positions now called 'crazy'"
+keyMoments:
+  - claim: "AOC is number one on Polymarket at 21% for 2028 and leads some NH polls"
+    verdict: "verified"
+    note: "Recent Polymarket data shows her at 13-20% for Democratic nominee (often leading or near top among Dems); multiple UNH/St. Anselm polls in 2026 placed her at 17-22% in NH primary, ahead or tied for first."
+  - claim: "2028 is an extremely good election cycle for Democrats; almost any nominee will win and likely serve two terms"
+    verdict: "unsupported"
+    note: "Prediction markets favor Republicans like JD Vance overall; no guarantee of Democratic win after 2024 Trump victory, and two-term assumption ignores historical midterm losses and polling volatility."
+  - claim: "AOC has been building relationships in the South with figures like Bernice King and Rep. Raphael Warnock's church"
+    verdict: "verified"
+    note: "Axios and other reporting confirmed her southern outreach stops, including with black pastors and communities, to address Bernie's prior weaknesses there."
+  - claim: "DSA grew from about 5,000 members before Bernie 2016 to hundreds of thousands now"
+    verdict: "verified"
+    note: "DSA reports confirm ~5k pre-2016, peaking near 80-90k post-2020 surges; recent growth to over 90k tied to 2024-2026 events."
+  - claim: "AOC's 'Woke 1.0 was crazy' comment on Meet the Press/ABC was 90% praise and defensible self-deprecating humor"
+    verdict: "missing context"
+    note: "She did use the phrase quoting a councilman while defending some 2020 discussions as fruitful but acknowledging excesses during COVID; critics like Rogan called it evasive on her past support for those policies."
+videoId: "YjIEo4YTNSY"
+videoTitle: "DEBATE: AOC FOR PRESIDENT?; WAS ‘WOKE 1 CRAZY’??"
+politicians:
+  - name: "Alexandria Ocasio-Cortez"
+    slug: "alexandria-ocasio-cortez"
+  - name: "Bernard Sanders"
+    slug: "bernard-sanders"
+  - name: "Charles E. Schumer"
+    slug: "charles-e-schumer"
+  - name: "Raphael G. Warnock"
+    slug: "raphael-g-warnock"
+  - name: "Ro Khanna"
+    slug: "ro-khanna"
+thumbnail: "https://img.youtube.com/vi/YjIEo4YTNSY/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "Presidential Election Winner 2028 | Polymarket"
+    url: "https://polymarket.com/event/presidential-election-winner-2028"
+  - title: "Ocasio-Cortez surpasses Newsom as 2028 Dem presidential favorite on Polymarket"
+    url: "https://thehill.com/homenews/campaign/6025577-ocasio-cortez-newsom-ossoff-2028-democratic-presidential-nominee-polymarket-predictions/"
+  - title: "AOC leads latest 2028 N.H. presidential primary poll"
+    url: "https://www.bostonglobe.com/2026/07/22/nation/democrats-2028-primary-aoc-buttigieg-harris/"
+  - title: "AOC Admits 'Woke 1.0 Was Crazy' While Defending COVID-Era Culture Shift"
+    url: "https://www.huffpost.com/entry/alexandria-ocasio-cortez-woke-1-crazy_n_6a7903b5e4b0a6d70bb20503"
+  - title: "State of DSA Part One: Welcome to DSA"
+    url: "https://democraticleft.dsausa.org/2025/02/27/state-of-dsa-part-one-welcome-to-dsa/"
+  - title: "DSA’s membership nearly doubled since start of Mamdani campaign"
+    url: "https://www.cityandstateny.com/politics/2026/01/dsas-membership-nearly-doubled-start-mamdani-campaign/410966/"
+  - title: "Joe Rogan Nukes Alexandria Ocasio-Cortez on 'Woke One' Claim"
+    url: "https://www.mediaite.com/politics/joe-rogan-nukes-hot-alexandria-ocasio-cortez-for-woke-1-was-crazy-claim-how-did-it-get-you/"
+  - title: "AOC's Split From Fiance Riley Roberts: What To Know"
+    url: "https://okmagazine.com/p/alexandria-ocasio-cortez-riley-roberts-split/"
+---
+
+
