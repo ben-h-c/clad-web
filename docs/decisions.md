@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-08-30 — xAI spend mode is full
+
+**Status:** accepted  
+**Context:** Ben: switch CladFacts back to full mode from economy and push to prod.  
+**Decision:** Run **full**. `XAI_ECONOMY=full` on the Mac runner (`runner/.env` + PM2 restart) and the production Worker (`wrangler.jsonc` vars). Staging stays economy / spend-dark. `XAI_ECONOMY=economy` is the throttle.  
+**Consequences:** Full YouTube draft caps, vision on publish, reasoning curators, X search on sentiment, cron without `minHoursBetweenRuns`. Revert with `XAI_ECONOMY=economy` + runner restart + Worker deploy.
+
 ## 2026-08-30 — xAI spend mode is economy
 
 **Status:** accepted  

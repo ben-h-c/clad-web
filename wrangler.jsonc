@@ -35,7 +35,7 @@
   ],
   "vars": {
     "ENVIRONMENT": "production",
-    "XAI_ECONOMY": "economy"
+    "XAI_ECONOMY": "full"
   },
   // Isolated preview Worker. Deploy: `npm run deploy:staging`
   // Does NOT bind cladfacts.com. Use for redesign / QA before prod.
