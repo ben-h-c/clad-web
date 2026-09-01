@@ -113,8 +113,8 @@ adapter's Workerd) and `wrangler dev` read it automatically.
      that zone. Least privilege: do **not** reuse the account deploy token.
 5. Add secrets (under Settings → Variables and Secrets → **Secret**):
    - `XAI_API_KEY`
-   - `XAI_ECONOMY` — optional. Production runs **full**. Set to `economy` on
-     the **agent runner** and Worker to throttle. See `src/lib/xaiEconomy.ts`.
+   - `XAI_ECONOMY` — optional. Production runs **economy**. Set to `full` on
+     the **agent runner** and Worker for max draft volume. See `src/lib/xaiEconomy.ts`.
    - `ADMIN_USER`
    - `ADMIN_PASSWORD`
    - `AGENT_TOKEN`

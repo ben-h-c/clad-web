@@ -68,7 +68,7 @@ cd ~/clad-web/runner
 node --env-file=.env index.mjs --once --force=<kind>
 ```
 
-Spend: production is **full** (`XAI_ECONOMY=full` on runner + Worker, 2026-08-30). `XAI_ECONOMY=economy` throttles. Staging is spend-dark unless opted in (`src/lib/spendGuard.ts`).
+Spend: production is **economy** (`XAI_ECONOMY=economy` on runner + Worker, 2026-09-01). `XAI_ECONOMY=full` is max volume. Staging is spend-dark unless opted in (`src/lib/spendGuard.ts`).
 
 ---
 
