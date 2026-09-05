@@ -1,0 +1,76 @@
+---
+type: "broadcast"
+headline: "Mike Rogers blasts El-Sayed as anti-American in Ben Shapiro interview"
+summary: "Ben Shapiro interviews Republican Senate candidate Mike Rogers about his tight race against Democratic nominee Abdul El-Sayed. Rogers argues El-Sayed is the most anti-American candidate in the country, citing his appearances with streamer Hasan Piker, past social media comments on 9/11, a planned speech at an ISNA conference days before the 9/11 anniversary, opposition to symbols like the Fourth of July, and support for Medicare for All. Shapiro and Rogers highlight Democratic reluctance to disavow El-Sayed except for Sen. John Fetterman and note crossover support from Jewish Democrats, Black voters, and figures like Van Jones. The segment ends with Rogers responding to Tucker Carlson's recent praise of El-Sayed as 'America First' and a call for donations to RogersForSenate.com."
+publishedAt: 2026-09-03T20:00:00.000Z
+sourceUrl: "https://www.youtube.com/watch?v=j5Dw1-v8jIU"
+sourceTitle: "Ben Shapiro"
+section: "Politics"
+letterGrade: "C-"
+factualityScore: 45
+politicalLean: "right"
+leanScore: 85
+leanRationale: "The interview is hosted by Ben Shapiro on his explicitly conservative platform; it features only Rogers with no counterpoint, repeatedly labels El-Sayed 'anti-American,' 'pro-jihadi,' and a 'Democrat socialist,' and frames Democratic support as betrayal of the country while praising crossover conservative and Jewish Democratic opposition."
+gradeRationale: "Graded C-: Rogers' core attacks on El-Sayed's record contain documented inaccuracies and misattributions (verified by Snopes, PolitiFact, FactCheck.org, Reuters). Claims about the ISNA conference and El-Sayed's associations with Islamist groups have some basis in his appearances and family ties but are framed with heavy innuendo. Medicare-for-All cost estimates of $10k–$20k per family align with conservative analyses but omit counter-studies showing net savings; race is accurately described as close."
+topics:
+  - "Congress"
+  - "2026 Midterms"
+  - "El-Sayed associations"
+  - "Medicare for All"
+assessment: "The interview accurately conveys that the Michigan Senate race is competitive (recent aggregates show El-Sayed leading by 1–4 points in a toss-up state) and that El-Sayed supports Medicare for All while having ties to progressive and Muslim advocacy groups. However, it repeatedly attributes Hasan Piker's 2019 'America deserved 9/11' remark directly to El-Sayed, a claim multiple independent fact-checkers have ruled false or misleading; El-Sayed has condemned the attacks and called Piker's words 'dumb.' The Muslim Brotherhood/ISNA links rely on El-Sayed's father-in-law's past roles and El-Sayed's speaking appearances at ISNA events, which conservative analysts have long flagged as Brotherhood-influenced, but mainstream reporting treats these as guilt by association amid broader Islamophobia concerns. Viewers miss the full context of El-Sayed's public health background, his primary win over more moderate Democrats despite heavy AIPAC spending against him, and studies estimating Medicare for All could reduce overall national health spending through administrative savings even as federal costs rise sharply. The one-sided format and loaded language ('pro-jihadi,' 'infect them with this thinking') reinforce a narrative that any criticism of U.S. foreign policy or support for single-payer health care equals anti-Americanism."
+notableConcerns:
+  - "Misattribution of Hasan Piker's 9/11 comments to El-Sayed"
+  - "Heavy reliance on guilt-by-association framing of ISNA and Muslim Brotherhood ties without presenting El-Sayed's responses"
+  - "Omission of counter-evidence on Medicare for All fiscal analyses and El-Sayed's condemnations of terrorism"
+keyMoments:
+  - claim: "El-Sayed is the most anti-American candidate; he took Hasan Piker, who said America deserved 9/11 and that streets should run red with capitalist blood, in front of kids at universities"
+    verdict: "disputed"
+    note: "Piker made the 9/11 remark; multiple fact-checkers (Snopes, PolitiFact, Reuters, FactCheck.org) confirm it has been misattributed to El-Sayed, who has disavowed it as 'dumb' and said America did not deserve 9/11."
+  - claim: "El-Sayed said on 9/11 we should pay homage to millions of Muslim victims of Western civilization and suggested a terror attack on a Jewish kindergarten was driven by American foreign policy ('hurt people hurt people')"
+    verdict: "missing context"
+    note: "El-Sayed posted (then deleted) a 2021 tweet mourning 9/11 victims while also mourning deaths from post-9/11 wars in three countries; the 'hurt people' phrasing appears tied to his comments on a specific incident, but the broadcast equates it with justifying terrorism without full quote or El-Sayed's clarification that he condemns attacks."
+  - claim: "El-Sayed is speaking at a massive Islamic conference organized by a front for the Muslim Brotherhood just before the 25th anniversary of 9/11"
+    verdict: "verified"
+    note: "El-Sayed is scheduled to speak at ISNA's annual convention in Detroit; ISNA has documented historical ties to Muslim Brotherhood networks per Holy Land Foundation trial evidence and congressional testimony, though it describes itself as a mainstream Muslim organization."
+  - claim: "Medicare for All would be the largest single tax increase in American history, costing families $10,000–$20,000 per year with doctors and employers rejecting government wage-setting"
+    verdict: "missing context"
+    note: "Conservative estimates (CRFB, AAF) project massive federal cost increases and higher taxes or premiums; progressive analyses (Yale, RAND variants) project overall national health spending reductions of hundreds of billions to over $1 trillion annually via administrative savings, though federal budget impact would be large."
+  - claim: "Tucker Carlson called El-Sayed 'America First' and said he would not vote for Rogers at gunpoint"
+    verdict: "verified"
+    note: "Carlson made these statements on his show with Saagar Enjeti, praising El-Sayed's focus on domestic issues, criticism of foreign aid, and 'Trumpian' style despite policy differences."
+videoId: "j5Dw1-v8jIU"
+videoTitle: "Mike Rogers Responds to Tucker Carlson Backing His Opponent"
+politicians:
+  - name: "John Fetterman"
+    slug: "john-fetterman"
+  - name: "Mike Rogers"
+    slug: "mike-rogers"
+thumbnail: "https://img.youtube.com/vi/j5Dw1-v8jIU/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "2026 United States Senate election in Michigan - Wikipedia"
+    url: "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Michigan"
+  - title: "2026 Polls: Michigan Senate - 270toWin"
+    url: "https://www.270towin.com/2026-senate-polls/michigan"
+  - title: "Did Michigan Senate candidate Abdul El-Sayed say he believes America deserved 9/11? There's no proof"
+    url: "https://www.snopes.com/fact-check/el-sayed-america-deserved-911/"
+  - title: "In Michigan Senate race, Mike Rogers falsely ties Abdul El-Sayed to Twitch streamer’s 9/11 comments – PolitiFact"
+    url: "https://politifact.com/factchecks/2026/aug/07/mike-rogers/abdul-el-sayed-9-11-hasan-piker-michigan/"
+  - title: "Rogers Makes False 9/11 Claim About El-Sayed - FactCheck.org"
+    url: "https://www.factcheck.org/2026/08/rogers-makes-false-9-11-claim-about-el-sayed/"
+  - title: "Fact Check: Hasan Piker 9/11 remark misattributed to Michigan’s El-Sayed | Reuters"
+    url: "https://www.reuters.com/fact-check/hasan-piker-911-remark-misattributed-michigans-el-sayed-2026-08-14/"
+  - title: "Tucker Carlson All But Endorses 'Trumpian' Abdul El-Sayed"
+    url: "https://www.mediaite.com/politics/tucker-carlson-all-but-endorses-trumpian-democrat-abdul-el-sayed-i-wouldnt-vote-for-mike-rogers-at-gunpoint/"
+  - title: "Abdul El-Sayed To Join Panel With 9/11 Conspiracy Theorists at Islamic Convention Days Before 9/11 Anniversary"
+    url: "https://freebeacon.com/democrats/abdul-el-sayed-to-join-panel-with-9-11-conspiracy-theorists-at-islamic-convention-days-before-9-11-anniversary/"
+  - title: "Yale study finds ‘Medicare for All’ could save $1 trillion and 114,000 lives every year"
+    url: "https://www.scientificamerican.com/article/yale-study-finds-medicare-for-all-could-save-1-trillion-and-114-000-lives-every-year/"
+  - title: "Choices for Financing Medicare for All - CRFB"
+    url: "https://www.crfb.org/papers/choices-financing-medicare-all"
+---
+
+
