@@ -58,6 +58,8 @@ CONFIRM_PROD=1 npm run deploy
 
 See `docs/staging.md`. Never `wrangler deploy --env staging` after `astro build` (hits prod).
 
+**Desk publish:** Worker `GITHUB_TOKEN` (fine-grained PAT, Contents R/W on `ben-h-c/clad-web`, 366-day expiry). Admin approve commits markdown via the Contents API. A 401 means the PAT died — rotate with `node scripts/rotate-github-token.mjs` (no code deploy). `/admin/health` live-pings GitHub.
+
 **Wrangler auth footgun:** if `~/.wrangler` exists empty, OAuth in `~/Library/Preferences/.wrangler/config/default.toml` is ignored. Symlink `default.toml` into `~/.wrangler/config/`.
 
 **Runner:**

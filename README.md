@@ -119,7 +119,9 @@ adapter's Workerd) and `wrangler dev` read it automatically.
    - `ADMIN_PASSWORD`
    - `AGENT_TOKEN`
    - `GITHUB_TOKEN` — fine-grained PAT with **Contents: Read and write** on
-     this repo only. No other scopes.
+     this repo only. No other scopes. Set expiry to **366 days** (90-day
+     tokens die and take down desk publish with a GitHub 401). Rotate with
+     `node scripts/rotate-github-token.mjs`.
    - `GITHUB_REPO` — `ben-h-c/clad-web`
    - `GITHUB_BRANCH` — usually `main`
    - `CLOUDFLARE_ZONE_ID` — the cladfacts.com zone (for the post-deploy purge)
@@ -221,9 +223,10 @@ crons onto the generated `dist/server/wrangler.json`.
   The editor credential is a single shared basic-auth pair with
   constant-time compare — upgrade to passkey before a second editor is
   ever added.
-- The GitHub PAT is fine-grained (this repo only, Contents only). If it
-  leaks, rotate via GitHub Settings → Developer settings → Fine-grained
-  tokens.
+- The GitHub PAT is fine-grained (this repo only, Contents only, 366-day
+  expiry). If it leaks or GitHub returns 401, mint a new token and run
+  `node scripts/rotate-github-token.mjs` (writes production and staging).
+  `/admin/health` live-checks the token; presence in the Worker is not enough.
 - No third-party analytics. If any are ever added, they must be cookieless
   AND must not flip the iOS app's `NSPrivacyTracking = false` declaration.
 

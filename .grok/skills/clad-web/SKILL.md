@@ -89,6 +89,7 @@ description: >
 - Spend dial: `src/lib/xaiEconomy.ts` / `XAI_ECONOMY`. **Production is economy** (2026-09-01). Flip with `runner/.env` + Worker vars + `pm2 restart clad-agent-runner`. `XAI_ECONOMY=full` is max volume.
 - **Staging never auto-spends xAI.** `src/lib/spendGuard.ts` — opt in via bottom-bar checkbox (`#clad-allow-spend`) / `X-Clad-Allow-Spend`. Runner against staging only runs `--force=` or Run-now. Staging notice is that first bottom-bar row — no top ribbon over the masthead.
 - **Refresh staging from prod:** bar button → `POST /api/admin/sync-staging` (`src/lib/syncStagingFromProd.ts`). Staging-only; needs `AGENTS_PROD` binding.
+- **Desk publish GitHub token:** Worker secret `GITHUB_TOKEN` (fine-grained PAT, Contents R/W on `ben-h-c/clad-web` only, **366-day** expiry). If admin approve fails with a GitHub 401, the PAT expired — do not debug the queue UI first. Rotate: new PAT → `node scripts/rotate-github-token.mjs` (stdin token; prod + staging). `/admin/health` live-pings GitHub. Never store a `gh` CLI OAuth token as this secret.
 
 ## After engineering lessons
 

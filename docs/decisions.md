@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-09-16 — Worker GitHub PAT expiry takes down desk publish
+
+**Status:** accepted  
+**Context:** Admin approve/submit failed with a GitHub error. Last successful `publish (agent)` commit was 2026-09-05. A probe of `POST /api/agent/prune` against production returned `GitHub GET 401 Bad credentials`. Health only checked that `GITHUB_TOKEN` was *set*, not that GitHub still accepted it. Fine-grained PATs default to ~90 days; one minted around launch (~2026-06) died silently.  
+**Decision:** Desk publish uses the Worker `GITHUB_TOKEN` secret (Contents API). Presence is not health. `/admin/health` pings GitHub and warns ≤14d before expiry. Rotate with a new fine-grained PAT (resource owner `ben-h-c`, repo `clad-web` only, **Contents: Read and write**, **366-day** expiry) then `npx wrangler secret put GITHUB_TOKEN` on production **and** `--env staging`. Do not put a GitHub CLI `gho_` OAuth token in the Worker.  
+**Consequences:** `src/lib/github.ts` maps 401 to a plain “token expired or revoked” error. `scripts/rotate-github-token.mjs` validates then writes both envs. Code deploy is not required to restore publish — secret put creates a new Worker version.
+
 ## 2026-09-01 — xAI spend mode is economy
 
 **Status:** accepted  

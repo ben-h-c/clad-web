@@ -4,6 +4,7 @@
  */
 import { getCollection } from "astro:content";
 import { getRegistry, listDrafts } from "./agents.ts";
+import { githubCredentialStatus } from "./github.ts";
 
 export interface HealthRow {
   label: string;
@@ -21,9 +22,21 @@ export async function healthReport(env: any): Promise<HealthRow[]> {
     detail: env?.[name] ? "configured" : required ? "MISSING" : "not set (optional)",
   });
   rows.push(secret("XAI_API_KEY"));
-  rows.push(secret("GITHUB_TOKEN"));
   rows.push(secret("GITHUB_REPO"));
   rows.push(secret("GITHUB_BRANCH"));
+  try {
+    const gh = await githubCredentialStatus({
+      token: env?.GITHUB_TOKEN,
+      repo: env?.GITHUB_REPO,
+    });
+    rows.push({ label: "GITHUB_TOKEN", status: gh.status, detail: gh.detail });
+  } catch (err: any) {
+    rows.push({
+      label: "GITHUB_TOKEN",
+      status: "bad",
+      detail: `GitHub check failed: ${err?.message ?? err}`,
+    });
+  }
   rows.push(secret("ADMIN_USER"));
   rows.push(secret("ADMIN_PASSWORD"));
   rows.push(secret("AGENT_TOKEN"));
