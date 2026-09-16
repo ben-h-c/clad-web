@@ -35,7 +35,8 @@
   ],
   "vars": {
     "ENVIRONMENT": "production",
-    "XAI_ECONOMY": "economy"
+    "XAI_ECONOMY": "economy",
+    "AUTO_APPROVE_DRAFTS": "true"
   },
   // Isolated preview Worker. Deploy: `npm run deploy:staging`
   // Does NOT bind cladfacts.com. Use for redesign / QA before prod.
@@ -47,7 +48,8 @@
       "vars": {
         "ENVIRONMENT": "staging",
         "BETTER_AUTH_URL": "https://staging.cladfacts.com",
-        "XAI_ECONOMY": "economy"
+        "XAI_ECONOMY": "economy",
+        "AUTO_APPROVE_DRAFTS": "false"
       },
       "routes": [
         { "pattern": "staging.cladfacts.com", "custom_domain": true }

@@ -270,7 +270,7 @@ export function buildYoutubeScannerPolicyDoc(opts?: {
         n: 10,
         title: "Submit draft",
         detail:
-          "submitDraft to the pending queue. Quality-gate rejections count as skipped. Stop when submitted reaches maxPublishesPerRun.",
+          "submitDraft (auto-publishes in production). Quality-gate rejections count as skipped. Stop when submitted reaches maxPublishesPerRun.",
       },
     ],
     channelGroups,

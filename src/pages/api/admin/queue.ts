@@ -37,13 +37,25 @@ import {
   putQueueBulkJob,
   type QueueBulkJob,
 } from "~/lib/queueBulk";
+import { autoApproveEnabled } from "~/lib/autoApprove";
 
 export const prerender = false;
 
-type CfLocals = { cfContext?: { waitUntil?: (p: Promise<unknown>) => void } };
+export type CfLocals = { cfContext?: { waitUntil?: (p: Promise<unknown>) => void } };
 
-export const GET: APIRoute = async () => {
+/** Fire-and-forget: drain the pending queue (auto-approve). Does not block the caller. */
+export function kickPendingPublish(request: Request, locals: CfLocals): void {
+  const waitUntil = locals?.cfContext?.waitUntil?.bind(locals.cfContext);
+  const work = startBulkJob(request, locals, { all: true, auto: true });
+  if (waitUntil) waitUntil(work.catch((e) => console.error("auto-approve kick", e)));
+  else void work.catch((e) => console.error("auto-approve kick", e));
+}
+
+export const GET: APIRoute = async ({ request, locals }) => {
   const [drafts, bulk] = await Promise.all([listDrafts(env.AGENTS), getQueueBulkJob(env.AGENTS)]);
+  if (autoApproveEnabled(env) && drafts.length > 0) {
+    kickPendingPublish(request, locals as CfLocals);
+  }
   return json(
     {
       drafts,
@@ -489,12 +501,25 @@ function basicAuthHeader(): string | null {
 async function startBulkJob(
   request: Request,
   locals: CfLocals,
-  p: { draftIds?: unknown }
+  p: { draftIds?: unknown; all?: boolean; auto?: boolean }
 ): Promise<Response> {
   const existing = await getQueueBulkJob(env.AGENTS);
   if (existing?.status === "running" && !isBulkJobStale(existing)) {
+    const allLive = sortDraftsForBulk(await listDrafts(env.AGENTS));
+    const claimed = new Set(
+      [...(existing.remaining ?? []), existing.current, ...(existing.failedIds ?? [])].filter(
+        (id): id is string => Boolean(id)
+      )
+    );
+    const extra = allLive.map((d) => d.draftId).filter((id) => !claimed.has(id));
+    if (extra.length) {
+      existing.remaining = [...existing.remaining, ...extra];
+      existing.total += extra.length;
+      existing.lastNote = `Queued ${extra.length} new draft(s)…`;
+      await putQueueBulkJob(env.AGENTS, existing);
+    }
     // Nudge a stuck-looking chain while reporting already-running.
-    if (needsBulkKick(existing)) {
+    if (needsBulkKick(existing) || extra.length > 0) {
       scheduleBulkContinue(request, locals, /* alsoRunLocal */ true);
     }
     return json(
@@ -550,6 +575,7 @@ async function startBulkJob(
     lastNote: "Starting…",
     failedIds: [],
     sweeps: 0,
+    auto: p.auto != null ? Boolean(p.auto) : Boolean(existing?.auto),
   };
   // Fresh totals when not resuming a stale job.
   if (!(existing && isBulkJobStale(existing))) {
@@ -676,10 +702,11 @@ async function processOneBulkDraft(jobSnap: QueueBulkJob, nextId: string): Promi
     return;
   }
 
+  const auto = Boolean(jobSnap.auto) || Boolean((await load()).auto);
   const lint = draft.quality?.headlineLint?.length
     ? draft.quality.headlineLint
     : lintHeadline(draft.report.headline);
-  if (lint.length > 0) {
+  if (!auto && lint.length > 0) {
     await deleteDraft(env.AGENTS, nextId);
     job = await load();
     if (job.status !== "running") return;
@@ -691,7 +718,7 @@ async function processOneBulkDraft(jobSnap: QueueBulkJob, nextId: string): Promi
   }
 
   const result = await approveDraft(nextId, {
-    force: false,
+    force: auto,
     featured: false,
     skipVision: true,
   });

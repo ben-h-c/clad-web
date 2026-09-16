@@ -37,6 +37,10 @@ export function submitDraft(draft) {
   return call("/api/agent/draft", { method: "POST", body: JSON.stringify(draft) });
 }
 
+export function publishPending() {
+  return call("/api/agent/publish-pending", { method: "POST", body: "{}" });
+}
+
 export function getPosts() {
   return call("/api/agent/posts", { method: "GET" });
 }

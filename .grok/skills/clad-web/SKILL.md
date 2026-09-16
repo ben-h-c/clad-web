@@ -90,6 +90,7 @@ description: >
 - **Staging never auto-spends xAI.** `src/lib/spendGuard.ts` — opt in via bottom-bar checkbox (`#clad-allow-spend`) / `X-Clad-Allow-Spend`. Runner against staging only runs `--force=` or Run-now. Staging notice is that first bottom-bar row — no top ribbon over the masthead.
 - **Refresh staging from prod:** bar button → `POST /api/admin/sync-staging` (`src/lib/syncStagingFromProd.ts`). Staging-only; needs `AGENTS_PROD` binding.
 - **Desk publish GitHub token:** Worker secret `GITHUB_TOKEN` (fine-grained PAT, Contents R/W on `ben-h-c/clad-web` only, **366-day** expiry). If admin approve fails with a GitHub 401, the PAT expired — do not debug the queue UI first. Rotate: new PAT → `node scripts/rotate-github-token.mjs` (stdin token; prod + staging). `/admin/health` live-pings GitHub. Never store a `gh` CLI OAuth token as this secret.
+- **Auto-publish drafts (2026-09-16):** Production publishes agent drafts without editor approval (`AUTO_APPROVE_DRAFTS=true`, default on when `ENVIRONMENT=production`). Staging is off so it cannot commit to `main`. Ingest still quality-gates and same-channel-dedupes; the bulk job then commits. Drain backlog: `POST /api/agent/publish-pending`. Queue page is leftovers / in-flight. Off: `AUTO_APPROVE_DRAFTS=false` + deploy.
 
 ## After engineering lessons
 

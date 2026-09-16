@@ -14,6 +14,11 @@ declare module "cloudflare:workers" {
      * See src/lib/xaiEconomy.ts — set on runner + Worker.
      */
     XAI_ECONOMY?: string;
+    /**
+     * Auto-publish agent drafts (skip the pending-approval queue).
+     * "true" / "false". Unset: on in production, off on staging.
+     */
+    AUTO_APPROVE_DRAFTS?: string;
     ADMIN_USER: string;
     ADMIN_PASSWORD: string;
     GITHUB_TOKEN: string;

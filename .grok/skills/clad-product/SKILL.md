@@ -26,7 +26,7 @@ Charter: `docs/daily-review.md`. Map: `docs/platform-brief.md`.
 - Soft Neutral Card visual system.
 - Home: Breaking and Front Page never share the same article (Breaking keeps the slot).
 - Privacy-first analytics (aggregates only).
-- YouTube ingest via allow-listed channels + manual URL intake (no keyword Categories admin).
+- YouTube ingest via allow-listed channels + manual URL intake (no keyword Categories admin). **Production auto-publishes** those drafts (2026-09-16); the pending queue is leftovers, not a required desk step.
 - Clad Studio → Mac companion → Grok for design-to-code.
 - Post images: own video still or site-generated only.
 - **Always-image:** report/strip cards always show 16:9 art — bad broadcast stills become owned `/generated/` illustrations (not hide-photo).

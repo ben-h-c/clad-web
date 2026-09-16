@@ -14,6 +14,13 @@ Format:
 
 ---
 
+## 2026-09-16 — Agent drafts auto-publish
+
+**Status:** accepted  
+**Context:** Ben: drafts should be auto-approved instead of waiting in the admin queue.  
+**Decision:** Production auto-publishes agent drafts. `/api/agent/draft` still stores the draft (quality + same-channel dedupe unchanged), then kicks the existing bulk publisher in **auto** mode: skip headline-lint reject, `force` through cross-network near-dups, skip vision (same as Submit all). Staging stays queue-based (`AUTO_APPROVE_DRAFTS=false`) so it cannot commit to `main`. Override: Worker var `AUTO_APPROVE_DRAFTS=true|false`; unset means on in production only. Leftovers (GitHub failures) remain on `/admin/queue/` and drain on the next kick. `POST /api/agent/publish-pending` drains the backlog.  
+**Consequences:** `src/lib/autoApprove.ts`, `kickPendingPublish` in `api/admin/queue.ts`. Queue UI copy changes when auto is on. Turn off with `AUTO_APPROVE_DRAFTS=false` + Worker deploy.
+
 ## 2026-09-16 — Worker GitHub PAT expiry takes down desk publish
 
 **Status:** accepted  

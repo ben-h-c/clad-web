@@ -10,10 +10,16 @@ import { eventTypeLabel, type EventType } from "~/lib/draftQuality";
 import { lintHeadline } from "~/lib/headlineLint";
 import { embedUrl, thumbnailUrl } from "~/lib/youtube";
 import { bulkJobSummary, getQueueBulkJob } from "~/lib/queueBulk";
+import { autoApproveEnabled } from "~/lib/autoApprove";
+import { kickPendingPublish } from "~/pages/api/admin/queue";
 
 export const prerender = false;
 
 const allDrafts = await listDrafts(env.AGENTS);
+const autoApprove = autoApproveEnabled(env);
+if (autoApprove && allDrafts.length > 0) {
+  kickPendingPublish(Astro.request, Astro.locals);
+}
 const bulkJob = await getQueueBulkJob(env.AGENTS);
 const bulkRunning = bulkJob?.status === "running";
 const bulkSummary = bulkJob ? bulkJobSummary(bulkJob) : "";
@@ -64,10 +70,11 @@ for (const d of drafts) {
 <BaseLayout title="Clad — Pending Queue">
   <section class="admin">
     <AdminNav current="queue" />
-    <h2 class="admin__title">Pending Approval</h2>
+    <h2 class="admin__title">{autoApprove ? "Publish queue" : "Pending Approval"}</h2>
     <p class="dateline">
-      Reports drafted by agents. Review each, then approve (publishes live) or
-      reject (discards). Nothing here is public until you approve it.
+      {autoApprove
+        ? "Auto-publish is on. New drafts go live without waiting for approval. Anything still here is in-flight, a GitHub failure, or waiting on the next drain."
+        : "Reports drafted by agents. Review each, then approve (publishes live) or reject (discards). Nothing here is public until you approve it."}
     </p>
 
     {allDrafts.length > drafts.length && (
@@ -92,8 +99,9 @@ for (const d of drafts) {
             {bulkSummary}
           </span>
           <span class="dateline" style="opacity:.8">
-            Processes every pending draft ({allDrafts.length}), not just the {drafts.length} on this page.
-            Leave this tab open. Clean drafts publish; duplicates and style-flagged headlines are rejected.
+            {autoApprove
+              ? "Auto-publish drains this list in the background. Manual Submit all is a kick if a job stalls."
+              : `Processes every pending draft (${allDrafts.length}), not just the ${drafts.length} on this page. Leave this tab open. Clean drafts publish; duplicates and style-flagged headlines are rejected.`}
           </span>
         </div>
       <div class="queue">

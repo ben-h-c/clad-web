@@ -26,6 +26,11 @@ export interface QueueBulkJob {
   failedIds?: string[];
   /** How many times we re-scanned KV for drafts the first pass missed. */
   sweeps?: number;
+  /**
+   * Set by agent auto-approve. Publish through headline-lint and near-dups
+   * (ingest already blocked hard quality failures and same-channel dupes).
+   */
+  auto?: boolean;
 }
 
 export function emptyBulkJob(): QueueBulkJob {

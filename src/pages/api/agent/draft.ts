@@ -16,13 +16,16 @@ import {
 import { normalizeBroadcast } from "~/lib/broadcast";
 import { applyEventTopics, assessDraftQuality } from "~/lib/draftQuality";
 import { extractVideoId } from "~/lib/youtube";
+import { autoApproveEnabled } from "~/lib/autoApprove";
+import { kickPendingPublish } from "~/pages/api/admin/queue";
 
 export const prerender = false;
 
 // The runner submits a generated report here. We dedupe (already published or
 // already pending), re-normalize defensively, run quality gates, and store as
-// a pending draft (or 400 on hard quality failures).
-export const POST: APIRoute = async ({ request }) => {
+// a draft. Production then auto-publishes (kickPendingPublish); staging keeps
+// the editor queue. Hard quality failures return 400.
+export const POST: APIRoute = async ({ request, locals }) => {
   if (!checkAgentToken(request.headers.get("authorization"), env.AGENT_TOKEN)) {
     return tokenUnauthorized();
   }
@@ -163,9 +166,12 @@ export const POST: APIRoute = async ({ request }) => {
 
   await putDraft(env.AGENTS, draft);
   await markSeen(env.AGENTS, videoId);
+  const autoApprove = autoApproveEnabled(env);
+  if (autoApprove) kickPendingPublish(request, locals);
   return json({
     ok: true,
     draftId: id,
+    autoApprove,
     quality: { score: quality.score, eventType: quality.eventType, priority: quality.priority },
   }, 200);
 };
