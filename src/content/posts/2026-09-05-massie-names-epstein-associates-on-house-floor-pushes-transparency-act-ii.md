@@ -1,0 +1,76 @@
+---
+type: "broadcast"
+headline: "Massie names Epstein associates on House floor, pushes Transparency Act II"
+summary: "Rep. Thomas Massie used a one-minute House speech to mark the one-year anniversary of the Epstein Files Transparency Act signed by President Trump in November 2025. He criticized the DOJ for withholding over three million files and announced introduction of the Epstein Files Transparency Act II, which would allow state attorneys general, victims, and members of Congress to sue for compliance and move cases to state courts. Massie read a list of names he called perpetrators who should be investigated and prosecuted, including Leon Black, Jes Staley, Leslie Wexner, David Copperfield, Glenn Dubin, Tom Pritzker and others, plus Lesley Groff as a non-victim co-conspirator. He noted several deaths ruled suicides or unexplained and mentioned Prince Andrew. The speech aimed to pressure the DOJ for justice for survivors.\n\nSourcing relied on the 2025 law (Public Law 119-38), the new bill (H.R. 9694), and released Epstein documents. No named experts or opposing guests; Massie spoke alone. The throughline was frustration with federal delays despite bipartisan passage of the original act."
+publishedAt: 2026-09-06T03:07:59.000Z
+sourceUrl: "https://www.youtube.com/watch?v=cJdVZ8f8ugY"
+sourceTitle: "Progressives for a Democratic Republic"
+section: "Politics"
+letterGrade: "B-"
+factualityScore: 68
+politicalLean: "center"
+leanScore: 15
+leanRationale: "Bipartisan bill with Democratic co-sponsors but delivered by libertarian Republican Massie in confrontational style targeting high-profile figures (many with past Democratic ties) and DOJ under current administration; emphasis on shaming for lack of prosecutions leans toward accountability-over-process framing common on the right."
+gradeRationale: "Graded B-: core legislative facts and many associations verified by DOJ releases and court records, but Massie frames several as proven \"perpetrators\" or \"sex crimes\" without charges or convictions; omits that most allegations remain disputed or uncorroborated."
+topics:
+  - "Jeffrey Epstein"
+  - "Epstein files"
+  - "Congress"
+  - "Sex trafficking"
+assessment: "The claims about the law's passage, the bill's introduction, and the existence of withheld files are accurate per congressional records and the DOJ's August 2026 Federal Register report. Many named individuals appear in flight logs, black books, or victim depositions, and some faced civil accusations or regulatory scrutiny. However, framing them collectively as \"perpetrators\" who \"committed sex crimes\" overstates the evidence: none of the living men listed have been criminally charged in connection with Epstein's trafficking, and several (Black, Wexner, Staley, Dubin, Copperfield) have denied wrongdoing with varying degrees of corroboration. Viewers miss that the FBI compiled an internal list of tips that were largely uncorroborated, and DOJ has stated many allegations did not meet prosecutorial thresholds. The \"conveniently dead\" phrasing fuels conspiracy implications despite official suicide rulings for Epstein and Brunel. Overall, the segment prioritizes pressure for transparency over precise legal distinctions, which could skew perception toward presuming guilt by association."
+notableConcerns:
+  - "Equates documented associations and civil allegations with proven criminal \"sex crimes\" and \"trafficking\" without noting lack of charges"
+  - "Omits that many named individuals deny allegations and that DOJ/FBI found insufficient corroboration for prosecution in several cases"
+  - "Suggests deaths were suspiciously timed without citing official rulings or investigations"
+keyMoments:
+  - claim: "It has been a year since the president signed the Epstein Files Transparency Act and the government continues to withhold over three million files"
+    verdict: "verified"
+    note: "Public Law 119-38 signed November 2025; DOJ's August 2026 Federal Register report confirms ongoing withholding and justifications for categories of records."
+  - claim: "We've introduced the Epstein Files Transparency Act 2 to bring the fight to state courts, accountability to DOJ, and closure for survivors"
+    verdict: "verified"
+    note: "H.R. 9694 introduced July 15, 2026 by Massie with bipartisan co-sponsors; text creates private right of action for states, victims, and Congress to enforce compliance."
+  - claim: "Men like Jes Staley, Leon Black, Les Wexner, David Copperfield, Glenn Dubin, Tom Pritzker ... perpetrators of these crimes"
+    verdict: "missing context"
+    note: "All appear in released files or FBI lists of tips/accusations; some faced civil claims or regulatory action but none charged criminally with Epstein-related sex crimes; denials and lack of corroboration omitted."
+  - claim: "Leslie Gruff, not a victim, who conspired with Epstein to traffic other women"
+    verdict: "disputed"
+    note: "Lesley Groff (Epstein's assistant) named co-conspirator in 2008 plea but never charged; she testified she was unaware of abuse, scheduled massages but denies knowledge of trafficking; DOJ interviewed her in 2026."
+  - claim: "John Luke Brunell, conveniently dead by suicide in prison; Danielle Seion recently discovered dead in Paris"
+    verdict: "missing context"
+    note: "Jean-Luc Brunel died by suicide in French prison 2022 while facing charges; Daniel Siad (model scout linked to Epstein) found dead in Paris suburb July 2026, cause under investigation; \"conveniently\" implies foul play unsupported by official findings."
+videoId: "cJdVZ8f8ugY"
+videoTitle: "Rep. Thomas Massie Reads Epstein Names on House Floor — Leon Black, Jes Staley &amp; Leslie Wexner"
+politicians:
+  - name: "Donald Trump"
+    slug: "donald-trump"
+  - name: "Thomas Massie"
+    slug: "thomas-massie"
+thumbnail: "https://img.youtube.com/vi/cJdVZ8f8ugY/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "Report Under Public Law 119-38"
+    url: "https://www.federalregister.gov/documents/2026/08/27/2026-17533/report-under-public-law-119-38"
+  - title: "All Info - S.5005 - Epstein Files Transparency Act II"
+    url: "https://www.congress.gov/bill/119th-congress/senate-bill/5005/all-info"
+  - title: "Massie, Khanna, Leger Fernández, Merkley, Luján Introduce the Epstein Files Transparency Act II"
+    url: "https://massie.house.gov/news/documentsingle.aspx?DocumentID=395849"
+  - title: "Who were other men in the Epstein files? The FBI has a list"
+    url: "https://www.miamiherald.com/news/local/crime/article314609810.html"
+  - title: "Jeffrey Epstein’s Network of Rich, Powerful and Influential Contacts"
+    url: "https://www.bloomberg.com/graphics/2026-jeffrey-epstein-network/"
+  - title: "List of people named in the Epstein files"
+    url: "https://en.wikipedia.org/wiki/List_of_people_named_in_the_Epstein_files"
+  - title: "Republican calls Leon Black and David Copperfield co-conspirators of Epstein"
+    url: "https://www.theguardian.com/us-news/2026/sep/01/epstein-leon-black-david-copperfield"
+  - title: "Epstein's longtime assistant grilled by U.S. lawmakers"
+    url: "https://www.cbsnews.com/news/epstein-longtime-assistant-grilled-lawmakers-amex-travel-women-girls/"
+  - title: "Daniel Siad, Model Scout Who Connected Women to Epstein, Is Found Dead in France"
+    url: "https://www.nytimes.com/2026/07/22/world/europe/epstein-daniel-siad-dead-model-scout.html"
+  - title: "Hyatt Hotels chairman steps down over Jeffrey Epstein ties"
+    url: "https://www.bbc.co.uk/news/articles/c93wk4d7x19o"
+---
+
+
