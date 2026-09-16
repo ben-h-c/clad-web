@@ -39,6 +39,7 @@ description: >
 5. After approval: `CONFIRM_PROD=1 npm run deploy` (Worker upload, best-effort purge, prod smoke). A missing zone purge token must not fail the ship.
 6. Never `wrangler deploy --env staging` after `astro build` — adapter drops env and that hits **prod**. See `docs/staging.md`.
 7. Wrangler OAuth: symlink `~/Library/Preferences/.wrangler/config/default.toml` → `~/.wrangler/config/` if empty legacy dir shadows auth.
+8. `scripts/deploy-staging.mjs` `STAGING.vars` must **override every production `vars` key that must differ** (Astro emits top-level prod vars; the patch spreads staging on top). Forgot `AUTO_APPROVE_DRAFTS` once and staging inherited `true`.
 
 ## Key surfaces
 
