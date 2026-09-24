@@ -1,0 +1,77 @@
+---
+type: "broadcast"
+headline: "VoteWiser profiles Oregon 1st District, Bonamici vs. Kahl in 2026"
+summary: "The VoteWiser segment provides an overview of Oregon's 1st Congressional District, represented by Democrat Suzanne Bonamici since her 2012 special election. It details her prior service in the Oregon Legislature, work as a consumer-protection attorney at the FTC, and sponsorship of the Tsunami Warning, Education, and Research Act signed in 2017. The profile highlights district demographics from Census data and showcases landmarks including Astoria Column, Haystack Rock, Intel's Ronler Acres, Nike's World Headquarters, Sauvie Island, Forest Park, and Fort Clatsop. It notes the 2026 general election matchup between incumbent Bonamici and Republican Barbara Kahl, directing viewers to candidate pages on the site."
+publishedAt: 2026-09-11T02:05:28.000Z
+sourceUrl: "https://www.youtube.com/watch?v=DOlF8D5NFGk"
+sourceTitle: "VoteWiser"
+section: "Politics"
+letterGrade: "A-"
+factualityScore: 88
+politicalLean: "center"
+leanScore: 0
+leanRationale: "Non-partisan civic tool aggregates official records, press, and social media without emphasis, omission, or framing favoring either candidate or party."
+gradeRationale: "Graded A-: all historical, biographical, landmark, and legislative claims verified against primary sources and recent data; minor discrepancies in 2024-2026 Census figures (e.g., population, income, education) reflect latest ACS estimates but do not alter the profile."
+topics:
+  - "Oregon 1st District"
+  - "Elections"
+  - "Suzanne Bonamici"
+assessment: "The broadcast is a neutral, fact-based civic primer that effectively aggregates public data and history without editorializing. All specific claims on Bonamici's career, bill, and district features hold up against congressional records, Census ACS estimates, and official landmark documentation. Viewers receive a clear geographic and economic snapshot—from coastline to Silicon Forest—but the segment omits current policy priorities, voting record details, or contrasts between the 2026 candidates beyond names and party. Minor numerical variance (population ~708k vs. 710k cited, education 47.8% vs. 50%) stems from evolving ACS vintages and does not mislead. Overall high-quality, transparent presentation that equips voters with verifiable basics."
+notableConcerns: []
+keyMoments:
+  - claim: "Suzanne Bonamici, Democrat, has represented Oregon's 1st District in the House since 2012, elected in a January special election to replace David Wu after serving in the Oregon Legislature and as an FTC consumer-protection attorney."
+    verdict: "verified"
+    note: "Confirmed in official Biographical Directory of Congress and her House website; special election Jan. 31, 2012."
+  - claim: "Bonamici's Tsunami Warning, Education, and Research Act was signed into law in 2017."
+    verdict: "verified"
+    note: "The bill (reauthorizing and expanding NOAA programs) passed and was signed in 2016-2017 per Congress.gov records; she has continued related legislation."
+  - claim: "District population 710,371; median age 38.9; median household income $94,740; 50% of adults hold bachelor's or higher."
+    verdict: "missing context"
+    note: "Close to latest ACS 2020-2024 estimates (pop. ~708k, age 38.7, income $98k, bachelor's 47.8%); figures align with older vintages or rounding."
+  - claim: "Intel's Ronler Acres in Hillsboro is its most advanced manufacturing site; Silicon Forest workforce topped 22,000 Oregon employees by 2022."
+    verdict: "verified"
+    note: "Intel's 2022 announcements and Wikipedia/Silicon Forest sources confirm ~22,000 employees then; campus remains key R&D site."
+  - claim: "Nike's World Headquarters near Beaverton spans more than 75 buildings across 286 acres."
+    verdict: "verified"
+    note: "Directly corroborated by Nike corporate descriptions and Wikipedia entry on the campus."
+  - claim: "2026 general election features Suzanne Bonamici (D) and Barbara Kahl (R)."
+    verdict: "verified"
+    note: "Both won their May 2026 primaries; general election Nov. 3, 2026 per Oregon Capital Chronicle, Ballotpedia, and Wikipedia."
+videoId: "DOlF8D5NFGk"
+videoTitle: "Oregon — 1st District — Votewiser District Profile with Rep. Suzanne Bonamici"
+politicians:
+  - name: "Suzanne Bonamici"
+    slug: "suzanne-bonamici"
+thumbnail: "https://img.youtube.com/vi/DOlF8D5NFGk/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "Biographical Directory of the United States Congress - Suzanne Bonamici"
+    url: "https://bioguide.congress.gov/search/bio/B001278"
+  - title: "Congress.gov - Suzanne Bonamici Profile"
+    url: "https://www.congress.gov/member/suzanne-bonamici/B001278"
+  - title: "Data USA - Congressional District 1, OR (2024 ACS data)"
+    url: "https://datausa.io/profile/geo/congressional-district-1-or"
+  - title: "Neilsberg Research - Oregon's 1st Congressional District Demographics 2026 Update"
+    url: "https://www.neilsberg.com/insights/topic/oregon-s-1st-congressional-district/"
+  - title: "Wikipedia - 2026 United States House of Representatives elections in Oregon"
+    url: "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Oregon"
+  - title: "Wikipedia - Astoria Column"
+    url: "https://en.wikipedia.org/wiki/Astoria_Column"
+  - title: "Wikipedia - Haystack Rock"
+    url: "https://en.wikipedia.org/wiki/Haystack_Rock"
+  - title: "Wikipedia - Nike World Headquarters"
+    url: "https://en.wikipedia.org/wiki/Nike_World_Headquarters"
+  - title: "Wikipedia - Sauvie Island"
+    url: "https://en.wikipedia.org/wiki/Sauvie_Island"
+  - title: "Forest Park Conservancy - Trails Information"
+    url: "https://forestparkconservancy.org/trails-information-page/"
+  - title: "NPS - Fort Clatsop History"
+    url: "https://www.nps.gov/lecl/learn/historyculture/fort-clatsop.htm"
+  - title: "Wikipedia - Silicon Forest"
+    url: "https://en.wikipedia.org/wiki/Silicon_Forest"
+---
+
+
