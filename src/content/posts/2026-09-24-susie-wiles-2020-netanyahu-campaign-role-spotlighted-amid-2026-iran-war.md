@@ -1,0 +1,78 @@
+---
+type: "broadcast"
+headline: "Susie Wiles' 2020 Netanyahu Campaign Role Spotlighted Amid 2026 Iran War"
+summary: "The Gateway Hispanic segment features Max Blumenthal questioning White House Chief of Staff Susie Wiles' pre-administration ties to Benjamin Netanyahu. It claims she worked directly for him, that this was unknown initially until revealed by The Washington Post, and that she now controls access to President Trump. The broadcast focuses on the Feb. 28, 2026 launch of U.S.-Israeli strikes on Iran at a Mar-a-Lago meeting attended by an 'A-Team' of Wiles, Marco Rubio, John Ratcliffe, and Trump, while sidelining 'Team B' doves including Joe Kent, Tulsi Gabbard, and J.D. Vance. Blumenthal argues her past role creates a conflict influencing pro-Israel, pro-war policy."
+publishedAt: 2026-09-24T16:32:21.000Z
+sourceUrl: "https://www.youtube.com/watch?v=qFZtJmQ2LNI"
+sourceTitle: "Gateway Hispanic"
+section: "Politics"
+letterGrade: "C-"
+factualityScore: 62
+politicalLean: "left"
+leanScore: -68
+leanRationale: "Strong left-leaning framing by Max Blumenthal, who has long criticized Israeli influence; portrays Wiles' past work as a hidden 'tie' enabling war, omits counter-evidence of her skepticism toward strikes, and elevates anti-intervention voices (Gabbard, Vance) while labeling hawks as an 'A-Team.'"
+gradeRationale: "Graded C-: Wiles' 2020 consulting for Netanyahu's campaign is verified by WaPo and Wikipedia, as is her gatekeeper role and the Feb. 28, 2026 strike launch with the named 'A-Team.' However, the 'literally worked for Netanyahu' phrasing and implication of ongoing control or Mossad influence are overstated; reporting shows she was a short-term paid consultant who later emerged as a skeptic of Iran escalation per a 2026 book."
+topics:
+  - "Iran"
+  - "Trump"
+  - "Susie Wiles"
+  - "Israel & Gaza"
+assessment: "The core facts on Wiles' 2020 consulting work are accurate but framed to suggest deeper, ongoing loyalty that drove the Iran war. Viewers miss that her involvement was brief, ended over payment issues, and that multiple books and reports depict her as initially skeptical of major Iran strikes alongside Vance, pushing for diplomacy. The 'worked for Netanyahu' line implies employment by the Israeli government; records show campaign consulting for Likud. Selective emphasis on her gatekeeping power and omission of her cancer treatment and stabilizing role in the administration skew perception toward foreign-influence conspiracy rather than standard foreign-policy debate. Overall, the segment mixes verified reporting with interpretive overreach typical of Blumenthal's longstanding critique of U.S.-Israel ties."
+notableConcerns:
+  - "Overstates nature of Wiles-Netanyahu relationship as direct 'work for' rather than short-term campaign consulting"
+  - "Missing context that Wiles was reported as a skeptic of Iran military escalation in Haberman/Swan book"
+  - "Conspiratorial framing of access control as enabling Israeli manipulation without evidence of improper influence"
+keyMoments:
+  - claim: "Susie Wiles worked for Netanyahu before joining the Trump administration"
+    verdict: "verified"
+    note: "WaPo and Wikipedia confirm she and Trump aides consulted on Netanyahu's 2020 Likud campaign rallies and voter data for a short period."
+  - claim: "No one knew about Wiles' Netanyahu ties when she arrived in the administration"
+    verdict: "missing context"
+    note: "WaPo reported it in June 2025 after she became chief of staff in January 2025; it was public in campaign bios but received limited attention until Iran strikes."
+  - claim: "Susie Wiles controls everything the president sees and hears; you have to go through her to meet him"
+    verdict: "verified"
+    note: "Multiple reports, including Newsweek and TIME, describe her as the key gatekeeper with unprecedented trust from Trump."
+  - claim: "The U.S. and Israel started the war with Iran on February 28th at a Mar-a-Lago meeting with A-Team (Wiles, Rubio, Ratcliffe, Trump)"
+    verdict: "verified"
+    note: "Contemporary reporting from Politico, Atlantic, and Xinhua timelines confirm joint strikes launched Feb. 28, 2026, with Trump at Mar-a-Lago alongside those officials."
+  - claim: "Susie Wiles blocked Team B (Kent, Gabbard, Vance) from the room as the so-called deterrents"
+    verdict: "unsupported"
+    note: "No direct sourcing in the clip; while she manages access, reports show Vance participated in Iran deliberations and aligned with her initial skepticism per 2026 book."
+videoId: "qFZtJmQ2LNI"
+videoTitle: "Max Blumenthal Questions Susie Wiles’ Ties to Netanyahu"
+politicians:
+  - name: "Donald Trump"
+    slug: "donald-trump"
+  - name: "JD Vance"
+    slug: "jd-vance"
+  - name: "John Ratcliffe"
+    slug: "john-ratcliffe"
+  - name: "Marco Rubio"
+    slug: "marco-rubio"
+  - name: "Susie Wiles"
+    slug: "susie-wiles"
+  - name: "Tulsi Gabbard"
+    slug: "tulsi-gabbard"
+thumbnail: "https://img.youtube.com/vi/qFZtJmQ2LNI/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "White House chief of staff once worked for Netanyahu - The Washington Post"
+    url: "https://www.washingtonpost.com/politics/2025/06/23/trump-netanyahu-wiles-campaign/"
+  - title: "Susie Wiles - Wikipedia"
+    url: "https://en.wikipedia.org/wiki/Susie_Wiles"
+  - title: "Susie Wiles emerges as skeptic of Iran attacks in new book - Jewish Insider"
+    url: "https://jewishinsider.com/2026/06/susie-wiles-skeptic-iran-attacks-maggie-haberman-jonathan-swan-book/"
+  - title: "Trump’s patience runs out: Inside the final days before the strike on Iran - POLITICO"
+    url: "https://www.politico.com/news/2026/02/28/trumps-patience-runs-out-inside-the-final-days-before-the-strike-on-iran-00806014"
+  - title: "2026 Iran war - Wikipedia"
+    url: "https://en.wikipedia.org/wiki/2026_Iran_war"
+  - title: "The Unexpected Constant in Trump’s White House - Newsweek"
+    url: "https://www.newsweek.com/the-unexpected-constant-in-trumps-white-house-12110494"
+  - title: "Susie Wiles Is on the 2026 TIME100 List"
+    url: "https://time.com/collection/100-most-influential-people/2026/susie-wiles/"
+---
+
+
