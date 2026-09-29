@@ -1,0 +1,75 @@
+---
+type: "broadcast"
+headline: "Jack Smith defends Trump prosecutions in Senate hearing on congressional records"
+summary: "The NewsNation segment covered former special counsel Jack Smith's four-hour testimony before the Republican-led Senate Judiciary Committee. Smith defended his two federal indictments against then-former President Trump on classified documents and 2020 election interference, stating he followed DOJ policy and the law without regard to politics and stood by bringing the charges. Republicans, led by Chairman Chuck Grassley, accused him of weaponizing the DOJ, improperly obtaining records of 44 lawmakers (mostly Republican) in the Jan. 6 and Mar-a-Lago probes, and bypassing constitutional protections. Smith responded that only Rep. Scott Perry was targeted and other records were incidentally collected from subjects' contacts; he pushed back aggressively on bias claims.\n\nThe live report featured correspondent Joe Khalil on Capitol Hill, clips of Smith's opening statement, and an interview with Sen. Josh Hawley criticizing the lack of notification to members. Sourcing relied on the hearing itself with no named external experts; throughline emphasized partisan accusations versus Smith's insistence on evidence-based decisions. The cases were dismissed after Trump's 2024 reelection per DOJ policy on sitting presidents."
+publishedAt: 2026-09-29T21:08:25.000Z
+sourceUrl: "https://www.youtube.com/watch?v=q6TnD2sBXW4"
+sourceTitle: "NewsNation"
+section: "Politics"
+letterGrade: "B-"
+factualityScore: 68
+politicalLean: "center"
+leanScore: -18
+leanRationale: "NewsNation segment presented Smith's defenses at length while framing Republican accusations as the backdrop; it gave airtime to Sen. Hawley's constitutional concerns but did not equally explore Democratic counterarguments or details of the underlying evidence against Trump, creating a mild tilt toward the witness's perspective."
+gradeRationale: "Graded B-: reporting on the hearing and Smith's statements was accurate and matched multiple outlets, but segment omitted key context on the Speech or Debate Clause notification requirements, ongoing GOP criminal referrals against Smith, and the partisan divide in the hearing."
+topics:
+  - "Jack Smith"
+  - "Trump"
+  - "Congress"
+assessment: "The broadcast accurately captured the core exchanges and Smith's key quotes but left viewers without critical context on the legal dispute over congressional records. Republicans cite the Speech or Debate Clause and proposed statutes requiring pre-review notification and 30-day delays for privilege assertions; Smith maintained the subpoenas were standard, approved by DOJ's Public Integrity Section, and that incidental collection from third-party providers did not constitute targeting. Viewers might perceive the investigations as purely political harassment due to the heavy focus on GOP accusations without detailing the grand jury findings or witness testimony (including many Republicans) that Smith referenced as 'proof beyond reasonable doubt.' The segment's neutral delivery masked the hearing's sharp partisan split, with Democrats defending the probes and Republicans issuing referrals for potential perjury. Overall a solid live update but thin on the substantive legal and evidentiary disputes at stake."
+notableConcerns:
+  - "Missing context on Speech or Debate Clause notification and filter team bypass allegations"
+  - "No discussion of House Judiciary criminal referral against Smith for alleged false statements"
+  - "Limited exploration of the underlying evidence in the Trump cases"
+keyMoments:
+  - claim: "Smith's office followed DOJ policy, legal requirements, and based actions on facts and law without regard to Trump's politics or 2024 candidacy."
+    verdict: "verified"
+    note: "Direct quote from Smith's opening statement, corroborated across CNN, PBS, NYT, and LAT coverage of the hearing."
+  - claim: "Investigations developed proof beyond a reasonable doubt that Trump engaged in serious crimes; Smith would bring same charges today regardless of party."
+    verdict: "verified"
+    note: "Repeated in Smith's testimony and multiple live updates; reflects his view of evidence from two grand juries though cases were dismissed post-2024 election."
+  - claim: "Smith's team intentionally targeted records of 44 senators and House members, mostly Republicans, in Jan. 6 and documents probes."
+    verdict: "disputed"
+    note: "Grassley and Hawley accusations; Smith countered only Perry was targeted and others were incidental from contacts of investigative subjects."
+  - claim: "Constitution requires notifying members of Congress and allowing them to assert privilege before seizing records related to official duties."
+    verdict: "missing context"
+    note: "Hawley's point reflects Speech or Debate Clause and proposed Congressional Records Protection Act; Smith said procedures followed DOJ approvals, though GOP reports allege bypass of filter teams and gag orders prevented notice."
+  - claim: "House Republicans have requested DOJ investigate Smith for potential criminal prosecution."
+    verdict: "verified"
+    note: "Confirmed in coverage; stems from Jim Jordan's referral over alleged false statements on record collection."
+videoId: "q6TnD2sBXW4"
+videoTitle: "'I stand by my decisions': Former special counsel defends Trump investigations | NewsNation Live"
+politicians:
+  - name: "Chuck Grassley"
+    slug: "chuck-grassley"
+  - name: "Donald Trump"
+    slug: "donald-trump"
+  - name: "Josh Hawley"
+    slug: "josh-hawley"
+  - name: "Scott Perry"
+    slug: "scott-perry"
+thumbnail: "https://img.youtube.com/vi/q6TnD2sBXW4/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "Live updates: Jack Smith says his investigation proved ‘beyond reasonable doubt’ that Trump engaged in ‘serious crimes’"
+    url: "https://www.cnn.com/2026/09/29/politics/live-news/jack-smith-testifies-senate"
+  - title: "Jack Smith defends handling of Trump probes at heated Senate hearing"
+    url: "https://www.cbsnews.com/live-updates/jack-smith-trump-senate-judiciary-committee-hearing/"
+  - title: "Ex-special counsel Smith tells senators he won't 'be silenced' by Trump's threats of prosecution"
+    url: "https://www.latimes.com/world-nation/story/2026-09-29/ex-special-counsel-smith-tells-senators-he-wont-be-silenced-by-trumps-threats-of-prosecution"
+  - title: "Former special counsel Jack Smith upholds his prosecutions against President Donald Trump"
+    url: "https://medillonthehill.medill.northwestern.edu/2026/09/former-special-counsel-jack-smith-upholds-his-prosecutions-against-president-donald-trump/"
+  - title: "Biden special counsel’s 'runaway train’ scooped up sensitive lawmaker info: 'Abuse of power'"
+    url: "https://www.foxnews.com/politics/biden-special-counsels-runaway-train-scooped-up-sensitive-lawmaker-info-abuse-power"
+  - title: "Congressional Records Protection Act report (H.Rpt. 119-805)"
+    url: "https://www.govinfo.gov/content/pkg/CRPT-119hrpt805/pdf/CRPT-119hrpt805.pdf"
+  - title: "House Judiciary Committee Jack Smith toll records report"
+    url: "https://judiciary.house.gov/sites/evo-subsites/republicans-judiciary.house.gov/files/evo-media-document/2026-09-23-jack-smith-toll-records-report.pdf"
+  - title: "WATCH: Jack Smith testifies before Senate Judiciary as GOP targets past Trump probes"
+    url: "https://www.pbs.org/newshour/politics/watch-live-jack-smith-testifies-before-senate-judiciary-as-gop-targets-past-trump-probes"
+---
+
+
