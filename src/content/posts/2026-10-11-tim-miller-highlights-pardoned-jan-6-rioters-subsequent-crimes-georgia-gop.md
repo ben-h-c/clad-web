@@ -1,0 +1,77 @@
+---
+type: "broadcast"
+headline: "Tim Miller Highlights Pardoned Jan. 6 Rioters' Subsequent Crimes, Georgia GOP Senate Candidate"
+summary: "The Bulwark video compiles Tim Miller's commentary on Republican midterm candidates and a dedicated segment on recidivism among Trump-pardoned January 6 defendants. Miller details six recent cases of rearrests or sentencings for child sex crimes, burglary, threats, and gun offenses, arguing this undermines Republican 'law and order' claims and shows pardons incentivize bad behavior ahead of midterms and 2028. He then launches a series on 'crazy stupid Republicans' for statewide office, starting with Georgia Senate nominee Rep. Mike Collins, citing his conspiracy theories, January 6 support, and ties to white nationalists via campaign associates, family, and former staff. The latter part shifts to Miller responding to criticism of anti-despair messaging aimed at Gen Z, invoking James Baldwin."
+publishedAt: 2026-10-11T12:00:32.000Z
+sourceUrl: "https://www.youtube.com/watch?v=INmvZfWsbzY"
+sourceTitle: "The Bulwark"
+section: "Politics"
+letterGrade: "B-"
+factualityScore: 72
+politicalLean: "right"
+leanScore: 75
+leanRationale: "Strongly anti-Trump and anti-Republican framing: labels candidates 'horrendous,' 'cavalcade of clowns,' 'freak show'; emphasizes GOP 'soft bigotry of low expectations'; contrasts with media 'fake balance.' Bulwark is a prominent Never Trump outlet; segment pushes Democratic Senate candidate Jon Ossoff implicitly by attacking Collins. No counterbalancing Democratic candidate scrutiny despite stated midterm focus."
+gradeRationale: "Graded B-: Specific claims on the six individuals (Johnson life sentence for child molestation, Daniel plea on child exploitation under 12, Tocci 4 years for 100k+ CSAM images plus violent content, Alam 7 years for burglary, Moynihan guilty on Jeffries threat, Nichols charged for gun threat at church) are verified by court records, DOJ releases, and CREW/Lawfare reports. Overall recidivism figure updated to 97 by June 2026 reports. Minor exaggeration on 'dozens' of child sex cases (reports cite 7-14 sex/CSAM). Strong anti-Trump framing and selective focus on Republican 'freak show' candidates omits broader context on pre-pardon crimes and Democratic scandals."
+topics:
+  - "January 6 pardons"
+  - "Republican candidates"
+  - "Congress"
+  - "Recidivism"
+assessment: "Miller's core factual claims on the highlighted individuals hold up well against court documents, CREW reports, and news coverage from AP, NBC, Washington Post, and others. The recidivism tally has grown from CREW's initial 33 (with 4-12 post-pardon) to 97 per Lawfare and June 2026 updates, with dozens involving sex offenses or violence; Miller's examples are representative but presented as emblematic of a larger pattern. Viewers miss that many offenses predated or were uncovered during Jan. 6 probes, some involved failed pardon-extension arguments, and the overall rate (~6%) is not drastically higher than general recidivism for similar offenders. Framing heavily attributes reoffending to the pardons themselves and Trump's influence, downplaying individual culpability or mental health factors mentioned (e.g., Moynihan). The Collins segment relies on documented associations but uses loaded language; media scrutiny of both parties' nominees is selective here. Overall, accurate on specifics but partisan in emphasis and omission of counterexamples."
+notableConcerns:
+  - "Heavy partisan framing portraying all highlighted Republicans as uniquely extreme while positioning Bulwark as balanced"
+  - "Selective emphasis on post-pardon crimes without fully clarifying timeline or that many charges originated from Jan. 6-linked investigations"
+  - "Use of inflammatory rhetoric ('freak show,' 'clowns,' 'lunacy') that may skew perception of candidate viability beyond documented controversies"
+keyMoments:
+  - claim: "At least 33 (now higher) pardoned Jan. 6 defendants have been rearrested, charged, or sentenced for other crimes, with Miller citing six recent examples including multiple child sex offenses."
+    verdict: "verified"
+    note: "CREW reported 33-40 in Dec 2025 (some post-pardon); Lawfare updated to 97 by June 2026, including 14 sex/CSAM cases. All six individuals' cases corroborated by DOJ, AP, NBC, WaPo, and court records."
+  - claim: "Andrew Paul Johnson, who entered Capitol, was sentenced to life for sexually abusing two children and tried to bribe them with expected Jan. 6 restitution."
+    verdict: "verified"
+    note: "AP, Snopes, NPR, and Florida court records confirm life sentence in March 2026 for molestation; victim statements reference Jan. 6 payout promise."
+  - claim: "David Daniel assaulted officers on Jan. 6, pardoned, then faced sexual exploitation of minor under 12 and CSAM possession; pled guilty post-pardon ruling."
+    verdict: "verified"
+    note: "NBC, Newsweek, and federal court filings detail 2015-2016 conduct, plea agreement after judge ruled pardon inapplicable."
+  - claim: "Daniel Tocci (or Tochi), pardoned for destroying property, sentenced to 4 years for possessing over 100,000 CSAM images plus violent and bestiality content."
+    verdict: "verified"
+    note: "NBC, DOJ release, and Mass. court records confirm March 2026 4-year sentence; laptop had additional disturbing material."
+  - claim: "Zachary Alam (or Alum), one of the most violent Jan. 6 rioters who assaulted officers, pardoned then convicted of breaking into a Virginia home and grand larceny, sentenced to 7 years."
+    verdict: "verified"
+    note: "WaPo, Guardian, Richmond Times-Dispatch, and court records confirm May 2025 arrest, October conviction, and 7-year effective sentence."
+  - claim: "Mike Collins, GOP Senate nominee in Georgia, has extreme views, supports Jan. 6 fund, and has extensive ties to white nationalists via campaign staff, family, and associates."
+    verdict: "missing context"
+    note: "Documented via Daily Beast, WaPo, CNN: son-in-law shares white nationalist content; former staffer posted Nazi/KKK imagery; campaign 'convoy captains' tied to group founded by ex-KKK leader. Collins has condemned racism but critics say associations persist; he is Trump-endorsed."
+videoId: "INmvZfWsbzY"
+videoTitle: "Tim Miller Exposes the Absolute Freak Show Running for Office as Republicans"
+politicians:
+  - name: "Mike Collins"
+    slug: "mike-collins"
+thumbnail: "https://img.youtube.com/vi/INmvZfWsbzY/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "At least 40 pardoned insurrectionists face other criminal charges—with 12 offending since Trump’s pardon"
+    url: "https://www.citizensforethics.org/reports-investigations/crew-reports/at-least-33-pardoned-insurrectionists-face-other-criminal-charges-but-many-are-now-going-free/"
+  - title: "Jan. 6 rioter pardoned by Trump gets life sentence in molestation case"
+    url: "https://apnews.com/article/capito-riot-trump-pardon-child-molestation-f2690d4574a30afdec82edac04c2f4b9"
+  - title: "Another pardoned Jan. 6 rioter to admit guilt in child sexual abuse case"
+    url: "https://www.nbcnews.com/politics/justice-department/another-pardoned-jan-6-rioter-admit-guilt-child-sexual-abuse-case-rcna331841"
+  - title: "Jan. 6 rioter pardoned by Trump gets sentenced for child porn"
+    url: "https://www.nbcnews.com/politics/justice-department/jan-6-rioter-pardoned-by-trump-gets-sentenced-child-pornography-collection-rcna265963"
+  - title: "January 6 rioter who was pardoned by Trump arrested for burglary"
+    url: "https://www.theguardian.com/us-news/2025/may/20/january-6-rioter-arrested-burglary"
+  - title: "Pardoned January 6 rioter pleads guilty to threatening Hakeem Jeffries"
+    url: "https://www.theguardian.com/us-news/2026/feb/06/january-6-rioter-hakeem-jeffries"
+  - title: "Ryan Nichols arrested for deadly conduct at Harleton church"
+    url: "https://www.kltv.com/2026/05/11/pardoned-jan-6-protester-ryan-nichols-accused-reaching-gun-during-church-dispute/"
+  - title: "Nearly 100 of the Jan. 6 Rioters Trump Pardoned Were Re-Arrested For New Crimes"
+    url: "https://www.jezebel.com/surprise-the-jan-6-criminals-trump-pardoned-havent-stopped-doing-crime"
+  - title: "Trump Candidate Mike Collins' 'Convoy Captains' Tied to Group Founded by Ex-KKK Leader"
+    url: "https://www.thedailybeast.com/trump-candidate-mike-collins-convoy-captains-tied-to-group-founded-by-ex-kkk-leader"
+  - title: "Fact-checking Jon Ossoff and Mike Collins in Georgia’s first Senate debate"
+    url: "https://politifact.com/article/2026/oct/09/collins-ossoff-georgia-senate-debate-data-centers/"
+---
+
+
