@@ -1,0 +1,71 @@
+---
+type: "broadcast"
+headline: "Navarro Berates Media as Oil Hits $90, Diesel $6.27 Amid Gulf Hurricane"
+summary: "The MeidasTouch segment frames current high energy prices and market pressures as the culmination of Trump administration economic mismanagement, calling it a \"perfect storm\" and \"Ponzi scheme.\" It highlights rising crude (WTI ~$92, Brent ~$105), gasoline ($4.37), diesel ($6.27), Treasury yields near 5.2-6%, Gulf of Mexico production shutdowns from Hurricane Isaias (over 1/3 platforms evacuated, 72% oil/59% gas offline), and reduced Strait of Hormuz flows. Clips show Peter Navarro shutting down a CBS reporter on diesel-dependent manufacturers, berating media (including Fox) for not covering his manufacturing briefing, and a hot-mic moment. Economist Justin Wolfers criticizes Navarro as unqualified, the administration as suffering a \"crisis of competence,\" and its interventionist policies as contrary to free-market principles.\n\nSourcing relies on on-screen data, the Navarro clips, and Wolfers' analysis. No primary documents beyond referenced press events; throughline is that self-inflicted policy errors (tariffs, Russia deal inconsistency, poor staffing) compound predictable shocks like hurricanes. Hosts promote Wolfers' Platypus Economics channel and their book."
+publishedAt: 2026-10-12T01:30:23.000Z
+sourceUrl: "https://www.youtube.com/watch?v=CXmqAEkLXZE"
+sourceTitle: "MeidasTouch"
+section: "Politics"
+letterGrade: "C-"
+factualityScore: 62
+politicalLean: "left"
+leanScore: -72
+leanRationale: "Strong left lean from repeated \"Trump regime\" phrasing, labeling policies deceitful/Ponzi/traitorous, praising Justin Wolfers' critique of Republican interventionism while ignoring counter-data on 2026 manufacturing job gains (72k) and PMI expansion. Guest selection and hot-mic mockery of Navarro skew perception of competence crisis."
+gradeRationale: "Graded C-: Data on oil ($91.85 WTI, ~$105 Brent), gas ($4.36), diesel (~$6.27), 10-year yield (~5.2%), and Gulf shutdown (72% oil, ~59% gas) verified by EIA, AAA, BSEE and market reports. However, claims of a \"Ponzi scheme,\" \"traitorous\" Russia deal, and manufacturing failure lack support; Navarro clip is real but framing as authoritarian command economy is hyperbolic opinion. Key context on global events (Iran conflict, Ukraine attacks on Russian refineries) omitted."
+topics:
+  - "Energy Prices"
+  - "Trump"
+  - "Gulf Hurricane"
+  - "Manufacturing"
+assessment: "The broadcast accurately reports current elevated energy prices and the immediate impact of Hurricane Isaias on Gulf production, which drove crude higher temporarily. However, it attributes the entire crisis to Trump policies without noting external factors like the ongoing Iran conflict disrupting Hormuz traffic or Ukrainian strikes on Russian refineries that tightened diesel globally. The Russia diesel deal, while politically controversial and a sanctions reversal, was explicitly aimed at easing diesel shortages ahead of midterms; claims it \"violates so many laws\" and is \"traitorous\" are unsubstantiated opinion. Navarro's testy press interactions are real but presented without the manufacturing announcement context (White House claims hundreds of new factory projects and job gains). Viewers miss that US manufacturing PMI has expanded for months in 2026 with job growth, contradicting the \"failure for decades\" narrative. Loaded language and selective emphasis on administration shortcomings skew toward a narrative of incompetence and authoritarianism, omitting counter-evidence on policy intent or global supply drivers."
+notableConcerns:
+  - "Heavy use of partisan labels like \"Trump regime\" and \"Russian nesting doll of economic deceit\" frames facts emotionally rather than analytically"
+  - "Inconsistent policy critique (tariffs on Russian oil buyers then buying Russian diesel) presented as proof of fraud without noting the temporary sanctions waiver was public and tied to supply relief"
+  - "Omits broader context of multiple global disruptions including Middle East conflict and refinery attacks contributing to diesel spike"
+keyMoments:
+  - claim: "WTI crude at $91.85, Brent near $105, gas $4.37, diesel $6.27, 10-year Treasury at 5.2% with risk of 6%"
+    verdict: "verified"
+    note: "Matches market data from Oct 8-11 2026; WTI settled ~$91.85 on Oct 9, Brent ~$104-105, AAA national gas $4.36, diesel ~$6.28, 10-yr yield 5.22-5.31% (EIA, AAA, Treasury, market reports)."
+  - claim: "Over a third of Gulf oil platforms evacuated; 72% oil and 59% natural gas production shut down due to hurricane"
+    verdict: "verified"
+    note: "Confirmed by BSEE/Marine Minerals Administration reports on Hurricane Isaias; peak shut-ins reached ~72% oil/59% gas with 129 platforms evacuated before partial restart."
+  - claim: "Trump regime will pursue horrific, traitorous deal with Russia for diesel that violates laws and is inconsistent with tariffs on buyers of Russian oil"
+    verdict: "missing context"
+    note: "Trump announced deal with Putin for 300k+ tons Russian diesel; Treasury issued temporary general license through April 2027 to ease prices. Critics (including Zelensky, some senators) called it a gift to Putin reversing sanctions, but it was explicit policy response to diesel crisis."
+  - claim: "Peter Navarro is a third-rate economist, nobody before Trump found him on Amazon; administration is least qualified economic team and crisis of competence"
+    verdict: "unsupported"
+    note: "Opinion from Wolfers; Navarro has long advocated trade/manufacturing views. White House reports 72k manufacturing jobs added in 2026, PMI expansion for months; no independent verification of \"least qualified\" claim."
+  - claim: "Manufacturing hasn't grown for decades, still isn't growing; White House picking winners is failure"
+    verdict: "disputed"
+    note: "2026 data shows manufacturing expansion (PMI in growth, +72k jobs YTD, factory construction surge per White House/ISM); segment ignores post-tariff relief gains reported in 2026."
+videoId: "CXmqAEkLXZE"
+videoTitle: "🚨Trump’s KARMA Just Hit ALL AT ONCE…"
+thumbnail: "https://img.youtube.com/vi/CXmqAEkLXZE/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "WTI Crude Oil Price Today"
+    url: "https://www.oilpriceapi.com/live/wti-crude-oil-price"
+  - title: "Brent Crude Oil Price"
+    url: "https://tradingeconomics.com/commodity/brent-crude-oil"
+  - title: "AAA National Average Gas Prices"
+    url: "https://gasprices.aaa.com/"
+  - title: "Hurricane Isaias Shuts Almost Three-Quarters of Gulf Oil Output"
+    url: "https://www.bloomberg.com/news/articles/2026-10-09/hurricane-isaias-shuts-almost-three-quarters-of-gulf-oil-output"
+  - title: "10 Year Treasury Rate Historical Data"
+    url: "https://ycharts.com/indicators/10_year_treasury_rate_h15"
+  - title: "Trump Says Russia to Supply Diesel to US and Global Markets"
+    url: "https://www.reuters.com/business/energy/trump-big-announcement-coming-up-diesel-2026-10-09/"
+  - title: "Peter Navarro Says ‘Fox News Has Gotta Quit Screwing Around’"
+    url: "https://www.mediaite.com/media/tv/rinos-trump-adviser-says-fox-news-has-gotta-quit-screwing-around/"
+  - title: "The State of American Manufacturing October 2026"
+    url: "https://www.whitehouse.gov/wp-content/uploads/2026/10/The-State-of-American-Manufacturing_Oct2026.pdf"
+  - title: "US Diesel Fuel Prices 2026"
+    url: "https://www.macrotrends.net/4582/us-diesel-fuel-prices"
+  - title: "BSEE Monitors Gulf Response to Hurricane Isaias"
+    url: "https://www.bsee.gov/newsroom/latest-news/statements-and-releases/press-releases/mma-monitors-gulf-response-isaias5"
+---
+
+
