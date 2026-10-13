@@ -1,0 +1,76 @@
+---
+type: "broadcast"
+headline: "Tiffany, Wied tout sheriff endorsements outside Brown County Courthouse"
+summary: "The broadcast covered Republican gubernatorial nominee Tom Tiffany and Rep. Tony Wied (R-WI-8) holding an event outside the Brown County Courthouse in Green Bay, where they highlighted endorsements from local sheriffs and law enforcement groups. Tiffany emphasized his congressional relationships with sheriffs, commitment to backing officers, preventing quick release of violent criminals, and enforcing laws from the start. The segment included Milwaukee County Executive David Crowley's campaign rebuttal statement criticizing Tiffany. Separately, it reported on Sen. Tammy Baldwin's election roundtable, where she discussed voter caution over mail-in ballots and potential federal agents at polling places, citing years of election integrity doubts from President Trump. The station reached out to Sen. Ron Johnson for comment but had not heard back."
+publishedAt: 2026-10-05T22:15:01.000Z
+sourceUrl: "https://www.youtube.com/watch?v=J3S7SlK8R0o"
+sourceTitle: "WBAY TV-2 | Green Bay, WI"
+section: "Politics"
+letterGrade: "B"
+factualityScore: 75
+politicalLean: "center-right"
+leanScore: 35
+leanRationale: "Segment leads with Republican candidates touting law enforcement support and tough-on-crime rhetoric, includes their full quotes and event, then reports Crowley's rebuttal statement and Baldwin's concerns with less airtime and framing her comments as claims; local WBAY coverage gives prominent platform to GOP event in Green Bay while presenting Democratic counterpoints reactively."
+gradeRationale: "Graded B: Endorsements from Wisconsin FOP, multiple sheriffs, and Milwaukee Deputy Sheriffs’ Association for Tiffany are verified by multiple primary sources; Tiffany's policy claims on crime and law enforcement align with his record. Baldwin accurately relayed Trump's past comments and ongoing DOJ monitor plans, but segment frames federal presence as potential intimidation without noting legal limits on armed agents at polls or that monitors are routine. Minor missing context on Crowley's specific record and no response from Ron Johnson."
+topics:
+  - "Wisconsin governor race"
+  - "Law enforcement endorsements"
+  - "Elections"
+  - "2026 midterms"
+assessment: "The report accurately conveyed the candidates' stated positions and the existence of the law enforcement endorsements, which are well-documented. Viewers receive a clear picture of the Republican emphasis on backing police and cracking down on crime but less detail on Democratic alternatives like funding prevention programs. Baldwin's segment highlights legitimate concerns about voter intimidation and ballot delivery but omits that federal law restricts armed agents at polls, DOJ plans involve monitors rather than enforcement operations at voting sites, and DHS has stated no plans for ICE patrols there. This could skew perception toward viewing any federal presence as inherently threatening. Overall, solid local campaign coverage with balanced sourcing on the GOP event but reactive Democratic response; key context on election law and actual federal plans is missing."
+notableConcerns:
+  - "Limited context on federal election monitoring vs. armed enforcement at polls"
+  - "No direct response from Sen. Ron Johnson to Baldwin's claims"
+  - "Crowley's rebuttal presented only via statement without deeper policy comparison"
+keyMoments:
+  - claim: "Tiffany has endorsements from sheriffs and law enforcement across the area; as governor he will always have their back and ensure violent criminals aren't quickly returned to communities."
+    verdict: "verified"
+    note: "Supported by Wisconsin FOP endorsement (Oct 2026), Milwaukee Deputy Sheriffs’ Association, and over 20 sheriffs; Tiffany's statements match his campaign platform on sanctuary policies and accountability."
+  - claim: "Our officers should not wonder if dangerous individuals they risk lives to stop will soon be back in the communities they protect; it's about enforcing the law in the first place."
+    verdict: "verified"
+    note: "Direct quote from Tiffany in the segment; consistent with his record opposing soft-on-crime policies and support for tougher penalties."
+  - claim: "Wisconsinites can't trust Tiffany to keep families safe because at every turn he has sold them out."
+    verdict: "missing context"
+    note: "Crowley campaign statement; refers to Tiffany's votes on issues like immigration and taxes but lacks specific examples in segment; contrasts with law enforcement endorsements Tiffany has received."
+  - claim: "After years of the President raising doubts about election integrity, voters might be cautious: will mail-in ballot get there on time? Will there be federal agents at polls?"
+    verdict: "missing context"
+    note: "Baldwin's roundtable remarks accurately reflect Trump's past comments and her introduced legislation; omits that DOJ is deploying ~1,000 routine election monitors (not armed ICE at sites), federal law prohibits armed troops at polls, and DHS has no plans for polling patrols."
+  - claim: "Tiffany and Wied are touting endorsements from sheriffs and other law enforcement."
+    verdict: "verified"
+    note: "Confirmed by event coverage, Wied's social media, and multiple news reports on FOP and local sheriff support for both candidates."
+videoId: "J3S7SlK8R0o"
+videoTitle: "Tiffany, Wied tout law enforcement endorsements; Baldwin holds election roundtable"
+politicians:
+  - name: "Donald Trump"
+    slug: "donald-trump"
+  - name: "Ron Johnson"
+    slug: "ron-johnson"
+  - name: "Tammy Baldwin"
+    slug: "tammy-baldwin"
+  - name: "Tony Wied"
+    slug: "tony-wied"
+thumbnail: "https://img.youtube.com/vi/J3S7SlK8R0o/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "Wisconsin Fraternal Order of Police Endorses Tom Tiffany for Governor"
+    url: "https://urbanmilwaukee.com/pressrelease/wisconsin-fraternal-order-of-police-endorses-tom-tiffany-for-governor/"
+  - title: "Milwaukee Deputy Sheriffs’ Association Endorses Tom Tiffany for Governor"
+    url: "https://urbanmilwaukee.com/pressrelease/milwaukee-deputy-sheriffsassociation-endorses-tom-tiffany-for-governor/"
+  - title: "Republicans tout law enforcement endorsements as Democrats push back on affordability"
+    url: "https://www.wbay.com/2026/10/05/tiffany-wied-tout-law-enforcement-endorsements-baldwin-holds-election-roundtable-de-pere/"
+  - title: "Tammy Baldwin bill bans ICE agents, National Guard from polling places"
+    url: "https://wausaupilotandreview.com/2026/09/23/tammy-baldwin-bill-bans-ice-agents-national-guard-from-polling-places/"
+  - title: "What to know about ICE, federal agents at polling places in the 2026 midterms"
+    url: "https://www.votebeat.org/wisconsin/2026/10/07/should-you-expect-ice-at-the-polls-november-midterm-election/"
+  - title: "Tom Tiffany says federal authorities will be in Wisconsin for election"
+    url: "https://www.jsonline.com/story/news/politics/elections/2026/09/18/tom-tiffany-says-federal-authorities-will-be-in-wisconsin-for-election/91823735007/"
+  - title: "Wisconsin governor candidates respond to reader questions"
+    url: "https://wisconsinwatch.org/2026/10/wisconsin-governor-candidates-crowley-tiffany-answers-audience-readers-questions-election"
+  - title: "Inside Trump’s plan for the ‘biggest DOJ election observer effort in history’"
+    url: "https://www.cnn.com/2026/09/25/politics/trump-election-monitors-voting-machines-vis"
+---
+
+
