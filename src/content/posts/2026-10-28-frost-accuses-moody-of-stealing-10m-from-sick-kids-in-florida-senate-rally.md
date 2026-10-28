@@ -1,0 +1,75 @@
+---
+type: "broadcast"
+headline: "Frost accuses Moody of stealing $10M from sick kids in Florida Senate rally"
+summary: "The Forbes Breaking News clip shows Rep. Maxwell Frost speaking at a Central Florida rally supporting Democratic U.S. Senate candidate Angie Nixon against incumbent Sen. Ashley Moody (R). Frost highlights local ties, praises organizers and guests including Rep. Alexandria Ocasio-Cortez and Rep. Nydia Velázquez, and frames the race as a fight against corporate interests, high living costs, climate issues, and division. He repeatedly attacks Moody over the Hope Florida scandal, accuses her of stealing $10M meant for sick kids, contrasts scarcity politics with solidarity, and urges door-knocking for Nixon. The segment ends with AOC speaking in support.\n\nSourcing relies on the grand jury report leaked to CBS Miami and Democratic talking points; no named opposing experts or Moody's full response appear. The throughline is turning the 2024 settlement controversy into a closing argument for the November 3, 2026 election, portraying Florida as a testing ground for national conservative policies and a model for resistance."
+publishedAt: 2026-10-28T15:59:27.000Z
+sourceUrl: "https://www.youtube.com/watch?v=ndMxU3e16bU"
+sourceTitle: "Forbes Breaking News"
+section: "Politics"
+letterGrade: "C-"
+factualityScore: 55
+politicalLean: "left"
+leanScore: -65
+leanRationale: "Strong left-leaning framing through a Democratic rally featuring AOC and Rep. Velázquez, heavy emphasis on populist themes (corporate capture, working people vs. the rich, Project 2025 as Florida 2018), selective focus on the scandal without Republican counterarguments or legal rebuttals, and calls to elect Angie Nixon as the solution."
+gradeRationale: "Graded C-: the core $10M diversion from a Centene Medicaid settlement to Hope Florida and then to political committees is well-documented and supported by a grand jury report, but Frost's \"stole\" and direct personal accusation oversimplifies Moody's authorizing role without full guardrails; key missing context includes the later appeals court ruling expunging the report as flawed and overreaching, plus Moody's defense that her office had no control over post-settlement spending."
+topics:
+  - "Congress"
+  - "Hope Florida scandal"
+  - "Medicaid settlement"
+assessment: "The broadcast accurately relays Frost's rhetoric in a partisan campaign event but presents it with minimal scrutiny, allowing hyperbolic claims like \"stole\" and personal silence from Moody to stand without rebuttal or the full legal timeline. Viewers miss that while the grand jury found misappropriation of settlement funds originally tied to overbilling in the Florida Healthy Kids program (serving low-income children), an appeals court ruled the grand jury exceeded its authority, ordered the report expunged, declared the $10M was never public taxpayer money, and noted no one was indicted. Moody has maintained her office approved the AHCA-negotiated settlement without directing post-transfer spending. The framing leans into class-war and anti-Republican narratives, potentially skewing perception by omitting that courts later sided against the grand jury's conclusions and that the money flowed through a nonprofit tied to Casey DeSantis before reaching PACs opposing a marijuana ballot measure. Overall, it functions more as rally coverage than balanced journalism, leaving audiences without the nuance on a now-contested scandal central to the close Senate race."
+notableConcerns:
+  - "Hyperbolic language ('stole,' 'thieving') frames a disputed administrative decision as outright theft without noting the absence of criminal charges."
+  - "Omission of the October 2026 appeals court decision expunging the grand jury report as flawed and overreaching."
+  - "One-sided sourcing from a Democratic rally with no counter from Moody or legal experts on the settlement's validity."
+keyMoments:
+  - claim: "Ashley Moody stole $10 million of taxpayer money that was supposed to go to sick kids"
+    verdict: "missing context"
+    note: "The $10M was diverted from a $67M Centene settlement over Medicaid overbilling in the Healthy Kids program via agreement approved by Moody's AG office to the Hope Florida Foundation; grand jury called it misappropriation for political use, but appeals court ruled funds never became state property and expunged the report."
+  - claim: "When we ask her about it, all we get is silence"
+    verdict: "unsupported"
+    note: "Moody has publicly responded multiple times, stating her office had no knowledge of or role in how the funds were ultimately spent after settlement approval; she called characterizations disingenuous."
+  - claim: "Project 2025 is Florida 2018. The stuff they've been doing to the entire nation, they've been doing to us first."
+    verdict: "unsupported"
+    note: "Rhetorical framing with no specific evidence linking Project 2025 directly to Florida policies dating to 2018; serves as partisan attack line without sourced policy comparison."
+  - claim: "60% of this country lives paycheck to paycheck. Ashley Moody believes it's because 60% of us are lazy."
+    verdict: "unsupported"
+    note: "No evidence provided or found that Moody has made this statement; appears to be a strawman contrasting Democratic and Republican views on economic issues."
+  - claim: "Florida, we're not a red state. We're an underresourced, underorganized state."
+    verdict: "disputed"
+    note: "Recent polls show Moody leading Nixon by 4-7 points in the 2026 Senate race in a state Trump won by double digits; characterization reflects Democratic mobilization narrative rather than current electoral data."
+videoId: "ndMxU3e16bU"
+videoTitle: "'She Stole $10 Million Of Taxpayer Money That Was Supposed To Go To Sick Kids': Frost Shreds Moody"
+politicians:
+  - name: "Alexandria Ocasio-Cortez"
+    slug: "alexandria-ocasio-cortez"
+  - name: "Ashley Moody"
+    slug: "ashley-moody"
+  - name: "Maxwell Frost"
+    slug: "maxwell-frost"
+  - name: "Nydia M. Velázquez"
+    slug: "nydia-m-vel-zquez"
+thumbnail: "https://img.youtube.com/vi/ndMxU3e16bU/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "Hope Florida reemerges as midterm issue with leaked grand jury report"
+    url: "https://www.politico.com/news/2026/08/27/hope-florida-midterms-grand-jury-moody-uthmeier-01052995"
+  - title: "Angie Nixon keeps hammering on Hope Florida. What happened? What was Ashley Moody’s involvement?"
+    url: "https://politifact.com/article/2026/oct/22/hope-florida-angie-nixon-ashley-moody-10-million/"
+  - title: "Grand jury finds DeSantis administration \"misappropriated\" $10 million in taxpayer money to Hope Florida"
+    url: "https://www.cbsnews.com/miami/news/grand-jury-report-hope-florida/"
+  - title: "Appeals court says Hope Florida grand jury report was flawed"
+    url: "https://www.miamiherald.com/news/politics-government/state-politics/article317532676.html"
+  - title: "Florida Democrats ad ties Ashley Moody, James Uthmeier to Hope Florida Foundation controversy"
+    url: "https://floridapolitics.com/archives/826134-fladem-hope-florida-ad/"
+  - title: "Alexander Vindman overstates what is known about Ashley Moody’s role in Hope Florida scandal"
+    url: "https://www.wlrn.org/education/2026-08-13/alexander-vindman-overstates-what-is-known-about-ashley-moodys-role-in-hope-florida-scandal"
+  - title: "Moody Holds Lead Over Nixon in Florida Senate Race"
+    url: "https://www.activote.net/polls/2026/fl-u-s-senate/"
+  - title: "Where are they now? Key actors in Hope Florida scandal got promoted"
+    url: "https://www.wlrn.org/government-politics/2026-08-28/where-are-they-now-key-actors-in-hope-florida-scandal-got-promoted"
+---
+
+
