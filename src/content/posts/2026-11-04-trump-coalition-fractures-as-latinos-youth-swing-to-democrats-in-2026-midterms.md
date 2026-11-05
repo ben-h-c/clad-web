@@ -1,0 +1,71 @@
+---
+type: "broadcast"
+headline: "Trump coalition fractures as Latinos, youth swing to Democrats in 2026 midterms"
+summary: "The broadcast analyzes Democratic gains in the 2026 midterms, arguing Trump's 2024 coalition fractured as Latino, young, and Black male voters swung back toward Democrats or stayed home. It highlights South Texas, where Republicans redrew maps expecting lasting gains but lost a Rio Grande Valley district Trump carried by 18 points in 2024. Nationally, it cites 6-in-10 Hispanic voters and 7-in-10 under-30s backing Democrats, with Black male support for Republicans dropping to 13%. The economy is blamed, with 9-in-10 voters prioritizing cost of living and two-thirds faulting Trump for prices. It cautions against assuming a permanent Democratic realignment, noting voters swing based on dissatisfaction with the incumbent party."
+publishedAt: 2026-11-04T23:55:56.000Z
+sourceUrl: "https://www.youtube.com/watch?v=_glj2sgamOI"
+sourceTitle: "Washington Post"
+section: "Politics"
+letterGrade: "B"
+factualityScore: 78
+politicalLean: "left"
+leanScore: -68
+leanRationale: "Washington Post segment frames results as 'fractured' Trump coalition and 'dummy mander' gerrymander failure while emphasizing voter unhappiness with Trump on economy; omits counterpoints like Democratic overreach on immigration or any Republican-held gains; heavy focus on backlash without balanced sourcing."
+gradeRationale: "Graded B: Core demographic shifts, South Texas losses, and economic blame claims are verified by multiple exit polls (NBC, AP, Pew) and results; 2024 baseline accurate. Minor issues include slightly rounded figures (e.g., '6 in 10' vs. actual ~62%) and overstatement of permanence without noting midterm dynamics."
+topics:
+  - "2026 midterms"
+  - "Elections"
+  - "Trump"
+  - "Economy"
+assessment: "The claims largely hold up against exit polls from NBC, AP, and Pew, which confirm sharp Latino (roughly 60-67% Democrat) and youth (70%+ Democrat) swings, South Texas congressional flips despite gerrymandering, and economic discontent as the dominant issue. Viewers miss that these are typical midterm losses for the president's party, amplified by specific events like the Iran war and tariffs driving inflation. Framing leans into a 'fractured coalition' narrative that downplays how quickly 2024 gains reversed, potentially skewing perception of lasting realignment. Black male drop to 13% aligns with polls but sample sizes for subgroups can vary. Overall, accurate on data but selective in emphasizing Democratic resurgence without noting any countervailing Republican strengths or turnout nuances."
+notableConcerns:
+  - "Partisan framing of gerrymander as 'dummy mander' without detailing map specifics"
+  - "Assumes temporary swings but presents them dramatically as coalition fracture"
+  - "Limited discussion of other factors like immigration enforcement backlash or Democratic messaging"
+keyMoments:
+  - claim: "Trump won 14 of 18 South Texas border counties in 2024, including one not voting Republican in over 100 years"
+    verdict: "verified"
+    note: "Confirmed by Texas Tribune, AP, and ProPublica analyses; Starr County flipped for first time since 1896."
+  - claim: "Republicans lost a Rio Grande Valley district Trump carried by 18 points after redrawing maps for five more seats"
+    verdict: "verified"
+    note: "Multiple outlets (Politico, Texas Observer, KERA) report Democrats flipped CD-15 (Monica De La Cruz ousted by Bobby Pulido) and held/redrew targets, turning gerrymander attempt into net loss."
+  - claim: "Nationally 6 in 10 Hispanic voters backed Democrats; roughly 22-point swing from 2024"
+    verdict: "verified"
+    note: "NBC/AP exit polls show 60-67% Democrat (62-35 in several); 2024 Trump ~46-48%, consistent with Pew/Reuters data."
+  - claim: "Trump nearly tied Harris under 30 in 2024; this year 7 in 10 young voters backed Democrats"
+    verdict: "verified"
+    note: "AP Voter Poll and CIRCLE: 2024 Trump competitive or slight loss among young; 2026 ~70-72% Democrat, 25-30% Republican."
+  - claim: "Support from Black men dropped to 13%; 9 in 10 voters said cost of living mattered, two-thirds blamed Trump"
+    verdict: "verified"
+    note: "NBC/CNN exits confirm ~13% Republican among Black men; CNBC/NBC/AP polls show 87-90% cited cost of living, 62-67% blamed Trump policies."
+videoId: "_glj2sgamOI"
+videoTitle: "The Trump coalition is fractured"
+thumbnail: "https://img.youtube.com/vi/_glj2sgamOI/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "Democrats Capture Seven Senate Seats as Latino Support for Republicans Collapses"
+    url: "https://www.latintimes.com/democrats-flip-seven-senate-seats-latino-vote-600881"
+  - title: "The voting groups that powered the Democratic sweep"
+    url: "https://www.washingtonpost.com/politics/interactive/2026/11/04/voting-groups-that-powered-democratic-sweep/"
+  - title: "This is an earthquake: Latino voters rush back to Democrats"
+    url: "https://www.politico.com/news/2026/11/04/this-is-an-earthquake-latino-voters-rush-back-to-democrats-01149510"
+  - title: "How Latino Voters Are Experiencing the 2026 Midterm Elections"
+    url: "https://www.pewresearch.org/race-and-ethnicity/2026/10/16/how-latino-voters-are-experiencing-the-2026-midterm-elections/"
+  - title: "Republicans Bet the House on Latino Loyalty. Here's Exactly How That Bet Collapsed"
+    url: "https://www.latintimes.com/democrats-retake-congress-latino-voter-shift-midterms-600884"
+  - title: "Republicans Lose All Three Redrawn South Texas Border Districts"
+    url: "https://www.latintimes.com/texas-democrats-win-border-districts-despite-gop-map-600908"
+  - title: "Young voters led a sharp shift toward Democrats in the 2026 midterms, The AP Voter Poll finds"
+    url: "https://www.inquirer.com/politics/nation/midterm-elections-trump-economy-demographics-moderates-20261104.html"
+  - title: "Trump’s Latino Gains Vanish in Texas Border’s 40-Point Rout"
+    url: "https://www.bloomberg.com/news/articles/2026-11-04/trump-gains-with-latinos-vanish-in-texas-border-s-40-point-rout"
+  - title: "Trump Sweeps Nearly All Texas Border Counties"
+    url: "https://www.texastribune.org/2024/11/06/donald-trump-near-sweep-texas-border-counties"
+  - title: "Trump's midterm trouncing underscores inflation's political poison"
+    url: "https://www.reuters.com/commentary/reuters-open-interest/trumps-midterm-trouncing-underscores-inflations-political-poison-2026-11-04/"
+---
+
+
