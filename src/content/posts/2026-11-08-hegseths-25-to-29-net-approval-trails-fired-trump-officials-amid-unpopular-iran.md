@@ -1,0 +1,76 @@
+---
+type: "broadcast"
+headline: "Hegseth's -25 to -29 net approval trails fired Trump officials amid unpopular Iran war"
+summary: "CNN data analyst Harry Enten analyzes Pete Hegseth's historically low popularity as Defense Secretary, comparing his net approval rating of -29 to Donald Trump's, Donald Rumsfeld's pre-2006 figures, and other Trump cabinet members who were fired. The segment ties Hegseth's unpopularity and the Iran war's deep disapproval (net -29, worsening over time) to sweeping Democratic midterm gains, including James Talarico's Senate victory in Texas where 73% of voters cited the war as a major factor. It also covers inflation, gas prices, rural voter shifts, and party trust on key issues, culminating in high odds of Hegseth's impeachment or firing.\n\nSourcing relies primarily on public polls (Quinnipiac, Marquette University Law School, YouGov) displayed in graphics, historical comparisons, and CNN's prediction-market partner. No guests appear; the presentation is a solo data-driven monologue with repeated visuals of trend lines and bar charts."
+publishedAt: 2026-11-08T15:50:15.000Z
+sourceUrl: "https://www.youtube.com/watch?v=IYWhJGOk4Os"
+sourceTitle: "CNN"
+section: "Politics"
+letterGrade: "B-"
+factualityScore: 68
+politicalLean: "left"
+leanScore: -68
+leanRationale: "Strong negative framing of Hegseth, Trump, and the Iran war; exclusive emphasis on unfavorable polls, Democratic victories, and impeachment odds; repeated rhetorical flourishes ('my goodness gracious,' 'unbelievable') and selective historical analogies paint the administration as historically disastrous without countervailing Republican perspectives or war objectives."
+gradeRationale: "Graded B-: Core polling figures on Hegseth (-25 to -29 net), comparisons to Bondi/Noem/Rumsfeld, Iran war unpopularity (~-29 net support), and Democratic midterm gains including Talarico's Texas win are verified by multiple polls and results. Minor exaggeration on exact margins, historical uniqueness, and causal attribution of all economic shifts solely to the war; some trend lines and prediction-market odds presented without full sourcing."
+topics:
+  - "Pete Hegseth"
+  - "Iran"
+  - "2026 Midterms"
+  - "Trump"
+assessment: "The claims on Hegseth's polling (27% favorable/49-57% unfavorable in recent Marquette, Quinnipiac, and YouGov surveys) and the Iran war's unpopularity (net support around -23 to -32 across multiple polls) hold up well against contemporaneous data. Democratic midterm successes, including Talarico's 55-43 win over Ken Paxton in Texas—the first Democratic Senate victory there since 1988—are factual. However, viewers miss context on the war's stated objectives (degrading Iran's nuclear and missile programs), early Republican support for strikes, and that economic pain from higher energy prices is not solely attributable to the conflict. The presentation heavily emphasizes negative trends and frames outcomes as 'unbelievable' disasters without balancing potential strategic gains or Republican defenses of the policy. This selective focus and loaded language skew perception toward inevitable political doom for Hegseth and Trump, though the underlying numbers are largely accurate."
+notableConcerns:
+  - "Heavy causal attribution of inflation, gas prices, and rural voter shifts almost exclusively to the Iran war without quantifying other factors like tariffs or global energy markets"
+  - "Prediction of '1 in 50 year' Democratic win and specific impeachment odds presented without noting uncertainty in prediction markets or final certified results"
+  - "No discussion of Republican polling on the war or Hegseth among the party's base"
+keyMoments:
+  - claim: "Pete Hegseth's net approval rating is currently -29, worse than Trump's -24 and Rumsfeld's -25 before the 2006 midterms"
+    verdict: "verified"
+    note: "Multiple September-October 2026 polls (Quinnipiac, Marquette, YouGov) show Hegseth net approval/favorability between -24 and -29; comparisons to historical figures align with Enten's prior CNN segments."
+  - claim: "Pam Bondi was fired at -20 net approval and Kristi Noem at -16; both more popular than Hegseth"
+    verdict: "verified"
+    note: "Consistent with earlier 2026 Quinnipiac and CNN reporting on fired officials' ratings; Hegseth has been the lowest-rated cabinet member throughout."
+  - claim: "Net support for the Iran war is -29, 26 points worse than Iraq's -3 before 2006 midterms, and has worsened from -16 since the war began"
+    verdict: "verified"
+    note: "Polls from Quinnipiac, Economist/YouGov, Chicago Council, and others show net war support between -23 and -32; opposition has grown over time."
+  - claim: "73% of Texas voters said the Iran war was a major factor; James Talarico won those voters by 28 points and flipped the seat, first Democratic Senator from Texas since 1988"
+    verdict: "verified"
+    note: "Talarico (D) defeated Ken Paxton 55%-43% in certified results; exit and post-election analyses link war dissatisfaction to Democratic gains in Texas and nationally."
+  - claim: "Trump's net approval on inflation reached -61 per Marquette poll; Democrats now hold largest lead on inflation trust in 50 years"
+    verdict: "missing context"
+    note: "Marquette and other polls showed sharp declines in Trump's economic approval post-war onset; exact -61 is at the low end of reported figures, and while Democrats gained on the issue, 'largest in 50 years' is a strong characterization without full historical benchmarks."
+videoId: "IYWhJGOk4Os"
+videoTitle: "You don’t understand how unpopular Hegseth actually is"
+politicians:
+  - name: "Donald Trump"
+    slug: "donald-trump"
+  - name: "Kristi Noem"
+    slug: "kristi-noem"
+  - name: "Pam Bondi"
+    slug: "pam-bondi"
+  - name: "Pete Hegseth"
+    slug: "pete-hegseth"
+thumbnail: "https://img.youtube.com/vi/IYWhJGOk4Os/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "Controversial, but still in command: Why Pete Hegseth’s tenure is being tested"
+    url: "https://www.csmonitor.com/text_edition/USA/Military/2026/1029/hegseth-defense-iran-war-trump-polls"
+  - title: "CNN Data Guru Hands Pentagon Pete Sobering Reality Check"
+    url: "https://www.thedailybeast.com/cnn-data-guru-harry-enten-hands-pentagon-pete-hegseth-sobering-reality-check/"
+  - title: "Map: How Democrats reshaped the Senate, in charts and maps"
+    url: "https://www.cnn.com/2026/11/08/politics/trump-senate-flip-democrats-map-vis"
+  - title: "James Talarico wins Texas 2026 Senate election, flipping seat for Democrats"
+    url: "https://www.cbsnews.com/news/texas-2026-senate-james-talarico-ken-paxton/"
+  - title: "7 in 10 Americans Say Iran War Not Worth Fighting"
+    url: "https://globalaffairs.org/research/public-opinion-survey/7-10-americans-say-iran-war-not-worth-fighting"
+  - title: "Iran War support: Latest Polls"
+    url: "https://www.natesilver.net/p/iran-war-polls-popularity-approval"
+  - title: "Pete Hegseth popularity & fame"
+    url: "https://today.yougov.com/topics/politics/explore/public_figure/Pete_Hegseth"
+  - title: "How Americans View Key Members of the Trump Administration"
+    url: "https://www.pewresearch.org/short-reads/2026/02/12/how-americans-view-key-members-of-the-trump-administration/"
+---
+
+
