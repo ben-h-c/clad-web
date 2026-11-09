@@ -1,0 +1,78 @@
+---
+type: "broadcast"
+headline: "Democrats Celebrate 2026 Blue Tsunami but Face Internal Revolt Over Hakeem Jeffries"
+summary: "The MeidasTouch segment reacts to the Democratic 'blue tsunami' victory in the 2026 midterms, where the party flipped the House (gaining ~40 seats) and Senate (gaining 7). Host and guests argue the win was a mandate for accountability, investigations, impeachments, and consequences for the Trump administration rather than a focus on 'affordability' as stated by likely Speaker Hakeem Jeffries and Chuck Schumer. It heavily criticizes Jeffries' pro-Israel positions, past meeting with Jared Kushner, opposition to Medicare for All, and resistance to impeaching Defense Secretary Pete Hegseth over the US-Israel war with Iran.\n\nSourcing mixes NBC/CNBC exit polls, Axios reporting on constituent calls, social media comments, and clips from Joe Scarborough and Hassan Piker. The throughline is voter fury at establishment Democrats for protecting donors and Israel over progressive demands for 'radical change,' reparations, and democratic socialism, framed as a betrayal of the historic win driven by Black women (93% Democratic)."
+publishedAt: 2026-11-09T07:30:28.000Z
+sourceUrl: "https://www.youtube.com/watch?v=OYHq297D9-o"
+sourceTitle: "MeidasTouch"
+section: "Politics"
+letterGrade: "D-"
+factualityScore: 35
+politicalLean: "left"
+leanScore: -85
+leanRationale: "Strong left/progressive framing: labels Israel actions 'genocide' and 'Zionist Genocide Coalition,' equates Democratic centrism with corporate capture and betrayal, pushes democratic socialism and full prosecutions while dismissing affordability focus as a trap. Relies on progressive commentators like Hasan Piker and viral left social media; omits counter-evidence on voter priorities and Jeffries' nuanced Israel stance."
+gradeRationale: "Graded D-: multiple major claims unsupported or false, including 'genocide' as objective fact, US as aggressor in Iran war, voters prioritizing revenge over economy, party 'done with Israel,' and Kushner as 'foreign agent of Putin/MSAD' tipping off Khashoggi murder. Polling and donation figures roughly accurate but heavily framed; historical claims on post-Watergate mixed with hyperbole."
+topics:
+  - "2026 Midterms"
+  - "Hakeem Jeffries"
+  - "Iran"
+  - "Democratic Leadership"
+assessment: "While the broadcast correctly notes the scale of the Democratic victory and high concern over corruption, it skews perception by overstating voter demand for 'revenge' and downplaying the economy as the top issue in most exit polls (39% vs. 32% for democracy). Claims that Israel is 'objectively committing genocide' and that the US unilaterally 'attacked Iran' are partisan assertions not universally verified; the Iran conflict involved mutual escalation and strikes. Heavy reliance on hyperbolic rhetoric, selective social media, and progressive guests creates an echo chamber that omits Jeffries' calls for a 'reset' in US-Israel ties and Palestinian statehood. Viewers miss broader context: many Democrats still support Israel aid, and progressive pushes for full socialism or immediate mass prosecutions lack majority backing even within the party. The segment prioritizes outrage over balanced analysis."
+notableConcerns:
+  - "Presents 'genocide' as undisputed fact without legal or international consensus citation"
+  - "False or exaggerated claims linking Kushner directly to Jamal Khashoggi's murder and labeling him a 'foreign agent of Putin'"
+  - "Dismisses economy/affordability as a voter priority despite exit polls ranking it first"
+keyMoments:
+  - claim: "Corruption was the top voter issue ahead of the economy per CNBC; state of democracy was #1 at 79% per NBC with economy after healthcare"
+    verdict: "missing context"
+    note: "CNBC poll showed corruption at 36% (narrowly ahead of groceries); NBC exit polls had economy at 39% top issue, democracy at 32%. The 79% figure appears inflated or misstated."
+  - claim: "Voters absolutely want revenge, justice, consequences; Hakeem Jeffries is out of touch for focusing on affordability instead"
+    verdict: "disputed"
+    note: "Exit polls show economy and cost of living as primary drivers of the Democratic wave; many voters sought checks on Trump but not necessarily 'revenge' or socialism as framed."
+  - claim: "Israel is objectively committing genocide right now; Chuck Schumer and Hakeem Jeffries are in bed with the Zionist Genocide Coalition taking millions"
+    verdict: "unsupported"
+    note: "ICJ has not issued a final genocide ruling; term is contested. Jeffries and Schumer received substantial pro-Israel donations (~$2M+ combined career), but Jeffries has also criticized Netanyahu and called for Palestinian state and policy reset."
+  - claim: "Hakeem Jeffries lied about secret meeting with Jared Kushner, a foreign agent of Putin/MSAD who tipped off MBS on Jamal Khashoggi"
+    verdict: "disputed"
+    note: "Meeting was reported and Jeffries publicly defended it as discussing affordability; no credible evidence supports Kushner tipping off on Khashoggi (widely attributed to MBS directly). Kushner has Saudi ties via investment fund."
+  - claim: "Hakeem Jeffries put pro-Israel members on Foreign Affairs Committee against 90% of party demanding reversal; Democrats are done with Israel"
+    verdict: "unsupported"
+    note: "Jeffries is pro-Israel but has criticized aspects of the war; party is divided, not 90% opposed. Black women voted 93% Democratic, matching the video's figure."
+videoId: "OYHq297D9-o"
+videoTitle: "Suri GOES OFF!!"
+politicians:
+  - name: "Charles E. Schumer"
+    slug: "charles-e-schumer"
+  - name: "Hakeem S. Jeffries"
+    slug: "hakeem-s-jeffries"
+  - name: "Pete Hegseth"
+    slug: "pete-hegseth"
+thumbnail: "https://img.youtube.com/vi/OYHq297D9-o/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "How Democrats pulled off the blue wave in maps and charts"
+    url: "https://www.ft.com/content/f27626ac-8427-45d7-a995-a8dfe8d01bd9"
+  - title: "US midterm elections 2026: live results"
+    url: "https://www.theguardian.com/us-news/ng-interactive/2026/nov/04/midterm-elections-full-results-senate-house-governor-races"
+  - title: "NBC News Exit Poll: Democrats victory, Trump, economy"
+    url: "https://www.nbcnews.com/politics/2026-election/nbc-news-exit-poll-democrats-victory-trump-economy-rcna607391"
+  - title: "Government corruption a top issue for US midterm voters"
+    url: "https://www.theguardian.com/us-news/2026/oct/30/government-corruption-us-midterm-poll"
+  - title: "Hakeem Jeffries' Full Voting Record on Israel/Palestine"
+    url: "https://votelog.org/members/ny/hakeem-jeffries"
+  - title: "How much Israel lobby money has Hakeem Jeffries taken?"
+    url: "https://aipaction.org/p/hakeem-jeffries-ny-08"
+  - title: "Hakeem Jeffries Rejects Medicare for All"
+    url: "https://www.newsweek.com/hakeem-jeffries-rejects-medicare-for-all-dsa-agenda-12328842"
+  - title: "Impeach Pete Hegseth for the Disastrous Iran War"
+    url: "https://www.yahoo.com/news/politics/articles/impeach-pete-hegseth-disastrous-iran-175222553.html"
+  - title: "2026 US-Israel war with Iran"
+    url: "https://www.timesofisrael.com/topic/2026-us-israel-war-with-iran/"
+  - title: "Jared Kushner and Democratic House leader Hakeem Jeffries met"
+    url: "https://www.cbsnews.com/news/jared-kushner-hakeem-jeffries-meeting-2026-midterm-elections/"
+---
+
+
