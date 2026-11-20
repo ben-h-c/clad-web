@@ -1,0 +1,71 @@
+---
+type: "broadcast"
+headline: "E3G warns COP31 draft overemphasizes CCUS, drops fossil fuel transition"
+summary: "The Reuters livestream captured an E3G press briefing at COP31 in Antalya, Türkiye. Speakers including Matt and Alden Meyer detailed ongoing IPCC plenary disputes over the AR7 timeline—particularly the contentious Working Group III mitigation report—and the 2027 budget, warning that delays risk depriving the 2028 Global Stocktake of scientific input. They highlighted improved diversity in authorship while noting persistent equity concerns over mitigation pathways favoring cost-effective action in developing countries.\n\nThe briefing then turned to the COP31 cover decision draft, criticizing expanded CCUS language and targets as unbalanced after fossil fuel transition text was removed. Panelists referenced IEA net-zero scenarios, Climate Analytics/Potsdam Institute analysis, and loss-and-damage funding shortfalls versus daily fossil subsidies. Questions from journalists and observers probed CCUS scale in cement and hard-to-abate sectors; the event closed by directing further queries to E3G experts on specific countries."
+publishedAt: 2026-11-20T11:45:29.000Z
+sourceUrl: "https://www.youtube.com/watch?v=DNDaVpdCnz8"
+sourceTitle: "Reuters"
+section: "Politics"
+letterGrade: "B-"
+factualityScore: 78
+politicalLean: "left"
+leanScore: -65
+leanRationale: "Strong emphasis on backsliding from fossil fuel transition, criticism of Saudi strategy and CCUS as distraction, repeated calls for more finance and loss-and-damage funding, and portrayal of developing-country objections as politically motivated reflect left-leaning climate advocacy perspective."
+gradeRationale: "Graded B-: IPCC timeline, budget deadlock, and diverse authorship claims verified by recent reports; CCUS contribution estimates and fossil subsidy figures align with IEA/UN data. Minor issues include imprecise subsidy phrasing ($3B/day approximates older IMF figures) and strong advocacy framing that downplays legitimate developing-country concerns on equity and timelines."
+topics:
+  - "COP31"
+  - "IPCC AR7"
+  - "CCUS"
+  - "Fossil fuels"
+assessment: "The briefing accurately reflects real tensions at COP31, where fossil fuel phaseout language has been dropped from drafts amid deadlock on finance, mitigation, and the IPCC timetable. Claims on IPCC limbo, authorship diversity, and the minor role of CCUS (a few percent of reductions if limited to industry) are well-supported by recent reporting and analyses. However, viewers miss fuller context: many developing countries and OPEC members argue for realistic timelines given capacity constraints and question whether accelerated WGIII delivery adequately incorporates Global South perspectives on equity and finance needs. The heavy focus on CCUS as \"insanity\" or Saudi distraction reflects E3G's advocacy stance and could skew perception that carbon management has no role, whereas IEA scenarios show it as essential (though limited) for cement, steel, and negative emissions later this century. Subsidy figures cited are directionally correct but vary by methodology (IMF includes externalities; OECD direct subsidies are lower). Overall, a clear advocacy lens that prioritizes rapid fossil phaseout over balanced negotiation realities."
+notableConcerns:
+  - "Strong partisan framing presents CCUS emphasis as backsliding and distraction without equally exploring legitimate concerns of developing nations on mitigation burden and timelines"
+  - "Loss-and-damage and subsidy comparisons use rounded figures that align with older data; current UN/IMF estimates place annual fossil subsidies near $700B–$1.1T depending on definition"
+  - "Limited discussion of implementation challenges for rapid fossil transition in emerging economies"
+keyMoments:
+  - claim: "IPCC is in limbo without consensus on budget and AR7 timeline, especially WGIII mitigation report, risking no scientific basis for 2028 Global Stocktake"
+    verdict: "verified"
+    note: "IPCC-65 suspended in October 2026 without agreement on timelines or budget; resumption set for December; multiple outlets (UN, IISD, Climate Watch) confirm deadlock over 2028 vs 2029 delivery, funding crisis after US withdrawal."
+  - claim: "Current IPCC has the most diverse selection of scientists ever, though contention remains over equitable pathways as WGIII shows most cost-effective reductions in developing countries"
+    verdict: "verified"
+    note: "LDC Group and reports note improved inclusivity; WGIII AR6 (and consistent modeling) identifies large low-cost mitigation potential in developing countries, but stresses this does not assign responsibility for payment."
+  - claim: "COP31 draft's extensive quantified CCUS targets and 'urgently scaling up' language replace fossil fuel transition text agreed three years ago, creating imbalance"
+    verdict: "verified"
+    note: "UN News, FT, and Global Issues confirm latest COP31 drafts dropped explicit fossil fuel transition references while retaining or expanding CCUS/CDR language and electrification targets."
+  - claim: "Even optimistic CCUS delivers only 2-4% of needed reductions; focus should be on hard-to-abate sectors like cement and steel, not power or transport"
+    verdict: "verified"
+    note: "IEA Net Zero scenarios and Climate Analytics/Potsdam analysis align; CCUS plays larger role post-2050 for negative emissions but remains minor in overall 1.5°C pathways if prioritized correctly."
+  - claim: "Loss and damage pledges at COP28 were $800 million while world spends $3 billion daily subsidizing fossil fuels"
+    verdict: "missing context"
+    note: "$800M initial pledge figure accurate for COP28 fund; daily subsidy claim approximates older IMF estimates including externalities (~$7-8M/minute at peak); current direct subsidies nearer $2B/day per updated OECD/UN data."
+videoId: "DNDaVpdCnz8"
+videoTitle: "LIVE: Climate think tank E3G press briefing at COP31"
+thumbnail: "https://img.youtube.com/vi/DNDaVpdCnz8/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "COP31 to take place 9-20 November 2026 in Antalya, Türkiye"
+    url: "https://www.un.org/en/climatechange/cop31"
+  - title: "COP31: Ambition goes missing as fossil fuel language drops from draft deal"
+    url: "https://news.un.org/en/story/2026/11/1168833"
+  - title: "IPCC-65 Suspended Amid Deadlock on AR7 Timeline, Budget"
+    url: "https://sdg.iisd.org/news/ipcc-65-suspended-amid-deadlock-on-ar7-timeline-budget/"
+  - title: "IPCC talks suspended as nations clash over climate science timetable"
+    url: "https://theclimatewatch.com/ipcc-talks-suspended-as-nations-clash-over-climate-science-timetable/"
+  - title: "CCUS in the transition to net-zero emissions"
+    url: "https://www.iea.org/reports/ccus-in-clean-energy-transitions/ccus-in-the-transition-to-net-zero-emissions"
+  - title: "The global climate risks of Asia’s expansive carbon capture and storage plans"
+    url: "https://ca1-clm.edcdn.com/assets/Asia-CCS-2025.pdf"
+  - title: "Fossil-fuel subsidies | Our World in Data"
+    url: "https://ourworldindata.org/grapher/fossil-fuel-subsidies"
+  - title: "Fossil Fuel Subsidies Set to Reach $1.1 Trillion in 2026, UN Report Finds"
+    url: "https://www.bloomberg.com/news/articles/2026-06-29/fossil-fuel-subsidies-to-hit-1-trillion-in-war-s-energy-price-shock-un-says"
+  - title: "E3G at COP 31"
+    url: "https://www.e3g.org/e3g-at-cop-31/"
+  - title: "Climate talks drop fossil fuel phaseout and pivot to carbon capture"
+    url: "https://www.ft.com/content/134dcef4-9453-48bd-bcbd-4180818d3aca"
+---
+
+
