@@ -1,0 +1,76 @@
+---
+type: "broadcast"
+headline: "Trump Posts Putin, Xi Friendship Photos, Issues Contractor Oversight Order"
+summary: "The MeidasTouch segment portrays President Trump as imploding after electoral setbacks, focusing on a barrage of Truth Social posts showing him embracing Vladimir Putin and Xi Jinping, captioned \"friend\" and comparing the recent Shenzhen trilateral summit to the 1945 Yalta conference. It covers an executive order (No. 14438) directing federal contractors to route congressional oversight requests through the White House, a paused Army plan to detonate unstable lead azide in Iowa, Trump's efforts to redevelop the East Potomac golf course amid court blocks, a posthumous Pete Rose pardon with factual errors, a $500,000 Marine Band donation, and Democratic probes into Howard Lutnick's firm. The second half highlights ICE detentions of a Princeton neuroscience Ph.D. student and a father-daughter pair at Seattle airport, framing them as terror tactics."
+publishedAt: 2026-11-22T12:00:36.000Z
+sourceUrl: "https://www.youtube.com/watch?v=YlK65ibnE3I"
+sourceTitle: "MeidasTouch"
+section: "Politics"
+letterGrade: "D-"
+factualityScore: 35
+politicalLean: "left"
+leanScore: -92
+leanRationale: "Sourcing is exclusively Democratic lawmakers (Garcia, Raskin), anti-Trump commentary, and selective outrage; frames every action as petty vengeance, treason, corruption, or sadism with terms like \"Trump regime,\" \"concentration camps,\" \"pedto protectors,\" \"cauldron of Trump feces,\" and predictions of bar license losses. No countervailing administration statements or neutral analysis included."
+gradeRationale: "Graded D-: Multiple load-bearing claims are unsupported or false (Trump personally ordering Iowa detonation as vengeance, golf course tree removal and website sabotage despite court order, Marine band bonus funded by himself and Dana White, Epstein child sex trafficking cover-up, catastrophic wars slaughtering schoolgirls). Accurate elements (posts with Putin/Xi, EO 14438 reuse and content, Pete Rose stats error, Princeton student and Seattle ICE incidents) are buried in heavy exaggeration, conspiracy, and inflammatory language."
+topics:
+  - "Trump"
+  - "Ukraine & Russia"
+  - "Immigration"
+  - "Executive Orders"
+assessment: "While several discrete events occurred—the Shenzhen summit and Trump's effusive posts, the contractor executive order, court stays on the Iowa detonation and golf course closure, the Pete Rose pardon with a documented statistics mistake, the Marine Band gift, and the two ICE incidents—the broadcast distorts them into a narrative of deliberate malice, incompetence, and criminality. Viewers miss that the Iowa detonation involves unstable military explosives the Army says pose an imminent safety risk, that courts have not blocked all golf course work, that the Marine Band donation was explicitly personal and not taxpayer-funded, and that the Shenzhen meeting produced only a vague peace declaration without binding spheres-of-influence deals. The segment's hyperbolic language (vengeance-driven poisoning of Iowa farmland, concentration camps, child sex trafficking ring cover-up tied to Epstein files without evidence) and one-sided sourcing from soon-to-be Democratic committee chairs create a perception of total governmental collapse rather than contested policy and legal disputes. Patterns of unsubstantiated predictions about bar revocations and \"slaughtering little girls\" further undermine credibility."
+notableConcerns:
+  - "Pervasive use of inflammatory rhetoric and conspiracy theories without evidence (vengeance poisoning of agriculture, Epstein trafficking cover-up, \"sickos\" and \"demons\")"
+  - "False attribution of personal orders and motives to Trump on issues handled by agencies or courts"
+  - "Complete absence of administration perspective or legal justification for the executive order and enforcement actions"
+keyMoments:
+  - claim: "Trump posted repeated images of himself hugging Putin and Xi, calling them \"friend\" and equating Shenzhen to Yalta 2.0"
+    verdict: "verified"
+    note: "Multiple outlets confirm the 35-post spree, captions, and Yalta juxtaposition following the November 19, 2026 Shenzhen trilateral summit."
+  - claim: "Trump ordered the Army to detonate lead munitions in Iowa despite a court order, as vengeance after losing the state"
+    verdict: "unsupported"
+    note: "Court has paused the EPA permit; Army cites imminent explosion risk from unstable lead azide and may proceed under emergency rules, with no evidence of personal Trump vengeance."
+  - claim: "Despite court orders, Trump is destroying East Potomac golf course trees, removing flagpoles and booking systems out of petty vengeance"
+    verdict: "disputed"
+    note: "Judges have blocked full closure and found some rationales pretextual, but course remains open with community maintenance; no confirmed removal of flagpoles or website sabotage reported."
+  - claim: "Trump's new EO 14438 is unlawful obstruction, reuses an October housing costs order number, and blocks contractors from cooperating with Democratic oversight"
+    verdict: "missing context"
+    note: "EO exists and directs notification/coordination on privilege claims; number reuse is sloppy but the October order was real; legality will be litigated, with Democrats calling it unprecedented."
+  - claim: "Trump lied about personally funding a $500,000 Marine Band bonus with Dana White; comments show public hatred"
+    verdict: "disputed"
+    note: "Reports confirm it was a personal donation from Trump and White, increased from $200k to $500k; no evidence of taxpayer funding."
+videoId: "YlK65ibnE3I"
+videoTitle: "Trump PANICS as BOTTOM DROPS!!!"
+politicians:
+  - name: "Donald Trump"
+    slug: "donald-trump"
+  - name: "Howard Lutnick"
+    slug: "howard-lutnick"
+thumbnail: "https://img.youtube.com/vi/YlK65ibnE3I/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "Trump's 35-Post Spree: Putin 'My Friend,' Xi 'Friends,' And A New Yalta"
+    url: "https://livenewschat.eu/trump-35-posts-putin-xi-yalta-friends/"
+  - title: "At China summit, Trump calls Putin 'my friend' amid Ukraine war"
+    url: "https://abcnews.com/International/china-summit-trump-calls-putin-friend-amid-ukraine/story?id=138282642"
+  - title: "PROTECTING THE EXECUTIVE'S PRIVILEGES AND ENHANCING EFFICIENCIES IN FEDERAL CONTRACTING"
+    url: "https://www.whitehouse.gov/presidential-actions/2026/11/protecting-the-executives-privileges-and-enhancing-efficiencies-in-federal-contracting/"
+  - title: "Army toxic detonation in Iowa paused amid public outcry, farm disruption"
+    url: "https://www.reuters.com/legal/litigation/army-toxic-detonation-iowa-paused-amid-public-outcry-farm-disruption-2026-11-20/"
+  - title: "US judge again blocks Trump's makeover plan for DC golf course"
+    url: "https://www.reuters.com/legal/government/us-judge-again-blocks-trumps-makeover-plan-dc-golf-course-2026-11-15/"
+  - title: "Trump pardons late baseball legend Pete Rose for tax crimes"
+    url: "https://www.reuters.com/sports/trump-pardons-late-baseball-legend-pete-rose-tax-crimes-2026-11-19/"
+  - title: "Trump, Dana White donate $500,000 to Marine Corps band members"
+    url: "https://www.militarytimes.com/news/your-military/2026/11/20/trump-dana-white-donate-500000-to-marine-corps-band-members/"
+  - title: "Princeton doctoral student reportedly detained by ICE on way back from conference"
+    url: "https://www.theguardian.com/us-news/2026/nov/20/princeton-doctoral-student-reportedly-detained-ice"
+  - title: "ICE officers make arrests at Seattle airport in 'distressing' scene"
+    url: "https://www.seattlepi.com/news/immigration-officers-make-arrest-at-seattle-a22543654"
+  - title: "DECREASING HOUSING COSTS FOR THE AMERICAN PEOPLE"
+    url: "https://www.whitehouse.gov/presidential-actions/2026/10/decreasing-housing-costs-for-the-american-people/"
+---
+
+
