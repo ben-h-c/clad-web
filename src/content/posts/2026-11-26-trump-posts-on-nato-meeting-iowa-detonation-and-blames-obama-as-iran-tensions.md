@@ -1,0 +1,76 @@
+---
+type: "broadcast"
+headline: "Trump Posts on NATO Meeting, Iowa Detonation, and Blames Obama as Iran Tensions Persist"
+summary: "The MeidasTouch broadcast reviews Donald Trump's late-night Truth Social posts on Thanksgiving eve, including a joint statement after meeting NATO Secretary-General Mark Rutte at Mar-a-Lago on Ukraine, Iran, and defense spending. It criticizes Trump's description of the U.S. Army's controlled detonation of degraded lead azide at the Iowa Army Ammunition Plant as a 'perfect' win, blames it on Obama-era storage, and speculates it was political retribution. The segment covers a FedEx plane overrun at Miami International Airport amid weather issues, EPA Administrator Lee Zeldin's comments crediting Stephen Miller, a federal court ruling on USDA Secretary Brooke Rollins' religious emails, Jensen Huang's reported affair, Kim Jong-un's nuclear facility tour, Houthi strikes in Saudi Arabia, and a U.S.-backed deal for Lukoil's international assets. It ends with accusations that Trump is positioning to blame Democrats for any Iran war setbacks after midterms.\n\nSourcing relies on Trump's posts, drone footage of the Iowa blast, an air traffic controller text, clips of Zeldin and Rollins, KCNA footage of Kim, and unnamed reports on Nvidia and Lukoil. Guests are absent; the host provides running commentary framing events as regime failures."
+publishedAt: 2026-11-26T12:00:19.000Z
+sourceUrl: "https://www.youtube.com/watch?v=kk0e0GlJhZo"
+sourceTitle: "MeidasTouch"
+section: "Politics"
+letterGrade: "D-"
+factualityScore: 35
+politicalLean: "left"
+leanScore: -85
+leanRationale: "Relentless use of 'Trump regime,' 'fascist toddler,' 'malignant narcissistic sociopaths,' 'Epstein class,' attribution of all problems to Trump/Obama contrast, speculation of political vengeance, and framing of every event as destructive incompetence or deliberate harm indicate strong left-leaning partisan framing."
+gradeRationale: "Graded D-: accurate on the NATO meeting, Iowa detonation success metrics, Miami runway overrun, Kim Jong-un nuclear tour, Lukoil deal, and USDA court ruling on Rollins, but pervasive unsupported claims (Trump 'meltdown,' vengeance against Iowa, Steven Miller 'playing cowboy,' carcinogenic plume spreading, Jensen Wong reinstalled for chips to China, US bases destroyed, tanker 'destroyed by Iran,' arsonist blame game) and heavy omission of context on lead azide risks, EPA zero-lead findings, and Iran war status."
+topics:
+  - "Trump"
+  - "Iowa detonation"
+  - "Iran"
+  - "North Korea nuclear"
+assessment: "While the video accurately reports Trump's posts, the NATO meeting details, the Army's detonation (described by officials as exceeding expectations with EPA monitors showing zero airborne lead), the Miami incident, Kim's tour, and the court rebuke of Rollins' emails, it systematically distorts perception through loaded language and speculation. Viewers miss that the lead azide was discovered unstable in March 2026, multiple agencies including EPA deemed controlled detonation the safest option after court review, and preliminary monitoring found no lead contamination. Claims of a toxic plume causing future cancers, Iowa vengeance, and Miller 'playing cowboy' are unsupported. The Iran war context is one-sided, omitting Trump's claims of degraded Iranian capabilities and ongoing Democratic debates over funding. This leaves viewers with a skewed view of incompetence and malice rather than documented policy and safety decisions. The pattern of attributing every mishap to Trump while ignoring counter-evidence on monitoring and expert consensus undermines credibility."
+notableConcerns:
+  - "Heavy speculation without evidence, such as the detonation being 'vengeance' against Iowa for rejecting MAGA and Miller using it as an experiment"
+  - "Omission of EPA's zero-lead air monitoring results and multi-agency consensus that controlled detonation prevented a worse uncontrolled explosion"
+  - "Pervasive partisan rhetoric ('Trump regime,' 'fascist toddler,' 'arsonists') that frames all events as deliberate harm rather than policy disputes"
+keyMoments:
+  - claim: "Trump had a midnight meltdown posting word salad about a productive NATO meeting at Mar-a-Lago on Ukraine and Iran"
+    verdict: "missing context"
+    note: "The joint Trump-Rutte statement matches the post verbatim; it was coordinated diplomacy urging Russia not to expand the war, not an unprompted rant."
+  - claim: "Trump called the Iowa lead azide detonation a 'perfect' win for his regime; it was unnecessary and will spread a carcinogenic plume"
+    verdict: "disputed"
+    note: "Army, EPA, and multiple agencies called it a success with zero airborne lead detected; material was unstable since March 2026 and in-place detonation was chosen as safest after court approval."
+  - claim: "The detonation was vengeance against Iowa for going blue, orchestrated by Steven Miller playing cowboy from the command center"
+    verdict: "unsupported"
+    note: "No evidence links timing to election results; Miller coordinated interagency calls per Zeldin, but speculation of political retaliation is conjecture."
+  - claim: "Trump is keeping troops in the Middle East without plan to blame Democrats for losing the Iran war once they control Congress"
+    verdict: "missing context"
+    note: "Trump told NY Post funding is secured through January and warned Democrats could turn a 'total win' into a loss; Democrats have debated using funding bills to restrict the war."
+  - claim: "US is taking a stake in Lukoil's foreign assets via $10B deal, giving Russia money and cover from sanctions"
+    verdict: "missing context"
+    note: "U.S.-led consortium (including DFC) is acquiring non-Russian assets via share swap of restricted Lukoil shares; no cash to Russia, designed to remove assets from Moscow's control and give U.S. profit share."
+videoId: "kk0e0GlJhZo"
+videoTitle: "Trump has 12AM MELTDOWN on THANKSGIVING!!!!"
+politicians:
+  - name: "Brooke Rollins"
+    slug: "brooke-rollins"
+  - name: "Donald Trump"
+    slug: "donald-trump"
+  - name: "Lee Zeldin"
+    slug: "lee-zeldin"
+thumbnail: "https://img.youtube.com/vi/kk0e0GlJhZo/maxresdefault.jpg"
+mediaStyle: "overlay"
+thumbFocusX: 50
+thumbFocusY: 40
+mediaNote: "default 16:9 framing (no vision)"
+citations:
+  - title: "Trump, NATO chief Rutte urge Russia not to expand Ukraine war"
+    url: "https://www.cnbc.com/2026/11/26/trump-nato-rutte-russia-ukraine-war.html"
+  - title: "Army announces controlled detonation of degraded explosive material at Iowa Army Ammunition Plant"
+    url: "https://www.army.mil/article/297069/army_announces_controlled_detonation_of_degraded_explosive_material_at_iowa_army_ammunition_plant"
+  - title: "US Army declares Iowa lead azide detonation ‘tremendously successful’"
+    url: "https://www.aljazeera.com/news/2026/11/25/us-army-declares-iowa-lead-azide-detonation-tremendously-successful"
+  - title: "FedEx plane overshoots Miami runway, causing temporary ground stop"
+    url: "https://www.bbc.co.uk/news/articles/ckm2mz3prq77o"
+  - title: "Iowa explosion showing 'zero' lead detection on EPA air monitors: Lee Zeldin"
+    url: "https://nypost.com/2026/11/25/us-news/epas-lee-zeldin-claims-zero-detection-of-lead-on-epa-air-monitors-in-iowa-after-army-blew-up-stockpile-of-bomb-making-chemicals/"
+  - title: "Brooke Rollins' Christian messages went 'too far,' judge rules"
+    url: "https://www.axios.com/2026/11/20/brooke-rollins-christian-messages-judge"
+  - title: "North Korea's Kim inspects nuclear material sites, calls for broader use of tactical nukes"
+    url: "https://en.yna.co.kr/view/AEN20261126000553315"
+  - title: "EXCLUSIVE: Billionaire Boehly signs US-backed share swap deal to buy Lukoil global assets"
+    url: "https://www.reuters.com/business/energy/boehly-signs-us-backed-share-swap-deal-buy-lukoil-global-assets-2026-11-25/"
+  - title: "Trump says US war funding against Iran secured through January"
+    url: "https://www.tribuneindia.com/news/usa-news/trump-says-us-war-funding-against-iran-secured-through-january-warns-democrats-could-turn-total-win-into-loss/"
+---
+
+
